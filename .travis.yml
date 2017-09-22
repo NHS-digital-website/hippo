@@ -12,3 +12,4 @@ branches:
 
 script:
   - make lint
+  - mvn test

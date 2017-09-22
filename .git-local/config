@@ -2,6 +2,15 @@
 	template = .git-local/commit-template
 
 [alias]
+	a = add
+	b = branch
+	c = commit
+	d = diff
+	l = pull
+	o = checkout
+	p = push
+	r = rebase
+	s = status
 	# create new branch based on origin/develop
 	create-branch = "!f() { s=$1; d=$2; if [ -z \"$2\" ]; then d=$1; s='origin/master'; fi; git push --no-verify origin $s:refs/heads/$d ; git fetch origin ; git checkout --track -b $d origin/$d ; }; f"
 	cb = "!f() { git create-branch "$@"; }; f"
