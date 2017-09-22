@@ -1,0 +1,6 @@
+group: 
+  name: publication-system
+  after: hippo-cms
+project: publication-system
+module: 
+  name: publication-system-repository-data-webfiles
