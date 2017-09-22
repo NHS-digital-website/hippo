@@ -1,0 +1,14 @@
+---
+
+group: stable
+dist: trusty
+
+language: python
+python: "2.7"
+
+branches:
+  only:
+    - master
+
+script:
+  - make lint

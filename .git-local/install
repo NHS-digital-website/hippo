@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [ ! -d ".git" ]; then
+	echo "Please run this script from your repository root folder"
+	exit 1
+fi;
+
+git config --local include.path ../.git-local/config
+echo " * Added local git config: .git-local/config"
+
+# Install hooks
+declare -a hooks=(commit-msg prepare-commit-msg pre-push)
+for hook in "${hooks[@]}"; do
+	ln -sf "$(PWD)/.git-local/hooks/${hook}" "$(PWD)/.git/hooks/${hook}"
+	chmod +x ".git/hooks/${hook}"
+	echo " * Installed ${hook} hook"
+done
+
+# All installed
+touch .git/.local-hooks-installed

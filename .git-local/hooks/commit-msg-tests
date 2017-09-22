@@ -1,0 +1,71 @@
+#!/bin/bash
+
+PASS_COUNT=0
+FAIL_COUNT=0
+
+function main {
+	prepare_fixtures
+
+	run_test .tmp-commit-01 false
+	run_test .tmp-commit-02 false
+	run_test .tmp-commit-03 false
+	run_test .tmp-commit-04 false
+	run_test .tmp-commit-05 false
+
+	run_test .tmp-commit-50 true
+	run_test .tmp-commit-51 true
+
+	echo -e "\n\nPass count: $PASS_COUNT, Fail count: $FAIL_COUNT"
+
+	rm .tmp-commit-*
+}
+
+function prepare_fixtures {
+	echo -e "This is example commit message \n\
+without emprty new line between subject and topic" > .tmp-commit-01
+
+	echo "This is example commit message with dot." > .tmp-commit-02
+
+	echo "this is example commit starting with lowercase" > .tmp-commit-03
+
+	echo "This is commit subject
+
+This is commit body that is way, way, way, way, way, way, way, way, way, way, way, way too long" > .tmp-commit-04
+
+	echo "This subject line is to long and should fail the check because it is longer then 60 characters" > .tmp-commit-05
+
+	# Correct commit messages
+	echo "This is correctly formated commit subject witm maximum lenght" > .tmp-commit-50
+
+	echo "This is commit subject
+
+And this is subject body" > .tmp-commit-51
+}
+
+function run_test {
+	input=$1
+	expected_result=$2
+	message=""
+	expected_rc=0
+
+	if [ "false" == "$expected_result" ]; then
+		message="testing incorrectly formated message '${input}'"
+		expected_rc=1
+	else
+		message="testing correctly formated message '${input}'"
+		expected_rc=0
+	fi
+
+	./commit-msg "$input" 2> /dev/null
+	result=$?
+
+	if [ "$result" -eq "$expected_rc" ]; then
+		echo -e "${message} \t [  OK  ]"
+		PASS_COUNT=$((PASS_COUNT+1))
+	else
+		echo -e "${message} \t [ FAIL ]"
+		FAIL_COUNT=$((FAIL_COUNT+1))
+	fi
+}
+
+main

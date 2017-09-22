@@ -1,0 +1,62 @@
+#!/usr/bin/env python
+
+import re
+import sys
+
+message = "\n\
+Original commit message:\n\
+>>>>\n%s\n<<<<\n\n\
+The problem found: %s\n\
+\n\
+Please make sure your commit message:\n\
+  * First line (subject) starts with uppercase\n\
+  * Subject is no longer then 60 characters\n\
+  * Subject does not end with '.'\n\
+  * Additional commit message needs to be separated from sobject with single empty line.\n\
+  * Each body line is no longer then 72 characters\n\
+\n\
+COMMIT ERROR: %s. Please check above message\n"
+
+# Error messages
+ERROR_SUBJECT = "subject line not formatted correctly"
+ERROR_NO_EMPTY_LINE = "second line needs to be empty"
+ERROR_COMMIT_BODY = "commit body not formatted correctly"
+
+##
+# Max subject length: 60
+pattern_subject = re.compile("^(\\[[A-Z]{1,6}-[0-9]{1,6}\\] )?([A-Z].{0,59}?[^\\.])$")
+pattern_body_line = re.compile("^.{0,72}$")
+pattern_comment_line = re.compile("^\\#.*$")
+message_file = sys.argv[1]
+
+with open(message_file, 'r') as commit_file:
+	orig_content = commit_file.read()
+	commit_file.seek(0)
+	content = commit_file.readlines()
+	content = [x.strip() for x in content]
+
+	# remove comment lines
+	for i, x in enumerate(content):
+		if bool(pattern_comment_line.match(x)):
+			content[i] = ""
+
+	# validate subject line
+	topic = content.pop(0)
+	if not bool(pattern_subject.match(topic)):
+		print >> sys.stderr, message % (orig_content, ERROR_SUBJECT, ERROR_SUBJECT)
+		exit(1)
+
+	if len(content) > 0:
+		empty_line = content.pop(0)
+
+		if not "" == empty_line:
+			print >> sys.stderr, message % (orig_content, ERROR_NO_EMPTY_LINE, ERROR_NO_EMPTY_LINE)
+			exit(1)
+
+		for body_line in content:
+			if not bool(pattern_body_line.match(body_line)):
+				print >> sys.stderr, "Error in line: %s" % (body_line)
+				print >> sys.stderr, message % (orig_content, ERROR_COMMIT_BODY, ERROR_COMMIT_BODY)
+				exit(1)
+
+	exit(0)

@@ -1,0 +1,10 @@
+[commit]
+	template = .git-local/commit-template
+
+[alias]
+	# create new branch based on origin/develop
+	create-branch = "!f() { s=$1; d=$2; if [ -z \"$2\" ]; then d=$1; s='origin/develop'; fi; git push --no-verify origin $s:refs/heads/$d ; git fetch origin ; git checkout --track -b $d origin/$d ; }; f"
+	cb = "!f() { git create-branch "$@"; }; f"
+
+	# delete branches that are gone from origin
+	delete-gone = "!f() { d=${1-origin/master}; git branch --merged \"$d\" -vv | grep ': gone]' | awk '{ print $1; }' | xargs git branch -d; }; f"
