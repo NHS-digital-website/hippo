@@ -212,6 +212,18 @@
                             </drivers>
                         </configuration>
                     </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>acceptance-test-hippo</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+
+            <build>
+                <plugins>
 
                     <!-- Automatically downloads and installs Tomcat within a temporary project space and deploys the
                     applications into it prior to running the tests. -->
