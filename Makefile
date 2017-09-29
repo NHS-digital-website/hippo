@@ -1,4 +1,8 @@
+
 PWD = $(shell pwd)
+
+PATH := $(PWD)/vendor/bin:$(shell printenv PATH)
+SHELL := env PATH=$(PATH) /bin/bash
 
 .PHONY: .phony
 
@@ -13,10 +17,6 @@ help:
 
 ## Initialise local project
 init: .git/.local-hooks-installed
-
-## Lint all the code
-lint:
-	@echo "Nothing to lint yet"
 
 # install hooks and local git config
 .git/.local-hooks-installed:
