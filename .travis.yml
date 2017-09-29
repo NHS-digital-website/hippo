@@ -11,5 +11,4 @@ branches:
     - master
 
 script:
-  - make lint
   - mvn test
