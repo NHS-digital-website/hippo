@@ -19,33 +19,41 @@ public class LoginSteps extends AbstractSpringSteps {
     private DashboardPage dashboardPage;
 
     @Given("^I am on login page$")
-    public void iAmOnLoginPage() throws Throwable {
+    public void givenIAmOnLoginPage() throws Throwable {
         loginPage.open();
     }
 
     @When("^I submit my valid admin credentials$")
-    public void iSubmitMyValidAdminCredentials() throws Throwable {
+    public void whenISubmitMyValidAdminCredentials() throws Throwable {
         loginPage.loginWith("admin", "admin");
     }
 
     @Then("^a dashboard is displayed$")
-    public void aDashboardIsDisplayed() throws Throwable {
-        assertThat("Current page is the dashboard page.", dashboardPage.isOpen(), is(true));
+    public void thenADashboardIsDisplayed() throws Throwable {
+        assertThat("Current page should be dashboard page.", dashboardPage.isOpen(), is(true));
     }
 
-    @When("^I submit my invalid credentials$")
-    public void iSubmitMyInvalidCredentials() throws Throwable {
+    @When("^I submit invalid credentials$")
+    public void whenISubmitInvalidCredentials() throws Throwable {
         loginPage.loginWith("admin","wrongpassword");
     }
 
     @Then("^an error is displayed$")
-    public void anErrorIsDisplayed() throws Throwable {
+    public void thenErrorIsDisplayed() throws Throwable {
         assertThat("A login error is displayed after incorrect login.", loginPage.findLoginErrorMessage(),
             is("Incorrect username or password. Please try again."));
     }
 
     @Then("^I stay on the login page$")
-    public void iStayOnTheLoginPage() throws Throwable {
-        assertThat("Current page is login page.", loginPage.isOpen(), is(true));
+    public void thenIStayOnTheLoginPage() throws Throwable {
+        assertThat("Current page should be login page", loginPage.isOpen(),is(true) );
     }
+
+    @Given("^I am logged in as admin$")
+    public void givenIAmLoggedInAsAdmin() throws Throwable {
+        givenIAmOnLoginPage();
+        whenISubmitMyValidAdminCredentials();
+        assertThat("Not logged in",loginPage.isLoggedIn(),is(true));
+    }
+
 }

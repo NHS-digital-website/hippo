@@ -208,6 +208,7 @@
                             <drivers>
                                 <driver>
                                     <name>chromedriver</name>
+                                    <version>2.32</version>
                                 </driver>
                             </drivers>
                         </configuration>

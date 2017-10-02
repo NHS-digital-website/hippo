@@ -10,6 +10,6 @@ Feature: Login
 
     Scenario: Unsuccessful login
       Given I am on login page
-      When I submit my invalid credentials
+      When I submit invalid credentials
       Then an error is displayed
       And I stay on the login page

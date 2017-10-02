@@ -1,0 +1,7 @@
+/content/documents/publicationsystem/publications:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: 6d394dc3-4a66-4e17-9b6d-d710bdf5f22c
+  hippostd:foldertype: [new-translated-folder, new-document]
+  hippotranslation:id: 69ac8b65-338e-464a-9f06-103793b0a1ff
+  hippotranslation:locale: en
