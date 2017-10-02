@@ -9,8 +9,6 @@ import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
  */
 abstract class AbstractPage {
 
-    static final String URL = "http://localhost:8080/cms";
-
     private final WebDriverProvider webDriverProvider;
 
     AbstractPage(final WebDriverProvider webDriverProvider) {

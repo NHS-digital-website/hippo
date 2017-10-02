@@ -3,3 +3,4 @@
 target
 /acceptance-tests/drivers/
 /essentials/overlays/
+/storage

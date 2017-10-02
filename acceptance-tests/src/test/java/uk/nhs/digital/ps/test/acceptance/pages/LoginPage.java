@@ -7,6 +7,7 @@ import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
 public class LoginPage extends AbstractPage {
 
+    static final String URL = "http://localhost:8080/cms";
 
     public LoginPage(final WebDriverProvider webDriverProvider) {
         super(webDriverProvider);
@@ -52,6 +53,10 @@ public class LoginPage extends AbstractPage {
         final WebElement hippoLoginFeedbackPanel = getWebDriver().findElement(By.className("hippo-login-feedback"));
 
         return hippoLoginFeedbackPanel.findElement(By.tagName("span")).getText();
+    }
+
+    public boolean isLoggedIn(){
+        return getWebDriver().findElements(By.className("hippo-logout")).size() == 1;
     }
 
 

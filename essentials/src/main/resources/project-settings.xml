@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <project>
-  <projectNamespace>publicationsystem</projectNamespace>
-  <confirmParams>false</confirmParams>
-  <selectedProjectPackage>uk.nhs.digital.ps</selectedProjectPackage>
-  <selectedBeansPackage>uk.nhs.digital.ps.beans</selectedBeansPackage>
-  <selectedComponentsPackage>uk.nhs.digital.ps.components</selectedComponentsPackage>
-  <selectedRestPackage>uk.nhs.digital.ps.rest</selectedRestPackage>
-  <setupDone>false</setupDone>
-  <templateLanguage>freemarker</templateLanguage>
-  <useSamples>true</useSamples>
-  <extraTemplates>true</extraTemplates>
+    <name>project-settings</name>
+    <applicationSubModule>application</applicationSubModule>
+    <beansFolder>site/src/main/java</beansFolder>
+    <cmsModule>cms</cmsModule>
+    <confirmParams>false</confirmParams>
+    <developmentSubModule>development</developmentSubModule>
+    <enterprise>false</enterprise>
+    <extraTemplates>true</extraTemplates>
+    <projectNamespace>publicationsystem</projectNamespace>
+    <repositoryDataModule>repository-data</repositoryDataModule>
+    <selectedBeansPackage>uk.nhs.digital.ps.beans</selectedBeansPackage>
+    <selectedComponentsPackage>uk.nhs.digital.ps.components</selectedComponentsPackage>
+    <selectedProjectPackage>uk.nhs.digital.ps</selectedProjectPackage>
+    <selectedRestPackage>uk.nhs.digital.ps.rest</selectedRestPackage>
+    <setupDone>true</setupDone>
+    <siteModule>site</siteModule>
+    <templateLanguage>freemarker</templateLanguage>
+    <useSamples>false</useSamples>
+    <webfilesSubModule>webfiles</webfilesSubModule>
 </project>

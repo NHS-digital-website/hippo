@@ -1,0 +1,5 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/publicationsystem/hst:components/publicationcomponent:
+      jcr:primaryType: hst:component
+      hst:componentclassname: uk.nhs.digital.ps.components.PublicationComponent
