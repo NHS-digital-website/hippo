@@ -25,4 +25,9 @@ public class Publication {
     public String getPublicationSummary() {
         return publicationSummary;
     }
+
+    public String getPublicationUrl() {
+        return "/publications/" + publicationName;
+    }
+
 }

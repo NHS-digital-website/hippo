@@ -19,12 +19,13 @@ public class ContentPage extends AbstractPage {
     }
 
     public boolean openContentTab() {
-        WebElement contentTab = getContentTab(getWebDriver());
+        WebElement contentTab = helper.findElement(By.className("tab2"));
         contentTab.click();
 
+        // Refresh reference to element because click above recreates it
         WebDriverWait wait = new WebDriverWait(getWebDriver(), 5);
         return wait.pollingEvery(100, MILLISECONDS).until((WebDriver driver) -> {
-            return isOpen(getContentTab(driver));
+            return isOpen(helper.findNewElement(contentTab, By.className("tab2")));
         });
     }
 
@@ -38,7 +39,7 @@ public class ContentPage extends AbstractPage {
     }
 
     public void populatePublication(Publication publication) {
-        WebElement editorBody = helper.findElementAfterWait(By.className("hippo-editor-body"));
+        WebElement editorBody = helper.findElement(By.className("hippo-editor-body"));
         WebElement titleField = editorBody.findElement(By.className("publication-title")).findElement(By.tagName("input"));
         titleField.sendKeys(publication.getPublicationTitle());
 
@@ -64,19 +65,18 @@ public class ContentPage extends AbstractPage {
         WebElement rootExpander = rootTitle.findElement(By.xpath("preceding-sibling::a"));
         rootExpander.click();
 
-        WebElement publicationsFolder = helper.findElementAfterWait(By.cssSelector("a[class~='hippo-tree-node-link'][title='publications']") );
+        WebElement publicationsFolder = helper.findElement(By.cssSelector("a[class~='hippo-tree-node-link'][title='publications']") );
         publicationsFolder.click();
 
         // Refresh reference to element because click above recreates it
-        publicationsFolder = helper.findElementAfterWait(By.cssSelector("a[class~='hippo-tree-node-link'][title='publications']") );
-        //WebElement publicationsParent = publicationsFolder.findElements(By.xpath("..")).get(0); // breaks when using findElementAfterWait???
-        WebElement publicationsParent = helper.findElementAfterWait(publicationsFolder, By.xpath(".."));
+        publicationsFolder = helper.findNewElement(publicationsFolder, By.cssSelector("a[class~='hippo-tree-node-link'][title='publications']") );
+        WebElement publicationsParent = helper.findChildElement(publicationsFolder, By.xpath(".."));
 
         WebElement menuIcon = publicationsParent.findElement(By.xpath("following-sibling::a"));
         helper.waitUntilVisible(menuIcon);
         menuIcon.click();
 
-        WebElement menu = helper.findElementAfterWait(By.cssSelector("ul[class~='hippo-toolbar-menu-item']"));
+        WebElement menu = helper.findElement(By.cssSelector("ul[class~='hippo-toolbar-menu-item']"));
         return menu;
     }
 
@@ -86,12 +86,8 @@ public class ContentPage extends AbstractPage {
         menuItem.click();
 
         // Wait for modal dialogue and find new document name field
-        WebElement nameField = helper.findElementAfterWait(By.name("name-url:name"));
+        WebElement nameField = helper.findElement(By.name("name-url:name"));
         nameField.sendKeys(title);
-
-        // publication is served on that single path (i.e. set up on console)
-        findEdit().click();
-        findUrlName().sendKeys("test-document");
 
         // Choose document type
         WebElement documentTypeField = getWebDriver().findElement(By.name("prototype"));
@@ -118,57 +114,54 @@ public class ContentPage extends AbstractPage {
     }
 
     public void discardUnsavedPublication(String publicationName) {
-        WebElement closeButton = helper.findElementAfterWait(
+        WebElement closeButton = helper.findElement(
             By.xpath("//a[@class='hippo-tabs-documents-tab hippo-perspective-editperspective' and @title='" + publicationName + "']/following-sibling::a"));
         closeButton.click();
     }
 
-    private WebElement getContentTab(WebDriver driver) {
-        return helper.findElementAfterWait(By.className("tab2"));
-    }
 
     private void clickFolder(String name){
-        helper.findElementAfterWait(By.xpath("//span[@class='hippo-folder' and @title='" + name + "']")).click();
+        helper.findElement(By.xpath("//span[@class='hippo-folder' and @title='" + name + "']")).click();
     }
 
     private void clickDocument(String name){
-        helper.findElementAfterWait(By.xpath("//span[@class='hippo-document' and @title='" + name + "']")).click();
+        helper.findElement(By.xpath("//span[@class='hippo-document' and @title='" + name + "']")).click();
     }
 
     private WebElement findPublicationMenu(){
-        return helper.findElementAfterWait(By.xpath("//span[text()='Publication']"));
+        return helper.findElement(By.xpath("//span[text()='Publication']"));
     }
 
     private WebElement findPublish() {
-        return helper.findElementAfterWait(By.xpath("//span[text()='Publish']"));
+        return helper.findElement(By.xpath("//span[text()='Publish']"));
     }
 
     private WebElement findTakeOffline() {
-        return helper.findElementAfterWait(By.xpath("//span[text()='Take offline...']"));
+        return helper.findElement(By.xpath("//span[text()='Take offline...']"));
     }
 
     private WebElement findOk() {
-        return helper.findElementAfterWait(By.xpath("//input[@value='OK' and @type='submit']"));
+        return helper.findElement(By.xpath("//input[@value='OK' and @type='submit']"));
     }
 
     private WebElement findSaveAndClose() {
-        return helper.findElementAfterWait(By.xpath("//span[@title='Save & Close']"));
+        return helper.findElement(By.xpath("//span[@title='Save & Close']"));
     }
 
     private WebElement findDocumentMenu(){
-        return helper.findElementAfterWait(By.xpath("//span[text()='Document']"));
+        return helper.findElement(By.xpath("//span[text()='Document']"));
     }
 
     private WebElement findDelete() {
-        return helper.findElementAfterWait(By.xpath("//span[text()='Delete...']"));
+        return helper.findElement(By.xpath("//span[text()='Delete...']"));
     }
 
     private WebElement findEdit() {
-        return helper.findElementAfterWait(By.xpath("//input[@name='name-url:url']/following-sibling::a"));
+        return helper.findElement(By.xpath("//input[@name='name-url:url']/following-sibling::a"));
     }
 
     private WebElement findUrlName() {
-        return helper.findElementAfterWait(By.xpath("//input[@name='name-url:url']"));
+        return helper.findElement(By.xpath("//input[@name='name-url:url']"));
     }
 
 }

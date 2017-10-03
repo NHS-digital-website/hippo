@@ -15,8 +15,8 @@ public class ConsumablePublicationPage extends AbstractPage{
         this.helper = helper;
     }
 
-    public void open() {
-        getWebDriver().get(URL);
+    public void open(String publicationPath) {
+        getWebDriver().get(URL + publicationPath);
     }
 
     public boolean isPageDisplayed() {
@@ -24,11 +24,11 @@ public class ConsumablePublicationPage extends AbstractPage{
     }
 
     public String getTitle() {
-        return helper.findElementAfterWait(By.id("title")).getText();
+        return helper.findElement(By.id("title")).getText();
     }
 
     public String getSummary() {
-        return helper.findElementAfterWait(By.id("summary")).getText();
+        return helper.findElement(By.id("summary")).getText();
     }
 
 }
