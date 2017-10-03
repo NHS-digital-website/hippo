@@ -1,9 +1,19 @@
 package uk.nhs.digital.ps.test.acceptance.webdriver;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.nio.file.Path;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
+import static org.slf4j.LoggerFactory.getLogger;
 
 /**
  * Manages WebDriver (the client component of the WebDriver).
@@ -16,15 +26,30 @@ import org.openqa.selenium.remote.RemoteWebDriver;
  */
 public class WebDriverProvider {
 
+    private final static Logger log = getLogger(WebDriverProvider.class);
+
     private final WebDriverServiceProvider webDriverServiceProvider;
 
-    private final boolean isHeadless;
+    /**
+     * When 'true', the WebDriver will be operating in a headless mode, i.e. not displaying web browser window.
+     */
+    private final boolean isHeadlessMode;
+
+    /**
+     * Location that the web browser will be downloading content into.
+     */
+    private final Path downloadDirectory;
+
 
     private WebDriver webDriver;
 
-    public WebDriverProvider(final WebDriverServiceProvider webDriverServiceProvider, final boolean isHeadless) {
+
+    public WebDriverProvider(final WebDriverServiceProvider webDriverServiceProvider,
+                             final boolean isHeadlessMode,
+                             final Path downloadDirectory) {
         this.webDriverServiceProvider = webDriverServiceProvider;
-        this.isHeadless = isHeadless;
+        this.isHeadlessMode = isHeadlessMode;
+        this.downloadDirectory = downloadDirectory;
     }
 
     public WebDriver getWebDriver() {
@@ -46,11 +71,18 @@ public class WebDriverProvider {
 
         final DesiredCapabilities desiredCapabilities = DesiredCapabilities.chrome();
 
-        if (isHeadless) {
-            final ChromeOptions chromeOptions = new ChromeOptions();
+        final Map<String, Object> chromePrefs = new HashMap<>();
+        log.info("Setting WebDriver download directory to '{}'.", downloadDirectory);
+        chromePrefs.put("download.default_directory", downloadDirectory.toAbsolutePath().toString());
+
+        final ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.setExperimentalOption("prefs", chromePrefs);
+        log.info("Configuring WebDriver to run in {} mode.", isHeadlessMode ? "headless" : "full, graphical");
+        if (isHeadlessMode) {
             chromeOptions.addArguments("--headless");
-            desiredCapabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
         }
+
+        desiredCapabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 
         webDriver = new RemoteWebDriver(webDriverServiceProvider.getUrl(), desiredCapabilities);
     }

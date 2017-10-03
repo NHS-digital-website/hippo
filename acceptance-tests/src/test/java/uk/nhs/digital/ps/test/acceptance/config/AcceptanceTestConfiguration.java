@@ -1,10 +1,9 @@
 package uk.nhs.digital.ps.test.acceptance.config;
 
-import org.junit.Before;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.springframework.beans.factory.annotation.Value;
+import org.slf4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
 import uk.nhs.digital.ps.test.acceptance.pages.DashboardPage;
 import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
@@ -14,11 +13,17 @@ import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverServiceProvider;
 
+import java.nio.file.Paths;
+
+import static org.slf4j.LoggerFactory.getLogger;
+
 /**
  * Central configuration class, enabling acceptance tests to benefit from Spring-based dependency injection.
  */
 @Configuration
 public class AcceptanceTestConfiguration {
+
+    private final static Logger log = getLogger(AcceptanceTestConfiguration.class);
 
     @Bean
     public LoginPage loginPage(final WebDriverProvider webDriverProvider) {
@@ -31,8 +36,9 @@ public class AcceptanceTestConfiguration {
     }
 
     @Bean
-    public ContentPage contentPage(final WebDriverProvider webDriverProvider, final PageHelper pageHelper) {
-        return new ContentPage(webDriverProvider, pageHelper);
+    public ContentPage contentPage(final WebDriverProvider webDriverProvider, final PageHelper pageHelper,
+                                   final AcceptanceTestProperties acceptanceTestProperties) {
+        return new ContentPage(webDriverProvider, pageHelper, acceptanceTestProperties.getTempDir());
     }
 
     @Bean
@@ -47,27 +53,45 @@ public class AcceptanceTestConfiguration {
 
     @Bean
     public Publication publication() {
-        return new Publication();
+        return Publication.createNew();
     }
 
-
-
-
-    /**
-     * @param isHeadless Determines whether the web driver will be operating in a headless mode. Default value is
-     *                   {@code true}. Headless mode can be disabled by setting system property {@code -Dheadless=false}
-     *                   in JVM command line.
-     * @return New instance of WebDriver; at the moment of writing it's always {@linkplain ChromeDriver}.
-     */
     @Bean
     public WebDriverProvider webDriverProvider(final WebDriverServiceProvider webDriverServiceProvider,
-                                               @Value("${headless:true}") final boolean isHeadless) {
-        return new WebDriverProvider(webDriverServiceProvider, isHeadless);
+                                               final AcceptanceTestProperties acceptanceTestProperties) {
+
+        return new WebDriverProvider(webDriverServiceProvider,
+            acceptanceTestProperties.isHeadlessMode(),
+            acceptanceTestProperties.getDownloadDir()
+        );
     }
 
     @Bean(initMethod = "initialise", destroyMethod = "dispose")
     public WebDriverServiceProvider webDriverServiceProvider() {
         return new WebDriverServiceProvider();
+    }
+
+    @Bean
+    public AcceptanceTestProperties acceptanceTestProperties(final Environment environment) {
+
+        final String buildDirectory = environment.getRequiredProperty("buildDirectory");
+
+        // Supported custom JVM system properties:
+        //
+        // headless       - values 'true' or 'false'; optional. Determines whether the tests will be run in a headless
+        //                  mode.
+        // buildDirectory - full path to a directory that the build process generates artefacts into, one that the
+        //                  tests can safely write temporary content to and expected that it'll be gone on clean build.
+        //                  In Maven this would typically be 'target' directory of the current module.
+
+        final AcceptanceTestProperties acceptanceTestProperties = new AcceptanceTestProperties(
+            Boolean.parseBoolean(environment.getProperty("headless", "true")),
+            Paths.get(buildDirectory, "download"),
+            Paths.get(buildDirectory));
+
+        log.info("Applying test properties: {}", acceptanceTestProperties);
+
+        return acceptanceTestProperties;
     }
 
 }

@@ -180,6 +180,9 @@
                             <includes>
                                 <include>**/AcceptanceTest.java</include>
                             </includes>
+                            <systemPropertyVariables>
+                                <buildDirectory>${project.build.directory}</buildDirectory>
+                            </systemPropertyVariables>
                         </configuration>
                         <executions>
                             <execution>

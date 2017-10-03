@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration>
+  <Appenders>
+
+    <!-- console -->
+    <Console name="console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{dd.MM.yyyy HH:mm:ss} %-5p [%C.%M():%L] %m%n"/>
+    </Console>
+
+  </Appenders>
+  <Loggers>
+
+    <Logger name="uk.nhs.digital.ps" level="info"/>
+
+    <Root level="warn">
+      <AppenderRef ref="console"/>
+    </Root>
+
+  </Loggers>
+</Configuration>

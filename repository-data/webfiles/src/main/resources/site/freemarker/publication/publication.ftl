@@ -1,6 +1,8 @@
+<!doctype html>
 <#assign hst=JspTaglibs["http://www.hippoecm.org/jsp/hst/core"] />
 <#assign fmt=JspTaglibs ["http://java.sun.com/jsp/jstl/fmt"] />
 <#assign dateFormat="h:mm a d/MM/yyyy"/>
+<#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() >
 <html>
 <head>
 </head>
@@ -23,9 +25,9 @@
             ${type?html},
         </#list>
     </div>
-    <div id="summary">
+    <div>
         <h4>Summary:</h4>
-        ${document.summary?html}
+        <span id="summary">${document.summary?html}</span>
     </div>
     <div id="key-facts">
         <h4>Key facts:</h4>
@@ -54,7 +56,10 @@
         <#if document.attachments?has_content>
             <ul>
             <#list document.attachments as attachment>
-                <li><a href="<@hst.link hippobean=attachment/>">${attachment.filename}</a></li>
+                <li>
+                    <a class="attachment-hyperlink" href="<@hst.link hippobean=attachment/>">${attachment.filename}</a>;
+                    <span class="fileSize">size: <@formatFileSize bytesCount=attachment.length/>.</span>
+                </li>
             </#list>
             </ul>
         <#else>
@@ -82,8 +87,6 @@
         <h4>Administrative sources:</h4>
         ${document.administrativeSources?html}
     </div>
-<#else>
-      <h1>No publication</h1>
 </#if>
 </body>
 </html>

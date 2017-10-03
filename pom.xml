@@ -71,8 +71,10 @@
         <jsp-api.version>2.2</jsp-api.version>
         <taglibs.version>1.2.1</taglibs.version>
         <xalan.version>2.7.2</xalan.version>
-        <junit.version>4.12</junit.version>
         <easymock.version>3.4</easymock.version>
+        <junit.version>4.12</junit.version>
+
+        <mockito.version>2.10.0</mockito.version>
 
         <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
 
@@ -155,6 +157,21 @@
                 <scope>test</scope>
             </dependency>
 
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.tngtech.java</groupId>
+                <artifactId>junit-dataprovider</artifactId>
+                <version>1.13.1</version>
+                <scope>test</scope>
+            </dependency>
+
+
         </dependencies>
     </dependencyManagement>
 
@@ -220,12 +237,12 @@
                 </property>
             </activation>
             <modules>
-                <module>acceptance-tests</module>
                 <module>cms</module>
                 <module>essentials</module>
                 <module>repository-data</module>
                 <module>repository</module>
                 <module>site</module>
+                <module>acceptance-tests</module>
             </modules>
         </profile>
 

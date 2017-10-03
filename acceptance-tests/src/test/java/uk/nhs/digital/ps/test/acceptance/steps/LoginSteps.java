@@ -55,5 +55,4 @@ public class LoginSteps extends AbstractSpringSteps {
         whenISubmitMyValidAdminCredentials();
         assertThat("Not logged in",loginPage.isLoggedIn(),is(true));
     }
-
 }
