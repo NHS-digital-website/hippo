@@ -3,15 +3,28 @@ package uk.nhs.digital.ps.test.acceptance.steps;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import uk.nhs.digital.ps.test.acceptance.config.AcceptanceTestProperties;
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
 import uk.nhs.digital.ps.test.acceptance.pages.ConsumablePublicationPage;
 import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.slf4j.LoggerFactory.getLogger;
+import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.readFileAsByteArray;
+import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.waitUntilFileAppears;
 
 public class ContentSteps extends AbstractSpringSteps {
+
+    private final static Logger log = getLogger(ContentSteps.class);
+
+    @Autowired
+    private AcceptanceTestProperties acceptanceTestProperties;
 
     @Autowired
     private ContentPage contentPage;
@@ -38,7 +51,7 @@ public class ContentSteps extends AbstractSpringSteps {
             is(true));
     }
 
-    @Then("^an edit screen is displayed which allows me to enter the title and summary for a publication")
+    @Then("^an edit screen is displayed which allows me to populate details of the publication")
     public void thenAnEditScreenIsDisplayed() throws Throwable {
         assertThat("Publication edit screen is displayed",contentPage.isPublicationEditScreenOpen(),
             is(true));
@@ -58,8 +71,8 @@ public class ContentSteps extends AbstractSpringSteps {
             is(true));
     }
 
-    @When("^I enter title and summary and save the publication")
-    public void whenIEnterTitleAndSummaryAndSaveThePublication() throws Throwable {
+    @When("^I populate and save the publication")
+    public void whenIPopulateAndSaveThePublication() throws Throwable {
 
         contentPage.populatePublication(publication);
         contentPage.savePublication();
@@ -88,12 +101,44 @@ public class ContentSteps extends AbstractSpringSteps {
 
     @Then(("^it is visible to consumers"))
     public void thenItIsVisibleToConsumers() throws Throwable {
+
         consumablePublicationPage.open(publication.getPublicationUrl());
-        assertThat("Publication is displayed on site",consumablePublicationPage.isPageDisplayed(),
-            is(true));
-        assertThat("Publication title is as expected",consumablePublicationPage.getTitle(),
+
+        assertThat("Publication title is as expected",consumablePublicationPage.getTitleText(),
             is(publication.getPublicationTitle()));
-        assertThat("Publication summary is as expected",consumablePublicationPage.getSummary(),
+        assertThat("Publication summary is as expected",consumablePublicationPage.getSummaryText(),
             is(publication.getPublicationSummary()));
+
+
+        assertThat("Uploaded attachment is available",consumablePublicationPage.getAttachmentName(),
+            is(publication.getAttachment().getName()));
+
+        assertThat("Uploaded attachment's size is displayed",consumablePublicationPage.getAttachmentSizeText(),
+            is("size: " + publication.getAttachment().getContent().length + " B."));
+
+        if (acceptanceTestProperties.isHeadlessMode()) {
+            // At the moment of writing, there doesn't seem to be any easy way available to force Chromedriver
+            // to download files when operating in headless mode. It appears that some functionality has been
+            // added to DevTools but it's not obvious how to trigger that from Java so, for now at least,
+            // we'll only be testing file download when operating in a full, graphical mode.
+            //
+            // See bug report at https://bugs.chromium.org/p/chromium/issues/detail?id=696481 and other reports
+            // available online.
+            log.warn("Not testing file download due to running in a headless mode.");
+        } else {
+
+            // Download the file - simulate mouse click on the <a> tag.
+            consumablePublicationPage.getAttachmentElement().click();
+
+            final Path downloadedFilePath = Paths.get(acceptanceTestProperties.getDownloadDir().toString(),
+                publication.getAttachment().getName());
+
+            waitUntilFileAppears(downloadedFilePath);
+
+            assertThat("Downloaded file has the same content as the uploaded one",
+                readFileAsByteArray(downloadedFilePath),
+                is(publication.getAttachment().getContent())
+            );
+        }
     }
 }

@@ -4,9 +4,9 @@ import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 import org.openqa.selenium.*;
 
 
-public class ConsumablePublicationPage extends AbstractPage{
+public class ConsumablePublicationPage extends AbstractPage {
 
-    static final String URL = "http://localhost:8080/site";
+    private static final String URL = "http://localhost:8080/site";
 
     private PageHelper helper;
 
@@ -19,16 +19,24 @@ public class ConsumablePublicationPage extends AbstractPage{
         getWebDriver().get(URL + publicationPath);
     }
 
-    public boolean isPageDisplayed() {
-        return helper.isElementPresent(By.id("header"));
-    }
-
-    public String getTitle() {
+    public String getTitleText() {
         return helper.findElement(By.id("title")).getText();
     }
 
-    public String getSummary() {
+    public String getSummaryText() {
         return helper.findElement(By.id("summary")).getText();
+    }
+
+    public WebElement getAttachmentElement() {
+        return helper.findElement(By.className("attachment-hyperlink"));
+    }
+
+    public String getAttachmentName() {
+        return getAttachmentElement().getText();
+    }
+
+    public String getAttachmentSizeText() {
+        return helper.findElement(By.className("fileSize")).getText();
     }
 
 }

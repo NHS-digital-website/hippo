@@ -1,0 +1,5 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:frontend/cms/cms-services/assetValidationService:
+      max.file.size: 100M
+      extensions.allowed: [doc, docx, xls, xlsx, pdf, csv, zip, txt, rar, ppt, pptx]

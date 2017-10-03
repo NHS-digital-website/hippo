@@ -112,6 +112,14 @@ definitions:
             hipposysedit:path: publicationsystem:Title
             hipposysedit:primary: false
             hipposysedit:type: Text
+          /attachments:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:attachments
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:resource
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -135,7 +143,7 @@ definitions:
           publicationsystem:Granularity: ['']
           publicationsystem:NominalDate: 0001-01-01T12:00:00Z
           publicationsystem:AdministrativeSources: ''
-          /publicationsystem:Attachments:
+          /publicationsystem:attachments:
             jcr:primaryType: hippo:resource
             hippo:filename: hippo:resource
             jcr:data:
@@ -284,7 +292,7 @@ definitions:
             hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /Attachments:
+          /attachments:
             jcr:primaryType: frontend:plugin
             caption: Attachments
             field: attachments

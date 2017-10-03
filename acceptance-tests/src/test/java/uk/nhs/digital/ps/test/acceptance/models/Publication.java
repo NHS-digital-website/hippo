@@ -1,17 +1,22 @@
 package uk.nhs.digital.ps.test.acceptance.models;
 
-import java.util.UUID;
+import uk.nhs.digital.ps.test.acceptance.util.RandomHelper;
 
 public class Publication {
 
     private String publicationName;
     private String publicationTitle;
     private String publicationSummary;
+    private Attachment attachment;
 
-    public Publication() {
-        publicationName = UUID.randomUUID().toString();
-        publicationTitle = "Some title text";
-        publicationSummary = "Some summary text";
+    private Publication(final String publicationName,
+                        final String publicationTitle,
+                        final String publicationSummary,
+                        final Attachment attachment) {
+        this.publicationName = publicationName;
+        this.publicationTitle = publicationTitle;
+        this.publicationSummary = publicationSummary;
+        this.attachment = attachment;
     }
 
     public String getPublicationName() {
@@ -30,4 +35,20 @@ public class Publication {
         return "/publications/" + publicationName;
     }
 
+    public Attachment getAttachment() {
+        return attachment;
+    }
+
+    /**
+     * @return New instance, fully populated with random values.
+     */
+    public static Publication createNew() {
+
+        return new Publication(
+            RandomHelper.newRandomString(),
+            RandomHelper.newRandomString(),
+            RandomHelper.newRandomString(),
+            Attachment.createNew()
+        );
+    }
 }

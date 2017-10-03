@@ -1,11 +1,14 @@
 package uk.nhs.digital.ps.beans;
 
+import org.hippoecm.hst.content.beans.standard.HippoResourceBean;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
 import java.util.Calendar;
 import java.util.List;
 import org.hippoecm.hst.content.beans.standard.HippoResourceBean;
 import uk.nhs.digital.ps.beans.Relatedlink;
+
+import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "publicationsystem:publication")
 @Node(jcrType = "publicationsystem:publication")
@@ -65,15 +68,14 @@ public class Publication extends BaseDocument {
         return getProperty("publicationsystem:Title");
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:Attachments")
-    public List<HippoResourceBean> getAttachments() {
-        return getChildBeansByName("publicationsystem:Attachments",
-            HippoResourceBean.class);
-    }
-
     @HippoEssentialsGenerated(internalName = "publicationsystem:RelatedLinks")
     public List<Relatedlink> getRelatedLinks() {
         return getChildBeansByName("publicationsystem:RelatedLinks",
                 Relatedlink.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "publicationsystem:attachments")
+    public List<HippoResourceBean> getAttachments() {
+        return getChildBeansByName("publicationsystem:attachments", HippoResourceBean.class);
     }
 }

@@ -6,16 +6,23 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
+import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.*;
 
 
 public class ContentPage extends AbstractPage {
 
     private PageHelper helper;
 
-    public ContentPage(final WebDriverProvider webDriverProvider, final PageHelper helper) {
+    private Path generatedAttachmentsDir;
+
+    public ContentPage(final WebDriverProvider webDriverProvider, final PageHelper helper, final Path tempDir) {
         super(webDriverProvider);
         this.helper = helper;
+        this.generatedAttachmentsDir = Paths.get(tempDir.toString(), "upload");
     }
 
     public boolean openContentTab() {
@@ -45,6 +52,18 @@ public class ContentPage extends AbstractPage {
 
         WebElement summaryField = editorBody.findElement(By.className("publication-summary")).findElement(By.tagName("textarea"));
         summaryField.sendKeys(publication.getPublicationSummary());
+
+        // Uploading a file via Selenium requires that the file is present on the disk; upload
+        // is triggered by the full path to the file being 'typed' into the input element.
+        if (publication.getAttachment() != null) {
+            final Path attachmentPath = createFile(generatedAttachmentsDir,
+                publication.getAttachment().getName(),
+                publication.getAttachment().getContent()
+            );
+
+            getWebDriver().findElement(By.cssSelector("input[type=file]"))
+                .sendKeys(attachmentPath.toAbsolutePath().toString());
+        }
     }
 
     public void savePublication() {
@@ -138,32 +157,12 @@ public class ContentPage extends AbstractPage {
         return helper.findElement(By.xpath("//span[text()='Publish']"));
     }
 
-    private WebElement findTakeOffline() {
-        return helper.findElement(By.xpath("//span[text()='Take offline...']"));
-    }
-
     private WebElement findOk() {
         return helper.findElement(By.xpath("//input[@value='OK' and @type='submit']"));
     }
 
     private WebElement findSaveAndClose() {
         return helper.findElement(By.xpath("//span[@title='Save & Close']"));
-    }
-
-    private WebElement findDocumentMenu(){
-        return helper.findElement(By.xpath("//span[text()='Document']"));
-    }
-
-    private WebElement findDelete() {
-        return helper.findElement(By.xpath("//span[text()='Delete...']"));
-    }
-
-    private WebElement findEdit() {
-        return helper.findElement(By.xpath("//input[@name='name-url:url']/following-sibling::a"));
-    }
-
-    private WebElement findUrlName() {
-        return helper.findElement(By.xpath("//input[@name='name-url:url']"));
     }
 
 }
