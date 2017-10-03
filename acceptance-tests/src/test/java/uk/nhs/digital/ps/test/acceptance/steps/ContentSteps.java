@@ -34,12 +34,14 @@ public class ContentSteps extends AbstractSpringSteps {
 
     @When("^I create a new publication$")
     public void whenICreateANewPublication() throws Throwable {
-        assertThat("New publication not created.", contentPage.newPublication(publication.getPublicationName()), is(true));
+        assertThat("New publication created.", contentPage.newPublication(publication.getPublicationName()),
+            is(true));
     }
 
     @Then("^an edit screen is displayed which allows me to enter the title and summary for a publication")
     public void thenAnEditScreenIsDisplayed() throws Throwable {
-        assertThat("Publication edit screen is displayed",contentPage.isPublicationEditScreenOpen(), is(true));
+        assertThat("Publication edit screen is displayed",contentPage.isPublicationEditScreenOpen(),
+            is(true));
         contentPage.discardUnsavedPublication(publication.getPublicationName());
     }
 
@@ -52,7 +54,8 @@ public class ContentSteps extends AbstractSpringSteps {
 
         // Since previous step created a new document which was not saved, immediately after a login,
         // the edit document screen is displayed (instead of dashboard)
-        assertThat("Publication edit screen is displayed",contentPage.isPublicationEditScreenOpen(), is(true));
+        assertThat("Publication edit screen is displayed",contentPage.isPublicationEditScreenOpen(),
+            is(true));
     }
 
     @When("^I enter title and summary and save the publication")
@@ -79,14 +82,18 @@ public class ContentSteps extends AbstractSpringSteps {
     @When("^I publish the publication")
     public void whenIPublishThePublication() throws Throwable {
         contentPage.publish();
-        Thread.sleep(2000); // wait for doc to publish
+        Thread.sleep(1000); // wait for doc to publish
+
     }
 
     @Then(("^it is visible to consumers"))
     public void thenItIsVisibleToConsumers() throws Throwable {
-        consumablePublicationPage.open();
-        assertThat("Publication is displayed on site",consumablePublicationPage.isPageDisplayed(), is(true));
-        assertThat("Publication title is as expected",consumablePublicationPage.getTitle(), is(publication.getPublicationTitle()));
-        assertThat("Publication summary is as expected",consumablePublicationPage.getSummary(), is(publication.getPublicationSummary()));
+        consumablePublicationPage.open(publication.getPublicationUrl());
+        assertThat("Publication is displayed on site",consumablePublicationPage.isPageDisplayed(),
+            is(true));
+        assertThat("Publication title is as expected",consumablePublicationPage.getTitle(),
+            is(publication.getPublicationTitle()));
+        assertThat("Publication summary is as expected",consumablePublicationPage.getSummary(),
+            is(publication.getPublicationSummary()));
     }
 }

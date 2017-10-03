@@ -3,12 +3,11 @@ package uk.nhs.digital.ps.test.acceptance.pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
-
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Supplier;
-
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
+
 
 public class PageHelper {
 
@@ -22,27 +21,33 @@ public class PageHelper {
         return webDriverProvider.getWebDriver();
     }
 
-
-    public WebElement findElementAfterWait(final By bySelector) {
-        return findElementAfterWait(() -> getWebDriver().findElements(bySelector));
+    public WebElement findElement(final By bySelector) {
+        return findElement(() -> getWebDriver().findElements(bySelector), (w) -> true);
     }
 
-    public WebElement findElementAfterWait(final WebElement webElement, final By bySelector) {
-        return findElementAfterWait(() -> webElement.findElements(bySelector));
+    public WebElement findNewElement(final WebElement oldElement, final By bySelector) {
+        Function<WebElement, Boolean> elementIsNew = (newElement) -> !newElement.equals(oldElement);
+        return findElement(() -> getWebDriver().findElements(bySelector), elementIsNew);
     }
 
-    private WebElement findElementAfterWait(final Supplier<List<WebElement>> findElements){
+    public WebElement findChildElement(final WebElement parentElement, final By bySelector) {
+        return findElement(() -> parentElement.findElements(bySelector), (w) -> true);
+    }
+
+    private WebElement findElement(final Supplier<List<WebElement>> findElements,
+                                   final Function<WebElement, Boolean> elementOkFilter){
 
         WebDriverWait wait = new WebDriverWait(getWebDriver(), 3);
 
         try{
             return wait.pollingEvery(100, MILLISECONDS).until((WebDriver innerDriver) -> {
+
                 List<WebElement> elements = findElements.get();
                 if (elements.size() == 1) {
                     WebElement el = elements.get(0);
                     try {
                         el.isEnabled();
-                        return el;
+                        return elementOkFilter.apply(el) ? el : null;
                     }
                     catch (StaleElementReferenceException ex) {
                         return null;
@@ -72,7 +77,7 @@ public class PageHelper {
 
 
     public boolean isElementPresent(By selector){
-        return findElementAfterWait(selector) != null;
+        return findElement(selector) != null;
     }
 
 }

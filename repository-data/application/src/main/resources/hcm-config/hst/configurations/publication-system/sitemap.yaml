@@ -6,3 +6,9 @@ definitions:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/home
         hst:relativecontentpath: publications/test-document
+      /publications:
+        jcr:primaryType: hst:sitemapitem
+        /_default_:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/home
+          hst:relativecontentpath: publications/${1}
