@@ -2,7 +2,7 @@ definitions:
   namespace:
     publicationsystem:
       uri: http://www.onehippo.org/publicationsystem/nt/1.0
-      cnd: namespaces/publication-system.cnd
+      cnd: namespaces/publicationsystem.cnd
   config:
     /hippo:configuration/hippo:modules/webfiles/hippo:moduleconfig:
       watchedModules: [repository-data/webfiles]
