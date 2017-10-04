@@ -2,6 +2,7 @@
 PWD = $(shell pwd)
 VENV ?= $(PWD)/.venv
 VERSION ?= $(shell git describe --tags)
+PS_BUILD_DIR ?= ../../ps-build
 
 PATH := $(VENV)/bin:$(shell printenv PATH)
 SHELL := env PATH=$(PATH) /bin/bash
@@ -42,19 +43,29 @@ test:
 ## Build distribution package
 build:
 	mvn --file ../pom.xml -Drevision=$(VERSION) verify
-	mvn --file ../pom.xml -Drevision=$(VERSION) -P dist
+	mvn --file ../pom.xml -Drevision=$(VERSION) -P separate-dist
 
 ## Upload build artefact
 upload: $(VENV)
 	@echo "Task: upload Hippo $(VERSION) build distribution to S3 bucket"
 	aws s3 \
-		cp ../target/publication-system-$(VERSION)-distribution.tar.gz \
+		cp ../target/publication-system-$(VERSION)-cms-distribution.tar.gz \
 		s3://artefacts.ps.digital.nhs.uk/hippo_authoring/$(VERSION)/publication-system.tgz
+	aws s3 \
+		cp ../target/publication-system-$(VERSION)-site-distribution.tar.gz \
+		s3://artefacts.ps.digital.nhs.uk/hippo_delivery/$(VERSION)/publication-system.tgz
+
+deploy.vagrant: build
+	cp ../target/publication-system-$(VERSION)-site-distribution.tar.gz $(PS_BUILD_DIR)/.artefacts/
+	cp ../target/publication-system-$(VERSION)-cms-distribution.tar.gz $(PS_BUILD_DIR)/.artefacts/
+	cd $(PS_BUILD_DIR) && ROLE=hippo_authoring vagrant ssh -c "/home/hippo_authoring/shipit /vagrant/.artefacts/publication-system-$(VERSION)-cms-distribution.tar.gz"
 
 ## Create new version tag based on the nearest tag
 version.bumpup:
+	@git fetch --tags
 	@git tag $$((git describe --abbrev=0 --tags | grep $$(cat ../.version) || echo $$(cat ../.version).-1) | perl -pe 's/^(v(\d+\.)*)(-?\d+)(.*)$$/$$1.($$3+1).$$4/e')
 	$(MAKE) version.print
+	@echo "Remember to push new tag to remote server."
 
 ## Prints current version
 version.print:
