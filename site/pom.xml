@@ -1,39 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-    xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
->
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>uk.nhs.digital</groupId>
         <artifactId>publication-system</artifactId>
         <version>${revision}</version>
     </parent>
-
     <artifactId>publication-system-site</artifactId>
     <packaging>war</packaging>
     <name>NHS Digital Publication System Site</name>
     <description>NHS Digital Publication System Site</description>
-
     <dependencies>
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>jsp-api</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.apache.taglibs</groupId>
             <artifactId>taglibs-standard-spec</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.apache.taglibs</groupId>
             <artifactId>taglibs-standard-impl</artifactId>
         </dependency>
-
-        <!-- the following xalan dependencies are required by apache standard taglibs implementation -->
         <dependency>
             <groupId>xalan</groupId>
             <artifactId>xalan</artifactId>
@@ -42,7 +33,6 @@
             <groupId>xalan</groupId>
             <artifactId>serializer</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.onehippo.cms7.hst.dependencies</groupId>
             <artifactId>hst-server-dependencies</artifactId>
@@ -95,6 +85,21 @@
             <groupId>org.onehippo.cms7.hst</groupId>
             <artifactId>hst-mock</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.onehippo.cms7</groupId>
+            <artifactId>hippo-plugin-taxonomy-api</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.onehippo.cms7</groupId>
+            <artifactId>hippo-plugin-taxonomy-hst-api</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.onehippo.cms7</groupId>
+            <artifactId>hippo-plugin-taxonomy-hstclient</artifactId>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
     <build>

@@ -40,7 +40,7 @@ public class ContentPage extends AbstractPage {
 
     public void populatePublication(Publication publication) {
         WebElement editorBody = helper.findElement(By.className("hippo-editor-body"));
-        WebElement titleField = editorBody.findElement(By.className("publication-title")).findElement(By.tagName("input"));
+        WebElement titleField = editorBody.findElement(By.className("publication-title")).findElement(By.tagName("textarea"));
         titleField.sendKeys(publication.getPublicationTitle());
 
         WebElement summaryField = editorBody.findElement(By.className("publication-summary")).findElement(By.tagName("textarea"));
@@ -117,6 +117,8 @@ public class ContentPage extends AbstractPage {
         WebElement closeButton = helper.findElement(
             By.xpath("//a[@class='hippo-tabs-documents-tab hippo-perspective-editperspective' and @title='" + publicationName + "']/following-sibling::a"));
         closeButton.click();
+        WebElement confirmDiscard = helper.findElement(By.xpath("//input[@type='submit' and @value='Discard']"));
+        confirmDiscard.click();
     }
 
 

@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project
-    xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
->
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>uk.nhs.digital</groupId>
         <artifactId>publication-system</artifactId>
         <version>${revision}</version>
     </parent>
-
     <artifactId>publication-system-cms</artifactId>
     <packaging>war</packaging>
     <name>NHS Digital Publication System CMS</name>
     <description>NHS Digital Publication System CMS</description>
-
     <dependencies>
         <dependency>
             <groupId>org.onehippo.cms7.hst.dependencies</groupId>
@@ -67,8 +62,22 @@
             <groupId>org.onehippo.cms7</groupId>
             <artifactId>hippo-plugin-selections-addon-repository</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.onehippo.cms7</groupId>
+            <artifactId>hippo-plugin-taxonomy-api</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.onehippo.cms7</groupId>
+            <artifactId>hippo-plugin-taxonomy-addon-frontend</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.onehippo.cms7</groupId>
+            <artifactId>hippo-plugin-taxonomy-addon-repository</artifactId>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
-
     <build>
         <finalName>cms</finalName>
         <plugins>
