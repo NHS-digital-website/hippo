@@ -22,19 +22,20 @@ public class PageHelper {
     }
 
     public WebElement findElement(final By bySelector) {
-        return findElement(() -> getWebDriver().findElements(bySelector), (w) -> true);
+        return findElement((by) -> getWebDriver().findElements(by), bySelector, (w) -> true);
     }
 
     public WebElement findNewElement(final WebElement oldElement, final By bySelector) {
         Function<WebElement, Boolean> elementIsNew = (newElement) -> !newElement.equals(oldElement);
-        return findElement(() -> getWebDriver().findElements(bySelector), elementIsNew);
+        return findElement((by) -> getWebDriver().findElements(by), bySelector, elementIsNew);
     }
 
     public WebElement findChildElement(final WebElement parentElement, final By bySelector) {
-        return findElement(() -> parentElement.findElements(bySelector), (w) -> true);
+        return findElement((by) -> parentElement.findElements(by), bySelector, (w) -> true);
     }
 
-    private WebElement findElement(final Supplier<List<WebElement>> findElements,
+    private WebElement findElement(final Function<By, List<WebElement>> findElements,
+                                   final By bySelector,
                                    final Function<WebElement, Boolean> elementOkFilter){
 
         WebDriverWait wait = new WebDriverWait(getWebDriver(), 3);
@@ -42,7 +43,7 @@ public class PageHelper {
         try{
             return wait.pollingEvery(100, MILLISECONDS).until((WebDriver innerDriver) -> {
 
-                List<WebElement> elements = findElements.get();
+                List<WebElement> elements = findElements.apply(bySelector);
                 if (elements.size() == 1) {
                     WebElement el = elements.get(0);
                     try {
@@ -58,7 +59,7 @@ public class PageHelper {
             });
         }
         catch (TimeoutException e){
-            throw new RuntimeException("Failed to find element matching '" + findElements + "'", e);
+            throw new RuntimeException("Failed to find element matching '" + bySelector + "'", e);
         }
     }
 

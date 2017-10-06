@@ -2,17 +2,78 @@ package uk.nhs.digital.ps.beans;
 
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
+import java.util.Calendar;
+import java.util.List;
+import org.hippoecm.hst.content.beans.standard.HippoResourceBean;
+import uk.nhs.digital.ps.beans.Relatedlink;
 
 @HippoEssentialsGenerated(internalName = "publicationsystem:publication")
 @Node(jcrType = "publicationsystem:publication")
 public class Publication extends BaseDocument {
-    @HippoEssentialsGenerated(internalName = "publicationsystem:title")
-    public String getTitle() {
-        return getProperty("publicationsystem:title");
+    @HippoEssentialsGenerated(internalName = "hippotaxonomy:keys")
+    public String[] getKeys() {
+        return getProperty("hippotaxonomy:keys");
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:summary")
+    @HippoEssentialsGenerated(internalName = "publicationsystem:Summary")
     public String getSummary() {
-        return getProperty("publicationsystem:summary");
+        return getProperty("publicationsystem:Summary");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publicationsystem:KeyFacts")
+    public String getKeyFacts() {
+        return getProperty("publicationsystem:KeyFacts");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publicationsystem:InformationType")
+    public String[] getInformationType() {
+        return getProperty("publicationsystem:InformationType");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publicationsystem:NominalDate")
+    public Calendar getNominalDate() {
+        return getProperty("publicationsystem:NominalDate");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publicationsystem:CoverageStart")
+    public Calendar getCoverageStart() {
+        return getProperty("publicationsystem:CoverageStart");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publicationsystem:CoverageEnd")
+    public Calendar getCoverageEnd() {
+        return getProperty("publicationsystem:CoverageEnd");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publicationsystem:GeographicCoverage")
+    public String getGeographicCoverage() {
+        return getProperty("publicationsystem:GeographicCoverage");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publicationsystem:Granularity")
+    public String[] getGranularity() {
+        return getProperty("publicationsystem:Granularity");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publicationsystem:AdministrativeSources")
+    public String getAdministrativeSources() {
+        return getProperty("publicationsystem:AdministrativeSources");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publicationsystem:Title")
+    public String getTitle() {
+        return getProperty("publicationsystem:Title");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publicationsystem:Attachments")
+    public List<HippoResourceBean> getAttachments() {
+        return getChildBeansByName("publicationsystem:Attachments",
+            HippoResourceBean.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "publicationsystem:RelatedLinks")
+    public List<Relatedlink> getRelatedLinks() {
+        return getChildBeansByName("publicationsystem:RelatedLinks",
+                Relatedlink.class);
     }
 }

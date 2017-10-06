@@ -10,3 +10,6 @@
 [publicationsystem:publication] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
   orderable
 
+[publicationsystem:relatedlink] > hippo:compound, hippostd:relaxed
+  orderable
+
