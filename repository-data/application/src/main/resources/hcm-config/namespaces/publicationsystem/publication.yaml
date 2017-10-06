@@ -140,7 +140,7 @@ definitions:
             hippo:filename: hippo:resource
             jcr:data:
               type: binary
-              resource: /namespaces/publicationsystem/publication/prototypes/prototype/Attachments/data.bin
+              resource: /namespaces/publicationsystem/publication/prototypes/prototype/attachments/data.bin
             jcr:encoding: UTF-8
             jcr:lastModified: 2008-03-26T12:03:00+01:00
             jcr:mimeType: application/vnd.hippo.blank
