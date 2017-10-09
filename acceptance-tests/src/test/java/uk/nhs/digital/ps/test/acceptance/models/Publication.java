@@ -8,15 +8,18 @@ public class Publication {
     private String publicationTitle;
     private String publicationSummary;
     private Attachment attachment;
+    private String geographicCoverage;
 
     private Publication(final String publicationName,
                         final String publicationTitle,
                         final String publicationSummary,
-                        final Attachment attachment) {
+                        final Attachment attachment,
+                        final String geographicCoverage) {
         this.publicationName = publicationName;
         this.publicationTitle = publicationTitle;
         this.publicationSummary = publicationSummary;
         this.attachment = attachment;
+        this.geographicCoverage = geographicCoverage;
     }
 
     public String getPublicationName() {
@@ -29,6 +32,10 @@ public class Publication {
 
     public String getPublicationSummary() {
         return publicationSummary;
+    }
+
+    public String getGeographicCoverage() {
+        return geographicCoverage;
     }
 
     public String getPublicationUrl() {
@@ -48,7 +55,8 @@ public class Publication {
             RandomHelper.newRandomString(),
             RandomHelper.newRandomString(),
             RandomHelper.newRandomString(),
-            Attachment.createNew()
+            Attachment.createNew(),
+            "UK"
         );
     }
 }

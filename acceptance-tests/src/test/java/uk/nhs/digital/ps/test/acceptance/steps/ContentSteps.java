@@ -140,5 +140,9 @@ public class ContentSteps extends AbstractSpringSteps {
                 is(publication.getAttachment().getContent())
             );
         }
+
+        assertThat("Geographic coverage is as expected",consumablePublicationPage.getGeographicCoverage(),
+            is("Geographic coverage:\n" + publication.getGeographicCoverage()));
+
     }
 }

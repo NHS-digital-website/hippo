@@ -64,6 +64,11 @@ public class ContentPage extends AbstractPage {
             getWebDriver().findElement(By.cssSelector("input[type=file]"))
                 .sendKeys(attachmentPath.toAbsolutePath().toString());
         }
+
+        WebElement geographicCoverage = editorBody.findElement(By.xpath("//span[text()='Geographic Coverage']/../following-sibling::div//select[@class='dropdown-plugin']"));
+        Select dropdown = new Select(geographicCoverage );
+        dropdown.selectByVisibleText(publication.getGeographicCoverage());
+
     }
 
     public void savePublication() {
