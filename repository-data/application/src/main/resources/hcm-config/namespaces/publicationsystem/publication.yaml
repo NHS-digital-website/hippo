@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 5c69cdaa-ebd3-4293-816d-9b3044e1399f
+          jcr:uuid: 4b214c41-2115-4c0d-b1da-13ae76e19d2f
           hipposysedit:node: true
           hipposysedit:supertype: ['hippotranslation:translated', 'hippotaxonomy:classifiable',
             'publicationsystem:basedocument', 'hippostd:relaxed']
@@ -131,7 +131,7 @@ definitions:
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
-          jcr:uuid: c8d9ab7e-1afd-485a-bd07-95d519916624
+          jcr:uuid: 8f13caa4-1816-4a29-9d03-4ba1115f3ba5
           hippostdpubwf:lastModificationDate: 2017-09-26T16:14:40.971+01:00
           hippostdpubwf:creationDate: 2017-09-26T16:14:40.972+01:00
           publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
@@ -261,7 +261,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               selectable.options: England,England and Northern Ireland,England and
-                Scotland,England and Wales,England, Scotland and Northern Ireland,England,
+                Scotland,England and Wales,England Scotland and Northern Ireland,England
                 Wales and Northern Ireland,Great Britain,International,Northern Ireland,Scotland,UK,Wales
           /Granularity:
             jcr:primaryType: frontend:plugin
