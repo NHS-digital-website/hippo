@@ -11,6 +11,7 @@ Scenario: Saving a publication
     When I populate and save the publication
     Then it is saved
 
+@NeedsExistingTestData
 Scenario: Publishing a publication
     Given I have saved a publication
     When I publish the publication

@@ -54,12 +54,11 @@ public class FileSizeFormatterDirectiveTest {
     @DataProvider
     public static Object[][] validInputsAndExpectedOutputs() {
 
-        // @formatter:off
         return new Object[][]{
-            // bytesCount        expectedOutput
 
-            {0,                         "0 B"},
-            {1,                         "1 B"},
+            // bytesCount        expectedOutput
+            {  0,                       "0 B"},
+            {  1,                       "1 B"},
             {500,                     "500 B"},
             {999,                     "999 B"},
 
@@ -78,7 +77,6 @@ public class FileSizeFormatterDirectiveTest {
             {  1_000_000_000_000d,    "1.0 TB"},
             {  1_500_000_000_000d,    "1.5 TB"},
         };
-        // @formatter:on
     }
 
     @Test
