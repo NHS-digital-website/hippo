@@ -65,7 +65,7 @@ public class PageHelper {
 
 
     public void waitUntilVisible(WebElement menuIcon) {
-        try{
+        try {
             WebDriverWait wait = new WebDriverWait(getWebDriver(), 2);
             wait.pollingEvery(100, MILLISECONDS).until((WebDriver innerDriver) -> {
                 return menuIcon.isDisplayed();

@@ -6,7 +6,7 @@ import org.openqa.selenium.*;
 
 public class ConsumablePublicationPage extends AbstractPage {
 
-    private static final String URL = "http://localhost:8080/site";
+    private static final String URL = "http://localhost:8080";
 
     private PageHelper helper;
 

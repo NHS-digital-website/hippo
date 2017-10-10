@@ -6,7 +6,7 @@ Feature: Login
   Scenario: Successful login
     Given I am on login page
     When I submit my valid admin credentials
-    Then a dashboard is displayed
+    Then I can open dashboard page
 
     Scenario: Unsuccessful login
       Given I am on login page

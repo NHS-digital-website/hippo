@@ -76,7 +76,6 @@ version.print:
 ## Clean up
 clean:
 	mvn --file ../pom.xml -Drevision=$(VERSION) clean
-	rm -rf $(VENV)
 
 # get python virtualenv
 $(VENV):

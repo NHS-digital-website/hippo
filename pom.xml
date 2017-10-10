@@ -287,10 +287,10 @@
                                     <location>${project.basedir}/cms/target/cms.war</location>
                                 </deployable>
                                 <deployable>
-                                    <location>${project.basedir}/site/target/site.war</location>
+                                    <location>${project.basedir}/site/target/ROOT.war</location>
                                     <type>war</type>
                                     <properties>
-                                        <context>/site</context>
+                                        <context>/</context>
                                     </properties>
                                 </deployable>
                                 <deployable>
@@ -322,6 +322,27 @@
             <properties>
                 <development-module-deploy-dir>temp</development-module-deploy-dir>
             </properties>
+        </profile>
+
+        <profile>
+            <!-- additional profile to combine with cargo:run to *not* bootstrap the development module:
+                     $ mvn -P cargo.run,without-autoexport -->
+            <id>without-autoexport</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.cargo</groupId>
+                        <artifactId>cargo-maven2-plugin</artifactId>
+                        <configuration>
+                            <container>
+                                <systemProperties>
+                                    <repo.autoexport.allowed>false</repo.autoexport.allowed>
+                                </systemProperties>
+                            </container>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
 
         <profile>

@@ -10,9 +10,9 @@
             <destName>cms.war</destName>
         </file>
         <file>
-            <source>site/target/site.war</source>
+            <source>site/target/ROOT.war</source>
             <outputDirectory>webapps</outputDirectory>
-            <destName>site.war</destName>
+            <destName>ROOT.war</destName>
         </file>
     </files>
 </component>

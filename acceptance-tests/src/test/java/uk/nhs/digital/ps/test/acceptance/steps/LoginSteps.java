@@ -28,9 +28,9 @@ public class LoginSteps extends AbstractSpringSteps {
         loginPage.loginWith("admin", "admin");
     }
 
-    @Then("^a dashboard is displayed$")
-    public void thenADashboardIsDisplayed() throws Throwable {
-        assertThat("Current page should be dashboard page.", dashboardPage.isOpen(), is(true));
+    @Then("^I can open dashboard page$")
+    public void thenICanOpenDashboardPage() throws Throwable {
+        assertThat("I should be able to open dashboard page.", dashboardPage.open(), is(true));
     }
 
     @When("^I submit invalid credentials$")
