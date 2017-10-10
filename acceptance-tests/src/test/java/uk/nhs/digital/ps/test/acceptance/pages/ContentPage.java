@@ -72,6 +72,9 @@ public class ContentPage extends AbstractPage {
         WebElement informationTypeWebElement = editorBody.findElement(By.xpath("//span[text()='Information Type']/../following-sibling::div//select[@class='dropdown-plugin']"));
         Select informationType = new Select(informationTypeWebElement);
         informationType.selectByVisibleText(publication.getInformationType());
+        
+        Select granularity = new Select(editorBody.findElement(By.xpath("//span[text()='Granularity']/../following-sibling::div//select[@class='dropdown-plugin']")));
+        granularity.selectByVisibleText(publication.getGranularity());
     }
 
     public void savePublication() {
