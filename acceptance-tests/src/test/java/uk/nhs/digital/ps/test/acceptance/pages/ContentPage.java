@@ -69,6 +69,9 @@ public class ContentPage extends AbstractPage {
         Select dropdown = new Select(geographicCoverage );
         dropdown.selectByVisibleText(publication.getGeographicCoverage());
 
+        WebElement informationTypeWebElement = editorBody.findElement(By.xpath("//span[text()='Information Type']/../following-sibling::div//select[@class='dropdown-plugin']"));
+        Select informationType = new Select(informationTypeWebElement);
+        informationType.selectByVisibleText(publication.getInformationType());
     }
 
     public void savePublication() {

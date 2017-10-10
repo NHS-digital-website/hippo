@@ -106,9 +106,9 @@ public class ContentSteps extends AbstractSpringSteps {
 
         assertThat("Publication title is as expected",consumablePublicationPage.getTitleText(),
             is(publication.getPublicationTitle()));
+
         assertThat("Publication summary is as expected",consumablePublicationPage.getSummaryText(),
             is(publication.getPublicationSummary()));
-
 
         assertThat("Uploaded attachment is available",consumablePublicationPage.getAttachmentName(),
             is(publication.getAttachment().getName()));
@@ -144,5 +144,7 @@ public class ContentSteps extends AbstractSpringSteps {
         assertThat("Geographic coverage is as expected",consumablePublicationPage.getGeographicCoverage(),
             is("Geographic coverage:\n" + publication.getGeographicCoverage()));
 
+        assertThat("Publication information type is as expected",consumablePublicationPage.getInformationType(),
+            is("Information types:\n" + publication.getInformationType()));
     }
 }

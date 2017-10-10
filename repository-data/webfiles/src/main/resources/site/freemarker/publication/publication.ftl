@@ -21,9 +21,7 @@
     </div>
     <div id="information-types">
         <h4>Information types:</h4>
-        <#list document.informationType as type>
-            ${type?html},
-        </#list>
+        <#list document.informationType as type><#if type?index != 0>, </#if>${type?html}</#list>
     </div>
     <div>
         <h4>Summary:</h4>
