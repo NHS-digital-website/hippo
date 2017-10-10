@@ -2,15 +2,11 @@ package uk.nhs.digital.ps.test.acceptance.pages;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
-import static java.util.concurrent.TimeUnit.MILLISECONDS;
-import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.*;
 
 
 public class ContentPage extends AbstractPage {
@@ -29,11 +25,7 @@ public class ContentPage extends AbstractPage {
         WebElement contentTab = helper.findElement(By.className("tab2"));
         contentTab.click();
 
-        // Refresh reference to element because click above recreates it
-        WebDriverWait wait = new WebDriverWait(getWebDriver(), 5);
-        return wait.pollingEvery(100, MILLISECONDS).until((WebDriver driver) -> {
-            return isOpen(helper.findNewElement(contentTab, By.className("tab2")));
-        });
+        return isContentTabOpen();
     }
 
     public boolean newPublication(final String documentName) {
@@ -53,18 +45,6 @@ public class ContentPage extends AbstractPage {
         WebElement summaryField = editorBody.findElement(By.className("publication-summary")).findElement(By.tagName("textarea"));
         summaryField.sendKeys(publication.getPublicationSummary());
 
-        // Uploading a file via Selenium requires that the file is present on the disk; upload
-        // is triggered by the full path to the file being 'typed' into the input element.
-        if (publication.getAttachment() != null) {
-            final Path attachmentPath = createFile(generatedAttachmentsDir,
-                publication.getAttachment().getName(),
-                publication.getAttachment().getContent()
-            );
-
-            getWebDriver().findElement(By.cssSelector("input[type=file]"))
-                .sendKeys(attachmentPath.toAbsolutePath().toString());
-        }
-
         WebElement geographicCoverage = editorBody.findElement(By.xpath("//span[text()='Geographic Coverage']/../following-sibling::div//select[@class='dropdown-plugin']"));
         Select dropdown = new Select(geographicCoverage );
         dropdown.selectByVisibleText(publication.getGeographicCoverage());
@@ -72,9 +52,16 @@ public class ContentPage extends AbstractPage {
         WebElement informationTypeWebElement = editorBody.findElement(By.xpath("//span[text()='Information Type']/../following-sibling::div//select[@class='dropdown-plugin']"));
         Select informationType = new Select(informationTypeWebElement);
         informationType.selectByVisibleText(publication.getInformationType());
-        
+
         Select granularity = new Select(editorBody.findElement(By.xpath("//span[text()='Granularity']/../following-sibling::div//select[@class='dropdown-plugin']")));
         granularity.selectByVisibleText(publication.getGranularity());
+
+        getAttachmentsSection().uploadAttachments(publication.getAttachments());
+    }
+
+
+    private AttachmentsSection getAttachmentsSection() {
+        return new AttachmentsSection(helper, getWebDriver(), generatedAttachmentsDir);
     }
 
     public void savePublication() {
@@ -86,8 +73,8 @@ public class ContentPage extends AbstractPage {
         findPublish().click();
     }
 
-    private boolean isOpen(WebElement contentTab) {
-        return contentTab.getAttribute("class").contains("selected");
+    private boolean isContentTabOpen() {
+        return helper.findElement(By.cssSelector("li[class~='tab2'][class~='selected']")) != null;
     }
 
     private WebElement openPublicationsMenu(WebDriver driver) {
@@ -127,8 +114,11 @@ public class ContentPage extends AbstractPage {
         // Confirm
         findOk().click();
 
-        boolean documentWasAdded = helper.isElementPresent(By.xpath("//span[@class='hippo-folder' or @class='hippo-document' and @title='" + title + "']"));
-        return documentWasAdded;
+        return isDocumentPresent(title);
+    }
+
+    private boolean isDocumentPresent(final String title) {
+        return helper.isElementPresent(By.cssSelector("span[class~='hippo-document'][title='" + title + "']"));
     }
 
     public boolean isPublicationSaved(){

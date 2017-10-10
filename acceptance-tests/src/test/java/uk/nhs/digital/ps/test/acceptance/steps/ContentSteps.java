@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.config.AcceptanceTestProperties;
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
+import uk.nhs.digital.ps.test.acceptance.pages.ConsumableAttachmentElement;
 import uk.nhs.digital.ps.test.acceptance.pages.ConsumablePublicationPage;
 import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
 
@@ -110,37 +111,6 @@ public class ContentSteps extends AbstractSpringSteps {
         assertThat("Publication summary is as expected",consumablePublicationPage.getSummaryText(),
             is(publication.getPublicationSummary()));
 
-        assertThat("Uploaded attachment is available",consumablePublicationPage.getAttachmentName(),
-            is(publication.getAttachment().getName()));
-
-        assertThat("Uploaded attachment's size is displayed",consumablePublicationPage.getAttachmentSizeText(),
-            is("size: " + publication.getAttachment().getContent().length + " B."));
-
-        if (acceptanceTestProperties.isHeadlessMode()) {
-            // At the moment of writing, there doesn't seem to be any easy way available to force Chromedriver
-            // to download files when operating in headless mode. It appears that some functionality has been
-            // added to DevTools but it's not obvious how to trigger that from Java so, for now at least,
-            // we'll only be testing file download when operating in a full, graphical mode.
-            //
-            // See bug report at https://bugs.chromium.org/p/chromium/issues/detail?id=696481 and other reports
-            // available online.
-            log.warn("Not testing file download due to running in a headless mode.");
-        } else {
-
-            // Download the file - simulate mouse click on the <a> tag.
-            consumablePublicationPage.getAttachmentElement().click();
-
-            final Path downloadedFilePath = Paths.get(acceptanceTestProperties.getDownloadDir().toString(),
-                publication.getAttachment().getName());
-
-            waitUntilFileAppears(downloadedFilePath);
-
-            assertThat("Downloaded file has the same content as the uploaded one",
-                readFileAsByteArray(downloadedFilePath),
-                is(publication.getAttachment().getContent())
-            );
-        }
-
         assertThat("Geographic coverage is as expected",consumablePublicationPage.getGeographicCoverage(),
             is("Geographic coverage:\n" + publication.getGeographicCoverage()));
 
@@ -149,5 +119,46 @@ public class ContentSteps extends AbstractSpringSteps {
 
         assertThat("Granularity is as expected",consumablePublicationPage.getGranularity(),
             is("Granularity:\n" + publication.getGranularity()));
+
+        assertThat("Expected number of attachments is displayed.",
+            consumablePublicationPage.getAttachments().size(),
+            is(publication.getAttachments().size()));
+
+        publication.getAttachments().forEach(attachment -> {
+            final ConsumableAttachmentElement consumableAttachmentElement =
+                consumablePublicationPage.findAttachmentElementByName(attachment.getFullName());
+
+            assertThat("Attachment " + attachment.getFullName() +" is displayed",
+                consumableAttachmentElement != null, is(true));
+
+            assertThat("Correct size of attachment " + attachment.getFullName() + " is displayed",
+                consumableAttachmentElement.getSizeText(), is("size: " + attachment.getContent().length + " B."));
+
+
+            if (acceptanceTestProperties.isHeadlessMode()) {
+                // At the moment of writing, there doesn't seem to be any easy way available to force Chromedriver
+                // to download files when operating in headless mode. It appears that some functionality has been
+                // added to DevTools but it's not obvious how to trigger that from Java so, for now at least,
+                // we'll only be testing file download when operating in a full, graphical mode.
+                //
+                // See bug report at https://bugs.chromium.org/p/chromium/issues/detail?id=696481 and other reports
+                // available online.
+                log.warn("Not testing file download due to running in a headless mode.");
+            } else {
+
+                // Trigger file download by click the <a> tag.
+                consumableAttachmentElement.clickHyperlink();
+
+                final Path downloadedFilePath = Paths.get(acceptanceTestProperties.getDownloadDir().toString(),
+                    attachment.getFullName());
+
+                waitUntilFileAppears(downloadedFilePath);
+
+                assertThat("Downloaded file has the same content as the uploaded attachment "
+                        + attachment.getFullName(),
+                    readFileAsByteArray(downloadedFilePath), is(attachment.getContent())
+                );
+            }
+        });
     }
 }

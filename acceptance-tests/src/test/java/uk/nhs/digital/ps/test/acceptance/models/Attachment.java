@@ -1,34 +1,28 @@
 package uk.nhs.digital.ps.test.acceptance.models;
 
-import static uk.nhs.digital.ps.test.acceptance.util.RandomHelper.newRandomByteArray;
-import static uk.nhs.digital.ps.test.acceptance.util.RandomHelper.newRandomString;
-
 public class Attachment {
 
     private String name;
+    private FileType fileType;
     private byte[] content;
 
-    private Attachment(final String name, final byte[] content) {
-        this.name = name;
-        this.content = content;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public byte[] getContent() {
-        return content;
+    Attachment(final AttachmentBuilder builder) {
+        name = builder.getName();
+        fileType = builder.getFileType();
+        content = builder.getContent();
     }
 
     /**
-     * @return New instance, fully populated with random values.
+     * @return Full name of the file, including extension if present.
      */
-    static Attachment createNew() {
+    public String getFullName() {
+        return name + (fileType == null ? "" : "." + fileType.getExtension());
+    }
 
-        return new Attachment(
-            newRandomString() + ".txt",
-            newRandomByteArray()
-        );
+    /**
+     * @return Content of the file; enriched with type-specific magic numbers where applicable.
+     */
+    public byte[] getContent() {
+        return content;
     }
 }
