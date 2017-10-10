@@ -146,5 +146,8 @@ public class ContentSteps extends AbstractSpringSteps {
 
         assertThat("Publication information type is as expected",consumablePublicationPage.getInformationType(),
             is("Information types:\n" + publication.getInformationType()));
+
+        assertThat("Granularity is as expected",consumablePublicationPage.getGranularity(),
+            is("Granularity:\n" + publication.getGranularity()));
     }
 }

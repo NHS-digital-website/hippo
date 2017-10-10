@@ -11,13 +11,21 @@
     <h1 id="title">${document.title?html}</h1>
     <div id="taxonomy">
         <h4>Taxonomy:</h4>
-        <#list document.keys as key>
-            ${key?html},
-        </#list>
+        <#if document.keys?has_content>
+            <#list document.keys as key>
+                ${key?html}
+            </#list>
+        <#else>
+            (None specified)
+        </#if>
     </div>
     <div id="nominal-date">
         <h4>Nominal publication date:</h4>
-        <@fmt.formatDate value=document.nominalDate.time type="Date" pattern=dateFormat />
+        <#if document.nominalDate??>
+            <@fmt.formatDate value=document.nominalDate.time type="Date" pattern=dateFormat />
+        <#else>
+            (Not specified)
+        </#if>
     </div>
     <div id="information-types">
         <h4>Information types:</h4>
@@ -33,21 +41,31 @@
     </div>
     <div id="coverage-start">
         <h4>Coverage start:</h4>
-        <@fmt.formatDate value=document.coverageStart.time type="Date" pattern=dateFormat />
+        <#if document.coverageStart??>
+            <@fmt.formatDate value=document.coverageStart.time type="Date" pattern=dateFormat />
+        <#else>
+            (Not specified)
+        </#if>
     </div>
     <div id="coverage-end">
         <h4>Coverage end:</h4>
-        <@fmt.formatDate value=document.coverageEnd.time type="Date" pattern=dateFormat />
+        <#if document.coverageEnd??>
+            <@fmt.formatDate value=document.coverageEnd.time type="Date" pattern=dateFormat />
+            <#else>
+                (Not specified)
+        </#if>
     </div>
     <div id="geographic-coverage">
         <h4>Geographic coverage:</h4>
-        ${document.geographicCoverage?html}
+        <#if document.geographicCoverage??>
+            ${document.geographicCoverage?html}
+        <#else>
+            (Not specified)
+        </#if>
     </div>
     <div id="granularity">
         <h4>Granularity:</h4>
-        <#list document.granularity as granularityItem>
-            ${granularityItem?html},
-        </#list>
+        <#list document.granularity as granularityItem><#if granularityItem?index != 0>, </#if>${granularityItem?html}</#list>
     </div>
     <div id="attachments">
         <h4>Attachments:</h4>

@@ -46,4 +46,8 @@ public class ConsumablePublicationPage extends AbstractPage {
     public String getInformationType() {
         return helper.findElement(By.id("information-types")).getText();
     }
+    public String getGranularity() {
+        return helper.findElement(By.id("granularity")).getText();
+    }
+
 }
