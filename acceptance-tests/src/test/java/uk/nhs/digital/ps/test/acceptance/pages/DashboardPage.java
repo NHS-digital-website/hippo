@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.WebElement;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
-public class DashboardPage extends AbstractPage {
+public class DashboardPage extends AbstractCmsPage {
 
     public DashboardPage(final WebDriverProvider webDriverProvider) {
         super(webDriverProvider);

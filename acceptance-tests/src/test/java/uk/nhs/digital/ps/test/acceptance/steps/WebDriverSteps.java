@@ -19,7 +19,8 @@ public class WebDriverSteps extends AbstractSpringSteps {
         webDriverProvider.initialise();
     }
 
-    @After
+    // Low execution order ensures that the web driver is disposed after any other @After steps that may need it.
+    @After(order = 0)
     public void dispose() {
         webDriverProvider.dispose();
     }

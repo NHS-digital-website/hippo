@@ -3,6 +3,10 @@ package uk.nhs.digital.ps.test.acceptance.pages;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 import org.openqa.selenium.*;
 
+import java.util.List;
+
+import static java.util.stream.Collectors.toList;
+
 
 public class ConsumablePublicationPage extends AbstractPage {
 
@@ -15,8 +19,8 @@ public class ConsumablePublicationPage extends AbstractPage {
         this.helper = helper;
     }
 
-    public void open(String publicationPath) {
-        getWebDriver().get(URL + publicationPath);
+    public void open(final String publicationUrlName) {
+        getWebDriver().get(URL + "/publications/" + publicationUrlName);
     }
 
     public String getTitleText() {
@@ -27,16 +31,17 @@ public class ConsumablePublicationPage extends AbstractPage {
         return helper.findElement(By.id("summary")).getText();
     }
 
-    public WebElement getAttachmentElement() {
-        return helper.findElement(By.className("attachment-hyperlink"));
+    public List<ConsumableAttachmentElement> getAttachments() {
+        return getWebDriver().findElements(By.cssSelector("li[class~='attachment']")).stream()
+            .map(ConsumableAttachmentElement::new)
+            .collect(toList());
     }
 
-    public String getAttachmentName() {
-        return getAttachmentElement().getText();
-    }
-
-    public String getAttachmentSizeText() {
-        return helper.findElement(By.className("fileSize")).getText();
+    public ConsumableAttachmentElement findAttachmentElementByName(final String fullName) {
+        return getAttachments().stream()
+            .filter(consumableAttachmentElement -> fullName.equals(consumableAttachmentElement.getFullName()))
+            .findFirst()
+            .orElse(null);
     }
 
     public String getGeographicCoverage() {

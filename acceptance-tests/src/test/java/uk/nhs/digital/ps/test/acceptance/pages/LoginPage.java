@@ -5,9 +5,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
-public class LoginPage extends AbstractPage {
-
-    static final String URL = "http://localhost:8080/cms";
+public class LoginPage extends AbstractCmsPage {
 
     public LoginPage(final WebDriverProvider webDriverProvider) {
         super(webDriverProvider);
@@ -58,6 +56,5 @@ public class LoginPage extends AbstractPage {
     public boolean isLoggedIn(){
         return getWebDriver().findElements(By.className("hippo-logout")).size() == 1;
     }
-
 
 }
