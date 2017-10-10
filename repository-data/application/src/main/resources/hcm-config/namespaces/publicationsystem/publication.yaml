@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 4b214c41-2115-4c0d-b1da-13ae76e19d2f
+          jcr:uuid: 5bb6ca22-2610-4492-9ef6-7d8e4110687d
           hipposysedit:node: true
           hipposysedit:supertype: ['hippotranslation:translated', 'hippotaxonomy:classifiable',
             'publicationsystem:basedocument', 'hippostd:relaxed']
@@ -40,6 +40,7 @@ definitions:
             hipposysedit:path: publicationsystem:InformationType
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
+            hipposysedit:validators: [non-empty, required]
           /nominal_date:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -131,7 +132,7 @@ definitions:
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
-          jcr:uuid: 8f13caa4-1816-4a29-9d03-4ba1115f3ba5
+          jcr:uuid: 96130d16-056b-468c-b99a-c663b4a8a1dc
           hippostdpubwf:lastModificationDate: 2017-09-26T16:14:40.971+01:00
           hippostdpubwf:creationDate: 2017-09-26T16:14:40.972+01:00
           publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
@@ -188,10 +189,11 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.css: [information-type]
             wicket.id: ${cluster.id}.right.item
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Audit,Experimental statistics,National statistic,Official
-                statistics, Open data, Other reports and statistics, Survey
+              selectable.options: Audit,Experimental statistics,National statistics,Official
+                statistics,Open data,Other reports and statistics,Survey
           /classifiable:
             jcr:primaryType: frontend:plugin
             essentials-taxonomy-name: publication_taxonomy

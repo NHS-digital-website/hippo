@@ -9,17 +9,20 @@ public class Publication {
     private String publicationSummary;
     private Attachment attachment;
     private String geographicCoverage;
+    private String informationType;
 
     private Publication(final String publicationName,
                         final String publicationTitle,
                         final String publicationSummary,
                         final Attachment attachment,
-                        final String geographicCoverage) {
+                        final String geographicCoverage,
+                        final String informationType) {
         this.publicationName = publicationName;
         this.publicationTitle = publicationTitle;
         this.publicationSummary = publicationSummary;
         this.attachment = attachment;
         this.geographicCoverage = geographicCoverage;
+        this.informationType = informationType;
     }
 
     public String getPublicationName() {
@@ -46,6 +49,10 @@ public class Publication {
         return attachment;
     }
 
+    public String getInformationType() {
+        return informationType;
+    }
+
     /**
      * @return New instance, fully populated with random values.
      */
@@ -56,7 +63,8 @@ public class Publication {
             RandomHelper.newRandomString(),
             RandomHelper.newRandomString(),
             Attachment.createNew(),
-            "UK"
+            "UK",
+            "Experimental statistics"
         );
     }
 }

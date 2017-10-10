@@ -43,4 +43,7 @@ public class ConsumablePublicationPage extends AbstractPage {
         return helper.findElement(By.id("geographic-coverage")).getText();
     }
 
+    public String getInformationType() {
+        return helper.findElement(By.id("information-types")).getText();
+    }
 }
