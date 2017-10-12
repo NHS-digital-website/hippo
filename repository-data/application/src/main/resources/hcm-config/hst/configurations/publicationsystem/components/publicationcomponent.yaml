@@ -3,3 +3,5 @@ definitions:
     /hst:hst/hst:configurations/publicationsystem/hst:components/publicationcomponent:
       jcr:primaryType: hst:component
       hst:componentclassname: uk.nhs.digital.ps.components.PublicationComponent
+      hst:parameternames: [taxonomyName]
+      hst:parametervalues: [publication_taxonomy]

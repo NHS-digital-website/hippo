@@ -3,17 +3,21 @@
 <#assign fmt=JspTaglibs ["http://java.sun.com/jsp/jstl/fmt"] />
 <#assign dateFormat="h:mm a d/MM/yyyy"/>
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() >
+<#function getTaxonomyNameFromKey key>
+    <#return taxonomy.getCategoryByKey(key).getInfo('en').name>
+</#function>
 <html>
 <head>
 </head>
 <body>
+
 <#if document??>
     <h1 id="title">${document.title?html}</h1>
     <div id="taxonomy">
         <h4>Taxonomy:</h4>
-        <#if document.keys?has_content>
-            <#list document.keys as key>
-                ${key?html}
+        <#if taxonomyList??>
+            <#list taxonomyList as taxonomyChain>
+                <div>${taxonomyChain?join(" => ")}</div>
             </#list>
         <#else>
             (None specified)

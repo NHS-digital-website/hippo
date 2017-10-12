@@ -136,6 +136,9 @@ public class ContentSteps extends AbstractSpringSteps {
         assertThat("Granularity is as expected",consumablePublicationPage.getGranularity(),
             is("Granularity:\n" + publication.getGranularity()));
 
+        assertThat("Taxonomy is as expected",consumablePublicationPage.getTaxonomy(),
+            is("Taxonomy:\n" + publication.getTaxonomy().getTaxonomyContext()));
+
         assertAttachmentsUpload(publication.getAttachments());
     }
 

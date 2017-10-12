@@ -26,7 +26,8 @@ public class TestDataFactory {
             .withPublicationSummary(newRandomString())
             .withGeographicCoverage("UK")
             .withInformationType("Experimental statistics")
-            .withGranularity("Ambulance Trusts");
+            .withGranularity("Ambulance Trusts")
+            .withTaxonomy(Taxonomy.createNew("Conditions", "Accidents and injuries", "Falls"));
     }
 
     public static AttachmentBuilder createAttachmentOfType(final FileType fileType) {
