@@ -3,9 +3,6 @@ package uk.nhs.digital.ps.test.acceptance.models;
 import java.util.ArrayList;
 import java.util.List;
 
-import static uk.nhs.digital.ps.test.acceptance.util.RandomHelper.newRandomString;
-
-// Builder's methods are intentionally not private to promote their use and visibility in IDE outside of this class.
 @SuppressWarnings("WeakerAccess") // builder's methods are intentionally public
 public class PublicationBuilder {
 
@@ -17,10 +14,45 @@ public class PublicationBuilder {
     private String granularity;
     private List<Attachment> attachments = new ArrayList<>();
 
-    private PublicationBuilder() {
-        // no-op made private to promote the use of factory methods
+    public static PublicationBuilder create() {
+        return new PublicationBuilder();
     }
 
+    //<editor-fold desc="builder methods">
+    public PublicationBuilder withPublicationName(final String publicationName) {
+        return cloneAndAmend(builder -> builder.publicationName = publicationName);
+    }
+
+    public PublicationBuilder withPublicationTitle(final String publicationTitle) {
+        return cloneAndAmend(builder -> builder.publicationTitle = publicationTitle);
+    }
+
+    public PublicationBuilder withPublicationSummary(final String publicationSummary) {
+        return cloneAndAmend(builder -> builder.publicationSummary = publicationSummary);
+    }
+
+    public PublicationBuilder withGeographicCoverage(final String geographicCoverage) {
+        return cloneAndAmend(builder -> builder.geographicCoverage = geographicCoverage);
+    }
+
+    public PublicationBuilder withInformationType(final String informationType) {
+        return cloneAndAmend(builder -> builder.informationType = informationType);
+    }
+
+    public PublicationBuilder withGranularity(final String granularity) {
+        return cloneAndAmend(builder -> builder.granularity = granularity);
+    }
+
+    public PublicationBuilder withAttachments(final List<Attachment> attachments) {
+        return cloneAndAmend(builder -> builder.attachments = attachments);
+    }
+    //</editor-fold>
+
+    public Publication build() {
+        return new Publication(this);
+    }
+
+    //<editor-fold desc="getters" defaultstate="collapsed">
     String getPublicationName() {
         return publicationName;
     }
@@ -46,59 +78,32 @@ public class PublicationBuilder {
     }
 
     List<Attachment> getAttachments() {
-        return attachments;
+        return attachments == null ? new ArrayList<>() : new ArrayList<>(attachments);
+    }
+    //</editor-fold>
+
+    private PublicationBuilder(final PublicationBuilder original) {
+        publicationName = original.getPublicationName();
+        publicationTitle = original.getPublicationTitle();
+        publicationSummary = original.getPublicationSummary();
+        geographicCoverage = original.getGeographicCoverage();
+        informationType = original.getInformationType();
+        granularity = original.getGranularity();
+        attachments = getAttachments();
     }
 
-    public PublicationBuilder withPublicationName(final String publicationName) {
-        this.publicationName = publicationName;
-        return this;
+    private PublicationBuilder() {
+        // no-op; made private to promote the use of factory methods
     }
 
-    public PublicationBuilder withPublicationTitle(final String publicationTitle) {
-        this.publicationTitle = publicationTitle;
-        return this;
+    private PublicationBuilder cloneAndAmend(final PropertySetter propertySetter) {
+        final PublicationBuilder clone = new PublicationBuilder(this);
+        propertySetter.setProperties(clone);
+        return clone;
     }
 
-    public PublicationBuilder withPublicationSummary(final String publicationSummary) {
-        this.publicationSummary = publicationSummary;
-        return this;
-    }
-
-    public PublicationBuilder withGeographicCoverage(final String geographicCoverage) {
-        this.geographicCoverage = geographicCoverage;
-        return this;
-    }
-
-    public PublicationBuilder withInformationType(final String informationType) {
-        this.informationType = informationType;
-        return this;
-    }
-
-    public PublicationBuilder withGranularity(final String granularity) {
-        this.granularity = granularity;
-        return this;
-    }
-
-    public PublicationBuilder withAttachments(final List<Attachment> attachments) {
-        this.attachments = attachments;
-        return this;
-    }
-
-    public Publication build() {
-        return new Publication(this);
-    }
-
-    /**
-     * @return New instance, fully populated with random or default values.
-     */
-    public static PublicationBuilder createValidPublication() {
-        return new PublicationBuilder()
-            .withPublicationName(newRandomString())
-            .withPublicationTitle(newRandomString())
-            .withPublicationSummary(newRandomString())
-            .withGeographicCoverage("UK")
-            .withInformationType("Experimental statistics")
-            .withGranularity("Ambulance Trusts")
-            .withAttachments(AttachmentBuilder.createValidAttachments());
+    @FunctionalInterface
+    interface PropertySetter {
+        void setProperties(PublicationBuilder builder);
     }
 }

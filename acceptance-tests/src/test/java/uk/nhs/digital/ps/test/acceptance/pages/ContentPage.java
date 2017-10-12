@@ -5,20 +5,14 @@ import org.openqa.selenium.support.ui.Select;
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
 
 public class ContentPage extends AbstractPage {
 
     private PageHelper helper;
 
-    private Path generatedAttachmentsDir;
-
-    public ContentPage(final WebDriverProvider webDriverProvider, final PageHelper helper, final Path tempDir) {
+    public ContentPage(final WebDriverProvider webDriverProvider, final PageHelper helper) {
         super(webDriverProvider);
         this.helper = helper;
-        this.generatedAttachmentsDir = Paths.get(tempDir.toString(), "upload");
     }
 
     public boolean openContentTab() {
@@ -61,7 +55,7 @@ public class ContentPage extends AbstractPage {
 
 
     private AttachmentsSection getAttachmentsSection() {
-        return new AttachmentsSection(helper, getWebDriver(), generatedAttachmentsDir);
+        return new AttachmentsSection(helper, getWebDriver());
     }
 
     public void savePublication() {

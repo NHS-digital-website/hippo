@@ -74,7 +74,7 @@
             <#list document.attachments as attachment>
                 <li class="attachment">
                     <a class="attachment-hyperlink" href="<@hst.link hippobean=attachment/>">${attachment.filename}</a>;
-                    <span class="fileSize">size: <@formatFileSize bytesCount=attachment.length/>.</span>
+                    <span class="fileSize">size: <@formatFileSize bytesCount=attachment.length/></span>
                 </li>
             </#list>
             </ul>

@@ -1,30 +1,66 @@
 package uk.nhs.digital.ps.test.acceptance.models;
 
-import java.util.Arrays;
-import java.util.List;
+import org.apache.commons.io.FilenameUtils;
+import uk.nhs.digital.ps.test.acceptance.util.FileHelper;
 
-import static java.util.stream.Collectors.toList;
-import static uk.nhs.digital.ps.test.acceptance.models.FileType.getAllowedFileTypes;
-import static uk.nhs.digital.ps.test.acceptance.util.RandomHelper.getRandomArrayElement;
-import static uk.nhs.digital.ps.test.acceptance.util.RandomHelper.newRandomByteArray;
-import static uk.nhs.digital.ps.test.acceptance.util.RandomHelper.newRandomString;
+import java.nio.file.Path;
+import java.text.MessageFormat;
 
-// Builder's methods are intentionally not private to promote their use and visibility in IDE outside of this class.
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings("WeakerAccess") // builder's methods are intentionally public
 public class AttachmentBuilder {
-
 
     private String name;
     private FileType fileType;
     private byte[] content;
+    private Path path;
 
-    /** Raw as in 'not enriched with file type specific magic numbers; internal to the builder only. */
-    private byte[] rawContent;
-
-    private AttachmentBuilder() {
-        // no-op made private to promote the use of factory methods
+    public static AttachmentBuilder create() {
+        return new AttachmentBuilder();
     }
 
+    //<editor-fold desc="builder methods">
+    public AttachmentBuilder withName(final String name) {
+        vetSettingProperty("name");
+
+        return cloneAndAmend(builder -> builder.name = name);
+    }
+
+    public AttachmentBuilder withFileType(final FileType fileType) {
+        vetSettingProperty("fileType");
+
+        return cloneAndAmend(builder -> builder.fileType = fileType);
+    }
+
+    public AttachmentBuilder withContent(final byte[] content) {
+        vetSettingProperty("content");
+
+        return cloneAndAmend(builder -> builder.content = content);
+    }
+
+    public AttachmentBuilder withFile(final Path path) {
+
+        final byte[] content = FileHelper.readFileAsByteArray(path);
+        final FileType fileType = FileHelper.getFileType(path);
+        final String fileName = FilenameUtils.getBaseName(path.getFileName().toString());
+
+        return cloneAndAmend(builder -> {
+            builder.path = path;
+            builder.content = content;
+            builder.fileType = fileType;
+            builder.name = fileName;
+        });
+    }
+
+    public Path getPath() {
+        return path;
+    }
+    //</editor-fold>
+
+    public Attachment build() {
+        return new Attachment(this);
+    }
+
+    //<editor-fold desc="getters" defaultstate="collapsed">
     String getName() {
         return name;
     }
@@ -36,54 +72,38 @@ public class AttachmentBuilder {
     byte[] getContent() {
         return content;
     }
+    //</editor-fold>
 
-    public AttachmentBuilder withName(final String name) {
-        this.name = name;
-        return this;
+    private AttachmentBuilder() {
+        // no-op; made private to promote the use of factory methods
     }
 
-    public AttachmentBuilder withFileType(final FileType fileType) {
-        this.fileType = fileType;
-        // ensure that the content is enriched with type-specific magic numbers
-        if (rawContent != null) {
-            content = fileType.enrichWithMagicNumbers(rawContent);
+    private AttachmentBuilder(final AttachmentBuilder original) {
+        name = original.getName();
+        fileType = original.getFileType();
+        content = original.getContent();
+        path = original.getPath();
+    }
+
+    private AttachmentBuilder cloneAndAmend(final PropertySetter propertySetter) {
+        final AttachmentBuilder clone = new AttachmentBuilder(this);
+        propertySetter.setProperties(clone);
+        return clone;
+    }
+
+    private void vetSettingProperty(final String propertyName) {
+        if (path != null) {
+            throw new IllegalStateException(MessageFormat.format(
+                "Setting of {0} is not permitted as this attachment is already backed by an actual file and " +
+                    "changing its {0} would leave it in inconsistent state. To set arbitrary {0} use use a builder " +
+                    "without the path set.", propertyName)
+            );
         }
-        return this;
     }
 
-    public AttachmentBuilder withContent(final byte[] rawContent) {
-        this.rawContent = rawContent;
-        // ensure that the content is enriched with type-specific magic numbers
-        this.content = fileType == null ? this.rawContent : fileType.enrichWithMagicNumbers(this.rawContent);
-        return this;
-    }
+    @FunctionalInterface
+    interface PropertySetter {
 
-    public Attachment build() {
-        return new Attachment(this);
-    }
-
-    /**
-     * @return New instance of the builder initialised to produce fully populated instance of {@linkplain Attachment}
-     *         with default, random, valid values.
-     */
-    public static AttachmentBuilder createValidAttachment() {
-
-        final FileType fileType = getRandomArrayElement(FileType.values());
-
-        return new AttachmentBuilder()
-            .withName(newRandomString())
-            .withContent(newRandomByteArray())
-            .withFileType(fileType);
-    }
-
-    /**
-     * @return List of new instances, fully populated with default, random, valid values. The list contains
-     *         one attachment per each {@linkplain FileType#getAllowedFileTypes() allowed file type}.
-     */
-    public static List<Attachment> createValidAttachments() {
-
-        return Arrays.stream(getAllowedFileTypes())
-            .map(extension -> AttachmentBuilder.createValidAttachment().withFileType(extension).build())
-            .collect(toList());
+        void setProperties(AttachmentBuilder builder);
     }
 }

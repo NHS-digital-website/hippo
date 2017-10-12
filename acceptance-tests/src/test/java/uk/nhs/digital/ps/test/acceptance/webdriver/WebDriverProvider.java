@@ -85,8 +85,6 @@ public class WebDriverProvider {
         desiredCapabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 
         webDriver = new RemoteWebDriver(webDriverServiceProvider.getUrl(), desiredCapabilities);
-
-        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     /**

@@ -10,6 +10,7 @@ import uk.nhs.digital.ps.test.acceptance.models.Publication;
 import uk.nhs.digital.ps.test.acceptance.pages.ConsumableAttachmentElement;
 import uk.nhs.digital.ps.test.acceptance.pages.ConsumablePublicationPage;
 import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
+import uk.nhs.digital.ps.test.acceptance.util.FileHelper;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -132,7 +133,8 @@ public class ContentSteps extends AbstractSpringSteps {
                 consumableAttachmentElement != null, is(true));
 
             assertThat("Correct size of attachment " + attachment.getFullName() + " is displayed",
-                consumableAttachmentElement.getSizeText(), is("size: " + attachment.getContent().length + " B."));
+                consumableAttachmentElement.getSizeText(),
+                is("size: " + FileHelper.toHumanFriendlyFileSize((long) attachment.getContent().length)));
 
 
             if (acceptanceTestProperties.isHeadlessMode()) {
@@ -161,4 +163,5 @@ public class ContentSteps extends AbstractSpringSteps {
             }
         });
     }
+
 }

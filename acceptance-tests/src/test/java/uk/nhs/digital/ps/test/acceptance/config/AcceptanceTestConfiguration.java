@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
-import uk.nhs.digital.ps.test.acceptance.models.PublicationBuilder;
+import uk.nhs.digital.ps.test.acceptance.models.TestDataFactory;
 import uk.nhs.digital.ps.test.acceptance.pages.DashboardPage;
 import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
 import uk.nhs.digital.ps.test.acceptance.pages.LoginPage;
@@ -37,9 +37,8 @@ public class AcceptanceTestConfiguration {
     }
 
     @Bean
-    public ContentPage contentPage(final WebDriverProvider webDriverProvider, final PageHelper pageHelper,
-                                   final AcceptanceTestProperties acceptanceTestProperties) {
-        return new ContentPage(webDriverProvider, pageHelper, acceptanceTestProperties.getTempDir());
+    public ContentPage contentPage(final WebDriverProvider webDriverProvider, final PageHelper pageHelper) {
+        return new ContentPage(webDriverProvider, pageHelper);
     }
 
     @Bean
@@ -54,7 +53,7 @@ public class AcceptanceTestConfiguration {
 
     @Bean
     public Publication publication() {
-        return PublicationBuilder.createValidPublication().build();
+        return TestDataFactory.createValidPublication();
     }
 
     @Bean

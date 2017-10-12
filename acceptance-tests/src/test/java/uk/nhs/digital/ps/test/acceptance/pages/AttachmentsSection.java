@@ -6,24 +6,20 @@ import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import uk.nhs.digital.ps.test.acceptance.models.Attachment;
 
-import java.nio.file.Path;
 import java.util.List;
 
 import static org.slf4j.LoggerFactory.getLogger;
-import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.createFile;
 
 class AttachmentsSection {
 
     private final static Logger log = getLogger(AttachmentsSection.class);
 
-    private final Path generatedAttachmentsDir;
     private final PageHelper helper;
     private WebDriver webDriver;
 
-    AttachmentsSection(final PageHelper helper, final WebDriver webDriver, final Path generatedAttachmentsDir) {
+    AttachmentsSection(final PageHelper helper, final WebDriver webDriver) {
         this.helper = helper;
         this.webDriver = webDriver;
-        this.generatedAttachmentsDir = generatedAttachmentsDir;
     }
 
     void uploadAttachments(final List<Attachment> attachments) {
@@ -34,9 +30,9 @@ class AttachmentsSection {
         if (attachments != null) {
             // Create enough file upload fields for all attachments.
             //
-            // HERE BE DRAGONS: a better encapsulation would be to iterate through attachments
-            // and, for each attachment first add one upload field and upload attachment and
-            // then progress to the next attachment. It has been tried, but, unfortunately,
+            // HERE BE DRAGONS: it would provide for a better encapsulation if we were to iterate
+            // through attachments and, for each attachment first add one upload field and upload
+            // attachment and then progress to the next attachment. It has been tried, but, unfortunately,
             // this approach proved to be very unreliable and so, in the interest of time,
             // the approach of creating new fields in one go first was implemented as more robust.
             //
@@ -57,17 +53,14 @@ class AttachmentsSection {
     }
 
     private void uploadAttachment(final int uploadFileFieldIndex, final Attachment attachment) {
-        final Path attachmentPath = createFile(generatedAttachmentsDir,
-            attachment.getFullName(),
-            attachment.getContent()
-        );
 
-        log.debug("Uploading attachment[{}]: {}", uploadFileFieldIndex, attachment.getFullName());
+        log.debug("Uploading attachment[{}] {} from {}", uploadFileFieldIndex, attachment.getFullName(),
+            attachment.getPath().toAbsolutePath());
         helper.executeWhenStable(() -> {
             final List<WebElement> fileUploadElements = findFileUploadElements();
             final WebElement nextFileUploadElement = fileUploadElements.get(uploadFileFieldIndex);
 
-            nextFileUploadElement.sendKeys(attachmentPath.toAbsolutePath().toString());
+            nextFileUploadElement.sendKeys(attachment.getPath().toAbsolutePath().toString());
         });
 
         // Uploads are handled asynchronously so we should detect whether it has completed and only
