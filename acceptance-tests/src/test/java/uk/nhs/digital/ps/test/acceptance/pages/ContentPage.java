@@ -11,6 +11,7 @@ public class ContentPage extends AbstractCmsPage {
 
     private final static String XPATH_CONTENT_TAB = "//div[contains(@class, 'tabbed-panel-layout-left')]//li[contains(@class, 'tab2')]";
     private final static String XPATH_EDITOR_BODY = "//div[contains(@class, 'hippo-editor-body')]";
+    private final static String XPATH_TAXONOMY_PICKER =  "//div[contains(@class, 'wicket-modal') and contains(@aria-labelledby, 'Taxonomy picker')]";
 
     private PageHelper helper;
 
@@ -74,6 +75,22 @@ public class ContentPage extends AbstractCmsPage {
         )).selectByVisibleText(
             publication.getGranularity()
         );
+
+        helper.findElement(
+            By.xpath(XPATH_EDITOR_BODY + "//span[text()='Select taxonomy terms']/../..")
+        ).click();
+        helper.findElement(
+            By.xpath(XPATH_TAXONOMY_PICKER + "//span[text()='" + publication.getTaxonomy().getLevel1() + "']/..")
+        ).click();
+        helper.findElement(
+            By.xpath(XPATH_TAXONOMY_PICKER + "//span[text()='" + publication.getTaxonomy().getLevel2() + "']/..")
+        ).click();
+        helper.findElement(
+            By.xpath(XPATH_TAXONOMY_PICKER + "//span[text()='" + publication.getTaxonomy().getLevel3() + "']/..")
+        ).click();
+        helper.findElement(By.cssSelector("a[class~='category-add']")).click();
+
+        findOk().click();
 
         getAttachmentsSection().uploadAttachments(publication.getAttachments());
     }

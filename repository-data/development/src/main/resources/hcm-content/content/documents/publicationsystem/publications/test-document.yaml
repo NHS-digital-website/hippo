@@ -1,0 +1,136 @@
+---
+
+/content/documents/publicationsystem/publications/test-document:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['mix:referenceable']
+  jcr:uuid: 56ac0bb1-e99d-4eb0-8b70-1c5b47ca37fa
+  /test-document[1]:
+    jcr:primaryType: publicationsystem:publication
+    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+    jcr:uuid: cc0d9330-8b6f-464f-9f16-a77ab06ab7a4
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-16T15:42:28.857+01:00
+    hippostdpubwf:lastModificationDate: 2017-10-16T15:42:54.255+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 9a8730fa-c650-4e8d-93d0-524c5c325af1
+    hippotranslation:locale: en
+    hippotaxonomy:keys: [falls, infectious-diseases, workforce]
+    publicationsystem:AdministrativeSources: ''
+    publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+    publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+    publicationsystem:Granularity: ['']
+    publicationsystem:InformationType: [Official statistics]
+    publicationsystem:KeyFacts: ''
+    publicationsystem:NominalDate: 0001-01-01T12:00:00Z
+    publicationsystem:Summary: Maecenas laoreet ullamcorper aliquam. Sed ac nunc
+      pellentesque, lobortis orci eu, placerat nibh. Nulla est mauris, vehicula
+      nec ornare a, lacinia vel odio. Sed et accumsan mi, quis finibus orci. Integer
+      eget tortor mauris. Cras fermentum sodales urna, ac vulputate odio lobortis
+      eget. Etiam id erat blandit, feugiat orci non, pharetra est. Sed interdum
+      a leo facilisis aliquam. Curabitur justo nisi, mattis vel neque placerat,
+      imperdiet ultrices tortor.
+    publicationsystem:Title: Lorem ipsum dolor sit amet.
+    /publicationsystem:attachments:
+      jcr:primaryType: hippo:resource
+      hippo:filename: hippo:resource
+      jcr:data:
+        type: binary
+        resource: test-document/test-document[1]/attachments/data.bin
+      jcr:encoding: UTF-8
+      jcr:lastModified: 2008-03-26T12:03:00+01:00
+      jcr:mimeType: application/vnd.hippo.blank
+    /publicationsystem:RelatedLinks:
+      jcr:primaryType: publicationsystem:relatedlink
+      publicationsystem:linkText: ''
+      publicationsystem:linkUrl: ''
+      publicationsystem:link_text: ''
+      publicationsystem:link_url: ''
+  /test-document[2]:
+    jcr:primaryType: publicationsystem:publication
+    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+    jcr:uuid: 82b4f667-c09b-4f7e-bf3c-2a393035a677
+    hippo:availability: [preview]
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-16T15:42:28.857+01:00
+    hippostdpubwf:lastModificationDate: 2017-10-16T15:42:54.070+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 9a8730fa-c650-4e8d-93d0-524c5c325af1
+    hippotranslation:locale: en
+    hippotaxonomy:keys: [falls, infectious-diseases, workforce]
+    publicationsystem:AdministrativeSources: ''
+    publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+    publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+    publicationsystem:Granularity: ['']
+    publicationsystem:InformationType: [Official statistics]
+    publicationsystem:KeyFacts: ''
+    publicationsystem:NominalDate: 0001-01-01T12:00:00Z
+    publicationsystem:Summary: Maecenas laoreet ullamcorper aliquam. Sed ac nunc
+      pellentesque, lobortis orci eu, placerat nibh. Nulla est mauris, vehicula
+      nec ornare a, lacinia vel odio. Sed et accumsan mi, quis finibus orci. Integer
+      eget tortor mauris. Cras fermentum sodales urna, ac vulputate odio lobortis
+      eget. Etiam id erat blandit, feugiat orci non, pharetra est. Sed interdum
+      a leo facilisis aliquam. Curabitur justo nisi, mattis vel neque placerat,
+      imperdiet ultrices tortor.
+    publicationsystem:Title: Lorem ipsum dolor sit amet.
+    /publicationsystem:attachments:
+      jcr:primaryType: hippo:resource
+      hippo:filename: hippo:resource
+      jcr:data:
+        type: binary
+        resource: test-document/test-document[2]/attachments/data.bin
+      jcr:encoding: UTF-8
+      jcr:lastModified: 2008-03-26T12:03:00+01:00
+      jcr:mimeType: application/vnd.hippo.blank
+    /publicationsystem:RelatedLinks:
+      jcr:primaryType: publicationsystem:relatedlink
+      publicationsystem:linkText: ''
+      publicationsystem:linkUrl: ''
+      publicationsystem:link_text: ''
+      publicationsystem:link_url: ''
+  /test-document[3]:
+    jcr:primaryType: publicationsystem:publication
+    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+    jcr:uuid: 6dda6321-a18c-4a33-aa67-e077b6cbaef9
+    hippo:availability: [live]
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-16T15:42:28.857+01:00
+    hippostdpubwf:lastModificationDate: 2017-10-16T15:42:54.070+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2017-10-16T15:43:17.198+01:00
+    hippotranslation:id: 9a8730fa-c650-4e8d-93d0-524c5c325af1
+    hippotranslation:locale: en
+    hippotaxonomy:keys: [falls, infectious-diseases, workforce]
+    publicationsystem:AdministrativeSources: ''
+    publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+    publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+    publicationsystem:Granularity: ['']
+    publicationsystem:InformationType: [Official statistics]
+    publicationsystem:KeyFacts: ''
+    publicationsystem:NominalDate: 0001-01-01T12:00:00Z
+    publicationsystem:Summary: Maecenas laoreet ullamcorper aliquam. Sed ac nunc
+      pellentesque, lobortis orci eu, placerat nibh. Nulla est mauris, vehicula
+      nec ornare a, lacinia vel odio. Sed et accumsan mi, quis finibus orci. Integer
+      eget tortor mauris. Cras fermentum sodales urna, ac vulputate odio lobortis
+      eget. Etiam id erat blandit, feugiat orci non, pharetra est. Sed interdum
+      a leo facilisis aliquam. Curabitur justo nisi, mattis vel neque placerat,
+      imperdiet ultrices tortor.
+    publicationsystem:Title: Lorem ipsum dolor sit amet.
+    /publicationsystem:attachments:
+      jcr:primaryType: hippo:resource
+      hippo:filename: hippo:resource
+      jcr:data:
+        type: binary
+        resource: test-document/test-document[3]/attachments/data.bin
+      jcr:encoding: UTF-8
+      jcr:lastModified: 2008-03-26T12:03:00+01:00
+      jcr:mimeType: application/vnd.hippo.blank
+    /publicationsystem:RelatedLinks:
+      jcr:primaryType: publicationsystem:relatedlink
+      publicationsystem:linkText: ''
+      publicationsystem:linkUrl: ''
+      publicationsystem:link_text: ''
+      publicationsystem:link_url: ''

@@ -11,6 +11,7 @@ public class Publication {
     private String informationType;
     private String granularity;
     private List<Attachment> attachments;
+    private Taxonomy taxonomy;
 
 
     Publication(final PublicationBuilder builder) {
@@ -21,6 +22,7 @@ public class Publication {
         this.informationType = builder.getInformationType();
         this.granularity = builder.getGranularity();
         this.attachments = builder.getAttachments();
+        this.taxonomy = builder.getTaxonomy();
     }
 
     public String getPublicationName() {
@@ -51,9 +53,10 @@ public class Publication {
         return attachments;
     }
 
-    /**
-     * @return Value typed in the 'create publication' dialogue's field 'URL Name'.
-     */
+    public Taxonomy getTaxonomy() {
+        return taxonomy;
+    }
+
     public String getPublicationUrlName() {
         return publicationName;
     }

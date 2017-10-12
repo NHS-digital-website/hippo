@@ -13,6 +13,7 @@ public class PublicationBuilder {
     private String informationType;
     private String granularity;
     private List<Attachment> attachments = new ArrayList<>();
+    private Taxonomy taxonomy;
 
     public static PublicationBuilder create() {
         return new PublicationBuilder();
@@ -41,6 +42,10 @@ public class PublicationBuilder {
 
     public PublicationBuilder withGranularity(final String granularity) {
         return cloneAndAmend(builder -> builder.granularity = granularity);
+    }
+
+    public PublicationBuilder withTaxonomy(final Taxonomy taxonomy) {
+        return cloneAndAmend(builder -> builder.taxonomy = taxonomy);
     }
 
     public PublicationBuilder withAttachments(final List<Attachment> attachments) {
@@ -77,6 +82,10 @@ public class PublicationBuilder {
         return granularity;
     }
 
+    Taxonomy getTaxonomy() {
+        return taxonomy;
+    }
+
     List<Attachment> getAttachments() {
         return attachments == null ? new ArrayList<>() : new ArrayList<>(attachments);
     }
@@ -90,6 +99,7 @@ public class PublicationBuilder {
         informationType = original.getInformationType();
         granularity = original.getGranularity();
         attachments = getAttachments();
+        taxonomy = original.getTaxonomy();
     }
 
     private PublicationBuilder() {

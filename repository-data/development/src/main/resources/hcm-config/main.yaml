@@ -4,6 +4,5 @@ definitions:
       autoexport:modules:
         operation: add
         type: string
-        # this value tells auto-export to update existing definitions but not create new definitions here
-        # add path mappings to export development data into this module
-        value: ['repository-data/development'] 
+        value: [repository-data/development]
+      autoexport:enabled: true
