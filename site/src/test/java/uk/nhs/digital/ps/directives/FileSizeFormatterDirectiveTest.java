@@ -58,8 +58,8 @@ public class FileSizeFormatterDirectiveTest {
         return new Object[][]{
             // bytesCount        expectedOutput
 
-            {0,                         "0 B"},
-            {1,                         "1 B"},
+            {  0,                       "0 B"},
+            {  1,                       "1 B"},
             {500,                     "500 B"},
             {999,                     "999 B"},
 

@@ -1,6 +1,8 @@
 package uk.nhs.digital.ps.test.acceptance.util;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
+import uk.nhs.digital.ps.test.acceptance.models.FileType;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
@@ -44,5 +46,27 @@ public class FileHelper {
         if (Files.notExists(path)) {
             throw new RuntimeException("File did not appear within the defined timeout: " + path.toString());
         }
+    }
+
+    public static FileType getFileType(final Path path) {
+        return FileType.valueOf(FilenameUtils.getExtension(path.getFileName().toString().toUpperCase()));
+    }
+
+    public static String toHumanFriendlyFileSize(final long bytesCount) {
+
+        // follows uk.nhs.digital.ps.directives.FileSizeFormatterDirective
+
+        String formattedFileSize = "";
+
+        final int unit = 1000;
+        if (bytesCount < unit) {
+            formattedFileSize = bytesCount + " B";
+        } else {
+            final int exp = (int) (Math.log(bytesCount) / Math.log(unit));
+            final String pre = String.valueOf(("kMGTPE").charAt(exp - 1));
+            formattedFileSize = String.format("%.1f %sB", bytesCount / Math.pow(unit, exp), pre);
+        }
+
+        return formattedFileSize;
     }
 }
