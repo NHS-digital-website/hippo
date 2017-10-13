@@ -21,9 +21,9 @@ public class Publication {
 
 
     Publication(final PublicationBuilder builder) {
-        name = builder.getPublicationName();
-        title = builder.getPublicationTitle();
-        summary = builder.getPublicationSummary();
+        name = builder.getName();
+        title = builder.getTitle();
+        summary = builder.getSummary();
         geographicCoverage = builder.getGeographicCoverage();
         informationType = builder.getInformationType();
         granularity = builder.getGranularity();

@@ -10,9 +10,9 @@ import static java.util.stream.Collectors.toList;
 @SuppressWarnings("WeakerAccess") // builder's methods are intentionally public
 public class PublicationBuilder {
 
-    private String publicationName;
-    private String publicationTitle;
-    private String publicationSummary;
+    private String name;
+    private String title;
+    private String summary;
     private GeographicCoverage geographicCoverage;
     private InformationType informationType;
     private Granularity granularity;
@@ -27,16 +27,16 @@ public class PublicationBuilder {
     }
 
     //<editor-fold desc="BUILDER METHODS">
-    public PublicationBuilder withPublicationName(final String publicationName) {
-        return cloneAndAmend(builder -> builder.publicationName = publicationName);
+    public PublicationBuilder withName(final String name) {
+        return cloneAndAmend(builder -> builder.name = name);
     }
 
-    public PublicationBuilder withPublicationTitle(final String publicationTitle) {
-        return cloneAndAmend(builder -> builder.publicationTitle = publicationTitle);
+    public PublicationBuilder withTitle(final String title) {
+        return cloneAndAmend(builder -> builder.title = title);
     }
 
-    public PublicationBuilder withPublicationSummary(final String publicationSummary) {
-        return cloneAndAmend(builder -> builder.publicationSummary = publicationSummary);
+    public PublicationBuilder withSummary(final String summary) {
+        return cloneAndAmend(builder -> builder.summary = summary);
     }
 
     public PublicationBuilder withGeographicCoverage(final GeographicCoverage geographicCoverage) {
@@ -76,16 +76,16 @@ public class PublicationBuilder {
     }
     //<editor-fold desc="GETTERS" defaultstate="collapsed">
 
-    String getPublicationName() {
-        return publicationName;
+    String getName() {
+        return name;
     }
 
-    String getPublicationTitle() {
-        return publicationTitle;
+    String getTitle() {
+        return title;
     }
 
-    String getPublicationSummary() {
-        return publicationSummary;
+    String getSummary() {
+        return summary;
     }
 
     GeographicCoverage getGeographicCoverage() {
@@ -122,9 +122,9 @@ public class PublicationBuilder {
     //</editor-fold>
 
     private PublicationBuilder(final PublicationBuilder original) {
-        publicationName = original.getPublicationName();
-        publicationTitle = original.getPublicationTitle();
-        publicationSummary = original.getPublicationSummary();
+        name = original.getName();
+        title = original.getTitle();
+        summary = original.getSummary();
         geographicCoverage = original.getGeographicCoverage();
         informationType = original.getInformationType();
         granularity = original.getGranularity();

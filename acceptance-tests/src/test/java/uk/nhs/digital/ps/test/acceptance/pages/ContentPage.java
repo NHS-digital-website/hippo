@@ -6,6 +6,12 @@ import org.openqa.selenium.support.ui.Select;
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
+
 
 public class ContentPage extends AbstractCmsPage {
 
@@ -45,12 +51,7 @@ public class ContentPage extends AbstractCmsPage {
     }
 
     public void populatePublication(Publication publication) {
-
-        helper.findElement(
-            By.xpath(XPATH_EDITOR_BODY + "//div[contains(@class, 'publication-title')]//textarea")
-        ).sendKeys(
-            publication.getTitle()
-        );
+        populatePublicationTitle(publication.getTitle());
 
         helper.findElement(
             By.xpath(XPATH_EDITOR_BODY + "//div[contains(@class, 'publication-summary')]//textarea")
@@ -95,8 +96,20 @@ public class ContentPage extends AbstractCmsPage {
         getAttachmentsSection().uploadAttachments(publication.getAttachments());
     }
 
+    public void populatePublicationTitle(final String publicationTitle) {
+        helper.findElement(
+            By.xpath(XPATH_EDITOR_BODY + "//div[contains(@class, 'publication-title')]//input")
+        ).sendKeys(
+            publicationTitle
+        );
+    }
+
     public AttachmentsSection getAttachmentsSection() {
         return new AttachmentsSection(helper, getWebDriver());
+    }
+
+    public void savePublication() {
+        findSave().click();
     }
 
     public void saveAndClosePublication() {
@@ -190,7 +203,7 @@ public class ContentPage extends AbstractCmsPage {
         clickDocument(documentName);
     }
 
-    public void discardUnsavedPublication(String publicationName) {
+    public void discardUnsavedChanges(String publicationName) {
         WebElement closeButton = helper.findElement(
             By.xpath("//a[@class='hippo-tabs-documents-tab hippo-perspective-editperspective' and @title='" + publicationName + "']/following-sibling::a"));
         closeButton.click();
@@ -222,11 +235,16 @@ public class ContentPage extends AbstractCmsPage {
         return helper.findElement(By.xpath("//span[@title='Save & Close']"));
     }
 
-    public String getErrorMessage() {
-        return helper.waitForElementUntil(
-            ExpectedConditions.visibilityOfElementLocated(
-                By.xpath("//span[contains(@class, 'feedbackPanelERROR')]")
-            )
-        ).getText();
+    private WebElement findSave() {
+        return helper.findElement(By.xpath("//span[@title='Save']"));
+    }
+
+    public List<String> getErrorMessages() {
+        List<WebElement> errorElements = helper.findElements(By.xpath("//span[contains(@class, 'feedbackPanelERROR')]"));
+        return errorElements.stream().map(WebElement::getText).collect(toList());
+    }
+
+    public String getFirstErrorMessage() {
+        return getErrorMessages().get(0);
     }
 }

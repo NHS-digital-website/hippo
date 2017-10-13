@@ -1,0 +1,4 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:translations/hippo:cms/validators/en:
+      publication-title-validator: Title must be 250 characters or less
