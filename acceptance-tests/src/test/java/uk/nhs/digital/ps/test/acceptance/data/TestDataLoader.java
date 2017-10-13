@@ -5,13 +5,10 @@ import uk.nhs.digital.ps.test.acceptance.models.*;
 import java.time.Instant;
 import java.time.format.DateTimeFormatter;
 
-import static uk.nhs.digital.ps.test.acceptance.models.AttachmentBuilder.newAttachment;
-import static uk.nhs.digital.ps.test.acceptance.models.FileType.*;
 import static uk.nhs.digital.ps.test.acceptance.models.InformationType.OFFICIAL_STATISTICS;
 import static uk.nhs.digital.ps.test.acceptance.models.PublicationBuilder.newPublication;
 import static uk.nhs.digital.ps.test.acceptance.models.PublicationStatus.CREATED;
 import static uk.nhs.digital.ps.test.acceptance.models.PublicationStatus.PUBLISHED;
-import static uk.nhs.digital.ps.test.acceptance.data.TestDataFactory.getAttachmentFilePathByType;
 import static uk.nhs.digital.ps.test.acceptance.models.TimeSeriesBuilder.newTimeSeries;
 
 /**
@@ -42,26 +39,26 @@ public class TestDataLoader {
             .withTitle("Time Series Title")
             .withPublications(
                 newPublication()
-                    .withPublicationTitle("2012")
-                    .withPublicationSummary("A released publication")
+                    .withTitle("2012")
+                    .withSummary("A released publication")
                     .withInformationType(OFFICIAL_STATISTICS)
                     .withNominalDate(asInstant("2013-01-10T01:00:00+01:00"))
                     .withStatus(PUBLISHED),
                 newPublication()
-                    .withPublicationTitle("2013")
-                    .withPublicationSummary("A released publication 2013")
+                    .withTitle("2013")
+                    .withSummary("A released publication 2013")
                     .withInformationType(OFFICIAL_STATISTICS)
                     .withNominalDate(asInstant("2014-01-10T01:00:00+01:00"))
                     .withStatus(PUBLISHED),
                 newPublication()
-                    .withPublicationTitle("2014")
-                    .withPublicationSummary("Released 2014 stats.")
+                    .withTitle("2014")
+                    .withSummary("Released 2014 stats.")
                     .withInformationType(OFFICIAL_STATISTICS)
                     .withNominalDate(asInstant("2015-01-10T01:00:00+01:00"))
                     .withStatus(PUBLISHED),
                 newPublication()
-                    .withPublicationTitle("2015")
-                    .withPublicationSummary("Released 2015 stats.")
+                    .withTitle("2015")
+                    .withSummary("Released 2015 stats.")
                     .withInformationType(OFFICIAL_STATISTICS)
                     .withNominalDate(asInstant("2016-01-10T01:00:00+01:00"))
                     .withStatus(CREATED)

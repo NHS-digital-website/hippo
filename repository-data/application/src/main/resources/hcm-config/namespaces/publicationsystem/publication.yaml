@@ -107,12 +107,13 @@ definitions:
             hipposysedit:type: Text
           /title:
             jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
+            hipposysedit:mandatory: true
             hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: publicationsystem:Title
             hipposysedit:primary: false
-            hipposysedit:type: Text
+            hipposysedit:type: String
+            hipposysedit:validators: [non-empty, required, publication-title-validator]
           /attachments:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false

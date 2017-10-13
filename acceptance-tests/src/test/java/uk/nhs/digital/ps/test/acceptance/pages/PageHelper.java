@@ -64,6 +64,27 @@ public class PageHelper {
         }
     }
 
+    public List<WebElement> findElements(By bySelector) {
+        try{
+            return pollWithTimeout().until((WebDriver innerDriver) -> {
+
+                List<WebElement> elements = innerDriver.findElements(bySelector);
+                if (elements.size() == 0) {
+                    return null;
+                } else {
+                    for (WebElement el : elements) {
+                        el.isEnabled();
+                    }
+                    return elements;
+                }
+            });
+        }
+        catch (TimeoutException e){
+            throw new RuntimeException("Failed to find elements matching '" + bySelector + "'", e);
+        }
+
+    }
+
     public void waitUntilTrue(final Predicate predicate) {
 
         pollWithTimeout().until(webDriver -> {

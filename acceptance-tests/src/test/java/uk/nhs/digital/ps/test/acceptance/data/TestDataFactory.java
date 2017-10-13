@@ -32,9 +32,9 @@ public class TestDataFactory {
 
     public static PublicationBuilder createPublicationWithNoAttachments() {
         return PublicationBuilder.newPublication()
-            .withPublicationName(newRandomString())
-            .withPublicationTitle(newRandomString())
-            .withPublicationSummary(newRandomString())
+            .withName(newRandomString())
+            .withTitle(newRandomString())
+            .withSummary(newRandomString())
             .withGeographicCoverage(getRandomEnumConstant(GeographicCoverage.class))
             .withInformationType(getRandomEnumConstant(InformationType.class))
             .withGranularity(getRandomEnumConstant(Granularity.class))

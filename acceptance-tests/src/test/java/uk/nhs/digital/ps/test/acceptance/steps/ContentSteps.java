@@ -4,16 +4,14 @@ import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.hamcrest.Matchers;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.config.AcceptanceTestProperties;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataFactory;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataLoader;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
-import uk.nhs.digital.ps.test.acceptance.models.Attachment;
-import uk.nhs.digital.ps.test.acceptance.models.FileType;
-import uk.nhs.digital.ps.test.acceptance.models.Publication;
-import uk.nhs.digital.ps.test.acceptance.models.TimeSeries;
+import uk.nhs.digital.ps.test.acceptance.models.*;
 import uk.nhs.digital.ps.test.acceptance.pages.ConsumableAttachmentElement;
 import uk.nhs.digital.ps.test.acceptance.pages.ConsumablePublicationPage;
 import uk.nhs.digital.ps.test.acceptance.pages.ConsumablePublicationSeriesPage;
@@ -28,8 +26,11 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.startsWith;
+import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.hasItem;
 import static org.junit.Assert.assertThat;
 import static org.slf4j.LoggerFactory.getLogger;
+import static uk.nhs.digital.ps.test.acceptance.util.AssertionHelper.assertWithinTimeoutThat;
 import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.readFileAsByteArray;
 import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.waitUntilFileAppears;
 
@@ -75,7 +76,6 @@ public class ContentSteps extends AbstractSpringSteps {
     public void thenAnEditScreenIsDisplayed() throws Throwable {
         assertThat("Publication edit screen is displayed",contentPage.isPublicationEditScreenOpen(),
             is(true));
-        contentPage.discardUnsavedPublication(testDataRepo.getCurrentPublication().getName());
     }
 
     // Scenario: Saving a publication ========================================================================
@@ -205,6 +205,7 @@ public class ContentSteps extends AbstractSpringSteps {
             is("size: " + FileHelper.toHumanFriendlyFileSize((long) attachment.getContent().length)));
     }
 
+    // Scenario: Forbidden file type upload rejection ==================================================================
     @When("^I try to upload a file of one of the forbidden types:$")
     public void iTryToUploadAFileOfOneOfTheForbiddenTypes(final DataTable forbiddenExtensions) throws Throwable {
 
@@ -228,11 +229,12 @@ public class ContentSteps extends AbstractSpringSteps {
                 attachment.getFileType().getExtension()
             );
 
-            assertThat("Error message is displayed",
-                contentPage.getErrorMessage(), startsWith(expectedErrorMessage));
+            assertWithinTimeoutThat("Error message is displayed",
+               () -> contentPage.getFirstErrorMessage(), startsWith(expectedErrorMessage));
         });
     }
 
+    // Scenario: List publications from the same time series ===========================================================
     @Given("^I have a number of publications belonging to the same time series$")
     public void iHaveANumberOfPublicationsBelongingToTheSameTimeSeries() throws Throwable {
 
@@ -260,5 +262,31 @@ public class ContentSteps extends AbstractSpringSteps {
         assertThat("Correct publication titles are displayed in order.",
             consumablePublicationSeriesPage.getPublicationTitles(),
             is(expectedPublicationTitles));
+    }
+
+    // Scenario: Title validation ========================================================================
+    @When("^I populate the title with text which is too long$")
+    public void whenIPopulateTheTitleWithTextWhichIsTooLong() throws Throwable {
+        StringBuilder sb = new StringBuilder();
+        for (int i=0; i < 251; i++) {
+            sb.append(i % 10);
+        }
+        String longString = sb.toString();
+        assertThat("String should be > 250 characters long", longString.length(), greaterThan(250));
+
+        contentPage.populatePublicationTitle(longString);
+    }
+
+    @When("^I save the publication$")
+    public void iSaveThePublication() throws Throwable {
+        contentPage.savePublication();
+    }
+
+    @Then("^title validation error message is shown$")
+    public void titleValidationErrorMessageIsShown() throws Throwable {
+
+        assertThat("Title too long error message should be shown",
+            contentPage.getErrorMessages(),
+            hasItem("Title must be 250 characters or less"));
     }
 }
