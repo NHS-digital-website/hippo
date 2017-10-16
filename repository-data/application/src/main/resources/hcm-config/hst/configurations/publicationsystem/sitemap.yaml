@@ -5,10 +5,14 @@ definitions:
       /root:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/home
-        hst:relativecontentpath: publications/test-document
+        hst:relativecontentpath: publications/test
       /publications:
         jcr:primaryType: hst:sitemapitem
-        /_default_:
+        hst:componentconfigurationid: hst:pages/home
+        hst:relativecontentpath: publications
+        /_any_:
           jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationid: hst:pages/home
+          hst:componentconfigurationmappingnames: ['publicationsystem:publication',
+            'hippostd:folder']
+          hst:componentconfigurationmappingvalues: ['hst:pages/home', 'hst:pages/seriespage']
           hst:relativecontentpath: publications/${1}

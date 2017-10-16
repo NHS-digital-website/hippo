@@ -5,3 +5,6 @@ definitions:
       /homepage:
         jcr:primaryType: hst:template
         hst:renderpath: webfile:/freemarker/publication/publication.ftl
+      /series:
+        jcr:primaryType: hst:template
+        hst:renderpath: webfile:/freemarker/publication/series.ftl

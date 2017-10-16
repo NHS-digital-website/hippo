@@ -1,5 +1,6 @@
 package uk.nhs.digital.ps.test.acceptance.pages;
 
+import uk.nhs.digital.ps.test.acceptance.models.Publication;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 import org.openqa.selenium.*;
 
@@ -8,9 +9,7 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 
 
-public class ConsumablePublicationPage extends AbstractPage {
-
-    private static final String URL = "http://localhost:8080";
+public class ConsumablePublicationPage extends AbstractConsumablePage {
 
     private PageHelper helper;
 
@@ -19,8 +18,8 @@ public class ConsumablePublicationPage extends AbstractPage {
         this.helper = helper;
     }
 
-    public void open(final String publicationUrlName) {
-        getWebDriver().get(URL + "/publications/" + publicationUrlName);
+    public void open(final Publication publication) {
+        getWebDriver().get(URL + "/publications/" + publication.getPublicationUrlName());
     }
 
     public String getTitleText() {

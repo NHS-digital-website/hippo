@@ -1,56 +1,69 @@
 package uk.nhs.digital.ps.test.acceptance.models;
 
+import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Publication {
 
-    private String publicationName;
-    private String publicationTitle;
-    private String publicationSummary;
-    private String geographicCoverage;
-    private String informationType;
-    private String granularity;
-    private List<Attachment> attachments;
+    private String name;
+    private String title;
+    private String summary;
+    private GeographicCoverage geographicCoverage;
+    private InformationType informationType;
+    private Granularity granularity;
+    private Instant nominalDate;
+
+    private List<Attachment> attachments = new ArrayList<>();
+
+    private final PublicationStatus status;
     private Taxonomy taxonomy;
 
 
     Publication(final PublicationBuilder builder) {
-        this.publicationName = builder.getPublicationName();
-        this.publicationTitle = builder.getPublicationTitle();
-        this.publicationSummary = builder.getPublicationSummary();
-        this.geographicCoverage = builder.getGeographicCoverage();
-        this.informationType = builder.getInformationType();
-        this.granularity = builder.getGranularity();
-        this.attachments = builder.getAttachments();
-        this.taxonomy = builder.getTaxonomy();
+        name = builder.getPublicationName();
+        title = builder.getPublicationTitle();
+        summary = builder.getPublicationSummary();
+        geographicCoverage = builder.getGeographicCoverage();
+        informationType = builder.getInformationType();
+        granularity = builder.getGranularity();
+        nominalDate = builder.getNominalDate();
+        taxonomy = builder.getTaxonomy();
+        attachments = builder.getAttachments();
+
+        status = builder.getStatus();
     }
 
-    public String getPublicationName() {
-        return publicationName;
+    public String getName() {
+        return name;
     }
 
-    public String getPublicationTitle() {
-        return publicationTitle;
+    public String getTitle() {
+        return title;
     }
 
-    public String getPublicationSummary() {
-        return publicationSummary;
+    public String getSummary() {
+        return summary;
     }
 
-    public String getGeographicCoverage() {
+    public GeographicCoverage getGeographicCoverage() {
         return geographicCoverage;
     }
 
-    public String getInformationType() {
+    public InformationType getInformationType() {
         return informationType;
     }
 
-    public String getGranularity() {
+    public Granularity getGranularity() {
         return granularity;
     }
 
+    public Instant getNominalDate() {
+        return nominalDate;
+    }
+
     public List<Attachment> getAttachments() {
-        return attachments;
+        return new ArrayList<>(attachments);
     }
 
     public Taxonomy getTaxonomy() {
@@ -58,6 +71,10 @@ public class Publication {
     }
 
     public String getPublicationUrlName() {
-        return publicationName;
+        return name.toLowerCase().replace(' ', '-');
+    }
+
+    public PublicationStatus getStatus() {
+        return status;
     }
 }
