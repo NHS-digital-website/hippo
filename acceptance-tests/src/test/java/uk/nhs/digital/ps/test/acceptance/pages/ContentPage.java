@@ -1,12 +1,16 @@
 package uk.nhs.digital.ps.test.acceptance.pages;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
 
 public class ContentPage extends AbstractCmsPage {
+
+    private final static String XPATH_CONTENT_TAB = "//div[contains(@class, 'tabbed-panel-layout-left')]//li[contains(@class, 'tab2')]";
+    private final static String XPATH_EDITOR_BODY = "//div[contains(@class, 'hippo-editor-body')]";
 
     private PageHelper helper;
 
@@ -15,11 +19,17 @@ public class ContentPage extends AbstractCmsPage {
         this.helper = helper;
     }
 
+    /* used as step assertion */
     public boolean openContentTab() {
-        WebElement contentTab = helper.findElement(By.className("tab2"));
-        contentTab.click();
+        getWebDriver().findElement(By.xpath(XPATH_CONTENT_TAB)).click();
 
-        return isContentTabOpen();
+        return helper.waitForElementUntil(
+            ExpectedConditions.attributeContains(
+                By.xpath(XPATH_CONTENT_TAB),
+                "class",
+                "selected"
+            )
+        );
     }
 
     public boolean newPublication(final Publication publication) {
@@ -27,32 +37,46 @@ public class ContentPage extends AbstractCmsPage {
         return createPublication(menu, publication);
     }
 
-    public boolean isPublicationEditScreenOpen(){
-        return helper.isElementPresent(By.className("hippo-editor-body"));
+    public boolean isPublicationEditScreenOpen() {
+        return helper.findElement(
+            By.xpath(XPATH_EDITOR_BODY)
+        ) != null;
     }
 
     public void populatePublication(Publication publication) {
-        WebElement editorBody = helper.findElement(By.className("hippo-editor-body"));
-        WebElement titleField = editorBody.findElement(By.className("publication-title")).findElement(By.tagName("textarea"));
-        titleField.sendKeys(publication.getPublicationTitle());
 
-        WebElement summaryField = editorBody.findElement(By.className("publication-summary")).findElement(By.tagName("textarea"));
-        summaryField.sendKeys(publication.getPublicationSummary());
+        helper.findElement(
+            By.xpath(XPATH_EDITOR_BODY + "//div[contains(@class, 'publication-title')]//textarea")
+        ).sendKeys(
+            publication.getPublicationTitle()
+        );
 
-        WebElement geographicCoverage = editorBody.findElement(By.xpath("//span[text()='Geographic Coverage']/../following-sibling::div//select[@class='dropdown-plugin']"));
-        Select dropdown = new Select(geographicCoverage );
-        dropdown.selectByVisibleText(publication.getGeographicCoverage());
+        helper.findElement(
+            By.xpath(XPATH_EDITOR_BODY + "//div[contains(@class, 'publication-summary')]//textarea")
+        ).sendKeys(
+            publication.getPublicationSummary()
+        );
 
-        WebElement informationTypeWebElement = editorBody.findElement(By.xpath("//span[text()='Information Type']/../following-sibling::div//select[@class='dropdown-plugin']"));
-        Select informationType = new Select(informationTypeWebElement);
-        informationType.selectByVisibleText(publication.getInformationType());
+        new Select(helper.findElement(
+            By.xpath(XPATH_EDITOR_BODY + "//span[text()='Geographic Coverage']/../following-sibling::div//select[@class='dropdown-plugin']")
+        )).selectByVisibleText(
+            publication.getGeographicCoverage()
+        );
 
-        Select granularity = new Select(editorBody.findElement(By.xpath("//span[text()='Granularity']/../following-sibling::div//select[@class='dropdown-plugin']")));
-        granularity.selectByVisibleText(publication.getGranularity());
+        new Select(helper.findElement(
+            By.xpath(XPATH_EDITOR_BODY + "//span[text()='Information Type']/../following-sibling::div//select[@class='dropdown-plugin']")
+        )).selectByVisibleText(
+            publication.getInformationType()
+        );
+
+        new Select(helper.findElement(
+            By.xpath(XPATH_EDITOR_BODY + "//span[text()='Granularity']/../following-sibling::div//select[@class='dropdown-plugin']")
+        )).selectByVisibleText(
+            publication.getGranularity()
+        );
 
         getAttachmentsSection().uploadAttachments(publication.getAttachments());
     }
-
 
     public AttachmentsSection getAttachmentsSection() {
         return new AttachmentsSection(helper, getWebDriver());
@@ -67,20 +91,13 @@ public class ContentPage extends AbstractCmsPage {
         findPublish().click();
     }
 
-    private boolean isContentTabOpen() {
-        return helper.findElement(By.cssSelector("li[class~='tab2'][class~='selected']")) != null;
-    }
-
     private WebElement openPublicationsMenu(WebDriver driver) {
-        WebElement rootTitle = driver.findElement(By.cssSelector("a[class~='hippo-tree-node-link'][title='NHS Digital Publication System']"));
-        WebElement rootExpander = rootTitle.findElement(By.xpath("preceding-sibling::a"));
-        rootExpander.click();
 
-        WebElement publicationsFolder = helper.findElement(By.cssSelector("a[class~='hippo-tree-node-link'][title='publications']") );
-        publicationsFolder.click();
+        expandMenuByTitle("NHS Digital Publication System");
+        expandMenuByTitle("publications");
 
         // Refresh reference to element because click above recreates it
-        publicationsFolder = helper.findNewElement(publicationsFolder, By.cssSelector("a[class~='hippo-tree-node-link'][title='publications']") );
+        WebElement publicationsFolder = helper.findElement(By.cssSelector("a[class~='hippo-tree-node-link'][title='publications']"));
         WebElement publicationsParent = helper.findChildElement(publicationsFolder, By.xpath(".."));
 
         WebElement menuIcon = publicationsParent.findElement(By.xpath("following-sibling::a"));
@@ -111,10 +128,37 @@ public class ContentPage extends AbstractCmsPage {
         return isDocumentPresent(publication);
     }
 
+    private WebElement expandMenuByTitle(String title) {
+        getWebDriver().findElement(
+            By.xpath("//a[contains(@class, 'hippo-tree-node-link') and @title='" + title + "']")
+        ).click();
+
+        return helper.waitForElementUntil(
+            ExpectedConditions.presenceOfElementLocated(
+                By.xpath("//a[contains(@class, 'hippo-tree-node-link') and contains(@class, 'hippo-tree-node-expanded') and @title='" + title + "']")
+            )
+        );
+    }
+
+    private WebElement clickDropdownIconByTitle(String title) {
+        WebElement icon = getWebDriver().findElement(
+            By.xpath("//a[contains(@class, 'hippo-tree-node-link') and @title='" + title + "']/../../a[@class='hippo-tree-dropdown-icon-container']")
+        );
+        icon.click();
+
+        return helper.waitForElementUntil(
+            ExpectedConditions.presenceOfElementLocated(
+                By.xpath("//ul[contains(@class, 'hippo-toolbar-menu-item')]")
+            )
+        );
+    }
+
     private boolean isDocumentPresent(final Publication publication) {
-        return helper.isElementPresent(By.cssSelector(
-            "span[class~='hippo-document'][title='" + publication.getPublicationName() + "']"
-        ));
+        return helper.waitForElementUntil(
+            ExpectedConditions.presenceOfElementLocated(
+                By.xpath("//span[contains(@class, 'document') and @title='" + publication.getPublicationName() + "']")
+            )
+        ) != null;
     }
 
     public boolean isPublicationSaved(){
@@ -136,7 +180,6 @@ public class ContentPage extends AbstractCmsPage {
         WebElement confirmDiscard = helper.findElement(By.xpath("//input[@type='submit' and @value='Discard']"));
         confirmDiscard.click();
     }
-
 
     private void clickFolder(String name){
         helper.findElement(By.xpath("//span[@class='hippo-folder' and @title='" + name + "']")).click();
@@ -163,6 +206,10 @@ public class ContentPage extends AbstractCmsPage {
     }
 
     public String getErrorMessage() {
-        return helper.findElement(By.cssSelector("span[class~='feedbackPanelERROR']")).getText();
+        return helper.waitForElementUntil(
+            ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//span[contains(@class, 'feedbackPanelERROR')]")
+            )
+        ).getText();
     }
 }

@@ -9,35 +9,20 @@ import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
 public class DashboardPage extends AbstractCmsPage {
 
-    public DashboardPage(final WebDriverProvider webDriverProvider) {
+    private PageHelper helper;
+
+    public DashboardPage(final WebDriverProvider webDriverProvider, final PageHelper helper) {
         super(webDriverProvider);
-    }
-
-    public boolean isOpen() {
-        WebElement activeDashboardTab;
-
-        try {
-            activeDashboardTab = getWebDriver().findElement(By.className("tab0"));
-        } catch (NoSuchElementException e) {
-            activeDashboardTab = null;
-        }
-
-        return activeDashboardTab != null && activeDashboardTab.getAttribute("class").contains("selected");
+        this.helper = helper;
     }
 
     public boolean open() {
-        WebElement dashboardTab;
-        WebDriverWait wait = new WebDriverWait(getWebDriver(), 3);
+        getWebDriver().findElement(By.className("tab0")).click();
 
-        dashboardTab = getWebDriver().findElement(By.className("tab0"));
-        dashboardTab.click();
-
-        wait.until(
-            ExpectedConditions.refreshed(
-                ExpectedConditions.attributeContains(By.className("tab0"), "class", "selected")
+        return helper.waitForElementUntil(
+            ExpectedConditions.attributeContains(
+                By.xpath("//div[contains(@class, 'tabbed-panel-layout-left')]//li[contains(@class, 'tab0')]"), "class", "selected"
             )
         );
-
-        return true;
     }
 }
