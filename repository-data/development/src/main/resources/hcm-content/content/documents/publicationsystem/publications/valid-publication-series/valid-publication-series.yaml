@@ -1,0 +1,369 @@
+/content/documents/publicationsystem/publications/valid-publication-series:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: 035c93a6-9854-4be0-9f73-7950bd774687
+  hippo:name: valid publication series
+  hippostd:foldertype: [new-translated-folder, new-document]
+  hippotranslation:id: b76761c5-cb89-4b6a-9486-3bba6ba776dc
+  hippotranslation:locale: en
+  /time-series-index:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: 7d2124e2-182c-48b5-a9bd-435fd0f26af7
+    hippo:name: Time Series Index
+    /time-series-index[1]:
+      jcr:primaryType: publicationsystem:series
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 6e04cfe7-df7b-4967-a9fc-212d9a2a02ac
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T14:58:50.358+01:00
+      hippostdpubwf:lastModificationDate: 2017-10-16T14:58:50.358+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: e91a188f-6884-46b3-a8a9-87dd41d1f2ff
+      hippotranslation:locale: en
+      publicationsystem:title: Time Series Title
+    /time-series-index[2]:
+      jcr:primaryType: publicationsystem:series
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 7c7ffe77-421d-4e23-8374-45bcd246b579
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T14:58:50.358+01:00
+      hippostdpubwf:lastModificationDate: 2017-10-16T14:59:20.720+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: e91a188f-6884-46b3-a8a9-87dd41d1f2ff
+      hippotranslation:locale: en
+      publicationsystem:title: Time Series Title
+    /time-series-index[3]:
+      jcr:primaryType: publicationsystem:series
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: b57b8a35-7192-4c9b-ab3f-93297b0c1e85
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T14:58:50.358+01:00
+      hippostdpubwf:lastModificationDate: 2017-10-16T14:59:20.720+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2017-10-16T14:59:41.695+01:00
+      hippotranslation:id: e91a188f-6884-46b3-a8a9-87dd41d1f2ff
+      hippotranslation:locale: en
+      publicationsystem:title: Time Series Title
+  /2012:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 19ebe9ef-20d3-464f-9a5a-6484fbfdf838
+    /2012[1]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: 4ecd01dc-3710-4bb2-bdc2-6a5e0c8e0ff4
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T15:03:16.644+01:00
+      hippostdpubwf:lastModificationDate: 2017-10-16T15:03:16.644+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 14bb26ff-92c6-4782-bd8e-c925b1d84d60
+      hippotranslation:locale: en
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:Granularity: ['']
+      publicationsystem:InformationType: [Official statistics]
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2013-01-10T01:00:00+01:00
+      publicationsystem:Summary: A released publication
+      publicationsystem:Title: '2012'
+      /publicationsystem:RelatedLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ''
+        publicationsystem:linkUrl: ''
+        publicationsystem:link_text: ''
+        publicationsystem:link_url: ''
+    /2012[2]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+      jcr:uuid: bc90ba8f-e422-4ed0-b0b5-35c6afef2e07
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T15:03:16.644+01:00
+      hippostdpubwf:lastModificationDate: 2017-10-16T15:03:52.340+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 14bb26ff-92c6-4782-bd8e-c925b1d84d60
+      hippotranslation:locale: en
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:Granularity: ['']
+      publicationsystem:InformationType: [Official statistics]
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2013-01-10T01:00:00+01:00
+      publicationsystem:Summary: A released publication
+      publicationsystem:Title: '2012'
+      /publicationsystem:RelatedLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ''
+        publicationsystem:linkUrl: ''
+        publicationsystem:link_text: ''
+        publicationsystem:link_url: ''
+    /2012[3]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: 94a2c08b-bf56-4b1a-84c8-15703019b2da
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T15:03:16.644+01:00
+      hippostdpubwf:lastModificationDate: 2017-10-16T15:03:52.340+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2017-10-16T15:03:59.870+01:00
+      hippotranslation:id: 14bb26ff-92c6-4782-bd8e-c925b1d84d60
+      hippotranslation:locale: en
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:Granularity: ['']
+      publicationsystem:InformationType: [Official statistics]
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2013-01-10T01:00:00+01:00
+      publicationsystem:Summary: A released publication
+      publicationsystem:Title: '2012'
+      /publicationsystem:RelatedLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ''
+        publicationsystem:linkUrl: ''
+        publicationsystem:link_text: ''
+        publicationsystem:link_url: ''
+  /2013:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 6e0e2123-1af8-44fa-9f53-8bd17fe50350
+    /2013[1]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: b16a7b96-8a92-4014-aa02-f318fd967995
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T15:04:13.132+01:00
+      hippostdpubwf:lastModificationDate: 2017-10-16T15:04:13.132+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 8c95fedb-e62e-4c4e-bea0-4efc4085b4ff
+      hippotranslation:locale: en
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:Granularity: ['']
+      publicationsystem:InformationType: [Official statistics]
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2014-01-10T01:00:00+01:00
+      publicationsystem:Summary: A released publication 2013.
+      publicationsystem:Title: '2013'
+      /publicationsystem:RelatedLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ''
+        publicationsystem:linkUrl: ''
+        publicationsystem:link_text: ''
+        publicationsystem:link_url: ''
+    /2013[2]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+      jcr:uuid: 2505f9b1-7e3f-4e36-bea7-ab200cf21000
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T15:04:13.132+01:00
+      hippostdpubwf:lastModificationDate: 2017-10-16T15:05:15.456+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 8c95fedb-e62e-4c4e-bea0-4efc4085b4ff
+      hippotranslation:locale: en
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:Granularity: ['']
+      publicationsystem:InformationType: [Official statistics]
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2014-01-10T01:00:00+01:00
+      publicationsystem:Summary: A released publication 2013.
+      publicationsystem:Title: '2013'
+      /publicationsystem:RelatedLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ''
+        publicationsystem:linkUrl: ''
+        publicationsystem:link_text: ''
+        publicationsystem:link_url: ''
+    /2013[3]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: b95d2a04-2b0e-4a8a-b17f-cd6c584881d2
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T15:04:13.132+01:00
+      hippostdpubwf:lastModificationDate: 2017-10-16T15:05:15.456+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2017-10-16T15:05:18.987+01:00
+      hippotranslation:id: 8c95fedb-e62e-4c4e-bea0-4efc4085b4ff
+      hippotranslation:locale: en
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:Granularity: ['']
+      publicationsystem:InformationType: [Official statistics]
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2014-01-10T01:00:00+01:00
+      publicationsystem:Summary: A released publication 2013.
+      publicationsystem:Title: '2013'
+      /publicationsystem:RelatedLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ''
+        publicationsystem:linkUrl: ''
+        publicationsystem:link_text: ''
+        publicationsystem:link_url: ''
+  /2014:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 047045e1-f73e-45d5-9d6e-b19b5477af29
+    /2014[1]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: 863afdd6-c209-4f18-aa55-54de410dd0bd
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T15:05:34.800+01:00
+      hippostdpubwf:lastModificationDate: 2017-10-16T15:05:34.800+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 6d883435-a601-4ccc-ae7b-63a0e0945cc5
+      hippotranslation:locale: en
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:Granularity: ['']
+      publicationsystem:InformationType: [Official statistics]
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2015-01-10T01:00:00+01:00
+      publicationsystem:Summary: Released 2014 stats.
+      publicationsystem:Title: '2014'
+      /publicationsystem:RelatedLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ''
+        publicationsystem:linkUrl: ''
+        publicationsystem:link_text: ''
+        publicationsystem:link_url: ''
+    /2014[2]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+      jcr:uuid: c10dec6c-cdb8-4e0c-b448-b6831b44db7e
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T15:05:34.800+01:00
+      hippostdpubwf:lastModificationDate: 2017-10-16T15:06:16.077+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 6d883435-a601-4ccc-ae7b-63a0e0945cc5
+      hippotranslation:locale: en
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:Granularity: ['']
+      publicationsystem:InformationType: [Official statistics]
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2015-01-10T01:00:00+01:00
+      publicationsystem:Summary: Released 2014 stats.
+      publicationsystem:Title: '2014'
+      /publicationsystem:RelatedLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ''
+        publicationsystem:linkUrl: ''
+        publicationsystem:link_text: ''
+        publicationsystem:link_url: ''
+    /2014[3]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: 5b083767-702f-417f-be41-fca5254a9641
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T15:05:34.800+01:00
+      hippostdpubwf:lastModificationDate: 2017-10-16T15:06:16.077+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2017-10-16T15:07:01.115+01:00
+      hippotranslation:id: 6d883435-a601-4ccc-ae7b-63a0e0945cc5
+      hippotranslation:locale: en
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:Granularity: ['']
+      publicationsystem:InformationType: [Official statistics]
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2015-01-10T01:00:00+01:00
+      publicationsystem:Summary: Released 2014 stats.
+      publicationsystem:Title: '2014'
+      /publicationsystem:RelatedLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ''
+        publicationsystem:linkUrl: ''
+        publicationsystem:link_text: ''
+        publicationsystem:link_url: ''
+  /2015:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 54993319-9852-4a3c-99d9-83a6900d9f0a
+    /2015[1]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: c40eece1-6c40-4d35-b1a4-3c96c20d6ce6
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T15:07:17.576+01:00
+      hippostdpubwf:lastModificationDate: 2017-10-17T13:09:35.563+01:00
+      hippostdpubwf:lastModifiedBy: author
+      hippotranslation:id: f5aad22e-14bb-4308-90da-a93334f1dc7b
+      hippotranslation:locale: en
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:Granularity: ['']
+      publicationsystem:InformationType: [Official statistics]
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2016-01-10T01:00:00+01:00
+      publicationsystem:Summary: Unreleased 2015 stats.
+      publicationsystem:Title: '2015'
+      /publicationsystem:RelatedLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ''
+        publicationsystem:linkUrl: ''
+        publicationsystem:link_text: ''
+        publicationsystem:link_url: ''
+    /2015[2]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+      jcr:uuid: b4dbdadf-39fa-488c-86ab-8a70327eca1e
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T15:07:17.576+01:00
+      hippostdpubwf:lastModificationDate: 2017-10-16T15:07:40.063+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: f5aad22e-14bb-4308-90da-a93334f1dc7b
+      hippotranslation:locale: en
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:Granularity: ['']
+      publicationsystem:InformationType: [Official statistics]
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2016-01-10T01:00:00+01:00
+      publicationsystem:Summary: Unreleased 2015 stats.
+      publicationsystem:Title: '2015'
+      /publicationsystem:RelatedLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ''
+        publicationsystem:linkUrl: ''
+        publicationsystem:link_text: ''
+        publicationsystem:link_url: ''

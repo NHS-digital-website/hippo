@@ -1,7 +1,11 @@
 package uk.nhs.digital.ps.test.acceptance.models;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.util.Arrays.asList;
+import static java.util.stream.Collectors.toList;
 
 @SuppressWarnings("WeakerAccess") // builder's methods are intentionally public
 public class PublicationBuilder {
@@ -9,17 +13,20 @@ public class PublicationBuilder {
     private String publicationName;
     private String publicationTitle;
     private String publicationSummary;
-    private String geographicCoverage;
-    private String informationType;
-    private String granularity;
-    private List<Attachment> attachments = new ArrayList<>();
+    private GeographicCoverage geographicCoverage;
+    private InformationType informationType;
+    private Granularity granularity;
+    private Instant nominalDate;
+    private List<AttachmentBuilder> attachmentBuilders = new ArrayList<>();
     private Taxonomy taxonomy;
 
-    public static PublicationBuilder create() {
+    private PublicationStatus status;
+
+    public static PublicationBuilder newPublication() {
         return new PublicationBuilder();
     }
 
-    //<editor-fold desc="builder methods">
+    //<editor-fold desc="BUILDER METHODS">
     public PublicationBuilder withPublicationName(final String publicationName) {
         return cloneAndAmend(builder -> builder.publicationName = publicationName);
     }
@@ -32,32 +39,43 @@ public class PublicationBuilder {
         return cloneAndAmend(builder -> builder.publicationSummary = publicationSummary);
     }
 
-    public PublicationBuilder withGeographicCoverage(final String geographicCoverage) {
+    public PublicationBuilder withGeographicCoverage(final GeographicCoverage geographicCoverage) {
         return cloneAndAmend(builder -> builder.geographicCoverage = geographicCoverage);
     }
 
-    public PublicationBuilder withInformationType(final String informationType) {
+    public PublicationBuilder withInformationType(final InformationType informationType) {
         return cloneAndAmend(builder -> builder.informationType = informationType);
     }
 
-    public PublicationBuilder withGranularity(final String granularity) {
+    public PublicationBuilder withGranularity(final Granularity granularity) {
         return cloneAndAmend(builder -> builder.granularity = granularity);
+    }
+
+    public PublicationBuilder withNominalDate(final Instant nominalDate) {
+        return cloneAndAmend(builder -> builder.nominalDate = nominalDate);
+    }
+
+    public PublicationBuilder withAttachments(final List<AttachmentBuilder> attachmentBuilders) {
+        return cloneAndAmend(builder -> builder.attachmentBuilders = attachmentBuilders);
+    }
+    public PublicationBuilder withAttachments(final AttachmentBuilder... attachmentBuilders) {
+        return cloneAndAmend(builder -> builder.attachmentBuilders = asList(attachmentBuilders));
+    }
+
+    public PublicationBuilder withStatus(final PublicationStatus status) {
+        return cloneAndAmend(builder -> builder.status = status);
     }
 
     public PublicationBuilder withTaxonomy(final Taxonomy taxonomy) {
         return cloneAndAmend(builder -> builder.taxonomy = taxonomy);
-    }
-
-    public PublicationBuilder withAttachments(final List<Attachment> attachments) {
-        return cloneAndAmend(builder -> builder.attachments = attachments);
     }
     //</editor-fold>
 
     public Publication build() {
         return new Publication(this);
     }
+    //<editor-fold desc="GETTERS" defaultstate="collapsed">
 
-    //<editor-fold desc="getters" defaultstate="collapsed">
     String getPublicationName() {
         return publicationName;
     }
@@ -70,15 +88,15 @@ public class PublicationBuilder {
         return publicationSummary;
     }
 
-    String getGeographicCoverage() {
+    GeographicCoverage getGeographicCoverage() {
         return geographicCoverage;
     }
 
-    String getInformationType() {
+    InformationType getInformationType() {
         return informationType;
     }
 
-    String getGranularity() {
+    Granularity getGranularity() {
         return granularity;
     }
 
@@ -86,8 +104,20 @@ public class PublicationBuilder {
         return taxonomy;
     }
 
+    Instant getNominalDate() {
+        return nominalDate;
+    }
+
     List<Attachment> getAttachments() {
-        return attachments == null ? new ArrayList<>() : new ArrayList<>(attachments);
+        return getAttachmentBuilders().stream().map(AttachmentBuilder::build).collect(toList());
+    }
+
+    List<AttachmentBuilder> getAttachmentBuilders() {
+        return new ArrayList<>(attachmentBuilders);
+    }
+
+    PublicationStatus getStatus() {
+        return status;
     }
     //</editor-fold>
 
@@ -98,8 +128,11 @@ public class PublicationBuilder {
         geographicCoverage = original.getGeographicCoverage();
         informationType = original.getInformationType();
         granularity = original.getGranularity();
-        attachments = getAttachments();
+        nominalDate = original.getNominalDate();
         taxonomy = original.getTaxonomy();
+        attachmentBuilders = original.getAttachmentBuilders();
+
+        status = original.getStatus();
     }
 
     private PublicationBuilder() {

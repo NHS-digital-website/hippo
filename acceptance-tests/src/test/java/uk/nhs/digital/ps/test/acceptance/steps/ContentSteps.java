@@ -7,10 +7,16 @@ import cucumber.api.java.en.When;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.config.AcceptanceTestProperties;
+import uk.nhs.digital.ps.test.acceptance.data.TestDataFactory;
+import uk.nhs.digital.ps.test.acceptance.data.TestDataLoader;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
-import uk.nhs.digital.ps.test.acceptance.models.*;
+import uk.nhs.digital.ps.test.acceptance.models.Attachment;
+import uk.nhs.digital.ps.test.acceptance.models.FileType;
+import uk.nhs.digital.ps.test.acceptance.models.Publication;
+import uk.nhs.digital.ps.test.acceptance.models.TimeSeries;
 import uk.nhs.digital.ps.test.acceptance.pages.ConsumableAttachmentElement;
 import uk.nhs.digital.ps.test.acceptance.pages.ConsumablePublicationPage;
+import uk.nhs.digital.ps.test.acceptance.pages.ConsumablePublicationSeriesPage;
 import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
 import uk.nhs.digital.ps.test.acceptance.util.FileHelper;
 
@@ -46,6 +52,9 @@ public class ContentSteps extends AbstractSpringSteps {
     @Autowired
     private ConsumablePublicationPage consumablePublicationPage;
 
+    @Autowired
+    private ConsumablePublicationSeriesPage consumablePublicationSeriesPage;
+
     // Scenario: New Publication screen ========================================================================
     @Given("^I am on the content page$")
     public void givenIAmOnContentPage() throws Throwable {
@@ -66,7 +75,7 @@ public class ContentSteps extends AbstractSpringSteps {
     public void thenAnEditScreenIsDisplayed() throws Throwable {
         assertThat("Publication edit screen is displayed",contentPage.isPublicationEditScreenOpen(),
             is(true));
-        contentPage.discardUnsavedPublication(testDataRepo.getCurrentPublication().getPublicationName());
+        contentPage.discardUnsavedPublication(testDataRepo.getCurrentPublication().getName());
     }
 
     // Scenario: Saving a publication ========================================================================
@@ -104,7 +113,7 @@ public class ContentSteps extends AbstractSpringSteps {
     public void givenIHaveSavedAPublication() throws Throwable {
         loginSteps.givenIAmLoggedInAsAdmin();
         contentPage.openContentTab();
-        contentPage.navigateToDocument(testDataRepo.getCurrentPublication().getPublicationName());
+        contentPage.navigateToDocument(testDataRepo.getCurrentPublication().getName());
     }
 
     @When("^I publish the publication")
@@ -119,22 +128,22 @@ public class ContentSteps extends AbstractSpringSteps {
 
         final Publication publication = testDataRepo.getCurrentPublication();
 
-        consumablePublicationPage.open(publication.getPublicationUrlName());
+        consumablePublicationPage.open(publication);
 
         assertThat("Publication title is as expected",consumablePublicationPage.getTitleText(),
-            is(publication.getPublicationTitle()));
+            is(publication.getTitle()));
 
         assertThat("Publication summary is as expected",consumablePublicationPage.getSummaryText(),
-            is(publication.getPublicationSummary()));
+            is(publication.getSummary()));
 
         assertThat("Geographic coverage is as expected",consumablePublicationPage.getGeographicCoverage(),
-            is("Geographic coverage:\n" + publication.getGeographicCoverage()));
+            is("Geographic coverage:\n" + publication.getGeographicCoverage().getDisplayValue()));
 
         assertThat("Publication information type is as expected",consumablePublicationPage.getInformationType(),
-            is("Information types:\n" + publication.getInformationType()));
+            is("Information types:\n" + publication.getInformationType().getDisplayName()));
 
         assertThat("Granularity is as expected",consumablePublicationPage.getGranularity(),
-            is("Granularity:\n" + publication.getGranularity()));
+            is("Granularity:\n" + publication.getGranularity().getDisplayValue()));
 
         assertThat("Taxonomy is as expected",consumablePublicationPage.getTaxonomy(),
             is("Taxonomy:\n" + publication.getTaxonomy().getTaxonomyContext()));
@@ -222,5 +231,34 @@ public class ContentSteps extends AbstractSpringSteps {
             assertThat("Error message is displayed",
                 contentPage.getErrorMessage(), startsWith(expectedErrorMessage));
         });
+    }
+
+    @Given("^I have a number of publications belonging to the same time series$")
+    public void iHaveANumberOfPublicationsBelongingToTheSameTimeSeries() throws Throwable {
+
+        final TimeSeries timeSeries = TestDataLoader.loadValidTimeSeries().build();
+        testDataRepo.setCurrentTimeSeries(timeSeries);
+    }
+
+    @When("^I navigate to the time series$")
+    public void iNavigateToTheTimeSeries() throws Throwable {
+        consumablePublicationSeriesPage.open(testDataRepo.getCurrentTimeSeries());
+    }
+
+    @Then("^I can see a list of released publications from the time series$")
+    public void iCanSeeAListOfPublicationsFromTheTimeSeries() throws Throwable {
+
+        final TimeSeries expectedTimeSeries = testDataRepo.getCurrentTimeSeries();
+
+        assertThat("Correct publication time series title is displayed.",
+            consumablePublicationSeriesPage.getSeriesTitle(), is(expectedTimeSeries.getTitle()));
+
+        final List<String> expectedPublicationTitles = expectedTimeSeries.getReleasedPublicationsLatestFirst().stream()
+            .map(Publication::getTitle)
+            .collect(toList());
+
+        assertThat("Correct publication titles are displayed in order.",
+            consumablePublicationSeriesPage.getPublicationTitles(),
+            is(expectedPublicationTitles));
     }
 }

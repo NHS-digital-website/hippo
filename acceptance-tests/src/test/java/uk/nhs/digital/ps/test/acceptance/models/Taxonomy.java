@@ -31,7 +31,7 @@ public class Taxonomy {
     /**
      * @return New instance
      */
-    static Taxonomy createNew(final String level1, final String level2, final String level3) {
+    public static Taxonomy createNew(final String level1, final String level2, final String level3) {
 
         return new Taxonomy(level1, level2, level3);
 

@@ -43,4 +43,12 @@ public class RandomHelper {
     public static <T> T getRandomArrayElement(final T[] array) {
         return array[RandomUtils.nextInt(0, array.length)];
     }
+
+    /**
+     * @return Randomly selected constant from provided {@code enum}.
+     */
+    public static <T extends Enum<T>> T getRandomEnumConstant(Class<T> enumType) {
+        final T[] enumConstants = enumType.getEnumConstants();
+        return enumConstants[RandomUtils.nextInt(0, enumConstants.length)];
+    }
 }

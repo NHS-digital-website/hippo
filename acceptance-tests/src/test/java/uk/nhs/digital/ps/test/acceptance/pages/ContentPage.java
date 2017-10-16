@@ -49,31 +49,31 @@ public class ContentPage extends AbstractCmsPage {
         helper.findElement(
             By.xpath(XPATH_EDITOR_BODY + "//div[contains(@class, 'publication-title')]//textarea")
         ).sendKeys(
-            publication.getPublicationTitle()
+            publication.getTitle()
         );
 
         helper.findElement(
             By.xpath(XPATH_EDITOR_BODY + "//div[contains(@class, 'publication-summary')]//textarea")
         ).sendKeys(
-            publication.getPublicationSummary()
+            publication.getSummary()
         );
 
         new Select(helper.findElement(
             By.xpath(XPATH_EDITOR_BODY + "//span[text()='Geographic Coverage']/../following-sibling::div//select[@class='dropdown-plugin']")
         )).selectByVisibleText(
-            publication.getGeographicCoverage()
+            publication.getGeographicCoverage().getDisplayValue()
         );
 
         new Select(helper.findElement(
             By.xpath(XPATH_EDITOR_BODY + "//span[text()='Information Type']/../following-sibling::div//select[@class='dropdown-plugin']")
         )).selectByVisibleText(
-            publication.getInformationType()
+            publication.getInformationType().getDisplayName()
         );
 
         new Select(helper.findElement(
             By.xpath(XPATH_EDITOR_BODY + "//span[text()='Granularity']/../following-sibling::div//select[@class='dropdown-plugin']")
         )).selectByVisibleText(
-            publication.getGranularity()
+            publication.getGranularity().getDisplayValue()
         );
 
         helper.findElement(
@@ -173,7 +173,7 @@ public class ContentPage extends AbstractCmsPage {
     private boolean isDocumentPresent(final Publication publication) {
         return helper.waitForElementUntil(
             ExpectedConditions.presenceOfElementLocated(
-                By.xpath("//span[contains(@class, 'document') and @title='" + publication.getPublicationName() + "']")
+                By.xpath("//span[contains(@class, 'document') and @title='" + publication.getName() + "']")
             )
         ) != null;
     }

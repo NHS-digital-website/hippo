@@ -12,3 +12,7 @@
 
 [publicationsystem:relatedlink] > hippo:compound, hippostd:relaxed
   orderable
+
+[publicationsystem:series] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
+  orderable
+

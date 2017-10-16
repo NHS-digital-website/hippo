@@ -14,11 +14,11 @@ public class AttachmentBuilder {
     private byte[] content;
     private Path path;
 
-    public static AttachmentBuilder create() {
+    public static AttachmentBuilder newAttachment() {
         return new AttachmentBuilder();
     }
 
-    //<editor-fold desc="builder methods">
+    //<editor-fold desc="BUILDER METHODS">
     public AttachmentBuilder withName(final String name) {
         vetSettingProperty("name");
 
@@ -60,7 +60,7 @@ public class AttachmentBuilder {
         return new Attachment(this);
     }
 
-    //<editor-fold desc="getters" defaultstate="collapsed">
+    //<editor-fold desc="GETTERS" defaultstate="collapsed">
     String getName() {
         return name;
     }
