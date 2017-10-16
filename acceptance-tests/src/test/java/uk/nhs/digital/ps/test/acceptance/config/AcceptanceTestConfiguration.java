@@ -33,8 +33,8 @@ public class AcceptanceTestConfiguration {
     }
 
     @Bean
-    public DashboardPage dashboardPage(final WebDriverProvider webDriverProvider) {
-        return new DashboardPage(webDriverProvider);
+    public DashboardPage dashboardPage(final WebDriverProvider webDriverProvider, final PageHelper pageHelper) {
+        return new DashboardPage(webDriverProvider, pageHelper);
     }
 
     @Bean

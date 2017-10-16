@@ -4,10 +4,11 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import uk.nhs.digital.ps.test.acceptance.models.Publication;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
+import uk.nhs.digital.ps.test.acceptance.models.Publication;
 import uk.nhs.digital.ps.test.acceptance.models.TestDataFactory;
 import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
 import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
@@ -82,6 +83,8 @@ public class TestDataSteps extends AbstractSpringSteps {
     private void waitUntilSaved() {
         // We're looking for 'Edit' button to appear as it shows when a document gets saved and is absent
         // when the document is being edited.
-        pageHelper.findElement(By.cssSelector("span[class~='menu-action-text'] > span[title='Edit']"));
+        pageHelper.findElement(
+            By.cssSelector("span[class~='menu-action-text'] > span[title='Edit']")
+        );
     }
 }

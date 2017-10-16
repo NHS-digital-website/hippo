@@ -1,6 +1,9 @@
 package uk.nhs.digital.ps.test.acceptance.pages;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
@@ -10,7 +13,6 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.util.function.Supplier;
-
 
 public class PageHelper {
 
@@ -43,21 +45,15 @@ public class PageHelper {
 
     private WebElement findElement(final Function<By, List<WebElement>> findElements,
                                    final By bySelector,
-                                   final Function<WebElement, Boolean> elementOkFilter){
+                                   final Function<WebElement, Boolean> elementOkFilter) {
 
-        try{
+        try {
             return pollWithTimeout().until((WebDriver innerDriver) -> {
-
                 List<WebElement> elements = findElements.apply(bySelector);
                 if (elements.size() == 1) {
                     WebElement el = elements.get(0);
-                    try {
-                        el.isEnabled();
-                        return elementOkFilter.apply(el) ? el : null;
-                    }
-                    catch (StaleElementReferenceException ex) {
-                        return null;
-                    }
+                    el.isEnabled();
+                    return elementOkFilter.apply(el) ? el : null;
                 } else {
                     return null;
                 }
@@ -71,28 +67,28 @@ public class PageHelper {
     public void waitUntilTrue(final Predicate predicate) {
 
         pollWithTimeout().until(webDriver -> {
-                try {
-                    return predicate.executeWithPredicate();
-                } catch (final Exception e) {
-                    return false;
-                }
-            });
+            try {
+                return predicate.executeWithPredicate();
+            } catch (final Exception e) {
+                return false;
+            }
+        });
     }
 
     public void executeWhenStable(final Task task) {
 
         pollWithTimeout().until(webDriver -> {
-                try {
-                    task.execute();
-                    return true;
-                } catch (final Exception e) {
-                    return false;
-                }
-            });
+            try {
+                task.execute();
+                return true;
+            } catch (final Exception e) {
+                return false;
+            }
+        });
     }
 
     public void waitUntilVisible(WebElement webElement) {
-        try{
+        try {
             pollWithTimeout().until((WebDriver innerDriver) -> webElement.isDisplayed());
         }
         catch (TimeoutException e){
@@ -100,18 +96,23 @@ public class PageHelper {
         }
     }
 
+    /**
+     * This takes care of element being removed/refreshed from DOM
+     */
+    public <T> T waitForElementUntil(ExpectedCondition<T> condition) {
+        return pollWithTimeout()
+            .until(ExpectedConditions.refreshed(condition));
+    }
+
     private FluentWait<WebDriver> pollWithTimeout() {
-        return new WebDriverWait(getWebDriver(), 3)
+        return new WebDriverWait(getWebDriver(), 5)
+            .ignoring(StaleElementReferenceException.class)
             .pollingEvery(100, TimeUnit.MILLISECONDS);
     }
 
-
-    public boolean isElementPresent(By selector){
+    public boolean isElementPresent(By selector) {
         return findElement(selector) != null;
     }
-
-
-
 
     @FunctionalInterface
     interface Task {
