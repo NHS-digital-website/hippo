@@ -6,8 +6,8 @@ import org.hippoecm.hst.content.beans.Node;
 @HippoEssentialsGenerated(internalName = "publicationsystem:series")
 @Node(jcrType = "publicationsystem:series")
 public class Series extends BaseDocument {
-    @HippoEssentialsGenerated(internalName = "publicationsystem:title")
+    @HippoEssentialsGenerated(internalName = "publicationsystem:Title")
     public String getTitle() {
-        return getProperty("publicationsystem:title");
+        return getProperty("publicationsystem:Title");
     }
 }

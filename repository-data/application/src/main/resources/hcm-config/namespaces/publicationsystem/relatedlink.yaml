@@ -3,18 +3,15 @@ definitions:
     /hippo:namespaces/publicationsystem/relatedlink:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:uuid: 4147902a-c17d-4d62-a56c-2959f9a7eb0d
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 305202e0-2f76-4ab9-aac6-1d98092eff26
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 356b8486-ba90-467e-abb6-8cb3d6efcfa0
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
-          hipposysedit:uri: http://www.onehippo.org/publicationsystem/nt/1.0
+          hipposysedit:uri: http://digital.nhs.uk/jcr/publicationsystem/nt/1.0
           /link_text:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false

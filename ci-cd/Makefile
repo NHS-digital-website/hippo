@@ -36,9 +36,17 @@ release: test version.bumpup
 	# we have to call build manually, so that the VERSION is set properly.
 	$(MAKE) build upload
 
+## Run all tests
+test: clean test.unit test.e2e
+
 ## Run unit tests
-test:
-	mvn --file ../pom.xml -Drevision=$(VERSION) clean test
+test.unit: clean
+	mvn --file ../pom.xml -Drevision=$(VERSION) test
+
+## Run BDD tests
+test.e2e:
+	mvn --file ../pom.xml -Drevision=$(VERSION) verify
+	mvn --file ../pom.xml -Drevision=$(VERSION) verify -Pacceptance-test-hippo,acceptance-test
 
 ## Build distribution package
 build:

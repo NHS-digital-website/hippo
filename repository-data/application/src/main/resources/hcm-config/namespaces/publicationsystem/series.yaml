@@ -3,25 +3,22 @@ definitions:
     /hippo:namespaces/publicationsystem/series:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:uuid: 86788c55-01d8-48b7-b6a4-48e1f73712cd
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 56df90a3-afa0-48bd-b48d-0574ab6fddcc
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: f46e47b7-16af-47d2-8219-26b509311219
           hipposysedit:node: true
           hipposysedit:supertype: ['publicationsystem:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
-          hipposysedit:uri: http://www.onehippo.org/publicationsystem/nt/1.0
+          hipposysedit:uri: http://digital.nhs.uk/jcr/publicationsystem/nt/1.0
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:title
+            hipposysedit:path: publicationsystem:Title
             hipposysedit:primary: false
             hipposysedit:type: Text
       /hipposysedit:prototypes:
@@ -36,7 +33,6 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           publicationsystem:title: ''
-          jcr:uuid: caff877b-8ff7-4a0e-a429-bec8be18184c
           hippostdpubwf:lastModificationDate: 2017-10-16T12:49:42.988+02:00
           hippostdpubwf:creationDate: 2017-10-16T12:49:42.988+02:00
       /editor:templates:
@@ -62,7 +58,7 @@ definitions:
             item: ${cluster.id}.right.item
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
             wicket.id: ${cluster.id}.right
-          /title:
+          /Title:
             jcr:primaryType: frontend:plugin
             caption: Title
             field: title
@@ -71,4 +67,3 @@ definitions:
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              rows: '3'

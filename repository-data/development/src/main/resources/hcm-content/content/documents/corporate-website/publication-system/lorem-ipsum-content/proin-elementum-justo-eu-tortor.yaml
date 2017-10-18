@@ -1,0 +1,105 @@
+---
+
+/content/documents/corporate-website/publication-system/lorem-ipsum-content/proin-elementum-justo-eu-tortor:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['mix:referenceable']
+  /proin-elementum-justo-eu-tortor[1]:
+    jcr:primaryType: publicationsystem:publication
+    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:lastModificationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 35e01f9f-a95d-4969-9e2f-c678a4dfbd69
+    hippotranslation:locale: document-type-locale
+    hippotaxonomy:keys: [falls, infectious-diseases, workforce]
+    publicationsystem:AdministrativeSources: ''
+    publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
+    publicationsystem:CoverageStart: 2017-01-01T09:00:00.000+01:00
+    publicationsystem:Granularity: ['']
+    publicationsystem:InformationType: [Official statistics]
+    publicationsystem:KeyFacts: ''
+    publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
+    publicationsystem:Summary: Suspendisse pellentesque, purus nec fermentum
+      vulputate, lorem metus interdum dolor, eget facilisis lacus ligula sed dui.
+      Praesent facilisis sollicitudin odio sit amet ullamcorper. Pellentesque
+      imperdiet neque nibh, quis vehicula risus finibus a. Aenean a sagittis lacus.
+      Fusce id metus vel eros iaculis lobortis. Vestibulum tempor dapibus turpis,
+      sit amet euismod lorem. Vivamus id orci eu sem vehicula interdum vitae vitae
+      diam.
+    publicationsystem:Title: Proin elementum justo eu tortor
+    /publicationsystem:RelatedLinks:
+      jcr:primaryType: publicationsystem:relatedlink
+      publicationsystem:linkText: ''
+      publicationsystem:linkUrl: ''
+      publicationsystem:link_text: ''
+      publicationsystem:link_url: ''
+  /proin-elementum-justo-eu-tortor[2]:
+    jcr:primaryType: publicationsystem:publication
+    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+    hippo:availability: [preview]
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:lastModificationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 35e01f9f-a95d-4969-9e2f-c678a4dfbd69
+    hippotranslation:locale: document-type-locale
+    hippotaxonomy:keys: [falls, infectious-diseases, workforce]
+    publicationsystem:AdministrativeSources: ''
+    publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
+    publicationsystem:CoverageStart: 2017-01-01T09:00:00.000+01:00
+    publicationsystem:Granularity: ['']
+    publicationsystem:InformationType: [Official statistics]
+    publicationsystem:KeyFacts: ''
+    publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
+    publicationsystem:Summary: Suspendisse pellentesque, purus nec fermentum
+      vulputate, lorem metus interdum dolor, eget facilisis lacus ligula sed dui.
+      Praesent facilisis sollicitudin odio sit amet ullamcorper. Pellentesque
+      imperdiet neque nibh, quis vehicula risus finibus a. Aenean a sagittis lacus.
+      Fusce id metus vel eros iaculis lobortis. Vestibulum tempor dapibus turpis,
+      sit amet euismod lorem. Vivamus id orci eu sem vehicula interdum vitae vitae
+      diam.
+    publicationsystem:Title: Proin elementum justo eu tortor
+    /publicationsystem:RelatedLinks:
+      jcr:primaryType: publicationsystem:relatedlink
+      publicationsystem:linkText: ''
+      publicationsystem:linkUrl: ''
+      publicationsystem:link_text: ''
+      publicationsystem:link_url: ''
+  /proin-elementum-justo-eu-tortor[3]:
+    jcr:primaryType: publicationsystem:publication
+    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+    hippo:availability: [live]
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:lastModificationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2017-10-16T15:00:00.000+01:00
+    hippotranslation:id: 35e01f9f-a95d-4969-9e2f-c678a4dfbd69
+    hippotranslation:locale: document-type-locale
+    hippotaxonomy:keys: [falls, infectious-diseases, workforce]
+    publicationsystem:AdministrativeSources: ''
+    publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
+    publicationsystem:CoverageStart: 2017-01-01T09:00:00.000+01:00
+    publicationsystem:Granularity: ['']
+    publicationsystem:InformationType: [Official statistics]
+    publicationsystem:KeyFacts: ''
+    publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
+    publicationsystem:Summary: Suspendisse pellentesque, purus nec fermentum
+      vulputate, lorem metus interdum dolor, eget facilisis lacus ligula sed dui.
+      Praesent facilisis sollicitudin odio sit amet ullamcorper. Pellentesque
+      imperdiet neque nibh, quis vehicula risus finibus a. Aenean a sagittis lacus.
+      Fusce id metus vel eros iaculis lobortis. Vestibulum tempor dapibus turpis,
+      sit amet euismod lorem. Vivamus id orci eu sem vehicula interdum vitae vitae
+      diam.
+    publicationsystem:Title: Proin elementum justo eu tortor
+    /publicationsystem:RelatedLinks:
+      jcr:primaryType: publicationsystem:relatedlink
+      publicationsystem:linkText: ''
+      publicationsystem:linkUrl: ''
+      publicationsystem:link_text: ''
+      publicationsystem:link_url: ''

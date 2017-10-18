@@ -1,0 +1,7 @@
+---
+
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:templates/search:
+      jcr:primaryType: hst:template
+      hst:renderpath: webfile:/freemarker/common/search.ftl

@@ -1,0 +1,8 @@
+---
+
+definitions:
+  config:
+    /hst:hst/hst:hosts:
+      .meta:residual-child-node-category: content
+      # enable console diagnostics
+      hst:diagnosticsenabled: true

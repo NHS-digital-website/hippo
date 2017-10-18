@@ -17,11 +17,12 @@ public class DashboardPage extends AbstractCmsPage {
     }
 
     public boolean open() {
-        getWebDriver().findElement(By.className("tab0")).click();
+        helper.findElement(By.xpath(XpathSelectors.TABBED_PANEL + "//li[contains(@class, 'tab0')]"))
+            .click();
 
         return helper.waitForElementUntil(
             ExpectedConditions.attributeContains(
-                By.xpath("//div[contains(@class, 'tabbed-panel-layout-left')]//li[contains(@class, 'tab0')]"), "class", "selected"
+                By.xpath(XpathSelectors.TABBED_PANEL + "//li[contains(@class, 'tab0')]"), "class", "selected"
             )
         );
     }

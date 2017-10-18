@@ -88,11 +88,10 @@ public class AttachmentsSection {
     }
 
     private WebElement findRootElement() {
-        return getWebDriver().findElement(By.xpath(
-            // find 'parent' div that _contains_ an 'h3/span' child elements, where the <span> has text 'Attachments'
-            // this is so that further searches can be performed in context of the
-            "//div[@class='hippo-editor-field' and h3[@class='hippo-editor-field-title']/span[text() = 'Attachments']]"
-        ));
+        // find 'parent' div that _contains_ an 'h3/span' child elements, where the <span> has text 'Attachments'
+        // this is so that further searches can be performed in context of the
+        return getWebDriver().findElement(
+            By.xpath(XpathSelectors.EDITOR_BODY + "//div[@class='hippo-editor-field' and h3/span[text() = 'Attachments']]"));
     }
 
     private WebDriver getWebDriver() {

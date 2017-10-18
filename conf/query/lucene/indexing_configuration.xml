@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE configuration SYSTEM "http://jackrabbit.apache.org/dtd/indexing-configuration-1.1.dtd">
+<configuration
+    xmlns:hippostd="http://www.onehippo.org/jcr/hippostd/nt/2.0"
+    xmlns:hippostdpubwf="http://www.onehippo.org/jcr/hippostdpubwf/nt/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:publicationsystem="http://digital.nhs.uk/jcr/publicationsystem/nt/1.0"
+>
+    <index-rule
+        nodeType="publicationsystem:publication"
+        boost="2.0"
+    >
+        <property boost="10.0">publicationsystem:Title</property>
+        <property boost="2.0">publicationsystem:Summary</property>
+        <property>publicationsystem:KeyFacts</property>
+        <property isRegexp="true" nodeScopeIndex="false">.*:.*</property>
+    </index-rule>
+
+    <!-- hippo aggregates -->
+    <aggregates>
+        <nodetype>hippostd:html</nodetype>
+        <childtype>hippostd:date</childtype>
+    </aggregates>
+
+    <excludefromnodescope>
+        <nodetype>hippostd:state</nodetype>
+        <nodetype>hippostd:stateSummary</nodetype>
+        <nodetype>hippostd:holder</nodetype>
+        <nodetype>hippostdpubwf:createdBy</nodetype>
+        <nodetype>hippostdpubwf:lastModifiedBy</nodetype>
+        <nodetype>hippo:docbase</nodetype>
+        <nodetype>hippo:paths</nodetype>
+        <nodetype>hipposys:active</nodetype>
+        <nodetype>hipposys:password</nodetype>
+        <nodetype>hipposys:system</nodetype>
+    </excludefromnodescope>
+
+    <nosingleindexterm>
+        <property>hippostd:content</property>
+    </nosingleindexterm>
+
+    <facets>
+        <excludeproperty>hippostd:content</excludeproperty>
+    </facets>
+
+</configuration>

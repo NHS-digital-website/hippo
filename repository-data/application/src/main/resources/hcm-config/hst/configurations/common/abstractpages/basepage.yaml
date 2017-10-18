@@ -1,0 +1,9 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:abstractpages/basepage:
+      jcr:primaryType: hst:component
+      hst:template: base
+      /top:
+        jcr:primaryType: hst:component
+        hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsSearchComponent
+        hst:template: search

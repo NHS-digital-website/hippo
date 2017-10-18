@@ -2,5 +2,8 @@ definitions:
   config:
     /hst:hst/hst:configurations/publicationsystem/hst:pages/seriespage:
       jcr:primaryType: hst:component
-      hst:componentclassname: uk.nhs.digital.ps.components.SeriesComponent
-      hst:template: series
+      hst:referencecomponent: hst:abstractpages/basepage
+      /main:
+        jcr:primaryType: hst:component
+        hst:componentclassname: uk.nhs.digital.ps.components.SeriesComponent
+        hst:template: series

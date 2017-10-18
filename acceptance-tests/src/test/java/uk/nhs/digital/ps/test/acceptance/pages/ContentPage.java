@@ -15,10 +15,6 @@ import static java.util.stream.Collectors.toList;
 
 public class ContentPage extends AbstractCmsPage {
 
-    private final static String XPATH_CONTENT_TAB = "//div[contains(@class, 'tabbed-panel-layout-left')]//li[contains(@class, 'tab2')]";
-    private final static String XPATH_EDITOR_BODY = "//div[contains(@class, 'hippo-editor-body')]";
-    private final static String XPATH_TAXONOMY_PICKER =  "//div[contains(@class, 'wicket-modal') and contains(@aria-labelledby, 'Taxonomy picker')]";
-
     private PageHelper helper;
 
     public ContentPage(final WebDriverProvider webDriverProvider, final PageHelper helper) {
@@ -28,15 +24,12 @@ public class ContentPage extends AbstractCmsPage {
 
     /* used as step assertion */
     public boolean openContentTab() {
-        getWebDriver().findElement(By.xpath(XPATH_CONTENT_TAB)).click();
+        getWebDriver().findElement(
+            By.xpath(XpathSelectors.TABBED_PANEL + "//li[contains(@class, 'tab2')]")).click();
 
         return helper.waitForElementUntil(
             ExpectedConditions.attributeContains(
-                By.xpath(XPATH_CONTENT_TAB),
-                "class",
-                "selected"
-            )
-        );
+                By.xpath(XpathSelectors.TABBED_PANEL + "//li[contains(@class, 'tab2')]"), "class", "selected"));
     }
 
     public boolean newPublication(final Publication publication) {
@@ -46,7 +39,7 @@ public class ContentPage extends AbstractCmsPage {
 
     public boolean isPublicationEditScreenOpen() {
         return helper.findElement(
-            By.xpath(XPATH_EDITOR_BODY)
+            By.xpath(XpathSelectors.EDITOR_BODY)
         ) != null;
     }
 
@@ -54,40 +47,40 @@ public class ContentPage extends AbstractCmsPage {
         populatePublicationTitle(publication.getTitle());
 
         helper.findElement(
-            By.xpath(XPATH_EDITOR_BODY + "//div[contains(@class, 'publication-summary')]//textarea")
+            By.xpath(XpathSelectors.EDITOR_BODY + "//div[contains(@class, 'publication-summary')]//textarea")
         ).sendKeys(
             publication.getSummary()
         );
 
         new Select(helper.findElement(
-            By.xpath(XPATH_EDITOR_BODY + "//span[text()='Geographic Coverage']/../following-sibling::div//select[@class='dropdown-plugin']")
+            By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Geographic Coverage']/../following-sibling::div//select[@class='dropdown-plugin']")
         )).selectByVisibleText(
             publication.getGeographicCoverage().getDisplayValue()
         );
 
         new Select(helper.findElement(
-            By.xpath(XPATH_EDITOR_BODY + "//span[text()='Information Type']/../following-sibling::div//select[@class='dropdown-plugin']")
+            By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Information Type']/../following-sibling::div//select[@class='dropdown-plugin']")
         )).selectByVisibleText(
             publication.getInformationType().getDisplayName()
         );
 
         new Select(helper.findElement(
-            By.xpath(XPATH_EDITOR_BODY + "//span[text()='Granularity']/../following-sibling::div//select[@class='dropdown-plugin']")
+            By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Granularity']/../following-sibling::div//select[@class='dropdown-plugin']")
         )).selectByVisibleText(
             publication.getGranularity().getDisplayValue()
         );
 
         helper.findElement(
-            By.xpath(XPATH_EDITOR_BODY + "//span[text()='Select taxonomy terms']/../..")
+            By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Select taxonomy terms']/../..")
         ).click();
         helper.findElement(
-            By.xpath(XPATH_TAXONOMY_PICKER + "//span[text()='" + publication.getTaxonomy().getLevel1() + "']/..")
+            By.xpath(XpathSelectors.TAXONOMY_PICKER + "//span[text()='" + publication.getTaxonomy().getLevel1() + "']/..")
         ).click();
         helper.findElement(
-            By.xpath(XPATH_TAXONOMY_PICKER + "//span[text()='" + publication.getTaxonomy().getLevel2() + "']/..")
+            By.xpath(XpathSelectors.TAXONOMY_PICKER + "//span[text()='" + publication.getTaxonomy().getLevel2() + "']/..")
         ).click();
         helper.findElement(
-            By.xpath(XPATH_TAXONOMY_PICKER + "//span[text()='" + publication.getTaxonomy().getLevel3() + "']/..")
+            By.xpath(XpathSelectors.TAXONOMY_PICKER + "//span[text()='" + publication.getTaxonomy().getLevel3() + "']/..")
         ).click();
         helper.findElement(By.cssSelector("a[class~='category-add']")).click();
 
@@ -98,7 +91,7 @@ public class ContentPage extends AbstractCmsPage {
 
     public void populatePublicationTitle(final String publicationTitle) {
         helper.findElement(
-            By.xpath(XPATH_EDITOR_BODY + "//div[contains(@class, 'publication-title')]//input")
+            By.xpath(XpathSelectors.EDITOR_BODY + "//div[contains(@class, 'publication-title')]//input")
         ).sendKeys(
             publicationTitle
         );
@@ -123,11 +116,11 @@ public class ContentPage extends AbstractCmsPage {
 
     private WebElement openPublicationsMenu(WebDriver driver) {
 
-        expandMenuByTitle("NHS Digital Publication System");
-        expandMenuByTitle("publications");
+        expandMenuByTitle("Corporate Website");
+        expandMenuByTitle("Publication System");
 
         // Refresh reference to element because click above recreates it
-        WebElement publicationsFolder = helper.findElement(By.cssSelector("a[class~='hippo-tree-node-link'][title='publications']"));
+        WebElement publicationsFolder = helper.findElement(By.cssSelector("a[class~='hippo-tree-node-link'][title='Publication System']"));
         WebElement publicationsParent = helper.findChildElement(publicationsFolder, By.xpath(".."));
 
         WebElement menuIcon = publicationsParent.findElement(By.xpath("following-sibling::a"));
@@ -160,12 +153,12 @@ public class ContentPage extends AbstractCmsPage {
 
     private WebElement expandMenuByTitle(String title) {
         getWebDriver().findElement(
-            By.xpath("//a[contains(@class, 'hippo-tree-node-link') and @title='" + title + "']")
+            By.xpath(XpathSelectors.NAVIGATION_LEFT + "//a[contains(@class, 'hippo-tree-node-link') and @title='" + title + "']")
         ).click();
 
         return helper.waitForElementUntil(
             ExpectedConditions.presenceOfElementLocated(
-                By.xpath("//a[contains(@class, 'hippo-tree-node-link') and contains(@class, 'hippo-tree-node-expanded') and @title='" + title + "']")
+                By.xpath(XpathSelectors.NAVIGATION_LEFT + "//a[contains(@class, 'hippo-tree-node-link') and contains(@class, 'hippo-tree-node-expanded') and @title='" + title + "']")
             )
         );
     }
@@ -186,7 +179,7 @@ public class ContentPage extends AbstractCmsPage {
     private boolean isDocumentPresent(final Publication publication) {
         return helper.waitForElementUntil(
             ExpectedConditions.presenceOfElementLocated(
-                By.xpath("//span[contains(@class, 'document') and @title='" + publication.getName() + "']")
+                By.xpath(XpathSelectors.NAVIGATION_CENTRE + "//span[contains(@class, 'document') and @title='" + publication.getName() + "']")
             )
         ) != null;
     }
@@ -198,21 +191,17 @@ public class ContentPage extends AbstractCmsPage {
     }
 
     public void navigateToDocument(String documentName) {
-        clickFolder("NHS Digital Publication System");
-        clickFolder("publications");
+        expandMenuByTitle("Corporate Website");
+        expandMenuByTitle("Publication System");
         clickDocument(documentName);
     }
 
     public void discardUnsavedChanges(String publicationName) {
         WebElement closeButton = helper.findElement(
-            By.xpath("//a[@class='hippo-tabs-documents-tab hippo-perspective-editperspective' and @title='" + publicationName + "']/following-sibling::a"));
+            By.xpath("//div[contains(@class, 'hippo-tabs-documents')]//a[contains(@class, 'hippo-tabs-documents-tab') and @title='" + publicationName + "']/following-sibling::a[contains(@class, 'hippo-tabs-documents-close')]"));
         closeButton.click();
         WebElement confirmDiscard = helper.findElement(By.xpath("//input[@type='submit' and @value='Discard']"));
         confirmDiscard.click();
-    }
-
-    private void clickFolder(String name){
-        helper.findElement(By.xpath("//span[@class='hippo-folder' and @title='" + name + "']")).click();
     }
 
     private void clickDocument(String name){
@@ -220,11 +209,13 @@ public class ContentPage extends AbstractCmsPage {
     }
 
     private WebElement findPublicationMenu(){
-        return helper.findElement(By.xpath("//span[text()='Publication']"));
+        return helper.findElement(
+            By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Publication']"));
     }
 
     private WebElement findPublish() {
-        return helper.findElement(By.xpath("//span[text()='Publish']"));
+        return helper.findElement(
+            By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Publish']"));
     }
 
     private WebElement findOk() {
@@ -232,11 +223,13 @@ public class ContentPage extends AbstractCmsPage {
     }
 
     private WebElement findSaveAndClose() {
-        return helper.findElement(By.xpath("//span[@title='Save & Close']"));
+        return helper.findElement(
+            By.xpath(XpathSelectors.EDITOR_BODY + "//span[@title='Save & Close']"));
     }
 
     private WebElement findSave() {
-        return helper.findElement(By.xpath("//span[@title='Save']"));
+        return helper.findElement(
+            By.xpath(XpathSelectors.EDITOR_BODY + "//span[@title='Save']"));
     }
 
     public List<String> getErrorMessages() {

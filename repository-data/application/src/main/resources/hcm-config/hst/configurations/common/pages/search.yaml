@@ -1,0 +1,11 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/search:
+      jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/basepage
+      /main:
+        jcr:primaryType: hst:component
+        hst:componentclassname: uk.nhs.digital.common.components.SearchComponent
+        hst:parameternames: [limit]
+        hst:parametervalues: ['10']
+        hst:template: searchresults

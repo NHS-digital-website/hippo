@@ -19,7 +19,12 @@ definitions:
             .meta:residual-child-node-category: content
             jcr:primaryType: hst:mount
             hst:homepage: root
-            hst:mountpoint: /hst:hst/hst:sites/publicationsystem
+            hst:mountpoint: /hst:hst/hst:sites/common
+            /publications:
+              .meta:residual-child-node-category: content
+              jcr:primaryType: hst:mount
+              hst:homepage: root
+              hst:mountpoint: /hst:hst/hst:sites/publicationsystem
 
       # For local testing in Vagrant
       /vagrant:
@@ -38,7 +43,13 @@ definitions:
               .meta:residual-child-node-category: content
               jcr:primaryType: hst:mount
               hst:homepage: root
-              hst:mountpoint: /hst:hst/hst:sites/publicationsystem
+              hst:mountpoint: /hst:hst/hst:sites/common
+              /publications:
+                .meta:residual-child-node-category: content
+                jcr:primaryType: hst:mount
+                hst:homepage: root
+                hst:mountpoint: /hst:hst/hst:sites/publicationsystem
+
       /dev:
         .meta:residual-child-node-category: content
         jcr:primaryType: hst:virtualhostgroup
@@ -67,4 +78,9 @@ definitions:
                       .meta:residual-child-node-category: content
                       jcr:primaryType: hst:mount
                       hst:homepage: root
-                      hst:mountpoint: /hst:hst/hst:sites/publicationsystem
+                      hst:mountpoint: /hst:hst/hst:sites/common
+                      /publications:
+                        .meta:residual-child-node-category: content
+                        jcr:primaryType: hst:mount
+                        hst:homepage: root
+                        hst:mountpoint: /hst:hst/hst:sites/publicationsystem
