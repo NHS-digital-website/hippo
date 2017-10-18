@@ -1,0 +1,117 @@
+---
+
+/content/documents/corporate-website/publication-system/lorem-ipsum-content/proin-nec-justo:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['mix:referenceable']
+  /proin-nec-justo[1]:
+    jcr:primaryType: publicationsystem:publication
+    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:lastModificationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 35e01f9f-a95d-4969-9e2f-c678a4dfbd69
+    hippotranslation:locale: document-type-locale
+    hippotaxonomy:keys: [falls, infectious-diseases, workforce]
+    publicationsystem:AdministrativeSources: ''
+    publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
+    publicationsystem:CoverageStart: 2017-01-01T09:00:00.000+01:00
+    publicationsystem:Granularity: ['']
+    publicationsystem:InformationType: [Official statistics]
+    publicationsystem:KeyFacts: ''
+    publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
+    publicationsystem:Summary: Nulla eu augue eros. Maecenas ultrices tempus
+      placerat. Phasellus commodo nulla in gravida pretium. Donec justo magna,
+      vehicula tristique suscipit vel, condimentum quis lectus. Nam posuere eu elit
+      vitae gravida. Nullam a volutpat dolor, sagittis iaculis urna. Fusce rhoncus
+      sagittis mauris, non rutrum eros volutpat ut. Duis non tempus ante. Duis
+      scelerisque, massa et luctus sollicitudin, quam massa convallis justo, in
+      eleifend ante nibh a mauris. Aliquam finibus pellentesque lacus, ac vulputate
+      nisi iaculis at. Integer consequat mollis ipsum, ac tincidunt diam cursus id.
+      Mauris convallis a nisl eget mattis. Vestibulum sodales nisl aliquam, cursus
+      nunc eu, tincidunt ligula. Aliquam a ligula ac elit efficitur viverra eu quis
+      libero.
+    publicationsystem:Title: Proin nec justo
+    /publicationsystem:RelatedLinks:
+      jcr:primaryType: publicationsystem:relatedlink
+      publicationsystem:linkText: ''
+      publicationsystem:linkUrl: ''
+      publicationsystem:link_text: ''
+      publicationsystem:link_url: ''
+  /proin-nec-justo[2]:
+    jcr:primaryType: publicationsystem:publication
+    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+    hippo:availability: [preview]
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:lastModificationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 35e01f9f-a95d-4969-9e2f-c678a4dfbd69
+    hippotranslation:locale: document-type-locale
+    hippotaxonomy:keys: [falls, infectious-diseases, workforce]
+    publicationsystem:AdministrativeSources: ''
+    publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
+    publicationsystem:CoverageStart: 2017-01-01T09:00:00.000+01:00
+    publicationsystem:Granularity: ['']
+    publicationsystem:InformationType: [Official statistics]
+    publicationsystem:KeyFacts: ''
+    publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
+    publicationsystem:Summary: Nulla eu augue eros. Maecenas ultrices tempus
+      placerat. Phasellus commodo nulla in gravida pretium. Donec justo magna,
+      vehicula tristique suscipit vel, condimentum quis lectus. Nam posuere eu elit
+      vitae gravida. Nullam a volutpat dolor, sagittis iaculis urna. Fusce rhoncus
+      sagittis mauris, non rutrum eros volutpat ut. Duis non tempus ante. Duis
+      scelerisque, massa et luctus sollicitudin, quam massa convallis justo, in
+      eleifend ante nibh a mauris. Aliquam finibus pellentesque lacus, ac vulputate
+      nisi iaculis at. Integer consequat mollis ipsum, ac tincidunt diam cursus id.
+      Mauris convallis a nisl eget mattis. Vestibulum sodales nisl aliquam, cursus
+      nunc eu, tincidunt ligula. Aliquam a ligula ac elit efficitur viverra eu quis
+      libero.
+    publicationsystem:Title: Proin nec justo
+    /publicationsystem:RelatedLinks:
+      jcr:primaryType: publicationsystem:relatedlink
+      publicationsystem:linkText: ''
+      publicationsystem:linkUrl: ''
+      publicationsystem:link_text: ''
+      publicationsystem:link_url: ''
+  /proin-nec-justo[3]:
+    jcr:primaryType: publicationsystem:publication
+    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+    hippo:availability: [live]
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:lastModificationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2017-10-16T15:00:00.000+01:00
+    hippotranslation:id: 35e01f9f-a95d-4969-9e2f-c678a4dfbd69
+    hippotranslation:locale: document-type-locale
+    hippotaxonomy:keys: [falls, infectious-diseases, workforce]
+    publicationsystem:AdministrativeSources: ''
+    publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
+    publicationsystem:CoverageStart: 2017-01-01T09:00:00.000+01:00
+    publicationsystem:Granularity: ['']
+    publicationsystem:InformationType: [Official statistics]
+    publicationsystem:KeyFacts: ''
+    publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
+    publicationsystem:Summary: Nulla eu augue eros. Maecenas ultrices tempus
+      placerat. Phasellus commodo nulla in gravida pretium. Donec justo magna,
+      vehicula tristique suscipit vel, condimentum quis lectus. Nam posuere eu elit
+      vitae gravida. Nullam a volutpat dolor, sagittis iaculis urna. Fusce rhoncus
+      sagittis mauris, non rutrum eros volutpat ut. Duis non tempus ante. Duis
+      scelerisque, massa et luctus sollicitudin, quam massa convallis justo, in
+      eleifend ante nibh a mauris. Aliquam finibus pellentesque lacus, ac vulputate
+      nisi iaculis at. Integer consequat mollis ipsum, ac tincidunt diam cursus id.
+      Mauris convallis a nisl eget mattis. Vestibulum sodales nisl aliquam, cursus
+      nunc eu, tincidunt ligula. Aliquam a ligula ac elit efficitur viverra eu quis
+      libero.
+    publicationsystem:Title: Proin nec justo
+    /publicationsystem:RelatedLinks:
+      jcr:primaryType: publicationsystem:relatedlink
+      publicationsystem:linkText: ''
+      publicationsystem:linkUrl: ''
+      publicationsystem:link_text: ''
+      publicationsystem:link_url: ''

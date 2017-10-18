@@ -1,10 +1,4 @@
-
 PWD = $(shell pwd)
-
-PATH := $(PWD)/vendor/bin:$(shell printenv PATH)
-SHELL := env PATH=$(PATH) /bin/bash
-
-.PHONY: .phony
 
 ## Prints this help
 help:
@@ -18,8 +12,10 @@ help:
 ## Initialise local project
 init: .git/.local-hooks-installed
 
+## Clean, verify and run all test (unit and acceptance)
+test:
+	$(MAKE) -C ci-cd/ test
+
 # install hooks and local git config
 .git/.local-hooks-installed:
 	@bash .git-local/install
-
-.phony:

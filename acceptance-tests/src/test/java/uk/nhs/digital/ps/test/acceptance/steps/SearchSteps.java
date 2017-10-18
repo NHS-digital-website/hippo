@@ -15,7 +15,7 @@ import static org.slf4j.LoggerFactory.getLogger;
 public class SearchSteps extends AbstractSpringSteps {
 
     private final static Logger log = getLogger(SearchSteps.class);
-    private final static String SEARCH_QUERY = "test";
+    private final static String SEARCH_QUERY = "lorem";
 
     @Autowired
     private ConsumableSearchPage consumableSearchPage;
@@ -40,4 +40,3 @@ public class SearchSteps extends AbstractSpringSteps {
         assertThat("The results page retains the original search term", consumableSearchPage.findSearchFieldValue(), is(SEARCH_QUERY));
     }
 }
-

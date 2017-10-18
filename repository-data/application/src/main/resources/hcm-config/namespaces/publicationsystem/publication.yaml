@@ -3,19 +3,16 @@ definitions:
     /hippo:namespaces/publicationsystem/publication:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:uuid: 5d950aac-948e-410d-aa7f-49938f96255c
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 610e8105-6d87-402b-aba4-2b9ef62c766f
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: acc8f72b-496c-48b9-8385-5a65da182279
           hipposysedit:node: true
           hipposysedit:supertype: ['hippotranslation:translated', 'hippotaxonomy:classifiable',
             'publicationsystem:basedocument', 'hippostd:relaxed']
-          hipposysedit:uri: http://www.onehippo.org/publicationsystem/nt/1.0
+          hipposysedit:uri: http://digital.nhs.uk/jcr/publicationsystem/nt/1.0
           /summary:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -86,7 +83,7 @@ definitions:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
             hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:Attachments
+            hipposysedit:path: publicationsystem:attachments
             hipposysedit:primary: false
             hipposysedit:type: hippo:resource
           /related_links:
@@ -114,37 +111,28 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [non-empty, required, publication-title-validator]
-          /attachments:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:attachments
-            hipposysedit:primary: false
-            hipposysedit:type: hippo:resource
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: publicationsystem:publication
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2017-09-26T16:14:40.972+01:00
+          hippostdpubwf:lastModificationDate: 2017-09-26T16:14:40.971+01:00
           hippostdpubwf:lastModifiedBy: ''
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
-          jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
-          jcr:uuid: bc0aa2ee-37a1-42c0-9572-8d2b04700c04
-          hippostdpubwf:lastModificationDate: 2017-09-26T16:14:40.971+01:00
-          hippostdpubwf:creationDate: 2017-09-26T16:14:40.972+01:00
-          publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
-          publicationsystem:KeyFacts: ''
-          publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-          publicationsystem:Title: ''
-          publicationsystem:Summary: ''
-          publicationsystem:InformationType: ['']
-          publicationsystem:Granularity: ['']
-          publicationsystem:NominalDate: 0001-01-01T12:00:00Z
           publicationsystem:AdministrativeSources: ''
+          publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+          publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+          publicationsystem:Granularity: ['']
+          publicationsystem:InformationType: ['']
+          publicationsystem:KeyFacts: ''
+          publicationsystem:NominalDate: 0001-01-01T12:00:00Z
+          publicationsystem:Summary: ''
+          publicationsystem:Title: ''
           /publicationsystem:attachments:
             jcr:primaryType: hippo:resource
             hippo:filename: hippo:resource
@@ -156,10 +144,10 @@ definitions:
             jcr:mimeType: application/vnd.hippo.blank
           /publicationsystem:RelatedLinks:
             jcr:primaryType: publicationsystem:relatedlink
+            publicationsystem:linkText: ''
+            publicationsystem:linkUrl: ''
             publicationsystem:link_text: ''
             publicationsystem:link_url: ''
-            publicationsystem:linkUrl: ''
-            publicationsystem:linkText: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -187,10 +175,10 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Information Type
             field: information_type
+            hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.css: [information-type]
             wicket.id: ${cluster.id}.right.item
-            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               selectable.options: Audit,Experimental statistics,National statistics,Official
@@ -203,8 +191,8 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              taxonomy.name: publication_taxonomy
               caption: Taxonomy
+              taxonomy.name: publication_taxonomy
           /NominalDate:
             jcr:primaryType: frontend:plugin
             caption: Nominal Publication Date
@@ -258,43 +246,43 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Geographic Coverage
             field: geographic_coverage
+            hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.css: [geographic-coverage]
             wicket.id: ${cluster.id}.right.item
-            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: England,England and Northern Ireland,England and
-                Scotland,England and Wales,England Scotland and Northern Ireland,England
-                Wales and Northern Ireland,Great Britain,International,Northern Ireland,Scotland,UK,Wales
+              selectable.options: England,England and Northern Ireland,England and Scotland,England
+                and Wales,England Scotland and Northern Ireland,England Wales and Northern
+                Ireland,Great Britain,International,Northern Ireland,Scotland,UK,Wales
           /Granularity:
             jcr:primaryType: frontend:plugin
             caption: Granularity
             field: granularity
+            hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.css: [granularity]
             wicket.id: ${cluster.id}.right.item
-            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               selectable.options: Ambulance Trusts,Cancer networks,Care Trusts,Census
-                Area Statistics Wards,Clinical Commissioning Groups,Community health
-                services,Councils with Social Services Responsibilities,Country,County,Government
-                Office Regions,GP practices, dental practices, pharmacies and clinics,Health
+                Area Statistics Wards,Clinical Commissioning Groups,Community health services,Councils
+                with Social Services Responsibilities,Country,County,Government Office
+                Regions,GP practices, dental practices, pharmacies and clinics,Health
                 Education England Region,Hospital and Community Health Services,Hospital
                 Trusts,Independent Sector Health Care Providers,Local Authorities,Mental
-                Health Trusts,Middle Layer Super Output Areas,NHS Health Boards,NHS
-                Trusts,Parliamentary constituency,Primary Care Organisations,Primary
-                Care Trusts,Regional health body,Regions,Strategic Health Authorities,Sustainability and Transformation
+                Health Trusts,Middle Layer Super Output Areas,NHS Health Boards,NHS Trusts,Parliamentary
+                constituency,Primary Care Organisations,Primary Care Trusts,Regional health
+                body,Regions,Strategic Health Authorities,Sustainability and Transformation
                 Partnerships
           /KeyFacts:
             jcr:primaryType: frontend:plugin
             caption: Key Facts
             field: key_facts
+            hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.css: [key-facts]
             wicket.id: ${cluster.id}.left.item
-            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /attachments:
@@ -319,9 +307,9 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Administrative Sources
             field: administrative_sources
+            hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.css: [administrative-sources]
             wicket.id: ${cluster.id}.left.item
-            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

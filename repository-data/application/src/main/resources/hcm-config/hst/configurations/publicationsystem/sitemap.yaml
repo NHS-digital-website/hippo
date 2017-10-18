@@ -5,19 +5,13 @@ definitions:
       /root:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/home
-        hst:relativecontentpath: publications/test
-      /publications:
+        hst:relativecontentpath: homepage
+      /_any_:
         jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/home
-        hst:relativecontentpath: publications
-        /_any_:
-          jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationmappingnames: ['publicationsystem:publication',
-            'hippostd:folder']
-          hst:componentconfigurationmappingvalues: ['hst:pages/home', 'hst:pages/seriespage']
-          hst:relativecontentpath: publications/${1}
-      /search:
-        jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/search
-        hst:refId: search
-        hst:relativecontentpath: publications
+        hst:relativecontentpath: ${1}
+        hst:componentconfigurationmappingnames:
+          - publicationsystem:publication
+          - hippostd:folder
+        hst:componentconfigurationmappingvalues:
+          - hst:pages/home
+          - hst:pages/seriespage

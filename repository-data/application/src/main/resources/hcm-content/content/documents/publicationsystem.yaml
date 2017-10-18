@@ -1,8 +1,0 @@
-/content/documents/publicationsystem:
-  jcr:primaryType: hippostd:folder
-  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:referenceable']
-  jcr:uuid: 232368f6-139c-4986-a6b7-5c72748064ef
-  hippo:name: NHS Digital Publication System
-  hippostd:foldertype: [new-translated-folder, new-document]
-  hippotranslation:id: 996bcac5-86cf-49b5-a7a3-16a74863e814
-  hippotranslation:locale: en

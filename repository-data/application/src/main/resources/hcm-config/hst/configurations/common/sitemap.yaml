@@ -1,0 +1,13 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:sitemap:
+      jcr:primaryType: hst:sitemap
+      /root:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/home
+        hst:relativecontentpath: publications/test-document
+      /search:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/search
+        hst:refId: search
+        hst:relativecontentpath: ""

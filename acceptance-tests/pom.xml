@@ -269,6 +269,11 @@
                                         <todir>conf/</todir>
                                         <tofile>logging.properties</tofile>
                                     </configfile>
+                                    <configfile>
+                                        <file>${project.parent.basedir}/conf/query/lucene/indexing_configuration.xml</file>
+                                        <todir>conf/query/lucene</todir>
+                                        <tofile>indexing_configuration.xml</tofile>
+                                    </configfile>
                                 </configfiles>
                                 <files>
                                     <file>
@@ -300,6 +305,7 @@
                                     <project.basedir>${project.parent.basedir}/</project.basedir>
                                     <send.usage.statistics.to.hippo>false</send.usage.statistics.to.hippo>
                                     <repo.autoexport.allowed>false</repo.autoexport.allowed>
+                                    <repo.config>file://${project.parent.basedir}/conf/repository.xml</repo.config>
                                 </systemProperties>
                                 <dependencies>
                                     <!-- Dependencies shared by all deployed apps. Have to be declared in project's

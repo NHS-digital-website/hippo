@@ -1,0 +1,12 @@
+/content/documents/corporate-website:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes:
+    - mix:versionable
+    - hippo:named
+    - hippotranslation:translated
+  hippo:name: Corporate Website
+  hippostd:foldertype:
+    - new-translated-folder
+    - new-document
+  hippotranslation:id: 00000000-0000-0000-0000-000000000000
+  hippotranslation:locale: en

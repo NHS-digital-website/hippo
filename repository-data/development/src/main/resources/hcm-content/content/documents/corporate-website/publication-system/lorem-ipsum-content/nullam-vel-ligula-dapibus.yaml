@@ -1,0 +1,105 @@
+---
+
+/content/documents/corporate-website/publication-system/lorem-ipsum-content/nullam-vel-ligula-dapibus:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['mix:referenceable']
+  /nullam-vel-ligula-dapibus[1]:
+    jcr:primaryType: publicationsystem:publication
+    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:lastModificationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 35e01f9f-a95d-4969-9e2f-c678a4dfbd69
+    hippotranslation:locale: document-type-locale
+    hippotaxonomy:keys: [falls, infectious-diseases, workforce]
+    publicationsystem:AdministrativeSources: ''
+    publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
+    publicationsystem:CoverageStart: 2017-01-01T09:00:00.000+01:00
+    publicationsystem:Granularity: ['']
+    publicationsystem:InformationType: [Official statistics]
+    publicationsystem:KeyFacts: ""
+    publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
+    publicationsystem:Summary: Vivamus eros ipsum, facilisis vitae orci sit amet,
+      viverra commodo sem. Phasellus commodo turpis non ultrices feugiat. Proin non
+      metus diam. Pellentesque ipsum morbi tristique senectus et netus et
+      malesuada fames ac turpis egestas. Pellentesque habitant morbi tristique
+      senectus et ipsum et malesuada fames ac turpis egestas. Vestibulum ante ipsum
+      primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis justo
+      magna, ipsum id iaculis eget, tempor sit amet ante.
+    publicationsystem:Title: Nullam vel ligula dapibus
+    /publicationsystem:RelatedLinks:
+      jcr:primaryType: publicationsystem:relatedlink
+      publicationsystem:linkText: ''
+      publicationsystem:linkUrl: ''
+      publicationsystem:link_text: ''
+      publicationsystem:link_url: ''
+  /nullam-vel-ligula-dapibus[2]:
+    jcr:primaryType: publicationsystem:publication
+    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+    hippo:availability: [preview]
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:lastModificationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 35e01f9f-a95d-4969-9e2f-c678a4dfbd69
+    hippotranslation:locale: document-type-locale
+    hippotaxonomy:keys: [falls, infectious-diseases, workforce]
+    publicationsystem:AdministrativeSources: ''
+    publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
+    publicationsystem:CoverageStart: 2017-01-01T09:00:00.000+01:00
+    publicationsystem:Granularity: ['']
+    publicationsystem:InformationType: [Official statistics]
+    publicationsystem:KeyFacts: ""
+    publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
+    publicationsystem:Summary: Vivamus eros ipsum, facilisis vitae orci sit amet,
+      viverra commodo sem. Phasellus commodo turpis non ultrices feugiat. Proin non
+      metus diam. Pellentesque ipsum morbi tristique senectus et netus et
+      malesuada fames ac turpis egestas. Pellentesque habitant morbi tristique
+      senectus et ipsum et malesuada fames ac turpis egestas. Vestibulum ante ipsum
+      primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis justo
+      magna, ipsum id iaculis eget, tempor sit amet ante.
+    publicationsystem:Title: Nullam vel ligula dapibus
+    /publicationsystem:RelatedLinks:
+      jcr:primaryType: publicationsystem:relatedlink
+      publicationsystem:linkText: ''
+      publicationsystem:linkUrl: ''
+      publicationsystem:link_text: ''
+      publicationsystem:link_url: ''
+  /nullam-vel-ligula-dapibus[3]:
+    jcr:primaryType: publicationsystem:publication
+    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+    hippo:availability: [live]
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:lastModificationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2017-10-16T15:00:00.000+01:00
+    hippotranslation:id: 35e01f9f-a95d-4969-9e2f-c678a4dfbd69
+    hippotranslation:locale: document-type-locale
+    hippotaxonomy:keys: [falls, infectious-diseases, workforce]
+    publicationsystem:AdministrativeSources: ''
+    publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
+    publicationsystem:CoverageStart: 2017-01-01T09:00:00.000+01:00
+    publicationsystem:Granularity: ['']
+    publicationsystem:InformationType: [Official statistics]
+    publicationsystem:KeyFacts: ""
+    publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
+    publicationsystem:Summary: Vivamus eros ipsum, facilisis vitae orci sit amet,
+      viverra commodo sem. Phasellus commodo turpis non ultrices feugiat. Proin non
+      metus diam. Pellentesque ipsum morbi tristique senectus et netus et
+      malesuada fames ac turpis egestas. Pellentesque habitant morbi tristique
+      senectus et ipsum et malesuada fames ac turpis egestas. Vestibulum ante ipsum
+      primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis justo
+      magna, ipsum id iaculis eget, tempor sit amet ante.
+    publicationsystem:Title: Nullam vel ligula dapibus
+    /publicationsystem:RelatedLinks:
+      jcr:primaryType: publicationsystem:relatedlink
+      publicationsystem:linkText: ''
+      publicationsystem:linkUrl: ''
+      publicationsystem:link_text: ''
+      publicationsystem:link_url: ''

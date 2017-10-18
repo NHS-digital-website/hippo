@@ -1,5 +1,13 @@
 definitions:
   config:
+    /hippo:configuration/hippo:frontend/cms/cms-services/localeProviderService:
+      jcr:primaryType: frontend:plugin
+      plugin.class: org.hippoecm.frontend.translation.LocaleProviderPlugin
+      /en:
+        jcr:primaryType: frontend:pluginconfig
+        country: gb
+        language: en
+
     /hippo:configuration/hippo:frontend/cms/cms-services/assetValidationService:
       max.file.size: 100M
       extensions.allowed: [doc, docx, xls, xlsx, pdf, csv, zip, txt, rar, ppt, pptx]
