@@ -50,6 +50,11 @@ public class AcceptanceTestConfiguration {
     }
 
     @Bean
+    public ConsumableSearchPage consumableSearchPage(final WebDriverProvider webDriverProvider, final PageHelper pageHelper) {
+        return new ConsumableSearchPage(webDriverProvider, pageHelper);
+    }
+
+    @Bean
     public PageHelper pageHelper(final WebDriverProvider webDriverProvider) {
         return new PageHelper(webDriverProvider);
     }

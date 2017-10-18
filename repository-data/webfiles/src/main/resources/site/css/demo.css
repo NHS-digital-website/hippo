@@ -1,0 +1,98 @@
+body {
+    color: #425563;
+    font: 16px Arial;
+    letter-spacing: .025em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+
+/*
+<div class="container">
+</div>
+ */
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+
+
+
+/**
+<ul class="container-top__menu">
+    <li>...</li>
+</ul>
+ */
+.container-top__menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.container-top__menu li {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+.container-top__menu a {
+    text-decoration: none;
+}
+.in-line-container {
+    display: inline-block;
+}
+
+
+
+
+/*
+<a class="logo logo-nhs-digital">
+    text that will not be displayed
+</a>
+*/
+.logo {
+    display: block;
+    height: 100px;
+    width: 100px;
+    background-repeat: no-repeat;
+    text-indent: -9999em;
+}
+.logo-nhs-digital {
+    background-image: url(img/logo.png);
+    height: 85px;
+    width: 100px;
+}
+
+
+
+input {
+    box-sizing: border-box;
+    display: inline-block;
+    line-height: normal;
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+}
+.search-input {
+    border: 1px solid #CCC;
+    box-sizing: border-box;
+    border-color: #004075;
+    padding: .5em 4em .5em 1em;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.search-submit {
+    background: #005eb8 url(img/search-icon.png) no-repeat center;
+    border: none;
+    padding: .5em 0 .5em 0;
+    color: white;
+    cursor: pointer;
+    text-indent: -9999em;
+    transition: opacity .3s;
+    width: 3em;
+}

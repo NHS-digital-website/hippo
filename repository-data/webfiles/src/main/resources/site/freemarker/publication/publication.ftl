@@ -3,9 +3,6 @@
 <#assign fmt=JspTaglibs ["http://java.sun.com/jsp/jstl/fmt"] />
 <#assign dateFormat="h:mm a d/MM/yyyy"/>
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() >
-<#function getTaxonomyNameFromKey key>
-    <#return taxonomy.getCategoryByKey(key).getInfo('en').name>
-</#function>
 <html>
 <head>
 </head>

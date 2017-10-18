@@ -26,8 +26,6 @@ public class PublicationComponent extends BaseHstComponent {
     public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
         super.doBeforeRender(request, response);
         final HstRequestContext ctx = request.getRequestContext();
-        final String DELIMITER = " => ";
-
 
         Publication publication = (Publication) ctx.getContentBean();
 
