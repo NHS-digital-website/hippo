@@ -16,3 +16,8 @@ definitions:
             'hippostd:folder']
           hst:componentconfigurationmappingvalues: ['hst:pages/home', 'hst:pages/seriespage']
           hst:relativecontentpath: publications/${1}
+      /search:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/search
+        hst:refId: search
+        hst:relativecontentpath: publications
