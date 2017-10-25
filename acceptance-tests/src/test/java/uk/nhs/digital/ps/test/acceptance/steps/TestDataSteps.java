@@ -65,8 +65,9 @@ public class TestDataSteps extends AbstractSpringSteps {
      */
     @After(value = "@DiscardAfter", order = 500)
     public void discardEditedPublication() throws Throwable {
-        log.debug("Discarding and closing current publication.");
+        final String currentPublicationName = testDataRepo.getCurrentPublication().getName();
+        log.debug("Discarding and closing current publication: {}.", currentPublicationName);
 
-        contentPage.discardUnsavedChanges(testDataRepo.getCurrentPublication().getName());
+        contentPage.discardUnsavedChanges(currentPublicationName);
     }
 }

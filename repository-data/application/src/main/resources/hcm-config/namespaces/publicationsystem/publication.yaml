@@ -78,14 +78,6 @@ definitions:
             hipposysedit:path: publicationsystem:Granularity
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
-          /attachments:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:attachments
-            hipposysedit:primary: false
-            hipposysedit:type: hippo:resource
           /related_links:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -111,6 +103,15 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [non-empty, required, publication-title-validator]
+          /attachments:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:attachments
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:resource
+            hipposysedit:validators: [blank-attachment-field-forbidden]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -133,15 +134,6 @@ definitions:
           publicationsystem:NominalDate: 0001-01-01T12:00:00Z
           publicationsystem:Summary: ''
           publicationsystem:Title: ''
-          /publicationsystem:attachments:
-            jcr:primaryType: hippo:resource
-            hippo:filename: hippo:resource
-            jcr:data:
-              type: binary
-              resource: /namespaces/publicationsystem/publication/prototypes/prototype/attachments/data.bin
-            jcr:encoding: UTF-8
-            jcr:lastModified: 2008-03-26T12:03:00+01:00
-            jcr:mimeType: application/vnd.hippo.blank
           /publicationsystem:RelatedLinks:
             jcr:primaryType: publicationsystem:relatedlink
             publicationsystem:linkText: ''

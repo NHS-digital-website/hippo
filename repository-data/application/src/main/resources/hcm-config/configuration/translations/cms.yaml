@@ -2,3 +2,4 @@ definitions:
   config:
     /hippo:configuration/hippo:translations/hippo:cms/validators/en:
       publication-title-validator: Title must be 250 characters or less
+      blank-attachment-field-forbidden: There is an attachment field without an attachment. Please remove it or upload a file.

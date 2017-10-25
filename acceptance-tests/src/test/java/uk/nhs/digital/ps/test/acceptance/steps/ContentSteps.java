@@ -220,6 +220,8 @@ public class ContentSteps extends AbstractSpringSteps {
     @Then("^the upload is rejected with an error message$")
     public void theUploadIsRejectedWithAnErrorMessage() throws Throwable {
 
+        contentPage.getAttachmentsSection().addUploadField();
+
         testDataRepo.getCurrentAttachments().forEach(attachment -> {
             contentPage.getAttachmentsSection().uploadAttachment(attachment);
 
@@ -288,5 +290,19 @@ public class ContentSteps extends AbstractSpringSteps {
         assertThat("Title too long error message should be shown",
             contentPage.getErrorMessages(),
             hasItem("Title must be 250 characters or less"));
+    }
+
+    // Scenario: Blank attachment field rejection =====================================================================
+    @When("^I add an empty upload field$")
+    public void iAddAnEmptyUploadField() throws Throwable {
+        contentPage.getAttachmentsSection().addUploadField();
+    }
+
+    @Then("^the save is rejected with error message about blank attachment field being forbidden$")
+    public void theSaveIsRejectedWithErrorMessageAboutBlankAttachmentFieldBeingForbidden() throws Throwable {
+
+        assertThat("Blank attachment field error message is displayed",
+            contentPage.getErrorMessages(),
+            hasItem("There is an attachment field without an attachment. Please remove it or upload a file."));
     }
 }
