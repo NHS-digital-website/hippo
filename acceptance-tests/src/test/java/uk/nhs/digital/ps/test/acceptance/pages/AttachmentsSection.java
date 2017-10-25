@@ -22,6 +22,10 @@ public class AttachmentsSection {
         this.webDriver = webDriver;
     }
 
+    public void addUploadField() {
+        helper.executeWhenStable(() -> findAddButton().click());
+    }
+
     void uploadAttachments(final List<Attachment> attachments) {
 
         // Uploading a file via Selenium requires that the file is present on the disk.
@@ -36,9 +40,8 @@ public class AttachmentsSection {
             // this approach proved to be very unreliable and so, in the interest of time,
             // the approach of creating new fields in one go first was implemented as more robust.
             //
-            // Starting at i == 1 to skip the first, pre-existing field.
-            for (int i = 1; i < attachments.size(); i++) {
-                helper.executeWhenStable(() -> findAddButton().click());
+            for (int i = 0; i < attachments.size(); i++) {
+                addUploadField();
                 final int expectedUploadFieldsCount = i + 1;
                 helper.waitUntilTrue(() -> findFileUploadElements().size() == expectedUploadFieldsCount);
             }
