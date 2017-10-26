@@ -1,0 +1,34 @@
+/hippo:configuration/hippo:update/hippo:registry/test-bootstrap:
+  jcr:primaryType: hipposys:updaterinfo
+  hipposys:batchsize: -1
+  hipposys:dryrun: false
+  hipposys:query: //element(*, hippostd:templatequery)
+  hipposys:throttle: 0
+  hipposys:script: |
+    package org.onehippo.repository.updaters;
+    import java.util.ArrayList;
+    import java.util.Collection;
+    import java.util.Collections;
+    import java.util.Iterator;
+    import java.util.Stack;
+    import javax.jcr.ItemVisitor;
+    import javax.jcr.Node;
+    import javax.jcr.Property;import javax.jcr.RepositoryException;
+    import javax.jcr.Value;
+    import javax.jcr.query.Query;
+    import javax.jcr.query.QueryManager;
+    import org.hippoecm.repository.util.JcrUtils;
+    import org.hippoecm.repository.util.NodeIterable;
+    import org.onehippo.repository.update.BaseNodeUpdateVisitor;
+
+    class TestBootstrap extends BaseNodeUpdateVisitor {
+      @Override
+      public boolean doUpdate(final Node node) throws RepositoryException {
+        return true;
+      }
+
+      @Override
+      public boolean undoUpdate(final Node node) throws RepositoryException {
+        return true;
+      }
+    }
