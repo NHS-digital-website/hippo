@@ -1,18 +1,19 @@
-<!doctype html>
 <#assign hst=JspTaglibs["http://www.hippoecm.org/jsp/hst/core"] />
 <#assign fmt=JspTaglibs ["http://java.sun.com/jsp/jstl/fmt"] />
 <#assign dateFormat="h:mm a d/MM/yyyy"/>
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() >
-<html>
-<head>
-</head>
-<body>
 
 <#if document??>
-    <h1 id="title">${document.title?html}</h1>
-    <div>
-        <span id="summary">${document.summary?html}</span>
-    </div>
+    <#if parentSeries??>
+    This document is part of Series
+    <a class="label label--series" href="<@hst.link hippobean=parentSeries.selfLink/>"
+        title="${parentSeries.title}">
+    ${parentSeries.title}
+    </a>
+    </#if>
+    <h1 class="doc-title" id="title">${document.title?html}</h1>
+    <p class="doc-summary" id="summary">${document.summary?html}</p>
+
     <div id="taxonomy">
         <h4>Taxonomy:</h4>
         <#if taxonomyList??>

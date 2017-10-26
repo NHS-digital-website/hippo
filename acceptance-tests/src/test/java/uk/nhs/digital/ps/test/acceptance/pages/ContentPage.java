@@ -119,14 +119,9 @@ public class ContentPage extends AbstractCmsPage {
 
     private WebElement openPublicationsMenu(WebDriver driver) {
 
-        expandMenuByTitle("Corporate Website");
-        expandMenuByTitle("Publication System");
+        WebElement folderElement = navigateToFolder("Corporate Website", "Publication System");
 
-        // Refresh reference to element because click above recreates it
-        WebElement publicationsFolder = helper.findElement(By.cssSelector("a[class~='hippo-tree-node-link'][title='Publication System']"));
-        WebElement publicationsParent = helper.findChildElement(publicationsFolder, By.xpath(".."));
-
-        WebElement menuIcon = publicationsParent.findElement(By.xpath("following-sibling::a"));
+        WebElement menuIcon = folderElement.findElement(By.xpath(".//a[contains(@class, 'hippo-tree-dropdown-icon-container')]"));
         helper.waitUntilVisible(menuIcon);
         menuIcon.click();
 
@@ -154,29 +149,22 @@ public class ContentPage extends AbstractCmsPage {
         return isDocumentPresent(publication);
     }
 
-    private WebElement expandMenuByTitle(String title) {
-        getWebDriver().findElement(
-            By.xpath(XpathSelectors.NAVIGATION_LEFT + "//a[contains(@class, 'hippo-tree-node-link') and @title='" + title + "']")
-        ).click();
+    private WebElement navigateToFolder(String... folders) {
+        String xpathSelector = XpathSelectors.NAVIGATION_LEFT + "//div[@class='wicket-tree']/div[1]";
 
-        return helper.waitForElementUntil(
-            ExpectedConditions.presenceOfElementLocated(
-                By.xpath(XpathSelectors.NAVIGATION_LEFT + "//a[contains(@class, 'hippo-tree-node-link') and contains(@class, 'hippo-tree-node-expanded') and @title='" + title + "']")
-            )
-        );
-    }
+        for (String folder : folders) {
+            xpathSelector += "/following-sibling::div//a[contains(@class, 'hippo-tree-node-link') and @title='" + folder + "']";
 
-    private WebElement clickDropdownIconByTitle(String title) {
-        WebElement icon = getWebDriver().findElement(
-            By.xpath("//a[contains(@class, 'hippo-tree-node-link') and @title='" + title + "']/../../a[@class='hippo-tree-dropdown-icon-container']")
-        );
-        icon.click();
+            getWebDriver().findElement(By.xpath(xpathSelector)).click();
+            helper.waitForElementUntil(
+                ExpectedConditions.attributeContains(
+                    By.xpath(xpathSelector), "class", "hippo-tree-node-expanded"));
 
-        return helper.waitForElementUntil(
-            ExpectedConditions.presenceOfElementLocated(
-                By.xpath("//ul[contains(@class, 'hippo-toolbar-menu-item')]")
-            )
-        );
+            // select root again
+            xpathSelector += "/ancestor::*[contains(@class, 'row')][1]";
+        }
+
+        return helper.findElement(By.xpath(xpathSelector));
     }
 
     private boolean isDocumentPresent(final Publication publication) {
@@ -194,8 +182,7 @@ public class ContentPage extends AbstractCmsPage {
     }
 
     public void navigateToDocument(String documentName) {
-        expandMenuByTitle("Corporate Website");
-        expandMenuByTitle("Publication System");
+        navigateToFolder("Corporate Website", "Publication System");
         clickDocument(documentName);
     }
 

@@ -15,7 +15,8 @@ import static org.slf4j.LoggerFactory.getLogger;
 public class SearchSteps extends AbstractSpringSteps {
 
     private final static Logger log = getLogger(SearchSteps.class);
-    private final static String SEARCH_QUERY = "lorem";
+    // there should be only one docuemnt of type publicationsystem:publication with "loremipsumdolor" in it
+    private final static String SEARCH_QUERY = "loremipsumdolor";
 
     @Autowired
     private ConsumableSearchPage consumableSearchPage;

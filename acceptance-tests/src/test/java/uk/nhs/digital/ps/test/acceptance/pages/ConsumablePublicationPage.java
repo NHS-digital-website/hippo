@@ -32,7 +32,7 @@ public class ConsumablePublicationPage extends AbstractConsumablePage {
 
     public List<ConsumableAttachmentElement> getAttachments() {
         return getWebDriver().findElements(By.cssSelector("li[class~='attachment']")).stream()
-            .map(ConsumableAttachmentElement::new)
+            .map(webElement -> new ConsumableAttachmentElement(getWebDriver(), webElement))
             .collect(toList());
     }
 
@@ -57,6 +57,10 @@ public class ConsumablePublicationPage extends AbstractConsumablePage {
 
     public String getTaxonomy() {
         return helper.findElement(By.id("taxonomy")).getText();
+    }
+
+    public String getSeriesLinkTitle() {
+        return helper.findElement(By.className("label--series")).getText();
     }
 
 }

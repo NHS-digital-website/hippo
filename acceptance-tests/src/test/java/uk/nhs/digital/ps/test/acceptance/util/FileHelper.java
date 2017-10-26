@@ -39,10 +39,10 @@ public class FileHelper {
 
     /**
      * Blocks current thread until the given file appears.
-     * Throws an exception if the file doesn't appear within 5 seconds.
+     * Throws an exception if the file doesn't appear within 10 seconds.
      */
     public static void waitUntilFileAppears(final Path path) {
-        FileUtils.waitFor(path.toFile(), 5);
+        FileUtils.waitFor(path.toFile(), 10);
         if (Files.notExists(path)) {
             throw new RuntimeException("File did not appear within the defined timeout: " + path.toString());
         }

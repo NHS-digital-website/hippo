@@ -15,6 +15,7 @@ import org.onehippo.cms7.essentials.components.EssentialsSearchComponent;
 import org.onehippo.cms7.essentials.components.info.EssentialsListComponentInfo;
 import org.onehippo.cms7.essentials.components.paging.Pageable;
 import uk.nhs.digital.ps.beans.Publication;
+import uk.nhs.digital.ps.beans.Series;
 
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.or;
@@ -57,7 +58,7 @@ public class SearchComponent extends EssentialsSearchComponent {
 
     private HstQueryResult doSearch(HippoBean scope, String query, int offset, int pageSize) throws QueryException {
         HstQuery hstQuery = HstQueryBuilder.create(scope)
-            .ofTypes(Publication.class)
+            .ofTypes(Publication.class, Series.class)
             .where(or(
                 constraint("publicationsystem:Title").contains(query),
                 constraint("publicationsystem:Summary").contains(query),
