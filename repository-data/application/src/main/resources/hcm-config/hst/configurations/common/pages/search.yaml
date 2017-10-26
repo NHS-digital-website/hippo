@@ -6,6 +6,6 @@ definitions:
       /main:
         jcr:primaryType: hst:component
         hst:componentclassname: uk.nhs.digital.common.components.SearchComponent
-        hst:parameternames: [limit]
-        hst:parametervalues: ['10']
+        hst:parameternames: [pageSize, showPagination]
+        hst:parametervalues: ['10', 'true']
         hst:template: searchresults
