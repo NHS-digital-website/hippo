@@ -21,20 +21,30 @@ definitions:
             hipposysedit:path: publicationsystem:Title
             hipposysedit:primary: false
             hipposysedit:type: Text
+          /Summary:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:Summary
+            hipposysedit:primary: false
+            hipposysedit:type: Text
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: publicationsystem:series
+          jcr:mixinTypes: ['mix:referenceable']
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2017-10-16T12:49:42.988+02:00
+          hippostdpubwf:lastModificationDate: 2017-10-16T12:49:42.988+02:00
           hippostdpubwf:lastModifiedBy: ''
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
-          jcr:mixinTypes: ['mix:referenceable']
+          publicationsystem:Summary: ''
+          publicationsystem:Title: ''
           publicationsystem:title: ''
-          hippostdpubwf:lastModificationDate: 2017-10-16T12:49:42.988+02:00
-          hippostdpubwf:creationDate: 2017-10-16T12:49:42.988+02:00
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -62,6 +72,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Title
             field: title
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /Summary:
+            jcr:primaryType: frontend:plugin
+            caption: Summary
+            field: Summary
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item

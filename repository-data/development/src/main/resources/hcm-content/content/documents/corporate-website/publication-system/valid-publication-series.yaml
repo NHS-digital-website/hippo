@@ -20,7 +20,13 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
-      publicationsystem:Title: Time Series Title
+      publicationsystem:Title: Time Series Lorem Ipsum Dolor
+      publicationsystem:Summary: Integer suscipit pulvinar lacus non porta. Aenean
+        ut tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget,
+        aliquam quam. Nullam euismod accumsan nibh at lobortis. Nam non eleifend
+        mauris. Aliquam tempor nec odio non aliquam. Suspendisse in ex sit amet
+        lectus vehicula varius pharetra eget elit. Quisque at iaculis arcu, eget
+        ornare arcu.
     /time-series-index[2]:
       jcr:primaryType: publicationsystem:series
       jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -32,7 +38,13 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
-      publicationsystem:Title: Time Series Title
+      publicationsystem:Title: Time Series Lorem Ipsum Dolor
+      publicationsystem:Summary: Integer suscipit pulvinar lacus non porta. Aenean
+        ut tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget,
+        aliquam quam. Nullam euismod accumsan nibh at lobortis. Nam non eleifend
+        mauris. Aliquam tempor nec odio non aliquam. Suspendisse in ex sit amet
+        lectus vehicula varius pharetra eget elit. Quisque at iaculis arcu, eget
+        ornare arcu.
     /time-series-index[3]:
       jcr:primaryType: publicationsystem:series
       jcr:mixinTypes: ['mix:referenceable']
@@ -45,7 +57,13 @@
       hippostdpubwf:publicationDate: 2017-10-16T14:59:41.695+01:00
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
-      publicationsystem:Title: Time Series Title
+      publicationsystem:Title: Time Series Lorem Ipsum Dolor
+      publicationsystem:Summary: Integer suscipit pulvinar lacus non porta. Aenean
+        ut tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget,
+        aliquam quam. Nullam euismod accumsan nibh at lobortis. Nam non eleifend
+        mauris. Aliquam tempor nec odio non aliquam. Suspendisse in ex sit amet
+        lectus vehicula varius pharetra eget elit. Quisque at iaculis arcu, eget
+        ornare arcu.
   /2012:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['mix:referenceable']
@@ -68,7 +86,7 @@
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2013-01-10T01:00:00+01:00
       publicationsystem:Summary: A released publication
-      publicationsystem:Title: '2012'
+      publicationsystem:Title: Lorem Ipsum Dolor 2012
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
         publicationsystem:linkText: ''
@@ -94,7 +112,7 @@
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2013-01-10T01:00:00+01:00
       publicationsystem:Summary: A released publication
-      publicationsystem:Title: '2012'
+      publicationsystem:Title: Lorem Ipsum Dolor 2012
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
         publicationsystem:linkText: ''
@@ -121,7 +139,7 @@
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2013-01-10T01:00:00+01:00
       publicationsystem:Summary: A released publication
-      publicationsystem:Title: '2012'
+      publicationsystem:Title: Lorem Ipsum Dolor 2012
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
         publicationsystem:linkText: ''
@@ -150,7 +168,7 @@
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2014-01-10T01:00:00+01:00
       publicationsystem:Summary: A released publication 2013.
-      publicationsystem:Title: '2013'
+      publicationsystem:Title: Lorem Ipsum Dolor 2013
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
         publicationsystem:linkText: ''
@@ -176,7 +194,7 @@
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2014-01-10T01:00:00+01:00
       publicationsystem:Summary: A released publication 2013.
-      publicationsystem:Title: '2013'
+      publicationsystem:Title: Lorem Ipsum Dolor 2013
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
         publicationsystem:linkText: ''
@@ -203,7 +221,7 @@
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2014-01-10T01:00:00+01:00
       publicationsystem:Summary: A released publication 2013.
-      publicationsystem:Title: '2013'
+      publicationsystem:Title: Lorem Ipsum Dolor 2013
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
         publicationsystem:linkText: ''
@@ -232,7 +250,7 @@
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2015-01-10T01:00:00+01:00
       publicationsystem:Summary: Released 2014 stats.
-      publicationsystem:Title: '2014'
+      publicationsystem:Title: Lorem Ipsum Dolor 2014
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
         publicationsystem:linkText: ''
@@ -258,7 +276,7 @@
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2015-01-10T01:00:00+01:00
       publicationsystem:Summary: Released 2014 stats.
-      publicationsystem:Title: '2014'
+      publicationsystem:Title: Lorem Ipsum Dolor 2014
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
         publicationsystem:linkText: ''
@@ -285,7 +303,7 @@
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2015-01-10T01:00:00+01:00
       publicationsystem:Summary: Released 2014 stats.
-      publicationsystem:Title: '2014'
+      publicationsystem:Title: Lorem Ipsum Dolor 2014
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
         publicationsystem:linkText: ''
@@ -314,7 +332,7 @@
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2016-01-10T01:00:00+01:00
       publicationsystem:Summary: Unreleased 2015 stats.
-      publicationsystem:Title: '2015'
+      publicationsystem:Title: Lorem Ipsum Dolor 2015
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
         publicationsystem:linkText: ''
@@ -340,7 +358,7 @@
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2016-01-10T01:00:00+01:00
       publicationsystem:Summary: Unreleased 2015 stats.
-      publicationsystem:Title: '2015'
+      publicationsystem:Title: Lorem Ipsum Dolor 2015
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
         publicationsystem:linkText: ''

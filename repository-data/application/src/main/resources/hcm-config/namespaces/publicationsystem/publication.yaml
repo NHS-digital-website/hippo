@@ -261,7 +261,7 @@ definitions:
               selectable.options: Ambulance Trusts,Cancer networks,Care Trusts,Census
                 Area Statistics Wards,Clinical Commissioning Groups,Community health services,Councils
                 with Social Services Responsibilities,Country,County,Government Office
-                Regions,GP practices, dental practices, pharmacies and clinics,Health
+                Regions,GP practices,dental practices,pharmacies and clinics,Health
                 Education England Region,Hospital and Community Health Services,Hospital
                 Trusts,Independent Sector Health Care Providers,Local Authorities,Mental
                 Health Trusts,Middle Layer Super Output Areas,NHS Health Boards,NHS Trusts,Parliamentary

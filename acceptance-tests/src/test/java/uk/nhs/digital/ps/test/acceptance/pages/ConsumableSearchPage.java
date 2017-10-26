@@ -29,7 +29,7 @@ public class ConsumableSearchPage extends AbstractConsumablePage {
         WebElement resultsList = findResultsList();
 
         if (resultsList != null) {
-            WebElement firstResultLink = resultsList.findElement(By.xpath("//following-sibling::li//following-sibling::a"));
+            WebElement firstResultLink = resultsList.findElement(By.xpath("li/a"));
             String firstResultTitle = firstResultLink.getText();
             firstResultLink.click();
 

@@ -36,28 +36,28 @@ public class TestDataLoader {
 
         return newTimeSeries()
             .withName("valid publication series")
-            .withTitle("Time Series Title")
+            .withTitle("Time Series Lorem Ipsum Dolor")
             .withPublications(
                 newPublication()
-                    .withTitle("2012")
+                    .withTitle("Lorem Ipsum Dolor 2012")
                     .withSummary("A released publication")
                     .withInformationType(OFFICIAL_STATISTICS)
                     .withNominalDate(asInstant("2013-01-10T01:00:00+01:00"))
                     .withStatus(PUBLISHED),
                 newPublication()
-                    .withTitle("2013")
+                    .withTitle("Lorem Ipsum Dolor 2013")
                     .withSummary("A released publication 2013")
                     .withInformationType(OFFICIAL_STATISTICS)
                     .withNominalDate(asInstant("2014-01-10T01:00:00+01:00"))
                     .withStatus(PUBLISHED),
                 newPublication()
-                    .withTitle("2014")
+                    .withTitle("Lorem Ipsum Dolor 2014")
                     .withSummary("Released 2014 stats.")
                     .withInformationType(OFFICIAL_STATISTICS)
                     .withNominalDate(asInstant("2015-01-10T01:00:00+01:00"))
                     .withStatus(PUBLISHED),
                 newPublication()
-                    .withTitle("2015")
+                    .withTitle("Lorem Ipsum Dolor 2015")
                     .withSummary("Released 2015 stats.")
                     .withInformationType(OFFICIAL_STATISTICS)
                     .withNominalDate(asInstant("2016-01-10T01:00:00+01:00"))

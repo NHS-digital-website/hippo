@@ -16,6 +16,9 @@ public class ConsumablePublicationSeriesPage extends AbstractConsumablePage {
 
     private final PageHelper pageHelper;
 
+    private final String XPATH_PUBLICATIONS_LIST = "//ul[@data-uipath='ps.series.publications-list']";
+    private final String XPATH_TITLE = "//*[@data-uipath='ps.series.title']";
+
     public ConsumablePublicationSeriesPage(final WebDriverProvider webDriverProvider, final PageHelper pageHelper) {
         super(webDriverProvider);
         this.pageHelper = pageHelper;
@@ -25,12 +28,18 @@ public class ConsumablePublicationSeriesPage extends AbstractConsumablePage {
         getWebDriver().get(URL + "/publications/" + timeSeries.getUrlName());
     }
 
+    public void openFirstPublication() {
+        getWebDriver().get(
+            getWebDriver().findElement(By.xpath(XPATH_PUBLICATIONS_LIST + "/li[1]/a")).getAttribute("href").toString()
+        );
+    }
+
     public String getSeriesTitle() {
-        return pageHelper.findElement(By.tagName("h1")).getText();
+        return pageHelper.findElement(By.xpath(XPATH_TITLE)).getText();
     }
 
     public List<String> getPublicationTitles() {
-        return getWebDriver().findElements(By.className("publicationWithinSeries")).stream()
+        return getWebDriver().findElements(By.xpath(XPATH_PUBLICATIONS_LIST + "/li")).stream()
             .map(WebElement::getText)
             .collect(toList());
     }

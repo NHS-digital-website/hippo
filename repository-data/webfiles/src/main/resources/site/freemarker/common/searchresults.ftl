@@ -13,7 +13,7 @@
                 <ul id="resultsList">
                     <#list pageable.items as publication>
                         <li>
-                            <a href="<@hst.link hippobean=publication/>" data-document-title="${publication.name}">${publication.title}</a>
+                            <a href="<@hst.link hippobean=publication.selfLink/>" data-document-title="${publication.name}">${publication.title}</a>
                                 <@fmt.formatDate value=publication.nominalDate.time type="Date" pattern=dateFormat />
                             <br />
                             ${publication.summary}
