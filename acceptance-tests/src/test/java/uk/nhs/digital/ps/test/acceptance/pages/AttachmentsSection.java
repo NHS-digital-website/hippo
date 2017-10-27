@@ -92,7 +92,7 @@ public class AttachmentsSection {
 
     private WebElement findRootElement() {
         // find 'parent' div that _contains_ an 'h3/span' child elements, where the <span> has text 'Attachments'
-        // this is so that further searches can be performed in context of the
+        // this is so that further searches can be performed in context of the root element
         return getWebDriver().findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//div[@class='hippo-editor-field' and h3/span[text() = 'Attachments']]"));
     }
