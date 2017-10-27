@@ -104,6 +104,10 @@ public class ContentPage extends AbstractCmsPage {
         return new AttachmentsSection(helper, getWebDriver());
     }
 
+    public GranularitySection getGranularitySection() {
+        return new GranularitySection(helper, getWebDriver());
+    }
+
     public void savePublication() {
         findSave().click();
     }

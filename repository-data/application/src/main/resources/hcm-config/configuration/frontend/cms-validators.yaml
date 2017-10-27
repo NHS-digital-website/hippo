@@ -13,3 +13,8 @@ definitions:
     /hippo:configuration/hippo:frontend/cms/cms-validators/blank-attachment-field-forbidden:
       jcr:primaryType: frontend:plugin
       plugin.class: uk.nhs.digital.ps.BlankAttachmentFieldValidator
+
+    /hippo:configuration/hippo:frontend/cms/cms-validators/blank-granularity-forbidden:
+      jcr:primaryType: frontend:plugin
+      plugin.class: uk.nhs.digital.ps.BlankStaticDropdownSelectionFieldValidator
+      fieldDisplayName: Granularity

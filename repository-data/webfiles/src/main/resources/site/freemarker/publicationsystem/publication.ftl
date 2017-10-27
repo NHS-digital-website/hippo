@@ -66,7 +66,11 @@
     </div>
     <div id="granularity">
         <h4>Granularity:</h4>
-        <#list document.granularity as granularityItem><#if granularityItem?index != 0>, </#if>${granularityItem?html}</#list>
+        <#if document.granularity?has_content>
+            <#list document.granularity as granularityItem><#if granularityItem?index != 0>, </#if>${granularityItem?html}</#list>
+        <#else>
+            (Not specified)
+        </#if>
     </div>
     <div id="attachments">
         <h4>Attachments:</h4>

@@ -4,7 +4,6 @@ import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.hamcrest.Matchers;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.config.AcceptanceTestProperties;
@@ -70,8 +69,7 @@ public class ContentSteps extends AbstractSpringSteps {
         final Publication publication = TestDataFactory.createValidPublication().build();
         testDataRepo.setCurrentPublication(publication);
 
-        assertThat("New publication created.", contentPage.newPublication(publication),
-            is(true));
+        assertThat("New publication created.", contentPage.newPublication(publication), is(true));
     }
 
     @Then("^an edit screen is displayed which allows me to populate details of the publication")
@@ -169,8 +167,9 @@ public class ContentSteps extends AbstractSpringSteps {
         });
     }
 
-    private void assertAttachmentDownload(final Attachment attachment, final ConsumableAttachmentElement
-        consumableAttachmentElement) {
+    private void assertAttachmentDownload(final Attachment attachment,
+                                          final ConsumableAttachmentElement consumableAttachmentElement) {
+
         if (acceptanceTestProperties.isHeadlessMode()) {
             // At the moment of writing, there doesn't seem to be any easy way available to force Chromedriver
             // to download files when operating in headless mode. It appears that some functionality has been
@@ -179,22 +178,23 @@ public class ContentSteps extends AbstractSpringSteps {
             //
             // See bug report at https://bugs.chromium.org/p/chromium/issues/detail?id=696481 and other reports
             // available online.
+
             log.warn("Not testing file download due to running in a headless mode.");
-        } else {
-
-            // Trigger file download by click the <a> tag.
-            consumableAttachmentElement.clickHyperlink();
-
-            final Path downloadedFilePath = Paths.get(acceptanceTestProperties.getDownloadDir().toString(),
-                attachment.getFullName());
-
-            waitUntilFileAppears(downloadedFilePath);
-
-            assertThat("Downloaded file has the same content as the uploaded attachment "
-                    + attachment.getFullName(),
-                readFileAsByteArray(downloadedFilePath), is(attachment.getContent())
-            );
+            return;
         }
+
+        // Trigger file download by click the <a> tag.
+        consumableAttachmentElement.clickHyperlink();
+
+        final Path downloadedFilePath = Paths.get(acceptanceTestProperties.getDownloadDir().toString(),
+            attachment.getFullName());
+
+        waitUntilFileAppears(downloadedFilePath);
+
+        assertThat("Downloaded file has the same content as the uploaded attachment "
+                + attachment.getFullName(),
+            readFileAsByteArray(downloadedFilePath), is(attachment.getContent())
+        );
     }
 
     private void assertDisplayedAttachmentDetails(final Attachment attachment, final ConsumableAttachmentElement
@@ -238,38 +238,8 @@ public class ContentSteps extends AbstractSpringSteps {
         });
     }
 
-    // Scenario: List publications from the same time series ===========================================================
-    @Given("^I have a number of publications belonging to the same time series$")
-    public void iHaveANumberOfPublicationsBelongingToTheSameTimeSeries() throws Throwable {
-
-        final TimeSeries timeSeries = TestDataLoader.loadValidTimeSeries().build();
-        testDataRepo.setCurrentTimeSeries(timeSeries);
-    }
-
-    @When("^I navigate to the time series$")
-    public void iNavigateToTheTimeSeries() throws Throwable {
-        consumablePublicationSeriesPage.open(testDataRepo.getCurrentTimeSeries());
-    }
-
-    @Then("^I can see a list of released publications from the time series$")
-    public void iCanSeeAListOfPublicationsFromTheTimeSeries() throws Throwable {
-
-        final TimeSeries expectedTimeSeries = testDataRepo.getCurrentTimeSeries();
-
-        assertThat("Correct publication time series title is displayed.",
-            consumablePublicationSeriesPage.getSeriesTitle(), is(expectedTimeSeries.getTitle()));
-
-        final List<String> expectedPublicationTitles = expectedTimeSeries.getReleasedPublicationsLatestFirst().stream()
-            .map(Publication::getTitle)
-            .collect(toList());
-
-        assertThat("Correct publication titles are displayed in order.",
-            consumablePublicationSeriesPage.getPublicationTitles(),
-            is(expectedPublicationTitles));
-    }
-
     // Scenario: Title and Summary validation ========================================================================
-    @When("^I populate the (title|summary) with text which exceeds maximum allowed limit of ([0-9]+) characters long$")
+    @When("^I populate the (title|summary) with text longer than the maximum allowed limit of ([0-9]+) characters$")
     public void whenIPopulateTheXWithLongText(String fieldName, int lengthLimit) throws Throwable {
 
         StringBuilder sb = new StringBuilder();
@@ -292,10 +262,10 @@ public class ContentSteps extends AbstractSpringSteps {
         contentPage.savePublication();
     }
 
-    @Then("^validation error message is shown and contains \"([^\"]+)\"$")
+    @Then("^the save is rejected with error message containing \"([^\"]+)\"$")
     public void validationErrorMessageIsShownAndContains(String errorMessageFragment) throws Throwable {
 
-        assertThat("error message should be shown and contains",
+        assertThat("Error message should be shown and contains",
             contentPage.getErrorMessages(),
             hasItem(containsString(errorMessageFragment)));
     }
@@ -306,11 +276,9 @@ public class ContentSteps extends AbstractSpringSteps {
         contentPage.getAttachmentsSection().addUploadField();
     }
 
-    @Then("^the save is rejected with error message about blank attachment field being forbidden$")
-    public void theSaveIsRejectedWithErrorMessageAboutBlankAttachmentFieldBeingForbidden() throws Throwable {
-
-        assertThat("Blank attachment field error message is displayed",
-            contentPage.getErrorMessages(),
-            hasItem("There is an attachment field without an attachment. Please remove it or upload a file."));
+    // Scenario: Blank Granularity field rejection =====================================================================
+    @When("^I add an empty Granularity field$")
+    public void iAddAnEmptyGranularityField() throws Throwable {
+        contentPage.getGranularitySection().addGranularityField();
     }
 }

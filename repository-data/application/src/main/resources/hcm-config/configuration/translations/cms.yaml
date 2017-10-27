@@ -4,3 +4,4 @@ definitions:
       publicationsystem-title: Title must be 250 characters or less
       publicationsystem-summary: Summary must be less then 1000 characters
       blank-attachment-field-forbidden: There is an attachment field without an attachment. Please remove it or upload a file.
+      blank-staticdropdown-forbidden: Field ''{0}'' has a placeholder without a value. Please remove it or select a value.
