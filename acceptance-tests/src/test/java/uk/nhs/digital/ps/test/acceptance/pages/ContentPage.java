@@ -45,12 +45,7 @@ public class ContentPage extends AbstractCmsPage {
 
     public void populatePublication(Publication publication) {
         populatePublicationTitle(publication.getTitle());
-
-        helper.findElement(
-            By.xpath(XpathSelectors.EDITOR_BODY + "//div[contains(@class, 'publication-summary')]//textarea")
-        ).sendKeys(
-            publication.getSummary()
-        );
+        populatePublicationSummary(publication.getSummary());
 
         new Select(helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Geographic Coverage']/../following-sibling::div//select[@class='dropdown-plugin']")
@@ -94,6 +89,14 @@ public class ContentPage extends AbstractCmsPage {
             By.xpath(XpathSelectors.EDITOR_BODY + "//div[contains(@class, 'publication-title')]//input")
         ).sendKeys(
             publicationTitle
+        );
+    }
+
+    public void populatePublicationSummary(final String publicationSummary) {
+        helper.findElement(
+            By.xpath(XpathSelectors.EDITOR_BODY + "//div[contains(@class, 'publication-summary')]//textarea")
+        ).sendKeys(
+            publicationSummary
         );
     }
 

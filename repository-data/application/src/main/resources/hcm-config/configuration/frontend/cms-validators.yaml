@@ -1,0 +1,15 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-title:
+      jcr:primaryType: frontend:plugin
+      max_length: 250
+      plugin.class: uk.nhs.digital.ps.TextLengthValidator
+
+    /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-summary:
+      jcr:primaryType: frontend:plugin
+      max_length: 1000
+      plugin.class: uk.nhs.digital.ps.TextLengthValidator
+
+    /hippo:configuration/hippo:frontend/cms/cms-validators/blank-attachment-field-forbidden:
+      jcr:primaryType: frontend:plugin
+      plugin.class: uk.nhs.digital.ps.BlankAttachmentFieldValidator

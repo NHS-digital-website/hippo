@@ -21,6 +21,7 @@ definitions:
             hipposysedit:path: publicationsystem:Summary
             hipposysedit:primary: false
             hipposysedit:type: Text
+            hipposysedit:validators: [non-empty, required, publicationsystem-summary]
           /key_facts:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -102,7 +103,7 @@ definitions:
             hipposysedit:path: publicationsystem:Title
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [non-empty, required, publication-title-validator]
+            hipposysedit:validators: [non-empty, required, publicationsystem-title]
           /attachments:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
