@@ -12,8 +12,8 @@
     hippostdpubwf:creationDate: 2017-10-16T15:00:00.000+01:00
     hippostdpubwf:lastModificationDate: 2017-10-16T15:00:00.000+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippotranslation:id: 35e01f9f-a95d-4969-9e2f-c678a4dfbd69
-    hippotranslation:locale: document-type-locale
+    hippotranslation:id: 00000000-0000-0000-0000-000000000000
+    hippotranslation:locale: en
     hippotaxonomy:keys: [falls, infectious-diseases, workforce]
     publicationsystem:AdministrativeSources: ''
     publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
@@ -47,8 +47,8 @@
     hippostdpubwf:creationDate: 2017-10-16T15:00:00.000+01:00
     hippostdpubwf:lastModificationDate: 2017-10-16T15:00:00.000+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippotranslation:id: 35e01f9f-a95d-4969-9e2f-c678a4dfbd69
-    hippotranslation:locale: document-type-locale
+    hippotranslation:id: 00000000-0000-0000-0000-000000000000
+    hippotranslation:locale: en
     hippotaxonomy:keys: [falls, infectious-diseases, workforce]
     publicationsystem:AdministrativeSources: ''
     publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
@@ -83,8 +83,8 @@
     hippostdpubwf:lastModificationDate: 2017-10-16T15:00:00.000+01:00
     hippostdpubwf:lastModifiedBy: admin
     hippostdpubwf:publicationDate: 2017-10-16T15:00:00.000+01:00
-    hippotranslation:id: 35e01f9f-a95d-4969-9e2f-c678a4dfbd69
-    hippotranslation:locale: document-type-locale
+    hippotranslation:id: 00000000-0000-0000-0000-000000000000
+    hippotranslation:locale: en
     hippotaxonomy:keys: [falls, infectious-diseases, workforce]
     publicationsystem:AdministrativeSources: ''
     publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00

@@ -26,6 +26,8 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.startsWith;
+import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.hasItem;
 import static org.junit.Assert.assertThat;
@@ -266,17 +268,23 @@ public class ContentSteps extends AbstractSpringSteps {
             is(expectedPublicationTitles));
     }
 
-    // Scenario: Title validation ========================================================================
-    @When("^I populate the title with text which is too long$")
-    public void whenIPopulateTheTitleWithTextWhichIsTooLong() throws Throwable {
+    // Scenario: Title and Summary validation ========================================================================
+    @When("^I populate the (title|summary) with text which exceeds maximum allowed limit of ([0-9]+) characters long$")
+    public void whenIPopulateTheXWithLongText(String fieldName, int lengthLimit) throws Throwable {
+
         StringBuilder sb = new StringBuilder();
-        for (int i=0; i < 251; i++) {
+        for (int i=0; i < lengthLimit+1; i++) {
             sb.append(i % 10);
         }
         String longString = sb.toString();
-        assertThat("String should be > 250 characters long", longString.length(), greaterThan(250));
 
-        contentPage.populatePublicationTitle(longString);
+        // This is compromise between re-usability of "When" statement and clean code
+        // You should avoid ugly if statements like the one bellow by all means.
+        if (fieldName.equals("title")) {
+            contentPage.populatePublicationTitle(longString);
+        } else if (fieldName.equals("summary")) {
+            contentPage.populatePublicationSummary(longString);
+        }
     }
 
     @When("^I save the publication$")
@@ -284,12 +292,12 @@ public class ContentSteps extends AbstractSpringSteps {
         contentPage.savePublication();
     }
 
-    @Then("^title validation error message is shown$")
-    public void titleValidationErrorMessageIsShown() throws Throwable {
+    @Then("^validation error message is shown and contains \"([^\"]+)\"$")
+    public void validationErrorMessageIsShownAndContains(String errorMessageFragment) throws Throwable {
 
-        assertThat("Title too long error message should be shown",
+        assertThat("error message should be shown and contains",
             contentPage.getErrorMessages(),
-            hasItem("Title must be 250 characters or less"));
+            hasItem(containsString(errorMessageFragment)));
     }
 
     // Scenario: Blank attachment field rejection =====================================================================

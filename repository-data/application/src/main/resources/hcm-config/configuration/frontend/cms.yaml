@@ -17,10 +17,3 @@ definitions:
     /hippo:configuration/hippo:frontend/cms/cms-services/hstRestProxyService:
       rest.uri: http://127.0.0.1:8080/_cmsrest
       context.path: ''
-    /hippo:configuration/hippo:frontend/cms/cms-validators/publication-title-validator:
-      jcr:primaryType: frontend:plugin
-      max_length: 250
-      plugin.class: uk.nhs.digital.ps.TextLengthValidator
-    /hippo:configuration/hippo:frontend/cms/cms-validators/blank-attachment-field-forbidden:
-      jcr:primaryType: frontend:plugin
-      plugin.class: uk.nhs.digital.ps.BlankAttachmentFieldValidator

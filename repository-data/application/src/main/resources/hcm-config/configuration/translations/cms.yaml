@@ -1,5 +1,6 @@
 definitions:
   config:
     /hippo:configuration/hippo:translations/hippo:cms/validators/en:
-      publication-title-validator: Title must be 250 characters or less
+      publicationsystem-title: Title must be 250 characters or less
+      publicationsystem-summary: Summary must be less then 1000 characters
       blank-attachment-field-forbidden: There is an attachment field without an attachment. Please remove it or upload a file.
