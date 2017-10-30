@@ -130,7 +130,6 @@ definitions:
           publicationsystem:AdministrativeSources: ''
           publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
           publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-          publicationsystem:Granularity: ['']
           publicationsystem:InformationType: ['']
           publicationsystem:KeyFacts: ''
           publicationsystem:NominalDate: 0001-01-01T12:00:00Z
