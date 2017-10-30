@@ -59,11 +59,8 @@ public class ContentPage extends AbstractCmsPage {
             publication.getInformationType().getDisplayName()
         );
 
-        new Select(helper.findElement(
-            By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Granularity']/../following-sibling::div//select[@class='dropdown-plugin']")
-        )).selectByVisibleText(
-            publication.getGranularity().getDisplayValue()
-        );
+        getGranularitySection().addGranularityField();
+        getGranularitySection().populateGranularityField(publication.getGranularity());
 
         helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Select taxonomy terms']/../..")

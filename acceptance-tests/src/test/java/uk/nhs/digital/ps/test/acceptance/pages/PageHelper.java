@@ -11,6 +11,7 @@ import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -98,14 +99,21 @@ public class PageHelper {
 
     public void executeWhenStable(final Task task) {
 
-        pollWithTimeout().until(webDriver -> {
-            try {
-                task.execute();
-                return true;
-            } catch (final Exception e) {
-                return false;
-            }
-        });
+        final AtomicReference<Exception> lastException = new AtomicReference<>();
+
+        try {
+            pollWithTimeout().until(webDriver -> {
+                try {
+                    task.execute();
+                    return true;
+                } catch (final Exception e) {
+                    lastException.set(e);
+                    return false;
+                }
+            });
+        } catch (final TimeoutException e) { // ignore TimeoutException
+            throw new RuntimeException("Failed to execute task within timeout.", lastException.get());
+        }
     }
 
     public void waitUntilVisible(WebElement webElement) {
