@@ -23,7 +23,7 @@ public class BlankStaticDropdownSelectionFieldValidator extends AbstractCmsValid
 
     private static final String SUPPORTED_FIELD_TYPE_NAME = "StaticDropdown";
     private static final String FIELD_DISPLAY_NAME_KEY = "fieldDisplayName";
-    private static final String VIOLATION_MESSAGE_TEMPLATE_KEY = "blank-staticdropdown-forbidden";
+    private static final String VIOLATION_MESSAGE_TEMPLATE_KEY = "publicationsystem-blank-staticdropdown";
     private static final String VALIDATORS_TRANSLATION_KEY = "hippo:cms.validators";
 
     @SuppressWarnings("WeakerAccess") // Hippo CMS requires the constructor to be public

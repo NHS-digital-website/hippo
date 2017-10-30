@@ -281,4 +281,11 @@ public class ContentSteps extends AbstractSpringSteps {
     public void iAddAnEmptyGranularityField() throws Throwable {
         contentPage.getGranularitySection().addGranularityField();
     }
+
+    // Scenario: Blank related link rejection =========================================================================
+    @When("^I add an empty related link field$")
+    public void iAddAnEmptyRelatedLinkField() throws Throwable {
+        contentPage.getRelatedLinksSection().addRelatedLinkField();
+    }
+
 }

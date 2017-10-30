@@ -48,3 +48,11 @@ Feature: Edit screen - validation
         When I add an empty Granularity field
         And I save the publication
         Then the save is rejected with error message containing "Field 'Granularity' has a placeholder without a value. Please remove it or select a value."
+
+
+    @DiscardAfter
+    Scenario: Blank Related Links field rejection
+        Given I have a publication opened for editing
+        When I add an empty related link field
+        And I save the publication
+        Then the save is rejected with error message containing "There is a related link field with no URL provided. Please remove it or enter a URL."

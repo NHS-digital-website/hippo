@@ -79,7 +79,7 @@ definitions:
             hipposysedit:path: publicationsystem:Granularity
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
-            hipposysedit:validators: [blank-granularity-forbidden]
+            hipposysedit:validators: [publicationsystem-blank-granularity]
           /related_links:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -88,6 +88,7 @@ definitions:
             hipposysedit:path: publicationsystem:RelatedLinks
             hipposysedit:primary: false
             hipposysedit:type: publicationsystem:relatedlink
+            hipposysedit:validators: [publicationsystem-blank-related-link]
           /administrative_sources:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -113,7 +114,7 @@ definitions:
             hipposysedit:path: publicationsystem:attachments
             hipposysedit:primary: false
             hipposysedit:type: hippo:resource
-            hipposysedit:validators: [blank-attachment-field-forbidden]
+            hipposysedit:validators: [publicationsystem-blank-attachment]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -135,12 +136,6 @@ definitions:
           publicationsystem:NominalDate: 0001-01-01T12:00:00Z
           publicationsystem:Summary: ''
           publicationsystem:Title: ''
-          /publicationsystem:RelatedLinks:
-            jcr:primaryType: publicationsystem:relatedlink
-            publicationsystem:linkText: ''
-            publicationsystem:linkUrl: ''
-            publicationsystem:link_text: ''
-            publicationsystem:link_url: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
