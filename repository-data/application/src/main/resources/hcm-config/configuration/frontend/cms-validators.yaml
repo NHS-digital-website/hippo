@@ -10,11 +10,15 @@ definitions:
       max_length: 1000
       plugin.class: uk.nhs.digital.ps.TextLengthValidator
 
-    /hippo:configuration/hippo:frontend/cms/cms-validators/blank-attachment-field-forbidden:
+    /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-blank-attachment:
       jcr:primaryType: frontend:plugin
       plugin.class: uk.nhs.digital.ps.BlankAttachmentFieldValidator
 
-    /hippo:configuration/hippo:frontend/cms/cms-validators/blank-granularity-forbidden:
+    /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-blank-granularity:
       jcr:primaryType: frontend:plugin
       plugin.class: uk.nhs.digital.ps.BlankStaticDropdownSelectionFieldValidator
       fieldDisplayName: Granularity
+
+    /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-blank-related-link:
+      jcr:primaryType: frontend:plugin
+      plugin.class: uk.nhs.digital.ps.BlankRelatedLinkFieldValidator
