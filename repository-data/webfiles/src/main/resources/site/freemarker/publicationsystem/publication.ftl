@@ -2,6 +2,7 @@
 <#assign fmt=JspTaglibs ["http://java.sun.com/jsp/jstl/fmt"] />
 <#assign dateFormat="h:mm a d/MM/yyyy"/>
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() >
+<#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
 
 <#if document??>
     <#if parentSeries??>
@@ -26,8 +27,8 @@
     </div>
     <div id="nominal-date">
         <h4>Nominal publication date:</h4>
-        <#if document.nominalDate??>
-            <@fmt.formatDate value=document.nominalDate.time type="Date" pattern=dateFormat />
+        <#if document.nominalPublicationDate??>
+            <@formatRestrictableDate value=document.nominalPublicationDate/>
         <#else>
             (Not specified)
         </#if>
