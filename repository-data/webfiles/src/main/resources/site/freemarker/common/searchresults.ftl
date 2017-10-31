@@ -1,5 +1,5 @@
 <#include "../include/imports.ftl">
-<#assign dateFormat="h:mm a d/MM/yyyy"/>
+<#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
 <#if pageable??>
     <div id="searchResults" data-totalresults="${pageable.total}">
         <#if pageable.total == 0>
@@ -14,7 +14,7 @@
                     <#list pageable.items as publication>
                         <li>
                             <a href="<@hst.link hippobean=publication.selfLink/>" data-document-title="${publication.name}">${publication.title}</a>
-                                <@fmt.formatDate value=publication.nominalDate.time type="Date" pattern=dateFormat />
+                            <@formatRestrictableDate value=publication.nominalPublicationDate/>
                             <br />
                             ${publication.summary}
                             <hr />
