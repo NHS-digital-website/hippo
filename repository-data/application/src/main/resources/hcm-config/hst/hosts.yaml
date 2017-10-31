@@ -55,20 +55,20 @@ definitions:
         jcr:primaryType: hst:virtualhostgroup
         hst:cmslocation: http://hippo-authoring.dev.ps.digital.nhsd.uk/cms
         hst:defaultport: 8080
-        /uk:
+        /io:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:virtualhost
           hst:showcontextpath: false
-          /nhs:
+          /nhsd:
             .meta:residual-child-node-category: content
             jcr:primaryType: hst:virtualhost
-            /digital:
+            /ps:
               .meta:residual-child-node-category: content
               jcr:primaryType: hst:virtualhost
-              /ps:
+              /dev:
                 .meta:residual-child-node-category: content
                 jcr:primaryType: hst:virtualhost
-                /dev:
+                /web:
                   .meta:residual-child-node-category: content
                   jcr:primaryType: hst:virtualhost
                   /hippo-delivery:

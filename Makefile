@@ -16,6 +16,11 @@ init: .git/.local-hooks-installed
 test:
 	$(MAKE) -C ci-cd/ test
 
+## Clean, build and start local hippo (no autoexport)
+serve:
+	mvn clean verify
+	mvn -P cargo.run,without-autoexport
+
 # install hooks and local git config
 .git/.local-hooks-installed:
 	@bash .git-local/install
