@@ -38,7 +38,7 @@ public class BlankStaticDropdownSelectionFieldValidator extends AbstractCmsValid
             throw new ValidationException(format("Required parameter ''{0}'' is missing.", FIELD_DISPLAY_NAME_KEY));
         }
 
-        final String actualFieldTypeName = fieldValidator.getFieldType().getType();
+        final String actualFieldTypeName = fieldValidator.getFieldDescriptor().getTypeDescriptor().getName();
 
         if (!SUPPORTED_FIELD_TYPE_NAME.equals(actualFieldTypeName)) {
             throw new ValidationException(format(
