@@ -74,11 +74,11 @@ public class BlankStaticDropdownSelectionFieldValidatorTest {
     public void reportsError_whenCalledForFieldOfUnsupportedType() throws Exception {
 
         // given
-        programMocksForPreValidationTest();
+        programMocksForPreValidationTestForHappyPath();
         reset(typeDescriptor);
 
         final String unsupportedFieldTypeName = "unsupportedFieldTypeName";
-        given(typeDescriptor.getType()).willReturn(unsupportedFieldTypeName);
+        given(typeDescriptor.getName()).willReturn(unsupportedFieldTypeName);
 
         expectedException.expect(ValidationException.class);
         expectedException.expectMessage(format(
@@ -99,7 +99,7 @@ public class BlankStaticDropdownSelectionFieldValidatorTest {
     public void reportsError_whenFieldNameParameterMissing() throws Exception {
 
         // given
-        programMocksForPreValidationTest();
+        programMocksForPreValidationTestForHappyPath();
         reset(pluginConfig);
 
         expectedException.expect(ValidationException.class);
@@ -178,14 +178,13 @@ public class BlankStaticDropdownSelectionFieldValidatorTest {
      * Program common mocks with default, valid behaviours.
      * Test methods that need to test error conditions may reset and then reprogram individual mocks as needed.
      */
-    private void programMocksForPreValidationTest() {
+    private void programMocksForPreValidationTestForHappyPath() {
 
         given(pluginConfig.containsKey(FIELD_DISPLAY_NAME_KEY)).willReturn(true);
 
-        given(fieldValidator.getFieldType()).willReturn(typeDescriptor);
-        given(typeDescriptor.getType()).willReturn(SUPPORTED_FIELD_TYPE_NAME);
-
         given(fieldValidator.getFieldDescriptor()).willReturn(fieldDescriptor);
+        given(fieldDescriptor.getTypeDescriptor()).willReturn(typeDescriptor);
+        given(typeDescriptor.getName()).willReturn(SUPPORTED_FIELD_TYPE_NAME);
         given(fieldDescriptor.getPath()).willReturn(newRandomString());
     }
 
