@@ -5,17 +5,29 @@ import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.content.beans.standard.HippoResourceBean;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
+import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
+
+import static java.util.Arrays.asList;
+
 
 @HippoEssentialsGenerated(internalName = "publicationsystem:publication")
 @Node(jcrType = "publicationsystem:publication")
 public class Publication extends BaseDocument {
 
     private static final int WEEKS_TO_CUTOFF = 8;
+
+    private static final Collection<String> propertiesPermittedWhenUpcoming = asList(
+        PropertyKeys.TITLE,
+        PropertyKeys.NOMINAL_DATE,
+        PropertyKeys.PUBLICLY_ACCESSIBLE
+    );
 
     private RestrictableDate nominalPublicationDate;
 
@@ -37,24 +49,24 @@ public class Publication extends BaseDocument {
         return this;
     }
 
-    @HippoEssentialsGenerated(internalName = "hippotaxonomy:keys")
+    @HippoEssentialsGenerated(internalName = PropertyKeys.TAXONOMY)
     public String[] getKeys() {
-        return getProperty("hippotaxonomy:keys");
+        return getPropertyIfPermitted(PropertyKeys.TAXONOMY);
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:Summary")
+    @HippoEssentialsGenerated(internalName = PropertyKeys.SUMMARY)
     public String getSummary() {
-        return getProperty("publicationsystem:Summary");
+        return getPropertyIfPermitted(PropertyKeys.SUMMARY);
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:KeyFacts")
+    @HippoEssentialsGenerated(internalName = PropertyKeys.KEY_FACTS)
     public String getKeyFacts() {
-        return getProperty("publicationsystem:KeyFacts");
+        return getPropertyIfPermitted(PropertyKeys.KEY_FACTS);
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:InformationType")
+    @HippoEssentialsGenerated(internalName = PropertyKeys.INFORMATION_TYPE)
     public String[] getInformationType() {
-        return getProperty("publicationsystem:InformationType");
+        return getPropertyIfPermitted(PropertyKeys.INFORMATION_TYPE);
     }
 
     /**
@@ -68,79 +80,119 @@ public class Publication extends BaseDocument {
      * Any other place (such as view template or component) would offer less protection against the leak.
      * They are still free to implement their custom logic depending on value returned by {@linkplain
      * RestrictableDate#isRestricted()}, though.
-     * </p><p>
-     * The returned object expresses date in time zone '{@code UTC}'.
      * </p>
      */
     public RestrictableDate getNominalPublicationDate() {
         if (nominalPublicationDate == null) {
-            final Calendar nominalPublicationDateCalendar = getProperty("publicationsystem:NominalDate");
-
-            if (nominalPublicationDateCalendar != null) {
-                nominalPublicationDate = toRestrictedDate(nominalPublicationDateCalendar);
-            }
+            nominalPublicationDate = Optional.ofNullable(getProperty(PropertyKeys.NOMINAL_DATE))
+                .map(object -> (Calendar)object)
+                .map(this::nominalPublicationDateCalendarToRestrictedDate)
+                .orElse(null);
         }
         return nominalPublicationDate;
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:CoverageStart")
+    @HippoEssentialsGenerated(internalName = PropertyKeys.COVERAGE_START)
     public Calendar getCoverageStart() {
-        return getProperty("publicationsystem:CoverageStart");
+        return getPropertyIfPermitted(PropertyKeys.COVERAGE_START);
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:CoverageEnd")
+    @HippoEssentialsGenerated(internalName = PropertyKeys.COVERAGE_END)
     public Calendar getCoverageEnd() {
-        return getProperty("publicationsystem:CoverageEnd");
+        return getPropertyIfPermitted(PropertyKeys.COVERAGE_END);
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:GeographicCoverage")
+    @HippoEssentialsGenerated(internalName = PropertyKeys.GEOGRAPHIC_COVERAGE)
     public String getGeographicCoverage() {
-        return getProperty("publicationsystem:GeographicCoverage");
+        return getPropertyIfPermitted(PropertyKeys.GEOGRAPHIC_COVERAGE);
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:Granularity")
+    @HippoEssentialsGenerated(internalName = PropertyKeys.GRANULARITY)
     public String[] getGranularity() {
-        return getProperty("publicationsystem:Granularity");
+        return getPropertyIfPermitted(PropertyKeys.GRANULARITY);
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:AdministrativeSources")
+    @HippoEssentialsGenerated(internalName = PropertyKeys.ADMINISTRATIVE_SOURCES)
     public String getAdministrativeSources() {
-        return getProperty("publicationsystem:AdministrativeSources");
+        return getPropertyIfPermitted(PropertyKeys.ADMINISTRATIVE_SOURCES);
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:Title")
+    @HippoEssentialsGenerated(internalName = PropertyKeys.TITLE)
     public String getTitle() {
-        return getProperty("publicationsystem:Title");
+        return getPropertyIfPermitted(PropertyKeys.TITLE);
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:RelatedLinks")
+    public boolean isPubliclyAccessible() {
+        return getPropertyIfPermitted(PropertyKeys.PUBLICLY_ACCESSIBLE);
+    }
+
+    @HippoEssentialsGenerated(internalName = PropertyKeys.RELATED_LINKS)
     public List<Relatedlink> getRelatedLinks() {
-        return getChildBeansByName("publicationsystem:RelatedLinks",
-                Relatedlink.class);
+        return getChildBeansIfPermitted(PropertyKeys.RELATED_LINKS, Relatedlink.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:attachments")
+    @HippoEssentialsGenerated(internalName = PropertyKeys.ATTACHMENTS)
     public List<HippoResourceBean> getAttachments() {
-        return getChildBeansByName("publicationsystem:attachments", HippoResourceBean.class);
+        return getChildBeansIfPermitted(PropertyKeys.ATTACHMENTS, HippoResourceBean.class);
+    }
+
+    private <T extends HippoBean> List<T> getChildBeansIfPermitted(final String propertyName, final
+    Class<T> beanMappingClass) {
+        assertPropertyPermitted(propertyName);
+
+        return getChildBeansByName(propertyName, beanMappingClass);
+    }
+
+    private <T> T getPropertyIfPermitted(final String propertyName) {
+        assertPropertyPermitted(propertyName);
+
+        return getProperty(propertyName);
+    }
+
+    private void assertPropertyPermitted(final String propertyKey) {
+
+        final boolean isPropertyPermitted = PropertyKeys.PUBLICLY_ACCESSIBLE.equals(propertyKey)
+            || isPubliclyAccessible()
+            || propertiesPermittedWhenUpcoming.contains(propertyKey);
+
+        if (!isPropertyPermitted) {
+            throw new DataRestrictionViolationException(
+                "Property is not available when publication is flagged as 'not publicly accessible': " + propertyKey
+            );
+        }
     }
 
     /**
-     * Converts given {@linkplain Calendar} to {@linkplain RestrictableDate}, where the returned object expresses date
-     * in time zone '{@code UTC}'.
+     * Converts given {@linkplain Calendar} to {@linkplain RestrictableDate}.
      */
-    private RestrictableDate toRestrictedDate(final Calendar nominalPublicationDateCalendar) {
+    private RestrictableDate nominalPublicationDateCalendarToRestrictedDate(final Calendar calendar) {
 
-        final LocalDate nominalPublicationDate = LocalDate.from(
-            LocalDateTime.ofInstant(
-                nominalPublicationDateCalendar.toInstant(),
-                ZoneId.of("UTC")
-            )
-        );
+        final LocalDate nominalPublicationDate = LocalDateTime.ofInstant(
+                calendar.toInstant(),
+                calendar.getTimeZone().toZoneId()
+            ).toLocalDate();
 
         final LocalDate cutOffPoint = LocalDate.now().plusWeeks(WEEKS_TO_CUTOFF);
 
         return nominalPublicationDate.isAfter(cutOffPoint)
             ? RestrictableDate.restrictedDateFrom(nominalPublicationDate)
             : RestrictableDate.fullDateFrom(nominalPublicationDate);
+    }
+
+    interface PropertyKeys {
+        String TAXONOMY = "hippotaxonomy:keys";
+        String SUMMARY = "publicationsystem:Summary";
+        String KEY_FACTS = "publicationsystem:KeyFacts";
+        String INFORMATION_TYPE = "publicationsystem:InformationType";
+        String NOMINAL_DATE = "publicationsystem:NominalDate";
+        String COVERAGE_START = "publicationsystem:CoverageStart";
+        String COVERAGE_END = "publicationsystem:CoverageEnd";
+        String GEOGRAPHIC_COVERAGE = "publicationsystem:GeographicCoverage";
+        String GRANULARITY = "publicationsystem:Granularity";
+        String ADMINISTRATIVE_SOURCES = "publicationsystem:AdministrativeSources";
+        String TITLE = "publicationsystem:Title";
+        String PUBLICLY_ACCESSIBLE = "publicationsystem:PubliclyAccessible";
+        String RELATED_LINKS = "publicationsystem:RelatedLinks";
+        String ATTACHMENTS = "publicationsystem:attachments";
     }
 }

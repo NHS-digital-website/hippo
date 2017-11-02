@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.config.AcceptanceTestProperties;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataFactory;
+import uk.nhs.digital.ps.test.acceptance.data.ExpectedTestDataProvider;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
 import uk.nhs.digital.ps.test.acceptance.models.Attachment;
 import uk.nhs.digital.ps.test.acceptance.models.FileType;
@@ -28,9 +29,9 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.startsWith;
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.ps.test.acceptance.util.AssertionHelper.assertWithinTimeoutThat;
 import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.readFileAsByteArray;
@@ -205,4 +206,42 @@ public class PublicationSteps extends AbstractSpringSteps {
         contentPage.getRelatedLinksSection().addRelatedLinkField();
     }
 
+
+    @Given("^I have a published publication flagged as upcoming$")
+    public void iHaveAReleasedPublicationFlaggedAsUpcoming() throws Throwable {
+        final Publication publication = ExpectedTestDataProvider.getReleasedUpcomingPublication().build();
+        testDataRepo.setCurrentPublication(publication);
+    }
+
+    @When("^I view the publication$")
+    public void iViewThePublication() throws Throwable {
+        consumablePublicationPage.open(testDataRepo.getCurrentPublication());
+    }
+
+    @Then("^Title is shown$")
+    public void titleIsVisible() throws Throwable {
+        assertThat("Title is shown.",
+            consumablePublicationPage.getTitleText(), is(testDataRepo.getCurrentPublication().getTitle())
+        );
+    }
+
+    @Then("^Nominal Publication Date field is shown$")
+    public void nominalPublicationDateFieldIsVisible() throws Throwable {
+        assertThat("Nominal Publication Date field is shown.",
+            consumablePublicationPage.getNominalDate(),
+            is(testDataRepo.getCurrentPublication().getNominalDateFormatted())
+        );
+    }
+
+    @Then("^Disclaimer \"([^\"]*)\" is displayed$")
+    public void disclaimerIsDisplayed(final String disclaimer) throws Throwable {
+        assertTrue("Disclaimer is displayed: " + disclaimer, consumablePublicationPage.hasDisclaimer(disclaimer));
+    }
+
+    @Then("^All other publication's details are hidden$")
+    public void allOtherDetailsAreHidden() throws Throwable {
+        assertThat("Fields that should be hidden for upcoming publication are hidden.",
+            consumablePublicationPage.getElementsHiddenWhenUpcoming(), is(empty())
+        );
+    }
 }

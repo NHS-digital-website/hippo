@@ -89,6 +89,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      publicationsystem:PubliclyAccessible: true
     /2012[2]:
       jcr:primaryType: publicationsystem:publication
       jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -114,6 +115,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      publicationsystem:PubliclyAccessible: true
     /2012[3]:
       jcr:primaryType: publicationsystem:publication
       jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -140,6 +142,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      publicationsystem:PubliclyAccessible: true
   /2013:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['mix:referenceable']
@@ -168,6 +171,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      publicationsystem:PubliclyAccessible: true
     /2013[2]:
       jcr:primaryType: publicationsystem:publication
       jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -193,6 +197,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      publicationsystem:PubliclyAccessible: true
     /2013[3]:
       jcr:primaryType: publicationsystem:publication
       jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -219,6 +224,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      publicationsystem:PubliclyAccessible: true
   /2014:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['mix:referenceable']
@@ -247,6 +253,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      publicationsystem:PubliclyAccessible: true
     /2014[2]:
       jcr:primaryType: publicationsystem:publication
       jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -272,6 +279,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      publicationsystem:PubliclyAccessible: true
     /2014[3]:
       jcr:primaryType: publicationsystem:publication
       jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -298,6 +306,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      publicationsystem:PubliclyAccessible: true
   /2015:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['mix:referenceable']
@@ -326,6 +335,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      publicationsystem:PubliclyAccessible: true
     /2015[2]:
       jcr:primaryType: publicationsystem:publication
       jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -351,3 +361,4 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      publicationsystem:PubliclyAccessible: true
