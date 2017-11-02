@@ -17,6 +17,7 @@ public class PublicationBuilder {
     private InformationType informationType;
     private Granularity granularity;
     private Instant nominalDate;
+    private boolean publiclyAccessible;
     private List<AttachmentBuilder> attachmentBuilders = new ArrayList<>();
     private Taxonomy taxonomy;
 
@@ -62,20 +63,24 @@ public class PublicationBuilder {
         return cloneAndAmend(builder -> builder.attachmentBuilders = asList(attachmentBuilders));
     }
 
-    public PublicationBuilder withStatus(final PublicationStatus status) {
+    public PublicationBuilder inStatus(final PublicationStatus status) {
         return cloneAndAmend(builder -> builder.status = status);
     }
 
     public PublicationBuilder withTaxonomy(final Taxonomy taxonomy) {
         return cloneAndAmend(builder -> builder.taxonomy = taxonomy);
     }
+
+    public PublicationBuilder withPubliclyAccessible(final boolean publiclyAccessible) {
+        return cloneAndAmend(builder -> builder.publiclyAccessible = publiclyAccessible);
+    }
     //</editor-fold>
 
     public Publication build() {
         return new Publication(this);
     }
-    //<editor-fold desc="GETTERS" defaultstate="collapsed">
 
+    //<editor-fold desc="GETTERS" defaultstate="collapsed">
     String getName() {
         return name;
     }
@@ -119,6 +124,10 @@ public class PublicationBuilder {
     PublicationStatus getStatus() {
         return status;
     }
+
+    public boolean isPubliclyAccessible() {
+        return publiclyAccessible;
+    }
     //</editor-fold>
 
     private PublicationBuilder(final PublicationBuilder original) {
@@ -129,6 +138,7 @@ public class PublicationBuilder {
         informationType = original.getInformationType();
         granularity = original.getGranularity();
         nominalDate = original.getNominalDate();
+        publiclyAccessible = original.isPubliclyAccessible();
         taxonomy = original.getTaxonomy();
         attachmentBuilders = original.getAttachmentBuilders();
 

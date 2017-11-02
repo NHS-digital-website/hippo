@@ -117,6 +117,15 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippo:resource
             hipposysedit:validators: [publicationsystem-blank-attachment]
+          /publicly_accessible:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:PubliclyAccessible
+            hipposysedit:primary: false
+            hipposysedit:type: selection:BooleanRadioGroup
+            hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -138,6 +147,7 @@ definitions:
           publicationsystem:NominalDate: 0001-01-01T12:00:00Z
           publicationsystem:Summary: ''
           publicationsystem:Title: ''
+          publicationsystem:PubliclyAccessible: false
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -202,6 +212,17 @@ definitions:
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /publicly_accessible:
+            jcr:primaryType: frontend:plugin
+            caption: Publicly Accessible
+            field: publicly_accessible
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              trueLabel: LIVE (Full content publicly accessible)
+              falseLabel: UPCOMING (Show in upcoming publications list only)
           /Summary:
             jcr:primaryType: frontend:plugin
             caption: Summary

@@ -1,29 +1,50 @@
 package uk.nhs.digital.ps.beans;
 
+import com.tngtech.java.junit.dataprovider.DataProvider;
+import com.tngtech.java.junit.dataprovider.DataProviderRunner;
+import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import org.hippoecm.hst.provider.jcr.JCRValueProvider;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
 import uk.nhs.digital.ps.test.util.ReflectionHelper;
 
+import javax.jcr.Node;
+import javax.jcr.NodeIterator;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
+import static java.util.Arrays.asList;
+import static java.util.Arrays.stream;
+import static java.util.stream.Collectors.toList;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static uk.nhs.digital.ps.beans.RestrictableDateTest.assertRestrictableDate;
 
+
+@RunWith(DataProviderRunner.class)
 public class PublicationTest {
 
     private static final String NOMINAL_DATE_PROPERTY_KEY = "publicationsystem:NominalDate";
+    private static final String PUBLICLY_ACCESSIBLE_PROPERTY_KEY = "publicationsystem:PubliclyAccessible";
+    private static final String ATTACHMENTS_PROPERTY_KEY = "publicationsystem:attachments";
+    private static final String RELATED_LINKS_PROPERTY_KEY = "publicationsystem:RelatedLinks";
 
-    @Mock protected JCRValueProvider valueProvider;
+    @Mock private JCRValueProvider valueProvider;
+    @Mock private Node node;
+    @Mock private NodeIterator nodeIterator;
 
     private final Map<String, Object> beanProperties = new HashMap<>();
     private Publication publication;
@@ -34,15 +55,29 @@ public class PublicationTest {
     public void setUp() throws Exception {
         initMocks(this);
         beanProperties.clear();
-        given(valueProvider.getProperties()).willReturn(beanProperties);
+
 
         final Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.WEEK_OF_MONTH, WEEKS_TO_CUTOFF);
         cutOffDate = calendar;
 
         publication = new Publication();
+
+        given(valueProvider.getProperties()).willReturn(beanProperties);
+
+        given(nodeIterator.hasNext()).willReturn(false);
+        given(node.getNodes(ATTACHMENTS_PROPERTY_KEY)).willReturn(nodeIterator);
+        given(node.getNodes(RELATED_LINKS_PROPERTY_KEY)).willReturn(nodeIterator);
+
         ReflectionHelper.setField(publication, "valueProvider", valueProvider);
+        ReflectionHelper.setField(publication, "node", node);
     }
+
+    // NOTE: usually, with tests involving time, obtaining 'now' value would be facilitated via custom time provider
+    // which, mocked in tests, would enable precise control over the value of 'now'. In this case, however, it's
+    // easy to manipulate the value of 'Nominal Publication Date' - which has to be set anyway - and so, for simplicity
+    // reasons, it was decided to not to introduce additional complexity in a form time provider. This will be easy
+    // to change should more complex cases arise, however.
 
     @Test
     public void returnsRestrictedNominalPublicationDate_whenItFallsAfterTheCutOffPoint() throws Exception {
@@ -86,7 +121,72 @@ public class PublicationTest {
 
         // then
         assertThat("No value was returned.", actualNominalPublicationDate, is(nullValue()));
+    }
 
+    @Test
+    @UseDataProvider("gettersForbiddenInUpcomingPublication")
+    public void restrictsGetters_whenPublicationNotPubliclyAvailable(
+        final Method getterForbiddenInUpcomingPublication) throws Exception {
+
+        final String getterName = getterForbiddenInUpcomingPublication.getName();
+
+        // given
+        setBeanProperty(PUBLICLY_ACCESSIBLE_PROPERTY_KEY, false);
+
+        try {
+            // when
+            getterForbiddenInUpcomingPublication.invoke(publication);
+
+            // then
+            fail("No exception was thrown from getter " + getterName);
+
+        } catch (final InvocationTargetException e) {
+            assertThat("Getter " + getterName + " throws exception of correct type.", e.getCause(),
+                instanceOf(DataRestrictionViolationException.class)
+            );
+            assertThat("Getter " + getterName + " throws exception with correct message.", e.getCause().getMessage(),
+                startsWith("Property is not available when publication is flagged as 'not publicly accessible':")
+            );
+        }
+    }
+
+    @Test
+    @UseDataProvider("allPublicGetters")
+    public void permitsAllGetters_whenPublicationFlaggedAsPubliclyAvailable(final Method permittedGetter) throws Exception {
+
+        // given
+        setBeanProperty(PUBLICLY_ACCESSIBLE_PROPERTY_KEY, true);
+
+        try {
+            // when
+            permittedGetter.invoke(publication);
+
+            // then
+            // pass
+        } catch (final InvocationTargetException e) {
+            fail("No exception was expected to be thrown from '" + permittedGetter.getName() + "' but got " + e.getCause());
+        }
+    }
+
+    @DataProvider
+    public static List<Method> allPublicGetters() {
+
+        return stream(Publication.class.getDeclaredMethods())
+            .filter(method -> Modifier.isPublic(method.getModifiers()))
+            .filter(method -> method.getName().startsWith("get") || method.getName().startsWith("is"))
+            .filter(method -> !method.getReturnType().equals(Void.class))
+            .collect(toList());
+    }
+
+    @DataProvider
+    public static List<Method> gettersForbiddenInUpcomingPublication() {
+
+        final List<String> gettersPermittedWhenUpcoming =
+            asList("getTitle", "getNominalPublicationDate", "isPubliclyAccessible");
+
+        return allPublicGetters().stream()
+            .filter(method -> !gettersPermittedWhenUpcoming.contains(method.getName()))
+            .collect(toList());
     }
 
     private void setBeanProperty(final String propertyKey, final Object value) {
