@@ -38,6 +38,7 @@ public class TestDataFactory {
             .withGeographicCoverage(getRandomEnumConstant(GeographicCoverage.class))
             .withInformationType(getRandomEnumConstant(InformationType.class))
             .withGranularity(getRandomEnumConstant(Granularity.class))
+            .withPubliclyAccessible(true)
             .withTaxonomy(Taxonomy.createNew("Conditions", "Accidents and injuries", "Falls"));
     }
 

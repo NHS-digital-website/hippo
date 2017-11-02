@@ -39,6 +39,7 @@
       publicationsystem:linkUrl: ''
       publicationsystem:link_text: ''
       publicationsystem:link_url: ''
+    publicationsystem:PubliclyAccessible: true
   /proin-nec-justo[2]:
     jcr:primaryType: publicationsystem:publication
     jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -75,6 +76,7 @@
       publicationsystem:linkUrl: ''
       publicationsystem:link_text: ''
       publicationsystem:link_url: ''
+    publicationsystem:PubliclyAccessible: true
   /proin-nec-justo[3]:
     jcr:primaryType: publicationsystem:publication
     jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -112,3 +114,4 @@
       publicationsystem:linkUrl: ''
       publicationsystem:link_text: ''
       publicationsystem:link_url: ''
+    publicationsystem:PubliclyAccessible: true

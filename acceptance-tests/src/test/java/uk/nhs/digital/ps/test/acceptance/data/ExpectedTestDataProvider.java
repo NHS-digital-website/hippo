@@ -13,26 +13,25 @@ import static uk.nhs.digital.ps.test.acceptance.models.TimeSeriesBuilder.newTime
 
 /**
  * <p>
- * Provides methods used to create test data objects based on static resources such as Hippo CMS repository YAML files.
- * </p>
- * <p>
- * Ideally, methods of this class should read such source files (hence the 'Loader' part of the class' name) and build
- * test data 'models' dynamically based on the files' content. However, given that the implementation of reliable
- * loading mechanism could be rather involving, in the interest of time, the current implementation actually constructs
- * new test data objects in a way that they <em>match</em> the content of the YAML files, without actually reading the
- * files. Therefore, as long as this approach is followed, it's important to be careful that the factory methods
- * construct objects accurately reflecting content of the source files.
+ * Provides methods creating test data objects representing documents as defined by Hippo CMS repository YAML files.
+ * </p><p>
+ * In the future, this class could be turned into a 'loader' building the test data objects dynamically by reading
+ * and interpreting the YAML files, thus eliminating the risk that its content could get out of sync with the files,
+ * but, given that implementation of reliable loading mechanism could be rather involving, in the interest of time, the
+ * current implementation actually constructs these objcects using hardcoded definitions that <em>match</em> the content
+ * of the YAML files, without actually reading them.
+ * </p><p>
+ * Therefore, until dynamic loading is implemented, care must be taken that the implementation of individual factory
+ * methods strictly corresponds to the content of corresponding files.
  * </p>
  */
-public class TestDataLoader {
+public class ExpectedTestDataProvider {
 
     /**
      * @return New instance of time series corresponding to YAML definition
-     * {@code /content/documents/publicationsystem/publications/valid-publication-series} in {@code publication.yaml}
+     * {@code /content/documents/publicationsystem/publications/valid-publication-series.yaml}.
      */
-    public static TimeSeriesBuilder loadValidTimeSeries() {
-
-        // KEEP IN SYNC WITH publications.yaml OR IMPLEMENT DYNAMIC BUILDING FROM THE FILE
+    public static TimeSeriesBuilder getValidTimeSeries() {
 
         return newTimeSeries()
             .withName("valid publication series")
@@ -43,26 +42,44 @@ public class TestDataLoader {
                     .withSummary("A released publication")
                     .withInformationType(OFFICIAL_STATISTICS)
                     .withNominalDate(asInstant("2013-01-10T01:00:00+01:00"))
-                    .withStatus(PUBLISHED),
+                    .inStatus(PUBLISHED)
+                    .withPubliclyAccessible(true),
                 newPublication()
                     .withTitle("Lorem Ipsum Dolor 2013")
                     .withSummary("A released publication 2013")
                     .withInformationType(OFFICIAL_STATISTICS)
                     .withNominalDate(asInstant("2014-01-10T01:00:00+01:00"))
-                    .withStatus(PUBLISHED),
+                    .inStatus(PUBLISHED)
+                    .withPubliclyAccessible(true),
                 newPublication()
                     .withTitle("Lorem Ipsum Dolor 2014")
                     .withSummary("Released 2014 stats.")
                     .withInformationType(OFFICIAL_STATISTICS)
                     .withNominalDate(asInstant("2015-01-10T01:00:00+01:00"))
-                    .withStatus(PUBLISHED),
+                    .inStatus(PUBLISHED)
+                    .withPubliclyAccessible(true),
                 newPublication()
                     .withTitle("Lorem Ipsum Dolor 2015")
                     .withSummary("Released 2015 stats.")
                     .withInformationType(OFFICIAL_STATISTICS)
                     .withNominalDate(asInstant("2016-01-10T01:00:00+01:00"))
-                    .withStatus(CREATED)
+                    .inStatus(CREATED)
+                    .withPubliclyAccessible(true)
             );
+    }
+
+    /**
+     * @return New instance of a released publication flagged as 'upcoming', corresponding to YAML definition
+     * {@code /content/documents/corporate-website/publication-system/released-upcoming-publication.yaml}.
+     */
+    public static PublicationBuilder getReleasedUpcomingPublication() {
+        return newPublication()
+            .withName("released-upcoming-publication")
+            .withTitle("Released Upcoming Publication")
+            .withInformationType(InformationType.OFFICIAL_STATISTICS)
+            .withNominalDate(asInstant("2017-06-01T09:30:00.000+01:00"))
+            .inStatus(PUBLISHED)
+            .withPubliclyAccessible(false);
     }
 
     private static Instant asInstant(final String timestamp) {

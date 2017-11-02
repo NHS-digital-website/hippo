@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
-import uk.nhs.digital.ps.test.acceptance.data.TestDataLoader;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
 import uk.nhs.digital.ps.test.acceptance.pages.*;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;

@@ -6,7 +6,7 @@ import cucumber.api.java.en.When;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.config.AcceptanceTestProperties;
-import uk.nhs.digital.ps.test.acceptance.data.TestDataLoader;
+import uk.nhs.digital.ps.test.acceptance.data.ExpectedTestDataProvider;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
 import uk.nhs.digital.ps.test.acceptance.models.*;
 import uk.nhs.digital.ps.test.acceptance.pages.ConsumablePublicationPage;
@@ -45,7 +45,7 @@ public class TimeSeriesSteps extends AbstractSpringSteps {
     @Given("^I have a number of publications belonging to the same time series$")
     public void iHaveANumberOfPublicationsBelongingToTheSameTimeSeries() throws Throwable {
 
-        final TimeSeries timeSeries = TestDataLoader.loadValidTimeSeries().build();
+        final TimeSeries timeSeries = ExpectedTestDataProvider.getValidTimeSeries().build();
         testDataRepo.setCurrentTimeSeries(timeSeries);
     }
 
