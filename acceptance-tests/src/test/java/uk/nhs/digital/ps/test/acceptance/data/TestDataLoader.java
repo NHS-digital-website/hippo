@@ -43,26 +43,40 @@ public class TestDataLoader {
                     .withSummary("A released publication")
                     .withInformationType(OFFICIAL_STATISTICS)
                     .withNominalDate(asInstant("2013-01-10T01:00:00+01:00"))
-                    .withStatus(PUBLISHED),
+                    .withStatus(PUBLISHED)
+                    .withPubliclyAccessible(true),
                 newPublication()
                     .withTitle("Lorem Ipsum Dolor 2013")
                     .withSummary("A released publication 2013")
                     .withInformationType(OFFICIAL_STATISTICS)
                     .withNominalDate(asInstant("2014-01-10T01:00:00+01:00"))
-                    .withStatus(PUBLISHED),
+                    .withStatus(PUBLISHED)
+                    .withPubliclyAccessible(true),
                 newPublication()
                     .withTitle("Lorem Ipsum Dolor 2014")
                     .withSummary("Released 2014 stats.")
                     .withInformationType(OFFICIAL_STATISTICS)
                     .withNominalDate(asInstant("2015-01-10T01:00:00+01:00"))
-                    .withStatus(PUBLISHED),
+                    .withStatus(PUBLISHED)
+                    .withPubliclyAccessible(true),
                 newPublication()
                     .withTitle("Lorem Ipsum Dolor 2015")
                     .withSummary("Released 2015 stats.")
                     .withInformationType(OFFICIAL_STATISTICS)
                     .withNominalDate(asInstant("2016-01-10T01:00:00+01:00"))
                     .withStatus(CREATED)
+                    .withPubliclyAccessible(true)
             );
+    }
+
+    public static PublicationBuilder loadReleasedUpcomingPublication() {
+        return newPublication()
+            .withName("released-upcoming-publication")
+            .withTitle("Released Upcoming Publication")
+            .withInformationType(InformationType.OFFICIAL_STATISTICS)
+            .withNominalDate(asInstant("2017-06-01T09:30:00.000+01:00"))
+            .withStatus(PUBLISHED)
+            .withPubliclyAccessible(false);
     }
 
     private static Instant asInstant(final String timestamp) {

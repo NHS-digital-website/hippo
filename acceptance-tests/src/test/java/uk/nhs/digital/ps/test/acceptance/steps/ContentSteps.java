@@ -25,11 +25,9 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.startsWith;
-import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.greaterThan;
-import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.ps.test.acceptance.util.AssertionHelper.assertWithinTimeoutThat;
 import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.readFileAsByteArray;
@@ -288,4 +286,42 @@ public class ContentSteps extends AbstractSpringSteps {
         contentPage.getRelatedLinksSection().addRelatedLinkField();
     }
 
+
+    @Given("^I have a released publication flagged as upcoming$")
+    public void iHaveAReleasedPublicationFlaggedAsUpcoming() throws Throwable {
+        final Publication publication = TestDataLoader.loadReleasedUpcomingPublication().build();
+        testDataRepo.setCurrentPublication(publication);
+    }
+
+    @When("^I view the publication$")
+    public void iViewThePublication() throws Throwable {
+        consumablePublicationPage.open(testDataRepo.getCurrentPublication());
+    }
+
+    @Then("^Title is visible$")
+    public void titleIsVisible() throws Throwable {
+        assertThat("Title is visible.",
+            consumablePublicationPage.getTitleText(), is(testDataRepo.getCurrentPublication().getTitle())
+        );
+    }
+
+    @Then("^Nominal Publication Date field is visible$")
+    public void nominalPublicationDateFieldIsVisible() throws Throwable {
+        assertThat("Nominal Publication Date field is visible.",
+            consumablePublicationPage.getNominalDate(),
+            is(testDataRepo.getCurrentPublication().getNominalDateFormatted())
+        );
+    }
+
+    @Then("^Disclaimer \"([^\"]*)\" is displayed$")
+    public void disclaimerIsDisplayed(final String disclaimer) throws Throwable {
+        assertTrue("Disclaimer is displayed: " + disclaimer, consumablePublicationPage.hasDisclaimer(disclaimer));
+    }
+
+    @Then("^All other publication's details are hidden$")
+    public void allOtherDetailsAreHidden() throws Throwable {
+        assertThat("Fields that should be hidden for upcoming publication are hidden.",
+            consumablePublicationPage.getDisplayedElementsThatShouldBeHiddenForUpcomingPublication(), is(empty())
+        );
+    }
 }

@@ -4,15 +4,29 @@
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() >
 <#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
 
-<#if document??>
-    <#if parentSeries??>
-    This document is part of Series
-    <a class="label label--series" href="<@hst.link hippobean=parentSeries.selfLink/>"
-        title="${parentSeries.title}">
-    ${parentSeries.title}
-    </a>
-    </#if>
-    <h1 class="doc-title" id="title">${document.title?html}</h1>
+<#macro nominalPublicationdate>
+<div id="nominal-date">
+    <h4>Nominal Publication Date:</h4>
+    <span id="nominal-date-value">
+        <#if document.nominalPublicationDate??>
+            <@formatRestrictableDate value=document.nominalPublicationDate/>
+        <#else>
+            (Not specified)
+        </#if>
+    <span>
+</div>
+</#macro>
+
+<#if parentSeries??>
+This document is part of Series
+<a class="label label--series" href="<@hst.link hippobean=parentSeries.selfLink/>"
+    title="${parentSeries.title}">
+${parentSeries.title}
+</a>
+</#if>
+<h1 class="doc-title" id="title">${document.title?html}</h1>
+
+<#if document.publiclyAccessible>
     <p class="doc-summary" id="summary">${document.summary?html}</p>
 
     <div id="taxonomy">
@@ -25,14 +39,7 @@
             (None specified)
         </#if>
     </div>
-    <div id="nominal-date">
-        <h4>Nominal publication date:</h4>
-        <#if document.nominalPublicationDate??>
-            <@formatRestrictableDate value=document.nominalPublicationDate/>
-        <#else>
-            (Not specified)
-        </#if>
-    </div>
+    <@nominalPublicationdate/>
     <div id="information-types">
         <h4>Information types:</h4>
         <#list document.informationType as type><#if type?index != 0>, </#if>${type?html}</#list>
@@ -107,8 +114,16 @@
     </div>
     <div id="administrative-sources">
         <h4>Administrative sources:</h4>
-        ${document.administrativeSources?html}
+        <#if document.administrativeSources?has_content >
+            ${document.administrativeSources?html}
+        <#else>
+            (No sources)
+        </#if>
     </div>
+<#else>
+    <p class="empty-field-disclaimer">(Upcoming, not yet published)</p>
+
+    <@nominalPublicationdate/>
 </#if>
 </body>
 </html>
