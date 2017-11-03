@@ -27,10 +27,11 @@
     </section>
 
     <section class="container">
-        <menu>
-            <@hst.include ref="menu"/>
-        </menu>
-
+        <#if hstResponseChildContentNames?seq_contains("left") >
+        <div class="container container-side">
+            <@hst.include ref="left" />
+        </div>
+        </#if>
         <div class="container container-main">
             <@hst.include ref="main"/>
         </div>

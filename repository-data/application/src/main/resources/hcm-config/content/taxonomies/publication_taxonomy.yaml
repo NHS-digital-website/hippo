@@ -8,7 +8,6 @@ definitions:
         jcr:primaryType: hippotaxonomy:taxonomy
         jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:versionable']
         hippo:availability: [live]
-        hippostd:holder: admin
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2017-10-05T14:22:23.191+01:00

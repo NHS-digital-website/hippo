@@ -5,9 +5,6 @@ import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.content.beans.standard.HippoResourceBean;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
-import org.hippoecm.hst.content.beans.standard.HippoResourceBean;
-import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -34,7 +31,7 @@ public class Publication extends BaseDocument {
      */
     public HippoBean getSelfLinkBean() {
         if (getName().equals("content")) {
-            return getParentBean();
+            return getCanonicalBean().getParentBean();
         }
 
         return this;

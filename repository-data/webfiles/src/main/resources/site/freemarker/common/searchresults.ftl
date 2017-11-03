@@ -1,5 +1,6 @@
 <#include "../include/imports.ftl">
 <#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
+
 <#if pageable??>
     <div id="searchResults" data-totalresults="${pageable.total}">
         <#if pageable.total == 0>

@@ -1,3 +1,5 @@
+---
+
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:sitemap:
@@ -10,4 +12,8 @@ definitions:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/search
         hst:refId: search
-        hst:relativecontentpath: ""
+        hst:relativecontentpath: facet
+        /_any_:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/search
+          hst:relativecontentpath: facet/${1}
