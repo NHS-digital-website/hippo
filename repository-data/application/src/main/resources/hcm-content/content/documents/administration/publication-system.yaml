@@ -1,7 +1,6 @@
 ---
-
-/content/documents/administration:
+/content/documents/administration/publication-system:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippo:named', 'mix:versionable']
-  hippo:name: Administration
+  hippo:name: Publication System
   hippostd:foldertype: [new-document, new-folder]

@@ -4,3 +4,6 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:templates:
       jcr:primaryType: hst:templates
+      /facets:
+        jcr:primaryType: hst:template
+        hst:renderpath: webfile:/freemarker/common/facets.ftl

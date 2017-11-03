@@ -1,9 +1,9 @@
 ---
 
-/content/documents/corporate-website/publication-system/lorem-ipsum-content/lorem-ipsum:
+/content/documents/corporate-website/publication-system/search-test-loremipsumdolor/loremipsumdolor:
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['mix:referenceable']
-  /lorem-ipsum[1]:
+  /loremipsumdolor[1]:
     jcr:primaryType: publicationsystem:publication
     jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
     hippo:availability: []
@@ -14,28 +14,22 @@
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
-    hippotaxonomy:keys: [infectious-diseases]
+    hippotaxonomy:keys: [falls, infectious-diseases, workforce]
     publicationsystem:AdministrativeSources: ''
     publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
     publicationsystem:CoverageStart: 2017-01-01T09:00:00.000+01:00
     publicationsystem:InformationType: [Official statistics]
     publicationsystem:KeyFacts: ''
     publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
-    publicationsystem:Summary: Maecenas laoreet ullamcorper aliquam. Sed ac nunc
-      pellentesque, lobortis orci eu, placerat lorem. Nulla est mauris, vehicula
-      nec ornare a, lacinia vel odio. Sed et accumsan mi, quis finibus orci. Integer
-      eget tortor mauris. Cras fermentum sodales urna, ac vulputate odio lobortis
-      eget. Etiam id erat blandit, feugiat orci non, pharetra est. Sed interdum
-      a leo facilisis aliquam. Curabitur justo nisi, mattis vel neque placerat,
-      imperdiet ultrices tortor.
-    publicationsystem:Title: Lorem ipsum dolor sit amet.
+    publicationsystem:Summary: ""
+    publicationsystem:Title: loremipsumdolor
     /publicationsystem:RelatedLinks:
       jcr:primaryType: publicationsystem:relatedlink
       publicationsystem:linkText: ''
       publicationsystem:linkUrl: ''
       publicationsystem:link_text: ''
       publicationsystem:link_url: ''
-  /lorem-ipsum[2]:
+  /loremipsumdolor[2]:
     jcr:primaryType: publicationsystem:publication
     jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
     hippo:availability: [preview]
@@ -46,28 +40,22 @@
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
-    hippotaxonomy:keys: [infectious-diseases]
+    hippotaxonomy:keys: [falls, infectious-diseases, workforce]
     publicationsystem:AdministrativeSources: ''
     publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
     publicationsystem:CoverageStart: 2017-01-01T09:00:00.000+01:00
     publicationsystem:InformationType: [Official statistics]
     publicationsystem:KeyFacts: ''
     publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
-    publicationsystem:Summary: Maecenas laoreet ullamcorper aliquam. Sed ac nunc
-      pellentesque, lobortis orci eu, placerat lorem. Nulla est mauris, vehicula
-      nec ornare a, lacinia vel odio. Sed et accumsan mi, quis finibus orci. Integer
-      eget tortor mauris. Cras fermentum sodales urna, ac vulputate odio lobortis
-      eget. Etiam id erat blandit, feugiat orci non, pharetra est. Sed interdum
-      a leo facilisis aliquam. Curabitur justo nisi, mattis vel neque placerat,
-      imperdiet ultrices tortor.
-    publicationsystem:Title: Lorem ipsum dolor sit amet.
+    publicationsystem:Summary: ""
+    publicationsystem:Title: loremipsumdolor
     /publicationsystem:RelatedLinks:
       jcr:primaryType: publicationsystem:relatedlink
       publicationsystem:linkText: ''
       publicationsystem:linkUrl: ''
       publicationsystem:link_text: ''
       publicationsystem:link_url: ''
-  /lorem-ipsum[3]:
+  /loremipsumdolor[3]:
     jcr:primaryType: publicationsystem:publication
     jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
     hippo:availability: [live]
@@ -79,21 +67,15 @@
     hippostdpubwf:publicationDate: 2017-10-16T15:00:00.000+01:00
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
-    hippotaxonomy:keys: [infectious-diseases]
+    hippotaxonomy:keys: [falls, infectious-diseases, workforce]
     publicationsystem:AdministrativeSources: ''
     publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
     publicationsystem:CoverageStart: 2017-01-01T09:00:00.000+01:00
     publicationsystem:InformationType: [Official statistics]
     publicationsystem:KeyFacts: ''
     publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
-    publicationsystem:Summary: Maecenas laoreet ullamcorper aliquam. Sed ac nunc
-      pellentesque, lobortis orci eu, placerat lorem. Nulla est mauris, vehicula
-      nec ornare a, lacinia vel odio. Sed et accumsan mi, quis finibus orci. Integer
-      eget tortor mauris. Cras fermentum sodales urna, ac vulputate odio lobortis
-      eget. Etiam id erat blandit, feugiat orci non, pharetra est. Sed interdum
-      a leo facilisis aliquam. Curabitur justo nisi, mattis vel neque placerat,
-      imperdiet ultrices tortor.
-    publicationsystem:Title: Lorem ipsum dolor sit amet.
+    publicationsystem:Summary: ""
+    publicationsystem:Title: loremipsumdolor
     /publicationsystem:RelatedLinks:
       jcr:primaryType: publicationsystem:relatedlink
       publicationsystem:linkText: ''

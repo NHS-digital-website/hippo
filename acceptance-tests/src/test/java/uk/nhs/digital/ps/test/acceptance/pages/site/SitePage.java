@@ -3,6 +3,7 @@ package uk.nhs.digital.ps.test.acceptance.pages.site;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.internal.Locatable;
 import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.config.AcceptanceTestProperties;
 import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;

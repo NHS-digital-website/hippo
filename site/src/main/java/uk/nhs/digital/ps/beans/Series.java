@@ -9,7 +9,7 @@ import org.hippoecm.hst.content.beans.Node;
 public class Series extends BaseDocument {
 
     public HippoBean getSelfLinkBean() {
-        return getParentBean();
+        return getCanonicalBean().getParentBean();
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:Title")

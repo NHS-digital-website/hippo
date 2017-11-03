@@ -2,83 +2,128 @@ package uk.nhs.digital.common.components;
 
 import org.hippoecm.hst.content.beans.query.builder.Constraint;
 import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
-import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.query.HstQuery;
-import org.hippoecm.hst.content.beans.query.HstQueryResult;
-import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.core.component.HstComponentException;
+import org.hippoecm.hst.content.beans.standard.*;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
-import org.hippoecm.hst.core.request.HstRequestContext;
+import org.hippoecm.hst.util.ContentBeanUtils;
 import org.hippoecm.hst.util.SearchInputParsingUtils;
-import org.onehippo.cms7.essentials.components.EssentialsSearchComponent;
+import org.onehippo.cms7.essentials.components.CommonComponent;
 import org.onehippo.cms7.essentials.components.info.EssentialsListComponentInfo;
+import org.onehippo.cms7.essentials.components.paging.DefaultPagination;
 import org.onehippo.cms7.essentials.components.paging.Pageable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.nhs.digital.ps.beans.Publication;
 import uk.nhs.digital.ps.beans.Series;
 import uk.nhs.digital.ps.beans.Dataset;
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.or;
 
+/**
+ * We are not extending "EssentialsSearchComponent" because we could not find a elegant way of using our own search
+ * HstObject in the faceted search.
+ */
 @ParametersInfo(type = EssentialsListComponentInfo.class)
-public class SearchComponent extends EssentialsSearchComponent {
+public class SearchComponent extends CommonComponent {
 
-    @Override
-    public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
+    private static Logger log = LoggerFactory.getLogger(SearchComponent.class);
 
-        HstRequestContext requestContext = request.getRequestContext();
-        HippoBean scopeBean = requestContext.getContentBean();
-        final EssentialsListComponentInfo paramInfo = getComponentParametersInfo(request);
-        String query = SearchInputParsingUtils.parse(
-            getPublicRequestParameter(request, "query"), false);
-        final int pageSize = getPageSize(request, paramInfo);
-        final int currentPageNumber = getCurrentPage(request);
-        final int offset = (currentPageNumber - 1) * pageSize;
+    public void doBeforeRender(HstRequest request, HstResponse response) {
+        Pageable<HippoBean> pageable = DefaultPagination.emptyCollection();
+        EssentialsListComponentInfo paramInfo = getComponentInfo(request);
+        HippoFacetNavigationBean facetNav = getFacetNavigationBean(request);
 
-        HstQueryResult searchResult;
-
-        try {
-            searchResult = doSearch(scopeBean, query, offset, pageSize);
-        } catch (QueryException e) {
-            throw new HstComponentException(
-                "Exception occurred during creation or execution of HstQuery.", e);
+        if (facetNav != null) {
+            HippoResultSetBean resultSet = facetNav.getResultSet();
+            if (resultSet != null) {
+                HippoDocumentIterator<HippoBean> iterator = resultSet.getDocumentIterator(HippoBean.class);
+                pageable = getPageableFactory()
+                    .createPageable(
+                        iterator,
+                        resultSet.getCount().intValue(),
+                        paramInfo.getPageSize(),
+                        getCurrentPage(request)
+                    );
+            }
+            else {
+                log.warn("Facet navigation result set is null!? No results for '{}'", getQueryParameter(request));
+            }
+        } else {
+            log.warn("Facet navigation is null!? No results for '{}'", getQueryParameter(request));
         }
 
-        final Pageable<?extends HippoBean> pageable;
-
-        pageable = getPageableFactory().createPageable(
-            searchResult.getHippoBeans(),
-            searchResult.getTotalSize(),
-            pageSize,
-            currentPageNumber);
-
-        populateRequest(request, paramInfo, pageable);
+        request.setAttribute("query", getQueryParameter(request));
+        request.setAttribute("pageable", pageable);
+        request.setAttribute("cparam", paramInfo);
     }
 
-    private HstQueryResult doSearch(HippoBean scope, String query, int offset, int pageSize) throws QueryException {
-        HstQueryBuilder queryBuilder = HstQueryBuilder.create(scope);
+    public HippoFacetNavigationBean getFacetNavigationBean(HstRequest request) {
+        HippoBean scopeBean = request.getRequestContext().getContentBean();
+        String facetRelativePath = scopeBean.getPath().replace(getContentRootPath(request) + "/", "");
+        HstQuery query = buildQuery(request);
+
+        return ContentBeanUtils.getFacetNavigationBean(query, facetRelativePath);
+    }
+
+    protected String getQueryParameter(HstRequest request) {
+        return SearchInputParsingUtils.parse(getAnyParameter(request, REQUEST_PARAM_QUERY),false);
+    }
+
+    protected int getCurrentPage(HstRequest request) {
+        return getAnyIntParameter(request, REQUEST_PARAM_PAGE, 1);
+    }
+
+    protected EssentialsListComponentInfo getComponentInfo(HstRequest request) {
+        return getComponentParametersInfo(request);
+    }
+
+    private HstQuery buildQuery(HstRequest request) {
+        String query = getQueryParameter(request);
+        HstQueryBuilder queryBuilder = HstQueryBuilder.create(getSearchScope(request));
 
         // register content classes
         addPublicationSystemTypes(queryBuilder);
 
-        HstQuery hstQuery = queryBuilder
+        return queryBuilder
             .where(or(
                 publicationSystemConstraint(query),
                 constraint(".").contains(query)
             ))
-            .limit(pageSize)
-            .offset(offset)
             .build();
-
-        return hstQuery.execute();
     }
 
+    private Node getSearchScope(HstRequest request) {
+        Node scope = null;
+        try {
+            scope = request.getRequestContext().getSession().getNode(getContentRootPath(request));
+        } catch (RepositoryException e) {
+            log.warn("Cannot find content node (search scope) at {}! Did someone moved corporate-website folder?",
+                getContentRootPath(request));
+            e.printStackTrace();
+        }
+
+        return scope;
+    }
+
+    private String getContentRootPath(HstRequest request) {
+        return request.getRequestContext().getResolvedMount().getMount().getContentPath();
+    }
+
+    /**
+     * Publication System content types that should be included in search
+     */
     private void addPublicationSystemTypes(HstQueryBuilder query) {
         query.ofTypes(Publication.class, Series.class, Dataset.class);
     }
 
+    /**
+     * Publication System search constraint
+     */
     private Constraint publicationSystemConstraint(String query) {
         return or(
             constraint("publicationsystem:Title").contains(query),

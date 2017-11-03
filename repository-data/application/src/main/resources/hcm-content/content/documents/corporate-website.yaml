@@ -1,5 +1,7 @@
 /content/documents/corporate-website:
   jcr:primaryType: hippostd:folder
+  # DO NOT CHANGE. This is used in the facet configuration
+  jcr:uuid: 12345678-1234-1234-1234-123456789abc
   jcr:mixinTypes:
     - mix:versionable
     - hippo:named
