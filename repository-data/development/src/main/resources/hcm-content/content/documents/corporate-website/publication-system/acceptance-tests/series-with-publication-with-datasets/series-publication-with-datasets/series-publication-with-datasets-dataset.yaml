@@ -1,0 +1,90 @@
+---
+
+/content/documents/corporate-website/publication-system/acceptance-tests/series-with-publication-with-datasets/series-publication-with-datasets/series-publication-with-datasets-dataset:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['mix:referenceable']
+  /series-publication-with-datasets-dataset[1]:
+    jcr:primaryType: publicationsystem:dataset
+    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
+    hippo:availability: [preview]
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-11-03T13:38:20.323Z
+    hippostdpubwf:lastModificationDate: 2017-11-03T13:48:28.420Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 00000000-0000-0000-0000-000000000000
+    hippotranslation:locale: en
+    publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+    publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+    publicationsystem:GeographicCoverage: Great Britain
+    publicationsystem:Granularity: [NHS Health Boards]
+    publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+    publicationsystem:NominalDate: 2017-10-10T01:00:00+01:00
+    publicationsystem:Purpose: Morbi ipsum mauris, tincidunt sed dictum quis, dictum
+      id magna. In vitae ante placerat, molestie est vel, aliquet lectus. Vivamus
+      luctus id enim eu porttitor.
+    publicationsystem:Summary: Sed viverra, odio nec eleifend sodales, ligula lectus
+      varius felis, eget auctor justo purus vitae erat. Nam at tempus dolor. Proin
+      neque nisi, pellentesque id cursus in, fermentum vitae purus. Vivamus feugiat
+      elit pretium, dictum libero quis, elementum arcu. Donec scelerisque vulputate
+      dapibus. Maecenas interdum tortor augue, id semper leo dignissim vel. In hac
+      habitasse platea dictumst. Aliquam dapibus eu purus sit amet aliquam. Cras non
+      augue convallis, scelerisque diam venenatis, maximus elit.
+    publicationsystem:Title: series-publication-with-datasets Dataset
+  /series-publication-with-datasets-dataset[2]:
+    jcr:primaryType: publicationsystem:dataset
+    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-11-03T13:38:20.323Z
+    hippostdpubwf:lastModificationDate: 2017-11-03T13:48:20.376Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 00000000-0000-0000-0000-000000000000
+    hippotranslation:locale: en
+    publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+    publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+    publicationsystem:GeographicCoverage: Great Britain
+    publicationsystem:Granularity: [NHS Health Boards]
+    publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+    publicationsystem:NominalDate: 2017-10-10T01:00:00+01:00
+    publicationsystem:Purpose: Morbi ipsum mauris, tincidunt sed dictum quis, dictum
+      id magna. In vitae ante placerat, molestie est vel, aliquet lectus. Vivamus
+      luctus id enim eu porttitor.
+    publicationsystem:Summary: Sed viverra, odio nec eleifend sodales, ligula lectus
+      varius felis, eget auctor justo purus vitae erat. Nam at tempus dolor. Proin
+      neque nisi, pellentesque id cursus in, fermentum vitae purus. Vivamus feugiat
+      elit pretium, dictum libero quis, elementum arcu. Donec scelerisque vulputate
+      dapibus. Maecenas interdum tortor augue, id semper leo dignissim vel. In hac
+      habitasse platea dictumst. Aliquam dapibus eu purus sit amet aliquam. Cras non
+      augue convallis, scelerisque diam venenatis, maximus elit.
+    publicationsystem:Title: series-publication-with-datasets Dataset
+  /series-publication-with-datasets-dataset[3]:
+    jcr:primaryType: publicationsystem:dataset
+    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+    hippo:availability: [live]
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-11-03T13:38:20.323Z
+    hippostdpubwf:lastModificationDate: 2017-11-03T13:48:28.420Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2017-11-03T13:48:35.552Z
+    hippotranslation:id: 00000000-0000-0000-0000-000000000000
+    hippotranslation:locale: en
+    publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+    publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+    publicationsystem:GeographicCoverage: Great Britain
+    publicationsystem:Granularity: [NHS Health Boards]
+    publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+    publicationsystem:NominalDate: 2017-10-10T01:00:00+01:00
+    publicationsystem:Purpose: Morbi ipsum mauris, tincidunt sed dictum quis, dictum
+      id magna. In vitae ante placerat, molestie est vel, aliquet lectus. Vivamus
+      luctus id enim eu porttitor.
+    publicationsystem:Summary: Sed viverra, odio nec eleifend sodales, ligula lectus
+      varius felis, eget auctor justo purus vitae erat. Nam at tempus dolor. Proin
+      neque nisi, pellentesque id cursus in, fermentum vitae purus. Vivamus feugiat
+      elit pretium, dictum libero quis, elementum arcu. Donec scelerisque vulputate
+      dapibus. Maecenas interdum tortor augue, id semper leo dignissim vel. In hac
+      habitasse platea dictumst. Aliquam dapibus eu purus sit amet aliquam. Cras non
+      augue convallis, scelerisque diam venenatis, maximus elit.
+    publicationsystem:Title: series-publication-with-datasets Dataset

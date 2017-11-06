@@ -9,7 +9,7 @@ import org.hippoecm.hst.content.beans.standard.HippoCompound;
 public class Relatedlink extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "publicationsystem:linkText")
     public String getLinkText() {
-        return getProperty("publicationsystem:linkText");
+        return getProperty("publicationsystem:linkText", getLinkUrl());
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:linkUrl")

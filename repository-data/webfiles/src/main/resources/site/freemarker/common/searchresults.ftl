@@ -13,11 +13,11 @@
                 <ul id="resultsList">
                     <#list pageable.items as publication>
                         <li>
-                            <a href="<@hst.link hippobean=publication.selfLink/>" data-document-title="${publication.name}">${publication.title}</a>
+                            <a href="<@hst.link hippobean=publication.selfLinkBean/>"
+                               title="${publication.title}"
+                            >${publication.title}</a>
                             <@formatRestrictableDate value=publication.nominalPublicationDate/>
-                            <br />
-                            ${publication.summary}
-                            <hr />
+                            <p class="doc-summary">${publication.summary}</p>
                         </li>
                     </#list>
                 </ul>

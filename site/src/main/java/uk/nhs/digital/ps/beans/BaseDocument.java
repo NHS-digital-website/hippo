@@ -14,7 +14,7 @@ public class BaseDocument extends HippoDocument {
      *
      * @return Object used to render a link to this page
      */
-    public HippoBean getSelfLink() {
+    public HippoBean getSelfLinkBean() {
         return this;
     }
 }

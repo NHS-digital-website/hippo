@@ -10,6 +10,7 @@ import uk.nhs.digital.ps.test.acceptance.models.Publication;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataFactory;
 import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
 import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
+import uk.nhs.digital.ps.test.acceptance.steps.cms.LoginSteps;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
@@ -37,9 +38,7 @@ public class TestDataSteps extends AbstractSpringSteps {
         loginSteps.givenIAmLoggedInAsAdmin();
         contentPage.openContentTab();
         contentPage.newPublication(publication);
-        contentPage.populatePublication(publication);
     }
-
 
     /**
      * Resets the test data repository before every scenario to prevent data leaking between scenarios, unless given

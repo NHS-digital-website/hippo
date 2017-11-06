@@ -81,9 +81,10 @@ input {
     border: 1px solid #CCC;
     box-sizing: border-box;
     border-color: #004075;
-    padding: .5em 4em .5em 1em;
+    padding: .5em .5em .5em 1em;
     -webkit-appearance: none;
     cursor: pointer;
+    width: 400px;
 }
 
 .search-submit {
@@ -162,4 +163,58 @@ input {
 .pagination li span.current {
     background-color: #f7f7f7;
     color: #0000FF;
+}
+
+
+
+
+h4 {
+    font-weight: 600;
+    font-size: 1.1em;
+    margin: 1em 0 0.5em 0;
+}
+
+h3 {
+    font-size: 1.6em;
+}
+
+
+
+.content-section {
+    border-bottom: 1px solid #999;
+    padding-bottom: 2em;
+}
+
+.content-section:last-child {
+    border-bottom-width: 0;
+}
+
+
+
+
+/**
+    Display document metadata
+
+    <dl class="doc-metadata">
+        <dt>title</dt>
+        <dd>definition / content ...</dd>
+
+        <dt>title</dt>
+        <dd>definition / content ...</dd>
+    </dl>
+*/
+.doc-metadata {
+    padding: 0 0 0 1.0em;
+}
+
+.doc-metadata dt {
+    font-size: 1.0em;
+    font-weight: bold;
+    float: left;
+    clear: left;
+    padding: 0 12px 0 0;
+}
+
+.doc-metadata dt:after {
+  content: ":";
 }

@@ -8,6 +8,6 @@ import uk.nhs.digital.ps.test.acceptance.config.AcceptanceTestConfiguration;
  * dependency injection.
  */
 @ContextConfiguration(classes = {AcceptanceTestConfiguration.class})
-abstract class AbstractSpringSteps {
+public abstract class AbstractSpringSteps {
     // no-op, this class only serves as a bridge to Spring test context configuration
 }

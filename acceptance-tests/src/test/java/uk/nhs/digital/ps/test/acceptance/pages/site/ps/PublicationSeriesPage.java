@@ -1,25 +1,23 @@
-package uk.nhs.digital.ps.test.acceptance.pages;
+package uk.nhs.digital.ps.test.acceptance.pages.site.ps;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import uk.nhs.digital.ps.test.acceptance.models.PublicationBuilder;
 import uk.nhs.digital.ps.test.acceptance.models.TimeSeries;
-import uk.nhs.digital.ps.test.acceptance.models.TimeSeriesBuilder;
+import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
+import uk.nhs.digital.ps.test.acceptance.pages.site.AbstractSitePage;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
-
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
-import static uk.nhs.digital.ps.test.acceptance.models.PublicationBuilder.newPublication;
 
-public class ConsumablePublicationSeriesPage extends AbstractConsumablePage {
+public class PublicationSeriesPage extends AbstractSitePage {
 
     private final PageHelper pageHelper;
 
     private final String XPATH_PUBLICATIONS_LIST = "//ul[@data-uipath='ps.series.publications-list']";
     private final String XPATH_TITLE = "//*[@data-uipath='ps.series.title']";
 
-    public ConsumablePublicationSeriesPage(final WebDriverProvider webDriverProvider, final PageHelper pageHelper) {
+    public PublicationSeriesPage(final WebDriverProvider webDriverProvider, final PageHelper pageHelper) {
         super(webDriverProvider);
         this.pageHelper = pageHelper;
     }
@@ -39,7 +37,7 @@ public class ConsumablePublicationSeriesPage extends AbstractConsumablePage {
     }
 
     public List<String> getPublicationTitles() {
-        return getWebDriver().findElements(By.xpath(XPATH_PUBLICATIONS_LIST + "/li")).stream()
+        return getWebDriver().findElements(By.xpath(XPATH_PUBLICATIONS_LIST + "/li/a")).stream()
             .map(WebElement::getText)
             .collect(toList());
     }

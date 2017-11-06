@@ -2,17 +2,22 @@
 
 group: stable
 dist: trusty
+language: java
 
-language: python
-python: "2.7"
+jdk:
+  - oraclejdk8
 
 branches:
   only:
     - master
+
+addons:
+  chrome: stable
 
 cache:
   directories:
   - $HOME/.m2
 
 script:
-  - mvn test
+  - make test.unit
+  - make test.site

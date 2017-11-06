@@ -7,6 +7,11 @@ import org.hippoecm.hst.content.beans.Node;
 @HippoEssentialsGenerated(internalName = "publicationsystem:series")
 @Node(jcrType = "publicationsystem:series")
 public class Series extends BaseDocument {
+
+    public HippoBean getSelfLinkBean() {
+        return getParentBean();
+    }
+
     @HippoEssentialsGenerated(internalName = "publicationsystem:Title")
     public String getTitle() {
         return getProperty("publicationsystem:Title");
@@ -15,9 +20,5 @@ public class Series extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "publicationsystem:Summary")
     public String getSummary() {
         return getProperty("publicationsystem:Summary");
-    }
-
-    public HippoBean getSelfLink() {
-        return getParentBean();
     }
 }

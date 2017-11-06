@@ -7,6 +7,9 @@
 [publicationsystem:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
   orderable
 
+[publicationsystem:dataset] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
+  orderable
+
 [publicationsystem:publication] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
   orderable
 
@@ -15,4 +18,3 @@
 
 [publicationsystem:series] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
   orderable
-

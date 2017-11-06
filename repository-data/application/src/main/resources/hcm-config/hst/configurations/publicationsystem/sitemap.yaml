@@ -10,8 +10,12 @@ definitions:
         jcr:primaryType: hst:sitemapitem
         hst:relativecontentpath: ${1}
         hst:componentconfigurationmappingnames:
-          - publicationsystem:publication
+          - publicationsystem:dataset
           - hippostd:folder
+          - publicationsystem:publication
+          - publicationsystem:series
         hst:componentconfigurationmappingvalues:
-          - hst:pages/home
-          - hst:pages/seriespage
+          - hst:pages/dataset
+          - hst:pages/folder
+          - hst:pages/publication
+          - hst:pages/series
