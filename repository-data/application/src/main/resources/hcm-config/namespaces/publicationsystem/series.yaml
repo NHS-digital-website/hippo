@@ -21,6 +21,7 @@ definitions:
             hipposysedit:path: publicationsystem:Title
             hipposysedit:primary: false
             hipposysedit:type: Text
+            hipposysedit:validators: [non-empty, required, publicationsystem-title]
           /Summary:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -29,6 +30,7 @@ definitions:
             hipposysedit:path: publicationsystem:Summary
             hipposysedit:primary: false
             hipposysedit:type: Text
+            hipposysedit:validators: [non-empty, required, publicationsystem-summary]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:

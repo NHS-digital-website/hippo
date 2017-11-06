@@ -2,7 +2,10 @@ definitions:
   config:
     /hippo:configuration/hippo:translations/hippo:cms/validators/en:
       publicationsystem-title: Title must be 250 characters or less
-      publicationsystem-summary: Summary must be less then 1000 characters
-      publicationsystem-blank-attachment: There is an attachment field without an attachment. Please remove it or upload a file.
-      publicationsystem-blank-staticdropdown: Field ''{0}'' has a placeholder without a value. Please remove it or select a value.
-      publicationsystem-blank-related-link: There is a related link field with no URL provided. Please remove it or enter a URL.
+      publicationsystem-summary: Summary must be 1000 characters or less
+      publicationsystem-blank-attachment: There is an attachment field without an
+        attachment. Please remove it or upload a file.
+      publicationsystem-blank-staticdropdown: '{0} has a ''''Choose One'''' placeholder
+        without a value. Please remove the placeholder or select a value.'
+      publicationsystem-blank-related-link: There is a related link field with no
+        URL provided. Please remove it or enter a URL.
