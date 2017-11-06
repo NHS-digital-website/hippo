@@ -1,0 +1,115 @@
+---
+
+/content/documents/corporate-website/publication-system/acceptance-tests/publication-with-datasets/publication-with-datasets-dataset:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  hippo:name: publication-with-datasets Dataset
+  /publication-with-datasets-dataset[1]:
+    jcr:primaryType: publicationsystem:dataset
+    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
+    hippo:availability: [preview]
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-11-03T13:38:20.323Z
+    hippostdpubwf:lastModificationDate: 2017-11-09T21:42:46.285Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 00000000-0000-0000-0000-000000000000
+    hippotranslation:locale: en
+    publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+    publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+    publicationsystem:GeographicCoverage: England
+    publicationsystem:Granularity: [NHS Trusts]
+    publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+    publicationsystem:NominalDate: 2017-10-10T01:00:00+01:00
+    publicationsystem:Purpose: Vivamus et tortor ut ex placerat congue vitae nec velit.
+      Donec imperdiet vestibulum lorem non viverra. Etiam sit amet venenatis purus.
+    publicationsystem:Summary: Mauris ex est, dapibus in dictum ut, elementum sit
+      amet odio. Proin egestas augue sit amet est vestibulum, vitae maximus ipsum
+      accumsan. Nunc fringilla interdum nunc vitae tempus. Sed vitae ullamcorper velit.
+      Maecenas convallis interdum magna, et finibus libero suscipit in.
+    publicationsystem:Title: publication-with-datasets Dataset
+    /publicationsystem:Files:
+      jcr:primaryType: hippo:resource
+      hippo:filename: attachment.pdf
+      hippo:text:
+        type: binary
+        resource: attachment.pdf
+      jcr:data:
+        type: binary
+        resource: attachment.pdf
+      jcr:encoding: UTF-8
+      jcr:lastModified: 2017-11-09T21:42:39.618Z
+      jcr:mimeType: application/pdf
+  /publication-with-datasets-dataset[2]:
+    jcr:primaryType: publicationsystem:dataset
+    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-11-03T13:38:20.323Z
+    hippostdpubwf:lastModificationDate: 2017-11-09T21:42:27.697Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 00000000-0000-0000-0000-000000000000
+    hippotranslation:locale: en
+    publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+    publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+    publicationsystem:GeographicCoverage: England
+    publicationsystem:Granularity: [NHS Trusts]
+    publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+    publicationsystem:NominalDate: 2017-10-10T01:00:00+01:00
+    publicationsystem:Purpose: Vivamus et tortor ut ex placerat congue vitae nec velit.
+      Donec imperdiet vestibulum lorem non viverra. Etiam sit amet venenatis purus.
+    publicationsystem:Summary: Mauris ex est, dapibus in dictum ut, elementum sit
+      amet odio. Proin egestas augue sit amet est vestibulum, vitae maximus ipsum
+      accumsan. Nunc fringilla interdum nunc vitae tempus. Sed vitae ullamcorper velit.
+      Maecenas convallis interdum magna, et finibus libero suscipit in.
+    publicationsystem:Title: publication-with-datasets Dataset
+    /publicationsystem:Files:
+      jcr:primaryType: hippo:resource
+      hippo:filename: attachment.pdf
+      hippo:text:
+        type: binary
+        resource: attachment.pdf
+      jcr:data:
+        type: binary
+        resource: attachment.pdf
+      jcr:encoding: UTF-8
+      jcr:lastModified: 2017-11-09T21:42:39.618Z
+      jcr:mimeType: application/pdf
+  /publication-with-datasets-dataset[3]:
+    jcr:primaryType: publicationsystem:dataset
+    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+    hippo:availability: [live]
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-11-03T13:38:20.323Z
+    hippostdpubwf:lastModificationDate: 2017-11-09T21:42:46.285Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2017-11-09T21:42:50.263Z
+    hippotranslation:id: 00000000-0000-0000-0000-000000000000
+    hippotranslation:locale: en
+    publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+    publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+    publicationsystem:GeographicCoverage: England
+    publicationsystem:Granularity: [NHS Trusts]
+    publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+    publicationsystem:NominalDate: 2017-10-10T01:00:00+01:00
+    publicationsystem:Purpose: Vivamus et tortor ut ex placerat congue vitae nec velit.
+      Donec imperdiet vestibulum lorem non viverra. Etiam sit amet venenatis purus.
+    publicationsystem:Summary: Mauris ex est, dapibus in dictum ut, elementum sit
+      amet odio. Proin egestas augue sit amet est vestibulum, vitae maximus ipsum
+      accumsan. Nunc fringilla interdum nunc vitae tempus. Sed vitae ullamcorper velit.
+      Maecenas convallis interdum magna, et finibus libero suscipit in.
+    publicationsystem:Title: publication-with-datasets Dataset
+    /publicationsystem:Files:
+      jcr:primaryType: hippo:resource
+      hippo:filename: attachment.pdf
+      hippo:text:
+        type: binary
+        resource: attachment.pdf
+      jcr:data:
+        type: binary
+        resource: attachment.pdf
+      jcr:encoding: UTF-8
+      jcr:lastModified: 2017-11-09T21:42:39.618Z
+      jcr:mimeType: application/pdf

@@ -1,8 +1,10 @@
 package uk.nhs.digital.ps.components;
 
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.onehippo.taxonomy.api.Category;
 import org.onehippo.taxonomy.api.Taxonomy;
+import uk.nhs.digital.ps.beans.Dataset;
 import uk.nhs.digital.ps.beans.Publication;
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.core.component.HstComponentException;
@@ -23,20 +25,32 @@ import java.util.stream.Collectors;
 
 public class PublicationComponent extends BaseHstComponent {
 
-    public static final Logger log = LoggerFactory.getLogger(PublicationComponent.class);
+    private static final Logger log = LoggerFactory.getLogger(PublicationComponent.class);
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
         super.doBeforeRender(request, response);
         final HstRequestContext ctx = request.getRequestContext();
-        Publication publication = (Publication) ctx.getContentBean();
+        Publication publication = getPublication(ctx);
 
-        if (publication != null) {
-            request.setAttribute("document", publication);
-        }
-
+        request.setAttribute("publication", publication);
         request.setAttribute("taxonomyList", getTaxonomyList(ctx, publication));
         request.setAttribute("parentSeries", getParentSeries(ctx, publication));
+        request.setAttribute("datasets", getDatasets(publication));
+    }
+
+    private Publication getPublication(HstRequestContext ctx) throws HstComponentException {
+        HippoBean content = ctx.getContentBean();
+
+        if (content.getClass().equals(Publication.class)) {
+            return (Publication) content;
+        }
+        if (content.getClass().equals(HippoFolder.class)) {
+            return Publication.getPublicationInFolder((HippoFolder)content);
+        }
+
+        log.warn("Cannot find Publication document for: {}", content.getPath());
+        throw new HstComponentException("Cannot find Publication document based on request content");
     }
 
     private List getTaxonomyList(HstRequestContext ctx, Publication publication) {
@@ -84,7 +98,7 @@ public class PublicationComponent extends BaseHstComponent {
         Series seriesBean = null;
 
         HippoBean folder = publication.getParentBean();
-        while (!folder.isSelf(ctx.getSiteContentBaseBean())) {
+        while (!isRootFolder(folder, ctx)) {
             Iterator<Series> iterator = folder.getChildBeans(Series.class).iterator();
             if (iterator.hasNext()) {
                 seriesBean = iterator.next();
@@ -95,5 +109,13 @@ public class PublicationComponent extends BaseHstComponent {
         }
 
         return seriesBean;
+    }
+
+    private List<Dataset> getDatasets(Publication publication) {
+        return publication.getParentBean().getChildBeans(Dataset.class);
+    }
+
+    private boolean isRootFolder(HippoBean folder, HstRequestContext ctx) {
+        return folder.isSelf(ctx.getSiteContentBaseBean());
     }
 }

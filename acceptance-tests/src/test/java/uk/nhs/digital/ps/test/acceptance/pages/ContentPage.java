@@ -47,6 +47,9 @@ public class ContentPage extends AbstractCmsPage {
         populatePublicationTitle(publication.getTitle());
         populatePublicationSummary(publication.getSummary());
 
+        getGranularitySection().addGranularityField();
+        getGranularitySection().populateGranularityField(publication.getGranularity());
+
         new Select(helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Geographic Coverage']/../following-sibling::div//select[@class='dropdown-plugin']")
         )).selectByVisibleText(
@@ -58,9 +61,6 @@ public class ContentPage extends AbstractCmsPage {
         )).selectByVisibleText(
             publication.getInformationType().getDisplayName()
         );
-
-        getGranularitySection().addGranularityField();
-        getGranularitySection().populateGranularityField(publication.getGranularity());
 
         helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Select taxonomy terms']/../..")
@@ -76,7 +76,7 @@ public class ContentPage extends AbstractCmsPage {
         ).click();
         helper.findElement(By.cssSelector("a[class~='category-add']")).click();
 
-        findOk().click();
+        clickButtonOnModalDialog("OK");
 
         getAttachmentsSection().uploadAttachments(publication.getAttachments());
     }
@@ -149,7 +149,7 @@ public class ContentPage extends AbstractCmsPage {
         dropdown.selectByVisibleText("publication");
 
         // Confirm
-        findOk().click();
+        clickButtonOnModalDialog("OK");
 
         return isDocumentPresent(publication);
     }
@@ -195,8 +195,7 @@ public class ContentPage extends AbstractCmsPage {
         WebElement closeButton = helper.findElement(
             By.xpath("//div[contains(@class, 'hippo-tabs-documents')]//a[contains(@class, 'hippo-tabs-documents-tab') and @title='" + publicationName + "']/following-sibling::a[contains(@class, 'hippo-tabs-documents-close')]"));
         closeButton.click();
-        WebElement confirmDiscard = helper.findElement(By.xpath("//input[@type='submit' and @value='Discard']"));
-        confirmDiscard.click();
+        clickButtonOnModalDialog("Discard");
     }
 
     private void clickDocument(String name){
@@ -213,8 +212,14 @@ public class ContentPage extends AbstractCmsPage {
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Publish']"));
     }
 
-    private WebElement findOk() {
-        return helper.findElement(By.xpath("//input[@value='OK' and @type='submit']"));
+    private void clickButtonOnModalDialog(String buttonText) {
+        helper.findElement(
+            By.xpath("//div[contains(@class, 'wicket-modal')]//input[@type='submit' and @value='"+ buttonText +"']"))
+            .click();
+
+        helper.waitForElementUntil(ExpectedConditions.invisibilityOfElementLocated(
+            By.xpath("//div[contains(@class, 'wicket-modal')]")));
+
     }
 
     private WebElement findSaveAndClose() {

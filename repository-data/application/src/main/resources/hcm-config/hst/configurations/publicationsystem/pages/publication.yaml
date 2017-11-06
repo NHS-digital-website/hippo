@@ -1,0 +1,11 @@
+---
+
+definitions:
+  config:
+    /hst:hst/hst:configurations/publicationsystem/hst:pages/publication:
+      jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/basepage
+      /main:
+        jcr:primaryType: hst:component
+        hst:componentclassname: uk.nhs.digital.ps.components.PublicationComponent
+        hst:template: publication

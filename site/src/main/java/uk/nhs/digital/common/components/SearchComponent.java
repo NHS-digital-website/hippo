@@ -1,5 +1,6 @@
 package uk.nhs.digital.common.components;
 
+import org.hippoecm.hst.content.beans.query.builder.Constraint;
 import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.query.HstQuery;
@@ -16,6 +17,7 @@ import org.onehippo.cms7.essentials.components.info.EssentialsListComponentInfo;
 import org.onehippo.cms7.essentials.components.paging.Pageable;
 import uk.nhs.digital.ps.beans.Publication;
 import uk.nhs.digital.ps.beans.Series;
+import uk.nhs.digital.ps.beans.Dataset;
 
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.or;
@@ -53,15 +55,17 @@ public class SearchComponent extends EssentialsSearchComponent {
             currentPageNumber);
 
         populateRequest(request, paramInfo, pageable);
-
     }
 
     private HstQueryResult doSearch(HippoBean scope, String query, int offset, int pageSize) throws QueryException {
-        HstQuery hstQuery = HstQueryBuilder.create(scope)
-            .ofTypes(Publication.class, Series.class)
+        HstQueryBuilder queryBuilder = HstQueryBuilder.create(scope);
+
+        // register content classes
+        addPublicationSystemTypes(queryBuilder);
+
+        HstQuery hstQuery = queryBuilder
             .where(or(
-                constraint("publicationsystem:Title").contains(query),
-                constraint("publicationsystem:Summary").contains(query),
+                publicationSystemConstraint(query),
                 constraint(".").contains(query)
             ))
             .limit(pageSize)
@@ -69,5 +73,16 @@ public class SearchComponent extends EssentialsSearchComponent {
             .build();
 
         return hstQuery.execute();
+    }
+
+    private void addPublicationSystemTypes(HstQueryBuilder query) {
+        query.ofTypes(Publication.class, Series.class, Dataset.class);
+    }
+
+    private Constraint publicationSystemConstraint(String query) {
+        return or(
+            constraint("publicationsystem:Title").contains(query),
+            constraint("publicationsystem:Summary").contains(query)
+        );
     }
 }

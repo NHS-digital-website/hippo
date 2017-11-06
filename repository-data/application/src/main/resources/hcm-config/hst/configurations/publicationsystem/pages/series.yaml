@@ -1,6 +1,8 @@
+---
+
 definitions:
   config:
-    /hst:hst/hst:configurations/publicationsystem/hst:pages/seriespage:
+    /hst:hst/hst:configurations/publicationsystem/hst:pages/series:
       jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/basepage
       /main:

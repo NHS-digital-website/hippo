@@ -1,5 +1,9 @@
 package uk.nhs.digital.ps.beans;
 
+import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoFolder;
+import org.hippoecm.hst.content.beans.standard.HippoResourceBean;
+import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoResourceBean;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
@@ -17,6 +21,24 @@ public class Publication extends BaseDocument {
     private static final int WEEKS_TO_CUTOFF = 8;
 
     private RestrictableDate nominalPublicationDate;
+
+    public static Publication getPublicationInFolder(HippoFolder folder) {
+        return folder.getBean("content", Publication.class);
+    }
+
+    /**
+     * Publication URL can be based on one of the following:
+     * - this object - if there are no Datasets beans in the same folder
+     * - parent folder - if the document name is "content". This indicate that there are more files in the same folder
+     *   like data sets.
+     */
+    public HippoBean getSelfLinkBean() {
+        if (getName().equals("content")) {
+            return getParentBean();
+        }
+
+        return this;
+    }
 
     @HippoEssentialsGenerated(internalName = "hippotaxonomy:keys")
     public String[] getKeys() {

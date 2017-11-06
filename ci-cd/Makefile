@@ -43,10 +43,18 @@ test: clean test.unit test.e2e
 test.unit: clean
 	mvn --file ../pom.xml -Drevision=$(VERSION) test
 
+## Run BDD tests for "site" only.
+test.site: clean
+	mvn --file ../pom.xml package -Drevision=$(VERSION) -DskipTests
+	mvn --file ../acceptance-tests/pom.xml verify -Drevision=$(VERSION) \
+		-Dcucumber.options="src/test/resources/features/site" \
+		-Pacceptance-test-hippo,acceptance-test
+
 ## Run BDD tests
 test.e2e:
-	mvn --file ../pom.xml -Drevision=$(VERSION) verify
-	mvn --file ../pom.xml -Drevision=$(VERSION) verify -Pacceptance-test-hippo,acceptance-test
+	mvn --file ../pom.xml verify -Drevision=$(VERSION)
+	mvn --file ../pom.xml verify -Drevision=$(VERSION) \
+		-Pacceptance-test-hippo,acceptance-test
 
 ## Build distribution package
 build:

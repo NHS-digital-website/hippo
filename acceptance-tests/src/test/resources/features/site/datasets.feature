@@ -1,0 +1,42 @@
+Feature: As a consumer I need to be able to navigate to publication data sets
+    so that I can download related files from them
+
+Scenario: Search individual data set by name
+    Given I navigate to the "home" page
+    When I search for "publication with datasets Dataset"
+    And I click on link "publication-with-datasets Dataset"
+    Then I should see data set page titled "publication-with-datasets Dataset"
+    And I should also see:
+        | Dataset Summary               | Mauris ex est, dapibus in dictum ut, elementum sit amet ...       |
+        | Dataset Purpose               | Vivamus et tortor ut ex placerat congue vitae nec velit. ...      |
+        | Dataset Granularity           | NHS Trusts                                                        |
+        | Dataset Geographic Coverage   | England                                                           |
+
+Scenario: Download individual files from data set
+    Given I navigate to the "publication with datasets Dataset" data set page
+    Then I can download following files:
+        | attachment.pdf    |
+
+Scenario: Find data set in publication resources
+    Given I navigate to "publication with datasets" publication page
+    When I click on link "publication-with-datasets Dataset"
+    Then I should see data set page titled "publication-with-datasets Dataset"
+
+Scenario: Find data set in publication that is part of series
+    Given I navigate to "series with publication with datasets" series page
+    When I click on link "series publication with datasets"
+    Then I should see publication page titled "series publication with datasets"
+    And I should also see:
+        | Publication Summary           | Maecenas pharetra, magna ut pulvinar mattis, augue nisi ...       |
+    When I click on link "series-publication-with-datasets Dataset"
+    Then I should see data set page titled "series-publication-with-datasets Dataset"
+    And I should also see:
+        | Dataset Summary               | Sed viverra, odio nec eleifend sodales, ligula lectus varius ...  |
+        | Dataset Purpose               | Morbi ipsum mauris, tincidunt sed dictum quis, dictum id ...      |
+        | Dataset Granularity           | NHS Health Boards                                                 |
+        | Dataset Geographic Coverage   | Great Britain                                                     |
+
+Scenario: Click back to publication from data set
+    Given I navigate to "publication with datasets Dataset" data set page
+    When I click on "publication with datasets" link
+    Then I should see publication page titled "publication with datasets"

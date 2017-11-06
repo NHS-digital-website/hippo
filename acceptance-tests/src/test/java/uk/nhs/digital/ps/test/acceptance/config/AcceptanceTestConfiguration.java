@@ -4,9 +4,11 @@ import org.slf4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
-import uk.nhs.digital.ps.test.acceptance.data.TestDataLoader;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
 import uk.nhs.digital.ps.test.acceptance.pages.*;
+import uk.nhs.digital.ps.test.acceptance.pages.site.SitePage;
+import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
+import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationSeriesPage;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverServiceProvider;
 
@@ -38,20 +40,15 @@ public class AcceptanceTestConfiguration {
     }
 
     @Bean
-    public ConsumablePublicationPage consumablePublicationPage(final WebDriverProvider webDriverProvider,
-                                                               final PageHelper pageHelper) {
-        return new ConsumablePublicationPage(webDriverProvider, pageHelper);
+    public PublicationPage publicationPage(final WebDriverProvider webDriverProvider,
+                                                     final PageHelper pageHelper) {
+        return new PublicationPage(webDriverProvider, pageHelper);
     }
 
     @Bean
-    public ConsumablePublicationSeriesPage consumablePublicationSeriesPage(final WebDriverProvider webDriverProvider,
-                                                                           final PageHelper pageHelper) {
-        return new ConsumablePublicationSeriesPage(webDriverProvider, pageHelper);
-    }
-
-    @Bean
-    public ConsumableSearchPage consumableSearchPage(final WebDriverProvider webDriverProvider, final PageHelper pageHelper) {
-        return new ConsumableSearchPage(webDriverProvider, pageHelper);
+    public PublicationSeriesPage publicationSeriesPage(final WebDriverProvider webDriverProvider,
+                                                                 final PageHelper pageHelper) {
+        return new PublicationSeriesPage(webDriverProvider, pageHelper);
     }
 
     @Bean
@@ -100,6 +97,11 @@ public class AcceptanceTestConfiguration {
         log.info("Applying test properties: {}", acceptanceTestProperties);
 
         return acceptanceTestProperties;
+    }
+
+    @Bean
+    public SitePage sitePage(final WebDriverProvider webDriverProvider, final PageHelper pageHelper) {
+        return new SitePage(webDriverProvider, pageHelper);
     }
 
 }

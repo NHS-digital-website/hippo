@@ -1,4 +1,4 @@
-package uk.nhs.digital.ps.test.acceptance.steps;
+package uk.nhs.digital.ps.test.acceptance.steps.cms;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -6,6 +6,7 @@ import cucumber.api.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.pages.DashboardPage;
 import uk.nhs.digital.ps.test.acceptance.pages.LoginPage;
+import uk.nhs.digital.ps.test.acceptance.steps.AbstractSpringSteps;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
