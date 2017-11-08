@@ -1,8 +1,10 @@
 package uk.nhs.digital.ps.beans;
 
 import org.hippoecm.hst.content.beans.Node;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoResourceBean;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -20,22 +22,22 @@ public class Publication extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "hippotaxonomy:keys")
     public String[] getKeys() {
-        return getProperty("hippotaxonomy:keys");
+        return getPermittedProperty("hippotaxonomy:keys");
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:Summary")
     public String getSummary() {
-        return getProperty("publicationsystem:Summary");
+        return getPermittedProperty("publicationsystem:Summary");
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:KeyFacts")
     public String getKeyFacts() {
-        return getProperty("publicationsystem:KeyFacts");
+        return getPermittedProperty("publicationsystem:KeyFacts");
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:InformationType")
     public String[] getInformationType() {
-        return getProperty("publicationsystem:InformationType");
+        return getPermittedProperty("publicationsystem:InformationType");
     }
 
     /**
@@ -66,27 +68,27 @@ public class Publication extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:CoverageStart")
     public Calendar getCoverageStart() {
-        return getProperty("publicationsystem:CoverageStart");
+        return getPermittedProperty("publicationsystem:CoverageStart");
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:CoverageEnd")
     public Calendar getCoverageEnd() {
-        return getProperty("publicationsystem:CoverageEnd");
+        return getPermittedProperty("publicationsystem:CoverageEnd");
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:GeographicCoverage")
     public String getGeographicCoverage() {
-        return getProperty("publicationsystem:GeographicCoverage");
+        return getPermittedProperty("publicationsystem:GeographicCoverage");
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:Granularity")
     public String[] getGranularity() {
-        return getProperty("publicationsystem:Granularity");
+        return getPermittedProperty("publicationsystem:Granularity");
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:AdministrativeSources")
     public String getAdministrativeSources() {
-        return getProperty("publicationsystem:AdministrativeSources");
+        return getPermittedProperty("publicationsystem:AdministrativeSources");
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:Title")
@@ -94,15 +96,39 @@ public class Publication extends BaseDocument {
         return getProperty("publicationsystem:Title");
     }
 
+    public boolean isPubliclyAccessible() {
+        return getProperty("publicationsystem:PubliclyAccessible");
+    }
+
     @HippoEssentialsGenerated(internalName = "publicationsystem:RelatedLinks")
     public List<Relatedlink> getRelatedLinks() {
-        return getChildBeansByName("publicationsystem:RelatedLinks",
-                Relatedlink.class);
+        return getPermittedChildBeansByName("publicationsystem:RelatedLinks", Relatedlink.class);
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:attachments")
     public List<HippoResourceBean> getAttachments() {
-        return getChildBeansByName("publicationsystem:attachments", HippoResourceBean.class);
+        return getPermittedChildBeansByName("publicationsystem:attachments", HippoResourceBean.class);
+    }
+
+    private <T extends HippoBean> List<T> getPermittedChildBeansByName(final String propertyName, final
+    Class<T> beanMappingClass) {
+        assertPropertyAccessible(propertyName);
+
+        return getChildBeansByName(propertyName, beanMappingClass);
+    }
+
+    private <T> T getPermittedProperty(final String propertyName) {
+        assertPropertyAccessible(propertyName);
+
+        return getProperty(propertyName);
+    }
+
+    private void assertPropertyAccessible(final String propertyName) {
+        if (!isPubliclyAccessible()) {
+            throw new DataRestrictionViolationException(
+                "Property is not available when publication is flagged as 'not publicly accessible': " + propertyName
+            );
+        }
     }
 
     /**

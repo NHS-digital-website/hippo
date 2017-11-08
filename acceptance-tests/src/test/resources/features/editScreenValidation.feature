@@ -17,7 +17,7 @@ Feature: Edit screen - validation
         Given I am on the edit screen
         When I populate the summary with text longer than the maximum allowed limit of 1000 characters
         And I save the publication
-        Then the save is rejected with error message containing "must be less then 1000 characters"
+        Then the save is rejected with error message containing "Summary must be 1000 characters or less"
 
 
     @DiscardAfter
@@ -47,7 +47,7 @@ Feature: Edit screen - validation
         Given I have a publication opened for editing
         When I add an empty Granularity field
         And I save the publication
-        Then the save is rejected with error message containing "Field 'Granularity' has a placeholder without a value. Please remove it or select a value."
+        Then the save is rejected with error message containing "Granularity has a 'Choose One' placeholder without a value. Please remove the placeholder or select a value."
 
 
     @DiscardAfter

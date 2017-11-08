@@ -7,8 +7,6 @@ import uk.nhs.digital.ps.test.acceptance.models.Publication;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
@@ -47,6 +45,8 @@ public class ContentPage extends AbstractCmsPage {
         populatePublicationTitle(publication.getTitle());
         populatePublicationSummary(publication.getSummary());
 
+        findPubliclyAccessibleRadioButton().select(publication.isPubliclyAccessible());
+
         new Select(helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Geographic Coverage']/../following-sibling::div//select[@class='dropdown-plugin']")
         )).selectByVisibleText(
@@ -62,9 +62,16 @@ public class ContentPage extends AbstractCmsPage {
         getGranularitySection().addGranularityField();
         getGranularitySection().populateGranularityField(publication.getGranularity());
 
+        populateTaxonomy(publication);
+
+        getAttachmentsSection().uploadAttachments(publication.getAttachments());
+    }
+
+    private void populateTaxonomy(final Publication publication) {
         helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Select taxonomy terms']/../..")
         ).click();
+
         helper.findElement(
             By.xpath(XpathSelectors.TAXONOMY_PICKER + "//span[text()='" + publication.getTaxonomy().getLevel1() + "']/..")
         ).click();
@@ -77,8 +84,10 @@ public class ContentPage extends AbstractCmsPage {
         helper.findElement(By.cssSelector("a[class~='category-add']")).click();
 
         findOk().click();
+    }
 
-        getAttachmentsSection().uploadAttachments(publication.getAttachments());
+    private PubliclyAccessibleRatioButton findPubliclyAccessibleRadioButton() {
+        return new PubliclyAccessibleRatioButton(helper);
     }
 
     public void populatePublicationTitle(final String publicationTitle) {
