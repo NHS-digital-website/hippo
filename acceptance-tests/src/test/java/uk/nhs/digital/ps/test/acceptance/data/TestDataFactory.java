@@ -4,6 +4,7 @@ import uk.nhs.digital.ps.test.acceptance.models.*;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
 
@@ -39,6 +40,7 @@ public class TestDataFactory {
             .withInformationType(getRandomEnumConstant(InformationType.class))
             .withGranularity(getRandomEnumConstant(Granularity.class))
             .withPubliclyAccessible(true)
+            .withNominalDate(Instant.now())
             .withTaxonomy(Taxonomy.createNew("Conditions", "Accidents and injuries", "Falls"));
     }
 

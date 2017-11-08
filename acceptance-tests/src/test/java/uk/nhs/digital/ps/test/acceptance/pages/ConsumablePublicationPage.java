@@ -1,6 +1,7 @@
 package uk.nhs.digital.ps.test.acceptance.pages;
 
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
+import uk.nhs.digital.ps.test.acceptance.pages.widgets.ConsumableAttachmentElement;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 import org.openqa.selenium.*;
 

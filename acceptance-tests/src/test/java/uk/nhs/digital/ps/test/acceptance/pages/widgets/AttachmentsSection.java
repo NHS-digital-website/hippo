@@ -1,10 +1,12 @@
-package uk.nhs.digital.ps.test.acceptance.pages;
+package uk.nhs.digital.ps.test.acceptance.pages.widgets;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import uk.nhs.digital.ps.test.acceptance.models.Attachment;
+import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
+import uk.nhs.digital.ps.test.acceptance.pages.XpathSelectors;
 
 import java.util.List;
 
@@ -17,7 +19,7 @@ public class AttachmentsSection {
     private final PageHelper helper;
     private WebDriver webDriver;
 
-    AttachmentsSection(final PageHelper helper, final WebDriver webDriver) {
+    public AttachmentsSection(final PageHelper helper, final WebDriver webDriver) {
         this.helper = helper;
         this.webDriver = webDriver;
     }
@@ -26,7 +28,7 @@ public class AttachmentsSection {
         helper.executeWhenStable(() -> findAddButton().click());
     }
 
-    void uploadAttachments(final List<Attachment> attachments) {
+    public void uploadAttachments(final List<Attachment> attachments) {
 
         // Uploading a file via Selenium requires that the file is present on the disk.
         // Upload itself is triggered by the full path to the file being 'typed' into the input element.

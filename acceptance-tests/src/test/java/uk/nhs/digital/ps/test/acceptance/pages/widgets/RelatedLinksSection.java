@@ -1,8 +1,10 @@
-package uk.nhs.digital.ps.test.acceptance.pages;
+package uk.nhs.digital.ps.test.acceptance.pages.widgets;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
+import uk.nhs.digital.ps.test.acceptance.pages.XpathSelectors;
 
 public class RelatedLinksSection {
 

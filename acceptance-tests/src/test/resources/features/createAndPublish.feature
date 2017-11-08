@@ -25,3 +25,13 @@ Feature: As am author I need to create a new publication
         And Nominal Publication Date field is visible
         And Disclaimer "(Upcoming, not yet published)" is displayed
         And All other publication's details are hidden
+
+    Scenario: Nominal publication date is displayed in full when it falls before 8-week cut off
+        Given I have a released publication with nominal date falling before 8 weeks from now
+        When I view the publication
+        Then Nominal Publication Date is displayed using format "1 Jan 2000"
+
+    Scenario: Nominal publication date is displayed in part when it falls after 8-week cut off
+        Given I have a released publication with nominal date falling after 8 weeks from now
+        When I view the publication
+        Then Nominal Publication Date is displayed using format "Jan 2000"

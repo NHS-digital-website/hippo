@@ -11,7 +11,7 @@ import uk.nhs.digital.ps.test.acceptance.data.TestDataFactory;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataLoader;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
 import uk.nhs.digital.ps.test.acceptance.models.*;
-import uk.nhs.digital.ps.test.acceptance.pages.ConsumableAttachmentElement;
+import uk.nhs.digital.ps.test.acceptance.pages.widgets.ConsumableAttachmentElement;
 import uk.nhs.digital.ps.test.acceptance.pages.ConsumablePublicationPage;
 import uk.nhs.digital.ps.test.acceptance.pages.ConsumablePublicationSeriesPage;
 import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
@@ -20,6 +20,8 @@ import uk.nhs.digital.ps.test.acceptance.util.FileHelper;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.MessageFormat;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -37,8 +39,13 @@ public class ContentSteps extends AbstractSpringSteps {
 
     private final static Logger log = getLogger(ContentSteps.class);
 
+    private static final int DAYS_IN_WEEK = 7;
+
     @Autowired
     private TestDataRepo testDataRepo;
+
+    @Autowired
+    private TestDataSteps testDataSteps;
 
     @Autowired
     private AcceptanceTestProperties acceptanceTestProperties;
@@ -117,8 +124,6 @@ public class ContentSteps extends AbstractSpringSteps {
     @When("^I publish the publication")
     public void whenIPublishThePublication() throws Throwable {
         contentPage.publish();
-        Thread.sleep(1000); // wait for doc to publish
-
     }
 
     @Then(("^it is visible to consumers"))
@@ -286,7 +291,7 @@ public class ContentSteps extends AbstractSpringSteps {
         contentPage.getRelatedLinksSection().addRelatedLinkField();
     }
 
-
+    // Scenario: Details are hidden from the end users in a released upcoming publication ==============================
     @Given("^I have a released publication flagged as upcoming$")
     public void iHaveAReleasedPublicationFlaggedAsUpcoming() throws Throwable {
         final Publication publication = TestDataLoader.loadReleasedUpcomingPublication().build();
@@ -305,11 +310,12 @@ public class ContentSteps extends AbstractSpringSteps {
         );
     }
 
+    // Scenarios: Nominal publication date is displayed in full/in part ==============================
     @Then("^Nominal Publication Date field is visible$")
     public void nominalPublicationDateFieldIsVisible() throws Throwable {
         assertThat("Nominal Publication Date field is visible.",
             consumablePublicationPage.getNominalDate(),
-            is(testDataRepo.getCurrentPublication().getNominalDateFormatted())
+            is(testDataRepo.getCurrentPublication().getNominalPublicationDateDate().formattedInRespectToCutOff())
         );
     }
 
@@ -323,5 +329,50 @@ public class ContentSteps extends AbstractSpringSteps {
         assertThat("Fields that should be hidden for upcoming publication are hidden.",
             consumablePublicationPage.getDisplayedElementsThatShouldBeHiddenForUpcomingPublication(), is(empty())
         );
+    }
+
+    @Given("^I have a released publication with nominal date falling before (\\d+) weeks from now$")
+    public void iHaveAReleasedPublicationWithNominalDateFallingBeforeWeeksFromNow(final int weeksFromNow)
+        throws Throwable {
+
+        final Publication publicationWithNominalDateBeforeCutOff = TestDataFactory.createPublicationWithNoAttachments()
+            .withNominalDate(Instant.now()
+                .plus(DAYS_IN_WEEK * weeksFromNow, ChronoUnit.DAYS))
+            .build();
+
+        testDataRepo.setCurrentPublication(publicationWithNominalDateBeforeCutOff);
+
+        testDataSteps.createPublishedPublication(publicationWithNominalDateBeforeCutOff);
+    }
+
+    @Given("^I have a released publication with nominal date falling after (\\d+) weeks from now$")
+    public void iHaveAReleasedPublicationWithNominalDateFallingAfterWeeksFromNow(final int weeksFromNow)
+        throws Throwable {
+
+        final Publication publicationWithNominalDateBeforeCutOff = TestDataFactory.createPublicationWithNoAttachments()
+            .withNominalDate(Instant.now()
+                .plus(DAYS_IN_WEEK * weeksFromNow, ChronoUnit.DAYS)
+                .plus(1, ChronoUnit.DAYS))
+            .build();
+
+        testDataRepo.setCurrentPublication(publicationWithNominalDateBeforeCutOff);
+
+        testDataSteps.createPublishedPublication(publicationWithNominalDateBeforeCutOff);
+    }
+
+    @Then("^Nominal Publication Date is displayed using format \"([^\"]*)\"$")
+    public void nominalPublicationDateIsDisplayedUsingFormat(final String dateFormat) throws Throwable {
+
+        final Publication.NominalPublicationDate nominalPublicationDate =
+            testDataRepo.getCurrentPublication().getNominalPublicationDateDate();
+
+        // Obviously, this way of format resolution is brittle but it was chosen for simplicity as there is no need
+        // for anything more elaborate at the moment.
+        final String expectedDate = "1 Jan 2000".equals(dateFormat)
+            ? nominalPublicationDate.inFullFormat()
+            : nominalPublicationDate.inRestrictedFormat();
+
+        assertThat("Nominal Publication Date is formatted in a way consistent with pattern '" + dateFormat + "'",
+            consumablePublicationPage.getNominalDate(), is(expectedDate));
     }
 }

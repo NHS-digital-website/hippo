@@ -38,7 +38,8 @@ public class TimeSeries {
             .collect(toList());
 
         // Sort expected publications with latest nominal dates at the top
-        expectedPublications.sort((left, right) -> -1 * left.getNominalDate().compareTo(right.getNominalDate()));
+        expectedPublications.sort((left, right) -> -1 * left.getNominalPublicationDateDate().asInstant()
+            .compareTo(right.getNominalPublicationDateDate().asInstant()));
 
         return expectedPublications;
     }
