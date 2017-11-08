@@ -21,7 +21,7 @@ public class PublicationBuilder {
     private List<AttachmentBuilder> attachmentBuilders = new ArrayList<>();
     private Taxonomy taxonomy;
 
-    private PublicationStatus status;
+    private PublicationState state;
 
     public static PublicationBuilder newPublication() {
         return new PublicationBuilder();
@@ -63,8 +63,8 @@ public class PublicationBuilder {
         return cloneAndAmend(builder -> builder.attachmentBuilders = asList(attachmentBuilders));
     }
 
-    public PublicationBuilder inStatus(final PublicationStatus status) {
-        return cloneAndAmend(builder -> builder.status = status);
+    public PublicationBuilder inState(final PublicationState state) {
+        return cloneAndAmend(builder -> builder.state = state);
     }
 
     public PublicationBuilder withTaxonomy(final Taxonomy taxonomy) {
@@ -121,8 +121,8 @@ public class PublicationBuilder {
         return new ArrayList<>(attachmentBuilders);
     }
 
-    PublicationStatus getStatus() {
-        return status;
+    PublicationState getState() {
+        return state;
     }
 
     public boolean isPubliclyAccessible() {
@@ -142,7 +142,7 @@ public class PublicationBuilder {
         taxonomy = original.getTaxonomy();
         attachmentBuilders = original.getAttachmentBuilders();
 
-        status = original.getStatus();
+        state = original.getState();
     }
 
     private PublicationBuilder() {

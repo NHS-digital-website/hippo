@@ -1,24 +1,30 @@
 package uk.nhs.digital.ps.test.acceptance.pages.site.ps;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
 import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
 import uk.nhs.digital.ps.test.acceptance.pages.site.AbstractSitePage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.PageElements;
+import uk.nhs.digital.ps.test.acceptance.pages.widgets.AttachmentWidget;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
-import org.openqa.selenium.*;
+
+import java.util.Collection;
 import java.util.List;
 
+import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.toList;
+import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.*;
 
 public class PublicationPage extends AbstractSitePage {
 
     private PageHelper helper;
-    private PageElements pageElements;
+    private List<PageElements> pageElements;
 
     public PublicationPage(WebDriverProvider webDriverProvider, final PageHelper helper) {
         super(webDriverProvider);
         this.helper = helper;
-        this.pageElements = new SeriesPageElements();
+        this.pageElements = asList(new SeriesPageElements(), new PublicationPageElements());
     }
 
     public void open(final Publication publication) {
@@ -26,48 +32,80 @@ public class PublicationPage extends AbstractSitePage {
     }
 
     public String getTitleText() {
-        return pageElements.getElementByName("Publication Title", getWebDriver()).getText();
+        return findPageElement(PUBLICATION_TITLE).getText();
     }
 
     public String getSummaryText() {
-        return pageElements.getElementByName("Publication Summary", getWebDriver()).getText();
+        return findPageElement(SUMMARY).getText();
     }
 
-    public List<AttachmentElement> getAttachments() {
+    public List<AttachmentWidget> getAttachments() {
         return getWebDriver().findElements(By.cssSelector("li[class~='attachment']")).stream()
-            .map(webElement -> new AttachmentElement(getWebDriver(), webElement))
+            .map(webElement -> new AttachmentWidget(getWebDriver(), webElement))
             .collect(toList());
     }
 
-    public AttachmentElement findAttachmentElementByName(final String fullName) {
+    public AttachmentWidget findAttachmentElementByName(final String fullName) {
         return getAttachments().stream()
-            .filter(attachmentElement -> fullName.equals(attachmentElement.getFullName()))
+            .filter(attachmentWidget -> fullName.equals(attachmentWidget.getFullName()))
             .findFirst()
             .orElse(null);
     }
 
     public String getGeographicCoverage() {
-        return pageElements
-            .getElementByName("Publication Geographic Coverage", getWebDriver())
-            .getText();
+        return findPageElement(GEOGRAPHIC_COVERAGE).getText();
     }
 
     public String getInformationType() {
-        return helper.findElement(By.xpath("//*[@data-uipath='ps.publication.information-types']")).getText();
+        return findPageElement(INFORMATION_TYPES).getText();
     }
 
     public String getGranularity() {
-        return pageElements
-            .getElementByName("Publication Granularity", getWebDriver())
-            .getText();
+        return findPageElement(GRANULARITY).getText();
     }
 
     public String getTaxonomy() {
-        return helper.findElement(By.id("taxonomy")).getText();
+        return findPageElement(TAXONOMY).getText();
     }
 
     public String getSeriesLinkTitle() {
         return helper.findElement(By.className("label--series")).getText();
     }
 
+    public String getNominalPublicationDate() {
+        return findPageElement(NOMINAL_PUBLICATION_DATE).getText();
+    }
+
+    public boolean hasDisclaimer(final String disclaimer) {
+        return disclaimer.equals(findPageElement(UPCOMING_DISCLAIMER).getText());
+    }
+
+    public Collection<WebElement> getElementsHiddenWhenUpcoming() {
+
+        final List<String> fieldsHiddenForUpcoming = asList(
+            SUMMARY,
+            GEOGRAPHIC_COVERAGE,
+            GRANULARITY,
+            DATE_RANGE,
+            TAXONOMY,
+            INFORMATION_TYPES,
+            KEY_FACTS,
+            RESOURCES,
+            ADMINISTRATIVE_SOURCES
+        );
+
+        return fieldsHiddenForUpcoming.stream()
+            .map(PublicationPageElements::getFieldSelector)
+            // Using findElements().isEmpty() is recommended by Selenium to search of absence of elements:
+            .flatMap(selector -> getWebDriver().findElements(selector).stream())
+            .collect(toList());
+    }
+
+    private WebElement findPageElement(final String pageElementName) {
+        return pageElements.stream()
+            .filter(pageElements -> pageElements.contains(pageElementName))
+            .findFirst()
+            .map(pageElements -> pageElements.getElementByName(pageElementName, getWebDriver()))
+            .orElse(null);
+    }
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
-import static uk.nhs.digital.ps.test.acceptance.models.PublicationStatus.PUBLISHED;
+import static uk.nhs.digital.ps.test.acceptance.models.PublicationState.PUBLISHED;
 
 public class TimeSeries {
 
@@ -34,11 +34,12 @@ public class TimeSeries {
 
     public List<Publication> getReleasedPublicationsLatestFirst() {
         final List<Publication> expectedPublications = getPublications().stream()
-            .filter(publication -> PUBLISHED.equals(publication.getStatus()))
+            .filter(publication -> PUBLISHED.equals(publication.getState()))
             .collect(toList());
 
         // Sort expected publications with latest nominal dates at the top
-        expectedPublications.sort((left, right) -> -1 * left.getNominalDate().compareTo(right.getNominalDate()));
+        expectedPublications.sort((left, right) -> -1 * left.getNominalPublicationDate()
+            .compareTo(right.getNominalPublicationDate()));
 
         return expectedPublications;
     }

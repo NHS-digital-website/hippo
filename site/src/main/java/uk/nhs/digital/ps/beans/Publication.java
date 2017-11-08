@@ -42,6 +42,8 @@ public class Publication extends BaseDocument {
      *   like data sets.
      */
     public HippoBean getSelfLinkBean() {
+        assertPropertyPermitted(PropertyKeys.PARENT_BEAN);
+
         if (getName().equals("content")) {
             return getCanonicalBean().getParentBean();
         }
@@ -143,23 +145,29 @@ public class Publication extends BaseDocument {
         return getChildBeansByName(propertyName, beanMappingClass);
     }
 
-    private <T> T getPropertyIfPermitted(final String propertyName) {
-        assertPropertyPermitted(propertyName);
+    private <T> T getPropertyIfPermitted(final String propertyKey) {
+        assertPropertyPermitted(propertyKey);
 
-        return getProperty(propertyName);
+        return getProperty(propertyKey);
     }
 
     private void assertPropertyPermitted(final String propertyKey) {
 
-        final boolean isPropertyPermitted = PropertyKeys.PUBLICLY_ACCESSIBLE.equals(propertyKey)
-            || isPubliclyAccessible()
-            || propertiesPermittedWhenUpcoming.contains(propertyKey);
+        final boolean isPropertyPermitted =
+            isPropertyAlwaysPermitted(propertyKey)
+                || isPubliclyAccessible()
+                || propertiesPermittedWhenUpcoming.contains(propertyKey);
 
         if (!isPropertyPermitted) {
             throw new DataRestrictionViolationException(
                 "Property is not available when publication is flagged as 'not publicly accessible': " + propertyKey
             );
         }
+    }
+
+    private boolean isPropertyAlwaysPermitted(final String propertyKey) {
+        return PropertyKeys.PARENT_BEAN.equals(propertyKey)
+            || PropertyKeys.PUBLICLY_ACCESSIBLE.equals(propertyKey);
     }
 
     /**
@@ -194,5 +202,7 @@ public class Publication extends BaseDocument {
         String PUBLICLY_ACCESSIBLE = "publicationsystem:PubliclyAccessible";
         String RELATED_LINKS = "publicationsystem:RelatedLinks";
         String ATTACHMENTS = "publicationsystem:attachments";
+
+        String PARENT_BEAN = "PARENT_BEAN";
     }
 }

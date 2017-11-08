@@ -1,11 +1,11 @@
 package uk.nhs.digital.ps.test.acceptance.models;
 
-import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+
+import static uk.nhs.digital.ps.test.acceptance.util.FormatHelper.formatInstant;
 
 public class Publication {
 
@@ -15,12 +15,12 @@ public class Publication {
     private GeographicCoverage geographicCoverage;
     private InformationType informationType;
     private Granularity granularity;
-    private Instant nominalDate;
+    private NominalPublicationDate nominalPublicationDate;
     boolean publiclyAccessible;
 
     private List<Attachment> attachments = new ArrayList<>();
 
-    private final PublicationStatus status;
+    private final PublicationState state;
     private Taxonomy taxonomy;
 
 
@@ -31,12 +31,12 @@ public class Publication {
         geographicCoverage = builder.getGeographicCoverage();
         informationType = builder.getInformationType();
         granularity = builder.getGranularity();
-        nominalDate = builder.getNominalDate();
+        nominalPublicationDate = new NominalPublicationDate(builder.getNominalDate());
         taxonomy = builder.getTaxonomy();
         attachments = builder.getAttachments();
         publiclyAccessible = builder.isPubliclyAccessible();
 
-        status = builder.getStatus();
+        state = builder.getState();
     }
 
     public String getName() {
@@ -63,20 +63,8 @@ public class Publication {
         return granularity;
     }
 
-    public Instant getNominalDate() {
-        return nominalDate;
-    }
-
-    public String getNominalDateFormatted() {
-        final int weeksUntilCutOff = 8;
-        final int daysInAWeek = 7;
-        final int daysUntilCutOff = weeksUntilCutOff * daysInAWeek;
-
-        String pattern = nominalDate.isAfter(Instant.now().plus(daysUntilCutOff, ChronoUnit.DAYS))
-            ? "MMM yyyy"
-            : "d MMM yyyy";
-
-        return new SimpleDateFormat(pattern).format(new Date(nominalDate.toEpochMilli()));
+    public NominalPublicationDate getNominalPublicationDate() {
+        return nominalPublicationDate;
     }
 
     public List<Attachment> getAttachments() {
@@ -91,13 +79,51 @@ public class Publication {
         return name.toLowerCase().replace(' ', '-');
     }
 
-    public PublicationStatus getStatus() {
-        return status;
+    public PublicationState getState() {
+        return state;
     }
 
     public boolean isPubliclyAccessible() {
         return publiclyAccessible;
     }
 
+    public static class NominalPublicationDate implements Comparable<NominalPublicationDate> {
 
+        static final String RESTRICTED_NOMINAL_DATE_PATTERN = "MMM yyyy";
+        static final String FULL_NOMINAL_DATE_PATTERN = "d MMM yyyy";
+
+        private final Instant instant;
+
+        NominalPublicationDate(final Instant instant) {
+            this.instant = instant;
+        }
+
+        public String formattedInRespectToCutOff() {
+
+            final int weeksUntilCutOff = 8;
+            final int daysInAWeek = 7;
+            final int daysUntilCutOff = weeksUntilCutOff * daysInAWeek;
+
+            return instant.isAfter(Instant.now().plus(daysUntilCutOff, ChronoUnit.DAYS))
+                ? inRestrictedFormat()
+                : inFullFormat();
+        }
+
+        public String inRestrictedFormat() {
+            return formatInstant(instant, RESTRICTED_NOMINAL_DATE_PATTERN);
+        }
+
+        public String inFullFormat() {
+            return formatInstant(instant, FULL_NOMINAL_DATE_PATTERN);
+        }
+
+        public Instant asInstant() {
+            return instant;
+        }
+
+        @Override
+        public int compareTo(final NominalPublicationDate other) {
+            return asInstant().compareTo(other.asInstant());
+        }
+    }
 }

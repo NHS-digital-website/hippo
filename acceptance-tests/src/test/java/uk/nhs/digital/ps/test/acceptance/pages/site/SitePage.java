@@ -18,9 +18,6 @@ import java.util.List;
 
 public class SitePage extends AbstractSitePage {
 
-    @Autowired
-    private AcceptanceTestProperties acceptanceTestProperties;
-
     private PageHelper helper;
     private TestContentUrls urlLookup;
     private List<PageElements> pagesElements;

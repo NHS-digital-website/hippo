@@ -17,11 +17,3 @@ Feature: As am author I need to create a new publication
         Given I have saved a publication
         When I publish the publication
         Then it is visible to consumers
-
-    Scenario: Details are hidden from the end users in a released upcoming publication
-        Given I have a published publication flagged as upcoming
-        When I view the publication
-        Then Title is shown
-        And Nominal Publication Date field is shown
-        And Disclaimer "(Upcoming, not yet published)" is displayed
-        And All other publication's details are hidden

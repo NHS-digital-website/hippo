@@ -7,8 +7,8 @@ import java.time.format.DateTimeFormatter;
 
 import static uk.nhs.digital.ps.test.acceptance.models.InformationType.OFFICIAL_STATISTICS;
 import static uk.nhs.digital.ps.test.acceptance.models.PublicationBuilder.newPublication;
-import static uk.nhs.digital.ps.test.acceptance.models.PublicationStatus.CREATED;
-import static uk.nhs.digital.ps.test.acceptance.models.PublicationStatus.PUBLISHED;
+import static uk.nhs.digital.ps.test.acceptance.models.PublicationState.CREATED;
+import static uk.nhs.digital.ps.test.acceptance.models.PublicationState.PUBLISHED;
 import static uk.nhs.digital.ps.test.acceptance.models.TimeSeriesBuilder.newTimeSeries;
 
 /**
@@ -39,46 +39,46 @@ public class ExpectedTestDataProvider {
             .withPublications(
                 newPublication()
                     .withTitle("Lorem Ipsum Dolor 2012")
-                    .withSummary("A released publication")
+                    .withSummary("A published publication")
                     .withInformationType(OFFICIAL_STATISTICS)
                     .withNominalDate(asInstant("2013-01-10T01:00:00+01:00"))
-                    .inStatus(PUBLISHED)
+                    .inState(PUBLISHED)
                     .withPubliclyAccessible(true),
                 newPublication()
                     .withTitle("Lorem Ipsum Dolor 2013")
-                    .withSummary("A released publication 2013")
+                    .withSummary("A published publication 2013")
                     .withInformationType(OFFICIAL_STATISTICS)
                     .withNominalDate(asInstant("2014-01-10T01:00:00+01:00"))
-                    .inStatus(PUBLISHED)
+                    .inState(PUBLISHED)
                     .withPubliclyAccessible(true),
                 newPublication()
                     .withTitle("Lorem Ipsum Dolor 2014")
-                    .withSummary("Released 2014 stats.")
+                    .withSummary("published 2014 stats.")
                     .withInformationType(OFFICIAL_STATISTICS)
                     .withNominalDate(asInstant("2015-01-10T01:00:00+01:00"))
-                    .inStatus(PUBLISHED)
+                    .inState(PUBLISHED)
                     .withPubliclyAccessible(true),
                 newPublication()
                     .withTitle("Lorem Ipsum Dolor 2015")
-                    .withSummary("Released 2015 stats.")
+                    .withSummary("published 2015 stats.")
                     .withInformationType(OFFICIAL_STATISTICS)
                     .withNominalDate(asInstant("2016-01-10T01:00:00+01:00"))
-                    .inStatus(CREATED)
+                    .inState(CREATED)
                     .withPubliclyAccessible(true)
             );
     }
 
     /**
-     * @return New instance of a released publication flagged as 'upcoming', corresponding to YAML definition
-     * {@code /content/documents/corporate-website/publication-system/released-upcoming-publication.yaml}.
+     * @return New instance of a published publication flagged as 'upcoming', corresponding to YAML definition
+     * {@code /content/documents/corporate-website/publication-system/published-upcoming-publication.yaml}.
      */
-    public static PublicationBuilder getReleasedUpcomingPublication() {
+    public static PublicationBuilder getPublishedUpcomingPublication() {
         return newPublication()
-            .withName("released-upcoming-publication")
-            .withTitle("Released Upcoming Publication")
+            .withName("published-upcoming-publication")
+            .withTitle("Published Upcoming Publication")
             .withInformationType(InformationType.OFFICIAL_STATISTICS)
             .withNominalDate(asInstant("2017-06-01T09:30:00.000+01:00"))
-            .inStatus(PUBLISHED)
+            .inState(PUBLISHED)
             .withPubliclyAccessible(false);
     }
 

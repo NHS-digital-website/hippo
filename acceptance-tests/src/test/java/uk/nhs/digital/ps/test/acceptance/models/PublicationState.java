@@ -1,6 +1,6 @@
 package uk.nhs.digital.ps.test.acceptance.models;
 
-public enum PublicationStatus {
+public enum PublicationState {
 
     CREATED,
     PUBLISHED;

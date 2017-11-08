@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.config.AcceptanceTestProperties;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
 import uk.nhs.digital.ps.test.acceptance.models.*;
-import uk.nhs.digital.ps.test.acceptance.pages.site.ps.AttachmentElement;
+import uk.nhs.digital.ps.test.acceptance.pages.widgets.AttachmentWidget;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationSeriesPage;
 import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
@@ -64,7 +64,7 @@ public class PublicationSteps extends AbstractSpringSteps {
             is(publication.getGranularity().getDisplayValue()));
 
         assertThat("Taxonomy is as expected", publicationPage.getTaxonomy(),
-            is("Taxonomy:\n" + publication.getTaxonomy().getTaxonomyContext()));
+            is(publication.getTaxonomy().getTaxonomyContext()));
 
         assertAttachmentsUpload(publication.getAttachments());
     }
@@ -76,17 +76,17 @@ public class PublicationSteps extends AbstractSpringSteps {
             is(attachments.size()));
 
         attachments.forEach(attachment -> {
-            final AttachmentElement attachmentElement =
+            final AttachmentWidget attachmentWidget =
                 publicationPage.findAttachmentElementByName(attachment.getFullName());
 
-            assertDisplayedAttachmentDetails(attachment, attachmentElement);
+            assertDisplayedAttachmentDetails(attachment, attachmentWidget);
 
-            assertAttachmentDownload(attachment, attachmentElement);
+            assertAttachmentDownload(attachment, attachmentWidget);
         });
     }
 
     private void assertAttachmentDownload(final Attachment attachment,
-                                          final AttachmentElement attachmentElement) {
+                                          final AttachmentWidget attachmentWidget) {
 
         if (acceptanceTestProperties.isHeadlessMode()) {
             // At the moment of writing, there doesn't seem to be any easy way available to force Chromedriver
@@ -102,7 +102,7 @@ public class PublicationSteps extends AbstractSpringSteps {
         }
 
         // Trigger file download by click the <a> tag.
-        attachmentElement.clickHyperlink();
+        attachmentWidget.clickHyperlink();
 
         final Path downloadedFilePath = Paths.get(acceptanceTestProperties.getDownloadDir().toString(),
             attachment.getFullName());
@@ -115,13 +115,13 @@ public class PublicationSteps extends AbstractSpringSteps {
         );
     }
 
-    private void assertDisplayedAttachmentDetails(final Attachment attachment, final AttachmentElement
-        attachmentElement) {
+    private void assertDisplayedAttachmentDetails(final Attachment attachment, final AttachmentWidget
+        attachmentWidget) {
         assertThat("Attachment " + attachment.getFullName() +" is displayed",
-            attachmentElement != null, is(true));
+            attachmentWidget != null, is(true));
 
         assertThat("Correct size of attachment " + attachment.getFullName() + " is displayed",
-            attachmentElement.getSizeText(),
+            attachmentWidget.getSizeText(),
             is("size: " + FileHelper.toHumanFriendlyFileSize((long) attachment.getContent().length)));
     }
 }

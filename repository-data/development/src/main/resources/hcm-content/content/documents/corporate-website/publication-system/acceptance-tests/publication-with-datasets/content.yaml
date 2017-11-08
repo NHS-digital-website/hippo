@@ -34,6 +34,7 @@
       euismod erat elit, quis facilisis neque eleifend id. Maecenas convallis
       vel mi nec bibendum. Donec ut erat dictum, molestie dolor non, aliquet nibh.
     publicationsystem:Title: publication with datasets
+    publicationsystem:PubliclyAccessible: true
   /content[2]:
     jcr:primaryType: publicationsystem:publication
     jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -65,6 +66,7 @@
       euismod erat elit, quis facilisis neque eleifend id. Maecenas convallis
       vel mi nec bibendum. Donec ut erat dictum, molestie dolor non, aliquet nibh.
     publicationsystem:Title: publication with datasets
+    publicationsystem:PubliclyAccessible: true
   /content[3]:
     jcr:primaryType: publicationsystem:publication
     jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -97,3 +99,4 @@
       euismod erat elit, quis facilisis neque eleifend id. Maecenas convallis
       vel mi nec bibendum. Donec ut erat dictum, molestie dolor non, aliquet nibh.
     publicationsystem:Title: publication with datasets
+    publicationsystem:PubliclyAccessible: true

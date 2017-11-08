@@ -1,9 +1,9 @@
 ---
 
-/content/documents/corporate-website/publication-system/released-upcoming-publication:
+/content/documents/corporate-website/publication-system/published-upcoming-publication:
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['mix:referenceable']
-  /released-upcoming-publication[1]:
+  /published-upcoming-publication[1]:
     jcr:primaryType: publicationsystem:publication
     jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
     hippo:availability: []
@@ -23,10 +23,10 @@
       Mauris mattis sodales felis, vitae ultricies turpis porttitor in. Integer sit
       amet efficitur urna.
     publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
-    publicationsystem:Summary: Released Upcoming Publication summary.
-    publicationsystem:Title: Released Upcoming Publication
+    publicationsystem:Summary: Published Upcoming Publication summary.
+    publicationsystem:Title: Published Upcoming Publication
     publicationsystem:PubliclyAccessible: false
-  /released-upcoming-publication[2]:
+  /published-upcoming-publication[2]:
     jcr:primaryType: publicationsystem:publication
     jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
     hippo:availability: [preview]
@@ -46,10 +46,10 @@
       Mauris mattis sodales felis, vitae ultricies turpis porttitor in. Integer sit
       amet efficitur urna.
     publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
-    publicationsystem:Summary: Released Upcoming Publication summary.
-    publicationsystem:Title: Released Upcoming Publication
+    publicationsystem:Summary: Published Upcoming Publication summary.
+    publicationsystem:Title: Published Upcoming Publication
     publicationsystem:PubliclyAccessible: false
-  /released-upcoming-publication[3]:
+  /published-upcoming-publication[3]:
     jcr:primaryType: publicationsystem:publication
     jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
     hippo:availability: [live]
@@ -70,6 +70,6 @@
       Mauris mattis sodales felis, vitae ultricies turpis porttitor in. Integer sit
       amet efficitur urna.
     publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
-    publicationsystem:Summary: Released Upcoming Publication summary.
-    publicationsystem:Title: Released Upcoming Publication
+    publicationsystem:Summary: Published Upcoming Publication summary.
+    publicationsystem:Title: Published Upcoming Publication
     publicationsystem:PubliclyAccessible: false

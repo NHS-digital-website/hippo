@@ -25,6 +25,7 @@
     publicationsystem:NominalDate: 2017-11-08T00:00:00Z
     publicationsystem:Summary: I like apples
     publicationsystem:Title: No mention of interesting terms in the title
+    publicationsystem:PubliclyAccessible: true
   /search-test-4[2]:
     jcr:primaryType: publicationsystem:publication
     jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -46,6 +47,7 @@
     publicationsystem:NominalDate: 2017-11-08T00:00:00Z
     publicationsystem:Summary: I like apples
     publicationsystem:Title: No mention of interesting terms in the title
+    publicationsystem:PubliclyAccessible: true
   /search-test-4[3]:
     jcr:primaryType: publicationsystem:publication
     jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -68,3 +70,4 @@
     publicationsystem:NominalDate: 2017-11-08T00:00:00Z
     publicationsystem:Summary: I like apples
     publicationsystem:Title: No mention of interesting terms in the title
+    publicationsystem:PubliclyAccessible: true

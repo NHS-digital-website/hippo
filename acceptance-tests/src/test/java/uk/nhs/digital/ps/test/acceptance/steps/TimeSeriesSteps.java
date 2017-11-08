@@ -5,13 +5,13 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import uk.nhs.digital.ps.test.acceptance.config.AcceptanceTestProperties;
 import uk.nhs.digital.ps.test.acceptance.data.ExpectedTestDataProvider;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
-import uk.nhs.digital.ps.test.acceptance.models.*;
-import uk.nhs.digital.ps.test.acceptance.pages.ConsumablePublicationPage;
-import uk.nhs.digital.ps.test.acceptance.pages.ConsumablePublicationSeriesPage;
-import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
+import uk.nhs.digital.ps.test.acceptance.models.Publication;
+import uk.nhs.digital.ps.test.acceptance.models.TimeSeries;
+import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
+import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationSeriesPage;
+
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -27,19 +27,10 @@ public class TimeSeriesSteps extends AbstractSpringSteps {
     private TestDataRepo testDataRepo;
 
     @Autowired
-    private AcceptanceTestProperties acceptanceTestProperties;
+    private PublicationPage publicationPage;
 
     @Autowired
-    private ContentPage contentPage;
-
-    @Autowired
-    private LoginSteps loginSteps;
-
-    @Autowired
-    private ConsumablePublicationPage consumablePublicationPage;
-
-    @Autowired
-    private ConsumablePublicationSeriesPage consumablePublicationSeriesPage;
+    private PublicationSeriesPage consumablePublicationSeriesPage;
 
     // Scenario: List publications from the same time series ===========================================================
     @Given("^I have a number of publications belonging to the same time series$")
@@ -54,7 +45,7 @@ public class TimeSeriesSteps extends AbstractSpringSteps {
         consumablePublicationSeriesPage.open(testDataRepo.getCurrentTimeSeries());
     }
 
-    @Then("^I can see a list of released publications from the time series$")
+    @Then("^I can see a list of published publications from the time series$")
     public void iCanSeeAListOfPublicationsFromTheTimeSeries() throws Throwable {
 
         final TimeSeries expectedTimeSeries = testDataRepo.getCurrentTimeSeries();
@@ -79,7 +70,7 @@ public class TimeSeriesSteps extends AbstractSpringSteps {
     @Then("^I can see link back to the time series")
     public void iCanSeeLinkBack() throws Throwable {
         assertThat("Link to series document .",
-            consumablePublicationPage.getSeriesLinkTitle(), is(testDataRepo.getCurrentTimeSeries().getTitle()));
+            publicationPage.getSeriesLinkTitle(), is(testDataRepo.getCurrentTimeSeries().getTitle()));
     }
 
 }
