@@ -27,17 +27,25 @@ public class TestDataSteps extends AbstractSpringSteps {
     @Autowired
     private TestDataRepo testDataRepo;
 
-    @Autowired
-    private PageHelper pageHelper;
-
     @Given("^I have a publication opened for editing$")
     public void iHaveAPublicationOpenForEditing() throws Throwable {
         final Publication publication = TestDataFactory.createPublicationWithNoAttachments().build();
         testDataRepo.setCurrentPublication(publication);
 
+        createPublicationInEditableState(publication);
+    }
+
+    public void createPublicationInEditableState(final Publication publication) throws Throwable {
         loginSteps.givenIAmLoggedInAsAdmin();
         contentPage.openContentTab();
         contentPage.newPublication(publication);
+    }
+
+    public void createPublishedPublication(final Publication publication) throws Throwable {
+        createPublicationInEditableState(publication);
+        contentPage.populatePublication(publication);
+        contentPage.saveAndClosePublication();
+        contentPage.publish();
     }
 
     /**

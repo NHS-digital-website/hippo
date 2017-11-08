@@ -25,6 +25,7 @@
     publicationsystem:NominalDate: 2017-11-08T00:00:00Z
     publicationsystem:Summary: I like pears
     publicationsystem:Title: Apple orange pear
+    publicationsystem:PubliclyAccessible: true
   /search-test-3[2]:
     jcr:primaryType: publicationsystem:publication
     jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -46,6 +47,7 @@
     publicationsystem:NominalDate: 2017-11-08T00:00:00Z
     publicationsystem:Summary: I like pears
     publicationsystem:Title: Apple orange pear
+    publicationsystem:PubliclyAccessible: true
   /search-test-3[3]:
     jcr:primaryType: publicationsystem:publication
     jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -68,3 +70,4 @@
     publicationsystem:NominalDate: 2017-11-08T00:00:00Z
     publicationsystem:Summary: I like pears
     publicationsystem:Title: Apple orange pear
+    publicationsystem:PubliclyAccessible: true

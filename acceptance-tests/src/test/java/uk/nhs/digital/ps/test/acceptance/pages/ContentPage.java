@@ -4,9 +4,11 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
+import uk.nhs.digital.ps.test.acceptance.pages.widgets.*;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
@@ -47,6 +49,8 @@ public class ContentPage extends AbstractCmsPage {
 
         findPubliclyAccessibleRadioButton().select(publication.isPubliclyAccessible());
 
+        findNominalDateField().populateWith(publication.getNominalPublicationDate().asInstant());
+
         new Select(helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Geographic Coverage']/../following-sibling::div//select[@class='dropdown-plugin']")
         )).selectByVisibleText(
@@ -64,7 +68,11 @@ public class ContentPage extends AbstractCmsPage {
 
         populateTaxonomy(publication);
 
-        getAttachmentsSection().uploadAttachments(publication.getAttachments());
+        getAttachmentsWidget().uploadAttachments(publication.getAttachments());
+    }
+
+    private DateCmsWidget findNominalDateField() {
+        return new DateCmsWidget(helper, "nominal-date");
     }
 
     private void populateTaxonomy(final Publication publication) {
@@ -86,8 +94,8 @@ public class ContentPage extends AbstractCmsPage {
         clickButtonOnModalDialog("OK");
     }
 
-    private PubliclyAccessibleRadioButton findPubliclyAccessibleRadioButton() {
-        return new PubliclyAccessibleRadioButton(helper);
+    private PubliclyAccessibleCmsWidget findPubliclyAccessibleRadioButton() {
+        return new PubliclyAccessibleCmsWidget(helper);
     }
 
     public void populatePublicationTitle(final String publicationTitle) {
@@ -106,16 +114,16 @@ public class ContentPage extends AbstractCmsPage {
         );
     }
 
-    public AttachmentsSection getAttachmentsSection() {
-        return new AttachmentsSection(helper, getWebDriver());
+    public AttachmentsCmsWidget getAttachmentsWidget() {
+        return new AttachmentsCmsWidget(helper, getWebDriver());
     }
 
-    public GranularitySection getGranularitySection() {
-        return new GranularitySection(helper, getWebDriver());
+    public GranularityCmsWidget getGranularitySection() {
+        return new GranularityCmsWidget(helper, getWebDriver());
     }
 
-    public RelatedLinksSection getRelatedLinksSection() {
-        return new RelatedLinksSection(helper, getWebDriver());
+    public RelatedLinksCmsWidget getRelatedLinksSection() {
+        return new RelatedLinksCmsWidget(helper, getWebDriver());
     }
 
     public void savePublication() {
@@ -129,6 +137,24 @@ public class ContentPage extends AbstractCmsPage {
     public void publish(){
         findPublicationMenu().click();
         findPublish().click();
+
+        waitUntilPublished();
+    }
+
+    private void waitUntilPublished() {
+
+        // Saving and closing a document leaves one of the following disclaimers. Hitting 'Publish' makes them
+        // disappear. We treat this disappearance as an indicator that the publishing has completed.
+        Stream.of(
+            "Offline",                   // created after closing previously unpublished document
+            "A previous version is live" // created after closing previously published document
+        ).forEach(title ->
+            // Using 'findElements' as this is the method recommended for asserting absence of elements
+            // (see JavaDoc for org.openqa.selenium.WebDriver.findElement).
+            helper.waitUntilTrue(() -> getWebDriver().findElements(
+                By.xpath(XpathSelectors.EDITOR_BODY + "//span[@title='" + title + "']")
+            ).isEmpty()
+        ));
     }
 
     private WebElement openPublicationsMenu(WebDriver driver) {

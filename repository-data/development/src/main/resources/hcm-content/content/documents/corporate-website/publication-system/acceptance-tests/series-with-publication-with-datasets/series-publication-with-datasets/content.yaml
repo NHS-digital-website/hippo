@@ -32,6 +32,7 @@
       Integer imperdiet gravida augue in tincidunt. Donec luctus, massa sit amet
       porttitor cursus, ante enim fringilla felis, nec elementum eros leo eu mauris.
     publicationsystem:Title: series publication with datasets
+    publicationsystem:PubliclyAccessible: true
   /content[2]:
     jcr:primaryType: publicationsystem:publication
     jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -61,6 +62,7 @@
       Integer imperdiet gravida augue in tincidunt. Donec luctus, massa sit amet
       porttitor cursus, ante enim fringilla felis, nec elementum eros leo eu mauris.
     publicationsystem:Title: series publication with datasets
+    publicationsystem:PubliclyAccessible: true
   /content[3]:
     jcr:primaryType: publicationsystem:publication
     jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -91,3 +93,4 @@
       Integer imperdiet gravida augue in tincidunt. Donec luctus, massa sit amet
       porttitor cursus, ante enim fringilla felis, nec elementum eros leo eu mauris.
     publicationsystem:Title: series publication with datasets
+    publicationsystem:PubliclyAccessible: true

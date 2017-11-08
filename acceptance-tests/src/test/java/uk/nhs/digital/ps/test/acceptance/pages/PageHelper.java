@@ -144,12 +144,12 @@ public class PageHelper {
     }
 
     @FunctionalInterface
-    interface Task {
+    public interface Task {
         void execute();
     }
 
     @FunctionalInterface
-    interface Predicate {
+    public interface Predicate {
         boolean executeWithPredicate();
     }
 }

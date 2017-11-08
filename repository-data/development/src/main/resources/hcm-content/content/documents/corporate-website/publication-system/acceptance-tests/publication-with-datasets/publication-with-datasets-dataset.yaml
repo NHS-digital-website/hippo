@@ -28,6 +28,7 @@
       accumsan. Nunc fringilla interdum nunc vitae tempus. Sed vitae ullamcorper velit.
       Maecenas convallis interdum magna, et finibus libero suscipit in.
     publicationsystem:Title: publication-with-datasets Dataset
+    publicationsystem:PubliclyAccessible: true
     /publicationsystem:Files:
       jcr:primaryType: hippo:resource
       hippo:filename: attachment.pdf
@@ -64,6 +65,7 @@
       accumsan. Nunc fringilla interdum nunc vitae tempus. Sed vitae ullamcorper velit.
       Maecenas convallis interdum magna, et finibus libero suscipit in.
     publicationsystem:Title: publication-with-datasets Dataset
+    publicationsystem:PubliclyAccessible: true
     /publicationsystem:Files:
       jcr:primaryType: hippo:resource
       hippo:filename: attachment.pdf
@@ -101,6 +103,7 @@
       accumsan. Nunc fringilla interdum nunc vitae tempus. Sed vitae ullamcorper velit.
       Maecenas convallis interdum magna, et finibus libero suscipit in.
     publicationsystem:Title: publication-with-datasets Dataset
+    publicationsystem:PubliclyAccessible: true
     /publicationsystem:Files:
       jcr:primaryType: hippo:resource
       hippo:filename: attachment.pdf

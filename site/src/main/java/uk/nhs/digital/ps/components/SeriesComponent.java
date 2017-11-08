@@ -62,7 +62,7 @@ public class SeriesComponent extends EssentialsContentComponent {
     }
 
     private void reportInvalidTarget(final HstRequest request, final HippoBean contentBean, final int indexDocumentsCount) {
-        log.error("Expected exactly one released publication series index documents but found {} in folder {}.",
+        log.error("Expected exactly one published publication series index documents but found {} in folder {}.",
             indexDocumentsCount, contentBean.getPath());
 
         reportDisplayError(request, contentBean.getDisplayName());

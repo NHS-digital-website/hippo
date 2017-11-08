@@ -1,4 +1,4 @@
-package uk.nhs.digital.ps.test.acceptance.pages;
+package uk.nhs.digital.ps.test.acceptance.pages.widgets;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,8 +7,10 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import uk.nhs.digital.ps.test.acceptance.models.Granularity;
+import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
+import uk.nhs.digital.ps.test.acceptance.pages.XpathSelectors;
 
-public class GranularitySection {
+public class GranularityCmsWidget {
 
     /**
      * Targets 'parent' div that _contains_ an 'h3/span' child elements, where the <span> has text 'Granularity'
@@ -23,7 +25,7 @@ public class GranularitySection {
     private final PageHelper helper;
     private final WebDriver webDriver;
 
-    public GranularitySection(final PageHelper helper, final WebDriver webDriver) {
+    public GranularityCmsWidget(final PageHelper helper, final WebDriver webDriver) {
         this.helper = helper;
         this.webDriver = webDriver;
     }

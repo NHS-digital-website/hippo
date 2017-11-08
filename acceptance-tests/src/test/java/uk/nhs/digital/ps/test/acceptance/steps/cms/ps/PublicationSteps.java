@@ -7,23 +7,21 @@ import cucumber.api.java.en.When;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.config.AcceptanceTestProperties;
-import uk.nhs.digital.ps.test.acceptance.data.TestDataFactory;
 import uk.nhs.digital.ps.test.acceptance.data.ExpectedTestDataProvider;
+import uk.nhs.digital.ps.test.acceptance.data.TestDataFactory;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
 import uk.nhs.digital.ps.test.acceptance.models.Attachment;
 import uk.nhs.digital.ps.test.acceptance.models.FileType;
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
 import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
-import uk.nhs.digital.ps.test.acceptance.pages.site.ps.AttachmentElement;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
-import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationSeriesPage;
 import uk.nhs.digital.ps.test.acceptance.steps.AbstractSpringSteps;
+import uk.nhs.digital.ps.test.acceptance.steps.TestDataSteps;
 import uk.nhs.digital.ps.test.acceptance.steps.cms.LoginSteps;
-import uk.nhs.digital.ps.test.acceptance.util.FileHelper;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.text.MessageFormat;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -34,15 +32,18 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.ps.test.acceptance.util.AssertionHelper.assertWithinTimeoutThat;
-import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.readFileAsByteArray;
-import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.waitUntilFileAppears;
 
 public class PublicationSteps extends AbstractSpringSteps {
 
     private final static Logger log = getLogger(PublicationSteps.class);
 
+    private static final int DAYS_IN_WEEK = 7;
+
     @Autowired
     private TestDataRepo testDataRepo;
+
+    @Autowired
+    private TestDataSteps testDataSteps;
 
     @Autowired
     private AcceptanceTestProperties acceptanceTestProperties;
@@ -55,9 +56,6 @@ public class PublicationSteps extends AbstractSpringSteps {
 
     @Autowired
     private PublicationPage publicationPage;
-
-    @Autowired
-    private PublicationSeriesPage publicationSeriesPage;
 
     // Scenario: New Publication screen ========================================================================
     @Given("^I am on the content page$")
@@ -121,8 +119,6 @@ public class PublicationSteps extends AbstractSpringSteps {
     @When("^I publish the publication")
     public void whenIPublishThePublication() throws Throwable {
         contentPage.publish();
-        Thread.sleep(1000); // wait for doc to publish
-
     }
 
     // Scenario: Forbidden file type upload rejection ==================================================================
@@ -140,10 +136,10 @@ public class PublicationSteps extends AbstractSpringSteps {
     @Then("^the upload is rejected with an error message$")
     public void theUploadIsRejectedWithAnErrorMessage() throws Throwable {
 
-        contentPage.getAttachmentsSection().addUploadField();
+        contentPage.getAttachmentsWidget().addUploadField();
 
         testDataRepo.getCurrentAttachments().forEach(attachment -> {
-            contentPage.getAttachmentsSection().uploadAttachment(attachment);
+            contentPage.getAttachmentsWidget().uploadAttachment(attachment);
 
             final String expectedErrorMessage = MessageFormat.format(
                 "The uploaded file ''{0}'' has extension {1} which is not allowed.",
@@ -191,7 +187,7 @@ public class PublicationSteps extends AbstractSpringSteps {
     // Scenario: Blank attachment field rejection =====================================================================
     @When("^I add an empty upload field$")
     public void iAddAnEmptyUploadField() throws Throwable {
-        contentPage.getAttachmentsSection().addUploadField();
+        contentPage.getAttachmentsWidget().addUploadField();
     }
 
     // Scenario: Blank Granularity field rejection =====================================================================
@@ -206,42 +202,88 @@ public class PublicationSteps extends AbstractSpringSteps {
         contentPage.getRelatedLinksSection().addRelatedLinkField();
     }
 
-
+    // Scenario: Details are hidden from the end users in a published upcoming publication ==============================
     @Given("^I have a published publication flagged as upcoming$")
     public void iHaveAReleasedPublicationFlaggedAsUpcoming() throws Throwable {
-        final Publication publication = ExpectedTestDataProvider.getReleasedUpcomingPublication().build();
+        final Publication publication = ExpectedTestDataProvider.getPublishedUpcomingPublication().build();
         testDataRepo.setCurrentPublication(publication);
     }
 
     @When("^I view the publication$")
     public void iViewThePublication() throws Throwable {
-        consumablePublicationPage.open(testDataRepo.getCurrentPublication());
+        publicationPage.open(testDataRepo.getCurrentPublication());
     }
 
     @Then("^Title is shown$")
     public void titleIsVisible() throws Throwable {
         assertThat("Title is shown.",
-            consumablePublicationPage.getTitleText(), is(testDataRepo.getCurrentPublication().getTitle())
+            publicationPage.getTitleText(), is(testDataRepo.getCurrentPublication().getTitle())
         );
     }
 
+    // Scenarios: Nominal publication date is displayed in full/in part ==============================
     @Then("^Nominal Publication Date field is shown$")
     public void nominalPublicationDateFieldIsVisible() throws Throwable {
         assertThat("Nominal Publication Date field is shown.",
-            consumablePublicationPage.getNominalDate(),
-            is(testDataRepo.getCurrentPublication().getNominalDateFormatted())
+            publicationPage.getNominalPublicationDate(),
+            is(testDataRepo.getCurrentPublication().getNominalPublicationDate().formattedInRespectToCutOff())
         );
     }
 
     @Then("^Disclaimer \"([^\"]*)\" is displayed$")
     public void disclaimerIsDisplayed(final String disclaimer) throws Throwable {
-        assertTrue("Disclaimer is displayed: " + disclaimer, consumablePublicationPage.hasDisclaimer(disclaimer));
+        assertTrue("Disclaimer is displayed: " + disclaimer, publicationPage.hasDisclaimer(disclaimer));
     }
 
     @Then("^All other publication's details are hidden$")
     public void allOtherDetailsAreHidden() throws Throwable {
         assertThat("Fields that should be hidden for upcoming publication are hidden.",
-            consumablePublicationPage.getElementsHiddenWhenUpcoming(), is(empty())
+            publicationPage.getElementsHiddenWhenUpcoming(), is(empty())
         );
+    }
+
+    @Given("^I have a published publication with nominal date falling before (\\d+) weeks from now$")
+    public void iHaveAPublishedPublicationWithNominalDateFallingBeforeWeeksFromNow(final int weeksFromNow)
+        throws Throwable {
+
+        final Publication publicationWithNominalDateBeforeCutOff = TestDataFactory.createPublicationWithNoAttachments()
+            .withNominalDate(Instant.now()
+                .plus(DAYS_IN_WEEK * weeksFromNow, ChronoUnit.DAYS))
+            .build();
+
+        testDataRepo.setCurrentPublication(publicationWithNominalDateBeforeCutOff);
+
+        testDataSteps.createPublishedPublication(publicationWithNominalDateBeforeCutOff);
+    }
+
+    @Given("^I have a published publication with nominal date falling after (\\d+) weeks from now$")
+    public void iHaveAPublishedPublicationWithNominalDateFallingAfterWeeksFromNow(final int weeksFromNow)
+        throws Throwable {
+
+        final Publication publicationWithNominalDateBeforeCutOff = TestDataFactory.createPublicationWithNoAttachments()
+            .withNominalDate(Instant.now()
+                .plus(DAYS_IN_WEEK * weeksFromNow, ChronoUnit.DAYS)
+                .plus(1, ChronoUnit.DAYS))
+            .build();
+
+        testDataRepo.setCurrentPublication(publicationWithNominalDateBeforeCutOff);
+
+        testDataSteps.createPublishedPublication(publicationWithNominalDateBeforeCutOff);
+    }
+
+    @Then("^Nominal Publication Date is displayed using format \"([^\"]*)\"$")
+    public void nominalPublicationDateIsDisplayedUsingFormat(final String dateFormat) throws Throwable {
+
+        final Publication.NominalPublicationDate nominalPublicationDate =
+            testDataRepo.getCurrentPublication().getNominalPublicationDate();
+
+        // Obviously, this way of format resolution is brittle but it was chosen for simplicity as there is no need
+        // for anything more elaborate at the moment.
+        final String expectedDate = "1 Jan 2000".equals(dateFormat)
+            ? nominalPublicationDate.inFullFormat()
+            : nominalPublicationDate.inRestrictedFormat();
+
+        assertThat("Nominal Publication Date is formatted in a way consistent with pattern '" + dateFormat + "'",
+            publicationPage.getNominalPublicationDate(), is(expectedDate));
     }
 }

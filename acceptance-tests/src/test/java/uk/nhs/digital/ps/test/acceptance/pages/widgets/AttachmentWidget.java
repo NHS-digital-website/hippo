@@ -1,16 +1,16 @@
-package uk.nhs.digital.ps.test.acceptance.pages.site.ps;
+package uk.nhs.digital.ps.test.acceptance.pages.widgets;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-public class AttachmentElement {
+public class AttachmentWidget {
 
     private final WebElement rootElement;
     private final WebDriver webDriver;
 
-    public AttachmentElement(WebDriver webDriver, WebElement rootElement) {
+    public AttachmentWidget(WebDriver webDriver, WebElement rootElement) {
         this.webDriver = webDriver;
         this.rootElement = rootElement;
     }

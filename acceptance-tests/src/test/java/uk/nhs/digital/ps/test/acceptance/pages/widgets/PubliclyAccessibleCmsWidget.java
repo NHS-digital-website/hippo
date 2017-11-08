@@ -1,13 +1,14 @@
-package uk.nhs.digital.ps.test.acceptance.pages;
+package uk.nhs.digital.ps.test.acceptance.pages.widgets;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
 
-public class PubliclyAccessibleRatioButton {
+public class PubliclyAccessibleCmsWidget {
 
     private final PageHelper helper;
 
-    public PubliclyAccessibleRatioButton(final PageHelper helper) {
+    public PubliclyAccessibleCmsWidget(final PageHelper helper) {
         this.helper = helper;
     }
 

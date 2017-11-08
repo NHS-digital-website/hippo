@@ -69,6 +69,7 @@ public class PublicationTest {
         given(node.getNodes(ATTACHMENTS_PROPERTY_KEY)).willReturn(nodeIterator);
         given(node.getNodes(RELATED_LINKS_PROPERTY_KEY)).willReturn(nodeIterator);
 
+        ReflectionHelper.setField(publication, "name", "arbitrary-name");
         ReflectionHelper.setField(publication, "valueProvider", valueProvider);
         ReflectionHelper.setField(publication, "node", node);
     }
@@ -126,26 +127,28 @@ public class PublicationTest {
     @Test
     @UseDataProvider("gettersForbiddenInUpcomingPublication")
     public void restrictsGetters_whenPublicationNotPubliclyAvailable(
-        final Method getterForbiddenInUpcomingPublication) throws Exception {
-
-        final String getterName = getterForbiddenInUpcomingPublication.getName();
+        final Method forbiddenGetter) throws Exception {
 
         // given
         setBeanProperty(PUBLICLY_ACCESSIBLE_PROPERTY_KEY, false);
 
         try {
             // when
-            getterForbiddenInUpcomingPublication.invoke(publication);
+            forbiddenGetter.invoke(publication);
 
             // then
-            fail("No exception was thrown from getter " + getterName);
+            fail("No exception was thrown from getter " + forbiddenGetter);
 
         } catch (final InvocationTargetException e) {
-            assertThat("Getter " + getterName + " throws exception of correct type.", e.getCause(),
+            assertThat("Getter " + forbiddenGetter + " throws exception of correct type.", e.getCause(),
                 instanceOf(DataRestrictionViolationException.class)
             );
-            assertThat("Getter " + getterName + " throws exception with correct message.", e.getCause().getMessage(),
+            assertThat("Getter " + forbiddenGetter + " throws exception with correct message.", e.getCause().getMessage(),
                 startsWith("Property is not available when publication is flagged as 'not publicly accessible':")
+            );
+        } catch (final Exception e) {
+            throw new Error("Failed to test '" + forbiddenGetter + " because of an error;" +
+                " see stack trace below for details.", e
             );
         }
     }
@@ -163,8 +166,11 @@ public class PublicationTest {
 
             // then
             // pass
-        } catch (final InvocationTargetException e) {
-            fail("No exception was expected to be thrown from '" + permittedGetter.getName() + "' but got " + e.getCause());
+        } catch (final Throwable e) {
+            throw new AssertionError(
+                "No exception was expected to be thrown from '" + permittedGetter + "' but one was emitted;" +
+                    " see stack trace below for details.", e
+            );
         }
     }
 
@@ -173,6 +179,7 @@ public class PublicationTest {
 
         return stream(Publication.class.getDeclaredMethods())
             .filter(method -> Modifier.isPublic(method.getModifiers()))
+            .filter(method -> !Modifier.isStatic(method.getModifiers()))
             .filter(method -> method.getName().startsWith("get") || method.getName().startsWith("is"))
             .filter(method -> !method.getReturnType().equals(Void.class))
             .collect(toList());
@@ -181,8 +188,12 @@ public class PublicationTest {
     @DataProvider
     public static List<Method> gettersForbiddenInUpcomingPublication() {
 
-        final List<String> gettersPermittedWhenUpcoming =
-            asList("getTitle", "getNominalPublicationDate", "isPubliclyAccessible");
+        final List<String> gettersPermittedWhenUpcoming = asList(
+            "getTitle",
+            "getNominalPublicationDate",
+            "isPubliclyAccessible",
+            "getSelfLinkBean"
+        );
 
         return allPublicGetters().stream()
             .filter(method -> !gettersPermittedWhenUpcoming.contains(method.getName()))

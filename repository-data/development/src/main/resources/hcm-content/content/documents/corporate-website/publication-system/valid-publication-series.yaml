@@ -81,7 +81,7 @@
       publicationsystem:InformationType: [Official statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2013-01-10T01:00:00+01:00
-      publicationsystem:Summary: A released publication
+      publicationsystem:Summary: A published publication
       publicationsystem:Title: Lorem Ipsum Dolor 2012
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
@@ -107,7 +107,7 @@
       publicationsystem:InformationType: [Official statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2013-01-10T01:00:00+01:00
-      publicationsystem:Summary: A released publication
+      publicationsystem:Summary: A published publication
       publicationsystem:Title: Lorem Ipsum Dolor 2012
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
@@ -134,7 +134,7 @@
       publicationsystem:InformationType: [Official statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2013-01-10T01:00:00+01:00
-      publicationsystem:Summary: A released publication
+      publicationsystem:Summary: A published publication
       publicationsystem:Title: Lorem Ipsum Dolor 2012
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
@@ -163,7 +163,7 @@
       publicationsystem:InformationType: [Official statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2014-01-10T01:00:00+01:00
-      publicationsystem:Summary: A released publication 2013.
+      publicationsystem:Summary: A published publication 2013.
       publicationsystem:Title: Lorem Ipsum Dolor 2013
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
@@ -189,7 +189,7 @@
       publicationsystem:InformationType: [Official statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2014-01-10T01:00:00+01:00
-      publicationsystem:Summary: A released publication 2013.
+      publicationsystem:Summary: A published publication 2013.
       publicationsystem:Title: Lorem Ipsum Dolor 2013
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
@@ -216,7 +216,7 @@
       publicationsystem:InformationType: [Official statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2014-01-10T01:00:00+01:00
-      publicationsystem:Summary: A released publication 2013.
+      publicationsystem:Summary: A published publication 2013.
       publicationsystem:Title: Lorem Ipsum Dolor 2013
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
@@ -245,7 +245,7 @@
       publicationsystem:InformationType: [Official statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2015-01-10T01:00:00+01:00
-      publicationsystem:Summary: Released 2014 stats.
+      publicationsystem:Summary: Published 2014 stats.
       publicationsystem:Title: Lorem Ipsum Dolor 2014
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
@@ -271,7 +271,7 @@
       publicationsystem:InformationType: [Official statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2015-01-10T01:00:00+01:00
-      publicationsystem:Summary: Released 2014 stats.
+      publicationsystem:Summary: Published 2014 stats.
       publicationsystem:Title: Lorem Ipsum Dolor 2014
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
@@ -298,7 +298,7 @@
       publicationsystem:InformationType: [Official statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2015-01-10T01:00:00+01:00
-      publicationsystem:Summary: Released 2014 stats.
+      publicationsystem:Summary: Published 2014 stats.
       publicationsystem:Title: Lorem Ipsum Dolor 2014
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
