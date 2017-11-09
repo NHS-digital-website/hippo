@@ -1,0 +1,9 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/publicationsystem/hst:pages/publications-overview-page:
+      jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/basepage
+      /main:
+        jcr:primaryType: hst:component
+        hst:template: publications-overview-template
+        hst:referencecomponent: hst:components/publications-overview-component

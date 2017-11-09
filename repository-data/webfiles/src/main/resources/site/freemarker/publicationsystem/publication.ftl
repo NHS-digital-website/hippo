@@ -4,6 +4,8 @@
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() >
 <#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
 
+<#-- @ftlvariable name="document" type="uk.nhs.digital.ps.beans.Publication" -->
+
 <#macro nominalPublicationdate>
 <div id="nominal-date">
     <h4>Nominal Publication Date:</h4>

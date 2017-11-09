@@ -4,14 +4,13 @@ definitions:
       jcr:primaryType: hst:sitemap
       /root:
         jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/home
-        hst:relativecontentpath: homepage
-      /_any_:
-        jcr:primaryType: hst:sitemapitem
-        hst:relativecontentpath: ${1}
-        hst:componentconfigurationmappingnames:
-          - publicationsystem:publication
-          - hippostd:folder
-        hst:componentconfigurationmappingvalues:
-          - hst:pages/home
-          - hst:pages/seriespage
+        hst:componentconfigurationid: hst:pages/publications-overview-page
+        /_any_:
+          jcr:primaryType: hst:sitemapitem
+          hst:relativecontentpath: ${1}
+          hst:componentconfigurationmappingnames:
+            - publicationsystem:publication
+            - hippostd:folder
+          hst:componentconfigurationmappingvalues:
+            - hst:pages/publication
+            - hst:pages/seriespage

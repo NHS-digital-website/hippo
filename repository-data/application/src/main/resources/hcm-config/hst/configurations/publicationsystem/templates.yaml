@@ -2,7 +2,10 @@ definitions:
   config:
     /hst:hst/hst:configurations/publicationsystem/hst:templates:
       jcr:primaryType: hst:templates
-      /homepage:
+      /publications-overview-template:
+        jcr:primaryType: hst:template
+        hst:renderpath: webfile:/freemarker/publicationsystem/publications-overview.ftl
+      /publication:
         jcr:primaryType: hst:template
         hst:renderpath: webfile:/freemarker/publicationsystem/publication.ftl
       /series:

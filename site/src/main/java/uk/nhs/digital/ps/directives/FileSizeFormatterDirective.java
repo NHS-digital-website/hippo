@@ -9,18 +9,19 @@ import java.util.Map;
 import static java.text.MessageFormat.format;
 
 /**
+ * <p>
  * Converts byte count to a human-readable value; for example, value 1536 displays as "1.5 KiB".
- *
- * Required parameter: {@code bytesCount}.
- *
+ * </p><p>
+ * Required template parameter: {@code bytesCount}.
+ * </p><p>
  * Example usage in Freemarker template:
+ * </p>
  * <pre>
  *
  *     <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() >
- *         ...
- *     &lt;span&gt;size: <@formatFileSize bytesCount=attachment.length/>.&lt;/span&gt;
+ *     ...
+ *     &lt;span&gt;size: <@formatFileSize bytesCount=attachment.length/>&lt;/span&gt;
  * </pre>
- *
  */
 public class FileSizeFormatterDirective implements TemplateDirectiveModel {
 
