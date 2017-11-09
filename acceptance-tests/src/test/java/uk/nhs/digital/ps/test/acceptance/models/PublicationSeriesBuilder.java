@@ -7,36 +7,36 @@ import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.toList;
 
 @SuppressWarnings("WeakerAccess") // builder's methods are intentionally public
-public class TimeSeriesBuilder {
+public class PublicationSeriesBuilder {
 
     private String title;
     private List<PublicationBuilder> publicationBuilders = new ArrayList<>();
     private String name;
 
-    public static TimeSeriesBuilder newTimeSeries() {
-        return new TimeSeriesBuilder();
+    public static PublicationSeriesBuilder newPublicationSeries() {
+        return new PublicationSeriesBuilder();
     }
 
     //<editor-fold desc="BUILDER METHODS">
-    public TimeSeriesBuilder withName(final String name) {
+    public PublicationSeriesBuilder withName(final String name) {
         return cloneAndAmend(builder -> builder.name = name);
     }
 
-    public TimeSeriesBuilder withTitle(final String title) {
+    public PublicationSeriesBuilder withTitle(final String title) {
         return cloneAndAmend(builder -> builder.title = title);
     }
 
-    public TimeSeriesBuilder withPublications(final List<PublicationBuilder> publicationBuilders) {
+    public PublicationSeriesBuilder withPublications(final List<PublicationBuilder> publicationBuilders) {
         return cloneAndAmend(builder -> builder.publicationBuilders = publicationBuilders);
     }
-    public TimeSeriesBuilder withPublications(final PublicationBuilder... publicationBuilders) {
+    public PublicationSeriesBuilder withPublications(final PublicationBuilder... publicationBuilders) {
         return cloneAndAmend(builder -> builder.publicationBuilders = asList(publicationBuilders));
     }
     //</editor-fold>
 
 
-    public TimeSeries build() {
-        return new TimeSeries(this);
+    public PublicationSeries build() {
+        return new PublicationSeries(this);
     }
 
     //<editor-fold desc="GETTERS" defaultstate="collapsed">
@@ -57,24 +57,24 @@ public class TimeSeriesBuilder {
     }
     //</editor-fold>
 
-    private TimeSeriesBuilder() {
+    private PublicationSeriesBuilder() {
     }
 
-    private TimeSeriesBuilder(final TimeSeriesBuilder original) {
+    private PublicationSeriesBuilder(final PublicationSeriesBuilder original) {
         name = original.getName();
         title = original.getTitle();
         publicationBuilders = original.getPublicationBuilders();
     }
 
-    private TimeSeriesBuilder cloneAndAmend(final PropertySetter propertySetter) {
-        final TimeSeriesBuilder clone = new TimeSeriesBuilder(this);
+    private PublicationSeriesBuilder cloneAndAmend(final PropertySetter propertySetter) {
+        final PublicationSeriesBuilder clone = new PublicationSeriesBuilder(this);
         propertySetter.setProperties(clone);
         return clone;
     }
 
     @FunctionalInterface
     interface PropertySetter {
-        void setProperties(TimeSeriesBuilder builder);
+        void setProperties(PublicationSeriesBuilder builder);
     }
 
 }

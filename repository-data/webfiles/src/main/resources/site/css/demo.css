@@ -59,7 +59,17 @@ body {
     display: inline-block;
 }
 
+.column-half__left {
+    float: left;
+    clear: left;
+    width: 49%;
+}
 
+.column-half__right {
+    float: right;
+    clear: right;
+    width: 49%;
+}
 
 
 /*
@@ -124,8 +134,7 @@ input {
     display: inline;
 }
 
-.pagination li a,
- {
+.pagination li a {
     position: relative;
     float: left;
     padding: 6px 12px;

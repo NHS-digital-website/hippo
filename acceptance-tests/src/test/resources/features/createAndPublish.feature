@@ -13,6 +13,7 @@ Feature: As am author I need to create a new publication
         Then it is saved
 
     @NeedsExistingTestData
+    @TakeOfflineAfter
     Scenario: Publishing a publication
         Given I have saved a publication
         When I publish the publication

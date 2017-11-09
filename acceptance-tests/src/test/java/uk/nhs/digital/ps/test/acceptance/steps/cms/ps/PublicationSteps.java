@@ -6,7 +6,6 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import uk.nhs.digital.ps.test.acceptance.config.AcceptanceTestProperties;
 import uk.nhs.digital.ps.test.acceptance.data.ExpectedTestDataProvider;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataFactory;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
@@ -16,7 +15,6 @@ import uk.nhs.digital.ps.test.acceptance.models.Publication;
 import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
 import uk.nhs.digital.ps.test.acceptance.steps.AbstractSpringSteps;
-import uk.nhs.digital.ps.test.acceptance.steps.TestDataSteps;
 import uk.nhs.digital.ps.test.acceptance.steps.cms.LoginSteps;
 
 import java.text.MessageFormat;
@@ -43,12 +41,6 @@ public class PublicationSteps extends AbstractSpringSteps {
     private TestDataRepo testDataRepo;
 
     @Autowired
-    private TestDataSteps testDataSteps;
-
-    @Autowired
-    private AcceptanceTestProperties acceptanceTestProperties;
-
-    @Autowired
     private ContentPage contentPage;
 
     @Autowired
@@ -56,6 +48,27 @@ public class PublicationSteps extends AbstractSpringSteps {
 
     @Autowired
     private PublicationPage publicationPage;
+
+    @Given("^I have a publication opened for editing$")
+    public void iHaveAPublicationOpenForEditing() throws Throwable {
+        final Publication publication = TestDataFactory.createPublicationWithNoAttachments().build();
+        testDataRepo.setPublication(publication);
+
+        createPublicationInEditableState(publication);
+    }
+
+    public void createPublicationInEditableState(final Publication publication) throws Throwable {
+        loginSteps.givenIAmLoggedInAsAdmin();
+        contentPage.openContentTab();
+        contentPage.newPublication(publication);
+    }
+
+    public void createPublishedPublication(final Publication publication) throws Throwable {
+        createPublicationInEditableState(publication);
+        contentPage.populatePublication(publication);
+        contentPage.saveAndClosePublication();
+        contentPage.publish();
+    }
 
     // Scenario: New Publication screen ========================================================================
     @Given("^I am on the content page$")
@@ -67,7 +80,7 @@ public class PublicationSteps extends AbstractSpringSteps {
     @When("^I create a new publication$")
     public void whenICreateANewPublication() throws Throwable {
         final Publication publication = TestDataFactory.createValidPublication().build();
-        testDataRepo.setCurrentPublication(publication);
+        testDataRepo.setPublication(publication);
 
         assertThat("New publication created.", contentPage.newPublication(publication), is(true));
     }
@@ -83,7 +96,7 @@ public class PublicationSteps extends AbstractSpringSteps {
     public void givenIamOnTheEditScreen() throws Throwable {
         final Publication publication = TestDataFactory.createValidPublication().build();
 
-        testDataRepo.setCurrentPublication(publication);
+        testDataRepo.setPublication(publication);
 
         loginSteps.givenIAmLoggedInAsAdmin();
         contentPage.openContentTab();
@@ -130,7 +143,7 @@ public class PublicationSteps extends AbstractSpringSteps {
             .map(forbiddenFileType -> TestDataFactory.createAttachmentOfType(forbiddenFileType).build())
             .collect(toList());
 
-        testDataRepo.setCurrentAttachments(forbiddenAttachments);
+        testDataRepo.setAttachments(forbiddenAttachments);
     }
 
     @Then("^the upload is rejected with an error message$")
@@ -138,7 +151,7 @@ public class PublicationSteps extends AbstractSpringSteps {
 
         contentPage.getAttachmentsWidget().addUploadField();
 
-        testDataRepo.getCurrentAttachments().forEach(attachment -> {
+        testDataRepo.getAttachments().forEach(attachment -> {
             contentPage.getAttachmentsWidget().uploadAttachment(attachment);
 
             final String expectedErrorMessage = MessageFormat.format(
@@ -206,7 +219,7 @@ public class PublicationSteps extends AbstractSpringSteps {
     @Given("^I have a published publication flagged as upcoming$")
     public void iHaveAReleasedPublicationFlaggedAsUpcoming() throws Throwable {
         final Publication publication = ExpectedTestDataProvider.getPublishedUpcomingPublication().build();
-        testDataRepo.setCurrentPublication(publication);
+        testDataRepo.setPublication(publication);
     }
 
     @When("^I view the publication$")
@@ -251,9 +264,9 @@ public class PublicationSteps extends AbstractSpringSteps {
                 .plus(DAYS_IN_WEEK * weeksFromNow, ChronoUnit.DAYS))
             .build();
 
-        testDataRepo.setCurrentPublication(publicationWithNominalDateBeforeCutOff);
+        testDataRepo.setPublication(publicationWithNominalDateBeforeCutOff);
 
-        testDataSteps.createPublishedPublication(publicationWithNominalDateBeforeCutOff);
+        createPublishedPublication(publicationWithNominalDateBeforeCutOff);
     }
 
     @Given("^I have a published publication with nominal date falling after (\\d+) weeks from now$")
@@ -266,9 +279,9 @@ public class PublicationSteps extends AbstractSpringSteps {
                 .plus(1, ChronoUnit.DAYS))
             .build();
 
-        testDataRepo.setCurrentPublication(publicationWithNominalDateBeforeCutOff);
+        testDataRepo.setPublication(publicationWithNominalDateBeforeCutOff);
 
-        testDataSteps.createPublishedPublication(publicationWithNominalDateBeforeCutOff);
+        createPublishedPublication(publicationWithNominalDateBeforeCutOff);
     }
 
     @Then("^Nominal Publication Date is displayed using format \"([^\"]*)\"$")
@@ -277,11 +290,7 @@ public class PublicationSteps extends AbstractSpringSteps {
         final Publication.NominalPublicationDate nominalPublicationDate =
             testDataRepo.getCurrentPublication().getNominalPublicationDate();
 
-        // Obviously, this way of format resolution is brittle but it was chosen for simplicity as there is no need
-        // for anything more elaborate at the moment.
-        final String expectedDate = "1 Jan 2000".equals(dateFormat)
-            ? nominalPublicationDate.inFullFormat()
-            : nominalPublicationDate.inRestrictedFormat();
+        final String expectedDate = nominalPublicationDate.inFormat(dateFormat);
 
         assertThat("Nominal Publication Date is formatted in a way consistent with pattern '" + dateFormat + "'",
             publicationPage.getNominalPublicationDate(), is(expectedDate));

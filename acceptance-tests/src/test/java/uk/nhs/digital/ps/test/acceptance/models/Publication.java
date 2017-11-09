@@ -87,6 +87,10 @@ public class Publication {
         return publiclyAccessible;
     }
 
+    public String getSummaryTruncated() {
+        return truncate(getSummary(), 100);
+    }
+
     public static class NominalPublicationDate implements Comparable<NominalPublicationDate> {
 
         static final String RESTRICTED_NOMINAL_DATE_PATTERN = "MMM yyyy";
@@ -117,6 +121,10 @@ public class Publication {
             return formatInstant(instant, FULL_NOMINAL_DATE_PATTERN);
         }
 
+        public String inFormat(final String datePattern) {
+            return formatInstant(instant, datePattern);
+        }
+
         public Instant asInstant() {
             return instant;
         }
@@ -124,6 +132,17 @@ public class Publication {
         @Override
         public int compareTo(final NominalPublicationDate other) {
             return asInstant().compareTo(other.asInstant());
+        }
+    }
+
+    private String truncate(String text, final int size) {
+
+        int endIndex = Math.max(size, text.indexOf(" ", size));
+
+        if (endIndex < text.length()) {
+            return text.substring(0, endIndex) + "...";
+        } else {
+            return text;
         }
     }
 }
