@@ -9,6 +9,7 @@ import uk.nhs.digital.ps.test.acceptance.pages.*;
 import uk.nhs.digital.ps.test.acceptance.pages.site.SitePage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationSeriesPage;
+import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationsOverviewPage;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverServiceProvider;
 
@@ -49,6 +50,11 @@ public class AcceptanceTestConfiguration {
     public PublicationSeriesPage publicationSeriesPage(final WebDriverProvider webDriverProvider,
                                                                  final PageHelper pageHelper) {
         return new PublicationSeriesPage(webDriverProvider, pageHelper);
+    }
+
+    @Bean
+    public PublicationsOverviewPage publicationsOverviewPage(final WebDriverProvider webDriverProvider) {
+        return new PublicationsOverviewPage(webDriverProvider);
     }
 
     @Bean

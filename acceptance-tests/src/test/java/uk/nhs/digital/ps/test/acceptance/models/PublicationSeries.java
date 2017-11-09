@@ -6,17 +6,17 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 import static uk.nhs.digital.ps.test.acceptance.models.PublicationState.PUBLISHED;
 
-public class TimeSeries {
+public class PublicationSeries {
 
     private String name;
     private String title;
 
     private List<Publication> publications = new ArrayList<>();
 
-    TimeSeries(final TimeSeriesBuilder timeSeriesBuilder) {
-        name = timeSeriesBuilder.getName();
-        title = timeSeriesBuilder.getTitle();
-        publications = timeSeriesBuilder.getPublications();
+    PublicationSeries(final PublicationSeriesBuilder publicationSeriesBuilder) {
+        name = publicationSeriesBuilder.getName();
+        title = publicationSeriesBuilder.getTitle();
+        publications = publicationSeriesBuilder.getPublications();
     }
 
     public String getTitle() {

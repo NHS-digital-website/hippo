@@ -5,7 +5,6 @@ definitions:
       /root:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/home
-        hst:relativecontentpath: homepage
       /_any_:
         jcr:primaryType: hst:sitemapitem
         hst:relativecontentpath: ${1}

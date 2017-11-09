@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.data.ExpectedTestDataProvider;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
-import uk.nhs.digital.ps.test.acceptance.models.TimeSeries;
+import uk.nhs.digital.ps.test.acceptance.models.PublicationSeries;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationSeriesPage;
 
@@ -19,9 +19,9 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.slf4j.LoggerFactory.getLogger;
 
-public class TimeSeriesSteps extends AbstractSpringSteps {
+public class PublicationSeriesSteps extends AbstractSpringSteps {
 
-    private final static Logger log = getLogger(TimeSeriesSteps.class);
+    private final static Logger log = getLogger(PublicationSeriesSteps.class);
 
     @Autowired
     private TestDataRepo testDataRepo;
@@ -32,28 +32,28 @@ public class TimeSeriesSteps extends AbstractSpringSteps {
     @Autowired
     private PublicationSeriesPage consumablePublicationSeriesPage;
 
-    // Scenario: List publications from the same time series ===========================================================
-    @Given("^I have a number of publications belonging to the same time series$")
-    public void iHaveANumberOfPublicationsBelongingToTheSameTimeSeries() throws Throwable {
+    // Scenario: List publications from the same series ===========================================================
+    @Given("^I have a number of publications belonging to the same series$")
+    public void iHaveANumberOfPublicationsBelongingToTheSameSeries() throws Throwable {
 
-        final TimeSeries timeSeries = ExpectedTestDataProvider.getValidTimeSeries().build();
-        testDataRepo.setCurrentTimeSeries(timeSeries);
+        final PublicationSeries publicationSeries = ExpectedTestDataProvider.getValidPublicationSeries().build();
+        testDataRepo.setPublicationSeries(publicationSeries);
     }
 
-    @When("^I navigate to the time series$")
-    public void iNavigateToTheTimeSeries() throws Throwable {
-        consumablePublicationSeriesPage.open(testDataRepo.getCurrentTimeSeries());
+    @When("^I navigate to the publication series$")
+    public void iNavigateToThePublicationSeries() throws Throwable {
+        consumablePublicationSeriesPage.open(testDataRepo.getPublicationSeries());
     }
 
-    @Then("^I can see a list of published publications from the time series$")
-    public void iCanSeeAListOfPublicationsFromTheTimeSeries() throws Throwable {
+    @Then("^I can see a list of published publications from the series$")
+    public void iCanSeeAListOfPublicationsFromTheSeries() throws Throwable {
 
-        final TimeSeries expectedTimeSeries = testDataRepo.getCurrentTimeSeries();
+        final PublicationSeries expectedPublicationSeries = testDataRepo.getPublicationSeries();
 
-        assertThat("Correct publication time series title is displayed.",
-            consumablePublicationSeriesPage.getSeriesTitle(), is(expectedTimeSeries.getTitle()));
+        assertThat("Correct publication series title is displayed.",
+            consumablePublicationSeriesPage.getSeriesTitle(), is(expectedPublicationSeries.getTitle()));
 
-        final List<String> expectedPublicationTitles = expectedTimeSeries.getReleasedPublicationsLatestFirst().stream()
+        final List<String> expectedPublicationTitles = expectedPublicationSeries.getReleasedPublicationsLatestFirst().stream()
             .map(Publication::getTitle)
             .collect(toList());
 
@@ -67,10 +67,10 @@ public class TimeSeriesSteps extends AbstractSpringSteps {
         consumablePublicationSeriesPage.openFirstPublication();
     }
 
-    @Then("^I can see link back to the time series")
+    @Then("^I can see link back to the series")
     public void iCanSeeLinkBack() throws Throwable {
         assertThat("Link to series document .",
-            publicationPage.getSeriesLinkTitle(), is(testDataRepo.getCurrentTimeSeries().getTitle()));
+            publicationPage.getSeriesLinkTitle(), is(testDataRepo.getPublicationSeries().getTitle()));
     }
 
 }

@@ -141,6 +141,15 @@ public class ContentPage extends AbstractCmsPage {
         waitUntilPublished();
     }
 
+    public void unpublishDocument(final String documentName) {
+        navigateToDocument(documentName);
+
+        findPublicationMenu().click();
+        findTakeOffline().click();
+
+        clickButtonOnModalDialog("OK");
+    }
+
     private void waitUntilPublished() {
 
         // Saving and closing a document leaves one of the following disclaimers. Hitting 'Publish' makes them
@@ -245,6 +254,11 @@ public class ContentPage extends AbstractCmsPage {
     private WebElement findPublish() {
         return helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Publish']"));
+    }
+
+    private WebElement findTakeOffline() {
+        return helper.findElement(
+            By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Take offline...']"));
     }
 
     private void clickButtonOnModalDialog(String buttonText) {

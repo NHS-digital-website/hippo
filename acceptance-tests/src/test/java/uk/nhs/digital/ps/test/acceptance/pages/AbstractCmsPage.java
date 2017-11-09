@@ -12,6 +12,10 @@ public class AbstractCmsPage extends AbstractPage {
         super(webDriverProvider);
     }
 
+    public void openCms() {
+        getWebDriver().get(URL);
+    }
+
     public void logout() {
 
         new Actions(getWebDriver())

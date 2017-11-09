@@ -159,4 +159,21 @@ public class PublicationBuilder {
     interface PropertySetter {
         void setProperties(PublicationBuilder builder);
     }
+
+    public static Collection collectionOf(final PublicationBuilder... publicationBuilders) {
+        return new Collection(publicationBuilders);
+    }
+
+    public static class Collection {
+
+        private final List<PublicationBuilder> publicationBuilders;
+
+        Collection(final PublicationBuilder... publicationBuilders) {
+            this.publicationBuilders = asList(publicationBuilders);
+        }
+
+        public List<Publication> build() {
+            return publicationBuilders.stream().map(PublicationBuilder::build).collect(toList());
+        }
+    }
 }

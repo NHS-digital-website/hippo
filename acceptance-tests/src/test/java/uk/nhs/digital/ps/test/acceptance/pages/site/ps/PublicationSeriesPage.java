@@ -2,7 +2,7 @@ package uk.nhs.digital.ps.test.acceptance.pages.site.ps;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import uk.nhs.digital.ps.test.acceptance.models.TimeSeries;
+import uk.nhs.digital.ps.test.acceptance.models.PublicationSeries;
 import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
 import uk.nhs.digital.ps.test.acceptance.pages.site.AbstractSitePage;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
@@ -22,8 +22,8 @@ public class PublicationSeriesPage extends AbstractSitePage {
         this.pageHelper = pageHelper;
     }
 
-    public void open(final TimeSeries timeSeries) {
-        getWebDriver().get(URL + "/publications/" + timeSeries.getUrlName());
+    public void open(final PublicationSeries publicationSeries) {
+        getWebDriver().get(URL + "/publications/" + publicationSeries.getUrlName());
     }
 
     public void openFirstPublication() {

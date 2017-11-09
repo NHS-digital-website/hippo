@@ -18,6 +18,9 @@ public class TestContentUrls {
     private void setup() {
         add("home", "/");
 
+        add ("publications overview",
+            "/publications");
+
         // data sets pages
         add("publication with datasets",
             "/publications/acceptance-tests/publication-with-datasets");

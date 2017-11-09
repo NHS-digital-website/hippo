@@ -2,15 +2,10 @@ package uk.nhs.digital.ps.test.acceptance.steps;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import cucumber.api.java.en.Given;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
-import uk.nhs.digital.ps.test.acceptance.models.Publication;
-import uk.nhs.digital.ps.test.acceptance.data.TestDataFactory;
 import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
-import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
-import uk.nhs.digital.ps.test.acceptance.steps.cms.LoginSteps;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
@@ -19,34 +14,10 @@ public class TestDataSteps extends AbstractSpringSteps {
     private final static Logger log = getLogger(TestDataSteps.class);
 
     @Autowired
-    private LoginSteps loginSteps;
-
-    @Autowired
     private ContentPage contentPage;
 
     @Autowired
     private TestDataRepo testDataRepo;
-
-    @Given("^I have a publication opened for editing$")
-    public void iHaveAPublicationOpenForEditing() throws Throwable {
-        final Publication publication = TestDataFactory.createPublicationWithNoAttachments().build();
-        testDataRepo.setCurrentPublication(publication);
-
-        createPublicationInEditableState(publication);
-    }
-
-    public void createPublicationInEditableState(final Publication publication) throws Throwable {
-        loginSteps.givenIAmLoggedInAsAdmin();
-        contentPage.openContentTab();
-        contentPage.newPublication(publication);
-    }
-
-    public void createPublishedPublication(final Publication publication) throws Throwable {
-        createPublicationInEditableState(publication);
-        contentPage.populatePublication(publication);
-        contentPage.saveAndClosePublication();
-        contentPage.publish();
-    }
 
     /**
      * Resets the test data repository before every scenario to prevent data leaking between scenarios, unless given
@@ -76,5 +47,25 @@ public class TestDataSteps extends AbstractSpringSteps {
         log.debug("Discarding and closing current publication: {}.", currentPublicationName);
 
         contentPage.discardUnsavedChanges(currentPublicationName);
+    }
+
+    /**
+     * <p>
+     * Takes current publication offline (un-publishes it).
+     * </p><p>
+     * Only applicable to scenarios leaving a published publication behind.
+     * </p><p>
+     * To ensure that this method gets called at the end of your scenario, tag the scenario with
+     * {@code @TakeOfflineAfter}.
+     * </p>
+     */
+    @After(value = "@TakeOfflineAfter", order = 500)
+    public void takePublicationOffline() throws Throwable {
+        final String currentPublicationName = testDataRepo.getCurrentPublication().getName();
+        log.debug("Taking current publication offline: {}.", currentPublicationName);
+
+        contentPage.openCms();
+        contentPage.openContentTab();
+        contentPage.unpublishDocument(currentPublicationName);
     }
 }

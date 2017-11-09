@@ -18,8 +18,20 @@ import java.util.Optional;
 
 import static java.text.MessageFormat.format;
 
-/**
+ /**
+ * <p>
  * Formats instances of {@linkplain RestrictableDate} for display.
+ * </p><p>
+ * Required template parameter: {@code value}. Can be {@code null} in which case a zero-length string will be generated.
+ * </p><p>
+ * Example usage in Freemarker template:
+ * </p>
+ * <pre>
+
+ *     <#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
+ *     ...
+ *     &lt;span&gt;Date: <@formatRestrictableDate value=document.nominalPublicationDate/>&lt;/span&gt;
+ * </pre>
  */
 public class RestrictableDateFormatterDirective implements TemplateDirectiveModel {
 
