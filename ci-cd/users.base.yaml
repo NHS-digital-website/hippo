@@ -1,0 +1,49 @@
+---
+
+/hippo:users:
+  jcr:primaryType: hipposys:userfolder
+  /admin:
+    jcr:primaryType: hipposys:user
+    hipposys:active: true
+    hipposys:password: $SHA-256$HIlytXwnqSU=$NqCi2sJoM4qAwQ8136GYueUVA/TSyidpAI3Evn+y/hc=
+    hipposys:securityprovider: internal
+  /workflowuser:
+    jcr:primaryType: hipposys:user
+    hipposys:active: true
+    hipposys:password: $SHA-256$*
+    hipposys:securityprovider: internal
+    hipposys:system: true
+  /author:
+    jcr:primaryType: hipposys:user
+    hipposys:active: true
+    hipposys:password: author
+    hipposys:securityprovider: internal
+  /configuser:
+    jcr:primaryType: hipposys:user
+    hipposys:active: true
+    hipposys:passkey: jvm://
+    hipposys:securityprovider: internal
+    hipposys:system: true
+  /editor:
+    jcr:primaryType: hipposys:user
+    hipposys:active: true
+    hipposys:password: editor
+    hipposys:securityprovider: internal
+  /liveuser:
+    jcr:primaryType: hipposys:user
+    hipposys:active: true
+    hipposys:passkey: jvm://
+    hipposys:securityprovider: internal
+    hipposys:system: true
+  /previewuser:
+    jcr:primaryType: hipposys:user
+    hipposys:active: true
+    hipposys:passkey: jvm://
+    hipposys:securityprovider: internal
+    hipposys:system: true
+  /sitewriter:
+    jcr:primaryType: hipposys:user
+    hipposys:active: true
+    hipposys:passkey: jvm://
+    hipposys:securityprovider: internal
+    hipposys:system: true

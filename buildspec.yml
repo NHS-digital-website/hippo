@@ -46,7 +46,7 @@ phases:
         ssh-add $HOME/.ssh/nhs-ci_rsa && cd ci-cd &&
         make version.bumpup"
       # Build
-      - cd ci-cd && make build
+      - cd ci-cd && make clean build
       # Upload tgz files to various destinations
       - ssh-agent bash -c "
         ssh-add $HOME/.ssh/nhs-ci_rsa &&

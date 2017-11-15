@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# curent folder
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+function main {
+    local users_file=$1
+
+    cat "${DIR}/../users.base.yaml"
+    while read -r line; do
+        ${DIR}/get-hippo-test-user-yaml "${line}"
+    done < "$users_file"
+}
+
+main "$@"

@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# curent folder
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+function main {
+    local users_file=$1
+    local authors="      - author"
+    local editors="      - editor"
+
+    while read -r line; do
+        id=$(echo "${line}" | sed -e 's/ /./' | tr '[:upper:]' '[:lower:]')
+        authors="${authors}
+      - ${id}.a"
+    done < "$users_file"
+
+    while read -r line; do
+        id=$(echo "${line}" | sed -e 's/ /./' | tr '[:upper:]' '[:lower:]')
+        editors="${editors}
+      - ${id}.e"
+    done < "$users_file"
+
+    cat "${DIR}/../groups.base.yaml"
+    echo "
+  /author:
+    jcr:primaryType: hipposys:group
+    hipposys:members:
+${authors}
+    hipposys:securityprovider: internal
+  /editor:
+    jcr:primaryType: hipposys:group
+    hipposys:members:
+${editors}
+    hipposys:securityprovider: internal
+"
+}
+
+main "$@"
