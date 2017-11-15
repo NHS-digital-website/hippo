@@ -1,0 +1,33 @@
+---
+
+/hippo:groups:
+  jcr:primaryType: hipposys:groupfolder
+  /admin:
+    jcr:primaryType: hipposys:group
+    hipposys:members: [admin, workflowuser]
+    hipposys:securityprovider: internal
+  /everybody:
+    jcr:primaryType: hipposys:group
+    hipposys:description: ''
+    hipposys:members: ['*']
+    hipposys:securityprovider: internal
+    hipposys:system: true
+  /webmaster:
+    jcr:primaryType: hipposys:group
+    hipposys:members: [editor]
+    hipposys:securityprovider: internal
+  /liveusers:
+    jcr:primaryType: hipposys:group
+    hipposys:members: [liveuser]
+    hipposys:securityprovider: internal
+    hipposys:system: true
+  /previewusers:
+    jcr:primaryType: hipposys:group
+    hipposys:members: [previewuser]
+    hipposys:securityprovider: internal
+    hipposys:system: true
+  /sitewriters:
+    jcr:primaryType: hipposys:group
+    hipposys:members: [sitewriter]
+    hipposys:securityprovider: internal
+    hipposys:system: true

@@ -71,7 +71,7 @@ public class SearchComponent extends CommonComponent {
     }
 
     protected String getQueryParameter(HstRequest request) {
-        return SearchInputParsingUtils.parse(getAnyParameter(request, REQUEST_PARAM_QUERY),false);
+        return SearchInputParsingUtils.parse(getAnyParameter(request, REQUEST_PARAM_QUERY), false);
     }
 
     protected int getCurrentPage(HstRequest request) {
@@ -97,17 +97,8 @@ public class SearchComponent extends CommonComponent {
             .build();
     }
 
-    private Node getSearchScope(HstRequest request) {
-        Node scope = null;
-        try {
-            scope = request.getRequestContext().getSession().getNode(getContentRootPath(request));
-        } catch (RepositoryException e) {
-            log.warn("Cannot find content node (search scope) at {}! Did someone moved corporate-website folder?",
-                getContentRootPath(request));
-            e.printStackTrace();
-        }
-
-        return scope;
+    private HippoBean getSearchScope(HstRequest request) {
+        return request.getRequestContext().getSiteContentBaseBean();
     }
 
     private String getContentRootPath(HstRequest request) {

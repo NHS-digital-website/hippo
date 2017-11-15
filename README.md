@@ -2,8 +2,9 @@
 
 [![Build Status][build-status]][travis-project-page]
 
-* To quickly setup this project run `make init`.
-* To run all tests `make test`
+* To setup this project run `make init`.
+* To start local server `make serve`.
+* To run all tests `make test`.
 * To get more help, simply run `make help`.
 
 

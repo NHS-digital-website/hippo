@@ -5,7 +5,7 @@ VERSION ?= $(shell git describe --tags)
 PS_BUILD_DIR ?= ../../ps-build
 RD_CONF = $(PWD)/rd.conf
 
-PATH := $(VENV)/bin:$(shell printenv PATH)
+PATH := $(VENV)/bin:$(PWD)/vendor:$(shell printenv PATH)
 SHELL := env PATH=$(PATH) /bin/bash
 
 .PHONY: .phony
@@ -79,13 +79,13 @@ ondemand.upload:
 	echo "put ../target/publication-system-$(VERSION)-on-demand-distribution.tar.gz /uploads/dists/$(VERSION).tar.gz" \
 		| sftp nhs@static.hosting.onehippo.com
 
-ondemand.deploy: bin/rd
-	source rd.conf && bin/rd run -p nhs -j "jobs/$(ENV)/Deploy" -- \
+ondemand.deploy: vendor/rd
+	source rd.conf && vendor/rd run -p nhs -j "jobs/$(ENV)/Deploy" -- \
 		-bootstrap full \
 		-distribution "$(VERSION).tar.gz"
 
-ondemand.restart: bin/rd
-	bin/rd run -p nhs -j "jobs/$(ENV)/Control" -- \
+ondemand.restart: vendor/rd
+	vendor/rd run -p nhs -j "jobs/$(ENV)/Control" -- \
 		-action restart
 
 deploy.vagrant: build
@@ -115,13 +115,13 @@ clean:
 	mvn --file ../pom.xml -Drevision=$(VERSION) clean
 
 # Install Rundec CLI
-bin/rd: bin
-	cd bin && curl -LO https://github.com/rundeck/rundeck-cli/releases/download/v1.0.22/rundeck-cli-1.0.22-all.jar
-	echo -e "#!/bin/bash \nDIR=\$$( cd \"\$$( dirname \"\$${BASH_SOURCE[0]}\" )\" && pwd ) \njava -jar \$${DIR}/rundeck-cli-1.0.22-all.jar \$$@" > bin/rd
-	chmod +x bin/rd
+vendor/rd: vendor
+	cd vendor && curl -LO https://github.com/rundeck/rundeck-cli/releases/download/v1.0.22/rundeck-cli-1.0.22-all.jar
+	echo -e "#!/bin/bash \nDIR=\$$( cd \"\$$( dirname \"\$${BASH_SOURCE[0]}\" )\" && pwd ) \njava -jar \$${DIR}/rundeck-cli-1.0.22-all.jar \$$@" > vendor/rd
+	chmod +x vendor/rd
 
-bin:
-	mkdir -p bin
+vendor:
+	mkdir -p vendor
 
 # get python virtualenv
 $(VENV):
