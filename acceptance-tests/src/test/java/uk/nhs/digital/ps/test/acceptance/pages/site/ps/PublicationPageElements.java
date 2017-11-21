@@ -64,11 +64,11 @@ public class PublicationPageElements implements PageElements {
         String SUMMARY = "Publication Summary";
         String GEOGRAPHIC_COVERAGE = "Publication Geographic Coverage";
         String GRANULARITY = "Publication Granularity";
-        String DATE_RANGE = "Date Range";
-        String TAXONOMY = "Taxonomy";
-        String INFORMATION_TYPES = "Information Types";
-        String KEY_FACTS = "Key Facts";
-        String RESOURCES = "Resources";
-        String ADMINISTRATIVE_SOURCES = "Administrative sources";
+        String DATE_RANGE = "Publication Date Range";
+        String TAXONOMY = "Publication Taxonomy";
+        String INFORMATION_TYPES = "Publication Information Types";
+        String KEY_FACTS = "Publication Key Facts";
+        String RESOURCES = "Publication Resources";
+        String ADMINISTRATIVE_SOURCES = "Publication Administrative Sources";
     }
 }

@@ -118,14 +118,12 @@
         </ul>
     </div>
 
-    <#if publication.administrativeSources?has_content >
-    <div data-uipath="ps.publication.administrative-sources">
-        <h4>Administrative sources:</h4>
-        <#if document.administrativeSources?has_content >
+    <#if publication.administrativeSources?has_content>
+    <div class="content-section">
+        <h4>Administrative Sources</h4>
+        <p data-uipath="ps.publication.administrative-sources">
         ${publication.administrativeSources?html}
-        <#else>
-            (No sources)
-        </#if>
+        </p>
     </div>
     </#if>
 </#macro>
