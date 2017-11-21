@@ -32,6 +32,9 @@ public class TestContentUrls {
         // series page
         add("valid publication series",
             "/publications/valid-publication-series");
+
+        add("publication with rich content",
+            "/publications/acceptance-tests/publication-rich");
     }
 
     private void add(String pageName, String url) {
