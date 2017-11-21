@@ -3,6 +3,7 @@ PWD = $(shell pwd)
 VENV ?= $(PWD)/.venv
 VERSION ?= $(shell git describe --tags)
 PS_BUILD_DIR ?= ../../ps-build
+RD_CONF = $(PWD)/rd.conf
 
 PATH := $(VENV)/bin:$(shell printenv PATH)
 SHELL := env PATH=$(PATH) /bin/bash
@@ -41,7 +42,8 @@ test: clean test.unit test.e2e
 
 ## Run unit tests
 test.unit: clean
-	mvn --file ../pom.xml -Drevision=$(VERSION) test
+	mvn --file ../pom.xml package -Drevision=$(VERSION) -DskipTests
+	mvn --file ../pom.xml test -Drevision=$(VERSION)
 
 ## Run BDD tests for "site" only.
 test.site: clean
@@ -60,6 +62,7 @@ test.e2e:
 build:
 	mvn --file ../pom.xml -Drevision=$(VERSION) verify
 	mvn --file ../pom.xml -Drevision=$(VERSION) -P separate-dist
+	mvn --file ../pom.xml -Drevision=$(VERSION) -P on-demand-dist
 
 ## Upload build artefact
 upload: $(VENV)
@@ -71,6 +74,20 @@ upload: $(VENV)
 		cp ../target/publication-system-$(VERSION)-site-distribution.tar.gz \
 		s3://artefacts.ps.digital.nhs.uk/hippo_delivery/$(VERSION)/publication-system.tgz
 
+## Upload distribution file to ondemand sftp server
+ondemand.upload:
+	echo "put ../target/publication-system-$(VERSION)-on-demand-distribution.tar.gz /uploads/dists/$(VERSION).tar.gz" \
+		| sftp nhs@static.hosting.onehippo.com
+
+ondemand.deploy: bin/rd
+	source rd.conf && bin/rd run -p nhs -j "jobs/$(ENV)/Deploy" -- \
+		-bootstrap full \
+		-distribution "$(VERSION).tar.gz"
+
+ondemand.restart: bin/rd
+	bin/rd run -p nhs -j "jobs/$(ENV)/Control" -- \
+		-action restart
+
 deploy.vagrant: build
 	cp ../target/publication-system-$(VERSION)-site-distribution.tar.gz $(PS_BUILD_DIR)/.artefacts/
 	cp ../target/publication-system-$(VERSION)-cms-distribution.tar.gz $(PS_BUILD_DIR)/.artefacts/
@@ -80,11 +97,15 @@ deploy.vagrant: build
 version.bumpup:
 	@git fetch --tags
 	@git tag $$((git describe --abbrev=0 --tags | grep $$(cat ../.version) || echo $$(cat ../.version).-1) | perl -pe 's/^(v(\d+\.)*)(-?\d+)(.*)$$/$$1.($$3+1).$$4/e')
-	$(MAKE) version.print
+	$(MAKE) version.pprint
 	@echo "Remember to push new tag to remote server."
 
 ## Prints current version
 version.print:
+	@echo "$(VERSION)"
+
+## Pretty prints current version
+version.pprint:
 	@echo "- - -"
 	@echo "Current version: $(VERSION)"
 	@echo "- - -"
@@ -92,6 +113,15 @@ version.print:
 ## Clean up
 clean:
 	mvn --file ../pom.xml -Drevision=$(VERSION) clean
+
+# Install Rundec CLI
+bin/rd: bin
+	cd bin && curl -LO https://github.com/rundeck/rundeck-cli/releases/download/v1.0.22/rundeck-cli-1.0.22-all.jar
+	echo -e "#!/bin/bash \nDIR=\$$( cd \"\$$( dirname \"\$${BASH_SOURCE[0]}\" )\" && pwd ) \njava -jar \$${DIR}/rundeck-cli-1.0.22-all.jar \$$@" > bin/rd
+	chmod +x bin/rd
+
+bin:
+	mkdir -p bin
 
 # get python virtualenv
 $(VENV):
