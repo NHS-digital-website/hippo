@@ -1,0 +1,32 @@
+---
+##
+# AWS Code Build spec for preparing ps-hippo package.
+#
+
+version: 0.1
+
+phases:
+  install:
+    commands:
+      - apt-get update
+      - apt-get install -qqy awscli git openssh-client
+      # SSH key
+      - aws s3 cp s3://config.dev.ps.nhsd.io/codebuild/ps_hippo_build/nhs-ci_rsa $HOME/.ssh/nhs-ci_rsa
+      - aws s3 cp s3://config.dev.ps.nhsd.io/codebuild/ps_hippo_build/nhs-ci_rsa.pub $HOME/.ssh/nhs-ci_rsa.pub
+      - chmod 600 $HOME/.ssh/nhs-ci_rsa
+
+      # Add github.com as known host
+      - touch $HOME/.ssh/known_hosts
+      - ssh-keygen -R github.com
+      - ssh-keyscan github.com >> $HOME/.ssh/known_hosts
+
+      # give me my ".git" folder back (and correct file permissions), please!
+      - ssh-agent bash -c
+        "ssh-add $HOME/.ssh/nhs-ci_rsa
+        && git clone git@github.com:NHS-digital-website/ps-hippo.git ../tmp-src"
+      - cd ../tmp-src && git checkout ${CODEBUILD_RESOLVED_SOURCE_VERSION:-$CODEBUILD_SOURCE_VERSION}
+      - ROOT_NAME=$(basename $(pwd)) && cd .. && cp -R tmp-src/. ${ROOT_NAME}
+
+artifacts:
+  files:
+    - "**/*"

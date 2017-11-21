@@ -1,0 +1,63 @@
+---
+##
+# AWS Code Build spec for building AMI
+# Make sure to specify "ROLE" environment variable in your project.
+#
+
+version: 0.1
+
+phases:
+  install:
+    commands:
+      - apt-get update
+      - apt-get install -qqy software-properties-common python-software-properties
+      - apt-get install -qqy build-essential git awscli curl
+
+      # Java 8 install
+      - echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
+      - add-apt-repository -y ppa:webupd8team/java
+      - apt-get update
+      - apt-get install -y oracle-java8-installer maven
+      # - rm -rf /var/lib/apt/lists/*
+      - rm -rf /var/cache/oracle-jdk8-installer
+
+      # SSH key
+      - aws s3 cp s3://config.dev.ps.nhsd.io/codebuild/ps_hippo_build/nhs-ci_rsa $HOME/.ssh/nhs-ci_rsa
+      - aws s3 cp s3://config.dev.ps.nhsd.io/codebuild/ps_hippo_build/nhs-ci_rsa.pub $HOME/.ssh/nhs-ci_rsa.pub
+      - chmod 600 $HOME/.ssh/nhs-ci_rsa
+
+      # Rundeck credentials
+      - aws s3 cp s3://config.dev.ps.nhsd.io/codebuild/ps_hippo_build/rd.password $HOME/rd.password
+
+      # Add static.hosting.onehippo.com and github.com as known host
+      - touch $HOME/.ssh/known_hosts
+      - ssh-keygen -R static.hosting.onehippo.com
+      - ssh-keyscan static.hosting.onehippo.com >> $HOME/.ssh/known_hosts
+      - ssh-keygen -R github.com
+      - ssh-keyscan github.com >> $HOME/.ssh/known_hosts
+
+  build:
+    commands:
+      # Test
+      - cd ci-cd && make test.unit
+      - cd ci-cd && make test.site
+      # Tag
+      - ssh-agent bash -c "
+        ssh-add $HOME/.ssh/nhs-ci_rsa && cd ci-cd &&
+        make version.bumpup"
+      # Build
+      - cd ci-cd && make build
+      # Upload tgz files to various destinations
+      - ssh-agent bash -c "
+        ssh-add $HOME/.ssh/nhs-ci_rsa &&
+        cd ci-cd && make ondemand.upload"
+      # Deploy to Test Environment
+      - . $HOME/rd.password && cd ci-cd && make ondemand.deploy ENV=test
+      # Push tag back to github
+      - ssh-agent bash -c "
+        ssh-add $HOME/.ssh/nhs-ci_rsa && cd ci-cd &&
+        git push --tags"
+
+artifacts:
+  files:
+    - "**/*"
