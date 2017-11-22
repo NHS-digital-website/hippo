@@ -1,6 +1,10 @@
 package uk.nhs.digital.ps.components;
 
+import org.hippoecm.hst.content.beans.query.HstQueryResult;
+import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
+import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.onehippo.taxonomy.api.Category;
 import org.onehippo.taxonomy.api.Taxonomy;
@@ -16,7 +20,6 @@ import org.onehippo.taxonomy.api.TaxonomyManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.ps.beans.Series;
-
 import javax.jcr.RepositoryException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -111,8 +114,21 @@ public class PublicationComponent extends BaseHstComponent {
         return seriesBean;
     }
 
-    private List<Dataset> getDatasets(Publication publication) {
-        return publication.getParentBean().getChildBeans(Dataset.class);
+    private HippoBeanIterator getDatasets(Publication publication) throws HstComponentException {
+        HstQueryResult hstQueryResult;
+        try {
+            hstQueryResult = HstQueryBuilder.create(publication.getParentBean())
+                .ofTypes(Dataset.class)
+                .orderByDescending("publicationsystem:NominalDate")
+                .build()
+                .execute();
+        } catch (QueryException e) {
+            log.error("Failed to find datasets for publication " + publication.getCanonicalPath(), e);
+            throw new HstComponentException(
+                "Failed to find datasets for publication " + publication.getCanonicalPath(), e);
+        }
+
+        return hstQueryResult.getHippoBeans();
     }
 
     private boolean isRootFolder(HippoBean folder, HstRequestContext ctx) {
