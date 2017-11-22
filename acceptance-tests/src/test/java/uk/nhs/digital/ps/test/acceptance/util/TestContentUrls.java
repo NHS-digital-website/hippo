@@ -25,7 +25,7 @@ public class TestContentUrls {
         add("publication with datasets",
             "/publications/acceptance-tests/publication-with-datasets");
         add("publication with datasets dataset",
-            "/publications/acceptance-tests/publication-with-datasets/publication-with-datasets-dataset");
+            "/publications/acceptance-tests/publication-with-datasets/datasets-subfolder/publication-with-datasets-dataset");
         add("series with publication with datasets",
             "/publications/acceptance-tests/series-with-publication-with-datasets");
 

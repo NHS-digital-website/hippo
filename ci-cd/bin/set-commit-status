@@ -1,0 +1,31 @@
+#!/bin/bash
+
+function main {
+    local status=${1-success}
+    local description=${2-$1}
+    local target_url="https://${AWS_REGION}.console.aws.amazon.com/codebuild/home?region=${AWS_REGION}#/builds/${CODEBUILD_BUILD_ID}/view/new"
+
+    set_status "${status}" "${target_url}" "${description}"
+}
+
+function set_status {
+    local state=${1}
+    local target_url=${2-target}
+    local description=${3-$state}
+    local context="${4-continuous-integration/codebuild}"
+
+    local git_hash=${CODEBUILD_RESOLVED_SOURCE_VERSION:-$CODEBUILD_SOURCE_VERSION}
+    local payload="{
+  \"state\": \"${state}\",
+  \"target_url\": \"${target_url}\",
+  \"description\": \"${description}\",
+  \"context\": \"${context}\"
+}"
+
+    curl "https://api.github.com/repos/NHS-digital-website/ps-hippo/statuses/${git_hash}?access_token=${GITHUB_TOKEN}" \
+        -H "Content-Type: application/json" \
+        -X POST \
+        -d "${payload}"
+}
+
+main "$@"

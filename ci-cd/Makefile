@@ -64,6 +64,9 @@ build:
 	mvn --file ../pom.xml -Drevision=$(VERSION) -P separate-dist
 	mvn --file ../pom.xml -Drevision=$(VERSION) -P on-demand-dist
 
+github.status.success:
+	bin/set-commit-status "success" "Version $(VERSION) passed unit and site tests."
+
 ## Upload build artefact
 upload: $(VENV)
 	@echo "Task: upload Hippo $(VERSION) build distribution to S3 bucket"
