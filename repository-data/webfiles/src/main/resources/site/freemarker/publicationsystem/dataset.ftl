@@ -51,7 +51,6 @@ This data set is part of <a class="label label--parent-document"
     <h3>Resources</h3>
     <#list dataset.files as attachment>
         <li class="attachment">
-            <i class="icon icon--xxx">[pdf]</i>
             <a title="${attachment.filename}" href="<@hst.link hippobean=attachment/>">${attachment.filename}</a>;
             <span class="fileSize">size: <@formatFileSize bytesCount=attachment.length/></span>
         </li>
