@@ -96,7 +96,6 @@
         <ul data-uipath="ps.publication.resources">
             <#list publication.attachments as attachment>
                 <li class="attachment">
-                    <i class="icon icon--xxx">[pdf]</i>
                     <a class="attachment-hyperlink" href="<@hst.link hippobean=attachment/>">${attachment.filename}</a>;
                     <span class="fileSize">size: <@formatFileSize bytesCount=attachment.length/></span>
                 </li>
@@ -104,7 +103,6 @@
 
             <#list publication.relatedLinks as link>
                 <li>
-                    <i class="icon icon--link">[link]</i>
                     <a href="${link.linkUrl}">${link.linkText}</a>
                 </li>
             </#list>
@@ -135,7 +133,7 @@
     This is part of
     <a class="label label--parent-document" href="<@hst.link hippobean=parentSeries.selfLinkBean/>"
         title="${parentSeries.title}">
-    ${parentSeries.title}l
+    ${parentSeries.title}
     </a>
     </#if>
 
