@@ -98,6 +98,11 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.onehippo.forge.content-exim</groupId>
+            <artifactId>content-exim-core</artifactId>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>cms</finalName>
