@@ -20,7 +20,7 @@
 
 
 <#macro restrictedContentOfUpcomingPublication>
-    <div class="content-section">
+    <div class="content-section content-section--highlight">
         <h2 class="doc-title" data-uipath="ps.publication.title">${publication.title?html}</h2>
         <dl class="doc-metadata">
 
@@ -34,8 +34,22 @@
 
 
 <#macro fullContentOfPubliclyAvailablePublication>
-    <div class="content-section">
+    <div class="content-section content-section--highlight">
+
+        <div data-uipath="ps.publication.information-types">
+            <#list publication.informationType as type><#if type?index != 0>, </#if>${type?html}</#list>
+        </div>
+
         <h2 class="doc-title" data-uipath="ps.publication.title">${publication.title?html}</h2>
+
+        <#if parentSeries??>
+        This is part of
+        <a class="label label--parent-document" href="<@hst.link hippobean=parentSeries.selfLinkBean/>"
+            title="${parentSeries.title}">
+        ${parentSeries.title}
+        </a>
+        </#if>
+
         <dl class="doc-metadata">
 
             <@nominalPublicationDate/>
@@ -78,10 +92,8 @@
                 </dd>
             </#if>
         </dl>
-
-        <div data-uipath="ps.publication.information-types" style="text-align: right; font-weight: 600; font-size: 1.4em;">
-            <#list publication.informationType as type><#if type?index != 0>, </#if>${type?html}</#list>
-        </div>
+    </div>
+    <div class="content-section">
 
         <p class="doc-summary" data-uipath="ps.publication.summary">${publication.summary?html}</p>
 
@@ -101,7 +113,7 @@
                 </li>
             </#list>
 
-            <#list publication.relatedLinks as link>
+            <#list publication.resourceLinks as link>
                 <li>
                     <a href="${link.linkUrl}">${link.linkText}</a>
                 </li>
@@ -109,11 +121,17 @@
 
             <#list datasets as dataset>
                 <li class="dataset">
-                    <i class="icon icon--dataset">[dataset]</i>
                     <a href="<@hst.link hippobean=dataset.selfLinkBean/>" title="${dataset.title}">${dataset.title}</a>
                 </li>
             </#list>
         </ul>
+
+        <h3>Related Links</h3>
+        <ul data-uipath="ps.publication.related-links"><#list publication.relatedLinks as link>
+            <li>
+                <a href="${link.linkUrl}">${link.linkText}</a>
+            </li>
+        </#list></ul>
     </div>
 
     <#if publication.administrativeSources?has_content>
@@ -129,14 +147,6 @@
 
 <#-- ACTUAL TEMPLATE -->
 <#if publication?? >
-    <#if parentSeries??>
-    This is part of
-    <a class="label label--parent-document" href="<@hst.link hippobean=parentSeries.selfLinkBean/>"
-        title="${parentSeries.title}">
-    ${parentSeries.title}
-    </a>
-    </#if>
-
     <#if publication.publiclyAccessible>
         <@fullContentOfPubliclyAvailablePublication/>
     <#else>

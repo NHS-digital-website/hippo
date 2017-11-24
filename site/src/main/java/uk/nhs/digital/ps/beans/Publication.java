@@ -133,6 +133,10 @@ public class Publication extends BaseDocument {
         return getChildBeansIfPermitted(PropertyKeys.RELATED_LINKS, Relatedlink.class);
     }
 
+    public List<Relatedlink> getResourceLinks() {
+        return getChildBeansIfPermitted(PropertyKeys.RESOURCE_LINKS, Relatedlink.class);
+    }
+
     @HippoEssentialsGenerated(internalName = PropertyKeys.ATTACHMENTS)
     public List<HippoResourceBean> getAttachments() {
         return getChildBeansIfPermitted(PropertyKeys.ATTACHMENTS, HippoResourceBean.class);
@@ -201,6 +205,7 @@ public class Publication extends BaseDocument {
         String TITLE = "publicationsystem:Title";
         String PUBLICLY_ACCESSIBLE = "publicationsystem:PubliclyAccessible";
         String RELATED_LINKS = "publicationsystem:RelatedLinks";
+        String RESOURCE_LINKS = "publicationsystem:ResourceLinks";
         String ATTACHMENTS = "publicationsystem:attachments";
 
         String PARENT_BEAN = "PARENT_BEAN";

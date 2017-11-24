@@ -5,6 +5,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.hamcrest.Matcher;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.notNullValue;
+import static java.util.stream.Collectors.toList;
+import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.Matchers.startsWith;
 import static org.junit.Assert.assertThat;
 import static org.slf4j.LoggerFactory.getLogger;
@@ -86,6 +87,22 @@ public class SiteSteps extends AbstractSpringSteps {
         }
     }
 
+    @Then("^I should(?: also)? see \"([^\"]+)\" with:")
+    public void iShouldSeeItemsOf(String pageElementName, final DataTable elementItems) throws Throwable  {
+        WebElement pageElement = sitePage.findPageElement(pageElementName);
+
+        assertThat("I should find page element: " + pageElementName,
+            pageElement, is(notNullValue()));
+
+        for (List<String> elementItem : elementItems.raw()) {
+            String expectedItemText = elementItem.get(0);
+
+            assertThat("Page element " + pageElementName + " contain item with text: " + expectedItemText,
+                getElementTextList(pageElement),
+                hasItem(getMatcherForText(expectedItemText)));
+        }
+    }
+
     @Then("I can download(?: following files)?:")
     public void iCanDownload(final DataTable downloadTitles) throws Throwable {
         for (String downloadLink : downloadTitles.asList(String.class)) {
@@ -146,5 +163,11 @@ public class SiteSteps extends AbstractSpringSteps {
         }
 
         return element.getText();
+    }
+
+    private List<String> getElementTextList(WebElement element) {
+        return element.findElements(By.tagName("li")).stream()
+            .map(WebElement::getText)
+            .collect(toList());
     }
 }

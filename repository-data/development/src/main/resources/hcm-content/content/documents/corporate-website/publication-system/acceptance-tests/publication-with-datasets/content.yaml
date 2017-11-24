@@ -26,6 +26,7 @@
       neque a nibh. In porta suscipit mauris. Suspendisse sit amet vestibulum
       neque, at aliquet nibh. Aenean sed ante quam.
     publicationsystem:NominalDate: 2017-10-10T01:00:00+01:00
+    publicationsystem:PubliclyAccessible: true
     publicationsystem:Summary: Lorem ipsum dolor sit amet, consectetur adipiscing
       elit. Duis convallis non massa vel dictum. In vel ex sapien. Donec sit amet
       leo lobortis, tempor ex ut, luctus eros. In in eleifend orci, nec suscipit
@@ -34,7 +35,26 @@
       euismod erat elit, quis facilisis neque eleifend id. Maecenas convallis
       vel mi nec bibendum. Donec ut erat dictum, molestie dolor non, aliquet nibh.
     publicationsystem:Title: publication with datasets
-    publicationsystem:PubliclyAccessible: true
+    /publicationsystem:RelatedLinks:
+      jcr:primaryType: publicationsystem:relatedlink
+      publicationsystem:linkText: Test google.com link
+      publicationsystem:linkUrl: http://google.com
+    /publicationsystem:attachments:
+      jcr:primaryType: hippo:resource
+      hippo:filename: attachment.pdf
+      hippo:text:
+        type: binary
+        resource: attachment.pdf
+      jcr:data:
+        type: binary
+        resource: attachment.pdf
+      jcr:encoding: UTF-8
+      jcr:lastModified: 2017-11-09T21:42:39.618Z
+      jcr:mimeType: application/pdf
+    /publicationsystem:ResourceLinks:
+      jcr:primaryType: publicationsystem:relatedlink
+      publicationsystem:linkText: Related resource link
+      publicationsystem:linkUrl: http://google.com
   /content[2]:
     jcr:primaryType: publicationsystem:publication
     jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -58,6 +78,7 @@
       neque a nibh. In porta suscipit mauris. Suspendisse sit amet vestibulum
       neque, at aliquet nibh. Aenean sed ante quam.
     publicationsystem:NominalDate: 2017-10-10T01:00:00+01:00
+    publicationsystem:PubliclyAccessible: true
     publicationsystem:Summary: Lorem ipsum dolor sit amet, consectetur adipiscing
       elit. Duis convallis non massa vel dictum. In vel ex sapien. Donec sit amet
       leo lobortis, tempor ex ut, luctus eros. In in eleifend orci, nec suscipit
@@ -66,7 +87,26 @@
       euismod erat elit, quis facilisis neque eleifend id. Maecenas convallis
       vel mi nec bibendum. Donec ut erat dictum, molestie dolor non, aliquet nibh.
     publicationsystem:Title: publication with datasets
-    publicationsystem:PubliclyAccessible: true
+    /publicationsystem:RelatedLinks:
+      jcr:primaryType: publicationsystem:relatedlink
+      publicationsystem:linkText: Test google.com link
+      publicationsystem:linkUrl: http://google.com
+    /publicationsystem:attachments:
+      jcr:primaryType: hippo:resource
+      hippo:filename: attachment.pdf
+      hippo:text:
+        type: binary
+        resource: attachment.pdf
+      jcr:data:
+        type: binary
+        resource: attachment.pdf
+      jcr:encoding: UTF-8
+      jcr:lastModified: 2017-11-09T21:42:39.618Z
+      jcr:mimeType: application/pdf
+    /publicationsystem:ResourceLinks:
+      jcr:primaryType: publicationsystem:relatedlink
+      publicationsystem:linkText: Related resource link
+      publicationsystem:linkUrl: http://google.com
   /content[3]:
     jcr:primaryType: publicationsystem:publication
     jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -91,6 +131,7 @@
       neque a nibh. In porta suscipit mauris. Suspendisse sit amet vestibulum
       neque, at aliquet nibh. Aenean sed ante quam.
     publicationsystem:NominalDate: 2017-10-10T01:00:00+01:00
+    publicationsystem:PubliclyAccessible: true
     publicationsystem:Summary: Lorem ipsum dolor sit amet, consectetur adipiscing
       elit. Duis convallis non massa vel dictum. In vel ex sapien. Donec sit amet
       leo lobortis, tempor ex ut, luctus eros. In in eleifend orci, nec suscipit
@@ -99,4 +140,23 @@
       euismod erat elit, quis facilisis neque eleifend id. Maecenas convallis
       vel mi nec bibendum. Donec ut erat dictum, molestie dolor non, aliquet nibh.
     publicationsystem:Title: publication with datasets
-    publicationsystem:PubliclyAccessible: true
+    /publicationsystem:RelatedLinks:
+      jcr:primaryType: publicationsystem:relatedlink
+      publicationsystem:linkText: Test google.com link
+      publicationsystem:linkUrl: http://google.com
+    /publicationsystem:attachments:
+      jcr:primaryType: hippo:resource
+      hippo:filename: attachment.pdf
+      hippo:text:
+        type: binary
+        resource: attachment.pdf
+      jcr:data:
+        type: binary
+        resource: attachment.pdf
+      jcr:encoding: UTF-8
+      jcr:lastModified: 2017-11-09T21:42:39.618Z
+      jcr:mimeType: application/pdf
+    /publicationsystem:ResourceLinks:
+      jcr:primaryType: publicationsystem:relatedlink
+      publicationsystem:linkText: Related resource link
+      publicationsystem:linkUrl: http://google.com

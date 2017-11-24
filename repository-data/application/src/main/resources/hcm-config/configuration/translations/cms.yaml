@@ -9,3 +9,4 @@ definitions:
         without a value. Please remove the placeholder or select a value.'
       publicationsystem-blank-related-link: There is a related link field with no
         URL provided. Please remove it or enter a URL.
+      valid-url: Link URL must start with http:// or https://

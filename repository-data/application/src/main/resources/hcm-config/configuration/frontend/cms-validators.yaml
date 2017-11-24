@@ -22,3 +22,8 @@ definitions:
     /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-blank-related-link:
       jcr:primaryType: frontend:plugin
       plugin.class: uk.nhs.digital.ps.BlankRelatedLinkFieldValidator
+
+    /hippo:configuration/hippo:frontend/cms/cms-validators/valid-url:
+      jcr:primaryType: frontend:plugin
+      plugin.class: org.hippoecm.frontend.editor.validator.plugins.RegExCmsValidator
+      regex_pattern: ^https?://.*

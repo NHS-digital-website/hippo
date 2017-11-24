@@ -35,6 +35,8 @@ public class PublicationPageElements implements PageElements {
             By.xpath("//*[" + getDataUiPathXpath("key-facts") + "]"));
         put(RESOURCES,
             By.xpath("//*[" + getDataUiPathXpath("resources") + "]"));
+        put(RELATED_LINKS,
+            By.xpath("//*[" + getDataUiPathXpath("related-links") + "]"));
         put(ADMINISTRATIVE_SOURCES,
             By.xpath("//*[" + getDataUiPathXpath("administrative-sources") + "]"));
     }};
@@ -69,6 +71,7 @@ public class PublicationPageElements implements PageElements {
         String INFORMATION_TYPES = "Publication Information Types";
         String KEY_FACTS = "Publication Key Facts";
         String RESOURCES = "Publication Resources";
+        String RELATED_LINKS = "Publication Related Links";
         String ADMINISTRATIVE_SOURCES = "Publication Administrative Sources";
     }
 }
