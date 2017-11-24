@@ -4,7 +4,8 @@ BRANCH_NAME=$(git symbolic-ref --short HEAD)
 COMMIT_TOPIC=$(head -n1 $1)
 
 if [[ -n "$BRANCH_NAME" ]] && [[ "$BRANCH_NAME" =~ ^[A-Z]{1,6}-[0-9]{1,6} ]]; then
+        JIRA_TICKET=$(echo "${BRANCH_NAME}" | sed -E "s/([A-Z]*-[0-9]*).*/\1/")
         if [[ ! $COMMIT_TOPIC =~ \[[A-Z]+-[0-9]+ ]]; then
-                sed -i -e "1s/^/[$BRANCH_NAME] /" $1
+                sed -i -e "1s/^/[$JIRA_TICKET] /" $1
         fi;
 fi

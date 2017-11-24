@@ -47,6 +47,8 @@ phases:
         make version.bumpup"
       # Build
       - cd ci-cd && make clean build
+      # Set git commit status
+      - cd ci-cd && make github.status.success
       # Upload tgz files to various destinations
       - ssh-agent bash -c "
         ssh-add $HOME/.ssh/nhs-ci_rsa &&

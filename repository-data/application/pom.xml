@@ -16,6 +16,16 @@
     <description>NHS Digital Publication System Repository Data For Application</description>
     <artifactId>publication-system-repository-data-application</artifactId>
 
+    <dependencies>
+
+        <!-- Allows IDE to find classes referenced from Hippo Updater Groovy scripts. -->
+        <dependency>
+            <groupId>org.onehippo.forge.content-exim</groupId>
+            <artifactId>content-exim-core</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
     <build>
         <defaultGoal>install</defaultGoal>
         <plugins>
