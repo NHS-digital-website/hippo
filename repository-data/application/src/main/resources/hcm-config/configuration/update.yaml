@@ -1,0 +1,9 @@
+---
+
+definitions:
+  config:
+    /hippo:configuration/hippo:update:
+      jcr:primaryType: hipposys:update
+      jcr:mixinTypes: ['hippo:lockable']
+      /hippo:registry:
+        jcr:primaryType: hipposys:updaterfolder
