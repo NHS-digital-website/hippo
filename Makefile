@@ -17,8 +17,16 @@ serve:
 	mvn clean verify
 	mvn -P cargo.run,without-autoexport
 
+## Run all tests
 test:
 	$(MAKE) -C ci-cd/ $@
+
+## Run acceptance tests against already running server (`make serve`)
+test.site-running:
+	mvn verify -f acceptance-tests/pom.xml \
+		-Pacceptance-test \
+		-Dcucumber.options="src/test/resources/features/site"
+
 test.%:
 	$(MAKE) -C ci-cd/ $@
 

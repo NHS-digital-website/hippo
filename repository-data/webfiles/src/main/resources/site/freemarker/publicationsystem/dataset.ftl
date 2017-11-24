@@ -4,13 +4,13 @@
 
 <#if dataset??>
 
-This data set is part of <a class="label label--parent-document"
-    href="<@hst.link hippobean=parentPublication.selfLinkBean/>"
-    title="${parentPublication.title}"
->${parentPublication.title}</a>
-
-<div class="content-section">
+<div class="content-section content-section--highlight">
     <h2 class="doc-title" data-uipath="ps.dataset.title">${dataset.title}</h2>
+
+    This dataset is part of <a class="label label--parent-document"
+        href="<@hst.link hippobean=parentPublication.selfLinkBean/>"
+        title="${parentPublication.title}"
+    >${parentPublication.title}</a>
 
     <dl class="doc-metadata">
         <dt>Date Range</dt>
@@ -43,6 +43,9 @@ This data set is part of <a class="label label--parent-document"
         </#if>
     </dl>
 
+</div>
+
+<div class="content-section">
     <p class="doc-summary" data-uipath="ps.dataset.summary">${dataset.summary}</p>
     <p class="doc-summary" data-uipath="ps.dataset.purpose">${dataset.purpose}</p>
 </div>

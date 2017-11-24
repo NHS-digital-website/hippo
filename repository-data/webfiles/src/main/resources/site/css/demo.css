@@ -4,6 +4,17 @@ body {
     letter-spacing: .025em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+
+.doc-title {
+    font-size: 2.2em;
+    font-weight: 400;
+    margin: 12px 0 12px 0;
 }
 
 
@@ -211,6 +222,30 @@ h3 {
 
 .content-section:last-child {
     border-bottom-width: 0;
+}
+
+.content-section--highlight {
+    background-color: #005EB8;
+    color: #FFF;
+    border-bottom-width: 0;
+    position: relative;
+    z-index: 0;
+    padding: 24px 0;
+}
+
+.content-section--highlight:before {
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 100vw;
+    background: #005EB8;
+    left: calc(-50vw + 600px);
+    z-index: -1;
+    top: 0
+}
+
+.content-section--highlight a {
+    color: #FFF;
 }
 
 

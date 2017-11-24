@@ -126,6 +126,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: selection:BooleanRadioGroup
             hipposysedit:validators: [required]
+          /ResourceLinks:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:ResourceLinks
+            hipposysedit:primary: false
+            hipposysedit:type: publicationsystem:relatedlink
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -305,10 +313,20 @@ definitions:
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /ResourceLinks:
+            jcr:primaryType: frontend:plugin
+            caption: Resource Links
+            field: ResourceLinks
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /RelatedLinks:
             jcr:primaryType: frontend:plugin
             caption: Related Links
             field: related_links
+            hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.css: [related-links]
             wicket.id: ${cluster.id}.left.item

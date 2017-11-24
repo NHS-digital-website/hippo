@@ -30,6 +30,7 @@ definitions:
             hipposysedit:path: publicationsystem:linkUrl
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators: [non-empty, required, valid-url]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
