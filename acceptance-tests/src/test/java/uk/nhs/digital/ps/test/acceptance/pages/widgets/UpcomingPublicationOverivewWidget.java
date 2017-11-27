@@ -13,10 +13,10 @@ import static java.text.MessageFormat.format;
 
 public class UpcomingPublicationOverivewWidget {
 
-    private WebElement webDriver;
+    private WebElement rootElement;
 
     public UpcomingPublicationOverivewWidget(final WebElement rootElement) {
-        this.webDriver = rootElement;
+        this.rootElement = rootElement;
     }
 
     public String getTitle() {
@@ -78,8 +78,8 @@ public class UpcomingPublicationOverivewWidget {
     }
 
     private WebElement findElement(final String uiPathFieldSuffix) {
-        return webDriver.findElement(
-            By.xpath("//*[@data-uipath='ps.overview.upcoming-publications.publication." + uiPathFieldSuffix + "']")
+        return rootElement.findElement(
+            By.xpath(".//*[@data-uipath='ps.overview.upcoming-publications.publication." + uiPathFieldSuffix + "']")
         );
     }
 }

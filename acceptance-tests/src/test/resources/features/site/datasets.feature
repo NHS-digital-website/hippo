@@ -40,3 +40,7 @@ Scenario: Click back to publication from data set
     Given I navigate to "publication with datasets Dataset" data set page
     When I click on "publication with datasets" link
     Then I should see publication page titled "publication with datasets"
+
+Scenario: Hide dataset if publication is 'upcoming'
+    Given I navigate to the "upcoming publication dataset" dataset page
+    Then I should see error page titled "Page not found"

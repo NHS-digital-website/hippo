@@ -35,6 +35,10 @@ public class TestContentUrls {
 
         add("publication with rich content",
             "/publications/acceptance-tests/publication-rich");
+
+        // unpublished dataset
+        add("upcoming publication dataset",
+            "/publications/acceptance-tests/upcoming-publication/upcoming-dataset");
     }
 
     private void add(String pageName, String url) {

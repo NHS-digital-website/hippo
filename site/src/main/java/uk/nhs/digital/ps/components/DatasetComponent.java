@@ -11,6 +11,8 @@ import org.slf4j.LoggerFactory;
 import uk.nhs.digital.ps.beans.Dataset;
 import uk.nhs.digital.ps.beans.Publication;
 
+import java.io.IOException;
+
 public class DatasetComponent extends BaseHstComponent {
 
     private static final Logger log = LoggerFactory.getLogger(PublicationComponent.class);
@@ -21,6 +23,16 @@ public class DatasetComponent extends BaseHstComponent {
         final HstRequestContext ctx = request.getRequestContext();
         Dataset dataset = (Dataset) ctx.getContentBean();
         Publication publication = getParentPublication(ctx, dataset);
+
+        if (!publication.isPubliclyAccessible()) {
+            try {
+                response.forward("/error/404");
+            } catch (IOException e) {
+                throw new HstComponentException("forward failed", e);
+            }
+
+            return;
+        }
 
         request.setAttribute("dataset", dataset);
         request.setAttribute("parentPublication", publication);

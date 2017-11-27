@@ -167,14 +167,21 @@ public class ExpectedTestDataProvider {
      * @return New instance of a published publication flagged as 'upcoming', corresponding to YAML definition
      * {@code /content/documents/corporate-website/publication-system/published-upcoming-publication.yaml}.
      */
-    public static PublicationBuilder getPublishedUpcomingPublication() {
-        return newPublication()
-            .withName("published-upcoming-publication")
-            .withTitle("Published Upcoming Publication")
-            .withInformationType(InformationType.OFFICIAL_STATISTICS)
-            .withNominalDate(asInstant("2017-06-01T09:30:00.000+01:00"))
-            .inState(PUBLISHED)
-            .withPubliclyAccessible(false);
+    public static PublicationBuilder.Collection getPublishedUpcomingPublications() {
+        return collectionOf(newPublication()
+                .withName("published-upcoming-publication")
+                .withTitle("Published Upcoming Publication")
+                .withInformationType(InformationType.OFFICIAL_STATISTICS)
+                .withNominalDate(asInstant("2017-06-01T09:30:00.000+01:00"))
+                .inState(PUBLISHED)
+                .withPubliclyAccessible(false),
+            newPublication()
+                .withName("upcoming-publication")
+                .withTitle("Upcoming Publication")
+                .withInformationType(InformationType.EXPERIMENTAL_STATISTICS)
+                .withNominalDate(asInstant("2017-10-10T01:00:00.000+01:00"))
+                .inState(PUBLISHED)
+                .withPubliclyAccessible(false));
     }
 
     private static Instant asInstant(final String timestamp) {
