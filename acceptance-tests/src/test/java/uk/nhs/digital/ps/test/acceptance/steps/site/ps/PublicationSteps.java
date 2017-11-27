@@ -28,8 +28,7 @@ import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.ps.test.acceptance.data.TestDataRepo.PublicationClassifier.LIVE;
 import static uk.nhs.digital.ps.test.acceptance.data.TestDataRepo.PublicationClassifier.UPCOMING;
 import static uk.nhs.digital.ps.test.acceptance.pages.widgets.LivePublicationOverviewWidget.matchesLivePublication;
-import static uk.nhs.digital.ps.test.acceptance.pages.widgets.UpcomingPublicationOverivewWidget
-    .matchesUpcomingPublication;
+import static uk.nhs.digital.ps.test.acceptance.pages.widgets.UpcomingPublicationOverivewWidget.matchesUpcomingPublication;
 import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.readFileAsByteArray;
 import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.waitUntilFileAppears;
 
@@ -51,7 +50,7 @@ public class PublicationSteps extends AbstractSpringSteps {
 
     @Given("^Published and upcoming publications are available in the system$")
     public void publishedAndUpcomingPublicationsAreAvailableInTheSystem() throws Throwable {
-        testDataRepo.addPublications(UPCOMING, ExpectedTestDataProvider.getPublishedUpcomingPublication().build());
+        testDataRepo.addPublications(UPCOMING, ExpectedTestDataProvider.getPublishedUpcomingPublications().build());
         testDataRepo.addPublications(LIVE, ExpectedTestDataProvider.getRecentPublishedLivePublications().build());
     }
 

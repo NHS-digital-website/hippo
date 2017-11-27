@@ -218,7 +218,7 @@ public class PublicationSteps extends AbstractSpringSteps {
     // Scenario: Details are hidden from the end users in a published upcoming publication ==============================
     @Given("^I have a published publication flagged as upcoming$")
     public void iHaveAReleasedPublicationFlaggedAsUpcoming() throws Throwable {
-        final Publication publication = ExpectedTestDataProvider.getPublishedUpcomingPublication().build();
+        final Publication publication = ExpectedTestDataProvider.getPublishedUpcomingPublications().build().get(0);
         testDataRepo.setPublication(publication);
     }
 
