@@ -22,7 +22,7 @@ public class DatasetComponent extends BaseHstComponent {
         super.doBeforeRender(request, response);
         final HstRequestContext ctx = request.getRequestContext();
         Dataset dataset = (Dataset) ctx.getContentBean();
-        Publication publication = getParentPublication(ctx, dataset);
+        Publication publication = dataset.getParentPublication(ctx);
 
         if (!publication.isPubliclyAccessible()) {
             try {
@@ -40,26 +40,5 @@ public class DatasetComponent extends BaseHstComponent {
         if (publication == null) {
             log.warn("Cannot find parent publication for Dataset document {}", dataset.getPath());
         }
-    }
-
-    private Publication getParentPublication(HstRequestContext ctx, Dataset dataset) {
-        Publication publicationBean = null;
-
-        HippoFolder folder = (HippoFolder) dataset.getParentBean();
-        while (!isRootFolder(folder, ctx)) {
-            publicationBean = Publication.getPublicationInFolder(folder);
-
-            if (publicationBean != null) {
-                break;
-            } else {
-                folder = (HippoFolder) folder.getParentBean();
-            }
-        }
-
-        return publicationBean;
-    }
-
-    private boolean isRootFolder(HippoFolder folder, HstRequestContext ctx) {
-        return folder.isSelf(ctx.getSiteContentBaseBean());
     }
 }
