@@ -65,7 +65,7 @@ build:
 	mvn --file ../pom.xml -Drevision=$(VERSION) -P on-demand-dist
 
 github.status.success:
-	bin/set-commit-status "success" "Version $(VERSION) passed unit and site tests."
+	bash bin/set-commit-status "success" "Version $(VERSION) passed unit and site tests."
 
 ## Upload build artefact
 upload: $(VENV)

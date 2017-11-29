@@ -45,6 +45,7 @@ definitions:
               jcr:primaryType: hst:mount
               hst:homepage: root
               hst:mountpoint: /hst:hst/hst:sites/common
+              hst:alias: common-context
               /publications:
                 .meta:residual-child-node-category: content
                 jcr:primaryType: hst:mount
@@ -80,6 +81,7 @@ definitions:
                       jcr:primaryType: hst:mount
                       hst:homepage: root
                       hst:mountpoint: /hst:hst/hst:sites/common
+                      hst:alias: common-context
                       /publications:
                         .meta:residual-child-node-category: content
                         jcr:primaryType: hst:mount
@@ -113,6 +115,7 @@ definitions:
                     hst:showcontextpath: false
                     hst:homepage: root
                     hst:mountpoint: /hst:hst/hst:sites/common
+                    hst:alias: common-context
                     /publications:
                       .meta:residual-child-node-category: content
                       jcr:primaryType: hst:mount
