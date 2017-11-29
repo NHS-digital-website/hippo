@@ -17,6 +17,14 @@ public class ImportableItemsFactory {
         );
     }
 
+    public static Publication toPublication(final Catalog catalog, final Folder parentFolder) {
+
+        return new Publication(
+            parentFolder, "content",
+            catalog.getLabel()
+        );
+    }
+
     public static Folder toFolder(final Catalog catalog, final Folder parentFolder) {
 
         return new Folder(

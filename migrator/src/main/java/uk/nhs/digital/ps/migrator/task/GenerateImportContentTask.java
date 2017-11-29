@@ -8,6 +8,7 @@ import uk.nhs.digital.ps.migrator.model.hippo.Folder;
 import uk.nhs.digital.ps.migrator.model.hippo.HippoImportableItem;
 import uk.nhs.digital.ps.migrator.model.hippo.Series;
 import uk.nhs.digital.ps.migrator.model.hippo.Publication;
+import uk.nhs.digital.ps.migrator.task.importables.SocialCareImportables;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
@@ -100,7 +101,7 @@ public class GenerateImportContentTask implements Task {
             createCcgImportables(catalogStructure, rootClinicalIndicatorsFolder)
         );
         importableItems.addAll(
-            createSocialCareImportables(catalogStructure, rootClinicalIndicatorsFolder)
+            SocialCareImportables.create(catalogStructure, rootClinicalIndicatorsFolder)
         );
         importableItems.addAll(
             createNhsOutcomesFrameworkImportables(catalogStructure, rootClinicalIndicatorsFolder)
@@ -177,11 +178,6 @@ public class GenerateImportContentTask implements Task {
 
     private Collection<HippoImportableItem> createNhsOutcomesFrameworkImportables(final CatalogStructure catalogStructure,
                                                                                   final Folder ciRootFolder) {
-        return emptyList(); // rktodo
-    }
-
-    private List<HippoImportableItem> createSocialCareImportables(final CatalogStructure catalogStructure,
-                                                                  final Folder ciRootFolder) {
         return emptyList(); // rktodo
     }
 
