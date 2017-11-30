@@ -81,7 +81,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: publicationsystem:Files
             hipposysedit:primary: false
-            hipposysedit:type: hippo:resource
+            hipposysedit:type: publicationsystem:resource
           /CoverageStart:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false

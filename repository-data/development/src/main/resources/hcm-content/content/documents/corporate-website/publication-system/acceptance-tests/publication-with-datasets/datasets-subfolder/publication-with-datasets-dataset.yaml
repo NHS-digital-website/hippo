@@ -30,7 +30,7 @@
     publicationsystem:Title: publication-with-datasets Dataset
     publicationsystem:PubliclyAccessible: true
     /publicationsystem:Files:
-      jcr:primaryType: hippo:resource
+      jcr:primaryType: publicationsystem:resource
       hippo:filename: attachment.pdf
       hippo:text:
         type: binary
@@ -67,7 +67,7 @@
     publicationsystem:Title: publication-with-datasets Dataset
     publicationsystem:PubliclyAccessible: true
     /publicationsystem:Files:
-      jcr:primaryType: hippo:resource
+      jcr:primaryType: publicationsystem:resource
       hippo:filename: attachment.pdf
       hippo:text:
         type: binary
@@ -105,7 +105,7 @@
     publicationsystem:Title: publication-with-datasets Dataset
     publicationsystem:PubliclyAccessible: true
     /publicationsystem:Files:
-      jcr:primaryType: hippo:resource
+      jcr:primaryType: publicationsystem:resource
       hippo:filename: attachment.pdf
       hippo:text:
         type: binary
