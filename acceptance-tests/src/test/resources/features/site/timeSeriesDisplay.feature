@@ -17,3 +17,9 @@ Feature: Display of publications forming a series
         When I click on link "Time Series Lorem Ipsum Dolor"
         Then I should see series page titled "Time Series Lorem Ipsum Dolor"
 
+    Scenario: Display multiparagraph summary
+        Given I navigate to "series with publication with datasets" series page
+        Then I should also see multiple "Series Summary" with:
+            | Integer suscipit pulvinar lacus non porta. Aenean ut tempus ex. Proin ... |
+            | Pellentesque rutrum neque at felis cursus, scelerisque faucibus lacus ... |
+            | Fusce sapien quam, dictum eget commodo vel, finibus condimentum ...       |

@@ -206,20 +206,27 @@ definitions:
             hipposysedit:type: Text
             jcr:primaryType: hipposysedit:field
           /Summary:
-            hipposysedit:mandatory: false
+            hipposysedit:mandatory: true
             hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: publicationsystem:Summary
             hipposysedit:primary: false
             hipposysedit:type: Text
+            hipposysedit:validators:
+            - non-empty
+            - required
             jcr:primaryType: hipposysedit:field
           /Title:
-            hipposysedit:mandatory: false
+            hipposysedit:mandatory: true
             hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: publicationsystem:Title
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators:
+            - non-empty
+            - required
+            - publicationsystem-title
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:

@@ -18,7 +18,7 @@
                                title="${publication.title}"
                             >${publication.title}</a>
                             <@formatRestrictableDate value=publication.nominalPublicationDate/>
-                            <p class="doc-summary">${publication.summary}</p>
+                            <p class="doc-summary"><@truncate text=publication.summary.firstParagraph size="300"/></p>
                         </li>
                     </#list>
                 </ul>

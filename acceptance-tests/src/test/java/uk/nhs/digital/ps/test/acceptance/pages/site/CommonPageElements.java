@@ -23,6 +23,11 @@ public class CommonPageElements implements PageElements {
 
     @Override
     public WebElement getElementByName(String elementName, WebDriver webDriver) {
-        return webDriver.findElement(pageElements.get(elementName));
+        return getElementByName(elementName, 0, webDriver);
+    }
+
+    @Override
+    public WebElement getElementByName(String elementName, int nth, WebDriver webDriver) {
+        return webDriver.findElements(pageElements.get(elementName)).get(nth);
     }
 }

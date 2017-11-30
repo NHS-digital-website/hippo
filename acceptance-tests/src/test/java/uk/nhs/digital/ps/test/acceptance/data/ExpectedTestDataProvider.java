@@ -107,7 +107,7 @@ public class ExpectedTestDataProvider {
                     "Integer odio ante, congue pulvinar ultrices nec, mollis vitae dolor. Curabitur euismod erat " +
                     "elit, quis facilisis neque eleifend id. Maecenas convallis vel mi nec bibendum. Donec ut erat " +
                     "dictum, molestie dolor non, aliquet nibh.")
-                .withNominalDate(asInstant("2017-10-10T00:00:00Z"))
+                .withNominalDate(asInstant("2017-10-11T00:00:00Z"))
                 .inState(PUBLISHED)
                 .withPubliclyAccessible(true),
             newPublication()

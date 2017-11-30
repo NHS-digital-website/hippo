@@ -31,3 +31,10 @@ Scenario: Display taxonomy list
     And I should also see:
         | Publication Date Range | 01/11/2017 to 01/02/2018       |
         | Publication Taxonomy   | People, patients and geography |
+
+Scenario: Display multiparagraph summary
+    Given I navigate to "publication with datasets" page
+    Then I should also see multiple "Publication Summary" with:
+        | Lorem ipsum dolor sit amet, consectetur adipiscing elit ...   |
+        | Nunc at quam sed tellus ultricies sagittis. Cras et sem ...   |
+        | Quisque blandit viverra pulvinar. Morbi accumsan bibendum ... |

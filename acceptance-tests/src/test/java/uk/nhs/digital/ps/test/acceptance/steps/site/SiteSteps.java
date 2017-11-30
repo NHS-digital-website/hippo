@@ -103,6 +103,23 @@ public class SiteSteps extends AbstractSpringSteps {
         }
     }
 
+    @Then("^I should(?: also)? see multiple \"([^\"]+)\" with:")
+    public void iShouldSeeMultipleItemsOf(String pageElementName, final DataTable elementItems) throws Throwable  {
+        int i = 0;
+
+        for (List<String> elementItem : elementItems.raw()) {
+            WebElement pageElement = sitePage.findPageElement(pageElementName, i++);
+            assertThat("I should find page element: " + pageElementName,
+                pageElement, is(notNullValue()));
+
+            String expectedItemText = elementItem.get(0);
+
+            assertThat("Page element " + pageElementName + " contain item with text: " + expectedItemText,
+                getElementText(pageElement),
+                getMatcherForText(expectedItemText));
+        }
+    }
+
     @Then("I can download(?: following files)?:")
     public void iCanDownload(final DataTable downloadTitles) throws Throwable {
         for (String downloadLink : downloadTitles.asList(String.class)) {

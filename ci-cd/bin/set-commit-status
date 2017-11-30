@@ -14,7 +14,7 @@ function set_status {
     local description=${3-$state}
     local context="${4-continuous-integration/codebuild}"
 
-    local git_hash=${CODEBUILD_RESOLVED_SOURCE_VERSION:-$CODEBUILD_SOURCE_VERSION}
+    local git_hash=""
     local payload="{
   \"state\": \"${state}\",
   \"target_url\": \"${target_url}\",
@@ -22,6 +22,7 @@ function set_status {
   \"context\": \"${context}\"
 }"
 
+    git_hash=$(git rev-parse HEAD)
     curl "https://api.github.com/repos/NHS-digital-website/ps-hippo/statuses/${git_hash}?access_token=${GITHUB_TOKEN}" \
         -H "Content-Type: application/json" \
         -X POST \

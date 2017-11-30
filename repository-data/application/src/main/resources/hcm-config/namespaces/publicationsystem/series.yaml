@@ -64,7 +64,6 @@ definitions:
             hipposysedit:validators:
             - non-empty
             - required
-            - publicationsystem-summary
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false

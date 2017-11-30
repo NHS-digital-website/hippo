@@ -95,15 +95,15 @@
         </dl>
     </div>
     <div class="content-section">
-        <div>
-            <h4><@fmt.message key="headers.summary"/></h4>
-            <span class="doc-summary" data-uipath="ps.publication.summary">${publication.summary?html}</span>
-        </div>
+        <h3><@fmt.message key="headers.summary"/></h3>
+        <#list publication.summary.elements as element>
+            <#if element.type == "Paragraph">
+            <p class="doc-summary" data-uipath="ps.publication.summary">${element?html}</p>
+            </#if>
+        </#list>
 
-        <div>
-            <h4><@fmt.message key="headers.key-facts"/></h4>
-            <span data-uipath="ps.publication.key-facts">${publication.keyFacts?html}</span>
-        </div>
+        <h3><@fmt.message key="headers.key-facts"/></h3>
+        <span data-uipath="ps.publication.key-facts">${publication.keyFacts?html}</span>
     </div>
 
     <div class="content-section">
@@ -145,6 +145,7 @@
         </p>
     </div>
     </#if>
+
 </#macro>
 
 

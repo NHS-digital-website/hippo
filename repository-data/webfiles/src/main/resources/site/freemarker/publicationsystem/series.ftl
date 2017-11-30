@@ -9,7 +9,13 @@
 </div>
 
 <div class="content-section">
-    <p class="doc-summary" data-uipath="ps.series.summary">${series.summary}</p>
+    <h3><@fmt.message key="headers.summary"/></h3>
+    <#list series.summary.elements as element>
+        <#if element.type == "Paragraph">
+        <p class="doc-summary" data-uipath="ps.series.summary">${element?html}</p>
+        </#if>
+    </#list>
+
 
     <ul class="simple-list simple-list--publications"
         data-uipath="ps.series.publications-list"

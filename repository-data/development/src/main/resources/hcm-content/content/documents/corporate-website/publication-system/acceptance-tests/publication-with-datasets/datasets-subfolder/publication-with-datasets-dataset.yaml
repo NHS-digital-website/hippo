@@ -4,10 +4,10 @@
     /publicationsystem:Files:
       hippo:filename: attachment.pdf
       hippo:text:
-        resource: attachment.pdf
+        resource: /content/documents/corporate-website/publication-system/acceptance-tests/publication-with-datasets/datasets-subfolder/publication-with-datasets-dataset/publication-with-datasets-dataset[1]/Files/text.pdf
         type: binary
       jcr:data:
-        resource: attachment.pdf
+        resource: /content/documents/corporate-website/publication-system/acceptance-tests/publication-with-datasets/datasets-subfolder/publication-with-datasets-dataset/publication-with-datasets-dataset[1]/Files/data.pdf
         type: binary
       jcr:encoding: UTF-8
       jcr:lastModified: 2017-11-09T21:42:39.618Z
@@ -18,7 +18,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-03T13:38:20.323Z
-    hippostdpubwf:lastModificationDate: 2017-11-09T21:42:46.285Z
+    hippostdpubwf:lastModificationDate: 2017-12-04T21:19:47.831Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
@@ -36,19 +36,27 @@
     publicationsystem:PubliclyAccessible: true
     publicationsystem:Purpose: Vivamus et tortor ut ex placerat congue vitae nec velit.
       Donec imperdiet vestibulum lorem non viverra. Etiam sit amet venenatis purus.
-    publicationsystem:Summary: Mauris ex est, dapibus in dictum ut, elementum sit
-      amet odio. Proin egestas augue sit amet est vestibulum, vitae maximus ipsum
-      accumsan. Nunc fringilla interdum nunc vitae tempus. Sed vitae ullamcorper velit.
-      Maecenas convallis interdum magna, et finibus libero suscipit in.
+    publicationsystem:Summary: "Mauris ex est, dapibus in dictum ut, elementum sit\
+      \ amet odio. Proin egestas augue sit amet est vestibulum, vitae maximus ipsum\
+      \ accumsan. Nunc fringilla interdum nunc vitae tempus. Sed vitae ullamcorper\
+      \ velit. Maecenas convallis interdum magna, et finibus libero suscipit in.\r\
+      \n\r\nCras fringilla odio sit amet tellus pellentesque posuere. Etiam semper\
+      \ fringilla aliquam. Nunc faucibus massa ac neque tempor, eu mollis mauris feugiat.\
+      \ Donec egestas lacus justo, in blandit nunc venenatis vel. Nullam aliquam sagittis\
+      \ elit, auctor elementum elit malesuada et. Sed ut tortor non eros pulvinar\
+      \ fermentum a a purus.\r\n\r\nCurabitur quis eros nisi. Nulla leo est, elementum\
+      \ non gravida suscipit, vehicula a ipsum. Etiam ultricies facilisis purus ut\
+      \ porttitor. Sed mattis quam id justo fermentum cursus. Proin nisi orci, blandit\
+      \ quis augue sit amet, pellentesque tincidunt nisi."
     publicationsystem:Title: publication-with-datasets Dataset
   /publication-with-datasets-dataset[2]:
     /publicationsystem:Files:
       hippo:filename: attachment.pdf
       hippo:text:
-        resource: attachment.pdf
+        resource: /content/documents/corporate-website/publication-system/acceptance-tests/publication-with-datasets/datasets-subfolder/publication-with-datasets-dataset/publication-with-datasets-dataset[2]/Files/text.pdf
         type: binary
       jcr:data:
-        resource: attachment.pdf
+        resource: /content/documents/corporate-website/publication-system/acceptance-tests/publication-with-datasets/datasets-subfolder/publication-with-datasets-dataset/publication-with-datasets-dataset[2]/Files/data.pdf
         type: binary
       jcr:encoding: UTF-8
       jcr:lastModified: 2017-11-09T21:42:39.618Z
@@ -58,7 +66,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-03T13:38:20.323Z
-    hippostdpubwf:lastModificationDate: 2017-11-09T21:42:27.697Z
+    hippostdpubwf:lastModificationDate: 2017-12-04T21:19:38.240Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
@@ -76,19 +84,27 @@
     publicationsystem:PubliclyAccessible: true
     publicationsystem:Purpose: Vivamus et tortor ut ex placerat congue vitae nec velit.
       Donec imperdiet vestibulum lorem non viverra. Etiam sit amet venenatis purus.
-    publicationsystem:Summary: Mauris ex est, dapibus in dictum ut, elementum sit
-      amet odio. Proin egestas augue sit amet est vestibulum, vitae maximus ipsum
-      accumsan. Nunc fringilla interdum nunc vitae tempus. Sed vitae ullamcorper velit.
-      Maecenas convallis interdum magna, et finibus libero suscipit in.
+    publicationsystem:Summary: "Mauris ex est, dapibus in dictum ut, elementum sit\
+      \ amet odio. Proin egestas augue sit amet est vestibulum, vitae maximus ipsum\
+      \ accumsan. Nunc fringilla interdum nunc vitae tempus. Sed vitae ullamcorper\
+      \ velit. Maecenas convallis interdum magna, et finibus libero suscipit in.\r\
+      \n\r\nCras fringilla odio sit amet tellus pellentesque posuere. Etiam semper\
+      \ fringilla aliquam. Nunc faucibus massa ac neque tempor, eu mollis mauris feugiat.\
+      \ Donec egestas lacus justo, in blandit nunc venenatis vel. Nullam aliquam sagittis\
+      \ elit, auctor elementum elit malesuada et. Sed ut tortor non eros pulvinar\
+      \ fermentum a a purus.\r\n\r\nCurabitur quis eros nisi. Nulla leo est, elementum\
+      \ non gravida suscipit, vehicula a ipsum. Etiam ultricies facilisis purus ut\
+      \ porttitor. Sed mattis quam id justo fermentum cursus. Proin nisi orci, blandit\
+      \ quis augue sit amet, pellentesque tincidunt nisi."
     publicationsystem:Title: publication-with-datasets Dataset
   /publication-with-datasets-dataset[3]:
     /publicationsystem:Files:
       hippo:filename: attachment.pdf
       hippo:text:
-        resource: attachment.pdf
+        resource: /content/documents/corporate-website/publication-system/acceptance-tests/publication-with-datasets/datasets-subfolder/publication-with-datasets-dataset/publication-with-datasets-dataset[3]/Files/text.pdf
         type: binary
       jcr:data:
-        resource: attachment.pdf
+        resource: /content/documents/corporate-website/publication-system/acceptance-tests/publication-with-datasets/datasets-subfolder/publication-with-datasets-dataset/publication-with-datasets-dataset[3]/Files/data.pdf
         type: binary
       jcr:encoding: UTF-8
       jcr:lastModified: 2017-11-09T21:42:39.618Z
@@ -99,9 +115,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-03T13:38:20.323Z
-    hippostdpubwf:lastModificationDate: 2017-11-09T21:42:46.285Z
+    hippostdpubwf:lastModificationDate: 2017-12-04T21:19:47.831Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2017-11-09T21:42:50.263Z
+    hippostdpubwf:publicationDate: 2017-12-04T21:19:54.020Z
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
     jcr:mixinTypes:
@@ -118,10 +134,18 @@
     publicationsystem:PubliclyAccessible: true
     publicationsystem:Purpose: Vivamus et tortor ut ex placerat congue vitae nec velit.
       Donec imperdiet vestibulum lorem non viverra. Etiam sit amet venenatis purus.
-    publicationsystem:Summary: Mauris ex est, dapibus in dictum ut, elementum sit
-      amet odio. Proin egestas augue sit amet est vestibulum, vitae maximus ipsum
-      accumsan. Nunc fringilla interdum nunc vitae tempus. Sed vitae ullamcorper velit.
-      Maecenas convallis interdum magna, et finibus libero suscipit in.
+    publicationsystem:Summary: "Mauris ex est, dapibus in dictum ut, elementum sit\
+      \ amet odio. Proin egestas augue sit amet est vestibulum, vitae maximus ipsum\
+      \ accumsan. Nunc fringilla interdum nunc vitae tempus. Sed vitae ullamcorper\
+      \ velit. Maecenas convallis interdum magna, et finibus libero suscipit in.\r\
+      \n\r\nCras fringilla odio sit amet tellus pellentesque posuere. Etiam semper\
+      \ fringilla aliquam. Nunc faucibus massa ac neque tempor, eu mollis mauris feugiat.\
+      \ Donec egestas lacus justo, in blandit nunc venenatis vel. Nullam aliquam sagittis\
+      \ elit, auctor elementum elit malesuada et. Sed ut tortor non eros pulvinar\
+      \ fermentum a a purus.\r\n\r\nCurabitur quis eros nisi. Nulla leo est, elementum\
+      \ non gravida suscipit, vehicula a ipsum. Etiam ultricies facilisis purus ut\
+      \ porttitor. Sed mattis quam id justo fermentum cursus. Proin nisi orci, blandit\
+      \ quis augue sit amet, pellentesque tincidunt nisi."
     publicationsystem:Title: publication-with-datasets Dataset
   hippo:name: publication-with-datasets Dataset
   jcr:mixinTypes:

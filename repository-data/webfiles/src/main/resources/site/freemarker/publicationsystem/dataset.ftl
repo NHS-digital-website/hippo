@@ -1,4 +1,6 @@
 <#include "../include/imports.ftl">
+<@hst.setBundle basename="publicationsystem.headers"/>
+
 <#assign dateFormat="dd/MM/yyyy"/>
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() >
 
@@ -46,12 +48,18 @@
 </div>
 
 <div class="content-section">
-    <p class="doc-summary" data-uipath="ps.dataset.summary">${dataset.summary}</p>
+    <h3><@fmt.message key="headers.summary"/></h3>
+    <#list dataset.summary.elements as element>
+        <#if element.type == "Paragraph">
+        <p class="doc-summary" data-uipath="ps.dataset.summary">${element?html}</p>
+        </#if>
+    </#list>
+
     <p class="doc-summary" data-uipath="ps.dataset.purpose">${dataset.purpose}</p>
 </div>
 
 <div class="content-section">
-    <h3>Resources</h3>
+    <h3><@fmt.message key="headers.resources"/></h3>
     <#list dataset.files as attachment>
         <li class="attachment">
             <a title="${attachment.filename}" href="<@hst.link hippobean=attachment/>">${attachment.filename}</a>;

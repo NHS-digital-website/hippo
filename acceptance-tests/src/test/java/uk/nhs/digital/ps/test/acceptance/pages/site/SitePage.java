@@ -85,9 +85,13 @@ public class SitePage extends AbstractSitePage {
     }
 
     public WebElement findPageElement(String elementName) {
+        return findPageElement(elementName, 0);
+    }
+
+    public WebElement findPageElement(String elementName, int nth) {
         for (PageElements pageElements : pagesElements) {
             if (pageElements.contains(elementName)) {
-                return pageElements.getElementByName(elementName, getWebDriver());
+                return pageElements.getElementByName(elementName, nth, getWebDriver());
             }
         }
 
