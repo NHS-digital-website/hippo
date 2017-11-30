@@ -14,8 +14,8 @@ init: .git/.local-hooks-installed
 
 ## Clean, build and start local hippo (no autoexport)
 serve:
-	mvn clean verify
-	mvn -P cargo.run,without-autoexport
+	MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1" mvn clean verify -pl site,cms -am --offline -DskipTests=true
+	MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1" mvn -P cargo.run,without-autoexport
 
 ## Run all tests
 test:

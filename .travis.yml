@@ -11,6 +11,9 @@ branches:
   only:
     - master
 
+# tmp fix for travis error
+sudo: required
+
 addons:
   chrome: stable
 

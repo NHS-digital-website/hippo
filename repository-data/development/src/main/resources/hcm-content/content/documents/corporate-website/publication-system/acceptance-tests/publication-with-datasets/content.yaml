@@ -40,7 +40,7 @@
       publicationsystem:linkText: Test google.com link
       publicationsystem:linkUrl: http://google.com
     /publicationsystem:attachments:
-      jcr:primaryType: hippo:resource
+      jcr:primaryType: publicationsystem:resource
       hippo:filename: attachment.pdf
       hippo:text:
         type: binary
@@ -92,7 +92,7 @@
       publicationsystem:linkText: Test google.com link
       publicationsystem:linkUrl: http://google.com
     /publicationsystem:attachments:
-      jcr:primaryType: hippo:resource
+      jcr:primaryType: publicationsystem:resource
       hippo:filename: attachment.pdf
       hippo:text:
         type: binary
@@ -145,7 +145,7 @@
       publicationsystem:linkText: Test google.com link
       publicationsystem:linkUrl: http://google.com
     /publicationsystem:attachments:
-      jcr:primaryType: hippo:resource
+      jcr:primaryType: publicationsystem:resource
       hippo:filename: attachment.pdf
       hippo:text:
         type: binary

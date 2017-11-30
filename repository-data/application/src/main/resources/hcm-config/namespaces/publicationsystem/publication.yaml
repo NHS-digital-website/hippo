@@ -115,7 +115,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: publicationsystem:attachments
             hipposysedit:primary: false
-            hipposysedit:type: hippo:resource
+            hipposysedit:type: publicationsystem:resource
             hipposysedit:validators: [publicationsystem-blank-attachment]
           /publicly_accessible:
             jcr:primaryType: hipposysedit:field

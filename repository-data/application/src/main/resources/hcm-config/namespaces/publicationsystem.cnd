@@ -18,3 +18,8 @@
 
 [publicationsystem:series] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
   orderable
+
+[publicationsystem:resourcenonsearchable] > nt:base
+- publicationsystem:resourcetext (binary)
+
+[publicationsystem:resource] > hippo:resource, publicationsystem:resourcenonsearchable, hippo:derived
