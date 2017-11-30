@@ -6,7 +6,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-03T13:38:20.323Z
-    hippostdpubwf:lastModificationDate: 2017-11-03T13:48:28.420Z
+    hippostdpubwf:lastModificationDate: 2017-12-05T09:50:45.573Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
@@ -24,20 +24,34 @@
     publicationsystem:Purpose: Morbi ipsum mauris, tincidunt sed dictum quis, dictum
       id magna. In vitae ante placerat, molestie est vel, aliquet lectus. Vivamus
       luctus id enim eu porttitor.
-    publicationsystem:Summary: Sed viverra, odio nec eleifend sodales, ligula lectus
-      varius felis, eget auctor justo purus vitae erat. Nam at tempus dolor. Proin
-      neque nisi, pellentesque id cursus in, fermentum vitae purus. Vivamus feugiat
-      elit pretium, dictum libero quis, elementum arcu. Donec scelerisque vulputate
-      dapibus. Maecenas interdum tortor augue, id semper leo dignissim vel. In hac
-      habitasse platea dictumst. Aliquam dapibus eu purus sit amet aliquam. Cras non
-      augue convallis, scelerisque diam venenatis, maximus elit.
+    publicationsystem:Summary: "Sed viverra, odio nec eleifend sodales, ligula lectus\
+      \ varius felis, eget auctor justo purus vitae erat. Nam at tempus dolor. Proin\
+      \ neque nisi, pellentesque id cursus in, fermentum vitae purus. Vivamus feugiat\
+      \ elit pretium, dictum libero quis, elementum arcu. Donec scelerisque vulputate\
+      \ dapibus. Maecenas interdum tortor augue, id semper leo dignissim vel. In hac\
+      \ habitasse platea dictumst. Aliquam dapibus eu purus sit amet aliquam. Cras\
+      \ non augue convallis, scelerisque diam venenatis, maximus elit.\r\n\r\nIn sed\
+      \ odio tempus, pellentesque metus non, feugiat sem. Duis velit felis, bibendum\
+      \ vitae turpis nec, pretium aliquam nisi. Sed eu lorem magna. Suspendisse ac\
+      \ lacus fringilla, lacinia erat ac, dictum sapien. Praesent sed diam aliquet,\
+      \ convallis tortor eu, tempus ligula. Curabitur quis eros nisi. Nulla leo est,\
+      \ elementum non gravida suscipit, vehicula a ipsum. Etiam ultricies facilisis\
+      \ purus ut porttitor. Sed mattis quam id justo fermentum cursus. Proin nisi\
+      \ orci, blandit quis augue sit amet, pellentesque nisi tincidunt.\r\n\r\nAenean\
+      \ consequat justo nec enim gravida blandit. Integer a mi rutrum, vestibulum\
+      \ est nec, blandit sapien. Sed risus urna, tempor id imperdiet ac, luctus sed\
+      \ nisi. Cras fringilla odio sit amet tellus pellentesque posuere. Etiam semper\
+      \ fringilla aliquam. Nunc faucibus massa ac neque tempor, eu mollis mauris feugiat.\
+      \ Donec egestas lacus justo, in blandit nunc venenatis vel. Nullam aliquam sagittis\
+      \ elit, auctor elementum elit malesuada et. Sed ut tortor non eros pulvinar\
+      \ fermentum a a purus."
     publicationsystem:Title: series-publication-with-datasets Dataset
   /series-publication-with-datasets-dataset[2]:
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-03T13:38:20.323Z
-    hippostdpubwf:lastModificationDate: 2017-11-03T13:48:20.376Z
+    hippostdpubwf:lastModificationDate: 2017-12-05T09:50:30.960Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
@@ -55,13 +69,27 @@
     publicationsystem:Purpose: Morbi ipsum mauris, tincidunt sed dictum quis, dictum
       id magna. In vitae ante placerat, molestie est vel, aliquet lectus. Vivamus
       luctus id enim eu porttitor.
-    publicationsystem:Summary: Sed viverra, odio nec eleifend sodales, ligula lectus
-      varius felis, eget auctor justo purus vitae erat. Nam at tempus dolor. Proin
-      neque nisi, pellentesque id cursus in, fermentum vitae purus. Vivamus feugiat
-      elit pretium, dictum libero quis, elementum arcu. Donec scelerisque vulputate
-      dapibus. Maecenas interdum tortor augue, id semper leo dignissim vel. In hac
-      habitasse platea dictumst. Aliquam dapibus eu purus sit amet aliquam. Cras non
-      augue convallis, scelerisque diam venenatis, maximus elit.
+    publicationsystem:Summary: "Sed viverra, odio nec eleifend sodales, ligula lectus\
+      \ varius felis, eget auctor justo purus vitae erat. Nam at tempus dolor. Proin\
+      \ neque nisi, pellentesque id cursus in, fermentum vitae purus. Vivamus feugiat\
+      \ elit pretium, dictum libero quis, elementum arcu. Donec scelerisque vulputate\
+      \ dapibus. Maecenas interdum tortor augue, id semper leo dignissim vel. In hac\
+      \ habitasse platea dictumst. Aliquam dapibus eu purus sit amet aliquam. Cras\
+      \ non augue convallis, scelerisque diam venenatis, maximus elit.\r\n\r\nIn sed\
+      \ odio tempus, pellentesque metus non, feugiat sem. Duis velit felis, bibendum\
+      \ vitae turpis nec, pretium aliquam nisi. Sed eu lorem magna. Suspendisse ac\
+      \ lacus fringilla, lacinia erat ac, dictum sapien. Praesent sed diam aliquet,\
+      \ convallis tortor eu, tempus ligula. Curabitur quis eros nisi. Nulla leo est,\
+      \ elementum non gravida suscipit, vehicula a ipsum. Etiam ultricies facilisis\
+      \ purus ut porttitor. Sed mattis quam id justo fermentum cursus. Proin nisi\
+      \ orci, blandit quis augue sit amet, pellentesque nisi tincidunt.\r\n\r\nAenean\
+      \ consequat justo nec enim gravida blandit. Integer a mi rutrum, vestibulum\
+      \ est nec, blandit sapien. Sed risus urna, tempor id imperdiet ac, luctus sed\
+      \ nisi. Cras fringilla odio sit amet tellus pellentesque posuere. Etiam semper\
+      \ fringilla aliquam. Nunc faucibus massa ac neque tempor, eu mollis mauris feugiat.\
+      \ Donec egestas lacus justo, in blandit nunc venenatis vel. Nullam aliquam sagittis\
+      \ elit, auctor elementum elit malesuada et. Sed ut tortor non eros pulvinar\
+      \ fermentum a a purus."
     publicationsystem:Title: series-publication-with-datasets Dataset
   /series-publication-with-datasets-dataset[3]:
     hippo:availability:
@@ -69,9 +97,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-03T13:38:20.323Z
-    hippostdpubwf:lastModificationDate: 2017-11-03T13:48:28.420Z
+    hippostdpubwf:lastModificationDate: 2017-12-05T09:50:45.573Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2017-11-03T13:48:35.552Z
+    hippostdpubwf:publicationDate: 2017-12-05T09:50:51.301Z
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
     jcr:mixinTypes:
@@ -88,13 +116,27 @@
     publicationsystem:Purpose: Morbi ipsum mauris, tincidunt sed dictum quis, dictum
       id magna. In vitae ante placerat, molestie est vel, aliquet lectus. Vivamus
       luctus id enim eu porttitor.
-    publicationsystem:Summary: Sed viverra, odio nec eleifend sodales, ligula lectus
-      varius felis, eget auctor justo purus vitae erat. Nam at tempus dolor. Proin
-      neque nisi, pellentesque id cursus in, fermentum vitae purus. Vivamus feugiat
-      elit pretium, dictum libero quis, elementum arcu. Donec scelerisque vulputate
-      dapibus. Maecenas interdum tortor augue, id semper leo dignissim vel. In hac
-      habitasse platea dictumst. Aliquam dapibus eu purus sit amet aliquam. Cras non
-      augue convallis, scelerisque diam venenatis, maximus elit.
+    publicationsystem:Summary: "Sed viverra, odio nec eleifend sodales, ligula lectus\
+      \ varius felis, eget auctor justo purus vitae erat. Nam at tempus dolor. Proin\
+      \ neque nisi, pellentesque id cursus in, fermentum vitae purus. Vivamus feugiat\
+      \ elit pretium, dictum libero quis, elementum arcu. Donec scelerisque vulputate\
+      \ dapibus. Maecenas interdum tortor augue, id semper leo dignissim vel. In hac\
+      \ habitasse platea dictumst. Aliquam dapibus eu purus sit amet aliquam. Cras\
+      \ non augue convallis, scelerisque diam venenatis, maximus elit.\r\n\r\nIn sed\
+      \ odio tempus, pellentesque metus non, feugiat sem. Duis velit felis, bibendum\
+      \ vitae turpis nec, pretium aliquam nisi. Sed eu lorem magna. Suspendisse ac\
+      \ lacus fringilla, lacinia erat ac, dictum sapien. Praesent sed diam aliquet,\
+      \ convallis tortor eu, tempus ligula. Curabitur quis eros nisi. Nulla leo est,\
+      \ elementum non gravida suscipit, vehicula a ipsum. Etiam ultricies facilisis\
+      \ purus ut porttitor. Sed mattis quam id justo fermentum cursus. Proin nisi\
+      \ orci, blandit quis augue sit amet, pellentesque nisi tincidunt.\r\n\r\nAenean\
+      \ consequat justo nec enim gravida blandit. Integer a mi rutrum, vestibulum\
+      \ est nec, blandit sapien. Sed risus urna, tempor id imperdiet ac, luctus sed\
+      \ nisi. Cras fringilla odio sit amet tellus pellentesque posuere. Etiam semper\
+      \ fringilla aliquam. Nunc faucibus massa ac neque tempor, eu mollis mauris feugiat.\
+      \ Donec egestas lacus justo, in blandit nunc venenatis vel. Nullam aliquam sagittis\
+      \ elit, auctor elementum elit malesuada et. Sed ut tortor non eros pulvinar\
+      \ fermentum a a purus."
     publicationsystem:Title: series-publication-with-datasets Dataset
   jcr:mixinTypes:
   - mix:referenceable

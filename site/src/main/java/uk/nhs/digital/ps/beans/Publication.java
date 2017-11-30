@@ -18,6 +18,7 @@ import org.onehippo.taxonomy.api.Taxonomy;
 import org.onehippo.taxonomy.api.TaxonomyManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.nhs.digital.ps.beans.structuredText.StructuredText;
 import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
 
 import javax.jcr.RepositoryException;
@@ -151,8 +152,10 @@ public class Publication extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.SUMMARY)
-    public String getSummary() {
-        return getPropertyIfPermitted(PropertyKeys.SUMMARY);
+    public StructuredText getSummary() {
+        assertPropertyPermitted(PropertyKeys.SUMMARY);
+
+        return new StructuredText(getProperty(PropertyKeys.SUMMARY, ""));
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.KEY_FACTS)

@@ -6,6 +6,7 @@ import org.hippoecm.hst.content.beans.Node;
 import java.util.Calendar;
 import java.util.List;
 import org.hippoecm.hst.content.beans.standard.HippoResourceBean;
+import uk.nhs.digital.ps.beans.structuredText.StructuredText;
 
 @HippoEssentialsGenerated(internalName = "publicationsystem:dataset")
 @Node(jcrType = "publicationsystem:dataset")
@@ -16,8 +17,8 @@ public class Dataset extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:Summary")
-    public String getSummary() {
-        return getProperty("publicationsystem:Summary");
+    public StructuredText getSummary() {
+        return new StructuredText(getProperty("publicationsystem:Summary"));
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:Purpose")

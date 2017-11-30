@@ -26,7 +26,7 @@
                         <@restrictableDate date=publication.nominalPublicationDate/>
                     </span>
                     <p data-uipath="ps.overview.latest-publications.publication.summary">
-                        <@truncate text=publication.summary size=100/>
+                        <@truncate text=publication.summary.firstParagraph size=100/>
                     </p>
                 </li>
             </#list>

@@ -5,18 +5,26 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-10-16T13:58:50.358Z
-    hippostdpubwf:lastModificationDate: 2017-10-16T13:58:50.358Z
+    hippostdpubwf:lastModificationDate: 2017-12-05T09:43:01.070Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: publicationsystem:series
-    publicationsystem:Summary: Integer suscipit pulvinar lacus non porta. Aenean ut
-      tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget, aliquam
-      quam. Nullam euismod accumsan nibh at lobortis. Nam non eleifend mauris. Aliquam
-      tempor nec odio non aliquam. Suspendisse in ex sit amet lectus vehicula varius
-      pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.
+    publicationsystem:Summary: "Integer suscipit pulvinar lacus non porta. Aenean\
+      \ ut tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget, aliquam\
+      \ quam. Nullam euismod accumsan nibh at lobortis. Nam non eleifend mauris. Aliquam\
+      \ tempor nec odio non aliquam. Suspendisse in ex sit amet lectus vehicula varius\
+      \ pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.\r\n\r\nPellentesque\
+      \ rutrum neque at felis cursus, scelerisque faucibus lacus hendrerit. Sed auctor\
+      \ lacinia dolor in consectetur. Nunc mattis tempor libero non porttitor. Morbi\
+      \ elementum facilisis justo, sed tincidunt nunc cursus a. Nam faucibus faucibus\
+      \ placerat. Nunc lobortis sapien in magna lacinia, id euismod metus efficitur.\
+      \ In sed gravida ipsum. \r\n\r\nFusce sapien quam, dictum eget commodo vel,\
+      \ finibus condimentum neque. Aliquam vestibulum, massa a ornare hendrerit, sem\
+      \ elit tempor quam, id bibendum felis tortor commodo dolor. Cras nunc orci,\
+      \ mattis et sodales at, feugiat sed arcu."
     publicationsystem:Title: series-with-publication-with-datasets
   /content[2]:
     hippo:availability:
@@ -24,7 +32,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-10-16T13:58:50.358Z
-    hippostdpubwf:lastModificationDate: 2017-10-16T13:59:20.720Z
+    hippostdpubwf:lastModificationDate: 2017-12-05T09:43:21.659Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
@@ -32,11 +40,19 @@
     - mix:referenceable
     - mix:versionable
     jcr:primaryType: publicationsystem:series
-    publicationsystem:Summary: Integer suscipit pulvinar lacus non porta. Aenean ut
-      tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget, aliquam
-      quam. Nullam euismod accumsan nibh at lobortis. Nam non eleifend mauris. Aliquam
-      tempor nec odio non aliquam. Suspendisse in ex sit amet lectus vehicula varius
-      pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.
+    publicationsystem:Summary: "Integer suscipit pulvinar lacus non porta. Aenean\
+      \ ut tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget, aliquam\
+      \ quam. Nullam euismod accumsan nibh at lobortis. Nam non eleifend mauris. Aliquam\
+      \ tempor nec odio non aliquam. Suspendisse in ex sit amet lectus vehicula varius\
+      \ pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.\r\n\r\nPellentesque\
+      \ rutrum neque at felis cursus, scelerisque faucibus lacus hendrerit. Sed auctor\
+      \ lacinia dolor in consectetur. Nunc mattis tempor libero non porttitor. Morbi\
+      \ elementum facilisis justo, sed tincidunt nunc cursus a. Nam faucibus faucibus\
+      \ placerat. Nunc lobortis sapien in magna lacinia, id euismod metus efficitur.\
+      \ In sed gravida ipsum. \r\n\r\nFusce sapien quam, dictum eget commodo vel,\
+      \ finibus condimentum neque. Aliquam vestibulum, massa a ornare hendrerit, sem\
+      \ elit tempor quam, id bibendum felis tortor commodo dolor. Cras nunc orci,\
+      \ mattis et sodales at, feugiat sed arcu."
     publicationsystem:Title: series-with-publication-with-datasets
   /content[3]:
     hippo:availability:
@@ -44,19 +60,27 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-10-16T13:58:50.358Z
-    hippostdpubwf:lastModificationDate: 2017-10-16T13:59:20.720Z
+    hippostdpubwf:lastModificationDate: 2017-12-05T09:43:21.659Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2017-10-16T13:59:41.695Z
+    hippostdpubwf:publicationDate: 2017-12-05T09:43:26.168Z
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: publicationsystem:series
-    publicationsystem:Summary: Integer suscipit pulvinar lacus non porta. Aenean ut
-      tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget, aliquam
-      quam. Nullam euismod accumsan nibh at lobortis. Nam non eleifend mauris. Aliquam
-      tempor nec odio non aliquam. Suspendisse in ex sit amet lectus vehicula varius
-      pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.
+    publicationsystem:Summary: "Integer suscipit pulvinar lacus non porta. Aenean\
+      \ ut tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget, aliquam\
+      \ quam. Nullam euismod accumsan nibh at lobortis. Nam non eleifend mauris. Aliquam\
+      \ tempor nec odio non aliquam. Suspendisse in ex sit amet lectus vehicula varius\
+      \ pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.\r\n\r\nPellentesque\
+      \ rutrum neque at felis cursus, scelerisque faucibus lacus hendrerit. Sed auctor\
+      \ lacinia dolor in consectetur. Nunc mattis tempor libero non porttitor. Morbi\
+      \ elementum facilisis justo, sed tincidunt nunc cursus a. Nam faucibus faucibus\
+      \ placerat. Nunc lobortis sapien in magna lacinia, id euismod metus efficitur.\
+      \ In sed gravida ipsum. \r\n\r\nFusce sapien quam, dictum eget commodo vel,\
+      \ finibus condimentum neque. Aliquam vestibulum, massa a ornare hendrerit, sem\
+      \ elit tempor quam, id bibendum felis tortor commodo dolor. Cras nunc orci,\
+      \ mattis et sodales at, feugiat sed arcu."
     publicationsystem:Title: series-with-publication-with-datasets
   jcr:mixinTypes:
   - mix:referenceable

@@ -12,10 +12,10 @@
     /publicationsystem:attachments:
       hippo:filename: attachment.pdf
       hippo:text:
-        resource: attachment.pdf
+        resource: /content/documents/corporate-website/publication-system/acceptance-tests/publication-with-datasets/content/content[1]/attachments/text.pdf
         type: binary
       jcr:data:
-        resource: attachment.pdf
+        resource: /content/documents/corporate-website/publication-system/acceptance-tests/publication-with-datasets/content/content[1]/attachments/data.pdf
         type: binary
       jcr:encoding: UTF-8
       jcr:lastModified: 2017-11-09T21:42:39.618Z
@@ -25,7 +25,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-03T13:35:36.812Z
-    hippostdpubwf:lastModificationDate: 2017-11-03T13:35:36.813Z
+    hippostdpubwf:lastModificationDate: 2017-12-04T21:21:48.042Z
     hippostdpubwf:lastModifiedBy: admin
     hippotaxonomy:keys:
     - people,-patients-and-geography
@@ -49,15 +49,28 @@
       mollis aliquet, ligula ipsum tincidunt ante, nec imperdiet sapien neque a nibh.
       In porta suscipit mauris. Suspendisse sit amet vestibulum neque, at aliquet
       nibh. Aenean sed ante quam.
-    publicationsystem:NominalDate: 2017-10-10T00:00:00Z
+    publicationsystem:NominalDate: 2017-10-11T00:00:00Z
     publicationsystem:PubliclyAccessible: true
-    publicationsystem:Summary: Lorem ipsum dolor sit amet, consectetur adipiscing
-      elit. Duis convallis non massa vel dictum. In vel ex sapien. Donec sit amet
-      leo lobortis, tempor ex ut, luctus eros. In in eleifend orci, nec suscipit nisi.
-      Maecenas sed velit condimentum, lobortis tortor id, ultricies metus. Integer
-      odio ante, congue pulvinar ultrices nec, mollis vitae dolor. Curabitur euismod
-      erat elit, quis facilisis neque eleifend id. Maecenas convallis vel mi nec bibendum.
-      Donec ut erat dictum, molestie dolor non, aliquet nibh.
+    publicationsystem:Summary: "Lorem ipsum dolor sit amet, consectetur adipiscing\
+      \ elit. Duis convallis non massa vel dictum. In vel ex sapien. Donec sit amet\
+      \ leo lobortis, tempor ex ut, luctus eros. In in eleifend orci, nec suscipit\
+      \ nisi. Maecenas sed velit condimentum, lobortis tortor id, ultricies metus.\
+      \ Integer odio ante, congue pulvinar ultrices nec, mollis vitae dolor. Curabitur\
+      \ euismod erat elit, quis facilisis neque eleifend id. Maecenas convallis vel\
+      \ mi nec bibendum. Donec ut erat dictum, molestie dolor non, aliquet nibh.\r\
+      \n\r\nNunc at quam sed tellus ultricies sagittis. Cras et sem eu massa vehicula\
+      \ mattis. Sed tortor odio, elementum a elit at, sagittis luctus urna. Praesent\
+      \ neque diam, sagittis ac orci eget, feugiat consectetur elit. Phasellus vel\
+      \ aliquet risus. Etiam ac rutrum ipsum, quis malesuada odio. Sed in lobortis\
+      \ est. Morbi pellentesque pellentesque enim non pulvinar.\r\n\r\nQuisque blandit\
+      \ viverra pulvinar. Morbi accumsan bibendum ornare. Morbi commodo dolor pharetra\
+      \ justo venenatis hendrerit. Class aptent taciti sociosqu ad litora torquent\
+      \ per conubia nostra, per inceptos himenaeos. Donec a pellentesque sem, sed\
+      \ lobortis ex. Aenean quis purus ac felis gravida sagittis quis at elit. Phasellus\
+      \ nec lacus tristique, volutpat lacus id, sollicitudin augue. Cras pharetra\
+      \ dui arcu, non viverra nisi lacinia non. Vestibulum viverra mattis mauris in\
+      \ auctor. Fusce rutrum lorem non tincidunt efficitur. Cras in maximus justo,\
+      \ sed finibus turpis."
     publicationsystem:Title: publication with datasets
   /content[2]:
     /publicationsystem:RelatedLinks:
@@ -71,10 +84,10 @@
     /publicationsystem:attachments:
       hippo:filename: attachment.pdf
       hippo:text:
-        resource: attachment.pdf
+        resource: /content/documents/corporate-website/publication-system/acceptance-tests/publication-with-datasets/content/content[2]/attachments/text.pdf
         type: binary
       jcr:data:
-        resource: attachment.pdf
+        resource: /content/documents/corporate-website/publication-system/acceptance-tests/publication-with-datasets/content/content[2]/attachments/data.pdf
         type: binary
       jcr:encoding: UTF-8
       jcr:lastModified: 2017-11-09T21:42:39.618Z
@@ -110,15 +123,28 @@
       mollis aliquet, ligula ipsum tincidunt ante, nec imperdiet sapien neque a nibh.
       In porta suscipit mauris. Suspendisse sit amet vestibulum neque, at aliquet
       nibh. Aenean sed ante quam.
-    publicationsystem:NominalDate: 2017-10-10T00:00:00Z
+    publicationsystem:NominalDate: 2017-10-11T00:00:00Z
     publicationsystem:PubliclyAccessible: true
-    publicationsystem:Summary: Lorem ipsum dolor sit amet, consectetur adipiscing
-      elit. Duis convallis non massa vel dictum. In vel ex sapien. Donec sit amet
-      leo lobortis, tempor ex ut, luctus eros. In in eleifend orci, nec suscipit nisi.
-      Maecenas sed velit condimentum, lobortis tortor id, ultricies metus. Integer
-      odio ante, congue pulvinar ultrices nec, mollis vitae dolor. Curabitur euismod
-      erat elit, quis facilisis neque eleifend id. Maecenas convallis vel mi nec bibendum.
-      Donec ut erat dictum, molestie dolor non, aliquet nibh.
+    publicationsystem:Summary: "Lorem ipsum dolor sit amet, consectetur adipiscing\
+      \ elit. Duis convallis non massa vel dictum. In vel ex sapien. Donec sit amet\
+      \ leo lobortis, tempor ex ut, luctus eros. In in eleifend orci, nec suscipit\
+      \ nisi. Maecenas sed velit condimentum, lobortis tortor id, ultricies metus.\
+      \ Integer odio ante, congue pulvinar ultrices nec, mollis vitae dolor. Curabitur\
+      \ euismod erat elit, quis facilisis neque eleifend id. Maecenas convallis vel\
+      \ mi nec bibendum. Donec ut erat dictum, molestie dolor non, aliquet nibh.\r\
+      \n\r\nNunc at quam sed tellus ultricies sagittis. Cras et sem eu massa vehicula\
+      \ mattis. Sed tortor odio, elementum a elit at, sagittis luctus urna. Praesent\
+      \ neque diam, sagittis ac orci eget, feugiat consectetur elit. Phasellus vel\
+      \ aliquet risus. Etiam ac rutrum ipsum, quis malesuada odio. Sed in lobortis\
+      \ est. Morbi pellentesque pellentesque enim non pulvinar.\r\n\r\nQuisque blandit\
+      \ viverra pulvinar. Morbi accumsan bibendum ornare. Morbi commodo dolor pharetra\
+      \ justo venenatis hendrerit. Class aptent taciti sociosqu ad litora torquent\
+      \ per conubia nostra, per inceptos himenaeos. Donec a pellentesque sem, sed\
+      \ lobortis ex. Aenean quis purus ac felis gravida sagittis quis at elit. Phasellus\
+      \ nec lacus tristique, volutpat lacus id, sollicitudin augue. Cras pharetra\
+      \ dui arcu, non viverra nisi lacinia non. Vestibulum viverra mattis mauris in\
+      \ auctor. Fusce rutrum lorem non tincidunt efficitur. Cras in maximus justo,\
+      \ sed finibus turpis."
     publicationsystem:Title: publication with datasets
   /content[3]:
     /publicationsystem:RelatedLinks:
@@ -132,10 +158,10 @@
     /publicationsystem:attachments:
       hippo:filename: attachment.pdf
       hippo:text:
-        resource: attachment.pdf
+        resource: /content/documents/corporate-website/publication-system/acceptance-tests/publication-with-datasets/content/content[3]/attachments/text.pdf
         type: binary
       jcr:data:
-        resource: attachment.pdf
+        resource: /content/documents/corporate-website/publication-system/acceptance-tests/publication-with-datasets/content/content[3]/attachments/data.pdf
         type: binary
       jcr:encoding: UTF-8
       jcr:lastModified: 2017-11-09T21:42:39.618Z
@@ -171,15 +197,28 @@
       mollis aliquet, ligula ipsum tincidunt ante, nec imperdiet sapien neque a nibh.
       In porta suscipit mauris. Suspendisse sit amet vestibulum neque, at aliquet
       nibh. Aenean sed ante quam.
-    publicationsystem:NominalDate: 2017-10-10T00:00:00Z
+    publicationsystem:NominalDate: 2017-10-11T00:00:00Z
     publicationsystem:PubliclyAccessible: true
-    publicationsystem:Summary: Lorem ipsum dolor sit amet, consectetur adipiscing
-      elit. Duis convallis non massa vel dictum. In vel ex sapien. Donec sit amet
-      leo lobortis, tempor ex ut, luctus eros. In in eleifend orci, nec suscipit nisi.
-      Maecenas sed velit condimentum, lobortis tortor id, ultricies metus. Integer
-      odio ante, congue pulvinar ultrices nec, mollis vitae dolor. Curabitur euismod
-      erat elit, quis facilisis neque eleifend id. Maecenas convallis vel mi nec bibendum.
-      Donec ut erat dictum, molestie dolor non, aliquet nibh.
+    publicationsystem:Summary: "Lorem ipsum dolor sit amet, consectetur adipiscing\
+      \ elit. Duis convallis non massa vel dictum. In vel ex sapien. Donec sit amet\
+      \ leo lobortis, tempor ex ut, luctus eros. In in eleifend orci, nec suscipit\
+      \ nisi. Maecenas sed velit condimentum, lobortis tortor id, ultricies metus.\
+      \ Integer odio ante, congue pulvinar ultrices nec, mollis vitae dolor. Curabitur\
+      \ euismod erat elit, quis facilisis neque eleifend id. Maecenas convallis vel\
+      \ mi nec bibendum. Donec ut erat dictum, molestie dolor non, aliquet nibh.\r\
+      \n\r\nNunc at quam sed tellus ultricies sagittis. Cras et sem eu massa vehicula\
+      \ mattis. Sed tortor odio, elementum a elit at, sagittis luctus urna. Praesent\
+      \ neque diam, sagittis ac orci eget, feugiat consectetur elit. Phasellus vel\
+      \ aliquet risus. Etiam ac rutrum ipsum, quis malesuada odio. Sed in lobortis\
+      \ est. Morbi pellentesque pellentesque enim non pulvinar.\r\n\r\nQuisque blandit\
+      \ viverra pulvinar. Morbi accumsan bibendum ornare. Morbi commodo dolor pharetra\
+      \ justo venenatis hendrerit. Class aptent taciti sociosqu ad litora torquent\
+      \ per conubia nostra, per inceptos himenaeos. Donec a pellentesque sem, sed\
+      \ lobortis ex. Aenean quis purus ac felis gravida sagittis quis at elit. Phasellus\
+      \ nec lacus tristique, volutpat lacus id, sollicitudin augue. Cras pharetra\
+      \ dui arcu, non viverra nisi lacinia non. Vestibulum viverra mattis mauris in\
+      \ auctor. Fusce rutrum lorem non tincidunt efficitur. Cras in maximus justo,\
+      \ sed finibus turpis."
     publicationsystem:Title: publication with datasets
   jcr:mixinTypes:
   - mix:referenceable

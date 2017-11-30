@@ -8,4 +8,6 @@ public interface PageElements {
     boolean contains(String elementName);
 
     WebElement getElementByName(String elementName, WebDriver webDriver);
+
+    WebElement getElementByName(String elementName, int nth, WebDriver webDriver);
 }

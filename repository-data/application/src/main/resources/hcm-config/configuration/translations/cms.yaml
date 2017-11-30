@@ -8,6 +8,5 @@ definitions:
         URL provided. Please remove it or enter a URL.
       publicationsystem-blank-staticdropdown: '{0} has a ''''Choose One'''' placeholder
         without a value. Please remove the placeholder or select a value.'
-      publicationsystem-summary: Summary must be 1000 characters or less
       publicationsystem-title: Title must be 250 characters or less
       valid-url: Link URL must start with http:// or https://

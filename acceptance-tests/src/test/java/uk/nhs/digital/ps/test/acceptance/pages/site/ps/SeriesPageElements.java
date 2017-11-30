@@ -8,8 +8,6 @@ import uk.nhs.digital.ps.test.acceptance.pages.site.PageElements;
 import java.util.HashMap;
 import java.util.Map;
 
-import static java.text.MessageFormat.format;
-
 public class SeriesPageElements implements PageElements {
 
     private final static Map<String, By> pageElements = new HashMap<String, By>() {{
@@ -30,7 +28,12 @@ public class SeriesPageElements implements PageElements {
 
     @Override
     public WebElement getElementByName(String elementName, WebDriver webDriver) {
-        return webDriver.findElement(pageElements.get(elementName));
+        return getElementByName(elementName, 0, webDriver);
+    }
+
+    @Override
+    public WebElement getElementByName(String elementName, int nth, WebDriver webDriver) {
+        return webDriver.findElements(pageElements.get(elementName)).get(nth);
     }
 
     private static String getDataUiPathXpath(String fieldName) {
