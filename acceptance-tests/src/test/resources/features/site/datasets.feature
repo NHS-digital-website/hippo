@@ -11,6 +11,7 @@ Scenario: Search individual data set by name
         | Dataset Purpose               | Vivamus et tortor ut ex placerat congue vitae nec velit. ...      |
         | Dataset Granularity           | NHS Trusts                                                        |
         | Dataset Geographic Coverage   | England                                                           |
+        | Dataset Date Range            | 01/02/2016 to 01/07/2017                                          |
 
 Scenario: Download individual files from data set
     Given I navigate to the "publication with datasets Dataset" data set page
