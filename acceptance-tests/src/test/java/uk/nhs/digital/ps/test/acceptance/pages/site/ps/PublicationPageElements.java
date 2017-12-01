@@ -20,7 +20,7 @@ public class PublicationPageElements implements PageElements {
         put(UPCOMING_DISCLAIMER,
             By.xpath("//*[" + getDataUiPathXpath("upcoming-disclaimer") + "]"));
         put(SUMMARY,
-            By.xpath("//p[" + getDataUiPathXpath("summary") + "]"));
+            By.xpath("//*[" + getDataUiPathXpath("summary") + "]"));
         put(GEOGRAPHIC_COVERAGE,
             By.xpath("//*[" + getDataUiPathXpath("geographic-coverage") + "]"));
         put(GRANULARITY,
