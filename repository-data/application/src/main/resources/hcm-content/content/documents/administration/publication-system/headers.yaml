@@ -15,8 +15,8 @@
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['']
     resourcebundle:id: publicationsystem.headers
-    resourcebundle:keys: [headers.publications-list]
-    resourcebundle:messages: [Publications in This Series]
+    resourcebundle:keys: [headers.summary, headers.key-facts, headers.resources, headers.related-links]
+    resourcebundle:messages: [Summary, Key Facts, Resources, Related Links]
   /headers[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -28,8 +28,8 @@
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['']
     resourcebundle:id: publicationsystem.headers
-    resourcebundle:keys: [headers.publications-list]
-    resourcebundle:messages: [Publications in This Series]
+    resourcebundle:keys: [headers.summary, headers.key-facts, headers.resources, headers.related-links]
+    resourcebundle:messages: [Summary, Key Facts, Resources, Related Links]
   /headers[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -42,5 +42,5 @@
     hippostdpubwf:publicationDate: 2017-10-26T16:50:46.950+01:00
     resourcebundle:descriptions: ['']
     resourcebundle:id: publicationsystem.headers
-    resourcebundle:keys: [headers.publications-list]
-    resourcebundle:messages: [Publications in This Series]
+    resourcebundle:keys: [headers.summary, headers.key-facts, headers.resources, headers.related-links]
+    resourcebundle:messages: [Summary, Key Facts, Resources, Related Links]

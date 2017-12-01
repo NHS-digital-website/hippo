@@ -3,6 +3,7 @@
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() />
 <#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
 
+<@hst.setBundle basename="publicationsystem.headers"/>
 
 <#-- @ftlvariable name="publication" type="uk.nhs.digital.ps.beans.Publication" -->
 
@@ -94,17 +95,19 @@
         </dl>
     </div>
     <div class="content-section">
-
-        <p class="doc-summary" data-uipath="ps.publication.summary">${publication.summary?html}</p>
+        <div>
+            <h4><@fmt.message key="headers.summary"/></h4>
+            <span class="doc-summary" data-uipath="ps.publication.summary">${publication.summary?html}</span>
+        </div>
 
         <div>
-            <h4>Key facts:</h4>
+            <h4><@fmt.message key="headers.key-facts"/></h4>
             <span data-uipath="ps.publication.key-facts">${publication.keyFacts?html}</span>
         </div>
     </div>
 
     <div class="content-section">
-        <h3>Resources</h3>
+        <h3><@fmt.message key="headers.resources"/></h3>
         <ul data-uipath="ps.publication.resources">
             <#list publication.attachments as attachment>
                 <li class="attachment">
@@ -126,7 +129,7 @@
             </#list>
         </ul>
 
-        <h3>Related Links</h3>
+        <h3><@fmt.message key="headers.related-links"/></h3>
         <ul data-uipath="ps.publication.related-links"><#list publication.relatedLinks as link>
             <li>
                 <a href="${link.linkUrl}">${link.linkText}</a>
