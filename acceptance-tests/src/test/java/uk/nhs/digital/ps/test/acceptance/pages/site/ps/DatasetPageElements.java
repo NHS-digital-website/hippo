@@ -23,6 +23,8 @@ public class DatasetPageElements implements PageElements {
             By.xpath("//*[" + getDataUiPathXpath("granularity") + "]"));
         put("Dataset Geographic Coverage",
             By.xpath("//*[" + getDataUiPathXpath("geographic-coverage") + "]"));
+        put("Dataset Date Range",
+            By.xpath("//*[" + getDataUiPathXpath("date-range") + "]"));
     }};
 
     @Override

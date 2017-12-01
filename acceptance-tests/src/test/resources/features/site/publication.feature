@@ -29,4 +29,5 @@ Scenario: Display taxonomy list
     Given I navigate to "publication with datasets" page
     Then I should see publication page titled "publication with datasets"
     And I should also see:
-        | Publication Taxonomy | People, patients and geography |
+        | Publication Date Range | 01/11/2017 to 01/02/2018       |
+        | Publication Taxonomy   | People, patients and geography |

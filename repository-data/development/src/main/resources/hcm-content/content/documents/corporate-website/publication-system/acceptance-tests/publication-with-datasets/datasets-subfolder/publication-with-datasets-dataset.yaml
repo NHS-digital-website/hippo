@@ -15,8 +15,8 @@
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
-    publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
-    publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+    publicationsystem:CoverageEnd: 2017-07-01T01:00:00+01:00
+    publicationsystem:CoverageStart: 2016-02-01T00:00:00Z
     publicationsystem:GeographicCoverage: England
     publicationsystem:Granularity: [NHS Trusts]
     publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
@@ -52,8 +52,8 @@
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
-    publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
-    publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+    publicationsystem:CoverageEnd: 2017-07-01T01:00:00+01:00
+    publicationsystem:CoverageStart: 2016-02-01T00:00:00Z
     publicationsystem:GeographicCoverage: England
     publicationsystem:Granularity: [NHS Trusts]
     publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
@@ -90,8 +90,8 @@
     hippostdpubwf:publicationDate: 2017-11-09T21:42:50.263Z
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
-    publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
-    publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+    publicationsystem:CoverageEnd: 2017-07-01T01:00:00+01:00
+    publicationsystem:CoverageStart: 2016-02-01T00:00:00Z
     publicationsystem:GeographicCoverage: England
     publicationsystem:Granularity: [NHS Trusts]
     publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z

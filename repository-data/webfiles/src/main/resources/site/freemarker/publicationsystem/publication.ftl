@@ -1,5 +1,5 @@
 <#include "../include/imports.ftl">
-<#assign dateFormat="h:mm a d/MM/yyyy"/>
+<#assign dateFormat="dd/MM/yyyy"/>
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() />
 <#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
 

@@ -1,5 +1,5 @@
 <#include "../include/imports.ftl">
-<#assign dateFormat="h:mm a d/MM/yyyy"/>
+<#assign dateFormat="dd/MM/yyyy"/>
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() >
 
 <#if dataset??>
@@ -14,7 +14,7 @@
 
     <dl class="doc-metadata">
         <dt>Date Range</dt>
-        <dd>
+        <dd data-uipath="ps.dataset.date-range">
             <#if dataset.coverageStart?? >
                 <@fmt.formatDate value=dataset.coverageStart.time type="Date" pattern=dateFormat />
             <#else>
