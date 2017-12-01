@@ -3,6 +3,7 @@ package uk.nhs.digital.ps.test.util;
 import org.springframework.util.ReflectionUtils;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 public class ReflectionHelper {
 
@@ -20,5 +21,11 @@ public class ReflectionHelper {
         } catch (final IllegalAccessException e) {
             throw new RuntimeException("Failed to assign value " + targetValue + " to field " + field);
         }
+    }
+
+    public static <T> void callMethod(Class<T> targetClass, String methodName, Class<?> argType, Object arg) throws Exception {
+        Method method = targetClass.getDeclaredMethod(methodName, argType);
+        method.setAccessible(true);
+        method.invoke(null, arg);
     }
 }

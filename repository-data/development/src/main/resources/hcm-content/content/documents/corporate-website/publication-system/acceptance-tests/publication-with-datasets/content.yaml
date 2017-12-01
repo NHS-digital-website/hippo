@@ -12,6 +12,7 @@
     hippostdpubwf:creationDate: 2017-11-03T13:35:36.812Z
     hippostdpubwf:lastModificationDate: 2017-11-03T13:35:36.813Z
     hippostdpubwf:lastModifiedBy: admin
+    hippotaxonomy:keys: ['people,-patients-and-geography']
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
     publicationsystem:AdministrativeSources: ''
@@ -64,6 +65,7 @@
     hippostdpubwf:creationDate: 2017-11-03T13:35:36.812Z
     hippostdpubwf:lastModificationDate: 2017-11-03T13:37:39.777Z
     hippostdpubwf:lastModifiedBy: admin
+    hippotaxonomy:keys: ['people,-patients-and-geography']
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
     publicationsystem:AdministrativeSources: ''
@@ -116,6 +118,7 @@
     hippostdpubwf:creationDate: 2017-11-03T13:35:36.812Z
     hippostdpubwf:lastModificationDate: 2017-11-03T13:37:39.777Z
     hippostdpubwf:lastModifiedBy: admin
+    hippotaxonomy:keys: ['people,-patients-and-geography']
     hippostdpubwf:publicationDate: 2017-11-03T13:41:09.207Z
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en

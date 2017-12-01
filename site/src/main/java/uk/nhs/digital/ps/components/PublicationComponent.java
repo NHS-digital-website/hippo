@@ -37,9 +37,6 @@ public class PublicationComponent extends BaseHstComponent {
         Publication publication = getPublication(ctx);
 
         request.setAttribute("publication", publication);
-        request.setAttribute("taxonomyList", getTaxonomyList(ctx, publication));
-        request.setAttribute("parentSeries", getParentSeries(ctx, publication));
-        request.setAttribute("datasets", getDatasets(publication));
     }
 
     private Publication getPublication(HstRequestContext ctx) throws HstComponentException {
@@ -54,84 +51,5 @@ public class PublicationComponent extends BaseHstComponent {
 
         log.warn("Cannot find Publication document for: {}", content.getPath());
         throw new HstComponentException("Cannot find Publication document based on request content");
-    }
-
-    private List getTaxonomyList(HstRequestContext ctx, Publication publication) {
-        List<List<String>> taxonomyList = new ArrayList<>();
-
-        // For each taxonomy tag key, get the name and also include hierarchy context (ancestors)
-        if (publication.getKeys() != null) {
-
-            // Lookup Taxonomy Tree
-            TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent(TaxonomyManager.class.getName());
-            Taxonomy taxonomyTree = taxonomyManager.getTaxonomies().getTaxonomy(getTaxonomyName(ctx));
-
-
-            for (String key : publication.getKeys()) {
-                List<Category> ancestors = (List<Category>) taxonomyTree.getCategoryByKey(key).getAncestors();
-
-                List<String> list = ancestors.stream()
-                    .map(category -> category.getInfo("en").getName())
-                    .collect(Collectors.toList());
-                list.add(taxonomyTree.getCategoryByKey(key).getInfo("en").getName());
-                taxonomyList.add(list);
-            }
-        }
-
-        return taxonomyList;
-    }
-
-    private String getTaxonomyName(HstRequestContext ctx) throws HstComponentException {
-        String taxonomyName;
-
-        try {
-            taxonomyName = ctx.getSession().getNode(
-                "/hippo:namespaces/publicationsystem/publication/editor:templates/_default_/classifiable")
-                .getProperty("essentials-taxonomy-name")
-                .getString();
-        } catch (RepositoryException e) {
-            throw new HstComponentException(
-                "Exception occurred during fetching taxonomy file name.", e);
-        }
-
-        return taxonomyName;
-    }
-
-    private Series getParentSeries(HstRequestContext ctx, Publication publication) {
-        Series seriesBean = null;
-
-        HippoBean folder = publication.getParentBean();
-        while (!isRootFolder(folder, ctx)) {
-            Iterator<Series> iterator = folder.getChildBeans(Series.class).iterator();
-            if (iterator.hasNext()) {
-                seriesBean = iterator.next();
-                break;
-            } else {
-                folder = folder.getParentBean();
-            }
-        }
-
-        return seriesBean;
-    }
-
-    private HippoBeanIterator getDatasets(Publication publication) throws HstComponentException {
-        HstQueryResult hstQueryResult;
-        try {
-            hstQueryResult = HstQueryBuilder.create(publication.getParentBean())
-                .ofTypes(Dataset.class)
-                .orderByDescending("publicationsystem:NominalDate")
-                .build()
-                .execute();
-        } catch (QueryException e) {
-            log.error("Failed to find datasets for publication " + publication.getCanonicalPath(), e);
-            throw new HstComponentException(
-                "Failed to find datasets for publication " + publication.getCanonicalPath(), e);
-        }
-
-        return hstQueryResult.getHippoBeans();
-    }
-
-    private boolean isRootFolder(HippoBean folder, HstRequestContext ctx) {
-        return folder.isSelf(ctx.getSiteContentBaseBean());
     }
 }

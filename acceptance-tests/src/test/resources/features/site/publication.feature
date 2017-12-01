@@ -24,3 +24,9 @@ Scenario: Display Related Links list
     Then I should see publication page titled "publication with datasets"
     And I should also see "Publication Related Links" with:
         | Test google.com link  |
+
+Scenario: Display taxonomy list
+    Given I navigate to "publication with datasets" page
+    Then I should see publication page titled "publication with datasets"
+    And I should also see:
+        | Publication Taxonomy | People, patients and geography |

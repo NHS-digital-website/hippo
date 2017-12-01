@@ -1,18 +1,30 @@
 package uk.nhs.digital.ps.beans;
 
+import org.hippoecm.hst.container.RequestContextProvider;
+import org.hippoecm.hst.content.beans.query.HstQueryResult;
+import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
+import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.content.beans.standard.HippoResourceBean;
+import org.hippoecm.hst.core.component.HstComponentException;
+import org.hippoecm.hst.core.request.HstRequestContext;
+import org.hippoecm.hst.site.HstServices;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
+import org.onehippo.taxonomy.api.Category;
+import org.onehippo.taxonomy.api.Taxonomy;
+import org.onehippo.taxonomy.api.TaxonomyManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
 
+import javax.jcr.RepositoryException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static java.util.Arrays.asList;
 
@@ -20,6 +32,8 @@ import static java.util.Arrays.asList;
 @HippoEssentialsGenerated(internalName = "publicationsystem:publication")
 @Node(jcrType = "publicationsystem:publication")
 public class Publication extends BaseDocument {
+
+    private static final Logger log = LoggerFactory.getLogger(Publication.class);
 
     private static final int WEEKS_TO_CUTOFF = 8;
 
@@ -49,6 +63,86 @@ public class Publication extends BaseDocument {
         }
 
         return this;
+    }
+
+    public List getTaxonomyList() {
+        assertPropertyPermitted(PropertyKeys.TAXONOMY);
+
+        List<List<String>> taxonomyList = new ArrayList<>();
+
+        // For each taxonomy tag key, get the name and also include hierarchy context (ancestors)
+        if (getKeys() != null) {
+            // Lookup Taxonomy Tree
+            TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent(TaxonomyManager.class.getName());
+            Taxonomy taxonomyTree = taxonomyManager.getTaxonomies().getTaxonomy(getTaxonomyName());
+
+            for (String key : getKeys()) {
+                List<Category> ancestors = (List<Category>) taxonomyTree.getCategoryByKey(key).getAncestors();
+
+                List<String> list = ancestors.stream()
+                    .map(category -> category.getInfo("en").getName())
+                    .collect(Collectors.toList());
+                list.add(taxonomyTree.getCategoryByKey(key).getInfo("en").getName());
+                taxonomyList.add(list);
+            }
+        }
+
+        return taxonomyList;
+    }
+
+    private static String getTaxonomyName() throws HstComponentException {
+        String taxonomyName;
+
+        try {
+            HstRequestContext ctx = RequestContextProvider.get();
+            taxonomyName = ctx.getSession().getNode(
+                "/hippo:namespaces/publicationsystem/publication/editor:templates/_default_/classifiable")
+                .getProperty("essentials-taxonomy-name")
+                .getString();
+        } catch (RepositoryException e) {
+            throw new HstComponentException(
+                "Exception occurred during fetching taxonomy file name.", e);
+        }
+
+        return taxonomyName;
+    }
+
+    public Series getParentSeries() {
+        assertPropertyPermitted(PropertyKeys.PARENT_SERIES);
+
+        Series seriesBean = null;
+
+        HippoBean folder = getParentBean();
+        while (!HippoBeanHelper.isRootFolder(folder)) {
+            Iterator<Series> iterator = folder.getChildBeans(Series.class).iterator();
+            if (iterator.hasNext()) {
+                seriesBean = iterator.next();
+                break;
+            } else {
+                folder = folder.getParentBean();
+            }
+        }
+
+        return seriesBean;
+    }
+
+    public HippoBeanIterator getDatasets() throws HstComponentException {
+        assertPropertyPermitted(PropertyKeys.DATASETS);
+
+        HstQueryResult hstQueryResult;
+        try {
+            hstQueryResult = HstQueryBuilder.create(getParentBean())
+                .ofTypes(Dataset.class)
+                .orderByDescending("publicationsystem:NominalDate")
+                .build()
+                .execute();
+        } catch (QueryException e) {
+            log.error("Failed to find datasets for publication " + getCanonicalPath(), e);
+            throw new HstComponentException(
+                "Failed to find datasets for publication " + getCanonicalPath(), e);
+        }
+
+        return hstQueryResult.getHippoBeans();
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.TAXONOMY)
@@ -209,5 +303,7 @@ public class Publication extends BaseDocument {
         String ATTACHMENTS = "publicationsystem:attachments";
 
         String PARENT_BEAN = "PARENT_BEAN";
+        String PARENT_SERIES = "PARENT_SERIES";
+        String DATASETS = "DATASETS";
     }
 }
