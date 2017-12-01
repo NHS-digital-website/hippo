@@ -8,9 +8,9 @@
     <h2 class="doc-title" data-uipath="ps.dataset.title">${dataset.title}</h2>
 
     This dataset is part of <a class="label label--parent-document"
-        href="<@hst.link hippobean=parentPublication.selfLinkBean/>"
-        title="${parentPublication.title}"
-    >${parentPublication.title}</a>
+        href="<@hst.link hippobean=dataset.parentPublication.selfLinkBean/>"
+        title="${dataset.parentPublication.title}"
+    >${dataset.parentPublication.title}</a>
 
     <dl class="doc-metadata">
         <dt>Date Range</dt>

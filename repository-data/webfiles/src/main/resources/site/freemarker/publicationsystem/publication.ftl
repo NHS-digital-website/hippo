@@ -42,11 +42,11 @@
 
         <h2 class="doc-title" data-uipath="ps.publication.title">${publication.title?html}</h2>
 
-        <#if parentSeries??>
+        <#if publication.parentSeries??>
         This is part of
-        <a class="label label--parent-document" href="<@hst.link hippobean=parentSeries.selfLinkBean/>"
-            title="${parentSeries.title}">
-        ${parentSeries.title}
+        <a class="label label--parent-document" href="<@hst.link hippobean=publication.parentSeries.selfLinkBean/>"
+            title="${publication.parentSeries.title}">
+        ${publication.parentSeries.title}
         </a>
         </#if>
 
@@ -83,10 +83,10 @@
                 </#if>
             </dd>
 
-            <#if taxonomyList??>
+            <#if publication.taxonomyList??>
                 <dt>Taxonomy</dt>
                 <dd data-uipath="ps.publication.taxonomy">
-                    <#list taxonomyList as taxonomyChain>
+                    <#list publication.taxonomyList as taxonomyChain>
                         <div>${taxonomyChain?join(" => ")}</div>
                     </#list>
                 </dd>
@@ -119,7 +119,7 @@
                 </li>
             </#list>
 
-            <#list datasets as dataset>
+            <#list publication.datasets as dataset>
                 <li class="dataset">
                     <a href="<@hst.link hippobean=dataset.selfLinkBean/>" title="${dataset.title}">${dataset.title}</a>
                 </li>

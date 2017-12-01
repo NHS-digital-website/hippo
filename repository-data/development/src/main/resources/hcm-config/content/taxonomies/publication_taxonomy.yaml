@@ -292,14 +292,14 @@ definitions:
             /en:
               jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Outcomes and quality indicators
-        /people,-patients-and-georgraphy:
+        /people,-patients-and-geography:
           jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: people,-patients-and-georgraphy
+          hippotaxonomy:key: people,-patients-and-geography
           /hippotaxonomy:categoryinfos:
             jcr:primaryType: hippotaxonomy:categoryinfos
             /en:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: People, patients and georgraphy
+              hippotaxonomy:name: People, patients and geography
         /sevices:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: sevices
@@ -613,14 +613,14 @@ definitions:
             /en:
               jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Outcomes and quality indicators
-        /people,-patients-and-georgraphy:
+        /people,-patients-and-geography:
           jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: people,-patients-and-georgraphy
+          hippotaxonomy:key: people,-patients-and-geography
           /hippotaxonomy:categoryinfos:
             jcr:primaryType: hippotaxonomy:categoryinfos
             /en:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: People, patients and georgraphy
+              hippotaxonomy:name: People, patients and geography
         /sevices:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: sevices
@@ -934,14 +934,14 @@ definitions:
             /en:
               jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Outcomes and quality indicators
-        /people,-patients-and-georgraphy:
+        /people,-patients-and-geography:
           jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: people,-patients-and-georgraphy
+          hippotaxonomy:key: people,-patients-and-geography
           /hippotaxonomy:categoryinfos:
             jcr:primaryType: hippotaxonomy:categoryinfos
             /en:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: People, patients and georgraphy
+              hippotaxonomy:name: People, patients and geography
         /sevices:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: sevices

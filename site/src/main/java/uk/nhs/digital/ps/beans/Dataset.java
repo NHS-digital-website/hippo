@@ -1,5 +1,6 @@
 package uk.nhs.digital.ps.beans;
 
+import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
 import java.util.Calendar;
@@ -63,5 +64,22 @@ public class Dataset extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "publicationsystem:CoverageEnd")
     public Calendar getCoverageEnd() {
         return getProperty("publicationsystem:CoverageEnd");
+    }
+
+    public Publication getParentPublication() {
+        Publication publicationBean = null;
+
+        HippoFolder folder = (HippoFolder) getParentBean();
+        while (!HippoBeanHelper.isRootFolder(folder)) {
+            publicationBean = Publication.getPublicationInFolder(folder);
+
+            if (publicationBean != null) {
+                break;
+            } else {
+                folder = (HippoFolder) folder.getParentBean();
+            }
+        }
+
+        return publicationBean;
     }
 }
