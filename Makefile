@@ -1,4 +1,7 @@
 PWD = $(shell pwd)
+# speed up dev compilation
+# http://hg.openjdk.java.net/jdk8u/jdk8u/hotspot/file/2b2511bd3cc8/src/share/vm/runtime/advancedThresholdPolicy.hpp#l34
+MAVEN_OPTS ?= "-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
 
 ## Prints this help
 help:
@@ -13,14 +16,20 @@ help:
 init: .git/.local-hooks-installed
 
 ## Clean, build and start local hippo
-serve:
-	mvn clean verify
+# Clean and recompile only modules that we do customise.
+serve: essentials/target/essentials.war
+	mvn clean verify -pl site,cms,repository-data/development -am --offline -DskipTests=true
 	mvn -P cargo.run
 
 ## Serve without allowing auto-export
-serve.noexport:
-	mvn clean verify
+# Clean and recompile only modules that we do customise.
+serve.noexport: essentials/target/essentials.war
+	mvn clean verify -pl site,cms,repository-data/development -am --offline -DskipTests=true
 	mvn -P cargo.run,without-autoexport
+
+# we don't have to recompile it every time.
+essentials/target/essentials.war:
+	mvn clean verify -pl essentials -am --offline -DskipTests=true
 
 ## Run all tests
 test:

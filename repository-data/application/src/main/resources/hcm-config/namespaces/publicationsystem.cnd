@@ -18,3 +18,5 @@
 
 [publicationsystem:series] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
   orderable
+
+[publicationsystem:resource] > hippo:resource, hippo:derived

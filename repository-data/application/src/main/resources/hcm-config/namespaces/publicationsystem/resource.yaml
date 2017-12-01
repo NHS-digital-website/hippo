@@ -1,0 +1,81 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/publicationsystem/resource:
+      /editor:templates:
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          frontend:services:
+          - wicket.id
+          /root:
+            item: ${cluster.id}.field
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /display:
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.resource.ImageDisplayPlugin
+            wicket.id: ${cluster.id}.field
+          /upload:
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.resource.ResourceUploadPlugin
+            validator.id: service.gallery.asset.validation
+            wicket.id: ${cluster.id}.field
+        jcr:primaryType: editor:templateset
+      /hipposysedit:nodetype:
+        /hipposysedit:nodetype:
+          /data:
+            hipposysedit:mandatory: true
+            hipposysedit:path: jcr:data
+            hipposysedit:primary: true
+            hipposysedit:type: Binary
+            jcr:primaryType: hipposysedit:field
+          /encoding:
+            hipposysedit:path: jcr:encoding
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /filename:
+            hipposysedit:mandatory: false
+            hipposysedit:path: hippo:filename
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /lastmodified:
+            hipposysedit:mandatory: true
+            hipposysedit:path: jcr:lastModified
+            hipposysedit:type: Date
+            jcr:primaryType: hipposysedit:field
+          /mimetype:
+            hipposysedit:mandatory: true
+            hipposysedit:path: jcr:mimeType
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /text:
+            hipposysedit:path: hippo:text
+            hipposysedit:type: Binary
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:uri: http://www.onehippo.org/jcr/hippo/nt/2.0
+          jcr:mixinTypes:
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /hipposysedit:prototypes:
+        /hipposysedit:prototype:
+          hippo:filename: hippo:resource
+          jcr:data:
+            resource: data.bin
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2008-03-26T11:03:00Z
+          jcr:mimeType: application/vnd.hippo.blank
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype

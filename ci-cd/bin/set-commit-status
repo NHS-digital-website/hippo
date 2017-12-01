@@ -13,7 +13,6 @@ function set_status {
     local target_url=${2-target}
     local description=${3-$state}
     local context="${4-continuous-integration/codebuild}"
-
     local git_hash=""
     local payload="{
   \"state\": \"${state}\",

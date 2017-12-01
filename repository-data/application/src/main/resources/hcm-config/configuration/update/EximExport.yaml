@@ -7,7 +7,7 @@ definitions:
       hipposys:dryrun: false
       hipposys:parameters: "{\r\n  \"fileInJson\": true,\r\n  \"targetBaseFolderPath\"\
         : \"file:${java.io.tmpdir}/exim-export/\"\r\n}"
-      hipposys:query: ''
+      hipposys:path: /
       hipposys:script:
         resource: /configuration/update/EximExport.groovy
         type: string
