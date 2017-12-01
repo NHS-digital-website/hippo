@@ -18,8 +18,6 @@ import org.slf4j.LoggerFactory;
 import uk.nhs.digital.ps.beans.Publication;
 import uk.nhs.digital.ps.beans.Series;
 import uk.nhs.digital.ps.beans.Dataset;
-import javax.jcr.Node;
-import javax.jcr.RepositoryException;
 
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.or;
@@ -32,6 +30,9 @@ import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.or;
 public class SearchComponent extends CommonComponent {
 
     private static Logger log = LoggerFactory.getLogger(SearchComponent.class);
+    private static final String WILDCARD_IN_USE_CHAR = "*";
+    private static final String WILDCARD_NOT_IN_USE_CHAR = "?";
+    private static final int WILDCARD_POSTFIX_MIN_LENGTH = 3;
 
     public void doBeforeRender(HstRequest request, HstResponse response) {
         Pageable<HippoBean> pageable = DefaultPagination.emptyCollection();
@@ -71,8 +72,58 @@ public class SearchComponent extends CommonComponent {
     }
 
     protected String getQueryParameter(HstRequest request) {
-        return SearchInputParsingUtils.parse(getAnyParameter(request, REQUEST_PARAM_QUERY), false);
+        return SearchInputParsingUtils.parse(getAnyParameter(request, REQUEST_PARAM_QUERY), true);
     }
+
+    /**
+     * Convert query to include wildcard (*) character after each search term.
+     * If the term is a phrase, the search is for an exact match, so no wildcard is required,
+     * but the escaped backslash must be removed for the results to be accurate.
+     * If the term ends with fullstop or comma, do not apply wildcard
+     *
+     * e.g. lorem ipsum                 =>      lorem* ipsum*
+     *      "dolor sit" lorem ipsum     =>      "dolor sit" lorem* ipsum*
+     *      lor ipsum                   =>      lor* ipsum*
+     */
+    protected String applyWildcardsToQuery(String query) {
+
+        String queryWithWildcards = "";
+
+        // Split terms by space, treat phrases (wrapped in double quotes) as a single term
+        String[] splitTerms = query.split("\\s+(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+
+        for (int i = 0; i <= splitTerms.length - 1; i++) {
+
+            // The SearchInputParsingUtils.parse function escapes quote characters, but this results in the search
+            // not finding that specific term (because of the back slash), therefore remove escaped back slashes
+            String term = splitTerms[i].replace("\\","");
+
+            // WILDCARD_POSTFIX_CHAR (*) is being used as the wildcard character, but the search term could
+            // include (?) which is the other accepted wildcard in JCR repository.  If exists as last char, remove.
+            if (term.endsWith(WILDCARD_NOT_IN_USE_CHAR)) {
+                term = term.substring(0, term.length() -1);
+            }
+
+            queryWithWildcards += term;
+
+            // if the term has a trailing fullstop or comma, appending a wildcard will result in no matches
+            if (term.length() >= WILDCARD_POSTFIX_MIN_LENGTH
+                && !term.contains(WILDCARD_IN_USE_CHAR)
+                && !term.endsWith(".")
+                && !term.endsWith(",")
+                && !term.contains("\"")
+                ) {
+                queryWithWildcards += WILDCARD_IN_USE_CHAR;
+            }
+
+            if (i != splitTerms.length -1) {
+                queryWithWildcards += " ";
+            }
+        }
+
+        return queryWithWildcards;
+    }
+
 
     protected int getCurrentPage(HstRequest request) {
         return getAnyIntParameter(request, REQUEST_PARAM_PAGE, 1);
@@ -84,6 +135,7 @@ public class SearchComponent extends CommonComponent {
 
     private HstQuery buildQuery(HstRequest request) {
         String query = getQueryParameter(request);
+        String queryIncWildcards = applyWildcardsToQuery(query);
         HstQueryBuilder queryBuilder = HstQueryBuilder.create(getSearchScope(request));
 
         // register content classes
@@ -92,7 +144,9 @@ public class SearchComponent extends CommonComponent {
         return queryBuilder
             .where(or(
                 publicationSystemConstraint(query),
-                constraint(".").contains(query)
+                publicationSystemConstraint(queryIncWildcards),
+                constraint(".").contains(query),
+                constraint(".").contains(queryIncWildcards)
             ))
             .build();
     }
