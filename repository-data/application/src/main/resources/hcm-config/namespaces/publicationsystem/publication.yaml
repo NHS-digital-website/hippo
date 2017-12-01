@@ -231,9 +231,9 @@ definitions:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
             hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:attachments
+            hipposysedit:path: publicationsystem:Attachments-v2
             hipposysedit:primary: false
-            hipposysedit:type: hippo:resource
+            hipposysedit:type: publicationsystem:resource
             hipposysedit:validators:
             - publicationsystem-blank-attachment
             jcr:primaryType: hipposysedit:field

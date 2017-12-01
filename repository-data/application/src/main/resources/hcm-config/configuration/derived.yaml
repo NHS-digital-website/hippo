@@ -1,0 +1,18 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:derivatives/attachment-text-erase:
+      /hipposys:accessed:
+        /text:
+          hipposys:relPath: hippo:text
+          jcr:primaryType: hipposys:relativepropertyreference
+        jcr:primaryType: hipposys:propertyreferences
+      /hipposys:derived:
+        /text:
+          hipposys:relPath: hippo:text
+          jcr:primaryType: hipposys:relativepropertyreference
+        jcr:primaryType: hipposys:propertyreferences
+      hipposys:classname: uk.nhs.digital.ps.AttachmentTextEraserDerivedDataFunction
+      hipposys:nodetype: publicationsystem:resource
+      hipposys:serialver: 1
+      jcr:primaryType: hipposys:deriveddefinition

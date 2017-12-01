@@ -54,7 +54,8 @@ public class PublicationTest {
 
     private static final String NOMINAL_DATE_PROPERTY_KEY = "publicationsystem:NominalDate";
     private static final String PUBLICLY_ACCESSIBLE_PROPERTY_KEY = "publicationsystem:PubliclyAccessible";
-    private static final String ATTACHMENTS_PROPERTY_KEY = "publicationsystem:attachments";
+    private static final String ATTACHMENTS_PROPERTY_KEY_OLD = "publicationsystem:attachments";
+    private static final String ATTACHMENTS_PROPERTY_KEY = "publicationsystem:Attachments-v2";
     private static final String RELATED_LINKS_PROPERTY_KEY = "publicationsystem:RelatedLinks";
     private static final String RESOURCE_LINKS_PROPERTY_KEY = "publicationsystem:ResourceLinks";
 
@@ -91,6 +92,7 @@ public class PublicationTest {
 
         given(nodeIterator.hasNext()).willReturn(false);
         given(node.getNodes(ATTACHMENTS_PROPERTY_KEY)).willReturn(nodeIterator);
+        given(node.getNodes(ATTACHMENTS_PROPERTY_KEY_OLD)).willReturn(nodeIterator);
         given(node.getNodes(RELATED_LINKS_PROPERTY_KEY)).willReturn(nodeIterator);
         given(node.getNodes(RESOURCE_LINKS_PROPERTY_KEY)).willReturn(nodeIterator);
 

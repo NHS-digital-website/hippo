@@ -41,10 +41,20 @@ public class Dataset extends BaseDocument {
         return getProperty("hippotaxonomy:keys");
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:Files")
+    /*
+     * Migration: 20171208
+     * New field: publicationsystem:Files-v2
+     * Old field: publicationsystem:Files
+     */
+    @HippoEssentialsGenerated(internalName = "publicationsystem:Files-v2")
     public List<HippoResourceBean> getFiles() {
-        return getChildBeansByName("publicationsystem:Files",
-                HippoResourceBean.class);
+        List<HippoResourceBean> attachments = getChildBeansByName("publicationsystem:Files-v2", HippoResourceBean.class);
+
+        if (attachments.isEmpty()) {
+            attachments = getChildBeansByName("publicationsystem:Files", HippoResourceBean.class);
+        }
+
+        return attachments;
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:Granularity")

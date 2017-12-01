@@ -153,9 +153,9 @@ definitions:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
             hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:Files
+            hipposysedit:path: publicationsystem:Files-v2
             hipposysedit:primary: false
-            hipposysedit:type: hippo:resource
+            hipposysedit:type: publicationsystem:resource
             jcr:primaryType: hipposysedit:field
           /GeographicCoverage:
             hipposysedit:mandatory: false
