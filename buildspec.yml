@@ -52,7 +52,7 @@ phases:
       # Upload tgz files to various destinations
       - ssh-agent bash -c "
         ssh-add $HOME/.ssh/nhs-ci_rsa &&
-        cd ci-cd && make ondemand.upload"
+        cd ci-cd && make ondemand.upload upload"
       # Deploy to Test Environment
       - . $HOME/rd.password && cd ci-cd && make ondemand.deploy ENV=test
       # Push tag back to github

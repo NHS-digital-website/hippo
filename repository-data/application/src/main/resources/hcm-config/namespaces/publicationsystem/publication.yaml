@@ -310,6 +310,7 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.css: [attachments]
             wicket.id: ${cluster.id}.left.item
+            searchable: false
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /ResourceLinks:

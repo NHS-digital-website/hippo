@@ -58,7 +58,7 @@ definitions:
             wicket.id: ${cluster.id}.field
           /upload:
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.resource.ResourceUploadPlugin
+            plugin.class: uk.nhs.digital.ps.frontend.editor.plugins.resource.ResourceUploadPlugin
             validator.id: service.gallery.asset.validation
             wicket.id: ${cluster.id}.field
       /hipposysedit:prototypes:
