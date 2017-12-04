@@ -1,7 +1,8 @@
+---
 definitions:
   config:
     /hst:hst/hst:configurations/publicationsystem/hst:workspace/hst:channel:
       .meta:residual-child-node-category: content
-      jcr:primaryType: hst:channel
       hst:name: NHS Digital Publication System
       hst:type: website
+      jcr:primaryType: hst:channel

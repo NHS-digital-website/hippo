@@ -1,7 +1,13 @@
+---
 /content/documents/corporate-website/publication-system:
-  jcr:primaryType: hippostd:folder
-  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
   hippo:name: Publication System
-  hippostd:foldertype: [new-translated-folder, new-document]
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
   hippotranslation:id: 00000000-0000-0000-0000-000000000000
   hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

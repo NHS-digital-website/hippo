@@ -1,8 +1,10 @@
+---
 definitions:
   config:
     /hippo:configuration/hippo:modules/autoexport/hippo:moduleconfig:
+      autoexport:enabled: true
       autoexport:modules:
         operation: add
         type: string
-        value: [repository-data/development]
-      autoexport:enabled: true
+        value:
+        - repository-data/development

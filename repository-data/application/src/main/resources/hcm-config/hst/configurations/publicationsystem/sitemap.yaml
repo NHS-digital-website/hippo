@@ -1,20 +1,21 @@
+---
 definitions:
   config:
     /hst:hst/hst:configurations/publicationsystem/hst:sitemap:
-      jcr:primaryType: hst:sitemap
-      /root:
-        jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/home
       /_any_:
-        jcr:primaryType: hst:sitemapitem
-        hst:relativecontentpath: ${1}
         hst:componentconfigurationmappingnames:
-          - publicationsystem:dataset
-          - hippostd:folder
-          - publicationsystem:publication
-          - publicationsystem:series
+        - publicationsystem:dataset
+        - hippostd:folder
+        - publicationsystem:publication
+        - publicationsystem:series
         hst:componentconfigurationmappingvalues:
-          - hst:pages/dataset
-          - hst:pages/folder
-          - hst:pages/publication
-          - hst:pages/series
+        - hst:pages/dataset
+        - hst:pages/folder
+        - hst:pages/publication
+        - hst:pages/series
+        hst:relativecontentpath: ${1}
+        jcr:primaryType: hst:sitemapitem
+      /root:
+        hst:componentconfigurationid: hst:pages/home
+        jcr:primaryType: hst:sitemapitem
+      jcr:primaryType: hst:sitemap

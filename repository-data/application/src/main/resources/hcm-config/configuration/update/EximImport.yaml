@@ -1,9 +1,7 @@
 ---
-
 definitions:
   config:
     /hippo:configuration/hippo:update/hippo:registry/EximImport:
-      jcr:primaryType: hipposys:updaterinfo
       hipposys:batchsize: 10
       hipposys:description: ''
       hipposys:dryrun: false
@@ -11,6 +9,7 @@ definitions:
         : \"file:${java.io.tmpdir}/exim-import/\"\r\n}"
       hipposys:path: /
       hipposys:script:
-        type: string
         resource: /configuration/update/EximImport.groovy
+        type: string
       hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo

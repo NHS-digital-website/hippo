@@ -1,117 +1,134 @@
 ---
-
 /content/documents/corporate-website/publication-system/lorem-ipsum-content/proin-nec-justo:
-  jcr:primaryType: hippo:handle
-  jcr:mixinTypes: ['mix:referenceable']
   /proin-nec-justo[1]:
-    jcr:primaryType: publicationsystem:publication
-    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+    /publicationsystem:RelatedLinks:
+      jcr:primaryType: publicationsystem:relatedlink
+      publicationsystem:linkText: ''
+      publicationsystem:linkUrl: ''
+      publicationsystem:link_text: ''
+      publicationsystem:link_url: ''
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2017-10-16T15:00:00.000+01:00
-    hippostdpubwf:lastModificationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:creationDate: 2017-10-16T14:00:00Z
+    hippostdpubwf:lastModificationDate: 2017-10-16T14:00:00Z
     hippostdpubwf:lastModifiedBy: admin
+    hippotaxonomy:keys:
+    - circulatory-system-diseases
+    - workforce
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
-    hippotaxonomy:keys: [circulatory-system-diseases, workforce]
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
-    publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
-    publicationsystem:CoverageStart: 2017-01-01T09:00:00.000+01:00
-    publicationsystem:InformationType: [Official statistics]
+    publicationsystem:CoverageEnd: 2017-04-01T08:00:00Z
+    publicationsystem:CoverageStart: 2017-01-01T08:00:00Z
+    publicationsystem:InformationType:
+    - Official statistics
     publicationsystem:KeyFacts: ''
-    publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
-    publicationsystem:Summary: Nulla eu augue eros. Maecenas ultrices tempus
-      placerat. Phasellus commodo nulla in gravida pretium. Donec justo magna,
-      vehicula tristique suscipit vel, condimentum quis lectus. Nam posuere eu elit
-      vitae gravida. Nullam a volutpat dolor, sagittis iaculis urna. Fusce rhoncus
-      sagittis mauris, non rutrum eros volutpat ut. Duis non tempus ante. Duis
-      scelerisque, massa et luctus sollicitudin, quam massa convallis justo, in
-      eleifend ante nibh a mauris. Aliquam finibus pellentesque lacus, ac vulputate
-      nisi iaculis at. Integer consequat mollis ipsum, ac tincidunt diam cursus id.
-      Mauris convallis a nisl eget mattis. Vestibulum sodales nisl aliquam, cursus
-      nunc eu, tincidunt ligula. Aliquam a ligula ac elit efficitur viverra eu quis
-      libero.
+    publicationsystem:NominalDate: 2017-06-01T08:30:00Z
+    publicationsystem:PubliclyAccessible: true
+    publicationsystem:Summary: Nulla eu augue eros. Maecenas ultrices tempus placerat.
+      Phasellus commodo nulla in gravida pretium. Donec justo magna, vehicula tristique
+      suscipit vel, condimentum quis lectus. Nam posuere eu elit vitae gravida. Nullam
+      a volutpat dolor, sagittis iaculis urna. Fusce rhoncus sagittis mauris, non
+      rutrum eros volutpat ut. Duis non tempus ante. Duis scelerisque, massa et luctus
+      sollicitudin, quam massa convallis justo, in eleifend ante nibh a mauris. Aliquam
+      finibus pellentesque lacus, ac vulputate nisi iaculis at. Integer consequat
+      mollis ipsum, ac tincidunt diam cursus id. Mauris convallis a nisl eget mattis.
+      Vestibulum sodales nisl aliquam, cursus nunc eu, tincidunt ligula. Aliquam a
+      ligula ac elit efficitur viverra eu quis libero.
     publicationsystem:Title: Proin nec justo
+  /proin-nec-justo[2]:
     /publicationsystem:RelatedLinks:
       jcr:primaryType: publicationsystem:relatedlink
       publicationsystem:linkText: ''
       publicationsystem:linkUrl: ''
       publicationsystem:link_text: ''
       publicationsystem:link_url: ''
-    publicationsystem:PubliclyAccessible: true
-  /proin-nec-justo[2]:
-    jcr:primaryType: publicationsystem:publication
-    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
-    hippo:availability: [preview]
+    hippo:availability:
+    - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2017-10-16T15:00:00.000+01:00
-    hippostdpubwf:lastModificationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:creationDate: 2017-10-16T14:00:00Z
+    hippostdpubwf:lastModificationDate: 2017-10-16T14:00:00Z
     hippostdpubwf:lastModifiedBy: admin
+    hippotaxonomy:keys:
+    - falls
+    - infectious-diseases
+    - workforce
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
-    hippotaxonomy:keys: [falls, infectious-diseases, workforce]
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
-    publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
-    publicationsystem:CoverageStart: 2017-01-01T09:00:00.000+01:00
-    publicationsystem:InformationType: [Official statistics]
+    publicationsystem:CoverageEnd: 2017-04-01T08:00:00Z
+    publicationsystem:CoverageStart: 2017-01-01T08:00:00Z
+    publicationsystem:InformationType:
+    - Official statistics
     publicationsystem:KeyFacts: ''
-    publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
-    publicationsystem:Summary: Nulla eu augue eros. Maecenas ultrices tempus
-      placerat. Phasellus commodo nulla in gravida pretium. Donec justo magna,
-      vehicula tristique suscipit vel, condimentum quis lectus. Nam posuere eu elit
-      vitae gravida. Nullam a volutpat dolor, sagittis iaculis urna. Fusce rhoncus
-      sagittis mauris, non rutrum eros volutpat ut. Duis non tempus ante. Duis
-      scelerisque, massa et luctus sollicitudin, quam massa convallis justo, in
-      eleifend ante nibh a mauris. Aliquam finibus pellentesque lacus, ac vulputate
-      nisi iaculis at. Integer consequat mollis ipsum, ac tincidunt diam cursus id.
-      Mauris convallis a nisl eget mattis. Vestibulum sodales nisl aliquam, cursus
-      nunc eu, tincidunt ligula. Aliquam a ligula ac elit efficitur viverra eu quis
-      libero.
+    publicationsystem:NominalDate: 2017-06-01T08:30:00Z
+    publicationsystem:PubliclyAccessible: true
+    publicationsystem:Summary: Nulla eu augue eros. Maecenas ultrices tempus placerat.
+      Phasellus commodo nulla in gravida pretium. Donec justo magna, vehicula tristique
+      suscipit vel, condimentum quis lectus. Nam posuere eu elit vitae gravida. Nullam
+      a volutpat dolor, sagittis iaculis urna. Fusce rhoncus sagittis mauris, non
+      rutrum eros volutpat ut. Duis non tempus ante. Duis scelerisque, massa et luctus
+      sollicitudin, quam massa convallis justo, in eleifend ante nibh a mauris. Aliquam
+      finibus pellentesque lacus, ac vulputate nisi iaculis at. Integer consequat
+      mollis ipsum, ac tincidunt diam cursus id. Mauris convallis a nisl eget mattis.
+      Vestibulum sodales nisl aliquam, cursus nunc eu, tincidunt ligula. Aliquam a
+      ligula ac elit efficitur viverra eu quis libero.
     publicationsystem:Title: Proin nec justo
+  /proin-nec-justo[3]:
     /publicationsystem:RelatedLinks:
       jcr:primaryType: publicationsystem:relatedlink
       publicationsystem:linkText: ''
       publicationsystem:linkUrl: ''
       publicationsystem:link_text: ''
       publicationsystem:link_url: ''
-    publicationsystem:PubliclyAccessible: true
-  /proin-nec-justo[3]:
-    jcr:primaryType: publicationsystem:publication
-    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-    hippo:availability: [live]
+    hippo:availability:
+    - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2017-10-16T15:00:00.000+01:00
-    hippostdpubwf:lastModificationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:creationDate: 2017-10-16T14:00:00Z
+    hippostdpubwf:lastModificationDate: 2017-10-16T14:00:00Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:publicationDate: 2017-10-16T14:00:00Z
+    hippotaxonomy:keys:
+    - falls
+    - infectious-diseases
+    - workforce
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
-    hippotaxonomy:keys: [falls, infectious-diseases, workforce]
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
-    publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
-    publicationsystem:CoverageStart: 2017-01-01T09:00:00.000+01:00
-    publicationsystem:InformationType: [Official statistics]
+    publicationsystem:CoverageEnd: 2017-04-01T08:00:00Z
+    publicationsystem:CoverageStart: 2017-01-01T08:00:00Z
+    publicationsystem:InformationType:
+    - Official statistics
     publicationsystem:KeyFacts: ''
-    publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
-    publicationsystem:Summary: Nulla eu augue eros. Maecenas ultrices tempus
-      placerat. Phasellus commodo nulla in gravida pretium. Donec justo magna,
-      vehicula tristique suscipit vel, condimentum quis lectus. Nam posuere eu elit
-      vitae gravida. Nullam a volutpat dolor, sagittis iaculis urna. Fusce rhoncus
-      sagittis mauris, non rutrum eros volutpat ut. Duis non tempus ante. Duis
-      scelerisque, massa et luctus sollicitudin, quam massa convallis justo, in
-      eleifend ante nibh a mauris. Aliquam finibus pellentesque lacus, ac vulputate
-      nisi iaculis at. Integer consequat mollis ipsum, ac tincidunt diam cursus id.
-      Mauris convallis a nisl eget mattis. Vestibulum sodales nisl aliquam, cursus
-      nunc eu, tincidunt ligula. Aliquam a ligula ac elit efficitur viverra eu quis
-      libero.
-    publicationsystem:Title: Proin nec justo
-    /publicationsystem:RelatedLinks:
-      jcr:primaryType: publicationsystem:relatedlink
-      publicationsystem:linkText: ''
-      publicationsystem:linkUrl: ''
-      publicationsystem:link_text: ''
-      publicationsystem:link_url: ''
+    publicationsystem:NominalDate: 2017-06-01T08:30:00Z
     publicationsystem:PubliclyAccessible: true
+    publicationsystem:Summary: Nulla eu augue eros. Maecenas ultrices tempus placerat.
+      Phasellus commodo nulla in gravida pretium. Donec justo magna, vehicula tristique
+      suscipit vel, condimentum quis lectus. Nam posuere eu elit vitae gravida. Nullam
+      a volutpat dolor, sagittis iaculis urna. Fusce rhoncus sagittis mauris, non
+      rutrum eros volutpat ut. Duis non tempus ante. Duis scelerisque, massa et luctus
+      sollicitudin, quam massa convallis justo, in eleifend ante nibh a mauris. Aliquam
+      finibus pellentesque lacus, ac vulputate nisi iaculis at. Integer consequat
+      mollis ipsum, ac tincidunt diam cursus id. Mauris convallis a nisl eget mattis.
+      Vestibulum sodales nisl aliquam, cursus nunc eu, tincidunt ligula. Aliquam a
+      ligula ac elit efficitur viverra eu quis libero.
+    publicationsystem:Title: Proin nec justo
+  jcr:mixinTypes:
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

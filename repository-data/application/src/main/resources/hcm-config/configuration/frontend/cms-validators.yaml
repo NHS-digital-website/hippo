@@ -1,28 +1,24 @@
+---
 definitions:
   config:
-    /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-title:
+    /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-blank-attachment:
       jcr:primaryType: frontend:plugin
-      max_length: 250
-      plugin.class: uk.nhs.digital.ps.TextLengthValidator
-
+      plugin.class: uk.nhs.digital.ps.BlankAttachmentFieldValidator
+    /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-blank-granularity:
+      fieldDisplayName: Granularity
+      jcr:primaryType: frontend:plugin
+      plugin.class: uk.nhs.digital.ps.BlankStaticDropdownSelectionFieldValidator
+    /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-blank-related-link:
+      jcr:primaryType: frontend:plugin
+      plugin.class: uk.nhs.digital.ps.BlankRelatedLinkFieldValidator
     /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-summary:
       jcr:primaryType: frontend:plugin
       max_length: 1000
       plugin.class: uk.nhs.digital.ps.TextLengthValidator
-
-    /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-blank-attachment:
+    /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-title:
       jcr:primaryType: frontend:plugin
-      plugin.class: uk.nhs.digital.ps.BlankAttachmentFieldValidator
-
-    /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-blank-granularity:
-      jcr:primaryType: frontend:plugin
-      plugin.class: uk.nhs.digital.ps.BlankStaticDropdownSelectionFieldValidator
-      fieldDisplayName: Granularity
-
-    /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-blank-related-link:
-      jcr:primaryType: frontend:plugin
-      plugin.class: uk.nhs.digital.ps.BlankRelatedLinkFieldValidator
-
+      max_length: 250
+      plugin.class: uk.nhs.digital.ps.TextLengthValidator
     /hippo:configuration/hippo:frontend/cms/cms-validators/valid-url:
       jcr:primaryType: frontend:plugin
       plugin.class: org.hippoecm.frontend.editor.validator.plugins.RegExCmsValidator

@@ -1,52 +1,161 @@
 ---
-
 /content/documents/administration/month-names:
-  jcr:primaryType: hippo:handle
-  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-  hippo:name: month names
   /month-names[1]:
-    jcr:primaryType: resourcebundle:resourcebundle
-    jcr:mixinTypes: ['mix:referenceable']
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-01T21:05:32.191Z
     hippostdpubwf:lastModificationDate: 2017-11-01T21:05:32.192Z
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:id: month-names
-    resourcebundle:keys: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
-      '11']
-    resourcebundle:messages: [January, February, March, April, May, June, July,
-      August, September, October, November, December]
-  /month-names[2]:
+    jcr:mixinTypes:
+    - mix:referenceable
     jcr:primaryType: resourcebundle:resourcebundle
-    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-    hippo:availability: [preview]
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: month-names
+    resourcebundle:keys:
+    - '0'
+    - '1'
+    - '2'
+    - '3'
+    - '4'
+    - '5'
+    - '6'
+    - '7'
+    - '8'
+    - '9'
+    - '10'
+    - '11'
+    resourcebundle:messages:
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+  /month-names[2]:
+    hippo:availability:
+    - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-01T21:05:32.191Z
     hippostdpubwf:lastModificationDate: 2017-11-01T21:11:26.132Z
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:id: month-names
-    resourcebundle:keys: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
-      '11']
-    resourcebundle:messages: [January, February, March, April, May, June, July,
-      August, September, October, November, December]
-  /month-names[3]:
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
     jcr:primaryType: resourcebundle:resourcebundle
-    jcr:mixinTypes: ['mix:referenceable']
-    hippo:availability: [live]
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: month-names
+    resourcebundle:keys:
+    - '0'
+    - '1'
+    - '2'
+    - '3'
+    - '4'
+    - '5'
+    - '6'
+    - '7'
+    - '8'
+    - '9'
+    - '10'
+    - '11'
+    resourcebundle:messages:
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+  /month-names[3]:
+    hippo:availability:
+    - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-01T21:05:32.191Z
     hippostdpubwf:lastModificationDate: 2017-11-01T21:11:26.132Z
     hippostdpubwf:lastModifiedBy: admin
     hippostdpubwf:publicationDate: 2017-11-01T21:11:35.762Z
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
     resourcebundle:id: month-names
-    resourcebundle:keys: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
-      '11']
-    resourcebundle:messages: [January, February, March, April, May, June, July,
-      August, September, October, November, December]
+    resourcebundle:keys:
+    - '0'
+    - '1'
+    - '2'
+    - '3'
+    - '4'
+    - '5'
+    - '6'
+    - '7'
+    - '8'
+    - '9'
+    - '10'
+    - '11'
+    resourcebundle:messages:
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+  hippo:name: month names
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

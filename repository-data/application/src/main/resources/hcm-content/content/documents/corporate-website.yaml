@@ -1,14 +1,14 @@
+---
 /content/documents/corporate-website:
-  jcr:primaryType: hippostd:folder
-  # DO NOT CHANGE. This is used in the facet configuration
-  jcr:uuid: 12345678-1234-1234-1234-123456789abc
-  jcr:mixinTypes:
-    - mix:versionable
-    - hippo:named
-    - hippotranslation:translated
   hippo:name: Corporate Website
   hippostd:foldertype:
-    - new-translated-folder
-    - new-document
+  - new-translated-folder
+  - new-document
   hippotranslation:id: 00000000-0000-0000-0000-000000000000
   hippotranslation:locale: en
+  jcr:mixinTypes:
+  - mix:versionable
+  - hippo:named
+  - hippotranslation:translated
+  jcr:primaryType: hippostd:folder
+  jcr:uuid: 12345678-1234-1234-1234-123456789abc
