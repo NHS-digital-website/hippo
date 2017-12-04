@@ -1,968 +1,967 @@
 ---
-
 definitions:
   config:
     /content/taxonomies/publication_taxonomy:
       /publication_taxonomy[1]:
         /conditions:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: conditions
-          /hippotaxonomy:categoryinfos:
-            jcr:primaryType: hippotaxonomy:categoryinfos
-            /en:
-              jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Conditions
           /accidents-and-injuries:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: accidents-and-injuries
-            /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
-              /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
-                hippotaxonomy:name: Accidents and injuries
             /breaks-and-fractures:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: breaks-and-fractures
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Breaks and fractures
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: breaks-and-fractures
+              jcr:primaryType: hippotaxonomy:category
             /falls:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: falls
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Falls
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: falls
+              jcr:primaryType: hippotaxonomy:category
+            /hippotaxonomy:categoryinfos:
+              /en:
+                hippotaxonomy:name: Accidents and injuries
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
             /land-transport-accidents:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: land-transport-accidents
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Land transport accidents
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: land-transport-accidents
+              jcr:primaryType: hippotaxonomy:category
             /major-accidents:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: major-accidents
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Major accidents
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: major-accidents
+              jcr:primaryType: hippotaxonomy:category
             /mortality-from-accidents:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: mortality-from-accidents
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Mortality from accidents
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: mortality-from-accidents
+              jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: accidents-and-injuries
+            jcr:primaryType: hippotaxonomy:category
           /cancer:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: cancer
-            /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
-              /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
-                hippotaxonomy:name: Cancer
             /all-cancers:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: all-cancers
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: All cancers
-            /breast-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: breast-cancer
-              /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
-                /en:
                   jcr:primaryType: hippotaxonomy:categoryinfo
-                  hippotaxonomy:name: Breast cancer
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: all-cancers
+              jcr:primaryType: hippotaxonomy:category
             /bowel-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: bowel-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Bowel cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: bowel-cancer
+              jcr:primaryType: hippotaxonomy:category
+            /breast-cancer:
+              /hippotaxonomy:categoryinfos:
+                /en:
+                  hippotaxonomy:name: Breast cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: breast-cancer
+              jcr:primaryType: hippotaxonomy:category
             /cervical-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: cervical-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Cervical cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: cervical-cancer
+              jcr:primaryType: hippotaxonomy:category
             /colon-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: colon-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Colon cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: colon-cancer
+              jcr:primaryType: hippotaxonomy:category
             /colorectal-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: colorectal-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Colorectal cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: colorectal-cancer
+              jcr:primaryType: hippotaxonomy:category
             /head-and-neck-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: head-and-neck-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Head and neck cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: head-and-neck-cancer
+              jcr:primaryType: hippotaxonomy:category
+            /hippotaxonomy:categoryinfos:
+              /en:
+                hippotaxonomy:name: Cancer
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
             /hodgkinâ€™s-disease:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: hodgkinâ€™s-disease
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Hodgkinâ€™s disease
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: hodgkinâ€™s-disease
+              jcr:primaryType: hippotaxonomy:category
             /leukaemia:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: leukaemia
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Leukaemia
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: leukaemia
+              jcr:primaryType: hippotaxonomy:category
             /lung-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: lung-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Lung cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: lung-cancer
+              jcr:primaryType: hippotaxonomy:category
             /malignant-melanoma:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: malignant-melanoma
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Malignant melanoma
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: malignant-melanoma
+              jcr:primaryType: hippotaxonomy:category
             /oesophago-gastric-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: oesophago-gastric-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Oesophago-gastric cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: oesophago-gastric-cancer
+              jcr:primaryType: hippotaxonomy:category
             /prostate-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: prostate-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Prostate cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: prostate-cancer
+              jcr:primaryType: hippotaxonomy:category
             /skin-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: skin-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Skin cancer
-            /stomach-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: stomach-cancer
-              /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
-                /en:
                   jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: skin-cancer
+              jcr:primaryType: hippotaxonomy:category
+            /stomach-cancer:
+              /hippotaxonomy:categoryinfos:
+                /en:
                   hippotaxonomy:name: Stomach cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: stomach-cancer
+              jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: cancer
+            jcr:primaryType: hippotaxonomy:category
           /central-nervous-system-diseases-and-disorders:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: central-nervous-system-diseases-and-disorders
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Central nervous system diseases and disorders
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: central-nervous-system-diseases-and-disorders
+            jcr:primaryType: hippotaxonomy:category
           /circulatory-system-diseases:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: circulatory-system-diseases
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Circulatory system diseases
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: circulatory-system-diseases
+            jcr:primaryType: hippotaxonomy:category
           /dental-health:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: dental-health
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Dental health
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: dental-health
+            jcr:primaryType: hippotaxonomy:category
           /digestive-system-diseases-and-disorders:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: digestive-system-diseases-and-disorders
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Digestive system diseases and disorders
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: digestive-system-diseases-and-disorders
+            jcr:primaryType: hippotaxonomy:category
           /endocrine,-nutritional-and-metabolic-disorders:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: endocrine,-nutritional-and-metabolic-disorders
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Endocrine, nutritional and metabolic disorders
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: endocrine,-nutritional-and-metabolic-disorders
+            jcr:primaryType: hippotaxonomy:category
           /genitourinary-system-diseases-and-disorders:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: genitourinary-system-diseases-and-disorders
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Genitourinary system diseases and disorders
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: genitourinary-system-diseases-and-disorders
+            jcr:primaryType: hippotaxonomy:category
+          /hippotaxonomy:categoryinfos:
+            /en:
+              hippotaxonomy:name: Conditions
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
           /immune-system-disorders:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: immune-system-disorders
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Immune system disorders
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: immune-system-disorders
+            jcr:primaryType: hippotaxonomy:category
           /infectious-diseases:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: infectious-diseases
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Infectious diseases
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: infectious-diseases
+            jcr:primaryType: hippotaxonomy:category
           /maternal,-infant-and-child-health:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: maternal,-infant-and-child-health
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Maternal, infant and child health
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: maternal,-infant-and-child-health
+            jcr:primaryType: hippotaxonomy:category
           /mental-and-behavioural-disorders:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: mental-and-behavioural-disorders
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Mental and behavioural disorders
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: mental-and-behavioural-disorders
+            jcr:primaryType: hippotaxonomy:category
           /respiratory-system-diseases-and-disorders:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: respiratory-system-diseases-and-disorders
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Respiratory system diseases and disorders
-          /sensory-impairment:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: sensory-impairment
-            /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
-              /en:
                 jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: respiratory-system-diseases-and-disorders
+            jcr:primaryType: hippotaxonomy:category
+          /sensory-impairment:
+            /hippotaxonomy:categoryinfos:
+              /en:
                 hippotaxonomy:name: Sensory impairment
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: sensory-impairment
+            jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: conditions
+          jcr:primaryType: hippotaxonomy:category
         /outcomes-and-quality-indicators:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: outcomes-and-quality-indicators
           /hippotaxonomy:categoryinfos:
-            jcr:primaryType: hippotaxonomy:categoryinfos
             /en:
-              jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Outcomes and quality indicators
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: outcomes-and-quality-indicators
+          jcr:primaryType: hippotaxonomy:category
         /people,-patients-and-geography:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: people,-patients-and-geography
           /hippotaxonomy:categoryinfos:
-            jcr:primaryType: hippotaxonomy:categoryinfos
             /en:
-              jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: People, patients and geography
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: people,-patients-and-geography
+          jcr:primaryType: hippotaxonomy:category
         /sevices:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: sevices
           /hippotaxonomy:categoryinfos:
-            jcr:primaryType: hippotaxonomy:categoryinfos
             /en:
-              jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Sevices
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: sevices
+          jcr:primaryType: hippotaxonomy:category
         /social-care:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: social-care
           /hippotaxonomy:categoryinfos:
-            jcr:primaryType: hippotaxonomy:categoryinfos
             /en:
-              jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Social care
-        /workforce:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: workforce
-          /hippotaxonomy:categoryinfos:
-            jcr:primaryType: hippotaxonomy:categoryinfos
-            /en:
               jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: social-care
+          jcr:primaryType: hippotaxonomy:category
+        /workforce:
+          /hippotaxonomy:categoryinfos:
+            /en:
               hippotaxonomy:name: Workforce
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: workforce
+          jcr:primaryType: hippotaxonomy:category
       /publication_taxonomy[2]:
         /conditions:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: conditions
-          /hippotaxonomy:categoryinfos:
-            jcr:primaryType: hippotaxonomy:categoryinfos
-            /en:
-              jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Conditions
           /accidents-and-injuries:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: accidents-and-injuries
-            /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
-              /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
-                hippotaxonomy:name: Accidents and injuries
             /breaks-and-fractures:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: breaks-and-fractures
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Breaks and fractures
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: breaks-and-fractures
+              jcr:primaryType: hippotaxonomy:category
             /falls:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: falls
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Falls
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: falls
+              jcr:primaryType: hippotaxonomy:category
+            /hippotaxonomy:categoryinfos:
+              /en:
+                hippotaxonomy:name: Accidents and injuries
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
             /land-transport-accidents:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: land-transport-accidents
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Land transport accidents
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: land-transport-accidents
+              jcr:primaryType: hippotaxonomy:category
             /major-accidents:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: major-accidents
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Major accidents
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: major-accidents
+              jcr:primaryType: hippotaxonomy:category
             /mortality-from-accidents:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: mortality-from-accidents
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Mortality from accidents
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: mortality-from-accidents
+              jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: accidents-and-injuries
+            jcr:primaryType: hippotaxonomy:category
           /cancer:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: cancer
-            /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
-              /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
-                hippotaxonomy:name: Cancer
             /all-cancers:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: all-cancers
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: All cancers
-            /breast-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: breast-cancer
-              /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
-                /en:
                   jcr:primaryType: hippotaxonomy:categoryinfo
-                  hippotaxonomy:name: Breast cancer
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: all-cancers
+              jcr:primaryType: hippotaxonomy:category
             /bowel-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: bowel-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Bowel cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: bowel-cancer
+              jcr:primaryType: hippotaxonomy:category
+            /breast-cancer:
+              /hippotaxonomy:categoryinfos:
+                /en:
+                  hippotaxonomy:name: Breast cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: breast-cancer
+              jcr:primaryType: hippotaxonomy:category
             /cervical-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: cervical-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Cervical cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: cervical-cancer
+              jcr:primaryType: hippotaxonomy:category
             /colon-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: colon-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Colon cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: colon-cancer
+              jcr:primaryType: hippotaxonomy:category
             /colorectal-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: colorectal-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Colorectal cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: colorectal-cancer
+              jcr:primaryType: hippotaxonomy:category
             /head-and-neck-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: head-and-neck-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Head and neck cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: head-and-neck-cancer
+              jcr:primaryType: hippotaxonomy:category
+            /hippotaxonomy:categoryinfos:
+              /en:
+                hippotaxonomy:name: Cancer
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
             /hodgkinâ€™s-disease:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: hodgkinâ€™s-disease
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Hodgkinâ€™s disease
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: hodgkinâ€™s-disease
+              jcr:primaryType: hippotaxonomy:category
             /leukaemia:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: leukaemia
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Leukaemia
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: leukaemia
+              jcr:primaryType: hippotaxonomy:category
             /lung-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: lung-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Lung cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: lung-cancer
+              jcr:primaryType: hippotaxonomy:category
             /malignant-melanoma:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: malignant-melanoma
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Malignant melanoma
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: malignant-melanoma
+              jcr:primaryType: hippotaxonomy:category
             /oesophago-gastric-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: oesophago-gastric-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Oesophago-gastric cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: oesophago-gastric-cancer
+              jcr:primaryType: hippotaxonomy:category
             /prostate-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: prostate-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Prostate cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: prostate-cancer
+              jcr:primaryType: hippotaxonomy:category
             /skin-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: skin-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Skin cancer
-            /stomach-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: stomach-cancer
-              /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
-                /en:
                   jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: skin-cancer
+              jcr:primaryType: hippotaxonomy:category
+            /stomach-cancer:
+              /hippotaxonomy:categoryinfos:
+                /en:
                   hippotaxonomy:name: Stomach cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: stomach-cancer
+              jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: cancer
+            jcr:primaryType: hippotaxonomy:category
           /central-nervous-system-diseases-and-disorders:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: central-nervous-system-diseases-and-disorders
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Central nervous system diseases and disorders
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: central-nervous-system-diseases-and-disorders
+            jcr:primaryType: hippotaxonomy:category
           /circulatory-system-diseases:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: circulatory-system-diseases
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Circulatory system diseases
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: circulatory-system-diseases
+            jcr:primaryType: hippotaxonomy:category
           /dental-health:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: dental-health
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Dental health
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: dental-health
+            jcr:primaryType: hippotaxonomy:category
           /digestive-system-diseases-and-disorders:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: digestive-system-diseases-and-disorders
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Digestive system diseases and disorders
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: digestive-system-diseases-and-disorders
+            jcr:primaryType: hippotaxonomy:category
           /endocrine,-nutritional-and-metabolic-disorders:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: endocrine,-nutritional-and-metabolic-disorders
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Endocrine, nutritional and metabolic disorders
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: endocrine,-nutritional-and-metabolic-disorders
+            jcr:primaryType: hippotaxonomy:category
           /genitourinary-system-diseases-and-disorders:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: genitourinary-system-diseases-and-disorders
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Genitourinary system diseases and disorders
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: genitourinary-system-diseases-and-disorders
+            jcr:primaryType: hippotaxonomy:category
+          /hippotaxonomy:categoryinfos:
+            /en:
+              hippotaxonomy:name: Conditions
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
           /immune-system-disorders:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: immune-system-disorders
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Immune system disorders
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: immune-system-disorders
+            jcr:primaryType: hippotaxonomy:category
           /infectious-diseases:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: infectious-diseases
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Infectious diseases
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: infectious-diseases
+            jcr:primaryType: hippotaxonomy:category
           /maternal,-infant-and-child-health:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: maternal,-infant-and-child-health
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Maternal, infant and child health
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: maternal,-infant-and-child-health
+            jcr:primaryType: hippotaxonomy:category
           /mental-and-behavioural-disorders:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: mental-and-behavioural-disorders
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Mental and behavioural disorders
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: mental-and-behavioural-disorders
+            jcr:primaryType: hippotaxonomy:category
           /respiratory-system-diseases-and-disorders:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: respiratory-system-diseases-and-disorders
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Respiratory system diseases and disorders
-          /sensory-impairment:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: sensory-impairment
-            /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
-              /en:
                 jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: respiratory-system-diseases-and-disorders
+            jcr:primaryType: hippotaxonomy:category
+          /sensory-impairment:
+            /hippotaxonomy:categoryinfos:
+              /en:
                 hippotaxonomy:name: Sensory impairment
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: sensory-impairment
+            jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: conditions
+          jcr:primaryType: hippotaxonomy:category
         /outcomes-and-quality-indicators:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: outcomes-and-quality-indicators
           /hippotaxonomy:categoryinfos:
-            jcr:primaryType: hippotaxonomy:categoryinfos
             /en:
-              jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Outcomes and quality indicators
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: outcomes-and-quality-indicators
+          jcr:primaryType: hippotaxonomy:category
         /people,-patients-and-geography:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: people,-patients-and-geography
           /hippotaxonomy:categoryinfos:
-            jcr:primaryType: hippotaxonomy:categoryinfos
             /en:
-              jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: People, patients and geography
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: people,-patients-and-geography
+          jcr:primaryType: hippotaxonomy:category
         /sevices:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: sevices
           /hippotaxonomy:categoryinfos:
-            jcr:primaryType: hippotaxonomy:categoryinfos
             /en:
-              jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Sevices
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: sevices
+          jcr:primaryType: hippotaxonomy:category
         /social-care:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: social-care
           /hippotaxonomy:categoryinfos:
-            jcr:primaryType: hippotaxonomy:categoryinfos
             /en:
-              jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Social care
-        /workforce:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: workforce
-          /hippotaxonomy:categoryinfos:
-            jcr:primaryType: hippotaxonomy:categoryinfos
-            /en:
               jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: social-care
+          jcr:primaryType: hippotaxonomy:category
+        /workforce:
+          /hippotaxonomy:categoryinfos:
+            /en:
               hippotaxonomy:name: Workforce
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: workforce
+          jcr:primaryType: hippotaxonomy:category
       /publication_taxonomy[3]:
         /conditions:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: conditions
-          /hippotaxonomy:categoryinfos:
-            jcr:primaryType: hippotaxonomy:categoryinfos
-            /en:
-              jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Conditions
           /accidents-and-injuries:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: accidents-and-injuries
-            /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
-              /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
-                hippotaxonomy:name: Accidents and injuries
             /breaks-and-fractures:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: breaks-and-fractures
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Breaks and fractures
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: breaks-and-fractures
+              jcr:primaryType: hippotaxonomy:category
             /falls:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: falls
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Falls
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: falls
+              jcr:primaryType: hippotaxonomy:category
+            /hippotaxonomy:categoryinfos:
+              /en:
+                hippotaxonomy:name: Accidents and injuries
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
             /land-transport-accidents:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: land-transport-accidents
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Land transport accidents
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: land-transport-accidents
+              jcr:primaryType: hippotaxonomy:category
             /major-accidents:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: major-accidents
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Major accidents
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: major-accidents
+              jcr:primaryType: hippotaxonomy:category
             /mortality-from-accidents:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: mortality-from-accidents
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Mortality from accidents
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: mortality-from-accidents
+              jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: accidents-and-injuries
+            jcr:primaryType: hippotaxonomy:category
           /cancer:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: cancer
-            /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
-              /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
-                hippotaxonomy:name: Cancer
             /all-cancers:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: all-cancers
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: All cancers
-            /breast-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: breast-cancer
-              /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
-                /en:
                   jcr:primaryType: hippotaxonomy:categoryinfo
-                  hippotaxonomy:name: Breast cancer
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: all-cancers
+              jcr:primaryType: hippotaxonomy:category
             /bowel-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: bowel-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Bowel cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: bowel-cancer
+              jcr:primaryType: hippotaxonomy:category
+            /breast-cancer:
+              /hippotaxonomy:categoryinfos:
+                /en:
+                  hippotaxonomy:name: Breast cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: breast-cancer
+              jcr:primaryType: hippotaxonomy:category
             /cervical-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: cervical-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Cervical cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: cervical-cancer
+              jcr:primaryType: hippotaxonomy:category
             /colon-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: colon-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Colon cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: colon-cancer
+              jcr:primaryType: hippotaxonomy:category
             /colorectal-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: colorectal-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Colorectal cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: colorectal-cancer
+              jcr:primaryType: hippotaxonomy:category
             /head-and-neck-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: head-and-neck-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Head and neck cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: head-and-neck-cancer
+              jcr:primaryType: hippotaxonomy:category
+            /hippotaxonomy:categoryinfos:
+              /en:
+                hippotaxonomy:name: Cancer
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
             /hodgkinâ€™s-disease:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: hodgkinâ€™s-disease
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Hodgkinâ€™s disease
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: hodgkinâ€™s-disease
+              jcr:primaryType: hippotaxonomy:category
             /leukaemia:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: leukaemia
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Leukaemia
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: leukaemia
+              jcr:primaryType: hippotaxonomy:category
             /lung-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: lung-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Lung cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: lung-cancer
+              jcr:primaryType: hippotaxonomy:category
             /malignant-melanoma:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: malignant-melanoma
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Malignant melanoma
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: malignant-melanoma
+              jcr:primaryType: hippotaxonomy:category
             /oesophago-gastric-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: oesophago-gastric-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Oesophago-gastric cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: oesophago-gastric-cancer
+              jcr:primaryType: hippotaxonomy:category
             /prostate-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: prostate-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Prostate cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: prostate-cancer
+              jcr:primaryType: hippotaxonomy:category
             /skin-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: skin-cancer
               /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
                 /en:
-                  jcr:primaryType: hippotaxonomy:categoryinfo
                   hippotaxonomy:name: Skin cancer
-            /stomach-cancer:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: stomach-cancer
-              /hippotaxonomy:categoryinfos:
-                jcr:primaryType: hippotaxonomy:categoryinfos
-                /en:
                   jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: skin-cancer
+              jcr:primaryType: hippotaxonomy:category
+            /stomach-cancer:
+              /hippotaxonomy:categoryinfos:
+                /en:
                   hippotaxonomy:name: Stomach cancer
+                  jcr:primaryType: hippotaxonomy:categoryinfo
+                jcr:primaryType: hippotaxonomy:categoryinfos
+              hippotaxonomy:key: stomach-cancer
+              jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: cancer
+            jcr:primaryType: hippotaxonomy:category
           /central-nervous-system-diseases-and-disorders:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: central-nervous-system-diseases-and-disorders
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Central nervous system diseases and disorders
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: central-nervous-system-diseases-and-disorders
+            jcr:primaryType: hippotaxonomy:category
           /circulatory-system-diseases:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: circulatory-system-diseases
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Circulatory system diseases
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: circulatory-system-diseases
+            jcr:primaryType: hippotaxonomy:category
           /dental-health:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: dental-health
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Dental health
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: dental-health
+            jcr:primaryType: hippotaxonomy:category
           /digestive-system-diseases-and-disorders:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: digestive-system-diseases-and-disorders
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Digestive system diseases and disorders
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: digestive-system-diseases-and-disorders
+            jcr:primaryType: hippotaxonomy:category
           /endocrine,-nutritional-and-metabolic-disorders:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: endocrine,-nutritional-and-metabolic-disorders
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Endocrine, nutritional and metabolic disorders
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: endocrine,-nutritional-and-metabolic-disorders
+            jcr:primaryType: hippotaxonomy:category
           /genitourinary-system-diseases-and-disorders:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: genitourinary-system-diseases-and-disorders
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Genitourinary system diseases and disorders
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: genitourinary-system-diseases-and-disorders
+            jcr:primaryType: hippotaxonomy:category
+          /hippotaxonomy:categoryinfos:
+            /en:
+              hippotaxonomy:name: Conditions
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
           /immune-system-disorders:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: immune-system-disorders
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Immune system disorders
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: immune-system-disorders
+            jcr:primaryType: hippotaxonomy:category
           /infectious-diseases:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: infectious-diseases
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Infectious diseases
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: infectious-diseases
+            jcr:primaryType: hippotaxonomy:category
           /maternal,-infant-and-child-health:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: maternal,-infant-and-child-health
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Maternal, infant and child health
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: maternal,-infant-and-child-health
+            jcr:primaryType: hippotaxonomy:category
           /mental-and-behavioural-disorders:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: mental-and-behavioural-disorders
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Mental and behavioural disorders
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: mental-and-behavioural-disorders
+            jcr:primaryType: hippotaxonomy:category
           /respiratory-system-diseases-and-disorders:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: respiratory-system-diseases-and-disorders
             /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Respiratory system diseases and disorders
-          /sensory-impairment:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: sensory-impairment
-            /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
-              /en:
                 jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: respiratory-system-diseases-and-disorders
+            jcr:primaryType: hippotaxonomy:category
+          /sensory-impairment:
+            /hippotaxonomy:categoryinfos:
+              /en:
                 hippotaxonomy:name: Sensory impairment
+                jcr:primaryType: hippotaxonomy:categoryinfo
+              jcr:primaryType: hippotaxonomy:categoryinfos
+            hippotaxonomy:key: sensory-impairment
+            jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: conditions
+          jcr:primaryType: hippotaxonomy:category
         /outcomes-and-quality-indicators:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: outcomes-and-quality-indicators
           /hippotaxonomy:categoryinfos:
-            jcr:primaryType: hippotaxonomy:categoryinfos
             /en:
-              jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Outcomes and quality indicators
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: outcomes-and-quality-indicators
+          jcr:primaryType: hippotaxonomy:category
         /people,-patients-and-geography:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: people,-patients-and-geography
           /hippotaxonomy:categoryinfos:
-            jcr:primaryType: hippotaxonomy:categoryinfos
             /en:
-              jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: People, patients and geography
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: people,-patients-and-geography
+          jcr:primaryType: hippotaxonomy:category
         /sevices:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: sevices
           /hippotaxonomy:categoryinfos:
-            jcr:primaryType: hippotaxonomy:categoryinfos
             /en:
-              jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Sevices
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: sevices
+          jcr:primaryType: hippotaxonomy:category
         /social-care:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: social-care
           /hippotaxonomy:categoryinfos:
-            jcr:primaryType: hippotaxonomy:categoryinfos
             /en:
-              jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Social care
-        /workforce:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: workforce
-          /hippotaxonomy:categoryinfos:
-            jcr:primaryType: hippotaxonomy:categoryinfos
-            /en:
               jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: social-care
+          jcr:primaryType: hippotaxonomy:category
+        /workforce:
+          /hippotaxonomy:categoryinfos:
+            /en:
               hippotaxonomy:name: Workforce
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: workforce
+          jcr:primaryType: hippotaxonomy:category

@@ -1,108 +1,123 @@
 ---
-
 /content/documents/corporate-website/publication-system/lorem-ipsum-content/morbi-tempor-euismod-vehicula:
-  jcr:primaryType: hippo:handle
-  jcr:mixinTypes: ['mix:referenceable']
   /morbi-tempor-euismod-vehicula[1]:
-    jcr:primaryType: publicationsystem:publication
-    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+    /publicationsystem:RelatedLinks:
+      jcr:primaryType: publicationsystem:relatedlink
+      publicationsystem:linkText: ''
+      publicationsystem:linkUrl: ''
+      publicationsystem:link_text: ''
+      publicationsystem:link_url: ''
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2017-10-16T15:00:00.000+01:00
-    hippostdpubwf:lastModificationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:creationDate: 2017-10-16T14:00:00Z
+    hippostdpubwf:lastModificationDate: 2017-10-16T14:00:00Z
     hippostdpubwf:lastModifiedBy: admin
+    hippotaxonomy:keys:
+    - workforce
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
-    hippotaxonomy:keys: [workforce]
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
-    publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
-    publicationsystem:CoverageStart: 2017-01-01T09:00:00.000+01:00
-    publicationsystem:InformationType: [Official statistics]
+    publicationsystem:CoverageEnd: 2017-04-01T08:00:00Z
+    publicationsystem:CoverageStart: 2017-01-01T08:00:00Z
+    publicationsystem:InformationType:
+    - Official statistics
     publicationsystem:KeyFacts: ''
-    publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
-    publicationsystem:Summary: Duis vel ultricies ante. Vestibulum nec commodo
-      justo. Donec et tellus justo. Nunc id lobortis odio. Morbi quis lectus
-      scelerisque, efficitur augue a, aliquet velit. Duis ac malesuada tortor. Duis
-      mollis lorem consectetur ipsum convallis sollicitudin. Lorem ipsum dolor sit
-      amet, consectetur adipiscing elit. Donec varius eget purus nec finibus. Cras
-      a urna vestibulum, blandit nisl sit amet, auctor augue. Ut euismod eros quis
-      lacus ullamcorper, ut mollis nunc vehicula. Ut maximus, arcu nec mollis
-      ultricies, libero tortor porta ante, id iaculis nisl est ac velit.
+    publicationsystem:NominalDate: 2017-06-01T08:30:00Z
+    publicationsystem:PubliclyAccessible: true
+    publicationsystem:Summary: Duis vel ultricies ante. Vestibulum nec commodo justo.
+      Donec et tellus justo. Nunc id lobortis odio. Morbi quis lectus scelerisque,
+      efficitur augue a, aliquet velit. Duis ac malesuada tortor. Duis mollis lorem
+      consectetur ipsum convallis sollicitudin. Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Donec varius eget purus nec finibus. Cras a urna vestibulum,
+      blandit nisl sit amet, auctor augue. Ut euismod eros quis lacus ullamcorper,
+      ut mollis nunc vehicula. Ut maximus, arcu nec mollis ultricies, libero tortor
+      porta ante, id iaculis nisl est ac velit.
     publicationsystem:Title: Morbi tempor euismod vehicula
+  /morbi-tempor-euismod-vehicula[2]:
     /publicationsystem:RelatedLinks:
       jcr:primaryType: publicationsystem:relatedlink
       publicationsystem:linkText: ''
       publicationsystem:linkUrl: ''
       publicationsystem:link_text: ''
       publicationsystem:link_url: ''
-    publicationsystem:PubliclyAccessible: true
-  /morbi-tempor-euismod-vehicula[2]:
-    jcr:primaryType: publicationsystem:publication
-    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
-    hippo:availability: [preview]
+    hippo:availability:
+    - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2017-10-16T15:00:00.000+01:00
-    hippostdpubwf:lastModificationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:creationDate: 2017-10-16T14:00:00Z
+    hippostdpubwf:lastModificationDate: 2017-10-16T14:00:00Z
     hippostdpubwf:lastModifiedBy: admin
+    hippotaxonomy:keys:
+    - workforce
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
-    hippotaxonomy:keys: [workforce]
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
-    publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
-    publicationsystem:CoverageStart: 2017-01-01T09:00:00.000+01:00
-    publicationsystem:InformationType: [Official statistics]
+    publicationsystem:CoverageEnd: 2017-04-01T08:00:00Z
+    publicationsystem:CoverageStart: 2017-01-01T08:00:00Z
+    publicationsystem:InformationType:
+    - Official statistics
     publicationsystem:KeyFacts: ''
-    publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
-    publicationsystem:Summary: Duis vel ultricies ante. Vestibulum nec commodo
-      justo. Donec et tellus justo. Nunc id lobortis odio. Morbi quis lectus
-      scelerisque, efficitur augue a, aliquet velit. Duis ac malesuada tortor. Duis
-      mollis lorem consectetur ipsum convallis sollicitudin. Lorem ipsum dolor sit
-      amet, consectetur adipiscing elit. Donec varius eget purus nec finibus. Cras
-      a urna vestibulum, blandit nisl sit amet, auctor augue. Ut euismod eros quis
-      lacus ullamcorper, ut mollis nunc vehicula. Ut maximus, arcu nec mollis
-      ultricies, libero tortor porta ante, id iaculis nisl est ac velit.
+    publicationsystem:NominalDate: 2017-06-01T08:30:00Z
+    publicationsystem:PubliclyAccessible: true
+    publicationsystem:Summary: Duis vel ultricies ante. Vestibulum nec commodo justo.
+      Donec et tellus justo. Nunc id lobortis odio. Morbi quis lectus scelerisque,
+      efficitur augue a, aliquet velit. Duis ac malesuada tortor. Duis mollis lorem
+      consectetur ipsum convallis sollicitudin. Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Donec varius eget purus nec finibus. Cras a urna vestibulum,
+      blandit nisl sit amet, auctor augue. Ut euismod eros quis lacus ullamcorper,
+      ut mollis nunc vehicula. Ut maximus, arcu nec mollis ultricies, libero tortor
+      porta ante, id iaculis nisl est ac velit.
     publicationsystem:Title: Morbi tempor euismod vehicula
+  /morbi-tempor-euismod-vehicula[3]:
     /publicationsystem:RelatedLinks:
       jcr:primaryType: publicationsystem:relatedlink
       publicationsystem:linkText: ''
       publicationsystem:linkUrl: ''
       publicationsystem:link_text: ''
       publicationsystem:link_url: ''
-    publicationsystem:PubliclyAccessible: true
-  /morbi-tempor-euismod-vehicula[3]:
-    jcr:primaryType: publicationsystem:publication
-    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-    hippo:availability: [live]
+    hippo:availability:
+    - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2017-10-16T15:00:00.000+01:00
-    hippostdpubwf:lastModificationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:creationDate: 2017-10-16T14:00:00Z
+    hippostdpubwf:lastModificationDate: 2017-10-16T14:00:00Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:publicationDate: 2017-10-16T14:00:00Z
+    hippotaxonomy:keys:
+    - workforce
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
-    hippotaxonomy:keys: [workforce]
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
-    publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
-    publicationsystem:CoverageStart: 2017-01-01T09:00:00.000+01:00
-    publicationsystem:InformationType: [Official statistics]
+    publicationsystem:CoverageEnd: 2017-04-01T08:00:00Z
+    publicationsystem:CoverageStart: 2017-01-01T08:00:00Z
+    publicationsystem:InformationType:
+    - Official statistics
     publicationsystem:KeyFacts: ''
-    publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
-    publicationsystem:Summary: Duis vel ultricies ante. Vestibulum nec commodo
-      justo. Donec et tellus justo. Nunc id lobortis odio. Morbi quis lectus
-      scelerisque, efficitur augue a, aliquet velit. Duis ac malesuada tortor. Duis
-      mollis lorem consectetur ipsum convallis sollicitudin. Lorem ipsum dolor sit
-      amet, consectetur adipiscing elit. Donec varius eget purus nec finibus. Cras
-      a urna vestibulum, blandit nisl sit amet, auctor augue. Ut euismod eros quis
-      lacus ullamcorper, ut mollis nunc vehicula. Ut maximus, arcu nec mollis
-      ultricies, libero tortor porta ante, id iaculis nisl est ac velit.
-    publicationsystem:Title: Morbi tempor euismod vehicula
-    /publicationsystem:RelatedLinks:
-      jcr:primaryType: publicationsystem:relatedlink
-      publicationsystem:linkText: ''
-      publicationsystem:linkUrl: ''
-      publicationsystem:link_text: ''
-      publicationsystem:link_url: ''
+    publicationsystem:NominalDate: 2017-06-01T08:30:00Z
     publicationsystem:PubliclyAccessible: true
+    publicationsystem:Summary: Duis vel ultricies ante. Vestibulum nec commodo justo.
+      Donec et tellus justo. Nunc id lobortis odio. Morbi quis lectus scelerisque,
+      efficitur augue a, aliquet velit. Duis ac malesuada tortor. Duis mollis lorem
+      consectetur ipsum convallis sollicitudin. Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Donec varius eget purus nec finibus. Cras a urna vestibulum,
+      blandit nisl sit amet, auctor augue. Ut euismod eros quis lacus ullamcorper,
+      ut mollis nunc vehicula. Ut maximus, arcu nec mollis ultricies, libero tortor
+      porta ante, id iaculis nisl est ac velit.
+    publicationsystem:Title: Morbi tempor euismod vehicula
+  jcr:mixinTypes:
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

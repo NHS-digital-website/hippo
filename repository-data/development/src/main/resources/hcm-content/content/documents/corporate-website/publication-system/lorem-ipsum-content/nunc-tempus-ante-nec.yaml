@@ -1,114 +1,132 @@
 ---
-
 /content/documents/corporate-website/publication-system/lorem-ipsum-content/nunc-tempus-ante-nec:
-  jcr:primaryType: hippo:handle
-  jcr:mixinTypes: ['mix:referenceable']
   /nunc-tempus-ante-nec[1]:
-    jcr:primaryType: publicationsystem:publication
-    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+    /publicationsystem:RelatedLinks:
+      jcr:primaryType: publicationsystem:relatedlink
+      publicationsystem:linkText: ''
+      publicationsystem:linkUrl: ''
+      publicationsystem:link_text: ''
+      publicationsystem:link_url: ''
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2017-10-16T15:00:00.000+01:00
-    hippostdpubwf:lastModificationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:creationDate: 2017-10-16T14:00:00Z
+    hippostdpubwf:lastModificationDate: 2017-10-16T14:00:00Z
     hippostdpubwf:lastModifiedBy: admin
+    hippotaxonomy:keys:
+    - falls
+    - circulatory-system-diseases
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
-    hippotaxonomy:keys: [falls, circulatory-system-diseases]
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
-    publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
-    publicationsystem:CoverageStart: 2017-01-01T09:00:00.000+01:00
-    publicationsystem:InformationType: [Official statistics]
-    publicationsystem:KeyFacts: Quisque fermentum eros turpis, non laoreet lacus
-      tempus quis. Donec eget orci at massa egestas cursus. Duis at diam et eros
-      fringilla porta.
-    publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
-    publicationsystem:Summary: Aenean dictum et diam sit amet egestas. Nullam
-      ultrices, lacus vel pretium bibendum, erat metus gravida quam, id elementum
-      urna sapien vel orci. Mauris ut lorem lorem. Vestibulum bibendum lorem nec
-      nibh volutpat pharetra. Nullam vitae dignissim ipsum, non varius justo. Cras
-      hendrerit lacus id urna accumsan, sit amet consequat odio viverra. Phasellus
-      et metus finibus, congue mauris egestas, hendrerit est. Donec elit mi,
-      malesuada a interdum et, pulvinar eget justo. Nam gravida justo non dui
-      sodales suscipit. Integer in turpis eros.
+    publicationsystem:CoverageEnd: 2017-04-01T08:00:00Z
+    publicationsystem:CoverageStart: 2017-01-01T08:00:00Z
+    publicationsystem:InformationType:
+    - Official statistics
+    publicationsystem:KeyFacts: Quisque fermentum eros turpis, non laoreet lacus tempus
+      quis. Donec eget orci at massa egestas cursus. Duis at diam et eros fringilla
+      porta.
+    publicationsystem:NominalDate: 2017-06-01T08:30:00Z
+    publicationsystem:PubliclyAccessible: true
+    publicationsystem:Summary: Aenean dictum et diam sit amet egestas. Nullam ultrices,
+      lacus vel pretium bibendum, erat metus gravida quam, id elementum urna sapien
+      vel orci. Mauris ut lorem lorem. Vestibulum bibendum lorem nec nibh volutpat
+      pharetra. Nullam vitae dignissim ipsum, non varius justo. Cras hendrerit lacus
+      id urna accumsan, sit amet consequat odio viverra. Phasellus et metus finibus,
+      congue mauris egestas, hendrerit est. Donec elit mi, malesuada a interdum et,
+      pulvinar eget justo. Nam gravida justo non dui sodales suscipit. Integer in
+      turpis eros.
     publicationsystem:Title: Nunc tempus ante nec
+  /nunc-tempus-ante-nec[2]:
     /publicationsystem:RelatedLinks:
       jcr:primaryType: publicationsystem:relatedlink
       publicationsystem:linkText: ''
       publicationsystem:linkUrl: ''
       publicationsystem:link_text: ''
       publicationsystem:link_url: ''
-    publicationsystem:PubliclyAccessible: true
-  /nunc-tempus-ante-nec[2]:
-    jcr:primaryType: publicationsystem:publication
-    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
-    hippo:availability: [preview]
+    hippo:availability:
+    - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2017-10-16T15:00:00.000+01:00
-    hippostdpubwf:lastModificationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:creationDate: 2017-10-16T14:00:00Z
+    hippostdpubwf:lastModificationDate: 2017-10-16T14:00:00Z
     hippostdpubwf:lastModifiedBy: admin
+    hippotaxonomy:keys:
+    - falls
+    - circulatory-system-diseases
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
-    hippotaxonomy:keys: [falls, circulatory-system-diseases]
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
-    publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
-    publicationsystem:CoverageStart: 2017-01-01T09:00:00.000+01:00
-    publicationsystem:InformationType: [Official statistics]
-    publicationsystem:KeyFacts: Quisque fermentum eros turpis, non laoreet lacus
-      tempus quis. Donec eget orci at massa egestas cursus. Duis at diam et eros
-      fringilla porta.
-    publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
-    publicationsystem:Summary: Aenean dictum et diam sit amet egestas. Nullam
-      ultrices, lacus vel pretium bibendum, erat metus gravida quam, id elementum
-      urna sapien vel orci. Mauris ut lorem lorem. Vestibulum bibendum lorem nec
-      nibh volutpat pharetra. Nullam vitae dignissim ipsum, non varius justo. Cras
-      hendrerit lacus id urna accumsan, sit amet consequat odio viverra. Phasellus
-      et metus finibus, congue mauris egestas, hendrerit est. Donec elit mi,
-      malesuada a interdum et, pulvinar eget justo. Nam gravida justo non dui
-      sodales suscipit. Integer in turpis eros.
+    publicationsystem:CoverageEnd: 2017-04-01T08:00:00Z
+    publicationsystem:CoverageStart: 2017-01-01T08:00:00Z
+    publicationsystem:InformationType:
+    - Official statistics
+    publicationsystem:KeyFacts: Quisque fermentum eros turpis, non laoreet lacus tempus
+      quis. Donec eget orci at massa egestas cursus. Duis at diam et eros fringilla
+      porta.
+    publicationsystem:NominalDate: 2017-06-01T08:30:00Z
+    publicationsystem:PubliclyAccessible: true
+    publicationsystem:Summary: Aenean dictum et diam sit amet egestas. Nullam ultrices,
+      lacus vel pretium bibendum, erat metus gravida quam, id elementum urna sapien
+      vel orci. Mauris ut lorem lorem. Vestibulum bibendum lorem nec nibh volutpat
+      pharetra. Nullam vitae dignissim ipsum, non varius justo. Cras hendrerit lacus
+      id urna accumsan, sit amet consequat odio viverra. Phasellus et metus finibus,
+      congue mauris egestas, hendrerit est. Donec elit mi, malesuada a interdum et,
+      pulvinar eget justo. Nam gravida justo non dui sodales suscipit. Integer in
+      turpis eros.
     publicationsystem:Title: Nunc tempus ante nec
+  /nunc-tempus-ante-nec[3]:
     /publicationsystem:RelatedLinks:
       jcr:primaryType: publicationsystem:relatedlink
       publicationsystem:linkText: ''
       publicationsystem:linkUrl: ''
       publicationsystem:link_text: ''
       publicationsystem:link_url: ''
-    publicationsystem:PubliclyAccessible: true
-  /nunc-tempus-ante-nec[3]:
-    jcr:primaryType: publicationsystem:publication
-    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-    hippo:availability: [live]
+    hippo:availability:
+    - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2017-10-16T15:00:00.000+01:00
-    hippostdpubwf:lastModificationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:creationDate: 2017-10-16T14:00:00Z
+    hippostdpubwf:lastModificationDate: 2017-10-16T14:00:00Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:publicationDate: 2017-10-16T14:00:00Z
+    hippotaxonomy:keys:
+    - falls
+    - circulatory-system-diseases
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
-    hippotaxonomy:keys: [falls, circulatory-system-diseases]
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
-    publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
-    publicationsystem:CoverageStart: 2017-01-01T09:00:00.000+01:00
-    publicationsystem:InformationType: [Official statistics]
-    publicationsystem:KeyFacts: Quisque fermentum eros turpis, non laoreet lacus
-      tempus quis. Donec eget orci at massa egestas cursus. Duis at diam et eros
-      fringilla porta.
-    publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
-    publicationsystem:Summary: Aenean dictum et diam sit amet egestas. Nullam
-      ultrices, lacus vel pretium bibendum, erat metus gravida quam, id elementum
-      urna sapien vel orci. Mauris ut lorem lorem. Vestibulum bibendum lorem nec
-      nibh volutpat pharetra. Nullam vitae dignissim ipsum, non varius justo. Cras
-      hendrerit lacus id urna accumsan, sit amet consequat odio viverra. Phasellus
-      et metus finibus, congue mauris egestas, hendrerit est. Donec elit mi,
-      malesuada a interdum et, pulvinar eget justo. Nam gravida justo non dui
-      sodales suscipit. Integer in turpis eros.
-    publicationsystem:Title: Nunc tempus ante nec
-    /publicationsystem:RelatedLinks:
-      jcr:primaryType: publicationsystem:relatedlink
-      publicationsystem:linkText: ''
-      publicationsystem:linkUrl: ''
-      publicationsystem:link_text: ''
-      publicationsystem:link_url: ''
+    publicationsystem:CoverageEnd: 2017-04-01T08:00:00Z
+    publicationsystem:CoverageStart: 2017-01-01T08:00:00Z
+    publicationsystem:InformationType:
+    - Official statistics
+    publicationsystem:KeyFacts: Quisque fermentum eros turpis, non laoreet lacus tempus
+      quis. Donec eget orci at massa egestas cursus. Duis at diam et eros fringilla
+      porta.
+    publicationsystem:NominalDate: 2017-06-01T08:30:00Z
     publicationsystem:PubliclyAccessible: true
+    publicationsystem:Summary: Aenean dictum et diam sit amet egestas. Nullam ultrices,
+      lacus vel pretium bibendum, erat metus gravida quam, id elementum urna sapien
+      vel orci. Mauris ut lorem lorem. Vestibulum bibendum lorem nec nibh volutpat
+      pharetra. Nullam vitae dignissim ipsum, non varius justo. Cras hendrerit lacus
+      id urna accumsan, sit amet consequat odio viverra. Phasellus et metus finibus,
+      congue mauris egestas, hendrerit est. Donec elit mi, malesuada a interdum et,
+      pulvinar eget justo. Nam gravida justo non dui sodales suscipit. Integer in
+      turpis eros.
+    publicationsystem:Title: Nunc tempus ante nec
+  jcr:mixinTypes:
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

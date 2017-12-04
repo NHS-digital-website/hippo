@@ -1,73 +1,92 @@
 ---
-
 /content/documents/corporate-website/publication-system/search-test-loremipsumdolor/search-test-1:
-  jcr:primaryType: hippo:handle
-  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-  hippo:name: search test 1
   /search-test-1[1]:
-    jcr:primaryType: publicationsystem:publication
-    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-07T11:04:05.894Z
     hippostdpubwf:lastModificationDate: 2017-11-07T11:06:03.945Z
     hippostdpubwf:lastModifiedBy: admin
-    hippotaxonomy:keys: [circulatory-system-diseases, dental-health]
+    hippotaxonomy:keys:
+    - circulatory-system-diseases
+    - dental-health
     hippotranslation:id: 518f777b-111a-49f6-9594-cf9b80886605
     hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
     publicationsystem:GeographicCoverage: England
-    publicationsystem:InformationType: [Audit]
+    publicationsystem:InformationType:
+    - Audit
     publicationsystem:KeyFacts: And I like oranges
     publicationsystem:NominalDate: 2017-11-07T00:00:00Z
+    publicationsystem:PubliclyAccessible: true
     publicationsystem:Summary: I like apples
     publicationsystem:Title: Apple pear orange bear
-    publicationsystem:PubliclyAccessible: true
   /search-test-1[2]:
-    jcr:primaryType: publicationsystem:publication
-    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
-    hippo:availability: [preview]
+    hippo:availability:
+    - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-07T11:04:05.894Z
     hippostdpubwf:lastModificationDate: 2017-11-07T11:06:03.914Z
     hippostdpubwf:lastModifiedBy: admin
-    hippotaxonomy:keys: [circulatory-system-diseases, dental-health]
+    hippotaxonomy:keys:
+    - circulatory-system-diseases
+    - dental-health
     hippotranslation:id: 518f777b-111a-49f6-9594-cf9b80886605
     hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
     publicationsystem:GeographicCoverage: England
-    publicationsystem:InformationType: [Audit]
+    publicationsystem:InformationType:
+    - Audit
     publicationsystem:KeyFacts: And I like oranges
     publicationsystem:NominalDate: 2017-11-07T00:00:00Z
+    publicationsystem:PubliclyAccessible: true
     publicationsystem:Summary: I like apples
     publicationsystem:Title: Apple pear orange bear
-    publicationsystem:PubliclyAccessible: true
   /search-test-1[3]:
-    jcr:primaryType: publicationsystem:publication
-    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-    hippo:availability: [live]
+    hippo:availability:
+    - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-07T11:04:05.894Z
     hippostdpubwf:lastModificationDate: 2017-11-07T11:06:03.914Z
     hippostdpubwf:lastModifiedBy: admin
     hippostdpubwf:publicationDate: 2017-11-07T11:06:11.420Z
-    hippotaxonomy:keys: [circulatory-system-diseases, dental-health]
+    hippotaxonomy:keys:
+    - circulatory-system-diseases
+    - dental-health
     hippotranslation:id: 518f777b-111a-49f6-9594-cf9b80886605
     hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
     publicationsystem:GeographicCoverage: England
-    publicationsystem:InformationType: [Audit]
+    publicationsystem:InformationType:
+    - Audit
     publicationsystem:KeyFacts: And I like oranges
     publicationsystem:NominalDate: 2017-11-07T00:00:00Z
+    publicationsystem:PubliclyAccessible: true
     publicationsystem:Summary: I like apples
     publicationsystem:Title: Apple pear orange bear
-    publicationsystem:PubliclyAccessible: true
+  hippo:name: search test 1
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

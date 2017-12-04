@@ -1,105 +1,126 @@
 ---
-
 /content/documents/corporate-website/publication-system/lorem-ipsum-content/nullam-vel-ligula-dapibus:
-  jcr:primaryType: hippo:handle
-  jcr:mixinTypes: ['mix:referenceable']
   /nullam-vel-ligula-dapibus[1]:
-    jcr:primaryType: publicationsystem:publication
-    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+    /publicationsystem:RelatedLinks:
+      jcr:primaryType: publicationsystem:relatedlink
+      publicationsystem:linkText: ''
+      publicationsystem:linkUrl: ''
+      publicationsystem:link_text: ''
+      publicationsystem:link_url: ''
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2017-10-16T15:00:00.000+01:00
-    hippostdpubwf:lastModificationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:creationDate: 2017-10-16T14:00:00Z
+    hippostdpubwf:lastModificationDate: 2017-10-16T14:00:00Z
     hippostdpubwf:lastModifiedBy: admin
+    hippotaxonomy:keys:
+    - falls
+    - infectious-diseases
+    - workforce
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
-    hippotaxonomy:keys: [falls, infectious-diseases, workforce]
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
-    publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
-    publicationsystem:CoverageStart: 2017-01-01T09:00:00.000+01:00
-    publicationsystem:InformationType: [Official statistics]
-    publicationsystem:KeyFacts: ""
-    publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
+    publicationsystem:CoverageEnd: 2017-04-01T08:00:00Z
+    publicationsystem:CoverageStart: 2017-01-01T08:00:00Z
+    publicationsystem:InformationType:
+    - Official statistics
+    publicationsystem:KeyFacts: ''
+    publicationsystem:NominalDate: 2017-06-01T08:30:00Z
+    publicationsystem:PubliclyAccessible: true
     publicationsystem:Summary: Vivamus eros ipsum, facilisis vitae orci sit amet,
       viverra commodo sem. Phasellus commodo turpis non ultrices feugiat. Proin non
-      metus diam. Pellentesque ipsum morbi tristique senectus et netus et
-      malesuada fames ac turpis egestas. Pellentesque habitant morbi tristique
-      senectus et ipsum et malesuada fames ac turpis egestas. Vestibulum ante ipsum
-      primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis justo
-      magna, ipsum id iaculis eget, tempor sit amet ante.
+      metus diam. Pellentesque ipsum morbi tristique senectus et netus et malesuada
+      fames ac turpis egestas. Pellentesque habitant morbi tristique senectus et ipsum
+      et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus
+      orci luctus et ultrices posuere cubilia Curae; Duis justo magna, ipsum id iaculis
+      eget, tempor sit amet ante.
     publicationsystem:Title: Nullam vel ligula dapibus
+  /nullam-vel-ligula-dapibus[2]:
     /publicationsystem:RelatedLinks:
       jcr:primaryType: publicationsystem:relatedlink
       publicationsystem:linkText: ''
       publicationsystem:linkUrl: ''
       publicationsystem:link_text: ''
       publicationsystem:link_url: ''
-    publicationsystem:PubliclyAccessible: true
-  /nullam-vel-ligula-dapibus[2]:
-    jcr:primaryType: publicationsystem:publication
-    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
-    hippo:availability: [preview]
+    hippo:availability:
+    - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2017-10-16T15:00:00.000+01:00
-    hippostdpubwf:lastModificationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:creationDate: 2017-10-16T14:00:00Z
+    hippostdpubwf:lastModificationDate: 2017-10-16T14:00:00Z
     hippostdpubwf:lastModifiedBy: admin
+    hippotaxonomy:keys:
+    - falls
+    - infectious-diseases
+    - workforce
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
-    hippotaxonomy:keys: [falls, infectious-diseases, workforce]
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
-    publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
-    publicationsystem:CoverageStart: 2017-01-01T09:00:00.000+01:00
-    publicationsystem:InformationType: [Official statistics]
-    publicationsystem:KeyFacts: ""
-    publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
+    publicationsystem:CoverageEnd: 2017-04-01T08:00:00Z
+    publicationsystem:CoverageStart: 2017-01-01T08:00:00Z
+    publicationsystem:InformationType:
+    - Official statistics
+    publicationsystem:KeyFacts: ''
+    publicationsystem:NominalDate: 2017-06-01T08:30:00Z
+    publicationsystem:PubliclyAccessible: true
     publicationsystem:Summary: Vivamus eros ipsum, facilisis vitae orci sit amet,
       viverra commodo sem. Phasellus commodo turpis non ultrices feugiat. Proin non
-      metus diam. Pellentesque ipsum morbi tristique senectus et netus et
-      malesuada fames ac turpis egestas. Pellentesque habitant morbi tristique
-      senectus et ipsum et malesuada fames ac turpis egestas. Vestibulum ante ipsum
-      primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis justo
-      magna, ipsum id iaculis eget, tempor sit amet ante.
+      metus diam. Pellentesque ipsum morbi tristique senectus et netus et malesuada
+      fames ac turpis egestas. Pellentesque habitant morbi tristique senectus et ipsum
+      et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus
+      orci luctus et ultrices posuere cubilia Curae; Duis justo magna, ipsum id iaculis
+      eget, tempor sit amet ante.
     publicationsystem:Title: Nullam vel ligula dapibus
+  /nullam-vel-ligula-dapibus[3]:
     /publicationsystem:RelatedLinks:
       jcr:primaryType: publicationsystem:relatedlink
       publicationsystem:linkText: ''
       publicationsystem:linkUrl: ''
       publicationsystem:link_text: ''
       publicationsystem:link_url: ''
-    publicationsystem:PubliclyAccessible: true
-  /nullam-vel-ligula-dapibus[3]:
-    jcr:primaryType: publicationsystem:publication
-    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-    hippo:availability: [live]
+    hippo:availability:
+    - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2017-10-16T15:00:00.000+01:00
-    hippostdpubwf:lastModificationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:creationDate: 2017-10-16T14:00:00Z
+    hippostdpubwf:lastModificationDate: 2017-10-16T14:00:00Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2017-10-16T15:00:00.000+01:00
+    hippostdpubwf:publicationDate: 2017-10-16T14:00:00Z
+    hippotaxonomy:keys:
+    - falls
+    - infectious-diseases
+    - workforce
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
-    hippotaxonomy:keys: [falls, infectious-diseases, workforce]
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
-    publicationsystem:CoverageEnd: 2017-04-01T09:00:00.000+01:00
-    publicationsystem:CoverageStart: 2017-01-01T09:00:00.000+01:00
-    publicationsystem:InformationType: [Official statistics]
-    publicationsystem:KeyFacts: ""
-    publicationsystem:NominalDate: 2017-06-01T09:30:00.000+01:00
+    publicationsystem:CoverageEnd: 2017-04-01T08:00:00Z
+    publicationsystem:CoverageStart: 2017-01-01T08:00:00Z
+    publicationsystem:InformationType:
+    - Official statistics
+    publicationsystem:KeyFacts: ''
+    publicationsystem:NominalDate: 2017-06-01T08:30:00Z
+    publicationsystem:PubliclyAccessible: true
     publicationsystem:Summary: Vivamus eros ipsum, facilisis vitae orci sit amet,
       viverra commodo sem. Phasellus commodo turpis non ultrices feugiat. Proin non
-      metus diam. Pellentesque ipsum morbi tristique senectus et netus et
-      malesuada fames ac turpis egestas. Pellentesque habitant morbi tristique
-      senectus et ipsum et malesuada fames ac turpis egestas. Vestibulum ante ipsum
-      primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis justo
-      magna, ipsum id iaculis eget, tempor sit amet ante.
+      metus diam. Pellentesque ipsum morbi tristique senectus et netus et malesuada
+      fames ac turpis egestas. Pellentesque habitant morbi tristique senectus et ipsum
+      et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus
+      orci luctus et ultrices posuere cubilia Curae; Duis justo magna, ipsum id iaculis
+      eget, tempor sit amet ante.
     publicationsystem:Title: Nullam vel ligula dapibus
-    /publicationsystem:RelatedLinks:
-      jcr:primaryType: publicationsystem:relatedlink
-      publicationsystem:linkText: ''
-      publicationsystem:linkUrl: ''
-      publicationsystem:link_text: ''
-      publicationsystem:link_url: ''
-    publicationsystem:PubliclyAccessible: true
+  jcr:mixinTypes:
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

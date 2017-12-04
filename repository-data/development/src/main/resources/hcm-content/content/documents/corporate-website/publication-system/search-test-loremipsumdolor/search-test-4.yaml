@@ -1,73 +1,91 @@
 ---
-
 /content/documents/corporate-website/publication-system/search-test-loremipsumdolor/search-test-4:
-  jcr:primaryType: hippo:handle
-  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-  hippo:name: search test 4
   /search-test-4[1]:
-    jcr:primaryType: publicationsystem:publication
-    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
-    hippo:availability: [preview]
+    hippo:availability:
+    - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-07T11:04:05.894Z
     hippostdpubwf:lastModificationDate: 2017-11-07T11:08:34.632Z
     hippostdpubwf:lastModifiedBy: admin
-    hippotaxonomy:keys: [circulatory-system-diseases, dental-health]
+    hippotaxonomy:keys:
+    - circulatory-system-diseases
+    - dental-health
     hippotranslation:id: 7fc8dc44-6460-410b-9dc8-4989407d6a56
     hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:versionable
+    jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
     publicationsystem:GeographicCoverage: England and Northern Ireland
-    publicationsystem:InformationType: [Experimental statistics]
+    publicationsystem:InformationType:
+    - Experimental statistics
     publicationsystem:KeyFacts: And I like bears
     publicationsystem:NominalDate: 2017-11-08T00:00:00Z
+    publicationsystem:PubliclyAccessible: true
     publicationsystem:Summary: I like apples
     publicationsystem:Title: No mention of interesting terms in the title
-    publicationsystem:PubliclyAccessible: true
   /search-test-4[2]:
-    jcr:primaryType: publicationsystem:publication
-    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-07T11:04:05.894Z
     hippostdpubwf:lastModificationDate: 2017-11-07T11:07:56.598Z
     hippostdpubwf:lastModifiedBy: admin
-    hippotaxonomy:keys: [circulatory-system-diseases, dental-health]
+    hippotaxonomy:keys:
+    - circulatory-system-diseases
+    - dental-health
     hippotranslation:id: 7fc8dc44-6460-410b-9dc8-4989407d6a56
     hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
     publicationsystem:GeographicCoverage: England and Northern Ireland
-    publicationsystem:InformationType: [Experimental statistics]
+    publicationsystem:InformationType:
+    - Experimental statistics
     publicationsystem:KeyFacts: And I like bears
     publicationsystem:NominalDate: 2017-11-08T00:00:00Z
+    publicationsystem:PubliclyAccessible: true
     publicationsystem:Summary: I like apples
     publicationsystem:Title: No mention of interesting terms in the title
-    publicationsystem:PubliclyAccessible: true
   /search-test-4[3]:
-    jcr:primaryType: publicationsystem:publication
-    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-    hippo:availability: [live]
+    hippo:availability:
+    - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-07T11:04:05.894Z
     hippostdpubwf:lastModificationDate: 2017-11-07T11:08:34.632Z
     hippostdpubwf:lastModifiedBy: admin
     hippostdpubwf:publicationDate: 2017-11-07T11:08:36.681Z
-    hippotaxonomy:keys: [circulatory-system-diseases, dental-health]
+    hippotaxonomy:keys:
+    - circulatory-system-diseases
+    - dental-health
     hippotranslation:id: 7fc8dc44-6460-410b-9dc8-4989407d6a56
     hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
     publicationsystem:GeographicCoverage: England and Northern Ireland
-    publicationsystem:InformationType: [Experimental statistics]
+    publicationsystem:InformationType:
+    - Experimental statistics
     publicationsystem:KeyFacts: And I like bears
     publicationsystem:NominalDate: 2017-11-08T00:00:00Z
+    publicationsystem:PubliclyAccessible: true
     publicationsystem:Summary: I like apples
     publicationsystem:Title: No mention of interesting terms in the title
-    publicationsystem:PubliclyAccessible: true
+  hippo:name: search test 4
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

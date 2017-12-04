@@ -1,7 +1,8 @@
+---
 group:
-  name: publicationsystem
   after: hippo-cms
-project: publicationsystem
+  name: publicationsystem
 module:
-  name: publication-system-repository-data-development
   after: publication-system-repository-data-application
+  name: publication-system-repository-data-development
+project: publicationsystem

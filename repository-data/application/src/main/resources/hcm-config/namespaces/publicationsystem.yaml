@@ -1,5 +1,7 @@
+---
 definitions:
   config:
     /hippo:namespaces/publicationsystem:
+      jcr:mixinTypes:
+      - mix:referenceable
       jcr:primaryType: hipposysedit:namespace
-      jcr:mixinTypes: ['mix:referenceable']

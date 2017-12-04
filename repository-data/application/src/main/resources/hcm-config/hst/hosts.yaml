@@ -1,123 +1,117 @@
+---
 definitions:
   config:
     /hst:hst/hst:hosts:
       .meta:residual-child-node-category: content
-      jcr:primaryType: hst:virtualhosts
-      # this deploys "site" as root application
-      hst:defaultcontextpath: ""
-
-      # locahost
-      /localhost:
-        .meta:residual-child-node-category: content
-        jcr:primaryType: hst:virtualhostgroup
-        hst:cmslocation: http://localhost:8080/cms
-        hst:defaultport: 8080
-        /localhost:
-          .meta:residual-child-node-category: content
-          jcr:primaryType: hst:virtualhost
-          /hst:root:
-            .meta:residual-child-node-category: content
-            jcr:primaryType: hst:mount
-            hst:homepage: root
-            hst:mountpoint: /hst:hst/hst:sites/common
-            hst:alias: common-context
-            /publications:
-              .meta:residual-child-node-category: content
-              jcr:primaryType: hst:mount
-              hst:homepage: root
-              hst:mountpoint: /hst:hst/hst:sites/publicationsystem
-
-      # For local testing in Vagrant
-      /vagrant:
-        .meta:residual-child-node-category: content
-        jcr:primaryType: hst:virtualhostgroup
-        hst:cmslocation: http://hippo-authoring.int:8080/cms
-        hst:defaultport: 8080
-        /int:
-          .meta:residual-child-node-category: content
-          jcr:primaryType: hst:virtualhost
-          hst:showcontextpath: false
-          /hippo-delivery:
-            .meta:residual-child-node-category: content
-            jcr:primaryType: hst:virtualhost
-            /hst:root:
-              .meta:residual-child-node-category: content
-              jcr:primaryType: hst:mount
-              hst:homepage: root
-              hst:mountpoint: /hst:hst/hst:sites/common
-              hst:alias: common-context
-              /publications:
-                .meta:residual-child-node-category: content
-                jcr:primaryType: hst:mount
-                hst:homepage: root
-                hst:mountpoint: /hst:hst/hst:sites/publicationsystem
-
       /dev:
         .meta:residual-child-node-category: content
-        jcr:primaryType: hst:virtualhostgroup
-        hst:cmslocation: http://hippo-authoring.dev.ps.digital.nhsd.uk/cms
-        hst:defaultport: 8080
         /io:
           .meta:residual-child-node-category: content
-          jcr:primaryType: hst:virtualhost
-          hst:showcontextpath: false
           /nhsd:
             .meta:residual-child-node-category: content
-            jcr:primaryType: hst:virtualhost
             /ps:
               .meta:residual-child-node-category: content
-              jcr:primaryType: hst:virtualhost
               /dev:
                 .meta:residual-child-node-category: content
-                jcr:primaryType: hst:virtualhost
                 /web:
                   .meta:residual-child-node-category: content
-                  jcr:primaryType: hst:virtualhost
                   /hippo-delivery:
                     .meta:residual-child-node-category: content
-                    jcr:primaryType: hst:virtualhost
                     /hst:root:
                       .meta:residual-child-node-category: content
-                      jcr:primaryType: hst:mount
-                      hst:homepage: root
-                      hst:mountpoint: /hst:hst/hst:sites/common
-                      hst:alias: common-context
                       /publications:
                         .meta:residual-child-node-category: content
-                        jcr:primaryType: hst:mount
                         hst:homepage: root
                         hst:mountpoint: /hst:hst/hst:sites/publicationsystem
-
+                        jcr:primaryType: hst:mount
+                      hst:alias: common-context
+                      hst:homepage: root
+                      hst:mountpoint: /hst:hst/hst:sites/common
+                      jcr:primaryType: hst:mount
+                    jcr:primaryType: hst:virtualhost
+                  jcr:primaryType: hst:virtualhost
+                jcr:primaryType: hst:virtualhost
+              jcr:primaryType: hst:virtualhost
+            jcr:primaryType: hst:virtualhost
+          hst:showcontextpath: false
+          jcr:primaryType: hst:virtualhost
+        hst:cmslocation: http://hippo-authoring.dev.ps.digital.nhsd.uk/cms
+        hst:defaultport: 8080
+        jcr:primaryType: hst:virtualhostgroup
+      /localhost:
+        .meta:residual-child-node-category: content
+        /localhost:
+          .meta:residual-child-node-category: content
+          /hst:root:
+            .meta:residual-child-node-category: content
+            /publications:
+              .meta:residual-child-node-category: content
+              hst:homepage: root
+              hst:mountpoint: /hst:hst/hst:sites/publicationsystem
+              jcr:primaryType: hst:mount
+            hst:alias: common-context
+            hst:homepage: root
+            hst:mountpoint: /hst:hst/hst:sites/common
+            jcr:primaryType: hst:mount
+          jcr:primaryType: hst:virtualhost
+        hst:cmslocation: http://localhost:8080/cms
+        hst:defaultport: 8080
+        jcr:primaryType: hst:virtualhostgroup
       /ondemand:
         .meta:residual-child-node-category: content
-        jcr:primaryType: hst:virtualhostgroup
-        hst:cmslocation: https://cms-nhs.test.onehippo.com/?0
-        hst:defaultport: 8080
         /com:
           .meta:residual-child-node-category: content
-          jcr:primaryType: hst:virtualhost
           /onehippo:
             .meta:residual-child-node-category: content
-            jcr:primaryType: hst:virtualhost
             /test:
               .meta:residual-child-node-category: content
-              jcr:primaryType: hst:virtualhost
               /nhs:
                 .meta:residual-child-node-category: content
-                jcr:primaryType: hst:virtualhost
                 /www:
                   .meta:residual-child-node-category: content
-                  jcr:primaryType: hst:virtualhost
                   /hst:root:
                     .meta:residual-child-node-category: content
-                    jcr:primaryType: hst:mount
-                    hst:contextpath: /site
-                    hst:showcontextpath: false
-                    hst:homepage: root
-                    hst:mountpoint: /hst:hst/hst:sites/common
-                    hst:alias: common-context
                     /publications:
                       .meta:residual-child-node-category: content
-                      jcr:primaryType: hst:mount
                       hst:homepage: root
                       hst:mountpoint: /hst:hst/hst:sites/publicationsystem
+                      jcr:primaryType: hst:mount
+                    hst:alias: common-context
+                    hst:contextpath: /site
+                    hst:homepage: root
+                    hst:mountpoint: /hst:hst/hst:sites/common
+                    hst:showcontextpath: false
+                    jcr:primaryType: hst:mount
+                  jcr:primaryType: hst:virtualhost
+                jcr:primaryType: hst:virtualhost
+              jcr:primaryType: hst:virtualhost
+            jcr:primaryType: hst:virtualhost
+          jcr:primaryType: hst:virtualhost
+        hst:cmslocation: https://cms-nhs.test.onehippo.com/?0
+        hst:defaultport: 8080
+        jcr:primaryType: hst:virtualhostgroup
+      /vagrant:
+        .meta:residual-child-node-category: content
+        /int:
+          .meta:residual-child-node-category: content
+          /hippo-delivery:
+            .meta:residual-child-node-category: content
+            /hst:root:
+              .meta:residual-child-node-category: content
+              /publications:
+                .meta:residual-child-node-category: content
+                hst:homepage: root
+                hst:mountpoint: /hst:hst/hst:sites/publicationsystem
+                jcr:primaryType: hst:mount
+              hst:alias: common-context
+              hst:homepage: root
+              hst:mountpoint: /hst:hst/hst:sites/common
+              jcr:primaryType: hst:mount
+            jcr:primaryType: hst:virtualhost
+          hst:showcontextpath: false
+          jcr:primaryType: hst:virtualhost
+        hst:cmslocation: http://hippo-authoring.int:8080/cms
+        hst:defaultport: 8080
+        jcr:primaryType: hst:virtualhostgroup
+      hst:defaultcontextpath: ''
+      jcr:primaryType: hst:virtualhosts
