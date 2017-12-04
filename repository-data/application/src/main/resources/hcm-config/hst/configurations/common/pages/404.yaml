@@ -1,7 +1,6 @@
 ---
-
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:pages/404:
-      jcr:primaryType: hst:component
       hst:template: '404'
+      jcr:primaryType: hst:component

@@ -1,60 +1,63 @@
 ---
-
 /content/documents/corporate-website/publication-system/acceptance-tests/series-with-publication-with-datasets/content:
-  jcr:primaryType: hippo:handle
-  jcr:mixinTypes: ['mix:referenceable']
   /content[1]:
-    jcr:primaryType: publicationsystem:series
-    jcr:mixinTypes: ['mix:referenceable']
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2017-10-16T14:58:50.358+01:00
-    hippostdpubwf:lastModificationDate: 2017-10-16T14:58:50.358+01:00
+    hippostdpubwf:creationDate: 2017-10-16T13:58:50.358Z
+    hippostdpubwf:lastModificationDate: 2017-10-16T13:58:50.358Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
-    publicationsystem:Title: series-with-publication-with-datasets
-    publicationsystem:Summary: Integer suscipit pulvinar lacus non porta. Aenean
-      ut tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget,
-      aliquam quam. Nullam euismod accumsan nibh at lobortis. Nam non eleifend
-      mauris. Aliquam tempor nec odio non aliquam. Suspendisse in ex sit amet
-      lectus vehicula varius pharetra eget elit. Quisque at iaculis arcu, eget
-      ornare arcu.
-  /content[2]:
+    jcr:mixinTypes:
+    - mix:referenceable
     jcr:primaryType: publicationsystem:series
-    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-    hippo:availability: [preview]
+    publicationsystem:Summary: Integer suscipit pulvinar lacus non porta. Aenean ut
+      tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget, aliquam
+      quam. Nullam euismod accumsan nibh at lobortis. Nam non eleifend mauris. Aliquam
+      tempor nec odio non aliquam. Suspendisse in ex sit amet lectus vehicula varius
+      pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.
+    publicationsystem:Title: series-with-publication-with-datasets
+  /content[2]:
+    hippo:availability:
+    - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2017-10-16T14:58:50.358+01:00
-    hippostdpubwf:lastModificationDate: 2017-10-16T14:59:20.720+01:00
+    hippostdpubwf:creationDate: 2017-10-16T13:58:50.358Z
+    hippostdpubwf:lastModificationDate: 2017-10-16T13:59:20.720Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
-    publicationsystem:Title: series-with-publication-with-datasets
-    publicationsystem:Summary: Integer suscipit pulvinar lacus non porta. Aenean
-      ut tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget,
-      aliquam quam. Nullam euismod accumsan nibh at lobortis. Nam non eleifend
-      mauris. Aliquam tempor nec odio non aliquam. Suspendisse in ex sit amet
-      lectus vehicula varius pharetra eget elit. Quisque at iaculis arcu, eget
-      ornare arcu.
-  /content[3]:
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
     jcr:primaryType: publicationsystem:series
-    jcr:mixinTypes: ['mix:referenceable']
-    hippo:availability: [live]
+    publicationsystem:Summary: Integer suscipit pulvinar lacus non porta. Aenean ut
+      tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget, aliquam
+      quam. Nullam euismod accumsan nibh at lobortis. Nam non eleifend mauris. Aliquam
+      tempor nec odio non aliquam. Suspendisse in ex sit amet lectus vehicula varius
+      pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.
+    publicationsystem:Title: series-with-publication-with-datasets
+  /content[3]:
+    hippo:availability:
+    - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2017-10-16T14:58:50.358+01:00
-    hippostdpubwf:lastModificationDate: 2017-10-16T14:59:20.720+01:00
+    hippostdpubwf:creationDate: 2017-10-16T13:58:50.358Z
+    hippostdpubwf:lastModificationDate: 2017-10-16T13:59:20.720Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2017-10-16T14:59:41.695+01:00
+    hippostdpubwf:publicationDate: 2017-10-16T13:59:41.695Z
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:series
+    publicationsystem:Summary: Integer suscipit pulvinar lacus non porta. Aenean ut
+      tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget, aliquam
+      quam. Nullam euismod accumsan nibh at lobortis. Nam non eleifend mauris. Aliquam
+      tempor nec odio non aliquam. Suspendisse in ex sit amet lectus vehicula varius
+      pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.
     publicationsystem:Title: series-with-publication-with-datasets
-    publicationsystem:Summary: Integer suscipit pulvinar lacus non porta. Aenean
-      ut tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget,
-      aliquam quam. Nullam euismod accumsan nibh at lobortis. Nam non eleifend
-      mauris. Aliquam tempor nec odio non aliquam. Suspendisse in ex sit amet
-      lectus vehicula varius pharetra eget elit. Quisque at iaculis arcu, eget
-      ornare arcu.
+  jcr:mixinTypes:
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

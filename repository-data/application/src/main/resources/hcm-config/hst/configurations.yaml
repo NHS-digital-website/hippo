@@ -1,8 +1,10 @@
+---
 definitions:
   config:
     /hst:hst/hst:configurations:
       /common:
         jcr:primaryType: hst:configuration
       /publicationsystem:
+        hst:inheritsfrom:
+        - ../common
         jcr:primaryType: hst:configuration
-        hst:inheritsfrom: [../common]

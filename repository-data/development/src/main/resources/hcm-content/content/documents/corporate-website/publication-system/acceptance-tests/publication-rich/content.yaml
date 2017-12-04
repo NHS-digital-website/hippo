@@ -1,11 +1,6 @@
 ---
-
 /content/documents/corporate-website/publication-system/acceptance-tests/publication-rich/content:
-  jcr:primaryType: hippo:handle
-  jcr:mixinTypes: ['mix:referenceable']
   /content[1]:
-    jcr:primaryType: publicationsystem:publication
-    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
@@ -14,33 +9,37 @@
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
-    publicationsystem:AdministrativeSources: Mauris pretium orci ac gravida
-      accumsan. Cras mattis massa a vulputate semper. Quisque in pharetra sem.
-      Curabitur dapibus odio in risus consectetur, placerat laoreet nunc vulputate.
-      Suspendisse vitae ipsum ligula. Donec sed risus vel eros posuere varius id et
-      urna.
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:publication
+    publicationsystem:AdministrativeSources: Mauris pretium orci ac gravida accumsan.
+      Cras mattis massa a vulputate semper. Quisque in pharetra sem. Curabitur dapibus
+      odio in risus consectetur, placerat laoreet nunc vulputate. Suspendisse vitae
+      ipsum ligula. Donec sed risus vel eros posuere varius id et urna.
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
     publicationsystem:GeographicCoverage: England
-    publicationsystem:Granularity: [NHS Trusts]
-    publicationsystem:InformationType: [Experimental statistics]
-    publicationsystem:KeyFacts: Cras eget elementum erat. Aliquam ornare urna ut
-      ligula euismod auctor. Sed non dolor sit amet neque sodales eleifend in id
-      nisi. Nunc semper purus non justo tempor placerat. Phasellus a blandit eros.
-      Vivamus accumsan, diam in tempus sollicitudin, tortor enim gravida ligula,
-      lobortis imperdiet lectus metus vel turpis.
-    publicationsystem:NominalDate: 2016-10-10T01:00:00+01:00
-    publicationsystem:Summary: Etiam vitae tincidunt lectus. Nulla posuere
-      ultricies mollis. Mauris in ullamcorper sapien. Quisque eros quam,
-      condimentum non nisl vel, condimentum vestibulum turpis. Aenean sodales leo
-      in mauris pellentesque, nec auctor sapien facilisis. Ut accumsan orci ac
-      metus lobortis, vel facilisis nisl iaculis.
-    publicationsystem:Title: publication with rich content
+    publicationsystem:Granularity:
+    - NHS Trusts
+    publicationsystem:InformationType:
+    - Experimental statistics
+    publicationsystem:KeyFacts: Cras eget elementum erat. Aliquam ornare urna ut ligula
+      euismod auctor. Sed non dolor sit amet neque sodales eleifend in id nisi. Nunc
+      semper purus non justo tempor placerat. Phasellus a blandit eros. Vivamus accumsan,
+      diam in tempus sollicitudin, tortor enim gravida ligula, lobortis imperdiet
+      lectus metus vel turpis.
+    publicationsystem:NominalDate: 2016-10-10T00:00:00Z
     publicationsystem:PubliclyAccessible: true
+    publicationsystem:Summary: Etiam vitae tincidunt lectus. Nulla posuere ultricies
+      mollis. Mauris in ullamcorper sapien. Quisque eros quam, condimentum non nisl
+      vel, condimentum vestibulum turpis. Aenean sodales leo in mauris pellentesque,
+      nec auctor sapien facilisis. Ut accumsan orci ac metus lobortis, vel facilisis
+      nisl iaculis.
+    publicationsystem:Title: publication with rich content
   /content[2]:
-    jcr:primaryType: publicationsystem:publication
-    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
-    hippo:availability: [preview]
+    hippo:availability:
+    - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2016-11-03T13:35:36.812Z
@@ -48,33 +47,38 @@
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
-    publicationsystem:AdministrativeSources: Mauris pretium orci ac gravida
-      accumsan. Cras mattis massa a vulputate semper. Quisque in pharetra sem.
-      Curabitur dapibus odio in risus consectetur, placerat laoreet nunc vulputate.
-      Suspendisse vitae ipsum ligula. Donec sed risus vel eros posuere varius id et
-      urna.
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: publicationsystem:publication
+    publicationsystem:AdministrativeSources: Mauris pretium orci ac gravida accumsan.
+      Cras mattis massa a vulputate semper. Quisque in pharetra sem. Curabitur dapibus
+      odio in risus consectetur, placerat laoreet nunc vulputate. Suspendisse vitae
+      ipsum ligula. Donec sed risus vel eros posuere varius id et urna.
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
     publicationsystem:GeographicCoverage: England
-    publicationsystem:Granularity: [NHS Trusts]
-    publicationsystem:InformationType: [Experimental statistics]
-    publicationsystem:KeyFacts: Cras eget elementum erat. Aliquam ornare urna ut
-      ligula euismod auctor. Sed non dolor sit amet neque sodales eleifend in id
-      nisi. Nunc semper purus non justo tempor placerat. Phasellus a blandit eros.
-      Vivamus accumsan, diam in tempus sollicitudin, tortor enim gravida ligula,
-      lobortis imperdiet lectus metus vel turpis.
-    publicationsystem:NominalDate: 2016-10-10T01:00:00+01:00
-    publicationsystem:Summary: Etiam vitae tincidunt lectus. Nulla posuere
-      ultricies mollis. Mauris in ullamcorper sapien. Quisque eros quam,
-      condimentum non nisl vel, condimentum vestibulum turpis. Aenean sodales leo
-      in mauris pellentesque, nec auctor sapien facilisis. Ut accumsan orci ac
-      metus lobortis, vel facilisis nisl iaculis.
-    publicationsystem:Title: publication with rich content
+    publicationsystem:Granularity:
+    - NHS Trusts
+    publicationsystem:InformationType:
+    - Experimental statistics
+    publicationsystem:KeyFacts: Cras eget elementum erat. Aliquam ornare urna ut ligula
+      euismod auctor. Sed non dolor sit amet neque sodales eleifend in id nisi. Nunc
+      semper purus non justo tempor placerat. Phasellus a blandit eros. Vivamus accumsan,
+      diam in tempus sollicitudin, tortor enim gravida ligula, lobortis imperdiet
+      lectus metus vel turpis.
+    publicationsystem:NominalDate: 2016-10-10T00:00:00Z
     publicationsystem:PubliclyAccessible: true
+    publicationsystem:Summary: Etiam vitae tincidunt lectus. Nulla posuere ultricies
+      mollis. Mauris in ullamcorper sapien. Quisque eros quam, condimentum non nisl
+      vel, condimentum vestibulum turpis. Aenean sodales leo in mauris pellentesque,
+      nec auctor sapien facilisis. Ut accumsan orci ac metus lobortis, vel facilisis
+      nisl iaculis.
+    publicationsystem:Title: publication with rich content
   /content[3]:
-    jcr:primaryType: publicationsystem:publication
-    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-    hippo:availability: [live]
+    hippo:availability:
+    - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2016-11-03T13:35:36.812Z
@@ -83,26 +87,34 @@
     hippostdpubwf:publicationDate: 2016-11-03T13:41:09.207Z
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
-    publicationsystem:AdministrativeSources: Mauris pretium orci ac gravida
-      accumsan. Cras mattis massa a vulputate semper. Quisque in pharetra sem.
-      Curabitur dapibus odio in risus consectetur, placerat laoreet nunc vulputate.
-      Suspendisse vitae ipsum ligula. Donec sed risus vel eros posuere varius id et
-      urna.
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:publication
+    publicationsystem:AdministrativeSources: Mauris pretium orci ac gravida accumsan.
+      Cras mattis massa a vulputate semper. Quisque in pharetra sem. Curabitur dapibus
+      odio in risus consectetur, placerat laoreet nunc vulputate. Suspendisse vitae
+      ipsum ligula. Donec sed risus vel eros posuere varius id et urna.
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
     publicationsystem:GeographicCoverage: England
-    publicationsystem:Granularity: [NHS Trusts]
-    publicationsystem:InformationType: [Experimental statistics]
-    publicationsystem:KeyFacts: Cras eget elementum erat. Aliquam ornare urna ut
-      ligula euismod auctor. Sed non dolor sit amet neque sodales eleifend in id
-      nisi. Nunc semper purus non justo tempor placerat. Phasellus a blandit eros.
-      Vivamus accumsan, diam in tempus sollicitudin, tortor enim gravida ligula,
-      lobortis imperdiet lectus metus vel turpis.
-    publicationsystem:NominalDate: 2016-10-10T01:00:00+01:00
-    publicationsystem:Summary: Etiam vitae tincidunt lectus. Nulla posuere
-      ultricies mollis. Mauris in ullamcorper sapien. Quisque eros quam,
-      condimentum non nisl vel, condimentum vestibulum turpis. Aenean sodales leo
-      in mauris pellentesque, nec auctor sapien facilisis. Ut accumsan orci ac
-      metus lobortis, vel facilisis nisl iaculis.
-    publicationsystem:Title: publication with rich content
+    publicationsystem:Granularity:
+    - NHS Trusts
+    publicationsystem:InformationType:
+    - Experimental statistics
+    publicationsystem:KeyFacts: Cras eget elementum erat. Aliquam ornare urna ut ligula
+      euismod auctor. Sed non dolor sit amet neque sodales eleifend in id nisi. Nunc
+      semper purus non justo tempor placerat. Phasellus a blandit eros. Vivamus accumsan,
+      diam in tempus sollicitudin, tortor enim gravida ligula, lobortis imperdiet
+      lectus metus vel turpis.
+    publicationsystem:NominalDate: 2016-10-10T00:00:00Z
     publicationsystem:PubliclyAccessible: true
+    publicationsystem:Summary: Etiam vitae tincidunt lectus. Nulla posuere ultricies
+      mollis. Mauris in ullamcorper sapien. Quisque eros quam, condimentum non nisl
+      vel, condimentum vestibulum turpis. Aenean sodales leo in mauris pellentesque,
+      nec auctor sapien facilisis. Ut accumsan orci ac metus lobortis, vel facilisis
+      nisl iaculis.
+    publicationsystem:Title: publication with rich content
+  jcr:mixinTypes:
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

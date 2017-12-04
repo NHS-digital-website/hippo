@@ -1,11 +1,6 @@
 ---
-
 /content/documents/corporate-website/publication-system/acceptance-tests/upcoming-publication/content:
-  jcr:primaryType: hippo:handle
-  jcr:mixinTypes: ['mix:referenceable']
   /content[1]:
-    jcr:primaryType: publicationsystem:publication
-    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
@@ -14,31 +9,37 @@
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
     publicationsystem:GeographicCoverage: England
-    publicationsystem:Granularity: [NHS Trusts, GP practices]
-    publicationsystem:InformationType: [Experimental statistics]
-    publicationsystem:KeyFacts: Morbi egestas nisi at arcu pulvinar ultrices.
-      Sed et nunc risus. In hac habitasse platea dictumst. Proin ultrices, velit
-      vitae mollis aliquet, ligula ipsum tincidunt ante, nec imperdiet sapien
-      neque a nibh. In porta suscipit mauris. Suspendisse sit amet vestibulum
-      neque, at aliquet nibh. Aenean sed ante quam.
-    publicationsystem:NominalDate: 2017-10-10T01:00:00+01:00
+    publicationsystem:Granularity:
+    - NHS Trusts
+    - GP practices
+    publicationsystem:InformationType:
+    - Experimental statistics
+    publicationsystem:KeyFacts: Morbi egestas nisi at arcu pulvinar ultrices. Sed
+      et nunc risus. In hac habitasse platea dictumst. Proin ultrices, velit vitae
+      mollis aliquet, ligula ipsum tincidunt ante, nec imperdiet sapien neque a nibh.
+      In porta suscipit mauris. Suspendisse sit amet vestibulum neque, at aliquet
+      nibh. Aenean sed ante quam.
+    publicationsystem:NominalDate: 2017-10-10T00:00:00Z
+    publicationsystem:PubliclyAccessible: false
     publicationsystem:Summary: Lorem ipsum dolor sit amet, consectetur adipiscing
       elit. Duis convallis non massa vel dictum. In vel ex sapien. Donec sit amet
-      leo lobortis, tempor ex ut, luctus eros. In in eleifend orci, nec suscipit
-      nisi. Maecenas sed velit condimentum, lobortis tortor id, ultricies metus.
-      Integer odio ante, congue pulvinar ultrices nec, mollis vitae dolor. Curabitur
-      euismod erat elit, quis facilisis neque eleifend id. Maecenas convallis
-      vel mi nec bibendum. Donec ut erat dictum, molestie dolor non, aliquet nibh.
+      leo lobortis, tempor ex ut, luctus eros. In in eleifend orci, nec suscipit nisi.
+      Maecenas sed velit condimentum, lobortis tortor id, ultricies metus. Integer
+      odio ante, congue pulvinar ultrices nec, mollis vitae dolor. Curabitur euismod
+      erat elit, quis facilisis neque eleifend id. Maecenas convallis vel mi nec bibendum.
+      Donec ut erat dictum, molestie dolor non, aliquet nibh.
     publicationsystem:Title: Upcoming Publication
-    publicationsystem:PubliclyAccessible: false
   /content[2]:
-    jcr:primaryType: publicationsystem:publication
-    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
-    hippo:availability: [preview]
+    hippo:availability:
+    - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-03T13:35:36.812Z
@@ -46,31 +47,38 @@
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
     publicationsystem:GeographicCoverage: England
-    publicationsystem:Granularity: [NHS Trusts, GP practices]
-    publicationsystem:InformationType: [Experimental statistics]
-    publicationsystem:KeyFacts: Morbi egestas nisi at arcu pulvinar ultrices.
-      Sed et nunc risus. In hac habitasse platea dictumst. Proin ultrices, velit
-      vitae mollis aliquet, ligula ipsum tincidunt ante, nec imperdiet sapien
-      neque a nibh. In porta suscipit mauris. Suspendisse sit amet vestibulum
-      neque, at aliquet nibh. Aenean sed ante quam.
-    publicationsystem:NominalDate: 2017-10-10T01:00:00+01:00
+    publicationsystem:Granularity:
+    - NHS Trusts
+    - GP practices
+    publicationsystem:InformationType:
+    - Experimental statistics
+    publicationsystem:KeyFacts: Morbi egestas nisi at arcu pulvinar ultrices. Sed
+      et nunc risus. In hac habitasse platea dictumst. Proin ultrices, velit vitae
+      mollis aliquet, ligula ipsum tincidunt ante, nec imperdiet sapien neque a nibh.
+      In porta suscipit mauris. Suspendisse sit amet vestibulum neque, at aliquet
+      nibh. Aenean sed ante quam.
+    publicationsystem:NominalDate: 2017-10-10T00:00:00Z
+    publicationsystem:PubliclyAccessible: false
     publicationsystem:Summary: Lorem ipsum dolor sit amet, consectetur adipiscing
       elit. Duis convallis non massa vel dictum. In vel ex sapien. Donec sit amet
-      leo lobortis, tempor ex ut, luctus eros. In in eleifend orci, nec suscipit
-      nisi. Maecenas sed velit condimentum, lobortis tortor id, ultricies metus.
-      Integer odio ante, congue pulvinar ultrices nec, mollis vitae dolor. Curabitur
-      euismod erat elit, quis facilisis neque eleifend id. Maecenas convallis
-      vel mi nec bibendum. Donec ut erat dictum, molestie dolor non, aliquet nibh.
+      leo lobortis, tempor ex ut, luctus eros. In in eleifend orci, nec suscipit nisi.
+      Maecenas sed velit condimentum, lobortis tortor id, ultricies metus. Integer
+      odio ante, congue pulvinar ultrices nec, mollis vitae dolor. Curabitur euismod
+      erat elit, quis facilisis neque eleifend id. Maecenas convallis vel mi nec bibendum.
+      Donec ut erat dictum, molestie dolor non, aliquet nibh.
     publicationsystem:Title: Upcoming Publication
-    publicationsystem:PubliclyAccessible: false
   /content[3]:
-    jcr:primaryType: publicationsystem:publication
-    jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-    hippo:availability: [live]
+    hippo:availability:
+    - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-03T13:35:36.812Z
@@ -79,24 +87,34 @@
     hippostdpubwf:publicationDate: 2017-11-03T13:41:09.207Z
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
     publicationsystem:GeographicCoverage: England
-    publicationsystem:Granularity: [NHS Trusts, GP practices]
-    publicationsystem:InformationType: [Experimental statistics]
-    publicationsystem:KeyFacts: Morbi egestas nisi at arcu pulvinar ultrices.
-      Sed et nunc risus. In hac habitasse platea dictumst. Proin ultrices, velit
-      vitae mollis aliquet, ligula ipsum tincidunt ante, nec imperdiet sapien
-      neque a nibh. In porta suscipit mauris. Suspendisse sit amet vestibulum
-      neque, at aliquet nibh. Aenean sed ante quam.
-    publicationsystem:NominalDate: 2017-10-10T01:00:00+01:00
+    publicationsystem:Granularity:
+    - NHS Trusts
+    - GP practices
+    publicationsystem:InformationType:
+    - Experimental statistics
+    publicationsystem:KeyFacts: Morbi egestas nisi at arcu pulvinar ultrices. Sed
+      et nunc risus. In hac habitasse platea dictumst. Proin ultrices, velit vitae
+      mollis aliquet, ligula ipsum tincidunt ante, nec imperdiet sapien neque a nibh.
+      In porta suscipit mauris. Suspendisse sit amet vestibulum neque, at aliquet
+      nibh. Aenean sed ante quam.
+    publicationsystem:NominalDate: 2017-10-10T00:00:00Z
+    publicationsystem:PubliclyAccessible: false
     publicationsystem:Summary: Lorem ipsum dolor sit amet, consectetur adipiscing
       elit. Duis convallis non massa vel dictum. In vel ex sapien. Donec sit amet
-      leo lobortis, tempor ex ut, luctus eros. In in eleifend orci, nec suscipit
-      nisi. Maecenas sed velit condimentum, lobortis tortor id, ultricies metus.
-      Integer odio ante, congue pulvinar ultrices nec, mollis vitae dolor. Curabitur
-      euismod erat elit, quis facilisis neque eleifend id. Maecenas convallis
-      vel mi nec bibendum. Donec ut erat dictum, molestie dolor non, aliquet nibh.
+      leo lobortis, tempor ex ut, luctus eros. In in eleifend orci, nec suscipit nisi.
+      Maecenas sed velit condimentum, lobortis tortor id, ultricies metus. Integer
+      odio ante, congue pulvinar ultrices nec, mollis vitae dolor. Curabitur euismod
+      erat elit, quis facilisis neque eleifend id. Maecenas convallis vel mi nec bibendum.
+      Donec ut erat dictum, molestie dolor non, aliquet nibh.
     publicationsystem:Title: Upcoming Publication
-    publicationsystem:PubliclyAccessible: false
+  jcr:mixinTypes:
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

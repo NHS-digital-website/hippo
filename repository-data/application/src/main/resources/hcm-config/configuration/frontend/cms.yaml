@@ -1,19 +1,27 @@
+---
 definitions:
   config:
+    /hippo:configuration/hippo:frontend/cms/cms-services/assetValidationService:
+      extensions.allowed:
+      - doc
+      - docx
+      - xls
+      - xlsx
+      - pdf
+      - csv
+      - zip
+      - txt
+      - rar
+      - ppt
+      - pptx
+      max.file.size: 100M
+    /hippo:configuration/hippo:frontend/cms/cms-services/hstRestProxyService:
+      context.path: ''
+      rest.uri: http://127.0.0.1:8080/_cmsrest
     /hippo:configuration/hippo:frontend/cms/cms-services/localeProviderService:
+      /en:
+        country: gb
+        jcr:primaryType: frontend:pluginconfig
+        language: en
       jcr:primaryType: frontend:plugin
       plugin.class: org.hippoecm.frontend.translation.LocaleProviderPlugin
-      /en:
-        jcr:primaryType: frontend:pluginconfig
-        country: gb
-        language: en
-
-    /hippo:configuration/hippo:frontend/cms/cms-services/assetValidationService:
-      max.file.size: 100M
-      extensions.allowed: [doc, docx, xls, xlsx, pdf, csv, zip, txt, rar, ppt, pptx]
-
-    # For more information about deploying site as ROOT app please visit:
-    # https://www.onehippo.org/library/deployment/configuring/deploy-application-as-root_war.html
-    /hippo:configuration/hippo:frontend/cms/cms-services/hstRestProxyService:
-      rest.uri: http://127.0.0.1:8080/_cmsrest
-      context.path: ''

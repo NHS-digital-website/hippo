@@ -1,25 +1,367 @@
+---
 /content/documents/corporate-website/publication-system/valid-publication-series:
-  jcr:primaryType: hippostd:folder
-  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
-  hippo:name: valid publication series
-  hippostd:foldertype: [new-translated-folder, new-document]
-  hippotranslation:id: 00000000-0000-0000-0000-000000000000
-  hippotranslation:locale: en
-  /time-series-index:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-    hippo:name: Time Series Index
-    /time-series-index[1]:
-      jcr:primaryType: publicationsystem:series
-      jcr:mixinTypes: ['mix:referenceable']
+  /2012:
+    /2012[1]:
+      /publicationsystem:RelatedLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ''
+        publicationsystem:linkUrl: ''
+        publicationsystem:link_text: ''
+        publicationsystem:link_url: ''
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2017-10-16T14:58:50.358+01:00
-      hippostdpubwf:lastModificationDate: 2017-10-16T14:58:50.358+01:00
+      hippostdpubwf:creationDate: 2017-10-16T14:03:16.644Z
+      hippostdpubwf:lastModificationDate: 2017-10-16T14:03:16.644Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:InformationType:
+      - Official statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2013-01-10T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: A published publication
+      publicationsystem:Title: Lorem Ipsum Dolor 2012
+    /2012[2]:
+      /publicationsystem:RelatedLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ''
+        publicationsystem:linkUrl: ''
+        publicationsystem:link_text: ''
+        publicationsystem:link_url: ''
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T14:03:16.644Z
+      hippostdpubwf:lastModificationDate: 2017-10-16T14:03:52.340Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 00000000-0000-0000-0000-000000000000
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:InformationType:
+      - Official statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2013-01-10T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: A published publication
+      publicationsystem:Title: Lorem Ipsum Dolor 2012
+    /2012[3]:
+      /publicationsystem:RelatedLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ''
+        publicationsystem:linkUrl: ''
+        publicationsystem:link_text: ''
+        publicationsystem:link_url: ''
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T14:03:16.644Z
+      hippostdpubwf:lastModificationDate: 2017-10-16T14:03:52.340Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2017-10-16T14:03:59.870Z
+      hippotranslation:id: 00000000-0000-0000-0000-000000000000
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:InformationType:
+      - Official statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2013-01-10T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: A published publication
+      publicationsystem:Title: Lorem Ipsum Dolor 2012
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /2013:
+    /2013[1]:
+      /publicationsystem:RelatedLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ''
+        publicationsystem:linkUrl: ''
+        publicationsystem:link_text: ''
+        publicationsystem:link_url: ''
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T14:04:13.132Z
+      hippostdpubwf:lastModificationDate: 2017-10-16T14:04:13.132Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 00000000-0000-0000-0000-000000000000
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:InformationType:
+      - Official statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2014-01-10T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: A published publication 2013.
+      publicationsystem:Title: Lorem Ipsum Dolor 2013
+    /2013[2]:
+      /publicationsystem:RelatedLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ''
+        publicationsystem:linkUrl: ''
+        publicationsystem:link_text: ''
+        publicationsystem:link_url: ''
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T14:04:13.132Z
+      hippostdpubwf:lastModificationDate: 2017-10-16T14:05:15.456Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 00000000-0000-0000-0000-000000000000
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:InformationType:
+      - Official statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2014-01-10T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: A published publication 2013.
+      publicationsystem:Title: Lorem Ipsum Dolor 2013
+    /2013[3]:
+      /publicationsystem:RelatedLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ''
+        publicationsystem:linkUrl: ''
+        publicationsystem:link_text: ''
+        publicationsystem:link_url: ''
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T14:04:13.132Z
+      hippostdpubwf:lastModificationDate: 2017-10-16T14:05:15.456Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2017-10-16T14:05:18.987Z
+      hippotranslation:id: 00000000-0000-0000-0000-000000000000
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:InformationType:
+      - Official statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2014-01-10T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: A published publication 2013.
+      publicationsystem:Title: Lorem Ipsum Dolor 2013
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /2014:
+    /2014[1]:
+      /publicationsystem:RelatedLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ''
+        publicationsystem:linkUrl: ''
+        publicationsystem:link_text: ''
+        publicationsystem:link_url: ''
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T14:05:34.800Z
+      hippostdpubwf:lastModificationDate: 2017-10-16T14:05:34.800Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 00000000-0000-0000-0000-000000000000
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:InformationType:
+      - Official statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2015-01-10T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Published 2014 stats.
+      publicationsystem:Title: Lorem Ipsum Dolor 2014
+    /2014[2]:
+      /publicationsystem:RelatedLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ''
+        publicationsystem:linkUrl: ''
+        publicationsystem:link_text: ''
+        publicationsystem:link_url: ''
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T14:05:34.800Z
+      hippostdpubwf:lastModificationDate: 2017-10-16T14:06:16.077Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 00000000-0000-0000-0000-000000000000
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:InformationType:
+      - Official statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2015-01-10T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Published 2014 stats.
+      publicationsystem:Title: Lorem Ipsum Dolor 2014
+    /2014[3]:
+      /publicationsystem:RelatedLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ''
+        publicationsystem:linkUrl: ''
+        publicationsystem:link_text: ''
+        publicationsystem:link_url: ''
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T14:05:34.800Z
+      hippostdpubwf:lastModificationDate: 2017-10-16T14:06:16.077Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2017-10-16T14:07:01.115Z
+      hippotranslation:id: 00000000-0000-0000-0000-000000000000
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:InformationType:
+      - Official statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2015-01-10T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Published 2014 stats.
+      publicationsystem:Title: Lorem Ipsum Dolor 2014
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /2015:
+    /2015[1]:
+      /publicationsystem:RelatedLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ''
+        publicationsystem:linkUrl: ''
+        publicationsystem:link_text: ''
+        publicationsystem:link_url: ''
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T14:07:17.576Z
+      hippostdpubwf:lastModificationDate: 2017-10-17T12:09:35.563Z
+      hippostdpubwf:lastModifiedBy: author
+      hippotranslation:id: 00000000-0000-0000-0000-000000000000
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:InformationType:
+      - Official statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2016-01-10T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Unreleased 2015 stats.
+      publicationsystem:Title: Lorem Ipsum Dolor 2015
+    /2015[2]:
+      /publicationsystem:RelatedLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ''
+        publicationsystem:linkUrl: ''
+        publicationsystem:link_text: ''
+        publicationsystem:link_url: ''
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T14:07:17.576Z
+      hippostdpubwf:lastModificationDate: 2017-10-16T14:07:40.063Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 00000000-0000-0000-0000-000000000000
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:InformationType:
+      - Official statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2016-01-10T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Unreleased 2015 stats.
+      publicationsystem:Title: Lorem Ipsum Dolor 2015
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /time-series-index:
+    /time-series-index[1]:
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T13:58:50.358Z
+      hippostdpubwf:lastModificationDate: 2017-10-16T13:58:50.358Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 00000000-0000-0000-0000-000000000000
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:series
       publicationsystem:Summary: Integer suscipit pulvinar lacus non porta. Aenean
         ut tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget, aliquam
         quam. Nullam euismod accumsan nibh at lobortis. Nam non eleifend mauris. Aliquam
@@ -27,16 +369,19 @@
         pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.
       publicationsystem:Title: Time Series Lorem Ipsum Dolor
     /time-series-index[2]:
-      jcr:primaryType: publicationsystem:series
-      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-      hippo:availability: [preview]
+      hippo:availability:
+      - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2017-10-16T14:58:50.358+01:00
-      hippostdpubwf:lastModificationDate: 2017-10-16T14:59:20.720+01:00
+      hippostdpubwf:creationDate: 2017-10-16T13:58:50.358Z
+      hippostdpubwf:lastModificationDate: 2017-10-16T13:59:20.720Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:series
       publicationsystem:Summary: Integer suscipit pulvinar lacus non porta. Aenean
         ut tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget, aliquam
         quam. Nullam euismod accumsan nibh at lobortis. Nam non eleifend mauris. Aliquam
@@ -44,321 +389,38 @@
         pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.
       publicationsystem:Title: Time Series Lorem Ipsum Dolor
     /time-series-index[3]:
-      jcr:primaryType: publicationsystem:series
-      jcr:mixinTypes: ['mix:referenceable']
-      hippo:availability: [live]
+      hippo:availability:
+      - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2017-10-16T14:58:50.358+01:00
-      hippostdpubwf:lastModificationDate: 2017-10-16T14:59:20.720+01:00
+      hippostdpubwf:creationDate: 2017-10-16T13:58:50.358Z
+      hippostdpubwf:lastModificationDate: 2017-10-16T13:59:20.720Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2017-10-16T14:59:41.695+01:00
+      hippostdpubwf:publicationDate: 2017-10-16T13:59:41.695Z
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:series
       publicationsystem:Summary: Integer suscipit pulvinar lacus non porta. Aenean
         ut tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget, aliquam
         quam. Nullam euismod accumsan nibh at lobortis. Nam non eleifend mauris. Aliquam
         tempor nec odio non aliquam. Suspendisse in ex sit amet lectus vehicula varius
         pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.
       publicationsystem:Title: Time Series Lorem Ipsum Dolor
-  /2012:
+    hippo:name: Time Series Index
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
     jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['mix:referenceable']
-    /2012[1]:
-      jcr:primaryType: publicationsystem:publication
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      hippo:availability: []
-      hippostd:state: draft
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2017-10-16T15:03:16.644+01:00
-      hippostdpubwf:lastModificationDate: 2017-10-16T15:03:16.644+01:00
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 00000000-0000-0000-0000-000000000000
-      hippotranslation:locale: en
-      publicationsystem:AdministrativeSources: ''
-      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
-      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:InformationType: [Official statistics]
-      publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2013-01-10T01:00:00+01:00
-      publicationsystem:Summary: A published publication
-      publicationsystem:Title: Lorem Ipsum Dolor 2012
-      /publicationsystem:RelatedLinks:
-        jcr:primaryType: publicationsystem:relatedlink
-        publicationsystem:linkText: ''
-        publicationsystem:linkUrl: ''
-        publicationsystem:link_text: ''
-        publicationsystem:link_url: ''
-      publicationsystem:PubliclyAccessible: true
-    /2012[2]:
-      jcr:primaryType: publicationsystem:publication
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
-      hippo:availability: [preview]
-      hippostd:state: unpublished
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2017-10-16T15:03:16.644+01:00
-      hippostdpubwf:lastModificationDate: 2017-10-16T15:03:52.340+01:00
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 00000000-0000-0000-0000-000000000000
-      hippotranslation:locale: en
-      publicationsystem:AdministrativeSources: ''
-      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
-      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:InformationType: [Official statistics]
-      publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2013-01-10T01:00:00+01:00
-      publicationsystem:Summary: A published publication
-      publicationsystem:Title: Lorem Ipsum Dolor 2012
-      /publicationsystem:RelatedLinks:
-        jcr:primaryType: publicationsystem:relatedlink
-        publicationsystem:linkText: ''
-        publicationsystem:linkUrl: ''
-        publicationsystem:link_text: ''
-        publicationsystem:link_url: ''
-      publicationsystem:PubliclyAccessible: true
-    /2012[3]:
-      jcr:primaryType: publicationsystem:publication
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      hippo:availability: [live]
-      hippostd:state: published
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2017-10-16T15:03:16.644+01:00
-      hippostdpubwf:lastModificationDate: 2017-10-16T15:03:52.340+01:00
-      hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2017-10-16T15:03:59.870+01:00
-      hippotranslation:id: 00000000-0000-0000-0000-000000000000
-      hippotranslation:locale: en
-      publicationsystem:AdministrativeSources: ''
-      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
-      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:InformationType: [Official statistics]
-      publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2013-01-10T01:00:00+01:00
-      publicationsystem:Summary: A published publication
-      publicationsystem:Title: Lorem Ipsum Dolor 2012
-      /publicationsystem:RelatedLinks:
-        jcr:primaryType: publicationsystem:relatedlink
-        publicationsystem:linkText: ''
-        publicationsystem:linkUrl: ''
-        publicationsystem:link_text: ''
-        publicationsystem:link_url: ''
-      publicationsystem:PubliclyAccessible: true
-  /2013:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['mix:referenceable']
-    /2013[1]:
-      jcr:primaryType: publicationsystem:publication
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      hippo:availability: []
-      hippostd:state: draft
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2017-10-16T15:04:13.132+01:00
-      hippostdpubwf:lastModificationDate: 2017-10-16T15:04:13.132+01:00
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 00000000-0000-0000-0000-000000000000
-      hippotranslation:locale: en
-      publicationsystem:AdministrativeSources: ''
-      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
-      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:InformationType: [Official statistics]
-      publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2014-01-10T01:00:00+01:00
-      publicationsystem:Summary: A published publication 2013.
-      publicationsystem:Title: Lorem Ipsum Dolor 2013
-      /publicationsystem:RelatedLinks:
-        jcr:primaryType: publicationsystem:relatedlink
-        publicationsystem:linkText: ''
-        publicationsystem:linkUrl: ''
-        publicationsystem:link_text: ''
-        publicationsystem:link_url: ''
-      publicationsystem:PubliclyAccessible: true
-    /2013[2]:
-      jcr:primaryType: publicationsystem:publication
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
-      hippo:availability: [preview]
-      hippostd:state: unpublished
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2017-10-16T15:04:13.132+01:00
-      hippostdpubwf:lastModificationDate: 2017-10-16T15:05:15.456+01:00
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 00000000-0000-0000-0000-000000000000
-      hippotranslation:locale: en
-      publicationsystem:AdministrativeSources: ''
-      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
-      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:InformationType: [Official statistics]
-      publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2014-01-10T01:00:00+01:00
-      publicationsystem:Summary: A published publication 2013.
-      publicationsystem:Title: Lorem Ipsum Dolor 2013
-      /publicationsystem:RelatedLinks:
-        jcr:primaryType: publicationsystem:relatedlink
-        publicationsystem:linkText: ''
-        publicationsystem:linkUrl: ''
-        publicationsystem:link_text: ''
-        publicationsystem:link_url: ''
-      publicationsystem:PubliclyAccessible: true
-    /2013[3]:
-      jcr:primaryType: publicationsystem:publication
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      hippo:availability: [live]
-      hippostd:state: published
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2017-10-16T15:04:13.132+01:00
-      hippostdpubwf:lastModificationDate: 2017-10-16T15:05:15.456+01:00
-      hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2017-10-16T15:05:18.987+01:00
-      hippotranslation:id: 00000000-0000-0000-0000-000000000000
-      hippotranslation:locale: en
-      publicationsystem:AdministrativeSources: ''
-      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
-      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:InformationType: [Official statistics]
-      publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2014-01-10T01:00:00+01:00
-      publicationsystem:Summary: A published publication 2013.
-      publicationsystem:Title: Lorem Ipsum Dolor 2013
-      /publicationsystem:RelatedLinks:
-        jcr:primaryType: publicationsystem:relatedlink
-        publicationsystem:linkText: ''
-        publicationsystem:linkUrl: ''
-        publicationsystem:link_text: ''
-        publicationsystem:link_url: ''
-      publicationsystem:PubliclyAccessible: true
-  /2014:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['mix:referenceable']
-    /2014[1]:
-      jcr:primaryType: publicationsystem:publication
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      hippo:availability: []
-      hippostd:state: draft
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2017-10-16T15:05:34.800+01:00
-      hippostdpubwf:lastModificationDate: 2017-10-16T15:05:34.800+01:00
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 00000000-0000-0000-0000-000000000000
-      hippotranslation:locale: en
-      publicationsystem:AdministrativeSources: ''
-      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
-      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:InformationType: [Official statistics]
-      publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2015-01-10T01:00:00+01:00
-      publicationsystem:Summary: Published 2014 stats.
-      publicationsystem:Title: Lorem Ipsum Dolor 2014
-      /publicationsystem:RelatedLinks:
-        jcr:primaryType: publicationsystem:relatedlink
-        publicationsystem:linkText: ''
-        publicationsystem:linkUrl: ''
-        publicationsystem:link_text: ''
-        publicationsystem:link_url: ''
-      publicationsystem:PubliclyAccessible: true
-    /2014[2]:
-      jcr:primaryType: publicationsystem:publication
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
-      hippo:availability: [preview]
-      hippostd:state: unpublished
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2017-10-16T15:05:34.800+01:00
-      hippostdpubwf:lastModificationDate: 2017-10-16T15:06:16.077+01:00
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 00000000-0000-0000-0000-000000000000
-      hippotranslation:locale: en
-      publicationsystem:AdministrativeSources: ''
-      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
-      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:InformationType: [Official statistics]
-      publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2015-01-10T01:00:00+01:00
-      publicationsystem:Summary: Published 2014 stats.
-      publicationsystem:Title: Lorem Ipsum Dolor 2014
-      /publicationsystem:RelatedLinks:
-        jcr:primaryType: publicationsystem:relatedlink
-        publicationsystem:linkText: ''
-        publicationsystem:linkUrl: ''
-        publicationsystem:link_text: ''
-        publicationsystem:link_url: ''
-      publicationsystem:PubliclyAccessible: true
-    /2014[3]:
-      jcr:primaryType: publicationsystem:publication
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      hippo:availability: [live]
-      hippostd:state: published
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2017-10-16T15:05:34.800+01:00
-      hippostdpubwf:lastModificationDate: 2017-10-16T15:06:16.077+01:00
-      hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2017-10-16T15:07:01.115+01:00
-      hippotranslation:id: 00000000-0000-0000-0000-000000000000
-      hippotranslation:locale: en
-      publicationsystem:AdministrativeSources: ''
-      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
-      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:InformationType: [Official statistics]
-      publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2015-01-10T01:00:00+01:00
-      publicationsystem:Summary: Published 2014 stats.
-      publicationsystem:Title: Lorem Ipsum Dolor 2014
-      /publicationsystem:RelatedLinks:
-        jcr:primaryType: publicationsystem:relatedlink
-        publicationsystem:linkText: ''
-        publicationsystem:linkUrl: ''
-        publicationsystem:link_text: ''
-        publicationsystem:link_url: ''
-      publicationsystem:PubliclyAccessible: true
-  /2015:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['mix:referenceable']
-    /2015[1]:
-      jcr:primaryType: publicationsystem:publication
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      hippo:availability: []
-      hippostd:state: draft
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2017-10-16T15:07:17.576+01:00
-      hippostdpubwf:lastModificationDate: 2017-10-17T13:09:35.563+01:00
-      hippostdpubwf:lastModifiedBy: author
-      hippotranslation:id: 00000000-0000-0000-0000-000000000000
-      hippotranslation:locale: en
-      publicationsystem:AdministrativeSources: ''
-      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
-      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:InformationType: [Official statistics]
-      publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2016-01-10T01:00:00+01:00
-      publicationsystem:Summary: Unreleased 2015 stats.
-      publicationsystem:Title: Lorem Ipsum Dolor 2015
-      /publicationsystem:RelatedLinks:
-        jcr:primaryType: publicationsystem:relatedlink
-        publicationsystem:linkText: ''
-        publicationsystem:linkUrl: ''
-        publicationsystem:link_text: ''
-        publicationsystem:link_url: ''
-      publicationsystem:PubliclyAccessible: true
-    /2015[2]:
-      jcr:primaryType: publicationsystem:publication
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
-      hippo:availability: [preview]
-      hippostd:state: unpublished
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2017-10-16T15:07:17.576+01:00
-      hippostdpubwf:lastModificationDate: 2017-10-16T15:07:40.063+01:00
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 00000000-0000-0000-0000-000000000000
-      hippotranslation:locale: en
-      publicationsystem:AdministrativeSources: ''
-      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
-      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:InformationType: [Official statistics]
-      publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2016-01-10T01:00:00+01:00
-      publicationsystem:Summary: Unreleased 2015 stats.
-      publicationsystem:Title: Lorem Ipsum Dolor 2015
-      /publicationsystem:RelatedLinks:
-        jcr:primaryType: publicationsystem:relatedlink
-        publicationsystem:linkText: ''
-        publicationsystem:linkUrl: ''
-        publicationsystem:link_text: ''
-        publicationsystem:link_url: ''
-      publicationsystem:PubliclyAccessible: true
+  hippo:name: valid publication series
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: 00000000-0000-0000-0000-000000000000
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

@@ -1,10 +1,7 @@
+---
 definitions:
   config:
     /hst:hst/hst:configurations/publicationsystem/hst:templates:
-      jcr:primaryType: hst:templates
-      /publications-overview-template:
-        jcr:primaryType: hst:template
-        hst:renderpath: webfile:/freemarker/publicationsystem/publications-overview.ftl
       /dataset:
         hst:renderpath: webfile:/freemarker/publicationsystem/dataset.ftl
         jcr:primaryType: hst:template
@@ -14,6 +11,10 @@ definitions:
       /publication:
         hst:renderpath: webfile:/freemarker/publicationsystem/publication.ftl
         jcr:primaryType: hst:template
+      /publications-overview-template:
+        hst:renderpath: webfile:/freemarker/publicationsystem/publications-overview.ftl
+        jcr:primaryType: hst:template
       /series:
         hst:renderpath: webfile:/freemarker/publicationsystem/series.ftl
         jcr:primaryType: hst:template
+      jcr:primaryType: hst:templates

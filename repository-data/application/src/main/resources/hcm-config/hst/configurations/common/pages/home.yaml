@@ -1,9 +1,10 @@
+---
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:pages/home:
-      jcr:primaryType: hst:component
-      hst:referencecomponent: hst:abstractpages/basepage
       /main:
-        jcr:primaryType: hst:component
-        hst:template: homepage
         hst:referencecomponent: hst:components/publicationcomponent
+        hst:template: homepage
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/basepage
+      jcr:primaryType: hst:component

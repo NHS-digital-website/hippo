@@ -1,49 +1,80 @@
 ---
-
 /content/documents/administration/document-types:
-  jcr:primaryType: hippo:handle
-  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-  hippo:name: document types
   /document-types[1]:
-    jcr:primaryType: resourcebundle:resourcebundle
-    jcr:mixinTypes: ['mix:referenceable']
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-13T15:45:35.124Z
     hippostdpubwf:lastModificationDate: 2017-11-13T15:45:45.078Z
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '']
-    resourcebundle:id: document-types
-    resourcebundle:keys: ['publicationsystem:series', 'publicationsystem:dataset',
-      'publicationsystem:publication']
-    resourcebundle:messages: [Series, Data Set, Statistical Publication]
-  /document-types[2]:
+    jcr:mixinTypes:
+    - mix:referenceable
     jcr:primaryType: resourcebundle:resourcebundle
-    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-    hippo:availability: [preview]
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: document-types
+    resourcebundle:keys:
+    - publicationsystem:series
+    - publicationsystem:dataset
+    - publicationsystem:publication
+    resourcebundle:messages:
+    - Series
+    - Data Set
+    - Statistical Publication
+  /document-types[2]:
+    hippo:availability:
+    - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-13T15:45:35.124Z
     hippostdpubwf:lastModificationDate: 2017-11-13T15:46:41.341Z
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '']
-    resourcebundle:id: document-types
-    resourcebundle:keys: ['publicationsystem:series', 'publicationsystem:dataset',
-      'publicationsystem:publication']
-    resourcebundle:messages: [Series, Data Set, Statistical Publication]
-  /document-types[3]:
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
     jcr:primaryType: resourcebundle:resourcebundle
-    jcr:mixinTypes: ['mix:referenceable']
-    hippo:availability: [live]
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: document-types
+    resourcebundle:keys:
+    - publicationsystem:series
+    - publicationsystem:dataset
+    - publicationsystem:publication
+    resourcebundle:messages:
+    - Series
+    - Data Set
+    - Statistical Publication
+  /document-types[3]:
+    hippo:availability:
+    - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-13T15:45:35.124Z
     hippostdpubwf:lastModificationDate: 2017-11-13T15:46:41.341Z
     hippostdpubwf:lastModifiedBy: admin
     hippostdpubwf:publicationDate: 2017-11-13T15:46:44.074Z
-    resourcebundle:descriptions: ['', '', '']
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
     resourcebundle:id: document-types
-    resourcebundle:keys: ['publicationsystem:series', 'publicationsystem:dataset',
-      'publicationsystem:publication']
-    resourcebundle:messages: [Series, Data Set, Statistical Publication]
+    resourcebundle:keys:
+    - publicationsystem:series
+    - publicationsystem:dataset
+    - publicationsystem:publication
+    resourcebundle:messages:
+    - Series
+    - Data Set
+    - Statistical Publication
+  hippo:name: document types
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
