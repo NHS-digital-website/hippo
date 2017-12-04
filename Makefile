@@ -12,8 +12,13 @@ help:
 ## Initialise local project
 init: .git/.local-hooks-installed
 
-## Clean, build and start local hippo (no autoexport)
+## Clean, build and start local hippo
 serve:
+	mvn clean verify
+	mvn -P cargo.run
+
+## Serve without allowing auto-export
+serve.noexport:
 	mvn clean verify
 	mvn -P cargo.run,without-autoexport
 
@@ -29,6 +34,11 @@ test.site-running:
 
 test.%:
 	$(MAKE) -C ci-cd/ $@
+
+## Format YAML files, run after exporting to reduce changes
+format-yaml:
+	mvn groovy:execute -Dsource=repository-data/development/src/main/script/YamlFormatter.groovy -pl repository-data/development
+
 
 # install hooks and local git config
 .git/.local-hooks-installed:
