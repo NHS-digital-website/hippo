@@ -5,4 +5,4 @@ definitions:
         operation: add
         type: string
         value: [repository-data/development]
-      autoexport:enabled: false
+      autoexport:enabled: true
