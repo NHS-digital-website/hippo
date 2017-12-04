@@ -48,7 +48,6 @@ definitions:
           hippotranslation:locale: document-type-locale
           publicationsystem:Summary: ''
           publicationsystem:Title: ''
-          publicationsystem:title: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
