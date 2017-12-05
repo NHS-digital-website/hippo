@@ -4,28 +4,26 @@
 <#if pageable??>
     <div id="searchResults" data-totalresults="${pageable.total}">
         <#if pageable.total == 0>
-            <h3>No results for: ${query?html}</h3>
+            <h2>No results for: ${query?html}</h2>
         <#else>
-            <div>
-                <h2>${pageable.total} result<#if pageable.total gt 1>s</#if> found</h2>
-                <h4>Displaying  ${pageable.startOffset +1 } to ${pageable.endOffset} of ${pageable.total} results for '${query?html}'</h4>
-            </div>
-            <div>
-                <ul id="resultsList">
-                    <#list pageable.items as publication>
-                        <li>
-                            <a href="<@hst.link hippobean=publication.selfLinkBean/>"
-                               title="${publication.title}"
-                            >${publication.title}</a>
-                            <@formatRestrictableDate value=publication.nominalPublicationDate/>
-                            <p class="doc-summary"><@truncate text=publication.summary.firstParagraph size="300"/></p>
-                        </li>
-                    </#list>
-                </ul>
-                <#if cparam.showPagination>
-                    <#include "../include/pagination.ftl">
-                </#if>
-            </div>
+
+            <h2>${pageable.total} result<#if pageable.total gt 1>s</#if> found</h2>
+            <h4 class="push-double--bottom">Displaying  ${pageable.startOffset +1 } to ${pageable.endOffset} of ${pageable.total} results for '${query?html}'</h4>
+
+            <#list pageable.items as publication>
+                <div class="push-double--bottom">
+                    <p class="flush"><a href="<@hst.link hippobean=publication.selfLinkBean/>"
+                       title="${publication.title}"
+                    >${publication.title}</a></p>
+                    <p class="flush zeta"><@formatRestrictableDate value=publication.nominalPublicationDate/></p>
+                    <p class="flush"><@truncate text=publication.summary.firstParagraph size="300"/></p>
+                </div>
+            </#list>
+
+            <#if cparam.showPagination>
+                <#include "../include/pagination.ftl">
+            </#if>
+
         </#if>
     </div>
 <#else>

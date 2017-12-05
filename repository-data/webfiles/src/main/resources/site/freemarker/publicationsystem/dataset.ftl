@@ -6,65 +6,110 @@
 
 <#if dataset??>
 
-<div class="content-section content-section--highlight">
-    <h2 class="doc-title" data-uipath="ps.dataset.title">${dataset.title}</h2>
-
-    This dataset is part of <a class="label label--parent-document"
+<section class="document-header">
+  <div class="document-header__inner">
+    <h1 class="layout-5-6" data-uipath="ps.document.title">${dataset.title}</h1>
+    <p class="flush--top">
+      This data set is part of
+      <a class="label label--parent-document"
         href="<@hst.link hippobean=dataset.parentPublication.selfLinkBean/>"
         title="${dataset.parentPublication.title}"
-    >${dataset.parentPublication.title}</a>
+        >${dataset.parentPublication.title}
+      </a>
+    </p>
 
-    <dl class="doc-metadata">
-        <dt>Date Range</dt>
-        <dd data-uipath="ps.dataset.date-range">
-            <#if dataset.coverageStart?? >
-                <@fmt.formatDate value=dataset.coverageStart.time type="Date" pattern=dateFormat />
-            <#else>
-                (Not specified)
-            </#if>
-            to
-            <#if dataset.coverageEnd?? >
-                <@fmt.formatDate value=dataset.coverageEnd.time type="Date" pattern=dateFormat />
-            <#else>
-                (Not specified)
-            </#if>
-        </dd>
+    <div class="flex push--top push--bottom">
+      <div class="flex__item">
+        <div class="media">
+          <img class="media__img" src="http://via.placeholder.com/52x52" alt="">
+          <dl class="media__body">
+            <dt>Date Range</dt>
+            <dd data-uipath="ps.dataset.date-range">
+                <#if dataset.coverageStart?? >
+                    <@fmt.formatDate value=dataset.coverageStart.time type="Date" pattern=dateFormat />
+                <#else>
+                    (Not specified)
+                </#if>
+                to
+                <#if dataset.coverageEnd?? >
+                    <@fmt.formatDate value=dataset.coverageEnd.time type="Date" pattern=dateFormat />
+                <#else>
+                    (Not specified)
+                </#if>
+            </dd>
+          </dl>
+        </div>
+      </div><!--
 
-        <#if dataset.geographicCoverage??>
-        <dt id="geographic-coverage">Geographic coverage</dt>
-        <dd data-uipath="ps.dataset.geographic-coverage">
-            ${dataset.geographicCoverage?html}
-        </dd>
-        </#if>
+      --><#if dataset.geographicCoverage??><div class="flex__item">
 
-        <#if dataset.granularity?has_content >
-        <dt>Geographical granularity</dt>
-        <dd data-uipath="ps.dataset.granularity">
-            <#list dataset.granularity as granularityItem><#if granularityItem?index != 0>, </#if>${granularityItem?html}</#list>
-        </dd>
-        </#if>
-    </dl>
+        <div class="media">
+          <img class="media__img" src="http://via.placeholder.com/52x52" alt="">
+          <dl class="media__body">
+            <dt id="geographic-coverage">Geographic coverage</dt>
+            <dd data-uipath="ps.dataset.geographic-coverage">
+                ${dataset.geographicCoverage?html}
+            </dd>
+          </dl>
+        </div>
 
-</div>
+      </div></#if><!--
 
-<div class="content-section">
-    <h3><@fmt.message key="headers.summary"/></h3>
-    <#list dataset.summary.elements as element>
-        <#if element.type == "Paragraph">
-        <p class="doc-summary" data-uipath="ps.dataset.summary">${element?html}</p>
-        </#if>
-    </#list>
-</div>
+      --><#if dataset.granularity?has_content ><div class="flex__item">
 
-<div class="content-section">
-    <h3><@fmt.message key="headers.resources"/></h3>
-    <#list dataset.files as attachment>
-        <li class="attachment">
-            <a title="${attachment.filename}" href="<@hst.link hippobean=attachment/>">${attachment.filename}</a>;
-            <span class="fileSize">size: <@formatFileSize bytesCount=attachment.length/></span>
-        </li>
-    </#list>
-</div>
+        <div class="media">
+          <img class="media__img" src="http://via.placeholder.com/52x52" alt="">
+          <dl class="media__body">
+            <dt>Geographical granularity</dt>
+            <dd data-uipath="ps.dataset.granularity">
+                <#list dataset.granularity as granularityItem><#if granularityItem?index != 0>, </#if>${granularityItem?html}</#list>
+            </dd>
+          </dl>
+        </div>
+
+      </div></#if>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section class="document-content">
+  <div class="layout layout--large">
+    <div class="layout__item layout-2-3">
+
+      <h2><@fmt.message key="headers.summary"/></h2>
+      <#list dataset.summary.elements as element>
+          <#if element.type == "Paragraph">
+          <p data-uipath="ps.dataset.summary">${element?html}</p>
+          </#if>
+      </#list>
+      <#if dataset.purpose??>
+        <h2>Purpose</h2>
+        <p data-uipath="ps.dataset.purpose">${dataset.purpose}</p>
+      </#if>
+
+    </div><!--
+
+    --><div class="layout__item layout-1-3">
+
+        <div class="panel panel--grey">
+          <h3><@fmt.message key="headers.resources"/></h3>
+          <ul>
+            <#list dataset.files as attachment>
+              <li class="attachment">
+                  <a title="${attachment.filename}" href="<@hst.link hippobean=attachment/>">${attachment.filename}</a>;
+                  <span class="fileSize">size: <@formatFileSize bytesCount=attachment.length/></span>
+              </li>
+            </#list>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+</section>
+
 
 <#else>
     <span>${error}</span>

@@ -42,7 +42,7 @@ Scenario: Click back to publication from data set
 
 Scenario: Hide dataset if publication is 'upcoming'
     Given I navigate to the "upcoming publication dataset" dataset page
-    Then I should see error page titled "Page not found"
+    Then I should see "Page not found" error page
 
 Scenario: Display multiparagraph summary
     Given I navigate to "publication with datasets dataset" dataset page

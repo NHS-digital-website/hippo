@@ -1,35 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
 <#include "../include/imports.ftl">
 <html lang="en">
-<head>
+  <head>
+
+    <title>NHS - Replacement Publication System - Page not found</title>
+
     <meta charset="utf-8"/>
-    <link rel="stylesheet" href="<@hst.webfile  path="/css/demo.css"/>" type="text/css"/>
-</head>
-<body>
-<section class="container container-top">
-    <div class="in-line-container" style="width: 120px">
-        <a href="/" class="logo logo-nhs-digital">NHS Digital</a>
-    </div>
-    <div class="in-line-container">
-        <form class="navbar-form" role="search" action="/search" method="get">
-            <div class="input-group">
-                <input type="text" id="query" class="search-input" placeholder="Search NHS Digital" name="query" value="">
-                <input type="submit" class="search-submit" id="btnSearch" value="Search">
-            </div>
+    <meta name="title" content="NHS - Replacement Publication System" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <link rel="stylesheet" href="<@hst.webfile  path="/css/style.css"/>" type="text/css"/>
+    <#if hstRequest.requestContext.cmsRequest>
+      <link rel="stylesheet" href="<@hst.webfile  path="/css/cms-request.css"/>" type="text/css"/>
+    </#if>
+    <@hst.headContributions categoryExcludes="htmlBodyEnd, scripts" xhtml=true/>
+  </head>
+  <body>
+
+      <header class="top-header">
+        <div class="top-header__col1">
+          <img class="top-header__logo" src="https://digital.nhs.uk/media/89/NHSDigital/variant1/NHS-Digital-logo_WEB_LEFT-100x855" alt="NHS Digital">
+        </div><!--
+        --><div class="top-header__col2">
+          <div class="top-header__nav">
+            <ul class="top-header__nav__list">
+              <li class="top-header__nav__list__item"><a href="#">Data and information</a></li>
+              <li class="top-header__nav__list__item"><a href="#">Systems and services</a></li>
+              <li class="top-header__nav__list__item"><a href="#">News and events</a></li>
+              <li class="top-header__nav__list__item"><a href="#">About NHS Digital</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <section class="common-search">
+        <form class="" role="search" action="/search" method="get">
+          <div class="common-search__inner">
+            <span class="common-search__input">
+              <input type="text" class="common-search__input__field" id="query" name="query" placeholder="What are you looking for today?" value="">
+            </span>
+            <input type="submit" class="common-search__submit" id="btnSearch" value="Search">
+          </div>
         </form>
-    </div>
-    <ul class="container-top__menu">
-        <li><a href="#" title="">Data and information</a></li>
-        <li><a href="#" title="">Systems and services</a></li>
-        <li><a href="#" title="">News and events</a></li>
-        <li><a href="#" title="">What is NHS Digital?</a></li>
-        <li><a href="#" title="">How we look after your information</a></li>
-    </ul>
-</section>
-<section class="container">
-    <div class="container container-main">
+      </section>
+
+      <section class="document-content">
         <h2>Page not found</h2>
-    </div>
-</section>
+      </section>
+
 </body>
 </html>
