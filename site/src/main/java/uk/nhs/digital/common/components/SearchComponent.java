@@ -35,28 +35,17 @@ public class SearchComponent extends CommonComponent {
     private static final int WILDCARD_POSTFIX_MIN_LENGTH = 3;
 
     public void doBeforeRender(HstRequest request, HstResponse response) {
-        Pageable<HippoBean> pageable = DefaultPagination.emptyCollection();
+        Pageable<HippoBean> pageable;
         EssentialsListComponentInfo paramInfo = getComponentInfo(request);
-        HippoFacetNavigationBean facetNav = getFacetNavigationBean(request);
+        HippoResultSetBean resultSet = getFacetNavigationBean(request).getResultSet();
 
-        if (facetNav != null) {
-            HippoResultSetBean resultSet = facetNav.getResultSet();
-            if (resultSet != null) {
-                HippoDocumentIterator<HippoBean> iterator = resultSet.getDocumentIterator(HippoBean.class);
-                pageable = getPageableFactory()
-                    .createPageable(
-                        iterator,
-                        resultSet.getCount().intValue(),
-                        paramInfo.getPageSize(),
-                        getCurrentPage(request)
-                    );
-            }
-            else {
-                log.warn("Facet navigation result set is null!? No results for '{}'", getQueryParameter(request));
-            }
-        } else {
-            log.warn("Facet navigation is null!? No results for '{}'", getQueryParameter(request));
-        }
+        pageable = getPageableFactory()
+            .createPageable(
+                resultSet.getDocumentIterator(HippoBean.class),
+                resultSet.getCount().intValue(),
+                paramInfo.getPageSize(),
+                getCurrentPage(request)
+            );
 
         request.setAttribute("query", getQueryParameter(request));
         request.setAttribute("pageable", pageable);
@@ -64,11 +53,7 @@ public class SearchComponent extends CommonComponent {
     }
 
     public HippoFacetNavigationBean getFacetNavigationBean(HstRequest request) {
-        HippoBean scopeBean = request.getRequestContext().getContentBean();
-        String facetRelativePath = scopeBean.getPath().replace(getContentRootPath(request) + "/", "");
-        HstQuery query = buildQuery(request);
-
-        return ContentBeanUtils.getFacetNavigationBean(query, facetRelativePath);
+        return ContentBeanUtils.getFacetNavigationBean(buildQuery(request));
     }
 
     protected String getQueryParameter(HstRequest request) {
@@ -136,7 +121,8 @@ public class SearchComponent extends CommonComponent {
     private HstQuery buildQuery(HstRequest request) {
         String query = getQueryParameter(request);
         String queryIncWildcards = applyWildcardsToQuery(query);
-        HstQueryBuilder queryBuilder = HstQueryBuilder.create(getSearchScope(request));
+        HstQueryBuilder queryBuilder = HstQueryBuilder
+            .create(request.getRequestContext().getSiteContentBaseBean());
 
         // register content classes
         addPublicationSystemTypes(queryBuilder);
@@ -149,14 +135,6 @@ public class SearchComponent extends CommonComponent {
                 constraint(".").contains(queryIncWildcards)
             ))
             .build();
-    }
-
-    private HippoBean getSearchScope(HstRequest request) {
-        return request.getRequestContext().getSiteContentBaseBean();
-    }
-
-    private String getContentRootPath(HstRequest request) {
-        return request.getRequestContext().getResolvedMount().getMount().getContentPath();
     }
 
     /**
