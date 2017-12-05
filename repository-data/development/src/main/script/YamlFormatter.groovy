@@ -14,7 +14,7 @@ Logger log = LoggerFactory.getLogger(YamlFormatter.class)
 log.info("Starting to format yaml files")
 
 // Go through all yaml files in all the repository-data subfolders and format them
-File rootDir = new File("repository-data")
+File rootDir = new File("${project.parent.parent.basedir}/repository-data")
 rootDir.eachFileRecurse(FileType.DIRECTORIES) { dir ->
     dir.eachFileMatch(FileType.FILES, ~/.*.yaml/) { file ->
         String text = file.getText()

@@ -37,8 +37,9 @@ test.%:
 
 ## Format YAML files, run after exporting to reduce changes
 format-yaml:
-	mvn groovy:execute -Dsource=repository-data/development/src/main/script/YamlFormatter.groovy -pl repository-data/development
-
+	mvn groovy:execute \
+		-Dsource=repository-data/development/src/main/script/YamlFormatter.groovy \
+		-pl repository-data/development
 
 # install hooks and local git config
 .git/.local-hooks-installed:
