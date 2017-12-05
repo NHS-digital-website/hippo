@@ -215,6 +215,12 @@ public class PublicationSteps extends AbstractSpringSteps {
         contentPage.getRelatedLinksSection().addRelatedLinkField();
     }
 
+    // Scenario: Blank Information Type field rejection =====================================================================
+    @When("^I add an empty Information Type field$")
+    public void iAddAnEmptyInformationTypeField() throws Throwable {
+        contentPage.getInformationTypeSection().addInformationTypeField();
+    }
+
     // Scenario: Details are hidden from the end users in a published upcoming publication ==============================
     @Given("^I have a published publication flagged as upcoming$")
     public void iHaveAReleasedPublicationFlaggedAsUpcoming() throws Throwable {

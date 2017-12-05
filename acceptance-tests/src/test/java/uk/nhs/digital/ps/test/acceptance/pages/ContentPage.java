@@ -57,6 +57,7 @@ public class ContentPage extends AbstractCmsPage {
             publication.getGeographicCoverage().getDisplayValue()
         );
 
+        getInformationTypeSection().addInformationTypeField();
         new Select(helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Information Type']/../following-sibling::div//select[@class='dropdown-plugin']")
         )).selectByVisibleText(
@@ -124,6 +125,10 @@ public class ContentPage extends AbstractCmsPage {
 
     public RelatedLinksCmsWidget getRelatedLinksSection() {
         return new RelatedLinksCmsWidget(helper, getWebDriver());
+    }
+
+    public InformationTypeCmsWidget getInformationTypeSection() {
+        return new InformationTypeCmsWidget(helper, getWebDriver());
     }
 
     public void savePublication() {

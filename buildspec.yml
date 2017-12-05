@@ -11,7 +11,8 @@ phases:
     commands:
       - apt-get update
       - apt-get install -qqy software-properties-common python-software-properties
-      - apt-get install -qqy build-essential git awscli curl
+      - apt-get install -qqy build-essential git awscli curl python-pip python-dev
+      - pip install virtualenv
 
       # Java 8 install
       - echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections

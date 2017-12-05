@@ -279,8 +279,7 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             hipposysedit:validators:
-            - non-empty
-            - required
+            - publicationsystem-blank-information-type
             jcr:primaryType: hipposysedit:field
           /key_facts:
             hipposysedit:mandatory: false
@@ -372,8 +371,6 @@ definitions:
           publicationsystem:AdministrativeSources: ''
           publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
           publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-          publicationsystem:InformationType:
-          - ''
           publicationsystem:KeyFacts: ''
           publicationsystem:NominalDate: 0001-01-01T12:00:00Z
           publicationsystem:PubliclyAccessible: false

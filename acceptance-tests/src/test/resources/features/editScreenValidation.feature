@@ -56,3 +56,11 @@ Feature: Edit screen - validation
         When I add an empty related link field
         And I save the publication
         Then the save is rejected with error message containing "There is a related link field with no URL provided."
+
+
+    @DiscardAfter
+    Scenario: Blank Information Type field rejection
+        Given I have a publication opened for editing
+        When I add an empty Information Type field
+        And I save the publication
+        Then the save is rejected with error message containing "Information Type has a 'Choose One' placeholder without a value."
