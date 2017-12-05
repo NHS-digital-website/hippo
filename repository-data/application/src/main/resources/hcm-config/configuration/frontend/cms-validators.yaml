@@ -8,6 +8,10 @@ definitions:
       fieldDisplayName: Granularity
       jcr:primaryType: frontend:plugin
       plugin.class: uk.nhs.digital.ps.BlankStaticDropdownSelectionFieldValidator
+    /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-blank-information-type:
+      fieldDisplayName: Information Type
+      jcr:primaryType: frontend:plugin
+      plugin.class: uk.nhs.digital.ps.BlankStaticDropdownSelectionFieldValidator
     /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-blank-related-link:
       jcr:primaryType: frontend:plugin
       plugin.class: uk.nhs.digital.ps.BlankRelatedLinkFieldValidator
