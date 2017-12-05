@@ -2,9 +2,14 @@
 
 <@hst.link siteMapItemRefId="search" mount="common-context" var="searchLink"/>
 
-<form class="navbar-form" role="search" action="${searchLink}" method="get">
-    <div class="input-group">
-        <input type="text" id="query" class="search-input" placeholder="Search NHS Digital" name="query" value="${query!""}">
-        <input type="submit" class="search-submit" id="btnSearch" value="Search">
+
+<section class="common-search">
+  <form class="navbar-form" role="search" action="${searchLink}" method="get">
+    <div class="common-search__inner">
+      <span class="common-search__input">
+        <input type="text" class="common-search__input__field" id="query" name="query" placeholder="What are you looking for today?" value="${query!""}">
+      </span>
+      <input type="submit" class="common-search__submit" id="btnSearch" value="Search">
     </div>
-</form>
+  </form>
+</section>

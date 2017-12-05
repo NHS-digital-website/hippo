@@ -9,6 +9,7 @@ import uk.nhs.digital.ps.test.acceptance.data.ExpectedTestDataProvider;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
 import uk.nhs.digital.ps.test.acceptance.models.Attachment;
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
+import uk.nhs.digital.ps.test.acceptance.pages.site.SitePage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationsOverviewPage;
 import uk.nhs.digital.ps.test.acceptance.pages.widgets.AttachmentWidget;
@@ -46,6 +47,9 @@ public class PublicationSteps extends AbstractSpringSteps {
     private PublicationPage publicationPage;
 
     @Autowired
+    private SitePage sitePage;
+
+    @Autowired
     private PublicationsOverviewPage publicationsOverviewPage;
 
     @Given("^Published and upcoming publications are available in the system$")
@@ -61,7 +65,7 @@ public class PublicationSteps extends AbstractSpringSteps {
 
         publicationPage.open(publication);
 
-        assertThat("Publication title is as expected", publicationPage.getTitleText(),
+        assertThat("Publication title is as expected", sitePage.getDocumentTitle(),
             is(publication.getTitle()));
 
         assertThat("Publication summary is as expected", publicationPage.getSummaryText(),

@@ -1,41 +1,60 @@
-<!doctype html>
+<!DOCTYPE html>
 <#include "../include/imports.ftl">
 <html lang="en">
   <head>
+
+    <title>NHS - Replacement Publication System - Dataset</title>
+
     <meta charset="utf-8"/>
-    <link rel="stylesheet" href="<@hst.webfile  path="/css/demo.css"/>" type="text/css"/>
+    <meta name="title" content="NHS - Replacement Publication System" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <link rel="stylesheet" href="<@hst.webfile  path="/css/style.css"/>" type="text/css"/>
     <#if hstRequest.requestContext.cmsRequest>
       <link rel="stylesheet" href="<@hst.webfile  path="/css/cms-request.css"/>" type="text/css"/>
     </#if>
     <@hst.headContributions categoryExcludes="htmlBodyEnd, scripts" xhtml=true/>
   </head>
   <body>
-    <section class="container container-top">
-        <div class="in-line-container" style="width: 120px">
-            <a href="/" class="logo logo-nhs-digital">NHS Digital</a>
-        </div>
-        <div class="in-line-container">
-            <@hst.include ref="top"/>
-        </div>
-        <ul class="container-top__menu">
-            <li><a href="#" title="">Data and information</a></li>
-            <li><a href="#" title="">Systems and services</a></li>
-            <li><a href="#" title="">News and events</a></li>
-            <li><a href="#" title="">What is NHS Digital?</a></li>
-            <li><a href="#" title="">How we look after your information</a></li>
-        </ul>
-    </section>
 
-    <section class="container">
-        <#if hstResponseChildContentNames?seq_contains("left") >
-        <div class="container container-side">
+
+    <header class="top-header">
+      <div class="top-header__col1">
+        <img class="top-header__logo" src="https://digital.nhs.uk/media/89/NHSDigital/variant1/NHS-Digital-logo_WEB_LEFT-100x855" alt="NHS Digital">
+      </div><!--
+      --><div class="top-header__col2">
+        <div class="top-header__nav">
+          <ul class="top-header__nav__list">
+            <li class="top-header__nav__list__item"><a href="#">Data and information</a></li>
+            <li class="top-header__nav__list__item"><a href="#">Systems and services</a></li>
+            <li class="top-header__nav__list__item"><a href="#">News and events</a></li>
+            <li class="top-header__nav__list__item"><a href="#">About NHS Digital</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <@hst.include ref="top"/>
+
+    <#if hstResponseChildContentNames?seq_contains("left") >
+    <section class="document-content">
+      <div class="layout layout--large">
+        <div class="layout__item layout-1-3">
+          <div class="panel panel--grey">
+            <h3>Filter by:</h3>
             <@hst.include ref="left" />
+          </div>
+        </div><!--
+        --><div class="layout__item layout-2-3">
+          <@hst.include ref="main"/>
         </div>
-        </#if>
-        <div class="container container-main">
-            <@hst.include ref="main"/>
-        </div>
+      </div>
     </section>
+    <#else>
+
+      <@hst.include ref="main"/>
+
+    </#if>
 
     <footer>
         <@hst.include ref="footer"/>

@@ -13,14 +13,6 @@ Feature: Edit screen - validation
 
 
     @DiscardAfter
-    Scenario: Summary validation
-        Given I am on the edit screen
-        When I populate the summary with text longer than the maximum allowed limit of 1000 characters
-        And I save the publication
-        Then the save is rejected with error message containing "Summary must be 1000 characters or less"
-
-
-    @DiscardAfter
     Scenario: Forbidden file type upload rejection
         Given I have a publication opened for editing
         When I try to upload a file of one of the forbidden types:

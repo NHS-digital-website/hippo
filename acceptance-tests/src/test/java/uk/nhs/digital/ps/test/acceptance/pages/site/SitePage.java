@@ -69,19 +69,14 @@ public class SitePage extends AbstractSitePage {
         return elements.get(0);
     }
 
-    public String getPageTitle() throws Exception {
-        String[] titleSelectors = new String[] {
-            "//h2[1]",
-            "//h3[1]",
-        };
+    public String getDocumentTitle() {
+        return helper.findElement(By.xpath("//*[@data-uipath='ps.document.title']")).getText();
+    }
 
-        for (String selector : titleSelectors ){
-            if (helper.isElementPresent(By.xpath(selector))) {
-                return helper.findElement(By.xpath(selector)).getText();
-            }
-        }
-
-        throw new Exception("Cannot find page title element (h2 or h3)");
+    public String getErrorPageMessage() {
+        // I'm expecting that I'm in the context of a dedicated error page and
+        // so I'm expecting to find a message within h2
+        return helper.findElement(By.xpath("//h2")).getText();
     }
 
     public WebElement findPageElement(String elementName) {

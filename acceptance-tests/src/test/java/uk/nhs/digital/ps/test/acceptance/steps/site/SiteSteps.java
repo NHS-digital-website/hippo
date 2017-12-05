@@ -68,7 +68,12 @@ public class SiteSteps extends AbstractSpringSteps {
 
     @Then("^I should see (?:.* )?page titled \"([^\"]+)\"$")
     public void iShouldSeePageTitled(String pageTitle) throws Throwable {
-        assertThat("I should see page titled.", sitePage.getPageTitle(), is(pageTitle));
+        assertThat("I should see page titled.", sitePage.getDocumentTitle(), is(pageTitle));
+    }
+
+    @Then("^I should see \"([^\"]+)\" error page$")
+    public void iShouldSeeErrorPageWithMessage(String errorMessage) {
+        assertThat("I should see page titled.", sitePage.getErrorPageMessage(), is(errorMessage));
     }
 
     @Then("^I should (?:also )?see:?$")

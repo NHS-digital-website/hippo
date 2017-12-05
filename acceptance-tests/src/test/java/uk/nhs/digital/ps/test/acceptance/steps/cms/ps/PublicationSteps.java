@@ -13,6 +13,7 @@ import uk.nhs.digital.ps.test.acceptance.models.Attachment;
 import uk.nhs.digital.ps.test.acceptance.models.FileType;
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
 import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
+import uk.nhs.digital.ps.test.acceptance.pages.site.SitePage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
 import uk.nhs.digital.ps.test.acceptance.steps.AbstractSpringSteps;
 import uk.nhs.digital.ps.test.acceptance.steps.cms.LoginSteps;
@@ -48,6 +49,9 @@ public class PublicationSteps extends AbstractSpringSteps {
 
     @Autowired
     private PublicationPage publicationPage;
+
+    @Autowired
+    private SitePage sitePage;
 
     @Given("^I have a publication opened for editing$")
     public void iHaveAPublicationOpenForEditing() throws Throwable {
@@ -236,7 +240,7 @@ public class PublicationSteps extends AbstractSpringSteps {
     @Then("^Title is shown$")
     public void titleIsVisible() throws Throwable {
         assertThat("Title is shown.",
-            publicationPage.getTitleText(), is(testDataRepo.getCurrentPublication().getTitle())
+            sitePage.getDocumentTitle(), is(testDataRepo.getCurrentPublication().getTitle())
         );
     }
 
