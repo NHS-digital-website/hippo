@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import uk.nhs.digital.ps.test.acceptance.pages.site.PageElements;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.*;
@@ -52,7 +53,13 @@ public class PublicationPageElements implements PageElements {
     }
 
     public WebElement getElementByName(String elementName, int nth, WebDriver webDriver) {
-        return webDriver.findElements(pageElements.get(elementName)).get(nth);
+        List<WebElement> elements = webDriver.findElements(pageElements.get(elementName));
+
+        if (elements.size() == 0) {
+            return null;
+        }
+
+        return elements.get(nth);
     }
 
     public static By getFieldSelector(final String fieldSelectorKey) {

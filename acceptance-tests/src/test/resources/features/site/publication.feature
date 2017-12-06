@@ -38,3 +38,13 @@ Scenario: Display multiparagraph summary
         | Lorem ipsum dolor sit amet, consectetur adipiscing elit ...   |
         | Nunc at quam sed tellus ultricies sagittis. Cras et sem ...   |
         | Quisque blandit viverra pulvinar. Morbi accumsan bibendum ... |
+
+Scenario: Display multiparagraph key facts
+    Given I navigate to "publication with rich content" page
+    Then I should also see multiple "Publication Key Facts" with:
+        # paragraphs
+        | Cras eget elementum erat. Aliquam ornare urna ut ligula ...   |
+        | Pellentesque gravida rhoncus nunc sed rhoncus. In ...         |
+        # bullet list
+        | Morbi eget congue turpis. Fusce in purus mollis ...           |
+        | Aliquam erat volutpat. Quisque eget massa ...                 |

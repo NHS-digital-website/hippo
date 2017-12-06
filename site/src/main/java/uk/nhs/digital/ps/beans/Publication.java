@@ -139,8 +139,10 @@ public class Publication extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.KEY_FACTS)
-    public String getKeyFacts() {
-        return getPropertyIfPermitted(PropertyKeys.KEY_FACTS);
+    public StructuredText getKeyFacts() {
+        assertPropertyPermitted(PropertyKeys.KEY_FACTS);
+
+        return new StructuredText(getProperty(PropertyKeys.KEY_FACTS, ""));
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.INFORMATION_TYPE)
