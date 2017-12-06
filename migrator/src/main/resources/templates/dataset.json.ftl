@@ -19,11 +19,6 @@
     "multiple" : false,
     "values" : [ "${dataset.title}" ]
   }, {
-    "name" : "publicationsystem:Purpose",
-    "type" : "STRING",
-    "multiple" : false,
-    "values" : [ "example dataset purpose" ]
-  }, {
     "name" : "publicationsystem:Granularity",
     "type" : "STRING",
     "multiple" : true,
@@ -52,7 +47,7 @@
     "name" : "publicationsystem:Summary",
     "type" : "STRING",
     "multiple" : false,
-    "values" : [ "example dataset summary" ]
+    "values" : [ "${dataset.summary}" ]
   }, {
     "name" : "hippotranslation:locale",
     "type" : "STRING",

@@ -21,11 +21,6 @@ public class Dataset extends BaseDocument {
         return new StructuredText(getProperty("publicationsystem:Summary"));
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:Purpose")
-    public String getPurpose() {
-        return getProperty("publicationsystem:Purpose");
-    }
-
     @HippoEssentialsGenerated(internalName = "publicationsystem:NominalDate")
     public Calendar getNominalDate() {
         return getProperty("publicationsystem:NominalDate");

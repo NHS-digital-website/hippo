@@ -38,7 +38,8 @@ public class ImportableItemsFactory {
         return new DataSet(
             parentFolder,
             exportedPublishingPackage.getTitle(),
-            exportedPublishingPackage.getTitle()
+            exportedPublishingPackage.getTitle(),
+            exportedPublishingPackage.getSummary()
         );
     }
 

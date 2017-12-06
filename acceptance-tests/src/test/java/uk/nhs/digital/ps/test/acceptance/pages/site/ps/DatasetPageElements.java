@@ -15,8 +15,6 @@ public class DatasetPageElements implements PageElements {
             By.xpath("//*[" + getDataUiPathXpath("title") + "]"));
         put("Dataset Summary",
             By.xpath("//*[" + getDataUiPathXpath("summary") + "]"));
-        put("Dataset Purpose",
-            By.xpath("//*[" + getDataUiPathXpath("purpose") + "]"));
         put("Dataset Granularity",
             By.xpath("//*[" + getDataUiPathXpath("granularity") + "]"));
         put("Dataset Geographic Coverage",

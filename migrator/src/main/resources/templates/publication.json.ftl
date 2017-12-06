@@ -27,7 +27,7 @@
     "name" : "publicationsystem:Summary",
     "type" : "STRING",
     "multiple" : false,
-    "values" : [ "Some summary" ]
+    "values" : [ "Publication" ]
   }, {
     "name" : "publicationsystem:CoverageEnd",
     "type" : "DATE",

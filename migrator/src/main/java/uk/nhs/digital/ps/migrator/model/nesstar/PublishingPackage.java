@@ -14,7 +14,8 @@ public class PublishingPackage {
 
     private XPathExpression<Element> idXpath;
     private XPathExpression<Element> titleXpath;
-
+    private XPathExpression<Element> notesXpath;
+    private XPathExpression<Element> abstractXpath;
 
     public PublishingPackage(final Element rootElement) {
         this.rootElement = rootElement;
@@ -29,6 +30,31 @@ public class PublishingPackage {
         return titleXpath.evaluateFirst(rootElement).getTextTrim();
     }
 
+    public String getNotes() {
+        return notesXpath.evaluateFirst(rootElement).getTextTrim();
+    }
+
+    public String getAbstract() {
+        // abstract is not a required tag so check for null
+        Element element = abstractXpath.evaluateFirst(rootElement);
+        return element == null ? null : element.getTextTrim();
+    }
+
+    /**
+     * The summary is the notes followed by a new paragraph with the abstract
+     */
+    public String getSummary() {
+        StringBuilder summary = new StringBuilder(getNotes());
+
+        String abstractStr = getAbstract();
+        if (abstractStr != null) {
+            summary.append("\n\n");
+            summary.append(abstractStr);
+        }
+
+        return summary.toString();
+    }
+
     @Override
     public String toString() {
         return "DataSet{" +
@@ -41,6 +67,8 @@ public class PublishingPackage {
     private void initXpath() {
         idXpath = compileXpath("stdyDscr/citation/titlStmt/IDNo");
         titleXpath = compileXpath("stdyDscr/citation/titlStmt/titl");
+        notesXpath = compileXpath("stdyDscr/citation/notes");
+        abstractXpath = compileXpath("stdyDscr/stdyInfo/abstract");
     }
 
     private XPathExpression<Element> compileXpath(final String xpath) {
