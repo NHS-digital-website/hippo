@@ -3,6 +3,7 @@
 <#assign dateFormat="dd/MM/yyyy"/>
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() />
 <#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
+<#assign formatCoverageDates="uk.nhs.digital.ps.directives.CoverageDatesFormatterDirective"?new() >
 
 <@hst.setBundle basename="publicationsystem.headers"/>
 
@@ -91,14 +92,8 @@
                         <dl class="media__body">
                             <dt>Date Range</dt>
                             <dd data-uipath="ps.publication.date-range">
-                                <#if publication.coverageStart?? >
-                                    <@fmt.formatDate value=publication.coverageStart.time type="Date" pattern=dateFormat />
-                                <#else>
-                                    (Not specified)
-                                </#if>
-                                to
-                                <#if publication.coverageEnd?? >
-                                    <@fmt.formatDate value=publication.coverageEnd.time type="Date" pattern=dateFormat />
+                                <#if publication.coverageStart?? && publication.coverageEnd??>
+                                    <@formatCoverageDates start=publication.coverageStart.time end=publication.coverageEnd.time/>
                                 <#else>
                                     (Not specified)
                                 </#if>
