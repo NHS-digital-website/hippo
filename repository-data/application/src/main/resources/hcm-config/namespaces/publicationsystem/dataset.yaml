@@ -88,6 +88,8 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Coverage Start
             field: CoverageStart
+            hint: For snapshot date, set the Coverage Start and End dates to be the
+              same
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
@@ -96,7 +98,8 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Coverage End
             field: CoverageEnd
-            hint: ''
+            hint: For snapshot date, set the Coverage Start and End dates to be the
+              same
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
@@ -140,6 +143,8 @@ definitions:
             hipposysedit:path: publicationsystem:CoverageEnd
             hipposysedit:primary: false
             hipposysedit:type: CalendarDate
+            hipposysedit:validators:
+            - publicationsystem-coverage-dates
             jcr:primaryType: hipposysedit:field
           /CoverageStart:
             hipposysedit:mandatory: false

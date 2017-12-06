@@ -4,6 +4,7 @@
 
 <#assign dateFormat="dd/MM/yyyy"/>
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() >
+<#assign formatCoverageDates="uk.nhs.digital.ps.directives.CoverageDatesFormatterDirective"?new() >
 
 <#if dataset??>
 
@@ -25,14 +26,8 @@
                     <dl class="media__body">
                         <dt>Date Range</dt>
                         <dd data-uipath="ps.dataset.date-range">
-                            <#if dataset.coverageStart?? >
-                                <@fmt.formatDate value=dataset.coverageStart.time type="Date" pattern=dateFormat />
-                            <#else>
-                                (Not specified)
-                            </#if>
-                            to
-                            <#if dataset.coverageEnd?? >
-                                <@fmt.formatDate value=dataset.coverageEnd.time type="Date" pattern=dateFormat />
+                            <#if dataset.coverageStart?? && dataset.coverageEnd??>
+                                <@formatCoverageDates start=dataset.coverageStart.time end=dataset.coverageEnd.time/>
                             <#else>
                                 (Not specified)
                             </#if>

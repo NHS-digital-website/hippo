@@ -15,6 +15,9 @@ definitions:
     /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-blank-related-link:
       jcr:primaryType: frontend:plugin
       plugin.class: uk.nhs.digital.ps.BlankRelatedLinkFieldValidator
+    /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-coverage-dates:
+      jcr:primaryType: frontend:plugin
+      plugin.class: uk.nhs.digital.ps.CoverageDatesValidator
     /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-title:
       jcr:primaryType: frontend:plugin
       max_length: 250
