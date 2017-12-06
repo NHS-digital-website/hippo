@@ -51,6 +51,12 @@ class EximImport extends BaseNodeUpdateVisitor {
     }
 
     boolean doUpdate(Node node) {
+        // This method is called for each node in the jcr,
+        // we obviously only want to do the import once so only do it for the root directory
+        if (!node.getPath().equals("/")) {
+            return false
+        }
+
         def contentNode
         def primaryTypeName
         def documentLocation

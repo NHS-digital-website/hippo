@@ -54,8 +54,6 @@
         <p class="doc-summary" data-uipath="ps.dataset.summary">${element?html}</p>
         </#if>
     </#list>
-
-    <p class="doc-summary" data-uipath="ps.dataset.purpose">${dataset.purpose}</p>
 </div>
 
 <div class="content-section">

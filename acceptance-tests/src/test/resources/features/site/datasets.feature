@@ -8,7 +8,6 @@ Scenario: Search individual data set by name
     Then I should see data set page titled "publication-with-datasets Dataset"
     And I should also see:
         | Dataset Summary               | Mauris ex est, dapibus in dictum ut, elementum sit amet ...       |
-        | Dataset Purpose               | Vivamus et tortor ut ex placerat congue vitae nec velit. ...      |
         | Dataset Granularity           | NHS Trusts                                                        |
         | Dataset Geographic Coverage   | England                                                           |
         | Dataset Date Range            | 01/02/2016 to 01/07/2017                                          |
@@ -33,7 +32,6 @@ Scenario: Find data set in publication that is part of series
     Then I should see data set page titled "series-publication-with-datasets Dataset"
     And I should also see:
         | Dataset Summary               | Sed viverra, odio nec eleifend sodales, ligula lectus varius ...  |
-        | Dataset Purpose               | Morbi ipsum mauris, tincidunt sed dictum quis, dictum id ...      |
         | Dataset Granularity           | NHS Health Boards                                                 |
         | Dataset Geographic Coverage   | Great Britain                                                     |
 

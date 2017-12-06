@@ -58,14 +58,6 @@ definitions:
             mixin: hippotaxonomy:classifiable
             plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
             wicket.id: ${cluster.id}.right.item
-          /Purpose:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Purpose
-            field: Purpose
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.left.item
           /Files:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -197,14 +189,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: CalendarDate
             jcr:primaryType: hipposysedit:field
-          /Purpose:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:Purpose
-            hipposysedit:primary: false
-            hipposysedit:type: Text
-            jcr:primaryType: hipposysedit:field
           /Summary:
             hipposysedit:mandatory: true
             hipposysedit:multiple: false
@@ -262,7 +246,6 @@ definitions:
           - ''
           publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
           publicationsystem:NominalDate: 0001-01-01T12:00:00Z
-          publicationsystem:Purpose: ''
           publicationsystem:Summary: ''
           publicationsystem:Title: ''
         jcr:primaryType: hipposysedit:prototypeset

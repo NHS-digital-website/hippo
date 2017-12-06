@@ -1,6 +1,5 @@
 package uk.nhs.digital.ps.beans;
 
-import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
@@ -9,7 +8,6 @@ import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.content.beans.standard.HippoResourceBean;
 import org.hippoecm.hst.core.component.HstComponentException;
-import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.site.HstServices;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
@@ -21,7 +19,6 @@ import org.slf4j.LoggerFactory;
 import uk.nhs.digital.ps.beans.structuredText.StructuredText;
 import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
 
-import javax.jcr.RepositoryException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -75,7 +72,7 @@ public class Publication extends BaseDocument {
         if (getKeys() != null) {
             // Lookup Taxonomy Tree
             TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent(TaxonomyManager.class.getName());
-            Taxonomy taxonomyTree = taxonomyManager.getTaxonomies().getTaxonomy(getTaxonomyName());
+            Taxonomy taxonomyTree = taxonomyManager.getTaxonomies().getTaxonomy(HippoBeanHelper.getTaxonomyName());
 
             for (String key : getKeys()) {
                 List<Category> ancestors = (List<Category>) taxonomyTree.getCategoryByKey(key).getAncestors();
@@ -89,23 +86,6 @@ public class Publication extends BaseDocument {
         }
 
         return taxonomyList;
-    }
-
-    private static String getTaxonomyName() throws HstComponentException {
-        String taxonomyName;
-
-        try {
-            HstRequestContext ctx = RequestContextProvider.get();
-            taxonomyName = ctx.getSession().getNode(
-                "/hippo:namespaces/publicationsystem/publication/editor:templates/_default_/classifiable")
-                .getProperty("essentials-taxonomy-name")
-                .getString();
-        } catch (RepositoryException e) {
-            throw new HstComponentException(
-                "Exception occurred during fetching taxonomy file name.", e);
-        }
-
-        return taxonomyName;
     }
 
     public Series getParentSeries() {
