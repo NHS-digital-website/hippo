@@ -5,7 +5,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2016-11-03T13:35:36.812Z
-    hippostdpubwf:lastModificationDate: 2016-11-03T13:35:36.813Z
+    hippostdpubwf:lastModificationDate: 2017-12-06T14:07:57.703Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
@@ -24,18 +24,44 @@
     - NHS Trusts
     publicationsystem:InformationType:
     - Experimental statistics
-    publicationsystem:KeyFacts: Cras eget elementum erat. Aliquam ornare urna ut ligula
-      euismod auctor. Sed non dolor sit amet neque sodales eleifend in id nisi. Nunc
-      semper purus non justo tempor placerat. Phasellus a blandit eros. Vivamus accumsan,
-      diam in tempus sollicitudin, tortor enim gravida ligula, lobortis imperdiet
-      lectus metus vel turpis.
+    publicationsystem:KeyFacts: "Cras eget elementum erat. Aliquam ornare urna ut\
+      \ ligula euismod auctor. Sed non dolor sit amet neque sodales eleifend in id\
+      \ nisi. Nunc semper purus non justo tempor placerat. Phasellus a blandit eros.\
+      \ Vivamus accumsan, diam in tempus sollicitudin, tortor enim gravida ligula,\
+      \ lobortis imperdiet lectus metus vel turpis.\r\n\r\nPellentesque gravida rhoncus\
+      \ nunc sed rhoncus. In fringilla, ante tincidunt molestie lobortis, sem orci\
+      \ consequat elit, eget iaculis ipsum urna sit amet urna. Nulla facilisi. Proin\
+      \ tincidunt dolor nec quam laoreet, a dictum lectus condimentum. Nam vehicula\
+      \ nisl id libero lobortis pharetra. Vivamus id justo congue, egestas velit at,\
+      \ hendrerit est. Sed commodo velit neque, ac aliquet nisi ornare a. Aliquam\
+      \ scelerisque fermentum justo. Lorem ipsum dolor sit amet, consectetur adipiscing\
+      \ elit. Phasellus fringilla gravida pulvinar. Duis id mollis ante, id commodo\
+      \ tellus. Ut nunc dolor, ornare non est sit amet, tincidunt egestas nunc. Curabitur\
+      \ sed urna sed justo porta pellentesque vitae non ex. Praesent justo risus,\
+      \ sagittis ut lectus tincidunt, congue cursus nisi. Morbi malesuada nibh vitae\
+      \ nunc tincidunt, in sollicitudin sem viverra. Nunc enim sapien, malesuada vel\
+      \ gravida vel, auctor in nisi.\r\n\r\n* Morbi eget congue turpis. \r\nFusce\
+      \ in purus mollis, blandit elit id, posuere tortor. \r\n* Aliquam erat volutpat.\
+      \ Quisque eget massa imperdiet."
     publicationsystem:NominalDate: 2016-10-10T00:00:00Z
     publicationsystem:PubliclyAccessible: true
-    publicationsystem:Summary: Etiam vitae tincidunt lectus. Nulla posuere ultricies
-      mollis. Mauris in ullamcorper sapien. Quisque eros quam, condimentum non nisl
-      vel, condimentum vestibulum turpis. Aenean sodales leo in mauris pellentesque,
-      nec auctor sapien facilisis. Ut accumsan orci ac metus lobortis, vel facilisis
-      nisl iaculis.
+    publicationsystem:Summary: "Etiam vitae tincidunt lectus. Nulla posuere ultricies\
+      \ mollis. Mauris in ullamcorper sapien. Quisque eros quam, condimentum non nisl\
+      \ vel, condimentum vestibulum turpis. Aenean sodales leo in mauris pellentesque,\
+      \ nec auctor sapien facilisis. Ut accumsan orci ac metus lobortis, vel facilisis\
+      \ nisl iaculis.\r\n\r\n* Integer metus ante, imperdiet in sem accumsan.\r\n\
+      * Malesuada mollis ex.\r\n* Aenean viverra egestas bibendum. \r\n* Maecenas\
+      \ convallis ante vel sapien ornare, at tristique velit ornare.\r\n\r\nDuis varius\
+      \ dui ac dolor bibendum eleifend. Aenean in sagittis nisl. Cras rutrum porttitor\
+      \ imperdiet. Nam eget nulla mattis, tincidunt lacus eget, tincidunt dolor. Aliquam\
+      \ auctor, magna quis aliquet volutpat, mauris justo fringilla odio, et lacinia\
+      \ massa diam ac mi. Nulla at placerat nibh. Maecenas in massa at ipsum tincidunt\
+      \ suscipit et gravida quam. Donec non lacus a neque viverra blandit. Cras porttitor\
+      \ tortor at ante facilisis, non pharetra massa feugiat. Nulla pellentesque tellus\
+      \ id nisl lobortis, nec facilisis ligula interdum. Nulla interdum, enim in ultrices\
+      \ faucibus, mi est ullamcorper quam, quis ullamcorper ipsum ligula ut ante.\
+      \ Pellentesque sit amet justo interdum, pharetra est vel, auctor enim. Pellentesque\
+      \ at lorem nulla."
     publicationsystem:Title: publication with rich content
   /content[2]:
     hippo:availability:
@@ -43,7 +69,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2016-11-03T13:35:36.812Z
-    hippostdpubwf:lastModificationDate: 2016-11-03T13:37:39.777Z
+    hippostdpubwf:lastModificationDate: 2017-12-06T14:08:09.056Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
@@ -63,18 +89,44 @@
     - NHS Trusts
     publicationsystem:InformationType:
     - Experimental statistics
-    publicationsystem:KeyFacts: Cras eget elementum erat. Aliquam ornare urna ut ligula
-      euismod auctor. Sed non dolor sit amet neque sodales eleifend in id nisi. Nunc
-      semper purus non justo tempor placerat. Phasellus a blandit eros. Vivamus accumsan,
-      diam in tempus sollicitudin, tortor enim gravida ligula, lobortis imperdiet
-      lectus metus vel turpis.
+    publicationsystem:KeyFacts: "Cras eget elementum erat. Aliquam ornare urna ut\
+      \ ligula euismod auctor. Sed non dolor sit amet neque sodales eleifend in id\
+      \ nisi. Nunc semper purus non justo tempor placerat. Phasellus a blandit eros.\
+      \ Vivamus accumsan, diam in tempus sollicitudin, tortor enim gravida ligula,\
+      \ lobortis imperdiet lectus metus vel turpis.\r\n\r\nPellentesque gravida rhoncus\
+      \ nunc sed rhoncus. In fringilla, ante tincidunt molestie lobortis, sem orci\
+      \ consequat elit, eget iaculis ipsum urna sit amet urna. Nulla facilisi. Proin\
+      \ tincidunt dolor nec quam laoreet, a dictum lectus condimentum. Nam vehicula\
+      \ nisl id libero lobortis pharetra. Vivamus id justo congue, egestas velit at,\
+      \ hendrerit est. Sed commodo velit neque, ac aliquet nisi ornare a. Aliquam\
+      \ scelerisque fermentum justo. Lorem ipsum dolor sit amet, consectetur adipiscing\
+      \ elit. Phasellus fringilla gravida pulvinar. Duis id mollis ante, id commodo\
+      \ tellus. Ut nunc dolor, ornare non est sit amet, tincidunt egestas nunc. Curabitur\
+      \ sed urna sed justo porta pellentesque vitae non ex. Praesent justo risus,\
+      \ sagittis ut lectus tincidunt, congue cursus nisi. Morbi malesuada nibh vitae\
+      \ nunc tincidunt, in sollicitudin sem viverra. Nunc enim sapien, malesuada vel\
+      \ gravida vel, auctor in nisi.\r\n\r\n* Morbi eget congue turpis. \r\nFusce\
+      \ in purus mollis, blandit elit id, posuere tortor. \r\n* Aliquam erat volutpat.\
+      \ Quisque eget massa imperdiet."
     publicationsystem:NominalDate: 2016-10-10T00:00:00Z
     publicationsystem:PubliclyAccessible: true
-    publicationsystem:Summary: Etiam vitae tincidunt lectus. Nulla posuere ultricies
-      mollis. Mauris in ullamcorper sapien. Quisque eros quam, condimentum non nisl
-      vel, condimentum vestibulum turpis. Aenean sodales leo in mauris pellentesque,
-      nec auctor sapien facilisis. Ut accumsan orci ac metus lobortis, vel facilisis
-      nisl iaculis.
+    publicationsystem:Summary: "Etiam vitae tincidunt lectus. Nulla posuere ultricies\
+      \ mollis. Mauris in ullamcorper sapien. Quisque eros quam, condimentum non nisl\
+      \ vel, condimentum vestibulum turpis. Aenean sodales leo in mauris pellentesque,\
+      \ nec auctor sapien facilisis. Ut accumsan orci ac metus lobortis, vel facilisis\
+      \ nisl iaculis.\r\n\r\n* Integer metus ante, imperdiet in sem accumsan.\r\n\
+      * Malesuada mollis ex.\r\n* Aenean viverra egestas bibendum. \r\n* Maecenas\
+      \ convallis ante vel sapien ornare, at tristique velit ornare.\r\n\r\nDuis varius\
+      \ dui ac dolor bibendum eleifend. Aenean in sagittis nisl. Cras rutrum porttitor\
+      \ imperdiet. Nam eget nulla mattis, tincidunt lacus eget, tincidunt dolor. Aliquam\
+      \ auctor, magna quis aliquet volutpat, mauris justo fringilla odio, et lacinia\
+      \ massa diam ac mi. Nulla at placerat nibh. Maecenas in massa at ipsum tincidunt\
+      \ suscipit et gravida quam. Donec non lacus a neque viverra blandit. Cras porttitor\
+      \ tortor at ante facilisis, non pharetra massa feugiat. Nulla pellentesque tellus\
+      \ id nisl lobortis, nec facilisis ligula interdum. Nulla interdum, enim in ultrices\
+      \ faucibus, mi est ullamcorper quam, quis ullamcorper ipsum ligula ut ante.\
+      \ Pellentesque sit amet justo interdum, pharetra est vel, auctor enim. Pellentesque\
+      \ at lorem nulla."
     publicationsystem:Title: publication with rich content
   /content[3]:
     hippo:availability:
@@ -82,9 +134,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2016-11-03T13:35:36.812Z
-    hippostdpubwf:lastModificationDate: 2016-11-03T13:37:39.777Z
+    hippostdpubwf:lastModificationDate: 2017-12-06T14:08:09.056Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2016-11-03T13:41:09.207Z
+    hippostdpubwf:publicationDate: 2017-12-06T14:08:12.266Z
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
     jcr:mixinTypes:
@@ -102,18 +154,44 @@
     - NHS Trusts
     publicationsystem:InformationType:
     - Experimental statistics
-    publicationsystem:KeyFacts: Cras eget elementum erat. Aliquam ornare urna ut ligula
-      euismod auctor. Sed non dolor sit amet neque sodales eleifend in id nisi. Nunc
-      semper purus non justo tempor placerat. Phasellus a blandit eros. Vivamus accumsan,
-      diam in tempus sollicitudin, tortor enim gravida ligula, lobortis imperdiet
-      lectus metus vel turpis.
+    publicationsystem:KeyFacts: "Cras eget elementum erat. Aliquam ornare urna ut\
+      \ ligula euismod auctor. Sed non dolor sit amet neque sodales eleifend in id\
+      \ nisi. Nunc semper purus non justo tempor placerat. Phasellus a blandit eros.\
+      \ Vivamus accumsan, diam in tempus sollicitudin, tortor enim gravida ligula,\
+      \ lobortis imperdiet lectus metus vel turpis.\r\n\r\nPellentesque gravida rhoncus\
+      \ nunc sed rhoncus. In fringilla, ante tincidunt molestie lobortis, sem orci\
+      \ consequat elit, eget iaculis ipsum urna sit amet urna. Nulla facilisi. Proin\
+      \ tincidunt dolor nec quam laoreet, a dictum lectus condimentum. Nam vehicula\
+      \ nisl id libero lobortis pharetra. Vivamus id justo congue, egestas velit at,\
+      \ hendrerit est. Sed commodo velit neque, ac aliquet nisi ornare a. Aliquam\
+      \ scelerisque fermentum justo. Lorem ipsum dolor sit amet, consectetur adipiscing\
+      \ elit. Phasellus fringilla gravida pulvinar. Duis id mollis ante, id commodo\
+      \ tellus. Ut nunc dolor, ornare non est sit amet, tincidunt egestas nunc. Curabitur\
+      \ sed urna sed justo porta pellentesque vitae non ex. Praesent justo risus,\
+      \ sagittis ut lectus tincidunt, congue cursus nisi. Morbi malesuada nibh vitae\
+      \ nunc tincidunt, in sollicitudin sem viverra. Nunc enim sapien, malesuada vel\
+      \ gravida vel, auctor in nisi.\r\n\r\n* Morbi eget congue turpis. \r\nFusce\
+      \ in purus mollis, blandit elit id, posuere tortor. \r\n* Aliquam erat volutpat.\
+      \ Quisque eget massa imperdiet."
     publicationsystem:NominalDate: 2016-10-10T00:00:00Z
     publicationsystem:PubliclyAccessible: true
-    publicationsystem:Summary: Etiam vitae tincidunt lectus. Nulla posuere ultricies
-      mollis. Mauris in ullamcorper sapien. Quisque eros quam, condimentum non nisl
-      vel, condimentum vestibulum turpis. Aenean sodales leo in mauris pellentesque,
-      nec auctor sapien facilisis. Ut accumsan orci ac metus lobortis, vel facilisis
-      nisl iaculis.
+    publicationsystem:Summary: "Etiam vitae tincidunt lectus. Nulla posuere ultricies\
+      \ mollis. Mauris in ullamcorper sapien. Quisque eros quam, condimentum non nisl\
+      \ vel, condimentum vestibulum turpis. Aenean sodales leo in mauris pellentesque,\
+      \ nec auctor sapien facilisis. Ut accumsan orci ac metus lobortis, vel facilisis\
+      \ nisl iaculis.\r\n\r\n* Integer metus ante, imperdiet in sem accumsan.\r\n\
+      * Malesuada mollis ex.\r\n* Aenean viverra egestas bibendum. \r\n* Maecenas\
+      \ convallis ante vel sapien ornare, at tristique velit ornare.\r\n\r\nDuis varius\
+      \ dui ac dolor bibendum eleifend. Aenean in sagittis nisl. Cras rutrum porttitor\
+      \ imperdiet. Nam eget nulla mattis, tincidunt lacus eget, tincidunt dolor. Aliquam\
+      \ auctor, magna quis aliquet volutpat, mauris justo fringilla odio, et lacinia\
+      \ massa diam ac mi. Nulla at placerat nibh. Maecenas in massa at ipsum tincidunt\
+      \ suscipit et gravida quam. Donec non lacus a neque viverra blandit. Cras porttitor\
+      \ tortor at ante facilisis, non pharetra massa feugiat. Nulla pellentesque tellus\
+      \ id nisl lobortis, nec facilisis ligula interdum. Nulla interdum, enim in ultrices\
+      \ faucibus, mi est ullamcorper quam, quis ullamcorper ipsum ligula ut ante.\
+      \ Pellentesque sit amet justo interdum, pharetra est vel, auctor enim. Pellentesque\
+      \ at lorem nulla."
     publicationsystem:Title: publication with rich content
   jcr:mixinTypes:
   - mix:referenceable

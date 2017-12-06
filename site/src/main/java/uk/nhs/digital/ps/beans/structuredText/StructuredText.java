@@ -37,7 +37,13 @@ public class StructuredText {
             .replaceAll("\n{3,}", "\n\n");
 
         Arrays.asList(text.split("\n\n"))
-            .forEach(t -> elements.add(new Paragraph(t)));
+            .forEach(t -> {
+                if (BulletList.match(t)) {
+                    elements.add(new BulletList(t));
+                    return;
+                }
+                elements.add(new Paragraph(t));
+            });
 
         return elements;
     }
