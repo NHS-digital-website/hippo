@@ -17,6 +17,15 @@ public class ImportableItemsFactory {
         );
     }
 
+    public static Series toSeries(final Folder parentFolder, final String title) {
+
+        return new Series(
+            parentFolder,
+            "content",
+            title
+        );
+    }
+
     public static Publication toPublication(final Catalog catalog, final Folder parentFolder) {
 
         return new Publication(
