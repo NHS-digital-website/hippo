@@ -20,31 +20,27 @@ public class CcgImportables {
 
         // Target CMS structure:
         //
-        // *  Clinical Indicators folder                     one
-        // A)   CCG root folder                              one
-        // B)   CCG series 'content' document                one
-        // C)     Quarterly publication folder               one
-        // D)     Quarterly publication 'content' document   one
-        // E)       Domain X folders                         one per each domain
-        // F)         DataSet X documents                    one per each dataset within each domain
+        // A)  CCG Outcomes Indicator Set                           FOLDER
+        // B)    Current                                            FOLDER
+        // C)      content                                          PUBLICATION
+        // D)        folders per node (domain x)                    FOLDER
+        // E)          DataSet documents from subfolders            DATASET
+        // F)    Archive                                            FOLDER
+        // G)      content                                          SERIES
+        // H)      2016                                             PUBLICATION (to be created manually by editors)
 
         // A)
         final Catalog ccgRootCatalog = catalogStructure.findCatalogByLabel("CCG Outcomes Indicator Set");
-
         final Folder ccgRootFolder = toFolder(ccgRootCatalog, ciRootFolder);
 
         // B)
-        final Series ccgSeries = toSeries(ccgRootCatalog, ccgRootFolder);
-
-        // C)
-        final String currentQuarterFolderName = "2017 Dec"; // rktodo dynamic? fixed?
+        final String currentQuarterFolderName = "Current";
         final Folder quarterlyPublicationFolder = newFolder(currentQuarterFolderName, ccgRootFolder);
 
-        // D)
+        // C)
         final Publication quarterlyPublication = newPublication("content", currentQuarterFolderName, quarterlyPublicationFolder);
-        quarterlyPublication.setLocalizedName("content");
 
-        // e)
+        // D)
         // There is only one level of Domains under CCG so it's enough to just iterate over them rather than walk a tree
         final List<Catalog> domainCatalogs = ccgRootCatalog.getChildCatalogs();
 
@@ -54,7 +50,7 @@ public class CcgImportables {
 
                 return Stream.concat(
                     Stream.of(domainFolder),
-                    // F)
+                    // E)
                     domainCatalog.findPublishingPackages().stream().map(domainPublishingPackage ->
                         toDataSet(domainPublishingPackage, domainFolder)
                     )
@@ -62,12 +58,21 @@ public class CcgImportables {
 
             }).collect(toList());
 
+        // F)
+        final String archiveFolderName = "archive";
+        final Folder archiveFolder = newFolder(archiveFolderName, ccgRootFolder);
+        archiveFolder.setLocalizedName("Archive");
+
+        // G
+        final Series series = toSeries(archiveFolder, "Archive CCG Outcomes Indicators");
+
         final List<HippoImportableItem> importableItems = new ArrayList<>();
         importableItems.add(ccgRootFolder);
-        importableItems.add(ccgSeries);
         importableItems.add(quarterlyPublicationFolder);
         importableItems.add(quarterlyPublication);
         importableItems.addAll(domainsWithDatasets);
+        importableItems.add(archiveFolder);
+        importableItems.add(series);
 
         return importableItems;
     }

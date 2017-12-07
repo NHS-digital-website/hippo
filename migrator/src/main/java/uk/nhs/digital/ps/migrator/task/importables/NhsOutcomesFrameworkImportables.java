@@ -3,6 +3,7 @@ package uk.nhs.digital.ps.migrator.task.importables;
 import uk.nhs.digital.ps.migrator.model.hippo.Folder;
 import uk.nhs.digital.ps.migrator.model.hippo.HippoImportableItem;
 import uk.nhs.digital.ps.migrator.model.hippo.Publication;
+import uk.nhs.digital.ps.migrator.model.hippo.Series;
 import uk.nhs.digital.ps.migrator.model.nesstar.Catalog;
 import uk.nhs.digital.ps.migrator.model.nesstar.CatalogStructure;
 
@@ -21,34 +22,54 @@ public class NhsOutcomesFrameworkImportables {
         // Target CMS structure:
         //
         // A)  NHS Outcomes Framework                               FOLDER
-        // B)  Outcomes Framework publication 'content' document    PUBLICATION
-        // C)    folders per node                                   FOLDER
-        // D)      DataSet documents from subfolders                DATASET
+        // B)    Current                                            FOLDER
+        // C)      content                                          PUBLICATION
+        // D)        folders per node                               FOLDER
+        // E)          DataSet documents from subfolders            DATASET
+        // F)    Archive                                            FOLDER
+        // G)      content                                          SERIES
+        // H)      2016                                             PUBLICATION (to be created manually by editors)
 
         // A)
         final Catalog rootCatalog = catalogStructure.findCatalogByLabel("NHS Outcomes Framework");
         final Folder rootFolder = toFolder(rootCatalog, ciRootFolder);
 
         // B)
-        final Publication publication = toPublication(rootCatalog, rootFolder);
+        final String currentQuarterFolderName = "current";
+        final Folder quarterlyPublicationFolder = newFolder(currentQuarterFolderName, rootFolder);
+        quarterlyPublicationFolder.setLocalizedName("Current");
 
         // C)
+        final Publication quarterlyPublication = newPublication("content", currentQuarterFolderName, quarterlyPublicationFolder);
+
+        // D)
         final List<HippoImportableItem> domainsWithDatasets = rootCatalog.getChildCatalogs()
             .stream()
             .filter(domainCatalog -> !"NHS Outcomes Framework (NHS OF) summary dashboard and useful links".equals(domainCatalog.getLabel()))
             .flatMap(domainCatalog -> {
-                final Folder domainFolder = toFolder(domainCatalog, rootFolder);
+                final Folder domainFolder = toFolder(domainCatalog, quarterlyPublicationFolder);
 
                 return Stream.concat(
                     Stream.of(domainFolder),
-                    // D)
+                    // E)
                     getImportableDatasetsFromCatalog(domainCatalog, domainFolder)
                 );
             }).collect(toList());
 
+        // F)
+        final String archiveFolderName = "archive";
+        final Folder archiveFolder = newFolder(archiveFolderName, rootFolder);
+        archiveFolder.setLocalizedName("Archive");
+
+        // G
+        final Series series = toSeries(archiveFolder, "Archive NHS Outcomes Framework Indicators");
+
         importableItems.add(rootFolder);
-        importableItems.add(publication);
+        importableItems.add(quarterlyPublicationFolder);
+        importableItems.add(quarterlyPublication);
         importableItems.addAll(domainsWithDatasets);
+        importableItems.add(archiveFolder);
+        importableItems.add(series);
 
         return importableItems;
     }
