@@ -29,11 +29,11 @@ import org.onehippo.forge.content.exim.core.*
 import org.onehippo.forge.content.exim.core.impl.*
 import org.onehippo.forge.content.exim.core.util.*
 
-class EximImport extends BaseNodeUpdateVisitor {
+class ImportingDocumentVariantInFileUpdateVisitor extends BaseNodeUpdateVisitor {
 
     def fileInJson = true
-    DocumentManager documentManager
-    WorkflowDocumentVariantImportTask importTask
+    def documentManager
+    def importTask
     def sourceBaseFolder
 
     void initialize(Session session) {
@@ -51,12 +51,6 @@ class EximImport extends BaseNodeUpdateVisitor {
     }
 
     boolean doUpdate(Node node) {
-        // This method is called for each node in the jcr,
-        // we obviously only want to do the import once so only do it for the root directory
-        if (!node.getPath().equals("/")) {
-            return false
-        }
-
         def contentNode
         def primaryTypeName
         def documentLocation
@@ -65,29 +59,16 @@ class EximImport extends BaseNodeUpdateVisitor {
         def localizedName
 
         // find all the *.json (or *.xml) files under the sourceBaseFoler.
-        FileObject[] files
+        def files
         if (fileInJson) {
             files = importTask.findFilesByNamePattern(sourceBaseFolder, "^.+\\.json\$" , 1, 10)
         } else {
             files = importTask.findFilesByNamePattern(sourceBaseFolder, "^.+\\.xml\$" , 1, 10)
         }
 
-        if (files == null) {
-            log.error "No files found to import in ${sourceBaseFolder}. Aborting with no attempt of importing anything having been made."
-            return false; // indicates nothing was changed
-        } else {
-            log.info "Files to import found: ${files.length}"
-        }
-
-        // sort found files by name - lexicographically, in ascending order
-        files = files.toSorted { left, right -> left.getName().compareTo(right.getName()) }
-
         def record
 
         files.eachWithIndex { file, i ->
-
-            log.info "Processing file [${i + 1}/${files.length}]: ${file.getName()}"
-
             try {
 
                 // read ContentNode from the json (or xml) file.
@@ -98,11 +79,6 @@ class EximImport extends BaseNodeUpdateVisitor {
                 }
 
                 primaryTypeName = contentNode.getPrimaryType()
-                if ("hippostd:folder".equals(primaryTypeName)) {
-                    log.warn "Folder files are not supported yet; skipping: ${file.getName()}"
-                    return
-                }
-
                 // determine the target document handle node path to create or update content from the jcr:path meta property in ContentNode object.
                 documentLocation = contentNode.getProperty("jcr:path").getValue()
 
@@ -122,7 +98,7 @@ class EximImport extends BaseNodeUpdateVisitor {
 
                 // By default, the created or updated document is left as preview status.
                 // Optionally, if you want, you can publish the document right away here by uncommenting the following line.
-                documentManager.publishDocument(updatedDocumentLocation)
+                //documentManager.publishDocument(updatedDocumentLocation)
 
                 visitorContext.reportUpdated(documentLocation)
                 log.debug "Imported document from '${file.name.path}' to '${updatedDocumentLocation}'."
@@ -147,4 +123,5 @@ class EximImport extends BaseNodeUpdateVisitor {
         importTask.stop()
         importTask.logSummary()
     }
+
 }
