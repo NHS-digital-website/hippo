@@ -9,7 +9,7 @@
     <parent>
         <groupId>org.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-release</artifactId>
-        <version>12.0.1</version>
+        <version>12.1.0</version>
     </parent>
 
     <name>NHS Digital Publication System</name>

@@ -1,5 +1,0 @@
----
-definitions:
-  config:
-    /content/taxonomies:
-      jcr:primaryType: hippotaxonomy:container

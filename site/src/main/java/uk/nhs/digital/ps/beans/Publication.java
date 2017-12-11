@@ -220,6 +220,9 @@ public class Publication extends BaseDocument {
      * Migration: 20171208
      * New field: publicationsystem:Attachments-v2
      * Old field: publicationsystem:attachments
+     *
+     * Temporary make this getter forward and backward compatible, meaning we can deploy this code without running
+     * content migration.
      */
     @HippoEssentialsGenerated(internalName = PropertyKeys.ATTACHMENTS_V2)
     public List<HippoResourceBean> getAttachments() {

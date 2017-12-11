@@ -45,6 +45,9 @@ public class Dataset extends BaseDocument {
      * Migration: 20171208
      * New field: publicationsystem:Files-v2
      * Old field: publicationsystem:Files
+     *
+     * Temporary make this getter forward and backward compatible, meaning we can deploy this code without running
+     * content migration.
      */
     @HippoEssentialsGenerated(internalName = "publicationsystem:Files-v2")
     public List<HippoResourceBean> getFiles() {
