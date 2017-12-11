@@ -1,0 +1,48 @@
+---
+/content/taxonomies/publication_taxonomy:
+  /publication_taxonomy[1]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-05T13:22:23.191Z
+    hippostdpubwf:lastModificationDate: 2017-10-12T11:30:15.855Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2017-10-12T11:33:08.848Z
+    hippotaxonomy:locales:
+    - en
+    jcr:mixinTypes:
+    - hippostd:publishableSummary
+    - mix:versionable
+    jcr:primaryType: hippotaxonomy:taxonomy
+  /publication_taxonomy[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-05T13:22:23.191Z
+    hippostdpubwf:lastModificationDate: 2017-10-12T11:30:15.855Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2017-10-12T11:33:08.848Z
+    hippotaxonomy:locales:
+    - en
+    jcr:mixinTypes:
+    - hippostd:publishableSummary
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: hippotaxonomy:taxonomy
+  /publication_taxonomy[3]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-05T13:22:23.191Z
+    hippostdpubwf:lastModificationDate: 2017-10-12T11:30:15.855Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2017-10-12T11:33:08.848Z
+    hippotaxonomy:locales:
+    - en
+    jcr:mixinTypes:
+    - hippostd:publishableSummary
+    - mix:referenceable
+    jcr:primaryType: hippotaxonomy:taxonomy
+  jcr:primaryType: hippo:handle
