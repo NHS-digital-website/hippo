@@ -62,17 +62,14 @@ so on. File names are prefixed with a zero-padded sequential number generated in
 idea is to create a file for parent folders before generating files for content to go into these folders. The
 [import script] then reads the files in the same order to ensure that folders are created before the files.
 
-NOTE: at the moment of writing, the import script actually ignores the folder files and creates folder structure from
-paths embedded in 'document' JSON files. This will likely be addressed later as the folders generated that way do not
-have a 'user friendly' names.
-
 ## Importing
-Having logged into CMS as an administrator, navigate to `Admin > Updater Editor` and click `Registry > EximImport`
-script. In parameters section, set `targetBaseFolderPath` to point to the directory containing the impoort JSON files;
-note that, by default, the script is configured to look under temp directory resolved via `${java.io.tmpdir}` which
-does not necessarily point to the `/tmp` so it's often better to provide full path in here.
+Having logged into CMS as an administrator, navigate to `Admin > Updater Editor` and click `Registry > MigratorImporterScript`
+script. In parameters section, set `sourceBaseFolderPath` to point to the directory containing the import JSON files.
 
-Given that we want to import the items one by one, set `Batch Size` to `1`.
+Keep `Batch Size`  set to `1` to ensure that folder files are correctly processed; the reason is that EXIM appears to only commit
+changes between individual batches and if parent and child folders are created in the same batch, the parent cannot be
+found when the child is being created. Keeping batch size set to `1` ensures that changes from each import file are committed
+before the next file is processed. 
 
 Click `Execute` and watch the log.       
       
@@ -84,4 +81,4 @@ Click `Execute` and watch the log.
 [EXIM]:                         https://onehippo-forge.github.io/content-export-import/index.html
 [Updater Editor]:               https://www.onehippo.org/library/concepts/update/using-the-updater-editor.html
 [Groovy]:                       http://groovy-lang.org/
-[import script]:                ../repository-data/application/src/main/resources/hcm-config/configuration/update/import.groovy
+[import script]:                ../repository-data/application/src/main/resources/hcm-config/configuration/update/MigratorImporterScript.groovy
