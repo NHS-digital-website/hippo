@@ -47,6 +47,10 @@ class EximExport extends BaseNodeUpdateVisitor {
     documentManager = new WorkflowDocumentManagerImpl(session)
     exportTask = new WorkflowDocumentVariantExportTask(documentManager)
     exportTask.setLogger(log)
+
+    // Setting this to zero means all files with be written to disk rather than base64 encoded.
+    exportTask.setDataUrlSizeThreashold(0);
+
     exportTask.start()
   }
 

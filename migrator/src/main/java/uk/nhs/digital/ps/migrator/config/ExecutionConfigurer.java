@@ -22,9 +22,11 @@ public class ExecutionConfigurer {
     public static final String NESSTAR_CONVERT_FLAG = "nesstarConvert";
 
     public static final String HIPPO_IMPORT_DIR = "hippoImportDir";
+    public static final String ATTACHMENT_DOWNLOAD_FOLDER = "attachmentDownloadFolder";
 
     private static final String HIPPO_IMPORT_DIR_DEFAULT_NAME = "exim-import";
     private static final String NESSTAR_UNZIPPED_ARCHIVE_DIR_NAME_DEFAULT = "nesstar-export";
+    private static final String ATTACHMENT_DOWNLOAD_DIR_NAME_DEFAULT = "attachments";
 
 
     private final ExecutionParameters executionParameters;
@@ -45,8 +47,8 @@ public class ExecutionConfigurer {
         executionParameters.setConvertNesstar(args.containsOption(NESSTAR_CONVERT_FLAG));
 
         initNesstarUnzippedArchiveDir();
-
         initHippoImportDir(args);
+        initDownloadDir(args);
     }
 
     public void initHippoImportDir(final ApplicationArguments args) {
@@ -56,6 +58,15 @@ public class ExecutionConfigurer {
         }
 
         executionParameters.setHippoImportDir(pathArg);
+    }
+
+    public void initDownloadDir(final ApplicationArguments args) {
+        Path pathArg = getPathArg(args, ATTACHMENT_DOWNLOAD_FOLDER);
+        if (pathArg == null) {
+            pathArg = Paths.get(TEMP_DIR_PATH.toString(), ATTACHMENT_DOWNLOAD_DIR_NAME_DEFAULT);
+        }
+
+        executionParameters.setAttachmentDownloadDir(pathArg);
     }
 
     private void initNesstarUnzippedArchiveDir() {
@@ -106,6 +117,12 @@ public class ExecutionConfigurer {
                 "Directory where the migrator will generate import files for Hippo to read them from." +
                     " Optional - if not provided, one will be created in a temporary space." +
                     " NOTE that the directory is deleted and re-created on each run."
+            ),
+            describe(
+                ATTACHMENT_DOWNLOAD_FOLDER,
+                "Directory where the migrator will download attachments into." +
+                    " Optional - if not provided, one will be created in a temporary space." +
+                    " NOTE that the files will not be downloaded if they exist in the folder already."
             )
         );
     }

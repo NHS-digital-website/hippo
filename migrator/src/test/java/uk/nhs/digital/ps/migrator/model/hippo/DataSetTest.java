@@ -21,14 +21,14 @@ public class DataSetTest {
         String input = testData[0];
         String expected = testData[1];
 
-        DataSet dataSet = new DataSet(null, "", "", input);
+        DataSet dataSet = new DataSet(null, "", "", input, null, null, null);
         assertThat(dataSet.getSummary(), is(expected));
     }
 
     @Test(expected = RuntimeException.class)
     @UseDataProvider("invalidSummaries")
     public void invalidSummaryFormatTest(String summary) {
-        new DataSet(null, "", "", summary);
+        new DataSet(null, "", "", summary, null, null, null);
     }
 
     @DataProvider
