@@ -6,6 +6,9 @@ import org.jdom2.filter.Filters;
 import org.jdom2.xpath.XPathExpression;
 import org.jdom2.xpath.XPathFactory;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class PublishingPackage {
 
     private static final XPathFactory xPathFactory = XPathFactory.instance();
@@ -16,6 +19,8 @@ public class PublishingPackage {
     private XPathExpression<Element> titleXpath;
     private XPathExpression<Element> notesXpath;
     private XPathExpression<Element> abstractXpath;
+    private XPathExpression<Element> resourcesXpath;
+    private XPathExpression<Element> dateXpath;
 
     public PublishingPackage(final Element rootElement) {
         this.rootElement = rootElement;
@@ -30,6 +35,10 @@ public class PublishingPackage {
         return titleXpath.evaluateFirst(rootElement).getTextTrim();
     }
 
+    public String getDate() {
+        return dateXpath.evaluateFirst(rootElement).getTextTrim();
+    }
+
     public String getNotes() {
         return notesXpath.evaluateFirst(rootElement).getTextTrim();
     }
@@ -38,6 +47,13 @@ public class PublishingPackage {
         // abstract is not a required tag so check for null
         Element element = abstractXpath.evaluateFirst(rootElement);
         return element == null ? null : element.getTextTrim();
+    }
+
+    public List<NesstarResource> getResources() {
+        // Get the nessar resources from the XML and convert to attachment objects
+        return resourcesXpath.evaluate(rootElement).stream()
+            .map(element -> new NesstarResource(element, this))
+            .collect(Collectors.toList());
     }
 
     /**
@@ -69,9 +85,11 @@ public class PublishingPackage {
         titleXpath = compileXpath("stdyDscr/citation/titlStmt/titl");
         notesXpath = compileXpath("stdyDscr/citation/notes");
         abstractXpath = compileXpath("stdyDscr/stdyInfo/abstract");
+        resourcesXpath = compileXpath("stdyDscr/othrStdyMat/relMat");
+        dateXpath = compileXpath("stdyDscr/citation/verStmt/version");
     }
 
-    private XPathExpression<Element> compileXpath(final String xpath) {
+    public XPathExpression<Element> compileXpath(final String xpath) {
 
         // PublishingPackages XML files are somewhat inconsistent: in some, the root element 'codeBook' has default
         // namespace specified explicitly and some not. In the former case, the namespace has to be specified

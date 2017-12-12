@@ -16,6 +16,7 @@ public class ExecutionParameters {
     private boolean convertNesstar;
 
     private Path hippoImportDir;
+    private Path attachmentDownloadDir;
 
     public Path getNesstarUnzippedExportDir() {
         return nesstarUnzippedExportDir;
@@ -65,5 +66,13 @@ public class ExecutionParameters {
 
     public void setHippoImportDir(final Path hippoImportDir) {
         this.hippoImportDir = hippoImportDir;
+    }
+
+    public Path getAttachmentDownloadDir() {
+        return attachmentDownloadDir;
+    }
+
+    public void setAttachmentDownloadDir(Path attachmentDownloadDir) {
+        this.attachmentDownloadDir = attachmentDownloadDir;
     }
 }

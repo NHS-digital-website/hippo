@@ -26,7 +26,8 @@ public class PublicationSystemMigrator implements ApplicationRunner {
 
     private final ExecutionConfigurer executionConfigurer;
 
-    private final ExecutionParameters executionParameters;
+    // Making this static as we are going to need to access it from some low down classes
+    private static ExecutionParameters executionParameters;
 
     public static void main(final String... args) {
         SpringApplication.run(PublicationSystemMigrator.class, args);
@@ -107,5 +108,9 @@ public class PublicationSystemMigrator implements ApplicationRunner {
                 optionDescriptor.getDescription()
             );
         });
+    }
+
+    public static ExecutionParameters getExecutionParameters() {
+        return executionParameters;
     }
 }

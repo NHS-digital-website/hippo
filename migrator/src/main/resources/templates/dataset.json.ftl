@@ -32,7 +32,7 @@
     "name" : "publicationsystem:NominalDate",
     "type" : "DATE",
     "multiple" : false,
-    "values" : [ "0001-01-01T12:00:00.000Z" ]
+    "values" : [ "${dataset.nominalDate}" ]
   }, {
     "name" : "publicationsystem:NextPublicationDate",
     "type" : "DATE",
@@ -54,5 +54,35 @@
     "multiple" : false,
     "values" : [ "en" ]
   } ],
-  "nodes" : [ ]
+  "nodes" : [
+  <#list dataset.attachments as attachment>
+  {
+    "name":"publicationsystem:Files-v2",
+    "primaryType":"publicationsystem:resource",
+    "mixinTypes":[],
+    "properties":[ {
+        "name":"hippo:filename",
+        "type":"STRING",
+        "multiple":false,
+        "values":[ "${attachment.title}" ]
+      }, {
+        "name":"jcr:data",
+        "type":"BINARY",
+        "multiple":false,
+        "values":[ "file://${attachment.filePath}" ]
+      }, {
+        "name":"jcr:mimeType",
+        "type":"STRING",
+        "multiple":false,
+        "values":[ "${attachment.mimeType}" ]
+      }, {
+        "name":"jcr:lastModified",
+        "type":"DATE",
+        "multiple":false,
+        "values":[ "0001-01-01T12:00:00.000Z" ]
+      } ],
+    "nodes":[]
+  } <#sep>,</#sep>
+  </#list>
+  ]
 }
