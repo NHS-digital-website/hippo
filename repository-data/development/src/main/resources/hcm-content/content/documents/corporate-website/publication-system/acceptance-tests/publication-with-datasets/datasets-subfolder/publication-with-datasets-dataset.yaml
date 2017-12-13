@@ -13,12 +13,16 @@
       jcr:lastModified: 2017-11-09T21:42:39.618Z
       jcr:mimeType: application/pdf
       jcr:primaryType: publicationsystem:resource
+    /publicationsystem:ResourceLinks:
+      jcr:primaryType: publicationsystem:relatedlink
+      publicationsystem:linkText: Google Resource Link
+      publicationsystem:linkUrl: http://google.com
     hippo:availability:
     - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-03T13:38:20.323Z
-    hippostdpubwf:lastModificationDate: 2017-12-04T21:19:47.831Z
+    hippostdpubwf:lastModificationDate: 2017-12-13T12:26:15.068Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
@@ -60,11 +64,15 @@
       jcr:lastModified: 2017-11-09T21:42:39.618Z
       jcr:mimeType: application/pdf
       jcr:primaryType: publicationsystem:resource
+    /publicationsystem:ResourceLinks:
+      jcr:primaryType: publicationsystem:relatedlink
+      publicationsystem:linkText: Google Resource Link
+      publicationsystem:linkUrl: http://google.com
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-03T13:38:20.323Z
-    hippostdpubwf:lastModificationDate: 2017-12-04T21:19:38.240Z
+    hippostdpubwf:lastModificationDate: 2017-12-13T12:25:48.133Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
@@ -106,14 +114,18 @@
       jcr:lastModified: 2017-11-09T21:42:39.618Z
       jcr:mimeType: application/pdf
       jcr:primaryType: publicationsystem:resource
+    /publicationsystem:ResourceLinks:
+      jcr:primaryType: publicationsystem:relatedlink
+      publicationsystem:linkText: Google Resource Link
+      publicationsystem:linkUrl: http://google.com
     hippo:availability:
     - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-03T13:38:20.323Z
-    hippostdpubwf:lastModificationDate: 2017-12-04T21:19:47.831Z
+    hippostdpubwf:lastModificationDate: 2017-12-13T12:26:15.068Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2017-12-04T21:19:54.020Z
+    hippostdpubwf:publicationDate: 2017-12-13T12:26:20.927Z
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
     jcr:mixinTypes:

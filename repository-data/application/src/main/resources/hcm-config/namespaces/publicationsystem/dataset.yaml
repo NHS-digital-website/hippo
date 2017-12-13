@@ -67,6 +67,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /ResourceLinks:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Resource Links
+            field: ResourceLinks
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
           /NominalDate:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -193,6 +202,14 @@ definitions:
             hipposysedit:path: publicationsystem:NominalDate
             hipposysedit:primary: false
             hipposysedit:type: CalendarDate
+            jcr:primaryType: hipposysedit:field
+          /ResourceLinks:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:ResourceLinks
+            hipposysedit:primary: false
+            hipposysedit:type: publicationsystem:relatedlink
             jcr:primaryType: hipposysedit:field
           /Summary:
             hipposysedit:mandatory: true

@@ -60,6 +60,10 @@ public class Dataset extends BaseDocument {
         return attachments;
     }
 
+    public List<Relatedlink> getResourceLinks() {
+        return getChildBeansByName("publicationsystem:ResourceLinks", Relatedlink.class);
+    }
+
     @HippoEssentialsGenerated(internalName = "publicationsystem:Granularity")
     public String[] getGranularity() {
         return getProperty("publicationsystem:Granularity");

@@ -76,12 +76,19 @@
         --><div class="layout__item layout-1-3">
             <div class="panel panel--grey">
                 <h3><@fmt.message key="headers.resources"/></h3>
-                <ul><#list dataset.files as attachment>
-                    <li class="attachment">
-                        <a title="${attachment.filename}" href="<@hst.link hippobean=attachment/>">${attachment.filename}</a>;
-                        <span class="fileSize">size: <@formatFileSize bytesCount=attachment.length/></span>
-                    </li>
-                </#list></ul>
+                <ul data-uipath="ps.dataset.resources">
+                    <#list dataset.files as attachment>
+                        <li class="attachment">
+                            <a title="${attachment.filename}" href="<@hst.link hippobean=attachment/>">${attachment.filename}</a>;
+                            <span class="fileSize">size: <@formatFileSize bytesCount=attachment.length/></span>
+                        </li>
+                    </#list>
+                    <#list dataset.resourceLinks as link>
+                        <li>
+                            <a href="${link.linkUrl}">${link.linkText}</a>
+                        </li>
+                    </#list>
+                </ul>
             </div>
         </div>
     </div>

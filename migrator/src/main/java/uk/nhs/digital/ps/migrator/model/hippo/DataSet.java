@@ -9,7 +9,7 @@ public class DataSet extends HippoImportableItem {
     private final String summary;
     private final String nominalDate;
     private final List<Attachment> attachments;
-    private final List<ResourceLink> links;
+    private final List<ResourceLink> resourceLinks;
 
     public DataSet(final Folder parentFolder,
                    final String name,
@@ -17,13 +17,13 @@ public class DataSet extends HippoImportableItem {
                    final String summary,
                    final String nominalDate,
                    final List<Attachment> attachments,
-                   final List<ResourceLink> links) {
+                   final List<ResourceLink> resourceLinks) {
         super(parentFolder, name);
         this.title = title;
         this.summary = formatSummary(summary);
         this.nominalDate = nominalDate;
         this.attachments = attachments;
-        this.links = links;
+        this.resourceLinks = resourceLinks;
     }
 
     /**
@@ -56,8 +56,8 @@ public class DataSet extends HippoImportableItem {
         return attachments;
     }
 
-    public List<ResourceLink> getLinks() {
-        return links;
+    public List<ResourceLink> getResourceLinks() {
+        return resourceLinks;
     }
 
     public String getNominalDate() {
