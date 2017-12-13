@@ -23,9 +23,8 @@ public class DatasetComponent extends BaseHstComponent {
         super.doBeforeRender(request, response);
         final HstRequestContext ctx = request.getRequestContext();
         Dataset dataset = (Dataset) ctx.getContentBean();
-        Publication publication = dataset.getParentPublication();
 
-        if (!publication.isPubliclyAccessible()) {
+        if (!dataset.isPubliclyAccessible()) {
             try {
                 response.forward("/error/404");
             } catch (IOException e) {
@@ -36,9 +35,5 @@ public class DatasetComponent extends BaseHstComponent {
         }
 
         request.setAttribute("dataset", dataset);
-
-        if (publication == null) {
-            log.warn("Cannot find parent publication for Dataset document {}", dataset.getPath());
-        }
     }
 }
