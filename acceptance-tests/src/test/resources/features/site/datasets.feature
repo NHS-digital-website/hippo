@@ -12,10 +12,13 @@ Scenario: Search individual data set by name
         | Dataset Geographic Coverage   | England                                                           |
         | Dataset Date Range            | 01/02/2016 to 01/07/2017                                          |
 
-Scenario: Download individual files from data set
+Scenario: View resource links and download attachments from dataset
     Given I navigate to the "publication with datasets Dataset" data set page
-    Then I can download following files:
-        | attachment.pdf    |
+    Then I should also see "Dataset Resources" with:
+        | Google Resource Link          |
+        | attachment.pdf; size: 7.2 kB  |
+    And I can download following files:
+        | attachment.pdf                |
 
 Scenario: Find data set in publication resources
     Given I navigate to "publication with datasets" publication page

@@ -84,5 +84,25 @@
     "nodes":[]
   } <#sep>,</#sep>
   </#list>
+  <#if dataset.attachments?size != 0 && dataset.resourceLinks?size != 0>,</#if>
+  <#list dataset.resourceLinks as resourceLink>
+  {
+    "name" : "publicationsystem:ResourceLinks",
+    "primaryType" : "publicationsystem:relatedlink",
+    "mixinTypes" : [ ],
+    "properties" : [ {
+      "name" : "publicationsystem:linkText",
+      "type" : "STRING",
+      "multiple" : false,
+      "values" : [ "${resourceLink.name}" ]
+    }, {
+      "name" : "publicationsystem:linkUrl",
+      "type" : "STRING",
+      "multiple" : false,
+      "values" : [ "${resourceLink.uri}" ]
+    } ],
+    "nodes" : [ ]
+  } <#sep>,</#sep>
+  </#list>
   ]
 }

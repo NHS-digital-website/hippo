@@ -22,6 +22,8 @@ public class DatasetPageElements implements PageElements {
             By.xpath("//*[" + getDataUiPathXpath("geographic-coverage") + "]"));
         put("Dataset Date Range",
             By.xpath("//*[" + getDataUiPathXpath("date-range") + "]"));
+        put("Dataset Resources",
+            By.xpath("//*[" + getDataUiPathXpath("resources") + "]"));
     }};
 
     @Override

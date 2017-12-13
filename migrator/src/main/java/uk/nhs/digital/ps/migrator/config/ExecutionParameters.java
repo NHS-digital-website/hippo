@@ -56,7 +56,8 @@ public class ExecutionParameters {
             describe("nesstarZippedExportFile", nesstarZippedExportFile),
             describe("isNesstarUnzipForce", isNesstarUnzipForce),
             describe("convertNesstar", convertNesstar),
-            describe("hippoImportDir", hippoImportDir)
+            describe("hippoImportDir", hippoImportDir),
+            describe("attachmentDownloadFolder", attachmentDownloadDir)
         );
     }
 
