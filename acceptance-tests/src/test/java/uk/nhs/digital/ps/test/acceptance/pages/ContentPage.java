@@ -78,7 +78,7 @@ public class ContentPage extends AbstractCmsPage {
 
     private void populateTaxonomy(final Publication publication) {
         helper.findElement(
-            By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Select taxonomy terms']/../..")
+            By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Select taxonomy terms']/../../a")
         ).click();
 
         helper.findElement(
@@ -90,13 +90,15 @@ public class ContentPage extends AbstractCmsPage {
         helper.findElement(
             By.xpath(XpathSelectors.TAXONOMY_PICKER + "//span[text()='" + publication.getTaxonomy().getLevel3() + "']/..")
         ).click();
-        helper.findElement(By.cssSelector("a[class~='category-add']")).click();
+        helper.findElement(
+            By.xpath(XpathSelectors.TAXONOMY_PICKER + "//a[normalize-space(text())='Add category']")
+        ).click();
 
         clickButtonOnModalDialog("OK");
     }
 
     private PubliclyAccessibleCmsWidget findPubliclyAccessibleRadioButton() {
-        return new PubliclyAccessibleCmsWidget(helper);
+        return new PubliclyAccessibleCmsWidget(helper, XpathSelectors.EDITOR_BODY);
     }
 
     public void populatePublicationTitle(final String publicationTitle) {

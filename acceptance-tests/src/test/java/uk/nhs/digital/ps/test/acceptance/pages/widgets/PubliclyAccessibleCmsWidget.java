@@ -7,9 +7,11 @@ import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
 public class PubliclyAccessibleCmsWidget {
 
     private final PageHelper helper;
+    private final String editorBodyXpath;
 
-    public PubliclyAccessibleCmsWidget(final PageHelper helper) {
+    public PubliclyAccessibleCmsWidget(final PageHelper helper, final String editorBodyXpath) {
         this.helper = helper;
+        this.editorBodyXpath = editorBodyXpath;
     }
 
     private WebElement findLiveOption() {
@@ -27,7 +29,7 @@ public class PubliclyAccessibleCmsWidget {
     }
 
     private WebElement findRadioButtonByLabelText(final String labelText) {
-        return helper.findElement(By.xpath("//input[@type='radio' and following-sibling::label[text() = '" + labelText + "']]"));
+        return helper.findElement(By.xpath(editorBodyXpath + "//input[@type='radio' and following-sibling::label[text() = '" + labelText + "']]"));
     }
 
 }

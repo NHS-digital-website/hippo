@@ -2,7 +2,6 @@
 /content/documents/corporate-website/publication-system/acceptance-tests/publication-rich/content:
   /content[1]:
     hippo:availability: []
-    hippostd:holder: admin
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2016-11-03T13:35:36.812Z

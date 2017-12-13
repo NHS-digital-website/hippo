@@ -19,7 +19,7 @@ public class BlankAttachmentFieldValidator extends AbstractCmsValidator {
 
     private static final String HIPPO_RESOURCE_FIELD_TYPE_NAME = "publicationsystem:resource";
     private static final String HIPPO_FILENAME_PROPERTY_NAME = "hippo:filename";
-    private static final String DEFAULT_ATTACHMENT_NAME_WHEN_NO_FILE_UPLOADED = HIPPO_RESOURCE_FIELD_TYPE_NAME;
+    private static final String DEFAULT_ATTACHMENT_NAME_WHEN_NO_FILE_UPLOADED = "hippo:resource";
 
     @SuppressWarnings("WeakerAccess") // Hippo CMS requires the constructor to be public
     public BlankAttachmentFieldValidator(final IPluginContext context, final IPluginConfig config) {
