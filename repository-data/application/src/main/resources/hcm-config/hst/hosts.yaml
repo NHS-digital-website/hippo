@@ -25,6 +25,7 @@ definitions:
                         hst:mountpoint: /hst:hst/hst:sites/publicationsystem
                         jcr:primaryType: hst:mount
                       hst:alias: common-context
+                      hst:contextpath: ''
                       hst:homepage: root
                       hst:mountpoint: /hst:hst/hst:sites/common
                       jcr:primaryType: hst:mount
@@ -35,27 +36,43 @@ definitions:
             jcr:primaryType: hst:virtualhost
           hst:showcontextpath: false
           jcr:primaryType: hst:virtualhost
-        hst:cmslocation: http://hippo-authoring.dev.ps.digital.nhsd.uk/cms
-        hst:defaultport: 8080
+        hst:cmslocation: http://blackhole-hippo-authoring.web.dev.ps.nhsd.io/cms
         jcr:primaryType: hst:virtualhostgroup
-      /localhost:
+      /dev-cms:
         .meta:residual-child-node-category: content
-        /localhost:
+        /io:
           .meta:residual-child-node-category: content
-          /hst:root:
+          /nhsd:
             .meta:residual-child-node-category: content
-            /publications:
+            /ps:
               .meta:residual-child-node-category: content
-              hst:homepage: root
-              hst:mountpoint: /hst:hst/hst:sites/publicationsystem
-              jcr:primaryType: hst:mount
-            hst:alias: common-context
-            hst:homepage: root
-            hst:mountpoint: /hst:hst/hst:sites/common
-            jcr:primaryType: hst:mount
+              /dev:
+                .meta:residual-child-node-category: content
+                /web:
+                  .meta:residual-child-node-category: content
+                  /hippo-authoring:
+                    .meta:residual-child-node-category: content
+                    /hst:root:
+                      .meta:residual-child-node-category: content
+                      /publications:
+                        .meta:residual-child-node-category: content
+                        hst:homepage: root
+                        hst:mountpoint: /hst:hst/hst:sites/publicationsystem
+                        jcr:primaryType: hst:mount
+                      hst:alias: common-context
+                      hst:contextpath: /site
+                      hst:homepage: root
+                      hst:mountpoint: /hst:hst/hst:sites/common
+                      hst:showcontextpath: true
+                      jcr:primaryType: hst:mount
+                    jcr:primaryType: hst:virtualhost
+                  jcr:primaryType: hst:virtualhost
+                jcr:primaryType: hst:virtualhost
+              jcr:primaryType: hst:virtualhost
+            jcr:primaryType: hst:virtualhost
+          hst:showcontextpath: false
           jcr:primaryType: hst:virtualhost
-        hst:cmslocation: http://localhost:8080/cms
-        hst:defaultport: 8080
+        hst:cmslocation: http://hippo-authoring.web.dev.ps.nhsd.io/cms
         jcr:primaryType: hst:virtualhostgroup
       /ondemand:
         .meta:residual-child-node-category: content
@@ -87,31 +104,35 @@ definitions:
               jcr:primaryType: hst:virtualhost
             jcr:primaryType: hst:virtualhost
           jcr:primaryType: hst:virtualhost
-        hst:cmslocation: https://cms-nhs.test.onehippo.com/?0
-        hst:defaultport: 8080
+        hst:cmslocation: https://blackhole-cms-nhs.test.onehippo.com
         jcr:primaryType: hst:virtualhostgroup
-      /vagrant:
+      /ondemand-cms:
         .meta:residual-child-node-category: content
-        /int:
+        /com:
           .meta:residual-child-node-category: content
-          /hippo-delivery:
+          /onehippo:
             .meta:residual-child-node-category: content
-            /hst:root:
+            /test:
               .meta:residual-child-node-category: content
-              /publications:
+              /cms-nhs:
                 .meta:residual-child-node-category: content
-                hst:homepage: root
-                hst:mountpoint: /hst:hst/hst:sites/publicationsystem
-                jcr:primaryType: hst:mount
-              hst:alias: common-context
-              hst:homepage: root
-              hst:mountpoint: /hst:hst/hst:sites/common
-              jcr:primaryType: hst:mount
+                /hst:root:
+                  .meta:residual-child-node-category: content
+                  /publications:
+                    .meta:residual-child-node-category: content
+                    hst:homepage: root
+                    hst:mountpoint: /hst:hst/hst:sites/publicationsystem
+                    jcr:primaryType: hst:mount
+                  hst:alias: common-context
+                  hst:contextpath: /site
+                  hst:homepage: root
+                  hst:mountpoint: /hst:hst/hst:sites/common
+                  hst:showcontextpath: false
+                  jcr:primaryType: hst:mount
+                jcr:primaryType: hst:virtualhost
+              jcr:primaryType: hst:virtualhost
             jcr:primaryType: hst:virtualhost
-          hst:showcontextpath: false
           jcr:primaryType: hst:virtualhost
-        hst:cmslocation: http://hippo-authoring.int:8080/cms
-        hst:defaultport: 8080
+        hst:cmslocation: https://cms-nhs.test.onehippo.com
         jcr:primaryType: hst:virtualhostgroup
-      hst:defaultcontextpath: ''
       jcr:primaryType: hst:virtualhosts

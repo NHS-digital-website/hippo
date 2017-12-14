@@ -16,8 +16,8 @@ definitions:
       - pptx
       max.file.size: 100M
     /hippo:configuration/hippo:frontend/cms/cms-services/hstRestProxyService:
-      context.path: ''
-      rest.uri: http://127.0.0.1:8080/_cmsrest
+      context.path: /site
+      rest.uri: http://127.0.0.1:8080/site/_cmsrest
     /hippo:configuration/hippo:frontend/cms/cms-services/localeProviderService:
       /en:
         country: gb

@@ -326,7 +326,7 @@
                                     <location>${project.basedir}/site/target/ROOT.war</location>
                                     <type>war</type>
                                     <properties>
-                                        <context>/</context>
+                                        <context>/site</context>
                                     </properties>
                                 </deployable>
                                 <deployable>

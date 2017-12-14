@@ -1,5 +1,6 @@
 package uk.nhs.digital.ps.migrator.model.hippo;
 
+import org.apache.tika.Tika;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.ps.migrator.PublicationSystemMigrator;
@@ -47,7 +48,8 @@ public class Attachment {
 
     public String getMimeType() {
         try {
-            return Files.probeContentType(Paths.get(getFilePath()));
+            Tika tika = new Tika();
+            return tika.detect(Paths.get(getFilePath()));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

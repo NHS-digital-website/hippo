@@ -3,4 +3,47 @@ definitions:
   config:
     /hst:hst/hst:hosts:
       .meta:residual-child-node-category: content
+      /localhost:
+        .meta:residual-child-node-category: content
+        /localhost:
+          .meta:residual-child-node-category: content
+          /hst:root:
+            .meta:residual-child-node-category: content
+            /publications:
+              .meta:residual-child-node-category: content
+              hst:homepage: root
+              hst:mountpoint: /hst:hst/hst:sites/publicationsystem
+              jcr:primaryType: hst:mount
+            hst:alias: common-context
+            hst:contextpath: /site
+            hst:homepage: root
+            hst:mountpoint: /hst:hst/hst:sites/common
+            jcr:primaryType: hst:mount
+          jcr:primaryType: hst:virtualhost
+        hst:cmslocation: http://localhost:8080/cms
+        hst:defaultport: 8080
+        jcr:primaryType: hst:virtualhostgroup
+      /vagrant:
+        .meta:residual-child-node-category: content
+        /int:
+          .meta:residual-child-node-category: content
+          /hippo-delivery:
+            .meta:residual-child-node-category: content
+            /hst:root:
+              .meta:residual-child-node-category: content
+              /publications:
+                .meta:residual-child-node-category: content
+                hst:homepage: root
+                hst:mountpoint: /hst:hst/hst:sites/publicationsystem
+                jcr:primaryType: hst:mount
+              hst:alias: common-context
+              hst:homepage: root
+              hst:mountpoint: /hst:hst/hst:sites/common
+              jcr:primaryType: hst:mount
+            jcr:primaryType: hst:virtualhost
+          hst:showcontextpath: false
+          jcr:primaryType: hst:virtualhost
+        hst:cmslocation: http://hippo-authoring.int:8080/cms
+        hst:defaultport: 8080
+        jcr:primaryType: hst:virtualhostgroup
       hst:diagnosticsenabled: true
