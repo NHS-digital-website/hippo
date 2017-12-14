@@ -18,7 +18,7 @@ public class DataSetRepository {
             );
     }
 
-    PublishingPackage findById(final String id) {
+    public PublishingPackage findById(final String id) {
         return datasetsByIds.get(id);
     }
 }

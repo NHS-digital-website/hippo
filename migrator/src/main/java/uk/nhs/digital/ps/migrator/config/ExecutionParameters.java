@@ -14,9 +14,10 @@ public class ExecutionParameters {
     private Path nesstarZippedExportFile;
     private boolean isNesstarUnzipForce;
     private boolean convertNesstar;
+    private Path nesstarAttachmentDownloadDir;
+    private Path nesstarCompendiumMappingFile;
 
     private Path hippoImportDir;
-    private Path attachmentDownloadDir;
     private Path taxonomySpreadsheetPath;
     private Path taxonomyOutputPath;
 
@@ -36,7 +37,7 @@ public class ExecutionParameters {
         return nesstarZippedExportFile;
     }
 
-    public void setIsNesstarUnzipForce(final boolean isNesstarUnzipForce) {
+    public void setNesstarUnzipForce(final boolean isNesstarUnzipForce) {
         this.isNesstarUnzipForce = isNesstarUnzipForce;
     }
 
@@ -52,19 +53,6 @@ public class ExecutionParameters {
         this.convertNesstar = convertNesstar;
     }
 
-    public List<Descriptor> descriptions() {
-        return asList(
-            describe("nesstarUnzippedExportDir", nesstarUnzippedExportDir),
-            describe("nesstarZippedExportFile", nesstarZippedExportFile),
-            describe("isNesstarUnzipForce", isNesstarUnzipForce),
-            describe("convertNesstar", convertNesstar),
-            describe("hippoImportDir", hippoImportDir),
-            describe("attachmentDownloadFolder", attachmentDownloadDir),
-            describe("taxonomySpreadsheetPath", taxonomySpreadsheetPath),
-            describe("taxonomyOutputPath", taxonomyOutputPath)
-        );
-    }
-
     public Path getHippoImportDir() {
         return hippoImportDir;
     }
@@ -73,12 +61,20 @@ public class ExecutionParameters {
         this.hippoImportDir = hippoImportDir;
     }
 
-    public Path getAttachmentDownloadDir() {
-        return attachmentDownloadDir;
+    public Path getNesstarAttachmentDownloadDir() {
+        return nesstarAttachmentDownloadDir;
     }
 
-    public void setAttachmentDownloadDir(Path attachmentDownloadDir) {
-        this.attachmentDownloadDir = attachmentDownloadDir;
+    public void setNesstarAttachmentDownloadDir(Path nesstarAttachmentDownloadDir) {
+        this.nesstarAttachmentDownloadDir = nesstarAttachmentDownloadDir;
+    }
+
+    public Path getNesstarCompendiumMappingFile() {
+        return nesstarCompendiumMappingFile;
+    }
+
+    public void setNesstarCompendiumMappingFile(final Path nesstarCompendiumMappingFile) {
+        this.nesstarCompendiumMappingFile = nesstarCompendiumMappingFile;
     }
 
     public Path getTaxonomySpreadsheetPath() {
@@ -95,5 +91,19 @@ public class ExecutionParameters {
 
     public void setTaxonomyOutputPath(Path taxonomyOutputPath) {
         this.taxonomyOutputPath = taxonomyOutputPath;
+    }
+
+    public List<Descriptor> descriptions() {
+        return asList(
+            describe("nesstarUnzippedExportDir", nesstarUnzippedExportDir),
+            describe("nesstarZippedExportFile", nesstarZippedExportFile),
+            describe("isNesstarUnzipForce", isNesstarUnzipForce),
+            describe("convertNesstar", convertNesstar),
+            describe("hippoImportDir", hippoImportDir),
+            describe("nesstarAttachmentDownloadDir", nesstarAttachmentDownloadDir),
+            describe("nesstarCompendiumMappingFile", nesstarCompendiumMappingFile),
+            describe("taxonomySpreadsheetPath", taxonomySpreadsheetPath),
+            describe("taxonomyOutputPath", taxonomyOutputPath)
+        );
     }
 }

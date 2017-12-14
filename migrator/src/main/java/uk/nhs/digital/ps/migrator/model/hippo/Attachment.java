@@ -3,8 +3,6 @@ package uk.nhs.digital.ps.migrator.model.hippo;
 import org.apache.tika.Tika;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.nhs.digital.ps.migrator.PublicationSystemMigrator;
-import uk.nhs.digital.ps.migrator.config.ExecutionParameters;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -27,8 +25,10 @@ public class Attachment {
 
     private final String title;
     private final String uri;
+    private final Path attachmentDownloadDir;
 
-    public Attachment(String title, String uri) {
+    public Attachment(final Path attachmentDownloadDir, String title, String uri) {
+        this.attachmentDownloadDir = attachmentDownloadDir;
         this.title = title;
         this.uri = uri;
     }
@@ -42,8 +42,7 @@ public class Attachment {
     }
 
     public String getFilePath() {
-        ExecutionParameters executionParameters = PublicationSystemMigrator.getExecutionParameters();
-        return executionParameters.getAttachmentDownloadDir() + getUri();
+        return attachmentDownloadDir + getUri();
     }
 
     public String getFileName() {
@@ -59,7 +58,7 @@ public class Attachment {
         }
     }
 
-    public void downloadAttachment() {
+    public void download() {
 
         try {
             File file = new File(getFilePath());

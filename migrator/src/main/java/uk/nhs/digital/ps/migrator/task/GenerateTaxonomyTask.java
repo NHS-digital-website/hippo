@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
-public class GenerateTaxonomyTask implements Task {
+public class GenerateTaxonomyTask implements MigrationTask {
 
     private static final String TAXONOMY_COLUMN = "concept";
     private static final String TAXONOMY_JCR_PATH = "/content/taxonomies/publication_taxonomy";

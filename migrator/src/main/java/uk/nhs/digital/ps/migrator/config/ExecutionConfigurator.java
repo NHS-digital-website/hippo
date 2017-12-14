@@ -12,17 +12,17 @@ import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
 import static uk.nhs.digital.ps.migrator.misc.Descriptor.describe;
 
-public class ExecutionConfigurer {
+public class ExecutionConfigurator {
 
     public static final String HELP_FLAG = "help";
 
-    // rktodo better names (enum?)
     public static final String NESSTAR_ZIP_FILE_PATH = "nesstarUnzipFrom";
     public static final String NESSTAR_FORCE_UNZIP_FLAG = "nesstarForceUnzip";
     public static final String NESSTAR_CONVERT_FLAG = "nesstarConvert";
+    public static final String NESSTAR_ATTACHMENT_DOWNLOAD_FOLDER = "nesstarAttachmentDownloadFolder";
+    public static final String NESSTAR_COMPENDIUM_MAPPING_FILE = "nesstarCompendiumMappingFile";
 
     public static final String HIPPO_IMPORT_DIR = "hippoImportDir";
-    public static final String ATTACHMENT_DOWNLOAD_FOLDER = "attachmentDownloadFolder";
 
     public static final String TAXONOMY_SPREADSHEET_PATH = "taxonomySpreadsheetPath";
     public static final String TAXONOMY_OUTPUT_PATH = "taxonomyOutputPath";
@@ -37,18 +37,20 @@ public class ExecutionConfigurer {
     private static final Path TEMP_DIR_PATH = Paths.get(System.getProperty("java.io.tmpdir"));
 
 
-    public ExecutionConfigurer(final ExecutionParameters executionParameters) {
+    public ExecutionConfigurator(final ExecutionParameters executionParameters) {
         this.executionParameters = executionParameters;
     }
 
 
     public void initExecutionParameters(final ApplicationArguments args) {
 
-        executionParameters.setIsNesstarUnzipForce(args.containsOption(NESSTAR_FORCE_UNZIP_FLAG));
+        executionParameters.setNesstarUnzipForce(args.containsOption(NESSTAR_FORCE_UNZIP_FLAG));
 
         executionParameters.setNesstarZippedExportFile(getPathArg(args, NESSTAR_ZIP_FILE_PATH));
 
         executionParameters.setConvertNesstar(args.containsOption(NESSTAR_CONVERT_FLAG));
+
+        executionParameters.setNesstarCompendiumMappingFile(getPathArg(args, NESSTAR_COMPENDIUM_MAPPING_FILE));
 
         executionParameters.setTaxonomySpreadsheetPath(getPathArg(args, TAXONOMY_SPREADSHEET_PATH));
 
@@ -68,12 +70,12 @@ public class ExecutionConfigurer {
     }
 
     public void initDownloadDir(final ApplicationArguments args) {
-        Path pathArg = getPathArg(args, ATTACHMENT_DOWNLOAD_FOLDER);
+        Path pathArg = getPathArg(args, NESSTAR_ATTACHMENT_DOWNLOAD_FOLDER);
         if (pathArg == null) {
             pathArg = Paths.get(TEMP_DIR_PATH.toString(), ATTACHMENT_DOWNLOAD_DIR_NAME_DEFAULT);
         }
 
-        executionParameters.setAttachmentDownloadDir(pathArg);
+        executionParameters.setNesstarAttachmentDownloadDir(pathArg);
     }
 
     private void initTaxonomyOutputPath(final ApplicationArguments args) {
@@ -108,6 +110,33 @@ public class ExecutionConfigurer {
             describe(
                 NESSTAR_ZIP_FILE_PATH,
                 "Path to the ZIP file containing data exported from Nesstar."
+            ),
+            describe(
+                NESSTAR_ATTACHMENT_DOWNLOAD_FOLDER,
+                "Directory where the migrator will download attachments into." +
+                    " Optional - if not provided, one will be created in a temporary space." +
+                    " NOTE that the files will not be downloaded if they exist in the folder already."
+            ),
+            describe(
+                NESSTAR_COMPENDIUM_MAPPING_FILE,
+                "File containing mapping of Clinical Indicators Compendium." +
+                    " Required if --" + NESSTAR_CONVERT_FLAG + " is specified, optional otherwise."
+            ),
+            describe(
+                HIPPO_IMPORT_DIR,
+                "Directory where the migrator will generate import files for Hippo to read them from." +
+                    " Optional - if not provided, one will be created in a temporary space." +
+                    " NOTE that the directory is deleted and re-created on each run."
+            ),
+            describe(
+                TAXONOMY_SPREADSHEET_PATH,
+                "Path to the spreadsheet that contains the taxonomy we want to import into hippo." +
+                    " Optional - if not provided, taxonomy will not be imported."
+            ),
+            describe(
+                TAXONOMY_OUTPUT_PATH,
+                "Path to output the taxonomy JSON to import into hippo." +
+                    " Optional - if not provided, one will be created in a temporary space."
             )
         );
     }
@@ -127,28 +156,6 @@ public class ExecutionConfigurer {
             describe(
                 NESSTAR_CONVERT_FLAG,
                 "Triggers conversion of Nesstar export to Hippo import format."
-            ),
-            describe(
-                HIPPO_IMPORT_DIR,
-                "Directory where the migrator will generate import files for Hippo to read them from." +
-                    " Optional - if not provided, one will be created in a temporary space." +
-                    " NOTE that the directory is deleted and re-created on each run."
-            ),
-            describe(
-                ATTACHMENT_DOWNLOAD_FOLDER,
-                "Directory where the migrator will download attachments into." +
-                    " Optional - if not provided, one will be created in a temporary space." +
-                    " NOTE that the files will not be downloaded if they exist in the folder already."
-            ),
-            describe(
-                TAXONOMY_SPREADSHEET_PATH,
-                "Path to the spreadsheet that contains the taxonomy we want to import into hippo." +
-                    " Optional - if not provided, taxonomy will not be imported."
-            ),
-            describe(
-                TAXONOMY_OUTPUT_PATH,
-                "Path to output the taxonomy JSON to import into hippo." +
-                    " Optional - if not provided, one will be created in a temporary space."
             )
         );
     }

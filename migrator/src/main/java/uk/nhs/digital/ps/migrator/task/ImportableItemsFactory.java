@@ -1,5 +1,6 @@
 package uk.nhs.digital.ps.migrator.task;
 
+import uk.nhs.digital.ps.migrator.config.ExecutionParameters;
 import uk.nhs.digital.ps.migrator.model.hippo.*;
 import uk.nhs.digital.ps.migrator.model.nesstar.Catalog;
 import uk.nhs.digital.ps.migrator.model.nesstar.NesstarResource;
@@ -10,7 +11,14 @@ import java.util.stream.Collectors;
 
 public class ImportableItemsFactory {
 
-    public static Series toSeries(final Folder parentFolder, final String title) {
+
+    private final ExecutionParameters executionParameters;
+
+    public ImportableItemsFactory(final ExecutionParameters executionParameters) {
+        this.executionParameters = executionParameters;
+    }
+
+    public Series newSeries(final Folder parentFolder, final String title) {
 
         return new Series(
             parentFolder,
@@ -19,7 +27,7 @@ public class ImportableItemsFactory {
         );
     }
 
-    public static Publication toPublication(final Catalog catalog, final Folder parentFolder) {
+    public Publication toPublication(final Folder parentFolder, final Catalog catalog) {
 
         return new Publication(
             parentFolder, "content",
@@ -27,7 +35,7 @@ public class ImportableItemsFactory {
         );
     }
 
-    public static Folder toFolder(final Catalog catalog, final Folder parentFolder) {
+    public Folder toFolder(final Folder parentFolder, final Catalog catalog) {
 
         return new Folder(
             parentFolder,
@@ -35,39 +43,45 @@ public class ImportableItemsFactory {
         );
     }
 
-    public static DataSet toDataSet(final PublishingPackage exportedPublishingPackage,
-                                    final Folder parentFolder) {
+    public DataSet toDataSet(final Folder parentFolder, final PublishingPackage exportedPublishingPackage) {
 
-        String nominalDate = convertNominalDate(exportedPublishingPackage.getDate());
+        try {
+            String nominalDate = convertNominalDate(exportedPublishingPackage.getDate());
 
-        List<NesstarResource> resources = exportedPublishingPackage.getResources();
-        List<Attachment> attachments = getAttachments(resources);
-        List<ResourceLink> resourceLinks = getResourceLinks(resources);
+            List<NesstarResource> resources = exportedPublishingPackage.getResources();
+            List<Attachment> attachments = getAttachments(resources);
+            List<ResourceLink> resourceLinks = getResourceLinks(resources);
 
-        // Quick sanity check to make sure we have processed all the resources
-        if (resources.size() != attachments.size() + resourceLinks.size()) {
-            throw new RuntimeException("Had some resources that we didn't know how to map.");
+            // Quick sanity check to make sure we have processed all the resources
+            if (resources.size() != attachments.size() + resourceLinks.size()) {
+                throw new RuntimeException("Had some resources that we didn't know how to map.");
+            }
+
+            return new DataSet(
+                parentFolder,
+                exportedPublishingPackage.getTitle(),
+                exportedPublishingPackage.getTitle(),
+                exportedPublishingPackage.getSummary(),
+                nominalDate,
+                attachments,
+                resourceLinks
+            );
+        } catch (RuntimeException e) {
+            throw new RuntimeException(
+                "Failed to convert dataset " + exportedPublishingPackage.getUniqueIdentifier(),
+                e
+            );
         }
-
-        return new DataSet(
-            parentFolder,
-            exportedPublishingPackage.getTitle(),
-            exportedPublishingPackage.getTitle(),
-            exportedPublishingPackage.getSummary(),
-            nominalDate,
-            attachments,
-            resourceLinks
-        );
     }
 
-    public static Folder newFolder(final String name, final Folder parentFolder) {
+    public Folder newFolder(final Folder parentFolder, final String name) {
         return new Folder(
             parentFolder,
             name
         );
     }
 
-    public static Publication newPublication(final String name, final String title, final Folder parentFolder) {
+    public Publication newPublication(final Folder parentFolder, final String name, final String title) {
         return new Publication(
             parentFolder,
             name,
@@ -75,19 +89,23 @@ public class ImportableItemsFactory {
         );
     }
 
-    public static List<ResourceLink> getResourceLinks(List<NesstarResource> resources) {
+    public List<ResourceLink> getResourceLinks(List<NesstarResource> resources) {
       return resources.stream()
             .filter(NesstarResource::isLink)
             .map(resource -> new ResourceLink(resource.getTitle(), resource.getUri()))
             .collect(Collectors.toList());
     }
 
-    public static List<Attachment> getAttachments(List<NesstarResource> resources) {
+    public List<Attachment> getAttachments(List<NesstarResource> resources) {
         // Convert to Attachment objects and download the file from the existing website
       return resources.stream()
             .filter(NesstarResource::isAttachment)
-            .map(resource -> new Attachment(resource.getTitle(), resource.getUri()))
-            .peek(attachment -> attachment.downloadAttachment())
+            .map(resource -> new Attachment(
+                executionParameters.getNesstarAttachmentDownloadDir(),
+                resource.getTitle(),
+                resource.getUri()
+            ))
+            .peek(attachment -> attachment.download())
             .collect(Collectors.toList());
     }
 
@@ -146,7 +164,10 @@ public class ImportableItemsFactory {
             case "Nov-17":  return "2017-11-16T09:30:00.000Z";
             case "Dec-17":  return "2017-12-14T09:30:00.000Z";
 
-            case "TBC":     return "0001-01-01T12:00:00.000Z";
+            case "TBC":                        return "0001-01-01T12:00:00.000Z";
+            case "Links checked June 16":      return "0001-01-01T12:00:00.000Z"; // todo error reporting?
+            case "Links checked July 2017":    return "0001-01-01T12:00:00.000Z"; // todo error reporting?
+            case "Links checked September 16": return "0001-01-01T12:00:00.000Z"; // todo error reporting?
 
             default: throw new RuntimeException("No mapping found for input date: " + input);
         }

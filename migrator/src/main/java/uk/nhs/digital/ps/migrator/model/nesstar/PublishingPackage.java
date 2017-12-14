@@ -27,7 +27,7 @@ public class PublishingPackage {
         initXpath();
     }
 
-    String getUniqueIdentifier() {
+    public String getUniqueIdentifier() {
         return idXpath.evaluateFirst(rootElement).getTextTrim();
     }
 

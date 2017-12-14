@@ -6,6 +6,7 @@ import freemarker.template.TemplateExceptionHandler;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.nhs.digital.ps.migrator.model.hippo.DataSet;
 import uk.nhs.digital.ps.migrator.model.hippo.HippoImportableItem;
 
 import java.io.StringWriter;
