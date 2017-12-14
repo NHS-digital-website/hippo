@@ -17,13 +17,13 @@ import static org.apache.commons.io.FileUtils.deleteDirectory;
 import static org.apache.commons.io.FilenameUtils.getBaseName;
 import static org.apache.commons.io.FilenameUtils.getExtension;
 
-public class UnzipNesstarFileTask implements Task {
+public class UnzipNesstarExportFileTask implements MigrationTask {
 
     private final Logger log = LoggerFactory.getLogger(getClass());
 
     private final ExecutionParameters executionParameters;
 
-    public UnzipNesstarFileTask(final ExecutionParameters executionParameters) {
+    public UnzipNesstarExportFileTask(final ExecutionParameters executionParameters) {
         this.executionParameters = executionParameters;
     }
 

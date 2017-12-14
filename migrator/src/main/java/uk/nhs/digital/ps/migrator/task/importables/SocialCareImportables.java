@@ -5,18 +5,23 @@ import uk.nhs.digital.ps.migrator.model.hippo.HippoImportableItem;
 import uk.nhs.digital.ps.migrator.model.hippo.Publication;
 import uk.nhs.digital.ps.migrator.model.nesstar.Catalog;
 import uk.nhs.digital.ps.migrator.model.nesstar.CatalogStructure;
+import uk.nhs.digital.ps.migrator.task.ImportableItemsFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
-import static uk.nhs.digital.ps.migrator.task.ImportableItemsFactory.*;
-import static uk.nhs.digital.ps.migrator.task.ImportableItemsFactory.toDataSet;
-import static uk.nhs.digital.ps.migrator.task.ImportableItemsFactory.toFolder;
 
 public class SocialCareImportables {
 
-    static public List<HippoImportableItem> create(final CatalogStructure catalogStructure, final Folder ciRootFolder) {
+    private final ImportableItemsFactory importableItemsFactory;
+
+    public SocialCareImportables(final ImportableItemsFactory importableItemsFactory) {
+        this.importableItemsFactory = importableItemsFactory;
+    }
+
+    public List<HippoImportableItem> create(final CatalogStructure catalogStructure, final Folder ciRootFolder) {
 
         // Target CMS structure:
         //
@@ -27,22 +32,22 @@ public class SocialCareImportables {
 
         // A)
         final Catalog rootCatalog = catalogStructure.findCatalogByLabel("Adult Social Care Outcomes Framework (ASCOF)");
-        final Folder rootFolder = toFolder(rootCatalog, ciRootFolder);
+        final Folder rootFolder = importableItemsFactory.toFolder(ciRootFolder, rootCatalog);
 
         // B)
-        final Publication publication = toPublication(rootCatalog, rootFolder);
+        final Publication publication = importableItemsFactory.toPublication(rootFolder, rootCatalog);
 
         // C)
         final List<Catalog> domainCatalogs = rootCatalog.getChildCatalogs();
         final List<HippoImportableItem> domainsWithDatasets = domainCatalogs.stream()
             .flatMap(domainCatalog -> {
-                final Folder domainFolder = toFolder(domainCatalog, rootFolder);
+                final Folder domainFolder = importableItemsFactory.toFolder(rootFolder, domainCatalog);
 
                 // D)
                 return Stream.concat(
                     Stream.of(domainFolder),
                     domainCatalog.findPublishingPackages().stream().map(domainPublishingPackage ->
-                        toDataSet(domainPublishingPackage, domainFolder)
+                        importableItemsFactory.toDataSet(domainFolder, domainPublishingPackage)
                     )
                 );
             }).collect(toList());

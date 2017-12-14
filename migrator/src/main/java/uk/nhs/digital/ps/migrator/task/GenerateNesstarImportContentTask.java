@@ -6,9 +6,8 @@ import uk.nhs.digital.ps.migrator.config.ExecutionParameters;
 import uk.nhs.digital.ps.migrator.model.nesstar.*;
 import uk.nhs.digital.ps.migrator.model.hippo.Folder;
 import uk.nhs.digital.ps.migrator.model.hippo.HippoImportableItem;
-import uk.nhs.digital.ps.migrator.model.hippo.Series;
-import uk.nhs.digital.ps.migrator.model.hippo.Publication;
 import uk.nhs.digital.ps.migrator.task.importables.CcgImportables;
+import uk.nhs.digital.ps.migrator.task.importables.CompendiumImportables;
 import uk.nhs.digital.ps.migrator.task.importables.NhsOutcomesFrameworkImportables;
 import uk.nhs.digital.ps.migrator.task.importables.SocialCareImportables;
 
@@ -18,18 +17,15 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.toList;
 import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.ps.migrator.misc.XmlHelper.loadFromXml;
 import static uk.nhs.digital.ps.migrator.task.ImportableFileWriter.writeImportableFiles;
-import static uk.nhs.digital.ps.migrator.task.ImportableItemsFactory.*;
 
-public class GenerateImportContentTask implements Task {
+public class GenerateNesstarImportContentTask implements MigrationTask {
 
     private static final String PUBLISHING_PACKAGES_DIR_NAME = "PublishingPackages";
     private static final String NESSTAR_BUNDLE_DIR_NAME = "NesstarBundle";
@@ -40,8 +36,25 @@ public class GenerateImportContentTask implements Task {
 
     private final ExecutionParameters executionParameters;
 
-    public GenerateImportContentTask(final ExecutionParameters executionParameters) {
+    private final ImportableItemsFactory importableItemsFactory;
+    private final SocialCareImportables socialCareImportables;
+    private final CcgImportables ccgImportables;
+    private final NhsOutcomesFrameworkImportables nhsOutcomesFrameworkImportables;
+    private final CompendiumImportables compendiumImportables;
+
+    public GenerateNesstarImportContentTask(final ExecutionParameters executionParameters,
+                                            final ImportableItemsFactory importableItemsFactory,
+                                            final SocialCareImportables socialCareImportables,
+                                            final CcgImportables ccgImportables,
+                                            final NhsOutcomesFrameworkImportables nhsOutcomesFrameworkImportables,
+                                            final CompendiumImportables compendiumImportables) {
+
         this.executionParameters = executionParameters;
+        this.importableItemsFactory = importableItemsFactory;
+        this.socialCareImportables = socialCareImportables;
+        this.ccgImportables = ccgImportables;
+        this.nhsOutcomesFrameworkImportables = nhsOutcomesFrameworkImportables;
+        this.compendiumImportables = compendiumImportables;
     }
 
     @Override
@@ -71,7 +84,10 @@ public class GenerateImportContentTask implements Task {
             final CatalogStructure catalogStructure = loadFromXml(nesstarStructureFile, CatalogStructure.class);
             catalogStructure.setDataSetRepository(dataSetRepository);
 
-            final List<HippoImportableItem> importableItems = createImportableItemsModels(catalogStructure);
+            final List<HippoImportableItem> importableItems = createImportableItemsModels(
+                catalogStructure,
+                dataSetRepository
+            );
 
             recreate(hippoImportDir);
 
@@ -82,7 +98,8 @@ public class GenerateImportContentTask implements Task {
         }
     }
 
-    private List<HippoImportableItem> createImportableItemsModels(final CatalogStructure catalogStructure) {
+    private List<HippoImportableItem> createImportableItemsModels(final CatalogStructure catalogStructure,
+                                                                  final DataSetRepository datasetRepository) {
 
         final List<HippoImportableItem> importableItems = new ArrayList<>();
 
@@ -90,8 +107,9 @@ public class GenerateImportContentTask implements Task {
         // separating them from Statistical Publications.
         // Expected CMS path: Corporate Website/Publications System/Clinical Indicators
 
-        final Folder rootClinicalIndicatorsFolder =
-            toFolder(catalogStructure.findCatalogByLabel("NHS Digital indicators"), null);
+        final Folder rootClinicalIndicatorsFolder = importableItemsFactory.toFolder(
+            null, catalogStructure.findCatalogByLabel("NHS Digital indicators")
+        );
         rootClinicalIndicatorsFolder.setLocalizedName("Clinical Indicators");
         rootClinicalIndicatorsFolder.setJcrNodeName("clinical-indicators");
 
@@ -100,13 +118,16 @@ public class GenerateImportContentTask implements Task {
         // Create individual sub-sections of Clinical Indicators
 
         importableItems.addAll(
-            CcgImportables.create(catalogStructure, rootClinicalIndicatorsFolder)
+            ccgImportables.create(catalogStructure, rootClinicalIndicatorsFolder)
         );
         importableItems.addAll(
-            SocialCareImportables.create(catalogStructure, rootClinicalIndicatorsFolder)
+            socialCareImportables.create(catalogStructure, rootClinicalIndicatorsFolder)
         );
         importableItems.addAll(
-            NhsOutcomesFrameworkImportables.create(catalogStructure, rootClinicalIndicatorsFolder)
+            nhsOutcomesFrameworkImportables.create(catalogStructure, rootClinicalIndicatorsFolder)
+        );
+        importableItems.addAll(
+            compendiumImportables.create(datasetRepository, rootClinicalIndicatorsFolder)
         );
 
         return importableItems;
@@ -124,7 +145,7 @@ public class GenerateImportContentTask implements Task {
     /**
      * @return XML files representing individual data sets (XML files under named following pattern P00000.xml)
      */
-    public Stream<Path> findDataSetFiles(final Path publishingPackagesDir) {
+    private Stream<Path> findDataSetFiles(final Path publishingPackagesDir) {
         try {
             return Files.find(
                 publishingPackagesDir,

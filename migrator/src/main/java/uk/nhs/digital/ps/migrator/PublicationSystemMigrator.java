@@ -6,38 +6,36 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.util.StringUtils;
-import uk.nhs.digital.ps.migrator.config.ExecutionConfigurer;
+import uk.nhs.digital.ps.migrator.config.ExecutionConfigurator;
 import uk.nhs.digital.ps.migrator.config.ExecutionParameters;
 import uk.nhs.digital.ps.migrator.misc.Descriptor;
-import uk.nhs.digital.ps.migrator.task.Task;
+import uk.nhs.digital.ps.migrator.task.MigrationTask;
 
 import java.util.List;
 
 import static java.lang.String.format;
-import static uk.nhs.digital.ps.migrator.config.ExecutionConfigurer.HELP_FLAG;
+import static uk.nhs.digital.ps.migrator.config.ExecutionConfigurator.HELP_FLAG;
 
 @SpringBootApplication
 public class PublicationSystemMigrator implements ApplicationRunner {
 
     private final Logger log = LoggerFactory.getLogger(PublicationSystemMigrator.class);
 
-    private final List<Task> tasks;
+    private final List<MigrationTask> migrationTasks;
 
-    private final ExecutionConfigurer executionConfigurer;
+    private final ExecutionConfigurator executionConfigurator;
 
-    // Making this static as we are going to need to access it from some low down classes
-    private static ExecutionParameters executionParameters;
+    private ExecutionParameters executionParameters;
 
     public static void main(final String... args) {
         SpringApplication.run(PublicationSystemMigrator.class, args);
     }
 
-    public PublicationSystemMigrator(final List<Task> tasks,
-                                     final ExecutionConfigurer executionConfigurer,
+    public PublicationSystemMigrator(final List<MigrationTask> migrationTasks,
+                                     final ExecutionConfigurator executionConfigurator,
                                      final ExecutionParameters executionParameters) {
-        this.tasks = tasks;
-        this.executionConfigurer = executionConfigurer;
+        this.migrationTasks = migrationTasks;
+        this.executionConfigurator = executionConfigurator;
         this.executionParameters = executionParameters;
     }
 
@@ -49,18 +47,18 @@ public class PublicationSystemMigrator implements ApplicationRunner {
             return;
         }
 
-        executionConfigurer.initExecutionParameters(args);
+        executionConfigurator.initExecutionParameters(args);
 
         logExecutionParameters();
 
         try {
-            tasks.stream()
-                .peek(task -> {
-                    if (!task.isRequested()) {
-                        log.debug("Skipping {} - not requested", task.getClass().getSimpleName());
+            migrationTasks.stream()
+                .peek(migrationTask -> {
+                    if (!migrationTask.isRequested()) {
+                        log.debug("Skipping {} - not requested", migrationTask.getClass().getSimpleName());
                     }
                 })
-                .filter(Task::isRequested).forEach(Task::execute);
+                .filter(MigrationTask::isRequested).forEach(MigrationTask::execute);
 
         } catch (final Exception e) {
             log.error("Migration has failed.", e);
@@ -90,13 +88,13 @@ public class PublicationSystemMigrator implements ApplicationRunner {
         log.info("* Specify the following arguments to provide values used in execution.");
         log.info("* Example: --argOne=argOneValue");
         log.info("*");
-        printDescriptors(executionConfigurer.getArgumentsDescriptors());
+        printDescriptors(executionConfigurator.getArgumentsDescriptors());
 
         log.info("* ");
         log.info("* Specify the following flags (options not followed by any values) to toggle specific behaviours.");
         log.info("* Example --flagOne");
         log.info("* ");
-        printDescriptors(executionConfigurer.getFlagsDescriptors());
+        printDescriptors(executionConfigurator.getFlagsDescriptors());
         log.info("*");
         log.info("*******************************************************");
     }
@@ -108,9 +106,5 @@ public class PublicationSystemMigrator implements ApplicationRunner {
                 optionDescriptor.getDescription()
             );
         });
-    }
-
-    public static ExecutionParameters getExecutionParameters() {
-        return executionParameters;
     }
 }

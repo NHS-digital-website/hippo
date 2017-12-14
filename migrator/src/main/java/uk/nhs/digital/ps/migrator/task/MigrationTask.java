@@ -1,6 +1,6 @@
 package uk.nhs.digital.ps.migrator.task;
 
-public interface Task {
+public interface MigrationTask {
 
     void execute();
 
