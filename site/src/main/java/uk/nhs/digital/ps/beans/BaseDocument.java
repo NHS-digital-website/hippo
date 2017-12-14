@@ -4,6 +4,8 @@ import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoDocument;
 
+import java.util.List;
+
 @Node(jcrType="publicationsystem:basedocument")
 public class BaseDocument extends HippoDocument {
 
@@ -19,5 +21,22 @@ public class BaseDocument extends HippoDocument {
      */
     public HippoBean getSelfLinkBean() {
         return this;
+    }
+
+    protected <T extends HippoBean> List<T> getChildBeansIfPermitted(final String propertyName, final
+    Class<T> beanMappingClass) {
+        assertPropertyPermitted(propertyName);
+
+        return getChildBeansByName(propertyName, beanMappingClass);
+    }
+
+    protected <T> T getPropertyIfPermitted(final String propertyKey) {
+        assertPropertyPermitted(propertyKey);
+
+        return getProperty(propertyKey);
+    }
+
+    protected void assertPropertyPermitted(String propertyName) {
+        // To be overwritten by subclasses for specific implementation
     }
 }

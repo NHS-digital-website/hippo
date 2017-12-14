@@ -91,6 +91,12 @@
                 <ul data-uipath="ps.dataset.resources">
                     <#list dataset.files as attachment>
                         <li class="attachment">
+                            <a title="${attachment.text}" href="<@hst.link hippobean=attachment.resource/>">${attachment.text}</a>;
+                            <span class="fileSize">size: <@formatFileSize bytesCount=attachment.resource.length/></span>
+                        </li>
+                    </#list>
+                    <#list dataset.filesOld as attachment>
+                        <li class="attachment">
                             <a title="${attachment.filename}" href="<@hst.link hippobean=attachment/>">${attachment.filename}</a>;
                             <span class="fileSize">size: <@formatFileSize bytesCount=attachment.length/></span>
                         </li>

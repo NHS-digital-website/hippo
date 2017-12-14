@@ -1,0 +1,235 @@
+---
+/content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset:
+  .meta:order-before: content
+  /dataset[1]:
+    /publicationsystem:Files-v2[1]:
+      hippo:filename: attachment-old.pdf
+      hippo:text:
+        resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v2[1]/text.pdf
+        type: binary
+      jcr:data:
+        resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v2[1]/data.pdf
+        type: binary
+      jcr:encoding: UTF-8
+      jcr:lastModified: 2017-12-14T09:07:45.787Z
+      jcr:mimeType: application/pdf
+      jcr:primaryType: publicationsystem:resource
+    /publicationsystem:Files-v2[2]:
+      hippo:filename: attachment-old2.pdf
+      hippo:text:
+        resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v2[2]/text.pdf
+        type: binary
+      jcr:data:
+        resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v2[2]/data.pdf
+        type: binary
+      jcr:encoding: UTF-8
+      jcr:lastModified: 2017-12-14T09:07:45.787Z
+      jcr:mimeType: application/pdf
+      jcr:primaryType: publicationsystem:resource
+    /publicationsystem:Files-v3[1]:
+      /publicationsystem:attachmentResource:
+        hippo:filename: attachment-text.pdf
+        hippo:text:
+          resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v3[1]/attachmentResource/text.pdf
+          type: binary
+        jcr:data:
+          resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v3[1]/attachmentResource/data.pdf
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2017-12-14T09:54:56.786Z
+        jcr:mimeType: application/pdf
+        jcr:primaryType: publicationsystem:resource
+      jcr:primaryType: publicationsystem:attachment
+      publicationsystem:displayName: Attachment with text
+    /publicationsystem:Files-v3[2]:
+      /publicationsystem:attachmentResource:
+        hippo:filename: attachment.pdf
+        hippo:text:
+          resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v3[2]/attachmentResource/text.pdf
+          type: binary
+        jcr:data:
+          resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v3[2]/attachmentResource/data.pdf
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2017-12-14T09:55:09.205Z
+        jcr:mimeType: application/pdf
+        jcr:primaryType: publicationsystem:resource
+      jcr:primaryType: publicationsystem:attachment
+      publicationsystem:displayName: ''
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-12-14T09:07:15.643Z
+    hippostdpubwf:lastModificationDate: 2017-12-14T09:53:56.069Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: ea052f3d-9c66-4968-9398-b6cfda8e51f5
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:dataset
+    publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+    publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+    publicationsystem:Granularity:
+    - ''
+    publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+    publicationsystem:NominalDate: 0001-01-01T12:00:00Z
+    publicationsystem:Summary: Attachment Test Dataset
+    publicationsystem:Title: Attachment Test Dataset
+  /dataset[2]:
+    /publicationsystem:Files-v2[1]:
+      hippo:filename: attachment-old.pdf
+      hippo:text:
+        resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v2[1]/text.pdf
+        type: binary
+      jcr:data:
+        resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v2[1]/data.pdf
+        type: binary
+      jcr:encoding: UTF-8
+      jcr:lastModified: 2017-12-14T09:07:45.787Z
+      jcr:mimeType: application/pdf
+      jcr:primaryType: publicationsystem:resource
+    /publicationsystem:Files-v2[2]:
+      hippo:filename: attachment-old2.pdf
+      hippo:text:
+        resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v2[2]/text.pdf
+        type: binary
+      jcr:data:
+        resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v2[2]/data.pdf
+        type: binary
+      jcr:encoding: UTF-8
+      jcr:lastModified: 2017-12-14T09:07:45.787Z
+      jcr:mimeType: application/pdf
+      jcr:primaryType: publicationsystem:resource
+    /publicationsystem:Files-v3[1]:
+      /publicationsystem:attachmentResource:
+        hippo:filename: attachment-text.pdf
+        hippo:text:
+          resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v3[1]/attachmentResource/text.pdf
+          type: binary
+        jcr:data:
+          resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v3[1]/attachmentResource/data.pdf
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2017-12-14T09:54:56.786Z
+        jcr:mimeType: application/pdf
+        jcr:primaryType: publicationsystem:resource
+      jcr:primaryType: publicationsystem:attachment
+      publicationsystem:displayName: Attachment with text
+    /publicationsystem:Files-v3[2]:
+      /publicationsystem:attachmentResource:
+        hippo:filename: attachment.pdf
+        hippo:text:
+          resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v3[2]/attachmentResource/text.pdf
+          type: binary
+        jcr:data:
+          resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v3[2]/attachmentResource/data.pdf
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2017-12-14T09:55:09.205Z
+        jcr:mimeType: application/pdf
+        jcr:primaryType: publicationsystem:resource
+      jcr:primaryType: publicationsystem:attachment
+      publicationsystem:displayName: ''
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-12-14T09:07:15.643Z
+    hippostdpubwf:lastModificationDate: 2017-12-14T09:55:17.007Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: ea052f3d-9c66-4968-9398-b6cfda8e51f5
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: publicationsystem:dataset
+    publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+    publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+    publicationsystem:Granularity:
+    - ''
+    publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+    publicationsystem:NominalDate: 0001-01-01T12:00:00Z
+    publicationsystem:Summary: Attachment Test Dataset
+    publicationsystem:Title: Attachment Test Dataset
+  /dataset[3]:
+    /publicationsystem:Files-v2[1]:
+      hippo:filename: attachment-old.pdf
+      hippo:text:
+        resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v2[1]/text.pdf
+        type: binary
+      jcr:data:
+        resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v2[1]/data.pdf
+        type: binary
+      jcr:encoding: UTF-8
+      jcr:lastModified: 2017-12-14T09:07:45.787Z
+      jcr:mimeType: application/pdf
+      jcr:primaryType: publicationsystem:resource
+    /publicationsystem:Files-v2[2]:
+      hippo:filename: attachment-old2.pdf
+      hippo:text:
+        resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v2[2]/text.pdf
+        type: binary
+      jcr:data:
+        resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v2[2]/data.pdf
+        type: binary
+      jcr:encoding: UTF-8
+      jcr:lastModified: 2017-12-14T09:07:45.787Z
+      jcr:mimeType: application/pdf
+      jcr:primaryType: publicationsystem:resource
+    /publicationsystem:Files-v3[1]:
+      /publicationsystem:attachmentResource:
+        hippo:filename: attachment-text.pdf
+        hippo:text:
+          resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v3[1]/attachmentResource/text.pdf
+          type: binary
+        jcr:data:
+          resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v3[1]/attachmentResource/data.pdf
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2017-12-14T09:54:56.786Z
+        jcr:mimeType: application/pdf
+        jcr:primaryType: publicationsystem:resource
+      jcr:primaryType: publicationsystem:attachment
+      publicationsystem:displayName: Attachment with text
+    /publicationsystem:Files-v3[2]:
+      /publicationsystem:attachmentResource:
+        hippo:filename: attachment.pdf
+        hippo:text:
+          resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v3[2]/attachmentResource/text.pdf
+          type: binary
+        jcr:data:
+          resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v3[2]/attachmentResource/data.pdf
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2017-12-14T09:55:09.205Z
+        jcr:mimeType: application/pdf
+        jcr:primaryType: publicationsystem:resource
+      jcr:primaryType: publicationsystem:attachment
+      publicationsystem:displayName: ''
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-12-14T09:07:15.643Z
+    hippostdpubwf:lastModificationDate: 2017-12-14T09:55:17.007Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2017-12-14T09:55:20.427Z
+    hippotranslation:id: ea052f3d-9c66-4968-9398-b6cfda8e51f5
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:dataset
+    publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+    publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+    publicationsystem:Granularity:
+    - ''
+    publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+    publicationsystem:NominalDate: 0001-01-01T12:00:00Z
+    publicationsystem:Summary: Attachment Test Dataset
+    publicationsystem:Title: Attachment Test Dataset
+  jcr:mixinTypes:
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

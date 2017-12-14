@@ -46,6 +46,10 @@ public class Attachment {
         return executionParameters.getAttachmentDownloadDir() + getUri();
     }
 
+    public String getFileName() {
+        return Paths.get(getFilePath()).getFileName().toString();
+    }
+
     public String getMimeType() {
         try {
             Tika tika = new Tika();

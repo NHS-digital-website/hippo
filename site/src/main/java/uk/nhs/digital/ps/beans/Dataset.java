@@ -55,28 +55,23 @@ public class Dataset extends BaseDocument {
     }
 
     /*
-     * Migration: 20171208
-     * New field: publicationsystem:Files-v2
-     * Old field: publicationsystem:Files
+     * Migration: 20171213
+     * New field: publicationsystem:Files-v3
+     * Old field: publicationsystem:Files-v2
      *
-     * Temporary make this getter forward and backward compatible, meaning we can deploy this code without running
-     * content migration.
+     * Temporary supporting old and new versions until all the live content is migrated to the new way
      */
+    @HippoEssentialsGenerated(internalName = PropertyKeys.FILES_V3)
+    public List<Attachment> getFiles() {
+        return getChildBeansIfPermitted(PropertyKeys.FILES_V3, Attachment.class);
+    }
     @HippoEssentialsGenerated(internalName = PropertyKeys.FILES_V2)
-    public List<HippoResourceBean> getFiles() {
-        assertPropertyPermitted(PropertyKeys.FILES_V2);
-        List<HippoResourceBean> attachments = getChildBeansByName(PropertyKeys.FILES_V2, HippoResourceBean.class);
-
-        if (attachments.isEmpty()) {
-            attachments = getChildBeansByName(PropertyKeys.FILES, HippoResourceBean.class);
-        }
-
-        return attachments;
+    public List<HippoResourceBean> getFilesOld() {
+        return getChildBeansIfPermitted(PropertyKeys.FILES_V2, HippoResourceBean.class);
     }
 
     public List<Relatedlink> getResourceLinks() {
-        assertPropertyPermitted(PropertyKeys.RESOURCE_LINKS);
-        return getChildBeansByName(PropertyKeys.RESOURCE_LINKS, Relatedlink.class);
+        return getChildBeansIfPermitted(PropertyKeys.RESOURCE_LINKS, Relatedlink.class);
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.GRANULARITY)
@@ -111,13 +106,8 @@ public class Dataset extends BaseDocument {
         return publicationBean;
     }
 
-    private <T> T getPropertyIfPermitted(final String propertyKey) {
-        assertPropertyPermitted(propertyKey);
-
-        return getProperty(propertyKey);
-    }
-
-    private void assertPropertyPermitted(final String propertyKey) {
+    @Override
+    protected void assertPropertyPermitted(final String propertyKey) {
 
         final boolean isPropertyPermitted =
             propertiesPermittedWhenUpcoming.contains(propertyKey) || isPubliclyAccessible();
@@ -144,7 +134,7 @@ public class Dataset extends BaseDocument {
         String GEOGRAPHIC_COVERAGE = "publicationsystem:GeographicCoverage";
         String GRANULARITY = "publicationsystem:Granularity";
         String RESOURCE_LINKS = "publicationsystem:ResourceLinks";
-        String FILES = "publicationsystem:Files";
         String FILES_V2 = "publicationsystem:Files-v2";
+        String FILES_V3 = "publicationsystem:Files-v3";
     }
 }
