@@ -127,10 +127,13 @@ public class SiteSteps extends AbstractSpringSteps {
 
     @Then("I can download(?: following files)?:")
     public void iCanDownload(final DataTable downloadTitles) throws Throwable {
-        for (String downloadLink : downloadTitles.asList(String.class)) {
-            WebElement downloadElement = sitePage.findElementWithTitle(downloadLink);
+        for (List<String> downloadLink : downloadTitles.asLists(String.class)) {
+            String linkText = downloadLink.get(0);
+            String linkFileName = downloadLink.get(1);
 
-            assertThat("I can find download link with title: " + downloadLink,
+            WebElement downloadElement = sitePage.findElementWithTitle(linkText);
+
+            assertThat("I can find download link with title: " + linkText,
                 downloadElement, is(notNullValue()));
 
             if (acceptanceTestProperties.isHeadlessMode()) {
@@ -149,7 +152,7 @@ public class SiteSteps extends AbstractSpringSteps {
             sitePage.clickOnElement(downloadElement);
 
             final Path downloadedFilePath = Paths.get(acceptanceTestProperties.getDownloadDir().toString(),
-                downloadLink);
+                linkFileName);
 
             waitUntilFileAppears(downloadedFilePath);
         }

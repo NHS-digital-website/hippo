@@ -1,0 +1,14 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/Migration-20171213-Attachment:
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:parameters: ''
+      hipposys:query: //*[(@jcr:primaryType='publicationsystem:publication') or (@jcr:primaryType='publicationsystem:dataset')]
+      hipposys:script:
+        resource: /configuration/update/Migration20171213Attachment.groovy
+        type: string
+      hipposys:throttle: 200
+      jcr:primaryType: hipposys:updaterinfo

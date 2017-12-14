@@ -109,56 +109,6 @@ public class ExpectedTestDataProvider {
                     "dictum, molestie dolor non, aliquet nibh.")
                 .withNominalDate(asInstant("2017-10-11T00:00:00Z"))
                 .inState(PUBLISHED)
-                .withPubliclyAccessible(true),
-            newPublication()
-                .withTitle("series publication with datasets")
-                .withSummary("Maecenas pharetra, magna ut pulvinar mattis, augue nisi pharetra dolor, eget commodo " +
-                    "lacus arcu vitae ligula. Pellentesque condimentum tortor eu condimentum porta. Sed sit amet " +
-                    "consectetur ipsum. Integer imperdiet gravida augue in tincidunt. Donec luctus, massa sit amet " +
-                    "porttitor cursus, ante enim fringilla felis, nec elementum eros leo eu mauris.")
-                .withNominalDate(asInstant("2017-10-10T00:00:00Z"))
-                .inState(PUBLISHED)
-                .withPubliclyAccessible(true),
-            newPublication()
-                .withTitle("Fusce viverra dolor")
-                .withSummary("Maecenas laoreet ullamcorper aliquam. Sed ac nunc pellentesque, lobortis orci eu, " +
-                    "placerat nibh. Nulla est mauris, vehicula nec ornare a, lacinia vel odio. Sed et accumsan mi, " +
-                    "quis finibus orci. Integer eget tortor mauris. Cras fermentum sodales urna, ac vulputate odio " +
-                    "lobortis eget. Etiam id erat blandit, feugiat orci non, pharetra est. Sed interdum a leo " +
-                    "facilisis aliquam. Curabitur justo nisi, mattis vel neque placerat, imperdiet ultrices tortor.")
-                .withNominalDate(asInstant("2017-06-01T00:00:00Z"))
-                .inState(PUBLISHED)
-                .withPubliclyAccessible(true),
-            newPublication()
-                .withTitle("Lorem ipsum dolor sit amet.")
-                .withSummary("Maecenas laoreet ullamcorper aliquam. Sed ac nunc pellentesque, lobortis orci eu, " +
-                    "placerat lorem. Nulla est mauris, vehicula nec ornare a, lacinia vel odio. Sed et accumsan mi, " +
-                    "quis finibus orci. Integer eget tortor mauris. Cras fermentum sodales urna, ac vulputate odio " +
-                    "lobortis eget. Etiam id erat blandit, feugiat orci non, pharetra est. Sed interdum a leo " +
-                    "facilisis aliquam. Curabitur justo nisi, mattis vel neque placerat, imperdiet ultrices tortor.")
-                .withNominalDate(asInstant("2017-06-01T00:00:00Z")),
-            newPublication()
-                .withTitle("Morbi tempor euismod vehicula")
-                .withSummary("Duis vel ultricies ante. Vestibulum nec commodo justo. Donec et tellus justo. Nunc id " +
-                    "lobortis odio. Morbi quis lectus scelerisque, efficitur augue a, aliquet velit. Duis ac " +
-                    "malesuada tortor. Duis mollis lorem consectetur ipsum convallis sollicitudin. Lorem ipsum dolor " +
-                    "sit amet, consectetur adipiscing elit. Donec varius eget purus nec finibus. Cras a urna " +
-                    "vestibulum, blandit nisl sit amet, auctor augue. Ut euismod eros quis lacus ullamcorper, ut " +
-                    "mollis nunc vehicula. Ut maximus, arcu nec mollis ultricies, libero tortor porta ante, id " +
-                    "iaculis nisl est ac velit.")
-                .withNominalDate(asInstant("2017-06-01T00:00:00Z"))
-                .inState(PUBLISHED)
-                .withPubliclyAccessible(true),
-            newPublication()
-                .withTitle("Morbi vitae nunc ac lacus malesuada tempus")
-                .withSummary("Etiam tempus quam sed massa ullamcorper, in vestibulum ex ultrices. Duis ipsum, eros et" +
-                    " accumsan auctor, turpis lectus viverra urna, eu viverra neque sem at metus. Praesent lacinia " +
-                    "erat facilisis, blandit elit a, volutpat ipsum. Morbi egestas eleifend sem. Sed semper egestas " +
-                    "purus, ac tempor sem efficitur ac. Cras leo mauris, vestibulum eget turpis ut, bibendum rhoncus " +
-                    "neque. Aliquam erat volutpat. Aliquam erat volutpat. Nullam justo mi, ipsum a ante nec, " +
-                    "tincidunt eleifend tortor.")
-                .withNominalDate(asInstant("2017-06-01T00:00:00Z"))
-                .inState(PUBLISHED)
                 .withPubliclyAccessible(true)
             );
     }

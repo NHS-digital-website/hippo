@@ -234,11 +234,9 @@ definitions:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
             hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:Attachments-v2
+            hipposysedit:path: publicationsystem:Attachments-v3
             hipposysedit:primary: false
-            hipposysedit:type: publicationsystem:resource
-            hipposysedit:validators:
-            - publicationsystem-blank-attachment
+            hipposysedit:type: publicationsystem:attachment
             jcr:primaryType: hipposysedit:field
           /coverage_end:
             hipposysedit:mandatory: false

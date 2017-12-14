@@ -4,6 +4,9 @@
 <'hippostdpubwf'='http://www.onehippo.org/jcr/hippostdpubwf/nt/1.0'>
 <'hippotranslation'='http://www.onehippo.org/jcr/hippotranslation/nt/1.0'>
 
+[publicationsystem:attachment] > hippo:compound, hippostd:relaxed
+  orderable
+
 [publicationsystem:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
   orderable
 
@@ -16,7 +19,8 @@
 [publicationsystem:relatedlink] > hippo:compound, hippostd:relaxed
   orderable
 
+[publicationsystem:resource] > hippo:derived, hippo:resource
+
 [publicationsystem:series] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
   orderable
 
-[publicationsystem:resource] > hippo:resource, hippo:derived

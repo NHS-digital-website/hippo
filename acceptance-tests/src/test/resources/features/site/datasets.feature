@@ -19,7 +19,7 @@ Scenario: View resource links and download attachments from dataset
         | Google Resource Link          |
         | attachment.pdf; size: 7.2 kB  |
     And I can download following files:
-        | attachment.pdf                |
+        | attachment.pdf | attachment.pdf |
 
 Scenario: Find data set in publication resources
     Given I navigate to "publication with datasets" publication page
@@ -54,3 +54,15 @@ Scenario: Display multiparagraph summary
         | Mauris ex est, dapibus in dictum ut, elementum sit amet odio. Proin ...       |
         | Cras fringilla odio sit amet tellus pellentesque posuere. Etiam semper ...    |
         | Curabitur quis eros nisi. Nulla leo est, elementum non gravida suscipit ...   |
+
+Scenario: Show new v3 files with text along with old v2 files
+    Given I navigate to "attachment test dataset" page
+    Then I should see publication page titled "Attachment Test Dataset"
+    And I should also see "Dataset Resources" with:
+        | attachment.pdf; size: 7.2 kB       |
+        | Attachment with text; size: 7.2 kB |
+        | attachment-old.pdf; size: 7.2 kB   |
+    And I can download following files:
+        | attachment.pdf       | attachment.pdf      |
+        | Attachment with text | attachment-text.pdf |
+        | attachment-old.pdf   | attachment-old.pdf  |

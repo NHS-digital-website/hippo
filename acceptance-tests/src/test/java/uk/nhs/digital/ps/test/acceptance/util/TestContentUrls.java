@@ -39,6 +39,12 @@ public class TestContentUrls {
         // unpublished dataset
         add("upcoming publication dataset",
             "/publications/acceptance-tests/upcoming-publication/upcoming-dataset");
+
+        // attachment tests
+        add("attachment test publication",
+            "/publications/acceptance-tests/attachment-test");
+        add("attachment test dataset",
+            "/publications/acceptance-tests/attachment-test/dataset");
     }
 
     private void add(String pageName, String url) {

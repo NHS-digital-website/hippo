@@ -50,8 +50,8 @@ import static org.mockito.MockitoAnnotations.initMocks;
 @PrepareForTest(HstQueryBuilder.class)
 public class DatasetTest {
 
-    private static final String ATTACHMENTS_PROPERTY_KEY_OLD = "publicationsystem:Files";
-    private static final String ATTACHMENTS_PROPERTY_KEY = "publicationsystem:Files-v2";
+    private static final String ATTACHMENTS_PROPERTY_KEY_OLD = "publicationsystem:Files-v2";
+    private static final String ATTACHMENTS_PROPERTY_KEY = "publicationsystem:Files-v3";
     private static final String RELATED_LINKS_PROPERTY_KEY = "publicationsystem:RelatedLinks";
     private static final String RESOURCE_LINKS_PROPERTY_KEY = "publicationsystem:ResourceLinks";
 

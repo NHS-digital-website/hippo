@@ -217,39 +217,23 @@ public class Publication extends BaseDocument {
     }
 
     /*
-     * Migration: 20171208
-     * New field: publicationsystem:Attachments-v2
-     * Old field: publicationsystem:attachments
+     * Migration: 20171213
+     * New field: publicationsystem:Attachments-v3
+     * Old field: publicationsystem:Attachments-v2
      *
-     * Temporary make this getter forward and backward compatible, meaning we can deploy this code without running
-     * content migration.
+     * Temporary supporting old and new versions until all the live content is migrated to the new way
      */
+    @HippoEssentialsGenerated(internalName = PropertyKeys.ATTACHMENTS_V3)
+    public List<Attachment> getAttachments() {
+        return getChildBeansIfPermitted(PropertyKeys.ATTACHMENTS_V3, Attachment.class);
+    }
     @HippoEssentialsGenerated(internalName = PropertyKeys.ATTACHMENTS_V2)
-    public List<HippoResourceBean> getAttachments() {
-        assertPropertyPermitted(PropertyKeys.ATTACHMENTS_V2);
-        List<HippoResourceBean> attachments = getChildBeansByName(PropertyKeys.ATTACHMENTS_V2, HippoResourceBean.class);
-
-        if (attachments.isEmpty()) {
-            attachments = getChildBeansByName(PropertyKeys.ATTACHMENTS, HippoResourceBean.class);
-        }
-
-        return attachments;
+    public List<HippoResourceBean> getAttachmentsOld() {
+        return getChildBeansIfPermitted(PropertyKeys.ATTACHMENTS_V2, HippoResourceBean.class);
     }
 
-    private <T extends HippoBean> List<T> getChildBeansIfPermitted(final String propertyName, final
-    Class<T> beanMappingClass) {
-        assertPropertyPermitted(propertyName);
-
-        return getChildBeansByName(propertyName, beanMappingClass);
-    }
-
-    private <T> T getPropertyIfPermitted(final String propertyKey) {
-        assertPropertyPermitted(propertyKey);
-
-        return getProperty(propertyKey);
-    }
-
-    private void assertPropertyPermitted(final String propertyKey) {
+    @Override
+    protected void assertPropertyPermitted(final String propertyKey) {
 
         final boolean isPropertyPermitted =
             isPropertyAlwaysPermitted(propertyKey)
@@ -300,8 +284,8 @@ public class Publication extends BaseDocument {
         String PUBLICLY_ACCESSIBLE = "publicationsystem:PubliclyAccessible";
         String RELATED_LINKS = "publicationsystem:RelatedLinks";
         String RESOURCE_LINKS = "publicationsystem:ResourceLinks";
-        String ATTACHMENTS = "publicationsystem:attachments";
         String ATTACHMENTS_V2 = "publicationsystem:Attachments-v2";
+        String ATTACHMENTS_V3 = "publicationsystem:Attachments-v3";
 
         String PARENT_BEAN = "PARENT_BEAN";
         String PARENT_SERIES = "PARENT_SERIES";

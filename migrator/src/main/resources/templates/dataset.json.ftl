@@ -57,31 +57,42 @@
   "nodes" : [
   <#list dataset.attachments as attachment>
   {
-    "name":"publicationsystem:Files-v2",
-    "primaryType":"publicationsystem:resource",
+    "name":"publicationsystem:Files-v3",
+    "primaryType" : "publicationsystem:attachment",
     "mixinTypes":[],
-    "properties":[ {
-        "name":"hippo:filename",
-        "type":"STRING",
-        "multiple":false,
-        "values":[ "${attachment.title}" ]
-      }, {
-        "name":"jcr:data",
-        "type":"BINARY",
-        "multiple":false,
-        "values":[ "file://${attachment.filePath}" ]
-      }, {
-        "name":"jcr:mimeType",
-        "type":"STRING",
-        "multiple":false,
-        "values":[ "${attachment.mimeType}" ]
-      }, {
-        "name":"jcr:lastModified",
-        "type":"DATE",
-        "multiple":false,
-        "values":[ "0001-01-01T12:00:00.000Z" ]
+    "properties" : [ {
+        "name" : "publicationsystem:displayName",
+        "type" : "STRING",
+        "multiple" : false,
+        "values" : [ "${attachment.title}" ]
       } ],
-    "nodes":[]
+    "nodes" : [ {
+      "name" : "publicationsystem:attachmentResource",
+      "primaryType":"publicationsystem:resource",
+      "mixinTypes":[],
+      "properties":[ {
+          "name":"hippo:filename",
+          "type":"STRING",
+          "multiple":false,
+          "values":[ "${attachment.fileName}" ]
+        }, {
+          "name":"jcr:data",
+          "type":"BINARY",
+          "multiple":false,
+          "values":[ "file://${attachment.filePath}" ]
+        }, {
+          "name":"jcr:mimeType",
+          "type":"STRING",
+          "multiple":false,
+          "values":[ "${attachment.mimeType}" ]
+        }, {
+          "name":"jcr:lastModified",
+          "type":"DATE",
+          "multiple":false,
+          "values":[ "0001-01-01T12:00:00.000Z" ]
+        } ],
+      "nodes":[]
+    }]
   } <#sep>,</#sep>
   </#list>
   <#if dataset.attachments?size != 0 && dataset.resourceLinks?size != 0>,</#if>

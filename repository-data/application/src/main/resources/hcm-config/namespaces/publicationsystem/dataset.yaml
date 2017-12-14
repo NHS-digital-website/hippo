@@ -167,9 +167,9 @@ definitions:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
             hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:Files-v2
+            hipposysedit:path: publicationsystem:Files-v3
             hipposysedit:primary: false
-            hipposysedit:type: publicationsystem:resource
+            hipposysedit:type: publicationsystem:attachment
             jcr:primaryType: hipposysedit:field
           /GeographicCoverage:
             hipposysedit:mandatory: false
