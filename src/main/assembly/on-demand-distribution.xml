@@ -9,20 +9,8 @@
     </formats>
     <includeBaseDirectory>false</includeBaseDirectory>
 
-    <files>
-        <file>
-            <source>cms/target/cms.war</source>
-            <outputDirectory>webapps</outputDirectory>
-            <destName>cms.war</destName>
-        </file>
-        <file>
-            <source>site/target/ROOT.war</source>
-            <outputDirectory>webapps</outputDirectory>
-            <destName>site.war</destName>
-        </file>
-    </files>
-
     <componentDescriptors>
+        <componentDescriptor>webapps-component.xml</componentDescriptor>
         <componentDescriptor>common-lib-component.xml</componentDescriptor>
         <componentDescriptor>shared-lib-component.xml</componentDescriptor>
     </componentDescriptors>

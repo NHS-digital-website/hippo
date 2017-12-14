@@ -293,7 +293,7 @@
                                 <deployable>
                                     <type>war</type>
                                     <properties>
-                                        <context>/</context>
+                                        <context>/site</context>
                                     </properties>
                                     <location>${project.parent.basedir}/site/target/ROOT.war</location>
                                 </deployable>

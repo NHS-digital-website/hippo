@@ -12,7 +12,7 @@
         <file>
             <source>site/target/ROOT.war</source>
             <outputDirectory>webapps</outputDirectory>
-            <destName>ROOT.war</destName>
+            <destName>site.war</destName>
         </file>
     </files>
 </component>
