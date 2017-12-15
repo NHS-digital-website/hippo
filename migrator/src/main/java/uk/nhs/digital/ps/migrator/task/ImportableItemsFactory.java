@@ -49,6 +49,7 @@ public class ImportableItemsFactory {
             String nominalDate = convertNominalDate(exportedPublishingPackage.getDate());
 
             List<NesstarResource> resources = exportedPublishingPackage.getResources();
+            List<String> taxonomyKeys = exportedPublishingPackage.getKeywords(executionParameters.getTaxonomyMappingImportPath());
             List<Attachment> attachments = getAttachments(resources);
             List<ResourceLink> resourceLinks = getResourceLinks(resources);
 
@@ -64,7 +65,8 @@ public class ImportableItemsFactory {
                 exportedPublishingPackage.getSummary(),
                 nominalDate,
                 attachments,
-                resourceLinks
+                resourceLinks,
+                String.join("\", \"", taxonomyKeys)
             );
         } catch (RuntimeException e) {
             throw new RuntimeException(

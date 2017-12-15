@@ -126,7 +126,7 @@
                 <h2><@fmt.message key="headers.summary"/></h2>
                 <@structuredText item=publication.summary uipath="ps.publication.summary" />
 
-                <#if publication.keyFacts??>
+                <#if publication.keyFacts?has_content>
                     <h2><@fmt.message key="headers.key-facts"/></h2>
                     <@structuredText item=publication.keyFacts uipath="ps.publication.key-facts" />
                 </#if>
