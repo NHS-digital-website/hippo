@@ -5,7 +5,9 @@ import org.jdom2.Namespace;
 import org.jdom2.filter.Filters;
 import org.jdom2.xpath.XPathExpression;
 import org.jdom2.xpath.XPathFactory;
+import uk.nhs.digital.ps.migrator.model.hippo.TaxonomyLookup;
 
+import java.nio.file.Path;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,6 +23,7 @@ public class PublishingPackage {
     private XPathExpression<Element> abstractXpath;
     private XPathExpression<Element> resourcesXpath;
     private XPathExpression<Element> dateXpath;
+    private XPathExpression<Element> keywordsXpath;
 
     public PublishingPackage(final Element rootElement) {
         this.rootElement = rootElement;
@@ -56,6 +59,22 @@ public class PublishingPackage {
             .collect(Collectors.toList());
     }
 
+    public List<String> getKeywords(Path taxonomyMappingImportPath) {
+
+        // Get TaxonomyLookup
+        TaxonomyLookup taxonomyLookup = new TaxonomyLookup(taxonomyMappingImportPath);
+
+        // Get the nesstar keywords, and map to hippo taxonomy keys
+        return keywordsXpath.evaluate(rootElement).stream()
+            .map(element -> element.getValue()
+                    .trim()
+                    .toLowerCase()
+                    .replace(" ", "-")
+            )
+            .filter(element -> taxonomyLookup.isKeyExist(element))
+            .collect(Collectors.toList());
+    }
+
     /**
      * The summary is the notes followed by a new paragraph with the abstract
      */
@@ -86,6 +105,7 @@ public class PublishingPackage {
         notesXpath = compileXpath("stdyDscr/citation/notes");
         abstractXpath = compileXpath("stdyDscr/stdyInfo/abstract");
         resourcesXpath = compileXpath("stdyDscr/othrStdyMat/relMat");
+        keywordsXpath = compileXpath("stdyDscr/stdyInfo/subject/keyword");
         dateXpath = compileXpath("stdyDscr/citation/verStmt/version");
     }
 

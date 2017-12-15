@@ -43,7 +43,12 @@
     "type" : "DATE",
     "multiple" : false,
     "values" : [ "0001-01-01T12:00:00.000Z" ]
-  }, {
+  },<#if dataset.taxonomyKeys?has_content> {
+       "name" : "hippotaxonomy:keys",
+       "type" : "STRING",
+       "multiple" : true,
+       "values" : [ "${dataset.taxonomyKeys}" ]
+  },</#if> {
     "name" : "publicationsystem:Summary",
     "type" : "STRING",
     "multiple" : false,

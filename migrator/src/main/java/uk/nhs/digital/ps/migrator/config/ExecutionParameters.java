@@ -20,6 +20,7 @@ public class ExecutionParameters {
     private Path hippoImportDir;
     private Path taxonomySpreadsheetPath;
     private Path taxonomyOutputPath;
+    private Path taxonomyMappingImportPath;
 
     public Path getNesstarUnzippedExportDir() {
         return nesstarUnzippedExportDir;
@@ -93,6 +94,14 @@ public class ExecutionParameters {
         this.taxonomyOutputPath = taxonomyOutputPath;
     }
 
+    public Path getTaxonomyMappingImportPath() {
+        return taxonomyMappingImportPath;
+    }
+
+    public void setTaxonomyMappingImportPath(Path taxonomyMappingImportPath) {
+        this.taxonomyMappingImportPath = taxonomyMappingImportPath;
+    }
+
     public List<Descriptor> descriptions() {
         return asList(
             describe("nesstarUnzippedExportDir", nesstarUnzippedExportDir),
@@ -103,7 +112,8 @@ public class ExecutionParameters {
             describe("nesstarAttachmentDownloadDir", nesstarAttachmentDownloadDir),
             describe("nesstarCompendiumMappingFile", nesstarCompendiumMappingFile),
             describe("taxonomySpreadsheetPath", taxonomySpreadsheetPath),
-            describe("taxonomyOutputPath", taxonomyOutputPath)
+            describe("taxonomyOutputPath", taxonomyOutputPath),
+            describe("taxonomyMappingImportPath", taxonomyMappingImportPath)
         );
     }
 }
