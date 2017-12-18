@@ -15,7 +15,8 @@ public class MigratorConfiguration {
     public List<Task> tasks(final ExecutionParameters executionParameters) {
         return asList(
             new UnzipNesstarFileTask(executionParameters),
-            new GenerateImportContentTask(executionParameters)
+            new GenerateImportContentTask(executionParameters),
+            new GenerateTaxonomyTask(executionParameters)
         );
     }
 

@@ -24,9 +24,13 @@ public class ExecutionConfigurer {
     public static final String HIPPO_IMPORT_DIR = "hippoImportDir";
     public static final String ATTACHMENT_DOWNLOAD_FOLDER = "attachmentDownloadFolder";
 
+    public static final String TAXONOMY_SPREADSHEET_PATH = "taxonomySpreadsheetPath";
+    public static final String TAXONOMY_OUTPUT_PATH = "taxonomyOutputPath";
+
     private static final String HIPPO_IMPORT_DIR_DEFAULT_NAME = "exim-import";
     private static final String NESSTAR_UNZIPPED_ARCHIVE_DIR_NAME_DEFAULT = "nesstar-export";
     private static final String ATTACHMENT_DOWNLOAD_DIR_NAME_DEFAULT = "attachments";
+    private static final String TAXONOMY_OUTPUT_PATH_DEFAULT = "taxonomy";
 
 
     private final ExecutionParameters executionParameters;
@@ -46,9 +50,12 @@ public class ExecutionConfigurer {
 
         executionParameters.setConvertNesstar(args.containsOption(NESSTAR_CONVERT_FLAG));
 
+        executionParameters.setTaxonomySpreadsheetPath(getPathArg(args, TAXONOMY_SPREADSHEET_PATH));
+
         initNesstarUnzippedArchiveDir();
         initHippoImportDir(args);
         initDownloadDir(args);
+        initTaxonomyOutputPath(args);
     }
 
     public void initHippoImportDir(final ApplicationArguments args) {
@@ -67,6 +74,15 @@ public class ExecutionConfigurer {
         }
 
         executionParameters.setAttachmentDownloadDir(pathArg);
+    }
+
+    private void initTaxonomyOutputPath(final ApplicationArguments args) {
+        Path pathArg = getPathArg(args, TAXONOMY_OUTPUT_PATH);
+        if (pathArg == null) {
+            pathArg = Paths.get(TEMP_DIR_PATH.toString(), HIPPO_IMPORT_DIR_DEFAULT_NAME, TAXONOMY_OUTPUT_PATH_DEFAULT);
+        }
+
+        executionParameters.setTaxonomyOutputPath(pathArg);
     }
 
     private void initNesstarUnzippedArchiveDir() {
@@ -123,6 +139,16 @@ public class ExecutionConfigurer {
                 "Directory where the migrator will download attachments into." +
                     " Optional - if not provided, one will be created in a temporary space." +
                     " NOTE that the files will not be downloaded if they exist in the folder already."
+            ),
+            describe(
+                TAXONOMY_SPREADSHEET_PATH,
+                "Path to the spreadsheet that contains the taxonomy we want to import into hippo." +
+                    " Optional - if not provided, taxonomy will not be imported."
+            ),
+            describe(
+                TAXONOMY_OUTPUT_PATH,
+                "Path to output the taxonomy JSON to import into hippo." +
+                    " Optional - if not provided, one will be created in a temporary space."
             )
         );
     }
