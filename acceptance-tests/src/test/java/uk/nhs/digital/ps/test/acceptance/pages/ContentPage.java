@@ -103,7 +103,7 @@ public class ContentPage extends AbstractCmsPage {
 
     public void populatePublicationTitle(final String publicationTitle) {
         helper.findElement(
-            By.xpath(XpathSelectors.EDITOR_BODY + "//div[contains(@class, 'publication-title')]//input")
+            By.xpath(XpathSelectors.EDITOR_BODY + "//div[contains(@class, 'publication-title')]//textarea")
         ).sendKeys(
             publicationTitle
         );
