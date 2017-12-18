@@ -228,7 +228,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: publicationsystem:Title
             hipposysedit:primary: false
-            hipposysedit:type: String
+            hipposysedit:type: Text
             hipposysedit:validators:
             - non-empty
             - required
