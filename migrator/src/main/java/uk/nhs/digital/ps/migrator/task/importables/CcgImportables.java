@@ -38,7 +38,7 @@ public class CcgImportables {
         final Folder quarterlyPublicationFolder = newFolder(currentQuarterFolderName, ccgRootFolder);
 
         // C)
-        final Publication quarterlyPublication = newPublication("content", currentQuarterFolderName, quarterlyPublicationFolder);
+        final Publication quarterlyPublication = newPublication("content", ccgRootCatalog.getLabel(), quarterlyPublicationFolder);
 
         // D)
         // There is only one level of Domains under CCG so it's enough to just iterate over them rather than walk a tree

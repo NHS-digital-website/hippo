@@ -14,4 +14,8 @@ public class Series extends HippoImportableItem {
     public String getTitle() {
         return title;
     }
+
+    public String getSummary() {
+        return title + " Summary";
+    }
 }

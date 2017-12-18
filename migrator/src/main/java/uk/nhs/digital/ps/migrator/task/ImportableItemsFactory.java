@@ -10,14 +10,6 @@ import java.util.stream.Collectors;
 
 public class ImportableItemsFactory {
 
-    public static Series toSeries(final Catalog catalog, final Folder parentFolder) {
-
-        return new Series(
-            parentFolder, "content",
-            catalog.getLabel()
-        );
-    }
-
     public static Series toSeries(final Folder parentFolder, final String title) {
 
         return new Series(
