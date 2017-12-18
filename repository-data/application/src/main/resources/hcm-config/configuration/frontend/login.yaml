@@ -1,0 +1,5 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:frontend/login/login/loginPage:
+      signin.form.autocomplete: false
