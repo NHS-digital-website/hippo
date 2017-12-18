@@ -17,7 +17,7 @@
     "name" : "publicationsystem:Summary",
     "type" : "STRING",
     "multiple" : false,
-    "values" : [ "Series" ]
+    "values" : [ "${series.summary}" ]
   }, {
     "name" : "jcr:path",
     "type" : "STRING",

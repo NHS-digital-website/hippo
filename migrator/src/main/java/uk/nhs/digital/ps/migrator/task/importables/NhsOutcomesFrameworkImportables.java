@@ -40,7 +40,7 @@ public class NhsOutcomesFrameworkImportables {
         quarterlyPublicationFolder.setLocalizedName("Current");
 
         // C)
-        final Publication quarterlyPublication = newPublication("content", currentQuarterFolderName, quarterlyPublicationFolder);
+        final Publication quarterlyPublication = newPublication("content", rootCatalog.getLabel(), quarterlyPublicationFolder);
 
         // D)
         final List<HippoImportableItem> domainsWithDatasets = rootCatalog.getChildCatalogs()
