@@ -11,6 +11,7 @@ Scenario: Search individual data set by name
         | Dataset Granularity           | NHS Trusts                                                        |
         | Dataset Geographic Coverage   | England                                                           |
         | Dataset Date Range            | 01/02/2016 to 01/07/2017                                          |
+        | Dataset Nominal Date          | 10/10/2017                                                        |
 
 Scenario: View resource links and download attachments from dataset
     Given I navigate to the "publication with datasets Dataset" data set page
