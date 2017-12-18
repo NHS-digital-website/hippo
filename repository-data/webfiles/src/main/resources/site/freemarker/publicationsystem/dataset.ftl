@@ -58,7 +58,19 @@
                         </dd>
                     </dl>
                 </div>
-            </div></#if>
+            </div></#if><!--
+
+            --><#if dataset.nominalDate?has_content ><div class="flex__item">
+            <div class="media">
+                <img class="media__img" src="http://via.placeholder.com/52x52" alt="">
+                <dl class="media__body">
+                    <dt>Nominal date</dt>
+                    <dd data-uipath="ps.dataset.nominal-date">
+                        ${dataset.nominalDate.time?string[dateFormat]}
+                    </dd>
+                </dl>
+            </div>
+        </div></#if>
 
         </div>
     </div>
