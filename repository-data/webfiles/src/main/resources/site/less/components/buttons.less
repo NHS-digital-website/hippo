@@ -1,0 +1,96 @@
+
+@darken-percentage: 10%;
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 0 (@vertical-spacing-unit/2) @vertical-spacing-unit (@vertical-spacing-unit/2);
+    background-color: @nhs-black;
+    vertical-align: middle;
+    text-align: center;
+    white-space: nowrap;
+    font-family: inherit;
+    font-size: 100%;
+    font-weight: 600;
+    cursor: pointer;
+    border: 0 solid;
+    line-height: 1.5;
+    //border-radius: @base-radius;
+    letter-spacing: 0.5px;
+    font-family: @base-font-family;
+
+    &:disabled {
+        opacity: 0.5;
+    }
+
+    &,
+    &:hover {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    &:active,
+    &:focus{
+        outline: none;
+    }
+
+}
+
+
+/*  =BUTTON SIZES
+--------------------------------------------------------------------*/
+
+.btn--tiny {
+
+}
+
+.btn--small {
+
+}
+
+.btn--large {
+
+}
+
+.btn--huge {
+
+}
+
+.btn--full {
+    width: 100%;
+}
+
+
+/*  =BUTTON STYLES
+--------------------------------------------------------------------*/
+
+.btn--primary {
+    background-color: @nhs-blue;
+}
+.btn--primary:hover {
+    background-color: darken(@nhs-blue, @darken-percentage);
+}
+
+
+.btn--secondary {
+    background-color: @nhs-dark-blue;
+}
+.btn--secondary:hover {
+    background-color: darken(@nhs-dark-blue, @darken-percentage);
+}
+
+
+.btn--tertiary {
+    background-color: @nhs-grey01;
+}
+.btn--tertiary:hover {
+    background-color: darken(@nhs-grey01, @darken-percentage);
+}
+
+
+.btn--green {
+    background-color: @nhs-green;
+}
+.btn--green:hover {
+    background-color: darken(@nhs-green, @darken-percentage);
+}

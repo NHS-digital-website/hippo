@@ -7,11 +7,10 @@
 html {
   font-family: sans-serif;
   /* 1 */
-
   -ms-text-size-adjust: 100%;
+  /* 2 */
   -webkit-text-size-adjust: 100%;
   /* 2 */
-
   height: 100%;
 }
 /**
@@ -64,10 +63,8 @@ progress,
 video {
   display: inline-block;
   /* 1 */
-
   vertical-align: baseline;
   /* 2 */
-
 }
 /**
  * Prevent modern browsers from displaying `audio` without controls.
@@ -223,13 +220,10 @@ select,
 textarea {
   color: inherit;
   /* 1 */
-
   font: inherit;
   /* 2 */
-
   margin: 0;
   /* 3 */
-
 }
 /**
  * Address `overflow` set to `hidden` in IE 8/9/10/11.
@@ -260,10 +254,8 @@ input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
-
   cursor: pointer;
   /* 3 */
-
 }
 /**
  * Re-set default cursor for disabled elements.
@@ -298,10 +290,8 @@ input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
   /* 1 */
-
   padding: 0;
   /* 2 */
-
 }
 /**
  * Fix the cursor style for Chrome's increment/decrement buttons. For certain
@@ -341,10 +331,8 @@ fieldset {
 legend {
   border: 0;
   /* 1 */
-
   padding: 0;
   /* 2 */
-
 }
 /**
  * Remove default vertical scrollbar in IE 8/9/10/11.
@@ -425,59 +413,98 @@ src:url("fonts/FrutigerLTW01-46LightItalic.eot?#iefix");
 src:url("fonts/FrutigerLTW01-46LightItalic.eot?#iefix") format("eot"),url("fonts/FrutigerLTW01-46LightItalic.woff2") format("woff2"),url("fonts/FrutigerLTW01-46LightItalic.woff") format("woff"),url("fonts/FrutigerLTW01-46LightItalic.ttf") format("truetype"),url("fonts/FrutigerLTW01-46LightItalic.svg#cd75c3e3-c5b7-4a25-9498-cabe4e8a9076") format("svg");
 }
 */
+.color-swatch {
+  display: inline-block;
+  width: 170px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  vertical-align: top;
+}
+.color-swatch__colour {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.nhs-blue {
+  background-color: #005EB8;
+}
+.nhs-blue50 {
+  background-color: #76ADDA;
+}
+.nhs-blue10 {
+  background-color: #E6EFF8;
+}
+.nhs-blue-link-hover {
+  background-color: #4C92D9;
+}
+.nhs-bright-blue {
+  background-color: #0072CE;
+}
+.nhs-dark-blue {
+  background-color: #003087;
+}
+.nhs-grey01 {
+  background-color: #425563;
+}
+.nhs-grey02 {
+  background-color: #768692;
+}
+.nhs-grey03 {
+  background-color: #AEB7BD;
+}
+.nhs-grey04 {
+  background-color: #D8DDE0;
+}
+.nhs-grey05 {
+  background-color: #F0F4F5;
+}
+.nhs-black {
+  background-color: #231F20;
+}
+.nhs-white {
+  background-color: #FFFFFF;
+}
+.nhs-green {
+  background-color: #009639;
+}
+.nhs-darkgreen {
+  background-color: #006747;
+}
+.nhs-greenmod {
+  background-color: #006747;
+}
+.nhs-light-green {
+  background-color: #78BE20;
+}
+.nhs-light-green50 {
+  background-color: #BBDE8F;
+}
+.nhs-light-green10 {
+  background-color: #F1F8E8;
+}
+.nhs-warm-yellow {
+  background-color: #FFB81C;
+}
+.nhs-warm-yellow50 {
+  background-color: #FADA8B;
+}
+.nhs-warm-yellow10 {
+  background-color: #FDF2D5;
+}
+.nhs-emergency-red {
+  background-color: #DA291C;
+}
+.nhs-emergency-red50 {
+  background-color: #E3968A;
+}
+.nhs-emergency-red10 {
+  background-color: #F5E6E4;
+}
 /* VARS */
 /* ########################################################## */
-.document-content {
-  width: 1170px;
-  margin-top: 40px;
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 0;
-}
-/* TEXT */
+/* COMPONENTS */
 /* ########################################################## */
-body {
-  font-family: "FrutigerLTW01-55Roman", Arial;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  line-height: 1.3;
-  color: #3e4f59;
-  font-family: "FrutigerLTW01-55Roman", Arial;
-  font-weight: 100;
-}
-h1 {
-  font-size: 36px;
-}
-h2 {
-  font-size: 33px;
-  font-family: "FrutigerLTW01-65Bold", Arial;
-}
-p {
-  font-size: 18px;
-  color: #3e4f59;
-  line-height: 1.5;
-  margin-bottom: 30px;
-}
-ul,
-li {
-  font-size: 18px;
-  color: #3e4f59;
-  line-height: 1.5;
-}
-a {
-  color: inherit;
-  color: #005eb8;
-}
-.zeta {
-  font-size: 16px;
-}
 /* SPACING */
 /* ########################################################## */
 .flush {
@@ -512,6 +539,462 @@ a {
 }
 .push-half--bottom {
   margin-bottom: 10px;
+}
+/**
+ * SyntaxHighlighter
+ * http://alexgorbatchev.com/SyntaxHighlighter
+ *
+ * SyntaxHighlighter is donationware. If you are using it, please donate.
+ * http://alexgorbatchev.com/SyntaxHighlighter/donate.html
+ *
+ * @version
+ * 3.0.83 (July 02 2010)
+ *
+ * @copyright
+ * Copyright (C) 2004-2010 Alex Gorbatchev.
+ *
+ * @license
+ * Dual licensed under the MIT and GPL licenses.
+ */
+.syntaxhighlighter a,
+.syntaxhighlighter div,
+.syntaxhighlighter code,
+.syntaxhighlighter table,
+.syntaxhighlighter table td,
+.syntaxhighlighter table tr,
+.syntaxhighlighter table tbody,
+.syntaxhighlighter table thead,
+.syntaxhighlighter table caption,
+.syntaxhighlighter textarea {
+  -moz-border-radius: 0 0 0 0 !important;
+  -webkit-border-radius: 0 0 0 0 !important;
+  background: none !important;
+  border: 0 !important;
+  bottom: auto !important;
+  float: none !important;
+  height: auto !important;
+  left: auto !important;
+  line-height: 1.1em !important;
+  margin: 0 !important;
+  outline: 0 !important;
+  overflow: visible !important;
+  padding: 0 !important;
+  position: static !important;
+  right: auto !important;
+  text-align: left !important;
+  top: auto !important;
+  vertical-align: baseline !important;
+  width: auto !important;
+  box-sizing: content-box !important;
+  font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  font-size: 1em !important;
+  min-height: inherit !important;
+  min-height: auto !important;
+}
+.syntaxhighlighter {
+  width: 100% !important;
+  margin: 1em 0 1em 0 !important;
+  position: relative !important;
+  overflow: auto !important;
+  font-size: 1em !important;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.syntaxhighlighter.source {
+  overflow: hidden !important;
+}
+.syntaxhighlighter .bold {
+  font-weight: bold !important;
+}
+.syntaxhighlighter .italic {
+  font-style: italic !important;
+}
+.syntaxhighlighter .line {
+  white-space: pre !important;
+}
+.syntaxhighlighter table {
+  width: 100% !important;
+}
+.syntaxhighlighter table caption {
+  text-align: left !important;
+  padding: .5em 0 0.5em 1em !important;
+}
+.syntaxhighlighter table td.code {
+  width: 100% !important;
+}
+.syntaxhighlighter table td.code .container {
+  position: relative !important;
+}
+.syntaxhighlighter table td.code .container textarea {
+  box-sizing: border-box !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  background: white !important;
+  padding-left: 1em !important;
+  overflow: hidden !important;
+  white-space: pre !important;
+}
+.syntaxhighlighter table td.gutter .line {
+  text-align: right !important;
+  padding: 0 0.5em 0 1em !important;
+}
+.syntaxhighlighter table td.code .line {
+  padding: 0 1em !important;
+}
+.syntaxhighlighter.nogutter td.code .container textarea,
+.syntaxhighlighter.nogutter td.code .line {
+  padding-left: 0em !important;
+}
+.syntaxhighlighter.show {
+  display: block !important;
+}
+.syntaxhighlighter.collapsed table {
+  display: none !important;
+}
+.syntaxhighlighter.collapsed .toolbar {
+  padding: 0.1em 0.8em 0em 0.8em !important;
+  font-size: 1em !important;
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+}
+.syntaxhighlighter.collapsed .toolbar span {
+  display: inline !important;
+  margin-right: 1em !important;
+}
+.syntaxhighlighter.collapsed .toolbar span a {
+  padding: 0 !important;
+  display: none !important;
+}
+.syntaxhighlighter.collapsed .toolbar span a.expandSource {
+  display: inline !important;
+}
+.syntaxhighlighter .toolbar {
+  position: absolute !important;
+  right: 1px !important;
+  top: 1px !important;
+  width: 11px !important;
+  height: 11px !important;
+  font-size: 10px !important;
+  z-index: 10 !important;
+}
+.syntaxhighlighter .toolbar span.title {
+  display: inline !important;
+}
+.syntaxhighlighter .toolbar a {
+  display: block !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  padding-top: 1px !important;
+}
+.syntaxhighlighter .toolbar a.expandSource {
+  display: none !important;
+}
+.syntaxhighlighter.ie {
+  font-size: .9em !important;
+  padding: 1px 0 1px 0 !important;
+}
+.syntaxhighlighter.ie .toolbar {
+  line-height: 8px !important;
+}
+.syntaxhighlighter.ie .toolbar a {
+  padding-top: 0px !important;
+}
+.syntaxhighlighter.printing .line.alt1 .content,
+.syntaxhighlighter.printing .line.alt2 .content,
+.syntaxhighlighter.printing .line.highlighted .number,
+.syntaxhighlighter.printing .line.highlighted.alt1 .content,
+.syntaxhighlighter.printing .line.highlighted.alt2 .content {
+  background: none !important;
+}
+.syntaxhighlighter.printing .line .number {
+  color: #bbbbbb !important;
+}
+.syntaxhighlighter.printing .line .content {
+  color: black !important;
+}
+.syntaxhighlighter.printing .toolbar {
+  display: none !important;
+}
+.syntaxhighlighter.printing a {
+  text-decoration: none !important;
+}
+.syntaxhighlighter.printing .plain,
+.syntaxhighlighter.printing .plain a {
+  color: black !important;
+}
+.syntaxhighlighter.printing .comments,
+.syntaxhighlighter.printing .comments a {
+  color: #008200 !important;
+}
+.syntaxhighlighter.printing .string,
+.syntaxhighlighter.printing .string a {
+  color: blue !important;
+}
+.syntaxhighlighter.printing .keyword {
+  color: #006699 !important;
+  font-weight: bold !important;
+}
+.syntaxhighlighter.printing .preprocessor {
+  color: gray !important;
+}
+.syntaxhighlighter.printing .variable {
+  color: #aa7700 !important;
+}
+.syntaxhighlighter.printing .value {
+  color: #009900 !important;
+}
+.syntaxhighlighter.printing .functions {
+  color: #ff1493 !important;
+}
+.syntaxhighlighter.printing .constants {
+  color: #0066cc !important;
+}
+.syntaxhighlighter.printing .script {
+  font-weight: bold !important;
+}
+.syntaxhighlighter.printing .color1,
+.syntaxhighlighter.printing .color1 a {
+  color: gray !important;
+}
+.syntaxhighlighter.printing .color2,
+.syntaxhighlighter.printing .color2 a {
+  color: #ff1493 !important;
+}
+.syntaxhighlighter.printing .color3,
+.syntaxhighlighter.printing .color3 a {
+  color: red !important;
+}
+.syntaxhighlighter.printing .break,
+.syntaxhighlighter.printing .break a {
+  color: black !important;
+}
+.syntaxhighlighter {
+  background-color: white !important;
+}
+.syntaxhighlighter .line.alt1 {
+  background-color: white !important;
+}
+.syntaxhighlighter .line.alt2 {
+  background-color: white !important;
+}
+.syntaxhighlighter .line.highlighted.alt1,
+.syntaxhighlighter .line.highlighted.alt2 {
+  background-color: #e0e0e0 !important;
+}
+.syntaxhighlighter .line.highlighted.number {
+  color: black !important;
+}
+.syntaxhighlighter table caption {
+  color: black !important;
+}
+.syntaxhighlighter .gutter {
+  color: #afafaf !important;
+}
+.syntaxhighlighter .gutter .line {
+  border-right: 3px solid #6ce26c !important;
+}
+.syntaxhighlighter .gutter .line.highlighted {
+  background-color: #6ce26c !important;
+  color: white !important;
+}
+.syntaxhighlighter.printing .line .content {
+  border: none !important;
+}
+.syntaxhighlighter.collapsed {
+  overflow: visible !important;
+}
+.syntaxhighlighter.collapsed .toolbar {
+  color: blue !important;
+  background: white !important;
+  border: 1px solid #6ce26c !important;
+}
+.syntaxhighlighter.collapsed .toolbar a {
+  color: blue !important;
+}
+.syntaxhighlighter.collapsed .toolbar a:hover {
+  color: red !important;
+}
+.syntaxhighlighter .toolbar {
+  color: white !important;
+  background: #6ce26c !important;
+  border: none !important;
+}
+.syntaxhighlighter .toolbar a {
+  color: white !important;
+}
+.syntaxhighlighter .toolbar a:hover {
+  color: black !important;
+}
+.syntaxhighlighter .plain,
+.syntaxhighlighter .plain a {
+  color: black !important;
+}
+.syntaxhighlighter .comments,
+.syntaxhighlighter .comments a {
+  color: #008200 !important;
+}
+.syntaxhighlighter .string,
+.syntaxhighlighter .string a {
+  color: blue !important;
+}
+.syntaxhighlighter .keyword {
+  color: #006699 !important;
+}
+.syntaxhighlighter .preprocessor {
+  color: gray !important;
+}
+.syntaxhighlighter .variable {
+  color: #aa7700 !important;
+}
+.syntaxhighlighter .value {
+  color: #009900 !important;
+}
+.syntaxhighlighter .functions {
+  color: #ff1493 !important;
+}
+.syntaxhighlighter .constants {
+  color: #0066cc !important;
+}
+.syntaxhighlighter .script {
+  font-weight: bold !important;
+  color: #006699 !important;
+  background-color: none !important;
+}
+.syntaxhighlighter .color1,
+.syntaxhighlighter .color1 a {
+  color: gray !important;
+}
+.syntaxhighlighter .color2,
+.syntaxhighlighter .color2 a {
+  color: #ff1493 !important;
+}
+.syntaxhighlighter .color3,
+.syntaxhighlighter .color3 a {
+  color: red !important;
+}
+.syntaxhighlighter .keyword {
+  font-weight: bold !important;
+}
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 0 4px 8px 4px;
+  background-color: #231F20;
+  vertical-align: middle;
+  text-align: center;
+  white-space: nowrap;
+  font-family: inherit;
+  font-size: 100%;
+  font-weight: 600;
+  cursor: pointer;
+  border: 0 solid;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  font-family: "FrutigerLTW01-55Roman", Arial;
+}
+.btn:disabled {
+  opacity: 0.5;
+}
+.btn,
+.btn:hover {
+  text-decoration: none;
+  color: #fff;
+}
+.btn:active,
+.btn:focus {
+  outline: none;
+}
+/*  =BUTTON SIZES
+--------------------------------------------------------------------*/
+.btn--full {
+  width: 100%;
+}
+/*  =BUTTON STYLES
+--------------------------------------------------------------------*/
+.btn--primary {
+  background-color: #005EB8;
+}
+.btn--primary:hover {
+  background-color: #004485;
+}
+.btn--secondary {
+  background-color: #003087;
+}
+.btn--secondary:hover {
+  background-color: #001e54;
+}
+.btn--tertiary {
+  background-color: #425563;
+}
+.btn--tertiary:hover {
+  background-color: #2e3b44;
+}
+.btn--green {
+  background-color: #009639;
+}
+.btn--green:hover {
+  background-color: #006326;
+}
+.document-content {
+  width: 1170px;
+  margin-top: 40px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 0;
+}
+/* TEXT */
+/* ########################################################## */
+body {
+  font-family: "FrutigerLTW01-55Roman", Arial;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  line-height: 1.3;
+  color: #3E4F59;
+  font-family: "FrutigerLTW01-55Roman", Arial;
+  font-weight: 100;
+}
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 33px;
+  font-family: "FrutigerLTW01-65Bold", Arial;
+}
+p {
+  font-size: 18px;
+  color: #3E4F59;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+ul,
+li {
+  font-size: 18px;
+  color: #3E4F59;
+  line-height: 1.5;
+}
+a {
+  color: inherit;
+  color: #005EB8;
+}
+.zeta {
+  font-size: 16px;
+}
+.micro {
+  font-size: 12px;
 }
 /* TOP HEADER */
 /* ########################################################## */
@@ -556,7 +1039,7 @@ a {
 /* COMMON SEARCH */
 /* ########################################################## */
 .common-search {
-  background-color: #00376d;
+  background-color: #00376D;
 }
 .common-search__inner {
   width: 1170px;
@@ -590,19 +1073,19 @@ a {
   border: 0;
 }
 .common-search__submit {
-  background-color: #005eb8;
+  background-color: #005EB8;
   color: #FFF;
   width: 145px;
   border-radius: 0px;
   padding-top: 14px;
   padding-bottom: 14px;
   font-size: 22px;
-  border: 1px solid #005eb8;
+  border: 1px solid #005EB8;
 }
 /* HERO */
 /* ########################################################## */
 .document-header {
-  background-color: #005eb8;
+  background-color: #005EB8;
   padding: 40px 0px 20px;
 }
 .document-header__inner {
@@ -645,13 +1128,12 @@ a {
 /* ########################################################## */
 .panel {
   display: block;
-  padding: 20px;
+  padding: 16px 20px;
   /*
     @media #{map-get($base-breakpoints, 'desk')} {
         padding: $base-spacing-unit;
     }
     */
-
   background: #fff;
 }
 .panel:after {
@@ -673,10 +1155,45 @@ a {
 .panel--large {
   padding: 20px;
 }
+.panel--vertical-spacing-grid {
+  background-image: url("../img/vertical-spacing.png");
+  background-position: 0px 0px;
+}
 /*  =Style variations
 --------------------------------------------------------------------*/
 .panel--grey {
   background-color: #F1F2F4;
+}
+.panel--example {
+  border: 2px solid #aeb7bd;
+  margin-top: 20px;
+  position: relative;
+}
+.panel--example:before {
+  content: "Preview";
+  position: absolute;
+  top: -26px;
+  left: -2px;
+  line-height: 26px;
+  padding: 0 10px;
+  background: #aeb7bd;
+  color: #fff;
+}
+.panel--design {
+  border: 2px solid #aeb7bd;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  position: relative;
+}
+.panel--design:before {
+  content: "Design";
+  position: absolute;
+  top: -26px;
+  left: -2px;
+  line-height: 26px;
+  padding: 0 10px;
+  background: #aeb7bd;
+  color: #fff;
 }
 /* FILTER LIST */
 /* ########################################################## */
@@ -690,8 +1207,8 @@ a {
 }
 .filter-list__item__link {
   border-radius: 5px;
-  background-color: #dee2e5;
-  color: #3e4f59;
+  background-color: #DEE2E5;
+  color: #3E4F59;
   text-decoration: none;
   font-size: 14px;
   padding: 5px;
@@ -778,4 +1295,31 @@ a {
 .footer__inner {
   width: 1170px;
   margin: 0 auto;
+}
+/* PAGINATIONS */
+/* ########################################################## */
+.pagination {
+  text-align: center;
+}
+.pagination a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 17px;
+}
+.pagination__list {
+  list-style: none;
+}
+.pagination__list__item {
+  display: inline-block;
+  border: 1px solid #D9DDDC;
+  border-radius: 5px;
+}
+.pagination__list__item--previous {
+  margin-right: 10px;
+}
+.pagination__list__item--current {
+  padding: 10px 17px;
+}
+.pagination__list__item--next {
+  margin-left: 10px;
 }

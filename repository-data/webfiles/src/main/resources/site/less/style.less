@@ -1,5 +1,7 @@
 @import "normalise";
 @import "fonts";
+@import "colors";
+
 
 
 /* VARS */
@@ -10,11 +12,32 @@
 @color-grey-dark: #3E4F59;
 @color-grey-light: #DEE2E5;
 
+
+
+
+
+
+
+
+
+
 @base-spacing-unit: 20px;
 @half-spacing-unit: @base-spacing-unit/2;
 @quarter-spacing-unit: @base-spacing-unit/4;
 @double-spacing-unit: @base-spacing-unit*2;
 @base-radius: 5px;
+@base-font-family: "FrutigerLTW01-55Roman", Arial;
+
+@vertical-spacing-unit: 8px;
+
+
+/* COMPONENTS */
+/* ########################################################## */
+@import "components/spacing";
+@import "components/syntax-highlighter";
+@import "components/buttons";
+
+
 
 
 .document-content {
@@ -75,47 +98,12 @@ a {
 .zeta {
   font-size: 16px;
 }
-
-
-/* SPACING */
-/* ########################################################## */
-
-.flush {
-  margin: 0px;
-}
-.flush--top {
-  margin-top: 0px;
-}
-.flush--bottom {
-  margin-bottom: 0px;
-}
-.flush--left {
-  margin-left: 0px;
-}
-.flush--right {
-  margin-right: 0px;
+.micro {
+    font-size:12px;
 }
 
 
-.push--top {
-  margin-top: @base-spacing-unit;
-}
-.push-double--top {
-  margin-top: @double-spacing-unit;
-}
-.push-half--top {
-  margin-top: @half-spacing-unit;
-}
 
-.push--bottom {
-  margin-bottom: @base-spacing-unit;
-}
-.push-double--bottom {
-  margin-bottom: @double-spacing-unit;
-}
-.push-half--bottom {
-  margin-bottom: @half-spacing-unit;
-}
 
 
 /* TOP HEADER */
@@ -262,7 +250,7 @@ a {
 
 .panel {
     display: block;
-    padding: @base-spacing-unit;
+    padding: (@vertical-spacing-unit*2) @base-spacing-unit;
 
     /*
     @media #{map-get($base-breakpoints, 'desk')} {
@@ -299,6 +287,10 @@ a {
 .panel--large {
   padding: @base-spacing-unit;
 }
+.panel--vertical-spacing-grid {
+    background-image: url("../img/vertical-spacing.png");
+    background-position:0px 0px;
+}
 
 
 /*  =Style variations
@@ -306,6 +298,46 @@ a {
 .panel--grey {
   background-color: #F1F2F4;
 }
+
+.panel--example {
+    border: 2px solid #aeb7bd;
+    margin-top: @base-spacing-unit;
+    //margin-bottom: @double-spacing-unit;
+    position: relative;
+}
+.panel--example:before {
+    content: "Preview";
+    position: absolute;
+    top: -26px;
+    left: -2px;
+    line-height: 26px;
+    padding: 0 10px;
+    background: #aeb7bd;
+    color: #fff;
+}
+
+
+.panel--design {
+    border: 2px solid #aeb7bd;
+    margin-top: @base-spacing-unit;
+    margin-bottom: @double-spacing-unit;
+    position: relative;
+}
+.panel--design:before {
+    content: "Design";
+    position: absolute;
+    top: -26px;
+    left: -2px;
+    line-height: 26px;
+    padding: 0 10px;
+    background: #aeb7bd;
+    color: #fff;
+}
+
+
+
+
+
 
 
 /* FILTER LIST */

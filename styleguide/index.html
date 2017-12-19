@@ -17,36 +17,337 @@
 
 <div class="document-content">
 
-  <br><br>
-  <h2>NHS - Replacement Publication System</h2>
-  <br><br>
-
-  <h1>Ticket #184</h1>
 
 
-  <div class="panel panel--grey push--bottom">
-    <h3>Dataset:</h3>
-    <ul>
-      <li><a href="http://localhost:8080/publications/acceptance-tests/series-with-publication-with-datasets/series-publication-with-datasets/series-publication-with-datasets-dataset">Example page</a>
-      <li><a href="../styleguide/dataset.html">Template</a></li>
-    </ul>
-  </div>
+    <br><br>
+    <img src="css/img/logo.png">
+    <p>This project uses the styles from GDS but doesn't use any of the code</p>
 
-  <div class="panel panel--grey push--bottom">
-    <h3>Publication:</h3>
-    <ul>
-      <li><a href="http://localhost:8080/publications/acceptance-tests/publication-with-datasets">Example page</a>
-      <li><a href="../styleguide/publication.html">Template</a></li>
-    </ul>
-  </div>
 
-  <div class="panel panel--grey push--bottom">
-    <h3>Series:</h3>
-    <ul>
-      <li><a href="http://localhost:8080/publications/valid-publication-series">Example page</a>
-      <li><a href="../styleguide/series.html">Template</a></li>
-    </ul>
-  </div>
+
+
+
+    <div class="panel panel--large panel--grey push-double--bottom">
+        <h3>Run LESS without server</h3>
+        <pre class="brush: php;">
+            cd /Users/davesayce/Sites/ps-hippo
+            lessc repository-data/webfiles/src/main/resources/site/less/style.less styleguide/css/style.css
+        </pre>
+    </div>
+
+
+
+    <h1>Sitemap</h1>
+
+    <div class="panel panel--large panel--grey push-double--bottom">
+        <h3>Publication system</h3>
+        <ul>
+          <li><a href="dataset.html">Dataset</a> - <span class="micro"><a href="http://localhost:8080/publications/acceptance-tests/publication-with-datasets">Example</a></span></li>
+          <li><a href="publication.html">Publication</a> - <span class="micro"><a href="http://localhost:8080/publications/valid-publication-series">Example</a></span></li>
+          <li><a href="series.html">Series</a> - <span class="micro"><a href="http://localhost:8080/publications/acceptance-tests/series-with-publication-with-datasets/series-publication-with-datasets/series-publication-with-datasets-dataset">Example</a></span></li>
+        </ul>
+    </div>
+
+    <h1>Online Colour Palette</h1>
+    <div class="panel panel--flush push-double--bottom">
+
+
+        <!-- BLUE -->
+        <div>
+            <div class="color-swatch">
+                <div class="color-swatch__colour nhs-blue"></div>
+                <div class="color-swatch__info">
+                    <h4>NHS Blue</h4>
+                    <p class="micro flush">LESS: @nhs-blue</p>
+                    <p class="micro flush">RGB: 0 / 94 / 184</p>
+                    <p class="micro flush">#005EB8</p>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-swatch__colour nhs-blue50"></div>
+                <div class="color-swatch__info">
+                    <h4>NHS Blue 50%</h4>
+                    <p class="micro flush">LESS: @nhs-blue50</p>
+                    <p class="micro flush">RGB: 118 / 173 / 218</p>
+                    <p class="micro flush">#76ADDA</p>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-swatch__colour nhs-blue10"></div>
+                <div class="color-swatch__info">
+                    <h4>NHS Blue 10%</h4>
+                    <p class="micro flush">LESS: @nhs-blue10</p>
+                    <p class="micro flush">RGB: 230 / 239 / 248</p>
+                    <p class="micro flush">#E6EFF8</p>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-swatch__colour nhs-blue-link-hover"></div>
+                <div class="color-swatch__info">
+                    <h4>NHS Link Hover</h4>
+                    <p class="micro flush">LESS: @nhs-blue-link-hover</p>
+                    <p class="micro flush">RGB: 210 / 65 / 85</p>
+                    <p class="micro flush">#4C92D9</p>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-swatch__colour nhs-bright-blue"></div>
+                <div class="color-swatch__info">
+                    <h4>NHS Bright Blue</h4>
+                    <p class="micro flush">LESS: @nhs-bright-blue</p>
+                    <p class="micro flush">RGB: 1 / 114 / 206</p>
+                    <p class="micro flush">#0072CE</p>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-swatch__colour nhs-dark-blue"></div>
+                <div class="color-swatch__info">
+                    <h4>NHS Dark Blue</h4>
+                    <p class="micro flush">LESS: @nhs-dark-blue</p>
+                    <p class="micro flush">RGB: 0 / 48 / 135</p>
+                    <p class="micro flush">#003087</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- GREY -->
+        <div>
+            <div class="color-swatch">
+                <div class="color-swatch__colour nhs-grey01"></div>
+                <div class="color-swatch__info">
+                    <h4>NHS Grey 01</h4>
+                    <p class="micro flush">LESS: @nhs-grey01</p>
+                    <p class="micro flush">RGB: 66 / 85 / 99</p>
+                    <p class="micro flush">#425563</p>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-swatch__colour nhs-grey02"></div>
+                <div class="color-swatch__info">
+                    <h4>NHS Grey 02</h4>
+                    <p class="micro flush">LESS: @nhs-grey02</p>
+                    <p class="micro flush">RGB: 118 / 134 / 146</p>
+                    <p class="micro flush">#768692</p>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-swatch__colour nhs-grey03"></div>
+                <div class="color-swatch__info">
+                    <h4>NHS Grey 03</h4>
+                    <p class="micro flush">LESS: @nhs-grey03</p>
+                    <p class="micro flush">RGB: 174 / 183 / 189</p>
+                    <p class="micro flush">#AEB7BD</p>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-swatch__colour nhs-grey04"></div>
+                <div class="color-swatch__info">
+                    <h4>NHS Grey 04</h4>
+                    <p class="micro flush">LESS: @nhs-grey04</p>
+                    <p class="micro flush">RGB: 216 / 221 / 224</p>
+                    <p class="micro flush">#D8DDE0</p>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-swatch__colour nhs-grey05"></div>
+                <div class="color-swatch__info">
+                    <h4>NHS Grey 05</h4>
+                    <p class="micro flush">LESS: @nhs-grey05</p>
+                    <p class="micro flush">RGB: 240 / 243 / 245</p>
+                    <p class="micro flush">#F0F4F5</p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="color-swatch">
+                <div class="color-swatch__colour nhs-black"></div>
+                <div class="color-swatch__info">
+                    <h4>NHS Black</h4>
+                    <p class="micro flush">LESS: @nhs-black</p>
+                    <p class="micro flush">RGB: 35 / 31 / 32</p>
+                    <p class="micro flush">#231F20</p>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-swatch__colour nhs-white"></div>
+                <div class="color-swatch__info">
+                    <h4>NHS White</h4>
+                    <p class="micro flush">LESS: @nhs-white</p>
+                    <p class="micro flush">RGB: 255 / 255 / 255</p>
+                    <p class="micro flush">#FFFFFF</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div>
+            <div class="color-swatch">
+                <div class="color-swatch__colour nhs-green"></div>
+                <div class="color-swatch__info">
+                    <h4>NHS Green</h4>
+                    <p class="micro flush">LESS: @nhs-green</p>
+                    <p class="micro flush">RGB: 0 / 103 / 71</p>
+                    <p class="micro flush">#009639</p>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-swatch__colour nhs-darkgreen"></div>
+                <div class="color-swatch__info">
+                    <h4>NHS Dark Green</h4>
+                    <p class="micro flush">LESS: @nhs-darkgreen</p>
+                    <p class="micro flush">RGB: 0 / 103 / 71</p>
+                    <p class="micro flush">#006747</p>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-swatch__colour nhs-greenmod"></div>
+                <div class="color-swatch__info">
+                    <h4>NHS Green Mod</h4>
+                    <p class="micro flush">LESS: @nhs-greenmod</p>
+                    <p class="micro flush">RGB: 0 / 103 / 71</p>
+                    <p class="micro flush">#006747</p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="color-swatch">
+                <div class="color-swatch__colour nhs-light-green"></div>
+                <div class="color-swatch__info">
+                    <h4>NHS Light Green</h4>
+                    <p class="micro flush">LESS: @nhs-light-green</p>
+                    <p class="micro flush">RGB: 120 / 190 / 32</p>
+                    <p class="micro flush">#78BE20</p>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-swatch__colour nhs-light-green50"></div>
+                <div class="color-swatch__info">
+                    <h4>NHS Light Green 50%</h4>
+                    <p class="micro flush">LESS: @nhs-light-green50</p>
+                    <p class="micro flush">RGB: 187 / 222 / 143</p>
+                    <p class="micro flush">#BBDE8F</p>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-swatch__colour nhs-light-green10"></div>
+                <div class="color-swatch__info">
+                    <h4>NHS Light Green 10%</h4>
+                    <p class="micro flush">LESS: @nhs-light-green10</p>
+                    <p class="micro flush">RGB: 241 / 248 / 232</p>
+                    <p class="micro flush">#F1F8E8</p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="color-swatch">
+                <div class="color-swatch__colour nhs-warm-yellow"></div>
+                <div class="color-swatch__info">
+                    <h4>NHS Warm Yellow</h4>
+                    <p class="micro flush">LESS: @nhs-warm-yellow</p>
+                    <p class="micro flush">RGB: 255 / 184 / 28</p>
+                    <p class="micro flush">#FFB81C</p>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-swatch__colour nhs-warm-yellow50"></div>
+                <div class="color-swatch__info">
+                    <h4>NHS Warm Yellow 50%</h4>
+                    <p class="micro flush">LESS: @nhs-warm-yellow50</p>
+                    <p class="micro flush">RGB: 250 / 218 / 139</p>
+                    <p class="micro flush">#FADA8B</p>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-swatch__colour nhs-warm-yellow10"></div>
+                <div class="color-swatch__info">
+                    <h4>NHS Warm Yellow 10%</h4>
+                    <p class="micro flush">LESS: @nhs-warm-yellow10</p>
+                    <p class="micro flush">RGB: 253 / 242 / 213</p>
+                    <p class="micro flush">#FDF2D5</p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="color-swatch">
+                <div class="color-swatch__colour nhs-emergency-red"></div>
+                <div class="color-swatch__info">
+                    <h4>NHS Emergency</h4>
+                    <p class="micro flush">LESS: @nhs-emergency-red</p>
+                    <p class="micro flush">RGB: 218 / 41 / 28</p>
+                    <p class="micro flush">#DA291C</p>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-swatch__colour nhs-emergency-red50"></div>
+                <div class="color-swatch__info">
+                    <h4>NHS Emergency 50%</h4>
+                    <p class="micro flush">LESS: @nhs-emergency-red50</p>
+                    <p class="micro flush">RGB: 277 / 150 / 138</p>
+                    <p class="micro flush">#E3968A</p>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-swatch__colour nhs-emergency-red10"></div>
+                <div class="color-swatch__info">
+                    <h4>NHS Emergency 10%</h4>
+                    <p class="micro flush">LESS: @nhs-emergency-red10</p>
+                    <p class="micro flush">RGB: 245 / 229 / 228</p>
+                    <p class="micro flush">#F5E6E4</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <h1>UI Kit</h1>
+
+    <h2>Buttons</h2>
+    <div class="panel panel--large panel--grey push--bottom">
+
+        <div class="panel panel--design">
+            <img src="https://www.nhs.uk/transformation/assets/units/button.png">
+        </div>
+
+        <div class="panel panel--example panel--vertical-spacing-grid">
+            <a href="#" class="btn btn--primary"> Button Primary</a><!--
+            --><a href="#" class="btn btn--secondary"> Button Secondary</a><!--
+            --><a href="#" class="btn btn--tertiary"> Button Tertiary</a><!--
+            --><a href="#" class="btn btn--green"> Button Green</a><!--
+            --><a href="#" class="btn btn--full">Button Full</a>
+        </div>
+        <div class="panel">
+            <pre class="brush: php;">
+                <a href="#" class="btn btn--primary"> Button Primary</a>
+                <a href="#" class="btn btn--secondary"> Button Secondary</a>
+                <a href="#" class="btn btn--tertiary"> Button Tertiary</a>
+                <a href="#" class="btn btn--green"> Button Green</a>
+                <a href="#" class="btn btn--full">Button Full</a>
+            </pre>
+
+        </div>
+    </div>
+
+
+    <h2>Panels</h2>
+    <div class="panel panel--large panel--grey push--bottom">
+
+        <div class="panel panel--design">
+            <img src="https://www.nhs.uk/transformation/assets/components/local-header/default-lg.png">
+        </div>
+
+        <div class="panel panel--example panel--vertical-spacing-grid">
+            <div class="panel">Panel</div>
+            <div class="panel--primary">Panel primary</div>
+            <div class="panel--secondary">Panel secondary</div>
+        </div>
+
+    </div>
 
 
 
@@ -63,11 +364,7 @@
 
 
 
-  <h3>Styleguide</h3>
-  <ul>
-    <li>Grids</li>
-    <li>Buttons</li>
-  </ul>
+
 
 
 
@@ -91,6 +388,12 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js"></script>
+<script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushJScript.js"></script>
+<script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushPhp.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+
+
 
 </body>
 </html>
