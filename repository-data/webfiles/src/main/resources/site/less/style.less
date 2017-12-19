@@ -33,10 +33,11 @@
 
 /* COMPONENTS */
 /* ########################################################## */
-@import "components/spacing";
+
 @import "components/syntax-highlighter";
 @import "components/buttons";
-
+@import "components/panels";
+@import "components/spacing";
 
 
 
@@ -53,7 +54,7 @@
 /* ########################################################## */
 
 body {
-  font-family:"FrutigerLTW01-55Roman", Arial;
+  font-family: @base-font-family
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -61,19 +62,24 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: @half-spacing-unit;
     line-height: 1.3;
     color: @color-grey-dark;
-    font-family: "FrutigerLTW01-55Roman", Arial;
+    font-family: "FrutigerLTW01-65Bold", Arial;;
     font-weight: 100;
 }
 
 h1 {
-  font-size: 36px;
+    font-size: 56px;
 }
 h2 {
-  font-size: 33px;
-  font-family: "FrutigerLTW01-65Bold", Arial;
+    font-size: 36px;
 }
 h3 {
-  //font-family: "FrutigerLTW01-65Bold", Arial;
+    font-size: 24px;
+}
+h4 {
+    font-size: 20px;
+}
+h5 {
+    font-size: 16px;
 }
 
 p {
@@ -244,95 +250,6 @@ a {
   line-height: 1.4;
 }
 
-
-/* PANELS */
-/* ########################################################## */
-
-.panel {
-    display: block;
-    padding: (@vertical-spacing-unit*2) @base-spacing-unit;
-
-    /*
-    @media #{map-get($base-breakpoints, 'desk')} {
-        padding: $base-spacing-unit;
-    }
-    */
-
-    background: #fff;
-
-    &:after{
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-}
-
-
-/*  =PANEL SIZE VARIATIONS (Matches _layout.scss sizing units)
---------------------------------------------------------------------*/
-
-.panel--flush {
-  padding: 0;
-}
-
-.panel--tiny {
-  padding: @quarter-spacing-unit;
-}
-
-.panel--small {
-  padding: @half-spacing-unit;
-}
-
-.panel--large {
-  padding: @base-spacing-unit;
-}
-.panel--vertical-spacing-grid {
-    background-image: url("../img/vertical-spacing.png");
-    background-position:0px 0px;
-}
-
-
-/*  =Style variations
---------------------------------------------------------------------*/
-.panel--grey {
-  background-color: #F1F2F4;
-}
-
-.panel--example {
-    border: 2px solid #aeb7bd;
-    margin-top: @base-spacing-unit;
-    //margin-bottom: @double-spacing-unit;
-    position: relative;
-}
-.panel--example:before {
-    content: "Preview";
-    position: absolute;
-    top: -26px;
-    left: -2px;
-    line-height: 26px;
-    padding: 0 10px;
-    background: #aeb7bd;
-    color: #fff;
-}
-
-
-.panel--design {
-    border: 2px solid #aeb7bd;
-    margin-top: @base-spacing-unit;
-    margin-bottom: @double-spacing-unit;
-    position: relative;
-}
-.panel--design:before {
-    content: "Design";
-    position: absolute;
-    top: -26px;
-    left: -2px;
-    line-height: 26px;
-    padding: 0 10px;
-    background: #aeb7bd;
-    color: #fff;
-}
 
 
 

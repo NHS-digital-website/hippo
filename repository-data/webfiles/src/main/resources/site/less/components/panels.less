@@ -1,0 +1,146 @@
+
+/* PANELS */
+/* ########################################################## */
+
+.panel {
+    display: block;
+    padding: (@vertical-spacing-unit*2) @base-spacing-unit;
+    margin-bottom: @vertical-spacing-unit;
+    background-color: #fff;
+
+    &:after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+.panel__title {
+    position: relative;
+    margin-top: 32px;
+    padding-bottom: 12px;
+}
+.panel__title:after {
+    content: "";
+    position: absolute;
+    width: 130px;
+    height: 4px;
+    background-color: rgba(255,255,255,0.5);
+    bottom: 0px;
+    left: 0px;
+}
+.panel__para {
+    margin-top: @vertical-spacing-unit*3;
+    margin-bottom:0px;
+}
+
+
+
+
+/*  =PANEL SIZE VARIATIONS (Matches _layout.scss sizing units)
+--------------------------------------------------------------------*/
+
+.panel--flush {
+  padding: 0;
+}
+
+.panel--tiny {
+  padding: @quarter-spacing-unit;
+}
+
+.panel--small {
+  padding: @half-spacing-unit;
+}
+
+.panel--large {
+  padding: @vertical-spacing-unit*4;
+}
+.panel--vertical-spacing-grid {
+    background-image: url("../img/vertical-spacing.png");
+    background-position:0px 0px;
+}
+
+
+
+/*  =Style variations
+--------------------------------------------------------------------*/
+
+.panel--primary {
+  background-color: @nhs-bright-blue;
+  border:0px;
+  color:#FFF;
+  * {
+      color:#FFF;
+  }
+}
+.panel--secondary {
+  background-color: @nhs-dark-blue;
+  border:0px;
+  color:#FFF;
+  * {
+      color:#FFF;
+  }
+}
+.panel--grey {
+  background-color: @nhs-grey05;
+  border:0px;
+}
+.panel--border {
+    border:8px solid @nhs-bright-blue;
+}
+.panel--emergency {
+    background-color: @nhs-emergency-red;
+    * {
+        color:#FFF;
+    }
+}
+.panel--urgent {
+    background-color: @nhs-emergency-red10;
+    border-top: @vertical-spacing-unit solid @nhs-emergency-red;
+    * {
+        color:@nhs-black;
+    }
+}
+.panel--important {
+    background-color: @nhs-warm-yellow10;
+    border-top: (@vertical-spacing-unit/2) solid @nhs-warm-yellow;
+    border-bottom: (@vertical-spacing-unit/2) solid @nhs-warm-yellow;
+    * {
+        color:@nhs-black;
+    }
+}
+
+/*  =For style guides
+--------------------------------------------------------------------*/
+.panel--example {
+    border: 2px solid #aeb7bd;
+    margin-top: @base-spacing-unit;
+    position: relative;
+}
+.panel--example:before {
+    content: "Preview";
+    position: absolute;
+    top: -26px;
+    left: -2px;
+    line-height: 26px;
+    padding: 0 10px;
+    background: #aeb7bd;
+    color: #fff;
+}
+
+.panel--design {
+    border: 2px solid #aeb7bd;
+    margin-top: @base-spacing-unit;
+    margin-bottom: @double-spacing-unit;
+    position: relative;
+}
+.panel--design:before {
+    content: "Design";
+    position: absolute;
+    top: -26px;
+    left: -2px;
+    line-height: 26px;
+    padding: 0 10px;
+    background: #aeb7bd;
+    color: #fff;
+}
