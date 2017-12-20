@@ -414,14 +414,7 @@ src:url("fonts/FrutigerLTW01-46LightItalic.eot?#iefix") format("eot"),url("fonts
 }
 */
 .color-swatch {
-  display: inline-block;
-  width: 174px;
-  margin-right: 20px;
   margin-bottom: 20px;
-  vertical-align: top;
-}
-.color-swatch:last-child {
-  margin-right: 0;
 }
 .color-swatch__colour {
   width: 100%;
@@ -508,6 +501,274 @@ src:url("fonts/FrutigerLTW01-46LightItalic.eot?#iefix") format("eot"),url("fonts
 /* ########################################################## */
 /* COMPONENTS */
 /* ########################################################## */
+/* BASIC LAYOUT */
+/* ########################################################## */
+.layout {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: -16px;
+}
+.layout__item {
+  display: inline-block;
+  padding-left: 16px;
+  vertical-align: top;
+  text-align: left;
+  width: 100%;
+}
+@media only screen and (min-width: 660px) {
+  .layout {
+    margin-left: -32px;
+  }
+  .layout__item {
+    padding-left: 32px;
+  }
+}
+/* Override the guttering */
+.layout--flush {
+  margin-left: 0px;
+}
+.layout--flush > .layout__item {
+  padding-left: 0px;
+}
+.layout--small {
+  margin-left: -20px;
+}
+.layout--small > .layout__item {
+  padding-left: 20px;
+}
+.layout--large {
+  margin-left: -60px;
+}
+.layout--large > .layout__item {
+  padding-left: 60px;
+}
+.layout-1-2 {
+  width: 50%;
+}
+.layout-1-3 {
+  width: 33.33333%;
+}
+.layout-2-3 {
+  width: 66.666666%;
+}
+.layout-1-4 {
+  width: 25%;
+}
+.layout-2-4 {
+  width: 50%;
+}
+.layout-3-4 {
+  width: 75%;
+}
+.layout-1-5 {
+  width: 20%;
+}
+.layout-2-5 {
+  width: 40%;
+}
+.layout-3-5 {
+  width: 60%;
+}
+.layout-4-5 {
+  width: 80%;
+}
+.layout-1-6 {
+  width: 16.666666666%;
+}
+.layout-2-6 {
+  width: 33.333333333%;
+}
+.layout-3-6 {
+  width: 50%;
+}
+.layout-4-6 {
+  width: 66.666666666%;
+}
+.layout-5-6 {
+  width: 83.3333333333%;
+}
+.layout-6-6 {
+  width: 100%;
+}
+@media only screen and (max-width: 380px) {
+  .small-1-2 {
+    width: 50%;
+  }
+  .small-1-3 {
+    width: 33.33333%;
+  }
+  .small-2-3 {
+    width: 66.666666%;
+  }
+  .small-1-4 {
+    width: 25%;
+  }
+  .small-2-4 {
+    width: 50%;
+  }
+  .small-3-4 {
+    width: 75%;
+  }
+}
+@media only screen and (min-width: 381px) and (max-width: 660px) {
+  .medium-1-2 {
+    width: 50%;
+  }
+  .medium-1-3 {
+    width: 33.33333%;
+  }
+  .medium-2-3 {
+    width: 66.666666%;
+  }
+  .medium-1-4 {
+    width: 25%;
+  }
+  .medium-2-4 {
+    width: 50%;
+  }
+  .medium-3-4 {
+    width: 75%;
+  }
+  .medium-1-5 {
+    width: 20%;
+  }
+  .medium-2-5 {
+    width: 40%;
+  }
+  .medium-3-5 {
+    width: 60%;
+  }
+  .medium-4-5 {
+    width: 80%;
+  }
+  .medium-1-6 {
+    width: 16.666666666%;
+  }
+  .medium-2-6 {
+    width: 33.333333333%;
+  }
+  .medium-3-6 {
+    width: 50%;
+  }
+  .medium-4-6 {
+    width: 66.666666666%;
+  }
+  .medium-5-6 {
+    width: 83.3333333333%;
+  }
+  .medium-6-6 {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 381px) {
+  .medium-and-up-1-2 {
+    width: 50%;
+  }
+  .medium-and-up-1-3 {
+    width: 33.33333%;
+  }
+  .medium-and-up-2-3 {
+    width: 66.666666%;
+  }
+  .medium-and-up-1-4 {
+    width: 25%;
+  }
+  .medium-and-up-2-4 {
+    width: 50%;
+  }
+  .medium-and-up-3-4 {
+    width: 75%;
+  }
+  .medium-and-up-1-5 {
+    width: 20%;
+  }
+  .medium-and-up-2-5 {
+    width: 40%;
+  }
+  .medium-and-up-3-5 {
+    width: 60%;
+  }
+  .medium-and-up-4-5 {
+    width: 80%;
+  }
+  .medium-and-up-1-6 {
+    width: 16.666666666%;
+  }
+  .medium-and-up-2-6 {
+    width: 33.333333333%;
+  }
+  .medium-and-up-3-6 {
+    width: 50%;
+  }
+  .medium-and-up-4-6 {
+    width: 66.666666666%;
+  }
+  .medium-and-up-5-6 {
+    width: 83.3333333333%;
+  }
+  .medium-and-up-6-6 {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 660px) {
+  .large-1-2 {
+    width: 50%;
+  }
+  .large-1-3 {
+    width: 33.33333%;
+  }
+  .large-2-3 {
+    width: 66.666666%;
+  }
+  .large-1-4 {
+    width: 25%;
+  }
+  .large-2-4 {
+    width: 50%;
+  }
+  .large-3-4 {
+    width: 75%;
+  }
+  .large-1-5 {
+    width: 20%;
+  }
+  .large-2-5 {
+    width: 40%;
+  }
+  .large-3-5 {
+    width: 60%;
+  }
+  .large-4-5 {
+    width: 80%;
+  }
+  .large-1-6 {
+    width: 16.666666666%;
+  }
+  .large-2-6 {
+    width: 33.333333333%;
+  }
+  .large-3-6 {
+    width: 50%;
+  }
+  .large-4-6 {
+    width: 66.666666666%;
+  }
+  .large-5-6 {
+    width: 83.3333333333%;
+  }
+  .large-6-6 {
+    width: 100%;
+  }
+}
+/* FLEX LAYOUT */
+/* ########################################################## */
+.flex {
+  display: flex;
+}
+.flex__item {
+  flex: 1;
+}
 /**
  * SyntaxHighlighter
  * http://alexgorbatchev.com/SyntaxHighlighter
@@ -1074,16 +1335,27 @@ src:url("fonts/FrutigerLTW01-46LightItalic.eot?#iefix") format("eot"),url("fonts
   margin-bottom: 10px !important;
 }
 .document-content {
-  width: 1170px;
+  width: 100%;
+  max-width: 1170px;
   margin-top: 40px;
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 0;
+  padding: 0px 12px;
+}
+@media only screen and (min-width: 660px) {
+  .document-content {
+    padding: 0px 20px;
+  }
 }
 /* TEXT */
 /* ########################################################## */
 body {
   font-family: "FrutigerLTW01-55Roman", Arial;
+}
+img {
+  max-width: 100%;
+  height: auto;
 }
 h1,
 h2,
@@ -1099,10 +1371,10 @@ h6 {
   font-weight: 100;
 }
 h1 {
-  font-size: 56px;
+  font-size: 40px;
 }
 h2 {
-  font-size: 36px;
+  font-size: 28px;
 }
 h3 {
   font-size: 24px;
@@ -1118,6 +1390,29 @@ p {
   color: #3E4F59;
   line-height: 1.5;
   margin-bottom: 30px;
+}
+@media only screen and (min-width: 381px) {
+  h1 {
+    font-size: 56px;
+  }
+  h2 {
+    font-size: 36px;
+  }
+  h3 {
+    font-size: 24px;
+  }
+  h4 {
+    font-size: 20px;
+  }
+  h5 {
+    font-size: 16px;
+  }
+  p {
+    font-size: 18px;
+    color: #3E4F59;
+    line-height: 1.5;
+    margin-bottom: 30px;
+  }
 }
 ul,
 li {
@@ -1280,83 +1575,6 @@ a {
   text-decoration: none;
   font-size: 14px;
   padding: 5px;
-}
-/* BASIC LAYOUT */
-/* ########################################################## */
-.layout {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  margin-left: -15px;
-}
-.layout--large {
-  margin-left: -60px;
-}
-.layout--large > .layout__item {
-  padding-left: 60px;
-}
-.layout__item {
-  display: inline-block;
-  padding-left: 15px;
-  vertical-align: top;
-  text-align: left;
-  width: 100%;
-}
-.layout-1-2 {
-  width: 50%;
-}
-.layout-1-3 {
-  width: 33.33333%;
-}
-.layout-2-3 {
-  width: 66.666666%;
-}
-.layout-1-4 {
-  width: 25%;
-}
-.layout-2-4 {
-  width: 50%;
-}
-.layout-3-4 {
-  width: 75%;
-}
-.layout-1-5 {
-  width: 20%;
-}
-.layout-2-5 {
-  width: 40%;
-}
-.layout-3-5 {
-  width: 60%;
-}
-.layout-4-5 {
-  width: 80%;
-}
-.layout-1-6 {
-  width: 16.666666666%;
-}
-.layout-2-6 {
-  width: 33.333333333%;
-}
-.layout-3-6 {
-  width: 50%;
-}
-.layout-4-6 {
-  width: 66.666666666%;
-}
-.layout-5-6 {
-  width: 83.3333333333%;
-}
-.layout-6-6 {
-  width: 100%;
-}
-/* FLEX LAYOUT */
-/* ########################################################## */
-.flex {
-  display: flex;
-}
-.flex__item {
-  flex: 1;
 }
 /* FOOTER */
 /* ########################################################## */
