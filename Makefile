@@ -50,6 +50,10 @@ format-yaml:
 		-Dsource=repository-data/development/src/main/script/YamlFormatter.groovy \
 		-pl repository-data/development
 
+## Update maven dependency versions
+update-dependencies:
+	mvn initialize versions:use-latest-versions versions:update-properties versions:commit
+
 # install hooks and local git config
 .git/.local-hooks-installed:
 	@bash .git-local/install
