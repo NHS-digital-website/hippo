@@ -48,7 +48,7 @@
                             <goal>execute</goal>
                         </goals>
                         <configuration>
-                            <source>${project.parent.parent.basedir}/repository-data/development/src/main/script/YamlFormatter.groovy</source>
+                            <source>${publication-system.basedir}/repository-data/development/src/main/script/YamlFormatter.groovy</source>
                         </configuration>
                     </execution>
                 </executions>
