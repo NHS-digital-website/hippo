@@ -1,5 +1,5 @@
-<#include "../include/imports.ftl">
-<#include "./macro/structured-text.ftl">
+<#include "../include/imports.ftlh">
+<#include "./macro/structured-text.ftlh">
 <@hst.setBundle basename="publicationsystem.headers"/>
 
 <#assign dateFormat="dd/MM/yyyy"/>
@@ -42,7 +42,7 @@
                     <dl class="media__body">
                         <dt id="geographic-coverage">Geographic coverage</dt>
                         <dd data-uipath="ps.dataset.geographic-coverage">
-                            ${dataset.geographicCoverage?html}
+                            ${dataset.geographicCoverage}
                         </dd>
                     </dl>
                 </div>
@@ -54,7 +54,7 @@
                     <dl class="media__body">
                         <dt>Geographical granularity</dt>
                         <dd data-uipath="ps.dataset.granularity">
-                            <#list dataset.granularity as granularityItem><#if granularityItem?index != 0>, </#if>${granularityItem?html}</#list>
+                            <#list dataset.granularity as granularityItem><#if granularityItem?index != 0>, </#if>${granularityItem}</#list>
                         </dd>
                     </dl>
                 </div>

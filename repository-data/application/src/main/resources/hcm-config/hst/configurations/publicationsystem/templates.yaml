@@ -3,18 +3,18 @@ definitions:
   config:
     /hst:hst/hst:configurations/publicationsystem/hst:templates:
       /dataset:
-        hst:renderpath: webfile:/freemarker/publicationsystem/dataset.ftl
+        hst:renderpath: webfile:/freemarker/publicationsystem/dataset.ftlh
         jcr:primaryType: hst:template
       /folder:
-        hst:renderpath: webfile:/freemarker/publicationsystem/folder.ftl
+        hst:renderpath: webfile:/freemarker/publicationsystem/folder.ftlh
         jcr:primaryType: hst:template
       /publication:
-        hst:renderpath: webfile:/freemarker/publicationsystem/publication.ftl
+        hst:renderpath: webfile:/freemarker/publicationsystem/publication.ftlh
         jcr:primaryType: hst:template
       /publications-overview-template:
-        hst:renderpath: webfile:/freemarker/publicationsystem/publications-overview.ftl
+        hst:renderpath: webfile:/freemarker/publicationsystem/publications-overview.ftlh
         jcr:primaryType: hst:template
       /series:
-        hst:renderpath: webfile:/freemarker/publicationsystem/series.ftl
+        hst:renderpath: webfile:/freemarker/publicationsystem/series.ftlh
         jcr:primaryType: hst:template
       jcr:primaryType: hst:templates

@@ -2,5 +2,5 @@
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:templates/base:
-      hst:renderpath: webfile:/freemarker/common/base-layout.ftl
+      hst:renderpath: webfile:/freemarker/common/base-layout.ftlh
       jcr:primaryType: hst:template

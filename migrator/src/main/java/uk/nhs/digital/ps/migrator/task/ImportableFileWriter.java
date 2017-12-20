@@ -1,5 +1,6 @@
 package uk.nhs.digital.ps.migrator.task;
 
+import freemarker.core.JSONOutputFormat;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateExceptionHandler;
@@ -78,6 +79,7 @@ public class ImportableFileWriter {
             cfg.setDefaultEncoding("UTF-8");
             cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
             cfg.setLogTemplateExceptions(false);
+            cfg.setOutputFormat(JSONOutputFormat.INSTANCE);
         }
 
         return cfg;

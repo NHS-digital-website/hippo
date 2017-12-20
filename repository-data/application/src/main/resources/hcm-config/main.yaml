@@ -38,6 +38,11 @@ definitions:
         value:
         - editor
     /hippo:configuration/hippo:modules/webfiles/hippo:moduleconfig:
+      includedFiles:
+        operation: add
+        type: string
+        value:
+        - '*.ftlh'
       watchedModules:
       - repository-data/webfiles
   namespace:

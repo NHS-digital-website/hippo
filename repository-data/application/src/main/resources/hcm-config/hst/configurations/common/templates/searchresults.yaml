@@ -2,5 +2,5 @@
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:templates/searchresults:
-      hst:renderpath: webfile:/freemarker/common/searchresults.ftl
+      hst:renderpath: webfile:/freemarker/common/searchresults.ftlh
       jcr:primaryType: hst:template
