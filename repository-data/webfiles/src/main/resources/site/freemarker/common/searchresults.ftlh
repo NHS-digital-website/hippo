@@ -1,14 +1,14 @@
-<#include "../include/imports.ftl">
+<#include "../include/imports.ftlh">
 <#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
 
 <#if pageable??>
     <div id="searchResults" data-totalresults="${pageable.total}">
         <#if pageable.total == 0>
-            <h2>No results for: ${query?html}</h2>
+            <h2>No results for: ${query}</h2>
         <#else>
 
             <h2>${pageable.total} result<#if pageable.total gt 1>s</#if> found</h2>
-            <h4 class="push-double--bottom">Displaying  ${pageable.startOffset +1 } to ${pageable.endOffset} of ${pageable.total} results for '${query?html}'</h4>
+            <h4 class="push-double--bottom">Displaying  ${pageable.startOffset +1 } to ${pageable.endOffset} of ${pageable.total} results for '${query}'</h4>
 
             <#list pageable.items as publication>
                 <div class="push-double--bottom">
@@ -21,7 +21,7 @@
             </#list>
 
             <#if cparam.showPagination>
-                <#include "../include/pagination.ftl">
+                <#include "../include/pagination.ftlh">
             </#if>
 
         </#if>

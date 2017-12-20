@@ -1,4 +1,4 @@
-<#include "../include/imports.ftl">
+<#include "../include/imports.ftlh">
 
 <@hst.setBundle basename="essentials.global"/>
 <div>
@@ -6,7 +6,7 @@
 </div>
 <hr/>
 <div class="text-center">
-  <sub><@fmt.message key="footer.text" var="footer"/>${footer?html}</sub>
+  <sub><@fmt.message key="footer.text" var="footer"/>${footer}</sub>
 </div>
 
 

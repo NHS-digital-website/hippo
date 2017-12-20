@@ -1,4 +1,4 @@
-<#include "../include/imports.ftl">
+<#include "../include/imports.ftlh">
 
 <#-- @ftlvariable name="menu" type="org.hippoecm.hst.core.sitemenu.HstSiteMenu" -->
 <#-- @ftlvariable name="editMode" type="java.lang.Boolean"-->
@@ -9,9 +9,9 @@
       <#list menu.siteMenuItems as item>
         <#if !item.hstLink?? && !item.externalLink??>
           <#if item.selected || item.expanded>
-            <li class="active"><div style="padding: 10px 15px;">${item.name?html}</div></li>
+            <li class="active"><div style="padding: 10px 15px;">${item.name}</div></li>
           <#else>
-            <li><div style="padding: 10px 15px;">${item.name?html}</div></li>
+            <li><div style="padding: 10px 15px;">${item.name}</div></li>
           </#if>
         <#else>
           <#if item.hstLink??>
@@ -20,9 +20,9 @@
             <#assign href>${item.externalLink?replace("\"", "")}</#assign>
           </#if>
           <#if  item.selected || item.expanded>
-            <li class="active"><a href="${href}">${item.name?html}</a></li>
+            <li class="active"><a href="${href}">${item.name}</a></li>
           <#else>
-            <li><a href="${href}">${item.name?html}</a></li>
+            <li><a href="${href}">${item.name}</a></li>
           </#if>
         </#if>
       </#list>

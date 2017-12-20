@@ -1,4 +1,4 @@
-<#include "../include/imports.ftl">
+<#include "../include/imports.ftlh">
 <@hst.setBundle basename="month-names"/>
 <@hst.setBundle basename="document-types"/>
 
@@ -6,7 +6,7 @@
   <#list facets.folders as facet>
     <#if facet.folders?has_content>
 
-      <h3>${facet.name?html}</h3>
+      <h3>${facet.name}</h3>
       <ul class="filter-list">
           <#list facet.folders as value>
               <#if value.count &gt; 0>
@@ -19,11 +19,11 @@
                       <@fmt.message key=value.name var="documentType"/>
                       <#assign valueName=documentType/>
                   <#else>
-                      <#assign valueName=value.name?html/>
+                      <#assign valueName=value.name/>
                   </#if>
                   <#if value.leaf>
                       <@hst.facetnavigationlink var="link" remove=value current=facets />
-                      <li class="filter-list__item"><a href="${link}" class="filter-list__item__link">${valueName?html} x<i class="fa fa-times"> </i></a></li>
+                      <li class="filter-list__item"><a href="${link}" class="filter-list__item__link">${valueName} x<i class="fa fa-times"> </i></a></li>
                   <#else>
                       <@hst.link var="link" hippobean=value />
                       <li class="filter-list__item"><a href="${link}?query=${query}" class="filter-list__item__link">${valueName}&nbsp;(${value.count})</a></li>

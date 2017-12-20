@@ -1,12 +1,10 @@
-<#include "../include/imports.ftl">
-<#include "./macro/structured-text.ftl">
+<#include "../include/imports.ftlh">
+<#include "./macro/structured-text.ftlh">
 <#assign dateFormat="dd/MM/yyyy"/>
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() />
 <#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
 <#assign formatCoverageDates="uk.nhs.digital.ps.directives.CoverageDatesFormatterDirective"?new() >
-
 <@hst.setBundle basename="publicationsystem.headers"/>
-
 <#-- @ftlvariable name="publication" type="uk.nhs.digital.ps.beans.Publication" -->
 
 <#macro nominalPublicationDate>
@@ -24,7 +22,7 @@
 
 <#macro restrictedContentOfUpcomingPublication>
     <section class="document-header">
-        <h2 class="doc-title" data-uipath="ps.document.title">${publication.title?html}</h2>
+        <h2 class="doc-title" data-uipath="ps.document.title">${publication.title}</h2>
         <dl class="doc-metadata">
             <p>
             <@nominalPublicationDate/>
@@ -39,10 +37,10 @@
         <div class="document-header__inner">
 
             <h3 data-uipath="ps.publication.information-types" class="flush--bottom push-half--top">
-                <#list publication.informationType as type><#if type?index != 0>, </#if>${type?html}</#list>
+                <#list publication.informationType as type><#if type?index != 0>, </#if>${type}</#list>
             </h3>
 
-            <h1 class="layout-5-6" data-uipath="ps.document.title">${publication.title?html}</h1>
+            <h1 class="layout-5-6" data-uipath="ps.document.title">${publication.title}</h1>
 
             <#if publication.parentSeries??>
                 <p class="flush--top">
@@ -68,7 +66,7 @@
                         <dl class="media__body">
                             <dt id="geographic-coverage">Geographic coverage</dt>
                             <dd data-uipath="ps.publication.geographic-coverage">
-                                ${publication.geographicCoverage?html}
+                                ${publication.geographicCoverage}
                             </dd>
                         </dl>
                     </div>
@@ -80,7 +78,7 @@
                         <dl class="media__body">
                             <dt>Geographical granularity</dt>
                             <dd data-uipath="ps.publication.granularity">
-                                <#list publication.granularity as granularityItem><#if granularityItem?index != 0>, </#if>${granularityItem?html}</#list>
+                                <#list publication.granularity as granularityItem><#if granularityItem?index != 0>, </#if>${granularityItem}</#list>
                             </dd>
                         </dl>
                     </div>
@@ -134,7 +132,7 @@
                 <#if publication.administrativeSources?has_content>
                     <h2>Administrative Sources</h2>
                     <p data-uipath="ps.publication.administrative-sources">
-                        ${publication.administrativeSources?html}
+                        ${publication.administrativeSources}
                     </p>
                 </#if>
             </div><!--

@@ -140,6 +140,10 @@
       <param-value>text/html; charset=UTF-8</param-value>
       <!-- Forces UTF-8 output encoding! -->
     </init-param>
+    <init-param>
+      <param-name>incompatible_improvements</param-name>
+      <param-value>2.3.24</param-value>
+    </init-param>
     <!--
       'template_exception_handler' determines what Freemarker does when it encounters an error:
       - "ignore" lets Freemarker log an exception and then continue rendering.
@@ -199,7 +203,7 @@
 
   <servlet-mapping>
     <servlet-name>freemarker</servlet-name>
-    <url-pattern>*.ftl</url-pattern>
+    <url-pattern>*.ftlh</url-pattern>
   </servlet-mapping>
 
   <servlet-mapping>

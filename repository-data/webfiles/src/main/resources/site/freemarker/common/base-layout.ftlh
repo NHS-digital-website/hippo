@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<#include "../include/imports.ftl">
+<#include "../include/imports.ftlh">
 <html lang="en">
   <head>
 

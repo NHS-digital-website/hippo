@@ -1,5 +1,5 @@
-<#include "../include/imports.ftl">
-<#include "./macro/structured-text.ftl">
+<#include "../include/imports.ftlh">
+<#include "./macro/structured-text.ftlh">
 
 <@hst.setBundle basename="publicationsystem.headers"/>
 
