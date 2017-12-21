@@ -5,4 +5,7 @@ definitions:
       /facets:
         hst:renderpath: webfile:/freemarker/common/facets.ftlh
         jcr:primaryType: hst:template
+      /footer:
+        hst:renderpath: webfile:/freemarker/common/base-footer.ftlh
+        jcr:primaryType: hst:template
       jcr:primaryType: hst:templates

@@ -2,6 +2,9 @@
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:abstractpages/basepage:
+      /footer:
+        hst:template: footer
+        jcr:primaryType: hst:component
       /top:
         hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsSearchComponent
         hst:template: search
