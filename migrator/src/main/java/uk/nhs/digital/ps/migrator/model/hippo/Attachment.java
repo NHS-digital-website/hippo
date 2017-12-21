@@ -3,6 +3,8 @@ package uk.nhs.digital.ps.migrator.model.hippo;
 import org.apache.tika.Tika;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.nhs.digital.ps.migrator.MigrationReport;
+import uk.nhs.digital.ps.migrator.model.nesstar.PublishingPackage;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -12,7 +14,6 @@ import java.net.URLConnection;
 import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.ReadableByteChannel;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -58,22 +59,22 @@ public class Attachment {
         }
     }
 
-    public void download() {
+    public boolean download(PublishingPackage publishingPackage) {
 
+        File file = new File(getFilePath());
+        // The URIs have spaces and we need to encode them or we get a 505 error response
+        String encodedUri = INDICATORS_URL + getUri().trim().replace(" ", "%20");
         try {
-            File file = new File(getFilePath());
             if (file.exists() && file.length() > 0) {
                 log.debug("File {} already exists, not downloading.", getFilePath());
-                return;
+                return true;
             }
 
             file.getParentFile().mkdirs();
             file.createNewFile();
 
             try (FileOutputStream fos = new FileOutputStream(file)) {
-                // The URIs have spaces and we need to encode them or we get a 505 error response
-                String encodedUri = getUri().replace(" ", "%20");
-                URL url = new URL(INDICATORS_URL + encodedUri);
+                URL url = new URL(encodedUri);
                 log.debug("Downloading attachment from: " + url);
 
                 URLConnection connection = url.openConnection();
@@ -88,8 +89,13 @@ public class Attachment {
                     log.debug("Downloaded {} Mb / {} Mb", getMb(bytesRead), getMb(bytesExpected));
                 }
             }
-        } catch (IOException e) {
-            throw new RuntimeException("Error occurred downloading attachment", e);
+            return true;
+        } catch (Exception e) {
+            file.delete(); // Attempt to delete the file as it may be partially downloaded
+            MigrationReport.add(e, "Error occurred downloading attachment: " + title,
+                "From: " + encodedUri,
+                "This dataset will be missing this attachment", publishingPackage.toString());
+            return false;
         }
     }
 

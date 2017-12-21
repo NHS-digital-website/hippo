@@ -21,6 +21,7 @@ public class ExecutionParameters {
     private Path taxonomySpreadsheetPath;
     private Path taxonomyOutputPath;
     private Path taxonomyMappingImportPath;
+    private Path migrationReportOutputPath;
 
     public Path getNesstarUnzippedExportDir() {
         return nesstarUnzippedExportDir;
@@ -102,6 +103,14 @@ public class ExecutionParameters {
         this.taxonomyMappingImportPath = taxonomyMappingImportPath;
     }
 
+    public Path getMigrationReportOutputPath() {
+        return migrationReportOutputPath;
+    }
+
+    public void setMigrationReportOutputPath(Path migrationReportOutputPath) {
+        this.migrationReportOutputPath = migrationReportOutputPath;
+    }
+
     public List<Descriptor> descriptions() {
         return asList(
             describe("nesstarUnzippedExportDir", nesstarUnzippedExportDir),
@@ -113,7 +122,8 @@ public class ExecutionParameters {
             describe("nesstarCompendiumMappingFile", nesstarCompendiumMappingFile),
             describe("taxonomySpreadsheetPath", taxonomySpreadsheetPath),
             describe("taxonomyOutputPath", taxonomyOutputPath),
-            describe("taxonomyMappingImportPath", taxonomyMappingImportPath)
+            describe("taxonomyMappingImportPath", taxonomyMappingImportPath),
+            describe("migrationReportOutputPath", migrationReportOutputPath)
         );
     }
 }
