@@ -1,5 +1,8 @@
 package uk.nhs.digital.ps.migrator.task;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import uk.nhs.digital.ps.migrator.MigrationReport;
 import uk.nhs.digital.ps.migrator.config.ExecutionParameters;
 import uk.nhs.digital.ps.migrator.model.hippo.*;
 import uk.nhs.digital.ps.migrator.model.nesstar.Catalog;
@@ -7,10 +10,11 @@ import uk.nhs.digital.ps.migrator.model.nesstar.NesstarResource;
 import uk.nhs.digital.ps.migrator.model.nesstar.PublishingPackage;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class ImportableItemsFactory {
-
 
     private final ExecutionParameters executionParameters;
 
@@ -46,15 +50,15 @@ public class ImportableItemsFactory {
     public DataSet toDataSet(final Folder parentFolder, final PublishingPackage exportedPublishingPackage) {
 
         try {
-            String nominalDate = convertNominalDate(exportedPublishingPackage.getDate());
+            String nominalDate = convertNominalDate(exportedPublishingPackage);
 
             List<NesstarResource> resources = exportedPublishingPackage.getResources();
-            List<String> taxonomyKeys = exportedPublishingPackage.getKeywords(executionParameters.getTaxonomyMappingImportPath());
-            List<Attachment> attachments = getAttachments(resources);
+            List<Attachment> attachments = getAttachments(exportedPublishingPackage);
             List<ResourceLink> resourceLinks = getResourceLinks(resources);
+            List<String> taxonomyKeys = exportedPublishingPackage.getKeywords(executionParameters.getTaxonomyMappingImportPath());
 
             // Quick sanity check to make sure we have processed all the resources
-            if (resources.size() != attachments.size() + resourceLinks.size()) {
+            if (resources.stream().anyMatch(r -> !r.isLink() && !r.isAttachment())) {
                 throw new RuntimeException("Had some resources that we didn't know how to map.");
             }
 
@@ -68,11 +72,10 @@ public class ImportableItemsFactory {
                 resourceLinks,
                 String.join("\", \"", taxonomyKeys)
             );
-        } catch (RuntimeException e) {
-            throw new RuntimeException(
-                "Failed to convert dataset " + exportedPublishingPackage.getUniqueIdentifier(),
-                e
-            );
+        } catch (Exception e) {
+            MigrationReport.add(e, "Error converting to dataset:",
+                "Dataset will not be imported", exportedPublishingPackage.toString());
+            return null;
         }
     }
 
@@ -98,7 +101,8 @@ public class ImportableItemsFactory {
             .collect(Collectors.toList());
     }
 
-    public List<Attachment> getAttachments(List<NesstarResource> resources) {
+    public List<Attachment> getAttachments(PublishingPackage publishingPackage) {
+        List<NesstarResource> resources = publishingPackage.getResources();
         // Convert to Attachment objects and download the file from the existing website
       return resources.stream()
             .filter(NesstarResource::isAttachment)
@@ -107,7 +111,7 @@ public class ImportableItemsFactory {
                 resource.getTitle(),
                 resource.getUri()
             ))
-            .peek(attachment -> attachment.download())
+            .filter(attachment -> attachment.download(publishingPackage))
             .collect(Collectors.toList());
     }
 
@@ -115,9 +119,29 @@ public class ImportableItemsFactory {
      * The nesstar data only has month and year whereas in hippo we want a date.
      * These mappings have been provided to us as the actual dates in each month that the publications were published
      */
-    private static String convertNominalDate(String input) {
+    private static String convertNominalDate(PublishingPackage publishingPackage) {
+        String input = publishingPackage.getDate();
+
+        // The compendium data has the date in a variety of formats, this gets them all in the format Mmm-YY
+        Matcher matcher = Pattern.compile("(.*)([A-Z][a-z]{2})[a-z]*[- ](?:20)?(1\\d)(.*)").matcher(input);
+        if (matcher.matches()) {
+            input = matcher.group(2) + "-" + matcher.group(3);
+
+            // If there was any extra text that we have stripped out then log it in the report
+            if (!(matcher.group(1).isEmpty()
+                && matcher.group(4).isEmpty())) {
+                MigrationReport.add(null, "Date found with additional text that will be stripped out.",
+                    publishingPackage.toString(),
+                    "Date: " + matcher.group());
+            }
+        }
+
         switch (input) {
+            case "Jun-11":  return "2011-06-23T09:30:00.000Z";
+            case "Feb-12":  return "2012-02-23T09:30:00.000Z";
             case "Mar-12":  return "2012-03-22T09:30:00.000Z";
+            case "Dec-12":  return "2012-12-20T09:30:00.000Z";
+            case "Sep-13":  return "2013-09-26T09:30:00.000Z";
             case "Dec-13":  return "2013-12-19T09:30:00.000Z";
             case "Feb-14":  return "2014-02-20T09:30:00.000Z";
             case "Mar-14":  return "2014-03-20T09:30:00.000Z";
@@ -166,12 +190,12 @@ public class ImportableItemsFactory {
             case "Nov-17":  return "2017-11-16T09:30:00.000Z";
             case "Dec-17":  return "2017-12-14T09:30:00.000Z";
 
-            case "TBC":                        return "0001-01-01T12:00:00.000Z";
-            case "Links checked June 16":      return "0001-01-01T12:00:00.000Z"; // todo error reporting?
-            case "Links checked July 2017":    return "0001-01-01T12:00:00.000Z"; // todo error reporting?
-            case "Links checked September 16": return "0001-01-01T12:00:00.000Z"; // todo error reporting?
+            case "TBC":     return "0001-01-01T12:00:00.000Z";
 
-            default: throw new RuntimeException("No mapping found for input date: " + input);
+            default:
+                MigrationReport.add(null,"No mapping found for input date: " + input,
+                    "This dataset will not have a date set:", publishingPackage.toString());
+                return "0001-01-01T12:00:00.000Z";
         }
     }
 }

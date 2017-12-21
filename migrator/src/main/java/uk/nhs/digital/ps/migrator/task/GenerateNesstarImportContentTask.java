@@ -18,6 +18,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
@@ -101,7 +102,7 @@ public class GenerateNesstarImportContentTask implements MigrationTask {
     private List<HippoImportableItem> createImportableItemsModels(final CatalogStructure catalogStructure,
                                                                   final DataSetRepository datasetRepository) {
 
-        final List<HippoImportableItem> importableItems = new ArrayList<>();
+        List<HippoImportableItem> importableItems = new ArrayList<>();
 
         // Create Clinical Indicators folder as a root folder for all clinical indicators,
         // separating them from Statistical Publications.
@@ -130,14 +131,17 @@ public class GenerateNesstarImportContentTask implements MigrationTask {
             compendiumImportables.create(datasetRepository, rootClinicalIndicatorsFolder)
         );
 
+        // If we had any errors we will have nulls in the list, we have logged and output the errors already so just strip the nulls
+        importableItems = importableItems.stream()
+            .filter(Objects::nonNull)
+            .collect(toList());
+
         return importableItems;
     }
 
     private DataSetRepository loadDataSetExportedModels(final Path publishingPackagesDir) {
         return new DataSetRepository(findDataSetFiles(publishingPackagesDir)
-            .peek(path -> log.debug("Loading from {}", path))
             .map(path -> loadFromXml(path, PublishingPackage.class))
-            .peek(dataSet -> log.debug("Loaded {}", dataSet))
             .collect(toList())
         );
     }

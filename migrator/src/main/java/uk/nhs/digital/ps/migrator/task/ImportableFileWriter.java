@@ -7,7 +7,7 @@ import freemarker.template.TemplateExceptionHandler;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.nhs.digital.ps.migrator.model.hippo.DataSet;
+import uk.nhs.digital.ps.migrator.MigrationReport;
 import uk.nhs.digital.ps.migrator.model.hippo.HippoImportableItem;
 
 import java.io.StringWriter;
@@ -49,7 +49,6 @@ public class ImportableFileWriter {
 
             Path targetFilePath = Paths.get(targetDir.toString(), fileName);
 
-
             final String itemTypeName = importableItem.getClass().getSimpleName().toLowerCase();
 
             final Template template = getFreemarkerConfiguration()
@@ -63,12 +62,13 @@ public class ImportableFileWriter {
 
             final String importableFileContent = writer.toString();
 
-            logger.debug("Writing file {}: {}", fileName, importableFileContent);
+            logger.debug("Writing file {}", fileName);
 
             Files.write(targetFilePath, importableFileContent.getBytes());
 
         } catch (final Exception e) {
-            throw new RuntimeException("Failed to write export files.", e);
+            // If we fail with one file, make a note of the document that failed and carry on
+            MigrationReport.add(e, "Failed to write out item:", "Item will not be imported", importableItem.toString());
         }
     }
 

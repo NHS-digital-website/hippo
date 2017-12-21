@@ -87,6 +87,13 @@ public class PublishingPackage {
             summary.append(abstractStr);
         }
 
+        String uniqueId = getUniqueIdentifier().trim();
+        if (uniqueId != null && !uniqueId.isEmpty()) {
+            summary.append("\n\n");
+            summary.append("Unique identifier: ");
+            summary.append(uniqueId);
+        }
+
         return summary.toString();
     }
 
@@ -95,7 +102,6 @@ public class PublishingPackage {
         return "DataSet{" +
             "uniqueIdentifier='" + getUniqueIdentifier() + '\'' +
             ", title='" + getTitle() + '\'' +
-            ", rootElement=" + rootElement +
             '}';
     }
 
