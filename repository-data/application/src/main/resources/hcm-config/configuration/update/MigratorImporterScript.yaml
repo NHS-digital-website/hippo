@@ -23,5 +23,5 @@ definitions:
       hipposys:script:
         resource: /configuration/update/MigratorImporterScript.groovy
         type: string
-      hipposys:throttle: 100
+      hipposys:throttle: 10
       jcr:primaryType: hipposys:updaterinfo

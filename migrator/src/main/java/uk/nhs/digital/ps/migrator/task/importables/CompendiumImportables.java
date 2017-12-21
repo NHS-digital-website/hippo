@@ -4,6 +4,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.slf4j.Logger;
+import uk.nhs.digital.ps.migrator.MigrationReport;
 import uk.nhs.digital.ps.migrator.config.ExecutionParameters;
 import uk.nhs.digital.ps.migrator.model.hippo.Folder;
 import uk.nhs.digital.ps.migrator.model.hippo.HippoImportableItem;
@@ -24,6 +25,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
+import static java.text.MessageFormat.format;
 import static java.util.stream.StreamSupport.stream;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.slf4j.LoggerFactory.getLogger;
@@ -103,17 +105,10 @@ public class CompendiumImportables {
                 publicationPrototype.getDatasetIds().forEach(datasetId -> {
                     final PublishingPackage publishingPackage = dataSetRepository.findById(datasetId);
                     if (publishingPackage == null) {
-                        // todo error reporting - invalid datasetId (no match found)
-                        log.error("No dataset found with id {}", datasetId);
-
+                        MigrationReport.add(null, "No dataset found with id:", datasetId,
+                            "The following publication will be missing this dataset: " + publicationPrototype.getName());
                     } else {
-                        try {
-                            importableItems.add(factory.toDataSet(publicationFolder, publishingPackage));
-                        } catch (final Exception e) {
-                            // todo error reporting
-                            log.error("Failed to convert dataset " + datasetId, e);
-                        }
-
+                        importableItems.add(factory.toDataSet(publicationFolder, publishingPackage));
                     }
                 });
 
@@ -162,11 +157,13 @@ public class CompendiumImportables {
             .filter(row -> row.getCell(2) == null || isBlank(row.getCell(2).getStringCellValue()))
 
             .forEach(row ->
-                // todo proper error reporting
-                log.error("Found P-code without matching series or publication definition: {}:{}:{}",
-                    row.getCell(1) == null ? "" : row.getCell(1).getStringCellValue(),
-                    row.getCell(2) == null ? "" : row.getCell(2).getStringCellValue(),
-                    row.getCell(3) == null ? "" : row.getCell(3).getStringCellValue()
+                MigrationReport.add(null,
+                    format("Found P-code without matching series or publication definition: {0}:{1}:{2}",
+                        row.getCell(1) == null ? "" : row.getCell(1).getStringCellValue(),
+                        row.getCell(2) == null ? "" : row.getCell(2).getStringCellValue(),
+                        row.getCell(3) == null ? "" : row.getCell(3).getStringCellValue()
+                    ),
+                    "Dataset will not be imported"
                 )
             );
 
@@ -220,7 +217,7 @@ public class CompendiumImportables {
 
     static class PublicationPrototype {
         private String name;
-        private Set<String> datasets = new HashSet<>(); // todo error report: duplicate P-codes
+        private Set<String> datasets = new HashSet<>();
 
         public PublicationPrototype(final String name) {
             this.name = name;
@@ -231,7 +228,11 @@ public class CompendiumImportables {
         }
 
         public void add(final String datasetId) {
-            datasets.add(datasetId);
+            if (!datasets.add(datasetId)) {
+                MigrationReport.add(null,
+                    "Duplicate dataset added to publication: " + name,
+                    "The dataset will only be imported once. ID: " + datasetId);
+            }
         }
 
         public Set<String> getDatasetIds() {

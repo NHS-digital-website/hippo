@@ -51,6 +51,8 @@ public class PublicationSystemMigrator implements ApplicationRunner {
 
         logExecutionParameters();
 
+        MigrationReport.init(executionParameters);
+
         try {
             migrationTasks.stream()
                 .peek(migrationTask -> {
@@ -63,6 +65,7 @@ public class PublicationSystemMigrator implements ApplicationRunner {
         } catch (final Exception e) {
             log.error("Migration has failed.", e);
         } finally {
+            MigrationReport.getInstance().writeToFile();
             logExecutionParameters();
         }
 
