@@ -51,6 +51,9 @@ definitions:
             hipposysedit:path: publicationsystem:linkText
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators:
+            - non-empty
+            - required
             jcr:primaryType: hipposysedit:field
           /link_url:
             hipposysedit:mandatory: false

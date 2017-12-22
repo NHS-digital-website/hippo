@@ -46,8 +46,8 @@ Feature: Edit screen - validation
     Scenario: Blank Related Links field rejection
         Given I have a publication opened for editing
         When I add an empty related link field
-        And I save the publication
-        Then the save is rejected with error message containing "There is a related link field with no URL provided."
+        And I populate and save the publication
+        Then the save is rejected with error message containing "A mandatory string input field is empty"
 
 
     @DiscardAfter

@@ -4,8 +4,6 @@ definitions:
     /hippo:configuration/hippo:translations/hippo:cms/validators/en:
       publicationsystem-blank-attachment: There is an attachment field without an
         attachment. Please remove it or upload a file.
-      publicationsystem-blank-related-link: There is a related link field with no
-        URL provided. Please remove it or enter a URL.
       publicationsystem-blank-staticdropdown: '{0} has a ''''Choose One'''' placeholder
         without a value. Please remove the placeholder or select a value.'
       publicationsystem-coverage-dates#dates-after-nominal: Coverage dates must not
