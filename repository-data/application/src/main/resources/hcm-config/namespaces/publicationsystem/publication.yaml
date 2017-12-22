@@ -317,8 +317,6 @@ definitions:
             hipposysedit:path: publicationsystem:RelatedLinks
             hipposysedit:primary: false
             hipposysedit:type: publicationsystem:relatedlink
-            hipposysedit:validators:
-            - publicationsystem-blank-related-link
             jcr:primaryType: hipposysedit:field
           /summary:
             hipposysedit:mandatory: true
