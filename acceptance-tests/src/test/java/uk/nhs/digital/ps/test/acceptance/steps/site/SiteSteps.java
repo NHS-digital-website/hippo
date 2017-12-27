@@ -71,9 +71,12 @@ public class SiteSteps extends AbstractSpringSteps {
         assertThat("I should see page titled.", sitePage.getDocumentTitle(), is(pageTitle));
     }
 
-    @Then("^I should see \"([^\"]+)\" error page$")
-    public void iShouldSeeErrorPageWithMessage(String errorMessage) {
-        assertThat("I should see page titled.", sitePage.getErrorPageMessage(), is(errorMessage));
+    @Then("^I should see the page not found error page$")
+    public void iShouldSeeThePageNotFoundErrorPage() throws Throwable {
+        // Ideally we would check the HTTP response code is 404 as well but it's not
+        // currently possible to do this with the Selinium Web Driver.
+        // See https://github.com/seleniumhq/selenium-google-code-issue-archive/issues/141
+        iShouldSeePageTitled("Page not found");
     }
 
     @Then("^I should (?:also )?see:?$")

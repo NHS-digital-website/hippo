@@ -2,5 +2,9 @@
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:pages/404:
-      hst:template: '404'
+      /main:
+        hst:componentclassname: uk.nhs.digital.common.components.PageNotFoundComponent
+        hst:template: '404'
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/basepage
       jcr:primaryType: hst:component

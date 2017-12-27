@@ -70,12 +70,6 @@ public class SitePage extends AbstractSitePage {
         return helper.findElement(By.xpath("//*[@data-uipath='ps.document.title']")).getText();
     }
 
-    public String getErrorPageMessage() {
-        // I'm expecting that I'm in the context of a dedicated error page and
-        // so I'm expecting to find a message within h2
-        return helper.findElement(By.xpath("//h2")).getText();
-    }
-
     public WebElement findPageElement(String elementName) {
         return findPageElement(elementName, 0);
     }
