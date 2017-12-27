@@ -14,3 +14,14 @@ Feature: Basic search
         When I search for "loremipsumdolor"
         Then I should see:
             | Search Box | loremipsumdolor |
+
+    Scenario: Facet search month links
+        Given I navigate to the "home" page
+        When I search for "test"
+        And I click on link "2017"
+        Then I can click on the "November" link
+
+    Scenario: Facet search document type links
+        Given I navigate to the "home" page
+        When I search for "test"
+        Then I can click on the "Statistical Publication" link

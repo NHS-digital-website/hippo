@@ -1,6 +1,6 @@
 <#include "../include/imports.ftlh">
-<@hst.setBundle basename="month-names"/>
-<@hst.setBundle basename="document-types"/>
+<!--Need to have a single setBundle call as subsequent ones will overwrite the previous values-->
+<@hst.setBundle basename="document-types,month-names"/>
 
 <#if facets??>
   <#list facets.folders as facet>
@@ -23,10 +23,10 @@
                   </#if>
                   <#if value.leaf>
                       <@hst.facetnavigationlink var="link" remove=value current=facets />
-                      <li class="filter-list__item"><a href="${link}" class="filter-list__item__link">${valueName} x<i class="fa fa-times"> </i></a></li>
+                      <li class="filter-list__item"><a href="${link}" title="${valueName}" class="filter-list__item__link">${valueName} x<i class="fa fa-times"> </i></a></li>
                   <#else>
                       <@hst.link var="link" hippobean=value />
-                      <li class="filter-list__item"><a href="${link}?query=${query}" class="filter-list__item__link">${valueName}&nbsp;(${value.count})</a></li>
+                      <li class="filter-list__item"><a href="${link}?query=${query}" title="${valueName}" class="filter-list__item__link">${valueName}&nbsp;(${value.count})</a></li>
                   </#if>
               </#if>
           </#list>
