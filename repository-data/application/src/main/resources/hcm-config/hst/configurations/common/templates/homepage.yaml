@@ -1,6 +1,0 @@
----
-definitions:
-  config:
-    /hst:hst/hst:configurations/common/hst:templates/homepage:
-      hst:renderpath: webfile:/freemarker/publicationsystem/publication.ftlh
-      jcr:primaryType: hst:template

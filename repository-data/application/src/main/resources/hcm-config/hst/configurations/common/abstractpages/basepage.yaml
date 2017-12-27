@@ -2,10 +2,6 @@
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:abstractpages/basepage:
-      /left:
-        hst:componentclassname: uk.nhs.digital.common.components.FacetComponent
-        hst:template: facets
-        jcr:primaryType: hst:component
       /top:
         hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsSearchComponent
         hst:template: search

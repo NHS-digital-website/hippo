@@ -45,6 +45,11 @@ public class TestContentUrls {
             "/publications/acceptance-tests/attachment-test");
         add("attachment test dataset",
             "/publications/acceptance-tests/attachment-test/dataset");
+
+        // invalid urls
+        add("invalid root", "/invalid");
+        add("invalid document", "/publications/invalid");
+        add("invalid sub document", "/publications/acceptance-tests/invalid");
     }
 
     private void add(String pageName, String url) {

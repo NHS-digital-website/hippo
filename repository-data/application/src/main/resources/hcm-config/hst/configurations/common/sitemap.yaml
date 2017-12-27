@@ -2,14 +2,13 @@
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:sitemap:
+      /_any_:
+        hst:componentconfigurationid: hst:pages/404
+        jcr:primaryType: hst:sitemapitem
       /error:
         /404:
           hst:componentconfigurationid: hst:pages/404
           jcr:primaryType: hst:sitemapitem
-        jcr:primaryType: hst:sitemapitem
-      /root:
-        hst:componentconfigurationid: hst:pages/home
-        hst:relativecontentpath: publications/test-document
         jcr:primaryType: hst:sitemapitem
       /search:
         /_any_:

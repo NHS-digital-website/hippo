@@ -3,6 +3,7 @@ definitions:
   config:
     /hst:hst/hst:configurations/publicationsystem/hst:sitemap:
       /_any_:
+        hst:componentconfigurationid: hst:pages/404
         hst:componentconfigurationmappingnames:
         - publicationsystem:dataset
         - hippostd:folder
