@@ -8,7 +8,7 @@ Feature: As am author I need to create a new publication
         Then an edit screen is displayed which allows me to populate details of the publication
 
     Scenario: Saving a publication
-        Given I am on the edit screen
+        Given I have a publication opened for editing
         When I populate and save the publication
         Then it is saved
 

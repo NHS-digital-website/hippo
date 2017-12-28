@@ -75,7 +75,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.css:
-            - publication-title
+            - document-title
             wicket.id: ${cluster.id}.left.item
           /publicly_accessible:
             /cluster.options:
@@ -98,7 +98,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.css:
-            - publication-summary
+            - document-summary
             wicket.id: ${cluster.id}.left.item
           /CoverageStart:
             /cluster.options:

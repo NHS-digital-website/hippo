@@ -15,6 +15,9 @@ import static java.util.stream.Collectors.toList;
 
 public class ContentPage extends AbstractCmsPage {
 
+    private static final String PUBLICATION = "publication";
+    private static final String DATASET = "dataset";
+
     private PageHelper helper;
 
     public ContentPage(final WebDriverProvider webDriverProvider, final PageHelper helper) {
@@ -33,19 +36,22 @@ public class ContentPage extends AbstractCmsPage {
     }
 
     public boolean newPublication(final Publication publication) {
-        WebElement menu = openPublicationsMenu(getWebDriver());
-        return createPublication(menu, publication);
+        return createDocument(PUBLICATION, publication.getName(), publication.getPublicationUrlName());
     }
 
-    public boolean isPublicationEditScreenOpen() {
+    public boolean newDataset(String name) {
+        return createDocument(DATASET, name, name);
+    }
+
+    public boolean isDocumentEditScreenOpen() {
         return helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY)
         ) != null;
     }
 
     public void populatePublication(Publication publication) {
-        populatePublicationTitle(publication.getTitle());
-        populatePublicationSummary(publication.getSummary());
+        populateDocumentTitle(publication.getTitle());
+        populateDocumentSummary(publication.getSummary());
 
         findPubliclyAccessibleRadioButton().select(publication.isPubliclyAccessible());
 
@@ -101,19 +107,19 @@ public class ContentPage extends AbstractCmsPage {
         return new PubliclyAccessibleCmsWidget(helper, XpathSelectors.EDITOR_BODY);
     }
 
-    public void populatePublicationTitle(final String publicationTitle) {
+    public void populateDocumentTitle(final String documentTitle) {
         helper.findElement(
-            By.xpath(XpathSelectors.EDITOR_BODY + "//div[contains(@class, 'publication-title')]//textarea")
+            By.xpath(XpathSelectors.EDITOR_BODY + "//div[contains(@class, 'document-title')]//textarea")
         ).sendKeys(
-            publicationTitle
+            documentTitle
         );
     }
 
-    public void populatePublicationSummary(final String publicationSummary) {
+    public void populateDocumentSummary(final String documentSummary) {
         helper.findElement(
-            By.xpath(XpathSelectors.EDITOR_BODY + "//div[contains(@class, 'publication-summary')]//textarea")
+            By.xpath(XpathSelectors.EDITOR_BODY + "//div[contains(@class, 'document-summary')]//textarea")
         ).sendKeys(
-            publicationSummary
+            documentSummary
         );
     }
 
@@ -129,15 +135,19 @@ public class ContentPage extends AbstractCmsPage {
         return new RelatedLinksCmsWidget(helper, getWebDriver());
     }
 
+    public ResourceLinksCmsWidget getResourceLinksSection() {
+        return new ResourceLinksCmsWidget(helper, getWebDriver());
+    }
+
     public InformationTypeCmsWidget getInformationTypeSection() {
         return new InformationTypeCmsWidget(helper, getWebDriver());
     }
 
-    public void savePublication() {
+    public void saveDocument() {
         findSave().click();
     }
 
-    public void saveAndClosePublication() {
+    public void saveAndCloseDocument() {
         findSaveAndClose().click();
     }
 
@@ -173,7 +183,7 @@ public class ContentPage extends AbstractCmsPage {
         ));
     }
 
-    private WebElement openPublicationsMenu(WebDriver driver) {
+    private WebElement openDocumentMenu() {
 
         WebElement folderElement = navigateToFolder("Corporate Website", "Publication System");
 
@@ -185,24 +195,27 @@ public class ContentPage extends AbstractCmsPage {
         return menu;
     }
 
-    private boolean createPublication(final WebElement menu, final Publication publication) {
+    private boolean createDocument(String docType, String name, String urlName) {
+
+        WebElement menu = openDocumentMenu();
+
         // Find and click "Add new document" option
         WebElement menuItem = menu.findElement(By.cssSelector("span[title='Add new document...']"));
         menuItem.click();
 
         // Wait for modal dialogue and find new document name field
         WebElement nameField = helper.findElement(By.name("name-url:name"));
-        nameField.sendKeys(publication.getPublicationUrlName());
+        nameField.sendKeys(urlName);
 
         // Choose document type
         WebElement documentTypeField = getWebDriver().findElement(By.name("prototype"));
         Select dropdown = new Select(documentTypeField);
-        dropdown.selectByVisibleText("publication");
+        dropdown.selectByVisibleText(docType);
 
         // Confirm
         clickButtonOnModalDialog("OK");
 
-        return isDocumentPresent(publication);
+        return isDocumentPresent(name);
     }
 
     private WebElement navigateToFolder(String... folders) {
@@ -223,15 +236,15 @@ public class ContentPage extends AbstractCmsPage {
         return helper.findElement(By.xpath(xpathSelector));
     }
 
-    private boolean isDocumentPresent(final Publication publication) {
+    private boolean isDocumentPresent(String name) {
         return helper.waitForElementUntil(
             ExpectedConditions.presenceOfElementLocated(
-                By.xpath(XpathSelectors.NAVIGATION_CENTRE + "//span[contains(@class, 'document') and @title='" + publication.getName() + "']")
+                By.xpath(XpathSelectors.NAVIGATION_CENTRE + "//span[contains(@class, 'document') and @title='" + name + "']")
             )
         ) != null;
     }
 
-    public boolean isPublicationSaved(){
+    public boolean isDocumentSaved(){
         // When a document is saved, a yellow status bar appears informing user document is either offline
         // or a previous version is live
         return helper.isElementPresent(By.className("hippo-toolbar-status"));
@@ -242,9 +255,9 @@ public class ContentPage extends AbstractCmsPage {
         clickDocument(documentName);
     }
 
-    public void discardUnsavedChanges(String publicationName) {
+    public void discardUnsavedChanges(String documentName) {
         WebElement closeButton = helper.findElement(
-            By.xpath("//div[contains(@class, 'hippo-tabs-documents')]//a[contains(@class, 'hippo-tabs-documents-tab') and @title='" + publicationName + "']/following-sibling::a[contains(@class, 'hippo-tabs-documents-close')]"));
+            By.xpath("//div[contains(@class, 'hippo-tabs-documents')]//a[contains(@class, 'hippo-tabs-documents-tab') and @title='" + documentName + "']/following-sibling::a[contains(@class, 'hippo-tabs-documents-close')]"));
         closeButton.click();
         clickButtonOnModalDialog("Discard");
     }

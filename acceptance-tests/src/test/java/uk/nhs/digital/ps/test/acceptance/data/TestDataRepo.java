@@ -11,6 +11,7 @@ import java.util.Map;
 
 import static java.util.Arrays.asList;
 import static uk.nhs.digital.ps.test.acceptance.data.TestDataRepo.PublicationClassifier.SINGLE;
+import static uk.nhs.digital.ps.test.acceptance.util.RandomHelper.newRandomString;
 
 public class TestDataRepo {
 
@@ -18,6 +19,7 @@ public class TestDataRepo {
 
     private List<Attachment> attachments;
     private PublicationSeries publicationSeries;
+    private String datasetName;
 
     public void setPublication(final Publication publication) {
         publications.clear();
@@ -25,7 +27,8 @@ public class TestDataRepo {
     }
 
     public Publication getCurrentPublication() {
-        return publications.get(SINGLE).get(0);
+        List<Publication> publications = this.publications.get(SINGLE);
+        return publications == null ? null : publications.get(0);
     }
 
     public void setAttachments(final List<Attachment> attachments) {
@@ -62,6 +65,16 @@ public class TestDataRepo {
     public void clear() {
         setPublication(null);
         publications.clear();
+        datasetName = null;
+    }
+
+    public String getDatasetName() {
+        return datasetName;
+    }
+
+    public String createDatasetName() {
+        datasetName = newRandomString() + "dataset";
+        return datasetName;
     }
 
     public enum PublicationClassifier {

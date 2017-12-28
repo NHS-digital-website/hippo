@@ -40,6 +40,8 @@ definitions:
             field: Title
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.css:
+            - document-title
             wicket.id: ${cluster.id}.left.item
           /Summary:
             /cluster.options:
@@ -48,6 +50,8 @@ definitions:
             field: Summary
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.css:
+            - document-summary
             wicket.id: ${cluster.id}.left.item
           /classifiable:
             /cluster.options:
@@ -61,7 +65,7 @@ definitions:
           /Files:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Files
+            caption: Attachments
             field: Files
             hint: ''
             jcr:primaryType: frontend:plugin
@@ -141,6 +145,8 @@ definitions:
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.css:
+            - granularity
             wicket.id: ${cluster.id}.right.item
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
@@ -186,6 +192,8 @@ definitions:
             hipposysedit:path: publicationsystem:Granularity
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - publicationsystem-blank-granularity
             jcr:primaryType: hipposysedit:field
           /NextPublicationDate:
             hipposysedit:mandatory: false
@@ -264,8 +272,6 @@ definitions:
           jcr:primaryType: publicationsystem:dataset
           publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
           publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-          publicationsystem:Granularity:
-          - ''
           publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
           publicationsystem:NominalDate: 0001-01-01T12:00:00Z
           publicationsystem:Summary: ''
