@@ -5,6 +5,7 @@ import cucumber.api.java.Before;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
+import uk.nhs.digital.ps.test.acceptance.models.Publication;
 import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
 
 import static org.slf4j.LoggerFactory.getLogger;
@@ -42,11 +43,19 @@ public class TestDataSteps extends AbstractSpringSteps {
      * </p>
      */
     @After(value = "@DiscardAfter", order = 500)
-    public void discardEditedPublication() throws Throwable {
-        final String currentPublicationName = testDataRepo.getCurrentPublication().getName();
-        log.debug("Discarding and closing current publication: {}.", currentPublicationName);
+    public void discardEditedDocument() throws Throwable {
+        Publication currentPublication = testDataRepo.getCurrentPublication();
+        if (currentPublication != null) {
+            final String currentPublicationName = currentPublication.getName();
+            log.debug("Discarding and closing current publication: {}.", currentPublicationName);
+            contentPage.discardUnsavedChanges(currentPublicationName);
+        }
 
-        contentPage.discardUnsavedChanges(currentPublicationName);
+        String datasetName = testDataRepo.getDatasetName();
+        if (datasetName != null) {
+            log.debug("Discarding and closing current dataset: {}.", datasetName);
+            contentPage.discardUnsavedChanges(datasetName);
+        }
     }
 
     /**

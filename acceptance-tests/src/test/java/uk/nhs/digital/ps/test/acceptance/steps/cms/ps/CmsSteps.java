@@ -1,6 +1,7 @@
 package uk.nhs.digital.ps.test.acceptance.steps.cms.ps;
 
 import cucumber.api.DataTable;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -31,10 +32,11 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.ps.test.acceptance.util.AssertionHelper.assertWithinTimeoutThat;
+import static uk.nhs.digital.ps.test.acceptance.util.RandomHelper.newRandomString;
 
-public class PublicationSteps extends AbstractSpringSteps {
+public class CmsSteps extends AbstractSpringSteps {
 
-    private final static Logger log = getLogger(PublicationSteps.class);
+    private final static Logger log = getLogger(CmsSteps.class);
 
     private static final int DAYS_IN_WEEK = 7;
 
@@ -59,6 +61,10 @@ public class PublicationSteps extends AbstractSpringSteps {
         testDataRepo.setPublication(publication);
 
         createPublicationInEditableState(publication);
+
+        // Since previous step created a new document which was not saved, immediately after a login,
+        // the edit document screen is displayed (instead of dashboard)
+        assertTrue("Publication edit screen is displayed", contentPage.isDocumentEditScreenOpen());
     }
 
     public void createPublicationInEditableState(final Publication publication) throws Throwable {
@@ -70,7 +76,7 @@ public class PublicationSteps extends AbstractSpringSteps {
     public void createPublishedPublication(final Publication publication) throws Throwable {
         createPublicationInEditableState(publication);
         contentPage.populatePublication(publication);
-        contentPage.saveAndClosePublication();
+        contentPage.saveAndCloseDocument();
         contentPage.publish();
     }
 
@@ -91,37 +97,19 @@ public class PublicationSteps extends AbstractSpringSteps {
 
     @Then("^an edit screen is displayed which allows me to populate details of the publication")
     public void thenAnEditScreenIsDisplayed() throws Throwable {
-        assertThat("Publication edit screen is displayed",contentPage.isPublicationEditScreenOpen(),
-            is(true));
-    }
-
-    // Scenario: Saving a publication ========================================================================
-    @Given("^I am on the edit screen")
-    public void givenIamOnTheEditScreen() throws Throwable {
-        final Publication publication = TestDataFactory.createValidPublication().build();
-
-        testDataRepo.setPublication(publication);
-
-        loginSteps.givenIAmLoggedInAsAdmin();
-        contentPage.openContentTab();
-        contentPage.newPublication(publication);
-
-        // Since previous step created a new document which was not saved, immediately after a login,
-        // the edit document screen is displayed (instead of dashboard)
-        assertThat("Publication edit screen is displayed",contentPage.isPublicationEditScreenOpen(),
-            is(true));
+        assertTrue("Publication edit screen is displayed", contentPage.isDocumentEditScreenOpen());
     }
 
     @When("^I populate and save the publication")
     public void whenIPopulateAndSaveThePublication() throws Throwable {
 
         contentPage.populatePublication(testDataRepo.getCurrentPublication());
-        contentPage.saveAndClosePublication();
+        contentPage.saveAndCloseDocument();
     }
 
     @Then(("^it is saved"))
     public void thenItIsSaved() throws Throwable {
-        assertThat("Publication is saved",contentPage.isPublicationSaved(), is(true));
+        assertTrue("Document is saved", contentPage.isDocumentSaved());
     }
 
 
@@ -170,8 +158,8 @@ public class PublicationSteps extends AbstractSpringSteps {
     }
 
     // Scenario: Title and Summary validation ========================================================================
-    @When("^I populate the (title|summary) with text longer than the maximum allowed limit of ([0-9]+) characters$")
-    public void whenIPopulateTheXWithLongText(String fieldName, int lengthLimit) throws Throwable {
+    @When("^I populate the title with text longer than the maximum allowed limit of ([0-9]+) characters$")
+    public void whenIPopulateTheTitleWithLongText(int lengthLimit) throws Throwable {
 
         StringBuilder sb = new StringBuilder();
         for (int i=0; i < lengthLimit+1; i++) {
@@ -179,18 +167,12 @@ public class PublicationSteps extends AbstractSpringSteps {
         }
         String longString = sb.toString();
 
-        // This is compromise between re-usability of "When" statement and clean code
-        // You should avoid ugly if statements like the one bellow by all means.
-        if (fieldName.equals("title")) {
-            contentPage.populatePublicationTitle(longString);
-        } else if (fieldName.equals("summary")) {
-            contentPage.populatePublicationSummary(longString);
-        }
+        contentPage.populateDocumentTitle(longString);
     }
 
-    @When("^I save the publication$")
-    public void iSaveThePublication() throws Throwable {
-        contentPage.savePublication();
+    @When("^I save the (?:dataset|publication)$")
+    public void iSaveTheDocument() throws Throwable {
+        contentPage.saveDocument();
     }
 
     @Then("^the save is rejected with error message containing \"([^\"]+)\"$")
@@ -217,6 +199,12 @@ public class PublicationSteps extends AbstractSpringSteps {
     @When("^I add an empty related link field$")
     public void iAddAnEmptyRelatedLinkField() throws Throwable {
         contentPage.getRelatedLinksSection().addRelatedLinkField();
+    }
+
+    // Scenario: Blank resource link rejection =========================================================================
+    @When("^I add an empty resource link field$")
+    public void iAddAnEmptyResourceLinkField() {
+        contentPage.getResourceLinksSection().addResourceLinkField();
     }
 
     // Scenario: Blank Information Type field rejection =====================================================================
@@ -304,5 +292,25 @@ public class PublicationSteps extends AbstractSpringSteps {
 
         assertThat("Nominal Publication Date is formatted in a way consistent with pattern '" + dateFormat + "'",
             publicationPage.getNominalPublicationDate(), is(expectedDate));
+    }
+
+    public void createDatasetInEditableState() throws Throwable {
+        loginSteps.givenIAmLoggedInAsAdmin();
+        contentPage.openContentTab();
+        contentPage.newDataset(testDataRepo.createDatasetName());
+    }
+
+    @Given("^I have a dataset opened for editing$")
+    public void iHaveADatasetOpenedForEditing() throws Throwable {
+        createDatasetInEditableState();
+        assertTrue("Dataset edit screen is displayed", contentPage.isDocumentEditScreenOpen());
+    }
+
+    @And("^I populate and save the dataset$")
+    public void iPopulateAndSaveTheDataset() throws Throwable {
+        // these are the only mandatory fields on the dataset.
+        contentPage.populateDocumentTitle(newRandomString());
+        contentPage.populateDocumentSummary(newRandomString());
+        contentPage.saveAndCloseDocument();
     }
 }
