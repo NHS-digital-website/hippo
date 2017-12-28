@@ -5,7 +5,17 @@
   /admin:
     jcr:primaryType: hipposys:user
     hipposys:active: true
-    hipposys:password: $SHA-256$HIlytXwnqSU=$NqCi2sJoM4qAwQ8136GYueUVA/TSyidpAI3Evn+y/hc=
+    hipposys:password: $SHA-256$3vB5lqrvOts=$866Q2ch2uCcyIrROCoI6jf2y3Iuy7QXRxBeQSZIJfmA=
+    hipposys:securityprovider: internal
+  /ngaitang:
+    jcr:primaryType: hipposys:user
+    hipposys:active: true
+    hipposys:password: $SHA-256$Wzs0Fcfhutw=$CYKoPHIDGN9DEe7KvaGOppprXzg6zfL44RrKP7ZvUso=
+    hipposys:securityprovider: internal
+  /ivorcaldwell:
+    jcr:primaryType: hipposys:user
+    hipposys:active: true
+    hipposys:password: $SHA-256$3vB5lqrvOts=$866Q2ch2uCcyIrROCoI6jf2y3Iuy7QXRxBeQSZIJfmA=
     hipposys:securityprovider: internal
   /workflowuser:
     jcr:primaryType: hipposys:user
@@ -13,22 +23,12 @@
     hipposys:password: $SHA-256$*
     hipposys:securityprovider: internal
     hipposys:system: true
-  /author:
-    jcr:primaryType: hipposys:user
-    hipposys:active: true
-    hipposys:password: author
-    hipposys:securityprovider: internal
   /configuser:
     jcr:primaryType: hipposys:user
     hipposys:active: true
     hipposys:passkey: jvm://
     hipposys:securityprovider: internal
     hipposys:system: true
-  /editor:
-    jcr:primaryType: hipposys:user
-    hipposys:active: true
-    hipposys:password: editor
-    hipposys:securityprovider: internal
   /liveuser:
     jcr:primaryType: hipposys:user
     hipposys:active: true
