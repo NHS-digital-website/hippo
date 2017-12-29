@@ -10,17 +10,27 @@ public class PublicationSeries {
 
     private String name;
     private String title;
+    private String summary;
 
     private List<Publication> publications = new ArrayList<>();
 
     PublicationSeries(final PublicationSeriesBuilder publicationSeriesBuilder) {
         name = publicationSeriesBuilder.getName();
         title = publicationSeriesBuilder.getTitle();
+        summary = publicationSeriesBuilder.getSummary();
         publications = publicationSeriesBuilder.getPublications();
+    }
+
+    public String getName() {
+        return name;
     }
 
     public String getTitle() {
         return title;
+    }
+
+    public String getSummary() {
+        return summary;
     }
 
     public List<Publication> getPublications() {

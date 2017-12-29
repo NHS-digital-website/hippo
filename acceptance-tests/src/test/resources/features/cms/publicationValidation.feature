@@ -7,6 +7,24 @@ Feature: Publication edit screen - validation
     @DiscardAfter
     Scenario: Title validation
         Given I have a publication opened for editing
+        And I populate the publication
+        When I clear the title
+        And I save the publication
+        Then the save is rejected with error message containing "A mandatory string input field is empty"
+
+
+    @DiscardAfter
+    Scenario: Summary validation
+        Given I have a publication opened for editing
+        And I populate the publication
+        When I clear the summary
+        And I save the publication
+        Then the save is rejected with error message containing "A mandatory string input field is empty"
+
+
+    @DiscardAfter
+    Scenario: Long title validation
+        Given I have a publication opened for editing
         When I populate the title with text longer than the maximum allowed limit of 250 characters
         And I save the publication
         Then the save is rejected with error message containing "Title must be 250 characters or less"

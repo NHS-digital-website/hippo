@@ -12,6 +12,7 @@ public class PublicationSeriesBuilder {
     private String title;
     private List<PublicationBuilder> publicationBuilders = new ArrayList<>();
     private String name;
+    private String summary;
 
     public static PublicationSeriesBuilder newPublicationSeries() {
         return new PublicationSeriesBuilder();
@@ -26,11 +27,12 @@ public class PublicationSeriesBuilder {
         return cloneAndAmend(builder -> builder.title = title);
     }
 
-    public PublicationSeriesBuilder withPublications(final List<PublicationBuilder> publicationBuilders) {
-        return cloneAndAmend(builder -> builder.publicationBuilders = publicationBuilders);
-    }
     public PublicationSeriesBuilder withPublications(final PublicationBuilder... publicationBuilders) {
         return cloneAndAmend(builder -> builder.publicationBuilders = asList(publicationBuilders));
+    }
+
+    public PublicationSeriesBuilder withSummary(final String summary) {
+        return cloneAndAmend(builder -> builder.summary = summary);
     }
     //</editor-fold>
 
@@ -55,6 +57,10 @@ public class PublicationSeriesBuilder {
     String getName() {
         return name;
     }
+
+    String getSummary() {
+        return summary;
+    }
     //</editor-fold>
 
     private PublicationSeriesBuilder() {
@@ -63,6 +69,7 @@ public class PublicationSeriesBuilder {
     private PublicationSeriesBuilder(final PublicationSeriesBuilder original) {
         name = original.getName();
         title = original.getTitle();
+        summary = original.getSummary();
         publicationBuilders = original.getPublicationBuilders();
     }
 

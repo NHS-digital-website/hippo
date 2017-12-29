@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
+import uk.nhs.digital.ps.test.acceptance.models.PublicationSeries;
 import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
 
 import static org.slf4j.LoggerFactory.getLogger;
@@ -55,6 +56,13 @@ public class TestDataSteps extends AbstractSpringSteps {
         if (datasetName != null) {
             log.debug("Discarding and closing current dataset: {}.", datasetName);
             contentPage.discardUnsavedChanges(datasetName);
+        }
+
+        PublicationSeries series = testDataRepo.getPublicationSeries();
+        if (series != null) {
+            final String currentSeriesName = series.getName();
+            log.debug("Discarding and closing current series: {}.", currentSeriesName);
+            contentPage.discardUnsavedChanges(currentSeriesName);
         }
     }
 

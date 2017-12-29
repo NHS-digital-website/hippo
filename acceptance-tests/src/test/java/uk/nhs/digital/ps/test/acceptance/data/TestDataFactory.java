@@ -44,6 +44,13 @@ public class TestDataFactory {
             .withTaxonomy(Taxonomy.createNew("Conditions", "Accidents and injuries", "Falls"));
     }
 
+    public static PublicationSeriesBuilder createSeries() {
+        return PublicationSeriesBuilder.newPublicationSeries()
+            .withName(newRandomString() + " Series")
+            .withTitle(newRandomString() + " Series Title")
+            .withSummary(newRandomString() + " Series Summary");
+    }
+
     public static AttachmentBuilder createAttachmentOfType(final FileType fileType) {
         final Path path = getAttachmentFilePathByType(fileType);
 

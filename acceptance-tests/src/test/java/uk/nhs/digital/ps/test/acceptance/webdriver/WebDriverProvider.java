@@ -69,22 +69,19 @@ public class WebDriverProvider {
      */
     public void initialise() {
 
-        final DesiredCapabilities desiredCapabilities = DesiredCapabilities.chrome();
+        final ChromeOptions chromeOptions = new ChromeOptions();
 
         final Map<String, Object> chromePrefs = new HashMap<>();
         log.info("Setting WebDriver download directory to '{}'.", downloadDirectory);
         chromePrefs.put("download.default_directory", downloadDirectory.toAbsolutePath().toString());
 
-        final ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setExperimentalOption("prefs", chromePrefs);
         log.info("Configuring WebDriver to run in {} mode.", isHeadlessMode ? "headless" : "full, graphical");
         if (isHeadlessMode) {
             chromeOptions.addArguments("--headless");
         }
 
-        desiredCapabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-
-        webDriver = new RemoteWebDriver(webDriverServiceProvider.getUrl(), desiredCapabilities);
+        webDriver = new RemoteWebDriver(webDriverServiceProvider.getUrl(), chromeOptions);
     }
 
     /**
