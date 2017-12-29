@@ -1,0 +1,7 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:modules:
+      /eventListener:
+        hipposys:className: uk.nhs.digital.ps.ListenerModule
+        jcr:primaryType: hipposys:module
