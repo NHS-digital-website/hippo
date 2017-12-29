@@ -1,5 +1,6 @@
+<#ftl output_format="HTML">
 <!DOCTYPE html>
-<#include "../include/imports.ftlh">
+<#include "../include/imports.ftl">
 <html lang="en">
   <head>
 

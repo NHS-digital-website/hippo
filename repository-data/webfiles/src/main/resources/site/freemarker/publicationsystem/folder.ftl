@@ -1,9 +1,10 @@
-<#include "../include/imports.ftlh">
+<#ftl output_format="HTML">
+<#include "../include/imports.ftl">
 
   <#if series??>
-      <#include "./series.ftlh">
+      <#include "./series.ftl">
   <#elseif publication??>
-      <#include "./publication.ftlh">
+      <#include "./publication.ftl">
   <#else>
     <h2>Page not found</h2>
     <p>The page you're looking for does not exist. But we did find some other content.</p>

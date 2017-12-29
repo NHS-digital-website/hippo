@@ -1,4 +1,5 @@
-<#include "../../include/imports.ftlh">
+<#ftl output_format="HTML">
+<#include "../../include/imports.ftl">
 
 <#macro structuredText item uipath>
     <#list item.elements as element>

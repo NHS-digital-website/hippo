@@ -1,4 +1,5 @@
-<#include "../include/imports.ftlh">
+<#ftl output_format="HTML">
+<#include "../include/imports.ftl">
 
 <section class="document-header">
     <div class="document-header__inner">

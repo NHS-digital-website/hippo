@@ -1,4 +1,5 @@
-<#include "../include/imports.ftlh">
+<#ftl output_format="HTML">
+<#include "../include/imports.ftl">
 <!--Need to have a single setBundle call as subsequent ones will overwrite the previous values-->
 <@hst.setBundle basename="document-types,month-names"/>
 

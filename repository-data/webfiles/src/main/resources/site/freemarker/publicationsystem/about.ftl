@@ -1,3 +1,4 @@
+<#ftl output_format="HTML">
 <#include "../include/imports.ftlh">
 <section class="document-content">
     <#if document??>

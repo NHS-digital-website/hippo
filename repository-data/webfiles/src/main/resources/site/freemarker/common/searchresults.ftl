@@ -1,4 +1,5 @@
-<#include "../include/imports.ftlh">
+<#ftl output_format="HTML">
+<#include "../include/imports.ftl">
 <#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
 
 <#if pageable??>
@@ -21,7 +22,7 @@
             </#list>
 
             <#if cparam.showPagination>
-                <#include "../include/pagination.ftlh">
+                <#include "../include/pagination.ftl">
             </#if>
 
         </#if>

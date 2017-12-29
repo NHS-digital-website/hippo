@@ -1,5 +1,6 @@
-<#include "../include/imports.ftlh">
-<#include "./macro/structured-text.ftlh">
+<#ftl output_format="HTML">
+<#include "../include/imports.ftl">
+<#include "./macro/structured-text.ftl">
 <@hst.setBundle basename="publicationsystem.headers"/>
 
 <#assign dateFormat="dd/MM/yyyy"/>

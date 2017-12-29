@@ -1,5 +1,6 @@
-<#include "../include/imports.ftlh">
-<#include "./macro/structured-text.ftlh">
+<#ftl output_format="HTML">
+<#include "../include/imports.ftl">
+<#include "./macro/structured-text.ftl">
 <#assign dateFormat="dd/MM/yyyy"/>
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() />
 <#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
