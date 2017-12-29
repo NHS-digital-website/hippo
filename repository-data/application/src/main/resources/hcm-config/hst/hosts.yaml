@@ -34,6 +34,7 @@ definitions:
                 jcr:primaryType: hst:virtualhost
               jcr:primaryType: hst:virtualhost
             jcr:primaryType: hst:virtualhost
+          hst:scheme: http
           hst:showcontextpath: false
           jcr:primaryType: hst:virtualhost
         hst:cmslocation: http://blackhole-hippo-authoring.web.dev.ps.nhsd.io/cms
@@ -70,6 +71,7 @@ definitions:
                 jcr:primaryType: hst:virtualhost
               jcr:primaryType: hst:virtualhost
             jcr:primaryType: hst:virtualhost
+          hst:scheme: http
           hst:showcontextpath: false
           jcr:primaryType: hst:virtualhost
         hst:cmslocation: http://hippo-authoring.web.dev.ps.nhsd.io/cms
@@ -135,4 +137,5 @@ definitions:
           jcr:primaryType: hst:virtualhost
         hst:cmslocation: https://cms-nhs.test.onehippo.com
         jcr:primaryType: hst:virtualhostgroup
+      hst:scheme: https
       jcr:primaryType: hst:virtualhosts
