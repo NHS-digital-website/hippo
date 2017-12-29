@@ -1,5 +1,6 @@
+<#ftl output_format="HTML">
 <#-- DECLARATIONS: -->
-<#include "../include/imports.ftlh">
+<#include "../include/imports.ftl">
 
 <#macro restrictableDate date>
     <#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />

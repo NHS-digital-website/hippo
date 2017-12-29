@@ -1,4 +1,5 @@
-<#include "../include/imports.ftlh">
+<#ftl output_format="HTML">
+<#include "../include/imports.ftl">
 
 <#-- @ftlvariable name="menu" type="org.hippoecm.hst.core.sitemenu.HstSiteMenu" -->
 <#-- @ftlvariable name="editMode" type="java.lang.Boolean"-->

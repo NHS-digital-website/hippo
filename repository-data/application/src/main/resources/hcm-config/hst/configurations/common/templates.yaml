@@ -3,9 +3,9 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:templates:
       /facets:
-        hst:renderpath: webfile:/freemarker/common/facets.ftlh
+        hst:renderpath: webfile:/freemarker/common/facets.ftl
         jcr:primaryType: hst:template
       /footer:
-        hst:renderpath: webfile:/freemarker/common/base-footer.ftlh
+        hst:renderpath: webfile:/freemarker/common/base-footer.ftl
         jcr:primaryType: hst:template
       jcr:primaryType: hst:templates

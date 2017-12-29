@@ -1,3 +1,4 @@
+<#ftl output_format="HTML">
 <div class="pagination">
     <ul class="pagination__list">
         <#if pageable.totalPages gt 1>

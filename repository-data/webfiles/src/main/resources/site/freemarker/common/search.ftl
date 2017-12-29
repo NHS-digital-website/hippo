@@ -1,4 +1,5 @@
-<#include "../include/imports.ftlh">
+<#ftl output_format="HTML">
+<#include "../include/imports.ftl">
 
 <@hst.link siteMapItemRefId="search" mount="common-context" var="searchLink"/>
 
