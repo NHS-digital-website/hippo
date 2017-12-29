@@ -19,6 +19,7 @@ definitions:
             hst:homepage: root
             hst:mountpoint: /hst:hst/hst:sites/common
             jcr:primaryType: hst:mount
+          hst:scheme: http
           jcr:primaryType: hst:virtualhost
         hst:cmslocation: http://localhost:8080/cms
         hst:defaultport: 8080
@@ -41,6 +42,7 @@ definitions:
               hst:mountpoint: /hst:hst/hst:sites/common
               jcr:primaryType: hst:mount
             jcr:primaryType: hst:virtualhost
+          hst:scheme: http
           hst:showcontextpath: false
           jcr:primaryType: hst:virtualhost
         hst:cmslocation: http://hippo-authoring.int:8080/cms
