@@ -4,6 +4,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
+import uk.nhs.digital.ps.test.acceptance.models.PublicationSeries;
 import uk.nhs.digital.ps.test.acceptance.pages.widgets.*;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
@@ -17,6 +18,7 @@ public class ContentPage extends AbstractCmsPage {
 
     private static final String PUBLICATION = "publication";
     private static final String DATASET = "dataset";
+    private static final String SERIES = "series";
 
     private PageHelper helper;
 
@@ -36,11 +38,15 @@ public class ContentPage extends AbstractCmsPage {
     }
 
     public boolean newPublication(final Publication publication) {
-        return createDocument(PUBLICATION, publication.getName(), publication.getPublicationUrlName());
+        return createDocument(PUBLICATION, publication.getName());
     }
 
     public boolean newDataset(String name) {
-        return createDocument(DATASET, name, name);
+        return createDocument(DATASET, name);
+    }
+
+    public boolean newSeries(PublicationSeries series) {
+        return createDocument(SERIES, series.getName());
     }
 
     public boolean isDocumentEditScreenOpen() {
@@ -108,18 +114,22 @@ public class ContentPage extends AbstractCmsPage {
     }
 
     public void populateDocumentTitle(final String documentTitle) {
-        helper.findElement(
+        findTitleElement().sendKeys(documentTitle);
+    }
+
+    public WebElement findTitleElement() {
+        return helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//div[contains(@class, 'document-title')]//textarea")
-        ).sendKeys(
-            documentTitle
         );
     }
 
     public void populateDocumentSummary(final String documentSummary) {
-        helper.findElement(
+        findSummaryElement().sendKeys(documentSummary);
+    }
+
+    public WebElement findSummaryElement() {
+        return helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//div[contains(@class, 'document-summary')]//textarea")
-        ).sendKeys(
-            documentSummary
         );
     }
 
@@ -195,7 +205,7 @@ public class ContentPage extends AbstractCmsPage {
         return menu;
     }
 
-    private boolean createDocument(String docType, String name, String urlName) {
+    private boolean createDocument(String docType, String name) {
 
         WebElement menu = openDocumentMenu();
 
@@ -205,7 +215,7 @@ public class ContentPage extends AbstractCmsPage {
 
         // Wait for modal dialogue and find new document name field
         WebElement nameField = helper.findElement(By.name("name-url:name"));
-        nameField.sendKeys(urlName);
+        nameField.sendKeys(name);
 
         // Choose document type
         WebElement documentTypeField = getWebDriver().findElement(By.name("prototype"));
@@ -281,7 +291,18 @@ public class ContentPage extends AbstractCmsPage {
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Take offline...']"));
     }
 
+    /**
+     * Sometimes when send a click, it just highlights the button but doesn't click it..
+     * The second time always seems to work so only try twice
+     */
     private void clickButtonOnModalDialog(String buttonText) {
+        try {
+            clickButtonOnModalDialogOnce(buttonText);
+        } catch (TimeoutException e) {
+            clickButtonOnModalDialogOnce(buttonText);
+        }
+    }
+    private void clickButtonOnModalDialogOnce(String buttonText) {
         helper.findElement(
             By.xpath("//div[contains(@class, 'wicket-modal')]//input[@type='submit' and @value='"+ buttonText +"']"))
             .click();

@@ -13,6 +13,7 @@ import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
 import uk.nhs.digital.ps.test.acceptance.models.Attachment;
 import uk.nhs.digital.ps.test.acceptance.models.FileType;
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
+import uk.nhs.digital.ps.test.acceptance.models.PublicationSeries;
 import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.SitePage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
@@ -102,9 +103,8 @@ public class CmsSteps extends AbstractSpringSteps {
 
     @When("^I populate and save the publication")
     public void whenIPopulateAndSaveThePublication() throws Throwable {
-
-        contentPage.populatePublication(testDataRepo.getCurrentPublication());
-        contentPage.saveAndCloseDocument();
+        iPopulateThePublication();
+        iSaveTheDocument();
     }
 
     @Then(("^it is saved"))
@@ -170,9 +170,11 @@ public class CmsSteps extends AbstractSpringSteps {
         contentPage.populateDocumentTitle(longString);
     }
 
-    @When("^I save the (?:dataset|publication)$")
+    @When("^I save the (?:dataset|publication|series)$")
     public void iSaveTheDocument() throws Throwable {
-        contentPage.saveDocument();
+        // Always save and close as all the steps either want to test the save is
+        // blocked with validation, or close the saved document and do something else
+        contentPage.saveAndCloseDocument();
     }
 
     @Then("^the save is rejected with error message containing \"([^\"]+)\"$")
@@ -294,6 +296,21 @@ public class CmsSteps extends AbstractSpringSteps {
             publicationPage.getNominalPublicationDate(), is(expectedDate));
     }
 
+    public void createSeriesInEditableState() throws Throwable {
+        loginSteps.givenIAmLoggedInAsAdmin();
+        contentPage.openContentTab();
+
+        final PublicationSeries publicationSeries = TestDataFactory.createSeries().build();
+        testDataRepo.setPublicationSeries(publicationSeries);
+        contentPage.newSeries(publicationSeries);
+    }
+
+    @Given("^I have a series opened for editing$")
+    public void iHaveASeriesOpenedForEditing() throws Throwable {
+        createSeriesInEditableState();
+        assertTrue("Series edit screen is displayed", contentPage.isDocumentEditScreenOpen());
+    }
+
     public void createDatasetInEditableState() throws Throwable {
         loginSteps.givenIAmLoggedInAsAdmin();
         contentPage.openContentTab();
@@ -308,9 +325,41 @@ public class CmsSteps extends AbstractSpringSteps {
 
     @And("^I populate and save the dataset$")
     public void iPopulateAndSaveTheDataset() throws Throwable {
+        iPopulateTheDataset();
+        iSaveTheDocument();
+    }
+
+    @And("^I populate the dataset$")
+    public void iPopulateTheDataset() throws Throwable {
         // these are the only mandatory fields on the dataset.
         contentPage.populateDocumentTitle(newRandomString());
         contentPage.populateDocumentSummary(newRandomString());
-        contentPage.saveAndCloseDocument();
+    }
+
+    @When("^I populate the publication$")
+    public void iPopulateThePublication() throws Throwable {
+        contentPage.populatePublication(testDataRepo.getCurrentPublication());
+    }
+
+    @And("^I populate the series$")
+    public void iPopulateTheSeries() throws Throwable {
+        PublicationSeries series = testDataRepo.getPublicationSeries();
+        contentPage.populateDocumentTitle(series.getTitle());
+        contentPage.populateDocumentSummary(series.getSummary());
+    }
+
+    /**
+     * So we can populate all the fields in a document and then clear a specific one.
+     * Need this to test the validation for mandatory fields in isolation as the error
+     * message is the same for different fields.
+     */
+    @When("^I clear the title$")
+    public void iClearTheTitle() throws Throwable {
+        contentPage.findTitleElement().clear();
+    }
+
+    @When("^I clear the summary$")
+    public void iClearTheSummary() throws Throwable {
+        contentPage.findSummaryElement().clear();
     }
 }

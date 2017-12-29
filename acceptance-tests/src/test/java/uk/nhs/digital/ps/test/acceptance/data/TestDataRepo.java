@@ -66,6 +66,7 @@ public class TestDataRepo {
         setPublication(null);
         publications.clear();
         datasetName = null;
+        publicationSeries = null;
     }
 
     public String getDatasetName() {
@@ -73,7 +74,7 @@ public class TestDataRepo {
     }
 
     public String createDatasetName() {
-        datasetName = newRandomString() + "dataset";
+        datasetName = newRandomString() + " Dataset"; // Test with a name different to the URL
         return datasetName;
     }
 
