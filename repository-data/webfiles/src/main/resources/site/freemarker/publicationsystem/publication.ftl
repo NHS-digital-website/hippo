@@ -56,16 +56,16 @@
             <div class="flex push--top push--bottom">
                 <div class="flex__item">
                     <div class="media">
-                        <img class="media__img" src="http://via.placeholder.com/52x52" alt="">
+                        <div class="media__icon media__icon--calendar"></div>
                         <@nominalPublicationDate/>
                     </div>
                 </div><!--
 
-                --><#if publication.geographicCoverage?has_content><div class="layout__item layout-1-4">
+                --><#if publication.geographicCoverage?has_content><div class="flex__item">
                     <div class="media">
-                        <img class="media__img" src="http://via.placeholder.com/52x52" alt="">
+                        <div class="media__icon media__icon--geographic-coverage"></div>
                         <dl class="media__body">
-                            <dt id="geographic-coverage">Geographic coverage</dt>
+                            <dt id="geographic-coverage">Geographic coverage:</dt>
                             <dd data-uipath="ps.publication.geographic-coverage">
                                 ${publication.geographicCoverage}
                             </dd>
@@ -75,7 +75,7 @@
 
                 --><#if publication.granularity?has_content ><div class="flex__item">
                     <div class="media">
-                        <img class="media__img" src="http://via.placeholder.com/52x52" alt="">
+                        <div class="media__icon media__icon--granularity"></div>
                         <dl class="media__body">
                             <dt>Geographical granularity</dt>
                             <dd data-uipath="ps.publication.granularity">
@@ -87,7 +87,7 @@
 
                 --><#if publication.coverageStart?? ><div class="flex__item">
                     <div class="media">
-                        <img class="media__img" src="http://via.placeholder.com/52x52" alt="">
+                        <div class="media__icon media__icon--date-range"></div>
                         <dl class="media__body">
                             <dt>Date Range</dt>
                             <dd data-uipath="ps.publication.date-range">
@@ -96,20 +96,6 @@
                                 <#else>
                                     (Not specified)
                                 </#if>
-                            </dd>
-                        </dl>
-                    </div>
-                </div></#if><!--
-
-                --><#if publication.taxonomyList??><div class="flex__item">
-                    <div class="media">
-                        <img class="media__img" src="http://via.placeholder.com/52x52" alt="">
-                        <dl class="media__body">
-                            <dt>Taxonomy</dt>
-                            <dd data-uipath="ps.publication.taxonomy">
-                                <#list publication.taxonomyList as taxonomyChain>
-                                    <div>${taxonomyChain?join(" => ")}</div>
-                                </#list>
                             </dd>
                         </dl>
                     </div>
@@ -139,7 +125,7 @@
             </div><!--
 
             --><div class="layout__item layout-1-3">
-                <div class="panel panel--grey">
+                <div class="panel panel--grey push-half--bottom">
                     <h3><@fmt.message key="headers.resources"/></h3>
                     <ul data-uipath="ps.publication.resources">
                         <#list publication.attachmentsOld as attachment>
@@ -167,13 +153,27 @@
                     </ul>
                     <#if publication.relatedLinks?has_content>
                         <h3><@fmt.message key="headers.related-links"/></h3>
-                        <ul data-uipath="ps.publication.related-links"><#list publication.relatedLinks as link>
+                        <ul data-uipath="ps.publication.related-links">
+                            <#list publication.relatedLinks as link>
                             <li>
                                 <a href="${link.linkUrl}">${link.linkText}</a>
                             </li>
-                        </#list></ul>
+                            </#list>
+                        </ul>
                     </#if>
                 </div>
+
+                <#if publication.taxonomyList??>
+                    <div class="panel panel--grey">
+                        <h3>Taxonomy</h3>
+                        <div data-uipath="ps.publication.taxonomy">
+                            <#list publication.taxonomyList as taxonomyChain>
+                                <div>${taxonomyChain?join(" => ")}</div>
+                            </#list>
+                        </div>
+                    </div>
+                </#if>
+
             </div>
         </div>
     </section>

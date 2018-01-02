@@ -22,7 +22,7 @@
     margin-top: @double-spacing-unit;
     margin-right: auto;
     margin-left: auto;
-    margin-bottom: 0;
+    margin-bottom: @double-spacing-unit;
 }
 
 
@@ -186,7 +186,7 @@ a {
 .common-search__input::after {
   position: absolute;
   content: "";
-  background-image: url(http://via.placeholder.com/26x26);
+  background-image: url(img/icon-search.svg);
   background-position: 0px 0px;
   background-repeat: no-repeat;
   top: 50%;
@@ -231,7 +231,8 @@ a {
     color: #FFF;
   }
   dt {
-    font-size: 18px;
+    font-size: 16px;
+    margin-top:6px;
   }
   dd {
     margin: 0px;
@@ -255,6 +256,36 @@ a {
   margin: 0px 0px 0px 20px;
   line-height: 1.4;
 }
+.media__icon {
+    width:52px;
+    height:52px;
+}
+.media__icon--calendar {
+    background-image: url(img/icon-calendar.svg);
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size: 52px;
+}
+.media__icon--granularity {
+    background-image: url(img/icon-granularity.svg);
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size: 52px;
+}
+.media__icon--geographic-coverage {
+    background-image: url(img/icon-geographic-coverage.svg);
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size: 52px;
+}
+.media__icon--date-range {
+    background-image: url(img/icon-date-range.svg);
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size: 52px;
+}
+
+
 
 
 /* PANELS */

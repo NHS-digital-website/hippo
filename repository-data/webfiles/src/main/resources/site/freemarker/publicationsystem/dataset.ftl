@@ -23,7 +23,7 @@
         <div class="flex push--top push--bottom">
             <div class="flex__item">
                 <div class="media">
-                    <img class="media__img" src="http://via.placeholder.com/52x52" alt="">
+                    <div class="media__icon media__icon--date-range"></div>
                     <dl class="media__body">
                         <dt>Date Range</dt>
                         <dd data-uipath="ps.dataset.date-range">
@@ -39,7 +39,7 @@
 
             --><#if dataset.geographicCoverage??><div class="flex__item">
                 <div class="media">
-                    <img class="media__img" src="http://via.placeholder.com/52x52" alt="">
+                    <div class="media__icon media__icon--granularity"></div>
                     <dl class="media__body">
                         <dt id="geographic-coverage">Geographic coverage</dt>
                         <dd data-uipath="ps.dataset.geographic-coverage">
@@ -51,7 +51,7 @@
 
             --><#if dataset.granularity?has_content ><div class="flex__item">
                 <div class="media">
-                    <img class="media__img" src="http://via.placeholder.com/52x52" alt="">
+                    <div class="media__icon media__icon--geographic-coverage"></div>
                     <dl class="media__body">
                         <dt>Geographical granularity</dt>
                         <dd data-uipath="ps.dataset.granularity">
@@ -63,7 +63,7 @@
 
             --><#if dataset.nominalDate?has_content ><div class="flex__item">
             <div class="media">
-                <img class="media__img" src="http://via.placeholder.com/52x52" alt="">
+                <div class="media__icon media__icon--calendar"></div>
                 <dl class="media__body">
                     <dt>Nominal date</dt>
                     <dd data-uipath="ps.dataset.nominal-date">
