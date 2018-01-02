@@ -59,4 +59,3 @@ Scenario: Show new v3 attachments with text along with old v2 attachments
     And I can download following files:
         | attachment.pdf       | attachment.pdf      |
         | Attachment with text | attachment-text.pdf |
-        | attachment-old.pdf   | attachment-old.pdf  |

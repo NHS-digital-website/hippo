@@ -13,6 +13,7 @@ import uk.nhs.digital.ps.test.acceptance.config.AcceptanceTestProperties;
 import uk.nhs.digital.ps.test.acceptance.pages.site.SitePage;
 import uk.nhs.digital.ps.test.acceptance.steps.AbstractSpringSteps;
 import uk.nhs.digital.ps.test.acceptance.steps.site.ps.PublicationSteps;
+import uk.nhs.digital.ps.test.acceptance.util.TestContentUrls;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -21,9 +22,11 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.Matchers.startsWith;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 import static org.slf4j.LoggerFactory.getLogger;
+import static uk.nhs.digital.ps.test.acceptance.pages.site.AbstractSitePage.URL;
 import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.waitUntilFileAppears;
 
 
@@ -36,6 +39,8 @@ public class SiteSteps extends AbstractSpringSteps {
 
     @Autowired
     private AcceptanceTestProperties acceptanceTestProperties;
+
+    private TestContentUrls urlLookup = new TestContentUrls();
 
     @Given("^I navigate to (?:the )?\"([^\"]+)\" (?:.* )?page$")
     public void iNavigateToPage(String pageName) throws Throwable {
@@ -140,6 +145,9 @@ public class SiteSteps extends AbstractSpringSteps {
             assertThat("I can find download link with title: " + linkText,
                 downloadElement, is(notNullValue()));
 
+            String url = downloadElement.getAttribute("href");
+            assertEquals("I can find link with expected URL for file " + linkFileName, URL + urlLookup.lookupUrl(linkFileName), url);
+
             if (acceptanceTestProperties.isHeadlessMode()) {
                 // At the moment of writing, there doesn't seem to be any easy way available to force Chromedriver
                 // to download files when operating in headless mode. It appears that some functionality has been
@@ -148,17 +156,16 @@ public class SiteSteps extends AbstractSpringSteps {
                 //
                 // See bug report at https://bugs.chromium.org/p/chromium/issues/detail?id=696481 and other reports
                 // available online.
-                log.warn("Not testing file download due to running in a headless mode.");
-                return;
+                log.warn("Not testing file download due to running in a headless mode, will just check link is present.");
+            } else {
+                // Trigger file download by click the <a> tag.
+                sitePage.clickOnElement(downloadElement);
+
+                final Path downloadedFilePath = Paths.get(acceptanceTestProperties.getDownloadDir().toString(),
+                    linkFileName);
+
+                waitUntilFileAppears(downloadedFilePath);
             }
-
-            // Trigger file download by click the <a> tag.
-            sitePage.clickOnElement(downloadElement);
-
-            final Path downloadedFilePath = Paths.get(acceptanceTestProperties.getDownloadDir().toString(),
-                linkFileName);
-
-            waitUntilFileAppears(downloadedFilePath);
         }
     }
 
