@@ -28,7 +28,7 @@
       jcr:primaryType: publicationsystem:resource
     /publicationsystem:Files-v3[1]:
       /publicationsystem:attachmentResource:
-        hippo:filename: attachment-text.pdf
+        hippo:filename: dataset-attachment-text.pdf
         hippo:text:
           resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v3[1]/attachmentResource/text.pdf
           type: binary
@@ -43,7 +43,7 @@
       publicationsystem:displayName: Attachment with text
     /publicationsystem:Files-v3[2]:
       /publicationsystem:attachmentResource:
-        hippo:filename: attachment.pdf
+        hippo:filename: dataset-attachment.pdf
         hippo:text:
           resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v3[2]/attachmentResource/text.pdf
           type: binary
@@ -103,7 +103,7 @@
       jcr:primaryType: publicationsystem:resource
     /publicationsystem:Files-v3[1]:
       /publicationsystem:attachmentResource:
-        hippo:filename: attachment-text.pdf
+        hippo:filename: dataset-attachment-text.pdf
         hippo:text:
           resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v3[1]/attachmentResource/text.pdf
           type: binary
@@ -118,7 +118,7 @@
       publicationsystem:displayName: Attachment with text
     /publicationsystem:Files-v3[2]:
       /publicationsystem:attachmentResource:
-        hippo:filename: attachment.pdf
+        hippo:filename: dataset-attachment.pdf
         hippo:text:
           resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v3[2]/attachmentResource/text.pdf
           type: binary
@@ -180,7 +180,7 @@
       jcr:primaryType: publicationsystem:resource
     /publicationsystem:Files-v3[1]:
       /publicationsystem:attachmentResource:
-        hippo:filename: attachment-text.pdf
+        hippo:filename: dataset-attachment-text.pdf
         hippo:text:
           resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v3[1]/attachmentResource/text.pdf
           type: binary
@@ -195,7 +195,7 @@
       publicationsystem:displayName: Attachment with text
     /publicationsystem:Files-v3[2]:
       /publicationsystem:attachmentResource:
-        hippo:filename: attachment.pdf
+        hippo:filename: dataset-attachment.pdf
         hippo:text:
           resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/dataset/Files-v3[2]/attachmentResource/text.pdf
           type: binary

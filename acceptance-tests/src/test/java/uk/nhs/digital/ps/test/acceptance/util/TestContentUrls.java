@@ -3,6 +3,8 @@ package uk.nhs.digital.ps.test.acceptance.util;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.openqa.selenium.net.Urls.urlEncode;
+
 public class TestContentUrls {
 
     private final Map<String, String> urlLookup = new HashMap();
@@ -56,6 +58,24 @@ public class TestContentUrls {
 
         // about pages
         add("terms and conditions", "/publications/about/terms-and-conditions");
+
+        // attachments
+        add("attachment-text.pdf",
+            getAttachmentUrl("attachment-test/content/content", "Attachments-v3"));
+        add("attachment.pdf",
+            getAttachmentUrl("attachment-test/content/content", "Attachments-v3[2]"));
+
+        add("dataset-attachment-text.pdf",
+            getAttachmentUrl("attachment-test/dataset/dataset", "Files-v3"));
+        add("dataset-attachment.pdf",
+            getAttachmentUrl("attachment-test/dataset/dataset", "Files-v3[2]"));
+    }
+
+    private String getAttachmentUrl(String siteUrl, String attachmentTag) {
+        return "/binaries/content/documents/corporate-website/publication-system/acceptance-tests/"
+            + siteUrl + "/"
+            + urlEncode("publicationsystem:" + attachmentTag) + "/"
+            + urlEncode("publicationsystem:attachmentResource");
     }
 
     private void add(String pageName, String url) {
