@@ -35,4 +35,14 @@ public class DateCmsWidget {
             + "//div[contains(@class, '" + dateFieldClass + "')]//input[@type='text' and @class='date']"
         ));
     }
+
+    public void setToToday() {
+        WebElement resetButton = find().findElement(By.xpath("//a[contains(@class, 'hippo-datepicker-reset')]"));
+        resetButton.click();
+    }
+
+    public void clear() {
+        find().clear();
+    }
+
 }

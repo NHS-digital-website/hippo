@@ -8,6 +8,7 @@ import uk.nhs.digital.ps.test.acceptance.models.PublicationSeries;
 import uk.nhs.digital.ps.test.acceptance.pages.widgets.*;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -84,7 +85,7 @@ public class ContentPage extends AbstractCmsPage {
         getAttachmentsWidget().uploadAttachments(publication.getAttachments());
     }
 
-    private DateCmsWidget findNominalDateField() {
+    public DateCmsWidget findNominalDateField() {
         return new DateCmsWidget(helper, "nominal-date");
     }
 
@@ -125,6 +126,14 @@ public class ContentPage extends AbstractCmsPage {
 
     public void populateDocumentSummary(final String documentSummary) {
         findSummaryElement().sendKeys(documentSummary);
+    }
+
+    public void populateDocumentNominalDate(final Instant documentNominalDate) {
+        findNominalDateField().populateWith(documentNominalDate);
+    }
+
+    public void populateDocumentNominalDate() {
+        findNominalDateField().setToToday();
     }
 
     public WebElement findSummaryElement() {

@@ -73,7 +73,7 @@
     publicationsystem:Granularity:
     - ''
     publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
-    publicationsystem:NominalDate: 0001-01-01T12:00:00Z
+    publicationsystem:NominalDate: 2017-12-13T00:00:00Z
     publicationsystem:Summary: Attachment Test Dataset
     publicationsystem:Title: Attachment Test Dataset
   /dataset[2]:
@@ -150,7 +150,7 @@
     publicationsystem:Granularity:
     - ''
     publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
-    publicationsystem:NominalDate: 0001-01-01T12:00:00Z
+    publicationsystem:NominalDate: 2017-12-13T00:00:00Z
     publicationsystem:Summary: Attachment Test Dataset
     publicationsystem:Title: Attachment Test Dataset
   /dataset[3]:
@@ -227,7 +227,7 @@
     publicationsystem:Granularity:
     - ''
     publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
-    publicationsystem:NominalDate: 0001-01-01T12:00:00Z
+    publicationsystem:NominalDate: 2017-12-13T00:00:00Z
     publicationsystem:Summary: Attachment Test Dataset
     publicationsystem:Title: Attachment Test Dataset
   jcr:mixinTypes:

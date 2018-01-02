@@ -334,6 +334,7 @@ public class CmsSteps extends AbstractSpringSteps {
         // these are the only mandatory fields on the dataset.
         contentPage.populateDocumentTitle(newRandomString());
         contentPage.populateDocumentSummary(newRandomString());
+        contentPage.populateDocumentNominalDate();
     }
 
     @When("^I populate the publication$")
@@ -361,5 +362,10 @@ public class CmsSteps extends AbstractSpringSteps {
     @When("^I clear the summary$")
     public void iClearTheSummary() throws Throwable {
         contentPage.findSummaryElement().clear();
+    }
+
+    @When("^I clear the nominal date")
+    public void iClearTheNominalDate() throws Throwable {
+        contentPage.findNominalDateField().clear();
     }
 }
