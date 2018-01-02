@@ -23,6 +23,15 @@ Feature: Publication edit screen - validation
 
 
     @DiscardAfter
+    Scenario: Nominal date validation
+        Given I have a publication opened for editing
+        And I populate the publication
+        When I clear the nominal date
+        And I save the publication
+        Then the save is rejected with error message containing "A required field is not present"
+
+
+    @DiscardAfter
     Scenario: Long title validation
         Given I have a publication opened for editing
         When I populate the title with text longer than the maximum allowed limit of 250 characters

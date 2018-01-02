@@ -61,6 +61,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Nominal Publication Date
             field: nominal_date
+            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.css:
@@ -299,6 +300,8 @@ definitions:
             hipposysedit:path: publicationsystem:NominalDate
             hipposysedit:primary: false
             hipposysedit:type: CalendarDate
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /publicly_accessible:
             hipposysedit:mandatory: false
