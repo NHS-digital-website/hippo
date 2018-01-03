@@ -91,4 +91,8 @@ public class SitePage extends AbstractSitePage {
     private WebElement findSearchButton() {
         return helper.findElement(By.id("btnSearch"));
     }
+
+    public WebElement findFooter() {
+        return helper.findElement(By.id("footer"));
+    }
 }
