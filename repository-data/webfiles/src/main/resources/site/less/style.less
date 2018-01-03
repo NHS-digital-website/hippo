@@ -456,12 +456,57 @@ a {
 /* FOOTER */
 /* ########################################################## */
 .footer {
-
+    background-color: #425563;
+    font-size: 16px;
+    margin-top: @base-spacing-unit;
+    padding-top: @base-spacing-unit;
+    padding-bottom: @base-spacing-unit;
+    p {
+        color: #FFF;
+        font-size: 16px;
+    }
 }
 .footer__inner {
   width: @max-width;
   margin: 0 auto;
 }
+
+.footer__inner__list {
+    list-style: none;
+    padding-left: 0px;
+    margin-bottom: @half-spacing-unit;
+}
+.footer__inner__list__item {
+    display: inline-block;
+    margin-right: 12px;
+    padding-right: 12px;
+    border-right: 1px solid #FFF;
+    line-height: 1;
+}
+.footer__inner__list__item:last-child {
+    border-right: 0px;
+}
+.footer__inner__list__item__link {
+    color: #FFF;
+    font-size: 16px;
+}
+
+.footer__inner__sharelist {
+    list-style: none;
+    padding-left: 0px;
+    text-align: right;
+    color: #FFF;
+}
+.footer__inner__sharelist__item {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 16px;
+    color: #FFF;
+}
+.footer__inner__sharelist__item__link {
+
+}
+
 
 
 /* PAGINATIONS */

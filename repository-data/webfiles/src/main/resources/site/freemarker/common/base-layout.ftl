@@ -57,9 +57,9 @@
 
     </#if>
 
-    <footer>
-        <@hst.include ref="footer"/>
-    </footer>
+
+    <@hst.include ref="footer"/>
+
 
     <@hst.headContributions categoryIncludes="htmlBodyEnd, scripts" xhtml=true/>
   </body>
