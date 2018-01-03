@@ -21,6 +21,7 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.Matchers.startsWith;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.waitUntilFileAppears;
@@ -159,6 +160,14 @@ public class SiteSteps extends AbstractSpringSteps {
 
             waitUntilFileAppears(downloadedFilePath);
         }
+    }
+
+    @Then("^I should see the footer$")
+    public void iShouldSeeTheFooter() throws Throwable {
+        assertNotNull("Footer is present", sitePage.findFooter());
+
+        assertNotNull("Can find terms and conditions link",
+            sitePage.findElementWithTitle("Terms and Conditions"));
     }
 
     /**

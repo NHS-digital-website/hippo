@@ -8,13 +8,13 @@
     </div>
 </div>
 
-<footer class="footer">
+<footer class="footer" id="footer">
     <div class="footer__inner">
         <div class="layout layout--flush">
             <div class="layout__item layout-2-3">
                 <ul class="footer__inner__list">
                     <@hst.link var="termslink" path="/publications/about/terms-and-conditions"/>
-                    <li class="footer__inner__list__item"><a href="${termslink}" class="footer__inner__list__item__link">Terms &amp; Conditions</a></li><!--
+                    <li class="footer__inner__list__item" title="Terms and Conditions"><a href="${termslink}" class="footer__inner__list__item__link">Terms and Conditions</a></li><!--
                     --><li class="footer__inner__list__item"><a href="#" class="footer__inner__list__item__link">Privacy and cookies</a></li><!--
                     --><li class="footer__inner__list__item"><a href="#" class="footer__inner__list__item__link">Accessibility help</a></li>
                 </ul>

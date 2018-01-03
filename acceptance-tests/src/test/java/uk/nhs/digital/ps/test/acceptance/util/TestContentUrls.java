@@ -29,6 +29,9 @@ public class TestContentUrls {
         add("series with publication with datasets",
             "/publications/acceptance-tests/series-with-publication-with-datasets");
 
+        // folder
+        add("acceptence tests folder", "/publications/acceptance-tests");
+
         // series page
         add("valid publication series",
             "/publications/valid-publication-series");
@@ -50,6 +53,9 @@ public class TestContentUrls {
         add("invalid root", "/invalid");
         add("invalid document", "/publications/invalid");
         add("invalid sub document", "/publications/acceptance-tests/invalid");
+
+        // about pages
+        add("terms and conditions", "/publications/about/terms-and-conditions");
     }
 
     private void add(String pageName, String url) {
