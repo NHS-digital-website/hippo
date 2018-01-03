@@ -8,6 +8,7 @@ Feature: Footer
         Given I navigate to the "home" page
         When I can click on the "Terms and Conditions" link
         Then I should see a page titled "Terms and Conditions"
+        And I should see the content "1              About these terms ..."
 
 
     # Tests for each of the pages on the site

@@ -9,7 +9,7 @@
 
 <#if dataset??>
 
-<section class="document-header">
+<section class="document-header" aria-label="Document Header">
     <div class="document-header__inner">
         <h1 class="layout-5-6" data-uipath="ps.document.title">${dataset.title}</h1>
         <p class="flush--top">
@@ -77,7 +77,7 @@
     </div>
 </section>
 
-<section class="document-content">
+<section class="document-content" aria-label="Document Content">
     <div class="layout layout--large">
         <div class="layout__item layout-2-3">
 

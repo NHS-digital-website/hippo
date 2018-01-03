@@ -5,7 +5,7 @@
 <@hst.setBundle basename="publicationsystem.headers"/>
 
 <#if series??>
-    <section class="document-header">
+    <section class="document-header" aria-label="Series Title">
       <div class="document-header__inner">
         <div class="layout-5-6">
           <h1 class="push--bottom" data-uipath="ps.document.title">${series.title}</h1>
@@ -13,7 +13,7 @@
       </div>
     </section>
 
-    <section class="document-content">
+    <section class="document-content" aria-label="Series Content">
         <div class="layout layout--large">
             <div class="layout__item layout-3-4">
                 <h2><@fmt.message key="headers.summary"/></h2>
