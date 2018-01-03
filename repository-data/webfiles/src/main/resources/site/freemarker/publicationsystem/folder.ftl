@@ -6,7 +6,7 @@
   <#elseif publication??>
       <#include "./publication.ftl">
   <#else>
-    <h2>Page not found</h2>
+    <h1>Page not found</h1>
     <p>The page you're looking for does not exist. But we did find some other content.</p>
     <ul>
       <#list publications as publication>

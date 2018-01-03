@@ -38,7 +38,7 @@
     <@hst.include ref="top"/>
 
     <#if hstResponseChildContentNames?seq_contains("left") >
-    <section class="document-content">
+    <section class="document-content" aria-label="Search Results">
       <div class="layout layout--large">
         <div class="layout__item layout-1-3">
           <div class="panel panel--grey">

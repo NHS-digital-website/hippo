@@ -13,11 +13,11 @@
 
 
 <#-- CONTENT: -->
-<section class="document-content">
+<section class="document-content" aria-label="Publications Overview">
   <div class="layout">
     <div class="layout__item layout-1-2">
 
-      <h2>Latest publications</h2>
+      <h1>Latest publications</h1>
       <#if publishedPublications??>
 
         <#list publishedPublications as publication>
@@ -45,7 +45,7 @@
 
     --><div class="layout__item layout-1-2">
 
-        <h2>Upcoming publications</h2>
+        <h1>Upcoming publications</h1>
         <#if upcomingPublications??>
             <ul>
                 <#list upcomingPublications as publication>

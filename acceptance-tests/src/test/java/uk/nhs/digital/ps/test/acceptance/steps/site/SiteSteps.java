@@ -1,6 +1,7 @@
 package uk.nhs.digital.ps.test.acceptance.steps.site;
 
 import cucumber.api.DataTable;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -75,6 +76,11 @@ public class SiteSteps extends AbstractSpringSteps {
     @Then("^I should see (?:.* )?page titled \"([^\"]+)\"$")
     public void iShouldSeePageTitled(String pageTitle) throws Throwable {
         assertThat("I should see page titled.", sitePage.getDocumentTitle(), is(pageTitle));
+    }
+
+    @And("^I should see the content \"([^\"]*)\"$")
+    public void iShouldSeeTheContent(String content) throws Throwable {
+        assertThat("Document content is as expected", sitePage.getDocumentContent(), getMatcherForText(content));
     }
 
     @Then("^I should see the page not found error page$")

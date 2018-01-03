@@ -22,19 +22,23 @@
 </#macro>
 
 <#macro restrictedContentOfUpcomingPublication>
-    <section class="document-header">
-        <h2 class="doc-title" data-uipath="ps.document.title">${publication.title}</h2>
-        <dl class="doc-metadata">
-            <p>
-            <@nominalPublicationDate/>
-            </p>
-            <p data-uipath="ps.publication.upcoming-disclaimer">(Upcoming, not yet published)</p>
-        </dl>
+    <section class="document-header" aria-label="Document Header">
+        <div class="document-header__inner">
+            <h1 class="layout-5-6" data-uipath="ps.document.title">${publication.title}</h1>
+        <div/>
+    </section>
+    <section class="document-content" aria-label="Document Content">
+        <div class="layout layout--large">
+            <div class="layout__item layout-2-3">
+                <p><@nominalPublicationDate/></p>
+                <p data-uipath="ps.publication.upcoming-disclaimer">(Upcoming, not yet published)</p>
+            </div>
+        </div>
     </section>
 </#macro>
 
 <#macro fullContentOfPubliclyAvailablePublication>
-    <section class="document-header">
+    <section class="document-header" aria-label="Document Header">
         <div class="document-header__inner">
 
             <h3 data-uipath="ps.publication.information-types" class="flush--bottom push-half--top">
@@ -105,7 +109,7 @@
         </div>
     </section>
 
-    <section class="document-content">
+    <section class="document-content" aria-label="Document Content">
         <div class="layout layout--large">
             <div class="layout__item layout-2-3">
                 <h2><@fmt.message key="headers.summary"/></h2>
