@@ -25,3 +25,23 @@ Feature: Basic search
         Given I navigate to the "home" page
         When I search for "test"
         Then I can click on the "Statistical Publication" link
+
+    Scenario: Clickable pagination links
+        Given I navigate to the "home" page
+        When I search for "lorem"
+        Then I can click on the "Page 2" link
+        And I should see:
+            | Pagination page | 2 |
+        When I can click on the "Previous" link
+        Then I should see:
+            | Pagination page | 1 |
+        When I can click on the "Next" link
+        Then I should see:
+            | Pagination page | 2 |
+        When I can click on the "First" link
+        Then I should see:
+            | Pagination page | 1 |
+        When I can click on the "Last" link
+        Then I can click on the "First" link
+        # Check for "Last" link intentionally followed by click on "First" link
+        # since 'last' page number could increase if more lorem test documents added.
