@@ -28,10 +28,13 @@ public class Attachment {
     private final String uri;
     private final Path attachmentDownloadDir;
 
-    public Attachment(final Path attachmentDownloadDir, String title, String uri) {
+    private final MigrationReport migrationReport;
+
+    public Attachment(final Path attachmentDownloadDir, String title, String uri, final MigrationReport migrationReport) {
         this.attachmentDownloadDir = attachmentDownloadDir;
         this.title = title;
         this.uri = uri;
+        this.migrationReport = migrationReport;
     }
 
     public String getTitle() {
@@ -92,7 +95,7 @@ public class Attachment {
             return true;
         } catch (Exception e) {
             file.delete(); // Attempt to delete the file as it may be partially downloaded
-            MigrationReport.add(e, "Error occurred downloading attachment: " + title,
+            migrationReport.add(e, "Error occurred downloading attachment: " + title,
                 "From: " + encodedUri,
                 "This dataset will be missing this attachment", publishingPackage.toString());
             return false;

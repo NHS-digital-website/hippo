@@ -25,7 +25,10 @@ public class PublicationSystemMigrator implements ApplicationRunner {
 
     private final ExecutionConfigurator executionConfigurator;
 
-    private ExecutionParameters executionParameters;
+    private final MigrationReport migrationReport;
+
+    private final ExecutionParameters executionParameters;
+
 
     public static void main(final String... args) {
         SpringApplication.run(PublicationSystemMigrator.class, args);
@@ -33,9 +36,11 @@ public class PublicationSystemMigrator implements ApplicationRunner {
 
     public PublicationSystemMigrator(final List<MigrationTask> migrationTasks,
                                      final ExecutionConfigurator executionConfigurator,
+                                     final MigrationReport migrationReport,
                                      final ExecutionParameters executionParameters) {
         this.migrationTasks = migrationTasks;
         this.executionConfigurator = executionConfigurator;
+        this.migrationReport = migrationReport;
         this.executionParameters = executionParameters;
     }
 
@@ -51,8 +56,6 @@ public class PublicationSystemMigrator implements ApplicationRunner {
 
         logExecutionParameters();
 
-        MigrationReport.init(executionParameters);
-
         try {
             migrationTasks.stream()
                 .peek(migrationTask -> {
@@ -65,7 +68,7 @@ public class PublicationSystemMigrator implements ApplicationRunner {
         } catch (final Exception e) {
             log.error("Migration has failed.", e);
         } finally {
-            MigrationReport.getInstance().writeToFile();
+            migrationReport.writeToFile();
             logExecutionParameters();
         }
 

@@ -15,22 +15,21 @@ import static java.nio.file.StandardOpenOption.*;
 public final class MigrationReport {
     private static final Logger log = LoggerFactory.getLogger(MigrationReport.class);
 
-    private static MigrationReport instance;
-
     private final ExecutionParameters executionParameters;
     private final ArrayList<String> errors = new ArrayList<>();
 
-    private MigrationReport(ExecutionParameters executionParameters) {
+    public MigrationReport(final ExecutionParameters executionParameters) {
         this.executionParameters = executionParameters;
     }
 
-    public static void init(ExecutionParameters executionParameters) {
-        instance = new MigrationReport(executionParameters);
+    public void add(String... output) {
+        addToLog(null, output);
     }
 
-    public static void add(Exception e, String... output) {
-        getInstance().addToLog(e, output);
+    public void add(Exception e, String... output) {
+        addToLog(e, output);
     }
+
     private void addToLog(Exception e, String... output) {
         String error = String.join("\n", output);
         if (e != null) {
@@ -43,10 +42,6 @@ public final class MigrationReport {
 
         log.error(error);
         errors.add(error);
-    }
-
-    public static MigrationReport getInstance() {
-        return instance;
     }
 
     public void writeToFile() {

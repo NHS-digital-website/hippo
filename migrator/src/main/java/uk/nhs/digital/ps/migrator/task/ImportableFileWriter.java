@@ -25,7 +25,13 @@ public class ImportableFileWriter {
     private static final Logger logger = LoggerFactory.getLogger(ImportableFileWriter.class);
     private static Configuration cfg;
 
-    static void writeImportableFiles(final List<? extends HippoImportableItem> importableItems,
+    private final MigrationReport migrationReport;
+
+    public ImportableFileWriter(final MigrationReport migrationReport) {
+        this.migrationReport = migrationReport;
+    }
+
+    void writeImportableFiles(final List<? extends HippoImportableItem> importableItems,
                                      final Path targetDir) {
 
 
@@ -41,7 +47,7 @@ public class ImportableFileWriter {
         }
     }
 
-    private static void writeImportableFile(final HippoImportableItem importableItem,
+    private void writeImportableFile(final HippoImportableItem importableItem,
                                             final String fileName,
                                             final Path targetDir) {
 
@@ -68,7 +74,7 @@ public class ImportableFileWriter {
 
         } catch (final Exception e) {
             // If we fail with one file, make a note of the document that failed and carry on
-            MigrationReport.add(e, "Failed to write out item:", "Item will not be imported", importableItem.toString());
+            migrationReport.add(e, "Failed to write out item:", "Item will not be imported", importableItem.toString());
         }
     }
 

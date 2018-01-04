@@ -2,6 +2,7 @@ package uk.nhs.digital.ps.migrator.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import uk.nhs.digital.ps.migrator.MigrationReport;
 import uk.nhs.digital.ps.migrator.task.*;
 import uk.nhs.digital.ps.migrator.task.importables.CcgImportables;
 import uk.nhs.digital.ps.migrator.task.importables.CompendiumImportables;
@@ -21,7 +22,9 @@ public class MigratorConfiguration {
                                      final SocialCareImportables socialCareImportables,
                                      final CcgImportables ccgImportables,
                                      final NhsOutcomesFrameworkImportables nhsOutcomesFrameworkImportables,
-                                     final CompendiumImportables compendiumImportables) {
+                                     final CompendiumImportables compendiumImportables,
+                                     final ImportableFileWriter importableFileWriter,
+                                     final MigrationReport migrationReport) {
 
         return asList(
             new UnzipNesstarExportFileTask(executionParameters),
@@ -31,7 +34,9 @@ public class MigratorConfiguration {
                 socialCareImportables,
                 ccgImportables,
                 nhsOutcomesFrameworkImportables,
-                compendiumImportables),
+                compendiumImportables,
+                importableFileWriter,
+                migrationReport),
             new GenerateTaxonomyTask(executionParameters)
         );
     }
@@ -42,13 +47,25 @@ public class MigratorConfiguration {
     }
 
     @Bean
+    public MigrationReport migrationReport(final ExecutionParameters executionParameters) {
+        return new MigrationReport(executionParameters);
+    }
+
+    @Bean
     public ExecutionConfigurator commandLineArgsParser(final ExecutionParameters executionParameters) {
         return new ExecutionConfigurator(executionParameters);
     }
 
     @Bean
-    public ImportableItemsFactory importableItemsFactory(final ExecutionParameters executionParameters) {
-        return new ImportableItemsFactory(executionParameters);
+    public ImportableItemsFactory importableItemsFactory(final ExecutionParameters executionParameters,
+                                                         final MigrationReport migrationReport)
+    {
+        return new ImportableItemsFactory(executionParameters, migrationReport);
+    }
+
+    @Bean
+    public ImportableFileWriter importableFileWriter(final MigrationReport migrationReport) {
+        return new ImportableFileWriter(migrationReport);
     }
 
     @Bean
@@ -68,7 +85,9 @@ public class MigratorConfiguration {
 
     @Bean
     public CompendiumImportables compendiumImportables(final ExecutionParameters executionParameters,
-                                                       final ImportableItemsFactory importableItemsFactory) {
-        return new CompendiumImportables(executionParameters, importableItemsFactory);
+                                                       final ImportableItemsFactory importableItemsFactory,
+                                                       final MigrationReport migrationReport
+    ) {
+        return new CompendiumImportables(executionParameters, importableItemsFactory, migrationReport);
     }
 }

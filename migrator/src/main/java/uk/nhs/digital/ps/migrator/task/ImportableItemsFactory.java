@@ -1,7 +1,5 @@
 package uk.nhs.digital.ps.migrator.task;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import uk.nhs.digital.ps.migrator.MigrationReport;
 import uk.nhs.digital.ps.migrator.config.ExecutionParameters;
 import uk.nhs.digital.ps.migrator.model.hippo.*;
@@ -17,9 +15,12 @@ import java.util.stream.Collectors;
 public class ImportableItemsFactory {
 
     private final ExecutionParameters executionParameters;
+    private final MigrationReport migrationReport;
 
-    public ImportableItemsFactory(final ExecutionParameters executionParameters) {
+    public ImportableItemsFactory(final ExecutionParameters executionParameters,
+                                  final MigrationReport migrationReport) {
         this.executionParameters = executionParameters;
+        this.migrationReport = migrationReport;
     }
 
     public Series newSeries(final Folder parentFolder, final String title) {
@@ -64,6 +65,7 @@ public class ImportableItemsFactory {
 
             return new DataSet(
                 parentFolder,
+                exportedPublishingPackage.getUniqueIdentifier(),
                 exportedPublishingPackage.getTitle(),
                 exportedPublishingPackage.getTitle(),
                 exportedPublishingPackage.getSummary(),
@@ -73,7 +75,7 @@ public class ImportableItemsFactory {
                 String.join("\", \"", taxonomyKeys)
             );
         } catch (Exception e) {
-            MigrationReport.add(e, "Error converting to dataset:",
+            migrationReport.add(e, "Error converting to dataset:",
                 "Dataset will not be imported", exportedPublishingPackage.toString());
             return null;
         }
@@ -109,8 +111,8 @@ public class ImportableItemsFactory {
             .map(resource -> new Attachment(
                 executionParameters.getNesstarAttachmentDownloadDir(),
                 resource.getTitle(),
-                resource.getUri()
-            ))
+                resource.getUri(),
+                migrationReport))
             .filter(attachment -> attachment.download(publishingPackage))
             .collect(Collectors.toList());
     }
@@ -119,7 +121,7 @@ public class ImportableItemsFactory {
      * The nesstar data only has month and year whereas in hippo we want a date.
      * These mappings have been provided to us as the actual dates in each month that the publications were published
      */
-    private static String convertNominalDate(PublishingPackage publishingPackage) {
+    private String convertNominalDate(PublishingPackage publishingPackage) {
         String input = publishingPackage.getDate();
 
         // The compendium data has the date in a variety of formats, this gets them all in the format Mmm-YY
@@ -130,7 +132,7 @@ public class ImportableItemsFactory {
             // If there was any extra text that we have stripped out then log it in the report
             if (!(matcher.group(1).isEmpty()
                 && matcher.group(4).isEmpty())) {
-                MigrationReport.add(null, "Date found with additional text that will be stripped out.",
+                migrationReport.add("Date found with additional text that will be stripped out.",
                     publishingPackage.toString(),
                     "Date: " + matcher.group());
             }
@@ -193,7 +195,7 @@ public class ImportableItemsFactory {
             case "TBC":     return "0001-01-01T12:00:00.000Z";
 
             default:
-                MigrationReport.add(null,"No mapping found for input date: " + input,
+                migrationReport.add("No mapping found for input date: " + input,
                     "This dataset will not have a date set:", publishingPackage.toString());
                 return "0001-01-01T12:00:00.000Z";
         }
