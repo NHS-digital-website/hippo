@@ -2,10 +2,14 @@ package uk.nhs.digital.ps.migrator.task;
 
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
+import uk.nhs.digital.ps.migrator.MigrationReport;
 import uk.nhs.digital.ps.migrator.config.ExecutionParameters;
-import uk.nhs.digital.ps.migrator.model.nesstar.*;
+import uk.nhs.digital.ps.migrator.model.hippo.DataSet;
 import uk.nhs.digital.ps.migrator.model.hippo.Folder;
 import uk.nhs.digital.ps.migrator.model.hippo.HippoImportableItem;
+import uk.nhs.digital.ps.migrator.model.nesstar.CatalogStructure;
+import uk.nhs.digital.ps.migrator.model.nesstar.DataSetRepository;
+import uk.nhs.digital.ps.migrator.model.nesstar.PublishingPackage;
 import uk.nhs.digital.ps.migrator.task.importables.CcgImportables;
 import uk.nhs.digital.ps.migrator.task.importables.CompendiumImportables;
 import uk.nhs.digital.ps.migrator.task.importables.NhsOutcomesFrameworkImportables;
@@ -16,15 +20,14 @@ import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Stream;
 
+import static java.text.MessageFormat.format;
 import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toMap;
 import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.ps.migrator.misc.XmlHelper.loadFromXml;
-import static uk.nhs.digital.ps.migrator.task.ImportableFileWriter.writeImportableFiles;
 
 public class GenerateNesstarImportContentTask implements MigrationTask {
 
@@ -42,13 +45,18 @@ public class GenerateNesstarImportContentTask implements MigrationTask {
     private final CcgImportables ccgImportables;
     private final NhsOutcomesFrameworkImportables nhsOutcomesFrameworkImportables;
     private final CompendiumImportables compendiumImportables;
+    private final ImportableFileWriter importableFileWriter;
+    private final MigrationReport migrationReport;
+
 
     public GenerateNesstarImportContentTask(final ExecutionParameters executionParameters,
                                             final ImportableItemsFactory importableItemsFactory,
                                             final SocialCareImportables socialCareImportables,
                                             final CcgImportables ccgImportables,
                                             final NhsOutcomesFrameworkImportables nhsOutcomesFrameworkImportables,
-                                            final CompendiumImportables compendiumImportables) {
+                                            final CompendiumImportables compendiumImportables,
+                                            final ImportableFileWriter importableFileWriter,
+                                            final MigrationReport migrationReport) {
 
         this.executionParameters = executionParameters;
         this.importableItemsFactory = importableItemsFactory;
@@ -56,6 +64,8 @@ public class GenerateNesstarImportContentTask implements MigrationTask {
         this.ccgImportables = ccgImportables;
         this.nhsOutcomesFrameworkImportables = nhsOutcomesFrameworkImportables;
         this.compendiumImportables = compendiumImportables;
+        this.importableFileWriter = importableFileWriter;
+        this.migrationReport = migrationReport;
     }
 
     @Override
@@ -90,13 +100,48 @@ public class GenerateNesstarImportContentTask implements MigrationTask {
                 dataSetRepository
             );
 
+            reportDuplicateDatasets(importableItems);
+
+            reportMissedDatasets(dataSetRepository, importableItems);
+
             recreate(hippoImportDir);
 
-            writeImportableFiles(importableItems, hippoImportDir);
+            importableFileWriter.writeImportableFiles(importableItems, hippoImportDir);
 
         } catch (final Exception e) {
             throw new RuntimeException("Failed to convert Nesstar export.", e);
         }
+    }
+
+    private void reportDuplicateDatasets(final List<HippoImportableItem> importableItems) {
+
+        final Set<String> visitedPcodes = new HashSet<>();
+
+        importableItems.stream()
+            .filter(DataSet.class::isInstance)
+            .map(hippoImportableItem -> (DataSet) hippoImportableItem)
+            .map(DataSet::getpCode)
+            .filter(pCode -> !visitedPcodes.add(pCode))
+            .forEach(pCode -> migrationReport.add(format("Duplicate P-code: {0}", pCode)));
+    }
+
+    private void reportMissedDatasets(final DataSetRepository dataSetRepository,
+                                      final List<HippoImportableItem> importableItems
+    ) {
+
+        final Set<String> pCodes = new HashSet<>(); // to avoid exceptions coming from duplicate entries
+
+        final Map<String, DataSet> datasetsByUniqueIdentifier = importableItems.stream()
+            .filter(DataSet.class::isInstance)
+            .map(hippoImportableItem -> (DataSet) hippoImportableItem)
+            .filter(dataSet -> !pCodes.add(dataSet.getpCode())) // to avoid exceptions coming from duplicate entries
+            .collect(toMap(DataSet::getpCode, dataSet -> dataSet));
+
+        dataSetRepository.stream()
+            .filter(publishingPackage -> !datasetsByUniqueIdentifier.containsKey(publishingPackage.getUniqueIdentifier()))
+            .forEach(publishingPackage -> migrationReport.add(
+                format("Missed Dataset {0}: {1}", publishingPackage.getUniqueIdentifier(), publishingPackage.getTitle()))
+            );
     }
 
     private List<HippoImportableItem> createImportableItemsModels(final CatalogStructure catalogStructure,

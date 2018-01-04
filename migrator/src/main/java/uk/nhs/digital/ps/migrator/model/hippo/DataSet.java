@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 
 public class DataSet extends HippoImportableItem {
 
+    private final String pCode;
     private final String title;
     private final String summary;
     private final String nominalDate;
@@ -13,6 +14,7 @@ public class DataSet extends HippoImportableItem {
     private final String taxonomyKeys;
 
     public DataSet(final Folder parentFolder,
+                   final String pCode,
                    final String name,
                    final String title,
                    final String summary,
@@ -21,6 +23,8 @@ public class DataSet extends HippoImportableItem {
                    final List<ResourceLink> resourceLinks,
                    final String taxonomyKeys) {
         super(parentFolder, name);
+
+        this.pCode = pCode;
         this.title = title;
         this.summary = formatSummary(summary);
         this.nominalDate = nominalDate;
@@ -71,4 +75,7 @@ public class DataSet extends HippoImportableItem {
         return taxonomyKeys;
     }
 
+    public String getpCode() {
+        return pCode;
+    }
 }

@@ -38,12 +38,15 @@ public class CompendiumImportables {
     private final ImportableItemsFactory factory;
 
     private static final Pattern P_CODE_REGEX = Pattern.compile("P\\d+");
+    private final MigrationReport migrationReport;
 
     public CompendiumImportables(final ExecutionParameters executionParameters,
-                                 final ImportableItemsFactory importableItemsFactory) {
+                                 final ImportableItemsFactory importableItemsFactory,
+                                 final MigrationReport migrationReport) {
 
         this.executionParameters = executionParameters;
         this.factory = importableItemsFactory;
+        this.migrationReport = migrationReport;
     }
 
     public Collection<HippoImportableItem> create(final DataSetRepository dataSetRepository, final Folder ciRootFolder) {
@@ -105,7 +108,7 @@ public class CompendiumImportables {
                 publicationPrototype.getDatasetIds().forEach(datasetId -> {
                     final PublishingPackage publishingPackage = dataSetRepository.findById(datasetId);
                     if (publishingPackage == null) {
-                        MigrationReport.add(null, "No dataset found with id:", datasetId,
+                        migrationReport.add("No dataset found with id:", datasetId,
                             "The following publication will be missing this dataset: " + publicationPrototype.getName());
                     } else {
                         importableItems.add(factory.toDataSet(publicationFolder, publishingPackage));
@@ -157,7 +160,7 @@ public class CompendiumImportables {
             .filter(row -> row.getCell(2) == null || isBlank(row.getCell(2).getStringCellValue()))
 
             .forEach(row ->
-                MigrationReport.add(null,
+                migrationReport.add(
                     format("Found P-code without matching series or publication definition: {0}:{1}:{2}",
                         row.getCell(1) == null ? "" : row.getCell(1).getStringCellValue(),
                         row.getCell(2) == null ? "" : row.getCell(2).getStringCellValue(),
@@ -190,7 +193,7 @@ public class CompendiumImportables {
                 return new String[]{seriesName, publicationName, datasetId};
             })
             .collect(
-                ImportablePrototypes::new,
+                () -> new ImportablePrototypes(migrationReport),
                 (prototypes, row) -> prototypes.add(row[0], row[1], row[2]),
                 (l, r) -> { /* no-op - no need for a combinator in serial stream */ }
             );
@@ -216,10 +219,15 @@ public class CompendiumImportables {
     }
 
     static class PublicationPrototype {
-        private String name;
-        private Set<String> datasets = new HashSet<>();
 
-        public PublicationPrototype(final String name) {
+        private final MigrationReport migrationReport;
+
+        private final String name;
+        private final Set<String> datasets = new HashSet<>();
+
+        public PublicationPrototype(final MigrationReport migrationReport,
+                                    final String name) {
+            this.migrationReport = migrationReport;
             this.name = name;
         }
 
@@ -229,9 +237,10 @@ public class CompendiumImportables {
 
         public void add(final String datasetId) {
             if (!datasets.add(datasetId)) {
-                MigrationReport.add(null,
+                migrationReport.add(
                     "Duplicate dataset added to publication: " + name,
-                    "The dataset will only be imported once. ID: " + datasetId);
+                    "The dataset will only be imported once. ID: " + datasetId
+                );
             }
         }
 
@@ -241,10 +250,14 @@ public class CompendiumImportables {
     }
 
     static class SeriesPrototype {
+        private final MigrationReport migrationReport;
+
         private String name;
         private Map<String, PublicationPrototype> publications = new HashMap<>();
 
-        public SeriesPrototype(final String name) {
+        public SeriesPrototype(final MigrationReport migrationReport,
+                               final String name) {
+            this.migrationReport = migrationReport;
             this.name = name;
         }
 
@@ -254,7 +267,7 @@ public class CompendiumImportables {
 
         public void add(final String publicationName, final String datasetId) {
             if (!publications.containsKey(publicationName)) {
-                publications.put(publicationName, new PublicationPrototype(publicationName));
+                publications.put(publicationName, new PublicationPrototype(migrationReport, publicationName));
             }
 
             publications.get(publicationName).add(datasetId);
@@ -267,12 +280,18 @@ public class CompendiumImportables {
 
     static class ImportablePrototypes {
 
+        private final MigrationReport migrationReport;
+
         private Map<String, SeriesPrototype> series = new HashMap<>();
+
+        ImportablePrototypes(final MigrationReport migrationReport) {
+            this.migrationReport = migrationReport;
+        }
 
         public void add(final String seriesName, final String publicationName, final String datasetId) {
 
             if (!series.containsKey(seriesName)) {
-                series.put(seriesName, new SeriesPrototype(seriesName));
+                series.put(seriesName, new SeriesPrototype(migrationReport, seriesName));
             }
 
             series.get(seriesName).add(publicationName, datasetId);
