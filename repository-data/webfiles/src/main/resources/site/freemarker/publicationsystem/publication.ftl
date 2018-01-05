@@ -22,15 +22,18 @@
 </#macro>
 
 <#macro restrictedContentOfUpcomingPublication>
-    <section class="document-header" aria-label="Document Header">
+    <section class="document-header">
         <div class="document-header__inner">
-            <h1 class="layout-5-6" data-uipath="ps.document.title">${publication.title}</h1>
-        <div/>
+            <h1 data-uipath="ps.document.title">${publication.title}</h1>
+            <div class="media push--top push--bottom">
+                <div class="media__icon media__icon--calendar"></div>
+                <@nominalPublicationDate/>
+            </div>
+        </div>
     </section>
-    <section class="document-content" aria-label="Document Content">
+    <section class="document-content">
         <div class="layout layout--large">
             <div class="layout__item layout-2-3">
-                <p><@nominalPublicationDate/></p>
                 <p data-uipath="ps.publication.upcoming-disclaimer">(Upcoming, not yet published)</p>
             </div>
         </div>
