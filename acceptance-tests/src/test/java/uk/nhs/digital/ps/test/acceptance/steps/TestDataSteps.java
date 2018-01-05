@@ -80,11 +80,16 @@ public class TestDataSteps extends AbstractSpringSteps {
      */
     @After(value = "@TakeOfflineAfter", order = 500)
     public void takePublicationOffline() throws Throwable {
-        final String currentPublicationName = testDataRepo.getCurrentPublication().getName();
-        log.debug("Taking current publication offline: {}.", currentPublicationName);
+        // Don't want this to fail the test if it fails, it's just clean up
+        try {
+            final String currentPublicationName = testDataRepo.getCurrentPublication().getName();
+            log.debug("Taking current publication offline: {}.", currentPublicationName);
 
-        contentPage.openCms();
-        contentPage.openContentTab();
-        contentPage.unpublishDocument(currentPublicationName);
+            contentPage.openCms();
+            contentPage.openContentTab();
+            contentPage.unpublishDocument(currentPublicationName);
+        } catch (Exception e) {
+            log.error("Failed to take publication offline.", e);
+        }
     }
 }

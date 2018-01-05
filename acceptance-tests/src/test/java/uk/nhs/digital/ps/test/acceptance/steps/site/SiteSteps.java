@@ -6,11 +6,13 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.hamcrest.Matcher;
+import org.hamcrest.Matchers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.config.AcceptanceTestProperties;
+import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
 import uk.nhs.digital.ps.test.acceptance.pages.site.SitePage;
 import uk.nhs.digital.ps.test.acceptance.steps.AbstractSpringSteps;
 import uk.nhs.digital.ps.test.acceptance.steps.site.ps.PublicationSteps;
@@ -19,13 +21,13 @@ import uk.nhs.digital.ps.test.acceptance.util.TestContentUrls;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.startsWith;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.ps.test.acceptance.pages.site.AbstractSitePage.URL;
 import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.waitUntilFileAppears;
@@ -41,6 +43,9 @@ public class SiteSteps extends AbstractSpringSteps {
     @Autowired
     private AcceptanceTestProperties acceptanceTestProperties;
 
+    @Autowired
+    private TestDataRepo testDataRepo;
+
     private TestContentUrls urlLookup = new TestContentUrls();
 
     @Given("^I navigate to (?:the )?\"([^\"]+)\" (?:.* )?page$")
@@ -51,6 +56,13 @@ public class SiteSteps extends AbstractSpringSteps {
     @When("^I search for \"([^\"]+)\"$")
     public void iSearchFor(String searchTerm) throws Throwable {
         sitePage.searchForTerm(searchTerm);
+    }
+
+
+    @When("^I search for the publication$")
+    public void iSearchForThePublication() throws Throwable {
+        String title = testDataRepo.getCurrentPublication().getTitle();
+        iSearchFor(title);
     }
 
     /**
@@ -111,8 +123,7 @@ public class SiteSteps extends AbstractSpringSteps {
     public void iShouldSeeItemsOf(String pageElementName, final DataTable elementItems) throws Throwable  {
         WebElement pageElement = sitePage.findPageElement(pageElementName);
 
-        assertThat("I should find page element: " + pageElementName,
-            pageElement, is(notNullValue()));
+        assertNotNull("I should find page element: " + pageElementName, pageElement);
 
         for (List<String> elementItem : elementItems.raw()) {
             String expectedItemText = elementItem.get(0);
@@ -199,7 +210,7 @@ public class SiteSteps extends AbstractSpringSteps {
         Thread.sleep(sec * 1000);
     }
 
-    private Matcher<String> getMatcherForText(String text) {
+    private static Matcher<String> getMatcherForText(String text) {
         if (text.endsWith(" ...")) {
             return startsWith(text.substring(0, text.length() - 4));
         }
@@ -209,7 +220,7 @@ public class SiteSteps extends AbstractSpringSteps {
 
     private String getElementText(WebElement element) {
         if (element.getTagName().equals("input")) {
-            return element.getAttribute("value").toString();
+            return element.getAttribute("value");
         }
 
         return element.getText();
@@ -219,5 +230,44 @@ public class SiteSteps extends AbstractSpringSteps {
         return element.findElements(By.tagName("li")).stream()
             .map(WebElement::getText)
             .collect(toList());
+    }
+
+    @Then("^I should see the \"([^\"]*)\" list (containing|(?:not )?including):$")
+    public void iShouldSeeTheListWith(String title, String qualifier, DataTable listItems) throws Throwable {
+        WebElement element = sitePage.findElementWithTitle(title);
+        assertNotNull("I should find page element: " + title, element);
+
+        assertThat("List contains items", getElementTextList(element), getMatcherForQualifier(qualifier, listItems));
+
+    }
+
+    private Matcher<Iterable<String>> getMatcherForQualifier(String qualifier, DataTable listItems) {
+        Stream<Matcher<String>> matcherStream = listItems.asList(String.class).stream()
+            .map(SiteSteps::getMatcherForText);
+
+        switch (qualifier) {
+            case "containing":    return (Matcher)contains(matcherStream.collect(toList()));
+            case "including":     return hasItems(matcherStream.toArray(Matcher[]::new));
+            case "not including":
+                return not(
+                    anyOf(
+                        matcherStream
+                        .map(Matchers::hasItem)
+                        .collect(toList())
+                    )
+                );
+
+            default: throw new RuntimeException("Unknown qualifier: " + qualifier);
+        }
+    }
+
+    @Then("^I should not see element with title \"([^\"]*)\"$")
+    public void iShouldNotSeeElementTitled(String title) throws Throwable {
+        assertNull("Element is not on page", sitePage.findElementWithTitle(title));
+    }
+
+    @Then("^I should see (\\d+) search results$")
+    public void iShouldSeeSearchResults(String count) throws Throwable {
+        assertThat("Correct result count found", sitePage.getResultCount(), startsWith(count));
     }
 }

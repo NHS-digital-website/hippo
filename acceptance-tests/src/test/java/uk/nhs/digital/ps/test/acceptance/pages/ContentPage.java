@@ -3,9 +3,7 @@ package uk.nhs.digital.ps.test.acceptance.pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import uk.nhs.digital.ps.test.acceptance.models.Dataset;
-import uk.nhs.digital.ps.test.acceptance.models.Publication;
-import uk.nhs.digital.ps.test.acceptance.models.PublicationSeries;
+import uk.nhs.digital.ps.test.acceptance.models.*;
 import uk.nhs.digital.ps.test.acceptance.pages.widgets.*;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
@@ -65,21 +63,30 @@ public class ContentPage extends AbstractCmsPage {
 
         populateDocumentNominalDate(publication.getNominalPublicationDate().asInstant());
 
-        new Select(helper.findElement(
-            By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Geographic Coverage']/../following-sibling::div//select[@class='dropdown-plugin']")
-        )).selectByVisibleText(
-            publication.getGeographicCoverage().getDisplayValue()
-        );
+        GeographicCoverage geographicCoverage = publication.getGeographicCoverage();
+        if (geographicCoverage != null) {
+            new Select(helper.findElement(
+                By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Geographic Coverage']/../following-sibling::div//select[@class='dropdown-plugin']")
+            )).selectByVisibleText(
+                geographicCoverage.getDisplayValue()
+            );
+        }
 
-        getInformationTypeSection().addInformationTypeField();
-        new Select(helper.findElement(
-            By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Information Type']/../following-sibling::div//select[@class='dropdown-plugin']")
-        )).selectByVisibleText(
-            publication.getInformationType().getDisplayName()
-        );
+        InformationType informationType = publication.getInformationType();
+        if (informationType != null) {
+            getInformationTypeSection().addInformationTypeField();
+            new Select(helper.findElement(
+                By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Information Type']/../following-sibling::div//select[@class='dropdown-plugin']")
+            )).selectByVisibleText(
+                informationType.getDisplayName()
+            );
+        }
 
-        getGranularitySection().addGranularityField();
-        getGranularitySection().populateGranularityField(publication.getGranularity());
+        Granularity granularity = publication.getGranularity();
+        if (granularity != null) {
+            getGranularitySection().addGranularityField();
+            getGranularitySection().populateGranularityField(granularity);
+        }
 
         populateTaxonomy(publication);
 
@@ -91,18 +98,23 @@ public class ContentPage extends AbstractCmsPage {
     }
 
     private void populateTaxonomy(final Publication publication) {
+        Taxonomy taxonomy = publication.getTaxonomy();
+        if (taxonomy == null) {
+            return;
+        }
+
         helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Select taxonomy terms']/../../a")
         ).click();
 
         helper.findElement(
-            By.xpath(XpathSelectors.TAXONOMY_PICKER + "//span[text()='" + publication.getTaxonomy().getLevel1() + "']/..")
+            By.xpath(XpathSelectors.TAXONOMY_PICKER + "//span[text()='" + taxonomy.getLevel1() + "']/..")
         ).click();
         helper.findElement(
-            By.xpath(XpathSelectors.TAXONOMY_PICKER + "//span[text()='" + publication.getTaxonomy().getLevel2() + "']/..")
+            By.xpath(XpathSelectors.TAXONOMY_PICKER + "//span[text()='" + taxonomy.getLevel2() + "']/..")
         ).click();
         helper.findElement(
-            By.xpath(XpathSelectors.TAXONOMY_PICKER + "//span[text()='" + publication.getTaxonomy().getLevel3() + "']/..")
+            By.xpath(XpathSelectors.TAXONOMY_PICKER + "//span[text()='" + taxonomy.getLevel3() + "']/..")
         ).click();
         helper.findElement(
             By.xpath(XpathSelectors.TAXONOMY_PICKER + "//a[normalize-space(text())='Add category']")

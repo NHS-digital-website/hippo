@@ -19,9 +19,15 @@ import uk.nhs.digital.ps.test.acceptance.steps.cms.LoginSteps;
 
 import java.text.MessageFormat;
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
+import static java.time.temporal.ChronoField.DAY_OF_MONTH;
+import static java.time.temporal.ChronoField.DAY_OF_WEEK;
+import static java.time.temporal.ChronoField.MONTH_OF_YEAR;
 import static java.util.stream.Collectors.toList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.startsWith;
@@ -30,6 +36,7 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.ps.test.acceptance.util.AssertionHelper.assertWithinTimeoutThat;
+import static uk.nhs.digital.ps.test.acceptance.util.RandomHelper.getRandomInt;
 
 public class CmsSteps extends AbstractSpringSteps {
 
@@ -54,7 +61,7 @@ public class CmsSteps extends AbstractSpringSteps {
 
     @Given("^I have a publication opened for editing$")
     public void iHaveAPublicationOpenForEditing() throws Throwable {
-        final Publication publication = TestDataFactory.createPublicationWithNoAttachments().build();
+        final Publication publication = TestDataFactory.createBareMinimumPublication().build();
         testDataRepo.setPublication(publication);
 
         createPublicationInEditableState(publication);
@@ -106,15 +113,6 @@ public class CmsSteps extends AbstractSpringSteps {
     @Then(("^it is saved"))
     public void thenItIsSaved() throws Throwable {
         assertTrue("Document is saved", contentPage.isDocumentSaved());
-    }
-
-
-    // Scenario: Publishing a publication ========================================================================
-    @Given("^I have saved a publication")
-    public void givenIHaveSavedAPublication() throws Throwable {
-        loginSteps.givenIAmLoggedInAsAdmin();
-        contentPage.openContentTab();
-        contentPage.navigateToDocument(testDataRepo.getCurrentPublication().getName());
     }
 
     @When("^I publish the publication")
@@ -251,13 +249,15 @@ public class CmsSteps extends AbstractSpringSteps {
         );
     }
 
-    @Given("^I have a published publication with nominal date falling before (\\d+) weeks from now$")
-    public void iHaveAPublishedPublicationWithNominalDateFallingBeforeWeeksFromNow(final int weeksFromNow)
+    @Given("^I have a published publication with nominal date falling before (-?\\d+) (days|weeks|years) from now$")
+    public void iHaveAPublishedPublicationWithNominalDateFallingBeforeWeeksFromNow(final int valueFromNow, final String unit)
         throws Throwable {
 
-        final Publication publicationWithNominalDateBeforeCutOff = TestDataFactory.createPublicationWithNoAttachments()
-            .withNominalDate(Instant.now()
-                .plus(DAYS_IN_WEEK * weeksFromNow, ChronoUnit.DAYS))
+        ChronoUnit chronoUnit = ChronoUnit.valueOf(unit.toUpperCase());
+        final Publication publicationWithNominalDateBeforeCutOff = TestDataFactory.createBareMinimumPublication()
+            .withNominalDate(LocalDateTime.now()
+                .plus(valueFromNow, chronoUnit)
+                .toInstant(ZoneOffset.UTC))
             .build();
 
         testDataRepo.setPublication(publicationWithNominalDateBeforeCutOff);
@@ -265,11 +265,44 @@ public class CmsSteps extends AbstractSpringSteps {
         createPublishedPublication(publicationWithNominalDateBeforeCutOff);
     }
 
+    @Given("^I have a published publication with nominal date falling this (week|month|year)$")
+    public void iHaveAPublishedPublicationWithNominalDateFallingThis(String unit) throws Throwable {
+        LocalDateTime date;
+        if (unit.equals("week")) {
+            // we want a day that is this week but not today or yesterday
+            date = getDateRelativeToToday(DAY_OF_WEEK, 1);
+        } else if (unit.equals("month")) {
+            // we want a date that is this month but not this week, so don't pick a date 7 days either side or today
+            date = getDateRelativeToToday(DAY_OF_MONTH, DAYS_IN_WEEK);
+        } else {
+            // we want a date that is this year but not this week or month, so don't pick a date one month either side
+            date = getDateRelativeToToday(MONTH_OF_YEAR, 1);
+        }
+
+        final Publication publication = TestDataFactory.createBareMinimumPublication()
+            .withNominalDate(date.toInstant(ZoneOffset.UTC))
+            .build();
+
+        testDataRepo.setPublication(publication);
+
+        createPublishedPublication(publication);
+    }
+
+    private LocalDateTime getDateRelativeToToday(ChronoField field, int buffer) {
+        LocalDateTime date = LocalDateTime.now();
+        // want a date with a buffer either side of it and also not including the date itself
+        int gap = 2 * buffer + 1;
+        int max = (int)field.range().getSmallestMaximum();
+        int rand = getRandomInt(1, max - gap);
+        int value = rand >= date.get(field) - buffer ? rand + gap : rand;
+        return date.with(field, value);
+    }
+
     @Given("^I have a published publication with nominal date falling after (\\d+) weeks from now$")
     public void iHaveAPublishedPublicationWithNominalDateFallingAfterWeeksFromNow(final int weeksFromNow)
         throws Throwable {
 
-        final Publication publicationWithNominalDateBeforeCutOff = TestDataFactory.createPublicationWithNoAttachments()
+        final Publication publicationWithNominalDateBeforeCutOff = TestDataFactory.createBareMinimumPublication()
             .withNominalDate(Instant.now()
                 .plus(DAYS_IN_WEEK * weeksFromNow, ChronoUnit.DAYS)
                 .plus(1, ChronoUnit.DAYS))
