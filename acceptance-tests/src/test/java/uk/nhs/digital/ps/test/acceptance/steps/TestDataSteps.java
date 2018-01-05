@@ -5,6 +5,7 @@ import cucumber.api.java.Before;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
+import uk.nhs.digital.ps.test.acceptance.models.Dataset;
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
 import uk.nhs.digital.ps.test.acceptance.models.PublicationSeries;
 import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
@@ -52,8 +53,9 @@ public class TestDataSteps extends AbstractSpringSteps {
             contentPage.discardUnsavedChanges(currentPublicationName);
         }
 
-        String datasetName = testDataRepo.getDatasetName();
-        if (datasetName != null) {
+        Dataset dataset = testDataRepo.getDataset();
+        if (dataset != null) {
+            String datasetName = dataset.getName();
             log.debug("Discarding and closing current dataset: {}.", datasetName);
             contentPage.discardUnsavedChanges(datasetName);
         }

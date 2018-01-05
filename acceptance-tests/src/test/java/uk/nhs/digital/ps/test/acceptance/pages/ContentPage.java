@@ -3,6 +3,7 @@ package uk.nhs.digital.ps.test.acceptance.pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import uk.nhs.digital.ps.test.acceptance.models.Dataset;
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
 import uk.nhs.digital.ps.test.acceptance.models.PublicationSeries;
 import uk.nhs.digital.ps.test.acceptance.pages.widgets.*;
@@ -42,8 +43,8 @@ public class ContentPage extends AbstractCmsPage {
         return createDocument(PUBLICATION, publication.getName());
     }
 
-    public boolean newDataset(String name) {
-        return createDocument(DATASET, name);
+    public boolean newDataset(Dataset dataset) {
+        return createDocument(DATASET, dataset.getName());
     }
 
     public boolean newSeries(PublicationSeries series) {
@@ -62,7 +63,7 @@ public class ContentPage extends AbstractCmsPage {
 
         findPubliclyAccessibleRadioButton().select(publication.isPubliclyAccessible());
 
-        findNominalDateField().populateWith(publication.getNominalPublicationDate().asInstant());
+        populateDocumentNominalDate(publication.getNominalPublicationDate().asInstant());
 
         new Select(helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Geographic Coverage']/../following-sibling::div//select[@class='dropdown-plugin']")
@@ -338,5 +339,16 @@ public class ContentPage extends AbstractCmsPage {
 
     public String getFirstErrorMessage() {
         return getErrorMessages().get(0);
+    }
+
+    public void populateDataset(Dataset dataset) {
+        populateDocumentTitle(dataset.getTitle());
+        populateDocumentSummary(dataset.getName());
+        populateDocumentNominalDate(dataset.getNominalDate());
+    }
+
+    public void populateSeries(PublicationSeries series) {
+        populateDocumentTitle(series.getTitle());
+        populateDocumentSummary(series.getSummary());
     }
 }
