@@ -216,20 +216,9 @@ public class Publication extends BaseDocument {
         return getChildBeansIfPermitted(PropertyKeys.RESOURCE_LINKS, Relatedlink.class);
     }
 
-    /*
-     * Migration: 20171213
-     * New field: publicationsystem:Attachments-v3
-     * Old field: publicationsystem:Attachments-v2
-     *
-     * Temporary supporting old and new versions until all the live content is migrated to the new way
-     */
     @HippoEssentialsGenerated(internalName = PropertyKeys.ATTACHMENTS_V3)
     public List<Attachment> getAttachments() {
         return getChildBeansIfPermitted(PropertyKeys.ATTACHMENTS_V3, Attachment.class);
-    }
-    @HippoEssentialsGenerated(internalName = PropertyKeys.ATTACHMENTS_V2)
-    public List<HippoResourceBean> getAttachmentsOld() {
-        return getChildBeansIfPermitted(PropertyKeys.ATTACHMENTS_V2, HippoResourceBean.class);
     }
 
     @Override
@@ -284,7 +273,6 @@ public class Publication extends BaseDocument {
         String PUBLICLY_ACCESSIBLE = "publicationsystem:PubliclyAccessible";
         String RELATED_LINKS = "publicationsystem:RelatedLinks";
         String RESOURCE_LINKS = "publicationsystem:ResourceLinks";
-        String ATTACHMENTS_V2 = "publicationsystem:Attachments-v2";
         String ATTACHMENTS_V3 = "publicationsystem:Attachments-v3";
 
         String PARENT_BEAN = "PARENT_BEAN";

@@ -49,13 +49,12 @@ Scenario: Display multiparagraph key facts
         | Morbi eget congue turpis. Fusce in purus mollis ...           |
         | Aliquam erat volutpat. Quisque eget massa ...                 |
 
-Scenario: Show new v3 attachments with text along with old v2 attachments
+Scenario: Show attachments with and without display names
     Given I navigate to "attachment test publication" page
     Then I should see publication page titled "Attachment Test Publication"
     And I should also see "Publication Resources" with:
         | attachment.pdf; size: 7.2 kB       |
         | Attachment with text; size: 7.2 kB |
-        | attachment-old.pdf; size: 7.2 kB   |
     And I can download following files:
         | attachment.pdf       | attachment.pdf      |
         | Attachment with text | attachment-text.pdf |

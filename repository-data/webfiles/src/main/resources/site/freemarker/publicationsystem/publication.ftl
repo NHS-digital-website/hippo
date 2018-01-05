@@ -135,12 +135,6 @@
                 <div class="panel panel--grey push-half--bottom">
                     <h3><@fmt.message key="headers.resources"/></h3>
                     <ul data-uipath="ps.publication.resources">
-                        <#list publication.attachmentsOld as attachment>
-                            <li class="attachment">
-                                <a title="${attachment.filename}" href="<@hst.link hippobean=attachment/>">${attachment.filename}</a>;
-                                <span class="fileSize">size: <@formatFileSize bytesCount=attachment.length/></span>
-                            </li>
-                        </#list>
                         <#list publication.attachments as attachment>
                             <li class="attachment">
                                 <a title="${attachment.text}" href="<@hst.link hippobean=attachment.resource/>">${attachment.text}</a>;
