@@ -1,6 +1,7 @@
 package uk.nhs.digital.ps.test.acceptance.data;
 
 import uk.nhs.digital.ps.test.acceptance.models.Attachment;
+import uk.nhs.digital.ps.test.acceptance.models.Dataset;
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
 import uk.nhs.digital.ps.test.acceptance.models.PublicationSeries;
 
@@ -19,7 +20,7 @@ public class TestDataRepo {
 
     private List<Attachment> attachments;
     private PublicationSeries publicationSeries;
-    private String datasetName;
+    private Dataset dataset;
 
     public void setPublication(final Publication publication) {
         publications.clear();
@@ -65,17 +66,16 @@ public class TestDataRepo {
     public void clear() {
         setPublication(null);
         publications.clear();
-        datasetName = null;
+        dataset = null;
         publicationSeries = null;
     }
 
-    public String getDatasetName() {
-        return datasetName;
+    public Dataset getDataset() {
+        return dataset;
     }
 
-    public String createDatasetName() {
-        datasetName = newRandomString() + " Dataset"; // Test with a name different to the URL
-        return datasetName;
+    public void setDataset(Dataset dataset) {
+        this.dataset = dataset;
     }
 
     public enum PublicationClassifier {

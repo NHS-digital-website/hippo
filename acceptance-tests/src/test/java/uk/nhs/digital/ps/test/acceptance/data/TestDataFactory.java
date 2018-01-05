@@ -51,6 +51,14 @@ public class TestDataFactory {
             .withSummary(newRandomString() + " Series Summary");
     }
 
+    public static DatasetBuilder createDataset() {
+        return DatasetBuilder.newDataset()
+            .withName(newRandomString() + " Dataset")
+            .withTitle(newRandomString() + " Dataset Title")
+            .withSummary(newRandomString() + " Dataset Summary")
+            .withNominalDate(Instant.now());
+    }
+
     public static AttachmentBuilder createAttachmentOfType(final FileType fileType) {
         final Path path = getAttachmentFilePathByType(fileType);
 

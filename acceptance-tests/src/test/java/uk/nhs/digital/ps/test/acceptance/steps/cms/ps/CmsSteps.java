@@ -10,10 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.data.ExpectedTestDataProvider;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataFactory;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
-import uk.nhs.digital.ps.test.acceptance.models.Attachment;
-import uk.nhs.digital.ps.test.acceptance.models.FileType;
-import uk.nhs.digital.ps.test.acceptance.models.Publication;
-import uk.nhs.digital.ps.test.acceptance.models.PublicationSeries;
+import uk.nhs.digital.ps.test.acceptance.models.*;
 import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.SitePage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
@@ -33,7 +30,6 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.ps.test.acceptance.util.AssertionHelper.assertWithinTimeoutThat;
-import static uk.nhs.digital.ps.test.acceptance.util.RandomHelper.newRandomString;
 
 public class CmsSteps extends AbstractSpringSteps {
 
@@ -314,7 +310,10 @@ public class CmsSteps extends AbstractSpringSteps {
     public void createDatasetInEditableState() throws Throwable {
         loginSteps.givenIAmLoggedInAsAdmin();
         contentPage.openContentTab();
-        contentPage.newDataset(testDataRepo.createDatasetName());
+
+        Dataset dataset = TestDataFactory.createDataset().build();
+        testDataRepo.setDataset(dataset);
+        contentPage.newDataset(dataset);
     }
 
     @Given("^I have a dataset opened for editing$")
@@ -331,10 +330,7 @@ public class CmsSteps extends AbstractSpringSteps {
 
     @And("^I populate the dataset$")
     public void iPopulateTheDataset() throws Throwable {
-        // these are the only mandatory fields on the dataset.
-        contentPage.populateDocumentTitle(newRandomString());
-        contentPage.populateDocumentSummary(newRandomString());
-        contentPage.populateDocumentNominalDate();
+        contentPage.populateDataset(testDataRepo.getDataset());
     }
 
     @When("^I populate the publication$")
@@ -344,9 +340,7 @@ public class CmsSteps extends AbstractSpringSteps {
 
     @And("^I populate the series$")
     public void iPopulateTheSeries() throws Throwable {
-        PublicationSeries series = testDataRepo.getPublicationSeries();
-        contentPage.populateDocumentTitle(series.getTitle());
-        contentPage.populateDocumentSummary(series.getSummary());
+        contentPage.populateSeries(testDataRepo.getPublicationSeries());
     }
 
     /**
