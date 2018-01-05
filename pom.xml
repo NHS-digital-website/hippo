@@ -74,6 +74,15 @@
         <!-- revision variable is set by automation tools. dev-SNAPSHOT is the
         default, local value. Please don't change it. -->
         <revision>dev-SNAPSHOT</revision>
+
+        <!-- Unique token for the Splunk HTTP Event Collector (HEC)
+        defined in the Splunk instance -->
+        <splunk.token></splunk.token>
+        <!-- Splunk HEC endpoint URL -->
+        <splunk.url>https://localhost:8088</splunk.url>
+        <!-- Set to 1 for testing (once 1 event is queued, it's considered a batch).
+        In production, start with a setting of "10" and adjust as necessary. -->
+        <splunk.batch.size.count>1</splunk.batch.size.count>
     </properties>
 
     <repositories>
@@ -86,6 +95,11 @@
             <id>hippo-maven2</id>
             <name>Hippo Maven 2 Repository</name>
             <url>https://maven.onehippo.com/maven2-forge/</url>
+        </repository>
+        <repository>
+            <id>splunk-artifactory</id>
+            <name>Splunk Releases</name>
+            <url>http://splunk.artifactoryonline.com/splunk/ext-releases-local</url>
         </repository>
     </repositories>
 
@@ -179,6 +193,12 @@
                 <artifactId>hamcrest-library</artifactId>
                 <version>1.3</version>
                 <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.splunk.logging</groupId>
+                <artifactId>splunk-library-javalogging</artifactId>
+                <version>1.5.2</version>
             </dependency>
 
             <!--
@@ -357,6 +377,10 @@
                                     <project.basedir>${project.basedir}</project.basedir>
                                     <send.usage.statistics.to.hippo>false</send.usage.statistics.to.hippo>
                                     <repo.config>file://${project.basedir}/conf/repository.xml</repo.config>
+                                    <!-- Splunk forwarder config -->
+                                    <splunk.token>${splunk.token}</splunk.token>
+                                    <splunk.url>${splunk.url}</splunk.url>
+                                    <splunk.batch.size.count>${splunk.batch.size.count}</splunk.batch.size.count>
                                 </systemProperties>
                             </container>
                         </configuration>
