@@ -27,21 +27,26 @@ public class TestDataFactory {
      * @return New instance, fully populated with random or default values.
      */
     public static PublicationBuilder createValidPublication() {
-        return createPublicationWithNoAttachments()
+        return createBareMinimumPublication()
+            .withGeographicCoverage(getRandomEnumConstant(GeographicCoverage.class))
+            .withInformationType(getRandomEnumConstant(InformationType.class))
+            .withGranularity(getRandomEnumConstant(Granularity.class))
+            .withTaxonomy(Taxonomy.createNew("Conditions", "Accidents and injuries", "Falls"))
             .withAttachments(createValidAttachments());
     }
 
-    public static PublicationBuilder createPublicationWithNoAttachments() {
+    /**
+     * Create a publication with only the required fields populated.
+     * This saves quite a lot of time when running the tests as we don't have to
+     * use the taxonomy/granularity picker etc.
+     */
+    public static PublicationBuilder createBareMinimumPublication() {
         return PublicationBuilder.newPublication()
             .withName(newRandomString())
             .withTitle(newRandomString())
             .withSummary(newRandomString())
-            .withGeographicCoverage(getRandomEnumConstant(GeographicCoverage.class))
-            .withInformationType(getRandomEnumConstant(InformationType.class))
-            .withGranularity(getRandomEnumConstant(Granularity.class))
-            .withPubliclyAccessible(true)
             .withNominalDate(Instant.now())
-            .withTaxonomy(Taxonomy.createNew("Conditions", "Accidents and injuries", "Falls"));
+            .withPubliclyAccessible(true);
     }
 
     public static PublicationSeriesBuilder createSeries() {

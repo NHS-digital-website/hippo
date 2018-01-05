@@ -12,9 +12,10 @@ Feature: As am author I need to create a new publication
         When I populate and save the publication
         Then it is saved
 
-    @NeedsExistingTestData
     @TakeOfflineAfter
     Scenario: Publishing a publication
-        Given I have saved a publication
-        When I publish the publication
+        Given I am on the content page
+        And I create a new publication
+        When I populate and save the publication
+        And I publish the publication
         Then it is visible to consumers

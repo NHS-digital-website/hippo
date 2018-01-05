@@ -1,0 +1,318 @@
+---
+/content/documents/corporate-website/publication-system/acceptance-tests/facets-test:
+  /facets-other-publication:
+    /content:
+      /content[1]:
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-01-04T11:20:07.963Z
+        hippostdpubwf:lastModificationDate: 2018-01-04T11:20:07.963Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 9763a6a7-12cb-47cc-b4d0-a68806e0e933
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: publicationsystem:publication
+        publicationsystem:AdministrativeSources: ''
+        publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+        publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+        publicationsystem:GeographicCoverage: International
+        publicationsystem:Granularity:
+        - Country
+        - County
+        publicationsystem:InformationType:
+        - Audit
+        - Experimental statistics
+        publicationsystem:KeyFacts: ''
+        publicationsystem:NominalDate: 2018-01-01T00:00:00Z
+        publicationsystem:PubliclyAccessible: true
+        publicationsystem:Summary: "Facets Other Publication Summary\r\n\r\nzzFacets_Testzz"
+        publicationsystem:Title: Facets Other Publication
+      /content[2]:
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-01-04T11:20:07.963Z
+        hippostdpubwf:lastModificationDate: 2018-01-04T11:24:00.684Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 9763a6a7-12cb-47cc-b4d0-a68806e0e933
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        - mix:versionable
+        jcr:primaryType: publicationsystem:publication
+        publicationsystem:AdministrativeSources: ''
+        publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+        publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+        publicationsystem:GeographicCoverage: International
+        publicationsystem:Granularity:
+        - Country
+        - County
+        publicationsystem:InformationType:
+        - Audit
+        - Experimental statistics
+        publicationsystem:KeyFacts: ''
+        publicationsystem:NominalDate: 2018-01-01T00:00:00Z
+        publicationsystem:PubliclyAccessible: true
+        publicationsystem:Summary: "Facets Other Publication Summary\r\n\r\nzzFacets_Testzz"
+        publicationsystem:Title: Facets Other Publication
+      /content[3]:
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-01-04T11:20:07.963Z
+        hippostdpubwf:lastModificationDate: 2018-01-04T11:24:00.684Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2018-01-04T11:24:03.228Z
+        hippotranslation:id: 9763a6a7-12cb-47cc-b4d0-a68806e0e933
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: publicationsystem:publication
+        publicationsystem:AdministrativeSources: ''
+        publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+        publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+        publicationsystem:GeographicCoverage: International
+        publicationsystem:Granularity:
+        - Country
+        - County
+        publicationsystem:InformationType:
+        - Audit
+        - Experimental statistics
+        publicationsystem:KeyFacts: ''
+        publicationsystem:NominalDate: 2018-01-01T00:00:00Z
+        publicationsystem:PubliclyAccessible: true
+        publicationsystem:Summary: "Facets Other Publication Summary\r\n\r\nzzFacets_Testzz"
+        publicationsystem:Title: Facets Other Publication
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    hippo:name: Facets Other Publication
+    hippostd:foldertype:
+    - new-translated-folder
+    - new-document
+    hippotranslation:id: 7727a45f-da1b-41f4-8d1c-043a67453514
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippo:named
+    - hippotranslation:translated
+    - mix:versionable
+    jcr:primaryType: hippostd:folder
+  /facets-publication:
+    /content:
+      /content[1]:
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-01-04T11:15:23.787Z
+        hippostdpubwf:lastModificationDate: 2018-01-04T11:23:38.447Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotaxonomy:keys:
+        - social-care
+        - workforce
+        hippotranslation:id: 1e425e93-4d05-4daf-876e-7d7115fcb3b5
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: publicationsystem:publication
+        publicationsystem:AdministrativeSources: ''
+        publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+        publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+        publicationsystem:GeographicCoverage: England
+        publicationsystem:Granularity:
+        - Ambulance Trusts
+        - Cancer networks
+        publicationsystem:InformationType:
+        - Experimental statistics
+        - National statistics
+        publicationsystem:KeyFacts: ''
+        publicationsystem:NominalDate: 2017-12-01T00:00:00Z
+        publicationsystem:PubliclyAccessible: true
+        publicationsystem:Summary: "Facets Publication Summary\r\n\r\nzzFacets_Testzz"
+        publicationsystem:Title: Facets Publication
+      /content[2]:
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-01-04T11:15:23.787Z
+        hippostdpubwf:lastModificationDate: 2018-01-04T11:23:41.458Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotaxonomy:keys:
+        - social-care
+        - workforce
+        hippotranslation:id: 1e425e93-4d05-4daf-876e-7d7115fcb3b5
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        - mix:versionable
+        jcr:primaryType: publicationsystem:publication
+        publicationsystem:AdministrativeSources: ''
+        publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+        publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+        publicationsystem:GeographicCoverage: England
+        publicationsystem:Granularity:
+        - Ambulance Trusts
+        - Cancer networks
+        publicationsystem:InformationType:
+        - Experimental statistics
+        - National statistics
+        publicationsystem:KeyFacts: ''
+        publicationsystem:NominalDate: 2017-12-01T00:00:00Z
+        publicationsystem:PubliclyAccessible: true
+        publicationsystem:Summary: "Facets Publication Summary\r\n\r\nzzFacets_Testzz"
+        publicationsystem:Title: Facets Publication
+      /content[3]:
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-01-04T11:15:23.787Z
+        hippostdpubwf:lastModificationDate: 2018-01-04T11:23:41.458Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2018-01-04T11:23:46.467Z
+        hippotaxonomy:keys:
+        - social-care
+        - workforce
+        hippotranslation:id: 1e425e93-4d05-4daf-876e-7d7115fcb3b5
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: publicationsystem:publication
+        publicationsystem:AdministrativeSources: ''
+        publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+        publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+        publicationsystem:GeographicCoverage: England
+        publicationsystem:Granularity:
+        - Ambulance Trusts
+        - Cancer networks
+        publicationsystem:InformationType:
+        - Experimental statistics
+        - National statistics
+        publicationsystem:KeyFacts: ''
+        publicationsystem:NominalDate: 2017-12-01T00:00:00Z
+        publicationsystem:PubliclyAccessible: true
+        publicationsystem:Summary: "Facets Publication Summary\r\n\r\nzzFacets_Testzz"
+        publicationsystem:Title: Facets Publication
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    /facets-dataset:
+      /facets-dataset[1]:
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-01-04T11:16:38.353Z
+        hippostdpubwf:lastModificationDate: 2018-01-04T11:16:38.353Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotaxonomy:keys:
+        - social-care
+        - conditions
+        hippotranslation:id: 3b4a2511-4005-4b7c-8a68-4668f0df3f70
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: publicationsystem:dataset
+        publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+        publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+        publicationsystem:GeographicCoverage: Scotland
+        publicationsystem:Granularity:
+        - Cancer networks
+        - Care Trusts
+        publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+        publicationsystem:NominalDate: 2018-01-17T00:00:00Z
+        publicationsystem:Summary: "Facets Dataset Summary\r\n\r\nzzFacets_Testzz"
+        publicationsystem:Title: Facets Dataset
+      /facets-dataset[2]:
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-01-04T11:16:38.353Z
+        hippostdpubwf:lastModificationDate: 2018-01-04T11:23:52.698Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotaxonomy:keys:
+        - social-care
+        - conditions
+        hippotranslation:id: 3b4a2511-4005-4b7c-8a68-4668f0df3f70
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        - mix:versionable
+        jcr:primaryType: publicationsystem:dataset
+        publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+        publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+        publicationsystem:GeographicCoverage: Scotland
+        publicationsystem:Granularity:
+        - Cancer networks
+        - Care Trusts
+        publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+        publicationsystem:NominalDate: 2018-01-17T00:00:00Z
+        publicationsystem:Summary: "Facets Dataset Summary\r\n\r\nzzFacets_Testzz"
+        publicationsystem:Title: Facets Dataset
+      /facets-dataset[3]:
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-01-04T11:16:38.353Z
+        hippostdpubwf:lastModificationDate: 2018-01-04T11:23:52.698Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2018-01-04T11:23:55.342Z
+        hippotaxonomy:keys:
+        - social-care
+        - conditions
+        hippotranslation:id: 3b4a2511-4005-4b7c-8a68-4668f0df3f70
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: publicationsystem:dataset
+        publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+        publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+        publicationsystem:GeographicCoverage: Scotland
+        publicationsystem:Granularity:
+        - Cancer networks
+        - Care Trusts
+        publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+        publicationsystem:NominalDate: 2018-01-17T00:00:00Z
+        publicationsystem:Summary: "Facets Dataset Summary\r\n\r\nzzFacets_Testzz"
+        publicationsystem:Title: Facets Dataset
+      hippo:name: Facets Dataset
+      jcr:mixinTypes:
+      - hippo:named
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    hippo:name: Facets Publication
+    hippostd:foldertype:
+    - new-translated-folder
+    - new-document
+    hippotranslation:id: 1b94c87a-e597-4bf3-9698-45b0bd0acbf8
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippo:named
+    - hippotranslation:translated
+    - mix:versionable
+    jcr:primaryType: hippostd:folder
+  hippo:name: Facets Test
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: 6bc00273-9ad8-4d6b-88c7-4ceba56ef499
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

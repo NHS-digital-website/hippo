@@ -3,12 +3,12 @@
 <#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
 
 <#if pageable??>
-    <div id="searchResults" data-totalresults="${pageable.total}">
+    <div data-uipath="searchResults" data-totalresults="${pageable.total}">
         <#if pageable.total == 0>
             <h1>No results for: ${query}</h1>
         <#else>
 
-            <h1>${pageable.total} result<#if pageable.total gt 1>s</#if> found</h2>
+            <h1 data-uipath="resultCount">${pageable.total} result<#if pageable.total gt 1>s</#if> found</h1>
             <h4 class="push-double--bottom">Displaying  ${pageable.startOffset +1 } to ${pageable.endOffset} of ${pageable.total} results for '${query}'</h4>
 
             <#list pageable.items as publication>

@@ -8,7 +8,7 @@
     <#if facet.folders?has_content>
 
       <h3>${facet.name}</h3>
-      <ul class="filter-list">
+      <ul class="filter-list" title="${facet.name}">
           <#list facet.folders as value>
               <#if value.count &gt; 0>
                   <#if facet.name="MONTH">

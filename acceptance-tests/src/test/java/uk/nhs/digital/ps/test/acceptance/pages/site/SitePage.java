@@ -42,7 +42,7 @@ public class SitePage extends AbstractSitePage {
         findSearchButton().click();
 
         // ensure search results is present on page
-        getWebDriver().findElement(By.xpath("//*[@id='searchResults']"));
+        getWebDriver().findElement(By.xpath("//*[@data-uipath='searchResults']"));
     }
 
     public void clickOnElement(WebElement element) {
@@ -98,5 +98,9 @@ public class SitePage extends AbstractSitePage {
 
     public WebElement findFooter() {
         return helper.findElement(By.id("footer"));
+    }
+
+    public String getResultCount() {
+        return helper.findElement(By.xpath("//*[@data-uipath='resultCount']")).getText();
     }
 }

@@ -51,4 +51,11 @@ public class RandomHelper {
         final T[] enumConstants = enumType.getEnumConstants();
         return enumConstants[RandomUtils.nextInt(0, enumConstants.length)];
     }
+
+    public static int getRandomInt(int max) {
+        return getRandomInt(0, max);
+    }
+    public static int getRandomInt(int min, int max) {
+        return min + (int) (Math.random() * (1 + max - min));
+    }
 }
