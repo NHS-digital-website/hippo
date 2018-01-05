@@ -54,20 +54,9 @@ public class Dataset extends BaseDocument {
         return getPropertyIfPermitted(PropertyKeys.TAXONOMY);
     }
 
-    /*
-     * Migration: 20171213
-     * New field: publicationsystem:Files-v3
-     * Old field: publicationsystem:Files-v2
-     *
-     * Temporary supporting old and new versions until all the live content is migrated to the new way
-     */
     @HippoEssentialsGenerated(internalName = PropertyKeys.FILES_V3)
     public List<Attachment> getFiles() {
         return getChildBeansIfPermitted(PropertyKeys.FILES_V3, Attachment.class);
-    }
-    @HippoEssentialsGenerated(internalName = PropertyKeys.FILES_V2)
-    public List<HippoResourceBean> getFilesOld() {
-        return getChildBeansIfPermitted(PropertyKeys.FILES_V2, HippoResourceBean.class);
     }
 
     public List<Relatedlink> getResourceLinks() {
@@ -134,7 +123,6 @@ public class Dataset extends BaseDocument {
         String GEOGRAPHIC_COVERAGE = "publicationsystem:GeographicCoverage";
         String GRANULARITY = "publicationsystem:Granularity";
         String RESOURCE_LINKS = "publicationsystem:ResourceLinks";
-        String FILES_V2 = "publicationsystem:Files-v2";
         String FILES_V3 = "publicationsystem:Files-v3";
     }
 }

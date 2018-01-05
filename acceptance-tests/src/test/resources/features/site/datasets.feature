@@ -53,13 +53,12 @@ Scenario: Display multiparagraph summary
         | Cras fringilla odio sit amet tellus pellentesque posuere. Etiam semper ...    |
         | Curabitur quis eros nisi. Nulla leo est, elementum non gravida suscipit ...   |
 
-Scenario: Show new v3 files with text along with old v2 files
+Scenario: Show files with and without display names
     Given I navigate to "attachment test dataset" page
     Then I should see publication page titled "Attachment Test Dataset"
     And I should also see "Dataset Resources" with:
-        | dataset-attachment.pdf; size: 7.2 kB       |
-        | Attachment with text; size: 7.2 kB |
-        | attachment-old.pdf; size: 7.2 kB   |
+        | dataset-attachment.pdf; size: 7.2 kB |
+        | Attachment with text; size: 7.2 kB   |
     And I can download following files:
         | dataset-attachment.pdf | dataset-attachment.pdf      |
         | Attachment with text   | dataset-attachment-text.pdf |
