@@ -125,6 +125,12 @@
             <artifactId>junit-dataprovider</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.splunk.logging</groupId>
+            <artifactId>splunk-library-javalogging</artifactId>
+        </dependency>
+
     </dependencies>
     <build>
         <resources>

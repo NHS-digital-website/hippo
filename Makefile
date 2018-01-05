@@ -1,7 +1,10 @@
+include env.mk
+
 PWD = $(shell pwd)
 # speed up dev compilation
 # http://hg.openjdk.java.net/jdk8u/jdk8u/hotspot/file/2b2511bd3cc8/src/share/vm/runtime/advancedThresholdPolicy.hpp#l34
 MAVEN_OPTS ?= "-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
+SPLUNK_TOKEN ?=
 
 ## Prints this help
 help:
@@ -19,13 +22,17 @@ init: .git/.local-hooks-installed
 # Clean and recompile only modules that we do customise.
 serve: essentials/target/essentials.war
 	mvn clean verify -pl site,cms,repository-data/development -am --offline -DskipTests=true
-	mvn -P cargo.run
+	$(MAKE) run
 
 ## Serve without allowing auto-export
 # Clean and recompile only modules that we do customise.
 serve.noexport: essentials/target/essentials.war
 	mvn clean verify -pl site,cms,repository-data/development -am --offline -DskipTests=true
 	mvn -P cargo.run,without-autoexport
+
+## Start server using cargo.run
+run:
+	mvn -P cargo.run -Dsplunk.token=$(SPLUNK_TOKEN)
 
 # we don't have to recompile it every time.
 essentials/target/essentials.war:
@@ -57,3 +64,6 @@ update-dependencies:
 # install hooks and local git config
 .git/.local-hooks-installed:
 	@bash .git-local/install
+
+env.mk:
+	touch env.mk
