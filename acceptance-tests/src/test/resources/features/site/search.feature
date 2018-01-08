@@ -45,3 +45,46 @@ Feature: Basic search
         Then I can click on the "First" link
         # Check for "Last" link intentionally followed by click on "First" link
         # since 'last' page number could increase if more lorem test documents added.
+
+    Scenario: Search partial match (publication, dataset, series)
+        Given I navigate to the "home" page
+        When I search for "titleTestApric"
+        Then I should see 1 search results
+        And I can click on link "Publication fields titleTestApricots"
+        When I search for "titleTestPota"
+        Then I should see 1 search results
+        And I can click on link "dataset fields titleTestPotatoes"
+        When I search for "titleTestStrawb"
+        Then I should see 1 search results
+        And I can click on link "series fields titleTestStrawberries"
+
+    Scenario: Publication searchable fields (title, summary, keyfacts)
+        Given I navigate to the "home" page
+        When I search for "titleTestApricots"
+        Then I should see 1 search results
+        And I can click on link "Publication fields titleTestApricots"
+        When I search for "summaryTestBeetroot"
+        Then I should see 1 search results
+        And I can click on link "Publication fields titleTestApricots"
+        When I search for "keyfactsTestCourgettes"
+        Then I should see 1 search results
+        And I can click on link "Publication fields titleTestApricots"
+
+    Scenario: Dataset searchable fields (title, summary)
+        Given I navigate to the "home" page
+        When I search for "titleTestPotatoes"
+        Then I should see 1 search results
+        And I can click on link "dataset fields titleTestPotatoes"
+        When I search for "summaryTestWalnuts"
+        Then I should see 1 search results
+        And I can click on link "dataset fields titleTestPotatoes"
+
+    Scenario: Series searchable fields (title, summary)
+        Given I navigate to the "home" page
+        When I search for "titleTestStrawberries"
+        Then I should see 1 search results
+        And I can click on link "series fields titleTestStrawberries"
+        When I search for "summaryTestBlackberries"
+        Then I should see 1 search results
+        And I can click on link "series fields titleTestStrawberries"
+
