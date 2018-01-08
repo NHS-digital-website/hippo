@@ -14,7 +14,7 @@ Scenario: Display Resource Links, Attachments and Datasets in one list
     Given I navigate to "publication with datasets" page
     Then I should see publication page titled "publication with datasets"
     And I should also see "Publication Resources" with:
-        | attachment.pdf; size: 7.2 kB      |
+        | attachment.pdf; size: 42.2 kB     |
         | Etiam Placerat Arcu Dataset       |
         | publication-with-datasets Dataset |
         | Related resource link             |

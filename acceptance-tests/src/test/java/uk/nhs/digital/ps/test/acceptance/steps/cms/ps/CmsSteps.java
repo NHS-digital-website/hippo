@@ -295,7 +295,12 @@ public class CmsSteps extends AbstractSpringSteps {
         int max = (int)field.range().getSmallestMaximum();
         int rand = getRandomInt(1, max - gap);
         int value = rand >= date.get(field) - buffer ? rand + gap : rand;
-        return date.with(field, value);
+        LocalDateTime relativeDate = date.with(field, value);
+
+        // Adding logging to help with some spurious errors...
+        log.info("Date: " + date + " rand: " + rand + " value: " + value + " Picked date: " + relativeDate);
+
+        return relativeDate;
     }
 
     @Given("^I have a published publication with nominal date falling after (\\d+) weeks from now$")
