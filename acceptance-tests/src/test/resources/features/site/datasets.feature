@@ -25,7 +25,7 @@ Scenario: View resource links and download attachments from dataset
     Given I navigate to the "publication with datasets Dataset" data set page
     Then I should also see "Dataset Resources" with:
         | Google Resource Link          |
-        | attachment.pdf; size: 7.2 kB  |
+        | attachment.pdf; size: 42.2 kB |
 
 Scenario: Find data set in publication resources
     Given I navigate to "publication with datasets" publication page

@@ -276,6 +276,9 @@ public class SiteSteps extends AbstractSpringSteps {
 
     @Then("^I should see (\\d+) search results$")
     public void iShouldSeeSearchResults(String count) throws Throwable {
+        if (count.equals("0")) {
+            count = "No results";
+        }
         assertThat("Correct result count found", sitePage.getResultCount(), startsWith(count));
     }
 }

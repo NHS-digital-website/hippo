@@ -5,7 +5,7 @@
 <#if pageable??>
     <div data-uipath="searchResults" data-totalresults="${pageable.total}">
         <#if pageable.total == 0>
-            <h1>No results for: ${query}</h1>
+            <h1 data-uipath="resultCount">No results for: ${query}</h1>
         <#else>
 
             <h1 data-uipath="resultCount">${pageable.total} result<#if pageable.total gt 1>s</#if> found</h1>

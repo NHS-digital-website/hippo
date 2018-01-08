@@ -78,25 +78,25 @@ public class ExpectedTestDataProvider {
             newPublication()
                 .withTitle("Apple orange pear")
                 .withSummary("I like pears")
-                .withNominalDate(asInstant("2017-11-08T00:00:00Z"))
+                .withNominalDate(asInstant("2020-11-08T00:00:00Z"))
                 .inState(PUBLISHED)
                 .withPubliclyAccessible(true),
             newPublication()
                 .withTitle("No mention of interesting terms in the title")
                 .withSummary("I like apples")
-                .withNominalDate(asInstant("2017-11-08T00:00:00Z"))
+                .withNominalDate(asInstant("2020-11-08T00:00:00Z"))
                 .inState(PUBLISHED)
                 .withPubliclyAccessible(true),
             newPublication()
                 .withTitle("Apple pear orange bear")
                 .withSummary("I like apples")
-                .withNominalDate(asInstant("2017-11-07T00:00:00Z"))
+                .withNominalDate(asInstant("2020-11-07T00:00:00Z"))
                 .inState(PUBLISHED)
                 .withPubliclyAccessible(true),
             newPublication()
                 .withTitle("Apple orange")
                 .withSummary("I like apples")
-                .withNominalDate(asInstant("2017-11-07T00:00:00Z"))
+                .withNominalDate(asInstant("2020-11-07T00:00:00Z"))
                 .inState(PUBLISHED)
                 .withPubliclyAccessible(true),
             newPublication()
@@ -107,7 +107,7 @@ public class ExpectedTestDataProvider {
                     "Integer odio ante, congue pulvinar ultrices nec, mollis vitae dolor. Curabitur euismod erat " +
                     "elit, quis facilisis neque eleifend id. Maecenas convallis vel mi nec bibendum. Donec ut erat " +
                     "dictum, molestie dolor non, aliquet nibh.")
-                .withNominalDate(asInstant("2017-10-11T00:00:00Z"))
+                .withNominalDate(asInstant("2020-10-11T00:00:00Z"))
                 .inState(PUBLISHED)
                 .withPubliclyAccessible(true)
             );
