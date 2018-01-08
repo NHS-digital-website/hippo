@@ -51,6 +51,12 @@ public class TestContentUrls {
         add("attachment test dataset",
             "/publications/acceptance-tests/attachment-test/dataset");
 
+        // bare minimum documents
+        add("bare minimum publication",
+            "/publications/acceptance-tests/bare-minimum-publication");
+        add("bare minimum dataset",
+            "/publications/acceptance-tests/bare-minimum-publication/bare-minimum-dataset");
+
         // invalid urls
         add("invalid root", "/invalid");
         add("invalid document", "/publications/invalid");

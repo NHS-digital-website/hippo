@@ -3,6 +3,7 @@ package uk.nhs.digital.ps.beans.structuredText;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StructuredText {
 
@@ -24,8 +25,7 @@ public class StructuredText {
             .orElse(new Paragraph(""));
     }
 
-    protected List<Element> parse(String text) {
-        List<Element> elements = new ArrayList<>();
+    private List<Element> parse(String text) {
 
         text = text
             // eliminate all leading and trailing white space characters
@@ -36,15 +36,9 @@ public class StructuredText {
             // eliminate sequences of new line chars over two characters long
             .replaceAll("\n{3,}", "\n\n");
 
-        Arrays.asList(text.split("\n\n"))
-            .forEach(t -> {
-                if (BulletList.match(t)) {
-                    elements.add(new BulletList(t));
-                    return;
-                }
-                elements.add(new Paragraph(t));
-            });
-
-        return elements;
+        return Arrays.stream(text.split("\n\n"))
+            .filter(t -> !t.isEmpty())
+            .map(t -> BulletList.match(t) ? new BulletList(t) : new Paragraph(t))
+            .collect(Collectors.toList());
     }
 }

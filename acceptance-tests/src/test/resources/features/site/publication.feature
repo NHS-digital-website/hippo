@@ -32,6 +32,18 @@ Scenario: Display taxonomy list
         | Publication Date Range | 01/11/2017 to 01/02/2018       |
         | Publication Taxonomy   | People, patients and geography |
 
+Scenario: Headers don't display for empty fields
+    Given I navigate to the "bare minimum publication" page
+    Then I should see page titled "Bare Minimum Publication"
+    And I should not see headers:
+        | Geographic Coverage:      |
+        | Geographical Granularity: |
+        | Date Range:               |
+        | Key Facts                 |
+        | Administrative Sources    |
+        | Related Links             |
+        | Taxonomy                  |
+
 Scenario: Display multiparagraph summary
     Given I navigate to "publication with datasets" page
     Then I should also see multiple "Publication Summary" with:

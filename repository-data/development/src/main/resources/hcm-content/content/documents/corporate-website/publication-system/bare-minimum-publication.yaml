@@ -1,0 +1,151 @@
+---
+/content/documents/corporate-website/publication-system/acceptance-tests/bare-minimum-publication:
+  /bare-minimum-dataset:
+    /bare-minimum-dataset[1]:
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T11:13:35.315Z
+      hippostdpubwf:lastModificationDate: 2018-01-08T11:13:35.315Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 8336a314-aea1-4c7b-85e0-0f9f02fae88c
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:Summary: Bare Minimum Dataset Summary
+      publicationsystem:Title: Bare Minimum Dataset
+    /bare-minimum-dataset[2]:
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T11:13:35.315Z
+      hippostdpubwf:lastModificationDate: 2018-01-08T11:13:54.739Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 8336a314-aea1-4c7b-85e0-0f9f02fae88c
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:Summary: Bare Minimum Dataset Summary
+      publicationsystem:Title: Bare Minimum Dataset
+    /bare-minimum-dataset[3]:
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T11:13:35.315Z
+      hippostdpubwf:lastModificationDate: 2018-01-08T11:13:54.739Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-01-08T11:14:52.740Z
+      hippotranslation:id: 8336a314-aea1-4c7b-85e0-0f9f02fae88c
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:Summary: Bare Minimum Dataset Summary
+      publicationsystem:Title: Bare Minimum Dataset
+    hippo:name: Bare Minimum Dataset
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /content:
+    /content[1]:
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T11:12:44.629Z
+      hippostdpubwf:lastModificationDate: 2018-01-08T11:12:44.630Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 7d329984-9f02-49e2-a9a7-9ce11e1c25b1
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Bare Minimum Publication Summary
+      publicationsystem:Title: Bare Minimum Publication
+    /content[2]:
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T11:12:44.629Z
+      hippostdpubwf:lastModificationDate: 2018-01-08T11:13:05.238Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 7d329984-9f02-49e2-a9a7-9ce11e1c25b1
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Bare Minimum Publication Summary
+      publicationsystem:Title: Bare Minimum Publication
+    /content[3]:
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T11:12:44.629Z
+      hippostdpubwf:lastModificationDate: 2018-01-08T11:13:05.238Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-01-08T11:13:08.922Z
+      hippotranslation:id: 7d329984-9f02-49e2-a9a7-9ce11e1c25b1
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Bare Minimum Publication Summary
+      publicationsystem:Title: Bare Minimum Publication
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Bare Minimum Publication
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: f49c72e8-d043-4fb8-9a45-41ed549af83f
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

@@ -134,6 +134,14 @@ public class SiteSteps extends AbstractSpringSteps {
         }
     }
 
+    @Then("^I should not see headers:$")
+    public void iShouldNotSeeHeaders(DataTable headersTable) throws Throwable {
+        List<String> headers = headersTable.asList(String.class);
+        for (String header : headers) {
+            assertNull("Header should not be displayed", sitePage.findElementWithText(header));
+        }
+    }
+
     @Then("^I should(?: also)? see multiple \"([^\"]+)\" with:")
     public void iShouldSeeMultipleItemsOf(String pageElementName, final DataTable elementItems) throws Throwable  {
         int i = 0;

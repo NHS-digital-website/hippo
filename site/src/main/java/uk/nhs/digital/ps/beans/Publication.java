@@ -78,9 +78,9 @@ public class Publication extends BaseDocument {
                 List<Category> ancestors = (List<Category>) taxonomyTree.getCategoryByKey(key).getAncestors();
 
                 List<String> list = ancestors.stream()
-                    .map(category -> category.getInfo("en").getName())
+                    .map(category -> category.getInfo(Locale.UK).getName())
                     .collect(Collectors.toList());
-                list.add(taxonomyTree.getCategoryByKey(key).getInfo("en").getName());
+                list.add(taxonomyTree.getCategoryByKey(key).getInfo(Locale.UK).getName());
                 taxonomyList.add(list);
             }
         }

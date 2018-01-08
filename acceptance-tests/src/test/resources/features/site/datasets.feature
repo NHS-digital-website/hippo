@@ -13,6 +13,14 @@ Scenario: Search individual data set by name
         | Dataset Date Range            | 01/02/2016 to 01/07/2017                                          |
         | Dataset Nominal Date          | 10/10/2017                                                        |
 
+Scenario: Headers don't display for empty fields
+    Given I navigate to the "bare minimum dataset" page
+    Then I should see page titled "Bare Minimum Dataset"
+    And I should not see headers:
+        | Geographical Granularity: |
+        | Geographic Coverage:      |
+        | Taxonomy                  |
+
 Scenario: View resource links and download attachments from dataset
     Given I navigate to the "publication with datasets Dataset" data set page
     Then I should also see "Dataset Resources" with:
