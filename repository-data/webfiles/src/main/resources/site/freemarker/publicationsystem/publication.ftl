@@ -12,11 +12,7 @@
     <dl class="media__body">
         <dt>Nominal Publication Date:</dt>
         <dd class="zeta" data-uipath="ps.publication.nominal-publication-date">
-            <#if publication.nominalPublicationDate??>
-                <@formatRestrictableDate value=publication.nominalPublicationDate/>
-            <#else>
-                (Not specified)
-            </#if>
+            <@formatRestrictableDate value=publication.nominalPublicationDate/>
         </dd>
     </dl>
 </#macro>
@@ -72,7 +68,7 @@
                     <div class="media">
                         <div class="media__icon media__icon--geographic-coverage"></div>
                         <dl class="media__body">
-                            <dt id="geographic-coverage">Geographic coverage:</dt>
+                            <dt id="geographic-coverage">Geographic Coverage:</dt>
                             <dd data-uipath="ps.publication.geographic-coverage">
                                 ${publication.geographicCoverage}
                             </dd>
@@ -84,7 +80,7 @@
                     <div class="media">
                         <div class="media__icon media__icon--granularity"></div>
                         <dl class="media__body">
-                            <dt>Geographical granularity</dt>
+                            <dt>Geographical Granularity:</dt>
                             <dd data-uipath="ps.publication.granularity">
                                 <#list publication.granularity as granularityItem><#if granularityItem?index != 0>, </#if>${granularityItem}</#list>
                             </dd>
@@ -96,7 +92,7 @@
                     <div class="media">
                         <div class="media__icon media__icon--date-range"></div>
                         <dl class="media__body">
-                            <dt>Date Range</dt>
+                            <dt>Date Range:</dt>
                             <dd data-uipath="ps.publication.date-range">
                                 <#if publication.coverageStart?? && publication.coverageEnd??>
                                     <@formatCoverageDates start=publication.coverageStart.time end=publication.coverageEnd.time/>
@@ -118,7 +114,7 @@
                 <h2><@fmt.message key="headers.summary"/></h2>
                 <@structuredText item=publication.summary uipath="ps.publication.summary" />
 
-                <#if publication.keyFacts?has_content>
+                <#if publication.keyFacts.elements?has_content>
                     <h2><@fmt.message key="headers.key-facts"/></h2>
                     <@structuredText item=publication.keyFacts uipath="ps.publication.key-facts" />
                 </#if>
@@ -164,7 +160,7 @@
                     </#if>
                 </div>
 
-                <#if publication.taxonomyList??>
+                <#if publication.taxonomyList?has_content>
                     <div class="panel panel--grey">
                         <h3>Taxonomy</h3>
                         <div data-uipath="ps.publication.taxonomy">
