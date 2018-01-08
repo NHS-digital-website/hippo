@@ -1,0 +1,244 @@
+---
+/content/documents/corporate-website/publication-system/acceptance-tests/search-fields-test:
+  /dataset-fields-test:
+    /dataset-fields-test[1]:
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T16:26:47.628Z
+      hippostdpubwf:lastModificationDate: 2018-01-08T16:34:23.038Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotaxonomy:keys:
+      - major-accidents
+      - circulatory-system-diseases
+      hippotranslation:id: e8981d6a-e131-4344-89b2-fa2f01e30d07
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: England Scotland and Northern Ireland
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-07-12T00:00:00Z
+      publicationsystem:Summary: dataset summary to include summaryTestWalnuts
+      publicationsystem:Title: dataset fields titleTestPotatoes
+    /dataset-fields-test[2]:
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T16:26:47.628Z
+      hippostdpubwf:lastModificationDate: 2018-01-08T16:34:41.862Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotaxonomy:keys:
+      - major-accidents
+      - circulatory-system-diseases
+      hippotranslation:id: e8981d6a-e131-4344-89b2-fa2f01e30d07
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: England Scotland and Northern Ireland
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-07-12T00:00:00Z
+      publicationsystem:Summary: dataset summary to include summaryTestWalnuts
+      publicationsystem:Title: dataset fields titleTestPotatoes
+    /dataset-fields-test[3]:
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T16:26:47.628Z
+      hippostdpubwf:lastModificationDate: 2018-01-08T16:34:41.862Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-01-08T16:34:43.923Z
+      hippotaxonomy:keys:
+      - major-accidents
+      - circulatory-system-diseases
+      hippotranslation:id: e8981d6a-e131-4344-89b2-fa2f01e30d07
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: England Scotland and Northern Ireland
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-07-12T00:00:00Z
+      publicationsystem:Summary: dataset summary to include summaryTestWalnuts
+      publicationsystem:Title: dataset fields titleTestPotatoes
+    hippo:name: dataset fields test
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /publication-fields-test:
+    /publication-fields-test[1]:
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T15:35:22.963Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T09:39:07.151Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 03a69d51-061d-4427-9155-1229f0a1ce9a
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: England
+      publicationsystem:Granularity:
+      - Dental practices
+      publicationsystem:InformationType:
+      - Official statistics
+      publicationsystem:KeyFacts: Some key facts here to include keyfactsTestCourgettes
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Publication fields word in summary summaryTestBeetroot
+      publicationsystem:Title: Publication fields titleTestApricots
+    /publication-fields-test[2]:
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T15:35:22.963Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T09:39:13.110Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 03a69d51-061d-4427-9155-1229f0a1ce9a
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: England
+      publicationsystem:Granularity:
+      - Dental practices
+      publicationsystem:InformationType:
+      - Official statistics
+      publicationsystem:KeyFacts: Some key facts here to include keyfactsTestCourgettes
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Publication fields word in summary summaryTestBeetroot
+      publicationsystem:Title: Publication fields titleTestApricots
+    /publication-fields-test[3]:
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T15:35:22.963Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T09:39:13.110Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-01-09T09:39:15.368Z
+      hippotranslation:id: 03a69d51-061d-4427-9155-1229f0a1ce9a
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: England
+      publicationsystem:Granularity:
+      - Dental practices
+      publicationsystem:InformationType:
+      - Official statistics
+      publicationsystem:KeyFacts: Some key facts here to include keyfactsTestCourgettes
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Publication fields word in summary summaryTestBeetroot
+      publicationsystem:Title: Publication fields titleTestApricots
+    hippo:name: publication fields test
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /series-with-publication:
+    /time-series-index:
+      /time-series-index[1]:
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-01-08T22:04:13.664Z
+        hippostdpubwf:lastModificationDate: 2018-01-08T22:04:13.664Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: ade3a6a5-b84a-4f58-904a-f22cc45642a1
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: publicationsystem:series
+        publicationsystem:Summary: series fields test with summary summaryTestBlackberries
+        publicationsystem:Title: series fields titleTestStrawberries
+      /time-series-index[2]:
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-01-08T22:04:13.664Z
+        hippostdpubwf:lastModificationDate: 2018-01-08T22:07:56.008Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: ade3a6a5-b84a-4f58-904a-f22cc45642a1
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        - mix:versionable
+        jcr:primaryType: publicationsystem:series
+        publicationsystem:Summary: series fields test with summary summaryTestBlackberries
+        publicationsystem:Title: series fields titleTestStrawberries
+      /time-series-index[3]:
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-01-08T22:04:13.664Z
+        hippostdpubwf:lastModificationDate: 2018-01-08T22:07:56.008Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2018-01-08T22:11:02.225Z
+        hippotranslation:id: ade3a6a5-b84a-4f58-904a-f22cc45642a1
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: publicationsystem:series
+        publicationsystem:Summary: series fields test with summary summaryTestBlackberries
+        publicationsystem:Title: series fields titleTestStrawberries
+      hippo:name: Time Series Index
+      jcr:mixinTypes:
+      - hippo:named
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    hippo:name: Series with publication
+    hippostd:foldertype:
+    - new-translated-folder
+    - new-document
+    hippotranslation:id: 1d3150fa-0ba1-41f1-ae00-914fa4f4dfd3
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippo:named
+    - hippotranslation:translated
+    - mix:versionable
+    jcr:primaryType: hippostd:folder
+  hippo:name: Search fields Test
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: 00000000-0000-0000-0000-000000000000
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder
