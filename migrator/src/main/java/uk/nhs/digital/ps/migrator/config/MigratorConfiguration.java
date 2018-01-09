@@ -2,8 +2,8 @@ package uk.nhs.digital.ps.migrator.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import uk.nhs.digital.ps.migrator.MigrationReport;
 import uk.nhs.digital.ps.migrator.model.hippo.TaxonomyMigrator;
+import uk.nhs.digital.ps.migrator.report.MigrationReport;
 import uk.nhs.digital.ps.migrator.task.*;
 import uk.nhs.digital.ps.migrator.task.importables.CcgImportables;
 import uk.nhs.digital.ps.migrator.task.importables.CompendiumImportables;

@@ -1,10 +1,13 @@
 package uk.nhs.digital.ps.migrator.task.importables;
 
+import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.slf4j.Logger;
-import uk.nhs.digital.ps.migrator.MigrationReport;
+import uk.nhs.digital.ps.migrator.report.IncidentType;
+import uk.nhs.digital.ps.migrator.report.MigrationReport;
 import uk.nhs.digital.ps.migrator.config.ExecutionParameters;
 import uk.nhs.digital.ps.migrator.model.hippo.Folder;
 import uk.nhs.digital.ps.migrator.model.hippo.HippoImportableItem;
@@ -23,21 +26,23 @@ import java.nio.file.Path;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.text.MessageFormat.format;
 import static java.util.stream.StreamSupport.stream;
-import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.slf4j.LoggerFactory.getLogger;
+import static uk.nhs.digital.ps.migrator.report.IncidentType.*;
 
 public class CompendiumImportables {
 
     private final static Logger log = getLogger(CompendiumImportables.class);
 
+    private static final String P_CODE_MAPPING_SHEET_NAME = "Sheet2";
+    private static final Pattern P_CODE_REGEX = Pattern.compile("P\\d+");
+
     private final ExecutionParameters executionParameters;
     private final ImportableItemsFactory factory;
-
-    private static final Pattern P_CODE_REGEX = Pattern.compile("P\\d+");
     private final MigrationReport migrationReport;
 
     public CompendiumImportables(final ExecutionParameters executionParameters,
@@ -49,13 +54,13 @@ public class CompendiumImportables {
         this.migrationReport = migrationReport;
     }
 
-    public Collection<HippoImportableItem> create(final DataSetRepository dataSetRepository, final Folder ciRootFolder) {
+    public Collection<HippoImportableItem> create(final DataSetRepository dataSetRepository, final Folder ciRootFolder, final Set<String> deliberatelyIgnoredPCodes) {
 
         assertRequiredArgs(executionParameters.getNesstarCompendiumMappingFile());
 
         final List<HippoImportableItem> importableItems = new ArrayList<>();
 
-        final ImportablePrototypes importablePrototypes = readMapping();
+        final ImportablePrototypes importablePrototypes = readMappingFromFile(deliberatelyIgnoredPCodes);
 
 
         // Target CMS structure:
@@ -79,7 +84,7 @@ public class CompendiumImportables {
         importablePrototypes.getSeriesPrototypes().forEach(seriesPrototype -> {
 
             // B)
-            final Folder seriesRootFolder = factory.newFolder(compendiumRootFolder, "Compendium " + seriesPrototype.getName());
+            final Folder seriesRootFolder = factory.newFolder(compendiumRootFolder, seriesPrototype.getName());
             importableItems.add(seriesRootFolder);
 
             // C)
@@ -108,8 +113,7 @@ public class CompendiumImportables {
                 publicationPrototype.getDatasetIds().forEach(datasetId -> {
                     final PublishingPackage publishingPackage = dataSetRepository.findById(datasetId);
                     if (publishingPackage == null) {
-                        migrationReport.add("No dataset found with id:", datasetId,
-                            "The following publication will be missing this dataset: " + publicationPrototype.getName());
+                        migrationReport.report(datasetId, IncidentType.DATASET_MISSING_IN_MAPPING, publicationPrototype.getName());
                     } else {
                         importableItems.add(factory.toDataSet(publicationFolder, publishingPackage));
                     }
@@ -137,9 +141,102 @@ public class CompendiumImportables {
         return importableItems;
     }
 
-    private ImportablePrototypes readMapping() { // todo name
+    private ImportablePrototypes readMappingFromFile(final Set<String> deliberatelyIgnoredPCodes) {
 
-        XSSFWorkbook workbook;
+        final Sheet mappingOfPCodesSheet = loadCompendiumMappingSpreadsheet();
+
+        identifyPCodesDeliberatelyIgnored(mappingOfPCodesSheet, deliberatelyIgnoredPCodes);
+
+        reportOnPCodesWithNoMapping(mappingOfPCodesSheet);
+        reportOnPCodesWithInvalidOrNoImportStatusMapping(mappingOfPCodesSheet);
+
+        return streamRows(mappingOfPCodesSheet)
+            .filter(this::shouldMigrate)
+
+            .filter(row -> getPCode(row).isPresent())
+            .filter(row -> getSeriesName(row).isPresent())
+            .filter(row -> getPublicationName(row).isPresent())
+
+            .map(row -> new String[]{
+                getSeriesName(row).get(),
+                getPublicationName(row).get(),
+                getPCode(row).get()
+            })
+            .collect(
+                () -> new ImportablePrototypes(migrationReport),
+                (prototypes, components) -> prototypes.add(components[0], components[1], components[2]),
+                (l, r) -> { /* no-op - no need for a combinator in serial stream */ }
+            );
+    }
+
+    private boolean shouldMigrate(final Row row) {
+        return "Y".equalsIgnoreCase(getShouldMigrateValue(row).orElse(null));
+    }
+
+    private Optional<String> getShouldMigrateValue(final Row row) {
+        return getCellStringValue(row, 0);
+    }
+
+    private Optional<String> getPCode(final Row row) {
+        return getCellStringValue(row, 4)
+            .map(pCode -> {
+                // some P-codes (dataset ids) in the spreadsheet were found with extra characters,
+                // (likely copy-paste debris) we need to sanitise such values
+                final Matcher pCodeMatcher = P_CODE_REGEX.matcher(pCode);
+
+                return pCodeMatcher.find() ? pCodeMatcher.group() : null;
+            });
+    }
+
+    private Optional<String> getSeriesName(final Row row) {
+        return getCellStringValue(row, 2);
+    }
+
+    private Optional<String> getPublicationName(final Row row) {
+        return getCellStringValue(row, 3);
+    }
+
+    private Optional<String> getCellStringValue(final Row row, final int cellOffset) {
+        final Cell cell = row.getCell(cellOffset);
+        return Optional.ofNullable(cell == null ? null : cell.getStringCellValue().trim());
+    }
+
+    private void reportOnPCodesWithNoMapping(final Sheet mappingOfPCodesSheet) {
+        streamRows(mappingOfPCodesSheet)
+            .filter(row -> getPCode(row).isPresent())
+            .filter(row -> !getSeriesName(row).isPresent() || !getPublicationName(row).isPresent())
+            .forEach(row ->
+                migrationReport.report(getPCode(row).get(), PCODE_WITH_INVALID_PARENT,
+                    format("{0}:{1}", getSeriesName(row).orElse(""), getPublicationName(row).orElse(""))
+                ));
+    }
+
+    private void reportOnPCodesWithInvalidOrNoImportStatusMapping(final Sheet mappingOfPCodesSheet) {
+        streamRows(mappingOfPCodesSheet)
+            .filter(row -> getPCode(row).isPresent())
+            .filter(row -> !getShouldMigrateValue(row).isPresent()
+                || !("Y".equalsIgnoreCase(getShouldMigrateValue(row).get()) || "N".equalsIgnoreCase(getShouldMigrateValue(row).get()))
+            )
+            .forEach(row ->
+                migrationReport.report(getPCode(row).get(), PCODE_IMPORT_STATUS_MISSING, getShouldMigrateValue(row).orElse(""))
+            );
+    }
+
+    private void identifyPCodesDeliberatelyIgnored(final Sheet mappingOfPCodesSheet,
+                                                   final Set<String> deliberatelyIgnoredPCodes) {
+
+        deliberatelyIgnoredPCodes.addAll(
+            streamRows(mappingOfPCodesSheet)
+                .filter(row -> getPCode(row).isPresent())
+                .filter(row -> getShouldMigrateValue(row).isPresent())
+                .filter(row -> !shouldMigrate(row))
+                .map(row -> getPCode(row).get())
+                .collect(Collectors.toSet())
+        );
+    }
+
+    private Sheet loadCompendiumMappingSpreadsheet() {
+        Workbook workbook;
         try {
             final InputStream excelFile = new FileInputStream(
                 executionParameters.getNesstarCompendiumMappingFile().toFile()
@@ -148,59 +245,22 @@ public class CompendiumImportables {
             workbook = new XSSFWorkbook(excelFile);
         } catch (IOException e) {
             throw new UncheckedIOException("Failed to read Clinical Indicators Compendium mapping from file " + executionParameters.getNesstarCompendiumMappingFile(), e);
+
         }
 
-        final XSSFSheet sheet3 = workbook.getSheet("Sheet3");
+        final Sheet sheet = workbook.getSheet(P_CODE_MAPPING_SHEET_NAME);
 
-        streamRows(sheet3)
-            .filter(row -> row.getCell(3) != null)
-            .filter(row -> row.getCell(3).getStringCellValue().trim().matches("P\\d+.+"))
+        if (sheet == null) {
+            throw new RuntimeException(format(
+                "Failed to read Clinical Indicators Compendium mapping; sheet '{0}' not found.", P_CODE_MAPPING_SHEET_NAME
+            ));
+        }
 
-            .filter(row -> row.getCell(1) == null || isBlank(row.getCell(1).getStringCellValue()))
-            .filter(row -> row.getCell(2) == null || isBlank(row.getCell(2).getStringCellValue()))
-
-            .forEach(row ->
-                migrationReport.add(
-                    format("Found P-code without matching series or publication definition: {0}:{1}:{2}",
-                        row.getCell(1) == null ? "" : row.getCell(1).getStringCellValue(),
-                        row.getCell(2) == null ? "" : row.getCell(2).getStringCellValue(),
-                        row.getCell(3) == null ? "" : row.getCell(3).getStringCellValue()
-                    ),
-                    "Dataset will not be imported"
-                )
-            );
-
-        return streamRows(sheet3)
-            // only use rows that actually have a dataset indicator (the 'P-value')
-            .filter(row -> row.getCell(3) != null)
-            .filter(row -> row.getCell(3).getStringCellValue().trim().matches("P\\d+\\D*"))
-            // only use rows where mapping is defined for a dataset
-            // (reject rows with P-value but without Series or Publication values)
-            .filter(row -> !(row.getCell(1) == null || isBlank(row.getCell(1).getStringCellValue())))
-            .filter(row -> !(row.getCell(2) == null || isBlank(row.getCell(2).getStringCellValue())))
-            .map(row -> {
-                final String seriesName = row.getCell(1).getStringCellValue().trim();
-                final String publicationName = row.getCell(2).getStringCellValue().trim();
-
-                // some P-codes (dataset ids) in the spreadsheet were found with extra characters,
-                // (likely copy-paste debris) we need to sanitise such values
-                final Matcher pCodeMatcher = P_CODE_REGEX.matcher(
-                    row.getCell(3).getStringCellValue().trim()
-                );
-                pCodeMatcher.find();
-                final String datasetId = pCodeMatcher.group();
-
-                return new String[]{seriesName, publicationName, datasetId};
-            })
-            .collect(
-                () -> new ImportablePrototypes(migrationReport),
-                (prototypes, row) -> prototypes.add(row[0], row[1], row[2]),
-                (l, r) -> { /* no-op - no need for a combinator in serial stream */ }
-            );
+        return sheet;
     }
 
-    private Stream<Row> streamRows(final XSSFSheet sheet3) {
-        return stream(((Iterable<Row>) sheet3::rowIterator).spliterator(), false);
+    private Stream<Row> streamRows(final Sheet xssfSheet) {
+        return stream(((Iterable<Row>) xssfSheet::rowIterator).spliterator(), false);
     }
 
     private void assertRequiredArgs(final Path nesstarMappingFile) {
@@ -237,10 +297,7 @@ public class CompendiumImportables {
 
         public void add(final String datasetId) {
             if (!datasets.add(datasetId)) {
-                migrationReport.add(
-                    "Duplicate dataset added to publication: " + name,
-                    "The dataset will only be imported once. ID: " + datasetId
-                );
+                migrationReport.report(datasetId, DUPLICATE_PCODE_WITHIN_PUB, name);
             }
         }
 

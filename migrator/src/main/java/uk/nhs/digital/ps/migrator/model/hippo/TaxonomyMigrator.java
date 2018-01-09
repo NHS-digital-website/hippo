@@ -1,5 +1,15 @@
 package uk.nhs.digital.ps.migrator.model.hippo;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import uk.nhs.digital.ps.migrator.config.ExecutionParameters;
+import uk.nhs.digital.ps.migrator.model.Property;
+import uk.nhs.digital.ps.migrator.model.nesstar.PublishingPackage;
+import uk.nhs.digital.ps.migrator.model.taxonomy.TaxonomyTerm;
+import uk.nhs.digital.ps.migrator.report.MigrationReport;
+
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.*;
@@ -7,17 +17,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import uk.nhs.digital.ps.migrator.MigrationReport;
-import uk.nhs.digital.ps.migrator.config.ExecutionParameters;
-import uk.nhs.digital.ps.migrator.model.Property;
-import uk.nhs.digital.ps.migrator.model.nesstar.PublishingPackage;
-import uk.nhs.digital.ps.migrator.model.taxonomy.TaxonomyTerm;
-
 import static java.util.stream.Collectors.toList;
+import static uk.nhs.digital.ps.migrator.report.IncidentType.*;
 
 /**
  * This class is responsible for providing the taxonomy definition that we are going
@@ -34,8 +35,8 @@ public class TaxonomyMigrator {
     private MigrationReport migrationReport;
     private ExecutionParameters executionParameters;
 
-    private HashSet<String> taxonomyKeys;
-    private HashMap<String, List<String>> taxonomyMapping;
+    private Set<String> taxonomyKeys;
+    private Map<String, List<String>> taxonomyMapping;
     private TaxonomyTerm taxonomyDefinition;
 
     public TaxonomyMigrator(MigrationReport migrationReport, ExecutionParameters executionParameters) {
@@ -45,19 +46,27 @@ public class TaxonomyMigrator {
 
     public void init() {
         if (taxonomyMapping == null) {
-            readTaxonomyMapping();
+            try {
+                readTaxonomyMapping();
+            } catch (final Exception e) {
+                throw new RuntimeException("Failed to read Taxonomy Mapping file " + executionParameters.getTaxonomyMappingImportPath(), e);
+            }
         }
 
         if (taxonomyDefinition == null) {
-            readTaxonomyDefinition();
+            try {
+                readTaxonomyDefinition();
+            } catch (Exception e) {
+                throw new RuntimeException("Failed to read Taxonomy Definition file " + executionParameters.getTaxonomyDefinitionImportPath(), e);
+            }
         }
     }
 
     public List<String> getTaxonomyKeys(PublishingPackage dataset) {
         List<String> taxonomyKeys = taxonomyMapping.get(dataset.getUniqueIdentifier());
         if (taxonomyKeys == null || taxonomyKeys.isEmpty()) {
-            migrationReport.add("No taxonomy terms were provided in the mapping for dataset: " + dataset,
-                "Dataset will be imported without any taxonomy terms.");
+            migrationReport.report(dataset.getUniqueIdentifier(), TAXONOMY_MAPPING_MISSING);
+
             return Collections.emptyList();
         }
 
@@ -66,9 +75,7 @@ public class TaxonomyMigrator {
 
         List<String> notAllowedKeys = map.get(false);
         if (!notAllowedKeys.isEmpty()) {
-            migrationReport.add("Invalid taxonomy terms were present in the taxonomy mapping",
-                "Dataset: " + dataset,
-                "Taxonomy Terms: " + String.join(", ", notAllowedKeys));
+            migrationReport.report(dataset.getUniqueIdentifier(), TAXONOMY_MAPPING_INVALID, String.join(", ", notAllowedKeys));
         }
 
         return map.get(true);
@@ -119,9 +126,7 @@ public class TaxonomyMigrator {
 
             List<String> existingMapping = taxonomyMapping.put(pCode, taxonomyKeys);
             if (existingMapping != null) {
-                migrationReport.add("Taxonomy mapping file has duplicate entries for identifier: " + pCode,
-                    "The last mapping in the spreadsheet will be used and the following mapping will be ignored.",
-                    pCode + " -> " + String.join(",", existingMapping));
+                migrationReport.report(pCode, TAXONOMY_MAPPING_DUPLICATE, String.join(" > ", taxonomyKeys));
             }
         }
     }
@@ -181,7 +186,7 @@ public class TaxonomyMigrator {
             current = current.addChild(cell.getStringCellValue());
             String taxonomyKey = current.getName();
             if (!keys.add(taxonomyKey)) {
-                throw new RuntimeException("Duplicate taxonomy key: " + taxonomyKey);
+                throw new RuntimeException("Taxonomy Definition - duplicate taxonomy key: " + taxonomyKey);
             }
 
             currentColumnIndex = cell.getColumnIndex();

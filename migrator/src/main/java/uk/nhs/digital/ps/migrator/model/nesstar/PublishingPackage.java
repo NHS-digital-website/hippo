@@ -42,7 +42,8 @@ public class PublishingPackage {
     }
 
     public String getNotes() {
-        return notesXpath.evaluateFirst(rootElement).getTextTrim();
+        final Element notesElement = notesXpath.evaluateFirst(rootElement);
+        return (notesElement == null) ? "" : notesElement.getTextTrim();
     }
 
     public String getAbstract() {
@@ -68,13 +69,6 @@ public class PublishingPackage {
         if (abstractStr != null) {
             summary.append("\n\n");
             summary.append(abstractStr);
-        }
-
-        String uniqueId = getUniqueIdentifier().trim();
-        if (uniqueId != null && !uniqueId.isEmpty()) {
-            summary.append("\n\n");
-            summary.append("Unique identifier: ");
-            summary.append(uniqueId);
         }
 
         return summary.toString();

@@ -1,17 +1,25 @@
 package uk.nhs.digital.ps.migrator.task;
 
 import org.apache.commons.lang3.StringUtils;
-import uk.nhs.digital.ps.migrator.MigrationReport;
 import uk.nhs.digital.ps.migrator.config.ExecutionParameters;
 import uk.nhs.digital.ps.migrator.model.hippo.*;
 import uk.nhs.digital.ps.migrator.model.nesstar.Catalog;
 import uk.nhs.digital.ps.migrator.model.nesstar.NesstarResource;
 import uk.nhs.digital.ps.migrator.model.nesstar.PublishingPackage;
+import uk.nhs.digital.ps.migrator.report.MigrationReport;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static java.text.MessageFormat.format;
+import static java.util.regex.Pattern.CASE_INSENSITIVE;
+import static java.util.stream.Collectors.toList;
+import static org.apache.commons.lang3.StringUtils.isBlank;
+import static uk.nhs.digital.ps.migrator.report.IncidentType.*;
 
 public class ImportableItemsFactory {
 
@@ -63,7 +71,7 @@ public class ImportableItemsFactory {
                                             .filter(a -> !(a.getMimeType().equalsIgnoreCase("application/pdf")
                                                 && parentFolder.getJcrPath().contains("compendium-of-population-health-indicators")))
                                             .collect(Collectors.toList());
-            List<ResourceLink> resourceLinks = getResourceLinks(resources);
+            List<ResourceLink> resourceLinks = getResourceLinks(exportedPublishingPackage.getUniqueIdentifier(), resources);
             List<String> taxonomyKeys = taxonomyMigrator.getTaxonomyKeys(exportedPublishingPackage);
 
             // Quick sanity check to make sure we have processed all the resources
@@ -71,20 +79,26 @@ public class ImportableItemsFactory {
                 throw new RuntimeException("Had some resources that we didn't know how to map.");
             }
 
+            final String summary = formatDatasetSummary(
+                exportedPublishingPackage.getSummary(),
+                exportedPublishingPackage.getUniqueIdentifier()
+            );
+
             return new DataSet(
                 parentFolder,
                 exportedPublishingPackage.getUniqueIdentifier(),
                 exportedPublishingPackage.getTitle(),
                 exportedPublishingPackage.getTitle(),
-                exportedPublishingPackage.getSummary(),
+                summary,
                 nominalDate,
                 attachments,
                 resourceLinks,
                 String.join("\", \"", taxonomyKeys)
             );
         } catch (Exception e) {
-            migrationReport.add(e, "Error converting to dataset:",
-                "Dataset will not be imported", exportedPublishingPackage.toString());
+            migrationReport.report(exportedPublishingPackage.getUniqueIdentifier(), DATASET_CONVERSION_ERROR, e.getMessage());
+            migrationReport.logError(e, "Failed to convert dataset " + exportedPublishingPackage.getUniqueIdentifier());
+
             return null;
         }
     }
@@ -104,19 +118,20 @@ public class ImportableItemsFactory {
         );
     }
 
-    public List<ResourceLink> getResourceLinks(List<NesstarResource> resources) {
+    public List<ResourceLink> getResourceLinks(final String pCode, List<NesstarResource> resources) {
       return resources.stream()
             .filter(NesstarResource::isLink)
             .peek(resource -> {
                 // There should not be any link text with contact us, but if there are report it
                 if (resource.isLink() && StringUtils.containsIgnoreCase(resource.getTitle(), "contact us")) {
-                    migrationReport.add("Resource Link Text with 'contact us' found: " + resource.getTitle(),
-                        "Link Uri is: " + resource.getUri());
+                    migrationReport.report(
+                        pCode, RESOURCE_LINK_CONTACT_US, resource.getTitle() + ":" + resource.getUri()
+                    );
                 }
             })
             .filter(NesstarResource::isNotOnIgnoreList)
             .map(resource -> new ResourceLink(resource.getTitle(), resource.getUri()))
-            .collect(Collectors.toList());
+            .collect(toList());
     }
 
     public List<Attachment> getAttachments(PublishingPackage publishingPackage) {
@@ -130,7 +145,7 @@ public class ImportableItemsFactory {
                 resource.getUri(),
                 migrationReport))
             .filter(attachment -> attachment.download(publishingPackage))
-            .collect(Collectors.toList());
+            .collect(toList());
     }
 
     /**
@@ -148,9 +163,8 @@ public class ImportableItemsFactory {
             // If there was any extra text that we have stripped out then log it in the report
             if (!(matcher.group(1).isEmpty()
                 && matcher.group(4).isEmpty())) {
-                migrationReport.add("Date found with additional text that will be stripped out.",
-                    publishingPackage.toString(),
-                    "Date: " + matcher.group());
+
+                migrationReport.report(publishingPackage.getUniqueIdentifier(), DATE_WITH_EXTRA_TEXT, publishingPackage.getDate());
             }
         }
 
@@ -211,9 +225,75 @@ public class ImportableItemsFactory {
             case "TBC":     return "0001-01-01T12:00:00.000Z";
 
             default:
-                migrationReport.add("No mapping found for input date: " + input,
-                    "This dataset will not have a date set:", publishingPackage.toString());
+                migrationReport.report(publishingPackage.getUniqueIdentifier(), NO_DATE_MAPPING, input);
+
                 return "0001-01-01T12:00:00.000Z";
         }
+    }
+
+    /**
+     * <p>
+     *     Formats summary, validates for constructs we cannot handle (HTML) and reports for manual interventions where
+     *     necessary.
+     * </p><p>
+     *     Hyperlinks are reported on so that they can be added manually.
+     * </p><p>
+     *     Presence of HTML tags is reported for manual fixing.
+     *     So far no HTML tags were spotted in Datasets' summaries so we make no attempt to strip them; instead we flag
+     *     offending Dataset so that in the unlikely event of a new showing up shortly before migration it can be fixed
+     *     lmanually. It's unlikely that at this point any would be added, much less more than one.
+     * </p>
+     */
+    public String formatDatasetSummary(final String rawSummary, final String pCode) {
+
+        // Report on hyperlinks present in the summary - these will need to be manually added as Resource Links.
+        final List<String> hyperlinksInSummary = Stream.of(
+            "(?<URL>http(?:s)?://[^\\s)]+)",
+            "[^/](?<URL>www\\.[^\\s)]+)")
+            .filter(pattern -> Pattern.compile(pattern, CASE_INSENSITIVE).matcher(rawSummary).find())
+            .flatMap(pattern -> {
+                final Matcher matcher = Pattern.compile(pattern, CASE_INSENSITIVE).matcher(rawSummary);
+
+                final List<String> hyperlinks = new ArrayList<>();
+
+                while (matcher.find()) {
+                    hyperlinks.add(matcher.group("URL"));
+                }
+
+                return hyperlinks.stream();
+            })
+            .collect(toList());
+
+        if (!hyperlinksInSummary.isEmpty()) {
+            migrationReport.report(pCode, HYPERLINKS_IN_SUMMARY, hyperlinksInSummary);
+        }
+
+        if (isBlank(rawSummary)) {
+            migrationReport.report(pCode, BLANK_SUMMARY);
+        }
+
+        // Detect HTML elements in Datasets' summaries. So far we haven't seen any but should one show up in subsequent
+        // exports from Nesstar, we want to know about it ASAP so that we can deal with each case individually.
+        boolean containsMarkup = Stream.of(
+            "\\<.+\\>",   // any complete HTML tag (there are legitimate occurrances of angle brackets)
+            "&lt;.+&gt;"  // same as above, expresseed with HTML entities
+        ).anyMatch(pattern -> Pattern.compile(pattern, CASE_INSENSITIVE).matcher(rawSummary).find());
+
+        if (containsMarkup) {
+            migrationReport.report(pCode, HTML_IN_SUMMARY, rawSummary);
+        }
+
+        String summary = rawSummary;
+
+        if (!isBlank(pCode)) {
+            summary = format("{0}\n\nLegacy unique identifier: {1}", summary, pCode);
+        }
+
+        // Need to have 2 new lines for paragraphs to be rendered in the cms.
+        // Also we need to double escape new lines and quotes as they need to be escaped in the json for the import
+        return summary.trim()
+            .replaceAll("(\n\r?){2,}", "\\\\n\\\\n")
+            .replaceAll("\n\r?", "\\\\n")
+            .replaceAll("\"", "\\\\\"");
     }
 }
