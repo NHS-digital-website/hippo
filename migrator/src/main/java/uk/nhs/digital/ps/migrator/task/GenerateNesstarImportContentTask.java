@@ -1,16 +1,16 @@
 package uk.nhs.digital.ps.migrator.task;
 
 import org.apache.commons.io.FileUtils;
-import org.slf4j.Logger;
-import uk.nhs.digital.ps.migrator.MigrationReport;
 import uk.nhs.digital.ps.migrator.config.ExecutionParameters;
 import uk.nhs.digital.ps.migrator.model.hippo.DataSet;
 import uk.nhs.digital.ps.migrator.model.hippo.Folder;
 import uk.nhs.digital.ps.migrator.model.hippo.HippoImportableItem;
 import uk.nhs.digital.ps.migrator.model.hippo.TaxonomyMigrator;
+import uk.nhs.digital.ps.migrator.model.nesstar.Catalog;
 import uk.nhs.digital.ps.migrator.model.nesstar.CatalogStructure;
 import uk.nhs.digital.ps.migrator.model.nesstar.DataSetRepository;
 import uk.nhs.digital.ps.migrator.model.nesstar.PublishingPackage;
+import uk.nhs.digital.ps.migrator.report.MigrationReport;
 import uk.nhs.digital.ps.migrator.task.importables.CcgImportables;
 import uk.nhs.digital.ps.migrator.task.importables.CompendiumImportables;
 import uk.nhs.digital.ps.migrator.task.importables.NhsOutcomesFrameworkImportables;
@@ -24,20 +24,19 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Stream;
 
-import static java.text.MessageFormat.format;
-import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toMap;
-import static org.slf4j.LoggerFactory.getLogger;
+import static java.util.Arrays.asList;
+import static java.util.stream.Collectors.*;
 import static uk.nhs.digital.ps.migrator.misc.XmlHelper.loadFromXml;
+import static uk.nhs.digital.ps.migrator.report.IncidentType.DUPLICATE_PCODE_IMPORTED;
+import static uk.nhs.digital.ps.migrator.report.IncidentType.NO_DATASET_MAPPING;
 
 public class GenerateNesstarImportContentTask implements MigrationTask {
 
     private static final String PUBLISHING_PACKAGES_DIR_NAME = "PublishingPackages";
     private static final String NESSTAR_BUNDLE_DIR_NAME = "NesstarBundle";
     private static final String NESSTAR_STRUCTURE_FILE_NAME = "structure.rdf";
+    private static final String ROOT_CATALOG_LABEL = "NHS Digital indicators";
 
-
-    private final Logger log = getLogger(getClass());
 
     private final ExecutionParameters executionParameters;
 
@@ -101,14 +100,15 @@ public class GenerateNesstarImportContentTask implements MigrationTask {
             final CatalogStructure catalogStructure = loadFromXml(nesstarStructureFile, CatalogStructure.class);
             catalogStructure.setDataSetRepository(dataSetRepository);
 
+            final Set<String> deliberatelyIgnoredPCodes = new HashSet<>();
+
             final List<HippoImportableItem> importableItems = createImportableItemsModels(
                 catalogStructure,
-                dataSetRepository
+                dataSetRepository,
+                deliberatelyIgnoredPCodes
             );
 
-            reportDuplicateDatasets(importableItems);
-
-            reportMissedDatasets(dataSetRepository, importableItems);
+            updateMigrationReport(dataSetRepository, catalogStructure, deliberatelyIgnoredPCodes, importableItems);
 
             recreate(hippoImportDir);
 
@@ -119,6 +119,20 @@ public class GenerateNesstarImportContentTask implements MigrationTask {
         }
     }
 
+    private void updateMigrationReport(final DataSetRepository dataSetRepository,
+                                       final CatalogStructure catalogStructure,
+                                       final Set<String> deliberatelyIgnoredPCodes,
+                                       final List<HippoImportableItem> importableItems
+    ) {
+        migrationReport.setDatasetRepository(dataSetRepository);
+
+        identifyPCodesFromIgnoredSections(catalogStructure, deliberatelyIgnoredPCodes);
+
+        reportDuplicateDatasets(importableItems);
+
+        reportMissedDatasets(dataSetRepository, importableItems, deliberatelyIgnoredPCodes);
+    }
+
     private void reportDuplicateDatasets(final List<HippoImportableItem> importableItems) {
 
         final Set<String> visitedPcodes = new HashSet<>();
@@ -126,32 +140,35 @@ public class GenerateNesstarImportContentTask implements MigrationTask {
         importableItems.stream()
             .filter(DataSet.class::isInstance)
             .map(hippoImportableItem -> (DataSet) hippoImportableItem)
-            .map(DataSet::getpCode)
+            .map(DataSet::getPCode)
             .filter(pCode -> !visitedPcodes.add(pCode))
-            .forEach(pCode -> migrationReport.add(format("Duplicate P-code: {0}", pCode)));
+            .forEach(pCode -> migrationReport.report(pCode, DUPLICATE_PCODE_IMPORTED));
     }
 
     private void reportMissedDatasets(final DataSetRepository dataSetRepository,
-                                      final List<HippoImportableItem> importableItems
-    ) {
+                                      final List<HippoImportableItem> importableItems,
+                                      final Set<String> deliberatelyIgnoredPCodes) {
 
         final Set<String> pCodes = new HashSet<>(); // to avoid exceptions coming from duplicate entries
 
         final Map<String, DataSet> datasetsByUniqueIdentifier = importableItems.stream()
             .filter(DataSet.class::isInstance)
             .map(hippoImportableItem -> (DataSet) hippoImportableItem)
-            .filter(dataSet -> !pCodes.add(dataSet.getpCode())) // to avoid exceptions coming from duplicate entries
-            .collect(toMap(DataSet::getpCode, dataSet -> dataSet));
+            .filter(dataSet -> !pCodes.contains(dataSet.getPCode()))
+            .peek(dataSet -> pCodes.add(dataSet.getPCode())) // to avoid exceptions coming from duplicate entries
+            .collect(toMap(DataSet::getPCode, dataSet -> dataSet));
 
         dataSetRepository.stream()
+            .filter(dataSet -> !deliberatelyIgnoredPCodes.contains(dataSet.getUniqueIdentifier()))
             .filter(publishingPackage -> !datasetsByUniqueIdentifier.containsKey(publishingPackage.getUniqueIdentifier()))
-            .forEach(publishingPackage -> migrationReport.add(
-                format("Missed Dataset {0}: {1}", publishingPackage.getUniqueIdentifier(), publishingPackage.getTitle()))
+            .forEach(publishingPackage ->
+                migrationReport.report(publishingPackage.getUniqueIdentifier(), NO_DATASET_MAPPING)
             );
     }
 
     private List<HippoImportableItem> createImportableItemsModels(final CatalogStructure catalogStructure,
-                                                                  final DataSetRepository datasetRepository) {
+                                                                  final DataSetRepository datasetRepository,
+                                                                  final Set<String> deliberatelyIgnoredPCodes) {
 
         List<HippoImportableItem> importableItems = new ArrayList<>();
 
@@ -160,7 +177,7 @@ public class GenerateNesstarImportContentTask implements MigrationTask {
         // Expected CMS path: Corporate Website/Publications System/Clinical Indicators
 
         final Folder rootClinicalIndicatorsFolder = importableItemsFactory.toFolder(
-            null, catalogStructure.findCatalogByLabel("NHS Digital indicators")
+            null, catalogStructure.findCatalogByLabel(ROOT_CATALOG_LABEL)
         );
         rootClinicalIndicatorsFolder.setLocalizedName("Clinical Indicators");
         rootClinicalIndicatorsFolder.setJcrNodeName("clinical-indicators");
@@ -179,7 +196,7 @@ public class GenerateNesstarImportContentTask implements MigrationTask {
             nhsOutcomesFrameworkImportables.create(catalogStructure, rootClinicalIndicatorsFolder)
         );
         importableItems.addAll(
-            compendiumImportables.create(datasetRepository, rootClinicalIndicatorsFolder)
+            compendiumImportables.create(datasetRepository, rootClinicalIndicatorsFolder, deliberatelyIgnoredPCodes)
         );
 
         // If we had any errors we will have nulls in the list, we have logged and output the errors already so just strip the nulls
@@ -188,6 +205,38 @@ public class GenerateNesstarImportContentTask implements MigrationTask {
             .collect(toList());
 
         return importableItems;
+    }
+
+    private void identifyPCodesFromIgnoredSections(final CatalogStructure catalogStructure,
+                                                   final Set<String> deliberatelyIgnoredPCodes
+    ) {
+
+        final List<String> ignoredTopLevelSectionsLabels = asList(
+            "Indicator Portal news",
+            "Patient Online Services",
+            "Quality Accounts",
+            "Summary Hospital-level Mortality Indicator (SHMI)",
+            "Archive",
+            "Contact us"
+        );
+
+        final List<Catalog> topLevelCatalogs = catalogStructure.findCatalogByLabel(ROOT_CATALOG_LABEL)
+            .getChildCatalogs();
+
+        final List<Catalog> topLevelCatalogsToIgnore = ignoredTopLevelSectionsLabels.stream()
+            .map(catalogStructure::findCatalogByLabel)
+            // ensures that we only find the top level catalogs, in case any of the labels
+            // would need deeper-nested catalogs (unlikely as it is)
+            .filter(topLevelCatalogs::contains)
+            .collect(toList());
+
+        final Set<String> pCodesToIgnore = topLevelCatalogsToIgnore.stream()
+            .flatMap(catalog -> catalog.getAllDescendantCatalogs().stream())
+            .flatMap(catalog -> catalog.findPublishingPackages().stream())
+            .map(PublishingPackage::getUniqueIdentifier)
+            .collect(toSet());
+
+        deliberatelyIgnoredPCodes.addAll(pCodesToIgnore);
     }
 
     private DataSetRepository loadDataSetExportedModels(final Path publishingPackagesDir) {

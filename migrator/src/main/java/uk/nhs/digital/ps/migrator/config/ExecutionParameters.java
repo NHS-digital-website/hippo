@@ -21,7 +21,7 @@ public class ExecutionParameters {
     private Path taxonomyDefinitionImportPath;
     private Path taxonomyDefinitionOutputPath;
     private Path taxonomyMappingImportPath;
-    private Path migrationReportOutputPath;
+    private Path migrationReportFilePath;
 
     public Path getNesstarUnzippedExportDir() {
         return nesstarUnzippedExportDir;
@@ -103,12 +103,12 @@ public class ExecutionParameters {
         this.taxonomyMappingImportPath = taxonomyMappingImportPath;
     }
 
-    public Path getMigrationReportOutputPath() {
-        return migrationReportOutputPath;
+    public Path getMigrationReportFilePath() {
+        return migrationReportFilePath;
     }
 
-    public void setMigrationReportOutputPath(Path migrationReportOutputPath) {
-        this.migrationReportOutputPath = migrationReportOutputPath;
+    public void setMigrationReportFilePath(Path migrationReportFilePath) {
+        this.migrationReportFilePath = migrationReportFilePath;
     }
 
     public List<Descriptor> descriptions() {
@@ -123,7 +123,7 @@ public class ExecutionParameters {
             describe("taxonomyDefinitionImportPath", taxonomyDefinitionImportPath),
             describe("taxonomyDefinitionOutputPath", taxonomyDefinitionOutputPath),
             describe("taxonomyMappingImportPath", taxonomyMappingImportPath),
-            describe("migrationReportOutputPath", migrationReportOutputPath)
+            describe("migrationReportFilePath", migrationReportFilePath)
         );
     }
 }

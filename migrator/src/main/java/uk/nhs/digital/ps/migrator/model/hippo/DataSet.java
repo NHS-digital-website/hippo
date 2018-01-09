@@ -26,29 +26,11 @@ public class DataSet extends HippoImportableItem {
 
         this.pCode = pCode;
         this.title = title;
-        this.summary = formatSummary(summary);
+        this.summary = summary;
         this.nominalDate = nominalDate;
         this.attachments = attachments;
         this.resourceLinks = resourceLinks;
         this.taxonomyKeys = taxonomyKeys;
-    }
-
-    /**
-     * Check that we don't have any html markup and format the paragraphs for import
-     */
-    private static String formatSummary(final String input) {
-        boolean containsMarkup = Arrays.stream(new String[]{"<.*>", "&lt;", "&gt;"})
-            .anyMatch(s -> Pattern.compile(s).matcher(input).find());
-        if (containsMarkup) {
-            throw new RuntimeException("Summary contained a bad char. Input: " + input);
-        }
-
-        // Need to have 2 new lines for paragraphs to be rendered in the cms.
-        // Also we need to double escape new lines and quotes as they need to be escaped in the json for the import
-        return input.trim()
-            .replaceAll("(\n\r?){2,}", "\\\\n\\\\n")
-            .replaceAll("\n\r?", "\\\\n")
-            .replaceAll("\"", "\\\\\"");
     }
 
     public String getTitle() {
@@ -75,7 +57,7 @@ public class DataSet extends HippoImportableItem {
         return taxonomyKeys;
     }
 
-    public String getpCode() {
+    public String getPCode() {
         return pCode;
     }
 }

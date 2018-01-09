@@ -7,7 +7,8 @@ import freemarker.template.TemplateExceptionHandler;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.nhs.digital.ps.migrator.MigrationReport;
+import uk.nhs.digital.ps.migrator.report.MigrationReport;
+import uk.nhs.digital.ps.migrator.model.hippo.DataSet;
 import uk.nhs.digital.ps.migrator.model.hippo.HippoImportableItem;
 
 import java.io.StringWriter;
@@ -19,6 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import static uk.nhs.digital.ps.migrator.misc.TextHelper.toLowerCaseDashedValue;
+import static uk.nhs.digital.ps.migrator.report.IncidentType.DATASET_IMPORT_FILE_FAILURE;
 
 public class ImportableFileWriter {
 
@@ -74,7 +76,11 @@ public class ImportableFileWriter {
 
         } catch (final Exception e) {
             // If we fail with one file, make a note of the document that failed and carry on
-            migrationReport.add(e, "Failed to write out item:", "Item will not be imported", importableItem.toString());
+            migrationReport.logError(e, "Failed to write out item:", "Item will not be imported", importableItem.toString());
+
+            if (importableItem instanceof DataSet) {
+                migrationReport.report(((DataSet) importableItem).getPCode(), DATASET_IMPORT_FILE_FAILURE);
+            }
         }
     }
 
@@ -93,10 +99,11 @@ public class ImportableFileWriter {
 
     private static String getFileName(final int i, final HippoImportableItem importableItem) {
         return String.format(
-            "%06d%s_%s_%s.json",
+            "%06d%s_%s%s_%s.json",
             i,
             StringUtils.leftPad("",importableItem.getDepth(), '_'),
             importableItem.getClass().getSimpleName().toUpperCase(),
+            importableItem instanceof DataSet ? "_" + ((DataSet) importableItem).getPCode() : "",
             toLowerCaseDashedValue(importableItem.getLocalizedName())
         );
     }

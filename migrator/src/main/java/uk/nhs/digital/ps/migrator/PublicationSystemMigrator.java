@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import uk.nhs.digital.ps.migrator.config.ExecutionConfigurator;
 import uk.nhs.digital.ps.migrator.config.ExecutionParameters;
 import uk.nhs.digital.ps.migrator.misc.Descriptor;
+import uk.nhs.digital.ps.migrator.report.MigrationReport;
 import uk.nhs.digital.ps.migrator.task.MigrationTask;
 
 import java.util.List;
@@ -68,7 +69,9 @@ public class PublicationSystemMigrator implements ApplicationRunner {
         } catch (final Exception e) {
             log.error("Migration has failed.", e);
         } finally {
-            migrationReport.writeToFile();
+            migrationReport.generate();
+            migrationReport.logErrors();
+
             logExecutionParameters();
         }
 

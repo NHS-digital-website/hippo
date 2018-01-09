@@ -6,6 +6,7 @@ import org.jdom2.filter.Filters;
 import org.jdom2.xpath.XPathFactory;
 
 import java.util.List;
+import java.util.Objects;
 
 import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 import static uk.nhs.digital.ps.migrator.misc.TextHelper.sanitiseNesstarXmlText;
@@ -38,6 +39,17 @@ public class Catalog {
         return catalogStructure.findSubCatalogsByBagId(findChildrenBagId());
     }
 
+    /**
+     * @return Flat list of all descendant sub catalogs.
+     */
+    public List<Catalog> getAllDescendantCatalogs() {
+        return catalogStructure.findAllDescendantCatalogsOf(this);
+    }
+
+    public String getId() {
+        return catalogElement.getAttributeValue("r:about");
+    }
+
     private String findChildrenBagId() {
         return xPathFactory.compile(
             "n3:children/@r:resource",
@@ -54,5 +66,18 @@ public class Catalog {
     @Override
     public String toString() {
         return ReflectionToStringBuilder.toString(this, SHORT_PREFIX_STYLE);
+    }
+
+    @Override
+    public boolean equals(final Object other) {
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
+        final Catalog catalog = (Catalog) other;
+        return Objects.equals(getId(), catalog.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
     }
 }

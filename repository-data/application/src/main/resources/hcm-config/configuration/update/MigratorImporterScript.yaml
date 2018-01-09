@@ -18,7 +18,7 @@ definitions:
         \ imports - if, say, a failure occurs and the script is re-run, duplicates\
         \ or further errors can be expected. "
       hipposys:dryrun: false
-      hipposys:parameters: '{"sourceBaseFolderPath": "file:/tmp/exim-import/"}'
+      hipposys:parameters: '{"sourceBaseFolderPath": "file:/tmp/migrator/exim-import/"}'
       hipposys:path: /
       hipposys:script:
         resource: /configuration/update/MigratorImporterScript.groovy

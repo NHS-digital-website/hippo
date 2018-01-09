@@ -3,7 +3,7 @@ package uk.nhs.digital.ps.migrator.model.hippo;
 import org.apache.tika.Tika;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.nhs.digital.ps.migrator.MigrationReport;
+import uk.nhs.digital.ps.migrator.report.MigrationReport;
 import uk.nhs.digital.ps.migrator.model.nesstar.PublishingPackage;
 
 import java.io.File;
@@ -16,6 +16,8 @@ import java.nio.channels.FileChannel;
 import java.nio.channels.ReadableByteChannel;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
+import static uk.nhs.digital.ps.migrator.report.IncidentType.ATTACHMENT_NOT_AVAILABLE;
 
 public class Attachment {
 
@@ -94,10 +96,8 @@ public class Attachment {
             }
             return true;
         } catch (Exception e) {
+            migrationReport.report(publishingPackage.getUniqueIdentifier(), ATTACHMENT_NOT_AVAILABLE, encodedUri);
             file.delete(); // Attempt to delete the file as it may be partially downloaded
-            migrationReport.add(e, "Error occurred downloading attachment: " + title,
-                "From: " + encodedUri,
-                "This dataset will be missing this attachment", publishingPackage.toString());
             return false;
         }
     }

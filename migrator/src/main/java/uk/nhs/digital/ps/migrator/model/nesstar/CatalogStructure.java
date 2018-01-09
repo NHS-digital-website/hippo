@@ -6,8 +6,8 @@ import org.jdom2.filter.Filters;
 import org.jdom2.xpath.XPathFactory;
 
 import java.util.List;
+import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.reducing;
 import static java.util.stream.Collectors.toList;
 
 public class CatalogStructure {
@@ -93,5 +93,17 @@ public class CatalogStructure {
         ).evaluateFirst(context);
     }
 
-
+    /**
+     * @return Flat list of all descendant sub catalogs.
+     */
+    public List<Catalog> findAllDescendantCatalogsOf(final Catalog catalog) {
+        return catalog.getChildCatalogs().stream()
+            .flatMap(childCatalog ->
+                Stream.concat(
+                    Stream.of(childCatalog),
+                    findAllDescendantCatalogsOf(childCatalog).stream()
+                )
+            )
+            .collect(toList());
+    }
 }

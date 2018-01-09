@@ -30,14 +30,16 @@ public class ExecutionConfigurator {
     private static final String TAXONOMY_DEFINITION_OUTPUT_PATH = "taxonomyDefinitionOutputPath";
     private static final String TAXONOMY_MAPPING_IMPORT_PATH = "taxonomyMappingImportPath";
 
+    private static final Path MIGRATOR_TEMP_DIR_PATH = Paths.get(System.getProperty("java.io.tmpdir"), "migrator");
+
     private static final String HIPPO_IMPORT_DIR_DEFAULT_NAME = "exim-import";
     private static final String NESSTAR_UNZIPPED_ARCHIVE_DIR_NAME_DEFAULT = "nesstar-export";
     private static final String ATTACHMENT_DOWNLOAD_DIR_NAME_DEFAULT = "attachments";
-    private static final String MIGRATION_REPORT_FILENAME_DEFAULT = "migration-report.txt";
+    private static final String REPORTS_DIR_NAME = "reports";
+    private static final String MIGRATION_REPORT_FILENAME_DEFAULT = "Clinical Indicators Migration Report {TIMESTAMP}.xlsx";
 
 
     private final ExecutionParameters executionParameters;
-    private static final Path TEMP_DIR_PATH = Paths.get(System.getProperty("java.io.tmpdir"));
 
 
     public ExecutionConfigurator(final ExecutionParameters executionParameters) {
@@ -59,6 +61,7 @@ public class ExecutionConfigurator {
 
         executionParameters.setTaxonomyMappingImportPath(getPathArg(args, TAXONOMY_MAPPING_IMPORT_PATH));
 
+
         initNesstarUnzippedArchiveDir();
         initMigrationReportOutputPath(args);
         initHippoImportDir(args);
@@ -69,7 +72,7 @@ public class ExecutionConfigurator {
     private void initHippoImportDir(final ApplicationArguments args) {
         Path pathArg = getPathArg(args, HIPPO_IMPORT_DIR);
         if (pathArg == null) {
-            pathArg = Paths.get(TEMP_DIR_PATH.toString(), HIPPO_IMPORT_DIR_DEFAULT_NAME);
+            pathArg = Paths.get(MIGRATOR_TEMP_DIR_PATH.toString(), HIPPO_IMPORT_DIR_DEFAULT_NAME);
         }
 
         executionParameters.setHippoImportDir(pathArg);
@@ -78,7 +81,7 @@ public class ExecutionConfigurator {
     private void initDownloadDir(final ApplicationArguments args) {
         Path pathArg = getPathArg(args, NESSTAR_ATTACHMENT_DOWNLOAD_FOLDER);
         if (pathArg == null) {
-            pathArg = Paths.get(TEMP_DIR_PATH.toString(), ATTACHMENT_DOWNLOAD_DIR_NAME_DEFAULT);
+            pathArg = Paths.get(MIGRATOR_TEMP_DIR_PATH.toString(), ATTACHMENT_DOWNLOAD_DIR_NAME_DEFAULT);
         }
 
         executionParameters.setNesstarAttachmentDownloadDir(pathArg);
@@ -87,7 +90,7 @@ public class ExecutionConfigurator {
     private void initTaxonomyDefinitionOutputPath(final ApplicationArguments args) {
         Path pathArg = getPathArg(args, TAXONOMY_DEFINITION_OUTPUT_PATH);
         if (pathArg == null) {
-            pathArg = Paths.get(TEMP_DIR_PATH.toString(), HIPPO_IMPORT_DIR_DEFAULT_NAME);
+            pathArg = Paths.get(MIGRATOR_TEMP_DIR_PATH.toString(), HIPPO_IMPORT_DIR_DEFAULT_NAME);
         }
 
         executionParameters.setTaxonomyDefinitionOutputPath(pathArg);
@@ -96,7 +99,7 @@ public class ExecutionConfigurator {
     private void initNesstarUnzippedArchiveDir() {
 
         final Path nesstarUnzippedArchiveDir = Paths.get(
-            TEMP_DIR_PATH.toString(),
+            MIGRATOR_TEMP_DIR_PATH.toString(),
             NESSTAR_UNZIPPED_ARCHIVE_DIR_NAME_DEFAULT);
 
         executionParameters.setNesstarUnzippedExportDir(nesstarUnzippedArchiveDir);
@@ -105,9 +108,9 @@ public class ExecutionConfigurator {
     private void initMigrationReportOutputPath(ApplicationArguments args) {
         Path pathArg = getPathArg(args, MIGRATION_REPORT_PATH);
         if (pathArg == null) {
-            pathArg = Paths.get(TEMP_DIR_PATH.toString(), MIGRATION_REPORT_FILENAME_DEFAULT);
+            pathArg = Paths.get(MIGRATOR_TEMP_DIR_PATH.toString(), REPORTS_DIR_NAME, MIGRATION_REPORT_FILENAME_DEFAULT);
         }
-        executionParameters.setMigrationReportOutputPath(pathArg);
+        executionParameters.setMigrationReportFilePath(pathArg);
     }
 
     private Path getPathArg(final ApplicationArguments args, final String commandLineArgName) {
