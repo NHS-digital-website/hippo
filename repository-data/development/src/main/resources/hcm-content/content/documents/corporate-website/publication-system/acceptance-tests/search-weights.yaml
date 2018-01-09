@@ -1,0 +1,541 @@
+---
+/content/documents/corporate-website/publication-system/acceptance-tests/search-weights:
+  /content:
+    /content[1]:
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T16:58:51.599Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T16:59:04.489Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: b4a6c845-59dd-4afa-8334-48e74878a911
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: ''
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Search Weights Publication Summary
+      publicationsystem:Title: Search Weights Publication
+    /content[2]:
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T16:58:51.599Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T16:59:21.782Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: b4a6c845-59dd-4afa-8334-48e74878a911
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: ''
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Search Weights Publication Summary
+      publicationsystem:Title: Search Weights Publication
+    /content[3]:
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T16:58:51.599Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T16:59:21.782Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-01-09T16:59:33.536Z
+      hippotranslation:id: b4a6c845-59dd-4afa-8334-48e74878a911
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: ''
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Search Weights Publication Summary
+      publicationsystem:Title: Search Weights Publication
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /dataset-summary:
+    /dataset-summary[1]:
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T16:55:02.641Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T16:59:22.124Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 1c5d71f7-404c-438d-be68-574635234885
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:Summary: "Search Test Dataset Summary\r\nWeightSearchTerm"
+      publicationsystem:Title: Search Test Dataset Summary
+    /dataset-summary[2]:
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T16:55:02.641Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T16:59:22.124Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-01-09T16:59:33.447Z
+      hippotranslation:id: 1c5d71f7-404c-438d-be68-574635234885
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:Summary: "Search Test Dataset Summary\r\nWeightSearchTerm"
+      publicationsystem:Title: Search Test Dataset Summary
+    /dataset-summary[3]:
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T16:55:02.641Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T16:56:56.456Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 1c5d71f7-404c-438d-be68-574635234885
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:Summary: "Search Test Dataset Summary\r\nWeightSearchTerm"
+      publicationsystem:Title: Search Test Dataset Summary
+    hippo:name: Dataset Summary
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /dataset-title:
+    /dataset-title[1]:
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T16:55:02.641Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T16:57:18.123Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 0b15556c-11c2-4903-a85c-108e78e6ac6b
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:Summary: Search Test Dataset Title
+      publicationsystem:Title: "Search Test Dataset Title\r\nWeightSearchTerm"
+    /dataset-title[2]:
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T16:55:02.641Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T16:59:21.656Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 0b15556c-11c2-4903-a85c-108e78e6ac6b
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:Summary: Search Test Dataset Title
+      publicationsystem:Title: "Search Test Dataset Title\r\nWeightSearchTerm"
+    /dataset-title[3]:
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T16:55:02.641Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T16:59:21.656Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-01-09T16:59:34.022Z
+      hippotranslation:id: 0b15556c-11c2-4903-a85c-108e78e6ac6b
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:Summary: Search Test Dataset Title
+      publicationsystem:Title: "Search Test Dataset Title\r\nWeightSearchTerm"
+    hippo:name: Dataset Title
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /publication-key-facts:
+    /publication-key-facts[1]:
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T17:00:00.686Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T16:59:21.385Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 61571ddd-4f76-4922-b8e0-c7957199eb49
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: "Search Test Publication Key Facts\r\nWeightSearchTerm"
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Search Test Publication Key Facts
+      publicationsystem:Title: Search Test Publication Key Facts
+    /publication-key-facts[2]:
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T17:00:00.686Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T16:57:32.580Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 61571ddd-4f76-4922-b8e0-c7957199eb49
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: "Search Test Publication Key Facts\r\nWeightSearchTerm"
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Search Test Publication Key Facts
+      publicationsystem:Title: Search Test Publication Key Facts
+    /publication-key-facts[3]:
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T17:00:00.686Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T16:59:21.385Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-01-09T16:59:33.673Z
+      hippotranslation:id: 61571ddd-4f76-4922-b8e0-c7957199eb49
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: "Search Test Publication Key Facts\r\nWeightSearchTerm"
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Search Test Publication Key Facts
+      publicationsystem:Title: Search Test Publication Key Facts
+    hippo:name: Publication Key Facts
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /publication-summary:
+    /publication-summary[1]:
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T17:00:00.686Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T16:59:58.126Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: e265ff0c-483f-45ba-882a-cff8b1d8744c
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: "Search Test Publication Summary\r\nWeightSearchTerm"
+      publicationsystem:Title: Search Test Publication Summary
+    /publication-summary[2]:
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T17:00:00.686Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T16:59:58.187Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: e265ff0c-483f-45ba-882a-cff8b1d8744c
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: "Search Test Publication Summary\r\nWeightSearchTerm"
+      publicationsystem:Title: Search Test Publication Summary
+    /publication-summary[3]:
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T17:00:00.686Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T16:59:58.126Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-01-09T17:00:10.803Z
+      hippotranslation:id: e265ff0c-483f-45ba-882a-cff8b1d8744c
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: "Search Test Publication Summary\r\nWeightSearchTerm"
+      publicationsystem:Title: Search Test Publication Summary
+    hippo:name: Publication Summary
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /publication-title:
+    /publication-title[1]:
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T17:00:00.686Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T17:00:04.360Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: fa7260bb-753b-441c-93e6-5d95d29dcb3c
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Search Test Publication Title
+      publicationsystem:Title: "Search Test Publication Title\r\nWeightSearchTerm"
+    /publication-title[2]:
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T17:00:00.686Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T17:00:04.313Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: fa7260bb-753b-441c-93e6-5d95d29dcb3c
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Search Test Publication Title
+      publicationsystem:Title: "Search Test Publication Title\r\nWeightSearchTerm"
+    /publication-title[3]:
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-08T17:00:00.686Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T17:00:04.313Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-01-09T17:00:14.395Z
+      hippotranslation:id: fa7260bb-753b-441c-93e6-5d95d29dcb3c
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-01-08T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Search Test Publication Title
+      publicationsystem:Title: "Search Test Publication Title\r\nWeightSearchTerm"
+    hippo:name: Publication Title
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /series-summary:
+    /series-summary[1]:
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-09T12:17:50.339Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T16:58:05.534Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: d72b68b5-1381-4f4e-97c2-f2af46b3e147
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:series
+      publicationsystem:Summary: "Search Test Series Summary\r\nWeightSearchTerm"
+      publicationsystem:Title: Search Test Series Summary
+    /series-summary[2]:
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-09T12:17:50.339Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T16:59:21.107Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: d72b68b5-1381-4f4e-97c2-f2af46b3e147
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:series
+      publicationsystem:Summary: "Search Test Series Summary\r\nWeightSearchTerm"
+      publicationsystem:Title: Search Test Series Summary
+    /series-summary[3]:
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-09T12:17:50.339Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T16:59:21.107Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-01-09T16:59:33.279Z
+      hippotranslation:id: d72b68b5-1381-4f4e-97c2-f2af46b3e147
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:series
+      publicationsystem:Summary: "Search Test Series Summary\r\nWeightSearchTerm"
+      publicationsystem:Title: Search Test Series Summary
+    hippo:name: Series Summary
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /series-title:
+    /series-title[1]:
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-09T12:17:00.429Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T16:58:13.122Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 8952a4c3-eacd-4573-a3b4-a34b08b3eb22
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:series
+      publicationsystem:Summary: Search Test Series Title
+      publicationsystem:Title: "Search Test Series Title\r\nWeightSearchTerm"
+    /series-title[2]:
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-09T12:17:00.429Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T16:59:21.048Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 8952a4c3-eacd-4573-a3b4-a34b08b3eb22
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:series
+      publicationsystem:Summary: Search Test Series Title
+      publicationsystem:Title: "Search Test Series Title\r\nWeightSearchTerm"
+    /series-title[3]:
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-09T12:17:00.429Z
+      hippostdpubwf:lastModificationDate: 2018-01-09T16:59:21.048Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-01-09T16:59:33.789Z
+      hippotranslation:id: 8952a4c3-eacd-4573-a3b4-a34b08b3eb22
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:series
+      publicationsystem:Summary: Search Test Series Title
+      publicationsystem:Title: "Search Test Series Title\r\nWeightSearchTerm"
+    hippo:name: Series Title
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Search Weights
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: 3ceb4b4f-4e3f-4d5e-84c0-b468ed6ac84e
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

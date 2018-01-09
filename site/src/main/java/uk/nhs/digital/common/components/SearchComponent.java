@@ -150,7 +150,8 @@ public class SearchComponent extends CommonComponent {
     private Constraint publicationSystemConstraint(String query) {
         return or(
             constraint("publicationsystem:Title").contains(query),
-            constraint("publicationsystem:Summary").contains(query)
+            constraint("publicationsystem:Summary").contains(query),
+            constraint("publicationsystem:KeyFacts").contains(query)
         );
     }
 }

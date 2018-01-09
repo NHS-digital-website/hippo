@@ -81,3 +81,17 @@ Feature: Basic search
         Given I navigate to the "home" page
         And I search for "_Attachment_Search_Term_"
         Then I should see 0 search results
+
+    Scenario: Search boosts are applied correctly to the different fields
+        Given I navigate to the "home" page
+        And I search for "WeightSearchTerm"
+            # Search results should go Series -> Publication -> Dataset
+            # within those groups the order should be Title -> Summary (-> Key Facts)
+        Then I should see search results starting with:
+            | Search Test Series Title          |
+            | Search Test Series Summary        |
+            | Search Test Publication Title     |
+            | Search Test Publication Summary   |
+            | Search Test Publication Key Facts |
+            | Search Test Dataset Title         |
+            | Search Test Dataset Summary       |

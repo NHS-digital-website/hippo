@@ -151,5 +151,5 @@ answer in [What If section][what if]
 [Cucumber-JVM]:                     https://cucumber.io/docs#reference
 [Gherkin]:                          https://cucumber.io/docs/reference
 [Gherkin tags]:                     https://cucumber.io/docs/reference#tags
-[build-status]:                     https://travis-ci.org/NHS-digital-website/ps-hippo.svg?branch=master
-[travis-project-page]:              https://travis-ci.org/NHS-digital-website/ps-hippo
+[build-status]:                     https://travis-ci.org/NHS-digital-website/hippo.svg?branch=master
+[travis-project-page]:              https://travis-ci.org/NHS-digital-website/hippo

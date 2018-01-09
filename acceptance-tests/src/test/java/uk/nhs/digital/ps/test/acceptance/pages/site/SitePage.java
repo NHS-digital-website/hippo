@@ -36,15 +36,6 @@ public class SitePage extends AbstractSitePage {
         getWebDriver().get(URL + urlLookup.lookupUrl(pageName));
     }
 
-    public void searchForTerm(final String queryTerm) {
-        // type, click search
-        findSearchField().sendKeys(queryTerm);
-        findSearchButton().click();
-
-        // ensure search results is present on page
-        getWebDriver().findElement(By.xpath("//*[@data-uipath='searchResults']"));
-    }
-
     public void clickOnElement(WebElement element) {
         // scroll to element to prevent errors like "Other element would receive the click"
         new Actions(getWebDriver())
@@ -96,19 +87,7 @@ public class SitePage extends AbstractSitePage {
         return null;
     }
 
-    private WebElement findSearchField() {
-        return helper.findElement(By.id("query"));
-    }
-
-    private WebElement findSearchButton() {
-        return helper.findElement(By.id("btnSearch"));
-    }
-
     public WebElement findFooter() {
         return helper.findElement(By.id("footer"));
-    }
-
-    public String getResultCount() {
-        return helper.findElement(By.xpath("//*[@data-uipath='resultCount']")).getText();
     }
 }
