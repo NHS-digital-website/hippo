@@ -79,6 +79,7 @@ public class WebDriverProvider {
         log.info("Configuring WebDriver to run in {} mode.", isHeadlessMode ? "headless" : "full, graphical");
         if (isHeadlessMode) {
             chromeOptions.addArguments("--headless");
+            chromeOptions.addArguments("window-size=1920,1080");
         }
 
         webDriver = new RemoteWebDriver(webDriverServiceProvider.getUrl(), chromeOptions);

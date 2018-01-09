@@ -12,10 +12,8 @@ import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.config.AcceptanceTestProperties;
-import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
 import uk.nhs.digital.ps.test.acceptance.pages.site.SitePage;
 import uk.nhs.digital.ps.test.acceptance.steps.AbstractSpringSteps;
-import uk.nhs.digital.ps.test.acceptance.steps.site.ps.PublicationSteps;
 import uk.nhs.digital.ps.test.acceptance.util.TestContentUrls;
 
 import java.nio.file.Path;
@@ -35,7 +33,7 @@ import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.waitUntilFileApp
 
 public class SiteSteps extends AbstractSpringSteps {
 
-    private final static Logger log = getLogger(PublicationSteps.class);
+    private final static Logger log = getLogger(SiteSteps.class);
 
     @Autowired
     private SitePage sitePage;
@@ -43,26 +41,11 @@ public class SiteSteps extends AbstractSpringSteps {
     @Autowired
     private AcceptanceTestProperties acceptanceTestProperties;
 
-    @Autowired
-    private TestDataRepo testDataRepo;
-
     private TestContentUrls urlLookup = new TestContentUrls();
 
     @Given("^I navigate to (?:the )?\"([^\"]+)\" (?:.* )?page$")
     public void iNavigateToPage(String pageName) throws Throwable {
         sitePage.openByPageName(pageName);
-    }
-
-    @When("^I search for \"([^\"]+)\"$")
-    public void iSearchFor(String searchTerm) throws Throwable {
-        sitePage.searchForTerm(searchTerm);
-    }
-
-
-    @When("^I search for the publication$")
-    public void iSearchForThePublication() throws Throwable {
-        String title = testDataRepo.getCurrentPublication().getTitle();
-        iSearchFor(title);
     }
 
     /**
@@ -272,13 +255,5 @@ public class SiteSteps extends AbstractSpringSteps {
     @Then("^I should not see element with title \"([^\"]*)\"$")
     public void iShouldNotSeeElementTitled(String title) throws Throwable {
         assertNull("Element is not on page", sitePage.findElementWithTitle(title));
-    }
-
-    @Then("^I should see (\\d+) search results$")
-    public void iShouldSeeSearchResults(String count) throws Throwable {
-        if (count.equals("0")) {
-            count = "No results";
-        }
-        assertThat("Correct result count found", sitePage.getResultCount(), startsWith(count));
     }
 }
