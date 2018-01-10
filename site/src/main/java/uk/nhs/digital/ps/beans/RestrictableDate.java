@@ -39,8 +39,8 @@ public class RestrictableDate {
     public Integer getDayOfMonth() {
         if (isRestricted()) {
             throw new DataRestrictionViolationException(
-                "Restricted date does not contain day of month component." +
-                    " Consult 'isRestricted()' before requesting day of month value."
+                "Restricted date does not contain day of month component."
+                + " Consult 'isRestricted()' before requesting day of month value."
             );
         }
         return dayOfMonth;
@@ -70,10 +70,10 @@ public class RestrictableDate {
 
     @Override
     public String toString() {
-        return "RestrictableDate{" +
-            "year=" + year +
-            ", month=" + month +
-            ", dayOfMonth=" + dayOfMonth +
-            '}';
+        return "RestrictableDate{"
+            + "year=" + year
+            + ", month=" + month
+            + ", dayOfMonth=" + dayOfMonth
+            + '}';
     }
 }

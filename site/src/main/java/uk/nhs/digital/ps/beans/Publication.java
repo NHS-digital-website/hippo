@@ -1,16 +1,17 @@
 package uk.nhs.digital.ps.beans;
 
+import static java.util.Arrays.asList;
+
+import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
-import org.hippoecm.hst.content.beans.standard.HippoResourceBean;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.site.HstServices;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
-import org.hippoecm.hst.content.beans.Node;
 import org.onehippo.taxonomy.api.Category;
 import org.onehippo.taxonomy.api.Taxonomy;
 import org.onehippo.taxonomy.api.TaxonomyManager;
@@ -23,9 +24,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
-
-import static java.util.Arrays.asList;
-
 
 @HippoEssentialsGenerated(internalName = "publicationsystem:publication")
 @Node(jcrType = "publicationsystem:publication")
@@ -117,10 +115,10 @@ public class Publication extends BaseDocument {
                 .orderByDescending("publicationsystem:NominalDate")
                 .build()
                 .execute();
-        } catch (QueryException e) {
-            log.error("Failed to find datasets for publication " + getCanonicalPath(), e);
+        } catch (QueryException queryException) {
+            log.error("Failed to find datasets for publication " + getCanonicalPath(), queryException);
             throw new HstComponentException(
-                "Failed to find datasets for publication " + getCanonicalPath(), e);
+                "Failed to find datasets for publication " + getCanonicalPath(), queryException);
         }
 
         return hstQueryResult.getHippoBeans();

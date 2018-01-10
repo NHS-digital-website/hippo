@@ -1,10 +1,9 @@
 package uk.nhs.digital.ps.components;
 
-import java.util.List;
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
+import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
-import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
@@ -14,6 +13,8 @@ import org.hippoecm.hst.core.component.HstResponse;
 import uk.nhs.digital.ps.beans.Dataset;
 import uk.nhs.digital.ps.beans.Publication;
 import uk.nhs.digital.ps.beans.Series;
+
+import java.util.List;
 
 public class FolderComponent extends BaseHstComponent {
 
@@ -25,22 +26,19 @@ public class FolderComponent extends BaseHstComponent {
         List<Publication> publicationContentInFolder = folder.getChildBeansByName("content", Publication.class);
 
         if (seriesInFolder.size() > 0) {
-
             SeriesComponent seriesComponent = new SeriesComponent();
             seriesComponent.doBeforeRender(request, response);
             return;
-        }
-        else if (publicationContentInFolder.size() > 0) {
+        } else if (publicationContentInFolder.size() > 0) {
             PublicationComponent publicationComponent = new PublicationComponent();
             publicationComponent.doBeforeRender(request, response);
             return;
-        }
-        else {
+        } else {
             try {
                 request.setAttribute("publications", findAllDocuments(folder));
-            } catch (QueryException e) {
+            } catch (QueryException queryException) {
                 throw new HstComponentException(
-                    "Exception occurred during folder search.", e);
+                    "Exception occurred during folder search.", queryException);
             }
         }
     }

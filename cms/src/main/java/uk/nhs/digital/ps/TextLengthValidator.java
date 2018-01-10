@@ -13,8 +13,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class TextLengthValidator extends AbstractCmsValidator {
-    private final static String MAX_LENGTH_KEY = "max_length";
-    private final int max_length;
+    private static final String MAX_LENGTH_KEY = "max_length";
+    private final int maxLength;
 
 
     public TextLengthValidator(IPluginContext context, IPluginConfig config)
@@ -22,10 +22,10 @@ public class TextLengthValidator extends AbstractCmsValidator {
         super(context, config);
         if (config.containsKey(MAX_LENGTH_KEY)) {
             try {
-                max_length = Integer.valueOf(config.getString(MAX_LENGTH_KEY));
+                maxLength = Integer.valueOf(config.getString(MAX_LENGTH_KEY));
             } catch (NumberFormatException ex) {
-                throw new Exception("Property '" + MAX_LENGTH_KEY + "' value '" +
-                    config.getString(MAX_LENGTH_KEY) + "' not recognised as an integer", ex);
+                throw new Exception("Property '" + MAX_LENGTH_KEY + "' value '"
+                    + config.getString(MAX_LENGTH_KEY) + "' not recognised as an integer", ex);
             }
         } else {
             throw new Exception("Property '" + MAX_LENGTH_KEY + "' must be specified");
@@ -45,7 +45,7 @@ public class TextLengthValidator extends AbstractCmsValidator {
         throws ValidationException {
         Set<Violation> violations = new HashSet<>();
         String value = (String) childModel.getObject();
-        if (value.length() > max_length) {
+        if (value.length() > maxLength) {
             violations.add(fieldValidator.newValueViolation(childModel, getTranslation()));
         }
         return violations;

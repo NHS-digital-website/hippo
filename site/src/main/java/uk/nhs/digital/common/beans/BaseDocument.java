@@ -4,7 +4,7 @@ import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoDocument;
 
-@Node(jcrType="common:basedocument")
+@Node(jcrType = "common:basedocument")
 public class BaseDocument extends HippoDocument {
     /**
      * In order to keep the sitemap logic in one place, this function needs to return Hippo Bean which will be used

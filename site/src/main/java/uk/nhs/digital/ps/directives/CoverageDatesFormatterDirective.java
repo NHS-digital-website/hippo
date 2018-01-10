@@ -1,5 +1,7 @@
 package uk.nhs.digital.ps.directives;
 
+import static java.text.MessageFormat.format;
+
 import freemarker.core.Environment;
 import freemarker.template.*;
 
@@ -7,8 +9,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
-
-import static java.text.MessageFormat.format;
 
 /**
  * Example usage in Freemarker template:
@@ -25,7 +25,6 @@ public class CoverageDatesFormatterDirective implements TemplateDirectiveModel {
     private static final String START_PARAM_NAME = "start";
     private static final String END_PARAM_NAME = "end";
     private static final String SNAPSHOT_WORDING = "Snapshot on ";
-
 
     @Override
     public void execute(Environment environment, Map parameters, TemplateModel[] templateModels,

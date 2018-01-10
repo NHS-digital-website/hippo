@@ -1,5 +1,7 @@
 package uk.nhs.digital.ps.components;
 
+import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
+
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
@@ -15,8 +17,6 @@ import org.hippoecm.hst.core.request.HstRequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.ps.beans.Publication;
-
-import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
 
 public class PublicationsOverviewComponent extends BaseHstComponent {
 
@@ -47,11 +47,9 @@ public class PublicationsOverviewComponent extends BaseHstComponent {
             HstQueryResult hstQueryResult = hstQuery.execute();
 
             return hstQueryResult.getHippoBeans();
-        } catch (QueryException e) {
-            log.error("Error getting list of published publications", e);
+        } catch (QueryException queryException) {
+            log.error("Error getting list of published publications", queryException);
             return null;
         }
     }
 }
-
-

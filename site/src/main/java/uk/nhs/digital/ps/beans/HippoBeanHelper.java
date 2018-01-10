@@ -27,9 +27,9 @@ public class HippoBeanHelper {
                 "/hippo:namespaces/publicationsystem/publication/editor:templates/_default_/classifiable")
                 .getProperty("essentials-taxonomy-name")
                 .getString();
-        } catch (RepositoryException e) {
+        } catch (RepositoryException repositoryException) {
             throw new HstComponentException(
-                "Exception occurred during fetching taxonomy file name.", e);
+                "Exception occurred during fetching taxonomy file name.", repositoryException);
         }
 
         return taxonomyName;

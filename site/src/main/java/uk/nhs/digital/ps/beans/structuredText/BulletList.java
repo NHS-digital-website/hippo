@@ -1,10 +1,10 @@
 package uk.nhs.digital.ps.beans.structuredText;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import static java.util.stream.Collectors.toList;
 
 public class BulletList extends Element {
 

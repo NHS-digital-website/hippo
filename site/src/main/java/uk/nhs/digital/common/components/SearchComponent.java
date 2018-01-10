@@ -1,8 +1,11 @@
 package uk.nhs.digital.common.components;
 
+import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
+import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.or;
+
+import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.builder.Constraint;
 import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
-import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.standard.*;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -11,16 +14,10 @@ import org.hippoecm.hst.util.ContentBeanUtils;
 import org.hippoecm.hst.util.SearchInputParsingUtils;
 import org.onehippo.cms7.essentials.components.CommonComponent;
 import org.onehippo.cms7.essentials.components.info.EssentialsListComponentInfo;
-import org.onehippo.cms7.essentials.components.paging.DefaultPagination;
 import org.onehippo.cms7.essentials.components.paging.Pageable;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import uk.nhs.digital.ps.beans.Dataset;
 import uk.nhs.digital.ps.beans.Publication;
 import uk.nhs.digital.ps.beans.Series;
-import uk.nhs.digital.ps.beans.Dataset;
-
-import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
-import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.or;
 
 /**
  * We are not extending "EssentialsSearchComponent" because we could not find a elegant way of using our own search
@@ -29,11 +26,11 @@ import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.or;
 @ParametersInfo(type = EssentialsListComponentInfo.class)
 public class SearchComponent extends CommonComponent {
 
-    private static Logger log = LoggerFactory.getLogger(SearchComponent.class);
     private static final String WILDCARD_IN_USE_CHAR = "*";
     private static final String WILDCARD_NOT_IN_USE_CHAR = "?";
     private static final int WILDCARD_POSTFIX_MIN_LENGTH = 3;
 
+    @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         Pageable<HippoBean> pageable;
         EssentialsListComponentInfo paramInfo = getComponentInfo(request);
@@ -65,10 +62,10 @@ public class SearchComponent extends CommonComponent {
      * If the term is a phrase, the search is for an exact match, so no wildcard is required,
      * but the escaped backslash must be removed for the results to be accurate.
      * If the term ends with fullstop or comma, do not apply wildcard
-     *
+     * <p>
      * e.g. lorem ipsum                 =>      lorem* ipsum*
-     *      "dolor sit" lorem ipsum     =>      "dolor sit" lorem* ipsum*
-     *      lor ipsum                   =>      lor* ipsum*
+     * "dolor sit" lorem ipsum     =>      "dolor sit" lorem* ipsum*
+     * lor ipsum                   =>      lor* ipsum*
      */
     protected String applyWildcardsToQuery(String query) {
 
@@ -81,12 +78,12 @@ public class SearchComponent extends CommonComponent {
 
             // The SearchInputParsingUtils.parse function escapes quote characters, but this results in the search
             // not finding that specific term (because of the back slash), therefore remove escaped back slashes
-            String term = splitTerms[i].replace("\\","");
+            String term = splitTerms[i].replace("\\", "");
 
             // WILDCARD_POSTFIX_CHAR (*) is being used as the wildcard character, but the search term could
             // include (?) which is the other accepted wildcard in JCR repository.  If exists as last char, remove.
             if (term.endsWith(WILDCARD_NOT_IN_USE_CHAR)) {
-                term = term.substring(0, term.length() -1);
+                term = term.substring(0, term.length() - 1);
             }
 
             queryWithWildcards += term;
@@ -101,7 +98,7 @@ public class SearchComponent extends CommonComponent {
                 queryWithWildcards += WILDCARD_IN_USE_CHAR;
             }
 
-            if (i != splitTerms.length -1) {
+            if (i != splitTerms.length - 1) {
                 queryWithWildcards += " ";
             }
         }

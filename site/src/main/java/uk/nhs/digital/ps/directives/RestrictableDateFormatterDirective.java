@@ -1,5 +1,7 @@
 package uk.nhs.digital.ps.directives;
 
+import static java.text.MessageFormat.format;
+
 import freemarker.core.Environment;
 import freemarker.ext.beans.BeanModel;
 import freemarker.ext.beans.StringModel;
@@ -10,15 +12,12 @@ import freemarker.template.TemplateModel;
 import uk.nhs.digital.ps.beans.RestrictableDate;
 
 import java.io.IOException;
-import java.text.MessageFormat;
 import java.time.format.TextStyle;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
 
-import static java.text.MessageFormat.format;
-
- /**
+/**
  * <p>
  * Formats instances of {@linkplain RestrictableDate} for display.
  * </p><p>
@@ -69,14 +68,14 @@ public class RestrictableDateFormatterDirective implements TemplateDirectiveMode
     }
 
     private RestrictableDateFormatter getFullDateFormatter(final RestrictableDate fullDate) {
-        return () -> MessageFormat.format(DATE_PATTERN_FULL,
+        return () -> format(DATE_PATTERN_FULL,
             fullDate.getDayOfMonth(),
             fullDate.getMonth().getDisplayName(MONTH_DISPLAY_STYLE, LOCALE),
             fullDate.getYear());
     }
 
     private RestrictableDateFormatter getRestrictedDateFormatter(final RestrictableDate restrictedDate) {
-        return () -> MessageFormat.format(DATE_PATTERN_RESTRICTED,
+        return () -> format(DATE_PATTERN_RESTRICTED,
             restrictedDate.getMonth().getDisplayName(MONTH_DISPLAY_STYLE, LOCALE),
             restrictedDate.getYear());
     }

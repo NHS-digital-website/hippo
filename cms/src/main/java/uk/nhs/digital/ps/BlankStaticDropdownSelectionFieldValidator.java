@@ -1,5 +1,7 @@
 package uk.nhs.digital.ps;
 
+import static java.text.MessageFormat.format;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.wicket.Session;
 import org.apache.wicket.model.IModel;
@@ -13,11 +15,9 @@ import org.hippoecm.frontend.validation.IFieldValidator;
 import org.hippoecm.frontend.validation.ValidationException;
 import org.hippoecm.frontend.validation.Violation;
 
-import javax.jcr.RepositoryException;
 import java.util.HashSet;
 import java.util.Set;
-
-import static java.text.MessageFormat.format;
+import javax.jcr.RepositoryException;
 
 public class BlankStaticDropdownSelectionFieldValidator extends AbstractCmsValidator {
 
@@ -74,8 +74,8 @@ public class BlankStaticDropdownSelectionFieldValidator extends AbstractCmsValid
     private String extractSelectedValue(final IModel fieldModel) throws ValidationException {
         try {
             return ((JcrPropertyValueModel) fieldModel).getValue().getString();
-        } catch (final RepositoryException e) {
-            throw new ValidationException("Failed to read field's value.", e);
+        } catch (final RepositoryException repositoryException) {
+            throw new ValidationException("Failed to read field's value.", repositoryException);
         }
     }
 

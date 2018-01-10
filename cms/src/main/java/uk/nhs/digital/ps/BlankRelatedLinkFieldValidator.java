@@ -1,5 +1,7 @@
 package uk.nhs.digital.ps;
 
+import static java.text.MessageFormat.format;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.wicket.model.IModel;
 import org.hippoecm.frontend.editor.validator.plugins.AbstractCmsValidator;
@@ -10,11 +12,9 @@ import org.hippoecm.frontend.validation.IFieldValidator;
 import org.hippoecm.frontend.validation.ValidationException;
 import org.hippoecm.frontend.validation.Violation;
 
-import javax.jcr.RepositoryException;
 import java.util.HashSet;
 import java.util.Set;
-
-import static java.text.MessageFormat.format;
+import javax.jcr.RepositoryException;
 
 public class BlankRelatedLinkFieldValidator extends AbstractCmsValidator {
 
@@ -63,8 +63,8 @@ public class BlankRelatedLinkFieldValidator extends AbstractCmsValidator {
     private String extractUrl(final IModel relatedLinkField) throws ValidationException {
         try {
             return ((JcrNodeModel)relatedLinkField).getNode().getProperty(HIPPO_RELATED_LINK_URL_PROPERTY_NAME).getString();
-        } catch (final RepositoryException e) {
-            throw new ValidationException("Failed to read related link URL.", e);
+        } catch (final RepositoryException repositoryException) {
+            throw new ValidationException("Failed to read related link URL.", repositoryException);
         }
     }
 }
