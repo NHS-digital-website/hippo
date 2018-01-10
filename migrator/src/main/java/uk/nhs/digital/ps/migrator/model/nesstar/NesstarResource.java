@@ -2,19 +2,7 @@ package uk.nhs.digital.ps.migrator.model.nesstar;
 
 import org.jdom2.Element;
 import org.jdom2.xpath.XPathExpression;
-import org.jdom2.xpath.XPathFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.nio.channels.Channels;
-import java.nio.channels.FileChannel;
-import java.nio.channels.ReadableByteChannel;
+import org.apache.commons.lang3.StringUtils;
 
 public class NesstarResource {
 
@@ -34,6 +22,12 @@ public class NesstarResource {
 
     public boolean isLink() {
         return getUri().matches("https?://.*");
+    }
+
+    public boolean isNotOnIgnoreList() {
+        // Certain links with set phrases are not required to be migrated over
+        return !StringUtils.containsIgnoreCase(getTitle(), "earlier data may be available")
+            && !StringUtils.containsIgnoreCase(getTitle(), "contact us");
     }
 
     public String getTitle() {
