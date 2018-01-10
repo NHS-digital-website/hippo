@@ -22,7 +22,7 @@ function set_status {
 }"
 
     git_hash=$(git rev-parse HEAD)
-    curl "https://api.github.com/repos/NHS-digital-website/ps-hippo/statuses/${git_hash}?access_token=${GITHUB_TOKEN}" \
+    curl "https://api.github.com/repos/NHS-digital-website/hippo/statuses/${git_hash}?access_token=${GITHUB_TOKEN}" \
         -H "Content-Type: application/json" \
         -X POST \
         -d "${payload}"

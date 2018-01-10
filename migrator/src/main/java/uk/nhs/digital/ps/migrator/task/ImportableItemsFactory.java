@@ -1,5 +1,6 @@
 package uk.nhs.digital.ps.migrator.task;
 
+import org.apache.commons.lang3.StringUtils;
 import uk.nhs.digital.ps.migrator.MigrationReport;
 import uk.nhs.digital.ps.migrator.config.ExecutionParameters;
 import uk.nhs.digital.ps.migrator.model.hippo.*;
@@ -106,6 +107,14 @@ public class ImportableItemsFactory {
     public List<ResourceLink> getResourceLinks(List<NesstarResource> resources) {
       return resources.stream()
             .filter(NesstarResource::isLink)
+            .peek(resource -> {
+                // There should not be any link text with contact us, but if there are report it
+                if (resource.isLink() && StringUtils.containsIgnoreCase(resource.getTitle(), "contact us")) {
+                    migrationReport.add("Resource Link Text with 'contact us' found: " + resource.getTitle(),
+                        "Link Uri is: " + resource.getUri());
+                }
+            })
+            .filter(NesstarResource::isNotOnIgnoreList)
             .map(resource -> new ResourceLink(resource.getTitle(), resource.getUri()))
             .collect(Collectors.toList());
     }
