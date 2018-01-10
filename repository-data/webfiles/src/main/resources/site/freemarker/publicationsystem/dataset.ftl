@@ -87,7 +87,7 @@
         </div><!--
 
         --><div class="layout__item layout-1-3">
-            <div class="panel panel--grey">
+            <div class="panel panel--grey push-half--bottom">
                 <h3><@fmt.message key="headers.resources"/></h3>
                 <ul data-uipath="ps.dataset.resources">
                     <#list dataset.files as attachment>
@@ -103,6 +103,16 @@
                     </#list>
                 </ul>
             </div>
+            <#if dataset.taxonomyList?has_content>
+                <div class="panel panel--grey push-half--bottom">
+                    <h3>Taxonomy</h3>
+                    <div data-uipath="ps.dataset.taxonomy">
+                        <#list dataset.taxonomyList as taxonomyChain>
+                            <div>${taxonomyChain?join(" => ")}</div>
+                        </#list>
+                    </div>
+                </div>
+            </#if>
         </div>
     </div>
 </section>

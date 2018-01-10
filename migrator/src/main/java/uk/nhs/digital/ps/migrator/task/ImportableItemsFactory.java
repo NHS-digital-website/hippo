@@ -16,11 +16,14 @@ public class ImportableItemsFactory {
 
     private final ExecutionParameters executionParameters;
     private final MigrationReport migrationReport;
+    private final TaxonomyMigrator taxonomyMigrator;
 
     public ImportableItemsFactory(final ExecutionParameters executionParameters,
-                                  final MigrationReport migrationReport) {
+                                  final MigrationReport migrationReport,
+                                  final TaxonomyMigrator taxonomyMigrator) {
         this.executionParameters = executionParameters;
         this.migrationReport = migrationReport;
+        this.taxonomyMigrator = taxonomyMigrator;
     }
 
     public Series newSeries(final Folder parentFolder, final String title) {
@@ -56,7 +59,7 @@ public class ImportableItemsFactory {
             List<NesstarResource> resources = exportedPublishingPackage.getResources();
             List<Attachment> attachments = getAttachments(exportedPublishingPackage);
             List<ResourceLink> resourceLinks = getResourceLinks(resources);
-            List<String> taxonomyKeys = exportedPublishingPackage.getKeywords(executionParameters.getTaxonomyMappingImportPath());
+            List<String> taxonomyKeys = taxonomyMigrator.getTaxonomyKeys(exportedPublishingPackage);
 
             // Quick sanity check to make sure we have processed all the resources
             if (resources.stream().anyMatch(r -> !r.isLink() && !r.isAttachment())) {

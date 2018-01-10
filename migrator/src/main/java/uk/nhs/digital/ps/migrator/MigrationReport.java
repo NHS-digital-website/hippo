@@ -23,14 +23,10 @@ public final class MigrationReport {
     }
 
     public void add(String... output) {
-        addToLog(null, output);
+        add(null, output);
     }
 
     public void add(Exception e, String... output) {
-        addToLog(e, output);
-    }
-
-    private void addToLog(Exception e, String... output) {
         String error = String.join("\n", output);
         if (e != null) {
             error += "\nException: " + e;
@@ -40,7 +36,7 @@ public final class MigrationReport {
             }
         }
 
-        log.error(error);
+        log.error(error, e);
         errors.add(error);
     }
 

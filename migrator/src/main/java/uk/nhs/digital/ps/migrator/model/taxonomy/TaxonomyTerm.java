@@ -21,11 +21,7 @@ public class TaxonomyTerm extends HippoNode {
     }
 
     public TaxonomyTerm addChild(String term) {
-        // Need unique names for the nodes and the taxonomy keys so we just use the
-        // term after formatting into a valid path name.
-        String nodeName = term.trim()
-            .replace(' ', '-')
-            .toLowerCase();
+        String nodeName = covertTermToKey(term);
 
         // The structure of these Taxonomy nodes is:
         // Category <- Category Infos <- Category Info <- Term
@@ -39,6 +35,16 @@ public class TaxonomyTerm extends HippoNode {
         categoryInfos.addNode(categoryInfo);
 
         return childTerm;
+    }
+
+    public static String covertTermToKey(String term) {
+        // Need unique names for the nodes and the taxonomy keys so we just use the
+        // term after formatting into a valid path name.
+        String key = term.trim()
+            .replaceAll("[^A-z]", "-")
+            .toLowerCase();
+
+        return key;
     }
 
     public TaxonomyTerm getParent() {

@@ -3,6 +3,7 @@ package uk.nhs.digital.ps.migrator.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import uk.nhs.digital.ps.migrator.MigrationReport;
+import uk.nhs.digital.ps.migrator.model.hippo.TaxonomyMigrator;
 import uk.nhs.digital.ps.migrator.task.*;
 import uk.nhs.digital.ps.migrator.task.importables.CcgImportables;
 import uk.nhs.digital.ps.migrator.task.importables.CompendiumImportables;
@@ -24,7 +25,8 @@ public class MigratorConfiguration {
                                      final NhsOutcomesFrameworkImportables nhsOutcomesFrameworkImportables,
                                      final CompendiumImportables compendiumImportables,
                                      final ImportableFileWriter importableFileWriter,
-                                     final MigrationReport migrationReport) {
+                                     final MigrationReport migrationReport,
+                                     final TaxonomyMigrator taxonomyMigrator) {
 
         return asList(
             new UnzipNesstarExportFileTask(executionParameters),
@@ -36,8 +38,10 @@ public class MigratorConfiguration {
                 nhsOutcomesFrameworkImportables,
                 compendiumImportables,
                 importableFileWriter,
-                migrationReport),
-            new GenerateTaxonomyTask(executionParameters)
+                migrationReport,
+                taxonomyMigrator),
+            new GenerateTaxonomyTask(executionParameters,
+                taxonomyMigrator)
         );
     }
 
@@ -58,9 +62,10 @@ public class MigratorConfiguration {
 
     @Bean
     public ImportableItemsFactory importableItemsFactory(final ExecutionParameters executionParameters,
-                                                         final MigrationReport migrationReport)
+                                                         final MigrationReport migrationReport,
+                                                         final TaxonomyMigrator taxonomyMigrator)
     {
-        return new ImportableItemsFactory(executionParameters, migrationReport);
+        return new ImportableItemsFactory(executionParameters, migrationReport, taxonomyMigrator);
     }
 
     @Bean
@@ -89,5 +94,11 @@ public class MigratorConfiguration {
                                                        final MigrationReport migrationReport
     ) {
         return new CompendiumImportables(executionParameters, importableItemsFactory, migrationReport);
+    }
+
+    @Bean
+    public TaxonomyMigrator taxonomyMigrator(final MigrationReport migrationReport,
+                                             final ExecutionParameters executionParameters) {
+        return new TaxonomyMigrator(migrationReport, executionParameters);
     }
 }
