@@ -1,5 +1,7 @@
 package uk.nhs.digital.ps;
 
+import static java.text.MessageFormat.format;
+
 import org.apache.wicket.model.IModel;
 import org.hippoecm.frontend.editor.validator.plugins.AbstractCmsValidator;
 import org.hippoecm.frontend.model.JcrNodeModel;
@@ -9,11 +11,9 @@ import org.hippoecm.frontend.validation.IFieldValidator;
 import org.hippoecm.frontend.validation.ValidationException;
 import org.hippoecm.frontend.validation.Violation;
 
-import javax.jcr.RepositoryException;
 import java.util.HashSet;
 import java.util.Set;
-
-import static java.text.MessageFormat.format;
+import javax.jcr.RepositoryException;
 
 public class BlankAttachmentFieldValidator extends AbstractCmsValidator {
 
@@ -63,8 +63,8 @@ public class BlankAttachmentFieldValidator extends AbstractCmsValidator {
     private String extractFileName(final IModel fileUploadField) throws ValidationException {
         try {
             return ((JcrNodeModel)fileUploadField).getNode().getProperty(HIPPO_FILENAME_PROPERTY_NAME).getString();
-        } catch (final RepositoryException e) {
-            throw new ValidationException("Failed to read attachement's name.", e);
+        } catch (final RepositoryException repositoryException) {
+            throw new ValidationException("Failed to read attachement's name.", repositoryException);
         }
     }
 }

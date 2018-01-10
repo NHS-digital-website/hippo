@@ -1,12 +1,12 @@
 package uk.nhs.digital.ps.directives;
 
+import static java.text.MessageFormat.format;
+
 import freemarker.core.Environment;
 import freemarker.template.*;
 
 import java.io.IOException;
 import java.util.Map;
-
-import static java.text.MessageFormat.format;
 
 /**
  * Example usage in Freemarker template:

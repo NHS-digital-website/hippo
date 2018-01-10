@@ -1,15 +1,11 @@
 package uk.nhs.digital.common.components;
 
-import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
-import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.site.HstServices;
 import org.onehippo.taxonomy.api.Taxonomy;
 import org.onehippo.taxonomy.api.TaxonomyManager;
 import uk.nhs.digital.ps.beans.HippoBeanHelper;
-
-import javax.jcr.RepositoryException;
 
 public class FacetComponent extends SearchComponent {
 

@@ -1,17 +1,16 @@
 package uk.nhs.digital.ps.beans;
 
+import static java.util.Arrays.asList;
+
+import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
-import org.hippoecm.hst.content.beans.Node;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Collection;
-
-import org.hippoecm.hst.content.beans.standard.HippoResourceBean;
 import uk.nhs.digital.ps.beans.structuredText.StructuredText;
 import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
 
-import static java.util.Arrays.asList;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "publicationsystem:dataset")
 @Node(jcrType = "publicationsystem:dataset")

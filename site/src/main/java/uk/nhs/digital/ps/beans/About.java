@@ -1,8 +1,8 @@
 package uk.nhs.digital.ps.beans;
 
 import org.hippoecm.hst.content.beans.Node;
-import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
+import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
 @HippoEssentialsGenerated(internalName = "publicationsystem:about")
 @Node(jcrType = "publicationsystem:about")

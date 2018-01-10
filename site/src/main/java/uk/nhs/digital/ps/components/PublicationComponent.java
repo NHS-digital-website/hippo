@@ -1,30 +1,15 @@
 package uk.nhs.digital.ps.components;
 
-import org.hippoecm.hst.content.beans.query.HstQueryResult;
-import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
-import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
-import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
-import org.hippoecm.hst.content.beans.standard.HippoFolder;
-import org.onehippo.taxonomy.api.Category;
-import org.onehippo.taxonomy.api.Taxonomy;
-import uk.nhs.digital.ps.beans.Dataset;
-import uk.nhs.digital.ps.beans.Publication;
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
-import org.hippoecm.hst.site.HstServices;
-import org.onehippo.taxonomy.api.TaxonomyManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.nhs.digital.ps.beans.Series;
-import javax.jcr.RepositoryException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.stream.Collectors;
+import uk.nhs.digital.ps.beans.Publication;
 
 public class PublicationComponent extends BaseHstComponent {
 

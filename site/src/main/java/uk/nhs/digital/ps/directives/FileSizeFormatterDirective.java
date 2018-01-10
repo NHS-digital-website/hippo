@@ -1,12 +1,12 @@
 package uk.nhs.digital.ps.directives;
 
+import static java.text.MessageFormat.format;
+
 import freemarker.core.Environment;
 import freemarker.template.*;
 
 import java.io.IOException;
 import java.util.Map;
-
-import static java.text.MessageFormat.format;
 
 /**
  * <p>
@@ -25,7 +25,6 @@ import static java.text.MessageFormat.format;
  */
 public class FileSizeFormatterDirective implements TemplateDirectiveModel {
 
-
     private static final String BYTES_COUNT_PARAM_NAME = "bytesCount";
 
     @Override
@@ -33,7 +32,6 @@ public class FileSizeFormatterDirective implements TemplateDirectiveModel {
                         final TemplateDirectiveBody body) throws TemplateException, IOException {
 
         assertRequiredParameterPresent(parameters, environment);
-
 
         final long bytesCount = getValueAsLong(parameters, BYTES_COUNT_PARAM_NAME);
 
@@ -52,7 +50,7 @@ public class FileSizeFormatterDirective implements TemplateDirectiveModel {
             return bytesCount + " B";
         }
         final int exp = (int) (Math.log(bytesCount) / Math.log(unit));
-        final String pre = String.valueOf(("kMGTPE").charAt(exp - 1));
+        final String pre = String.valueOf("kMGTPE".charAt(exp - 1));
         return String.format("%.1f %sB", bytesCount / Math.pow(unit, exp), pre);
     }
 

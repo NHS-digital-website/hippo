@@ -6,7 +6,7 @@ import org.hippoecm.hst.content.beans.standard.HippoDocument;
 
 import java.util.List;
 
-@Node(jcrType="publicationsystem:basedocument")
+@Node(jcrType = "publicationsystem:basedocument")
 public class BaseDocument extends HippoDocument {
 
     /**
@@ -24,7 +24,7 @@ public class BaseDocument extends HippoDocument {
     }
 
     protected <T extends HippoBean> List<T> getChildBeansIfPermitted(final String propertyName, final
-    Class<T> beanMappingClass) {
+        Class<T> beanMappingClass) {
         assertPropertyPermitted(propertyName);
 
         return getChildBeansByName(propertyName, beanMappingClass);

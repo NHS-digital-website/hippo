@@ -1,5 +1,7 @@
 package uk.nhs.digital.ps;
 
+import static java.text.MessageFormat.format;
+
 import org.apache.wicket.model.IModel;
 import org.hippoecm.frontend.editor.validator.plugins.AbstractCmsValidator;
 import org.hippoecm.frontend.model.JcrNodeModel;
@@ -9,12 +11,10 @@ import org.hippoecm.frontend.validation.IFieldValidator;
 import org.hippoecm.frontend.validation.ValidationException;
 import org.hippoecm.frontend.validation.Violation;
 
-import javax.jcr.RepositoryException;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
-
-import static java.text.MessageFormat.format;
+import javax.jcr.RepositoryException;
 
 public class CoverageDatesValidator extends AbstractCmsValidator {
 
@@ -85,13 +85,13 @@ public class CoverageDatesValidator extends AbstractCmsValidator {
     private Calendar getDateValue(final JcrNodeModel documentModel, String propertyName) throws ValidationException {
         try {
             return documentModel.getNode().getProperty(propertyName).getDate();
-        } catch (final RepositoryException e) {
+        } catch (final RepositoryException repositoryException) {
             throw new ValidationException(format("Failed to read field ''{0}'' value", propertyName));
         }
     }
 
     private boolean isHippoEmptyDate(final Calendar date) {
         // Hippo empty dates are stored as 0001-01-01T12:00:00Z
-        return (date.get(Calendar.YEAR) == 1 && date.get(Calendar.MONTH) == 0 && date.get(Calendar.DAY_OF_MONTH) == 1);
+        return date.get(Calendar.YEAR) == 1 && date.get(Calendar.MONTH) == 0 && date.get(Calendar.DAY_OF_MONTH) == 1;
     }
 }

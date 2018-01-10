@@ -1,5 +1,7 @@
 package uk.nhs.digital.ps.components;
 
+import static java.text.MessageFormat.format;
+
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
@@ -15,8 +17,6 @@ import uk.nhs.digital.ps.beans.Publication;
 import uk.nhs.digital.ps.beans.Series;
 
 import java.util.List;
-
-import static java.text.MessageFormat.format;
 
 public class SeriesComponent extends EssentialsContentComponent {
 
@@ -54,8 +54,8 @@ public class SeriesComponent extends EssentialsContentComponent {
 
             request.setAttribute("publications", hstQueryResult.getHippoBeans());
 
-        } catch (QueryException e) {
-            log.error("Failed to find publications for series " + seriesIndexDocument.getTitle(), e);
+        } catch (QueryException queryException) {
+            log.error("Failed to find publications for series " + seriesIndexDocument.getTitle(), queryException);
 
             reportDisplayError(request, seriesIndexDocument.getTitle());
         }
@@ -69,8 +69,8 @@ public class SeriesComponent extends EssentialsContentComponent {
     }
 
     private void reportInvalidInvocation(final HstRequest request, final HippoBean contentBean) {
-        log.error("{} invoked for a node ''{}'' that is not a folder. This is likely a result of the site map" +
-                " being misconfigured. Node path: {}",
+        log.error("{} invoked for a node ''{}'' that is not a folder. This is likely a result of the site map"
+            + " being misconfigured. Node path: {}",
             getClass().getSimpleName(), contentBean.getDisplayName(), contentBean.getPath());
 
         reportDisplayError(request, contentBean.getDisplayName());
@@ -80,5 +80,3 @@ public class SeriesComponent extends EssentialsContentComponent {
         request.setAttribute("error", format("Cannot display ''{0}''. The error has been logged.", name));
     }
 }
-
-

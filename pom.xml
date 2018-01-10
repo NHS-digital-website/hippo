@@ -63,10 +63,6 @@
     <!-- End of emptied/overridden metadata from parent hippo-cms7-release pom. -->
 
     <properties>
-
-        <!--***START temporary override of versions*** -->
-        <!-- ***END temporary override of versions*** -->
-
         <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
 
         <hippo.cms.locales></hippo.cms.locales>
@@ -286,6 +282,74 @@
                     <rulesUri>file://${publication-system.basedir}/conf/maven-version-rules.xml</rulesUri>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.0.0</version>
+
+                <dependencies>
+                    <dependency>
+                        <groupId>uk.nhs.digital</groupId>
+                        <artifactId>build-tools</artifactId>
+                        <version>${revision}</version>
+                    </dependency>
+                </dependencies>
+
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <configuration>
+                            <configLocation>google_relaxed.xml</configLocation>
+                            <encoding>UTF-8</encoding>
+                            <consoleOutput>false</consoleOutput>
+                            <failsOnError>true</failsOnError>
+                            <violationSeverity>warning</violationSeverity>
+                            <linkXRef>false</linkXRef>
+                        </configuration>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.8</version>
+
+                <dependencies>
+                    <dependency>
+                        <groupId>uk.nhs.digital</groupId>
+                        <artifactId>build-tools</artifactId>
+                        <version>${revision}</version>
+                    </dependency>
+                </dependencies>
+
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                            <goal>cpd-check</goal>
+                        </goals>
+
+                        <configuration>
+                            <linkXref>true</linkXref>
+                            <sourceEncoding>utf-8</sourceEncoding>
+                            <minimumTokens>100</minimumTokens>
+                            <rulesets>
+                                <ruleset>pmd_ruleset.xml</ruleset>
+                            </rulesets>
+                            <printFailingErrors>true</printFailingErrors>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 
@@ -300,6 +364,7 @@
                 </property>
             </activation>
             <modules>
+                <module>build-tools</module>
                 <module>cms</module>
                 <module>essentials</module>
                 <module>repository-data</module>
@@ -624,5 +689,4 @@
         </profile>
 
     </profiles>
-
 </project>

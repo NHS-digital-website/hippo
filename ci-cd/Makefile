@@ -48,7 +48,7 @@ test.unit: clean
 ## Run BDD tests for "site" only.
 test.site: clean
 	mvn --file ../pom.xml package -Drevision=$(VERSION) -DskipTests
-	mvn --file ../acceptance-tests/pom.xml verify -Drevision=$(VERSION) \
+	mvn --file ../pom.xml verify -Drevision=$(VERSION) \
 		-Dcucumber.options="src/test/resources/features/site" \
 		-Pacceptance-test-hippo,acceptance-test
 
