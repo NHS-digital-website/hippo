@@ -19,4 +19,8 @@ public class HippoNode {
     public void addNode(HippoNode node) {
         nodes.add(node);
     }
+
+    public String getName() {
+        return name;
+    }
 }

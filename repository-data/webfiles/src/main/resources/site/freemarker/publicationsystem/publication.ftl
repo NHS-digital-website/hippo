@@ -161,7 +161,7 @@
                 </div>
 
                 <#if publication.taxonomyList?has_content>
-                    <div class="panel panel--grey">
+                    <div class="panel panel--grey push-half--bottom">
                         <h3>Taxonomy</h3>
                         <div data-uipath="ps.publication.taxonomy">
                             <#list publication.taxonomyList as taxonomyChain>

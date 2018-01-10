@@ -5,7 +5,6 @@ import org.jdom2.Namespace;
 import org.jdom2.filter.Filters;
 import org.jdom2.xpath.XPathExpression;
 import org.jdom2.xpath.XPathFactory;
-import uk.nhs.digital.ps.migrator.model.hippo.TaxonomyLookup;
 
 import java.nio.file.Path;
 import java.util.List;
@@ -56,22 +55,6 @@ public class PublishingPackage {
         // Get the nessar resources from the XML and convert to attachment objects
         return resourcesXpath.evaluate(rootElement).stream()
             .map(element -> new NesstarResource(element, this))
-            .collect(Collectors.toList());
-    }
-
-    public List<String> getKeywords(Path taxonomyMappingImportPath) {
-
-        // Get TaxonomyLookup
-        TaxonomyLookup taxonomyLookup = new TaxonomyLookup(taxonomyMappingImportPath);
-
-        // Get the nesstar keywords, and map to hippo taxonomy keys
-        return keywordsXpath.evaluate(rootElement).stream()
-            .map(element -> element.getValue()
-                    .trim()
-                    .toLowerCase()
-                    .replace(" ", "-")
-            )
-            .filter(element -> taxonomyLookup.isKeyExist(element))
             .collect(Collectors.toList());
     }
 

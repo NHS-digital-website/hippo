@@ -4,7 +4,15 @@ import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.request.HstRequestContext;
+import org.hippoecm.hst.site.HstServices;
+import org.onehippo.taxonomy.api.Category;
+import org.onehippo.taxonomy.api.Taxonomy;
+import org.onehippo.taxonomy.api.TaxonomyManager;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.stream.Collectors;
 import javax.jcr.RepositoryException;
 
 /**
@@ -33,5 +41,28 @@ public class HippoBeanHelper {
         }
 
         return taxonomyName;
+    }
+
+    public static List getTaxonomyList(String[] keys) {
+        List<List<String>> taxonomyList = new ArrayList<>();
+
+        // For each taxonomy tag key, get the name and also include hierarchy context (ancestors)
+        if (keys != null) {
+            // Lookup Taxonomy Tree
+            TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent(TaxonomyManager.class.getName());
+            Taxonomy taxonomyTree = taxonomyManager.getTaxonomies().getTaxonomy(getTaxonomyName());
+
+            for (String key : keys) {
+                List<Category> ancestors = (List<Category>) taxonomyTree.getCategoryByKey(key).getAncestors();
+
+                List<String> list = ancestors.stream()
+                    .map(category -> category.getInfo(Locale.UK).getName())
+                    .collect(Collectors.toList());
+                list.add(taxonomyTree.getCategoryByKey(key).getInfo(Locale.UK).getName());
+                taxonomyList.add(list);
+            }
+        }
+
+        return taxonomyList;
     }
 }

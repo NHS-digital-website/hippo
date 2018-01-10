@@ -10,11 +10,7 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.core.component.HstComponentException;
-import org.hippoecm.hst.site.HstServices;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
-import org.onehippo.taxonomy.api.Category;
-import org.onehippo.taxonomy.api.Taxonomy;
-import org.onehippo.taxonomy.api.TaxonomyManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.ps.beans.structuredText.StructuredText;
@@ -23,7 +19,6 @@ import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @HippoEssentialsGenerated(internalName = "publicationsystem:publication")
 @Node(jcrType = "publicationsystem:publication")
@@ -64,26 +59,7 @@ public class Publication extends BaseDocument {
     public List getTaxonomyList() {
         assertPropertyPermitted(PropertyKeys.TAXONOMY);
 
-        List<List<String>> taxonomyList = new ArrayList<>();
-
-        // For each taxonomy tag key, get the name and also include hierarchy context (ancestors)
-        if (getKeys() != null) {
-            // Lookup Taxonomy Tree
-            TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent(TaxonomyManager.class.getName());
-            Taxonomy taxonomyTree = taxonomyManager.getTaxonomies().getTaxonomy(HippoBeanHelper.getTaxonomyName());
-
-            for (String key : getKeys()) {
-                List<Category> ancestors = (List<Category>) taxonomyTree.getCategoryByKey(key).getAncestors();
-
-                List<String> list = ancestors.stream()
-                    .map(category -> category.getInfo(Locale.UK).getName())
-                    .collect(Collectors.toList());
-                list.add(taxonomyTree.getCategoryByKey(key).getInfo(Locale.UK).getName());
-                taxonomyList.add(list);
-            }
-        }
-
-        return taxonomyList;
+        return HippoBeanHelper.getTaxonomyList(getKeys());
     }
 
     public Series getParentSeries() {

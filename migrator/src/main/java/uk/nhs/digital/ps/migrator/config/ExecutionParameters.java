@@ -18,8 +18,8 @@ public class ExecutionParameters {
     private Path nesstarCompendiumMappingFile;
 
     private Path hippoImportDir;
-    private Path taxonomySpreadsheetPath;
-    private Path taxonomyOutputPath;
+    private Path taxonomyDefinitionImportPath;
+    private Path taxonomyDefinitionOutputPath;
     private Path taxonomyMappingImportPath;
     private Path migrationReportOutputPath;
 
@@ -79,20 +79,20 @@ public class ExecutionParameters {
         this.nesstarCompendiumMappingFile = nesstarCompendiumMappingFile;
     }
 
-    public Path getTaxonomySpreadsheetPath() {
-        return taxonomySpreadsheetPath;
+    public Path getTaxonomyDefinitionImportPath() {
+        return taxonomyDefinitionImportPath;
     }
 
-    public void setTaxonomySpreadsheetPath(Path taxonomySpreadsheetPath) {
-        this.taxonomySpreadsheetPath = taxonomySpreadsheetPath;
+    public void setTaxonomyDefinitionImportPath(Path taxonomyDefinitionImportPath) {
+        this.taxonomyDefinitionImportPath = taxonomyDefinitionImportPath;
     }
 
-    public Path getTaxonomyOutputPath() {
-        return taxonomyOutputPath;
+    public Path getTaxonomyDefinitionOutputPath() {
+        return taxonomyDefinitionOutputPath;
     }
 
-    public void setTaxonomyOutputPath(Path taxonomyOutputPath) {
-        this.taxonomyOutputPath = taxonomyOutputPath;
+    public void setTaxonomyDefinitionOutputPath(Path taxonomyDefinitionOutputPath) {
+        this.taxonomyDefinitionOutputPath = taxonomyDefinitionOutputPath;
     }
 
     public Path getTaxonomyMappingImportPath() {
@@ -120,8 +120,8 @@ public class ExecutionParameters {
             describe("hippoImportDir", hippoImportDir),
             describe("nesstarAttachmentDownloadDir", nesstarAttachmentDownloadDir),
             describe("nesstarCompendiumMappingFile", nesstarCompendiumMappingFile),
-            describe("taxonomySpreadsheetPath", taxonomySpreadsheetPath),
-            describe("taxonomyOutputPath", taxonomyOutputPath),
+            describe("taxonomyDefinitionImportPath", taxonomyDefinitionImportPath),
+            describe("taxonomyDefinitionOutputPath", taxonomyDefinitionOutputPath),
             describe("taxonomyMappingImportPath", taxonomyMappingImportPath),
             describe("migrationReportOutputPath", migrationReportOutputPath)
         );

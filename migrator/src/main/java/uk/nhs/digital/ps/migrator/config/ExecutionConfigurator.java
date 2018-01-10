@@ -16,25 +16,23 @@ public class ExecutionConfigurator {
 
     public static final String HELP_FLAG = "help";
 
-    public static final String NESSTAR_ZIP_FILE_PATH = "nesstarUnzipFrom";
-    public static final String NESSTAR_FORCE_UNZIP_FLAG = "nesstarForceUnzip";
-    public static final String NESSTAR_CONVERT_FLAG = "nesstarConvert";
-    public static final String NESSTAR_ATTACHMENT_DOWNLOAD_FOLDER = "nesstarAttachmentDownloadFolder";
-    public static final String NESSTAR_COMPENDIUM_MAPPING_FILE = "nesstarCompendiumMappingFile";
+    private static final String NESSTAR_ZIP_FILE_PATH = "nesstarUnzipFrom";
+    private static final String NESSTAR_FORCE_UNZIP_FLAG = "nesstarForceUnzip";
+    private static final String NESSTAR_CONVERT_FLAG = "nesstarConvert";
+    private static final String NESSTAR_ATTACHMENT_DOWNLOAD_FOLDER = "nesstarAttachmentDownloadFolder";
+    private static final String NESSTAR_COMPENDIUM_MAPPING_FILE = "nesstarCompendiumMappingFile";
 
-    public static final String HIPPO_IMPORT_DIR = "hippoImportDir";
+    private static final String HIPPO_IMPORT_DIR = "hippoImportDir";
 
-    public static final String MIGRATION_REPORT_PATH = "migrationReport";
+    private static final String MIGRATION_REPORT_PATH = "migrationReport";
 
-    public static final String TAXONOMY_SPREADSHEET_PATH = "taxonomySpreadsheetPath";
-    public static final String TAXONOMY_OUTPUT_PATH = "taxonomyOutputPath";
-    public static final String TAXONOMY_MAPPING_IMPORT_PATH = "taxonomyMappingImportPath";
+    private static final String TAXONOMY_DEFINITION_IMPORT_PATH = "taxonomyDefinitionImportPath";
+    private static final String TAXONOMY_DEFINITION_OUTPUT_PATH = "taxonomyDefinitionOutputPath";
+    private static final String TAXONOMY_MAPPING_IMPORT_PATH = "taxonomyMappingImportPath";
 
     private static final String HIPPO_IMPORT_DIR_DEFAULT_NAME = "exim-import";
     private static final String NESSTAR_UNZIPPED_ARCHIVE_DIR_NAME_DEFAULT = "nesstar-export";
     private static final String ATTACHMENT_DOWNLOAD_DIR_NAME_DEFAULT = "attachments";
-    private static final String TAXONOMY_OUTPUT_PATH_DEFAULT = "taxonomy";
-    private static final String TAXONOMY_MAPPING_IMPORT_PATH_DEFAULT = "./repository-data/development/src/main/resources/hcm-content/content/taxonomies/publication_taxonomy.yaml";
     private static final String MIGRATION_REPORT_FILENAME_DEFAULT = "migration-report.txt";
 
 
@@ -57,7 +55,7 @@ public class ExecutionConfigurator {
 
         executionParameters.setNesstarCompendiumMappingFile(getPathArg(args, NESSTAR_COMPENDIUM_MAPPING_FILE));
 
-        executionParameters.setTaxonomySpreadsheetPath(getPathArg(args, TAXONOMY_SPREADSHEET_PATH));
+        executionParameters.setTaxonomyDefinitionImportPath(getPathArg(args, TAXONOMY_DEFINITION_IMPORT_PATH));
 
         executionParameters.setTaxonomyMappingImportPath(getPathArg(args, TAXONOMY_MAPPING_IMPORT_PATH));
 
@@ -65,11 +63,10 @@ public class ExecutionConfigurator {
         initMigrationReportOutputPath(args);
         initHippoImportDir(args);
         initDownloadDir(args);
-        initTaxonomyOutputPath(args);
-        initTaxonomyMappingImportPath(args);
+        initTaxonomyDefinitionOutputPath(args);
     }
 
-    public void initHippoImportDir(final ApplicationArguments args) {
+    private void initHippoImportDir(final ApplicationArguments args) {
         Path pathArg = getPathArg(args, HIPPO_IMPORT_DIR);
         if (pathArg == null) {
             pathArg = Paths.get(TEMP_DIR_PATH.toString(), HIPPO_IMPORT_DIR_DEFAULT_NAME);
@@ -78,7 +75,7 @@ public class ExecutionConfigurator {
         executionParameters.setHippoImportDir(pathArg);
     }
 
-    public void initDownloadDir(final ApplicationArguments args) {
+    private void initDownloadDir(final ApplicationArguments args) {
         Path pathArg = getPathArg(args, NESSTAR_ATTACHMENT_DOWNLOAD_FOLDER);
         if (pathArg == null) {
             pathArg = Paths.get(TEMP_DIR_PATH.toString(), ATTACHMENT_DOWNLOAD_DIR_NAME_DEFAULT);
@@ -87,22 +84,13 @@ public class ExecutionConfigurator {
         executionParameters.setNesstarAttachmentDownloadDir(pathArg);
     }
 
-    private void initTaxonomyOutputPath(final ApplicationArguments args) {
-        Path pathArg = getPathArg(args, TAXONOMY_OUTPUT_PATH);
+    private void initTaxonomyDefinitionOutputPath(final ApplicationArguments args) {
+        Path pathArg = getPathArg(args, TAXONOMY_DEFINITION_OUTPUT_PATH);
         if (pathArg == null) {
-            pathArg = Paths.get(TEMP_DIR_PATH.toString(), HIPPO_IMPORT_DIR_DEFAULT_NAME, TAXONOMY_OUTPUT_PATH_DEFAULT);
+            pathArg = Paths.get(TEMP_DIR_PATH.toString(), HIPPO_IMPORT_DIR_DEFAULT_NAME);
         }
 
-        executionParameters.setTaxonomyOutputPath(pathArg);
-    }
-
-    private void initTaxonomyMappingImportPath(final ApplicationArguments args) {
-        Path pathArg = getPathArg(args, TAXONOMY_MAPPING_IMPORT_PATH);
-        if (pathArg == null) {
-            pathArg = Paths.get(TAXONOMY_MAPPING_IMPORT_PATH_DEFAULT);
-        }
-
-        executionParameters.setTaxonomyMappingImportPath(pathArg);
+        executionParameters.setTaxonomyDefinitionOutputPath(pathArg);
     }
 
     private void initNesstarUnzippedArchiveDir() {
@@ -155,20 +143,20 @@ public class ExecutionConfigurator {
                     " NOTE that the directory is deleted and re-created on each run."
             ),
             describe(
-                TAXONOMY_SPREADSHEET_PATH,
-                "Path to the spreadsheet that contains the taxonomy we want to import into hippo." +
-                    " Optional - if not provided, taxonomy will not be imported."
+                TAXONOMY_DEFINITION_IMPORT_PATH,
+                "Path to the spreadsheet that contains the taxonomy definition we want to import into hippo." +
+                    " Required if --" + NESSTAR_CONVERT_FLAG + " is specified, optional otherwise."
             ),
             describe(
-                TAXONOMY_OUTPUT_PATH,
-                "Path to output the taxonomy JSON to import into hippo." +
+                TAXONOMY_DEFINITION_OUTPUT_PATH,
+                "Path to output the taxonomy definition JSON to import into hippo." +
                     " Optional - if not provided, one will be created in a temporary space."
             ),
             describe(
                 TAXONOMY_MAPPING_IMPORT_PATH,
-                "Path to taxonomy yaml import file used for the mapping of keywords in the migrator process." +
-                    " Optional - if not provided, the sample (partially populated) taxonomy file from" +
-                    " the development module will used instead."
+                "Path to taxonomy mapping spreadsheet used to map migrated datasets' P code to " +
+                    "hippo taxonomy keys as imported from the taxonomy definition." +
+                    " Required if --" + NESSTAR_CONVERT_FLAG + " is specified."
             )
         );
     }

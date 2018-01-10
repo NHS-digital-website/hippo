@@ -94,6 +94,12 @@ public class Dataset extends BaseDocument {
         return publicationBean;
     }
 
+    public List getTaxonomyList() {
+        assertPropertyPermitted(PropertyKeys.TAXONOMY);
+
+        return HippoBeanHelper.getTaxonomyList(getKeys());
+    }
+
     @Override
     protected void assertPropertyPermitted(final String propertyKey) {
 
