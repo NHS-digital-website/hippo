@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/publicationsystem/about:
+    /hippo:namespaces/common/about:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -43,7 +43,7 @@ definitions:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:Content
+            hipposysedit:path: common:Content
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
@@ -51,7 +51,7 @@ definitions:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:Title
+            hipposysedit:path: common:Title
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators:
@@ -60,10 +60,10 @@ definitions:
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
-          - publicationsystem:basedocument
+          - common:basedocument
           - hippostd:relaxed
           - hippotranslation:translated
-          hipposysedit:uri: http://digital.nhs.uk/jcr/publicationsystem/nt/1.0
+          hipposysedit:uri: http://digital.nhs.uk/jcr/common/nt/1.0
           jcr:mixinTypes:
           - mix:referenceable
           - hipposysedit:remodel
@@ -73,9 +73,10 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          /publicationsystem:Content:
+          /common:Content:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
+          common:Title: ''
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -86,8 +87,7 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes:
           - mix:referenceable
-          jcr:primaryType: publicationsystem:about
-          publicationsystem:Title: ''
+          jcr:primaryType: common:about
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable

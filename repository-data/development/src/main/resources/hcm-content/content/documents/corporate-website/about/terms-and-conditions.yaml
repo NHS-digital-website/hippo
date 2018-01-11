@@ -1,7 +1,7 @@
 ---
-/content/documents/corporate-website/publication-system/about/terms-and-conditions:
+/content/documents/corporate-website/about/terms-and-conditions:
   /terms-and-conditions[1]:
-    /publicationsystem:Content:
+    /common:Content:
       hippostd:content: |-
         <p><strong>1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong>About these terms</strong></p>
 
@@ -374,6 +374,7 @@
 
         <p>14.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The laws of England shall apply exclusively to these terms and conditions and to all matters relating to use of this website. Any cause of action arising under these terms and conditions or the use of this website shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
       jcr:primaryType: hippostd:html
+    common:Title: Terms and Conditions
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
@@ -384,10 +385,9 @@
     hippotranslation:locale: en
     jcr:mixinTypes:
     - mix:referenceable
-    jcr:primaryType: publicationsystem:about
-    publicationsystem:Title: Terms and Conditions
+    jcr:primaryType: common:about
   /terms-and-conditions[2]:
-    /publicationsystem:Content:
+    /common:Content:
       hippostd:content: |-
         <p><strong>1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong>About these terms</strong></p>
 
@@ -760,6 +760,7 @@
 
         <p>14.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The laws of England shall apply exclusively to these terms and conditions and to all matters relating to use of this website. Any cause of action arising under these terms and conditions or the use of this website shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
       jcr:primaryType: hippostd:html
+    common:Title: Terms and Conditions
     hippo:availability:
     - preview
     hippostd:state: unpublished
@@ -772,10 +773,9 @@
     jcr:mixinTypes:
     - mix:referenceable
     - mix:versionable
-    jcr:primaryType: publicationsystem:about
-    publicationsystem:Title: Terms and Conditions
+    jcr:primaryType: common:about
   /terms-and-conditions[3]:
-    /publicationsystem:Content:
+    /common:Content:
       hippostd:content: |-
         <p><strong>1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong>About these terms</strong></p>
 
@@ -1148,6 +1148,7 @@
 
         <p>14.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The laws of England shall apply exclusively to these terms and conditions and to all matters relating to use of this website. Any cause of action arising under these terms and conditions or the use of this website shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
       jcr:primaryType: hippostd:html
+    common:Title: Terms and Conditions
     hippo:availability:
     - live
     hippostd:state: published
@@ -1160,8 +1161,7 @@
     hippotranslation:locale: en
     jcr:mixinTypes:
     - mix:referenceable
-    jcr:primaryType: publicationsystem:about
-    publicationsystem:Title: Terms and Conditions
+    jcr:primaryType: common:about
   jcr:mixinTypes:
   - mix:referenceable
   jcr:primaryType: hippo:handle

@@ -63,7 +63,8 @@ public class TestContentUrls {
         add("invalid sub document", "/publications/acceptance-tests/invalid");
 
         // about pages
-        add("terms and conditions", "/publications/about/terms-and-conditions");
+        add("terms and conditions", "/about/terms-and-conditions");
+        add("accessibility help", "/about/accessibility-help");
 
         // attachments
         add("attachment-text.pdf",

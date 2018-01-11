@@ -1,0 +1,269 @@
+---
+/content/documents/corporate-website/about/accessibility-help:
+  .meta:order-before: terms-and-conditions
+  /accessibility-help[1]:
+    /common:Content:
+      hippostd:content: |-
+        <p>Our site aims to comply with the World Wide Web Consortium's (W3C's) Web Accessibility Guidelines to Level AA and we are committed to further improving accessibility.</p>
+
+        <h2>Text size and colour</h2>
+
+        <h3>Changing font sizes and font colours</h3>
+
+        <p>Changing fonts can be useful for you if you have low vision, and need larger fonts or high contrast colours. You can change the font size, style and colour, and choose an alternative colour for links. You can also change background and foreground colours.</p>
+
+        <h3>Changing fonts in Internet Explorer</h3>
+
+        <ul>
+         <li>If you are using Internet Explorer on a PC, select the View menu at the top of your window</li>
+         <li>To change font size, scroll down and select the Text size option</li>
+         <li>Alternatively, if you have a wheel mouse, hold down the CTRL key and use the wheel to interactively scale the font size</li>
+         <li>To ignore font and background colours choose the Internet options from the Tools menu at the top of the window</li>
+         <li>On the general tab of the window that appears, click the Accessibility button</li>
+         <li>This takes you to a menu where you can choose to ignore the way the page is formatted</li>
+         <li>Then return to the Internet options menu, and use the Colours and Fonts buttons to set your preferences.</li>
+        </ul>
+
+        <h3>Changing fonts in Firefox</h3>
+
+        <ul>
+         <li>Click on 'View' on the menubar</li>
+         <li>Then select 'Zoom'</li>
+         <li>Select 'Zoom In' or 'Zoom Out'</li>
+         <li>Alternatively, if you have a wheel mouse, hold down the CTRL key and use the wheel to interactively scale the font size</li>
+         <li>Keyboard shortcuts of CTRL plus - and CTRL plus + are also available</li>
+         <li>To change the font style, size or colour, choose 'Tools', 'Options' and then the 'Content' tab.</li>
+        </ul>
+
+        <h3>Changing fonts in Chrome</h3>
+
+        <ul>
+         <li>From the browser, select Preferences from the Edit menu at the top of the window</li>
+         <li>Click on Web content and uncheck the Show style sheets option</li>
+         <li>Return to the list of preferences and choose Web browser</li>
+         <li>Click on Language/Fonts and choose the size you need.</li>
+        </ul>
+
+        <h2>Keyboard navigation</h2>
+
+        <p>Arrow keys can be used to scroll up or down the page. You can use your Tab key to move between links, and press Return or Enter to select one. To go back to the previous page, use the Backspace key.</p>
+
+        <h2>PDF accessibility</h2>
+
+        <p>Useful information about services to make Acrobat documents more accessible is provided on Adobe's website.</p>
+
+        <ul>
+         <li>&nbsp;<a rel="external" href="http://www.adobe.com/support/products/acrobat.html">Adobe Acrobat support (external)</a></li>
+         <li>&nbsp;<a rel="external" href="http://www.adobe.com/accessibility/index.html">Adobe accessibility (external)</a></li>
+        </ul>
+
+        <h2>Downloading documents</h2>
+
+        <p>Downloadable documents on this site are provided in a variety of formats. The most common are PDF, Word, Excel and Zip.</p>
+
+        <h3>Software for document reading</h3>
+
+        <p>Most computers already have the software to open these document formats. If you do not have Adobe Acrobat Reader (for reading PDFs), it is available from the&nbsp;<a rel="external" href="http://www.adobe.com/">Adobe website (external)</a>.&nbsp;If you do not have Winzip (for opening zip files), you can download a free trial from the&nbsp;<a rel="external" href="http://www.winzip.com/index.htm">Winzip website (external).</a></p>
+
+        <h3>Saving documents to your computer</h3>
+
+        <p>If you have a PC, right-click on the link to the document. If you use an Apple Mac, hold down the mouse button over the link. In both cases, a popup menu will then appear. Scroll down the menu and click on 'Save target as'. You will then be asked to choose a folder on your computer where you can save the document.</p>
+
+        <p>Assistive technologies such as screen readers may have their own specific way to save documents, please refer to your preferred software's Help section. &nbsp;</p>
+
+        <h2>Information in other languages</h2>
+
+        <p>For information from this website available in other languages contact us at&nbsp;<a href="mailto:enquiries@nhsdigital.nhs.uk">enquiries@nhsdigital.nhs.uk</a>&nbsp;or&nbsp;0300 303 5678 for more details.</p>
+      jcr:primaryType: hippostd:html
+    common:Title: Accessibility help
+    hippo:availability: []
+    hippostd:holder: admin
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-12-22T15:05:58.519Z
+    hippostdpubwf:lastModificationDate: 2018-01-11T14:05:52.938Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: f2ec2ee1-308c-4270-a070-b97334bf5543
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: common:about
+  /accessibility-help[2]:
+    /common:Content:
+      hippostd:content: |-
+        <p>Our site aims to comply with the World Wide Web Consortium's (W3C's) Web Accessibility Guidelines to Level AA and we are committed to further improving accessibility.</p>
+
+        <h2>Text size and colour</h2>
+
+        <h3>Changing font sizes and font colours</h3>
+
+        <p>Changing fonts can be useful for you if you have low vision, and need larger fonts or high contrast colours. You can change the font size, style and colour, and choose an alternative colour for links. You can also change background and foreground colours.</p>
+
+        <h3>Changing fonts in Internet Explorer</h3>
+
+        <ul>
+         <li>If you are using Internet Explorer on a PC, select the View menu at the top of your window</li>
+         <li>To change font size, scroll down and select the Text size option</li>
+         <li>Alternatively, if you have a wheel mouse, hold down the CTRL key and use the wheel to interactively scale the font size</li>
+         <li>To ignore font and background colours choose the Internet options from the Tools menu at the top of the window</li>
+         <li>On the general tab of the window that appears, click the Accessibility button</li>
+         <li>This takes you to a menu where you can choose to ignore the way the page is formatted</li>
+         <li>Then return to the Internet options menu, and use the Colours and Fonts buttons to set your preferences.</li>
+        </ul>
+
+        <h3>Changing fonts in Firefox</h3>
+
+        <ul>
+         <li>Click on 'View' on the menubar</li>
+         <li>Then select 'Zoom'</li>
+         <li>Select 'Zoom In' or 'Zoom Out'</li>
+         <li>Alternatively, if you have a wheel mouse, hold down the CTRL key and use the wheel to interactively scale the font size</li>
+         <li>Keyboard shortcuts of CTRL plus - and CTRL plus + are also available</li>
+         <li>To change the font style, size or colour, choose 'Tools', 'Options' and then the 'Content' tab.</li>
+        </ul>
+
+        <h3>Changing fonts in Chrome</h3>
+
+        <ul>
+         <li>From the browser, select Preferences from the Edit menu at the top of the window</li>
+         <li>Click on Web content and uncheck the Show style sheets option</li>
+         <li>Return to the list of preferences and choose Web browser</li>
+         <li>Click on Language/Fonts and choose the size you need.</li>
+        </ul>
+
+        <h2>Keyboard navigation</h2>
+
+        <p>Arrow keys can be used to scroll up or down the page. You can use your Tab key to move between links, and press Return or Enter to select one. To go back to the previous page, use the Backspace key.</p>
+
+        <h2>PDF accessibility</h2>
+
+        <p>Useful information about services to make Acrobat documents more accessible is provided on Adobe's website.</p>
+
+        <ul>
+         <li>&nbsp;<a rel="external" href="http://www.adobe.com/support/products/acrobat.html">Adobe Acrobat support (external)</a></li>
+         <li>&nbsp;<a rel="external" href="http://www.adobe.com/accessibility/index.html">Adobe accessibility (external)</a></li>
+        </ul>
+
+        <h2>Downloading documents</h2>
+
+        <p>Downloadable documents on this site are provided in a variety of formats. The most common are PDF, Word, Excel and Zip.</p>
+
+        <h3>Software for document reading</h3>
+
+        <p>Most computers already have the software to open these document formats. If you do not have Adobe Acrobat Reader (for reading PDFs), it is available from the&nbsp;<a rel="external" href="http://www.adobe.com/">Adobe website (external)</a>.&nbsp;If you do not have Winzip (for opening zip files), you can download a free trial from the&nbsp;<a rel="external" href="http://www.winzip.com/index.htm">Winzip website (external).</a></p>
+
+        <h3>Saving documents to your computer</h3>
+
+        <p>If you have a PC, right-click on the link to the document. If you use an Apple Mac, hold down the mouse button over the link. In both cases, a popup menu will then appear. Scroll down the menu and click on 'Save target as'. You will then be asked to choose a folder on your computer where you can save the document.</p>
+
+        <p>Assistive technologies such as screen readers may have their own specific way to save documents, please refer to your preferred software's Help section. &nbsp;</p>
+
+        <h2>Information in other languages</h2>
+
+        <p>For information from this website available in other languages contact us at&nbsp;<a href="mailto:enquiries@nhsdigital.nhs.uk">enquiries@nhsdigital.nhs.uk</a>&nbsp;or&nbsp;0300 303 5678 for more details.</p>
+      jcr:primaryType: hippostd:html
+    common:Title: Accessibility help
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-12-22T15:05:58.519Z
+    hippostdpubwf:lastModificationDate: 2017-12-22T15:07:01.668Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: f2ec2ee1-308c-4270-a070-b97334bf5543
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: common:about
+  /accessibility-help[3]:
+    /common:Content:
+      hippostd:content: |-
+        <p>Our site aims to comply with the World Wide Web Consortium's (W3C's) Web Accessibility Guidelines to Level AA and we are committed to further improving accessibility.</p>
+
+        <h2>Text size and colour</h2>
+
+        <h3>Changing font sizes and font colours</h3>
+
+        <p>Changing fonts can be useful for you if you have low vision, and need larger fonts or high contrast colours. You can change the font size, style and colour, and choose an alternative colour for links. You can also change background and foreground colours.</p>
+
+        <h3>Changing fonts in Internet Explorer</h3>
+
+        <ul>
+         <li>If you are using Internet Explorer on a PC, select the View menu at the top of your window</li>
+         <li>To change font size, scroll down and select the Text size option</li>
+         <li>Alternatively, if you have a wheel mouse, hold down the CTRL key and use the wheel to interactively scale the font size</li>
+         <li>To ignore font and background colours choose the Internet options from the Tools menu at the top of the window</li>
+         <li>On the general tab of the window that appears, click the Accessibility button</li>
+         <li>This takes you to a menu where you can choose to ignore the way the page is formatted</li>
+         <li>Then return to the Internet options menu, and use the Colours and Fonts buttons to set your preferences.</li>
+        </ul>
+
+        <h3>Changing fonts in Firefox</h3>
+
+        <ul>
+         <li>Click on 'View' on the menubar</li>
+         <li>Then select 'Zoom'</li>
+         <li>Select 'Zoom In' or 'Zoom Out'</li>
+         <li>Alternatively, if you have a wheel mouse, hold down the CTRL key and use the wheel to interactively scale the font size</li>
+         <li>Keyboard shortcuts of CTRL plus - and CTRL plus + are also available</li>
+         <li>To change the font style, size or colour, choose 'Tools', 'Options' and then the 'Content' tab.</li>
+        </ul>
+
+        <h3>Changing fonts in Chrome</h3>
+
+        <ul>
+         <li>From the browser, select Preferences from the Edit menu at the top of the window</li>
+         <li>Click on Web content and uncheck the Show style sheets option</li>
+         <li>Return to the list of preferences and choose Web browser</li>
+         <li>Click on Language/Fonts and choose the size you need.</li>
+        </ul>
+
+        <h2>Keyboard navigation</h2>
+
+        <p>Arrow keys can be used to scroll up or down the page. You can use your Tab key to move between links, and press Return or Enter to select one. To go back to the previous page, use the Backspace key.</p>
+
+        <h2>PDF accessibility</h2>
+
+        <p>Useful information about services to make Acrobat documents more accessible is provided on Adobe's website.</p>
+
+        <ul>
+         <li>&nbsp;<a rel="external" href="http://www.adobe.com/support/products/acrobat.html">Adobe Acrobat support (external)</a></li>
+         <li>&nbsp;<a rel="external" href="http://www.adobe.com/accessibility/index.html">Adobe accessibility (external)</a></li>
+        </ul>
+
+        <h2>Downloading documents</h2>
+
+        <p>Downloadable documents on this site are provided in a variety of formats. The most common are PDF, Word, Excel and Zip.</p>
+
+        <h3>Software for document reading</h3>
+
+        <p>Most computers already have the software to open these document formats. If you do not have Adobe Acrobat Reader (for reading PDFs), it is available from the&nbsp;<a rel="external" href="http://www.adobe.com/">Adobe website (external)</a>.&nbsp;If you do not have Winzip (for opening zip files), you can download a free trial from the&nbsp;<a rel="external" href="http://www.winzip.com/index.htm">Winzip website (external).</a></p>
+
+        <h3>Saving documents to your computer</h3>
+
+        <p>If you have a PC, right-click on the link to the document. If you use an Apple Mac, hold down the mouse button over the link. In both cases, a popup menu will then appear. Scroll down the menu and click on 'Save target as'. You will then be asked to choose a folder on your computer where you can save the document.</p>
+
+        <p>Assistive technologies such as screen readers may have their own specific way to save documents, please refer to your preferred software's Help section. &nbsp;</p>
+
+        <h2>Information in other languages</h2>
+
+        <p>For information from this website available in other languages contact us at&nbsp;<a href="mailto:enquiries@nhsdigital.nhs.uk">enquiries@nhsdigital.nhs.uk</a>&nbsp;or&nbsp;0300 303 5678 for more details.</p>
+      jcr:primaryType: hippostd:html
+    common:Title: Accessibility help
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-12-22T15:05:58.519Z
+    hippostdpubwf:lastModificationDate: 2017-12-22T15:07:01.668Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2017-12-22T15:07:05.033Z
+    hippotranslation:id: f2ec2ee1-308c-4270-a070-b97334bf5543
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: common:about
+  jcr:mixinTypes:
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

@@ -2,4 +2,5 @@
 action-lists:
 - 1.1:
     /content/taxonomies/publication_taxonomy: reload
-    /content/documents/corporate-website/publication-system/about/terms-and-conditions: reload
+    /content/documents/corporate-website/about/terms-and-conditions: reload
+    /content/documents/corporate-website/about/accessibility-help: reload

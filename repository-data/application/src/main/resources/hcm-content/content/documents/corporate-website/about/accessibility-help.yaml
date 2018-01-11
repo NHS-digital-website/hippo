@@ -1,25 +1,29 @@
 ---
-/content/documents/corporate-website/publication-system/about/terms-and-conditions:
-  /terms-and-conditions[1]:
-    /publicationsystem:Content:
+/content/documents/corporate-website/about/accessibility-help:
+  .meta:order-before: terms-and-conditions
+  /accessibility-help[1]:
+    /common:Content:
       hippostd:content: ''
       jcr:primaryType: hippostd:html
+    common:Title: Accessibility help
+    common:searchable: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-12-22T15:05:58.519Z
-    hippostdpubwf:lastModificationDate: 2017-12-22T15:06:57.069Z
+    hippostdpubwf:lastModificationDate: 2018-01-11T14:05:52.938Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: f2ec2ee1-308c-4270-a070-b97334bf5543
     hippotranslation:locale: en
     jcr:mixinTypes:
     - mix:referenceable
-    jcr:primaryType: publicationsystem:about
-    publicationsystem:Title: Terms and Conditions
-  /terms-and-conditions[2]:
-    /publicationsystem:Content:
+    jcr:primaryType: common:about
+  /accessibility-help[2]:
+    /common:Content:
       hippostd:content: ''
       jcr:primaryType: hippostd:html
+    common:Title: Accessibility help
+    common:searchable: true
     hippo:availability:
     - preview
     hippostd:state: unpublished
@@ -32,12 +36,13 @@
     jcr:mixinTypes:
     - mix:referenceable
     - mix:versionable
-    jcr:primaryType: publicationsystem:about
-    publicationsystem:Title: Terms and Conditions
-  /terms-and-conditions[3]:
-    /publicationsystem:Content:
+    jcr:primaryType: common:about
+  /accessibility-help[3]:
+    /common:Content:
       hippostd:content: ''
       jcr:primaryType: hippostd:html
+    common:Title: Accessibility help
+    common:searchable: true
     hippo:availability:
     - live
     hippostd:state: published
@@ -50,8 +55,7 @@
     hippotranslation:locale: en
     jcr:mixinTypes:
     - mix:referenceable
-    jcr:primaryType: publicationsystem:about
-    publicationsystem:Title: Terms and Conditions
+    jcr:primaryType: common:about
   jcr:mixinTypes:
   - mix:referenceable
   jcr:primaryType: hippo:handle

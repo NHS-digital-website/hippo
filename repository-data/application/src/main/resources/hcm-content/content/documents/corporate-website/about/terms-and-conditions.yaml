@@ -1,0 +1,57 @@
+---
+/content/documents/corporate-website/about/terms-and-conditions:
+  /terms-and-conditions[1]:
+    /common:Content:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    common:Title: Terms and Conditions
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-12-22T15:05:58.519Z
+    hippostdpubwf:lastModificationDate: 2017-12-22T15:06:57.069Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: f2ec2ee1-308c-4270-a070-b97334bf5543
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: common:about
+  /terms-and-conditions[2]:
+    /common:Content:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    common:Title: Terms and Conditions
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-12-22T15:05:58.519Z
+    hippostdpubwf:lastModificationDate: 2017-12-22T15:07:01.668Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: f2ec2ee1-308c-4270-a070-b97334bf5543
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: common:about
+  /terms-and-conditions[3]:
+    /common:Content:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    common:Title: Terms and Conditions
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-12-22T15:05:58.519Z
+    hippostdpubwf:lastModificationDate: 2017-12-22T15:07:01.668Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2017-12-22T15:07:05.033Z
+    hippotranslation:id: f2ec2ee1-308c-4270-a070-b97334bf5543
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: common:about
+  jcr:mixinTypes:
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

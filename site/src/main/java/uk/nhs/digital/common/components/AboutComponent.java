@@ -1,11 +1,11 @@
-package uk.nhs.digital.ps.components;
+package uk.nhs.digital.common.components;
 
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
-import uk.nhs.digital.ps.beans.About;
+import uk.nhs.digital.common.beans.About;
 
 public class AboutComponent extends BaseHstComponent {
 

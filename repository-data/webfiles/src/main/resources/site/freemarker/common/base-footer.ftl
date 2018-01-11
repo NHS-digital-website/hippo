@@ -13,10 +13,11 @@
         <div class="layout layout--flush">
             <div class="layout__item layout-2-3">
                 <ul class="footer__inner__list">
-                    <@hst.link var="termslink" path="/publications/about/terms-and-conditions"/>
-                    <li class="footer__inner__list__item" title="Terms and Conditions"><a href="${termslink}" class="footer__inner__list__item__link">Terms and Conditions</a></li><!--
+                    <@hst.link var="termslink" mount="common-context" path="/about/terms-and-conditions"/>
+                    <@hst.link var="accessibilitylink" mount="common-context" path="/about/accessibility-help"/>
+                    <li class="footer__inner__list__item" title="Terms and conditions"><a href="${termslink}" class="footer__inner__list__item__link">Terms and conditions</a></li><!--
                     --><li class="footer__inner__list__item"><a href="#" class="footer__inner__list__item__link">Privacy and cookies</a></li><!--
-                    --><li class="footer__inner__list__item"><a href="#" class="footer__inner__list__item__link">Accessibility help</a></li>
+                    --><li class="footer__inner__list__item" title="Accessibility help"><a href="${accessibilitylink}" class="footer__inner__list__item__link">Accessibility help</a></li>
                 </ul>
                 <p class="flush">
                     © 2018 NHS Digital

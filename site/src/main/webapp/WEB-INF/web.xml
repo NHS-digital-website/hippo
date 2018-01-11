@@ -51,7 +51,7 @@
   -->
   <context-param>
     <param-name>hst-beans-annotated-classes</param-name>
-    <param-value>classpath*:uk/nhs/digital/ps/**/*.class
+    <param-value>classpath*:uk/nhs/digital/**/beans/*.class
       ,classpath*:org/onehippo/**/*.class
       ,classpath*:com/onehippo/**/*.class
       ,classpath*:org/onehippo/forge/**/*.class
@@ -287,4 +287,3 @@
   </env-entry>
 
 </web-app>
-

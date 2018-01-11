@@ -2,10 +2,25 @@
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:templates:
+      /404:
+        hst:renderpath: webfile:/freemarker/common/404.ftl
+        jcr:primaryType: hst:template
+      /about:
+        hst:renderpath: webfile:/freemarker/common/about.ftl
+        jcr:primaryType: hst:template
+      /base:
+        hst:renderpath: webfile:/freemarker/common/base-layout.ftl
+        jcr:primaryType: hst:template
       /facets:
         hst:renderpath: webfile:/freemarker/common/facets.ftl
         jcr:primaryType: hst:template
       /footer:
         hst:renderpath: webfile:/freemarker/common/base-footer.ftl
+        jcr:primaryType: hst:template
+      /search:
+        hst:renderpath: webfile:/freemarker/common/search.ftl
+        jcr:primaryType: hst:template
+      /searchresults:
+        hst:renderpath: webfile:/freemarker/common/searchresults.ftl
         jcr:primaryType: hst:template
       jcr:primaryType: hst:templates
