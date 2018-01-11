@@ -4,7 +4,16 @@
 <html lang="en">
   <head>
 
-    <title>NHS - Replacement Publication System - Dataset</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-76954916-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-76954916-2');
+    </script>
+
+    <title>NHS - Replacement Publication System</title>
 
     <meta charset="utf-8"/>
     <meta name="title" content="NHS - Replacement Publication System" />
