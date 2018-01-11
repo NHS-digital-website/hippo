@@ -56,7 +56,7 @@ public class Publication extends BaseDocument {
         return this;
     }
 
-    public List getTaxonomyList() {
+    public List<List<String>> getTaxonomyList() {
         assertPropertyPermitted(PropertyKeys.TAXONOMY);
 
         return HippoBeanHelper.getTaxonomyList(getKeys());

@@ -24,7 +24,6 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Link Text
             field: link_text
-            hint: If not provided, the URL will be displayed
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.css:

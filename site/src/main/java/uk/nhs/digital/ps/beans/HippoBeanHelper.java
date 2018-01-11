@@ -43,7 +43,7 @@ public class HippoBeanHelper {
         return taxonomyName;
     }
 
-    public static List getTaxonomyList(String[] keys) {
+    public static List<List<String>> getTaxonomyList(String[] keys) {
         List<List<String>> taxonomyList = new ArrayList<>();
 
         // For each taxonomy tag key, get the name and also include hierarchy context (ancestors)
