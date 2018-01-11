@@ -6,3 +6,6 @@
 [common:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
   orderable
   - common:searchable (boolean) = 'true' autocreated
+
+[common:about] > hippostd:relaxed, hippotranslation:translated, common:basedocument
+  orderable

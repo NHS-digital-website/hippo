@@ -11,9 +11,6 @@
   orderable
   - common:searchable (boolean) = 'true' autocreated
 
-[publicationsystem:about] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
-  orderable
-
 [publicationsystem:dataset] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
   orderable
 

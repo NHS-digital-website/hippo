@@ -5,6 +5,14 @@ definitions:
       /_any_:
         hst:componentconfigurationid: hst:pages/404
         jcr:primaryType: hst:sitemapitem
+      /about:
+        /_any_:
+          hst:componentconfigurationid: hst:pages/about
+          hst:relativecontentpath: about/${1}
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/about
+        hst:relativecontentpath: about
+        jcr:primaryType: hst:sitemapitem
       /error:
         /404:
           hst:componentconfigurationid: hst:pages/404

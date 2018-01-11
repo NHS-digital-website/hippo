@@ -9,13 +9,11 @@ definitions:
         - hippostd:folder
         - publicationsystem:publication
         - publicationsystem:series
-        - publicationsystem:about
         hst:componentconfigurationmappingvalues:
         - hst:pages/dataset
         - hst:pages/folder
         - hst:pages/publication
         - hst:pages/series
-        - hst:pages/about
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /root:

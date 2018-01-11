@@ -1,6 +1,0 @@
----
-definitions:
-  config:
-    /hst:hst/hst:configurations/publicationsystem/hst:components/about:
-      hst:componentclassname: uk.nhs.digital.ps.components.AboutComponent
-      jcr:primaryType: hst:component

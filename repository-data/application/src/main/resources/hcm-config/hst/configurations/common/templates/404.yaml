@@ -1,6 +1,0 @@
----
-definitions:
-  config:
-    /hst:hst/hst:configurations/common/hst:templates/404:
-      hst:renderpath: webfile:/freemarker/common/404.ftl
-      jcr:primaryType: hst:template

@@ -2,9 +2,6 @@
 definitions:
   config:
     /hst:hst/hst:configurations/publicationsystem/hst:templates:
-      /about:
-        hst:renderpath: webfile:/freemarker/publicationsystem/about.ftl
-        jcr:primaryType: hst:template
       /dataset:
         hst:renderpath: webfile:/freemarker/publicationsystem/dataset.ftl
         jcr:primaryType: hst:template

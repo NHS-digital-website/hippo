@@ -1,9 +1,9 @@
 ---
 definitions:
   config:
-    /hst:hst/hst:configurations/publicationsystem/hst:pages/about:
+    /hst:hst/hst:configurations/common/hst:pages/about:
       /main:
-        hst:componentclassname: uk.nhs.digital.ps.components.AboutComponent
+        hst:componentclassname: uk.nhs.digital.common.components.AboutComponent
         hst:template: about
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/basepage
