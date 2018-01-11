@@ -5,8 +5,10 @@ DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 function main {
     local users_file=$1
+    local developer_users_file=$2
     local authors="      - author"
     local editors="      - editor"
+    local admins="      - admin"
 
     while read -r line; do
         id=$(echo "${line}" | sed -e 's/ /./' | tr '[:upper:]' '[:lower:]')
@@ -20,6 +22,12 @@ function main {
       - ${id}.e"
     done < "$users_file"
 
+    while read -r line; do
+        id=$(echo "${line}" | sed -e 's/ /./' | tr '[:upper:]' '[:lower:]')
+        admins="${admins}
+      - ${id}"
+    done < "$developer_users_file"
+
     cat "${DIR}/../groups.base.yaml"
     echo "
   /author:
@@ -32,6 +40,12 @@ ${authors}
     hipposys:members:
 ${editors}
     hipposys:securityprovider: internal
+  /admin:
+      jcr:primaryType: hipposys:group
+      hipposys:members:
+      - workflowuser
+${admins}
+      hipposys:securityprovider: internal
 "
 }
 
