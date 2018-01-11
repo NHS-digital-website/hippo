@@ -1,0 +1,23 @@
+#!/bin/bash
+
+function main {
+    local name="$1"
+    local firstName
+    local id
+
+    firstName=$(echo "$name" | awk '{print $1;}')
+    id=$(echo "${name}" | sed -e 's/ /./' | tr '[:upper:]' '[:lower:]')
+
+    echo "
+  # ${name}
+  /${id}:
+    jcr:primaryType: hipposys:user
+    hipposys:active: true
+    hipposys:firstname: ${firstName}
+    hipposys:password: \"\$SHA-256\$hGJdRtJvQF8=\$ha7WodFhAJu2VuuT9uw6CVrKBlnMN/8NrCwebRA6+88=\"
+    hipposys:passwordlastmodified: 2017-11-15T09:00:00.000Z
+    hipposys:securityprovider: internal
+"
+}
+
+main "$@"
