@@ -57,7 +57,11 @@ public class ImportableItemsFactory {
             String nominalDate = convertNominalDate(exportedPublishingPackage);
 
             List<NesstarResource> resources = exportedPublishingPackage.getResources();
-            List<Attachment> attachments = getAttachments(exportedPublishingPackage);
+            // compendium migration do not require PDFs to be migrated over.
+            List<Attachment> attachments = getAttachments(exportedPublishingPackage).stream()
+                                            .filter(a -> !(a.getMimeType().equalsIgnoreCase("application/pdf")
+                                                && parentFolder.getJcrPath().contains("compendium-of-population-health-indicators")))
+                                            .collect(Collectors.toList());
             List<ResourceLink> resourceLinks = getResourceLinks(resources);
             List<String> taxonomyKeys = taxonomyMigrator.getTaxonomyKeys(exportedPublishingPackage);
 
