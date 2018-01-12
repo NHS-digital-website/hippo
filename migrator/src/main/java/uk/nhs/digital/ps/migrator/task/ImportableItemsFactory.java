@@ -62,8 +62,11 @@ public class ImportableItemsFactory {
 
     public DataSet toDataSet(final Folder parentFolder, final PublishingPackage exportedPublishingPackage) {
 
+        final String pcode = exportedPublishingPackage.getUniqueIdentifier();
+
         try {
-            String nominalDate = convertNominalDate(exportedPublishingPackage);
+            String nominalDate = convertImportedDate(exportedPublishingPackage.currentVersionUploadedDate(), pcode);
+            String nextPublicationDate = convertImportedDate(exportedPublishingPackage.nextVersionDueDate(), pcode);
 
             List<NesstarResource> resources = exportedPublishingPackage.getResources();
             // compendium migration do not require PDFs to be migrated over.
@@ -81,23 +84,24 @@ public class ImportableItemsFactory {
 
             final String summary = formatDatasetSummary(
                 exportedPublishingPackage.getSummary(),
-                exportedPublishingPackage.getUniqueIdentifier()
+                pcode
             );
 
             return new DataSet(
                 parentFolder,
-                exportedPublishingPackage.getUniqueIdentifier(),
+                pcode,
                 exportedPublishingPackage.getTitle(),
                 exportedPublishingPackage.getTitle(),
                 summary,
                 nominalDate,
+                nextPublicationDate,
                 attachments,
                 resourceLinks,
                 String.join("\", \"", taxonomyKeys)
             );
         } catch (Exception e) {
-            migrationReport.report(exportedPublishingPackage.getUniqueIdentifier(), DATASET_CONVERSION_ERROR, e.getMessage());
-            migrationReport.logError(e, "Failed to convert dataset " + exportedPublishingPackage.getUniqueIdentifier());
+            migrationReport.report(pcode, DATASET_CONVERSION_ERROR, e.getMessage());
+            migrationReport.logError(e, "Failed to convert dataset " + pcode);
 
             return null;
         }
@@ -125,7 +129,7 @@ public class ImportableItemsFactory {
                 // There should not be any link text with contact us, but if there are report it
                 if (resource.isLink() && StringUtils.containsIgnoreCase(resource.getTitle(), "contact us")) {
                     migrationReport.report(
-                        pCode, RESOURCE_LINK_CONTACT_US, resource.getTitle() + ":" + resource.getUri()
+                        pCode, RESOURCE_LINK_CONTACT_US, resource.getTitle() + " | " + resource.getUri()
                     );
                 }
             })
@@ -152,8 +156,8 @@ public class ImportableItemsFactory {
      * The nesstar data only has month and year whereas in hippo we want a date.
      * These mappings have been provided to us as the actual dates in each month that the publications were published
      */
-    private String convertNominalDate(PublishingPackage publishingPackage) {
-        String input = publishingPackage.getDate();
+    private String convertImportedDate(final String rawInputDate, final String pCode) {
+        String input = rawInputDate;
 
         // The compendium data has the date in a variety of formats, this gets them all in the format Mmm-YY
         Matcher matcher = Pattern.compile("(.*)([A-Z][a-z]{2})[a-z]*[- ](?:20)?(1\\d)(.*)").matcher(input);
@@ -164,7 +168,7 @@ public class ImportableItemsFactory {
             if (!(matcher.group(1).isEmpty()
                 && matcher.group(4).isEmpty())) {
 
-                migrationReport.report(publishingPackage.getUniqueIdentifier(), DATE_WITH_EXTRA_TEXT, publishingPackage.getDate());
+                migrationReport.report(pCode, DATE_WITH_EXTRA_TEXT, rawInputDate);
             }
         }
 
@@ -225,7 +229,7 @@ public class ImportableItemsFactory {
             case "TBC":     return "0001-01-01T12:00:00.000Z";
 
             default:
-                migrationReport.report(publishingPackage.getUniqueIdentifier(), NO_DATE_MAPPING, input);
+                migrationReport.report(pCode, NO_DATE_MAPPING, input);
 
                 return "0001-01-01T12:00:00.000Z";
         }

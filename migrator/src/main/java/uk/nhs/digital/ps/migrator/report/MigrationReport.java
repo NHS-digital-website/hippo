@@ -173,6 +173,7 @@ public class MigrationReport {
         headerFont.setBold(true);
         headerCellStyle.setFont(headerFont);
         headerCellStyle.setAlignment(HorizontalAlignment.CENTER);
+        headerCellStyle.setVerticalAlignment(VerticalAlignment.TOP);
         headerCellStyle.setFillBackgroundColor(IndexedColors.GREY_40_PERCENT.getIndex());
 
         final CellStyle labelValueCellStyle = workbook.createCellStyle();
@@ -185,7 +186,7 @@ public class MigrationReport {
         int headerColumnNum = PCODE_COL_NUM;
         addCell(headersRow, headerColumnNum++, "P-code", headerCellStyle);
         addCell(headersRow, headerColumnNum++, "Incident", headerCellStyle);
-        addCell(headersRow, headerColumnNum++, "Dataset imported?", headerCellStyle);
+        addCell(headersRow, headerColumnNum++, "Impact on\nDataset migration", headerCellStyle);
 
         addCell(headersRow, headerColumnNum++, "Incident Data Description", headerCellStyle);
         addCell(headersRow, headerColumnNum++, "Incident Data", headerCellStyle);
@@ -206,7 +207,7 @@ public class MigrationReport {
             pCodeCell.setHyperlink(pCodeHyperlink);
 
             addCell(row, valueColumnNum++, logEntry.getIncidentType().getDescription());
-            addCell(row, valueColumnNum++, logEntry.getIncidentType().getDatasetMigrationStatus().getDescription());
+            addCell(row, valueColumnNum++, logEntry.getIncidentType().getDatasetMigrationImpact().getDescription());
             addCell(row, valueColumnNum++, logEntry.getIncidentType().getSupportingDataDescription() +
                     (isBlank(logEntry.getIncidentType().getSupportingDataDescription()) ? "" : ":"),
                 labelValueCellStyle

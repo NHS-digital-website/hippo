@@ -21,7 +21,8 @@ public class PublishingPackage {
     private XPathExpression<Element> notesXpath;
     private XPathExpression<Element> abstractXpath;
     private XPathExpression<Element> resourcesXpath;
-    private XPathExpression<Element> dateXpath;
+    private XPathExpression<Element> currentVersionUploadedDateXpath;
+    private XPathExpression<Element> nextVersionDueDateXpath;
     private XPathExpression<Element> keywordsXpath;
 
     public PublishingPackage(final Element rootElement) {
@@ -37,13 +38,18 @@ public class PublishingPackage {
         return titleXpath.evaluateFirst(rootElement).getTextTrim();
     }
 
-    public String getDate() {
-        return dateXpath.evaluateFirst(rootElement).getTextTrim();
+    public String currentVersionUploadedDate() {
+        return currentVersionUploadedDateXpath.evaluateFirst(rootElement).getTextTrim();
+    }
+
+    public String nextVersionDueDate() {
+        final Element element = nextVersionDueDateXpath.evaluateFirst(rootElement);
+        return element == null ? "" : element.getTextTrim();
     }
 
     public String getNotes() {
         final Element notesElement = notesXpath.evaluateFirst(rootElement);
-        return (notesElement == null) ? "" : notesElement.getTextTrim();
+        return notesElement == null ? "" : notesElement.getTextTrim();
     }
 
     public String getAbstract() {
@@ -89,7 +95,8 @@ public class PublishingPackage {
         abstractXpath = compileXpath("stdyDscr/stdyInfo/abstract");
         resourcesXpath = compileXpath("stdyDscr/othrStdyMat/relMat");
         keywordsXpath = compileXpath("stdyDscr/stdyInfo/subject/keyword");
-        dateXpath = compileXpath("stdyDscr/citation/verStmt/version");
+        currentVersionUploadedDateXpath = compileXpath("stdyDscr/citation/verStmt/version");
+        nextVersionDueDateXpath = compileXpath("stdyDscr/citation/serStmt/serName");
     }
 
     public XPathExpression<Element> compileXpath(final String xpath) {
