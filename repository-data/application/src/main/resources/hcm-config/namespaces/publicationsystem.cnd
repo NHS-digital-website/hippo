@@ -9,6 +9,7 @@
 
 [publicationsystem:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
   orderable
+  - common:searchable (boolean) = 'true' autocreated
 
 [publicationsystem:about] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
   orderable

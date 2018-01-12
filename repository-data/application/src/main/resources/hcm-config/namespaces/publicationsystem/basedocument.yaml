@@ -5,9 +5,7 @@ definitions:
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
           hipposysedit:supertype:
-          - hippo:document
-          - hippostdpubwf:document
-          - hippostd:publishableSummary
+          - common:basedocument
           hipposysedit:uri: http://digital.nhs.uk/jcr/publicationsystem/nt/1.0
           jcr:mixinTypes:
           - hipposysedit:remodel
