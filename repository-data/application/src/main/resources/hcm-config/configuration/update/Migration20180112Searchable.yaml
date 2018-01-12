@@ -1,0 +1,14 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/Migration-20180112-Searchable:
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:parameters: ''
+      hipposys:path: /
+      hipposys:script:
+        resource: /configuration/update/Migration20180112Searchable.groovy
+        type: string
+      hipposys:throttle: 200
+      jcr:primaryType: hipposys:updaterinfo
