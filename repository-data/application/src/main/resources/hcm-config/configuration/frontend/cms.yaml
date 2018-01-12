@@ -25,3 +25,5 @@ definitions:
         language: en
       jcr:primaryType: frontend:plugin
       plugin.class: org.hippoecm.frontend.translation.LocaleProviderPlugin
+    /hippo:configuration/hippo:frontend/cms/cms-static/root:
+      max.inactive.interval.minutes: '420'
