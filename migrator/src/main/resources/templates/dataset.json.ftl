@@ -37,7 +37,7 @@
     "name" : "publicationsystem:NextPublicationDate",
     "type" : "DATE",
     "multiple" : false,
-    "values" : [ "0001-01-01T12:00:00.000Z" ]
+    "values" : [ "${dataset.nextPublicationDate}" ]
   }, {
     "name" : "publicationsystem:CoverageStart",
     "type" : "DATE",

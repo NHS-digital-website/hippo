@@ -1,7 +1,6 @@
 package uk.nhs.digital.ps.migrator.model.hippo;
 
 import java.util.*;
-import java.util.regex.Pattern;
 
 public class DataSet extends HippoImportableItem {
 
@@ -9,6 +8,7 @@ public class DataSet extends HippoImportableItem {
     private final String title;
     private final String summary;
     private final String nominalDate;
+    private final String nextPublicationDate;
     private final List<Attachment> attachments;
     private final List<ResourceLink> resourceLinks;
     private final String taxonomyKeys;
@@ -19,6 +19,7 @@ public class DataSet extends HippoImportableItem {
                    final String title,
                    final String summary,
                    final String nominalDate,
+                   final String nextPublicationDate,
                    final List<Attachment> attachments,
                    final List<ResourceLink> resourceLinks,
                    final String taxonomyKeys) {
@@ -28,6 +29,7 @@ public class DataSet extends HippoImportableItem {
         this.title = title;
         this.summary = summary;
         this.nominalDate = nominalDate;
+        this.nextPublicationDate = nextPublicationDate;
         this.attachments = attachments;
         this.resourceLinks = resourceLinks;
         this.taxonomyKeys = taxonomyKeys;
@@ -51,6 +53,10 @@ public class DataSet extends HippoImportableItem {
 
     public String getNominalDate() {
         return nominalDate;
+    }
+
+    public String getNextPublicationDate() {
+        return nextPublicationDate;
     }
 
     public String getTaxonomyKeys() {

@@ -1,11 +1,11 @@
 package uk.nhs.digital.ps.migrator.report;
 
-import static uk.nhs.digital.ps.migrator.report.DatasetMigrationStatus.*;
+import static uk.nhs.digital.ps.migrator.report.DatasetMigrationImpact.*;
 
 public enum IncidentType {
 
     BLANK_SUMMARY(
-        FIELD_MIGRATED,
+        FIELD_MIGRATED_AS_IS,
         "Dataset has blank summary"
     ),
     NO_DATASET_MAPPING(
@@ -22,7 +22,7 @@ public enum IncidentType {
             + "\nare needed."
     ),
     DATE_WITH_EXTRA_TEXT(
-        FIELD_MIGRATED,
+        FIELD_MIGRATED_MODIFIED,
         "Date found with additional text",
         "Date field value found",
         "Date in the exported data contained some extra text. The imported Dataset"
@@ -55,7 +55,7 @@ public enum IncidentType {
             + "\nA decision is needed on what to do with this attachemnt."
     ),
     HYPERLINKS_IN_SUMMARY(
-        FIELD_MIGRATED,
+        FIELD_MIGRATED_AS_IS,
         "Dataset summary contains hyperlink(s)",
         "Hyperlink(s) found",
         "Hyperlinks have been found in Dataset summary."
@@ -63,7 +63,7 @@ public enum IncidentType {
             + "\nThey need to be manually added to the Dataset in the target system."
     ),
     HTML_IN_SUMMARY(
-        FIELD_MIGRATED,
+        FIELD_MIGRATED_AS_IS,
         "HTML suspected in Dataset summary",
         "Raw summary content",
         "Dataset summary has been found to contain characters which may indicate"
@@ -75,7 +75,7 @@ public enum IncidentType {
             + "\nor does it require some sanitizing."
     ),
     DUPLICATE_PCODE_IMPORTED( // found when scanning list of all the JSON files prepared for import
-        FIELD_MIGRATED,
+        FIELD_MIGRATED_AS_IS,
         "Duplicate P-code imported twice"
     ),
     DUPLICATE_PCODE_WITHIN_PUB(
@@ -112,9 +112,9 @@ public enum IncidentType {
         "Failed to generate import file"
     ),
     RESOURCE_LINK_CONTACT_US(
-        FIELD_MIGRATED,
+        FIELD_MIGRATED_AS_IS,
         "Resource link with 'Contact us' text encountered",
-        "Resource link 'title: value'",
+        "Resource link 'title | value'",
         "Links associated with Datasets, where link name contains 'Contact us'"
         + "\nshould not be migrated for Compendium datasets, less certain about."
         + "\nDatasets from other sources."
@@ -143,7 +143,7 @@ public enum IncidentType {
         + "\nTaxonomy Definition file and updated."
     ),
     TAXONOMY_MAPPING_DUPLICATE(
-        FIELD_MIGRATED,
+        FIELD_MIGRATED_AS_IS,
         "Duplicate Taxonomy mapping",
         "Duplicate mapping",
         "Provided Taxonomy mapping contains more than one mapping for the"
@@ -152,30 +152,30 @@ public enum IncidentType {
             + "\nMapping file needs reviewing and updating."
     );
 
-    private final DatasetMigrationStatus datasetMigrationStatus;
+    private final DatasetMigrationImpact datasetMigrationImpact;
     private final String description;
     private final String supportingDataDescription;
     private final String extraDescription;
 
-    IncidentType(final DatasetMigrationStatus datasetMigrationStatus,
+    IncidentType(final DatasetMigrationImpact datasetMigrationImpact,
                  final String description,
                  final String incidentDataDescription
     ) {
-        this(datasetMigrationStatus, description, incidentDataDescription, "");
+        this(datasetMigrationImpact, description, incidentDataDescription, "");
     }
 
 
 
-    IncidentType(final DatasetMigrationStatus datasetMigrationStatus,
+    IncidentType(final DatasetMigrationImpact datasetMigrationImpact,
                  final String description) {
-        this(datasetMigrationStatus, description, "", "");
+        this(datasetMigrationImpact, description, "", "");
     }
 
-    IncidentType(final DatasetMigrationStatus datasetMigrationStatus,
+    IncidentType(final DatasetMigrationImpact datasetMigrationImpact,
                  final String description,
                  final String incidentDataDescription,
                  final String extraDescription) {
-        this.datasetMigrationStatus = datasetMigrationStatus;
+        this.datasetMigrationImpact = datasetMigrationImpact;
         this.description = description;
         this.supportingDataDescription = incidentDataDescription;
         this.extraDescription = extraDescription;
@@ -189,8 +189,8 @@ public enum IncidentType {
         return supportingDataDescription;
     }
 
-    public DatasetMigrationStatus getDatasetMigrationStatus() {
-        return datasetMigrationStatus;
+    public DatasetMigrationImpact getDatasetMigrationImpact() {
+        return datasetMigrationImpact;
     }
 
     public String getExtraDescription() {
