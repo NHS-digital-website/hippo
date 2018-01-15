@@ -59,7 +59,7 @@ public class ContentPage extends AbstractCmsPage {
         populateDocumentTitle(publication.getTitle());
         populateDocumentSummary(publication.getSummary());
 
-        findPubliclyAccessibleRadioButton().select(publication.isPubliclyAccessible());
+        getPubliclyAccessibleWidget().select(publication.isPubliclyAccessible());
 
         populateDocumentNominalDate(publication.getNominalPublicationDate().asInstant());
 
@@ -123,10 +123,6 @@ public class ContentPage extends AbstractCmsPage {
         clickButtonOnModalDialog("OK");
     }
 
-    private PubliclyAccessibleCmsWidget findPubliclyAccessibleRadioButton() {
-        return new PubliclyAccessibleCmsWidget(helper, XpathSelectors.EDITOR_BODY);
-    }
-
     public void populateDocumentTitle(final String documentTitle) {
         findTitleElement().sendKeys(documentTitle);
     }
@@ -157,6 +153,10 @@ public class ContentPage extends AbstractCmsPage {
 
     public AttachmentsCmsWidget getAttachmentsWidget() {
         return new AttachmentsCmsWidget(helper, getWebDriver());
+    }
+
+    public PubliclyAccessibleCmsWidget getPubliclyAccessibleWidget() {
+        return new PubliclyAccessibleCmsWidget(helper, XpathSelectors.EDITOR_BODY);
     }
 
     public GranularityCmsWidget getGranularitySection() {
@@ -282,7 +282,7 @@ public class ContentPage extends AbstractCmsPage {
         return helper.isElementPresent(By.className("hippo-toolbar-status"));
     }
 
-    public void navigateToDocument(String documentName) {
+    private void navigateToDocument(String documentName) {
         navigateToFolder("Corporate Website", "Publication System");
         clickDocument(documentName);
     }
@@ -311,6 +311,11 @@ public class ContentPage extends AbstractCmsPage {
     private WebElement findTakeOffline() {
         return helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Take offline...']"));
+    }
+
+    private WebElement findEdit() {
+        return helper.findElement(
+            By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Edit']"));
     }
 
     /**
@@ -362,5 +367,11 @@ public class ContentPage extends AbstractCmsPage {
     public void populateSeries(PublicationSeries series) {
         populateDocumentTitle(series.getTitle());
         populateDocumentSummary(series.getSummary());
+    }
+
+    public void openDocumentForEdit(String name) {
+        navigateToDocument(name);
+        findEdit().click();
+        isDocumentEditScreenOpen();
     }
 }

@@ -1,5 +1,6 @@
 package uk.nhs.digital.common.components;
 
+import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.and;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.or;
 
@@ -122,11 +123,14 @@ public class SearchComponent extends CommonComponent {
         addPublicationSystemTypes(queryBuilder);
 
         return queryBuilder
-            .where(or(
-                publicationSystemConstraint(query),
-                publicationSystemConstraint(queryIncWildcards),
-                constraint(".").contains(query),
-                constraint(".").contains(queryIncWildcards)
+            .where(and(
+                constraint("common:searchable").equalTo(true),
+                or(
+                    publicationSystemConstraint(query),
+                    publicationSystemConstraint(queryIncWildcards),
+                    constraint(".").contains(query),
+                    constraint(".").contains(queryIncWildcards)
+                )
             ))
             .build();
     }

@@ -1,0 +1,87 @@
+---
+
+# folder
+- path: /content/documents/corporate-website/publication-system/publication-with-datasets
+  primaryType: hippo:folder
+# Publication
+- path: /content/documents/corporate-website/publication-system/publication-with-datasets/content
+  primaryType: hippo:handle
+- path: /content/documents/corporate-website/publication-system/publication-with-datasets/content/content
+  primaryType: publicationsystem:publication
+  properties:
+    common:searchable: true
+    hippostd:state: published
+    publicationsystem:PubliclyAccessible: false
+- path: /content/documents/corporate-website/publication-system/publication-with-datasets/content/content[2]
+  primaryType: publicationsystem:publication
+  properties:
+    common:searchable: true
+    hippostd:state: draft
+    publicationsystem:PubliclyAccessible: false
+- path: /content/documents/corporate-website/publication-system/publication-with-datasets/content/content[3]
+  primaryType: publicationsystem:publication
+  properties:
+    common:searchable: true
+    hippostd:state: unpublished
+    publicationsystem:PubliclyAccessible: false
+
+# Dataset
+- path: /content/documents/corporate-website/publication-system/publication-with-datasets/dataset
+  primaryType: hippo:handle
+- path: /content/documents/corporate-website/publication-system/publication-with-datasets/dataset/dataset
+  primaryType: publicationsystem:dataset
+  properties:
+    common:searchable: true
+    hippostd:state: published
+- path: /content/documents/corporate-website/publication-system/publication-with-datasets/dataset/dataset[2]
+  primaryType: publicationsystem:dataset
+  properties:
+    common:searchable: true
+    hippostd:state: draft
+- path: /content/documents/corporate-website/publication-system/publication-with-datasets/dataset/dataset[3]
+  primaryType: publicationsystem:dataset
+  properties:
+    common:searchable: true
+    hippostd:state: unpublished
+# Dataset in subfolder
+- path: /content/documents/corporate-website/publication-system/publication-with-datasets/subfolder
+  primaryType: hippo:folder
+- path: /content/documents/corporate-website/publication-system/publication-with-datasets/subfolder/dataset
+  primaryType: hippo:handle
+- path: /content/documents/corporate-website/publication-system/publication-with-datasets/subfolder/dataset/dataset
+  primaryType: publicationsystem:dataset
+  properties:
+    common:searchable: true
+    hippostd:state: published
+- path: /content/documents/corporate-website/publication-system/publication-with-datasets/subfolder/dataset/dataset[2]
+  primaryType: publicationsystem:dataset
+  properties:
+    common:searchable: true
+    hippostd:state: draft
+- path: /content/documents/corporate-website/publication-system/publication-with-datasets/subfolder/dataset/dataset[3]
+  primaryType: publicationsystem:dataset
+  properties:
+    common:searchable: true
+    hippostd:state: unpublished
+
+# random folder
+- path: /content/documents/corporate-website/publication-system/random-folder
+  primaryType: hippo:folder
+# random dataset
+- path: /content/documents/corporate-website/publication-system/random-folder/dataset
+  primaryType: hippo:handle
+- path: /content/documents/corporate-website/publication-system/random-folder/dataset/dataset
+  primaryType: publicationsystem:dataset
+  properties:
+    common:searchable: true
+    hippostd:state: published
+- path: /content/documents/corporate-website/publication-system/random-folder/dataset/dataset[2]
+  primaryType: publicationsystem:dataset
+  properties:
+    common:searchable: true
+    hippostd:state: draft
+- path: /content/documents/corporate-website/publication-system/random-folder/dataset/dataset[3]
+  primaryType: publicationsystem:dataset
+  properties:
+    common:searchable: true
+    hippostd:state: unpublished

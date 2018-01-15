@@ -21,13 +21,13 @@ init: .git/.local-hooks-installed
 ## Clean, build and start local hippo
 # Clean and recompile only modules that we do customise.
 serve: essentials/target/essentials.war
-	mvn clean verify -pl site,cms,repository-data/development -am --offline -DskipTests=true
+	mvn clean verify -pl site,cms,repository-data/development -am -DskipTests=true
 	$(MAKE) run
 
 ## Serve without allowing auto-export
 # Clean and recompile only modules that we do customise.
 serve.noexport: essentials/target/essentials.war
-	mvn clean verify -pl site,cms,repository-data/development -am --offline -DskipTests=true
+	mvn clean verify -pl site,cms,repository-data/development -am -DskipTests=true
 	mvn -P cargo.run,without-autoexport
 
 ## Start server using cargo.run
@@ -47,6 +47,14 @@ test.site-running:
 	mvn verify -f acceptance-tests/pom.xml \
 		-Pacceptance-test \
 		-Dcucumber.options="src/test/resources/features/site"
+
+## Run only acceptance tests taged with "WIP"
+# This target requires running site (for instance `make serve.noexport`)
+test.wip:
+	mvn verify -f acceptance-tests/pom.xml \
+		-Pacceptance-test \
+		-Dheadless=false \
+		-Dcucumber.options="src/test/resources/features --tags @WIP" \
 
 test.%:
 	$(MAKE) -C ci-cd/ $@
