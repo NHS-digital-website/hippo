@@ -65,7 +65,7 @@ public class SiteSteps extends AbstractSpringSteps {
 
     @Then("^I (?:can )?see \"([^\"]+)\" (?:link|button)$")
     public void iSeeLink(String linkTitle) throws Throwable {
-        sitePage.findElementWithTitle(linkTitle);
+        assertNotNull("Can see element", sitePage.findElementWithTitle(linkTitle));
     }
 
     @Then("^I should see (?:.* )?page titled \"([^\"]+)\"$")

@@ -1,15 +1,17 @@
 package uk.nhs.digital.ps.test.acceptance.pages;
 
+import static java.util.stream.Collectors.toList;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
+
+import java.util.List;
 
 public class DashboardPage extends AbstractCmsPage {
 
-    private PageHelper helper;
+    private final PageHelper helper;
 
     public DashboardPage(final WebDriverProvider webDriverProvider, final PageHelper helper) {
         super(webDriverProvider);
@@ -25,5 +27,22 @@ public class DashboardPage extends AbstractCmsPage {
                 By.xpath(XpathSelectors.TABBED_PANEL + "//li[contains(@class, 'tab0')]"), "class", "selected"
             )
         );
+    }
+
+    public void changePasswordTo(String password) {
+        helper.findElement(By.partialLinkText("Change password")).click();
+
+        helper.findElement(By.name("current-password:widget")).sendKeys("admin");
+        helper.findElement(By.name("new-password:widget")).sendKeys(password);
+        helper.findElement(By.name("check-password:widget")).sendKeys(password);
+
+        helper.findElement(By.xpath("//input[@type='submit' and @value='Change']")).click();
+    }
+
+    public List<String> getPasswordErrorMessages() {
+        WebElement errorPanel = getWebDriver().findElement(By.className("feedbackPanel"));
+        return errorPanel.findElements(By.tagName("li")).stream()
+            .map(WebElement::getText)
+            .collect(toList());
     }
 }
