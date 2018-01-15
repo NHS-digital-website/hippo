@@ -17,6 +17,8 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.endsWith;
+import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.startsWith;
 import static org.junit.Assert.*;
 import static org.slf4j.LoggerFactory.getLogger;
@@ -41,6 +43,30 @@ public class SearchSteps extends AbstractSpringSteps {
     public void iSearchForThePublication() throws Throwable {
         String title = testDataRepo.getCurrentPublication().getTitle();
         iSearchFor(title);
+    }
+
+    @Then("^I should see publication in search results$")
+    public void iShouldSeePublicationInSearchResults() throws Throwable {
+        String expectedTitle = testDataRepo.getCurrentPublication().getTitle();
+
+        List<String> actualResults = searchPage.getSearchResultWidgets()
+            .stream()
+            .map(SearchResultWidget::getTitle)
+            .collect(toList());
+
+        assertThat("Publication is in the results", actualResults, hasItem(expectedTitle));
+    }
+
+    @Then("^I should not see publication in search results$")
+    public void iShouldNotSeePublicationInSearchResults() throws Throwable {
+        String expectedTitle = testDataRepo.getCurrentPublication().getTitle();
+
+        List<String> actualResults = searchPage.getSearchResultWidgets()
+            .stream()
+            .map(SearchResultWidget::getTitle)
+            .collect(toList());
+
+        assertThat("Publication is not in the results", actualResults, not(hasItem(expectedTitle)));
     }
 
     @Then("^I should see (\\d+) search results$")

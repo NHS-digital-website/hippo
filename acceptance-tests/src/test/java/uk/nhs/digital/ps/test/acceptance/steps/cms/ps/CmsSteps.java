@@ -164,6 +164,21 @@ public class CmsSteps extends AbstractSpringSteps {
         contentPage.populateDocumentTitle(longString);
     }
 
+    @When("^I navigate to CMS$")
+    public void navigateToCms() {
+        contentPage.openCms();
+    }
+
+    @When("^I open publication for editing$")
+    public void openPublicationForEditing() {
+        contentPage.openDocumentForEdit(testDataRepo.getCurrentPublication().getName());
+    }
+
+    @When("^I set publication as upcoming$")
+    public void setPublicationAsUpcoming() {
+        contentPage.getPubliclyAccessibleWidget().select(false);
+    }
+
     @When("^I save the (?:dataset|publication|series)$")
     public void iSaveTheDocument() throws Throwable {
         // Always save and close as all the steps either want to test the save is

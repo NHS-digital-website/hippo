@@ -77,6 +77,10 @@
             <artifactId>hippo-plugin-taxonomy-addon-repository</artifactId>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
 
         <!-- TEST DEPENDENCIES -->
 
@@ -109,6 +113,15 @@
             <artifactId>content-exim-core</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.testing.jcr-mock</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.tngtech.java</groupId>
+            <artifactId>junit-dataprovider</artifactId>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>cms</finalName>
@@ -118,6 +131,7 @@
                 <directory>src/main/java</directory>
                 <includes>
                     <include>**/*.properties</include>
+                    <include>**/*.yml</include>
                 </includes>
             </resource>
             <resource>

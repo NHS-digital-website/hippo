@@ -105,6 +105,7 @@ definitions:
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes:
+          - hippotranslation:translated
           - mix:referenceable
           jcr:primaryType: publicationsystem:series
           publicationsystem:Summary: ''

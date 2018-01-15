@@ -1,0 +1,12 @@
+
+
+echo "Files Changed " $(git log $1 --shortstat --oneline | grep -E "^ " | grep "file" | sed 's/.* \([0-9]*\) file.*/\1/' | awk '{s+=$1} END {print s}')
+echo "Insertions " $(git log $1 --shortstat --oneline | grep -E "^ " | grep "insert" | sed 's/.* \([0-9]*\) insert.*/\1/' | awk '{s+=$1} END {print s}')
+echo "Deletions " $(git log $1 --shortstat --oneline | grep -E "^ " | grep "deletion" | sed 's/.* \([0-9]*\) delet.*/\1/' | awk '{s+=$1} END {print s}')
+
+echo "Commiters"
+git log $1 --format="%an" | sort | uniq -c
+
+echo "Change Log"
+echo -e $(git log $1 --format="%<(72)%s [%an]" \
+  | sed 's/\[\([^ ]*\)\] \(.*\)/ - \2\\n\\thttp:\/\/jira.digital.nhs.uk\/browse\/\1\\n/')
