@@ -25,5 +25,9 @@ definitions:
         language: en
       jcr:primaryType: frontend:plugin
       plugin.class: org.hippoecm.frontend.translation.LocaleProviderPlugin
+    /hippo:configuration/hippo:frontend/cms/cms-services/passwordValidationService/containsSpecialCharacterValidator[1]:
+      .meta:delete: true
+    /hippo:configuration/hippo:frontend/cms/cms-services/passwordValidationService/minimalLengthValidator:
+      minimallength: 12
     /hippo:configuration/hippo:frontend/cms/cms-static/root:
       max.inactive.interval.minutes: '420'
