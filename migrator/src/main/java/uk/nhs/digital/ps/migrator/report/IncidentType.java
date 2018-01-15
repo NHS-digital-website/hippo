@@ -24,7 +24,7 @@ public enum IncidentType {
     DATE_WITH_EXTRA_TEXT(
         FIELD_MIGRATED_MODIFIED,
         "Date found with additional text",
-        "Date field value found",
+        "Date field value found | interpreted as",
         "Date in the exported data contained some extra text. The imported Dataset"
             + "\nwill have this text stripped out but will have the date value"
             + "\nitself."
