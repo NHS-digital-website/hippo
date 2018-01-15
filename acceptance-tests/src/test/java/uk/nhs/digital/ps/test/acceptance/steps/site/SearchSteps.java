@@ -16,6 +16,7 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.endsWith;
 import static org.hamcrest.Matchers.startsWith;
 import static org.junit.Assert.*;
 import static org.slf4j.LoggerFactory.getLogger;
@@ -31,7 +32,7 @@ public class SearchSteps extends AbstractSpringSteps {
     @Autowired
     private TestDataRepo testDataRepo;
 
-    @When("^I search for \"([^\"]+)\"$")
+    @When("^I search for \"(.+)\"$")
     public void iSearchFor(String searchTerm) throws Throwable {
         searchPage.searchForTerm(searchTerm);
     }
@@ -65,4 +66,17 @@ public class SearchSteps extends AbstractSpringSteps {
 
         assertThat("Search results match", actualResults, contains(expectedResults));
     }
+
+    @Then("^I should see the search term \"(.+)\" on the results page$")
+    public void iShouldSeeTheSearchTermOnTheResultsPage(String term) throws Throwable {
+        assertThat("Result count ends with search term", searchPage.getResultCount(), endsWith(term));
+        assertEquals("Search query is maintained in search box", term, searchPage.getSearchFieldValue());
+    }
+
+    @Then("^I should see the blank search results page$")
+    public void iShouldSeeTheBlankSearchResultsPage() throws Throwable {
+        assertEquals("Blank search helper text is shown", "Please fill in a search term", searchPage.getResultCount());
+        assertEquals("Search query is blank", "", searchPage.getSearchFieldValue());
+    }
+
 }

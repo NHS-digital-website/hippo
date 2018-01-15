@@ -30,8 +30,8 @@ public class SearchComponentTest {
             // queryInput                   expectedQueryOutput
             {"lorem",                       "lorem*"},
             {"lorem*",                      "lorem*"},
-            {"lorem?",                      "lorem*"},
-            {"lorem? ipsum",                "lorem* ipsum*"},
+            {"lorem*?",                     "lorem*"},
+            {"lorem*? ipsum",               "lorem* ipsum*"},
             {"lorem ipsum",                 "lorem* ipsum*"},
             {"lorem ipsum*",                "lorem* ipsum*"},
             {"lor* ipsum",                  "lor* ipsum*"},
@@ -48,11 +48,11 @@ public class SearchComponentTest {
             {"-lorem",                      "-lorem*"},
             {"lorem -ipsum",                "lorem* -ipsum*"},
             {"lor* -ipsum",                 "lor* -ipsum*"},
-            {"\"dolor sit\" -\"lorem ipsum\"","\"dolor sit\" -\"lorem ipsum\""},
+            {"\"dolor sit\" -\"lorem ipsum\"","\"dolor sit\" \"lorem ipsum\""},
 
             {"lorem OR ipsum",              "lorem* OR ipsum*"},
             {"lorem OR ipsum sit",          "lorem* OR ipsum* sit*"},
-            {"OR lorem",                    "OR lorem*"},
+            {"OR lorem",                    "lorem*"},
             {"lorem OR ipsum \"dolor sit\"","lorem* OR ipsum* \"dolor sit\""},
             {"\"dolor sit\" lorem OR ipsum","\"dolor sit\" lorem* OR ipsum*"},
 
@@ -62,6 +62,10 @@ public class SearchComponentTest {
             {"elit. -lorem",                "elit. -lorem*"},
             {"-elit. lorem",                "-elit. lorem*"},
             {"elit. \"dolor sit\"",         "elit. \"dolor sit\""},
+
+            // Check that odd numbers of quotes are sanitized
+            {"elit \"dolor sit",         "elit* dolor* sit*"},
+            {"elit \"dolor\" sit\"",     "elit* \"dolor\" sit*"}
 
         };
     }
@@ -86,7 +90,7 @@ public class SearchComponentTest {
         // setUp
 
         // when
-        final String actualQueryOutput = searchComponent.applyWildcardsToQuery(queryInput);
+        final String actualQueryOutput = searchComponent.parseAndApplyWildcards(queryInput);
 
         // then
         assertThat("Wildcard query is correct", actualQueryOutput, is(expectedQueryOutput));

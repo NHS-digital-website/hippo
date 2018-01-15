@@ -8,7 +8,8 @@
   <form class="navbar-form" role="search" action="${searchLink}" method="get">
     <div class="common-search__inner">
       <span class="common-search__input">
-        <input type="text" class="common-search__input__field" id="query" name="query" aria-labelledby="btnSearch" placeholder="What are you looking for today?" value="${query!""}">
+        <!--Need to strip escape characters from quotes as they are present in the query variable given to us by hippo-->
+        <input type="text" class="common-search__input__field" id="query" name="query" aria-labelledby="btnSearch" placeholder="What are you looking for today?" value="${(query!"")?replace("\\\"", "\"")}">
       </span>
       <input type="submit" class="common-search__submit" id="btnSearch" value="Search">
     </div>
