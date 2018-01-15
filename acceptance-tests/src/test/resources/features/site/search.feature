@@ -95,3 +95,18 @@ Feature: Basic search
             | Search Test Publication Key Facts |
             | Search Test Dataset Title         |
             | Search Test Dataset Summary       |
+
+    Scenario: Search terms are displayed correctly on the results page
+        Given I navigate to the "home" page
+        When I search for "test_search"
+        Then I should see the search term "test_search" on the results page
+
+    Scenario: Quoted search terms are displayed correctly on the results page
+        Given I navigate to the "home" page
+        When I search for ""test_search""
+        Then I should see the search term ""test_search"" on the results page
+
+    Scenario: Blank search terms display the correct results page
+        Given I navigate to the "home" page
+        When I search for " "
+        Then I should see the blank search results page

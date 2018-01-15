@@ -44,6 +44,10 @@ public class SearchPage extends AbstractSitePage {
         return helper.findElement(By.id("btnSearch"));
     }
 
+    public String getSearchFieldValue() {
+        return findSearchField().getAttribute("value");
+    }
+
     public WebElement searchForTerm(final String queryTerm) {
         // type, click search
         findSearchField().sendKeys(queryTerm);

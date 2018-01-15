@@ -19,6 +19,10 @@ import uk.nhs.digital.ps.beans.Dataset;
 import uk.nhs.digital.ps.beans.Publication;
 import uk.nhs.digital.ps.beans.Series;
 
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * We are not extending "EssentialsSearchComponent" because we could not find a elegant way of using our own search
  * HstObject in the faceted search.
@@ -27,16 +31,14 @@ import uk.nhs.digital.ps.beans.Series;
 public class SearchComponent extends CommonComponent {
 
     private static final String WILDCARD_IN_USE_CHAR = "*";
-    private static final String WILDCARD_NOT_IN_USE_CHAR = "?";
     private static final int WILDCARD_POSTFIX_MIN_LENGTH = 3;
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
-        Pageable<HippoBean> pageable;
         EssentialsListComponentInfo paramInfo = getComponentInfo(request);
         HippoResultSetBean resultSet = getFacetNavigationBean(request).getResultSet();
 
-        pageable = getPageableFactory()
+        Pageable<HippoBean> pageable = getPageableFactory()
             .createPageable(
                 resultSet.getDocumentIterator(HippoBean.class),
                 resultSet.getCount().intValue(),
@@ -54,7 +56,7 @@ public class SearchComponent extends CommonComponent {
     }
 
     protected String getQueryParameter(HstRequest request) {
-        return SearchInputParsingUtils.parse(getAnyParameter(request, REQUEST_PARAM_QUERY), true);
+        return getAnyParameter(request, REQUEST_PARAM_QUERY);
     }
 
     /**
@@ -67,43 +69,36 @@ public class SearchComponent extends CommonComponent {
      * "dolor sit" lorem ipsum     =>      "dolor sit" lorem* ipsum*
      * lor ipsum                   =>      lor* ipsum*
      */
-    protected String applyWildcardsToQuery(String query) {
+    protected String parseAndApplyWildcards(String query) {
 
-        String queryWithWildcards = "";
+        ArrayList<String> terms = new ArrayList<>();
 
         // Split terms by space, treat phrases (wrapped in double quotes) as a single term
-        String[] splitTerms = query.split("\\s+(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+        Matcher matcher = Pattern.compile("(\"[^\"]*\")|([^\\s\"]+)").matcher(query);
+        while (matcher.find()) {
+            String term = null;
+            if (matcher.group(1) != null) {
+                // phrase that was quoted so add without wild card
+                term = matcher.group(1);
+            } else if (matcher.group(2) != null) {
+                term = matcher.group(2);
 
-        for (int i = 0; i <= splitTerms.length - 1; i++) {
-
-            // The SearchInputParsingUtils.parse function escapes quote characters, but this results in the search
-            // not finding that specific term (because of the back slash), therefore remove escaped back slashes
-            String term = splitTerms[i].replace("\\", "");
-
-            // WILDCARD_POSTFIX_CHAR (*) is being used as the wildcard character, but the search term could
-            // include (?) which is the other accepted wildcard in JCR repository.  If exists as last char, remove.
-            if (term.endsWith(WILDCARD_NOT_IN_USE_CHAR)) {
-                term = term.substring(0, term.length() - 1);
+                if (term.length() >= WILDCARD_POSTFIX_MIN_LENGTH
+                    && !term.endsWith(".")
+                    && !term.endsWith(",")) {
+                    // single unquoted word so add wildcard
+                    term = matcher.group(2) + WILDCARD_IN_USE_CHAR;
+                }
             }
 
-            queryWithWildcards += term;
-
-            // if the term has a trailing fullstop or comma, appending a wildcard will result in no matches
-            if (term.length() >= WILDCARD_POSTFIX_MIN_LENGTH
-                && !term.contains(WILDCARD_IN_USE_CHAR)
-                && !term.endsWith(".")
-                && !term.endsWith(",")
-                && !term.contains("\"")
-                ) {
-                queryWithWildcards += WILDCARD_IN_USE_CHAR;
-            }
-
-            if (i != splitTerms.length - 1) {
-                queryWithWildcards += " ";
-            }
+            terms.add(term);
         }
 
-        return queryWithWildcards;
+        query = String.join(" ", terms);
+
+        // Escape any special chars but not the quotes, we have already dealt with those
+        // Do this last to properly sanitize any input
+        return SearchInputParsingUtils.parse(query, true, new char[]{'"'});
     }
 
 
@@ -116,8 +111,10 @@ public class SearchComponent extends CommonComponent {
     }
 
     private HstQuery buildQuery(HstRequest request) {
-        String query = getQueryParameter(request);
-        String queryIncWildcards = applyWildcardsToQuery(query);
+        String queryParameter = getQueryParameter(request);
+        String query = SearchInputParsingUtils.parse(queryParameter, true);
+        String queryIncWildcards = parseAndApplyWildcards(queryParameter);
+
         HstQueryBuilder queryBuilder = HstQueryBuilder
             .create(request.getRequestContext().getSiteContentBaseBean());
 

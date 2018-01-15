@@ -30,5 +30,7 @@
         </#if>
     </div>
 <#else>
-    <h3>Please fill in a search term</h3>
+    <div data-uipath="ps.search-results">
+        <h1 data-uipath="ps.search-results.count">Please fill in a search term</h1>
+    </div>
 </#if>
