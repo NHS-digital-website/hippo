@@ -102,6 +102,14 @@ public class Attachment {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Attachment{" +
+            "title='" + title + '\'' +
+            ", uri='" + uri + '\'' +
+            '}';
+    }
+
     private static float getMb(long bytes) {
         return bytes / (1024f * 1024);
     }

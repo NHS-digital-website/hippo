@@ -1,6 +1,6 @@
 package uk.nhs.digital.ps.migrator.task;
 
-import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
 import uk.nhs.digital.ps.migrator.config.ExecutionParameters;
 import uk.nhs.digital.ps.migrator.model.hippo.*;
 import uk.nhs.digital.ps.migrator.model.nesstar.Catalog;
@@ -10,18 +10,22 @@ import uk.nhs.digital.ps.migrator.report.MigrationReport;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.text.MessageFormat.format;
 import static java.util.regex.Pattern.CASE_INSENSITIVE;
 import static java.util.stream.Collectors.toList;
+import static org.apache.commons.lang3.StringUtils.containsIgnoreCase;
 import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.ps.migrator.report.IncidentType.*;
 
 public class ImportableItemsFactory {
+
+    private final static Logger log = getLogger(ImportableItemsFactory.class);
 
     private final ExecutionParameters executionParameters;
     private final MigrationReport migrationReport;
@@ -62,19 +66,20 @@ public class ImportableItemsFactory {
 
     public DataSet toDataSet(final Folder parentFolder, final PublishingPackage exportedPublishingPackage) {
 
-        final String pcode = exportedPublishingPackage.getUniqueIdentifier();
+        final String pCode = exportedPublishingPackage.getUniqueIdentifier();
 
         try {
-            String nominalDate = convertImportedDate(exportedPublishingPackage.currentVersionUploadedDate(), pcode);
-            String nextPublicationDate = convertImportedDate(exportedPublishingPackage.nextVersionDueDate(), pcode);
+            String nominalDate = convertImportedDate(exportedPublishingPackage.currentVersionUploadedDate(), pCode);
+            String nextPublicationDate = convertImportedDate(exportedPublishingPackage.nextVersionDueDate(), pCode);
 
             List<NesstarResource> resources = exportedPublishingPackage.getResources();
-            // compendium migration do not require PDFs to be migrated over.
-            List<Attachment> attachments = getAttachments(exportedPublishingPackage).stream()
-                                            .filter(a -> !(a.getMimeType().equalsIgnoreCase("application/pdf")
-                                                && parentFolder.getJcrPath().contains("compendium-of-population-health-indicators")))
-                                            .collect(Collectors.toList());
+
+            List<Attachment> attachments = getAttachments(exportedPublishingPackage);
+            attachments = filterAttachments(pCode, attachments, isWithinCompendiumStructure(parentFolder));
+
             List<ResourceLink> resourceLinks = getResourceLinks(exportedPublishingPackage.getUniqueIdentifier(), resources);
+            resourceLinks = filterResourceLinks(pCode, resourceLinks, isWithinCompendiumStructure(parentFolder));
+
             List<String> taxonomyKeys = taxonomyMigrator.getTaxonomyKeys(exportedPublishingPackage);
 
             // Quick sanity check to make sure we have processed all the resources
@@ -84,12 +89,12 @@ public class ImportableItemsFactory {
 
             final String summary = formatDatasetSummary(
                 exportedPublishingPackage.getSummary(),
-                pcode
+                pCode
             );
 
             return new DataSet(
                 parentFolder,
-                pcode,
+                pCode,
                 exportedPublishingPackage.getTitle(),
                 exportedPublishingPackage.getTitle(),
                 summary,
@@ -100,8 +105,8 @@ public class ImportableItemsFactory {
                 String.join("\", \"", taxonomyKeys)
             );
         } catch (Exception e) {
-            migrationReport.report(pcode, DATASET_CONVERSION_ERROR, e.getMessage());
-            migrationReport.logError(e, "Failed to convert dataset " + pcode);
+            migrationReport.report(pCode, DATASET_CONVERSION_ERROR, e.getMessage());
+            migrationReport.logError(e, "Failed to convert dataset " + pCode);
 
             return null;
         }
@@ -125,15 +130,6 @@ public class ImportableItemsFactory {
     public List<ResourceLink> getResourceLinks(final String pCode, List<NesstarResource> resources) {
       return resources.stream()
             .filter(NesstarResource::isLink)
-            .peek(resource -> {
-                // There should not be any link text with contact us, but if there are report it
-                if (resource.isLink() && StringUtils.containsIgnoreCase(resource.getTitle(), "contact us")) {
-                    migrationReport.report(
-                        pCode, RESOURCE_LINK_CONTACT_US, resource.getTitle() + " | " + resource.getUri()
-                    );
-                }
-            })
-            .filter(NesstarResource::isNotOnIgnoreList)
             .map(resource -> new ResourceLink(resource.getTitle(), resource.getUri()))
             .collect(toList());
     }
@@ -150,6 +146,61 @@ public class ImportableItemsFactory {
                 migrationReport))
             .filter(attachment -> attachment.download(publishingPackage))
             .collect(toList());
+    }
+
+    /**
+     * @return Curated list of attachments that excludes those that should be ignored
+     * (excluded: PDF files within Compendium space).
+     */
+    private List<Attachment> filterAttachments(final String pCode,
+                                               final List<Attachment> attachments,
+                                               final boolean isWithinCompendiumStructure
+    ) {
+        final Predicate<Attachment> isCompendiumPdf = attachment -> isWithinCompendiumStructure
+            && attachment.getMimeType().equalsIgnoreCase("application/pdf");
+
+        return attachments.stream()
+            .peek(attachment -> {
+                if (isCompendiumPdf.test(attachment)) {
+                    log.info("{}: ignoring attachment {}", pCode, attachment);
+                }
+            })
+            .filter(attachment -> isCompendiumPdf.negate().test(attachment))
+            .collect(toList());
+    }
+
+    /**
+     * @return Curated list of links that excludes those that should be ignored
+     * (excluded: links with given marker text within Compendium space).
+     */
+    private List<ResourceLink> filterResourceLinks(final String pCode,
+                                                   final List<ResourceLink> resourceLinks,
+                                                   final boolean isWithinCompendiumStructure
+    ) {
+        final Predicate<ResourceLink> containsMarkerText = resourceLink ->
+            containsIgnoreCase(resourceLink.getName(), "earlier data may be available")
+                || containsIgnoreCase(resourceLink.getName(), "contact us");
+
+
+        return resourceLinks.stream()
+            // only report on links to be filtered out that come from outside Compendium as these would be unexpected to see
+            .peek(resourceLink -> {
+                if (!isWithinCompendiumStructure && containsMarkerText.test(resourceLink)) {
+                    migrationReport.report(pCode, RESOURCE_LINK_FILTERED_OUT, resourceLink.getName() + " | " + resourceLink.getUri());
+                }
+            })
+            .peek(resourceLink -> {
+                // remove all matching links - Compendium or not
+                if (containsMarkerText.test(resourceLink)) {
+                    log.info("{}: ignoring link: {}", pCode, resourceLink);
+                }
+            })
+            .filter(resourceLink -> containsMarkerText.negate().test(resourceLink))
+            .collect(toList());
+    }
+
+    private boolean isWithinCompendiumStructure(final Folder folder) {
+        return folder.getJcrPath().contains("compendium-of-population-health-indicators");
     }
 
     /**

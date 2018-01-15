@@ -17,4 +17,12 @@ public class ResourceLink  {
     public String getUri() {
         return uri;
     }
+
+    @Override
+    public String toString() {
+        return "ResourceLink{" +
+            "name='" + name + '\'' +
+            ", uri='" + uri + '\'' +
+            '}';
+    }
 }

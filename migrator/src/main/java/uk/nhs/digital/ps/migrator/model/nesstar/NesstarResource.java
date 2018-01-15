@@ -24,12 +24,6 @@ public class NesstarResource {
         return getUri().matches("https?://.*");
     }
 
-    public boolean isNotOnIgnoreList() {
-        // Certain links with set phrases are not required to be migrated over
-        return !StringUtils.containsIgnoreCase(getTitle(), "earlier data may be available")
-            && !StringUtils.containsIgnoreCase(getTitle(), "contact us");
-    }
-
     public String getTitle() {
         return titleXpath.evaluateFirst(rootElement).getTextTrim();
     }

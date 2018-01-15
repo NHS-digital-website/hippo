@@ -111,15 +111,16 @@ public enum IncidentType {
         DATASET_NOT_MIGRATED,
         "Failed to generate import file"
     ),
-    RESOURCE_LINK_CONTACT_US(
-        FIELD_MIGRATED_AS_IS,
-        "Resource link with 'Contact us' text encountered",
+    RESOURCE_LINK_FILTERED_OUT(
+        FIELD_NOT_MIGRATED,
+        "Resource link filtered out",
         "Resource link 'title | value'",
-        "Links associated with Datasets, where link name contains 'Contact us'"
-        + "\nshould not be migrated for Compendium datasets, less certain about."
-        + "\nDatasets from other sources."
+        "Links associated with Datasets, where link name contains 'contact us'"
+        + "\nor 'earlier data may be available'."
+        + "\nshould not be migrated for Compendium datasets."
         + "\n"
-        + "\nThis link needs reviewing and possibly manual removal."
+        + "\nThis link will not be migrated automatically, it's left to the operator."
+        + "\nto decide whether to add it manually post-migration."
     ),
     TAXONOMY_MAPPING_MISSING(
         FIELD_NOT_MIGRATED,
