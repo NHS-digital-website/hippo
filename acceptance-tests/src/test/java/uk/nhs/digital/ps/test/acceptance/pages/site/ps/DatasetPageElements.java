@@ -26,6 +26,8 @@ public class DatasetPageElements implements PageElements {
             By.xpath("//*[" + getDataUiPathXpath("resources") + "]"));
         put("Dataset Nominal Date",
             By.xpath("//*[" + getDataUiPathXpath("nominal-date") + "]"));
+        put("Dataset Next Publication Date",
+            By.xpath("//*[" + getDataUiPathXpath("next-publication-date") + "]"));
     }};
 
     @Override
