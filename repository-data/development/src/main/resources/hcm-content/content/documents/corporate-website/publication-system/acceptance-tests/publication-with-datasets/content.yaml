@@ -28,7 +28,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-03T13:35:36.812Z
-    hippostdpubwf:lastModificationDate: 2018-01-08T15:36:28.722Z
+    hippostdpubwf:lastModificationDate: 2018-01-17T12:53:36.117Z
     hippostdpubwf:lastModifiedBy: admin
     hippotaxonomy:keys:
     - people,-patients-and-geography
@@ -38,7 +38,7 @@
     - hippotaxonomy:classifiable
     - mix:referenceable
     jcr:primaryType: publicationsystem:publication
-    publicationsystem:AdministrativeSources: ''
+    publicationsystem:AdministrativeSources: Admin sources
     publicationsystem:CoverageEnd: 2018-02-01T00:00:00Z
     publicationsystem:CoverageStart: 2017-11-01T00:00:00Z
     publicationsystem:GeographicCoverage: England
@@ -104,7 +104,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-03T13:35:36.812Z
-    hippostdpubwf:lastModificationDate: 2018-01-08T15:37:51.754Z
+    hippostdpubwf:lastModificationDate: 2018-01-17T12:53:59.751Z
     hippostdpubwf:lastModifiedBy: admin
     hippotaxonomy:keys:
     - people,-patients-and-geography
@@ -115,7 +115,7 @@
     - mix:referenceable
     - mix:versionable
     jcr:primaryType: publicationsystem:publication
-    publicationsystem:AdministrativeSources: ''
+    publicationsystem:AdministrativeSources: Admin sources
     publicationsystem:CoverageEnd: 2018-02-01T00:00:00Z
     publicationsystem:CoverageStart: 2017-11-01T00:00:00Z
     publicationsystem:GeographicCoverage: England
@@ -181,9 +181,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-03T13:35:36.812Z
-    hippostdpubwf:lastModificationDate: 2018-01-08T15:37:51.754Z
+    hippostdpubwf:lastModificationDate: 2018-01-17T12:53:59.751Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-01-08T15:37:56.275Z
+    hippostdpubwf:publicationDate: 2018-01-17T12:54:04.104Z
     hippotaxonomy:keys:
     - people,-patients-and-geography
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
@@ -192,7 +192,7 @@
     - hippotaxonomy:classifiable
     - mix:referenceable
     jcr:primaryType: publicationsystem:publication
-    publicationsystem:AdministrativeSources: ''
+    publicationsystem:AdministrativeSources: Admin sources
     publicationsystem:CoverageEnd: 2018-02-01T00:00:00Z
     publicationsystem:CoverageStart: 2017-11-01T00:00:00Z
     publicationsystem:GeographicCoverage: England

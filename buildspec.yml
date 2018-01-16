@@ -18,6 +18,7 @@ phases:
       - echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
       - add-apt-repository -y ppa:webupd8team/java
       - apt-get update
+      - apt-get install -y oracle-java8-installer || echo "this should fail"
       - cd /var/lib/dpkg/info
         && sed -i 's|JAVA_VERSION=8u151|JAVA_VERSION=8u162|' oracle-java8-installer.*
         && sed -i 's|PARTNER_URL=http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf/|PARTNER_URL=http://download.oracle.com/otn-pub/java/jdk/8u162-b12/0da788060d494f5095bf8624735fa2f1/|' oracle-java8-installer.*
