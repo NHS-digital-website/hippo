@@ -1,0 +1,40 @@
+@import "../environment/settings/colours";
+@import "../environment/tools/mixins/typography";
+
+fieldset {
+  border: 0;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+
+  body:not(:-moz-handler-blocked) & {
+    display: table-cell;
+  }
+}
+
+legend {
+  @include core-font(20);
+  color: $black;
+  display: table;
+  padding: 0;
+
+  // In Webkit, the bottom margin of a legend and the top margin
+  // of the next element don't overlap, which they should. This
+  // addresses that by discarding the top margin of the next element
+  + * {
+    -webkit-margin-top-collapse: separate;
+  }
+}
+
+textarea {
+  @include core-font(20);
+
+  border: ($baseline-grid-unit / 2) solid $grey-2;
+  display: block; // Remove margin under textarea in Chrome and FF
+  padding: 0 $baseline-grid-unit;
+  width: 100%;
+
+  &:focus {
+    outline: 3px solid $yellow;
+  }
+}

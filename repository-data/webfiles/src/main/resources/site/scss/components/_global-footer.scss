@@ -1,0 +1,54 @@
+@import "../environment/settings/colours";
+@import "../environment/settings/typography";
+@import "../environment/tools/functions/asset-urls";
+
+.global-footer {
+  background-color: $nhs-blue;
+  border-top: $baseline-grid-unit solid $dark-blue;
+  color: $white;
+
+  * {
+    @include core-font(16);
+
+    + * {
+      @include element-spacing;
+    }
+  }
+
+  a {
+    @include link-reverse-polarity;
+  }
+}
+
+.global-footer__inner {
+  @include site-width-container;
+  padding-bottom: $baseline-grid-unit * 24;
+  padding-top: $baseline-grid-unit * 8;
+
+  @include media(desktop) {
+    padding-bottom: $baseline-grid-unit * 32;
+    padding-top: $baseline-grid-unit * 12;
+  }
+
+  &:before {
+    background: image-url("logotype-nhs-colour.png") no-repeat;
+    background-size: contain;
+    content: "";
+    display: block;
+    height: 32px;
+    margin-bottom: $baseline-grid-unit * 8;
+    text-indent: -999em;
+    width: 79px;
+
+    @include media(desktop) {
+      margin-bottom: $baseline-grid-unit * 12;
+    }
+
+    @media
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi) {
+      background-image: image-url("logotype-nhs-colour@2x.png");
+      background-size: 79px 32px;
+    }
+  }
+}

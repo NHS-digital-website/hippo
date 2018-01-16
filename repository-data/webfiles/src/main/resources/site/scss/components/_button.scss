@@ -1,0 +1,13 @@
+@import "../environment/tools/mixins/button";
+
+.button {
+  @include button($green);
+}
+
+.button--secondary {
+  @include button($grey-4);
+}
+
+.button--cancel {
+  @include button($red);
+}

@@ -18,3 +18,5 @@ target
 
 ## Hippo content
 /repository-data/application/src/main/resources/hcm-content/content/documents/publicationsystem/publications/*
+
+repository-data/application/src/main/resources/hcm-config/hst/hosts/*

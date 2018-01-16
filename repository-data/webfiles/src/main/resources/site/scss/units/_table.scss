@@ -1,0 +1,37 @@
+@import "../environment/settings/colours";
+@import "../environment/tools/mixins/typography";
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: ($baseline-grid-unit * 4) 0 ($baseline-grid-unit * 8);
+  width: 100%;
+
+  caption {
+    @include core-font(24);
+    margin: 0 0 $baseline-grid-unit * 4;
+    text-align: left;
+
+    @include media(tablet) {
+      margin-bottom: $baseline-grid-unit * 8;
+    }
+  }
+
+  th,
+  td {
+    // @include core-font(20);
+    // line-height: 30px;
+    border-bottom: 2px solid $grey-4;
+    padding: ($baseline-grid-unit * 6) ($baseline-grid-unit * 3) ($baseline-grid-unit * 8) 0;
+    vertical-align: top;
+  }
+
+  th {
+    // @include bold-font(20);
+    text-align: left;
+  }
+}
+
+.table--two-column th {
+  width: 50%;
+}
