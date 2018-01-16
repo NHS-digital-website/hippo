@@ -1,0 +1,61 @@
+---
+/content/documents/corporate-website/about/privacy-and-cookies:
+  .meta:order-before: accessibility-help
+  /privacy-and-cookies[1]:
+    /common:Content:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    common:Title: Privacy and cookies
+    common:searchable: true
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-01-16T10:44:31.761Z
+    hippostdpubwf:lastModificationDate: 2018-01-16T13:20:15.465Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 671f1700-b406-47c4-8175-2dc0bfa7b160
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: common:about
+  /privacy-and-cookies[2]:
+    /common:Content:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    common:Title: Privacy and cookies
+    common:searchable: true
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-01-16T10:44:31.761Z
+    hippostdpubwf:lastModificationDate: 2018-01-16T13:40:41.921Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 671f1700-b406-47c4-8175-2dc0bfa7b160
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: common:about
+  /privacy-and-cookies[3]:
+    /common:Content:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    common:Title: Privacy and cookies
+    common:searchable: true
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-01-16T10:44:31.761Z
+    hippostdpubwf:lastModificationDate: 2018-01-16T10:50:23.264Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2018-01-16T10:50:28Z
+    hippotranslation:id: 671f1700-b406-47c4-8175-2dc0bfa7b160
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: common:about
+  jcr:mixinTypes:
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

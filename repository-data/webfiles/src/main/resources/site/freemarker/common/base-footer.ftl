@@ -15,8 +15,9 @@
                 <ul class="footer__inner__list">
                     <@hst.link var="termslink" mount="common-context" path="/about/terms-and-conditions"/>
                     <@hst.link var="accessibilitylink" mount="common-context" path="/about/accessibility-help"/>
+                    <@hst.link var="privacylink" mount="common-context" path="/about/privacy-and-cookies"/>
                     <li class="footer__inner__list__item" title="Terms and conditions"><a href="${termslink}" class="footer__inner__list__item__link">Terms and conditions</a></li><!--
-                    --><li class="footer__inner__list__item"><a href="#" class="footer__inner__list__item__link">Privacy and cookies</a></li><!--
+                    --><li class="footer__inner__list__item" title="Privacy and cookies"><a href="${privacylink}" class="footer__inner__list__item__link">Privacy and cookies</a></li><!--
                     --><li class="footer__inner__list__item" title="Accessibility help"><a href="${accessibilitylink}" class="footer__inner__list__item__link">Accessibility help</a></li>
                 </ul>
                 <p class="flush">

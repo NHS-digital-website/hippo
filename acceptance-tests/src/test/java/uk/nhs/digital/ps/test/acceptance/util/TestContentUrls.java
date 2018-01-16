@@ -64,7 +64,6 @@ public class TestContentUrls {
 
         // about pages
         add("terms and conditions", "/about/terms-and-conditions");
-        add("accessibility help", "/about/accessibility-help");
 
         // attachments
         add("attachment-text.pdf",
