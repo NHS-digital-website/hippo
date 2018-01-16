@@ -8,12 +8,12 @@
     <developmentSubModule>development</developmentSubModule>
     <enterprise>false</enterprise>
     <extraTemplates>true</extraTemplates>
-    <projectNamespace>publicationsystem</projectNamespace>
+    <projectNamespace>website</projectNamespace>
     <repositoryDataModule>repository-data</repositoryDataModule>
-    <selectedBeansPackage>uk.nhs.digital.ps.beans</selectedBeansPackage>
-    <selectedComponentsPackage>uk.nhs.digital.ps.components</selectedComponentsPackage>
-    <selectedProjectPackage>uk.nhs.digital.ps</selectedProjectPackage>
-    <selectedRestPackage>uk.nhs.digital.ps.rest</selectedRestPackage>
+    <selectedBeansPackage>uk.nhs.digital.website.beans</selectedBeansPackage>
+    <selectedComponentsPackage>uk.nhs.digital.website.components</selectedComponentsPackage>
+    <selectedProjectPackage>uk.nhs.digital.website</selectedProjectPackage>
+    <selectedRestPackage>uk.nhs.digital.website.rest</selectedRestPackage>
     <setupDone>true</setupDone>
     <siteModule>site</siteModule>
     <templateLanguage>freemarker</templateLanguage>

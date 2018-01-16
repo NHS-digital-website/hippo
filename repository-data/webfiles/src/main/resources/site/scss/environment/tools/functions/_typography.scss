@@ -1,0 +1,47 @@
+@import "../../settings/typography";
+
+/// Line height
+/// -----------
+/// Return the line height associated with a type scale at
+/// a certain screen size
+///
+/// @prop {number} level - level on the type scale
+/// @prop {string} size [desktop] - screen size to return
+///
+/// @return {string} the line height from type scale map
+///
+/// @example scss - Sass usage with default screen size
+///   h1 {
+///     line-height: line-height(0);
+///   }
+///
+/// @example scss - Sass usage to get mobile value
+///   h1 {
+///     line-height: line-height(0, "mobile");
+///   }
+@function line-height($level, $size: "large") {
+  @return map-get(map-get(map-get($type-settings, $level), $size), "line-height");
+}
+
+/// Type scale
+/// ----------
+/// Return the font size associated with a type scale at
+/// a certain screen size
+///
+/// @prop {number} level - level on the type scale
+/// @prop {string} size [desktop] - screen size to return
+///
+/// @return {string} the font size from type scale map
+///
+/// @example scss - Sass usage with default screen size
+///   h1 {
+///     font-size: type-scale(0);
+///   }
+///
+/// @example scss - Sass usage to get mobile size
+///   h1 {
+///     font-size: type-scale(0, "mobile");
+///   }
+@function type-scale($level, $size: "large") {
+  @return map-get(map-get(map-get($type-settings, $level), $size), "font-size");
+}

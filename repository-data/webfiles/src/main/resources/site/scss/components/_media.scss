@@ -1,0 +1,18 @@
+.media {
+  position: relative;
+  vertical-align: top;
+
+  @include media(tablet) {
+    max-width: 40em;
+  }
+}
+
+.media__caption {
+  background-color: $blue-10;
+  margin-top: 0;
+  padding: $default-spacing-unit;
+
+  .is-collapsed .gallery__item--collage & {
+    @include visuallyhidden;
+  }
+}

@@ -1,0 +1,14 @@
+<'website'='http://digital.nhs.uk/jcr/website/nt/1.0'>
+<'hippo'='http://www.onehippo.org/jcr/hippo/nt/2.0.4'>
+<'hippostd'='http://www.onehippo.org/jcr/hippostd/nt/2.0'>
+<'hippostdpubwf'='http://www.onehippo.org/jcr/hippostdpubwf/nt/1.0'>
+
+[website:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
+  orderable
+
+[website:section] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:service] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+

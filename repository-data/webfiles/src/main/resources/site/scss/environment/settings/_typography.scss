@@ -1,0 +1,126 @@
+@import "./globals";
+
+$nhs-font-stack: "Frutiger W01", "Helvetica Neue", Arial, sans-serif;
+$nhs-font-stack: "Frutiger W01", Arial, sans-serif;
+$print-font-stack: sans-serif;
+
+$is-print: false !default;
+
+// $base-font-size: 32px; // We already define this in `_variables.scss`
+$baseline-grid-unit: 4px;
+$default-spacing-unit: $baseline-grid-unit * 4;
+$measure: 40em; // comfy reading width of ~ 55-65 characters
+
+$type-settings-map: (
+  16: -2,
+  20: -1,
+  24: 0,
+  26: 1,
+  36: 2,
+  48: 3,
+);
+
+$type-settings: (
+  -2: (
+    large: (
+      font-size: 16px,
+      line-height: $baseline-grid-unit * 6, // 24px
+    ),
+    medium: (
+      font-size: 16px,
+      line-height: $baseline-grid-unit * 6, // 24px
+    ),
+    small: (
+      font-size: 16px,
+      line-height: $baseline-grid-unit * 6, // 24px
+    ),
+    print: (
+      font-size: 10pt,
+    ),
+  ),
+  -1: (
+    large: (
+      font-size: 20px,
+      line-height: 30px,
+    ),
+    medium: (
+      font-size: 20px,
+      line-height: 30px,
+    ),
+    small: (
+      font-size: 20px,
+      line-height: 30px,
+    ),
+    print: (
+      font-size: 12pt,
+    ),
+  ),
+  0: (
+    large: (
+      font-size: 24px,
+      line-height: 34px,
+    ),
+    medium: (
+      font-size: 24px,
+      line-height: 34px,
+    ),
+    small: (
+      font-size: 24px,
+      line-height: 34px,
+    ),
+    print: (
+      font-size: 14pt,
+    ),
+  ),
+  1: (
+    large: (
+      font-size: 26px,
+      line-height: 36px,
+    ),
+    medium: (
+      font-size: 26px,
+      line-height: 36px,
+    ),
+    small: (
+      font-size: 26px,
+      line-height: 36px,
+    ),
+    print: (
+      font-size: 16pt,
+    ),
+  ),
+  2: (
+    large: (
+      font-size: 36px,
+      line-height: 46px,
+    ),
+    medium: (
+      font-size: 32px,
+      line-height: 42px,
+    ),
+    small: (
+      font-size: 28px,
+      line-height: 38px,
+    ),
+    print: (
+      font-size: 18pt,
+    ),
+  ),
+  3: (
+    large: (
+      font-size: 48px,
+      line-height: 58px,
+    ),
+    medium: (
+      font-size: 36px,
+      line-height: 46px,
+    ),
+    small: (
+      font-size: 32px,
+      line-height: 42px,
+    ),
+    print: (
+      font-size: 22pt,
+    ),
+  ),
+);

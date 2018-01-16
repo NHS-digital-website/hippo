@@ -13,6 +13,13 @@ definitions:
         hst:componentconfigurationid: hst:pages/about
         hst:relativecontentpath: about
         jcr:primaryType: hst:sitemapitem
+      /article:
+        /_any_:
+          hst:componentconfigurationid: hst:pages/article
+          hst:relativecontentpath: article/${1}
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/article
+        jcr:primaryType: hst:sitemapitem
       /error:
         /404:
           hst:componentconfigurationid: hst:pages/404

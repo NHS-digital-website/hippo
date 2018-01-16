@@ -1,0 +1,7 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/website:
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:namespace

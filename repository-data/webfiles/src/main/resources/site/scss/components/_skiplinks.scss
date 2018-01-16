@@ -1,0 +1,24 @@
+@import "../environment/settings/colours";
+
+.skiplinks {
+  background-color: $blue-10;
+}
+
+.skiplinks__inner {
+  @include site-width-container;
+}
+
+.skiplinks__link {
+  color: $white;
+  display: inline-block;
+  left: -999em;
+  padding: ($baseline-grid-unit * 2);
+  position: absolute;
+
+  &:focus {
+    background-color: $blue-10;
+    border: 3px solid $yellow;
+    outline: none;
+    position: static;
+  }
+}

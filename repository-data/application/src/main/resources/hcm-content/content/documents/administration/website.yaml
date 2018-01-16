@@ -1,0 +1,26 @@
+---
+/content/documents/administration/website:
+  /section-type:
+    /section-type:
+      hippo:availability:
+      - live
+      - preview
+      hippotranslation:id: f2715ce4-d700-484c-b88f-574559bdc613
+      hippotranslation:locale: inherited - from query
+      jcr:mixinTypes:
+      - hippotranslation:translated
+      - mix:referenceable
+      jcr:primaryType: selection:valuelist
+    hippo:name: Section Type
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Website
+  hippostd:foldertype:
+  - new-document
+  - new-folder
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

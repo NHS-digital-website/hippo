@@ -1,0 +1,21 @@
+@import "../environment/tools/mixins/layout";
+@import "../environment/tools/mixins/typography";
+
+.page-section {
+  @include site-width-container;
+  @include element-padding(vertical);
+
+  + .page-section {
+    padding-top: 0;
+  }
+
+  // the lobotomized owl
+  // see: http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
+  * + * {
+    // @include element-spacing;
+  }
+}
+
+.page-section--collapse-bottom {
+  padding-bottom: 0;
+}

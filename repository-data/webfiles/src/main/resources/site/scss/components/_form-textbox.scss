@@ -1,0 +1,13 @@
+.form-textbox {
+  @include core-font(20);
+  appearance: none;
+  border: ($baseline-grid-unit / 2) solid $grey-2;
+  display: block;
+  max-width: 540px;
+  padding: $baseline-grid-unit;
+  width: 100%;
+
+  &:focus {
+    outline: 3px solid $yellow;
+  }
+}
