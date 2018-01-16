@@ -59,7 +59,7 @@ format-yaml:
 
 ## Update maven dependency versions
 update-dependencies:
-	mvn initialize versions:use-latest-versions versions:update-properties versions:commit
+	mvn verify versions:use-latest-versions versions:update-properties versions:commit -U
 
 # install hooks and local git config
 .git/.local-hooks-installed:

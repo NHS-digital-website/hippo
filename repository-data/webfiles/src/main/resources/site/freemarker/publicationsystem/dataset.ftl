@@ -25,7 +25,7 @@
                 <div class="media">
                     <div class="media__icon media__icon--date-range"></div>
                     <dl class="media__body">
-                        <dt>Date Range</dt>
+                        <dt><@fmt.message key="headers.date-range"/></dt>
                         <dd data-uipath="ps.dataset.date-range">
                             <#if dataset.coverageStart?? && dataset.coverageEnd??>
                                 <@formatCoverageDates start=dataset.coverageStart.time end=dataset.coverageEnd.time/>
@@ -41,7 +41,7 @@
                 <div class="media">
                     <div class="media__icon media__icon--granularity"></div>
                     <dl class="media__body">
-                        <dt id="geographic-coverage">Geographic coverage</dt>
+                        <dt id="geographic-coverage"><@fmt.message key="headers.geographical-coverage"/></dt>
                         <dd data-uipath="ps.dataset.geographic-coverage">
                             ${dataset.geographicCoverage}
                         </dd>
@@ -53,7 +53,7 @@
                 <div class="media">
                     <div class="media__icon media__icon--geographic-coverage"></div>
                     <dl class="media__body">
-                        <dt>Geographical granularity</dt>
+                        <dt><@fmt.message key="headers.geographical-granularity"/></dt>
                         <dd data-uipath="ps.dataset.granularity">
                             <#list dataset.granularity as granularityItem><#if granularityItem?index != 0>, </#if>${granularityItem}</#list>
                         </dd>
@@ -65,7 +65,7 @@
                 <div class="media">
                     <div class="media__icon media__icon--calendar"></div>
                     <dl class="media__body">
-                        <dt>Nominal date</dt>
+                        <dt><@fmt.message key="headers.publication-date"/></dt>
                         <dd data-uipath="ps.dataset.nominal-date">
                             ${dataset.nominalDate.time?string[dateFormat]}
                         </dd>
@@ -77,7 +77,7 @@
                 <div class="media">
                     <div class="media__icon media__icon--calendar"></div>
                     <dl class="media__body">
-                        <dt>Next publication date</dt>
+                        <dt><@fmt.message key="headers.next-publication-date"/></dt>
                         <dd data-uipath="ps.dataset.next-publication-date">
                             ${dataset.nextPublicationDate.time?string[dateFormat]}
                         </dd>
@@ -117,7 +117,7 @@
             </div>
             <#if dataset.taxonomyList?has_content>
                 <div class="panel panel--grey push-half--bottom">
-                    <h3>Taxonomy</h3>
+                    <h3><@fmt.message key="headers.taxonomy"/></h3>
                     <div data-uipath="ps.dataset.taxonomy">
                         <#list dataset.taxonomyList as taxonomyChain>
                             <div>${taxonomyChain?join(" => ")}</div>
