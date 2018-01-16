@@ -47,3 +47,6 @@ definitions:
     publicationsystem:
       cnd: namespaces/publicationsystem.cnd
       uri: http://digital.nhs.uk/jcr/publicationsystem/nt/1.0
+    website:
+      cnd: namespaces/website.cnd
+      uri: http://digital.nhs.uk/jcr/website/nt/1.0

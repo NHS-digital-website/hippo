@@ -1,0 +1,64 @@
+@import "../environment/settings/colours";
+@import "../environment/tools/functions/colour";
+@import "../environment/tools/mixins/layout";
+@import "../environment/tools/mixins/typography";
+
+.notification-banner {
+  background-color: $grey-5;
+
+  * {
+    @include core-font(16);
+  }
+}
+
+.notification-banner--js-hidden {
+  // sass-lint:disable class-name-format
+  .js-enabled & {
+    display: none;
+  }
+  // sass-lint:enable class-name-format
+}
+
+.notification-banner--hiviz {
+  background-color: $yellow-10;
+
+  a {
+    &:link {
+      color: shade($link-colour, 18%);
+    }
+
+    &:visited {
+      color: shade($link-visited-colour, 18%);
+    }
+
+    &:hover {
+      color: shade($link-hover-colour, 18%);
+    }
+
+    &:active {
+      color: shade($link-active-colour, 18%);
+    }
+
+    &:focus {
+      outline: 3px solid $focus-colour;
+    }
+  }
+}
+
+.notification-banner--system {
+  background: $black repeating-linear-gradient(
+    45deg,
+    $black, $black 10px,
+    tint($black, 20%) 10px, tint($black, 20%) 20px
+  );
+  color: $white;
+
+  strong {
+    font-weight: 600;
+  }
+}
+
+.notification-banner__inner {
+  @include site-width-container;
+  padding: ($baseline-grid-unit * 2) 0;
+}

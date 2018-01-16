@@ -1,0 +1,82 @@
+@import "../environment/settings/colours";
+@import "../environment/tools/mixins/typography";
+
+.local-header {
+  background-color: $nhs-blue;
+  // padding-top: $baseline-grid-unit * 8;
+  padding: 1.6em;
+  margin-bottom: 2em;
+
+  /* @include media(tablet) {
+    padding-top: $baseline-grid-unit * 8;
+  }
+
+  @include media(desktop) {
+    padding-top: $baseline-grid-unit * 12;
+  } */
+
+  .grid-row & {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+
+    @include ie-lte(8) {
+      width: auto;
+    }
+  }
+
+  a {
+    @include link-reverse-polarity;
+  }
+
+  // the lobotomized owl
+  // see: http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
+  * + * {
+    @include element-spacing;
+  }
+}
+
+.local-header__return {
+  @include link-reverse-polarity;
+  background-color: $nhs-blue;
+  border: $baseline-grid-unit / 2 solid $blue-50;
+  display: inline-block;
+  margin-bottom: $baseline-grid-unit * 4;
+  padding: $default-spacing-unit / 2 $default-spacing-unit;
+  text-decoration: none;
+
+  &:hover {
+    border-color: $blue-10;
+    color: $white;
+  }
+}
+
+.local-header__title {
+  @include bold-font(48);
+  color: $white;
+  margin: 0;
+}
+
+.local-header__intro {
+  color: $white;
+  margin-top: $baseline-grid-unit * 4;
+  max-width: $measure;
+  padding-top: $baseline-grid-unit * 4;
+  position: relative;
+
+  @include media(desktop) {
+    margin-top: $baseline-grid-unit * 8;
+    padding-top: $baseline-grid-unit * 4;
+  }
+
+  &:before {
+    background-color: $blue-50;
+    content: "";
+    display: block;
+    height: $baseline-grid-unit;
+    left: 0;
+    position: absolute;
+    top: -($baseline-grid-unit / 2);
+    width: 130px;
+  }
+}
