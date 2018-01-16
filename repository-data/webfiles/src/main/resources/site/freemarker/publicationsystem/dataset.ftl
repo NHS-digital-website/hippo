@@ -62,16 +62,28 @@
             </div></#if><!--
 
             --><#if dataset.nominalDate?has_content ><div class="flex__item">
-            <div class="media">
-                <div class="media__icon media__icon--calendar"></div>
-                <dl class="media__body">
-                    <dt>Nominal date</dt>
-                    <dd data-uipath="ps.dataset.nominal-date">
-                        ${dataset.nominalDate.time?string[dateFormat]}
-                    </dd>
-                </dl>
-            </div>
-        </div></#if>
+                <div class="media">
+                    <div class="media__icon media__icon--calendar"></div>
+                    <dl class="media__body">
+                        <dt>Nominal date</dt>
+                        <dd data-uipath="ps.dataset.nominal-date">
+                            ${dataset.nominalDate.time?string[dateFormat]}
+                        </dd>
+                    </dl>
+                </div>
+            </div></#if><!--
+
+            --><#if dataset.nextPublicationDate?has_content ><div class="flex__item">
+                <div class="media">
+                    <div class="media__icon media__icon--calendar"></div>
+                    <dl class="media__body">
+                        <dt>Next publication date</dt>
+                        <dd data-uipath="ps.dataset.next-publication-date">
+                            ${dataset.nextPublicationDate.time?string[dateFormat]}
+                        </dd>
+                    </dl>
+                </div>
+            </div></#if>
 
         </div>
     </div>

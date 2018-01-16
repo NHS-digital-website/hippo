@@ -20,12 +20,13 @@
       jcr:primaryType: publicationsystem:relatedlink
       publicationsystem:linkText: Google Resource Link
       publicationsystem:linkUrl: http://google.com
+    common:searchable: true
     hippo:availability:
     - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-03T13:38:20.323Z
-    hippostdpubwf:lastModificationDate: 2018-01-08T15:55:53.435Z
+    hippostdpubwf:lastModificationDate: 2018-01-16T09:42:16.305Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
@@ -38,7 +39,7 @@
     publicationsystem:GeographicCoverage: England
     publicationsystem:Granularity:
     - NHS Trusts
-    publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+    publicationsystem:NextPublicationDate: 2018-07-09T00:00:00Z
     publicationsystem:NominalDate: 2017-10-10T00:00:00Z
     publicationsystem:PubliclyAccessible: true
     publicationsystem:Summary: "Mauris ex est, dapibus in dictum ut, elementum sit\
@@ -74,11 +75,12 @@
       jcr:primaryType: publicationsystem:relatedlink
       publicationsystem:linkText: Google Resource Link
       publicationsystem:linkUrl: http://google.com
+    common:searchable: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-03T13:38:20.323Z
-    hippostdpubwf:lastModificationDate: 2018-01-08T15:55:38.588Z
+    hippostdpubwf:lastModificationDate: 2018-01-16T09:41:56.867Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
@@ -91,7 +93,7 @@
     publicationsystem:GeographicCoverage: England
     publicationsystem:Granularity:
     - NHS Trusts
-    publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+    publicationsystem:NextPublicationDate: 2018-07-09T00:00:00Z
     publicationsystem:NominalDate: 2017-10-10T00:00:00Z
     publicationsystem:PubliclyAccessible: true
     publicationsystem:Summary: "Mauris ex est, dapibus in dictum ut, elementum sit\
@@ -127,14 +129,15 @@
       jcr:primaryType: publicationsystem:relatedlink
       publicationsystem:linkText: Google Resource Link
       publicationsystem:linkUrl: http://google.com
+    common:searchable: true
     hippo:availability:
     - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-03T13:38:20.323Z
-    hippostdpubwf:lastModificationDate: 2018-01-08T15:55:53.435Z
+    hippostdpubwf:lastModificationDate: 2018-01-16T09:42:16.305Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-01-08T15:56:02.190Z
+    hippostdpubwf:publicationDate: 2018-01-16T09:42:38.279Z
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
     jcr:mixinTypes:
@@ -146,7 +149,7 @@
     publicationsystem:GeographicCoverage: England
     publicationsystem:Granularity:
     - NHS Trusts
-    publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+    publicationsystem:NextPublicationDate: 2018-07-09T00:00:00Z
     publicationsystem:NominalDate: 2017-10-10T00:00:00Z
     publicationsystem:PubliclyAccessible: true
     publicationsystem:Summary: "Mauris ex est, dapibus in dictum ut, elementum sit\
