@@ -1,0 +1,115 @@
+$is-print: true;
+
+// units
+@import "./units/image";
+@import "./units/heading";
+@import "./units/list";
+@import "./units/link";
+@import "./units/quote";
+
+body {
+  @include core-font(16);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+a {
+  color: $black !important;
+  font-weight: 700;
+  text-decoration: none;
+
+  &::after {
+    font-weight: 400;
+  }
+
+  &:visited {
+    word-wrap: break-word;
+  }
+
+  &[href^="/"]:after {
+    content: " (https://www.nhs.uk" attr(href) ")";
+    font-size: 90%;
+  }
+
+  &[href^="http://"]:after,
+  &[href^="https://"]:after {
+    content: " (" attr(href) ")";
+    font-size: 90%;
+  }
+
+  &[href^="javascript:"]:after,
+  &[href^="#"]:after {
+    content: "";
+  }
+}
+
+img {
+  max-width: 15cm;
+}
+
+.media__caption {
+  font-size: .9em;
+  font-style: italic;
+  margin-top: 0;
+}
+
+select {
+  background: $white;
+}
+
+hr {
+  border: 1mm solid $grey-3;
+  margin: .8cm 0;
+  width: 15%;
+}
+
+.global-header__link::after {
+  content: none !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 1cm 0 .5cm;
+  page-break-after: avoid;
+}
+
+p,
+figure {
+  margin: .5cm 0;
+}
+
+details {
+  margin: 1cm 0;
+
+  summary {
+    @include bold-font(24);
+    margin-bottom: .5cm;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+}
+
+.tabs-panel,
+.callout {
+  page-break-inside: avoid;
+}
+
+.callout--compact {
+  display: inline-block;
+}
+
+// hide the unnecessary page elements
+// sass-lint:disable class-name-format
+body footer,
+.visuallyhidden,
+.skiplinks,
+.local-header .link-list {
+  display: none;
+}

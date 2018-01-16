@@ -1,0 +1,32 @@
+/* Article section nav */
+.article-section-nav {
+  hr {
+    background-color: $col-quaternary;
+  }
+  
+  .article-section-nav__title {
+    margin: $default-spacing-unit 0 $default-spacing-unit * 0.5;
+    @include bold-font(24);
+
+    @include media(desktop) {
+      line-height: 24px;
+    }
+  }
+  
+  .article-section-nav__list {
+    padding-top: $default-spacing-unit;
+    margin-left: 0;
+    list-style: disc;
+
+    @include bold-font(20);
+
+    li {
+      padding-left: 0;
+      margin-bottom: 0.5em;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+// Base path for images
+// Should not include a trailing slash
+$images-path: "images" !default;
+
+// Returns a url with prefixed images-path
+@function image-url($file) {
+  @return url($images-path + "/" + $file);
+}

@@ -1,0 +1,47 @@
+@import "../../settings/colours";
+@import "./conditionals";
+
+@mixin clearfix {
+  @include ie-lte(7) {
+    zoom: 1;
+  }
+
+  &:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}
+
+@mixin link-reverse-polarity {
+  &:link {
+    color: $link-reverse-polarity;
+  }
+
+  &:visited {
+    color: $link-visited-reverse-polarity;
+  }
+
+  &:hover {
+    color: $link-hover-reverse-polarity;
+  }
+
+  &:active {
+    color: $link-active-reverse-polarity;
+  }
+
+  &:focus {
+    outline: 3px solid $focus-colour;
+  }
+}
+
+@mixin visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}

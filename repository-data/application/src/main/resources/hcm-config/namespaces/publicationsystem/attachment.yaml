@@ -74,6 +74,9 @@ definitions:
         /hipposysedit:prototype:
           /publicationsystem:attachmentResource:
             hippo:filename: publicationsystem:resource
+            hippo:text:
+              resource: /namespaces/publicationsystem/attachment/prototypes/prototype/attachmentResource/text.bin
+              type: binary
             jcr:data:
               resource: data.bin
               type: binary

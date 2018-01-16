@@ -1,0 +1,59 @@
+@import "../environment/settings/colours";
+@import "../environment/tools/mixins/typography";
+@import "../units/heading";
+@import "../units/paragraph";
+
+.callout {
+  @include element-padding;
+  margin-bottom: 0;
+
+  &:focus {
+    outline: 3px solid $focus-colour;
+  }
+}
+
+.callout--attention {
+  border: $baseline-grid-unit * 2 solid $col-primary;
+}
+
+.callout--muted {
+  background-color: $grey-4;
+}
+
+.callout--info {
+  background-color: $grey-5;
+  border: solid $grey-2;
+  border-width: 0 0 0 $baseline-grid-unit;
+}
+
+.callout--warning {
+  background-color: $yellow-10;
+  border: solid $yellow-50;
+  border-width: $baseline-grid-unit 0;
+}
+
+.callout--alert {
+  background-color: $red-10;
+  border-top: $baseline-grid-unit * 2 solid $red;
+}
+
+.callout--severe {
+  background-color: $red;
+  color: $white;
+
+  a {
+    @include link-reverse-polarity;
+  }
+}
+
+.callout--error {
+  border: $baseline-grid-unit solid $red;
+}
+
+.callout--compact {
+  display: inline-block;
+
+  @include media(desktop) {
+    padding: $baseline-grid-unit * 4 $baseline-grid-unit * 6;
+  }
+}

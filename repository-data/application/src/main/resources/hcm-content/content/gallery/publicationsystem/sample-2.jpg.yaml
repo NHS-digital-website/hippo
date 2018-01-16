@@ -1,0 +1,31 @@
+---
+/content/gallery/publicationsystem/sample-2.jpg:
+  .meta:order-before: border-terrier-exercise-446x320px.jpg
+  /sample-2.jpg:
+    /hippogallery:original:
+      hippogallery:height: 301
+      hippogallery:width: 500
+      jcr:data:
+        resource: /content/gallery/publicationsystem/sample-2.jpg/sample-2_original.jpg
+        type: binary
+      jcr:lastModified: 2018-01-24T10:43:04.929Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /hippogallery:thumbnail:
+      hippo:filename: sample-2.jpg
+      hippogallery:height: 36
+      hippogallery:width: 60
+      jcr:data:
+        resource: /content/gallery/publicationsystem/sample-2.jpg/sample-2_thumbnail.jpg
+        type: binary
+      jcr:lastModified: 2018-01-24T10:43:04.929Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    hippo:availability:
+    - live
+    - preview
+    hippogallery:filename: sample-2.jpg
+    jcr:primaryType: hippogallery:imageset
+  jcr:mixinTypes:
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

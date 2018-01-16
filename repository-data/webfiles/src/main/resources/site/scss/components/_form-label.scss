@@ -1,0 +1,19 @@
+.form-label {
+  @include bold-font(20);
+  display: block;
+}
+
+.form-label--large {
+  @include bold-font(36);
+}
+
+.form-label__hint {
+  color: $grey-1;
+  display: block;
+  font-weight: normal;
+  margin-top: $baseline-grid-unit * 2;
+
+  @include media(desktop) {
+    margin-top: $baseline-grid-unit * 4;
+  }
+}

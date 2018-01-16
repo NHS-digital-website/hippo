@@ -1,0 +1,132 @@
+@import "../../settings/typography";
+@import "../functions/typography";
+@import "./conditionals";
+
+/// Type setting
+/// -------------
+/// Output basic font settings for font usage
+///
+/// @access private
+///
+/// @prop {number} level - level on the type scale
+/// @prop {number} font-weight [400] - thickness of font weight
+@mixin _type-setting($level: 0, $font-weight: 400) {
+  @if $is-print {
+    font-family: $print-font-stack;
+    font-size: type-scale($level, "print");
+  } @else {
+    font-family: $nhs-font-stack;
+    font-size: type-scale($level, "small");
+  }
+
+  font-weight: $font-weight;
+  line-height: line-height($level, "small");
+  text-transform: none;
+
+  @include media(tablet) {
+    /* font-size: type-scale($level, "medium");
+    line-height: line-height($level, "medium"); */
+  }
+
+  @include media(desktop) {
+    font-size: type-scale($level);
+    line-height: line-height($level);
+  }
+}
+
+/// Core font
+/// -------------
+/// Output font settings for one of the core font sizes
+/// defined in $type-settings-map (typography.scss)
+///
+/// @access public
+///
+/// @prop {number} font-size - font size required (based on full desktop size)
+///
+/// @example scss - Set font size to 19px with normal weight
+///   h1 {
+///     @include core-font(19);
+///   }
+@mixin core-font($font-size) {
+  @if map-has-key($type-settings-map, $font-size) {
+    @include _type-setting(map-get($type-settings-map, $font-size));
+  } @else {
+    @warn "`#{$font-size}` is not a core font size. See `settings/_typography.scss` for a list of valid sizes.";
+  }
+}
+
+/// Bold font
+/// -------------
+/// Output font settings for one of the core font sizes
+/// defined in $type-settings-map (typography.scss) but
+/// use a bold font weight
+///
+/// @access public
+///
+/// @prop {number} font-size - font size required (based on full desktop size)
+///
+/// @example scss - Set font size to 19px with bold weight
+///   h1 {
+///     @include bold-font(19);
+///   }
+@mixin bold-font($font-size) {
+  @if map-has-key($type-settings-map, $font-size) {
+    @include _type-setting(map-get($type-settings-map, $font-size), $font-weight: 600);
+  } @else {
+    @warn "`#{$font-size}` is not a core font size. See `settings/_typography.scss` for a list of valid sizes.";
+  }
+}
+
+/// Element spacing
+/// -------------
+/// Set the basic spacing between elements and adjust for different screen widths
+///
+/// @access public
+///
+/// @prop {number} poisition [top] - position of spacing
+///
+/// @example scss - Set spacing on elements that have a preceeding element
+///   * + * {
+///     @include element-spacing;
+///   }
+@mixin element-spacing($position: top) {
+  margin-#{$position}: $default-spacing-unit;
+
+  @include media(desktop) {
+    margin-#{$position}: $default-spacing-unit * 2;
+  }
+}
+
+/// Element padding
+/// -------------
+/// Set basic padding for elements and adjust for different screen widths
+///
+/// @access public
+///
+/// @prop {number} type [full] - type of padding: full or top and bottom
+///
+/// @example scss - Set spacing on elements that have a preceeding element
+///   .page-section {
+///     @include element-padding(vertical);
+///   }
+@mixin element-padding($type: full) {
+  @if $type == full {
+    padding: $default-spacing-unit;
+
+    @include media(desktop) {
+      padding: $default-spacing-unit * 2;
+    }
+  } @else if $type == vertical {
+    padding: $default-spacing-unit 0;
+
+    @include media(desktop) {
+      padding: ($default-spacing-unit * 2) 0;
+    }
+  } @else {
+    padding-#{$type}: $default-spacing-unit;
+
+    @include media(desktop) {
+      padding-#{$type}: $default-spacing-unit * 2;
+    }
+  }
+}

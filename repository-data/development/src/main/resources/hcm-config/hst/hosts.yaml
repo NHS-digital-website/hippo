@@ -48,4 +48,4 @@ definitions:
         hst:cmslocation: http://hippo-authoring.int:8080/cms
         hst:defaultport: 8080
         jcr:primaryType: hst:virtualhostgroup
-      hst:diagnosticsenabled: true
+      hst:diagnosticsenabled: false

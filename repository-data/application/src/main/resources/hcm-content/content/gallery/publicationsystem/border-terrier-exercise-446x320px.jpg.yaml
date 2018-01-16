@@ -1,0 +1,30 @@
+---
+/content/gallery/publicationsystem/border-terrier-exercise-446x320px.jpg:
+  /border-terrier-exercise-446x320px.jpg:
+    /hippogallery:original:
+      hippogallery:height: 320
+      hippogallery:width: 446
+      jcr:data:
+        resource: /content/gallery/publicationsystem/border-terrier-exercise-446x320px.jpg/border-terrier-exercise-446x320px_original.jpg
+        type: binary
+      jcr:lastModified: 2018-01-26T12:03:28.747Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    /hippogallery:thumbnail:
+      hippo:filename: border-terrier-exercise-446x320px.jpg
+      hippogallery:height: 43
+      hippogallery:width: 60
+      jcr:data:
+        resource: /content/gallery/publicationsystem/border-terrier-exercise-446x320px.jpg/border-terrier-exercise-446x320px_thumbnail.jpg
+        type: binary
+      jcr:lastModified: 2018-01-26T12:03:28.747Z
+      jcr:mimeType: image/jpeg
+      jcr:primaryType: hippogallery:image
+    hippo:availability:
+    - live
+    - preview
+    hippogallery:filename: border-terrier-exercise-446x320px.jpg
+    jcr:primaryType: hippogallery:imageset
+  jcr:mixinTypes:
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
