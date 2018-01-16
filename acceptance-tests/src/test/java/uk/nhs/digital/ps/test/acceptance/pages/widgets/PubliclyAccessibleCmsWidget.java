@@ -15,7 +15,7 @@ public class PubliclyAccessibleCmsWidget {
     }
 
     private WebElement findLiveOption() {
-        return findRadioButtonByLabelText("LIVE (Full content publicly accessible)");
+        return findRadioButtonByLabelText("FINALISED (Full content publicly accessible)");
     }
 
     private WebElement findUpcomingOption() {

@@ -82,7 +82,7 @@ definitions:
             /cluster.options:
               falseLabel: UPCOMING (Show in upcoming publications list only)
               jcr:primaryType: frontend:pluginconfig
-              trueLabel: LIVE (Full content publicly accessible)
+              trueLabel: FINALISED (Full content publicly accessible)
             caption: Publicly Accessible
             field: publicly_accessible
             hint: ''
