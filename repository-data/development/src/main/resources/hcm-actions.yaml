@@ -4,3 +4,4 @@ action-lists:
     /content/taxonomies/publication_taxonomy: reload
     /content/documents/corporate-website/about/terms-and-conditions: reload
     /content/documents/corporate-website/about/accessibility-help: reload
+    /content/documents/corporate-website/about/privacy-and-cookies: reload

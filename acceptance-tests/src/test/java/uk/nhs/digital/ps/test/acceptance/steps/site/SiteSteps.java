@@ -186,6 +186,9 @@ public class SiteSteps extends AbstractSpringSteps {
 
         assertNotNull("Can find accessibility help link",
             sitePage.findElementWithTitle("Accessibility help"));
+
+        assertNotNull("Can find privacy and cookies link",
+            sitePage.findElementWithTitle("Privacy and cookies"));
     }
 
     /**
