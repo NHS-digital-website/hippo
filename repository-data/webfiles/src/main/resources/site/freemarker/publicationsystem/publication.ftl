@@ -5,7 +5,7 @@
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() />
 <#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
 <#assign formatCoverageDates="uk.nhs.digital.ps.directives.CoverageDatesFormatterDirective"?new() >
-<@hst.setBundle basename="publicationsystem.headers"/>
+<@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 <#-- @ftlvariable name="publication" type="uk.nhs.digital.ps.beans.Publication" -->
 
 <#macro nominalPublicationDate>
@@ -39,6 +39,7 @@
 <#macro fullContentOfPubliclyAvailablePublication>
     <section class="document-header" aria-label="Document Header">
         <div class="document-header__inner">
+            <h3 class="flush--bottom push-half--top"><@fmt.message key="labels.publication"/></h3>
 
             <h3 data-uipath="ps.publication.information-types" class="flush--bottom push-half--top">
                 <#list publication.informationType as type><#if type?index != 0>, </#if>${type}</#list>

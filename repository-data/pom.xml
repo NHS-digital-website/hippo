@@ -8,13 +8,13 @@
 
     <parent>
         <groupId>uk.nhs.digital</groupId>
-        <artifactId>publication-system</artifactId>
+        <artifactId>website</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <name>NHS Digital Publication System Repository Data</name>
-    <description>NHS Digital Publication System Repository Data</description>
-    <artifactId>publication-system-repository-data</artifactId>
+    <name>NHS Digital Website Repository Data</name>
+    <description>NHS Digital Website Repository Data</description>
+    <artifactId>website-repository-data</artifactId>
     <packaging>pom</packaging>
 
     <modules>

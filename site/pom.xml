@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>uk.nhs.digital</groupId>
-        <artifactId>publication-system</artifactId>
+        <artifactId>website</artifactId>
         <version>${revision}</version>
     </parent>
-    <artifactId>publication-system-site</artifactId>
+    <artifactId>website-site</artifactId>
     <packaging>war</packaging>
-    <name>NHS Digital Publication System Site</name>
-    <description>NHS Digital Publication System Site</description>
+    <name>NHS Digital Website Site</name>
+    <description>NHS Digital Website Site</description>
     <dependencies>
         <dependency>
             <groupId>javax.servlet.jsp</groupId>

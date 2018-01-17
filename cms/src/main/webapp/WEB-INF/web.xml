@@ -6,8 +6,8 @@
          id="cms">
 
   <!-- General configuration -->
-  <display-name>NHS Digital Publication System CMS</display-name>
-  <description>NHS Digital Publication System CMS</description>
+  <display-name>NHS Digital Website CMS</display-name>
+  <description>NHS Digital Website CMS</description>
 
   <context-param>
     <description>The address of the repository</description>

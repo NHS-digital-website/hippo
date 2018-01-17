@@ -6,8 +6,8 @@
          id="site">
 
 
-  <display-name>NHS Digital Publication System site</display-name>
-  <description>NHS Digital Publication System site</description>
+  <display-name>NHS Digital Website site</display-name>
+  <description>NHS Digital Website site</description>
 
   <jsp-config>
     <jsp-property-group>

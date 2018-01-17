@@ -23,3 +23,11 @@ Feature: Display of publications forming a series
             | Integer suscipit pulvinar lacus non porta. Aenean ut tempus ex. Proin ... |
             | Pellentesque rutrum neque at felis cursus, scelerisque faucibus lacus ... |
             | Fusce sapien quam, dictum eget commodo vel, finibus condimentum ...       |
+
+    Scenario: Series/Collection label displayed for series document type
+        Given I navigate to the "valid publication series" page
+        Then I should see headers:
+            | Series/Collection     |
+        And I should not see headers:
+            | Publication           |
+            | Dataset               |

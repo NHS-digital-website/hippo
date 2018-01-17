@@ -13,10 +13,10 @@
       gtag('config', 'UA-76954916-2');
     </script>
 
-    <title>NHS - Replacement Publication System</title>
+    <title>NHS Digital Website</title>
 
     <meta charset="utf-8"/>
-    <meta name="title" content="NHS - Replacement Publication System" />
+    <meta name="title" content="NHS Digital Website" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 
     <link rel="stylesheet" href="<@hst.webfile  path="/css/style.css"/>" type="text/css"/>

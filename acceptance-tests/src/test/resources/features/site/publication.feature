@@ -58,6 +58,13 @@ Feature: Ensure publication page displays required fields.
             | Related Links             |
             | Taxonomy                  |
 
+    Scenario: Publication label displayed for publication document type
+        Given I navigate to the "bare minimum publication" page
+        Then I should see headers:
+            | Publication               |
+        And I should not see headers:
+            | Series/Collection         |
+            | Dataset                   |
 
     Scenario: Display multiparagraph summary
         Given I navigate to "publication with datasets" page

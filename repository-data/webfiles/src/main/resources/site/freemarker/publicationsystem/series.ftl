@@ -1,16 +1,16 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <#include "./macro/structured-text.ftl">
-
-<@hst.setBundle basename="publicationsystem.headers"/>
+<@hst.setBundle basename="publicationsystem.headers,publicationsystem.labels"/>
 
 <#if series??>
     <section class="document-header" aria-label="Series Title">
-      <div class="document-header__inner">
-        <div class="layout-5-6">
-          <h1 class="push--bottom" data-uipath="ps.document.title">${series.title}</h1>
+        <div class="document-header__inner">
+            <h3 class="flush--bottom push-half--top"><@fmt.message key="labels.series"/></h3>
+            <div class="layout-5-6">
+                <h1 class="push--bottom" data-uipath="ps.document.title">${series.title}</h1>
+            </div>
         </div>
-      </div>
     </section>
 
     <section class="document-content" aria-label="Series Content">
