@@ -8,13 +8,13 @@
 
     <parent>
         <groupId>uk.nhs.digital</groupId>
-        <artifactId>publication-system</artifactId>
+        <artifactId>website</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>publication-system-acceptance-tests</artifactId>
-    <name>NHS Digital Publication System Acceptance Tests</name>
-    <description>Automated Acceptance Tests for NHS Digital Publication System</description>
+    <artifactId>website-acceptance-tests</artifactId>
+    <name>NHS Digital Website Acceptance Tests</name>
+    <description>Automated Acceptance Tests for NHS Digital Website</description>
 
     <properties>
         <cucumber.version>1.2.5</cucumber.version>
@@ -271,24 +271,24 @@
                             <configuration>
                                 <configfiles>
                                     <configfile>
-                                        <file>${publication-system.basedir}/conf/context.xml</file>
+                                        <file>${website.basedir}/conf/context.xml</file>
                                         <todir>conf/</todir>
                                         <tofile>context.xml</tofile>
                                     </configfile>
                                     <configfile>
-                                        <file>${publication-system.basedir}/conf/catalina-logging.properties</file>
+                                        <file>${website.basedir}/conf/catalina-logging.properties</file>
                                         <todir>conf/</todir>
                                         <tofile>logging.properties</tofile>
                                     </configfile>
                                     <configfile>
-                                        <file>${publication-system.basedir}/conf/query/lucene/indexing_configuration.xml</file>
+                                        <file>${website.basedir}/conf/query/lucene/indexing_configuration.xml</file>
                                         <todir>conf/query/lucene</todir>
                                         <tofile>indexing_configuration.xml</tofile>
                                     </configfile>
                                 </configfiles>
                                 <files>
                                     <file>
-                                        <file>${publication-system.basedir}/repository-data/development/target/publication-system-repository-data-development-${project.version}.jar</file>
+                                        <file>${website.basedir}/repository-data/development/target/website-repository-data-development-${project.version}.jar</file>
                                         <todir>${development-module-deploy-dir}</todir>
                                     </file>
                                 </files>
@@ -299,24 +299,24 @@
                                     <properties>
                                         <context>/cms</context>
                                     </properties>
-                                    <location>${publication-system.basedir}/cms/target/cms.war</location>
+                                    <location>${website.basedir}/cms/target/cms.war</location>
                                 </deployable>
                                 <deployable>
                                     <type>war</type>
                                     <properties>
                                         <context>/site</context>
                                     </properties>
-                                    <location>${publication-system.basedir}/site/target/ROOT.war</location>
+                                    <location>${website.basedir}/site/target/ROOT.war</location>
                                 </deployable>
                             </deployables>
                             <container>
                                 <systemProperties>
-                                    <log4j.configurationFile>file://${publication-system.basedir}/conf/log4j2-dev.xml</log4j.configurationFile>
+                                    <log4j.configurationFile>file://${website.basedir}/conf/log4j2-dev.xml</log4j.configurationFile>
                                     <!-- enables auto export and web files watch: -->
-                                    <project.basedir>${publication-system.basedir}/</project.basedir>
+                                    <project.basedir>${website.basedir}/</project.basedir>
                                     <send.usage.statistics.to.hippo>false</send.usage.statistics.to.hippo>
                                     <repo.autoexport.allowed>false</repo.autoexport.allowed>
-                                    <repo.config>file://${publication-system.basedir}/conf/repository.xml</repo.config>
+                                    <repo.config>file://${website.basedir}/conf/repository.xml</repo.config>
                                 </systemProperties>
                                 <dependencies>
                                     <!-- Dependencies shared by all deployed apps. Have to be declared in project's

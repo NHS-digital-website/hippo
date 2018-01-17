@@ -8,13 +8,13 @@
 
     <parent>
         <groupId>uk.nhs.digital</groupId>
-        <artifactId>publication-system-repository-data</artifactId>
+        <artifactId>website-repository-data</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <name>NHS Digital Publication System Repository Data For Development</name>
-    <description>NHS Digital Publication System Repository Data For Development</description>
-    <artifactId>publication-system-repository-data-development</artifactId>
+    <name>NHS Digital Website Repository Data For Development</name>
+    <description>NHS Digital Website Repository Data For Development</description>
+    <artifactId>website-repository-data-development</artifactId>
 
     <build>
         <defaultGoal>install</defaultGoal>
@@ -48,7 +48,7 @@
                             <goal>execute</goal>
                         </goals>
                         <configuration>
-                            <source>${publication-system.basedir}/repository-data/development/src/main/script/YamlFormatter.groovy</source>
+                            <source>${website.basedir}/repository-data/development/src/main/script/YamlFormatter.groovy</source>
                         </configuration>
                     </execution>
                 </executions>

@@ -8,13 +8,13 @@
 
     <parent>
         <groupId>uk.nhs.digital</groupId>
-        <artifactId>publication-system-repository-data</artifactId>
+        <artifactId>website-repository-data</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <name>NHS Digital Publication System Repository Data For Application</name>
-    <description>NHS Digital Publication System Repository Data For Application</description>
-    <artifactId>publication-system-repository-data-application</artifactId>
+    <name>NHS Digital Website Repository Data For Application</name>
+    <description>NHS Digital Website Repository Data For Application</description>
+    <artifactId>website-repository-data-application</artifactId>
 
     <dependencies>
 

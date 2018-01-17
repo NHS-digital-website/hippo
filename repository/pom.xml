@@ -8,7 +8,7 @@
 
     <parent>
         <groupId>uk.nhs.digital</groupId>
-        <artifactId>publication-system</artifactId>
+        <artifactId>website</artifactId>
         <version>${revision}</version>
     </parent>
 

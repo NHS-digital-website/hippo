@@ -8,14 +8,14 @@
 
     <parent>
         <groupId>uk.nhs.digital</groupId>
-        <artifactId>publication-system</artifactId>
+        <artifactId>website</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>publication-system-essentials</artifactId>
+    <artifactId>website-essentials</artifactId>
     <packaging>war</packaging>
-    <name>NHS Digital Publication System Essentials</name>
-    <description>NHS Digital Publication System Essentials</description>
+    <name>NHS Digital Website Essentials</name>
+    <description>NHS Digital Website Essentials</description>
 
     <dependencies>
         <dependency>

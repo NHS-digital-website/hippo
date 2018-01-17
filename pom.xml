@@ -12,10 +12,10 @@
         <version>12.1.0</version>
     </parent>
 
-    <name>NHS Digital Publication System</name>
-    <description>NHS Digital Publication System</description>
+    <name>NHS Digital Website</name>
+    <description>NHS Digital Website</description>
     <groupId>uk.nhs.digital</groupId>
-    <artifactId>publication-system</artifactId>
+    <artifactId>website</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
 
@@ -269,7 +269,7 @@
                         </goals>
                         <phase>initialize</phase>
                         <configuration>
-                            <property>publication-system.basedir</property>
+                            <property>website.basedir</property>
                         </configuration>
                     </execution>
                 </executions>
@@ -279,7 +279,7 @@
                 <artifactId>versions-maven-plugin</artifactId>
                 <version>2.5</version>
                 <configuration>
-                    <rulesUri>file://${publication-system.basedir}/conf/maven-version-rules.xml</rulesUri>
+                    <rulesUri>file://${website.basedir}/conf/maven-version-rules.xml</rulesUri>
                 </configuration>
             </plugin>
 
@@ -400,7 +400,7 @@
                                 </configfiles>
                                 <files>
                                     <file>
-                                        <file>${project.basedir}/repository-data/development/target/publication-system-repository-data-development-${project.version}.jar</file>
+                                        <file>${project.basedir}/repository-data/development/target/website-repository-data-development-${project.version}.jar</file>
                                         <todir>${development-module-deploy-dir}</todir>
                                     </file>
                                 </files>
