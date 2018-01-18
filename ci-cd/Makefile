@@ -71,15 +71,15 @@ github.status.success:
 upload: $(VENV)
 	@echo "Task: upload Hippo $(VERSION) build distribution to S3 bucket"
 	aws s3 \
-		cp ../target/publication-system-$(VERSION)-cms-distribution.tar.gz \
-		s3://artefacts.ps.digital.nhs.uk/hippo_authoring/$(VERSION)/publication-system.tgz
+		cp ../target/website-$(VERSION)-cms-distribution.tar.gz \
+		s3://artefacts.ps.digital.nhs.uk/hippo_authoring/$(VERSION)/website.tgz
 	aws s3 \
-		cp ../target/publication-system-$(VERSION)-site-distribution.tar.gz \
-		s3://artefacts.ps.digital.nhs.uk/hippo_delivery/$(VERSION)/publication-system.tgz
+		cp ../target/website-$(VERSION)-site-distribution.tar.gz \
+		s3://artefacts.ps.digital.nhs.uk/hippo_delivery/$(VERSION)/website.tgz
 
 ## Upload distribution file to ondemand sftp server
 ondemand.upload:
-	echo "put ../target/publication-system-$(VERSION)-on-demand-distribution.tar.gz /uploads/dists/$(VERSION).tar.gz" \
+	echo "put ../target/website-$(VERSION)-on-demand-distribution.tar.gz /uploads/dists/$(VERSION).tar.gz" \
 		| sftp nhs@static.hosting.onehippo.com
 
 ondemand.deploy: vendor/rd
@@ -92,9 +92,9 @@ ondemand.restart: vendor/rd
 		-action restart
 
 deploy.vagrant: build
-	cp ../target/publication-system-$(VERSION)-site-distribution.tar.gz $(PS_BUILD_DIR)/.artefacts/
-	cp ../target/publication-system-$(VERSION)-cms-distribution.tar.gz $(PS_BUILD_DIR)/.artefacts/
-	cd $(PS_BUILD_DIR) && ROLE=hippo_authoring vagrant ssh -c "/home/hippo_authoring/shipit /vagrant/.artefacts/publication-system-$(VERSION)-cms-distribution.tar.gz"
+	cp ../target/website-$(VERSION)-site-distribution.tar.gz $(PS_BUILD_DIR)/.artefacts/
+	cp ../target/website-$(VERSION)-cms-distribution.tar.gz $(PS_BUILD_DIR)/.artefacts/
+	cd $(PS_BUILD_DIR) && ROLE=hippo_authoring vagrant ssh -c "/home/hippo_authoring/shipit /vagrant/.artefacts/website-$(VERSION)-cms-distribution.tar.gz"
 
 ## Create new version tag based on the nearest tag
 version.bumpup:

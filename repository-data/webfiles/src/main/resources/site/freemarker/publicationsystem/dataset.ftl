@@ -2,6 +2,7 @@
 <#include "../include/imports.ftl">
 <#include "./macro/structured-text.ftl">
 <@hst.setBundle basename="publicationsystem.headers,publicationsystem.labels"/>
+<#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
 
 <#assign dateFormat="dd/MM/yyyy"/>
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() >
@@ -68,7 +69,7 @@
                     <dl class="media__body">
                         <dt><@fmt.message key="headers.publication-date"/></dt>
                         <dd data-uipath="ps.dataset.nominal-date">
-                            ${dataset.nominalDate.time?string[dateFormat]}
+                            <@formatRestrictableDate value=dataset.nominalDate/>
                         </dd>
                     </dl>
                 </div>

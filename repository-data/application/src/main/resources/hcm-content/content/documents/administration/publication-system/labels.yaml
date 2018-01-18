@@ -21,8 +21,8 @@
     - labels.series
     resourcebundle:messages:
     - Publication
-    - Dataset
-    - Series/Collection
+    - Data set
+    - Series / Collection
   /labels[2]:
     hippo:availability:
     - preview
@@ -46,8 +46,8 @@
     - labels.series
     resourcebundle:messages:
     - Publication
-    - Dataset
-    - Series/Collection
+    - Data set
+    - Series / Collection
   /labels[3]:
     hippo:availability:
     - live
@@ -71,8 +71,8 @@
     - labels.series
     resourcebundle:messages:
     - Publication
-    - Dataset
-    - Series/Collection
+    - Data set
+    - Series / Collection
   hippo:name: Labels
   jcr:mixinTypes:
   - hippo:named

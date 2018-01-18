@@ -4,10 +4,15 @@ import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoDocument;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.List;
 
 @Node(jcrType = "publicationsystem:basedocument")
 public class BaseDocument extends HippoDocument {
+
+    private static final int WEEKS_TO_CUTOFF = 8;
 
     /**
      * <p>
@@ -39,4 +44,22 @@ public class BaseDocument extends HippoDocument {
     protected void assertPropertyPermitted(String propertyName) {
         // To be overwritten by subclasses for specific implementation
     }
+
+    /**
+     * Converts given {@linkplain Calendar} to {@linkplain RestrictableDate}.
+     */
+    protected RestrictableDate nominalPublicationDateCalendarToRestrictedDate(final Calendar calendar) {
+
+        final LocalDate nominalPublicationDate = LocalDateTime.ofInstant(
+            calendar.toInstant(),
+            calendar.getTimeZone().toZoneId()
+        ).toLocalDate();
+
+        final LocalDate cutOffPoint = LocalDate.now().plusWeeks(WEEKS_TO_CUTOFF);
+
+        return nominalPublicationDate.isAfter(cutOffPoint)
+            ? RestrictableDate.restrictedDateFrom(nominalPublicationDate)
+            : RestrictableDate.fullDateFrom(nominalPublicationDate);
+    }
+
 }

@@ -8,13 +8,13 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import uk.nhs.digital.ps.beans.structuredText.StructuredText;
 import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
 
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 @HippoEssentialsGenerated(internalName = "publicationsystem:dataset")
 @Node(jcrType = "publicationsystem:dataset")
 public class Dataset extends BaseDocument {
+
+    private RestrictableDate nominalDate;
 
     private static final Collection<String> propertiesPermittedWhenUpcoming = asList(
         PropertyKeys.TITLE,
@@ -33,9 +33,14 @@ public class Dataset extends BaseDocument {
         return new StructuredText(getProperty(PropertyKeys.SUMMARY, ""));
     }
 
-    @HippoEssentialsGenerated(internalName = PropertyKeys.NOMINAL_DATE)
-    public Calendar getNominalDate() {
-        return getPropertyIfPermitted(PropertyKeys.NOMINAL_DATE);
+    public RestrictableDate getNominalDate() {
+        if (nominalDate == null) {
+            nominalDate = Optional.ofNullable(getProperty(PropertyKeys.NOMINAL_DATE))
+                .map(object -> (Calendar)object)
+                .map(this::nominalPublicationDateCalendarToRestrictedDate)
+                .orElse(null);
+        }
+        return nominalDate;
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.NEXT_PUBLICATION_DATE)

@@ -16,8 +16,6 @@ import org.slf4j.LoggerFactory;
 import uk.nhs.digital.ps.beans.structuredText.StructuredText;
 import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.*;
 
 @HippoEssentialsGenerated(internalName = "publicationsystem:publication")
@@ -25,8 +23,6 @@ import java.util.*;
 public class Publication extends BaseDocument {
 
     private static final Logger log = LoggerFactory.getLogger(Publication.class);
-
-    private static final int WEEKS_TO_CUTOFF = 8;
 
     private static final Collection<String> propertiesPermittedWhenUpcoming = asList(
         PropertyKeys.TITLE,
@@ -213,23 +209,6 @@ public class Publication extends BaseDocument {
     private boolean isPropertyAlwaysPermitted(final String propertyKey) {
         return PropertyKeys.PARENT_BEAN.equals(propertyKey)
             || PropertyKeys.PUBLICLY_ACCESSIBLE.equals(propertyKey);
-    }
-
-    /**
-     * Converts given {@linkplain Calendar} to {@linkplain RestrictableDate}.
-     */
-    private RestrictableDate nominalPublicationDateCalendarToRestrictedDate(final Calendar calendar) {
-
-        final LocalDate nominalPublicationDate = LocalDateTime.ofInstant(
-                calendar.toInstant(),
-                calendar.getTimeZone().toZoneId()
-            ).toLocalDate();
-
-        final LocalDate cutOffPoint = LocalDate.now().plusWeeks(WEEKS_TO_CUTOFF);
-
-        return nominalPublicationDate.isAfter(cutOffPoint)
-            ? RestrictableDate.restrictedDateFrom(nominalPublicationDate)
-            : RestrictableDate.fullDateFrom(nominalPublicationDate);
     }
 
     interface PropertyKeys {

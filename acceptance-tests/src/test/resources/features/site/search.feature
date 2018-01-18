@@ -110,3 +110,14 @@ Feature: Basic search
         Given I navigate to the "home" page
         When I search for " "
         Then I should see the blank search results page
+
+    Scenario: Each document type label is correctly displayed in search results
+        Given I navigate to the "home" page
+        When I search for "Bare Minimum"
+        Then I should see search results which also include:
+            | Data set              | Bare Minimum Dataset              |
+            | Publication           | Bare Minimum Publication          |
+        When I navigate to the "home" page
+        When I search for "series"
+        Then I should see search results which also include:
+            | Series / Collection   | Time Series Lorem Ipsum Dolor     |

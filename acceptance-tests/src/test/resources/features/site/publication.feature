@@ -63,8 +63,8 @@ Feature: Ensure publication page displays required fields.
         Then I should see headers:
             | Publication               |
         And I should not see headers:
-            | Series/Collection         |
-            | Dataset                   |
+            | Series / Collection       |
+            | Data set                  |
 
     Scenario: Display multiparagraph summary
         Given I navigate to "publication with datasets" page

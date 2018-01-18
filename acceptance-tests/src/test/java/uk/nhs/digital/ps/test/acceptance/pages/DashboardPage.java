@@ -40,7 +40,7 @@ public class DashboardPage extends AbstractCmsPage {
     }
 
     public List<String> getPasswordErrorMessages() {
-        WebElement errorPanel = getWebDriver().findElement(By.className("feedbackPanel"));
+        WebElement errorPanel = helper.findElement(By.className("feedbackPanel"));
         return errorPanel.findElements(By.tagName("li")).stream()
             .map(WebElement::getText)
             .collect(toList());
