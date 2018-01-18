@@ -24,9 +24,14 @@ public class SearchResultWidget {
         return findElement("summary").getText();
     }
 
+    public String getType()  {
+        return findElement("type").getText();
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this)
+            .append("type", getType())
             .append("title", getTitle())
             .append("date", getDate())
             .append("summary", getSummary())

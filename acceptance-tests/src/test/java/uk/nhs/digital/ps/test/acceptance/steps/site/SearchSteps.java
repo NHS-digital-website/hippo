@@ -67,6 +67,19 @@ public class SearchSteps extends AbstractSpringSteps {
         assertThat("Search results match", actualResults, contains(expectedResults));
     }
 
+    @Then("^I should see search results which also include:$")
+    public void iShouldSeeSearchResultsWhichAlsoInclude(DataTable expectedResults) throws Throwable {
+
+        List<SearchResultWidget> actualResults = searchPage.getSearchResultWidgets();
+
+        for (List<String> elementItem : expectedResults.raw()) {
+            assertTrue("Search result includes item specified",
+                actualResults.stream()
+                    .anyMatch(result->result.getType().equals(elementItem.get(0))
+                    && result.getTitle().equals(elementItem.get(1))));
+        }
+    }
+
     @Then("^I should see the search term \"(.+)\" on the results page$")
     public void iShouldSeeTheSearchTermOnTheResultsPage(String term) throws Throwable {
         assertThat("Result count ends with search term", searchPage.getResultCount(), endsWith(term));

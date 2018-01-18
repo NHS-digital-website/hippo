@@ -42,7 +42,9 @@
             <h3 class="flush--bottom push-half--top"><@fmt.message key="labels.publication"/></h3>
 
             <h3 data-uipath="ps.publication.information-types" class="flush--bottom push-half--top">
-                <#list publication.informationType as type><#if type?index != 0>, </#if>${type}</#list>
+                <#if publication.informationType?has_content>
+                    <#list publication.informationType as type><#if type?index != 0>, </#if>${type}</#list>
+                </#if>
             </h3>
 
             <h1 class="layout-5-6" data-uipath="ps.document.title">${publication.title}</h1>

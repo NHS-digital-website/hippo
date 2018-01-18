@@ -11,7 +11,7 @@ Feature: As a consumer I need to be able to navigate to publication data sets
             | Dataset Granularity           | NHS Trusts                                                  |
             | Dataset Geographic Coverage   | England                                                     |
             | Dataset Date Range            | 01/02/2016 to 01/07/2017                                    |
-            | Dataset Nominal Date          | 10/10/2017                                                  |
+            | Dataset Nominal Date          | 10 Oct 2017                                                 |
             | Dataset Next Publication Date | 09/07/2018                                                  |
 
     Scenario: Headers don't display for empty fields
@@ -36,10 +36,10 @@ Feature: As a consumer I need to be able to navigate to publication data sets
     Scenario: Dataset label displayed for dataset document type
         Given I navigate to the "bare minimum dataset" page
         Then I should see headers:
-            | Dataset |
+            | Data set                  |
         And I should not see headers:
-            | Publication       |
-            | Series/Collection |
+            | Publication               |
+            | Series / Collection       |
 
     Scenario: View resource links and download attachments from dataset
         Given I navigate to the "publication with datasets Dataset" data set page
