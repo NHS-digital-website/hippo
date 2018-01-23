@@ -1,5 +1,7 @@
 package uk.nhs.digital.ps.test.acceptance.pages.site.common;
 
+import static java.util.stream.Collectors.toList;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
@@ -8,8 +10,6 @@ import uk.nhs.digital.ps.test.acceptance.pages.widgets.SearchResultWidget;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
 import java.util.List;
-
-import static java.util.stream.Collectors.toList;
 
 public class SearchPage extends AbstractSitePage {
 
@@ -50,7 +50,9 @@ public class SearchPage extends AbstractSitePage {
 
     public WebElement searchForTerm(final String queryTerm) {
         // type, click search
-        findSearchField().sendKeys(queryTerm);
+        WebElement searchField = findSearchField();
+        searchField.clear();
+        searchField.sendKeys(queryTerm);
         findSearchButton().click();
 
         // ensure search results is present on page

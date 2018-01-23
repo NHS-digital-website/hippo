@@ -1,5 +1,10 @@
 package uk.nhs.digital.ps.test.acceptance.steps.site;
 
+import static java.util.stream.Collectors.toList;
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.*;
+import static org.slf4j.LoggerFactory.getLogger;
+
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -14,15 +19,6 @@ import uk.nhs.digital.ps.test.acceptance.steps.AbstractSpringSteps;
 
 import java.util.List;
 
-import static java.util.stream.Collectors.toList;
-import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.Matchers.endsWith;
-import static org.hamcrest.Matchers.hasItem;
-import static org.hamcrest.Matchers.not;
-import static org.hamcrest.Matchers.startsWith;
-import static org.junit.Assert.*;
-import static org.slf4j.LoggerFactory.getLogger;
-
 
 public class SearchSteps extends AbstractSpringSteps {
 
@@ -34,7 +30,7 @@ public class SearchSteps extends AbstractSpringSteps {
     @Autowired
     private TestDataRepo testDataRepo;
 
-    @When("^I search for \"(.+)\"$")
+    @When("^I search for \"(.*)\"$")
     public void iSearchFor(String searchTerm) throws Throwable {
         searchPage.searchForTerm(searchTerm);
     }
@@ -69,7 +65,7 @@ public class SearchSteps extends AbstractSpringSteps {
         assertThat("Publication is not in the results", actualResults, not(hasItem(expectedTitle)));
     }
 
-    @Then("^I should see (\\d+) search results$")
+    @Then("^I should see (\\d+) search results?$")
     public void iShouldSeeSearchResults(String count) throws Throwable {
         if (count.equals("0")) {
             count = "No results";
