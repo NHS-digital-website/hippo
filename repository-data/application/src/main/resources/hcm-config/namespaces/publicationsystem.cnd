@@ -2,6 +2,7 @@
 <'hippo'='http://www.onehippo.org/jcr/hippo/nt/2.0.4'>
 <'hippostd'='http://www.onehippo.org/jcr/hippostd/nt/2.0'>
 <'hippostdpubwf'='http://www.onehippo.org/jcr/hippostdpubwf/nt/1.0'>
+<'common'='http://digital.nhs.uk/jcr/common/nt/1.0'>
 <'hippotranslation'='http://www.onehippo.org/jcr/hippotranslation/nt/1.0'>
 
 [publicationsystem:attachment] > hippo:compound, hippostd:relaxed
@@ -10,6 +11,15 @@
 [publicationsystem:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
   orderable
   - common:searchable (boolean) = 'true' autocreated
+
+[publicationsystem:cihub] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
+  orderable
+
+[publicationsystem:cihublink] > hippo:compound, hippostd:relaxed
+  orderable
+
+[publicationsystem:cilanding] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
+  orderable
 
 [publicationsystem:dataset] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
   orderable

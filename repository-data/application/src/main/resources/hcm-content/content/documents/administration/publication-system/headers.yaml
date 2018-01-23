@@ -22,6 +22,9 @@
     - ''
     - ''
     - ''
+    - ''
+    - ''
+    - ''
     resourcebundle:id: publicationsystem.headers
     resourcebundle:keys:
     - headers.summary
@@ -35,6 +38,9 @@
     - headers.geographical-granularity
     - headers.publication-date
     - headers.next-publication-date
+    - headers.ci-hub-overview
+    - headers.ci-landing-actions
+    - headers.ci-landing-resources
     resourcebundle:messages:
     - Summary
     - Key Facts
@@ -47,6 +53,9 @@
     - 'Geographical Granularity:'
     - 'Publication Date:'
     - 'Next Publication Date:'
+    - Overview
+    - Actions
+    - Resources
   /headers[2]:
     hippo:availability:
     - preview
@@ -71,6 +80,9 @@
     - ''
     - ''
     - ''
+    - ''
+    - ''
+    - ''
     resourcebundle:id: publicationsystem.headers
     resourcebundle:keys:
     - headers.summary
@@ -84,6 +96,9 @@
     - headers.geographical-granularity
     - headers.publication-date
     - headers.next-publication-date
+    - headers.ci-hub-overview
+    - headers.ci-landing-actions
+    - headers.ci-landing-resources
     resourcebundle:messages:
     - Summary
     - Key Facts
@@ -96,6 +111,9 @@
     - 'Geographical Granularity:'
     - 'Publication Date:'
     - 'Next Publication Date:'
+    - Overview
+    - Actions
+    - Resources
   /headers[3]:
     hippo:availability:
     - live
@@ -120,6 +138,9 @@
     - ''
     - ''
     - ''
+    - ''
+    - ''
+    - ''
     resourcebundle:id: publicationsystem.headers
     resourcebundle:keys:
     - headers.summary
@@ -133,6 +154,9 @@
     - headers.geographical-granularity
     - headers.publication-date
     - headers.next-publication-date
+    - headers.ci-hub-overview
+    - headers.ci-landing-actions
+    - headers.ci-landing-resources
     resourcebundle:messages:
     - Summary
     - Key Facts
@@ -145,6 +169,9 @@
     - 'Geographical Granularity:'
     - 'Publication Date:'
     - 'Next Publication Date:'
+    - Overview
+    - Actions
+    - Resources
   hippo:name: Headers
   jcr:mixinTypes:
   - hippo:named
