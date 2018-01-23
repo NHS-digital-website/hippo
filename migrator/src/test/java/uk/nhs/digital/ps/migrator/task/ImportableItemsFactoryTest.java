@@ -1,5 +1,10 @@
 package uk.nhs.digital.ps.migrator.task;
 
+import static org.hamcrest.Matchers.startsWith;
+import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.verify;
+import static org.mockito.MockitoAnnotations.initMocks;
+
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
@@ -14,11 +19,6 @@ import uk.nhs.digital.ps.migrator.report.MigrationReport;
 
 import java.util.Arrays;
 import java.util.List;
-
-import static org.hamcrest.Matchers.startsWith;
-import static org.junit.Assert.assertThat;
-import static org.mockito.Mockito.verify;
-import static org.mockito.MockitoAnnotations.initMocks;
 
 @RunWith(DataProviderRunner.class)
 public class ImportableItemsFactoryTest {
@@ -46,7 +46,7 @@ public class ImportableItemsFactoryTest {
         final String pCode = "aTestPCodeValue";
 
         // when
-        importableItemsFactory.formatDatasetSummary(summaryWithHtmlMarkup, pCode);
+        importableItemsFactory.formatDatasetSummary(summaryWithHtmlMarkup, null, pCode);
 
         // then
         verify(migrationReport).report(pCode, IncidentType.HTML_IN_SUMMARY, summaryWithHtmlMarkup);
@@ -61,8 +61,7 @@ public class ImportableItemsFactoryTest {
         final String expectedSummary = testData[1];
 
         // when
-        final String actualSummary = importableItemsFactory.formatDatasetSummary(inputSummary, "aTestPCode");
-
+        final String actualSummary = importableItemsFactory.formatDatasetSummary(inputSummary, null, "aTestPCode");
 
         // then
         assertThat("Summary is formatted correctly", actualSummary, startsWith(expectedSummary));

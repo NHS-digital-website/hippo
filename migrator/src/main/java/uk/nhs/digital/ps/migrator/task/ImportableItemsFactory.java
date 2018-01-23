@@ -1,5 +1,13 @@
 package uk.nhs.digital.ps.migrator.task;
 
+import static java.text.MessageFormat.format;
+import static java.util.regex.Pattern.CASE_INSENSITIVE;
+import static java.util.stream.Collectors.toList;
+import static org.apache.commons.lang3.StringUtils.containsIgnoreCase;
+import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.slf4j.LoggerFactory.getLogger;
+import static uk.nhs.digital.ps.migrator.report.IncidentType.*;
+
 import org.slf4j.Logger;
 import uk.nhs.digital.ps.migrator.config.ExecutionParameters;
 import uk.nhs.digital.ps.migrator.model.hippo.*;
@@ -15,17 +23,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
-import static java.text.MessageFormat.format;
-import static java.util.regex.Pattern.CASE_INSENSITIVE;
-import static java.util.stream.Collectors.toList;
-import static org.apache.commons.lang3.StringUtils.containsIgnoreCase;
-import static org.apache.commons.lang3.StringUtils.isBlank;
-import static org.slf4j.LoggerFactory.getLogger;
-import static uk.nhs.digital.ps.migrator.report.IncidentType.*;
-
 public class ImportableItemsFactory {
 
     private final static Logger log = getLogger(ImportableItemsFactory.class);
+
+    private static final String DATE_FIELD_NOMINAL_DATE = "Nominal Date";
+    private static final String DATE_FIELD_NEXT_PUBLICATION_DATE = "Next Publication Date";
 
     private final ExecutionParameters executionParameters;
     private final MigrationReport migrationReport;
@@ -69,8 +72,11 @@ public class ImportableItemsFactory {
         final String pCode = exportedPublishingPackage.getUniqueIdentifier();
 
         try {
-            String nominalDate = convertImportedDate(exportedPublishingPackage.currentVersionUploadedDate(), pCode);
-            String nextPublicationDate = convertImportedDate(exportedPublishingPackage.nextVersionDueDate(), pCode);
+            String nominalDate = convertImportedDate(exportedPublishingPackage.currentVersionUploadedDate(), pCode, DATE_FIELD_NOMINAL_DATE)[0];
+
+            String[] convertNextPublicationDate = convertImportedDate(exportedPublishingPackage.nextVersionDueDate(), pCode, DATE_FIELD_NEXT_PUBLICATION_DATE);
+            String nextPublicationDate = convertNextPublicationDate[0];
+            String nextPublicationDateDisclaimerText = convertNextPublicationDate[1];
 
             List<NesstarResource> resources = exportedPublishingPackage.getResources();
 
@@ -89,6 +95,7 @@ public class ImportableItemsFactory {
 
             final String summary = formatDatasetSummary(
                 exportedPublishingPackage.getSummary(),
+                nextPublicationDateDisclaimerText,
                 pCode
             );
 
@@ -128,7 +135,7 @@ public class ImportableItemsFactory {
     }
 
     public List<ResourceLink> getResourceLinks(final String pCode, List<NesstarResource> resources) {
-      return resources.stream()
+        return resources.stream()
             .filter(NesstarResource::isLink)
             .map(resource -> new ResourceLink(resource.getTitle(), resource.getUri()))
             .collect(toList());
@@ -137,7 +144,7 @@ public class ImportableItemsFactory {
     public List<Attachment> getAttachments(PublishingPackage publishingPackage) {
         List<NesstarResource> resources = publishingPackage.getResources();
         // Convert to Attachment objects and download the file from the existing website
-      return resources.stream()
+        return resources.stream()
             .filter(NesstarResource::isAttachment)
             .map(resource -> new Attachment(
                 executionParameters.getNesstarAttachmentDownloadDir(),
@@ -207,7 +214,7 @@ public class ImportableItemsFactory {
      * The nesstar data only has month and year whereas in hippo we want a date.
      * These mappings have been provided to us as the actual dates in each month that the publications were published
      */
-    private String convertImportedDate(final String rawInputDate, final String pCode) {
+    private String[] convertImportedDate(final String rawInputDate, final String pCode, String dateField) {
         String input = rawInputDate;
 
         switch (rawInputDate) {
@@ -215,10 +222,51 @@ public class ImportableItemsFactory {
             case "April 2016 (contextual information only)": input = "Apr-16"; break;
             default: // no-op
         }
+
         if (!input.equals(rawInputDate)) {
-            migrationReport.report(pCode, DATE_WITH_EXTRA_TEXT, rawInputDate + " | " + input);
+            migrationReport.report(pCode, DATE_WITH_EXTRA_TEXT, dateField + " | " + rawInputDate + " | " + input);
         }
 
+        String mappedDate = getMappedDate(input);
+        String dateDisclaimer = getDateDisclaimer(input, dateField);
+
+        if (mappedDate == null && dateDisclaimer == null) {
+            migrationReport.report(pCode, NO_DATE_MAPPING, dateField + " | " + input);
+        }
+
+        if (mappedDate == null) {
+            mappedDate = "0001-01-01T12:00:00.000Z";
+        }
+
+        return new String[]{mappedDate, dateDisclaimer};
+    }
+
+    private String getDateDisclaimer(String input, String dateField) {
+        if (dateField.equals(DATE_FIELD_NEXT_PUBLICATION_DATE)) {
+            switch (input) {
+                case "N/A":
+                    return "There will be no further updates for this indicator.";
+
+                case "Discontinued":
+                    return "This indicator has been discontinued and so there will be no further updates.";
+
+                case "To be confirmed":
+                case "TBC":
+                case "TBA":
+                    return "The next release date for this indicator is to be confirmed.";
+
+                case "Will not be updated":
+                case "See file below":
+                case "No further updates":
+                case "None planned":
+                case "":
+                    return "There will be no further updates for this indicator.";
+            }
+        }
+        return null;
+    }
+
+    private String getMappedDate(String input) {
         switch (input) {
             case "Jun-07":    return "2007-06-21T09:30:00.000Z";
 
@@ -298,7 +346,6 @@ public class ImportableItemsFactory {
             case "Nov-17":    return "2017-11-16T09:30:00.000Z";
             case "Dec-17":    return "2017-12-14T09:30:00.000Z";
 
-
             case "Jan-18":    return "2018-01-25T09:30:00.000Z";
             case "Feb-18":    return "2018-02-22T09:30:00.000Z";
             case "Mar-18":    return "2018-03-22T09:30:00.000Z";
@@ -312,10 +359,7 @@ public class ImportableItemsFactory {
             case "Nov-18":    return "2018-11-15T09:30:00.000Z";
             case "Dec-18":    return "2018-12-13T09:30:00.000Z";
 
-            default:
-                migrationReport.report(pCode, NO_DATE_MAPPING, input);
-
-                return "0001-01-01T12:00:00.000Z";
+            default: return null;
         }
     }
 
@@ -332,7 +376,7 @@ public class ImportableItemsFactory {
      *     lmanually. It's unlikely that at this point any would be added, much less more than one.
      * </p>
      */
-    public String formatDatasetSummary(final String rawSummary, final String pCode) {
+    public String formatDatasetSummary(final String rawSummary, final String disclaimerText, final String pCode) {
 
         // Report on hyperlinks present in the summary - these will need to be manually added as Resource Links.
         final List<String> hyperlinksInSummary = Stream.of(
@@ -372,6 +416,10 @@ public class ImportableItemsFactory {
         }
 
         String summary = rawSummary;
+
+        if (!isBlank(disclaimerText)) {
+            summary = format("{0}\n\n{1}", summary, disclaimerText);
+        }
 
         if (!isBlank(pCode)) {
             summary = format("{0}\n\nLegacy unique identifier: {1}", summary, pCode);
