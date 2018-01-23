@@ -1,0 +1,6 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/FullTaxonomyModule:
+      hipposys:className: uk.nhs.digital.ps.modules.FullTaxonomyModule
+      jcr:primaryType: hipposys:module

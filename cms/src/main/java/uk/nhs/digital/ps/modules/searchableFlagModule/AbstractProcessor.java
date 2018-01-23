@@ -14,7 +14,6 @@ abstract class AbstractProcessor {
     private static final Logger log = LoggerFactory.getLogger(PublicationProcessor.class);
 
     protected static final String SEARCHABLE_FLAG = "common:searchable";
-    private static final String TYPE_HANDLE = "hippo:handle";
     private static final String PROPERTY_STATE = "hippostd:state";
 
     public AbstractProcessor() { }
@@ -31,28 +30,20 @@ abstract class AbstractProcessor {
         return false;
     }
 
-    protected boolean hasValidType(Node node, String validType) throws RepositoryException {
+    private boolean hasValidType(Node node, String validType) throws RepositoryException {
         return validType.equals(node.getPrimaryNodeType().getName());
     }
 
-    protected boolean hasValidState(Node node, List<String> validStates) throws RepositoryException {
+    private boolean hasValidState(Node node, List<String> validStates) throws RepositoryException {
         return validStates.contains(node.getProperty(PROPERTY_STATE).getString());
     }
 
     protected boolean hasValidDocumentType(Node node, String documentType) throws RepositoryException {
-        if (!hasValidType(node, TYPE_HANDLE)) {
-            return false;
-        }
-
         return hasValidType(node.getNode(node.getName()), documentType);
     }
 
-    protected Stream<Node> streamDocumentVariants(Node node) throws RepositoryException {
-        if (!hasValidType(node, TYPE_HANDLE)) {
-            return Stream.empty();
-        }
-
-        Stream<Node> stream = StreamSupport.stream(
+    protected Stream<Node> streamDocumentVariants(Node node) {
+        return StreamSupport.stream(
             ((Iterable<Node>) () -> {
                     try {
                         return node.getNodes();
@@ -64,7 +55,5 @@ abstract class AbstractProcessor {
             ).spliterator(),
             false
         );
-
-        return stream;
     }
 }
