@@ -288,6 +288,55 @@ a {
 
 
 
+
+/* TREE */
+/* ########################################################## */
+.tree {
+    list-style: none;
+    padding: 0px;
+    position: relative;
+    min-height: 500px;
+    width: 290px;
+    border-left: 1px solid @color-grey-light;
+
+    ul {
+        padding: 0px;
+        position: absolute;
+        top:0px;
+        left:290px;
+        min-height: 500px;
+        width: 290px;
+        border-left: 1px solid @color-grey-light;
+    }
+    li {
+        display: block;
+        width: 290px;
+        padding: @half-spacing-unit @base-spacing-unit;
+        cursor: pointer;
+        font-size: 15px;
+        background-image: url("../img/icon-chevron-blue.svg");
+        background-repeat: no-repeat;
+        background-position: 94% center;
+        background-size: 14px 14px;
+    }
+    li.tree__selected {
+        background-color: @color-primary;
+        background-image: url("../img/icon-chevron-white.svg");
+        color: #FFF;
+    }
+    li.tree__external-link {
+        color: @color-primary;
+        font-weight: bold;
+        background-image: url("../img/icon-search-blue.svg");
+    }
+}
+
+
+
+
+
+
+
 /* PANELS */
 /* ########################################################## */
 

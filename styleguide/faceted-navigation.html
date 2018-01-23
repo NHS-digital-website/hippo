@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+
+  <title>NHS - Replacement Publication System - Dataset</title>
+
+  <meta charset="UTF-8" />
+  <meta name="title" content="NHS - Replacement Publication System" />
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
+
+</head>
+<body class="">
+
+    <header class="top-header">
+        <div class="top-header__col1">
+            <img class="top-header__logo" src="https://digital.nhs.uk/media/89/NHSDigital/variant1/NHS-Digital-logo_WEB_LEFT-100x855" alt="NHS Digital">
+        </div><!--
+        --><div class="top-header__col2">
+            <div class="top-header__nav">
+                <ul class="top-header__nav__list">
+                    <li class="top-header__nav__list__item"><a href="#">Data and information</a></li>
+                    <li class="top-header__nav__list__item"><a href="#">Systems and services</a></li>
+                    <li class="top-header__nav__list__item"><a href="#">News and events</a></li>
+                    <li class="top-header__nav__list__item"><a href="#">About NHS Digital</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section class="common-search">
+        <div class="common-search__inner">
+            <span class="common-search__input">
+                <input class="common-search__input__field" id="query" name="query" placeholder="What are you looking for today?" type="text" value="">
+            </span>
+            <input class="common-search__submit" id="btnSearch" type="submit" value="Search">
+        </div>
+    </section>
+
+
+    <section class="document-content">
+
+        <h1>Browse all indicators</h1>
+
+        <ul class="tree">
+            <li>Outcomes
+                <ul>
+                    <li>Survival
+                        <ul>
+                            <li>Example</li>
+                            <li>Example</li>
+                        </ul>
+                    </li>
+                    <li>Mortality / death</li>
+                    <li>Readmission</li>
+                    <li>Discharge</li>
+                    <li>Care plan</li>
+                    <li class="tree__external-link" data="#">See all documents</li>
+                </ul>
+            </li>
+            <li>Conditions and Interventions</li>
+            <li>Performance</li>
+            <li>Health and Care Activity</li>
+            <li>People and Patients
+                <ul>
+                    <li>Demographics</li>
+                    <li>Environment</li>
+                    <li>Population</li>
+                    <li>Impact on NHS resources</li>
+                    <li>Lifestyle</li>
+                    <li>Patient joint</li>
+                    <li>Patient safety</li>
+                    <li>Workforce
+                        <ul>
+                            <li>Staff earnings</li>
+                            <li>Staff expenses</li>
+                            <li>Staff management</li>
+                            <li>Staff numbers
+                                <ul>
+                                    <li class="tree__external-link" data="#">NHS staff</li>
+                                    <li class="tree__external-link" data="#">Social care staff</li>
+                                    <li class="tree__external-link" data="#">See all documents</li>
+                                </ul>
+                            </li>
+                            <li class="tree__external-link" data="#">See all documents</li>
+                        </ul>
+                    </li>
+                    <li class="tree__external-link" data="#">See all documents</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            FOOTER
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+    $(document).ready(function(){
+
+        // THIS IS JUST FOR PROTOTYPING
+        // JS NEEDS REBUILDING FOR PRODUCTION
+
+        $(".tree ul").hide();
+
+        $( ".tree li" ).click(function() {
+
+            if ( $( this ).hasClass( "tree__external-link" ) ) {
+                alert($(this).attr("data"));
+            } else {
+                $(this).addClass("tree__selected");
+                $(this).siblings().removeClass("tree__selected");
+                $(this).children().show();
+                $(this).siblings().children().hide();
+            }
+        });
+
+    });
+    </script>
+
+</body>
+</html>
