@@ -12,7 +12,7 @@
   - TIMEFRAME
   hippofacnav:facets:
   - jcr:primaryType
-  - hippotaxonomy:keys
+  - common:FullTaxonomy
   - publicationsystem:InformationType
   - publicationsystem:GeographicCoverage
   - publicationsystem:Granularity

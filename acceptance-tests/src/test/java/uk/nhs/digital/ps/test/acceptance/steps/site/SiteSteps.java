@@ -1,5 +1,15 @@
 package uk.nhs.digital.ps.test.acceptance.steps.site;
 
+import static java.util.Arrays.asList;
+import static java.util.stream.Collectors.toList;
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.startsWith;
+import static org.junit.Assert.*;
+import static org.slf4j.LoggerFactory.getLogger;
+import static uk.nhs.digital.ps.test.acceptance.pages.site.AbstractSitePage.URL;
+import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.waitUntilFileAppears;
+
 import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -12,6 +22,8 @@ import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.config.AcceptanceTestProperties;
+import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
+import uk.nhs.digital.ps.test.acceptance.models.Taxonomy;
 import uk.nhs.digital.ps.test.acceptance.pages.site.SitePage;
 import uk.nhs.digital.ps.test.acceptance.steps.AbstractSpringSteps;
 import uk.nhs.digital.ps.test.acceptance.util.TestContentUrls;
@@ -20,15 +32,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Stream;
-
-import static java.util.stream.Collectors.toList;
-import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.Matchers.startsWith;
-import static org.junit.Assert.*;
-import static org.slf4j.LoggerFactory.getLogger;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.AbstractSitePage.URL;
-import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.waitUntilFileAppears;
 
 
 public class SiteSteps extends AbstractSpringSteps {
@@ -40,6 +43,9 @@ public class SiteSteps extends AbstractSpringSteps {
 
     @Autowired
     private AcceptanceTestProperties acceptanceTestProperties;
+
+    @Autowired
+    private TestDataRepo testDataRepo;
 
     private TestContentUrls urlLookup = new TestContentUrls();
 
@@ -239,19 +245,23 @@ public class SiteSteps extends AbstractSpringSteps {
 
     @Then("^I should see the \"([^\"]*)\" list (containing|(?:not )?including):$")
     public void iShouldSeeTheListWith(String title, String qualifier, DataTable listItems) throws Throwable {
+        List<String> items = listItems.asList(String.class);
+        listMatchesItems(title, qualifier, items);
+    }
+
+    private void listMatchesItems(String title, String qualifier, List<String> items) {
         WebElement element = sitePage.findElementWithTitle(title);
         assertNotNull("I should find page element: " + title, element);
 
-        assertThat("List contains items", getElementTextList(element), getMatcherForQualifier(qualifier, listItems));
-
+        assertThat("List contains items", getElementTextList(element), getMatcherForQualifier(qualifier, items));
     }
 
-    private Matcher<Iterable<String>> getMatcherForQualifier(String qualifier, DataTable listItems) {
-        Stream<Matcher<String>> matcherStream = listItems.asList(String.class).stream()
+    private Matcher<Iterable<String>> getMatcherForQualifier(String qualifier, List<String> items) {
+        Stream<Matcher<String>> matcherStream = items.stream()
             .map(SiteSteps::getMatcherForText);
 
         switch (qualifier) {
-            case "containing":    return (Matcher)contains(matcherStream.collect(toList()));
+            case "containing":    return (Matcher)containsInAnyOrder(matcherStream.collect(toList()));
             case "including":     return hasItems(matcherStream.toArray(Matcher[]::new));
             case "not including":
                 return not(
@@ -269,5 +279,17 @@ public class SiteSteps extends AbstractSpringSteps {
     @Then("^I should not see element with title \"([^\"]*)\"$")
     public void iShouldNotSeeElementTitled(String title) throws Throwable {
         assertNull("Element is not on page", sitePage.findElementWithTitle(title));
+    }
+
+    @Then("^I can see the full taxonomy in the faceted navigation$")
+    public void iCanSeeTheFullTaxonomyInTheFacetedNavigation() throws Throwable {
+        Taxonomy taxonomy = testDataRepo.getCurrentPublication().getTaxonomy();
+
+        List<String> expectedTaxonomy = asList(
+            taxonomy.getLevel1() + " (1)",
+            taxonomy.getLevel2() + " (1)",
+            taxonomy.getLevel3() + " (1)"
+        );
+        listMatchesItems("CATEGORY", "containing", expectedTaxonomy);
     }
 }

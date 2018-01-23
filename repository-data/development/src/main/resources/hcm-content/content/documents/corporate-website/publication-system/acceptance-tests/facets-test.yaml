@@ -107,15 +107,20 @@
   /facets-publication:
     /content:
       /content[1]:
+        common:FullTaxonomy:
+        - falls
+        - social-care
+        - conditions
+        - accidents-and-injuries
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2018-01-04T11:15:23.787Z
-        hippostdpubwf:lastModificationDate: 2018-01-04T11:23:38.447Z
+        hippostdpubwf:lastModificationDate: 2018-01-22T10:44:33.427Z
         hippostdpubwf:lastModifiedBy: admin
         hippotaxonomy:keys:
         - social-care
-        - workforce
+        - falls
         hippotranslation:id: 1e425e93-4d05-4daf-876e-7d7115fcb3b5
         hippotranslation:locale: en
         jcr:mixinTypes:
@@ -138,16 +143,21 @@
         publicationsystem:Summary: "Facets Publication Summary\r\n\r\nzzFacets_Testzz"
         publicationsystem:Title: Facets Publication
       /content[2]:
+        common:FullTaxonomy:
+        - falls
+        - social-care
+        - conditions
+        - accidents-and-injuries
         hippo:availability:
         - preview
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2018-01-04T11:15:23.787Z
-        hippostdpubwf:lastModificationDate: 2018-01-04T11:23:41.458Z
+        hippostdpubwf:lastModificationDate: 2018-01-22T10:44:56.715Z
         hippostdpubwf:lastModifiedBy: admin
         hippotaxonomy:keys:
         - social-care
-        - workforce
+        - falls
         hippotranslation:id: 1e425e93-4d05-4daf-876e-7d7115fcb3b5
         hippotranslation:locale: en
         jcr:mixinTypes:
@@ -171,17 +181,22 @@
         publicationsystem:Summary: "Facets Publication Summary\r\n\r\nzzFacets_Testzz"
         publicationsystem:Title: Facets Publication
       /content[3]:
+        common:FullTaxonomy:
+        - falls
+        - social-care
+        - conditions
+        - accidents-and-injuries
         hippo:availability:
         - live
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2018-01-04T11:15:23.787Z
-        hippostdpubwf:lastModificationDate: 2018-01-04T11:23:41.458Z
+        hippostdpubwf:lastModificationDate: 2018-01-22T10:44:56.715Z
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2018-01-04T11:23:46.467Z
+        hippostdpubwf:publicationDate: 2018-01-22T10:45:00.435Z
         hippotaxonomy:keys:
         - social-care
-        - workforce
+        - falls
         hippotranslation:id: 1e425e93-4d05-4daf-876e-7d7115fcb3b5
         hippotranslation:locale: en
         jcr:mixinTypes:
@@ -208,15 +223,20 @@
       jcr:primaryType: hippo:handle
     /facets-dataset:
       /facets-dataset[1]:
+        common:FullTaxonomy:
+        - bowel-cancer
+        - social-care
+        - cancer
+        - conditions
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2018-01-04T11:16:38.353Z
-        hippostdpubwf:lastModificationDate: 2018-01-04T11:16:38.353Z
+        hippostdpubwf:lastModificationDate: 2018-01-22T10:43:42.636Z
         hippostdpubwf:lastModifiedBy: admin
         hippotaxonomy:keys:
         - social-care
-        - conditions
+        - bowel-cancer
         hippotranslation:id: 3b4a2511-4005-4b7c-8a68-4668f0df3f70
         hippotranslation:locale: en
         jcr:mixinTypes:
@@ -234,16 +254,21 @@
         publicationsystem:Summary: "Facets Dataset Summary\r\n\r\nzzFacets_Testzz"
         publicationsystem:Title: Facets Dataset
       /facets-dataset[2]:
+        common:FullTaxonomy:
+        - bowel-cancer
+        - social-care
+        - cancer
+        - conditions
         hippo:availability:
         - preview
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2018-01-04T11:16:38.353Z
-        hippostdpubwf:lastModificationDate: 2018-01-04T11:23:52.698Z
+        hippostdpubwf:lastModificationDate: 2018-01-22T10:44:19.030Z
         hippostdpubwf:lastModifiedBy: admin
         hippotaxonomy:keys:
         - social-care
-        - conditions
+        - bowel-cancer
         hippotranslation:id: 3b4a2511-4005-4b7c-8a68-4668f0df3f70
         hippotranslation:locale: en
         jcr:mixinTypes:
@@ -262,17 +287,22 @@
         publicationsystem:Summary: "Facets Dataset Summary\r\n\r\nzzFacets_Testzz"
         publicationsystem:Title: Facets Dataset
       /facets-dataset[3]:
+        common:FullTaxonomy:
+        - bowel-cancer
+        - social-care
+        - cancer
+        - conditions
         hippo:availability:
         - live
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2018-01-04T11:16:38.353Z
-        hippostdpubwf:lastModificationDate: 2018-01-04T11:23:52.698Z
+        hippostdpubwf:lastModificationDate: 2018-01-22T10:44:19.030Z
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2018-01-04T11:23:55.342Z
+        hippostdpubwf:publicationDate: 2018-01-22T10:44:22.835Z
         hippotaxonomy:keys:
         - social-care
-        - conditions
+        - bowel-cancer
         hippotranslation:id: 3b4a2511-4005-4b7c-8a68-4668f0df3f70
         hippotranslation:locale: en
         jcr:mixinTypes:

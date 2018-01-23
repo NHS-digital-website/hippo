@@ -11,9 +11,12 @@ Feature: Faceted search
             | Statistical Publication (2) |
             | Data Set (1)                |
         And I should see the "CATEGORY" list containing:
-            | Social care (2) |
-            | Conditions (1)  |
-            | Workforce (1)   |
+            | Conditions (2)             |
+            | Social care (2)            |
+            | Accidents and injuries (1) |
+            | Bowel cancer (1)           |
+            | Cancer (1)                 |
+            | Falls (1)                  |
         And I should see the "INFORMATION TYPE" list containing:
             | Experimental statistics (2) |
             | Audit (1)                   |
@@ -63,8 +66,10 @@ Feature: Faceted search
         And I should see the "DOCUMENT TYPE" list containing:
             | Statistical Publication x |
         And I should see the "CATEGORY" list containing:
-            | Social care (1) |
-            | Workforce (1)   |
+            | Accidents and injuries (1) |
+            | Conditions (1)             |
+            | Falls (1)                  |
+            | Social care (1)            |
         When I click on the "Cancer networks" link
         Then I should see 1 search results
         When I can click on the "Statistical Publication" link

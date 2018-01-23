@@ -16,6 +16,7 @@ public class DatasetProcessor extends AbstractProcessor {
     private static final String TYPE_DATASET = "publicationsystem:dataset";
     private static final String TYPE_PUBLICATION = "publicationsystem:publication";
 
+    @Override
     public void processNode(Node node, List<String> validStatuses) throws RepositoryException {
         if (!hasValidDocumentType(node, TYPE_DATASET)) {
             return;
