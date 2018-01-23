@@ -51,7 +51,6 @@
       <div class="layout layout--large">
         <div class="layout__item layout-1-3">
           <div class="panel panel--grey">
-            <h3>Filter by:</h3>
             <@hst.include ref="left" />
           </div>
         </div><!--

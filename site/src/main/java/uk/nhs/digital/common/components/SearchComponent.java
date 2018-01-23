@@ -37,22 +37,26 @@ public class SearchComponent extends CommonComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         EssentialsListComponentInfo paramInfo = getComponentInfo(request);
-        HippoResultSetBean resultSet = getFacetNavigationBean(request).getResultSet();
+        HippoFacetNavigationBean facetNavigationBean = getFacetNavigationBean(request);
 
-        Pageable<HippoBean> pageable = getPageableFactory()
-            .createPageable(
-                resultSet.getDocumentIterator(HippoBean.class),
-                resultSet.getCount().intValue(),
-                paramInfo.getPageSize(),
-                getCurrentPage(request)
-            );
+        if (facetNavigationBean != null) {
+            HippoResultSetBean resultSet = facetNavigationBean.getResultSet();
+            Pageable<HippoBean> pageable = getPageableFactory()
+                .createPageable(
+                    resultSet.getDocumentIterator(HippoBean.class),
+                    facetNavigationBean.getCount().intValue(),
+                    paramInfo.getPageSize(),
+                    getCurrentPage(request)
+                );
+
+            request.setAttribute("pageable", pageable);
+        }
 
         request.setAttribute("query", getQueryParameter(request));
-        request.setAttribute("pageable", pageable);
         request.setAttribute("cparam", paramInfo);
     }
 
-    public HippoFacetNavigationBean getFacetNavigationBean(HstRequest request) {
+    protected HippoFacetNavigationBean getFacetNavigationBean(HstRequest request) {
         return ContentBeanUtils.getFacetNavigationBean(buildQuery(request));
     }
 

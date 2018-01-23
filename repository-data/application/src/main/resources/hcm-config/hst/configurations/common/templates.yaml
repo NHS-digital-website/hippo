@@ -17,8 +17,8 @@ definitions:
       /footer:
         hst:renderpath: webfile:/freemarker/common/base-footer.ftl
         jcr:primaryType: hst:template
-      /search:
-        hst:renderpath: webfile:/freemarker/common/search.ftl
+      /searchbar:
+        hst:renderpath: webfile:/freemarker/common/searchbar.ftl
         jcr:primaryType: hst:template
       /searchresults:
         hst:renderpath: webfile:/freemarker/common/searchresults.ftl

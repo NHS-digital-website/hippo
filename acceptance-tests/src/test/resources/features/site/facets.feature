@@ -74,3 +74,31 @@ Feature: Faceted search
         Then I should see 1 search results
         When I can click on the "Statistical Publication" link
         Then I should see 2 search results
+
+
+    Scenario: Sticky facets when searching for new queries
+        Given I navigate to the "home" page
+        When I search for "zzFacets_Testzz"
+        And I click on the "Statistical Publication" link
+        And I click on the "2018" link
+        Then I should see 1 search results
+        When I search for "WeightSearchTerm"
+        Then I should see 3 search result
+        And I should see the "DOCUMENT TYPE" list containing:
+            | Statistical Publication x |
+        And I should see the "YEAR" list containing:
+            | 2018 x |
+
+
+    Scenario: Clear all facets
+        Given I navigate to the "home" page
+        When I search for "zzFacets_Testzz"
+        And I click on the "Social care" link
+        And I click on the "England" link
+        Then I should see 1 search results
+        When I can click on the "Clear all" link
+        Then I should see 3 search results
+        And I should see the "CATEGORY" list including:
+            | Social care (2) |
+        And I should see the "GEOGRAPHICAL COVERAGE" list including:
+            | England (1) |

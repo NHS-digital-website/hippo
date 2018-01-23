@@ -108,7 +108,7 @@ Feature: Basic search
 
     Scenario: Blank search terms display the correct results page
         Given I navigate to the "home" page
-        When I search for " "
+        When I search for ""
         Then I should see the blank search results page
 
     Scenario: Each document type label is correctly displayed in search results
