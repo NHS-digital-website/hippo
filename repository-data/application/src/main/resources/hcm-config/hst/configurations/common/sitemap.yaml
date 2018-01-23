@@ -18,6 +18,10 @@ definitions:
           hst:componentconfigurationid: hst:pages/404
           jcr:primaryType: hst:sitemapitem
         jcr:primaryType: hst:sitemapitem
+      /root:
+        hst:componentconfigurationid: hst:pages/cihub
+        hst:relativecontentpath: publication-system/ci-hub/main-sections
+        jcr:primaryType: hst:sitemapitem
       /search:
         /_any_:
           hst:componentconfigurationid: hst:pages/search

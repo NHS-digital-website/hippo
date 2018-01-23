@@ -16,6 +16,13 @@ definitions:
         - hst:pages/series
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
+      /ci-hub:
+        /_any_:
+          hst:componentconfigurationid: hst:pages/cilanding
+          hst:relativecontentpath: ci-hub/${1}
+          jcr:primaryType: hst:sitemapitem
+        hst:relativecontentpath: ci-hub
+        jcr:primaryType: hst:sitemapitem
       /root:
         hst:componentconfigurationid: hst:pages/home
         jcr:primaryType: hst:sitemapitem

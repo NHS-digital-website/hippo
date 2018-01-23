@@ -370,6 +370,7 @@ public class ContentPage extends AbstractCmsPage {
     }
 
     public void openDocumentForEdit(String name) {
+        openContentTab();
         navigateToDocument(name);
         findEdit().click();
         isDocumentEditScreenOpen();

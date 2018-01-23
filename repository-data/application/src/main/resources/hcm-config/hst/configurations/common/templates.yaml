@@ -11,6 +11,9 @@ definitions:
       /base:
         hst:renderpath: webfile:/freemarker/common/base-layout.ftl
         jcr:primaryType: hst:template
+      /cihub:
+        hst:renderpath: webfile:/freemarker/publicationsystem/cihub.ftl
+        jcr:primaryType: hst:template
       /facets:
         hst:renderpath: webfile:/freemarker/common/facets.ftl
         jcr:primaryType: hst:template

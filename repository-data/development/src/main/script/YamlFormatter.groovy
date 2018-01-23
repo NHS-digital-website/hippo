@@ -20,8 +20,11 @@ rootDir.eachFileRecurse(FileType.DIRECTORIES) { dir ->
         String text = file.getText()
         LinkedHashMap map = parser.load(text)
 
-        // Don't remove the UUID for this file, it's referenced in the facet configuration
-        boolean removeUuid = !file.getName().equals("corporate-website.yaml")
+        // Don't remove the UUID for corporate-website, it's referenced in the facet configuration
+        // Same for ci-hub and cihublink, since referenced for page links
+        boolean removeUuid = !file.getName().equals("corporate-website.yaml") &&
+            !file.getName().equals("ci-hub.yaml") &&
+            !file.getName().equals("cihublink.yaml")
         map = format(map, removeUuid, true)
 
         // Write out the formatted yaml

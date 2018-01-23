@@ -173,15 +173,18 @@ a {
   background-color: @color-secondary;
 }
 .common-search__inner {
-  width: @max-width;
+  max-width: @max-width;
   margin: 0px auto;
   padding-top: 20px;
   padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 /* Add icon to input */
 .common-search__input {
   display: inline-block;
   position: relative;
+  width: calc(~"100% - 155px");
 }
 .common-search__input::after {
   position: absolute;
@@ -197,7 +200,7 @@ a {
 }
 
 .common-search__input__field {
-  width: 1009px;
+  width:100%;
   border-radius: 0px;
   padding: 16px 16px 16px 45px;
   margin-right: 6px;
