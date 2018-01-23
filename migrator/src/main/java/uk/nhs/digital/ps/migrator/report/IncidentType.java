@@ -24,7 +24,7 @@ public enum IncidentType {
     DATE_WITH_EXTRA_TEXT(
         FIELD_MIGRATED_MODIFIED,
         "Date found with additional text",
-        "Date field value found | interpreted as",
+        "Date field | Value found | Interpreted as",
         "Date in the exported data contained some extra text. The imported Dataset"
             + "\nwill have this text stripped out but will have the date value"
             + "\nitself."
@@ -35,7 +35,7 @@ public enum IncidentType {
     NO_DATE_MAPPING(
         FIELD_NOT_MIGRATED,
         "No mapping found for date",
-        "Date value found",
+        "Date field | Value found",
         "Provided mapping for date values did not contain any entry for this date."
             + "\nThe Dataset will be migrated with corresponding date field not populated."
             + "\n"
