@@ -4,23 +4,14 @@ definitions:
     /hst:hst/hst:hosts:
       .meta:residual-child-node-category: content
       /dev:
-        .meta:residual-child-node-category: content
         /io:
-          .meta:residual-child-node-category: content
           /nhsd:
-            .meta:residual-child-node-category: content
             /ps:
-              .meta:residual-child-node-category: content
               /dev:
-                .meta:residual-child-node-category: content
                 /web:
-                  .meta:residual-child-node-category: content
                   /hippo-delivery:
-                    .meta:residual-child-node-category: content
                     /hst:root:
-                      .meta:residual-child-node-category: content
                       /publications:
-                        .meta:residual-child-node-category: content
                         hst:homepage: root
                         hst:mountpoint: /hst:hst/hst:sites/publicationsystem
                         jcr:primaryType: hst:mount
@@ -40,23 +31,14 @@ definitions:
         hst:cmslocation: http://blackhole-hippo-authoring.web.dev.ps.nhsd.io/cms
         jcr:primaryType: hst:virtualhostgroup
       /dev-cms:
-        .meta:residual-child-node-category: content
         /io:
-          .meta:residual-child-node-category: content
           /nhsd:
-            .meta:residual-child-node-category: content
             /ps:
-              .meta:residual-child-node-category: content
               /dev:
-                .meta:residual-child-node-category: content
                 /web:
-                  .meta:residual-child-node-category: content
                   /hippo-authoring:
-                    .meta:residual-child-node-category: content
                     /hst:root:
-                      .meta:residual-child-node-category: content
                       /publications:
-                        .meta:residual-child-node-category: content
                         hst:homepage: root
                         hst:mountpoint: /hst:hst/hst:sites/publicationsystem
                         jcr:primaryType: hst:mount
@@ -76,52 +58,13 @@ definitions:
           jcr:primaryType: hst:virtualhost
         hst:cmslocation: http://hippo-authoring.web.dev.ps.nhsd.io/cms
         jcr:primaryType: hst:virtualhostgroup
-      /ondemand:
-        .meta:residual-child-node-category: content
-        /com:
-          .meta:residual-child-node-category: content
-          /onehippo:
-            .meta:residual-child-node-category: content
-            /test:
-              .meta:residual-child-node-category: content
-              /nhs:
-                .meta:residual-child-node-category: content
-                /www:
-                  .meta:residual-child-node-category: content
-                  /hst:root:
-                    .meta:residual-child-node-category: content
-                    /publications:
-                      .meta:residual-child-node-category: content
-                      hst:homepage: root
-                      hst:mountpoint: /hst:hst/hst:sites/publicationsystem
-                      jcr:primaryType: hst:mount
-                    hst:alias: common-context
-                    hst:contextpath: /site
-                    hst:homepage: root
-                    hst:mountpoint: /hst:hst/hst:sites/common
-                    hst:showcontextpath: false
-                    jcr:primaryType: hst:mount
-                  jcr:primaryType: hst:virtualhost
-                jcr:primaryType: hst:virtualhost
-              jcr:primaryType: hst:virtualhost
-            jcr:primaryType: hst:virtualhost
-          jcr:primaryType: hst:virtualhost
-        hst:cmslocation: https://blackhole-cms-nhs.test.onehippo.com
-        jcr:primaryType: hst:virtualhostgroup
-      /ondemand-cms:
-        .meta:residual-child-node-category: content
-        /com:
-          .meta:residual-child-node-category: content
-          /onehippo:
-            .meta:residual-child-node-category: content
-            /test:
-              .meta:residual-child-node-category: content
-              /cms-nhs:
-                .meta:residual-child-node-category: content
+      /prd:
+        /uk:
+          /nhs:
+            /digital:
+              /beta:
                 /hst:root:
-                  .meta:residual-child-node-category: content
                   /publications:
-                    .meta:residual-child-node-category: content
                     hst:homepage: root
                     hst:mountpoint: /hst:hst/hst:sites/publicationsystem
                     jcr:primaryType: hst:mount
@@ -135,7 +78,109 @@ definitions:
               jcr:primaryType: hst:virtualhost
             jcr:primaryType: hst:virtualhost
           jcr:primaryType: hst:virtualhost
-        hst:cmslocation: https://cms-nhs.test.onehippo.com
+        hst:cmslocation: http://blackhole-cms.digital.nhs.uk
+        jcr:primaryType: hst:virtualhostgroup
+      /prd-preview:
+        /uk:
+          /nhs:
+            /digital:
+              /cms:
+                /hst:root:
+                  /publications:
+                    hst:homepage: root
+                    hst:mountpoint: /hst:hst/hst:sites/publicationsystem
+                    jcr:primaryType: hst:mount
+                  hst:alias: common-context
+                  hst:contextpath: /site
+                  hst:homepage: root
+                  hst:mountpoint: /hst:hst/hst:sites/common
+                  hst:showcontextpath: false
+                  jcr:primaryType: hst:mount
+                jcr:primaryType: hst:virtualhost
+              jcr:primaryType: hst:virtualhost
+            jcr:primaryType: hst:virtualhost
+          jcr:primaryType: hst:virtualhost
+        hst:cmslocation: https://cms.digital.nhs.uk
+        jcr:primaryType: hst:virtualhostgroup
+      /tst:
+        /io:
+          /nhsd:
+            /tst:
+              /hst:root:
+                /publications:
+                  hst:homepage: root
+                  hst:mountpoint: /hst:hst/hst:sites/publicationsystem
+                  jcr:primaryType: hst:mount
+                hst:alias: common-context
+                hst:contextpath: /site
+                hst:homepage: root
+                hst:mountpoint: /hst:hst/hst:sites/common
+                hst:showcontextpath: false
+                jcr:primaryType: hst:mount
+              jcr:primaryType: hst:virtualhost
+            jcr:primaryType: hst:virtualhost
+          jcr:primaryType: hst:virtualhost
+        hst:cmslocation: http://blackhole-cms-tst.nhsd.io
+        jcr:primaryType: hst:virtualhostgroup
+      /tst-preview:
+        /io:
+          /nhsd:
+            /cms-tst:
+              /hst:root:
+                /publications:
+                  hst:homepage: root
+                  hst:mountpoint: /hst:hst/hst:sites/publicationsystem
+                  jcr:primaryType: hst:mount
+                hst:alias: common-context
+                hst:contextpath: /site
+                hst:homepage: root
+                hst:mountpoint: /hst:hst/hst:sites/common
+                hst:showcontextpath: false
+                jcr:primaryType: hst:mount
+              jcr:primaryType: hst:virtualhost
+            jcr:primaryType: hst:virtualhost
+          jcr:primaryType: hst:virtualhost
+        hst:cmslocation: https://cms-tst.nhsd.io
+        jcr:primaryType: hst:virtualhostgroup
+      /uat:
+        /io:
+          /nhsd:
+            /uat:
+              /hst:root:
+                /publications:
+                  hst:homepage: root
+                  hst:mountpoint: /hst:hst/hst:sites/publicationsystem
+                  jcr:primaryType: hst:mount
+                hst:alias: common-context
+                hst:contextpath: /site
+                hst:homepage: root
+                hst:mountpoint: /hst:hst/hst:sites/common
+                hst:showcontextpath: false
+                jcr:primaryType: hst:mount
+              jcr:primaryType: hst:virtualhost
+            jcr:primaryType: hst:virtualhost
+          jcr:primaryType: hst:virtualhost
+        hst:cmslocation: http://blackhole-cms-uat.nhsd.io
+        jcr:primaryType: hst:virtualhostgroup
+      /uat-preview:
+        /io:
+          /nhsd:
+            /cms-uat:
+              /hst:root:
+                /publications:
+                  hst:homepage: root
+                  hst:mountpoint: /hst:hst/hst:sites/publicationsystem
+                  jcr:primaryType: hst:mount
+                hst:alias: common-context
+                hst:contextpath: /site
+                hst:homepage: root
+                hst:mountpoint: /hst:hst/hst:sites/common
+                hst:showcontextpath: false
+                jcr:primaryType: hst:mount
+              jcr:primaryType: hst:virtualhost
+            jcr:primaryType: hst:virtualhost
+          jcr:primaryType: hst:virtualhost
+        hst:cmslocation: https://cms-uat.nhsd.io
         jcr:primaryType: hst:virtualhostgroup
       hst:scheme: https
       jcr:primaryType: hst:virtualhosts
