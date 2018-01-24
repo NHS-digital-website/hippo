@@ -3,6 +3,7 @@ package uk.nhs.digital.ps.migrator.task.importables;
 import uk.nhs.digital.ps.migrator.model.hippo.Folder;
 import uk.nhs.digital.ps.migrator.model.hippo.HippoImportableItem;
 import uk.nhs.digital.ps.migrator.model.hippo.Publication;
+import uk.nhs.digital.ps.migrator.model.hippo.Series;
 import uk.nhs.digital.ps.migrator.model.nesstar.Catalog;
 import uk.nhs.digital.ps.migrator.model.nesstar.CatalogStructure;
 import uk.nhs.digital.ps.migrator.task.ImportableItemsFactory;
@@ -25,38 +26,58 @@ public class SocialCareImportables {
 
         // Target CMS structure:
         //
-        // A)  Adult Social Care Outcomes Framework (ASCOF)     FOLDER
-        // B)  ASCOF publication 'content' document             PUBLICATION
-        // C)    folders per node                               FOLDER
-        // D)      DataSet documents                            DATASET
+        // A)  Adult Social Care Outcomes Framework (ASCOF)         FOLDER
+        // B)    Current                                            FOLDER
+        // C)      content                                          PUBLICATION
+        // D)        folders per node (domain x)                    FOLDER
+        // E)          DataSet documents from subfolders            DATASET
+        // F)    Archive                                            FOLDER
+        // G)      content                                          SERIES
+        // H)      2016                                             PUBLICATION (to be created manually by authors)
 
         // A)
         final Catalog rootCatalog = catalogStructure.findCatalogByLabel("Adult Social Care Outcomes Framework (ASCOF)");
         final Folder rootFolder = importableItemsFactory.toFolder(ciRootFolder, rootCatalog);
 
         // B)
-        final Publication publication = importableItemsFactory.toPublication(rootFolder, rootCatalog);
+        final Folder currentPublicationFolder = importableItemsFactory.newFolder(rootFolder, "Current");
 
         // C)
+        final Publication currentPublication = importableItemsFactory.newPublication(
+            currentPublicationFolder, "content", rootFolder.getLocalizedName());
+
+        // D)
         final List<Catalog> domainCatalogs = rootCatalog.getChildCatalogs();
+
         final List<HippoImportableItem> domainsWithDatasets = domainCatalogs.stream()
             .flatMap(domainCatalog -> {
-                final Folder domainFolder = importableItemsFactory.toFolder(rootFolder, domainCatalog);
+                final Folder domainFolder = importableItemsFactory.toFolder(currentPublicationFolder, domainCatalog);
 
-                // D)
                 return Stream.concat(
                     Stream.of(domainFolder),
+                    // E)
                     domainCatalog.findPublishingPackages().stream().map(domainPublishingPackage ->
                         importableItemsFactory.toDataSet(domainFolder, domainPublishingPackage)
                     )
                 );
+
             }).collect(toList());
+
+        // F)
+        final Folder archiveFolder = importableItemsFactory.newFolder(rootFolder, "Archive");
+
+        // G
+        final Series series = importableItemsFactory.newSeries(archiveFolder, "Archived " + rootFolder.getLocalizedName());
 
         final List<HippoImportableItem> importableItems = new ArrayList<>();
         importableItems.add(rootFolder);
-        importableItems.add(publication);
+        importableItems.add(currentPublicationFolder);
+        importableItems.add(currentPublication);
         importableItems.addAll(domainsWithDatasets);
+        importableItems.add(archiveFolder);
+        importableItems.add(series);
 
         return importableItems;
     }
+
 }
