@@ -77,7 +77,6 @@
       jcr:primaryType: hippostd:html
     common:Title: Accessibility help
     hippo:availability: []
-    hippostd:holder: admin
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-12-22T15:05:58.519Z

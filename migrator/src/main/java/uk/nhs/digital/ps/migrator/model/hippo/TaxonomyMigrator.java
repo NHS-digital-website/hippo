@@ -31,6 +31,8 @@ public class TaxonomyMigrator {
     private static final String TAXONOMY_JCR_PATH = "/content/taxonomies/publication_taxonomy";
     private static final String TAXONOMY_MAPPING_COLUMN_PREFIX = "Leaf";
     private static final String P_CODE_COLUMN = "P Code";
+    private static final String TAXONOMY_DEFINITION_SHEET_NAME = "Taxonomy with structure";
+    private static final String TAXONOMY_MAPPING_SHEET_NAME = "Examples";
 
     private MigrationReport migrationReport;
     private ExecutionParameters executionParameters;
@@ -91,7 +93,7 @@ public class TaxonomyMigrator {
             return;
         }
 
-        Iterator<Row> rowIterator = getRowIterator(taxonomyMappingImportPath);
+        Iterator<Row> rowIterator = getRowIterator(taxonomyMappingImportPath, TAXONOMY_MAPPING_SHEET_NAME);
 
         Row headerRow = rowIterator.next();
         List<Integer> pCodeCols = streamRow(headerRow)
@@ -133,7 +135,7 @@ public class TaxonomyMigrator {
 
     private void readTaxonomyDefinition() {
 
-        Iterator<Row> rowIterator = getRowIterator(executionParameters.getTaxonomyDefinitionImportPath());
+        Iterator<Row> rowIterator = getRowIterator(executionParameters.getTaxonomyDefinitionImportPath(), TAXONOMY_DEFINITION_SHEET_NAME);
 
         // Which column headers are for the taxonomy terms that we are interested in
         Row headerRow = rowIterator.next();
@@ -200,7 +202,7 @@ public class TaxonomyMigrator {
         return StreamSupport.stream(((Iterable<Cell>) row::cellIterator).spliterator(), false);
     }
 
-    private static Iterator<Row> getRowIterator(Path path) {
+    private static Iterator<Row> getRowIterator(Path path, final String sheetName) {
         XSSFWorkbook workbook;
         try {
             workbook = new XSSFWorkbook(path.toString());
@@ -208,7 +210,13 @@ public class TaxonomyMigrator {
             throw new RuntimeException(e);
         }
 
-        XSSFSheet sheet = workbook.getSheetAt(0);
+        XSSFSheet sheet = workbook.getSheet(sheetName);
+
+        if (sheet == null) {
+            throw new RuntimeException(sheetName + " not found in " + path);
+        }
+
+
         return sheet.rowIterator();
     }
 }
