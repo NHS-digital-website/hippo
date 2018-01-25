@@ -284,7 +284,8 @@ public class ImportableItemsFactory {
             case "Feb-12":    return "2012-02-23T09:30:00.000Z";
             case "Mar-12":    return "2012-03-22T09:30:00.000Z";
             case "Sep-12":    return "2012-09-27T09:30:00.000Z";
-            case "Dec-12":    return "2012-12-20T09:30:00.000Z";
+            case "Dec-12":
+            case "Dec-2012":  return "2012-12-20T09:30:00.000Z";
 
             case "Jun-13":    return "2013-06-27T09:30:00.000Z";
             case "Apr-13":    return "2013-04-25T09:30:00.000Z";
