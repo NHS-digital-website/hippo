@@ -1,6 +1,7 @@
 package uk.nhs.digital.ps.modules;
 
 import org.apache.jackrabbit.value.StringValue;
+import org.hippoecm.repository.util.JcrUtils;
 import org.onehippo.repository.events.HippoWorkflowEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,6 +61,7 @@ public class FullTaxonomyModule extends AbstractDaemonModule {
             .toArray(Value[]::new);
 
         try {
+            JcrUtils.ensureIsCheckedOut(document);
             document.setProperty(FULL_TAXONOMY_PROPERTY, fullTaxonomy);
         } catch (RepositoryException re) {
             log.error("Failed to set full taxonomy on node: " + document, re);

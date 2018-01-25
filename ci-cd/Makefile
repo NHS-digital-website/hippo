@@ -60,9 +60,9 @@ test.e2e:
 
 ## Build distribution package
 build:
-	mvn --file ../pom.xml -Drevision=$(VERSION) verify
-	mvn --file ../pom.xml -Drevision=$(VERSION) -P separate-dist
-	mvn --file ../pom.xml -Drevision=$(VERSION) -P on-demand-dist
+	mvn --file ../pom.xml -Drevision=$(VERSION) verify -DskipTests=true
+	mvn --file ../pom.xml -Drevision=$(VERSION) -P separate-dist -DskipTests=true
+	mvn --file ../pom.xml -Drevision=$(VERSION) -P on-demand-dist -DskipTests=true
 
 github.status.success:
 	bash bin/set-commit-status "success" "Version $(VERSION) passed unit and site tests."
