@@ -48,10 +48,10 @@ public class DatasetProcessorTest {
             );
         }
 
-        for (int i = 0; i < changed.size(); i++) {
-            assertFalse(
-                "common:searchable flag is set to true for " + changed.get(i),
-                getNodeBooleanProperty(changed.get(i), "common:searchable")
+        for (int i = 0; i < unchanged.size(); i++) {
+            assertTrue(
+                "common:searchable flag is set to true for " + unchanged.get(i),
+                getNodeBooleanProperty(unchanged.get(i), "common:searchable")
             );
         }
     }
@@ -70,10 +70,10 @@ public class DatasetProcessorTest {
             );
         }
 
-        for (int i = 0; i < changed.size(); i++) {
-            assertFalse(
-                "common:searchable flag is set to true for " + changed.get(i),
-                getNodeBooleanProperty(changed.get(i), "common:searchable")
+        for (int i = 0; i < unchanged.size(); i++) {
+            assertTrue(
+                "common:searchable flag is set to true for " + unchanged.get(i),
+                getNodeBooleanProperty(unchanged.get(i), "common:searchable")
             );
         }
     }

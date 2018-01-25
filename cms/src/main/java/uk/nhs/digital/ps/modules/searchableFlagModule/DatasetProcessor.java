@@ -1,5 +1,6 @@
 package uk.nhs.digital.ps.modules.searchableFlagModule;
 
+import org.hippoecm.repository.util.JcrUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -77,6 +78,7 @@ public class DatasetProcessor extends AbstractProcessor {
 
     private void setSearchableFlag(Node document, boolean searchable) {
         try {
+            JcrUtils.ensureIsCheckedOut(document);
             document.setProperty(SEARCHABLE_FLAG, searchable);
         } catch (RepositoryException ex) {
             log.error("RepositoryException during setting common:searchable flag", ex);

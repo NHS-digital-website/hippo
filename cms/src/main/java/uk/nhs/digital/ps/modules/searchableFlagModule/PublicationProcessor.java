@@ -1,5 +1,6 @@
 package uk.nhs.digital.ps.modules.searchableFlagModule;
 
+import org.hippoecm.repository.util.JcrUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,7 +25,7 @@ public class PublicationProcessor extends AbstractProcessor {
 
         streamDocumentVariants(node)
             .filter((document) -> hasValidStateAndType(document, validStatuses, TYPE_PUBLICATION))
-            .forEach(this::setSearchableFlag);
+            .forEach(this::updatePublicationDocument);
 
         // now the tricky bit - update all datasets documents belonging to this publication,
         // only if publication name is "content"
@@ -42,18 +43,15 @@ public class PublicationProcessor extends AbstractProcessor {
             for (NodeIterator i = res.getNodes(); i.hasNext(); ) {
                 Node doc = i.nextNode();
                 if (hasValidStateAndType(doc, validStatuses, "publicationsystem:dataset")) {
-                    updateDataset(doc, searchable);
+                    setSearchableFlag(doc, searchable);
                 }
             }
         }
     }
 
-    private void setSearchableFlag(Node document) {
+    private void updatePublicationDocument(Node document) {
         try {
-            document.setProperty(
-                SEARCHABLE_FLAG,
-                isPubliclyAccessible(document)
-            );
+            setSearchableFlag(document, isPubliclyAccessible(document));
         } catch (RepositoryException ex) {
             log.error("RepositoryException during read operation", ex);
         }
@@ -68,7 +66,8 @@ public class PublicationProcessor extends AbstractProcessor {
         }
     }
 
-    protected void updateDataset(Node node, boolean searchable) throws RepositoryException {
-        node.setProperty(SEARCHABLE_FLAG, searchable);
+    protected void setSearchableFlag(Node document, boolean searchable) throws RepositoryException {
+        JcrUtils.ensureIsCheckedOut(document);
+        document.setProperty(SEARCHABLE_FLAG, searchable);
     }
 }

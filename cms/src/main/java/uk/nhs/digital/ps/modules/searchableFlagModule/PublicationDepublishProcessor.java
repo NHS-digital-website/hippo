@@ -33,7 +33,7 @@ public class PublicationDepublishProcessor extends PublicationProcessor {
             for (NodeIterator i = res.getNodes(); i.hasNext(); ) {
                 Node doc = i.nextNode();
                 if (hasValidStateAndType(doc, validStatuses, "publicationsystem:dataset")) {
-                    updateDataset(doc, false);
+                    setSearchableFlag(doc, false);
                 }
             }
         }
