@@ -134,10 +134,11 @@ public enum IncidentType {
         + "\nthe offending Dataset."
     ),
     TAXONOMY_MAPPING_INVALID(
-        FIELD_NOT_MIGRATED,
+        FIELD_MIGRATED_PARTIALLY,
         "Invalid Taxonomy mapping",
         "Provided Taxonomy values",
-        "Taxonomy mapping provided for the Dataset contained invalid values."
+        "Taxonomy mapping provided for the Dataset contained invalid values"
+        + "\n(ones absent from the Taxonomy definition)."
         + "\nValid values were migrated, invalid ones ignored."
         + "\n"
         + "\nProvided Taxonomy Mapping file needs reviewing in context of"

@@ -31,14 +31,11 @@ import java.util.stream.Stream;
 
 import static java.text.MessageFormat.format;
 import static java.util.stream.StreamSupport.stream;
-import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.ps.migrator.report.IncidentType.*;
 
 public class CompendiumImportables {
 
-    private final static Logger log = getLogger(CompendiumImportables.class);
-
-    private static final String P_CODE_MAPPING_SHEET_NAME = "Sheet2";
+    private static final String P_CODE_MAPPING_SHEET_NAME = "Mapping of P codes";
     private static final Pattern P_CODE_REGEX = Pattern.compile("P\\d+");
 
     private final ExecutionParameters executionParameters;

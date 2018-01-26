@@ -15,7 +15,6 @@ import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
-import javax.jcr.Session;
 import javax.jcr.Value;
 
 public class FullTaxonomyModule extends AbstractDaemonModule {
@@ -25,15 +24,6 @@ public class FullTaxonomyModule extends AbstractDaemonModule {
     public static final String HIPPO_CLASSIFIABLE_PATH = "/hippo:namespaces/publicationsystem/publication/editor:templates/_default_/classifiable";
     public static final String TAXONOMY_NAME_PROPERTY = "essentials-taxonomy-name";
     public static final String FULL_TAXONOMY_PROPERTY = "common:FullTaxonomy";
-
-    private Node taxonomyTreeNode;
-
-    @Override
-    public void initialize(final Session session) {
-        super.initialize(session);
-
-        this.taxonomyTreeNode = getTaxonomyTreeNode();
-    }
 
     @Override
     protected void handleCommitEvent(HippoWorkflowEvent event) {
@@ -90,7 +80,7 @@ public class FullTaxonomyModule extends AbstractDaemonModule {
 
     private Stream<String> getTaxonomyList(String key) {
 
-        Optional<Node> taxonomyNodeOptional = getDescendantTaxonomyNodes(taxonomyTreeNode)
+        Optional<Node> taxonomyNodeOptional = getDescendantTaxonomyNodes(getTaxonomyTreeNode())
             .filter(node -> getTaxonomyKey(node).equals(key))
             .findAny();
 
