@@ -6,7 +6,7 @@ import uk.nhs.digital.ps.migrator.model.hippo.Publication;
 import uk.nhs.digital.ps.migrator.model.hippo.Series;
 import uk.nhs.digital.ps.migrator.model.nesstar.Catalog;
 import uk.nhs.digital.ps.migrator.model.nesstar.CatalogStructure;
-import uk.nhs.digital.ps.migrator.task.ImportableItemsFactory;
+import uk.nhs.digital.ps.migrator.task.NesstarImportableItemsFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +16,10 @@ import static java.util.stream.Collectors.toList;
 
 public class NhsOutcomesFrameworkImportables {
 
-    private final ImportableItemsFactory importableItemsFactory;
+    private final NesstarImportableItemsFactory nesstarImportableItemsFactory;
 
-    public NhsOutcomesFrameworkImportables(final ImportableItemsFactory importableItemsFactory) {
-        this.importableItemsFactory = importableItemsFactory;
+    public NhsOutcomesFrameworkImportables(final NesstarImportableItemsFactory nesstarImportableItemsFactory) {
+        this.nesstarImportableItemsFactory = nesstarImportableItemsFactory;
     }
 
     public List<HippoImportableItem> create(final CatalogStructure catalogStructure, final Folder ciRootFolder) {
@@ -38,13 +38,13 @@ public class NhsOutcomesFrameworkImportables {
 
         // A)
         final Catalog rootCatalog = catalogStructure.findCatalogByLabel("NHS Outcomes Framework");
-        final Folder nfoRootFolder = importableItemsFactory.toFolder(ciRootFolder, rootCatalog);
+        final Folder nfoRootFolder = nesstarImportableItemsFactory.toFolder(ciRootFolder, rootCatalog);
 
         // B)
-        final Folder currentPublicationFolder = importableItemsFactory.newFolder(nfoRootFolder, "Current");
+        final Folder currentPublicationFolder = nesstarImportableItemsFactory.newFolder(nfoRootFolder, "Current");
 
         // C)
-        final Publication currentPublication = importableItemsFactory.newPublication(
+        final Publication currentPublication = nesstarImportableItemsFactory.newPublication(
             currentPublicationFolder, "content", nfoRootFolder.getLocalizedName()
         );
 
@@ -53,7 +53,7 @@ public class NhsOutcomesFrameworkImportables {
             .stream()
             .filter(domainCatalog -> !"NHS Outcomes Framework (NHS OF) summary dashboard and useful links".equals(domainCatalog.getLabel()))
             .flatMap(domainCatalog -> {
-                final Folder domainFolder = importableItemsFactory.toFolder(currentPublicationFolder, domainCatalog);
+                final Folder domainFolder = nesstarImportableItemsFactory.toFolder(currentPublicationFolder, domainCatalog);
 
                 return Stream.concat(
                     Stream.of(domainFolder),
@@ -63,10 +63,10 @@ public class NhsOutcomesFrameworkImportables {
             }).collect(toList());
 
         // F)
-        final Folder archiveFolder = importableItemsFactory.newFolder(nfoRootFolder, "Archive");
+        final Folder archiveFolder = nesstarImportableItemsFactory.newFolder(nfoRootFolder, "Archive");
 
         // G
-        final Series series = importableItemsFactory.newSeries(archiveFolder, "Archived " + nfoRootFolder.getLocalizedName());
+        final Series series = nesstarImportableItemsFactory.newSeries(archiveFolder, "Archived " + nfoRootFolder.getLocalizedName());
 
         importableItems.add(nfoRootFolder);
         importableItems.add(currentPublicationFolder);
@@ -83,7 +83,7 @@ public class NhsOutcomesFrameworkImportables {
 
         if (catalogs.isEmpty()) {
             return rootCatalog.findPublishingPackages().stream().map(domainPublishingPackage ->
-                importableItemsFactory.toDataSet(rootFolder, domainPublishingPackage)
+                nesstarImportableItemsFactory.toDataSet(rootFolder, domainPublishingPackage)
             );
         }
 

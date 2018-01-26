@@ -22,7 +22,7 @@
     "name" : "publicationsystem:InformationType",
     "type" : "STRING",
     "multiple" : true,
-    "values" : [ "Experimental statistics" ]
+    "values" : [ "${publication.informationType}" ]
   }, {
     "name" : "publicationsystem:Summary",
     "type" : "STRING",

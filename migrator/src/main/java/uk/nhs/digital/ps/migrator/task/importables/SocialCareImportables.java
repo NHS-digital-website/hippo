@@ -6,7 +6,7 @@ import uk.nhs.digital.ps.migrator.model.hippo.Publication;
 import uk.nhs.digital.ps.migrator.model.hippo.Series;
 import uk.nhs.digital.ps.migrator.model.nesstar.Catalog;
 import uk.nhs.digital.ps.migrator.model.nesstar.CatalogStructure;
-import uk.nhs.digital.ps.migrator.task.ImportableItemsFactory;
+import uk.nhs.digital.ps.migrator.task.NesstarImportableItemsFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +16,10 @@ import static java.util.stream.Collectors.toList;
 
 public class SocialCareImportables {
 
-    private final ImportableItemsFactory importableItemsFactory;
+    private final NesstarImportableItemsFactory nesstarImportableItemsFactory;
 
-    public SocialCareImportables(final ImportableItemsFactory importableItemsFactory) {
-        this.importableItemsFactory = importableItemsFactory;
+    public SocialCareImportables(final NesstarImportableItemsFactory nesstarImportableItemsFactory) {
+        this.nesstarImportableItemsFactory = nesstarImportableItemsFactory;
     }
 
     public List<HippoImportableItem> create(final CatalogStructure catalogStructure, final Folder ciRootFolder) {
@@ -37,13 +37,13 @@ public class SocialCareImportables {
 
         // A)
         final Catalog rootCatalog = catalogStructure.findCatalogByLabel("Adult Social Care Outcomes Framework (ASCOF)");
-        final Folder rootFolder = importableItemsFactory.toFolder(ciRootFolder, rootCatalog);
+        final Folder rootFolder = nesstarImportableItemsFactory.toFolder(ciRootFolder, rootCatalog);
 
         // B)
-        final Folder currentPublicationFolder = importableItemsFactory.newFolder(rootFolder, "Current");
+        final Folder currentPublicationFolder = nesstarImportableItemsFactory.newFolder(rootFolder, "Current");
 
         // C)
-        final Publication currentPublication = importableItemsFactory.newPublication(
+        final Publication currentPublication = nesstarImportableItemsFactory.newPublication(
             currentPublicationFolder, "content", rootFolder.getLocalizedName());
 
         // D)
@@ -51,23 +51,23 @@ public class SocialCareImportables {
 
         final List<HippoImportableItem> domainsWithDatasets = domainCatalogs.stream()
             .flatMap(domainCatalog -> {
-                final Folder domainFolder = importableItemsFactory.toFolder(currentPublicationFolder, domainCatalog);
+                final Folder domainFolder = nesstarImportableItemsFactory.toFolder(currentPublicationFolder, domainCatalog);
 
                 return Stream.concat(
                     Stream.of(domainFolder),
                     // E)
                     domainCatalog.findPublishingPackages().stream().map(domainPublishingPackage ->
-                        importableItemsFactory.toDataSet(domainFolder, domainPublishingPackage)
+                        nesstarImportableItemsFactory.toDataSet(domainFolder, domainPublishingPackage)
                     )
                 );
 
             }).collect(toList());
 
         // F)
-        final Folder archiveFolder = importableItemsFactory.newFolder(rootFolder, "Archive");
+        final Folder archiveFolder = nesstarImportableItemsFactory.newFolder(rootFolder, "Archive");
 
         // G
-        final Series series = importableItemsFactory.newSeries(archiveFolder, "Archived " + rootFolder.getLocalizedName());
+        final Series series = nesstarImportableItemsFactory.newSeries(archiveFolder, "Archived " + rootFolder.getLocalizedName());
 
         final List<HippoImportableItem> importableItems = new ArrayList<>();
         importableItems.add(rootFolder);
