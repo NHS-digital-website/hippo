@@ -272,6 +272,14 @@ public class MigrationReport {
             "Compendium Mapping file used", executionParameters.getNesstarCompendiumMappingFile().getFileName()
         );
 
+        addMetaDataRow(labelCellStyle, valueCellStyle, metadataSheet, currentRowNumber.addAndGet(1),
+            "Taxonomy definition file used", executionParameters.getTaxonomyDefinitionImportPath().getFileName()
+        );
+
+        addMetaDataRow(labelCellStyle, valueCellStyle, metadataSheet, currentRowNumber.addAndGet(1),
+            "Taxonomy mapping file used", executionParameters.getTaxonomyMappingImportPath().getFileName()
+        );
+
         currentRowNumber.addAndGet(3);
 
         addMetaDataRow(labelCellStyle, valueCellStyle, metadataSheet, currentRowNumber.addAndGet(1),

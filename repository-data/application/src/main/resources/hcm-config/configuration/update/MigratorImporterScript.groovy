@@ -14,6 +14,7 @@ import org.onehippo.repository.update.BaseNodeUpdateVisitor
 
 import javax.jcr.Node
 import javax.jcr.Session
+import java.util.concurrent.atomic.AtomicReference
 
 
 class MigratorImporterScript extends BaseNodeUpdateVisitor {
@@ -43,7 +44,7 @@ class MigratorImporterScript extends BaseNodeUpdateVisitor {
 
         // This method is called for each node in the jcr,
         // we obviously only want to do the import once so only do it for the root directory
-        if (!node.getPath().equals("/")) {
+        if (!node.getPath().equals("/content/documents/corporate-website/publication-system")) {
             return false
         }
 
@@ -60,71 +61,100 @@ class MigratorImporterScript extends BaseNodeUpdateVisitor {
             .toSorted { left, right -> left.getName().compareTo(right.getName()) }
             .eachWithIndex { FileObject file, int i ->
 
-                log.info "Processing file [${i + 1}/${files.length}]: ${file.name.path}"
+            log.info "Processing file [${i + 1}/${files.length}]: ${file.name.path}"
 
-                ContentNode contentNode = importTask.readContentNodeFromJsonFile(file)
+            ContentNode contentNode = importTask.readContentNodeFromJsonFile(file)
 
-                ContentMigrationRecord contentMigrationRecord
-                String nodeFullPath = ""
+            String primaryTypeName = contentNode.getPrimaryType()
 
-                String primaryTypeName = contentNode.getPrimaryType()
+            String nodeFullPath = contentNode.getProperty("jcr:path").getValue()
 
-                try {
+            String localizedName = contentNode.getProperty("jcr:localizedName").getValue()
 
-                    nodeFullPath = contentNode.getProperty("jcr:path").getValue()
 
-                    // record instance to store execution status and detail of a unit of migration work item.
-                    // these record instances will be collected and summarized when #logSummary() invoked later.
-                    contentMigrationRecord = importTask.beginRecord("", nodeFullPath)
-                    contentMigrationRecord.setProcessed(true)
-                    contentMigrationRecord.setAttribute("file", file.name.path)
-                    contentMigrationRecord.setContentType(primaryTypeName)
+            if ("hippostd:folder".equals(primaryTypeName)) {
 
-                    String localizedName = contentNode.getProperty("jcr:localizedName").getValue()
+                createFolder(nodeFullPath, primaryTypeName, localizedName, file)
 
-                    log.info("Creating ${primaryTypeName}: ${nodeFullPath}")
+            } else {
 
-                    if ("hippostd:folder".equals(primaryTypeName)) {
+                createDocument(nodeFullPath, primaryTypeName, contentNode, localizedName, file)
 
-                        Node folderNode = HippoNodeUtils.createMissingHippoFolders(session, nodeFullPath)
+                publishDocument(nodeFullPath, primaryTypeName, file)
+            }
 
-                        folderNode.addMixin("hippo:named")
-                        folderNode.setProperty("hippo:name", localizedName)
-
-                    } else {
-
-                        String locale = (contentNode.hasProperty("hippotranslation:locale")) \
-                            ? contentNode.getProperty("hippotranslation:locale").getValue() \
-                            : null
-
-                        String updatedDocumentLocation = importTask.createOrUpdateDocumentFromVariantContentNode(
-                            contentNode,
-                            primaryTypeName,
-                            nodeFullPath,
-                            locale,
-                            localizedName
-                        )
-
-                        // By default, the created or updated document is left as preview status.
-                        // Optionally, if you want, you can publish the document right away here by uncommenting the following line.
-                        documentManager.publishDocument(updatedDocumentLocation)
-                    }
-
-                    visitorContext.reportUpdated(nodeFullPath)
-                    contentMigrationRecord.setSucceeded(true)
-
-                    log.info("Created ${primaryTypeName}: ${nodeFullPath}")
-                } catch (e) {
-                    log.error("Failed to import ${primaryTypeName}: ${nodeFullPath}", e)
-                    visitorContext.reportFailed(nodeFullPath)
-                    contentMigrationRecord.setErrorMessage(e.toString())
-                } finally {
-                    importTask.endRecord()
-                }
         }
 
         return true
     }
+
+    private createFolder(final String nodeFullPath, final String primaryTypeName, final String localizedName, final FileObject file) {
+        prepareBatchUnit(nodeFullPath, primaryTypeName, {
+            log.info("Creating ${primaryTypeName}: ${nodeFullPath}")
+
+            Node folderNode = HippoNodeUtils.createMissingHippoFolders(session, nodeFullPath)
+
+            folderNode.addMixin("hippo:named")
+            folderNode.setProperty("hippo:name", localizedName)
+            log.info("Created ${primaryTypeName}: ${nodeFullPath}")
+
+        }, file.name.path)
+    }
+
+    private void createDocument(final String nodeFullPath, final String primaryTypeName, final ContentNode contentNode, final String localizedName, final FileObject file) {
+        prepareBatchUnit(nodeFullPath, primaryTypeName, {
+            log.info("Creating ${primaryTypeName}: ${nodeFullPath}")
+
+            String locale = (contentNode.hasProperty("hippotranslation:locale")) ? contentNode.getProperty("hippotranslation:locale").getValue() : null
+
+            String updatedDocumentLocation = importTask.createOrUpdateDocumentFromVariantContentNode(
+                contentNode,
+                primaryTypeName,
+                nodeFullPath,
+                locale,
+                localizedName
+            )
+
+            log.info("Created ${primaryTypeName}: ${updatedDocumentLocation}")
+        }, file.name.path)
+    }
+
+    private void publishDocument(final String nodeFullPath, final String primaryTypeName, final FileObject file) {
+        prepareBatchUnit(nodeFullPath, primaryTypeName, {
+            log.info("Publishing ${primaryTypeName}: ${nodeFullPath}")
+
+            documentManager.publishDocument(nodeFullPath)
+
+            log.info("Published ${primaryTypeName}: ${nodeFullPath}")
+        }, file.name.path)
+    }
+
+
+    def prepareBatchUnit(String nodeFullPath, String primaryTypeName, Closure actionClosure, String importFilePath) {
+
+        ContentMigrationRecord contentMigrationRecord
+        try {
+
+            contentMigrationRecord = importTask.beginRecord("", nodeFullPath)
+            contentMigrationRecord.setProcessed(true)
+            contentMigrationRecord.setAttribute("file", importFilePath)
+            contentMigrationRecord.setContentType(primaryTypeName)
+
+            actionClosure()
+
+            visitorContext.reportUpdated(nodeFullPath)
+            contentMigrationRecord.setSucceeded(true)
+
+        } catch (e) {
+            log.error("Failed to import ${primaryTypeName}: ${nodeFullPath}", e)
+            visitorContext.reportFailed(nodeFullPath)
+            contentMigrationRecord.setErrorMessage(e.toString())
+        } finally {
+            importTask.endRecord()
+        }
+    }
+
+
 
     boolean undoUpdate(Node node) {
         throw new UnsupportedOperationException('Updater does not implement undoUpdate method')

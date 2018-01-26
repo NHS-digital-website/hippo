@@ -32,7 +32,7 @@ public class TaxonomyMigrator {
     private static final String TAXONOMY_MAPPING_COLUMN_PREFIX = "Leaf";
     private static final String P_CODE_COLUMN = "P Code";
     private static final String TAXONOMY_DEFINITION_SHEET_NAME = "Taxonomy with structure";
-    private static final String TAXONOMY_MAPPING_SHEET_NAME = "Examples";
+    private static final String TAXONOMY_MAPPING_SHEET_NAME = "Taxonomy mapping";
 
     private MigrationReport migrationReport;
     private ExecutionParameters executionParameters;
