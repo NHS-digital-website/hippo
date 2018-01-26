@@ -40,7 +40,7 @@ public class GenerateNesstarImportContentTask implements MigrationTask {
 
     private final ExecutionParameters executionParameters;
 
-    private final ImportableItemsFactory importableItemsFactory;
+    private final NesstarImportableItemsFactory nesstarImportableItemsFactory;
     private final SocialCareImportables socialCareImportables;
     private final CcgImportables ccgImportables;
     private final NhsOutcomesFrameworkImportables nhsOutcomesFrameworkImportables;
@@ -51,7 +51,7 @@ public class GenerateNesstarImportContentTask implements MigrationTask {
 
 
     public GenerateNesstarImportContentTask(final ExecutionParameters executionParameters,
-                                            final ImportableItemsFactory importableItemsFactory,
+                                            final NesstarImportableItemsFactory nesstarImportableItemsFactory,
                                             final SocialCareImportables socialCareImportables,
                                             final CcgImportables ccgImportables,
                                             final NhsOutcomesFrameworkImportables nhsOutcomesFrameworkImportables,
@@ -61,7 +61,7 @@ public class GenerateNesstarImportContentTask implements MigrationTask {
                                             final TaxonomyMigrator taxonomyMigrator) {
 
         this.executionParameters = executionParameters;
-        this.importableItemsFactory = importableItemsFactory;
+        this.nesstarImportableItemsFactory = nesstarImportableItemsFactory;
         this.socialCareImportables = socialCareImportables;
         this.ccgImportables = ccgImportables;
         this.nhsOutcomesFrameworkImportables = nhsOutcomesFrameworkImportables;
@@ -176,7 +176,7 @@ public class GenerateNesstarImportContentTask implements MigrationTask {
         // separating them from Statistical Publications.
         // Expected CMS path: Corporate Website/Publications System/Clinical Indicators
 
-        final Folder rootClinicalIndicatorsFolder = importableItemsFactory.toFolder(
+        final Folder rootClinicalIndicatorsFolder = nesstarImportableItemsFactory.toFolder(
             null, catalogStructure.findCatalogByLabel(ROOT_CATALOG_LABEL)
         );
         rootClinicalIndicatorsFolder.setLocalizedName("Clinical Indicators");

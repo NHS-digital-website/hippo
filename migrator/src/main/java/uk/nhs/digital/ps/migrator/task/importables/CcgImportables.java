@@ -6,7 +6,7 @@ import uk.nhs.digital.ps.migrator.model.hippo.Publication;
 import uk.nhs.digital.ps.migrator.model.hippo.Series;
 import uk.nhs.digital.ps.migrator.model.nesstar.Catalog;
 import uk.nhs.digital.ps.migrator.model.nesstar.CatalogStructure;
-import uk.nhs.digital.ps.migrator.task.ImportableItemsFactory;
+import uk.nhs.digital.ps.migrator.task.NesstarImportableItemsFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +16,10 @@ import static java.util.stream.Collectors.toList;
 
 public class CcgImportables {
 
-    private final ImportableItemsFactory importableItemsFactory;
+    private final NesstarImportableItemsFactory nesstarImportableItemsFactory;
 
-    public CcgImportables(final ImportableItemsFactory importableItemsFactory) {
-        this.importableItemsFactory = importableItemsFactory;
+    public CcgImportables(final NesstarImportableItemsFactory nesstarImportableItemsFactory) {
+        this.nesstarImportableItemsFactory = nesstarImportableItemsFactory;
     }
 
     public List<HippoImportableItem> create(final CatalogStructure catalogStructure, final Folder ciRootFolder) {
@@ -37,13 +37,13 @@ public class CcgImportables {
 
         // A)
         final Catalog ccgRootCatalog = catalogStructure.findCatalogByLabel("CCG Outcomes Indicator Set");
-        final Folder ccgRootFolder = importableItemsFactory.toFolder(ciRootFolder, ccgRootCatalog);
+        final Folder ccgRootFolder = nesstarImportableItemsFactory.toFolder(ciRootFolder, ccgRootCatalog);
 
         // B)
-        final Folder currentPublicationFolder = importableItemsFactory.newFolder(ccgRootFolder, "Current");
+        final Folder currentPublicationFolder = nesstarImportableItemsFactory.newFolder(ccgRootFolder, "Current");
 
         // C)
-        final Publication currentPublication = importableItemsFactory.newPublication(
+        final Publication currentPublication = nesstarImportableItemsFactory.newPublication(
             currentPublicationFolder, "content", ccgRootFolder.getLocalizedName());
 
         // D)
@@ -52,23 +52,23 @@ public class CcgImportables {
 
         final List<HippoImportableItem> domainsWithDatasets = domainCatalogs.stream()
             .flatMap(domainCatalog -> {
-                final Folder domainFolder = importableItemsFactory.toFolder(currentPublicationFolder, domainCatalog);
+                final Folder domainFolder = nesstarImportableItemsFactory.toFolder(currentPublicationFolder, domainCatalog);
 
                 return Stream.concat(
                     Stream.of(domainFolder),
                     // E)
                     domainCatalog.findPublishingPackages().stream().map(domainPublishingPackage ->
-                        importableItemsFactory.toDataSet(domainFolder, domainPublishingPackage)
+                        nesstarImportableItemsFactory.toDataSet(domainFolder, domainPublishingPackage)
                     )
                 );
 
             }).collect(toList());
 
         // F)
-        final Folder archiveFolder = importableItemsFactory.newFolder(ccgRootFolder, "Archive");
+        final Folder archiveFolder = nesstarImportableItemsFactory.newFolder(ccgRootFolder, "Archive");
 
         // G
-        final Series series = importableItemsFactory.newSeries(archiveFolder, "Archived " + ccgRootFolder.getLocalizedName());
+        final Series series = nesstarImportableItemsFactory.newSeries(archiveFolder, "Archived " + ccgRootFolder.getLocalizedName());
 
         final List<HippoImportableItem> importableItems = new ArrayList<>();
         importableItems.add(ccgRootFolder);

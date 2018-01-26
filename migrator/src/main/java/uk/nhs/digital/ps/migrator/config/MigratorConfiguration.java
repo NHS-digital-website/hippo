@@ -19,7 +19,7 @@ public class MigratorConfiguration {
 
     @Bean
     public List<MigrationTask> tasks(final ExecutionParameters executionParameters,
-                                     final ImportableItemsFactory importableItemsFactory,
+                                     final NesstarImportableItemsFactory nesstarImportableItemsFactory,
                                      final SocialCareImportables socialCareImportables,
                                      final CcgImportables ccgImportables,
                                      final NhsOutcomesFrameworkImportables nhsOutcomesFrameworkImportables,
@@ -32,7 +32,7 @@ public class MigratorConfiguration {
             new UnzipNesstarExportFileTask(executionParameters),
             new GenerateNesstarImportContentTask(
                 executionParameters,
-                importableItemsFactory,
+                nesstarImportableItemsFactory,
                 socialCareImportables,
                 ccgImportables,
                 nhsOutcomesFrameworkImportables,
@@ -61,11 +61,11 @@ public class MigratorConfiguration {
     }
 
     @Bean
-    public ImportableItemsFactory importableItemsFactory(final ExecutionParameters executionParameters,
-                                                         final MigrationReport migrationReport,
-                                                         final TaxonomyMigrator taxonomyMigrator)
+    public NesstarImportableItemsFactory importableItemsFactory(final ExecutionParameters executionParameters,
+                                                                final MigrationReport migrationReport,
+                                                                final TaxonomyMigrator taxonomyMigrator)
     {
-        return new ImportableItemsFactory(executionParameters, migrationReport, taxonomyMigrator);
+        return new NesstarImportableItemsFactory(executionParameters, migrationReport, taxonomyMigrator);
     }
 
     @Bean
@@ -74,26 +74,26 @@ public class MigratorConfiguration {
     }
 
     @Bean
-    public CcgImportables ccgImportables(final ImportableItemsFactory importableItemsFactory) {
-        return new CcgImportables(importableItemsFactory);
+    public CcgImportables ccgImportables(final NesstarImportableItemsFactory nesstarImportableItemsFactory) {
+        return new CcgImportables(nesstarImportableItemsFactory);
     }
 
     @Bean
-    public SocialCareImportables socialCareImportables(final ImportableItemsFactory importableItemsFactory) {
-        return new SocialCareImportables(importableItemsFactory);
+    public SocialCareImportables socialCareImportables(final NesstarImportableItemsFactory nesstarImportableItemsFactory) {
+        return new SocialCareImportables(nesstarImportableItemsFactory);
     }
 
     @Bean
-    public NhsOutcomesFrameworkImportables nhsOutcomesFrameworkImportables(final ImportableItemsFactory importableItemsFactory) {
-        return new NhsOutcomesFrameworkImportables(importableItemsFactory);
+    public NhsOutcomesFrameworkImportables nhsOutcomesFrameworkImportables(final NesstarImportableItemsFactory nesstarImportableItemsFactory) {
+        return new NhsOutcomesFrameworkImportables(nesstarImportableItemsFactory);
     }
 
     @Bean
     public CompendiumImportables compendiumImportables(final ExecutionParameters executionParameters,
-                                                       final ImportableItemsFactory importableItemsFactory,
+                                                       final NesstarImportableItemsFactory nesstarImportableItemsFactory,
                                                        final MigrationReport migrationReport
     ) {
-        return new CompendiumImportables(executionParameters, importableItemsFactory, migrationReport);
+        return new CompendiumImportables(executionParameters, nesstarImportableItemsFactory, migrationReport);
     }
 
     @Bean

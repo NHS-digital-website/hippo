@@ -15,7 +15,7 @@ import uk.nhs.digital.ps.migrator.model.hippo.Publication;
 import uk.nhs.digital.ps.migrator.model.hippo.Series;
 import uk.nhs.digital.ps.migrator.model.nesstar.DataSetRepository;
 import uk.nhs.digital.ps.migrator.model.nesstar.PublishingPackage;
-import uk.nhs.digital.ps.migrator.task.ImportableItemsFactory;
+import uk.nhs.digital.ps.migrator.task.NesstarImportableItemsFactory;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -42,15 +42,15 @@ public class CompendiumImportables {
     private static final Pattern P_CODE_REGEX = Pattern.compile("P\\d+");
 
     private final ExecutionParameters executionParameters;
-    private final ImportableItemsFactory factory;
+    private final NesstarImportableItemsFactory factory;
     private final MigrationReport migrationReport;
 
     public CompendiumImportables(final ExecutionParameters executionParameters,
-                                 final ImportableItemsFactory importableItemsFactory,
+                                 final NesstarImportableItemsFactory nesstarImportableItemsFactory,
                                  final MigrationReport migrationReport) {
 
         this.executionParameters = executionParameters;
-        this.factory = importableItemsFactory;
+        this.factory = nesstarImportableItemsFactory;
         this.migrationReport = migrationReport;
     }
 

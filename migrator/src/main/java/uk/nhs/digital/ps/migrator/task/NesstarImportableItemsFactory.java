@@ -23,20 +23,21 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
-public class ImportableItemsFactory {
+public class NesstarImportableItemsFactory {
 
-    private final static Logger log = getLogger(ImportableItemsFactory.class);
+    private final static Logger log = getLogger(NesstarImportableItemsFactory.class);
 
     private static final String DATE_FIELD_NOMINAL_DATE = "Nominal Date";
     private static final String DATE_FIELD_NEXT_PUBLICATION_DATE = "Next Publication Date";
+    private static final String PUBLICATION_INFORMATION_TYPE = "Open data";
 
     private final ExecutionParameters executionParameters;
     private final MigrationReport migrationReport;
     private final TaxonomyMigrator taxonomyMigrator;
 
-    public ImportableItemsFactory(final ExecutionParameters executionParameters,
-                                  final MigrationReport migrationReport,
-                                  final TaxonomyMigrator taxonomyMigrator) {
+    public NesstarImportableItemsFactory(final ExecutionParameters executionParameters,
+                                         final MigrationReport migrationReport,
+                                         final TaxonomyMigrator taxonomyMigrator) {
         this.executionParameters = executionParameters;
         this.migrationReport = migrationReport;
         this.taxonomyMigrator = taxonomyMigrator;
@@ -55,7 +56,8 @@ public class ImportableItemsFactory {
 
         return new Publication(
             parentFolder, "content",
-            catalog.getLabel()
+            catalog.getLabel(),
+            PUBLICATION_INFORMATION_TYPE
         );
     }
 
@@ -130,7 +132,8 @@ public class ImportableItemsFactory {
         return new Publication(
             parentFolder,
             name,
-            title
+            title,
+            PUBLICATION_INFORMATION_TYPE
         );
     }
 
