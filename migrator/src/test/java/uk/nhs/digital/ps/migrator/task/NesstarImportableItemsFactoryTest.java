@@ -35,7 +35,7 @@ public class NesstarImportableItemsFactoryTest {
     public void setUp() throws Exception {
         initMocks(this);
 
-        nesstarImportableItemsFactory = new NesstarImportableItemsFactory(executionParameters, migrationReport, taxonomyMigrator);
+        nesstarImportableItemsFactory = new NesstarImportableItemsFactory(executionParameters, migrationReport, taxonomyMigrator, null);
     }
 
     @Test

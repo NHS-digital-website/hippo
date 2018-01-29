@@ -34,13 +34,16 @@ public class NesstarImportableItemsFactory {
     private final ExecutionParameters executionParameters;
     private final MigrationReport migrationReport;
     private final TaxonomyMigrator taxonomyMigrator;
+    private final MappedFieldsImporter mappedFieldsImporter;
 
     public NesstarImportableItemsFactory(final ExecutionParameters executionParameters,
-                                         final MigrationReport migrationReport,
-                                         final TaxonomyMigrator taxonomyMigrator) {
+                                  final MigrationReport migrationReport,
+                                  final TaxonomyMigrator taxonomyMigrator,
+                                  final MappedFieldsImporter mappedFieldsImporter) {
         this.executionParameters = executionParameters;
         this.migrationReport = migrationReport;
         this.taxonomyMigrator = taxonomyMigrator;
+        this.mappedFieldsImporter = mappedFieldsImporter;
     }
 
     public Series newSeries(final Folder parentFolder, final String title) {
@@ -90,6 +93,8 @@ public class NesstarImportableItemsFactory {
 
             List<String> taxonomyKeys = taxonomyMigrator.getTaxonomyKeys(exportedPublishingPackage);
 
+            MappedFields mappedFields = mappedFieldsImporter.getMappedFields(pCode);
+
             // Quick sanity check to make sure we have processed all the resources
             if (resources.stream().anyMatch(r -> !r.isLink() && !r.isAttachment())) {
                 throw new RuntimeException("Had some resources that we didn't know how to map.");
@@ -111,8 +116,11 @@ public class NesstarImportableItemsFactory {
                 nextPublicationDate,
                 attachments,
                 resourceLinks,
-                String.join("\", \"", taxonomyKeys)
-            );
+                String.join("\", \"", taxonomyKeys),
+                mappedFields.getCoverageStart(),
+                mappedFields.getCoverageEnd(),
+                mappedFields.getGeographicCoverage(),
+                String.join("\", \"", mappedFields.getGranularity()));
         } catch (Exception e) {
             migrationReport.report(pCode, DATASET_CONVERSION_ERROR, e.getMessage());
             migrationReport.logError(e, "Failed to convert dataset " + pCode);

@@ -12,7 +12,7 @@ Feature: As am author I need to create a new publication
         When I populate and save the publication
         Then it is saved
 
-    @TakeOfflineAfter
+    @DeleteAfter
     Scenario: Publishing a publication
         Given I am on the content page
         And I create a new publication

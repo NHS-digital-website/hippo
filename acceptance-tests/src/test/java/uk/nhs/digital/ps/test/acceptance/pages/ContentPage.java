@@ -1,6 +1,10 @@
 package uk.nhs.digital.ps.test.acceptance.pages;
 
-import org.openqa.selenium.*;
+import static java.util.stream.Collectors.toList;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import uk.nhs.digital.ps.test.acceptance.models.*;
@@ -10,8 +14,6 @@ import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 import java.time.Instant;
 import java.util.List;
 import java.util.stream.Stream;
-
-import static java.util.stream.Collectors.toList;
 
 
 public class ContentPage extends AbstractCmsPage {
@@ -190,6 +192,15 @@ public class ContentPage extends AbstractCmsPage {
         waitUntilPublished();
     }
 
+    public void deleteDocument(final String documentName) {
+        navigateToDocument(documentName);
+
+        findDocumentMenu().click();
+        findDelete().click();
+
+        clickButtonOnModalDialog("OK");
+    }
+
     public void unpublishDocument(final String documentName) {
         navigateToDocument(documentName);
 
@@ -306,6 +317,16 @@ public class ContentPage extends AbstractCmsPage {
     private WebElement findPublish() {
         return helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Publish']"));
+    }
+
+    private WebElement findDocumentMenu(){
+        return helper.findElement(
+            By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Document']"));
+    }
+
+    private WebElement findDelete() {
+        return helper.findElement(
+            By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Delete...']"));
     }
 
     private WebElement findTakeOffline() {

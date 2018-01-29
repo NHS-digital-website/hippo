@@ -9,6 +9,7 @@ Feature: Searchable (hidden) flag tests.
     I don't want to see "upcoming" documents listed on search results page
     So that it does not pollute the page and does not distract me.
 
+    @DeleteAfter
     Scenario: Searchable Flag test
         Given I have a publication opened for editing
         And I populate the publication

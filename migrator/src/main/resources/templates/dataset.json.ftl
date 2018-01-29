@@ -22,12 +22,12 @@
     "name" : "publicationsystem:Granularity",
     "type" : "STRING",
     "multiple" : true,
-    "values" : [ "" ]
+    "values" : [ "${dataset.granularity}" ]
   }, {
     "name" : "publicationsystem:CoverageEnd",
     "type" : "DATE",
     "multiple" : false,
-    "values" : [ "0001-01-01T12:00:00.000Z" ]
+    "values" : [ "${dataset.coverageEnd}" ]
   }, {
     "name" : "publicationsystem:NominalDate",
     "type" : "DATE",
@@ -42,7 +42,7 @@
     "name" : "publicationsystem:CoverageStart",
     "type" : "DATE",
     "multiple" : false,
-    "values" : [ "0001-01-01T12:00:00.000Z" ]
+    "values" : [ "${dataset.coverageStart}" ]
   },<#if dataset.taxonomyKeys?has_content> {
        "name" : "hippotaxonomy:keys",
        "type" : "STRING",
@@ -53,6 +53,11 @@
     "type" : "STRING",
     "multiple" : false,
     "values" : [ "${dataset.summary}" ]
+  }, {
+    "name" : "publicationsystem:GeographicCoverage",
+    "type" : "STRING",
+    "multiple" : false,
+    "values" : [ "${dataset.geographicCoverage}" ]
   }, {
     "name" : "hippotranslation:locale",
     "type" : "STRING",

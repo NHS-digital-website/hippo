@@ -143,15 +143,18 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               selectable.options: Ambulance Trusts,Cancer networks,Care Trusts,Census
-                Area Statistics Wards,Clinical Commissioning Groups,Community health
-                services,Councils with Social Services Responsibilities,Country,County,Dental
-                practices,Government Office Regions,GP practices,Health Education
-                England Region,Hospital and Community Health Services,Hospital Trusts,Independent
-                Sector Health Care Providers,Local Authorities,Mental Health Trusts,Middle
-                Layer Super Output Areas,NHS Health Boards,NHS Trusts,Parliamentary
-                constituency,Pharmacies and clinics,Primary Care Organisations,Primary
-                Care Trusts,Regional health body,Regions,Strategic Health Authorities,Sustainability
-                and Transformation Partnerships
+                Area Statistics Wards,Clinical Commissioning Area Teams,Clinical Commissioning
+                Groups,Clinical Commissioning Regions,Community health services,Councils
+                with Social Services Responsibilities,Country,County,Crime & disorder
+                reduction partnership,Dental practices,Deprivation,Education Authority,Government
+                Office Regions,GP practices,Health Education England Region,Hospital
+                and Community Health Services,Hospital Trusts,Independent Sector Health
+                Care Providers,Local Authorities,London Authorities,Mental Health
+                Trusts,Middle Layer Super Output Areas,NHS Health Boards,NHS Trusts,ONS
+                Area Classification,Parliamentary constituency,Pharmacies and clinics,Primary
+                Care Organisations,Primary Care Trusts,Provider,Provider clusters,Regional
+                health body,Regions,Strategic Health Authorities,Sustainability and
+                Transformation Partnerships,Wards
             caption: Granularity
             field: granularity
             hint: ''

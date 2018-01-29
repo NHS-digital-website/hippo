@@ -1,5 +1,7 @@
 package uk.nhs.digital.ps.test.acceptance.steps;
 
+import static org.slf4j.LoggerFactory.getLogger;
+
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.slf4j.Logger;
@@ -9,8 +11,6 @@ import uk.nhs.digital.ps.test.acceptance.models.Dataset;
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
 import uk.nhs.digital.ps.test.acceptance.models.PublicationSeries;
 import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
-
-import static org.slf4j.LoggerFactory.getLogger;
 
 public class TestDataSteps extends AbstractSpringSteps {
 
@@ -70,16 +70,16 @@ public class TestDataSteps extends AbstractSpringSteps {
 
     /**
      * <p>
-     * Takes current publication offline (un-publishes it).
+     * Takes current publication offline (un-publishes it) and deletes it.
      * </p><p>
-     * Only applicable to scenarios leaving a published publication behind.
+     * Only applicable to scenarios leaving a published document behind.
      * </p><p>
      * To ensure that this method gets called at the end of your scenario, tag the scenario with
-     * {@code @TakeOfflineAfter}.
+     * {@code @DeleteAfter}.
      * </p>
      */
-    @After(value = "@TakeOfflineAfter", order = 500)
-    public void takePublicationOffline() throws Throwable {
+    @After(value = "@DeleteAfter", order = 500)
+    public void deleteDocument() throws Throwable {
         // Don't want this to fail the test if it fails, it's just clean up
         try {
             final String currentPublicationName = testDataRepo.getCurrentPublication().getName();
@@ -88,6 +88,7 @@ public class TestDataSteps extends AbstractSpringSteps {
             contentPage.openCms();
             contentPage.openContentTab();
             contentPage.unpublishDocument(currentPublicationName);
+            contentPage.deleteDocument(currentPublicationName);
         } catch (Exception e) {
             log.error("Failed to take publication offline.", e);
         }

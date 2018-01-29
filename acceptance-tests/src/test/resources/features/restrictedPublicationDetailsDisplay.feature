@@ -13,13 +13,13 @@ Feature: Restricted Publication details display
         And Disclaimer "(Upcoming, not yet published)" is displayed
         And All other publication's details are hidden
 
-    @TakeOfflineAfter
+    @DeleteAfter
     Scenario: Nominal publication date is displayed in full when it falls before 8-week cut off
         Given I have a published publication with nominal date falling before 8 weeks from now
         When I view the publication
         Then Nominal Publication Date is displayed using format "d MMM yyyy"
 
-    @TakeOfflineAfter
+    @DeleteAfter
     Scenario: Nominal publication date is displayed in part when it falls after 8-week cut off
         Given I have a published publication with nominal date falling after 8 weeks from now
         When I view the publication

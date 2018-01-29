@@ -1,5 +1,11 @@
 package uk.nhs.digital.ps.migrator.task;
 
+import static java.util.Arrays.asList;
+import static java.util.stream.Collectors.*;
+import static uk.nhs.digital.ps.migrator.misc.XmlHelper.loadFromXml;
+import static uk.nhs.digital.ps.migrator.report.IncidentType.DUPLICATE_PCODE_IMPORTED;
+import static uk.nhs.digital.ps.migrator.report.IncidentType.NO_DATASET_MAPPING;
+
 import org.apache.commons.io.FileUtils;
 import uk.nhs.digital.ps.migrator.config.ExecutionParameters;
 import uk.nhs.digital.ps.migrator.model.hippo.DataSet;
@@ -23,12 +29,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Stream;
-
-import static java.util.Arrays.asList;
-import static java.util.stream.Collectors.*;
-import static uk.nhs.digital.ps.migrator.misc.XmlHelper.loadFromXml;
-import static uk.nhs.digital.ps.migrator.report.IncidentType.DUPLICATE_PCODE_IMPORTED;
-import static uk.nhs.digital.ps.migrator.report.IncidentType.NO_DATASET_MAPPING;
 
 public class GenerateNesstarImportContentTask implements MigrationTask {
 
@@ -83,6 +83,7 @@ public class GenerateNesstarImportContentTask implements MigrationTask {
         final Path nesstarUnzippedArchiveLocation = executionParameters.getNesstarUnzippedExportDir();
         final Path taxonomyDefinitionImportPath = executionParameters.getTaxonomyDefinitionImportPath();
         final Path taxonomyMappingImportPath = executionParameters.getTaxonomyMappingImportPath();
+        final Path nesstarFieldMappingImportPath = executionParameters.getNesstarFieldMappingImportPath();
 
         final Path publishingPackagesDir = Paths.get(nesstarUnzippedArchiveLocation.toString(),
             PUBLISHING_PACKAGES_DIR_NAME);
@@ -91,7 +92,7 @@ public class GenerateNesstarImportContentTask implements MigrationTask {
         final Path nesstarStructureFile = Paths.get(nesstarBundleDir.toString(), NESSTAR_STRUCTURE_FILE_NAME);
 
         try {
-            assertRequiredArgs(hippoImportDir, nesstarUnzippedArchiveLocation, taxonomyDefinitionImportPath, taxonomyMappingImportPath);
+            assertRequiredArgs(hippoImportDir, nesstarUnzippedArchiveLocation, taxonomyDefinitionImportPath, taxonomyMappingImportPath, nesstarFieldMappingImportPath);
 
             taxonomyMigrator.init();
 
@@ -267,7 +268,8 @@ public class GenerateNesstarImportContentTask implements MigrationTask {
     private void assertRequiredArgs(final Path hippoImportDir,
                                     final Path nesstarUnzippedArchiveLocation,
                                     final Path taxonomyDefinitionImportPath,
-                                    final Path taxonomyMappingImportPath) {
+                                    final Path taxonomyMappingImportPath,
+                                    final Path nesstarFieldMappingImportPath) {
 
         if (hippoImportDir == null) {
             throw new IllegalArgumentException("Required Hippo import dir location was not specified.");
@@ -300,6 +302,16 @@ public class GenerateNesstarImportContentTask implements MigrationTask {
         if (!Files.isRegularFile(taxonomyDefinitionImportPath)) {
             throw new IllegalArgumentException(
                 "Taxonomy Definition Import file does not exist: " + taxonomyDefinitionImportPath
+            );
+        }
+
+        if (nesstarFieldMappingImportPath == null) {
+            throw new IllegalArgumentException("Required Field Mapping Import Path was not specified.");
+        }
+
+        if (!Files.isRegularFile(nesstarFieldMappingImportPath)) {
+            throw new IllegalArgumentException(
+                "Field Mapping Import file does not exist: " + taxonomyDefinitionImportPath
             );
         }
     }
