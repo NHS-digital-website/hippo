@@ -1,5 +1,9 @@
 package uk.nhs.digital.ps.migrator.config;
 
+import static java.util.Arrays.asList;
+import static java.util.Collections.emptyList;
+import static uk.nhs.digital.ps.migrator.misc.Descriptor.describe;
+
 import org.springframework.boot.ApplicationArguments;
 import uk.nhs.digital.ps.migrator.misc.Descriptor;
 
@@ -7,10 +11,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
-
-import static java.util.Arrays.asList;
-import static java.util.Collections.emptyList;
-import static uk.nhs.digital.ps.migrator.misc.Descriptor.describe;
 
 public class ExecutionConfigurator {
 
@@ -29,6 +29,7 @@ public class ExecutionConfigurator {
     private static final String TAXONOMY_DEFINITION_IMPORT_PATH = "taxonomyDefinitionImportPath";
     private static final String TAXONOMY_DEFINITION_OUTPUT_PATH = "taxonomyDefinitionOutputPath";
     private static final String TAXONOMY_MAPPING_IMPORT_PATH = "taxonomyMappingImportPath";
+    private static final String NESSTAR_FIELD_MAPPING_IMPORT_PATH = "nesstarFieldMappingImportPath";
 
     private static final Path MIGRATOR_TEMP_DIR_PATH = Paths.get(System.getProperty("java.io.tmpdir"), "migrator");
 
@@ -38,9 +39,7 @@ public class ExecutionConfigurator {
     private static final String REPORTS_DIR_NAME = "reports";
     private static final String MIGRATION_REPORT_FILENAME_DEFAULT = "Clinical Indicators Migration Report {TIMESTAMP}.xlsx";
 
-
     private final ExecutionParameters executionParameters;
-
 
     public ExecutionConfigurator(final ExecutionParameters executionParameters) {
         this.executionParameters = executionParameters;
@@ -61,6 +60,7 @@ public class ExecutionConfigurator {
 
         executionParameters.setTaxonomyMappingImportPath(getPathArg(args, TAXONOMY_MAPPING_IMPORT_PATH));
 
+        executionParameters.setNesstarFieldMappingImportPath(getPathArg(args, NESSTAR_FIELD_MAPPING_IMPORT_PATH));
 
         initNesstarUnzippedArchiveDir();
         initMigrationReportOutputPath(args);
@@ -159,6 +159,12 @@ public class ExecutionConfigurator {
                 TAXONOMY_MAPPING_IMPORT_PATH,
                 "Path to taxonomy mapping spreadsheet used to map migrated datasets' P code to " +
                     "hippo taxonomy keys as imported from the taxonomy definition." +
+                    " Required if --" + NESSTAR_CONVERT_FLAG + " is specified."
+            ),
+            describe(
+                NESSTAR_FIELD_MAPPING_IMPORT_PATH,
+                "Path to field mapping spreadsheet used to map migrated datasets' P code to " +
+                    "Coverage Start, Coverage End, Geographic Coverage, Granularity." +
                     " Required if --" + NESSTAR_CONVERT_FLAG + " is specified."
             )
         );

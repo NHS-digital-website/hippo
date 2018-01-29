@@ -6,7 +6,7 @@ Feature: Faceted Time Frame search
     # Note these are in the CMS folder because they need to create publications with
     # a date relative to today and they do so via the CMS.
 
-    @TakeOfflineAfter
+    @DeleteAfter
     Scenario: Relative date - today
         Given I have a published publication with nominal date falling before 0 days from now
         When I navigate to the "home" page
@@ -18,7 +18,7 @@ Feature: Faceted Time Frame search
             | this year (1)  |
 
 
-    @TakeOfflineAfter
+    @DeleteAfter
     Scenario: Relative date - yesterday
         Given I have a published publication with nominal date falling before -1 days from now
         When I navigate to the "home" page
@@ -30,7 +30,7 @@ Feature: Faceted Time Frame search
             | today ... |
 
 
-    @TakeOfflineAfter
+    @DeleteAfter
     Scenario: Relative date - last year
         Given I have a published publication with nominal date falling before -1 years from now
         When I navigate to the "home" page
@@ -39,7 +39,7 @@ Feature: Faceted Time Frame search
             | before this year (1) |
 
 
-    @TakeOfflineAfter
+    @DeleteAfter
     Scenario: Relative date - this week
         Given I have a published publication with nominal date falling this week
         When I navigate to the "home" page
@@ -52,7 +52,7 @@ Feature: Faceted Time Frame search
             | yesterday ... |
 
 
-    @TakeOfflineAfter
+    @DeleteAfter
     Scenario: Relative date - this month
         Given I have a published publication with nominal date falling this month
         When I navigate to the "home" page
@@ -62,7 +62,7 @@ Feature: Faceted Time Frame search
             | this year (1)  |
 
 
-    @TakeOfflineAfter
+    @DeleteAfter
     Scenario: Relative date - this year
         Given I have a published publication with nominal date falling this year
         When I navigate to the "home" page

@@ -152,6 +152,47 @@ public enum IncidentType {
             + "\nsame dataset. The last mapping found will be used."
             + "\n"
             + "\nMapping file needs reviewing and updating."
+    ),
+    FIELD_MAPPING_DUPLICATE(
+        FIELD_MIGRATED_AS_IS,
+        "Duplicate Field mapping",
+        "Duplicate mapping",
+        "Provided Field mapping contains more than one mapping for the"
+            + "\nsame dataset. The last mapping found will be used."
+            + "\n"
+            + "\nMapping file needs reviewing and updating."
+    ),
+    FIELD_MAPPING_MISSING(
+        FIELD_NOT_MIGRATED,
+        "Field mapping missing for Dataset",
+            "",
+            "Datasets get certain fields applied as defined in the mapping file"
+            + "\nfor each Dataset but the provided mapping file"
+            + "\n was missing mapping for given Dataset."
+            + "\n"
+            + "\nUpdated mapping file should be provided, one that includes"
+            + "\nthe offending Dataset."
+    ),
+    FIELD_MAPPING_MISSING_FIELD(
+        FIELD_NOT_MIGRATED,
+        "Field mapping missing field for Dataset",
+            "Missing Field",
+            "Datasets get certain fields applied as defined in the mapping file"
+            + "\nfor each Dataset but the provided mapping file"
+            + "\n was missing mapping for a certian field for a given dataset."
+            + "\n"
+            + "\nUpdated mapping file should be provided, one that includes"
+            + "\nthe missing field."
+    ),
+    FIELD_MAPPING_INVALID(
+        FIELD_NOT_MIGRATED,
+        "Field mapping is invalid for Dataset",
+            "Field | Invalid data",
+            "Datasets get certain fields applied as defined in the mapping file"
+            + "\nfor each Dataset but the provided mapping file"
+            + "\n contained an invalid mapping for a certian field for a given dataset."
+            + "\n"
+            + "\nUpdated mapping file should be provided."
     );
 
     private final DatasetMigrationImpact datasetMigrationImpact;

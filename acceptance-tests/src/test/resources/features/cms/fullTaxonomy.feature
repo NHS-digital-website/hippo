@@ -1,6 +1,6 @@
 Feature: Full taxonomy gets populated when picking taxonomy leaves
 
-    @TakeOfflineAfter
+    @DeleteAfter
     Scenario: Full taxonomy gets populated
         Given I am on the content page
         And I create a new publication

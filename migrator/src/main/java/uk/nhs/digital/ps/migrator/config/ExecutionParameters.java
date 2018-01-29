@@ -1,12 +1,12 @@
 package uk.nhs.digital.ps.migrator.config;
 
+import static java.util.Arrays.asList;
+import static uk.nhs.digital.ps.migrator.misc.Descriptor.describe;
+
 import uk.nhs.digital.ps.migrator.misc.Descriptor;
 
 import java.nio.file.Path;
 import java.util.List;
-
-import static java.util.Arrays.asList;
-import static uk.nhs.digital.ps.migrator.misc.Descriptor.describe;
 
 public class ExecutionParameters {
 
@@ -21,6 +21,7 @@ public class ExecutionParameters {
     private Path taxonomyDefinitionImportPath;
     private Path taxonomyDefinitionOutputPath;
     private Path taxonomyMappingImportPath;
+    private Path nesstarFieldMappingImportPath;
     private Path migrationReportFilePath;
 
     public Path getNesstarUnzippedExportDir() {
@@ -103,6 +104,14 @@ public class ExecutionParameters {
         this.taxonomyMappingImportPath = taxonomyMappingImportPath;
     }
 
+    public Path getNesstarFieldMappingImportPath() {
+        return nesstarFieldMappingImportPath;
+    }
+
+    public void setNesstarFieldMappingImportPath(Path nesstarFieldMappingImportPath) {
+        this.nesstarFieldMappingImportPath = nesstarFieldMappingImportPath;
+    }
+
     public Path getMigrationReportFilePath() {
         return migrationReportFilePath;
     }
@@ -123,6 +132,7 @@ public class ExecutionParameters {
             describe("taxonomyDefinitionImportPath", taxonomyDefinitionImportPath),
             describe("taxonomyDefinitionOutputPath", taxonomyDefinitionOutputPath),
             describe("taxonomyMappingImportPath", taxonomyMappingImportPath),
+            describe("nesstarFieldMappingImportPath", nesstarFieldMappingImportPath),
             describe("migrationReportFilePath", migrationReportFilePath)
         );
     }

@@ -12,6 +12,10 @@ public class DataSet extends HippoImportableItem {
     private final List<Attachment> attachments;
     private final List<ResourceLink> resourceLinks;
     private final String taxonomyKeys;
+    private final String coverageStart;
+    private final String coverageEnd;
+    private final String geographicCoverage;
+    private final String granularity;
 
     public DataSet(final Folder parentFolder,
                    final String pCode,
@@ -22,7 +26,11 @@ public class DataSet extends HippoImportableItem {
                    final String nextPublicationDate,
                    final List<Attachment> attachments,
                    final List<ResourceLink> resourceLinks,
-                   final String taxonomyKeys) {
+                   final String taxonomyKeys,
+                   final String coverageStart,
+                   final String coverageEnd,
+                   final String geographicCoverage,
+                   final String granularity) {
         super(parentFolder, name);
 
         this.pCode = pCode;
@@ -33,6 +41,10 @@ public class DataSet extends HippoImportableItem {
         this.attachments = attachments;
         this.resourceLinks = resourceLinks;
         this.taxonomyKeys = taxonomyKeys;
+        this.coverageStart = coverageStart;
+        this.coverageEnd = coverageEnd;
+        this.geographicCoverage = geographicCoverage;
+        this.granularity = granularity;
     }
 
     public String getTitle() {
@@ -65,5 +77,21 @@ public class DataSet extends HippoImportableItem {
 
     public String getPCode() {
         return pCode;
+    }
+
+    public String getCoverageStart() {
+        return coverageStart;
+    }
+
+    public String getCoverageEnd() {
+        return coverageEnd;
+    }
+
+    public String getGeographicCoverage() {
+        return geographicCoverage;
+    }
+
+    public String getGranularity() {
+        return granularity;
     }
 }

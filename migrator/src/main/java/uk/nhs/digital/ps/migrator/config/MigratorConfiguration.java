@@ -1,7 +1,10 @@
 package uk.nhs.digital.ps.migrator.config;
 
+import static java.util.Arrays.asList;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import uk.nhs.digital.ps.migrator.model.hippo.MappedFieldsImporter;
 import uk.nhs.digital.ps.migrator.model.hippo.TaxonomyMigrator;
 import uk.nhs.digital.ps.migrator.report.MigrationReport;
 import uk.nhs.digital.ps.migrator.task.*;
@@ -11,8 +14,6 @@ import uk.nhs.digital.ps.migrator.task.importables.NhsOutcomesFrameworkImportabl
 import uk.nhs.digital.ps.migrator.task.importables.SocialCareImportables;
 
 import java.util.List;
-
-import static java.util.Arrays.asList;
 
 @Configuration
 public class MigratorConfiguration {
@@ -62,10 +63,11 @@ public class MigratorConfiguration {
 
     @Bean
     public NesstarImportableItemsFactory importableItemsFactory(final ExecutionParameters executionParameters,
-                                                                final MigrationReport migrationReport,
-                                                                final TaxonomyMigrator taxonomyMigrator)
+                                                         final MigrationReport migrationReport,
+                                                         final TaxonomyMigrator taxonomyMigrator,
+                                                         final MappedFieldsImporter mappedFieldsImporter)
     {
-        return new NesstarImportableItemsFactory(executionParameters, migrationReport, taxonomyMigrator);
+        return new NesstarImportableItemsFactory(executionParameters, migrationReport, taxonomyMigrator, mappedFieldsImporter);
     }
 
     @Bean
@@ -100,5 +102,11 @@ public class MigratorConfiguration {
     public TaxonomyMigrator taxonomyMigrator(final MigrationReport migrationReport,
                                              final ExecutionParameters executionParameters) {
         return new TaxonomyMigrator(migrationReport, executionParameters);
+    }
+
+    @Bean
+    public MappedFieldsImporter mappedFieldsImporter(final MigrationReport migrationReport,
+                                                     final ExecutionParameters executionParameters) {
+        return new MappedFieldsImporter(migrationReport, executionParameters);
     }
 }

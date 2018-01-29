@@ -1,5 +1,8 @@
 package uk.nhs.digital.ps.migrator.model.hippo;
 
+import static java.util.stream.Collectors.toList;
+import static uk.nhs.digital.ps.migrator.report.IncidentType.*;
+
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -16,9 +19,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
-
-import static java.util.stream.Collectors.toList;
-import static uk.nhs.digital.ps.migrator.report.IncidentType.*;
 
 /**
  * This class is responsible for providing the taxonomy definition that we are going
