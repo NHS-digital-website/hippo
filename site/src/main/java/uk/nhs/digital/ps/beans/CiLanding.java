@@ -24,4 +24,14 @@ public class CiLanding extends BaseDocument {
         return getChildBeansByName("publicationsystem:resourceLinks",
                 Relatedlink.class);
     }
+
+    @HippoEssentialsGenerated(internalName = "publicationsystem:actionLinkName")
+    public String getActionLinkName() {
+        return getProperty("publicationsystem:actionLinkName");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publicationsystem:actionLinkRelPath")
+    public String getActionLinkRelPath() {
+        return getProperty("publicationsystem:actionLinkRelPath");
+    }
 }

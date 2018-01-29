@@ -1,0 +1,132 @@
+---
+/content/documents/corporate-website/publication-system/acceptance-tests/indicator-documents:
+  /faceted-search-dummy-document:
+    /faceted-search-dummy-document[1]:
+      common:FullTaxonomy:
+      - clinical-indicators
+      - nhs-outcomes-framework
+      - compendium
+      - clinical-commissioning-groups-outcomes-framework
+      - team
+      - adult-social-outcomes-framework--ascof-
+      - summary-hospital-level-mortality-indicator--shmi-
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-29T12:24:30.725Z
+      hippostdpubwf:lastModificationDate: 2018-01-29T12:48:50.731Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotaxonomy:keys:
+      - clinical-commissioning-groups-outcomes-framework
+      - adult-social-outcomes-framework--ascof-
+      - compendium
+      - summary-hospital-level-mortality-indicator--shmi-
+      - nhs-outcomes-framework
+      hippotranslation:id: 6ca4d793-489b-4b57-b646-d444ba76eb0b
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: ''
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-01-29T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Dummy document for testing faceted browsing links
+      publicationsystem:Title: Indicator Document
+    /faceted-search-dummy-document[2]:
+      common:FullTaxonomy:
+      - clinical-indicators
+      - nhs-outcomes-framework
+      - compendium
+      - clinical-commissioning-groups-outcomes-framework
+      - team
+      - adult-social-outcomes-framework--ascof-
+      - summary-hospital-level-mortality-indicator--shmi-
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-29T12:24:30.725Z
+      hippostdpubwf:lastModificationDate: 2018-01-29T12:26:27.027Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotaxonomy:keys:
+      - clinical-commissioning-groups-outcomes-framework
+      - adult-social-outcomes-framework--ascof-
+      - compendium
+      - summary-hospital-level-mortality-indicator--shmi-
+      - nhs-outcomes-framework
+      hippotranslation:id: 6ca4d793-489b-4b57-b646-d444ba76eb0b
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-01-29T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Dummy document for testing faceted browsing links
+      publicationsystem:Title: Indicator Document
+    /faceted-search-dummy-document[3]:
+      common:FullTaxonomy:
+      - clinical-indicators
+      - nhs-outcomes-framework
+      - compendium
+      - clinical-commissioning-groups-outcomes-framework
+      - team
+      - adult-social-outcomes-framework--ascof-
+      - summary-hospital-level-mortality-indicator--shmi-
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-01-29T12:24:30.725Z
+      hippostdpubwf:lastModificationDate: 2018-01-29T12:26:27.027Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-01-29T12:26:31.087Z
+      hippotaxonomy:keys:
+      - clinical-commissioning-groups-outcomes-framework
+      - adult-social-outcomes-framework--ascof-
+      - compendium
+      - summary-hospital-level-mortality-indicator--shmi-
+      - nhs-outcomes-framework
+      hippotranslation:id: 6ca4d793-489b-4b57-b646-d444ba76eb0b
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-01-29T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Dummy document for testing faceted browsing links
+      publicationsystem:Title: Indicator Document
+    hippo:name: Faceted Search Dummy Document
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Indicator Documents
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: eaf4fc44-8d7c-4bdf-afae-550d6a45adac
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

@@ -12,8 +12,11 @@
                 <div class="panel panel--grey push-half--bottom">
                     <h3><@fmt.message key="headers.ci-landing-actions"/></h3>
                     <ul>
-                        <@hst.link var="backlink" mount="common-context" path="/" />
-                        <li><a href="${backlink}" title="Back to Clinical Indicators">Back to Clinical Indicators</a></li>
+                        <@hst.link var="homelink" mount="common-context" path="/" />
+                        <li><a href="${homelink}" title="Back to Clinical Indicators">Back to Clinical Indicators</a></li>
+                        <#if document.actionLinkRelPath??>
+                            <li><a href="${homelink}${document.actionLinkRelPath}" title="${document.actionLinkName}">${document.actionLinkName}</a></li>
+                        </#if>
                     </ul>
                 </div>
             <#if document.resourceLinks?has_content>

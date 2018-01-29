@@ -51,7 +51,7 @@ definitions:
           /cihublink:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
-            hipposysedit:ordered: false
+            hipposysedit:ordered: true
             hipposysedit:path: publicationsystem:cihublink
             hipposysedit:primary: false
             hipposysedit:type: publicationsystem:cihublink
