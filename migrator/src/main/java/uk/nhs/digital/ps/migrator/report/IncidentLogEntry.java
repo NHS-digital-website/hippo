@@ -1,8 +1,10 @@
 package uk.nhs.digital.ps.migrator.report;
 
-import java.util.List;
-
 import static java.util.Collections.emptyList;
+
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+import java.util.List;
 
 public class IncidentLogEntry {
     private final String pCode;
@@ -25,5 +27,10 @@ public class IncidentLogEntry {
 
     List<String> getSupportingData() {
         return supportingData == null ? emptyList() : supportingData;
+    }
+
+    @Override
+    public String toString() {
+        return ReflectionToStringBuilder.toString(this);
     }
 }

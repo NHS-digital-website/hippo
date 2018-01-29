@@ -164,6 +164,7 @@ class MockNode extends AbstractItem implements Node {
     }
 
     @Override
+    @Deprecated
     public String getUUID() throws RepositoryException {
         return getIdentifier();
     }
@@ -394,26 +395,31 @@ class MockNode extends AbstractItem implements Node {
     }
 
     @Override
+    @Deprecated
     public void cancelMerge(final Version version) throws RepositoryException {
         throw new UnsupportedOperationException();
     }
 
     @Override
+    @Deprecated
     public Version checkin() throws RepositoryException  {
         throw new UnsupportedOperationException();
     }
 
     @Override
+    @Deprecated
     public void checkout() throws RepositoryException {
         throw new UnsupportedOperationException();
     }
 
     @Override
+    @Deprecated
     public void doneMerge(final Version version) throws RepositoryException {
         throw new UnsupportedOperationException();
     }
 
     @Override
+    @Deprecated
     public Version getBaseVersion() throws RepositoryException {
         throw new UnsupportedOperationException();
     }
@@ -434,6 +440,7 @@ class MockNode extends AbstractItem implements Node {
     }
 
     @Override
+    @Deprecated
     public Lock getLock() throws RepositoryException {
         throw new UnsupportedOperationException();
     }
@@ -449,11 +456,13 @@ class MockNode extends AbstractItem implements Node {
     }
 
     @Override
+    @Deprecated
     public VersionHistory getVersionHistory() throws RepositoryException {
         throw new UnsupportedOperationException();
     }
 
     @Override
+    @Deprecated
     public boolean holdsLock() throws RepositoryException {
         throw new UnsupportedOperationException();
     }
@@ -464,11 +473,13 @@ class MockNode extends AbstractItem implements Node {
     }
 
     @Override
+    @Deprecated
     public Lock lock(final boolean isDeep, final boolean isSessionScoped) throws RepositoryException {
         throw new UnsupportedOperationException();
     }
 
     @Override
+    @Deprecated
     public NodeIterator merge(final String srcWorkspace, final boolean bestEffort) throws RepositoryException {
         throw new UnsupportedOperationException();
     }
@@ -484,26 +495,31 @@ class MockNode extends AbstractItem implements Node {
     }
 
     @Override
+    @Deprecated
     public void restore(final String versionName, final boolean removeExisting) throws RepositoryException {
         throw new UnsupportedOperationException();
     }
 
     @Override
+    @Deprecated
     public void restore(final Version version, final boolean removeExisting) throws RepositoryException {
         throw new UnsupportedOperationException();
     }
 
     @Override
+    @Deprecated
     public void restore(final Version version, final String relPath, final boolean removeExisting) throws RepositoryException {
         throw new UnsupportedOperationException();
     }
 
     @Override
+    @Deprecated
     public void restoreByLabel(final String versionLabel, final boolean removeExisting) throws RepositoryException {
         throw new UnsupportedOperationException();
     }
 
     @Override
+    @Deprecated
     public void unlock() throws RepositoryException {
         throw new UnsupportedOperationException();
     }
