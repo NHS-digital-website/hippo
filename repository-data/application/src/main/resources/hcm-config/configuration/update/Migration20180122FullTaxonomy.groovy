@@ -1,11 +1,13 @@
 package org.hippoecm.frontend.plugins.cms.admin.updater
 
+import org.hippoecm.repository.util.JcrUtils
 import org.onehippo.forge.content.exim.core.DocumentManager
 import org.onehippo.forge.content.exim.core.impl.WorkflowDocumentManagerImpl
 import org.onehippo.repository.update.BaseNodeUpdateVisitor
 
 import javax.jcr.Node
 import javax.jcr.Session
+
 /**
  * This migration causes the Full Taxonomy to get populated by commiting and publishing
  * every publication and dataset
@@ -66,7 +68,9 @@ class Migration20180122FullTaxonomy extends BaseNodeUpdateVisitor {
         String path = node.getPath()
 
         // Change and commit the document to trigger the event bus to generate the taxonomy
-        documentManager.obtainEditableDocument(path).getNode(session).setProperty("hippostdpubwf:lastModificationDate", Calendar.getInstance())
+        Node documentNode = documentManager.obtainEditableDocument(path).getNode(session)
+        JcrUtils.ensureIsCheckedOut(documentNode);
+        documentNode.setProperty("hippostdpubwf:lastModificationDate", Calendar.getInstance())
         session.save()
         documentManager.commitEditableDocument(path)
         session.save()

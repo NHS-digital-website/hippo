@@ -46,13 +46,19 @@ public class NesstarImportableItemsFactory {
         this.mappedFieldsImporter = mappedFieldsImporter;
     }
 
-    public Series newSeries(final Folder parentFolder, final String title) {
+    public Series newArchivedSeries(final Folder parentFolder, final String name) {
+        String title = "Archived " + name;
+        String summary = title + "\\n\\nNo archive content is currently available. This will be updated in due course.";
+        return newSeries(parentFolder, title, summary);
+    }
+
+    public Series newSeries(final Folder parentFolder, final String title, final String summary) {
 
         return new Series(
             parentFolder,
             "content",
-            title
-        );
+            title,
+            summary);
     }
 
     public Publication toPublication(final Folder parentFolder, final Catalog catalog) {

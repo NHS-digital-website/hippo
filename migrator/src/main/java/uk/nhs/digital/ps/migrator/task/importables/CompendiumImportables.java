@@ -1,13 +1,14 @@
 package uk.nhs.digital.ps.migrator.task.importables;
 
+import static java.text.MessageFormat.format;
+import static java.util.stream.StreamSupport.stream;
+import static uk.nhs.digital.ps.migrator.report.IncidentType.*;
+
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.slf4j.Logger;
-import uk.nhs.digital.ps.migrator.report.IncidentType;
-import uk.nhs.digital.ps.migrator.report.MigrationReport;
 import uk.nhs.digital.ps.migrator.config.ExecutionParameters;
 import uk.nhs.digital.ps.migrator.model.hippo.Folder;
 import uk.nhs.digital.ps.migrator.model.hippo.HippoImportableItem;
@@ -15,6 +16,8 @@ import uk.nhs.digital.ps.migrator.model.hippo.Publication;
 import uk.nhs.digital.ps.migrator.model.hippo.Series;
 import uk.nhs.digital.ps.migrator.model.nesstar.DataSetRepository;
 import uk.nhs.digital.ps.migrator.model.nesstar.PublishingPackage;
+import uk.nhs.digital.ps.migrator.report.IncidentType;
+import uk.nhs.digital.ps.migrator.report.MigrationReport;
 import uk.nhs.digital.ps.migrator.task.NesstarImportableItemsFactory;
 
 import java.io.FileInputStream;
@@ -28,10 +31,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
-import static java.text.MessageFormat.format;
-import static java.util.stream.StreamSupport.stream;
-import static uk.nhs.digital.ps.migrator.report.IncidentType.*;
 
 public class CompendiumImportables {
 
@@ -89,7 +88,10 @@ public class CompendiumImportables {
             importableItems.add(seriesCurrentFolder);
 
             // D)
-            final Series series = factory.newSeries(seriesCurrentFolder, seriesRootFolder.getLocalizedName());
+            final Series series = factory.newSeries(
+                seriesCurrentFolder,
+                seriesRootFolder.getLocalizedName(),
+                seriesRootFolder.getLocalizedName() + " summary");
             importableItems.add(series);
 
             seriesPrototype.getPublicationPrototypes().forEach(publicationPrototype -> {
@@ -129,7 +131,7 @@ public class CompendiumImportables {
                 importableItems.add(seriesArchiveFolder);
 
                 // J)
-                final Series seriesArchivedContent = factory.newSeries(seriesArchiveFolder, "Archived " + seriesArchiveFolder.getLocalizedName());
+                final Series seriesArchivedContent = factory.newArchivedSeries(seriesArchiveFolder, seriesArchiveFolder.getLocalizedName());
                 importableItems.add(seriesArchivedContent);
             });
 
@@ -249,7 +251,7 @@ public class CompendiumImportables {
 
         if (sheet == null) {
             throw new RuntimeException(format(
-                "Failed to read Clinical Indicators Compendium mapping; sheet '{0}' not found.", P_CODE_MAPPING_SHEET_NAME
+                "Failed to read Clinical Indicators Compendium mapping; sheet ''{0}'' not found.", P_CODE_MAPPING_SHEET_NAME
             ));
         }
 

@@ -1,5 +1,15 @@
 package uk.nhs.digital.ps.migrator.report;
 
+import static java.text.MessageFormat.format;
+import static java.util.Arrays.*;
+import static java.util.Collections.emptyList;
+import static java.util.Comparator.comparing;
+import static java.util.stream.Collectors.joining;
+import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.apache.poi.ss.usermodel.HorizontalAlignment.LEFT;
+import static org.apache.poi.ss.usermodel.HorizontalAlignment.RIGHT;
+import static org.apache.poi.ss.usermodel.VerticalAlignment.CENTER;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.common.usermodel.HyperlinkType;
 import org.apache.poi.ss.usermodel.*;
@@ -23,16 +33,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import static java.text.MessageFormat.format;
-import static java.util.Arrays.*;
-import static java.util.Collections.emptyList;
-import static java.util.Comparator.comparing;
-import static java.util.stream.Collectors.joining;
-import static org.apache.commons.lang3.StringUtils.isBlank;
-import static org.apache.poi.ss.usermodel.HorizontalAlignment.LEFT;
-import static org.apache.poi.ss.usermodel.HorizontalAlignment.RIGHT;
-import static org.apache.poi.ss.usermodel.VerticalAlignment.CENTER;
 
 public class MigrationReport {
 
