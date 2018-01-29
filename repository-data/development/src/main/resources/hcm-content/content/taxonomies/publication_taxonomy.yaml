@@ -313,6 +313,78 @@
         jcr:primaryType: hippotaxonomy:categoryinfos
       hippotaxonomy:key: social-care
       jcr:primaryType: hippotaxonomy:category
+    /team:
+      /clinical-indicators:
+        /adult-social-outcomes-framework--ascof-:
+          /hippotaxonomy:categoryinfos:
+            /en:
+              hippotaxonomy:name: Adult Social Outcomes Framework (ASCOF)
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: adult-social-outcomes-framework--ascof-
+          jcr:primaryType: hippotaxonomy:category
+        /clinical-commissioning-groups-outcomes-framework:
+          /hippotaxonomy:categoryinfos:
+            /en:
+              hippotaxonomy:name: Clinical Commissioning Groups Outcomes Framework
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: clinical-commissioning-groups-outcomes-framework
+          jcr:primaryType: hippotaxonomy:category
+        /compendium:
+          /hippotaxonomy:categoryinfos:
+            /en:
+              hippotaxonomy:name: Compendium
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: compendium
+          jcr:primaryType: hippotaxonomy:category
+        /hippotaxonomy:categoryinfos:
+          /en:
+            hippotaxonomy:name: Clinical Indicators
+            jcr:primaryType: hippotaxonomy:categoryinfo
+          jcr:primaryType: hippotaxonomy:categoryinfos
+        /local-basket-of-indicators--lboi-:
+          /hippotaxonomy:categoryinfos:
+            /en:
+              hippotaxonomy:name: Local Basket of Indicators (LBOI)
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: local-basket-of-indicators--lboi-
+          jcr:primaryType: hippotaxonomy:category
+        /nhs-outcomes-framework:
+          /hippotaxonomy:categoryinfos:
+            /en:
+              hippotaxonomy:name: NHS Outcomes Framework
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: nhs-outcomes-framework
+          jcr:primaryType: hippotaxonomy:category
+        /seven-day-services:
+          /hippotaxonomy:categoryinfos:
+            /en:
+              hippotaxonomy:name: Seven Day Services
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: seven-day-services
+          jcr:primaryType: hippotaxonomy:category
+        /summary-hospital-level-mortality-indicator--shmi-:
+          /hippotaxonomy:categoryinfos:
+            /en:
+              hippotaxonomy:name: Summary Hospital-level Mortality Indicator (SHMI)
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: summary-hospital-level-mortality-indicator--shmi-
+          jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: clinical-indicators
+        jcr:primaryType: hippotaxonomy:category
+      /hippotaxonomy:categoryinfos:
+        /en:
+          hippotaxonomy:name: Team
+          jcr:primaryType: hippotaxonomy:categoryinfo
+        jcr:primaryType: hippotaxonomy:categoryinfos
+      hippotaxonomy:key: team
+      jcr:primaryType: hippotaxonomy:category
     /workforce:
       /hippotaxonomy:categoryinfos:
         /en:
@@ -647,6 +719,78 @@
           jcr:primaryType: hippotaxonomy:categoryinfo
         jcr:primaryType: hippotaxonomy:categoryinfos
       hippotaxonomy:key: social-care
+      jcr:primaryType: hippotaxonomy:category
+    /team:
+      /clinical-indicators:
+        /adult-social-outcomes-framework--ascof-:
+          /hippotaxonomy:categoryinfos:
+            /en:
+              hippotaxonomy:name: Adult Social Outcomes Framework (ASCOF)
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: adult-social-outcomes-framework--ascof-
+          jcr:primaryType: hippotaxonomy:category
+        /clinical-commissioning-groups-outcomes-framework:
+          /hippotaxonomy:categoryinfos:
+            /en:
+              hippotaxonomy:name: Clinical Commissioning Groups Outcomes Framework
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: clinical-commissioning-groups-outcomes-framework
+          jcr:primaryType: hippotaxonomy:category
+        /compendium:
+          /hippotaxonomy:categoryinfos:
+            /en:
+              hippotaxonomy:name: Compendium
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: compendium
+          jcr:primaryType: hippotaxonomy:category
+        /hippotaxonomy:categoryinfos:
+          /en:
+            hippotaxonomy:name: Clinical Indicators
+            jcr:primaryType: hippotaxonomy:categoryinfo
+          jcr:primaryType: hippotaxonomy:categoryinfos
+        /local-basket-of-indicators--lboi-:
+          /hippotaxonomy:categoryinfos:
+            /en:
+              hippotaxonomy:name: Local Basket of Indicators (LBOI)
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: local-basket-of-indicators--lboi-
+          jcr:primaryType: hippotaxonomy:category
+        /nhs-outcomes-framework:
+          /hippotaxonomy:categoryinfos:
+            /en:
+              hippotaxonomy:name: NHS Outcomes Framework
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: nhs-outcomes-framework
+          jcr:primaryType: hippotaxonomy:category
+        /seven-day-services:
+          /hippotaxonomy:categoryinfos:
+            /en:
+              hippotaxonomy:name: Seven Day Services
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: seven-day-services
+          jcr:primaryType: hippotaxonomy:category
+        /summary-hospital-level-mortality-indicator--shmi-:
+          /hippotaxonomy:categoryinfos:
+            /en:
+              hippotaxonomy:name: Summary Hospital-level Mortality Indicator (SHMI)
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: summary-hospital-level-mortality-indicator--shmi-
+          jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: clinical-indicators
+        jcr:primaryType: hippotaxonomy:category
+      /hippotaxonomy:categoryinfos:
+        /en:
+          hippotaxonomy:name: Team
+          jcr:primaryType: hippotaxonomy:categoryinfo
+        jcr:primaryType: hippotaxonomy:categoryinfos
+      hippotaxonomy:key: team
       jcr:primaryType: hippotaxonomy:category
     /workforce:
       /hippotaxonomy:categoryinfos:
@@ -983,6 +1127,78 @@
           jcr:primaryType: hippotaxonomy:categoryinfo
         jcr:primaryType: hippotaxonomy:categoryinfos
       hippotaxonomy:key: social-care
+      jcr:primaryType: hippotaxonomy:category
+    /team:
+      /clinical-indicators:
+        /adult-social-outcomes-framework--ascof-:
+          /hippotaxonomy:categoryinfos:
+            /en:
+              hippotaxonomy:name: Adult Social Outcomes Framework (ASCOF)
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: adult-social-outcomes-framework--ascof-
+          jcr:primaryType: hippotaxonomy:category
+        /clinical-commissioning-groups-outcomes-framework:
+          /hippotaxonomy:categoryinfos:
+            /en:
+              hippotaxonomy:name: Clinical Commissioning Groups Outcomes Framework
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: clinical-commissioning-groups-outcomes-framework
+          jcr:primaryType: hippotaxonomy:category
+        /compendium:
+          /hippotaxonomy:categoryinfos:
+            /en:
+              hippotaxonomy:name: Compendium
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: compendium
+          jcr:primaryType: hippotaxonomy:category
+        /hippotaxonomy:categoryinfos:
+          /en:
+            hippotaxonomy:name: Clinical Indicators
+            jcr:primaryType: hippotaxonomy:categoryinfo
+          jcr:primaryType: hippotaxonomy:categoryinfos
+        /local-basket-of-indicators--lboi-:
+          /hippotaxonomy:categoryinfos:
+            /en:
+              hippotaxonomy:name: Local Basket of Indicators (LBOI)
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: local-basket-of-indicators--lboi-
+          jcr:primaryType: hippotaxonomy:category
+        /nhs-outcomes-framework:
+          /hippotaxonomy:categoryinfos:
+            /en:
+              hippotaxonomy:name: NHS Outcomes Framework
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: nhs-outcomes-framework
+          jcr:primaryType: hippotaxonomy:category
+        /seven-day-services:
+          /hippotaxonomy:categoryinfos:
+            /en:
+              hippotaxonomy:name: Seven Day Services
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: seven-day-services
+          jcr:primaryType: hippotaxonomy:category
+        /summary-hospital-level-mortality-indicator--shmi-:
+          /hippotaxonomy:categoryinfos:
+            /en:
+              hippotaxonomy:name: Summary Hospital-level Mortality Indicator (SHMI)
+              jcr:primaryType: hippotaxonomy:categoryinfo
+            jcr:primaryType: hippotaxonomy:categoryinfos
+          hippotaxonomy:key: summary-hospital-level-mortality-indicator--shmi-
+          jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: clinical-indicators
+        jcr:primaryType: hippotaxonomy:category
+      /hippotaxonomy:categoryinfos:
+        /en:
+          hippotaxonomy:name: Team
+          jcr:primaryType: hippotaxonomy:categoryinfo
+        jcr:primaryType: hippotaxonomy:categoryinfos
+      hippotaxonomy:key: team
       jcr:primaryType: hippotaxonomy:category
     /workforce:
       /hippotaxonomy:categoryinfos:

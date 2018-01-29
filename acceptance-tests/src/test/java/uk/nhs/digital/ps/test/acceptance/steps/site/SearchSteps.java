@@ -108,9 +108,9 @@ public class SearchSteps extends AbstractSpringSteps {
         assertEquals("Search query is maintained in search box", term, searchPage.getSearchFieldValue());
     }
 
-    @Then("^I should see the blank search results page$")
-    public void iShouldSeeTheBlankSearchResultsPage() throws Throwable {
-        assertEquals("Blank search helper text is shown", "Please fill in a search term", searchPage.getResultCount());
+    @Then("^I should see the full search results page$")
+    public void iShouldSeeTheFullSearchResultsPage() throws Throwable {
+        assertThat("Full search results are shown", searchPage.getResultCount(), endsWith("results found"));
         assertEquals("Search query is blank", "", searchPage.getSearchFieldValue());
     }
 

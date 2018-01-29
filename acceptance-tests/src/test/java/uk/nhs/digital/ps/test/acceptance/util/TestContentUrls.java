@@ -1,9 +1,9 @@
 package uk.nhs.digital.ps.test.acceptance.util;
 
+import static org.openqa.selenium.net.Urls.urlEncode;
+
 import java.util.HashMap;
 import java.util.Map;
-
-import static org.openqa.selenium.net.Urls.urlEncode;
 
 public class TestContentUrls {
 
@@ -19,6 +19,8 @@ public class TestContentUrls {
 
     private void setup() {
         add("home", "/");
+
+        add("search", "/search");
 
         add ("publications overview",
             "/publications");

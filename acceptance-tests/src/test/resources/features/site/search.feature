@@ -106,10 +106,18 @@ Feature: Basic search
         When I search for ""test_search""
         Then I should see the search term ""test_search"" on the results page
 
-    Scenario: Blank search terms display the correct results page
+    Scenario: Searching with no search term provided displays the results page with full, unfiltered result set
         Given I navigate to the "home" page
         When I search for ""
-        Then I should see the blank search results page
+        Then I should see the full search results page
+        And I should see the "DOCUMENT TYPE" list including:
+            | Statistical Publication ( ... |
+
+    Scenario: Navigating to the search page displays the results page with full, unfiltered result set
+        Given I navigate to the "search" page
+        Then I should see the full search results page
+        And I should see the "DOCUMENT TYPE" list including:
+            | Statistical Publication ( ... |
 
     Scenario: Each document type label is correctly displayed in search results
         Given I navigate to the "home" page

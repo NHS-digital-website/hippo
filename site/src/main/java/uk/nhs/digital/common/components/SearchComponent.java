@@ -117,26 +117,37 @@ public class SearchComponent extends CommonComponent {
 
     private HstQuery buildQuery(HstRequest request) {
         String queryParameter = getQueryParameter(request);
-        String query = SearchInputParsingUtils.parse(queryParameter, true);
-        String queryIncWildcards = parseAndApplyWildcards(queryParameter);
+        Constraint searchStringConstraint = null;
 
-        HstQueryBuilder queryBuilder = HstQueryBuilder
-            .create(request.getRequestContext().getSiteContentBaseBean());
+        HstQueryBuilder queryBuilder = HstQueryBuilder.create(request.getRequestContext().getSiteContentBaseBean());
+
+        if (queryParameter != null) {
+            String query = SearchInputParsingUtils.parse(queryParameter, true);
+            String queryIncWildcards = parseAndApplyWildcards(queryParameter);
+
+            searchStringConstraint = or(
+                publicationSystemConstraint(query),
+                publicationSystemConstraint(queryIncWildcards),
+                constraint(".").contains(query),
+                constraint(".").contains(queryIncWildcards)
+            );
+        }
 
         // register content classes
         addPublicationSystemTypes(queryBuilder);
 
-        return queryBuilder
-            .where(and(
-                constraint("common:searchable").equalTo(true),
-                or(
-                    publicationSystemConstraint(query),
-                    publicationSystemConstraint(queryIncWildcards),
-                    constraint(".").contains(query),
-                    constraint(".").contains(queryIncWildcards)
-                )
-            ))
-            .build();
+        return constructQuery(queryBuilder, searchStringConstraint);
+    }
+
+    private HstQuery constructQuery(HstQueryBuilder queryBuilder, Constraint searchStringConstraint) {
+        ArrayList<Constraint> constraints = new ArrayList<>(2);
+        constraints.add(constraint("common:searchable").equalTo(true));
+
+        if (searchStringConstraint != null) {
+            constraints.add(searchStringConstraint);
+        }
+
+        return queryBuilder.where(and(constraints.toArray(new Constraint[0]))).build();
     }
 
     /**

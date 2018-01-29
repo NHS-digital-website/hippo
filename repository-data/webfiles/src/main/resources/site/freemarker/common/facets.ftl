@@ -34,8 +34,8 @@
                             <@hst.facetnavigationlink var="link" remove=value current=facets />
                             <li class="filter-list__item"><a href="${link}" title="${valueName}" class="filter-list__item__link">${valueName} x<i class="fa fa-times"> </i></a></li>
                         <#else>
-                            <@hst.link var="link" hippobean=value />
-                            <li class="filter-list__item"><a href="${link}?query=${query}" title="${valueName}" class="filter-list__item__link">${valueName}&nbsp;(${value.count})</a></li>
+                            <@hst.link var="link" hippobean=value navigationStateful=true/>
+                            <li class="filter-list__item"><a href="${link}" title="${valueName}" class="filter-list__item__link">${valueName}&nbsp;(${value.count})</a></li>
                         </#if>
                     </#if>
                 </#list>
