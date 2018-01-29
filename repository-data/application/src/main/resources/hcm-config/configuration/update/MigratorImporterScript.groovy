@@ -14,7 +14,6 @@ import org.onehippo.repository.update.BaseNodeUpdateVisitor
 
 import javax.jcr.Node
 import javax.jcr.Session
-import java.util.concurrent.atomic.AtomicReference
 
 
 class MigratorImporterScript extends BaseNodeUpdateVisitor {
