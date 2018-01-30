@@ -1,5 +1,6 @@
 ---
 /content/documents/corporate-website/publication-system:
+  .meta:order-before: article
   hippo:name: Publication System
   hippostd:foldertype:
   - new-translated-folder

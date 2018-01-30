@@ -1,0 +1,26 @@
+---
+/content/gallery/puppy22.jpg/puppy22.jpg:
+  /hippogallery:original:
+    hippogallery:height: 450
+    hippogallery:width: 600
+    jcr:data:
+      resource: /content/gallery/puppy22.jpg/puppy22.jpg/original/data.jpg
+      type: binary
+    jcr:lastModified: 2018-01-26T15:11:29.031Z
+    jcr:mimeType: image/jpeg
+    jcr:primaryType: hippogallery:image
+  /hippogallery:thumbnail:
+    hippo:filename: puppy22.jpg
+    hippogallery:height: 45
+    hippogallery:width: 60
+    jcr:data:
+      resource: /content/gallery/puppy22.jpg/puppy22.jpg/thumbnail/data.jpg
+      type: binary
+    jcr:lastModified: 2018-01-26T15:11:29.031Z
+    jcr:mimeType: image/jpeg
+    jcr:primaryType: hippogallery:image
+  hippo:availability:
+  - live
+  - preview
+  hippogallery:filename: puppy22.jpg
+  jcr:primaryType: hippogallery:imageset

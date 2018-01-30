@@ -1,0 +1,122 @@
+// sass-lint:disable class-name-format
+
+.gallery {
+  @include clearfix;
+}
+
+.gallery--inline {
+  max-width: 40em;
+
+  & + * {
+    margin-top: 0;
+  }
+}
+
+.gallery--collage {
+  max-width: 40em;
+
+  + .button {
+    // 2px is added to the bottom of each gallery__item
+    // which requires this to reduce to 6px
+    margin-top: $baseline-grid-unit * 2;
+  }
+}
+
+.gallery__item {
+  box-sizing: border-box;
+}
+
+.gallery__item--inline {
+  @include element-spacing(bottom);
+
+  @include media(tablet) {
+    float: left;
+    margin-top: 0;
+    width: 50%;
+  }
+
+  // reset margins and float every odd item
+  &.is-odd {
+    @include media(tablet) {
+      border-right: 8px solid $white;
+      clear: left;
+    }
+
+    @include media(desktop) {
+      border-right: 16px solid $white;
+    }
+  }
+
+  &.is-even {
+    @include media(tablet) {
+      border-left: 8px solid $white;
+    }
+
+    @include media(desktop) {
+      border-left: 16px solid $white;
+    }
+  }
+
+  @include ie-lte(7) {
+    float: none;
+
+    &.is-odd,
+    &.is-even {
+      border-left: 0;
+      border-right: 0;
+    }
+  }
+}
+
+.is-collapsed {
+  .gallery__item--collage {
+    border-color: $white;
+    border-style: solid;
+    border-width: 0 0 $baseline-grid-unit;
+    float: left;
+    margin-top: 0;
+    width: 50%;
+    word-wrap: break-word;
+
+    &.is-odd {
+      border-right-width: $baseline-grid-unit / 2;
+    }
+
+    &.is-even {
+      border-left-width: $baseline-grid-unit / 2;
+    }
+
+    &.gallery__item--small {
+      border-left-width: $baseline-grid-unit / 2;
+      border-right-width: 0;
+      width: 33.1%;
+    }
+
+    &.gallery__item--large {
+      border-left-width: 0;
+      border-right-width: $baseline-grid-unit / 2;
+      width: 66.9%;
+    }
+
+    // reset for IE 7 and less
+    @include ie-lte(7) {
+      @include element-spacing(bottom);
+      border-width: 0;
+
+      &.is-odd,
+      &.is-even,
+      &.gallery__item--small,
+      &.gallery__item--large {
+        border-width: 0;
+        float: none;
+        width: 100%;
+      }
+    }
+
+    .js-enabled & {
+      img {
+        cursor: pointer;
+      }
+    }
+  }
+}

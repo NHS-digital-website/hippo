@@ -1,0 +1,18 @@
+
+.icon {
+  position: relative;
+  display: inline-block;
+  margin: 0 0.4em 0 0.1em;
+  top: 0.3em;
+  width: 1.3em;
+  height: 1.3em;
+  line-height: 100%;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.icon--pdf {
+  background-image: url('../images/icon__pdf.png');
+}

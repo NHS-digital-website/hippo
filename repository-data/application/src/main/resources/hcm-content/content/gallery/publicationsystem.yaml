@@ -6,6 +6,6 @@
   hippostd:gallerytype:
   - hippogallery:imageset
   jcr:mixinTypes:
-  - mix:referenceable
   - hippo:named
+  - mix:referenceable
   jcr:primaryType: hippogallery:stdImageGallery

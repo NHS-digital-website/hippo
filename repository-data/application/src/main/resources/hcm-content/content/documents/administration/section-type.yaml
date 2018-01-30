@@ -1,0 +1,17 @@
+---
+/content/documents/administration/section-type:
+  /section-type:
+    hippo:availability:
+    - live
+    - preview
+    hippotranslation:id: 665ff7e6-3442-40e9-9d39-94fd35ea61b7
+    hippotranslation:locale: inherited - from query
+    jcr:mixinTypes:
+    - hippotranslation:translated
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: Section Type
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

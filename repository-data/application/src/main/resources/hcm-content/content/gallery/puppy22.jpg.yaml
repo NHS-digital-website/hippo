@@ -1,0 +1,5 @@
+---
+/content/gallery/puppy22.jpg:
+  jcr:mixinTypes:
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

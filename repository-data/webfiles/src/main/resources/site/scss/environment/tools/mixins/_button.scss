@@ -1,0 +1,160 @@
+@import "../../settings/colours";
+@import "typography";
+
+// Mixin and defaults for making buttons.
+
+// Adapted from GOV.UK Elements: https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/design-patterns/_buttons.scss
+
+// Example usage:
+
+// .button{
+//   @include button($green);
+// }
+// .button-secondary{
+//   @include button($grey-3);
+// }
+// .button-warning{
+//   @include button($red);
+// }
+
+@mixin button($colour) {
+  @include bold-font(20);
+  -webkit-font-smoothing: antialiased;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: $colour;
+  border: 0;
+  box-shadow: 0 2px 0 darken($colour, 15%);
+  cursor: pointer;
+  display: inline-block;
+  letter-spacing: .5px;
+  line-height: 1.25;
+  outline: 1px solid transparent; // keep some button appearance when changing colour settings in browsers
+  outline-offset: -1px; // fixes bug in Safari that outline width on focus is not overwritten, is reset to 0 on focus in govuk_template
+  padding: ($baseline-grid-unit * 3) ($baseline-grid-unit * 6);
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  border-radius: 0;
+
+  @include media(tablet) {
+    width: auto;
+  }
+
+  @include ie-lte(8) {
+    border-bottom: 2px solid darken($colour, 15%);
+  }
+
+  + .button {
+    margin-top: $default-spacing-unit;
+
+    @include media(tablet) {
+      margin-left: $default-spacing-unit;
+      margin-top: 0;
+    }
+
+    @include media(desktop) {
+      margin-left: $default-spacing-unit * 2;
+    }
+  }
+
+  &:visited {
+    background-color: $colour;
+  }
+
+  &:focus {
+    outline: 3px solid $focus-colour;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: darken($colour, 5%);
+  }
+
+  &:active {
+    box-shadow: 0 0 0 $colour;
+    top: 2px;
+  }
+
+  // Disabled button styles
+  &.disabled,
+  &[disabled="disabled"],
+  &[disabled] {
+    opacity: .5;
+
+    &:hover {
+      background-color: $colour;
+      cursor: default;
+    }
+
+    &:active {
+      box-shadow: 0 2px 0 darken($colour, 15%);
+      top: 0;
+
+      @include ie-lte(8) {
+        border-bottom: 2px solid darken($colour, 15%);
+      }
+    }
+  }
+
+  // Set text colour depending on background colour
+  @if lightness($colour) < 50% {
+    color: $white;
+
+    &:link,
+    &:hover,
+    &:focus,
+    &:visited {
+      color: $white;
+    }
+  } @else {
+    color: $text-colour;
+
+    &:link,
+    &:hover,
+    &:focus,
+    &:visited {
+      color: $text-colour;
+    }
+  }
+
+  // making the click target bigger than the button
+  // (and fill the space made when the button moves)
+  &:before {
+    background: transparent;
+    content: "";
+    display: block;
+    height: 110%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &:active:before {
+    height: 120%;
+    top: -10%;
+
+    // IE6 ignores the :before psuedo-class but applies the block to :active
+    // It therefore needs to be reset
+    @include ie(6) {
+      height: 100%;
+      top: auto;
+    }
+  }
+
+  // Fixes a bug where IE puts a black border around certain elements
+  @include ie-lte(8) {
+    &[type="submit"],
+    &[type="reset"],
+    &[type="button"] {
+      filter: chroma(color = $black);
+    }
+
+    &[type=submit].button {
+      filter: none;
+    }
+  }
+}
