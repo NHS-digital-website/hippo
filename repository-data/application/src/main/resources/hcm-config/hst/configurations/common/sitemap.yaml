@@ -16,9 +16,12 @@ definitions:
       /article:
         /_any_:
           hst:componentconfigurationid: hst:pages/article
-          hst:relativecontentpath: article/${1}
+          hst:relativecontentpath: ${parent}/${1}
+          hst:sitemapitemhandlerids:
+          - DefaultDocumentSitemapHandler
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/article
+        hst:relativecontentpath: article
         jcr:primaryType: hst:sitemapitem
       /error:
         /404:

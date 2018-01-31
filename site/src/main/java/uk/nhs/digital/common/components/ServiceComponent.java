@@ -20,17 +20,17 @@ public class ServiceComponent extends EssentialsContentComponent {
             HippoBean parentBean = document.getParentBean();
             //getting all the children folders of the parent
             List<HippoFolder> childFolders = parentBean.getChildBeans(HippoFolder.class);
-            //retrieving child folders having similar document name (starts with same name)
-            Optional<HippoFolder> optFolder =
-                childFolders.stream().filter(f -> f.getName().startsWith(document.getName())).findFirst();
-            if (optFolder.isPresent()) {
-                HippoFolder childFolder = optFolder.get();
-                log.debug("Using this children folder: {}", childFolder.getPath());
-                List<HippoDocumentBean> childPages = childFolder.getDocuments();
-                request.setAttribute("childPages", childPages.subList(0, Math.min(childPages.size(), 6)));
-            } else {
-                log.debug("Children folder not found based on this name: {}", document.getName());
+            List<HippoDocumentBean> childPages = new ArrayList<>();
+            for (HippoFolder childFolder : childFolders) {
+                //retrieving child documents sharing the name with its parent folder
+                Optional<HippoDocumentBean> optDocument =
+                    childFolder.getDocuments().stream().filter(childDocument -> childFolder.getName().equals(childDocument.getName())).findFirst();
+                //in case the childFolder contains a document with the same name, include it in the childPages
+                if (optDocument.isPresent()) {
+                    childPages.add(optDocument.get());
+                }
             }
+            request.setAttribute("childPages", childPages.subList(0, Math.min(childPages.size(), 6)));
         } else {
             log.debug("Document missing or not referring to HippoBean {}", bean);
         }

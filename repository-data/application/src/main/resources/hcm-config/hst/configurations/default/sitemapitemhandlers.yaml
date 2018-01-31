@@ -1,0 +1,6 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/hst:default/hst:sitemapitemhandlers/DefaultDocumentSitemapHandler:
+      hst:sitemapitemhandlerclassname: uk.nhs.digital.common.sitemaphandlers.DefaultDocumentSitemapHandler
+      jcr:primaryType: hst:sitemapitemhandler
