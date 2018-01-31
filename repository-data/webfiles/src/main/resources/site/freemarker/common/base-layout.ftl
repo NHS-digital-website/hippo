@@ -30,7 +30,9 @@
 
     <header class="top-header">
       <div class="top-header__col1">
-        <img class="top-header__logo" src="https://digital.nhs.uk/media/89/NHSDigital/variant1/NHS-Digital-logo_WEB_LEFT-100x855" alt="NHS Digital">
+        <a href="https://digital.nhs.uk/home">
+          <img class="top-header__logo" src="https://digital.nhs.uk/media/89/NHSDigital/variant1/NHS-Digital-logo_WEB_LEFT-100x855" alt="NHS Digital">
+        </a>
       </div><!--
       --><div class="top-header__col2">
         <div class="top-header__nav">
