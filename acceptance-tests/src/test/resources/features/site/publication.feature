@@ -9,6 +9,7 @@ Feature: Ensure publication page displays required fields.
             | Publication Geographic Coverage       | England                                                           |
             | Publication Granularity               | NHS Trusts                                                        |
             | Publication Administrative Sources    | Mauris pretium orci ac gravida accumsan. Cras mattis massa ...    |
+            | Publication Date Range                | 10/02/2015 to 15/09/2016                                          |
 
     Scenario: Display Resource Links, Attachments and Datasets in one list
         Given I navigate to "publication with datasets" page
@@ -25,13 +26,6 @@ Feature: Ensure publication page displays required fields.
         And I should also see "Publication Related Links" with:
             | Test google.com link  |
 
-    Scenario: Display taxonomy list
-        Given I navigate to "publication with datasets" page
-        Then I should see publication page titled "publication with datasets"
-        And I should also see:
-            | Publication Date Range | 01/11/2017 to 01/02/2018       |
-            | Publication Taxonomy   | People, patients and geography |
-
     Scenario: Headers don't display for empty fields
         Given I navigate to the "bare minimum publication" page
         Then I should see page titled "Bare Minimum Publication"
@@ -42,7 +36,6 @@ Feature: Ensure publication page displays required fields.
             | Key Facts                 |
             | Administrative Sources    |
             | Related Links             |
-            | Taxonomy                  |
 
     Scenario: Headers display for populated fields
         Given I navigate to the "publication with datasets" page
@@ -56,7 +49,6 @@ Feature: Ensure publication page displays required fields.
             | Administrative Sources    |
             | Resources                 |
             | Related Links             |
-            | Taxonomy                  |
 
     Scenario: Publication label displayed for publication document type
         Given I navigate to the "bare minimum publication" page

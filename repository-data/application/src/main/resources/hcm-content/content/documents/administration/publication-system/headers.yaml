@@ -24,14 +24,12 @@
     - ''
     - ''
     - ''
-    - ''
     resourcebundle:id: publicationsystem.headers
     resourcebundle:keys:
     - headers.summary
     - headers.key-facts
     - headers.resources
     - headers.related-links
-    - headers.taxonomy
     - headers.administrative-sources
     - headers.date-range
     - headers.geographical-coverage
@@ -46,7 +44,6 @@
     - Key Facts
     - Resources
     - Related Links
-    - Taxonomy
     - Administrative Sources
     - 'Date Range:'
     - 'Geographic Coverage:'
@@ -82,14 +79,12 @@
     - ''
     - ''
     - ''
-    - ''
     resourcebundle:id: publicationsystem.headers
     resourcebundle:keys:
     - headers.summary
     - headers.key-facts
     - headers.resources
     - headers.related-links
-    - headers.taxonomy
     - headers.administrative-sources
     - headers.date-range
     - headers.geographical-coverage
@@ -104,7 +99,6 @@
     - Key Facts
     - Resources
     - Related Links
-    - Taxonomy
     - Administrative Sources
     - 'Date Range:'
     - 'Geographic Coverage:'
@@ -140,14 +134,12 @@
     - ''
     - ''
     - ''
-    - ''
     resourcebundle:id: publicationsystem.headers
     resourcebundle:keys:
     - headers.summary
     - headers.key-facts
     - headers.resources
     - headers.related-links
-    - headers.taxonomy
     - headers.administrative-sources
     - headers.date-range
     - headers.geographical-coverage
@@ -162,7 +154,6 @@
     - Key Facts
     - Resources
     - Related Links
-    - Taxonomy
     - Administrative Sources
     - 'Date Range:'
     - 'Geographic Coverage:'

@@ -5,7 +5,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2016-11-03T13:35:36.812Z
-    hippostdpubwf:lastModificationDate: 2017-12-08T10:18:20.598Z
+    hippostdpubwf:lastModificationDate: 2018-01-31T13:50:07.065Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
@@ -17,8 +17,8 @@
       Cras mattis massa a vulputate semper. Quisque in pharetra sem. Curabitur dapibus
       odio in risus consectetur, placerat laoreet nunc vulputate. Suspendisse vitae
       ipsum ligula. Donec sed risus vel eros posuere varius id et urna.
-    publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
-    publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+    publicationsystem:CoverageEnd: 2016-09-15T00:00:00Z
+    publicationsystem:CoverageStart: 2015-02-10T00:00:00Z
     publicationsystem:GeographicCoverage: England
     publicationsystem:Granularity:
     - NHS Trusts
@@ -69,7 +69,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2016-11-03T13:35:36.812Z
-    hippostdpubwf:lastModificationDate: 2017-12-08T10:17:21.008Z
+    hippostdpubwf:lastModificationDate: 2018-01-31T13:51:57.960Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
@@ -82,8 +82,8 @@
       Cras mattis massa a vulputate semper. Quisque in pharetra sem. Curabitur dapibus
       odio in risus consectetur, placerat laoreet nunc vulputate. Suspendisse vitae
       ipsum ligula. Donec sed risus vel eros posuere varius id et urna.
-    publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
-    publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+    publicationsystem:CoverageEnd: 2016-09-15T00:00:00Z
+    publicationsystem:CoverageStart: 2015-02-10T00:00:00Z
     publicationsystem:GeographicCoverage: England
     publicationsystem:Granularity:
     - NHS Trusts
@@ -134,9 +134,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2016-11-03T13:35:36.812Z
-    hippostdpubwf:lastModificationDate: 2017-12-08T10:17:21.008Z
+    hippostdpubwf:lastModificationDate: 2018-01-31T13:51:57.960Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2017-12-08T10:17:39.427Z
+    hippostdpubwf:publicationDate: 2018-01-31T13:52:02.470Z
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
     jcr:mixinTypes:
@@ -147,8 +147,8 @@
       Cras mattis massa a vulputate semper. Quisque in pharetra sem. Curabitur dapibus
       odio in risus consectetur, placerat laoreet nunc vulputate. Suspendisse vitae
       ipsum ligula. Donec sed risus vel eros posuere varius id et urna.
-    publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
-    publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+    publicationsystem:CoverageEnd: 2016-09-15T00:00:00Z
+    publicationsystem:CoverageStart: 2015-02-10T00:00:00Z
     publicationsystem:GeographicCoverage: England
     publicationsystem:Granularity:
     - NHS Trusts
