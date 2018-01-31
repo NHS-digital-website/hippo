@@ -14,15 +14,18 @@
     - ''
     - ''
     - ''
+    - ''
     resourcebundle:id: publicationsystem.labels
     resourcebundle:keys:
     - labels.publication
     - labels.dataset
     - labels.series
+    - labels.search-ghost-text
     resourcebundle:messages:
     - Publication
     - Data set
     - Series / Collection
+    - Search Clinical Indicators
   /labels[2]:
     hippo:availability:
     - preview
@@ -39,15 +42,18 @@
     - ''
     - ''
     - ''
+    - ''
     resourcebundle:id: publicationsystem.labels
     resourcebundle:keys:
     - labels.publication
     - labels.dataset
     - labels.series
+    - labels.search-ghost-text
     resourcebundle:messages:
     - Publication
     - Data set
     - Series / Collection
+    - Search Clinical Indicators
   /labels[3]:
     hippo:availability:
     - live
@@ -64,15 +70,18 @@
     - ''
     - ''
     - ''
+    - ''
     resourcebundle:id: publicationsystem.labels
     resourcebundle:keys:
     - labels.publication
     - labels.dataset
     - labels.series
+    - labels.search-ghost-text
     resourcebundle:messages:
     - Publication
     - Data set
     - Series / Collection
+    - Search Clinical Indicators
   hippo:name: Labels
   jcr:mixinTypes:
   - hippo:named
