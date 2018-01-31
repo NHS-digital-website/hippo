@@ -273,6 +273,10 @@ public class MigrationReport {
         );
 
         addMetaDataRow(labelCellStyle, valueCellStyle, metadataSheet, currentRowNumber.addAndGet(1),
+            "Fields Mapping file used", executionParameters.getNesstarFieldMappingImportPath().getFileName()
+        );
+
+        addMetaDataRow(labelCellStyle, valueCellStyle, metadataSheet, currentRowNumber.addAndGet(1),
             "Taxonomy definition file used", executionParameters.getTaxonomyDefinitionImportPath().getFileName()
         );
 
