@@ -20,7 +20,6 @@ Feature: As a consumer I need to be able to navigate to publication data sets
         And I should not see headers:
             | Geographical Granularity: |
             | Geographic Coverage:      |
-            | Taxonomy                  |
 
     Scenario: Headers display for populated fields
         Given I navigate to the "publication with datasets dataset" page
@@ -31,7 +30,6 @@ Feature: As a consumer I need to be able to navigate to publication data sets
             | Date Range:               |
             | Summary                   |
             | Resources                 |
-            | Taxonomy                  |
 
     Scenario: Dataset label displayed for dataset document type
         Given I navigate to the "bare minimum dataset" page

@@ -117,16 +117,6 @@
                     </#list>
                 </ul>
             </div>
-            <#if dataset.taxonomyList?has_content>
-                <div class="panel panel--grey push-half--bottom">
-                    <h3><@fmt.message key="headers.taxonomy"/></h3>
-                    <div data-uipath="ps.dataset.taxonomy">
-                        <#list dataset.taxonomyList as taxonomyChain>
-                            <div>${taxonomyChain?join(" => ")}</div>
-                        </#list>
-                    </div>
-                </div>
-            </#if>
         </div>
     </div>
 </section>
