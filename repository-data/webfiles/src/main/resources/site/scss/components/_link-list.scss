@@ -1,0 +1,28 @@
+.link-list__row {
+  @include grid-row;
+}
+
+.link-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.link-list--numbered {
+  list-style: decimal;
+
+  .link-list__item {
+    margin-left: 1.2em;
+  }
+}
+
+.link-list--one-half {
+  @include grid-column(1 / 2);
+
+  + .link-list--one-half {
+    margin-top: $default-spacing-unit / 2;
+
+    @include media(desktop) {
+      margin-top: 0;
+    }
+  }
+}

@@ -8,6 +8,9 @@ definitions:
       /about:
         hst:renderpath: webfile:/freemarker/common/about.ftl
         jcr:primaryType: hst:template
+      /article:
+        hst:renderpath: webfile:/freemarker/common/article-layout.ftl
+        jcr:primaryType: hst:template
       /base:
         hst:renderpath: webfile:/freemarker/common/base-layout.ftl
         jcr:primaryType: hst:template
@@ -25,5 +28,8 @@ definitions:
         jcr:primaryType: hst:template
       /searchresults:
         hst:renderpath: webfile:/freemarker/common/searchresults.ftl
+        jcr:primaryType: hst:template
+      /service-article:
+        hst:renderpath: webfile:/freemarker/common/service-article.ftl
         jcr:primaryType: hst:template
       jcr:primaryType: hst:templates

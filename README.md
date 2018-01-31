@@ -78,7 +78,39 @@ See [Automated Acceptance Tests](#automated-acceptance-tests) section for more d
 development cycle when working on acceptance tests.
 
 
+## UI development
 
+### Development
+
+> For best UI developer experience run the local dev server in one Terminal window, and run the SASS or LESS compiler with Maven in another one (remember to 'cd' into the appropriate folder)!
+
+#### CLI commands
+
+**Provision the server**
+	
+	mvn clean verify
+
+**Run LESS compiler watching for local dev**
+
+	cd repository-data/webfiles
+	mvn lesscss:compile -D lesscss.watch=true
+	
+**Run SASS compiler watching for local dev**
+
+	cd repository-data/webfiles
+	mvn com.github.warmuuh:libsass-maven-plugin:0.2.8-libsass_3.4.4:watch
+	
+**Run the local dev server**
+
+	mvn -Pcargo.run
+	
+#### About the SASS compiler
+
+> The most up to date Maven LibSass plugin is [this one](https://github.com/warmuuh/libsass-maven-plugin). The latest version as of 16/01/2018 is 0.2.8 (important to know what version is currently used in the project because it has to be specified in both the `pom.xml` file and in the command line).
+ 
+#### Front-end library
+
+> We're using the [NHS Digital UI library](https://github.com/nhsuk/frontend-library) as a base for our UI components and styling. The currently available release ([0.8.0](https://github.com/nhsuk/frontend-library/releases/tag/0.8.0)) is used as described in the [documentation](https://github.com/nhsuk/frontend-library#using-the-scss-directly).
 
 ## Automated Acceptance Tests
 

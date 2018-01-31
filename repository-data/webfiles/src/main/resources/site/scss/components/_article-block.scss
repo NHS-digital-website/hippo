@@ -1,0 +1,26 @@
+/* Article Blocks */
+.article-block {
+  position: relative;
+  padding: 0;
+
+  @include media(desktop) {
+    margin-bottom: 0;
+  }
+}
+
+.article-block--main {
+  @include media(desktop) {
+    padding: 0 0 0 $default-spacing-unit * 0.5;
+  }
+}
+
+.article-block--sidebar {
+  top: 0;
+  margin-bottom: $default-spacing-unit * 2;
+
+  @include media(desktop) {
+    padding-right: $default-spacing-unit * 3;
+    position: sticky;
+    position: -webkit-sticky;
+  }
+}

@@ -1,0 +1,100 @@
+$_border-colour: $grey-3;
+
+.tabs {
+  max-width: $measure;
+}
+
+.tabs__tab {
+  margin-top: 0;
+}
+
+.tabs__tab-container {
+  margin-top: 0;
+}
+
+.tabs__tab-content {
+  margin-top: 0;
+}
+
+.tabs__tab-heading {
+  // sass-lint:disable class-name-format
+  .js-enabled & {
+    @include visuallyhidden;
+  }
+  // sass-lint:enable class-name-format
+}
+
+.tabs__nav {
+  @include clearfix;
+  border: solid $_border-colour;
+  border-width: 0 1px 0 0;
+  margin-top: 0;
+  padding: 0;
+}
+
+.tabs__nav--top {
+  @include element-spacing(bottom);
+  border-top-width: 1px;
+}
+
+.tabs__nav-item {
+  border: solid $_border-colour;
+  border-width: 0 0 1px 1px;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 50%;
+
+  @include media(tablet) {
+    float: left;
+    width: 25%;
+  }
+
+  + .tabs__nav-item {
+    margin-top: 0;
+  }
+
+  .tabs__nav--top & {
+    border-bottom-width: 0;
+  }
+}
+
+.tabs__nav-link {
+  background-color: $grey-4;
+  display: block;
+  margin: 0;
+  padding: $baseline-grid-unit * 4 0;
+  text-align: center;
+
+  &:hover {
+    background-color: $white;
+    color: $link-colour;
+  }
+
+  &:focus {
+    position: relative;
+    z-index: 5;
+  }
+
+  &:visited {
+    color: $link-colour;
+  }
+
+  .is-active & {
+    background-color: $nhs-blue;
+    color: $white;
+    cursor: default;
+    text-decoration: none;
+  }
+}
+
+// sass-lint:disable class-name-format
+.js-enabled .js-tabs-content > div {
+  display: none;
+
+  &.is-active {
+    display: block;
+  }
+}

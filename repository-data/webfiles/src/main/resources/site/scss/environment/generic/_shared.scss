@@ -1,0 +1,14 @@
+@import "../settings/colours";
+@import "../settings/typography";
+
+html {
+  color: $text-colour;
+  font-family: $nhs-font-stack;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+}
+
+body {
+  background-color: $col-septenary;
+  margin: 0;
+}

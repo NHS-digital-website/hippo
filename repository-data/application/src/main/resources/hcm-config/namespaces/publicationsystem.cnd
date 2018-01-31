@@ -32,5 +32,12 @@
 
 [publicationsystem:resource] > hippo:derived, hippo:resource
 
+[publicationsystem:section] > hippo:compound, hippostd:relaxed
+  orderable
+
 [publicationsystem:series] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
   orderable
+
+[publicationsystem:service] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
+  orderable
+

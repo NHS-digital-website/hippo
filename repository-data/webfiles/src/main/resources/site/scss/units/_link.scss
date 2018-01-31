@@ -1,0 +1,28 @@
+@import "../environment/settings/colours";
+@import "../environment/tools/mixins/addons";
+
+a {
+  &:link {
+    color: $link-colour;
+  }
+
+  &:visited {
+    color: $link-visited-colour;
+  }
+
+  &:hover {
+    color: $link-hover-colour;
+  }
+
+  &:active {
+    color: $link-active-colour;
+  }
+
+  &:focus {
+    outline: 3px solid $focus-colour;
+  }
+}
+
+.link--reverse-polarity {
+  @include link-reverse-polarity;
+}
