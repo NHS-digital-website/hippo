@@ -1,15 +1,15 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <!--Need to have a single setBundle call as subsequent ones will overwrite the previous values-->
-<@hst.setBundle basename="document-types,month-names"/>
+<@hst.setBundle basename="document-types,month-names,publicationsystem.labels"/>
 
 <div class="layout layout--flush">
     <div class="layout__item layout-1-2">
         <h3>Filter by:</h3>
     </div><!--
     --><div class="layout__item layout-1-2" style="text-align:right">
-        <@hst.link siteMapItemRefId="search" mount="common-context" var="searchLink"/>
-        <a href="${searchLink}?query=${query}" title="Clear all">Clear all</a>
+        <@hst.link siteMapItemRefId="search" var="searchLink" navigationStateful=true/>
+        <a href="${searchLink}" title="Clear all">Clear all</a>
     </div>
 </div>
 <#if facets??>
@@ -23,10 +23,10 @@
                             <@fmt.message key=value.name var="monthName"/>
                             <#assign valueName=monthName/>
                         <#elseif facet.name="CATEGORY">
-                            <#assign valueName=taxonomy.getCategoryByKey(value.name).getInfo("en").name/>
+                            <#assign valueName=taxonomy.getValueName(value.name)/>
                         <#elseif facet.name="DOCUMENT TYPE">
-                            <@fmt.message key=value.name var="documentType"/>
-                            <#assign valueName=documentType/>
+                            <@fmt.message key=value.name var="documentTypeKey"/>
+                            <@fmt.message key=documentTypeKey var="valueName"/>
                         <#else>
                             <#assign valueName=value.name/>
                         </#if>

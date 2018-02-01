@@ -53,10 +53,11 @@ Feature: Ensure publication page displays required fields.
     Scenario: Publication label displayed for publication document type
         Given I navigate to the "bare minimum publication" page
         Then I should see headers:
-            | Publication               |
+            | Publication |
         And I should not see headers:
-            | Series / Collection       |
-            | Data set                  |
+            | Series / Collection |
+            | Data set            |
+            | Archive             |
 
     Scenario: Display multiparagraph summary
         Given I navigate to "publication with datasets" page

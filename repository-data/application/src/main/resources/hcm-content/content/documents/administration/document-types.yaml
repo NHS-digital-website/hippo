@@ -22,10 +22,10 @@
     - publicationsystem:dataset
     - publicationsystem:publication
     resourcebundle:messages:
-    - Archive
-    - Series
-    - Data Set
-    - Statistical Publication
+    - labels.archive
+    - labels.series
+    - labels.dataset
+    - labels.publication
   /document-types[2]:
     hippo:availability:
     - preview
@@ -50,10 +50,10 @@
     - publicationsystem:dataset
     - publicationsystem:publication
     resourcebundle:messages:
-    - Archive
-    - Series
-    - Data Set
-    - Statistical Publication
+    - labels.archive
+    - labels.series
+    - labels.dataset
+    - labels.publication
   /document-types[3]:
     hippo:availability:
     - live
@@ -78,10 +78,10 @@
     - publicationsystem:dataset
     - publicationsystem:publication
     resourcebundle:messages:
-    - Archive
-    - Series
-    - Data Set
-    - Statistical Publication
+    - labels.archive
+    - labels.series
+    - labels.dataset
+    - labels.publication
   hippo:name: document types
   jcr:mixinTypes:
   - hippo:named

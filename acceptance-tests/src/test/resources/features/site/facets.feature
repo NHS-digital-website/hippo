@@ -8,8 +8,8 @@ Feature: Faceted search
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"
         Then I should see the "DOCUMENT TYPE" list containing:
-            | Statistical Publication (2) |
-            | Data Set (1)                |
+            | Publication (2) |
+            | Data set (1)    |
         And I should see the "CATEGORY" list containing:
             | Conditions (2)             |
             | Social care (2)            |
@@ -61,10 +61,10 @@ Feature: Faceted search
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"
         Then I should see 3 search results
-        When I click on the "Statistical Publication" link
+        When I click on the "Publication" link
         Then I should see 2 search results
         And I should see the "DOCUMENT TYPE" list containing:
-            | Statistical Publication x |
+            | Publication x |
         And I should see the "CATEGORY" list containing:
             | Accidents and injuries (1) |
             | Conditions (1)             |
@@ -72,20 +72,20 @@ Feature: Faceted search
             | Social care (1)            |
         When I click on the "Cancer networks" link
         Then I should see 1 search results
-        When I can click on the "Statistical Publication" link
+        When I can click on the "Publication" link
         Then I should see 2 search results
 
 
     Scenario: Sticky facets when searching for new queries
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"
-        And I click on the "Statistical Publication" link
+        And I click on the "Publication" link
         And I click on the "2018" link
         Then I should see 1 search results
         When I search for "WeightSearchTerm"
         Then I should see 3 search result
         And I should see the "DOCUMENT TYPE" list containing:
-            | Statistical Publication x |
+            | Publication x |
         And I should see the "YEAR" list containing:
             | 2018 x |
 
