@@ -49,12 +49,12 @@
 
             <h1 class="layout-5-6" data-uipath="ps.document.title">${publication.title}</h1>
 
-            <#if publication.parentSeries??>
+            <#if publication.parentDocument??>
                 <p class="flush--top">
                     This is part of
-                    <a class="label label--parent-document" href="<@hst.link hippobean=publication.parentSeries.selfLinkBean/>"
-                        title="${publication.parentSeries.title}">
-                        ${publication.parentSeries.title}
+                    <a class="label label--parent-document" href="<@hst.link hippobean=publication.parentDocument.selfLinkBean/>"
+                        title="${publication.parentDocument.title}">
+                        ${publication.parentDocument.title}
                     </a>
                 </p>
             </#if>

@@ -1,5 +1,16 @@
 package uk.nhs.digital.ps.test.acceptance.steps.cms.ps;
 
+import static java.time.temporal.ChronoField.*;
+import static java.util.stream.Collectors.toList;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.startsWith;
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.slf4j.LoggerFactory.getLogger;
+import static uk.nhs.digital.ps.test.acceptance.util.AssertionHelper.assertWithinTimeoutThat;
+import static uk.nhs.digital.ps.test.acceptance.util.RandomHelper.getRandomInt;
+
 import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -24,19 +35,6 @@ import java.time.ZoneOffset;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
-
-import static java.time.temporal.ChronoField.DAY_OF_MONTH;
-import static java.time.temporal.ChronoField.DAY_OF_WEEK;
-import static java.time.temporal.ChronoField.MONTH_OF_YEAR;
-import static java.util.stream.Collectors.toList;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.startsWith;
-import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
-import static org.slf4j.LoggerFactory.getLogger;
-import static uk.nhs.digital.ps.test.acceptance.util.AssertionHelper.assertWithinTimeoutThat;
-import static uk.nhs.digital.ps.test.acceptance.util.RandomHelper.getRandomInt;
 
 public class CmsSteps extends AbstractSpringSteps {
 
@@ -179,7 +177,7 @@ public class CmsSteps extends AbstractSpringSteps {
         contentPage.getPubliclyAccessibleWidget().select(false);
     }
 
-    @When("^I save the (?:dataset|publication|series)$")
+    @When("^I save the (?:archive|dataset|publication|series)$")
     public void iSaveTheDocument() throws Throwable {
         // Always save and close as all the steps either want to test the save is
         // blocked with validation, or close the saved document and do something else
@@ -360,6 +358,21 @@ public class CmsSteps extends AbstractSpringSteps {
         assertTrue("Series edit screen is displayed", contentPage.isDocumentEditScreenOpen());
     }
 
+    public void createArchiveInEditableState() throws Throwable {
+        loginSteps.givenIAmLoggedInAsAdmin();
+        contentPage.openContentTab();
+
+        final PublicationArchive publicationArchive = TestDataFactory.createArchive().build();
+        testDataRepo.setPublicationArchive(publicationArchive);
+        contentPage.newArchive(publicationArchive);
+    }
+
+    @Given("^I have an archive opened for editing$")
+    public void iHaveAnArchiveOpenedForEditing() throws Throwable {
+        createArchiveInEditableState();
+        assertTrue("Archive edit screen is displayed", contentPage.isDocumentEditScreenOpen());
+    }
+
     public void createDatasetInEditableState() throws Throwable {
         loginSteps.givenIAmLoggedInAsAdmin();
         contentPage.openContentTab();
@@ -394,6 +407,11 @@ public class CmsSteps extends AbstractSpringSteps {
     @And("^I populate the series$")
     public void iPopulateTheSeries() throws Throwable {
         contentPage.populateSeries(testDataRepo.getPublicationSeries());
+    }
+
+    @And("^I populate the archive$")
+    public void iPopulateTheArchive() throws Throwable {
+        contentPage.populateArchive(testDataRepo.getPublicationArchive());
     }
 
     /**

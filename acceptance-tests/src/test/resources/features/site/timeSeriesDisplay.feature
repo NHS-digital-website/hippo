@@ -31,3 +31,4 @@ Feature: Display of publications forming a series
         And I should not see headers:
             | Publication           |
             | Data set              |
+            | Archive               |

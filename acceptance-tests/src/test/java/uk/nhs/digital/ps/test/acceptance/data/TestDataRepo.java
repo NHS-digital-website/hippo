@@ -1,24 +1,21 @@
 package uk.nhs.digital.ps.test.acceptance.data;
 
-import uk.nhs.digital.ps.test.acceptance.models.Attachment;
-import uk.nhs.digital.ps.test.acceptance.models.Dataset;
-import uk.nhs.digital.ps.test.acceptance.models.Publication;
-import uk.nhs.digital.ps.test.acceptance.models.PublicationSeries;
+import static java.util.Arrays.asList;
+import static uk.nhs.digital.ps.test.acceptance.data.TestDataRepo.PublicationClassifier.SINGLE;
+
+import uk.nhs.digital.ps.test.acceptance.models.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static java.util.Arrays.asList;
-import static uk.nhs.digital.ps.test.acceptance.data.TestDataRepo.PublicationClassifier.SINGLE;
-import static uk.nhs.digital.ps.test.acceptance.util.RandomHelper.newRandomString;
-
 public class TestDataRepo {
 
     private Map<PublicationClassifier, List<Publication>> publications = new HashMap<>();
 
     private List<Attachment> attachments;
+    private PublicationArchive publicationArchive;
     private PublicationSeries publicationSeries;
     private Dataset dataset;
 
@@ -48,6 +45,14 @@ public class TestDataRepo {
         return publicationSeries;
     }
 
+    public void setPublicationArchive(final PublicationArchive publicationArchive) {
+        this.publicationArchive = publicationArchive;
+    }
+
+    public PublicationArchive getPublicationArchive() {
+        return publicationArchive;
+    }
+
     public void addPublications(final PublicationClassifier publicationClassifier, final Publication... publications) {
         addPublications(publicationClassifier, asList(publications));
     }
@@ -68,6 +73,7 @@ public class TestDataRepo {
         publications.clear();
         dataset = null;
         publicationSeries = null;
+        publicationArchive = null;
     }
 
     public Dataset getDataset() {

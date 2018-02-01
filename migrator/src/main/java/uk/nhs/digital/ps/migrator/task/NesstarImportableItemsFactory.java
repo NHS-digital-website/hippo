@@ -5,7 +5,6 @@ import static java.util.regex.Pattern.CASE_INSENSITIVE;
 import static java.util.stream.Collectors.toList;
 import static org.apache.commons.lang3.StringUtils.containsIgnoreCase;
 import static org.apache.commons.lang3.StringUtils.isBlank;
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.ps.migrator.model.hippo.HippoImportableItem.DATE_FORMAT;
 import static uk.nhs.digital.ps.migrator.model.hippo.HippoImportableItem.EMPTY_DATE;
@@ -51,10 +50,14 @@ public class NesstarImportableItemsFactory {
         this.mappedFieldsImporter = mappedFieldsImporter;
     }
 
-    public Series newArchivedSeries(final Folder parentFolder, final String name) {
+    public Archive newArchive(final Folder parentFolder, final String name) {
         String title = "Archived " + name;
         String summary = title + "\\n\\nNo archive content is currently available. This will be updated in due course.";
-        return newSeries(parentFolder, title, summary);
+        return new Archive(
+            parentFolder,
+            "content",
+            title,
+            summary);
     }
 
     public Series newSeries(final Folder parentFolder, final String title, final String summary) {

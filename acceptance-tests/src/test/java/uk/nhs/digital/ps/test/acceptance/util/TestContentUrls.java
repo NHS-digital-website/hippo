@@ -40,6 +40,10 @@ public class TestContentUrls {
         add("valid publication series",
             "/publications/valid-publication-series");
 
+        // archive page
+        add("valid publication archive",
+            "/publications/acceptance-tests/valid-publication-archive");
+
         add("publication with rich content",
             "/publications/acceptance-tests/publication-rich");
 

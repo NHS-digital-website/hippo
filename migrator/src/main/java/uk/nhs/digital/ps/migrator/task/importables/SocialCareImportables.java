@@ -2,7 +2,10 @@ package uk.nhs.digital.ps.migrator.task.importables;
 
 import static java.util.stream.Collectors.toList;
 
-import uk.nhs.digital.ps.migrator.model.hippo.*;
+import uk.nhs.digital.ps.migrator.model.hippo.Archive;
+import uk.nhs.digital.ps.migrator.model.hippo.Folder;
+import uk.nhs.digital.ps.migrator.model.hippo.HippoImportableItem;
+import uk.nhs.digital.ps.migrator.model.hippo.Publication;
 import uk.nhs.digital.ps.migrator.model.nesstar.Catalog;
 import uk.nhs.digital.ps.migrator.model.nesstar.CatalogStructure;
 import uk.nhs.digital.ps.migrator.task.NesstarImportableItemsFactory;
@@ -67,7 +70,7 @@ public class SocialCareImportables {
         final Folder archiveFolder = nesstarImportableItemsFactory.newFolder(rootFolder, "Archive");
 
         // G
-        final Series series = nesstarImportableItemsFactory.newArchivedSeries(archiveFolder, rootFolder.getLocalizedName());
+        final Archive archive = nesstarImportableItemsFactory.newArchive(archiveFolder, rootFolder.getLocalizedName());
 
         final List<HippoImportableItem> importableItems = new ArrayList<>();
         importableItems.add(rootFolder);
@@ -75,7 +78,7 @@ public class SocialCareImportables {
         importableItems.add(currentPublication);
         importableItems.addAll(domainsWithDatasets);
         importableItems.add(archiveFolder);
-        importableItems.add(series);
+        importableItems.add(archive);
 
         return importableItems;
     }

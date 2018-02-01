@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/publicationsystem/hst:pages/archive:
+      /main:
+        hst:componentclassname: uk.nhs.digital.ps.components.ArchiveComponent
+        hst:template: archive
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/basepage
+      jcr:primaryType: hst:component

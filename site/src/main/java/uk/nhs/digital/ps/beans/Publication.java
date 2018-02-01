@@ -58,23 +58,30 @@ public class Publication extends BaseDocument {
         return HippoBeanHelper.getTaxonomyList(getKeys());
     }
 
-    public Series getParentSeries() {
+    public HippoBean getParentDocument() {
         assertPropertyPermitted(PropertyKeys.PARENT_SERIES);
 
-        Series seriesBean = null;
+        HippoBean parentBean = null;
 
         HippoBean folder = getParentBean();
         while (!HippoBeanHelper.isRootFolder(folder)) {
-            Iterator<Series> iterator = folder.getChildBeans(Series.class).iterator();
+            List<HippoBean> parentBeans = new ArrayList<>();
+
+            //   The parent object of the publication could be either
+            //   Series or Archive and this will find which of those
+            //   it is and return the parents bean
+            parentBeans.addAll(folder.getChildBeans(Series.class));
+            parentBeans.addAll(folder.getChildBeans(Archive.class));
+            Iterator<HippoBean> iterator = parentBeans.iterator();
             if (iterator.hasNext()) {
-                seriesBean = iterator.next();
+                parentBean = iterator.next();
                 break;
             } else {
                 folder = folder.getParentBean();
             }
         }
 
-        return seriesBean;
+        return parentBean;
     }
 
     public HippoBeanIterator getDatasets() throws HstComponentException {
