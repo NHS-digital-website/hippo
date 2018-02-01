@@ -5,9 +5,13 @@ import static java.util.regex.Pattern.CASE_INSENSITIVE;
 import static java.util.stream.Collectors.toList;
 import static org.apache.commons.lang3.StringUtils.containsIgnoreCase;
 import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.slf4j.LoggerFactory.getLogger;
+import static uk.nhs.digital.ps.migrator.model.hippo.HippoImportableItem.DATE_FORMAT;
+import static uk.nhs.digital.ps.migrator.model.hippo.HippoImportableItem.EMPTY_DATE;
 import static uk.nhs.digital.ps.migrator.report.IncidentType.*;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import uk.nhs.digital.ps.migrator.config.ExecutionParameters;
 import uk.nhs.digital.ps.migrator.model.hippo.*;
@@ -17,6 +21,7 @@ import uk.nhs.digital.ps.migrator.model.nesstar.PublishingPackage;
 import uk.nhs.digital.ps.migrator.report.MigrationReport;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.regex.Matcher;
@@ -59,15 +64,6 @@ public class NesstarImportableItemsFactory {
             "content",
             title,
             summary);
-    }
-
-    public Publication toPublication(final Folder parentFolder, final Catalog catalog) {
-
-        return new Publication(
-            parentFolder, "content",
-            catalog.getLabel(),
-            PUBLICATION_INFORMATION_TYPE
-        );
     }
 
     public Folder toFolder(final Folder parentFolder, final Catalog catalog) {
@@ -142,23 +138,34 @@ public class NesstarImportableItemsFactory {
         );
     }
 
-    public Publication newPublication(final Folder parentFolder, final String name, final String title) {
+    public Publication newPublication(final Folder parentFolder, final String name, final String title, final List<HippoImportableItem> childItems) {
         return new Publication(
             parentFolder,
             name,
             title,
-            PUBLICATION_INFORMATION_TYPE
-        );
+            PUBLICATION_INFORMATION_TYPE,
+            getLatestDatasetDate(childItems));
     }
 
-    public List<ResourceLink> getResourceLinks(final String pCode, List<NesstarResource> resources) {
+    private String getLatestDatasetDate(List<HippoImportableItem> childItems) {
+        return childItems.stream()
+            .filter((item) -> item instanceof DataSet)
+            .map((item) -> ((DataSet) item).getNominalDate())
+            .filter(StringUtils::isNotBlank)
+            .map(HippoImportableItem::parseDate)
+            .max(Date::compareTo)
+            .map(DATE_FORMAT::format)
+            .orElse(EMPTY_DATE);
+    }
+
+    private List<ResourceLink> getResourceLinks(final String pCode, List<NesstarResource> resources) {
         return resources.stream()
             .filter(NesstarResource::isLink)
             .map(resource -> new ResourceLink(resource.getTitle(), resource.getUri()))
             .collect(toList());
     }
 
-    public List<Attachment> getAttachments(PublishingPackage publishingPackage) {
+    private List<Attachment> getAttachments(PublishingPackage publishingPackage) {
         List<NesstarResource> resources = publishingPackage.getResources();
         // Convert to Attachment objects and download the file from the existing website
         return resources.stream()
@@ -252,7 +259,7 @@ public class NesstarImportableItemsFactory {
         }
 
         if (mappedDate == null) {
-            mappedDate = "0001-01-01T12:00:00.000Z";
+            mappedDate = EMPTY_DATE;
         }
 
         return new String[]{mappedDate, dateDisclaimer};

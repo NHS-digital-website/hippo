@@ -2,10 +2,7 @@ package uk.nhs.digital.ps.migrator.task.importables;
 
 import static java.util.stream.Collectors.toList;
 
-import uk.nhs.digital.ps.migrator.model.hippo.Folder;
-import uk.nhs.digital.ps.migrator.model.hippo.HippoImportableItem;
-import uk.nhs.digital.ps.migrator.model.hippo.Publication;
-import uk.nhs.digital.ps.migrator.model.hippo.Series;
+import uk.nhs.digital.ps.migrator.model.hippo.*;
 import uk.nhs.digital.ps.migrator.model.nesstar.Catalog;
 import uk.nhs.digital.ps.migrator.model.nesstar.CatalogStructure;
 import uk.nhs.digital.ps.migrator.task.NesstarImportableItemsFactory;
@@ -42,9 +39,6 @@ public class CcgImportables {
         // B)
         final Folder currentPublicationFolder = nesstarImportableItemsFactory.newFolder(ccgRootFolder, "Current");
 
-        // C)
-        final Publication currentPublication = nesstarImportableItemsFactory.newPublication(
-            currentPublicationFolder, "content", ccgRootFolder.getLocalizedName());
 
         // D)
         // There is only one level of Domains under CCG so it's enough to just iterate over them rather than walk a tree
@@ -63,6 +57,13 @@ public class CcgImportables {
                 );
 
             }).collect(toList());
+
+        // C)
+        final Publication currentPublication = nesstarImportableItemsFactory.newPublication(
+            currentPublicationFolder,
+            "content",
+            ccgRootFolder.getLocalizedName(),
+            domainsWithDatasets);
 
         // F)
         final Folder archiveFolder = nesstarImportableItemsFactory.newFolder(ccgRootFolder, "Archive");

@@ -3,7 +3,11 @@ package uk.nhs.digital.ps.migrator.model.hippo;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import uk.nhs.digital.ps.migrator.misc.TextHelper;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
@@ -13,6 +17,9 @@ import static java.util.stream.Collectors.joining;
 import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 
 public abstract class HippoImportableItem {
+
+    public static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+    public static final String EMPTY_DATE = "0001-01-01T12:00:00.000Z";
 
     private static final String ROOT_PATH_PREFIX = "/content/documents/corporate-website/publication-system";
 
@@ -107,6 +114,14 @@ public abstract class HippoImportableItem {
              currentParent = currentParent.parentFolder) {
 
             folderVisitor.accept(currentParent);
+        }
+    }
+
+    public static Date parseDate(String dateStr) {
+        try {
+            return DATE_FORMAT.parse(dateStr);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
         }
     }
 }

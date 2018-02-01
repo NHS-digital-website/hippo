@@ -10,10 +10,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import uk.nhs.digital.ps.migrator.config.ExecutionParameters;
-import uk.nhs.digital.ps.migrator.model.hippo.Folder;
-import uk.nhs.digital.ps.migrator.model.hippo.HippoImportableItem;
-import uk.nhs.digital.ps.migrator.model.hippo.Publication;
-import uk.nhs.digital.ps.migrator.model.hippo.Series;
+import uk.nhs.digital.ps.migrator.model.hippo.*;
 import uk.nhs.digital.ps.migrator.model.nesstar.DataSetRepository;
 import uk.nhs.digital.ps.migrator.model.nesstar.PublishingPackage;
 import uk.nhs.digital.ps.migrator.report.IncidentType;
@@ -100,24 +97,26 @@ public class CompendiumImportables {
                 final Folder publicationFolder = factory.newFolder(seriesCurrentFolder, publicationPrototype.getName());
                 importableItems.add(publicationFolder);
 
-                // F)
-                final Publication publication = factory.newPublication(
-                    publicationFolder,
-                    "content",
-                    publicationPrototype.getName()
-                );
-                importableItems.add(publication);
-
                 // G)
+                ArrayList<HippoImportableItem> datasets = new ArrayList<>();
                 publicationPrototype.getDatasetIds().forEach(datasetId -> {
                     final PublishingPackage publishingPackage = dataSetRepository.findById(datasetId);
                     if (publishingPackage == null) {
                         migrationReport.report(datasetId, IncidentType.DATASET_MISSING_IN_MAPPING, publicationPrototype.getName());
                     } else {
-                        importableItems.add(factory.toDataSet(publicationFolder, publishingPackage));
+                        datasets.add(factory.toDataSet(publicationFolder, publishingPackage));
                     }
                 });
 
+                // F)
+                final Publication publication = factory.newPublication(
+                    publicationFolder,
+                    "content",
+                    publicationPrototype.getName(),
+                    datasets);
+
+                importableItems.add(publication);
+                importableItems.addAll(datasets);
             });
 
             // H)
