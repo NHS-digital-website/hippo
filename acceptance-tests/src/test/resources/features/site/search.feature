@@ -113,21 +113,30 @@ Feature: Basic search
         When I search for ""
         Then I should see the full search results page
         And I should see the "DOCUMENT TYPE" list including:
-            | Statistical Publication ( ... |
+            | Publication ( ...         |
+            | Data set ( ...            |
+            | Series / Collection ( ... |
+            | Archive ( ...             |
 
     Scenario: Navigating to the search page displays the results page with full, unfiltered result set
         Given I navigate to the "search" page
         Then I should see the full search results page
         And I should see the "DOCUMENT TYPE" list including:
-            | Statistical Publication ( ... |
+            | Publication ( ...         |
+            | Data set ( ...            |
+            | Series / Collection ( ... |
+            | Archive ( ...             |
 
     Scenario: Each document type label is correctly displayed in search results
         Given I navigate to the "home" page
         When I search for "Bare Minimum"
         Then I should see search results which also include:
-            | Data set              | Bare Minimum Dataset              |
-            | Publication           | Bare Minimum Publication          |
+            | Data set            | Bare Minimum Dataset          |
+            | Publication         | Bare Minimum Publication      |
         When I navigate to the "home" page
         When I search for "series"
         Then I should see search results which also include:
-            | Series / Collection   | Time Series Lorem Ipsum Dolor     |
+            | Series / Collection | Time Series Lorem Ipsum Dolor |
+        When I search for "archive"
+        Then I should see search results which also include:
+            | Archive             | Time Archive Lorem Ipsum Dolor |
