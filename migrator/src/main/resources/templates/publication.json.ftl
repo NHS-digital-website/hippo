@@ -37,7 +37,7 @@
     "name" : "publicationsystem:NominalDate",
     "type" : "DATE",
     "multiple" : false,
-    "values" : [ "0001-01-01T12:00:00.000Z" ]
+    "values" : [ "${publication.nominalDate}" ]
   }, {
     "name" : "publicationsystem:KeyFacts",
     "type" : "STRING",

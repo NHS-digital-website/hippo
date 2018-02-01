@@ -2,10 +2,7 @@ package uk.nhs.digital.ps.migrator.task.importables;
 
 import static java.util.stream.Collectors.toList;
 
-import uk.nhs.digital.ps.migrator.model.hippo.Folder;
-import uk.nhs.digital.ps.migrator.model.hippo.HippoImportableItem;
-import uk.nhs.digital.ps.migrator.model.hippo.Publication;
-import uk.nhs.digital.ps.migrator.model.hippo.Series;
+import uk.nhs.digital.ps.migrator.model.hippo.*;
 import uk.nhs.digital.ps.migrator.model.nesstar.Catalog;
 import uk.nhs.digital.ps.migrator.model.nesstar.CatalogStructure;
 import uk.nhs.digital.ps.migrator.task.NesstarImportableItemsFactory;
@@ -43,11 +40,6 @@ public class NhsOutcomesFrameworkImportables {
         // B)
         final Folder currentPublicationFolder = nesstarImportableItemsFactory.newFolder(nfoRootFolder, "Current");
 
-        // C)
-        final Publication currentPublication = nesstarImportableItemsFactory.newPublication(
-            currentPublicationFolder, "content", nfoRootFolder.getLocalizedName()
-        );
-
         // D)
         final List<HippoImportableItem> domainsWithDatasets = rootCatalog.getChildCatalogs()
             .stream()
@@ -61,6 +53,13 @@ public class NhsOutcomesFrameworkImportables {
                     getImportableDatasetsFromCatalog(domainCatalog, domainFolder)
                 );
             }).collect(toList());
+
+        // C)
+        final Publication currentPublication = nesstarImportableItemsFactory.newPublication(
+            currentPublicationFolder,
+            "content",
+            nfoRootFolder.getLocalizedName(),
+            domainsWithDatasets);
 
         // F)
         final Folder archiveFolder = nesstarImportableItemsFactory.newFolder(nfoRootFolder, "Archive");

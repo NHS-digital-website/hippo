@@ -1,11 +1,11 @@
 package uk.nhs.digital.ps.migrator.model.hippo;
 
-import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.partitioningBy;
 import static java.util.stream.Collectors.toList;
 import static org.apache.poi.ss.usermodel.Row.MissingCellPolicy.RETURN_BLANK_AS_NULL;
 import static org.springframework.util.CollectionUtils.isEmpty;
+import static uk.nhs.digital.ps.migrator.model.hippo.HippoImportableItem.DATE_FORMAT;
 import static uk.nhs.digital.ps.migrator.report.IncidentType.FIELD_MAPPING_INVALID;
 import static uk.nhs.digital.ps.migrator.report.IncidentType.FIELD_MAPPING_MISSING_FIELD;
 
@@ -15,21 +15,15 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import uk.nhs.digital.ps.migrator.report.MigrationReport;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 public final class MappedFields {
     public static final MappedFields EMPTY = empty();
 
-    private static final List<String> GRANULARITY_OPTIONS = getAllowedGranularityOptions();
-    private static final List<String> GEOGRAPHIC_COVERAGE_OPTIONS = getAllowedGeographicCoverageOptions();
-
-    private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
-    private static final String EMPTY_DATE = "0001-01-01T12:00:00.000Z";
+    private static final Map<String, String> GRANULARITY_OPTIONS = getAllowedGranularityOptions();
+    private static final Map<String, String> GEOGRAPHIC_COVERAGE_OPTIONS = getAllowedGeographicCoverageOptions();
 
     private String pCode;
     private String coverageStart;
@@ -60,10 +54,10 @@ public final class MappedFields {
         }
 
         migrationReport.report(pCode, FIELD_MAPPING_MISSING_FIELD, columnType.columnName);
-        return EMPTY_DATE;
+        return HippoImportableItem.EMPTY_DATE;
     }
 
-    private String getStringValue(Row row, ColumnType columnType, List<String> allowedValues) {
+    private String getStringValue(Row row, ColumnType columnType, Map<String, String> allowedValues) {
         // assert single column
         getSingleColumnIndex(columnType);
 
@@ -71,7 +65,7 @@ public final class MappedFields {
         return values.isEmpty() ? "" : values.get(0);
     }
 
-    private List<String> getStringValues(Row row, ColumnType columnType, List<String> allowedValues) {
+    private List<String> getStringValues(Row row, ColumnType columnType, Map<String, String> allowedValues) {
         List<Integer> indexes = columnIndexes.get(columnType.columnName);
         if (indexes.size() < 1) {
             throw new RuntimeException("Expected at least 1 column for: " + columnType.columnName);
@@ -89,7 +83,8 @@ public final class MappedFields {
         }
 
         Map<Boolean, List<String>> valuesMap = values.stream()
-            .collect(partitioningBy(value -> allowedValues == null || allowedValues.contains(value)));
+            .map((value) -> allowedValues == null ? value : allowedValues.getOrDefault(value, value))
+            .collect(partitioningBy(value -> allowedValues == null || allowedValues.containsKey(value)));
 
         List<String> invalidValues = valuesMap.get(false);
         if (!isEmpty(invalidValues)) {
@@ -154,15 +149,16 @@ public final class MappedFields {
 
     private static MappedFields empty() {
         MappedFields mappedFields = new MappedFields();
-        mappedFields.coverageStart = EMPTY_DATE;
-        mappedFields.coverageEnd = EMPTY_DATE;
+        mappedFields.coverageStart = HippoImportableItem.EMPTY_DATE;
+        mappedFields.coverageEnd = HippoImportableItem.EMPTY_DATE;
         mappedFields.geographicCoverage = "";
         mappedFields.granularity = emptyList();
         return mappedFields;
     }
 
-    private static List<String> getAllowedGranularityOptions() {
-        return asList("Ambulance Trusts", "Cancer networks", "Care Trusts", "Census Area Statistics Wards", "Clinical Commissioning Area Teams",
+    private static Map<String, String> getAllowedGranularityOptions() {
+        return addAllToMap(
+            "Ambulance Trusts", "Cancer networks", "Care Trusts", "Census Area Statistics Wards", "Clinical Commissioning Area Teams",
             "Clinical Commissioning Groups", "Clinical Commissioning Regions", "Community health services", "Councils with Social Services Responsibilities",
             "Country", "County", "Crime & disorder reduction partnership", "Dental practices", "Deprivation", "Education Authority",
             "Government Office Regions", "GP practices", "Health Education England Region", "Hospital and Community Health Services",
@@ -172,8 +168,19 @@ public final class MappedFields {
             "Regional health body", "Regions", "Strategic Health Authorities", "Sustainability and Transformation Partnerships", "Wards");
     }
 
-    private static List<String> getAllowedGeographicCoverageOptions() {
-        return asList("England", "England and Northern Ireland", "England and Scotland", "England and Wales", "England Scotland and Northern Ireland",
+    private static Map<String, String> getAllowedGeographicCoverageOptions() {
+        return addAllToMap(
+            "England", "England and Northern Ireland", "England and Scotland", "England and Wales", "England Scotland and Northern Ireland",
             "England Wales and Northern Ireland", "Great Britain", "International", "Northern Ireland", "Scotland", "UK", "Wales");
+    }
+
+    private static Map<String, String> addAllToMap(String... values) {
+        TreeMap<String, String> map = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+
+        for (String value : values) {
+            map.put(value, value);
+        }
+
+        return map;
     }
 }

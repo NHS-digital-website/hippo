@@ -1,6 +1,5 @@
 ---
 /content/documents/corporate-website/publication-system/ci-hub:
-  .meta:order-before: acceptance-tests
   /ccg-outcomes:
     /ccg-outcomes[1]:
       /publicationsystem:content:
