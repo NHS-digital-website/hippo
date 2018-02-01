@@ -99,7 +99,7 @@ deploy.vagrant: build
 ## Create new version tag based on the nearest tag
 version.bumpup:
 	@git fetch --tags
-	@git tag $$((git describe --abbrev=0 --tags | grep $$(cat ../.version) || echo $$(cat ../.version).-1) | perl -pe 's/^(v(\d+\.)*)(-?\d+)(.*)$$/$$1.($$3+1).$$4/e')
+	@git tag $$((git describe --abbrev=0 --tags --match "$$(cat ../.version)*" || echo $$(cat ../.version).-1) | perl -pe 's/^(v(\d+\.)*)(-?\d+)(.*)$$/$$1.($$3+1).$$4/e')
 	$(MAKE) version.pprint
 	@echo "Remember to push new tag to remote server."
 
