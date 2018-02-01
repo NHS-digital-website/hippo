@@ -10,6 +10,7 @@ import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
+import uk.nhs.digital.ps.beans.Archive;
 import uk.nhs.digital.ps.beans.Dataset;
 import uk.nhs.digital.ps.beans.Publication;
 import uk.nhs.digital.ps.beans.Series;
@@ -22,10 +23,16 @@ public class FolderComponent extends BaseHstComponent {
     public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
         super.doBeforeRender(request, response);
         HippoFolder folder = (HippoFolder) request.getRequestContext().getContentBean();
+
+        List<Archive> archivesInFolder = folder.getChildBeans(Archive.class);
         List<Series> seriesInFolder = folder.getChildBeans(Series.class);
         List<Publication> publicationContentInFolder = folder.getChildBeansByName("content", Publication.class);
 
-        if (seriesInFolder.size() > 0) {
+        if (archivesInFolder.size() > 0) {
+            ArchiveComponent archiveComponent = new ArchiveComponent();
+            archiveComponent.doBeforeRender(request, response);
+            return;
+        } else if (seriesInFolder.size() > 0) {
             SeriesComponent seriesComponent = new SeriesComponent();
             seriesComponent.doBeforeRender(request, response);
             return;

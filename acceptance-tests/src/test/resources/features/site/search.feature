@@ -95,6 +95,8 @@ Feature: Basic search
             | Search Test Publication Key Facts |
             | Search Test Dataset Title         |
             | Search Test Dataset Summary       |
+            | Search Test Archive Title         |
+            | Search Test Archive Summary       |
 
     Scenario: Search terms are displayed correctly on the results page
         Given I navigate to the "home" page

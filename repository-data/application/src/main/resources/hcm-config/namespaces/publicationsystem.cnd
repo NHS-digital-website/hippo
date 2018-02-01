@@ -5,12 +5,15 @@
 <'common'='http://digital.nhs.uk/jcr/common/nt/1.0'>
 <'hippotranslation'='http://www.onehippo.org/jcr/hippotranslation/nt/1.0'>
 
-[publicationsystem:attachment] > hippo:compound, hippostd:relaxed
-  orderable
-
 [publicationsystem:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
   orderable
   - common:searchable (boolean) = 'true' autocreated
+
+[publicationsystem:archive] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
+  orderable
+
+[publicationsystem:attachment] > hippo:compound, hippostd:relaxed
+  orderable
 
 [publicationsystem:cihub] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
   orderable

@@ -1,7 +1,9 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 
-  <#if series??>
+  <#if archive??>
+      <#include "./archive.ftl">
+  <#elseif series??>
       <#include "./series.ftl">
   <#elseif publication??>
       <#include "./publication.ftl">

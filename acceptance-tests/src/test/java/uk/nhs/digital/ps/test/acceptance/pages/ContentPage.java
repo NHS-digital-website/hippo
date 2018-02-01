@@ -21,6 +21,7 @@ public class ContentPage extends AbstractCmsPage {
     private static final String PUBLICATION = "publication";
     private static final String DATASET = "dataset";
     private static final String SERIES = "series";
+    private static final String ARCHIVE = "archive";
 
     private PageHelper helper;
 
@@ -49,6 +50,10 @@ public class ContentPage extends AbstractCmsPage {
 
     public boolean newSeries(PublicationSeries series) {
         return createDocument(SERIES, series.getName());
+    }
+
+    public boolean newArchive(PublicationArchive archive) {
+        return createDocument(ARCHIVE, archive.getName());
     }
 
     public boolean isDocumentEditScreenOpen() {
@@ -205,9 +210,11 @@ public class ContentPage extends AbstractCmsPage {
         navigateToDocument(documentName);
 
         findPublicationMenu().click();
-        findTakeOffline().click();
 
-        clickButtonOnModalDialog("OK");
+        if (getWebDriver().findElement(By.xpath("//*[@title='Offline']")) == null) {
+            findTakeOffline().click();
+            clickButtonOnModalDialog("OK");
+        }
     }
 
     private void waitUntilPublished() {
@@ -388,6 +395,11 @@ public class ContentPage extends AbstractCmsPage {
     public void populateSeries(PublicationSeries series) {
         populateDocumentTitle(series.getTitle());
         populateDocumentSummary(series.getSummary());
+    }
+
+    public void populateArchive(PublicationArchive archive) {
+        populateDocumentTitle(archive.getTitle());
+        populateDocumentSummary(archive.getSummary());
     }
 
     public void openDocumentForEdit(String name) {

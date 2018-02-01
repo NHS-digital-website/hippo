@@ -17,11 +17,13 @@
     - ''
     resourcebundle:id: publicationsystem.labels
     resourcebundle:keys:
+    - labels.archive
     - labels.publication
     - labels.dataset
     - labels.series
     - labels.search-ghost-text
     resourcebundle:messages:
+    - Archive
     - Publication
     - Data set
     - Series / Collection
@@ -45,11 +47,13 @@
     - ''
     resourcebundle:id: publicationsystem.labels
     resourcebundle:keys:
+    - labels.archive
     - labels.publication
     - labels.dataset
     - labels.series
     - labels.search-ghost-text
     resourcebundle:messages:
+    - Archive
     - Publication
     - Data set
     - Series / Collection
@@ -73,11 +77,13 @@
     - ''
     resourcebundle:id: publicationsystem.labels
     resourcebundle:keys:
+    - labels.archive
     - labels.publication
     - labels.dataset
     - labels.series
     - labels.search-ghost-text
     resourcebundle:messages:
+    - Archive
     - Publication
     - Data set
     - Series / Collection

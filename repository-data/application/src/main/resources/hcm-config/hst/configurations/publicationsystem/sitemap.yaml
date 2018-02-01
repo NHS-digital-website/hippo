@@ -5,11 +5,13 @@ definitions:
       /_any_:
         hst:componentconfigurationid: hst:pages/404
         hst:componentconfigurationmappingnames:
+        - publicationsystem:archive
         - publicationsystem:dataset
         - hippostd:folder
         - publicationsystem:publication
         - publicationsystem:series
         hst:componentconfigurationmappingvalues:
+        - hst:pages/archive
         - hst:pages/dataset
         - hst:pages/folder
         - hst:pages/publication

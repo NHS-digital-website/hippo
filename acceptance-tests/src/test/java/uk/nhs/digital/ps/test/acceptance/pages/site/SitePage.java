@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
+import uk.nhs.digital.ps.test.acceptance.pages.site.ps.ArchivePageElements;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.DatasetPageElements;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.SeriesPageElements;
@@ -26,6 +27,7 @@ public class SitePage extends AbstractSitePage {
         this.pagesElements = new ArrayList<>();
 
         // load pageElement
+        pagesElements.add(new ArchivePageElements());
         pagesElements.add(new CommonPageElements());
         pagesElements.add(new PublicationPageElements());
         pagesElements.add(new SeriesPageElements());

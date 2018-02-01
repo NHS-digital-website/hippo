@@ -1,5 +1,10 @@
 package uk.nhs.digital.ps.test.acceptance.data;
 
+import static java.util.stream.Collectors.toList;
+import static uk.nhs.digital.ps.test.acceptance.models.FileType.getAllowedFileTypes;
+import static uk.nhs.digital.ps.test.acceptance.util.RandomHelper.getRandomEnumConstant;
+import static uk.nhs.digital.ps.test.acceptance.util.RandomHelper.newRandomString;
+
 import uk.nhs.digital.ps.test.acceptance.models.*;
 
 import java.nio.file.Path;
@@ -7,11 +12,6 @@ import java.nio.file.Paths;
 import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
-
-import static java.util.stream.Collectors.toList;
-import static uk.nhs.digital.ps.test.acceptance.models.FileType.getAllowedFileTypes;
-import static uk.nhs.digital.ps.test.acceptance.util.RandomHelper.getRandomEnumConstant;
-import static uk.nhs.digital.ps.test.acceptance.util.RandomHelper.newRandomString;
 
 /**
  * <p>
@@ -54,6 +54,13 @@ public class TestDataFactory {
             .withName(newRandomString() + " Series")
             .withTitle(newRandomString() + " Series Title")
             .withSummary(newRandomString() + " Series Summary");
+    }
+
+    public static PublicationArchiveBuilder createArchive() {
+        return PublicationArchiveBuilder.newPublicationArchive()
+            .withName(newRandomString() + " Archive")
+            .withTitle(newRandomString() + " Archive Title")
+            .withSummary(newRandomString() + " Archive Summary");
     }
 
     public static DatasetBuilder createDataset() {

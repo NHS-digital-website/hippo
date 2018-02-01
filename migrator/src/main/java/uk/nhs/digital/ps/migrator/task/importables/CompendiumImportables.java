@@ -130,8 +130,8 @@ public class CompendiumImportables {
                 importableItems.add(seriesArchiveFolder);
 
                 // J)
-                final Series seriesArchivedContent = factory.newArchivedSeries(seriesArchiveFolder, seriesArchiveFolder.getLocalizedName());
-                importableItems.add(seriesArchivedContent);
+                final Archive archiveContent = factory.newArchive(seriesArchiveFolder, seriesArchiveFolder.getLocalizedName());
+                importableItems.add(archiveContent);
             });
 
         });

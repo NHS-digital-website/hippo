@@ -1,0 +1,338 @@
+---
+/content/documents/corporate-website/publication-system/acceptance-tests/valid-publication-archive:
+  /2002:
+    /2002[1]:
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-01T11:48:04.856Z
+      hippostdpubwf:lastModificationDate: 2018-02-01T11:48:04.856Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: f19a9d98-12c3-4936-943a-a70107259270
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2002-02-01T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Lorem Ipsum Dolor 2002
+      publicationsystem:Title: Lorem Ipsum Dolor 2002
+    /2002[2]:
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-01T11:48:04.856Z
+      hippostdpubwf:lastModificationDate: 2018-02-01T11:48:14.014Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: f19a9d98-12c3-4936-943a-a70107259270
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2002-02-01T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Lorem Ipsum Dolor 2002
+      publicationsystem:Title: Lorem Ipsum Dolor 2002
+    /2002[3]:
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-01T11:48:04.856Z
+      hippostdpubwf:lastModificationDate: 2018-02-01T11:48:14.014Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-01T11:48:17.272Z
+      hippotranslation:id: f19a9d98-12c3-4936-943a-a70107259270
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2002-02-01T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Lorem Ipsum Dolor 2002
+      publicationsystem:Title: Lorem Ipsum Dolor 2002
+    hippo:name: Lorem Ipsum Dolor 2002
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /2003:
+    /2003[1]:
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-01T11:47:24.588Z
+      hippostdpubwf:lastModificationDate: 2018-02-01T11:47:24.588Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 0b23cd1e-f364-4a54-804d-ac45e3bef0dd
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2003-02-01T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Lorem Ipsum Dolor 2003
+      publicationsystem:Title: Lorem Ipsum Dolor 2003
+    /2003[2]:
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-01T11:47:24.588Z
+      hippostdpubwf:lastModificationDate: 2018-02-01T11:47:32.862Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 0b23cd1e-f364-4a54-804d-ac45e3bef0dd
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2003-02-01T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Lorem Ipsum Dolor 2003
+      publicationsystem:Title: Lorem Ipsum Dolor 2003
+    /2003[3]:
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-01T11:47:24.588Z
+      hippostdpubwf:lastModificationDate: 2018-02-01T11:47:32.862Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-01T11:47:34.417Z
+      hippotranslation:id: 0b23cd1e-f364-4a54-804d-ac45e3bef0dd
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2003-02-01T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Lorem Ipsum Dolor 2003
+      publicationsystem:Title: Lorem Ipsum Dolor 2003
+    hippo:name: Lorem Ipsum Dolor 2003
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /2004:
+    /2004[1]:
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-01T11:46:42.887Z
+      hippostdpubwf:lastModificationDate: 2018-02-01T11:46:42.888Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: b48e9344-6d29-4308-9fcb-a91a9b17bc76
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2004-02-01T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Lorem Ipsum Dolor 2014
+      publicationsystem:Title: Lorem Ipsum Dolor 2004
+    /2004[2]:
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-01T11:46:42.887Z
+      hippostdpubwf:lastModificationDate: 2018-02-01T11:47:07.821Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: b48e9344-6d29-4308-9fcb-a91a9b17bc76
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2004-02-01T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Lorem Ipsum Dolor 2014
+      publicationsystem:Title: Lorem Ipsum Dolor 2004
+    /2004[3]:
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-01T11:46:42.887Z
+      hippostdpubwf:lastModificationDate: 2018-02-01T11:47:07.821Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-01T11:48:20.705Z
+      hippotranslation:id: b48e9344-6d29-4308-9fcb-a91a9b17bc76
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2004-02-01T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Lorem Ipsum Dolor 2014
+      publicationsystem:Title: Lorem Ipsum Dolor 2004
+    hippo:name: Lorem Ipsum Dolor 2004
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /time-archive-lorem-ipsum-dolor:
+    /time-archive-lorem-ipsum-dolor[1]:
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-01T11:45:45.790Z
+      hippostdpubwf:lastModificationDate: 2018-02-01T11:53:26.271Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 5aa94139-497d-489d-b605-e4a2c3182e06
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:archive
+      publicationsystem:Summary: "Integer suscipit pulvinar lacus non porta. Aenean\
+        \ ut tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget, aliquam\
+        \ quam. Nullam euismod accumsan nibh at lobortis. Nam non eleifend mauris.\
+        \ Aliquam tempor nec odio non aliquam. Suspendisse in ex sit amet lectus vehicula\
+        \ varius pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.\r\n\
+        \r\nInteger suscipit pulvinar lacus non porta. Aenean ut tempus ex. Proin\
+        \ eget tortor sollicitudin, pellentesque dolor eget, aliquam quam. Nullam\
+        \ euismod accumsan nibh at lobortis. Nam non eleifend mauris. Aliquam tempor\
+        \ nec odio non aliquam. Suspendisse in ex sit amet lectus vehicula varius\
+        \ pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.\r\n\r\nInteger\
+        \ suscipit pulvinar lacus non porta. Aenean ut tempus ex. Proin eget tortor\
+        \ sollicitudin, pellentesque dolor eget, aliquam quam. Nullam euismod accumsan\
+        \ nibh at lobortis. Nam non eleifend mauris. Aliquam tempor nec odio non aliquam.\
+        \ Suspendisse in ex sit amet lectus vehicula varius pharetra eget elit. Quisque\
+        \ at iaculis arcu, eget ornare arcu."
+      publicationsystem:Title: Time Archive Lorem Ipsum Dolor
+    /time-archive-lorem-ipsum-dolor[2]:
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-01T11:45:45.790Z
+      hippostdpubwf:lastModificationDate: 2018-02-01T11:53:35.810Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 5aa94139-497d-489d-b605-e4a2c3182e06
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:archive
+      publicationsystem:Summary: "Integer suscipit pulvinar lacus non porta. Aenean\
+        \ ut tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget, aliquam\
+        \ quam. Nullam euismod accumsan nibh at lobortis. Nam non eleifend mauris.\
+        \ Aliquam tempor nec odio non aliquam. Suspendisse in ex sit amet lectus vehicula\
+        \ varius pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.\r\n\
+        \r\nInteger suscipit pulvinar lacus non porta. Aenean ut tempus ex. Proin\
+        \ eget tortor sollicitudin, pellentesque dolor eget, aliquam quam. Nullam\
+        \ euismod accumsan nibh at lobortis. Nam non eleifend mauris. Aliquam tempor\
+        \ nec odio non aliquam. Suspendisse in ex sit amet lectus vehicula varius\
+        \ pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.\r\n\r\nInteger\
+        \ suscipit pulvinar lacus non porta. Aenean ut tempus ex. Proin eget tortor\
+        \ sollicitudin, pellentesque dolor eget, aliquam quam. Nullam euismod accumsan\
+        \ nibh at lobortis. Nam non eleifend mauris. Aliquam tempor nec odio non aliquam.\
+        \ Suspendisse in ex sit amet lectus vehicula varius pharetra eget elit. Quisque\
+        \ at iaculis arcu, eget ornare arcu."
+      publicationsystem:Title: Time Archive Lorem Ipsum Dolor
+    /time-archive-lorem-ipsum-dolor[3]:
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-01T11:45:45.790Z
+      hippostdpubwf:lastModificationDate: 2018-02-01T11:53:35.810Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-01T11:53:39.122Z
+      hippotranslation:id: 5aa94139-497d-489d-b605-e4a2c3182e06
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:archive
+      publicationsystem:Summary: "Integer suscipit pulvinar lacus non porta. Aenean\
+        \ ut tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget, aliquam\
+        \ quam. Nullam euismod accumsan nibh at lobortis. Nam non eleifend mauris.\
+        \ Aliquam tempor nec odio non aliquam. Suspendisse in ex sit amet lectus vehicula\
+        \ varius pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.\r\n\
+        \r\nInteger suscipit pulvinar lacus non porta. Aenean ut tempus ex. Proin\
+        \ eget tortor sollicitudin, pellentesque dolor eget, aliquam quam. Nullam\
+        \ euismod accumsan nibh at lobortis. Nam non eleifend mauris. Aliquam tempor\
+        \ nec odio non aliquam. Suspendisse in ex sit amet lectus vehicula varius\
+        \ pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.\r\n\r\nInteger\
+        \ suscipit pulvinar lacus non porta. Aenean ut tempus ex. Proin eget tortor\
+        \ sollicitudin, pellentesque dolor eget, aliquam quam. Nullam euismod accumsan\
+        \ nibh at lobortis. Nam non eleifend mauris. Aliquam tempor nec odio non aliquam.\
+        \ Suspendisse in ex sit amet lectus vehicula varius pharetra eget elit. Quisque\
+        \ at iaculis arcu, eget ornare arcu."
+      publicationsystem:Title: Time Archive Lorem Ipsum Dolor
+    hippo:name: Time Archive Index
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: valid publication archive
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: 756346df-4cf1-4858-a464-72d0cef8951a
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

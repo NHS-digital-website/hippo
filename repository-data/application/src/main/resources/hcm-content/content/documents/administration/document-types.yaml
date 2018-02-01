@@ -14,12 +14,15 @@
     - ''
     - ''
     - ''
+    - ''
     resourcebundle:id: document-types
     resourcebundle:keys:
+    - publicationsystem:archive
     - publicationsystem:series
     - publicationsystem:dataset
     - publicationsystem:publication
     resourcebundle:messages:
+    - Archive
     - Series
     - Data Set
     - Statistical Publication
@@ -39,12 +42,15 @@
     - ''
     - ''
     - ''
+    - ''
     resourcebundle:id: document-types
     resourcebundle:keys:
+    - publicationsystem:archive
     - publicationsystem:series
     - publicationsystem:dataset
     - publicationsystem:publication
     resourcebundle:messages:
+    - Archive
     - Series
     - Data Set
     - Statistical Publication
@@ -64,12 +70,15 @@
     - ''
     - ''
     - ''
+    - ''
     resourcebundle:id: document-types
     resourcebundle:keys:
+    - publicationsystem:archive
     - publicationsystem:series
     - publicationsystem:dataset
     - publicationsystem:publication
     resourcebundle:messages:
+    - Archive
     - Series
     - Data Set
     - Statistical Publication

@@ -7,7 +7,7 @@
         <h1 data-uipath="ps.search-results.count">${pageable.total} result<#if pageable.total gt 1>s</#if> found</h1>
         <h4 class="push-double--bottom">Displaying  ${pageable.startOffset +1 } to ${pageable.endOffset} of ${pageable.total} results${query???then(" for '${query}'", "")}</h4>
 
-        <@searchResutls items=pageable.items/>
+        <@searchResults items=pageable.items/>
 
         <#if cparam.showPagination>
             <#include "../include/pagination.ftl">

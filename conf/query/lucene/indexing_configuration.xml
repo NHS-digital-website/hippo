@@ -37,6 +37,15 @@ https://wiki.apache.org/jackrabbit/IndexingConfiguration
         <property isRegexp="true" nodeScopeIndex="false">.*:.*</property>
     </index-rule>
 
+    <index-rule
+        nodeType="publicationsystem:archive"
+        boost="0.5"
+    >
+        <property boost="2.0">publicationsystem:Title</property>
+        <property boost="1.5">publicationsystem:Summary</property>
+        <property isRegexp="true" nodeScopeIndex="false">.*:.*</property>
+    </index-rule>
+
     <!-- hippo aggregates -->
     <aggregates>
         <nodetype>hippostd:html</nodetype>

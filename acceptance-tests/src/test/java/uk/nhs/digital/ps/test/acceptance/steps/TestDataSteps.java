@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
 import uk.nhs.digital.ps.test.acceptance.models.Dataset;
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
+import uk.nhs.digital.ps.test.acceptance.models.PublicationArchive;
 import uk.nhs.digital.ps.test.acceptance.models.PublicationSeries;
 import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
 
@@ -66,6 +67,13 @@ public class TestDataSteps extends AbstractSpringSteps {
             log.debug("Discarding and closing current series: {}.", currentSeriesName);
             contentPage.discardUnsavedChanges(currentSeriesName);
         }
+
+        PublicationArchive archive = testDataRepo.getPublicationArchive();
+        if (archive != null) {
+            final String currentArchiveName = archive.getName();
+            log.debug("Discarding and closing current archive: {}.", currentArchiveName);
+            contentPage.discardUnsavedChanges(currentArchiveName);
+        }
     }
 
     /**
@@ -82,13 +90,24 @@ public class TestDataSteps extends AbstractSpringSteps {
     public void deleteDocument() throws Throwable {
         // Don't want this to fail the test if it fails, it's just clean up
         try {
-            final String currentPublicationName = testDataRepo.getCurrentPublication().getName();
-            log.debug("Taking current publication offline: {}.", currentPublicationName);
+            String currentDocumentName = "";
+            if (testDataRepo.getCurrentPublication() != null) {
+                currentDocumentName = testDataRepo.getCurrentPublication().getName();
+            } else if (testDataRepo.getDataset() != null) {
+                currentDocumentName = testDataRepo.getDataset().getName();
+            } else if (testDataRepo.getPublicationSeries() != null) {
+                currentDocumentName = testDataRepo.getPublicationSeries().getName();
+            } else if (testDataRepo.getPublicationArchive() != null) {
+                currentDocumentName = testDataRepo.getPublicationArchive().getName();
+            }
+
+            log.debug("Taking current document offline: {}.", currentDocumentName);
 
             contentPage.openCms();
             contentPage.openContentTab();
-            contentPage.unpublishDocument(currentPublicationName);
-            contentPage.deleteDocument(currentPublicationName);
+            contentPage.unpublishDocument(currentDocumentName);
+            contentPage.deleteDocument(currentDocumentName);
+
         } catch (Exception e) {
             log.error("Failed to take publication offline.", e);
         }

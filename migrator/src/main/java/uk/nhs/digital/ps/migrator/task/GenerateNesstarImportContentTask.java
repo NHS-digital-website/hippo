@@ -311,7 +311,7 @@ public class GenerateNesstarImportContentTask implements MigrationTask {
 
         if (!Files.isRegularFile(nesstarFieldMappingImportPath)) {
             throw new IllegalArgumentException(
-                "Field Mapping Import file does not exist: " + taxonomyDefinitionImportPath
+                "Field Mapping Import file does not exist: " + nesstarFieldMappingImportPath
             );
         }
     }

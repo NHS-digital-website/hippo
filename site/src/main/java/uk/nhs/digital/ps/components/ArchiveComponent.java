@@ -13,14 +13,14 @@ import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.nhs.digital.ps.beans.Archive;
 import uk.nhs.digital.ps.beans.Publication;
-import uk.nhs.digital.ps.beans.Series;
 
 import java.util.List;
 
-public class SeriesComponent extends EssentialsContentComponent {
+public class ArchiveComponent extends EssentialsContentComponent {
 
-    private static final Logger log = LoggerFactory.getLogger(SeriesComponent.class);
+    private static final Logger log = LoggerFactory.getLogger(ArchiveComponent.class);
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
@@ -34,16 +34,16 @@ public class SeriesComponent extends EssentialsContentComponent {
             return;
         }
 
-        final List<Series> seriesIndexDocuments = contentBean.getChildBeans(Series.class);
+        final List<Archive> archiveIndexDocuments = contentBean.getChildBeans(Archive.class);
 
-        if (seriesIndexDocuments.size() != 1) {
-            reportInvalidTarget(request, contentBean, seriesIndexDocuments.size());
+        if (archiveIndexDocuments.size() != 1) {
+            reportInvalidTarget(request, contentBean, archiveIndexDocuments.size());
             return;
         }
 
-        final Series seriesIndexDocument = seriesIndexDocuments.get(0);
+        final Archive archiveIndexDocument = archiveIndexDocuments.get(0);
 
-        request.setAttribute("series" , seriesIndexDocument);
+        request.setAttribute("archive" , archiveIndexDocument);
 
         try {
             final HstQuery query = requestContext.getQueryManager().createQuery(contentBean, Publication.class);
@@ -55,9 +55,9 @@ public class SeriesComponent extends EssentialsContentComponent {
             request.setAttribute("publications", hstQueryResult.getHippoBeans());
 
         } catch (QueryException queryException) {
-            log.error("Failed to find publications for series " + seriesIndexDocument.getTitle(), queryException);
+            log.error("Failed to find publications for archive " + archiveIndexDocument.getTitle(), queryException);
 
-            reportDisplayError(request, seriesIndexDocument.getTitle());
+            reportDisplayError(request, archiveIndexDocument.getTitle());
         }
     }
 }

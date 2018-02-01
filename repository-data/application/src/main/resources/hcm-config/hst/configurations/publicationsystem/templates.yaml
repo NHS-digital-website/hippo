@@ -2,6 +2,9 @@
 definitions:
   config:
     /hst:hst/hst:configurations/publicationsystem/hst:templates:
+      /archive:
+        hst:renderpath: webfile:/freemarker/publicationsystem/archive.ftl
+        jcr:primaryType: hst:template
       /cilanding:
         hst:renderpath: webfile:/freemarker/publicationsystem/cilanding.ftl
         jcr:primaryType: hst:template
