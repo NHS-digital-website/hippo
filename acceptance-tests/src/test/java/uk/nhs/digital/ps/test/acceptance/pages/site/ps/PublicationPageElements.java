@@ -28,8 +28,6 @@ public class PublicationPageElements implements PageElements {
             By.xpath("//*[" + getDataUiPathXpath("granularity") + "]"));
         put(DATE_RANGE,
             By.xpath("//*[" + getDataUiPathXpath("date-range") + "]"));
-        put(TAXONOMY,
-            By.xpath("//*[" + getDataUiPathXpath("taxonomy") + "]"));
         put(INFORMATION_TYPES,
             By.xpath("//*[" + getDataUiPathXpath("information-types") + "]"));
         put(KEY_FACTS,
@@ -78,7 +76,6 @@ public class PublicationPageElements implements PageElements {
         String GEOGRAPHIC_COVERAGE = "Publication Geographic Coverage";
         String GRANULARITY = "Publication Granularity";
         String DATE_RANGE = "Publication Date Range";
-        String TAXONOMY = "Publication Taxonomy";
         String INFORMATION_TYPES = "Publication Information Types";
         String KEY_FACTS = "Publication Key Facts";
         String RESOURCES = "Publication Resources";

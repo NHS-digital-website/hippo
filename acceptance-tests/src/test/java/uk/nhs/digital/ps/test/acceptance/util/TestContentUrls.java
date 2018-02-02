@@ -51,6 +51,10 @@ public class TestContentUrls {
         add("upcoming publication dataset",
             "/publications/acceptance-tests/upcoming-publication/upcoming-dataset");
 
+        // dataset with no parent publication
+        add("dataset without publication",
+            "/publications/acceptance-tests/dataset-without-publication/dataset-without-publication");
+
         // attachment tests
         add("attachment test publication",
             "/publications/acceptance-tests/attachment-test");

@@ -64,10 +64,6 @@ public class PublicationPage extends AbstractSitePage {
         return findPageElement(GRANULARITY).getText();
     }
 
-    public String getTaxonomy() {
-        return findPageElement(TAXONOMY).getText();
-    }
-
     public String getSeriesLinkTitle() {
         return helper.findElement(By.className("label--series")).getText();
     }
@@ -87,7 +83,6 @@ public class PublicationPage extends AbstractSitePage {
             GEOGRAPHIC_COVERAGE,
             GRANULARITY,
             DATE_RANGE,
-            TAXONOMY,
             INFORMATION_TYPES,
             KEY_FACTS,
             RESOURCES,
