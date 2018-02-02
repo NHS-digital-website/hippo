@@ -83,9 +83,6 @@ public class PublicationSteps extends AbstractSpringSteps {
         assertThat("Granularity is as expected", publicationPage.getGranularity(),
             is(publication.getGranularity().getDisplayValue()));
 
-        assertThat("Taxonomy is as expected", publicationPage.getTaxonomy(),
-            is(publication.getTaxonomy().getTaxonomyContext()));
-
         assertAttachmentsUpload(publication.getAttachments());
     }
 

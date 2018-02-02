@@ -84,7 +84,7 @@ public class SiteSteps extends AbstractSpringSteps {
         assertThat("Document content is as expected", sitePage.getDocumentContent(), getMatcherForText(content));
     }
 
-    @Then("^I should see the page not found error page$")
+    @Then("^I should see the \"page not found\" error page$")
     public void iShouldSeeThePageNotFoundErrorPage() throws Throwable {
         // Ideally we would check the HTTP response code is 404 as well but it's not
         // currently possible to do this with the Selinium Web Driver.

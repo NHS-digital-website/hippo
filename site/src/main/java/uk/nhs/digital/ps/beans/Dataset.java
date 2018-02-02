@@ -119,7 +119,8 @@ public class Dataset extends BaseDocument {
     }
 
     public boolean isPubliclyAccessible() {
-        return getParentPublication().isPubliclyAccessible();
+        Publication parentPublication = getParentPublication();
+        return parentPublication != null && parentPublication.isPubliclyAccessible();
     }
 
     interface PropertyKeys {

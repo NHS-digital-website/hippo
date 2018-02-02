@@ -1,0 +1,111 @@
+---
+/content/documents/corporate-website/publication-system/acceptance-tests/another-upcoming-publication:
+  /published-upcoming-publication:
+    /published-upcoming-publication[1]:
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T14:00:00Z
+      hippostdpubwf:lastModificationDate: 2017-10-16T14:00:00Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotaxonomy:keys:
+      - falls
+      - infectious-diseases
+      - workforce
+      hippotranslation:id: 00000000-0000-0000-0000-000000000000
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 2017-04-01T08:00:00Z
+      publicationsystem:CoverageStart: 2017-01-01T08:00:00Z
+      publicationsystem:InformationType:
+      - Official statistics
+      publicationsystem:KeyFacts: Ipsum dolor sit amet, consectetur adipiscing elit.
+        Mauris mattis sodales felis, vitae ultricies turpis porttitor in. Integer
+        sit amet efficitur urna.
+      publicationsystem:NominalDate: 2017-06-01T08:30:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: Published Upcoming Publication summary.
+      publicationsystem:Title: Published Upcoming Publication
+    /published-upcoming-publication[2]:
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T14:00:00Z
+      hippostdpubwf:lastModificationDate: 2017-10-16T14:00:00Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotaxonomy:keys:
+      - falls
+      - infectious-diseases
+      - workforce
+      hippotranslation:id: 00000000-0000-0000-0000-000000000000
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 2017-04-01T08:00:00Z
+      publicationsystem:CoverageStart: 2017-01-01T08:00:00Z
+      publicationsystem:InformationType:
+      - Official statistics
+      publicationsystem:KeyFacts: Ipsum dolor sit amet, consectetur adipiscing elit.
+        Mauris mattis sodales felis, vitae ultricies turpis porttitor in. Integer
+        sit amet efficitur urna.
+      publicationsystem:NominalDate: 2017-06-01T08:30:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: Published Upcoming Publication summary.
+      publicationsystem:Title: Published Upcoming Publication
+    /published-upcoming-publication[3]:
+      common:searchable: false
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T14:00:00Z
+      hippostdpubwf:lastModificationDate: 2017-10-16T14:00:00Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-02T14:22:48.368Z
+      hippotaxonomy:keys:
+      - falls
+      - infectious-diseases
+      - workforce
+      hippotranslation:id: 00000000-0000-0000-0000-000000000000
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 2017-04-01T08:00:00Z
+      publicationsystem:CoverageStart: 2017-01-01T08:00:00Z
+      publicationsystem:InformationType:
+      - Official statistics
+      publicationsystem:KeyFacts: Ipsum dolor sit amet, consectetur adipiscing elit.
+        Mauris mattis sodales felis, vitae ultricies turpis porttitor in. Integer
+        sit amet efficitur urna.
+      publicationsystem:NominalDate: 2017-06-01T08:30:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: Published Upcoming Publication summary.
+      publicationsystem:Title: Published Upcoming Publication
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Another Upcoming Publication
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: 6dac13f8-f59c-4cc8-a6ce-6f09f75f514b
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder
