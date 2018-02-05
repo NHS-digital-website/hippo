@@ -5,3 +5,9 @@
 <#assign truncate="uk.nhs.digital.ps.directives.TruncateFormatterDirective"?new() >
 
 <@hst.defineObjects />
+
+<#if facets??>
+    <@hst.link var="searchLink" hippobean=facets />
+<#else>
+    <@hst.link siteMapItemRefId="search" mount="common-context" var="searchLink"/>
+</#if>

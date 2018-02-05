@@ -1,11 +1,14 @@
 package uk.nhs.digital.ps.test.acceptance.steps.site;
 
+import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.toList;
+import static org.apache.commons.lang3.StringUtils.capitalize;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 import static org.slf4j.LoggerFactory.getLogger;
 
 import cucumber.api.DataTable;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.hamcrest.Matcher;
@@ -18,6 +21,7 @@ import uk.nhs.digital.ps.test.acceptance.pages.widgets.SearchResultWidget;
 import uk.nhs.digital.ps.test.acceptance.steps.AbstractSpringSteps;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 
 public class SearchSteps extends AbstractSpringSteps {
@@ -67,21 +71,21 @@ public class SearchSteps extends AbstractSpringSteps {
 
     @Then("^I should see (\\d+) search results?$")
     public void iShouldSeeSearchResults(String count) throws Throwable {
-        if (count.equals("0")) {
-            count = "No results";
-        }
         assertThat("Correct result count found", searchPage.getResultCount(), startsWith(count));
     }
 
     @Then("^I should see search results starting with:$")
     public void iShouldSeeSearchResultsStartingWith(DataTable searchResults) throws Throwable {
+        assertSearchResultsStartWith(searchResults.asList(String.class));
+    }
 
+    private void assertSearchResultsStartWith(List<String> searchResults) {
         List<String> actualResults = searchPage.getSearchResultWidgets()
             .stream()
             .map(SearchResultWidget::getTitle)
             .collect(toList());
 
-        List<Matcher<? super String>> expectedResults = searchResults.asList(String.class)
+        List<Matcher<? super String>> expectedResults = searchResults
             .stream()
             .map(Matchers::startsWith)
             .collect(toList());
@@ -104,14 +108,65 @@ public class SearchSteps extends AbstractSpringSteps {
 
     @Then("^I should see the search term \"(.+)\" on the results page$")
     public void iShouldSeeTheSearchTermOnTheResultsPage(String term) throws Throwable {
-        assertThat("Result count ends with search term", searchPage.getResultCount(), endsWith(term));
+        assertThat("Result description ends with search term", searchPage.getResultDescription(), endsWith(term));
         assertEquals("Search query is maintained in search box", term, searchPage.getSearchFieldValue());
     }
 
-    @Then("^I should see the full search results page$")
-    public void iShouldSeeTheFullSearchResultsPage() throws Throwable {
-        assertThat("Full search results are shown", searchPage.getResultCount(), endsWith("results found"));
-        assertEquals("Search query is blank", "", searchPage.getSearchFieldValue());
+    @Then("^I can see the search description matching \"([^\"]*)\"$")
+    public void iCanSeeTheSearchDescriptionMatching(String regex) throws Throwable {
+        String resultDescription = searchPage.getResultDescription();
+        assertTrue("Result description [" + resultDescription + "] matches", resultDescription.matches(regex));
     }
 
+    @Then("^I should see the weight search test results ordered by (relevance|date)$")
+    public void iShouldSeeTheWeightSearchTestResultsOrderedBy(String sort) throws Throwable {
+        // check the results are actually sorted correctly
+        assertSearchResultsStartWith(getSortedWeightSearchResults(sort));
+
+        assertEquals("Sort mode is displayed in selector", capitalize(sort), searchPage.getSortSelection());
+
+        assertThat("Sort mode is displayed in result description", searchPage.getResultDescription(), endsWith("sorted by " + sort + "."));
+    }
+
+    private static List<String> getSortedWeightSearchResults(String sort) {
+        switch (sort) {
+            case "relevance":
+                return getWeightSearchResultsSortedByRelevance();
+            case "date":
+                return getWeightSearchResultsOrderedByDate();
+            default:
+                throw new RuntimeException("Unknown sort mode: " + sort);
+        }
+    }
+
+    private static List<String> getWeightSearchResultsSortedByRelevance() {
+        return asList(
+            // Search results should go Series -> Publication -> Dataset
+            // within those groups the order should be Title -> Summary (-> Key Facts)
+            "Search Test Series Title",
+            "Search Test Series Summary",
+            "Search Test Publication Title",
+            "Search Test Publication Summary",
+            "Search Test Publication Key Facts",
+            "Search Test Dataset Title",
+            "Search Test Dataset Summary",
+            "Search Test Archive Title",
+            "Search Test Archive Summary"
+        );
+    }
+
+    private static List<String> getWeightSearchResultsOrderedByDate() {
+        return asList(
+            // These are in nominal date order
+            "Search Test Dataset Summary",
+            "Search Test Publication Summary",
+            "Search Test Publication Key Facts",
+            "Search Test Dataset Title",
+            "Search Test Publication Title",
+            "Search Test Series Title",
+            "Search Test Series Summary",
+            "Search Test Archive Title",
+            "Search Test Archive Summary"
+        );
+    }
 }

@@ -4,12 +4,6 @@
 <@hst.setBundle basename="publicationsystem.labels"/>
 <@fmt.message key="labels.search-ghost-text" var="ghostText"/>
 
-<#if facets??>
-    <@hst.link var="searchLink" hippobean=facets />
-<#else>
-    <@hst.link siteMapItemRefId="search" mount="common-context" var="searchLink"/>
-</#if>
-
 <section class="common-search" aria-label="Search Bar">
     <form class="navbar-form" role="search" action="${searchLink}" method="get">
         <div class="common-search__inner">

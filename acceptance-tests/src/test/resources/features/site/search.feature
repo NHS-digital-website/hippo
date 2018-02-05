@@ -80,23 +80,30 @@ Feature: Basic search
     Scenario: Pdf text is not matched with the search term
         Given I navigate to the "home" page
         And I search for "_Attachment_Search_Term_"
-        Then I should see 0 search results
+        Then I can see the search description matching "No results for: _Attachment_Search_Term_"
 
     Scenario: Search boosts are applied correctly to the different fields
         Given I navigate to the "home" page
         And I search for "WeightSearchTerm"
-            # Search results should go Series -> Publication -> Dataset
-            # within those groups the order should be Title -> Summary (-> Key Facts)
-        Then I should see search results starting with:
-            | Search Test Series Title          |
-            | Search Test Series Summary        |
-            | Search Test Publication Title     |
-            | Search Test Publication Summary   |
-            | Search Test Publication Key Facts |
-            | Search Test Dataset Title         |
-            | Search Test Dataset Summary       |
-            | Search Test Archive Title         |
-            | Search Test Archive Summary       |
+        Then I should see the weight search test results ordered by relevance
+
+    Scenario: Using the sort by options
+        Given I navigate to the "home" page
+        When I search for "WeightSearchTerm"
+        Then I can click on the "Order by date" link
+        And I should see the weight search test results ordered by date
+        When I can click on the "Order by relevance" link
+        Then I should see the weight search test results ordered by relevance
+
+    Scenario: Search results description is shown correctly with and without search terms
+        When I navigate to the "search" page
+        Then I can see the search description matching "\d+ results sorted by relevance\."
+        When I click on the "Order by date" link
+        Then I can see the search description matching "\d+ results sorted by date\."
+        When I search for "test"
+        Then I can see the search description matching "\d+ results containing 'test', sorted by relevance\."
+        When I click on the "Order by date" link
+        Then I can see the search description matching "\d+ results containing 'test', sorted by date\."
 
     Scenario: Search terms are displayed correctly on the results page
         Given I navigate to the "home" page
@@ -111,8 +118,7 @@ Feature: Basic search
     Scenario: Searching with no search term provided displays the results page with full, unfiltered result set
         Given I navigate to the "home" page
         When I search for ""
-        Then I should see the full search results page
-        And I should see the "DOCUMENT TYPE" list including:
+        Then I should see the "DOCUMENT TYPE" list including:
             | Publication ( ...         |
             | Data set ( ...            |
             | Series / Collection ( ... |
@@ -120,8 +126,7 @@ Feature: Basic search
 
     Scenario: Navigating to the search page displays the results page with full, unfiltered result set
         Given I navigate to the "search" page
-        Then I should see the full search results page
-        And I should see the "DOCUMENT TYPE" list including:
+        Then I should see the "DOCUMENT TYPE" list including:
             | Publication ( ...         |
             | Data set ( ...            |
             | Series / Collection ( ... |

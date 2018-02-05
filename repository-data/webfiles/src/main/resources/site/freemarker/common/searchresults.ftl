@@ -3,9 +3,25 @@
 <#include "./macro/results.ftl">
 
 <div data-uipath="ps.search-results" data-totalresults="${(pageable.total)!0}">
+
     <#if pageable?? && pageable.total gt 0>
-        <h1 data-uipath="ps.search-results.count">${pageable.total} result<#if pageable.total gt 1>s</#if> found</h1>
-        <h4 class="push-double--bottom">Displaying  ${pageable.startOffset +1 } to ${pageable.endOffset} of ${pageable.total} results${query???then(" for '${query}'", "")}</h4>
+        <h1>Search results</h1>
+
+        <div class="layout layout--flush push--bottom">
+            <div class="layout__item layout-2-3" data-uipath="ps.search-results.description">
+                <span data-uipath="ps.search-results.count">${pageable.total}</span> result<#if pageable.total gt 1>s</#if><#if query?has_content> containing '<strong>${query}</strong>',</#if> sorted by <strong>${sort}</strong>.
+            </div><!--
+            --><div class="layout__item layout-1-3" style="text-align:right">
+                <label for="sortBy">Sort by:</label>
+                <select id="sortBy" onChange="window.location.href=this.value" data-uipath="ps.search-results.sort-selector">
+                    <#assign sortLink = searchLink + query???then('?query=${query}&', '?') + 'sort='>
+                    <option title="Order by date" value="${sortLink}date"
+                        <#if sort?? && sort == 'date'>selected</#if>>Date</option>
+                    <option title="Order by relevance" value="${sortLink}relevance"
+                        <#if sort?? && sort == 'relevance'>selected</#if>>Relevance</option>
+                </select>
+            </div>
+        </div>
 
         <@searchResults items=pageable.items/>
 
@@ -13,8 +29,8 @@
             <#include "../include/pagination.ftl">
         </#if>
     <#elseif query?has_content>
-        <h1 data-uipath="ps.search-results.count">No results for: ${query}</h1>
+        <h1 data-uipath="ps.search-results.description">No results for: ${query}</h1>
     <#else>
-        <h1 data-uipath="ps.search-results.count">No results for filters</h1>
+        <h1 data-uipath="ps.search-results.description">No results for filters</h1>
     </#if>
 </div>
