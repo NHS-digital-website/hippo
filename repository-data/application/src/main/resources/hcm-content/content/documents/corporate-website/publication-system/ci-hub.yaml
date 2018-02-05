@@ -2,9 +2,6 @@
 /content/documents/corporate-website/publication-system/ci-hub:
   /ccg-outcomes:
     /ccg-outcomes[1]:
-      /publicationsystem:content:
-        hippostd:content: ''
-        jcr:primaryType: hippostd:html
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -20,9 +17,6 @@
       jcr:uuid: 2a907018-5360-4a02-99a0-9264b72d828f
       publicationsystem:title: ''
     /ccg-outcomes[2]:
-      /publicationsystem:content:
-        hippostd:content: ''
-        jcr:primaryType: hippostd:html
       common:searchable: true
       hippo:availability:
       - preview
@@ -40,9 +34,6 @@
       jcr:uuid: dc137559-ee4b-4351-98a4-83eb9629411e
       publicationsystem:title: ''
     /ccg-outcomes[3]:
-      /publicationsystem:content:
-        hippostd:content: ''
-        jcr:primaryType: hippostd:html
       common:searchable: true
       hippo:availability:
       - live
@@ -67,9 +58,6 @@
     jcr:uuid: a35c56f4-1a16-46d8-a76e-97afcff09afa
   /compendium-indicators:
     /compendium-indicators[1]:
-      /publicationsystem:content:
-        hippostd:content: ''
-        jcr:primaryType: hippostd:html
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -85,9 +73,6 @@
       jcr:uuid: 00d71299-b0dc-41e8-98c8-417459f48330
       publicationsystem:title: ''
     /compendium-indicators[2]:
-      /publicationsystem:content:
-        hippostd:content: ''
-        jcr:primaryType: hippostd:html
       common:searchable: true
       hippo:availability:
       - preview
@@ -105,9 +90,6 @@
       jcr:uuid: 0a61aa34-b893-40bf-aa4a-61fdc098729c
       publicationsystem:title: ''
     /compendium-indicators[3]:
-      /publicationsystem:content:
-        hippostd:content: ''
-        jcr:primaryType: hippostd:html
       common:searchable: true
       hippo:availability:
       - live
@@ -191,9 +173,6 @@
     jcr:uuid: 1e0afe8d-4fb2-4528-83f7-98713d9215d4
   /nhs-outcomes-framework:
     /nhs-outcomes-framework[1]:
-      /publicationsystem:content:
-        hippostd:content: ''
-        jcr:primaryType: hippostd:html
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -209,9 +188,6 @@
       jcr:uuid: 55ee0230-2460-402f-8bb8-8cbe88b55023
       publicationsystem:title: ''
     /nhs-outcomes-framework[2]:
-      /publicationsystem:content:
-        hippostd:content: ''
-        jcr:primaryType: hippostd:html
       common:searchable: true
       hippo:availability:
       - preview
@@ -229,9 +205,6 @@
       jcr:uuid: 78d665f3-0a25-439a-b18b-1cc79416f6b0
       publicationsystem:title: ''
     /nhs-outcomes-framework[3]:
-      /publicationsystem:content:
-        hippostd:content: ''
-        jcr:primaryType: hippostd:html
       common:searchable: true
       hippo:availability:
       - live
@@ -256,9 +229,6 @@
     jcr:uuid: 08f3157a-b3c4-4496-a6e5-0855c43301bd
   /patient-online-management-information-pomi:
     /patient-online-management-information-pomi[1]:
-      /publicationsystem:content:
-        hippostd:content: ''
-        jcr:primaryType: hippostd:html
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -274,9 +244,6 @@
       jcr:uuid: 25845371-c33b-4db9-a97a-ad154c0a11e1
       publicationsystem:title: ''
     /patient-online-management-information-pomi[2]:
-      /publicationsystem:content:
-        hippostd:content: ''
-        jcr:primaryType: hippostd:html
       common:searchable: true
       hippo:availability:
       - preview
@@ -294,9 +261,6 @@
       jcr:uuid: 7f6fd48f-a20a-4cb2-a3cc-39218709552d
       publicationsystem:title: ''
     /patient-online-management-information-pomi[3]:
-      /publicationsystem:content:
-        hippostd:content: ''
-        jcr:primaryType: hippostd:html
       common:searchable: true
       hippo:availability:
       - live
@@ -321,9 +285,6 @@
     jcr:uuid: bf0cccd0-840b-4d7b-b71f-03b25454deba
   /social-care:
     /social-care[1]:
-      /publicationsystem:content:
-        hippostd:content: ''
-        jcr:primaryType: hippostd:html
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -339,9 +300,6 @@
       jcr:uuid: d27bbef8-d67a-465b-8d6b-05d9bd665f7f
       publicationsystem:title: ''
     /social-care[2]:
-      /publicationsystem:content:
-        hippostd:content: ''
-        jcr:primaryType: hippostd:html
       common:searchable: true
       hippo:availability:
       - preview
@@ -359,9 +317,6 @@
       jcr:uuid: da0dbcf9-ca8d-4d49-8af1-5f9b54ea0281
       publicationsystem:title: ''
     /social-care[3]:
-      /publicationsystem:content:
-        hippostd:content: ''
-        jcr:primaryType: hippostd:html
       common:searchable: true
       hippo:availability:
       - live
@@ -386,9 +341,6 @@
     jcr:uuid: a6ac8e34-e305-41a1-adc6-36027dc3dff2
   /summary-hospital-level-mortality-indicator-shmi:
     /summary-hospital-level-mortality-indicator-shmi[1]:
-      /publicationsystem:content:
-        hippostd:content: ''
-        jcr:primaryType: hippostd:html
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -404,9 +356,6 @@
       jcr:uuid: b1d1acfe-a84c-41ee-8b75-176cdbc00527
       publicationsystem:title: ''
     /summary-hospital-level-mortality-indicator-shmi[2]:
-      /publicationsystem:content:
-        hippostd:content: ''
-        jcr:primaryType: hippostd:html
       common:searchable: true
       hippo:availability:
       - preview
@@ -424,9 +373,6 @@
       jcr:uuid: 5a58f566-3c35-43ee-a94b-61d27d0b7cbd
       publicationsystem:title: ''
     /summary-hospital-level-mortality-indicator-shmi[3]:
-      /publicationsystem:content:
-        hippostd:content: ''
-        jcr:primaryType: hippostd:html
       common:searchable: true
       hippo:availability:
       - live
