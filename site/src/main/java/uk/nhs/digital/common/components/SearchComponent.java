@@ -22,6 +22,7 @@ import uk.nhs.digital.ps.beans.Publication;
 import uk.nhs.digital.ps.beans.Series;
 
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -34,6 +35,11 @@ public class SearchComponent extends CommonComponent {
 
     private static final String WILDCARD_IN_USE_CHAR = "*";
     private static final int WILDCARD_POSTFIX_MIN_LENGTH = 3;
+
+    private static final String REQUEST_PARAM_SORT = "sort";
+    private static final String SORT_RELEVANCE = "relevance";
+    private static final String SORT_DATE = "date";
+    private static final String SORT_DEFAULT = SORT_RELEVANCE;
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
@@ -54,6 +60,8 @@ public class SearchComponent extends CommonComponent {
         }
 
         request.setAttribute("query", getQueryParameter(request));
+        request.setAttribute("facets", facetNavigationBean);
+        request.setAttribute("sort", getSortOption(request));
         request.setAttribute("cparam", paramInfo);
     }
 
@@ -137,7 +145,16 @@ public class SearchComponent extends CommonComponent {
         // register content classes
         addPublicationSystemTypes(queryBuilder);
 
+        String sortParam = getSortOption(request);
+        if (sortParam.equals(SORT_DATE)) {
+            queryBuilder.orderByDescending("publicationsystem:NominalDate", "publicationsystem:Title");
+        }
+
         return constructQuery(queryBuilder, searchStringConstraint);
+    }
+
+    private String getSortOption(HstRequest request) {
+        return Optional.ofNullable(getAnyParameter(request, REQUEST_PARAM_SORT)).orElse(SORT_DEFAULT);
     }
 
     private HstQuery constructQuery(HstQueryBuilder queryBuilder, Constraint searchStringConstraint) {

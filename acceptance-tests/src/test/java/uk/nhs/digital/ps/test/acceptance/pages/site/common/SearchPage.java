@@ -4,6 +4,7 @@ import static java.util.stream.Collectors.toList;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
 import uk.nhs.digital.ps.test.acceptance.pages.site.AbstractSitePage;
 import uk.nhs.digital.ps.test.acceptance.pages.widgets.SearchResultWidget;
@@ -32,6 +33,10 @@ public class SearchPage extends AbstractSitePage {
         return helper.findElement(By.xpath("//*[@data-uipath='ps.search-results.count']")).getText();
     }
 
+    public String getResultDescription() {
+        return helper.findElement(By.xpath("//*[@data-uipath='ps.search-results.description']")).getText();
+    }
+
     public WebElement findSearchResults() {
         return helper.findElement(By.xpath("//*[@data-uipath='ps.search-results']"));
     }
@@ -42,6 +47,12 @@ public class SearchPage extends AbstractSitePage {
 
     private WebElement findSearchButton() {
         return helper.findElement(By.id("btnSearch"));
+    }
+
+    public String getSortSelection() {
+        return new Select(helper.findElement(By.xpath("//*[@data-uipath='ps.search-results.sort-selector']")))
+            .getFirstSelectedOption()
+            .getText();
     }
 
     public String getSearchFieldValue() {

@@ -102,3 +102,16 @@ Feature: Faceted search
             | Social care (2) |
         And I should see the "GEOGRAPHICAL COVERAGE" list including:
             | England (1) |
+
+
+    Scenario: Sort by maintains selected facets
+        Given I navigate to the "home" page
+        When I search for "zzFacets_Testzz"
+        And I click on the "Conditions" link
+        And I click on the "Cancer networks" link
+        And I click on the "Order by date" link
+        Then I can see the search description matching "2 results containing 'zzFacets_Testzz', sorted by date."
+        And I should see the "CATEGORY" list including:
+            | Conditions x |
+        And I should see the "GEOGRAPHICAL GRANULARITY" list including:
+            | Cancer networks x |
