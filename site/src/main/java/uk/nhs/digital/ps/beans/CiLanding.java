@@ -19,10 +19,10 @@ public class CiLanding extends BaseDocument {
         return getHippoHtml("publicationsystem:content");
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:resourceLinks")
-    public List<Relatedlink> getResourceLinks() {
-        return getChildBeansByName("publicationsystem:resourceLinks",
-                Relatedlink.class);
+    @HippoEssentialsGenerated(internalName = "publicationsystem:cilandingasset")
+    public List<CiLandingAsset> getSubSections() {
+        return getChildBeansByName("publicationsystem:cilandingasset",
+                CiLandingAsset.class);
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:actionLinkName")

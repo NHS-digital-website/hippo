@@ -73,8 +73,38 @@ a {
 }
 
 .zeta {
-  font-size: 16px;
+    font-size: 16px;
 }
+.micro {
+    font-size: 14px;
+}
+
+
+
+/* Icons */
+/* ########################################################## */
+.icon {
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+}
+
+.icon--pdf {
+    background-image: url(../images/icon-download-pdf.svg);
+}
+.icon--zip {
+    background-image: url(../images/icon-download-zip.svg);
+}
+.icon--chart {
+    background-image: url(../images/icon-download-chart.svg);
+}
+.icon-download {
+    background-image: url(../images/icon-download.svg);
+}
+
 
 
 /* SPACING */
@@ -159,6 +189,7 @@ a {
     text-decoration: none;
   }
 }
+
 
 /* BREADCRUMBS */
 /* ########################################################## */
@@ -618,5 +649,40 @@ div.breadcrumb a {
     margin-left:@half-spacing-unit;
 }
 .pagination__list__item--last {
+
+}
+
+/* BUTTONS */
+/* ########################################################## */
+
+
+.btn {
+    display: inline-block;
+    padding: @base-spacing-unit;
+    background-color: @color-primary;
+    vertical-align: middle;
+    text-align: center;
+    white-space: nowrap;
+    font-family: inherit;
+    font-size: 100%;
+    font-weight: 400;
+    cursor: pointer;
+    border: 0 solid;
+    line-height: 1.5;
+
+    &:disabled {
+        opacity: 0.5;
+    }
+
+    &,
+    &:hover {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    &:active,
+    &:focus{
+        outline: none;
+    }
 
 }

@@ -24,6 +24,9 @@
 [publicationsystem:cilanding] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
   orderable
 
+[publicationsystem:cilandingasset] > hippo:compound, hippostd:relaxed
+  orderable
+
 [publicationsystem:dataset] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
   orderable
 

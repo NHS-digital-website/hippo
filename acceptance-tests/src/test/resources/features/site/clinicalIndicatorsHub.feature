@@ -63,3 +63,12 @@ Feature: Clinical Indicator hub page and sub sections
         Given I navigate to the "home" page
         When I click on link "Patient Online Management Information (POMI)"
         Then I should see page titled "Patient Online Management Information (POMI)"
+
+    Scenario: SHMI resources - attachments
+        Given I navigate to the "SHMI landing" page
+        And I can download following files:
+            | SHMI publication timetable        | SHMI timetable attachment |
+
+    Scenario: SHMI resources - links
+        Given I navigate to the "SHMI landing" page
+        Then I can click on link "National review of the Hospital Standardised Mortality Ratio"

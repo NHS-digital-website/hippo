@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/publicationsystem/cilanding:
+    /hippo:namespaces/publicationsystem/cilandingasset:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -22,64 +22,66 @@ definitions:
           /title:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Page Title
+            caption: Title
             field: title
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /subSections:
+          /content:
             /cluster.options:
+              ckeditor.config.overlayed.json: '{ toolbarGroups: [ { name: ''basicstyles''
+                }, { name: ''list'' } ] }'
               jcr:primaryType: frontend:pluginconfig
-            caption: Sub Sections
-            field: subSections
+            caption: Content
+            field: content
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /actionLinkName:
+          /attachments:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Action Link Name
-            field: ActionLinkName
+            caption: Attachments
+            field: attachments
+            hint: Upload attachment resources
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /actionLinkRelPath:
+          /relatedlink:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Action Link Relative Path
-            field: ActionLinkURL
-            hint: ''
+            caption: Links
+            field: relatedlink
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /ActionLinkName:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:actionLinkName
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            jcr:primaryType: hipposysedit:field
-          /ActionLinkURL:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:actionLinkRelPath
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            jcr:primaryType: hipposysedit:field
-          /subSections:
+          /attachments:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
             hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:cilandingasset
+            hipposysedit:path: publicationsystem:Attachments
             hipposysedit:primary: false
-            hipposysedit:type: publicationsystem:cilandingasset
+            hipposysedit:type: publicationsystem:attachment
+            jcr:primaryType: hipposysedit:field
+          /content:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:content
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
+          /relatedlink:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:relatedlink
+            hipposysedit:primary: false
+            hipposysedit:type: publicationsystem:relatedlink
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
@@ -87,37 +89,26 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: publicationsystem:title
             hipposysedit:primary: false
-            hipposysedit:type: Text
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
-          - publicationsystem:basedocument
+          - hippo:compound
           - hippostd:relaxed
-          - hippotranslation:translated
           hipposysedit:uri: http://digital.nhs.uk/jcr/publicationsystem/nt/1.0
           jcr:mixinTypes:
-          - mix:referenceable
           - hipposysedit:remodel
+          - mix:referenceable
           jcr:primaryType: hipposysedit:nodetype
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          common:searchable: true
-          hippostd:holder: holder
-          hippostd:state: draft
-          hippostdpubwf:createdBy: ''
-          hippostdpubwf:creationDate: 2018-01-23T12:21:21.974Z
-          hippostdpubwf:lastModificationDate: 2018-01-23T12:21:21.974Z
-          hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: document-type-locale-id
-          hippotranslation:locale: document-type-locale
-          jcr:mixinTypes:
-          - mix:referenceable
-          jcr:primaryType: publicationsystem:cilanding
-          publicationsystem:actionLinkName: ''
-          publicationsystem:actionLinkRelPath: ''
+          /publicationsystem:content:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: publicationsystem:cilandingasset
           publicationsystem:title: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:

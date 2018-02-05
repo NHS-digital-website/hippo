@@ -81,6 +81,11 @@ public class TestContentUrls {
         // about pages
         add("terms and conditions", "/about/terms-and-conditions");
 
+        // CI Hub/Landing
+        add("SHMI landing", "/publications/ci-hub/summary-hospital-level-mortality-indicator-shmi");
+        add("SHMI timetable attachment",
+            "/binaries/content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi/publicationsystem%3Acilandingasset/publicationsystem%3AAttachments/publicationsystem%3AattachmentResource");
+
         // attachments
         add("attachment-text.pdf",
             getAttachmentUrl("attachment-test/content/content", "Attachments-v3"));
