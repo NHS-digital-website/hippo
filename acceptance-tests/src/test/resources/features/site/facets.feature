@@ -49,7 +49,7 @@ Feature: Faceted search
         Then I should see the "MONTH" list containing:
             | January (2) |
         And I should see the "YEAR" list containing:
-            | 2018 x |
+            | 2018   |
         When I click on the "2018" link
         Then I should not see element with title "MONTH"
         And I should see the "YEAR" list containing:
@@ -64,7 +64,7 @@ Feature: Faceted search
         When I click on the "Publication" link
         Then I should see 2 search results
         And I should see the "DOCUMENT TYPE" list containing:
-            | Publication x |
+            | Publication   |
         And I should see the "CATEGORY" list containing:
             | Accidents and injuries (1) |
             | Conditions (1)             |
@@ -85,9 +85,9 @@ Feature: Faceted search
         When I search for "WeightSearchTerm"
         Then I should see 3 search result
         And I should see the "DOCUMENT TYPE" list containing:
-            | Publication x |
+            | Publication   |
         And I should see the "YEAR" list containing:
-            | 2018 x |
+            | 2018   |
 
 
     Scenario: Clear all facets
@@ -112,6 +112,6 @@ Feature: Faceted search
         And I click on the "Order by date" link
         Then I can see the search description matching "2 results containing 'zzFacets_Testzz', sorted by date."
         And I should see the "CATEGORY" list including:
-            | Conditions x |
+            | Conditions   |
         And I should see the "GEOGRAPHICAL GRANULARITY" list including:
-            | Cancer networks x |
+            | Cancer networks   |

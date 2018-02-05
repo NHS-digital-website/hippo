@@ -8,7 +8,7 @@ OD_ENV = $(shell bash ondemand-env-name $(ENV))
 PWD = $(shell pwd)
 RD_CONF = $(PWD)/rd.conf
 VENV ?= $(PWD)/.venv
-VERSION ?= $(shell git describe --tags)
+VERSION ?= $(shell git describe --tags --match "$$(cat $(PWD)/../.version)*")
 
 PATH := $(VENV)/bin:$(PWD)/bin:$(PWD)/vendor:$(shell printenv PATH)
 SHELL := env PATH=$(PATH) /bin/bash

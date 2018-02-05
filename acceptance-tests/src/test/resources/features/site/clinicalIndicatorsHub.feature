@@ -20,7 +20,7 @@ Feature: Clinical Indicator hub page and sub sections
         Then I should see page titled "CCG Outcomes - Indicator Set"
         When I click on link "Browse CCG Outcomes"
         Then I should see the "CATEGORY" list including:
-            | Clinical Commissioning Groups Outcomes Framework x |
+            | Clinical Commissioning Groups Outcomes Framework   |
         And I should see 1 search result
 
     Scenario: CI landing pages - Compendium
@@ -29,9 +29,8 @@ Feature: Clinical Indicator hub page and sub sections
         Then I should see page titled "Compendium of Population Health Indicators"
         When I click on link "Browse Compendium Indicators"
         Then I should see the "CATEGORY" list including:
-            | Compendium x |
+            | Compendium   |
         And I should see 1 search result
-
 
     Scenario: CI landing pages - Social Care
         Given I navigate to the "home" page
@@ -39,9 +38,8 @@ Feature: Clinical Indicator hub page and sub sections
         Then I should see page titled "Social Care"
         When I click on link "Browse Social Care"
         Then I should see the "CATEGORY" list including:
-            | Adult Social Outcomes Framework (ASCOF) x |
+            | Adult Social Outcomes Framework (ASCOF)   |
         And I should see 1 search result
-
 
     Scenario: CI landing pages - NHS Outcomes Framework
         Given I navigate to the "home" page
@@ -49,9 +47,8 @@ Feature: Clinical Indicator hub page and sub sections
         Then I should see page titled "NHS Outcomes Framework"
         When I click on link "Browse NHS Outcomes"
         Then I should see the "CATEGORY" list including:
-            | NHS Outcomes Framework x |
+            | NHS Outcomes Framework   |
         And I should see 1 search result
-
 
     Scenario: CI landing pages - SHMI
         Given I navigate to the "home" page
@@ -59,9 +56,8 @@ Feature: Clinical Indicator hub page and sub sections
         Then I should see page titled "Summary Hospital-level Mortality Indicator (SHMI)"
         When I click on link "Browse SHMI"
         Then I should see the "CATEGORY" list including:
-            | Summary Hospital-level Mortality Indicator (SHMI) x |
+            | Summary Hospital-level Mortality Indicator (SHMI)   |
         And I should see 1 search result
-
 
     Scenario: CI landing pages - POMI
         Given I navigate to the "home" page
