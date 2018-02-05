@@ -734,6 +734,9 @@ div.breadcrumb a {
   font-size: 14px;
   padding: 5px;
 }
+.filter-list__item__link--active {
+  background-color: #FFF;
+}
 /* BASIC LAYOUT */
 /* ########################################################## */
 .layout {

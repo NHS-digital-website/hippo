@@ -1,6 +1,8 @@
 <#ftl output_format="HTML">
 <!DOCTYPE html>
 <#include "../include/imports.ftl">
+<@hst.setBundle basename="emails"/>
+
 <html lang="en">
   <head>
 
@@ -27,6 +29,11 @@
   </head>
   <body>
 
+    <div class="beta-banner">
+        <div class="beta-banner__inner">
+            You are trying the new Clinical Indicator pages. Please send any feedback to <a href="mailto:<@fmt.message key="email.feedback"/>"><@fmt.message key="email.feedback"/></a>.
+        </div>
+    </div>
 
     <header class="top-header">
       <div class="top-header__col1">

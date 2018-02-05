@@ -200,6 +200,19 @@ div.breadcrumb a {
 
 
 
+/* BETA BANNER */
+/* ########################################################## */
+.beta-banner {
+    background-color: #fdf2d5;
+    line-height: 1.6em;
+    padding: 13px 0;
+    font-size: 13.5px;
+}
+.beta-banner__inner {
+    margin: 0px auto;
+    max-width: 1170px;
+}
+
 /* COMMON SEARCH */
 /* ########################################################## */
 
@@ -379,22 +392,47 @@ div.breadcrumb a {
 /* FILTER LIST */
 /* ########################################################## */
 
+.filter-list-title {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
 .filter-list {
   list-style: none;
-  margin: 0px 0px @base-spacing-unit 0px;
+  // margin: 0px 0px @base-spacing-unit 0px;
   padding: 0px;
+  margin-top: 0px;
 }
 .filter-list__item {
   margin-bottom: @quarter-spacing-unit;
 }
 .filter-list__item__link {
-  border-radius: @base-radius;
-  background-color: @color-grey-light;
-  color: @color-grey-dark;
-  text-decoration: none;
-  font-size: 14px;
-  padding: @quarter-spacing-unit;
-
+    position: relative;
+    display: inline-block;
+    border-radius: 5px;
+    background-color: #dee2e5;
+    color: #3e4f59;
+    text-decoration: none;
+    font-size: 14px;
+    padding: @quarter-spacing-unit;
+}
+.filter-list__item__link--active {
+    background-color: #FFF;
+    padding: @quarter-spacing-unit 30px @quarter-spacing-unit @quarter-spacing-unit;
+    box-shadow: 0 0 0 1px #dee2e5;
+}
+.filter-list__item__link--active::after {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    content: "X";
+    margin-top: -11px;
+}
+.filter-list__expand {
+    font-size: 14px;
+    padding: 5px 6px;
+    color: #005eb8;
+    display: inline-block;
+    margin-top: 5px;
 }
 
 

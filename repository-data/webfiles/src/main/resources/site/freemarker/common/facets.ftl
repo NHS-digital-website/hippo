@@ -1,11 +1,12 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <!--Need to have a single setBundle call as subsequent ones will overwrite the previous values-->
-<@hst.setBundle basename="document-types,month-names,publicationsystem.labels"/>
+<@hst.setBundle basename="document-types,month-names,publicationsystem.labels,facet-headers"/>
+<#assign facetMaxCount=7/>
 
 <div class="layout layout--flush">
     <div class="layout__item layout-1-2">
-        <h3>Filter by:</h3>
+        <h3 class="flush">Filter by:</h3>
     </div><!--
     --><div class="layout__item layout-1-2" style="text-align:right">
         <@hst.link siteMapItemRefId="search" var="searchLink" navigationStateful=true/>
@@ -15,31 +16,99 @@
 <#if facets??>
     <#list facets.folders as facet>
         <#if facet.folders?has_content>
-            <h3>${facet.name}</h3>
-            <ul class="filter-list" title="${facet.name}">
-                <#list facet.folders as value>
-                    <#if value.count &gt; 0>
-                        <#if facet.name="MONTH">
-                            <@fmt.message key=value.name var="monthName"/>
-                            <#assign valueName=monthName/>
-                        <#elseif facet.name="CATEGORY">
-                            <#assign valueName=taxonomy.getValueName(value.name)/>
-                        <#elseif facet.name="DOCUMENT TYPE">
-                            <@fmt.message key=value.name var="documentTypeKey"/>
-                            <@fmt.message key=documentTypeKey var="valueName"/>
-                        <#else>
-                            <#assign valueName=value.name/>
-                        </#if>
-                        <#if value.leaf>
-                            <@hst.facetnavigationlink var="link" remove=value current=facets />
-                            <li class="filter-list__item"><a href="${link}" title="${valueName}" class="filter-list__item__link">${valueName} x<i class="fa fa-times"> </i></a></li>
-                        <#else>
-                            <@hst.link var="link" hippobean=value navigationStateful=true/>
-                            <li class="filter-list__item"><a href="${link}" title="${valueName}" class="filter-list__item__link">${valueName}&nbsp;(${value.count})</a></li>
-                        </#if>
+            <#assign unselectedItems = [] />
+            <#assign selectedItems = [] />
+            <#list facet.folders as value>
+                <#if value.count &gt; 0>
+                    <#if value.leaf>
+                        <#assign selectedItems = selectedItems + [ value ] />
+                    <#else>
+                        <#assign unselectedItems = unselectedItems + [ value ] />
+                    </#if>
+                </#if>
+            </#list>
+            <#assign facetItems = selectedItems + unselectedItems />
+
+            <h3 class="filter-list-title"><@fmt.message key=facet.name /></h3>
+            <ul class="filter-list" title="<@fmt.message key=facet.name />" data-max-count="${facetMaxCount}" data-state="short">
+                <#list facetItems as value>
+                    <#if facet.name="month">
+                        <@fmt.message key=value.name var="monthName"/>
+                        <#assign valueName=monthName/>
+                    <#elseif facet.name="category">
+                        <#assign valueName=taxonomy.getValueName(value.name)/>
+                    <#elseif facet.name="document-type">
+                        <@fmt.message key=value.name var="documentTypeKey"/>
+                        <@fmt.message key=documentTypeKey var="valueName"/>
+                    <#else>
+                        <#assign valueName=value.name/>
+                    </#if>
+
+                    <#if value?index &gt;= facetMaxCount >
+                        <#assign displayStyle="none"/>
+                    <#else>
+                        <#assign displayStyle="block"/>
+                    </#if>
+
+                    <#if value.leaf>
+                        <@hst.facetnavigationlink var="link" remove=value current=facets />
+                        <li class="filter-list__item" style="display: ${displayStyle}"><a href="${link}" title="${valueName}" class="filter-list__item__link filter-list__item__link--active">${valueName}</a></li>
+                    <#else>
+                        <@hst.link var="link" hippobean=value navigationStateful=true/>
+                        <li class="filter-list__item" style="display: ${displayStyle}"><a href="${link}" title="${valueName}" class="filter-list__item__link">${valueName}&nbsp;(${value.count})</a></li>
                     </#if>
                 </#list>
+
+                <#if facetItems?size &gt; facetMaxCount >
+                    <div>
+                        <a href='#' class='filter-list__expand' onclick='toggleHandler(event)'>Show all (${facetItems?size})</a>
+                        <a href='#' class='filter-list__expand' style="display: none" onclick='toggleHandler(event)'>Show less (${facetMaxCount})</a>
+                    </div>
+                </#if>
             </ul>
         </#if>
     </#list>
 </#if>
+
+<script>
+function toggleUl(ulElement) {
+    if ("full" == ulElement.dataset.state) {
+        hideListItems(ulElement);
+        ulElement.dataset.state = "short";
+        ulElement.getElementsByClassName("filter-list__expand")[0].style.display = "block";
+        ulElement.getElementsByClassName("filter-list__expand")[1].style.display = "none";
+    } else {
+        showListItems(ulElement);
+        ulElement.dataset.state = "full"
+        ulElement.getElementsByClassName("filter-list__expand")[0].style.display = "none";
+        ulElement.getElementsByClassName("filter-list__expand")[1].style.display = "block";
+    }
+}
+
+function hideListItems(ulElement) {
+    setDisplayItems(ulElement, 'none');
+}
+
+function showListItems(ulElement) {
+    setDisplayItems(ulElement, '');
+}
+
+function setDisplayItems(ulElement, display) {
+    var listItems = ulElement.getElementsByClassName("filter-list__item");
+
+    [].forEach.call(listItems, function(li, index) {
+        if (index >= ulElement.dataset.maxCount) {
+            li.style.display = display;
+        }
+    });
+}
+
+function toggleHandler(event) {
+    var ulElement = event.target.parentNode.parentNode;
+
+    toggleUl(ulElement);
+
+    event.preventDefault();
+    return true;
+}
+</script>

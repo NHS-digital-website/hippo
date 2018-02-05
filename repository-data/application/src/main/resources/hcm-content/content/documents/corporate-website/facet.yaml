@@ -2,14 +2,14 @@
 /content/documents/corporate-website/facet:
   hippo:docbase: 12345678-1234-1234-1234-123456789abc
   hippofacnav:facetnodenames:
-  - DOCUMENT TYPE
-  - CATEGORY
-  - INFORMATION TYPE
-  - GEOGRAPHICAL COVERAGE
-  - GEOGRAPHICAL GRANULARITY
-  - YEAR${sortby:'facetvalue', sortorder:'descending'}
-  - MONTH${after:'YEAR', sortby:'facetvalue', sortorder:'descending',hide:'YEAR'}
-  - TIMEFRAME
+  - document-type
+  - category
+  - information-type
+  - geographical-coverage
+  - geographical-granularity
+  - year${sortby:'facetvalue', sortorder:'descending'}
+  - month${after:'year', sortby:'facetvalue', sortorder:'descending',hide:'year'}
+  - timeframe
   hippofacnav:facets:
   - jcr:primaryType
   - common:FullTaxonomy
