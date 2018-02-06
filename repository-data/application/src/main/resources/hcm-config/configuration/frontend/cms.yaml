@@ -15,16 +15,9 @@ definitions:
       - ppt
       - pptx
       max.file.size: 100M
-    /hippo:configuration/hippo:frontend/cms/cms-services/hstRestProxyService:
-      context.path: /site
-      rest.uri: http://127.0.0.1:8080/site/_cmsrest
     /hippo:configuration/hippo:frontend/cms/cms-services/localeProviderService:
       /en:
         country: gb
-        jcr:primaryType: frontend:pluginconfig
-        language: en
-      jcr:primaryType: frontend:plugin
-      plugin.class: org.hippoecm.frontend.translation.LocaleProviderPlugin
     /hippo:configuration/hippo:frontend/cms/cms-services/passwordValidationService/containsSpecialCharacterValidator[1]:
       .meta:delete: true
     /hippo:configuration/hippo:frontend/cms/cms-services/passwordValidationService/minimalLengthValidator:

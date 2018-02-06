@@ -1,0 +1,69 @@
+#!/bin/bash
+
+# curent folder
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+function main {
+    local authors_file=$1
+    local editors_file=$2
+    local admins_file=$3
+    declare -a authors
+    declare -a editors
+    declare -a admins
+    local i
+
+    i=0
+    while read -r line; do
+        id=$(echo "${line}" | awk -F "," '{print $1}' | sed -e 's/ /./' | tr '[:upper:]' '[:lower:]')
+        authors[i]="${id}"
+        i=$(( $i + 1 ))
+    done < "$authors_file"
+
+    i=0
+    while read -r line; do
+        id=$(echo "${line}" | awk -F "," '{print $1}' | sed -e 's/ /./' | tr '[:upper:]' '[:lower:]')
+        editors[i]="${id}"
+        i=$(( $i + 1 ))
+    done < "$editors_file"
+
+    i=0
+    while read -r line; do
+        id=$(echo "${line}" | awk -F "," '{print $1}' | sed -e 's/ /./' | tr '[:upper:]' '[:lower:]')
+        admins[i]="${id}"
+        i=$(( $i + 1 ))
+    done < "$admins_file"
+
+    cat "${DIR}/../../../groups.base.yaml"
+    echo "
+  /author:
+    jcr:primaryType: hipposys:group
+    hipposys:members:
+"
+for member in "${authors[@]}"; do
+    echo "      - ${member}"
+done
+    echo "
+    hipposys:securityprovider: internal
+  /editor:
+    jcr:primaryType: hipposys:group
+    hipposys:members:
+"
+for member in "${editors[@]}"; do
+    echo "      - ${member}"
+done
+    echo "
+    hipposys:securityprovider: internal
+  /admin:
+      jcr:primaryType: hipposys:group
+      hipposys:members:
+      - workflowuser
+"
+for member in "${admins[@]}"; do
+    echo "      - ${member}"
+done
+    echo "
+      hipposys:securityprovider: internal
+"
+}
+
+main "$@"

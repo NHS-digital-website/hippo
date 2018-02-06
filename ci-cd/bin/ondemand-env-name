@@ -1,0 +1,18 @@
+#!/bin/bash
+
+## Return OnDemand environment name
+
+case $1 in
+    tst)
+        echo "test";
+        ;;
+    uat)
+        echo "acct";
+        ;;
+    prd)
+        echo "prod";
+        ;;
+    *)
+        echo "unknown"
+        ;;
+esac;
