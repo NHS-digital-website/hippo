@@ -511,11 +511,11 @@ a {
 }
 .top-header__col1 {
   display: inline-block;
-  width: 20%;
+  width: 10%;
 }
 .top-header__col2 {
   display: inline-block;
-  width: 80%;
+  width: 90%;
   vertical-align: bottom;
   text-align: right;
 }
@@ -531,15 +531,34 @@ a {
 }
 .top-header__nav__list__item a {
   display: inline-block;
-  background-image: url(img/icon-chevron-down.svg);
-  background-repeat: no-repeat;
-  background-position: 100% 58%;
   color: #005eb8;
-  background-size: 20px 20px;
   padding: 10px 30px 10px 4px;
-  margin-right: 27px;
   font-size: 16px;
   text-decoration: none;
+}
+/* BREADCRUMBS */
+/* ########################################################## */
+div.breadcrumb {
+  border-bottom: 1px solid #768692;
+  font-size: .9em;
+  padding: 1em 0;
+}
+div.breadcrumb ol {
+  box-sizing: border-box;
+  margin: auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+div.breadcrumb li {
+  display: inline-block;
+  padding: 0 .2em;
+}
+div.breadcrumb li:first-child {
+  display: none;
+}
+div.breadcrumb a {
+  font-weight: bold;
+  color: #005eb8;
 }
 /* COMMON SEARCH */
 /* ########################################################## */
