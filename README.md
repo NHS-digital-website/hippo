@@ -86,10 +86,6 @@ development cycle when working on acceptance tests.
 
 #### CLI commands
 
-**Provision the server**
-	
-	mvn clean verify
-
 **Run LESS compiler watching for local dev**
 
 	cd repository-data/webfiles
@@ -99,10 +95,20 @@ development cycle when working on acceptance tests.
 
 	cd repository-data/webfiles
 	mvn com.github.warmuuh:libsass-maven-plugin:0.2.8-libsass_3.4.4:watch
-	
-**Run the local dev server**
 
-	mvn -Pcargo.run
+**To provision and Run the local dev server without autoexport**
+
+	make serve.noexport
+
+**To provision and Run the local dev server with autoexport (default)**
+
+	make serve
+
+#### Auto export - on/off
+
+There are 2 ways to run the server: with or without `autoexport`. When the app runs with `autoexport` on, it exports new- and updated files triggered by CMS content updates and additions. To avoid these files accidentally being tracked by git, you better run the app without `autoexport`.
+	
+
 	
 #### About the SASS compiler
 
@@ -111,6 +117,10 @@ development cycle when working on acceptance tests.
 #### Front-end library
 
 > We're using the [NHS Digital UI library](https://github.com/nhsuk/frontend-library) as a base for our UI components and styling. The currently available release ([0.8.0](https://github.com/nhsuk/frontend-library/releases/tag/0.8.0)) is used as described in the [documentation](https://github.com/nhsuk/frontend-library#using-the-scss-directly).
+
+## Testing local site on VMs
+
+In order to be able to test your localhost from a VM (such as VirtualBox) you'll have to add your IPv4 address to the server configuration. You can read how it can be done [here](docs/what-if/use-custom-host.md)
 
 ## Automated Acceptance Tests
 

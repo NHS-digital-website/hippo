@@ -16,5 +16,6 @@ target
 /essentials/overlays/
 /storage
 
-## Hippo content
+## Hippo content and config
 /repository-data/application/src/main/resources/hcm-content/content/documents/publicationsystem/publications/*
+/repository-data/development/src/main/resources/hcm-config/hst/hosts-allowed.yaml
