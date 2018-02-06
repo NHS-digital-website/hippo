@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# curent folder
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+function main {
+    local authors_file=$1
+    local editors_file=$2
+    local admins_file=$3
+
+    cat "${DIR}/../../../users.base.yaml"
+
+    while read -r line; do
+        process_line "${line}"
+    done < "$authors_file"
+
+    while read -r line; do
+        process_line "${line}"
+    done < "$editors_file"
+
+    while read -r line; do
+        process_line "${line}"
+    done < "$admins_file"
+}
+
+function process_line {
+    local line=$1
+    local user_name
+    local user_email
+
+    user_name=$(echo "${line}" | awk -F ", ?" '{print $1}')
+    user_email=$(echo "${line}" | awk -F ", ?" '{print $2}')
+
+    ${DIR}/user-yaml "${user_name}" "${user_email}"
+}
+
+main "$@"

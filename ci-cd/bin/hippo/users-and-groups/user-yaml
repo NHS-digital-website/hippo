@@ -2,20 +2,27 @@
 
 function main {
     local name="$1"
+    local email="$2"
     local firstName
+    local lastName
     local id
+    local password
 
     firstName=$(echo "$name" | awk '{print $1;}')
+    lastName=$(echo "$name" | awk '{print $2;}')
     id=$(echo "${name}" | sed -e 's/ /./' | tr '[:upper:]' '[:lower:]')
+    password=$(openssl rand -base64 12)
 
     echo "
   # ${name}
+  # ${email} ${id} ${password}
   /${id}:
     jcr:primaryType: hipposys:user
     hipposys:active: true
-    hipposys:firstname: ${firstName}
-    hipposys:password: \"\$SHA-256\$hGJdRtJvQF8=\$ha7WodFhAJu2VuuT9uw6CVrKBlnMN/8NrCwebRA6+88=\"
-    hipposys:passwordlastmodified: 2017-11-15T09:00:00.000Z
+    hipposys:email: \"${email}\"
+    hipposys:firstname: \"${firstName}\"
+    hipposys:lastname: \"${lastName}\"
+    hipposys:password: \"${password}\"
     hipposys:securityprovider: internal
 "
 }

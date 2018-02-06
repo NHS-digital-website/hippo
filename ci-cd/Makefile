@@ -1,9 +1,11 @@
 
+ENV ?= tst
+PS_BUILD_DIR ?= ../../ps-build
 PWD = $(shell pwd)
+RD_CONF = $(PWD)/rd.conf
 VENV ?= $(PWD)/.venv
 VERSION ?= $(shell git describe --tags)
-PS_BUILD_DIR ?= ../../ps-build
-RD_CONF = $(PWD)/rd.conf
+OD_ENV = $(shell bin/ondemand-env-name $(ENV))
 
 PATH := $(VENV)/bin:$(PWD)/vendor:$(shell printenv PATH)
 SHELL := env PATH=$(PATH) /bin/bash
@@ -64,8 +66,18 @@ build:
 	mvn --file ../pom.xml -Drevision=$(VERSION) -P separate-dist -DskipTests=true
 	mvn --file ../pom.xml -Drevision=$(VERSION) -P on-demand-dist -DskipTests=true
 
+## Set a success status on current commit
+# You would normally run this target after running (and passing) all tests
+# Usage: make github.status.success
 github.status.success:
 	bash bin/set-commit-status "success" "Version $(VERSION) passed unit and site tests."
+
+## Updates 'ENV' tag and pushes is back to github
+# Usage: make git.update-environment-tag
+#        git.update-environment-tag ENV=uat VERSION=v2.0.31
+git.update-environment-tag:
+	git tag --force $(ENV) $(VERSION)
+	git push --force --no-verify origin tag $(ENV)
 
 ## Upload build artefact
 upload: $(VENV)
@@ -82,13 +94,17 @@ ondemand.upload:
 	echo "put ../target/website-$(VERSION)-on-demand-distribution.tar.gz /uploads/dists/$(VERSION).tar.gz" \
 		| sftp nhs@static.hosting.onehippo.com
 
+## Deploy to OnDemand environment
+# Usage: make ondemand.deploy ENV=tst
+#        make ondemand.deploy ENV=uat
+#        make ondemand.deploy ENV=prd
 ondemand.deploy: vendor/rd
-	source rd.conf && vendor/rd run -p nhs -j "jobs/$(ENV)/Deploy" -- \
+	source rd.conf && vendor/rd run -p nhs -j "jobs/$(OD_ENV)/Deploy" -- \
 		-bootstrap full \
 		-distribution "$(VERSION).tar.gz"
 
 ondemand.restart: vendor/rd
-	vendor/rd run -p nhs -j "jobs/$(ENV)/Control" -- \
+	vendor/rd run -p nhs -j "jobs/$(OD_ENV)/Control" -- \
 		-action restart
 
 deploy.vagrant: build
