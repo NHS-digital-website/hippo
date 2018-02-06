@@ -1,0 +1,9 @@
+<settings>
+    <servers>
+        <server>
+            <id>hippo-maven2-enterprise</id>
+            <username>${env.HIPPO_MAVEN_USERNAME}</username>
+            <password>${env.HIPPO_MAVEN_PASSWORD}</password>
+        </server>
+    </servers>
+</settings>

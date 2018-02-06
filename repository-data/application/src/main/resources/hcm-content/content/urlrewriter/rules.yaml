@@ -1,0 +1,10 @@
+---
+/content/urlrewriter/rules:
+  hippo:name: Rules
+  hippostd:foldertype:
+  - new-urlrewriter-folder
+  - new-urlrewriter-document
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: urlrewriter:ruleset

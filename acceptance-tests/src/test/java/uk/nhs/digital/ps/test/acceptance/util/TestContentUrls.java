@@ -22,8 +22,10 @@ public class TestContentUrls {
 
         add("search", "/search");
 
-        add ("publications overview",
+        add("publications overview",
             "/publications");
+
+        add("shmi", "/shmi");
 
         // data sets pages
         add("publication with datasets",

@@ -125,6 +125,29 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-edition-indicator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-enterprise-package-app-dependencies</artifactId>
+            <type>pom</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-urlrewriter-module-cms</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-urlrewriter-module-repository</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>cms</finalName>
