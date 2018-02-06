@@ -159,7 +159,7 @@ public final class MappedFields {
     private static Map<String, String> getAllowedGranularityOptions() {
         return addAllToMap(
             "Ambulance Trusts", "Cancer networks", "Care Trusts", "Census Area Statistics Wards", "Clinical Commissioning Area Teams",
-            "Clinical Commissioning Groups", "Clinical Commissioning Regions", "Community health services", "Councils with Social Services Responsibilities",
+            "Clinical Commissioning Groups", "Clinical Commissioning Regions", "Community health services", "Councils with Adult Social Services Responsibilities (CASSRs)",
             "Country", "County", "Crime & disorder reduction partnership", "Dental practices", "Deprivation", "Education Authority",
             "Government Office Regions", "GP practices", "Health Education England Region", "Hospital and Community Health Services",
             "Hospital Trusts", "Independent Sector Health Care Providers", "Local Authorities", "London Authorities", "Mental Health Trusts",
