@@ -7,7 +7,7 @@ public enum Granularity {
     CENSUS_AREA_STATISTICS_WARDS("Census Area Statistics Wards"),
     CLINICAL_COMMISSIONING_GROUPS("Clinical Commissioning Groups"),
     COMMUNITY_HEALTH_SERVICES("Community health services"),
-    COUNCILS_WITH_SOCIAL_SERVICES_RESPONSIBILITIES("Councils with Social Services Responsibilities"),
+    COUNCILS_WITH_SOCIAL_SERVICES_RESPONSIBILITIES("Councils with Adult Social Services Responsibilities (CASSRs)"),
     COUNTRY("Country"),
     COUNTY("County"),
     DENTAL_PRACTICES("Dental practices"),
