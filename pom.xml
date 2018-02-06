@@ -7,8 +7,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.onehippo.cms7</groupId>
-        <artifactId>hippo-cms7-release</artifactId>
+        <groupId>com.onehippo.cms7</groupId>
+        <artifactId>hippo-cms7-enterprise-release</artifactId>
         <version>12.1.1</version>
     </parent>
 
@@ -96,6 +96,15 @@
             <id>splunk-artifactory</id>
             <name>Splunk Releases</name>
             <url>http://splunk.artifactoryonline.com/splunk/ext-releases-local</url>
+        </repository>
+        <repository>
+            <releases>
+                <updatePolicy>never</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </releases>
+            <id>hippo-maven2-enterprise</id>
+            <name>Hippo Enterprise Maven 2</name>
+            <url>https://maven.onehippo.com/maven2-enterprise</url>
         </repository>
     </repositories>
 

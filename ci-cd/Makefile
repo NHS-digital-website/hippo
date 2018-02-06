@@ -1,14 +1,25 @@
 
+BUILD_DIR ?= ../../ps-build
 ENV ?= tst
-PS_BUILD_DIR ?= ../../ps-build
+HIPPO_MAVEN_PASSWORD ?=
+HIPPO_MAVEN_USERNAME ?=
+HOME ?= $(shell printenv HOME)
+OD_ENV = $(shell bin/ondemand-env-name $(ENV))
 PWD = $(shell pwd)
 RD_CONF = $(PWD)/rd.conf
 VENV ?= $(PWD)/.venv
 VERSION ?= $(shell git describe --tags)
-OD_ENV = $(shell bin/ondemand-env-name $(ENV))
 
 PATH := $(VENV)/bin:$(PWD)/vendor:$(shell printenv PATH)
 SHELL := env PATH=$(PATH) /bin/bash
+
+export HIPPO_MAVEN_USERNAME
+export HIPPO_MAVEN_PASSWORD
+
+ifneq ($(HIPPO_MAVEN_USERNAME),)
+MVN_OPTS ?= --file ../pom.xml -Drevision=$(VERSION) --global-settings "$(PWD)/../.mvn.settings.xml"
+endif
+MVN_OPTS ?= --file ../pom.xml -Drevision=$(VERSION)
 
 .PHONY: .phony
 
@@ -44,27 +55,27 @@ test: clean test.unit test.e2e
 
 ## Run unit tests
 test.unit: clean
-	mvn --file ../pom.xml package -Drevision=$(VERSION) -DskipTests
-	mvn --file ../pom.xml test -Drevision=$(VERSION)
+	mvn package $(MVN_OPTS) -DskipTests --quiet
+	mvn test $(MVN_OPTS) --quiet
 
 ## Run BDD tests for "site" only.
 test.site: clean
-	mvn --file ../pom.xml package -Drevision=$(VERSION) -DskipTests
-	mvn --file ../pom.xml verify -Drevision=$(VERSION) \
+	mvn package $(MVN_OPTS) -DskipTests --quiet
+	mvn verify $(MVN_OPTS) --quiet \
 		-Dcucumber.options="src/test/resources/features/site" \
 		-Pacceptance-test-hippo,acceptance-test
 
 ## Run BDD tests
-test.e2e:
-	mvn --file ../pom.xml verify -Drevision=$(VERSION)
-	mvn --file ../pom.xml verify -Drevision=$(VERSION) \
+test.e2e: clean
+	mvn package $(MVN_OPTS) -DskipTests --quiet
+	mvn verify $(MVN_OPTS) --quiet \
 		-Pacceptance-test-hippo,acceptance-test
 
 ## Build distribution package
 build:
-	mvn --file ../pom.xml -Drevision=$(VERSION) verify -DskipTests=true
-	mvn --file ../pom.xml -Drevision=$(VERSION) -P separate-dist -DskipTests=true
-	mvn --file ../pom.xml -Drevision=$(VERSION) -P on-demand-dist -DskipTests=true
+	mvn verify $(MVN_OPTS) -DskipTests=true --quiet
+	mvn $(MVN_OPTS) -P separate-dist -DskipTests=true
+	mvn $(MVN_OPTS) -P on-demand-dist -DskipTests=true
 
 ## Set a success status on current commit
 # You would normally run this target after running (and passing) all tests
@@ -108,9 +119,9 @@ ondemand.restart: vendor/rd
 		-action restart
 
 deploy.vagrant: build
-	cp ../target/website-$(VERSION)-site-distribution.tar.gz $(PS_BUILD_DIR)/.artefacts/
-	cp ../target/website-$(VERSION)-cms-distribution.tar.gz $(PS_BUILD_DIR)/.artefacts/
-	cd $(PS_BUILD_DIR) && ROLE=hippo_authoring vagrant ssh -c "/home/hippo_authoring/shipit /vagrant/.artefacts/website-$(VERSION)-cms-distribution.tar.gz"
+	cp ../target/website-$(VERSION)-site-distribution.tar.gz $(BUILD_DIR)/.artefacts/
+	cp ../target/website-$(VERSION)-cms-distribution.tar.gz $(BUILD_DIR)/.artefacts/
+	cd $(BUILD_DIR) && ROLE=hippo_authoring vagrant ssh -c "/home/hippo_authoring/shipit /vagrant/.artefacts/website-$(VERSION)-cms-distribution.tar.gz"
 
 ## Create new version tag based on the nearest tag
 version.bumpup:
@@ -131,7 +142,7 @@ version.pprint:
 
 ## Clean up
 clean:
-	mvn --file ../pom.xml -Drevision=$(VERSION) clean
+	mvn clean $(MVN_OPTS) --quiet
 
 # Install Rundec CLI
 vendor/rd: vendor

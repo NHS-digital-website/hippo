@@ -1,10 +1,17 @@
 include env.mk
 
-PWD = $(shell pwd)
+HIPPO_MAVEN_PASSWORD ?=
+HIPPO_MAVEN_USERNAME ?=
+HOME ?= $(shell printenv HOME)
 # speed up dev compilation
 # http://hg.openjdk.java.net/jdk8u/jdk8u/hotspot/file/2b2511bd3cc8/src/share/vm/runtime/advancedThresholdPolicy.hpp#l34
 MAVEN_OPTS ?= "-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
+PWD = $(shell pwd)
 SPLUNK_TOKEN ?=
+
+export HIPPO_MAVEN_PASSWORD
+export HIPPO_MAVEN_USERNAME
+export HOME
 
 ## Prints this help
 help:
@@ -38,10 +45,6 @@ run:
 essentials/target/essentials.war:
 	mvn clean verify -pl essentials -am --offline -DskipTests=true
 
-## Run all tests
-test:
-	$(MAKE) -C ci-cd/ $@
-
 ## Run acceptance tests against already running server (`make serve`)
 test.site-running:
 	mvn verify -f acceptance-tests/pom.xml \
@@ -56,9 +59,6 @@ test.wip:
 		-Dheadless=false \
 		-Dcucumber.options="src/test/resources/features --tags @WIP" \
 
-test.%:
-	$(MAKE) -C ci-cd/ $@
-
 ## Format YAML files, run after exporting to reduce changes
 format-yaml:
 	mvn groovy:execute \
@@ -68,6 +68,13 @@ format-yaml:
 ## Update maven dependency versions
 update-dependencies:
 	mvn verify versions:update-parent versions:use-latest-versions versions:update-properties versions:commit -U -DskipTests=true
+
+## proxy all other targets to ci-cd/Makefile
+# Usage: make test
+#        make test.site
+#        make test.unit
+%:
+	$(MAKE) -C ci-cd/ $@
 
 # install hooks and local git config
 .git/.local-hooks-installed:

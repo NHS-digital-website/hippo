@@ -3,7 +3,7 @@
 
 <div style="border-top: 1px solid #768692;">
     <div class="document-content">
-        <p class="flush zeta">Have a question? Call us on 0300 303 5678 or contact <a href="mail:enquiries@nhsdigital.nhs.uk">enquiries@nhsdigital.nhs.uk</a></p>
+        <p class="flush zeta">Have a question? Call us on 0300 303 5678 or contact <a href="mailto:enquiries@nhsdigital.nhs.uk">enquiries@nhsdigital.nhs.uk</a></p>
         <p class="flush zeta push-double--bottom">Tell us what you think of the new website beta.</p>
     </div>
 </div>
