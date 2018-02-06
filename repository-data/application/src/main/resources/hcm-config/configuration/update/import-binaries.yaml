@@ -1,0 +1,15 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/Import Asset and Image Set Content:
+      hipposys:batchsize: 100
+      hipposys:description: A example script to import asset and image set content.
+      hipposys:dryrun: false
+      hipposys:parameters: '{ "fileInJson": true, "sourceBaseFolderPath": "file:/home/xyz/assetsexport/"
+        }'
+      hipposys:path: /content/assets
+      hipposys:script:
+        resource: /configuration/update/import-binaries.groovy
+        type: string
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo

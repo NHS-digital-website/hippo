@@ -1,0 +1,15 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/Clean Hippo Mirror Docbase Values Having_Paths:
+      hipposys:batchsize: 10
+      hipposys:description: A example script to clean interim hippo:docbase values
+        of Hippo Mirror nodes having paths instead of UUIDs.
+      hipposys:dryrun: false
+      hipposys:parameters: '{}'
+      hipposys:query: //element(*)[jcr:like(@hippo:docbase,'/content/%')]
+      hipposys:script:
+        resource: /configuration/update/clean-docbase-values-having-paths.groovy
+        type: string
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo
