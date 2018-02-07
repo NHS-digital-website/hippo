@@ -47,6 +47,22 @@
       </div>
     </header>
 
+    <div class="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb__crumb">
+                <span class="label">You are here:</span>
+            </li>
+            <li class="breadcrumb__crumb">
+                <a href="https://digital.nhs.uk">Home</a>
+            </li>
+            <li class="separator">/</li>
+            <li class="breadcrumb__crumb">
+                <@hst.link var="rootLink" mount="common-context" path="/"/>
+                <a href="${rootLink}">Clinical Indicators</a>
+            </li>
+        </ol>
+    </div>
+
     <@hst.include ref="top"/>
 
     <#if hstResponseChildContentNames?seq_contains("left") >
