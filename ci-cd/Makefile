@@ -4,13 +4,13 @@ ENV ?= tst
 HIPPO_MAVEN_PASSWORD ?=
 HIPPO_MAVEN_USERNAME ?=
 HOME ?= $(shell printenv HOME)
-OD_ENV = $(shell bin/ondemand-env-name $(ENV))
+OD_ENV = $(shell ondemand-env-name $(ENV))
 PWD = $(shell pwd)
 RD_CONF = $(PWD)/rd.conf
 VENV ?= $(PWD)/.venv
 VERSION ?= $(shell git describe --tags)
 
-PATH := $(VENV)/bin:$(PWD)/vendor:$(shell printenv PATH)
+PATH := $(VENV)/bin:$(PWD)/bin:$(PWD)/vendor:$(shell printenv PATH)
 SHELL := env PATH=$(PATH) /bin/bash
 
 export HIPPO_MAVEN_USERNAME

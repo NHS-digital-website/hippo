@@ -386,7 +386,6 @@
                 <module>repository</module>
                 <module>site</module>
                 <module>acceptance-tests</module>
-                <module>migrator</module>
             </modules>
         </profile>
 
