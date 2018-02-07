@@ -9,4 +9,3 @@ definitions:
       /publicationsystem:
         hst:content: /content/documents/corporate-website/publication-system
         jcr:primaryType: hst:site
-      jcr:primaryType: hst:sites

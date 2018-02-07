@@ -4,5 +4,5 @@ group:
   name: publicationsystem
 module:
   after: website-repository-data-application
-  name: website-repository-data-development
+  name: website-repository-data-migration
 project: publicationsystem

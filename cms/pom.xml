@@ -187,6 +187,7 @@
                     </configuration>
                     <container>
                         <type>remote</type>
+                        <timeout>36000000</timeout>
                     </container>
                 </configuration>
             </plugin>

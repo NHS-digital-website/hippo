@@ -64,6 +64,7 @@
 
     <properties>
         <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
+        <migration-module-deploy-dir>temp</migration-module-deploy-dir>
 
         <hippo.cms.locales></hippo.cms.locales>
 
@@ -424,6 +425,10 @@
                                         <file>${project.basedir}/repository-data/development/target/website-repository-data-development-${project.version}.jar</file>
                                         <todir>${development-module-deploy-dir}</todir>
                                     </file>
+                                    <file>
+                                        <file>${project.basedir}/repository-data/migration/target/website-repository-data-migration-${project.version}.jar</file>
+                                        <todir>${migration-module-deploy-dir}</todir>
+                                    </file>
                                 </files>
                             </configuration>
                             <deployables>
@@ -478,8 +483,16 @@
         </profile>
 
         <profile>
-            <!-- additional profile to combine with cargo:run to *not* bootstrap the development module:
-                     $ mvn -P cargo.run,without-autoexport -->
+            <!-- additional profile to combine with cargo:run to bootstrap the migration module:
+                     $ mvn -P cargo.run,with-migration-data -->
+            <id>with-migration-data</id>
+            <properties>
+                <development-module-deploy-dir>temp</development-module-deploy-dir>
+                <migration-module-deploy-dir>shared/lib</migration-module-deploy-dir>
+            </properties>
+        </profile>
+
+        <profile>
             <id>without-autoexport</id>
             <build>
                 <plugins>
@@ -585,6 +598,54 @@
                                 <configuration>
                                     <descriptors>
                                         <descriptor>${project.basedir}/src/main/assembly/distribution-with-development-data.xml</descriptor>
+                                    </descriptors>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>dist-with-migration-data</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-slf4j-impl</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>jcl-over-slf4j</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-core</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+            <build>
+                <defaultGoal>validate</defaultGoal>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>distro-assembly-with-migration-data</id>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <configuration>
+                                    <descriptors>
+                                        <descriptor>${project.basedir}/src/main/assembly/distribution-with-migration-data.xml</descriptor>
                                     </descriptors>
                                 </configuration>
                             </execution>
