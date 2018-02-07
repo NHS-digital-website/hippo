@@ -1,0 +1,17 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/base/hst:templates:
+      /404:
+        hst:renderpath: webfile:/freemarker/common/404.ftl
+        jcr:primaryType: hst:template
+      /base:
+        hst:renderpath: webfile:/freemarker/common/base-layout.ftl
+        jcr:primaryType: hst:template
+      /footer:
+        hst:renderpath: webfile:/freemarker/common/base-footer.ftl
+        jcr:primaryType: hst:template
+      /searchbar:
+        hst:renderpath: webfile:/freemarker/common/searchbar.ftl
+        jcr:primaryType: hst:template
+      jcr:primaryType: hst:templates

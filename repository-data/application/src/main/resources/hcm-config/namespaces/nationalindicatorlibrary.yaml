@@ -1,0 +1,7 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/nationalindicatorlibrary:
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:namespace

@@ -11,6 +11,10 @@ definitions:
                 /web:
                   /hippo-delivery:
                     /hst:root:
+                      /indicators:
+                        hst:homepage: root
+                        hst:mountpoint: /hst:hst/hst:sites/nationalindicatorlibrary
+                        jcr:primaryType: hst:mount
                       /publications:
                         hst:homepage: root
                         hst:mountpoint: /hst:hst/hst:sites/publicationsystem
@@ -38,6 +42,10 @@ definitions:
                 /web:
                   /hippo-authoring:
                     /hst:root:
+                      /indicators:
+                        hst:homepage: root
+                        hst:mountpoint: /hst:hst/hst:sites/nationalindicatorlibrary
+                        jcr:primaryType: hst:mount
                       /publications:
                         hst:homepage: root
                         hst:mountpoint: /hst:hst/hst:sites/publicationsystem
@@ -64,6 +72,10 @@ definitions:
             /digital:
               /beta:
                 /hst:root:
+                  /indicators:
+                    hst:homepage: root
+                    hst:mountpoint: /hst:hst/hst:sites/nationalindicatorlibrary
+                    jcr:primaryType: hst:mount
                   /publications:
                     hst:homepage: root
                     hst:mountpoint: /hst:hst/hst:sites/publicationsystem
@@ -86,6 +98,10 @@ definitions:
             /digital:
               /cms:
                 /hst:root:
+                  /indicators:
+                    hst:homepage: root
+                    hst:mountpoint: /hst:hst/hst:sites/nationalindicatorlibrary
+                    jcr:primaryType: hst:mount
                   /publications:
                     hst:homepage: root
                     hst:mountpoint: /hst:hst/hst:sites/publicationsystem
@@ -107,6 +123,10 @@ definitions:
           /nhsd:
             /tst:
               /hst:root:
+                /indicators:
+                  hst:homepage: root
+                  hst:mountpoint: /hst:hst/hst:sites/nationalindicatorlibrary
+                  jcr:primaryType: hst:mount
                 /publications:
                   hst:homepage: root
                   hst:mountpoint: /hst:hst/hst:sites/publicationsystem
@@ -127,6 +147,10 @@ definitions:
           /nhsd:
             /cms-tst:
               /hst:root:
+                /indicators:
+                  hst:homepage: root
+                  hst:mountpoint: /hst:hst/hst:sites/nationalindicatorlibrary
+                  jcr:primaryType: hst:mount
                 /publications:
                   hst:homepage: root
                   hst:mountpoint: /hst:hst/hst:sites/publicationsystem
@@ -147,6 +171,10 @@ definitions:
           /nhsd:
             /uat:
               /hst:root:
+                /indicators:
+                  hst:homepage: root
+                  hst:mountpoint: /hst:hst/hst:sites/nationalindicatorlibrary
+                  jcr:primaryType: hst:mount
                 /publications:
                   hst:homepage: root
                   hst:mountpoint: /hst:hst/hst:sites/publicationsystem
@@ -167,6 +195,10 @@ definitions:
           /nhsd:
             /cms-uat:
               /hst:root:
+                /indicators:
+                  hst:homepage: root
+                  hst:mountpoint: /hst:hst/hst:sites/nationalindicatorlibrary
+                  jcr:primaryType: hst:mount
                 /publications:
                   hst:homepage: root
                   hst:mountpoint: /hst:hst/hst:sites/publicationsystem

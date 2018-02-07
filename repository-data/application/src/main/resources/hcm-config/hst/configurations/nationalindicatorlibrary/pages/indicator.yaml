@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/nationalindicatorlibrary/hst:pages/indicator:
+      /main:
+        hst:componentclassname: uk.nhs.digital.nil.components.IndicatorComponent
+        hst:template: indicator
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/basepage
+      jcr:primaryType: hst:component

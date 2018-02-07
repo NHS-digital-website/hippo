@@ -1,0 +1,13 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/base/hst:abstractpages/basepage:
+      /footer:
+        hst:template: footer
+        jcr:primaryType: hst:component
+      /top:
+        hst:componentclassname: uk.nhs.digital.common.components.SearchBarComponent
+        hst:template: searchbar
+        jcr:primaryType: hst:component
+      hst:template: base
+      jcr:primaryType: hst:component

@@ -1,5 +1,6 @@
 ---
 /content/documents/administration/website:
+  .meta:order-before: national-indicator-library
   /section-type:
     /section-type:
       hippo:availability:

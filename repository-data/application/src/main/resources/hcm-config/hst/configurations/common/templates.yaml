@@ -11,20 +11,11 @@ definitions:
       /article:
         hst:renderpath: webfile:/freemarker/common/article-layout.ftl
         jcr:primaryType: hst:template
-      /base:
-        hst:renderpath: webfile:/freemarker/common/base-layout.ftl
-        jcr:primaryType: hst:template
       /cihub:
         hst:renderpath: webfile:/freemarker/publicationsystem/cihub.ftl
         jcr:primaryType: hst:template
       /facets:
         hst:renderpath: webfile:/freemarker/common/facets.ftl
-        jcr:primaryType: hst:template
-      /footer:
-        hst:renderpath: webfile:/freemarker/common/base-footer.ftl
-        jcr:primaryType: hst:template
-      /searchbar:
-        hst:renderpath: webfile:/freemarker/common/searchbar.ftl
         jcr:primaryType: hst:template
       /searchresults:
         hst:renderpath: webfile:/freemarker/common/searchresults.ftl

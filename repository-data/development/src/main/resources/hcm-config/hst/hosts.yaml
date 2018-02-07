@@ -9,6 +9,11 @@ definitions:
           .meta:residual-child-node-category: content
           /hst:root:
             .meta:residual-child-node-category: content
+            /indicators:
+              .meta:residual-child-node-category: content
+              hst:homepage: root
+              hst:mountpoint: /hst:hst/hst:sites/nationalindicatorlibrary
+              jcr:primaryType: hst:mount
             /publications:
               .meta:residual-child-node-category: content
               hst:homepage: root
@@ -32,6 +37,11 @@ definitions:
             .meta:residual-child-node-category: content
             /hst:root:
               .meta:residual-child-node-category: content
+              /indicators:
+                .meta:residual-child-node-category: content
+                hst:homepage: root
+                hst:mountpoint: /hst:hst/hst:sites/nationalindicatorlibrary
+                jcr:primaryType: hst:mount
               /publications:
                 .meta:residual-child-node-category: content
                 hst:homepage: root
