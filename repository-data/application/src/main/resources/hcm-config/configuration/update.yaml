@@ -2,8 +2,5 @@
 definitions:
   config:
     /hippo:configuration/hippo:update:
-      /hippo:registry:
-        jcr:primaryType: hipposys:updaterfolder
       jcr:mixinTypes:
       - hippo:lockable
-      jcr:primaryType: hipposys:update

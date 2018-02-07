@@ -3,6 +3,6 @@ group:
   after: hippo-cms
   name: publicationsystem
 module:
-  after: publication-system-repository-data-webfiles
-  name: publication-system-repository-data-application
+  after: website-repository-data-webfiles
+  name: website-repository-data-application
 project: publicationsystem

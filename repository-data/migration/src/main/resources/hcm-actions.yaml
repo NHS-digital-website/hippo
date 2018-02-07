@@ -1,0 +1,5 @@
+---
+action-lists:
+- 1.1:
+    /content/taxonomies/publication_taxonomy: reload
+    /content/documents/corporate-website/publication-system/clinical-indicators: reload

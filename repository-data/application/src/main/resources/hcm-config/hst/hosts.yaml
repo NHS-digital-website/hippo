@@ -183,4 +183,3 @@ definitions:
         hst:cmslocation: https://cms-uat.nhsd.io
         jcr:primaryType: hst:virtualhostgroup
       hst:scheme: https
-      jcr:primaryType: hst:virtualhosts
