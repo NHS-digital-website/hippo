@@ -1,0 +1,14 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/system/CalendarDate:
+      /editor:templates:
+        /_default_:
+          date.pattern: dd/MM/yyyy
+          frontend:properties:
+          - mode
+          - date.pattern
+          /root:
+            /datepicker:
+              date.pattern: ${date.pattern}
+              jcr:primaryType: frontend:pluginconfig

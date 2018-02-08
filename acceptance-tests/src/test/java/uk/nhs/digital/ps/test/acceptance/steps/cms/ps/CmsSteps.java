@@ -241,10 +241,10 @@ public class CmsSteps extends AbstractSpringSteps {
         );
     }
 
-    // Scenarios: Nominal publication date is displayed in full/in part ==============================
-    @Then("^Nominal Publication Date field is shown$")
+    // Scenarios: Publication Date is displayed in full/in part ==============================
+    @Then("^Publication Date field is shown$")
     public void nominalPublicationDateFieldIsVisible() throws Throwable {
-        assertThat("Nominal Publication Date field is shown.",
+        assertThat("Publication Date field is shown.",
             publicationPage.getNominalPublicationDate(),
             is(testDataRepo.getCurrentPublication().getNominalPublicationDate().formattedInRespectToCutOff())
         );
@@ -331,7 +331,7 @@ public class CmsSteps extends AbstractSpringSteps {
         createPublishedPublication(publicationWithNominalDateBeforeCutOff);
     }
 
-    @Then("^Nominal Publication Date is displayed using format \"([^\"]*)\"$")
+    @Then("^Publication Date is displayed using format \"([^\"]*)\"$")
     public void nominalPublicationDateIsDisplayedUsingFormat(final String dateFormat) throws Throwable {
 
         final Publication.NominalPublicationDate nominalPublicationDate =
@@ -339,7 +339,7 @@ public class CmsSteps extends AbstractSpringSteps {
 
         final String expectedDate = nominalPublicationDate.inFormat(dateFormat);
 
-        assertThat("Nominal Publication Date is formatted in a way consistent with pattern '" + dateFormat + "'",
+        assertThat("Publication Date is formatted in a way consistent with pattern '" + dateFormat + "'",
             publicationPage.getNominalPublicationDate(), is(expectedDate));
     }
 

@@ -9,18 +9,18 @@ Feature: Restricted Publication details display
         Given I have a published publication flagged as upcoming
         When I view the publication
         Then Title is shown
-        And Nominal Publication Date field is shown
+        And Publication Date field is shown
         And Disclaimer "(Upcoming, not yet published)" is displayed
         And All other publication's details are hidden
 
     @DeleteAfter
-    Scenario: Nominal publication date is displayed in full when it falls before 8-week cut off
+    Scenario: Publication Date is displayed in full when it falls before 8-week cut off
         Given I have a published publication with nominal date falling before 8 weeks from now
         When I view the publication
-        Then Nominal Publication Date is displayed using format "d MMM yyyy"
+        Then Publication Date is displayed using format "d MMM yyyy"
 
     @DeleteAfter
-    Scenario: Nominal publication date is displayed in part when it falls after 8-week cut off
+    Scenario: Publication Date is displayed in part when it falls after 8-week cut off
         Given I have a published publication with nominal date falling after 8 weeks from now
         When I view the publication
-        Then Nominal Publication Date is displayed using format "MMM yyyy"
+        Then Publication Date is displayed using format "MMM yyyy"

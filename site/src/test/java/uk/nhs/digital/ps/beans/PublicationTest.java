@@ -117,7 +117,7 @@ public class PublicationTest {
 
     // NOTE: usually, with tests involving time, obtaining 'now' value would be facilitated via custom time provider
     // which, mocked in tests, would enable precise control over the value of 'now'. In this case, however, it's
-    // easy to manipulate the value of 'Nominal Publication Date' - which has to be set anyway - and so, for simplicity
+    // easy to manipulate the value of 'Publication Date' - which has to be set anyway - and so, for simplicity
     // reasons, it was decided to not to introduce additional complexity in a form time provider. This will be easy
     // to change should more complex cases arise, however.
 
@@ -156,7 +156,7 @@ public class PublicationTest {
     public void returnsNull_whenNoNominalPublicationDateHasBeenSet() throws Exception {
 
         // given
-        // no Nominal Publication Date value has been set
+        // no Publication Date value has been set
 
         // when
         final RestrictableDate actualNominalPublicationDate = publication.getNominalPublicationDate();

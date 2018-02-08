@@ -70,7 +70,7 @@ public class PublicationPageElements implements PageElements {
 
     interface FieldKeys {
         String PUBLICATION_TITLE = "Publication Title";
-        String NOMINAL_PUBLICATION_DATE = "Nominal Publication Date";
+        String NOMINAL_PUBLICATION_DATE = "Publication Date";
         String UPCOMING_DISCLAIMER = "Upcoming Disclaimer";
         String SUMMARY = "Publication Summary";
         String GEOGRAPHIC_COVERAGE = "Publication Geographic Coverage";

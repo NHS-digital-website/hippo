@@ -72,7 +72,7 @@ public class CoverageDatesValidator extends AbstractCmsValidator {
                 violations.add(fieldValidator.newValueViolation(documentModel, getTranslation("end-before-start")));
             }
 
-            // coverage dates CANNOT BE AFTER nominal publication date
+            // coverage dates CANNOT BE AFTER Publication Date
             if (!isHippoEmptyDate(nominal)
                 && (start.after(nominal) || end.after(nominal))) {
                 violations.add(fieldValidator.newValueViolation(documentModel, getTranslation("dates-after-nominal")));

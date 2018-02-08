@@ -129,7 +129,7 @@ public class Publication extends BaseDocument {
 
     /**
      * <p>
-     * Returns Nominal Publication Date. If the date is more than {@linkplain #WEEKS_TO_CUTOFF} ahead
+     * Returns Publication Date. If the date is more than {@linkplain #WEEKS_TO_CUTOFF} ahead
      * in the future, the returned {@linkplain RestrictableDate} will not have day component populated and
      * its {@linkplain RestrictableDate#isRestricted()} will return {@code true}. Otherwise, the returned object
      * will be fully populated.

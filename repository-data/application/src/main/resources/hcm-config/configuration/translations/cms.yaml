@@ -7,7 +7,7 @@ definitions:
       publicationsystem-blank-staticdropdown: '{0} has a ''''Choose One'''' placeholder
         without a value. Please remove the placeholder or select a value.'
       publicationsystem-coverage-dates#dates-after-nominal: Coverage dates must not
-        be after nominal publication date.
+        be after publication date.
       publicationsystem-coverage-dates#end-before-start: Coverage End date must not
         be before Coverage Start date.
       publicationsystem-coverage-dates#no-end-provided: Coverage End date required.

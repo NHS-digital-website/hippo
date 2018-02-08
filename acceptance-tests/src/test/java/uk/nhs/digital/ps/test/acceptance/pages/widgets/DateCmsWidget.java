@@ -11,7 +11,7 @@ import static uk.nhs.digital.ps.test.acceptance.util.FormatHelper.formatInstant;
 
 public class DateCmsWidget {
 
-    private static final String CMS_DATE_PATTERN = "M/d/yyyy";
+    private static final String CMS_DATE_PATTERN = "d/M/yyyy";
 
     private final PageHelper helper;
     private final String dateFieldCssClass;
