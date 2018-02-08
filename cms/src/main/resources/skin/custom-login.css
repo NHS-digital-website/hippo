@@ -1,0 +1,22 @@
+.hippo-login-extend {
+  background-color: #005EB8!important;
+  background-position: 340px 38%!important;
+  background-repeat: no-repeat!important;
+  background-size: 530px!important;
+}
+
+body.live .hippo-login-extend {
+    background-image: url(cms-background.png);
+}
+
+body.uat .hippo-login-extend {
+    background-image: url(cms-background-uat.png);
+}
+
+body.tst .hippo-login-extend {
+    background-image: url(cms-background-tst.png);
+}
+
+body.local .hippo-login-extend {
+    background-image: url(cms-background-local.png);
+}

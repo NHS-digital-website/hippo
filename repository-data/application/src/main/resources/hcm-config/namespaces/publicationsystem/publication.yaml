@@ -59,7 +59,7 @@ definitions:
           /NominalDate:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Nominal Publication Date
+            caption: Publication Date
             field: nominal_date
             hint: ''
             jcr:primaryType: frontend:plugin

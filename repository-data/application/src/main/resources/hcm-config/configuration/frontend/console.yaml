@@ -1,0 +1,14 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:frontend/console/console/root:
+      page.title.showservername: true
+    /hippo:configuration/hippo:frontend/console/console/top:
+      bar.style.urlparts:
+      - uat.nhsd.io
+      - tst.nhsd.io
+      - localhost
+      bar.styles:
+      - 'background: #dcf1c0;'
+      - 'background: #ff7400;'
+      - 'background: #76adda;'
