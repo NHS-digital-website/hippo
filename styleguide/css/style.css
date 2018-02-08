@@ -567,6 +567,50 @@ div.breadcrumb a {
   color: #005eb8;
   text-decoration: none;
 }
+/* SEARCH-ITEM */
+/* ########################################################## */
+.search-item {
+  position: relative;
+  border-bottom: 1px solid #DEE2E5;
+  padding: 40px 0;
+}
+.search-item__title {
+  margin-bottom: 0px;
+}
+.search-item__para {
+  margin: 0px;
+}
+.search-item--assured::after {
+  content: "Assured";
+  background-color: #00cc99;
+  padding: 10px;
+  color: #FFF;
+  position: absolute;
+  top: 8px;
+  right: 0px;
+  font-size: 14px;
+}
+.search-item__expandbtn {
+  float: right;
+}
+/* FILTER PANEL */
+/* ########################################################## */
+.filter-panel {
+  background-color: #F1F2F4;
+  margin-bottom: 20px;
+}
+.filter-panel__title {
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+.filter-panel__content {
+  display: none;
+  padding: 0 20px 20px 20px;
+}
+.filter-panel__item {
+  margin-bottom: 20px;
+}
 /* COMMON SEARCH */
 /* ########################################################## */
 .common-search {
@@ -577,8 +621,6 @@ div.breadcrumb a {
   margin: 0px auto;
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
 }
 /* Add icon to input */
 .common-search__input {

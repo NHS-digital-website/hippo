@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+
+  <title>NHS - Clinical Indicator - Indicator Page</title>
+
+  <meta charset="UTF-8" />
+  <meta name="title" content="NHS - Replacement Publication System" />
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
+
+</head>
+<body class="">
+
+  <header class="top-header">
+    <div class="top-header__col1">
+      <img class="top-header__logo" src="https://digital.nhs.uk/media/89/NHSDigital/variant1/NHS-Digital-logo_WEB_LEFT-100x855" alt="NHS Digital">
+    </div><!--
+    --><div class="top-header__col2">
+      <div class="top-header__nav">
+        <ul class="top-header__nav__list">
+          <li class="top-header__nav__list__item"><a href="#">Data and information</a></li>
+          <li class="top-header__nav__list__item"><a href="#">Systems and services</a></li>
+          <li class="top-header__nav__list__item"><a href="#">News and events</a></li>
+          <li class="top-header__nav__list__item"><a href="#">About NHS Digital</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  <div class="breadcrumb">
+      <ol class="breadcrumb">
+          <li class="breadcrumb__crumb">
+              <span class="label">You are here:</span>
+          </li>
+          <li class="breadcrumb__crumb">
+              <a href="https://digital.nhs.uk">Home</a>
+          </li>
+          <li class="separator">/</li>
+          <li class="breadcrumb__crumb">
+              <a href="#">Indicators</a>
+          </li>
+          <li class="separator">/</li>
+          <li class="breadcrumb__crumb">
+              Library
+          </li>
+      </ol>
+  </div>
+
+
+
+  <section class="common-search">
+    <div class="common-search__inner">
+        <span class="common-search__input">
+        <input class="common-search__input__field" id="query" name="query" placeholder="What are you looking for today?" type="text" value="">
+      </span>
+      <input class="common-search__submit" id="btnSearch" type="submit" value="Search">
+    </div>
+  </section>
+
+
+  <section class="document-content">
+
+
+    <h1>Indicators</h1>
+
+    <div class="layout layout--large">
+        <div class="layout__item layout-1-3">
+
+            <h4>Filter by</h4>
+
+            <div class="panel panel--grey push--bottom">
+                <input type="checkbox" id="assured-only" name="assured-only"> <label for="assured-only">Assured only</label>
+            </div>
+
+            <div class="filter-panel">
+                <h3 class="filter-panel__title">Topic</h3>
+                <div class="filter-panel__content">
+                    <p class="filter-panel__item"><input class="filter-panel__item__input" type="checkbox" id="outcomes" name="outcomes"> <label for="outcomes">Outcomes</label></p>
+                    <p class="filter-panel__item"><input class="filter-panel__item__input" type="checkbox" id="performance" name="performance"> <label for="performance">Performance</label></p>
+                    <p class="filter-panel__item"><input class="filter-panel__item__input" type="checkbox" id="conditions" name="conditions"> <label for="conditions">Conditions</label></p>
+                    <p class="filter-panel__item"><input class="filter-panel__item__input" type="checkbox" id="health-and-social-care" name="health-and-social-care"> <label for="health-and-social-care">Health and social care</label></p>
+                    <p class="filter-panel__item"><input class="filter-panel__item__input" type="checkbox" id="people-and-places" name="people-and-places"> <label for="people-and-places">People and places</label></p>
+                </div>
+            </div>
+
+            <div class="filter-panel">
+                <h3 class="filter-panel__title">Type</h3>
+                <div class="filter-panel__content">
+                    <p><input type="checkbox" id="audit" name="audit"> <label for="audit">Audit</label></p>
+                    <p><input type="checkbox" id="publication" name="publication"> <label for="publication">Publication</label></p>
+                    <p><input type="checkbox" id="indicator" name="indicator"> <label for="indicator">Indicator</label></p>
+                    <p><input type="checkbox" id="reports" name="reports"> <label for="reports">Reports</label></p>
+                    <p><input type="checkbox" id="surveys" name="surveys"> <label for="surveys">Surveys</label></p>
+                </div>
+            </div>
+
+            <div class="filter-panel">
+                <h3 class="filter-panel__title">Published by</h3>
+                <div class="filter-panel__content">
+                    <p><input type="checkbox" id="nhs" name="nhs"> <label for="nhs">NHS</label></p>
+                    <p><input type="checkbox" id="nhs-digital" name="nhs-digital"> <label for="nhs-digital">NHS Digital</label></p>
+                    <p><input type="checkbox" id="phe" name="phe"> <label for="phe">PHE</label></p>
+                </div>
+            </div>
+
+            <div class="filter-panel">
+                <h3 class="filter-panel__title">Period</h3>
+                <div class="filter-panel__content">
+                    <p><input type="checkbox" id="date-2013-2014" name="date-2013-2014"> <label for="date-2013-2014">2013-2014</label></p>
+                    <p><input type="checkbox" id="date-2014-2015" name="date-2014-2015"> <label for="date-2014-2015">2014-2015</label></p>
+                    <p><input type="checkbox" id="date-2015-2016" name="date-2015-2016"> <label for="date-2015-2016">2015-2016</label></p>
+                </div>
+            </div>
+
+            <div class="filter-panel">
+                <h3 class="filter-panel__title">Level</h3>
+                <div class="filter-panel__content">
+                    <p><input type="checkbox" id="ccg" name="ccg"> <label for="ccg">CCG</label></p>
+                    <p><input type="checkbox" id="national" name="national"> <label for="national">National</label></p>
+                    <p><input type="checkbox" id="nhs-trust" name="nhs-trust"> <label for="nhs-trust">NHS Trust</label></p>
+                </div>
+            </div>
+
+            <p><a href="#" class="button">Reset</a></p>
+
+        </div><!--
+        --><div class="layout__item layout-2-3">
+
+                <!-- HACK float right - THis needs fixing with this-or-that classes -->
+                <select style="float: right">
+                    <option>Date assured</option>
+                    <option>Topic</option>
+                    <option>Title</option>
+                    <option>Most relevent</option>
+                    <option>Date published</option>
+                </select>
+
+                <h2>22 indicators containing</h2>
+
+                <!-- RESULT 1 -->
+                <div class="search-item search-item--assured">
+                    <h3 class="search-item__title"><a href="#">Under 75 mortality rate from cancer</a></h3>
+                    <p class="search-item__para">Publisher: PHE | Published: 2 February 2017</p>
+                    <div class="search-item__extra" style="display:none">
+                        <p class="search-item__para">CCG OIS 1.9 measures how many people under 75 die from cancer.</p>
+                        <a href="#">Data output</a>
+                    </div>
+                    <a class="search-item__expandbtn" href="#">Expand result</a>
+                </div>
+
+                <!-- RESULT 2 -->
+                <div class="search-item search-item--assured">
+                    <h3 class="search-item__title"><a href="#">Record state of cancer at diagnosis</a></h3>
+                    <p class="search-item__para">Publisher: PHE | Published: 13 September 2017</p>
+                    <div class="search-item__extra" style="display:none">
+                        <p class="search-item__para">CCG OIS 1.9 measures how many people under 75 die from cancer.</p>
+                        <a href="#">Data output</a>
+                    </div>
+                    <a class="search-item__expandbtn" href="#">Expand result</a>
+                </div>
+
+                <!-- RESULT 3 -->
+                <div class="search-item">
+                    <h3 class="search-item__title"><a href="#">Cancers detected at stage 1 or 2</a></h3>
+                    <p class="search-item__para">Publisher: PHE | Published: 01 July 2017</p>
+                    <div class="search-item__extra" style="display:none">
+                        <p class="search-item__para">CCG OIS 1.9 measures how many people under 75 die from cancer.</p>
+                        <a href="#">Data output</a>
+                    </div>
+                    <a class="search-item__expandbtn" href="#">Expand result</a>
+                </div>
+
+                <!-- RESULT 4 -->
+                <div class="search-item">
+                    <h3 class="search-item__title"><a href="#">Cancers diagnosed via emergency routes</a></h3>
+                    <p class="search-item__para">Publisher: NHS Digital | Published: 7 July 2017</p>
+                    <div class="search-item__extra" style="display:none">
+                        <p class="search-item__para">CCG OIS 1.9 measures how many people under 75 die from cancer.</p>
+                        <a href="#">Data output</a>
+                    </div>
+                    <a class="search-item__expandbtn" href="#">Expand result</a>
+                </div>
+
+                <!-- RESULT 5 -->
+                <div class="search-item">
+                    <h3 class="search-item__title"><a href="#">Mortality from breast cancer in females</a></h3>
+                    <p class="search-item__para">Publisher: NHS Digital | Published: 22 April 2017</p>
+                    <div class="search-item__extra" style="display:none">
+                        <p class="search-item__para">CCG OIS 1.9 measures how many people under 75 die from cancer.</p>
+                        <a href="#">Data output</a>
+                    </div>
+                    <a class="search-item__expandbtn" href="#">Expand result</a>
+                </div>
+
+                <!-- RESULT 6 -->
+                <div class="search-item">
+                    <h3 class="search-item__title"><a href="#">Record of lung cancer stage at decision to treat</a></h3>
+                    <p class="search-item__para">Publisher: NHS Digital | Published: 2 April 2017</p>
+                    <div class="search-item__extra" style="display:none">
+                        <p class="search-item__para">CCG OIS 1.9 measures how many people under 75 die from cancer.</p>
+                        <a href="#">Data output</a>
+                    </div>
+                    <a class="search-item__expandbtn" href="#">Expand result</a>
+                </div>
+
+                <!-- PAGINATION -->
+                <p><a href="#">Next page</a></p>
+
+        </div>
+    </div>
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+  </section>
+
+
+  <footer class="footer">
+    <div class="footer__inner">
+      FOOTER
+    </div>
+  </footer>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script>
+
+// Expand search result
+$( ".search-item__expandbtn" ).click(function(e) {
+    $(this).prev().slideToggle( "fast", function() {
+    });
+    e.preventDefault();
+});
+
+// Expand filter
+$( ".filter-panel__title" ).click(function(e) {
+    $(this).next().slideToggle( "fast", function() {
+    });
+    e.preventDefault();
+});
+
+
+
+</script>
+
+
+
+</body>
+</html>
