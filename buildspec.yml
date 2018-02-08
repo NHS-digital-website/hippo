@@ -65,7 +65,7 @@ phases:
       # Push tag back to github
       - ssh-agent bash -c "
         ssh-add $HOME/.ssh/nhs-ci_rsa && cd ci-cd &&
-        make git.update-environment-tag
+        make git.update-environment-tag &&
         git push --tags"
 
 artifacts:
