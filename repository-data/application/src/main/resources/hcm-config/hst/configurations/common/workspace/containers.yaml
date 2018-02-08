@@ -2,4 +2,20 @@
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:workspace/hst:containers:
+      /homepage:
+        /homepage-bottom:
+          jcr:primaryType: hst:containercomponentfolder
+        /homepage-center:
+          .meta:residual-child-node-category: content
+          hst:label: Main center
+          hst:lastmodified: 2018-02-05T20:39:14.327Z
+          hst:xtype: HST.vBox
+          jcr:primaryType: hst:containercomponent
+        /homepage-top:
+          .meta:residual-child-node-category: content
+          hst:label: Top
+          hst:lastmodified: 2018-02-05T20:39:14.327Z
+          hst:xtype: HST.vBox
+          jcr:primaryType: hst:containercomponent
+        jcr:primaryType: hst:containercomponentfolder
       jcr:primaryType: hst:containercomponentfolder

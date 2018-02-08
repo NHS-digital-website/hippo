@@ -35,6 +35,22 @@ dl {
   padding: 0;
 }
 
+.list-inline {
+    display: inline-block;
+
+    li {
+        display: inline-block;
+        float: left;
+
+        margin-right: 20px;
+        margin-right: 1rem;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
 .local-header,
 .page-section,
 .global-footer {

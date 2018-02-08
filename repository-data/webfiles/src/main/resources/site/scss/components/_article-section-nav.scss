@@ -1,7 +1,15 @@
 /* Article section nav */
 .article-section-nav {
+  padding-bottom: $default-spacing-unit * 2;
+  border-bottom: 1px solid $grey-4;
+
   hr {
     background-color: $col-quaternary;
+  }
+
+  @include media(desktop) {
+    padding-bottom: 0;
+    border: none;
   }
   
   .article-section-nav__title {
@@ -22,7 +30,10 @@
 
     li {
       padding-left: 0;
-      margin-bottom: 0.5em;
+
+      &:not(:first-child) {
+        margin-top: 10px;
+      }
     }
 
     a {

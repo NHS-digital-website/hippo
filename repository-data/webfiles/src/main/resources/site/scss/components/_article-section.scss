@@ -1,75 +1,168 @@
 /* Article sections */
 .article-section {
-  position: relative;
-  width: 100%;
-  overflow-x: hidden;
-  margin-bottom: $default-spacing-unit * 2.75;
-  padding-bottom: $default-spacing-unit * 2;
-  border-bottom: 1px solid $grey-4;
-  // background: rgba(0, 255, 0, 0.1);
-
-  * + * {
-    margin-top: 1.2em;
-    // background: rgba(255, 0, 0, 0.1);
-  }
-
-  img {
-    display: block;
     position: relative;
     width: 100%;
-    height: auto;
-  }
+    margin-bottom: $default-spacing-unit * 2.75;
+    padding-bottom: $default-spacing-unit * 2;
+    border-bottom: 1px solid $grey-4;
 
-  & > *:first-child {
-    // background: rgba(0, 0, 255, 0.3);
-  }
+    * + * {
+        margin-top: 14px;
 
-  ol, ul, dl {
-    li {
-      margin-top: 0;
+        @include media(tablet) {
+            margin-top: 20px;
+        }
     }
-  }
 
-  h3 {
-    margin-bottom: 0.5em;
-  }
+    .grid-row,
+    .column {
+        margin-top: 0;
+
+        @include media(tablet) {
+            margin-top: 0;
+        }
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    @include media(desktop) {
+        padding-bottom: $default-spacing-unit * 3;
+    }
+}
+
+.article-section--no-border {
+    border: none;
 }
 
 .article-section--summary {
-  & > * {
-    @include bold-font(24);
-  }
+    padding-bottom: 0;
 
-  h2 {
-    @include bold-font(36);
-  }
+    & > * {
+        @include bold-font(24);
+    }
+
+    h2 {
+        @include bold-font(36);
+    }
 }
 
 .article-section--top-tasks {
-  padding-bottom: 0;
-  border-bottom: none;
+      padding-bottom: 0;
+      border-bottom: none;
 }
 
 .article-section--child-pages {
-  .list {
-    list-style: none;
+    .list {
+        list-style: none;
 
+        li:not(:last-child) {
+            margin-bottom: $baseline-grid-unit * 6;
+        }
 
-    li:not(:last-child) {
-      margin-bottom: $baseline-grid-unit * 6;
+        li {
+            padding-left: 0;
+          
+            p,
+            h2 {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.article-section--padded {
+    padding-top: $baseline-grid-unit * 12;
+}
+
+.article-section__box {
+    padding: $gutter * 2 12px $gutter;
+
+    .article-section__title {
+        margin-bottom: 35px;
     }
 
-    li {
-      p, h2 {
-        margin-top: 0;
+    @include media(mobile) {
+        padding: $gutter * 2 12px;
+        background: orange;
+    }
+}
+
+.article-section__box--latest-publications {
+    padding: $gutter * 2 12px;
+    background: $col-duodenary;
+
+    @include media(desktop) {
+        li:not(:first-child) {
+            border-left: 1px solid $col-senary;
+        }
+    }
+
+    .link,
+    .button {
+        @include core-font(18);
+    }
+}
+
+.article-section__box--services {
+    background: $col-primary;
+    color: $col-septenary;
+    margin: 30px 0 40px;
+
+    a {
+        color: $col-septenary;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .list-of-articles {
         margin-bottom: 0;
-      }
     }
-  }
+}
 
-  article h2 {
-    @include core-font(20);
-    line-height: 30px;
-    margin-bottom: $baseline-grid-unit * 2;
-  }
+.article-section--data-and-information {
+    .cta {
+        margin-bottom: 40px;
+    }
+
+    .article-section__column {
+        margin-bottom: $baseline-grid-unit * 8;
+        padding: 0 0;
+
+        @include media(desktop) {
+            margin-bottom: 0;
+        }
+    }
+
+    .article-section__column--left {
+        @include media(tablet) {
+            padding-left: 0;
+        }
+
+        @include media(desktop) {
+            padding-right: $gutter;
+        }
+    }
+
+    .article-section__column--center {
+
+    }
+
+    .article-section__column--right {
+        @include media(desktop) {
+            padding-left: $gutter;
+        }
+    }
+}
+
+// The last row of article section should not have a bottom border
+.page-block {
+    .article-section:last-of-type {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
 }

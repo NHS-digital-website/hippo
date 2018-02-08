@@ -45,3 +45,16 @@
   position: absolute;
   width: 1px;
 }
+
+@mixin border-highlight {
+  position: relative;
+  border: 3px solid transparent;
+  outline: 0;
+  left: -3px;
+  top: -3px;
+
+  &:focus {
+    border: 3px solid $focus-colour;
+    outline: 0;
+  }
+}

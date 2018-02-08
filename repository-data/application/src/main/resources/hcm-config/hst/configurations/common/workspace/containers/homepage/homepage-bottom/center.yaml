@@ -1,0 +1,9 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:workspace/hst:containers/homepage/homepage-bottom/center:
+      .meta:residual-child-node-category: content
+      hst:label: Bottom Center
+      hst:lastmodified: 2018-02-05T20:39:14.327Z
+      hst:xtype: HST.vBox
+      jcr:primaryType: hst:containercomponent

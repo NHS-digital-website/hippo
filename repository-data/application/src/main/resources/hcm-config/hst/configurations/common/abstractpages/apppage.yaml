@@ -1,0 +1,6 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:abstractpages/apppage:
+      hst:template: app-layout
+      jcr:primaryType: hst:component

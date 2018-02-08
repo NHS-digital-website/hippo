@@ -1,7 +1,0 @@
----
-definitions:
-  config:
-    /hst:hst/hst:configurations/common/hst:pages/article:
-      hst:componentclassname: uk.nhs.digital.common.components.ServiceComponent
-      hst:template: article
-      jcr:primaryType: hst:component

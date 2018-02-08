@@ -3,17 +3,8 @@
 
 .local-header {
   background-color: $nhs-blue;
-  // padding-top: $baseline-grid-unit * 8;
+  overflow: hidden;
   padding: 1.6em;
-  margin-bottom: 2em;
-
-  /* @include media(tablet) {
-    padding-top: $baseline-grid-unit * 8;
-  }
-
-  @include media(desktop) {
-    padding-top: $baseline-grid-unit * 12;
-  } */
 
   .grid-row & {
     margin-left: 0;

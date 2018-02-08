@@ -55,11 +55,11 @@
     </head>
 
     <body>
-      <header role="banner">HEADER</header>
+      <main role="main">
+        <#include "service-article.ftl"/>
+      </main>
 
-      <#include "service-article.ftl"/>
-
-      <footer role="contentinfo">FOOTER</footer>
+      <footer role="contentinfo"></footer>
     </body>
 
     </html>

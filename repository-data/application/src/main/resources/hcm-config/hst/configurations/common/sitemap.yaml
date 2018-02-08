@@ -18,6 +18,13 @@ definitions:
           hst:componentconfigurationid: hst:pages/404
           jcr:primaryType: hst:sitemapitem
         jcr:primaryType: hst:sitemapitem
+      /homeland:
+        /_any_:
+          hst:componentconfigurationid: hst:pages/homeland
+          hst:relativecontentpath: homeland
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/homeland
+        jcr:primaryType: hst:sitemapitem
       /root:
         hst:componentconfigurationid: hst:pages/cihub
         hst:relativecontentpath: publication-system/ci-hub/main-sections
@@ -33,12 +40,12 @@ definitions:
         jcr:primaryType: hst:sitemapitem
       /services:
         /_any_:
-          hst:componentconfigurationid: hst:pages/article
+          hst:componentconfigurationid: hst:pages/service
           hst:relativecontentpath: ${parent}/${1}
           hst:sitemapitemhandlerids:
           - DefaultDocumentSitemapHandler
           jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/article
+        hst:componentconfigurationid: hst:pages/service
         hst:relativecontentpath: services
         jcr:primaryType: hst:sitemapitem
       jcr:primaryType: hst:sitemap
