@@ -8,6 +8,8 @@ HOME ?= $(shell printenv HOME)
 MAVEN_OPTS ?= "-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
 PWD = $(shell pwd)
 SPLUNK_TOKEN ?=
+SPLUNK_URL ?=
+SPLUNK_HEC ?= localhost
 
 export HIPPO_MAVEN_PASSWORD
 export HIPPO_MAVEN_USERNAME
@@ -39,7 +41,10 @@ serve.noexport: essentials/target/essentials.war
 
 ## Start server using cargo.run
 run:
-	mvn -P cargo.run -Dsplunk.token=$(SPLUNK_TOKEN)
+	mvn -P cargo.run \
+		-Dsplunk.token=$(SPLUNK_TOKEN) \
+		-Dsplunk.url=$(SPLUNK_URL) \
+		-Dsplunk.hec.name=$(SPLUNK_HEC)
 
 # we don't have to recompile it every time.
 essentials/target/essentials.war:

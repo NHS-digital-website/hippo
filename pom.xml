@@ -72,11 +72,13 @@
         default, local value. Please don't change it. -->
         <revision>dev-SNAPSHOT</revision>
 
+        <!-- Splunk HTTP Event Collector (HEC) name -->
+        <splunk.hec.name></splunk.hec.name>
         <!-- Unique token for the Splunk HTTP Event Collector (HEC)
         defined in the Splunk instance -->
         <splunk.token></splunk.token>
         <!-- Splunk HEC endpoint URL -->
-        <splunk.url>https://localhost:8088</splunk.url>
+        <splunk.url></splunk.url>
         <!-- Set to 1 for testing (once 1 event is queued, it's considered a batch).
         In production, start with a setting of "10" and adjust as necessary. -->
         <splunk.batch.size.count>1</splunk.batch.size.count>
@@ -462,6 +464,7 @@
                                     <send.usage.statistics.to.hippo>false</send.usage.statistics.to.hippo>
                                     <repo.config>file://${project.basedir}/conf/repository.xml</repo.config>
                                     <!-- Splunk forwarder config -->
+                                    <splunk.hec.name>${splunk.hec.name}</splunk.hec.name>
                                     <splunk.token>${splunk.token}</splunk.token>
                                     <splunk.url>${splunk.url}</splunk.url>
                                     <splunk.batch.size.count>${splunk.batch.size.count}</splunk.batch.size.count>
