@@ -53,7 +53,7 @@
             token="${sys:splunk.token}"
             batch_size_count="${sys:splunk.batch.size.count}"
             disableCertificateValidation="true"
-            source="nhsdhippocms"
+            source="${sys:splunk.hec.name}"
             sourcetype="hippo-cms">
             <LookupFilter key="jndi:logging/contextName" value="cms" onMatch="ACCEPT"/>
             <PatternLayout pattern="%m"/>
@@ -65,7 +65,7 @@
             token="${sys:splunk.token}"
             batch_size_count="${sys:splunk.batch.size.count}"
             disableCertificateValidation="true"
-            source="nhsdhippocms"
+            source="${sys:splunk.hec.name}"
             sourcetype="hippo-site">
             <LookupFilter key="jndi:logging/contextName" value="site" onMatch="ACCEPT"/>
             <PatternLayout pattern="%m"/>
@@ -77,7 +77,7 @@
             token="${sys:splunk.token}"
             batch_size_count="${sys:splunk.batch.size.count}"
             disableCertificateValidation="true"
-            source="nhsdhippocms"
+            source="${sys:splunk.hec.name}"
             sourcetype="hippo-audit">
             <PatternLayout pattern="%m"/>
         </Http>
