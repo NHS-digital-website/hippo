@@ -145,3 +145,9 @@ Feature: Basic search
         When I search for "archive"
         Then I should see search results which also include:
             | Archive             | Time Archive Lorem Ipsum Dolor |
+
+    Scenario: Latest publication links for series
+        Given I navigate to the "search" page
+        When I click on the "Series / Collection" button
+        Then I can click on the "Lorem Ipsum Dolor 2014" link
+        And I should see publication page titled "Lorem Ipsum Dolor 2014"

@@ -5,12 +5,14 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-10-26T15:49:40.466Z
-    hippostdpubwf:lastModificationDate: 2018-01-17T13:33:44.229Z
+    hippostdpubwf:lastModificationDate: 2018-02-12T10:51:16.821Z
     hippostdpubwf:lastModifiedBy: admin
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: resourcebundle:resourcebundle
     resourcebundle:descriptions:
+    - ''
+    - ''
     - ''
     - ''
     - ''
@@ -39,6 +41,8 @@
     - headers.ci-hub-overview
     - headers.ci-landing-actions
     - headers.ci-landing-resources
+    - headers.previous-versions
+    - headers.latest-version
     resourcebundle:messages:
     - Summary
     - Key Facts
@@ -53,13 +57,15 @@
     - Overview
     - Actions
     - Resources
+    - Previous Versions
+    - Latest Version
   /headers[2]:
     hippo:availability:
     - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-10-26T15:49:40.466Z
-    hippostdpubwf:lastModificationDate: 2018-01-17T13:34:05.375Z
+    hippostdpubwf:lastModificationDate: 2018-02-12T10:51:59.329Z
     hippostdpubwf:lastModifiedBy: admin
     jcr:mixinTypes:
     - mix:referenceable
@@ -79,6 +85,8 @@
     - ''
     - ''
     - ''
+    - ''
+    - ''
     resourcebundle:id: publicationsystem.headers
     resourcebundle:keys:
     - headers.summary
@@ -94,6 +102,8 @@
     - headers.ci-hub-overview
     - headers.ci-landing-actions
     - headers.ci-landing-resources
+    - headers.previous-versions
+    - headers.latest-version
     resourcebundle:messages:
     - Summary
     - Key Facts
@@ -108,15 +118,17 @@
     - Overview
     - Actions
     - Resources
+    - Previous Versions
+    - Latest Version
   /headers[3]:
     hippo:availability:
     - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-10-26T15:49:40.466Z
-    hippostdpubwf:lastModificationDate: 2018-01-17T13:34:05.375Z
+    hippostdpubwf:lastModificationDate: 2018-02-12T10:51:59.329Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-01-17T13:34:08.188Z
+    hippostdpubwf:publicationDate: 2018-02-12T10:52:01.872Z
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: resourcebundle:resourcebundle
@@ -134,6 +146,8 @@
     - ''
     - ''
     - ''
+    - ''
+    - ''
     resourcebundle:id: publicationsystem.headers
     resourcebundle:keys:
     - headers.summary
@@ -149,6 +163,8 @@
     - headers.ci-hub-overview
     - headers.ci-landing-actions
     - headers.ci-landing-resources
+    - headers.previous-versions
+    - headers.latest-version
     resourcebundle:messages:
     - Summary
     - Key Facts
@@ -163,6 +179,8 @@
     - Overview
     - Actions
     - Resources
+    - Previous Versions
+    - Latest Version
   hippo:name: Headers
   jcr:mixinTypes:
   - hippo:named

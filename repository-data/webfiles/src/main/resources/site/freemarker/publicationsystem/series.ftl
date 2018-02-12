@@ -19,18 +19,34 @@
                 <h2><@fmt.message key="headers.summary"/></h2>
                 <@structuredText item=series.summary uipath="ps.series.summary" />
 
-                <ul class="simple-list simple-list--publications" data-uipath="ps.series.publications-list"><#list publications as publication>
-                    <li>
-                        <a href="<@hst.link hippobean=publication.selfLinkBean/>"
-                            title="${publication.title}">
-                            ${publication.title}
-                        </a>
-                        <p><@truncate text=publication.summary.firstParagraph size="300"/></p>
-                    </li>
-                </#list></ul>
+                <#if publications?has_content>
+                    <h3 class="flush push--bottom"><@fmt.message key="headers.latest-version"/></h3>
+                    <ul class="simple-list simple-list--publications" data-uipath="ps.series.publications-list.latest">
+                        <@publicationItem publication=publications?first/>
+                    </ul>
+                </#if>
+
+                <#if publications?size gt 1>
+                    <h3 class="flush push--bottom"><@fmt.message key="headers.previous-versions"/></h3>
+                    <ul class="simple-list simple-list--publications" data-uipath="ps.series.publications-list.previous">
+                        <#list publications[1..] as publication>
+                            <@publicationItem publication=publication/>
+                        </#list>
+                    </ul>
+                </#if>
             </div>
         </div>
     </section>
 <#else>
   <span>${error}</span>
 </#if>
+
+<#macro publicationItem publication>
+<li>
+    <a href="<@hst.link hippobean=publication.selfLinkBean/>"
+       title="${publication.title}">
+        ${publication.title}
+    </a>
+    <p><@truncate text=publication.summary.firstParagraph size="300"/></p>
+</li>
+</#macro>
