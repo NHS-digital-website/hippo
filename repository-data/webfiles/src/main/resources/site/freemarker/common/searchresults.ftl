@@ -7,7 +7,7 @@
     <#if pageable?? && pageable.total gt 0>
         <h1>Search results</h1>
 
-        <div class="layout layout--flush push--bottom">
+        <div class="layout layout--flush">
             <div class="layout__item layout-2-3" data-uipath="ps.search-results.description">
                 <span data-uipath="ps.search-results.count">${pageable.total}</span> result<#if pageable.total gt 1>s</#if><#if query?has_content> containing '<strong>${query}</strong>',</#if> sorted by <strong>${sort}</strong>.
             </div><!--
@@ -23,7 +23,9 @@
             </div>
         </div>
 
-        <@searchResults items=pageable.items/>
+        <div class="push--top">
+            <@searchResults items=pageable.items/>
+        </div>
 
         <#if cparam.showPagination>
             <#include "../include/pagination.ftl">

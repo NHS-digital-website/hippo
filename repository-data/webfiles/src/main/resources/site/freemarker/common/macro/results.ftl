@@ -38,6 +38,14 @@
             </a>
         </p>
         <p class="flush" data-uipath="ps.search-results.result.summary"><@truncate text=item.summary.firstParagraph size="300"/></p>
+        <#if item.latestPublication??>
+            <p class="flush zeta" data-uipath="ps.search-results.result.latest-publication" style="font-weight:bold">
+                Latest publication:
+                <a href="<@hst.link hippobean=item.latestPublication.selfLinkBean/>" title="${item.latestPublication.title}">
+                    ${item.latestPublication.title}
+                </a>
+            </p>
+        </#if>
     </div>
 </#macro>
 

@@ -1,22 +1,24 @@
 package uk.nhs.digital.ps.test.acceptance.config;
 
+import static org.slf4j.LoggerFactory.getLogger;
+
 import org.slf4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
-import uk.nhs.digital.ps.test.acceptance.pages.*;
+import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
+import uk.nhs.digital.ps.test.acceptance.pages.DashboardPage;
+import uk.nhs.digital.ps.test.acceptance.pages.LoginPage;
+import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
 import uk.nhs.digital.ps.test.acceptance.pages.site.SitePage;
-import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
-import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationSeriesPage;
-import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationsOverviewPage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.common.SearchPage;
+import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
+import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationsOverviewPage;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverServiceProvider;
 
 import java.nio.file.Paths;
-
-import static org.slf4j.LoggerFactory.getLogger;
 
 /**
  * Central configuration class, enabling acceptance tests to benefit from Spring-based dependency injection.
@@ -45,12 +47,6 @@ public class AcceptanceTestConfiguration {
     public PublicationPage publicationPage(final WebDriverProvider webDriverProvider,
                                                      final PageHelper pageHelper) {
         return new PublicationPage(webDriverProvider, pageHelper);
-    }
-
-    @Bean
-    public PublicationSeriesPage publicationSeriesPage(final WebDriverProvider webDriverProvider,
-                                                                 final PageHelper pageHelper) {
-        return new PublicationSeriesPage(webDriverProvider, pageHelper);
     }
 
     @Bean

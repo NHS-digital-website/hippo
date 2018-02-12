@@ -123,7 +123,7 @@ public class SiteSteps extends AbstractSpringSteps {
         }
     }
 
-    @Then("^I should not see headers:$")
+    @Then("^I should not see headers?:$")
     public void iShouldNotSeeHeaders(DataTable headersTable) throws Throwable {
         List<String> headers = headersTable.asList(String.class);
         for (String header : headers) {
@@ -131,7 +131,7 @@ public class SiteSteps extends AbstractSpringSteps {
         }
     }
 
-    @Then("^I should see headers:$")
+    @Then("^I should see headers?:$")
     public void iShouldSeeHeaders(DataTable headersTable) throws Throwable {
         List<String> headers = headersTable.asList(String.class);
         for (String header : headers) {

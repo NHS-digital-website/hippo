@@ -1,11 +1,13 @@
 package uk.nhs.digital.ps.components;
 
+import static org.apache.commons.collections.IteratorUtils.toList;
 import static uk.nhs.digital.ps.components.HippoComponentHelper.*;
 
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -52,7 +54,8 @@ public class SeriesComponent extends EssentialsContentComponent {
 
             final HstQueryResult hstQueryResult = query.execute();
 
-            request.setAttribute("publications", hstQueryResult.getHippoBeans());
+            HippoBeanIterator publications = hstQueryResult.getHippoBeans();
+            request.setAttribute("publications", toList(publications));
 
         } catch (QueryException queryException) {
             log.error("Failed to find publications for series " + seriesIndexDocument.getTitle(), queryException);

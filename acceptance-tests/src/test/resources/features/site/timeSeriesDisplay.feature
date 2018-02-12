@@ -16,6 +16,8 @@ Feature: Display of publications forming a series
         Then I should see publication page titled "Lorem Ipsum Dolor 2014"
         When I click on link "Time Series Lorem Ipsum Dolor"
         Then I should see series page titled "Time Series Lorem Ipsum Dolor"
+        When I click on link "Lorem Ipsum Dolor 2012"
+        Then I should see publication page titled "Lorem Ipsum Dolor 2012"
 
     Scenario: Display multiparagraph summary
         Given I navigate to "series with publication with datasets" series page
@@ -32,3 +34,14 @@ Feature: Display of publications forming a series
             | Publication           |
             | Data set              |
             | Archive               |
+
+    Scenario: Headers for series publications
+        Given I navigate to the "valid publication series" page
+        Then I should see headers:
+            | Latest Version    |
+            | Previous Versions |
+        When I navigate to the "series with publication with datasets" page
+        Then I should see header:
+            | Latest Version    |
+        And I should not see header:
+            | Previous Versions |
