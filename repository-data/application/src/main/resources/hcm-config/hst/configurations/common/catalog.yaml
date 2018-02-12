@@ -6,7 +6,7 @@ definitions:
         jcr:primaryType: hst:containeritempackage
       /website-catalog:
         /carousel:
-          hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsListPickerComponent
+          hst:componentclassname: uk.nhs.digital.common.components.WrappedListPickerComponent
           hst:iconpath: images/catalog/component-products-30x30.png
           hst:label: Documents Picker
           hst:template: document-list

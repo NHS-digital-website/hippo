@@ -2,7 +2,7 @@
 <#include "../include/imports.ftl">
 
 <#if pageable?? && pageable.items?has_content>
-    <div class="cta">
+    <div class="cta-list">
         <div class="grid-row">
             <#list pageable.items as item>
                 <div class="column column--one-half article-section__column ${item?is_first?then("article-section__column--left", "article-section__column--right")}">

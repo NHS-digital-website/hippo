@@ -1,0 +1,11 @@
+/* CTA */
+.cta {
+    .cta__title,
+    h2 {
+        margin-bottom: 0;
+    }
+
+    .cta__meta {
+        @include core-font(16);
+    }
+}

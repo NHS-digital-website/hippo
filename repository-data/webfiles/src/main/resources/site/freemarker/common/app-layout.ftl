@@ -8,17 +8,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>${document.title}</title>
+  <#-- <title>${document.title}</title> -->
 
-  <meta name="title" content="${document.title}" />
+  <#-- <meta name="title" content="${document.title}" /> -->
 
-  <meta property="og:title" name="twitter:title" content="${document.title}">
+  <#-- <meta property="og:title" name="twitter:title" content="${document.title}">
   <meta property="og:locale" content="en_GB" />
   <meta property="og:type" content="website">
   <meta property="og:url" content="<@hst.link fullyQualified=true />">
   <meta name="description" content="${document.seosummary}" />
   <meta property="og:description" name="twitter:description" content="${document.seosummary}">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary"> -->
 
 
   <!--[if IE]><link rel="shortcut icon" href="<@hst.webfile  path="icons/favicon.ico"/>"><![endif]-->
