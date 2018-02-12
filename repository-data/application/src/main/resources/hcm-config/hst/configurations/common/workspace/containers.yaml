@@ -7,8 +7,14 @@ definitions:
           jcr:primaryType: hst:containercomponentfolder
         /homepage-center:
           .meta:residual-child-node-category: content
-          hst:label: Main center
-          hst:lastmodified: 2018-02-05T20:39:14.327Z
+          hst:label: Data and Information
+          hst:lastmodified: 2018-02-14T10:30:28.306Z
+          hst:xtype: HST.vBox
+          jcr:primaryType: hst:containercomponent
+        /homepage-center-2:
+          .meta:residual-child-node-category: content
+          hst:label: Systems and Services
+          hst:lastmodified: 2018-02-14T10:05:20.400Z
           hst:xtype: HST.vBox
           jcr:primaryType: hst:containercomponent
         /homepage-top:

@@ -49,7 +49,7 @@
 
 
 
-    @include media($max-width: 924px) {
+    @include media($max-width: $min-desktop-width) {
         h2 {
             margin-bottom: 0;
         }

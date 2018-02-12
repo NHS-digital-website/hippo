@@ -7,7 +7,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-02-02T13:13:41.756Z
-      hippostdpubwf:lastModificationDate: 2018-02-12T14:05:29.573Z
+      hippostdpubwf:lastModificationDate: 2018-02-14T09:16:37.502Z
       hippostdpubwf:lastModifiedBy: admin
       jcr:mixinTypes:
       - mix:referenceable
@@ -22,6 +22,12 @@
       - Label of the search button
       - ''
       - Home page - Data and information section title
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
       resourcebundle:id: homepage.website.labels
       resourcebundle:keys:
       - search-banner.text
@@ -33,6 +39,12 @@
       - search-banner.buttonLabel
       - systems-and-services.buttonLabel
       - data-and-information.title
+      - about-us.latestNewsTitle
+      - about-us.title
+      - about-us.latestNewsButtonLabel
+      - about-us.text
+      - about-us.upcomingEventsTitle
+      - about-us.upcomingEventsButtonLabel
       resourcebundle:messages:
         type: string
         value:
@@ -47,13 +59,21 @@
         - Search
         - View all services
         - Data and information
+        - Latest news
+        - About us
+        - View all news
+        - We're the national information and technology partner to the health and
+          social care system. We're using digital technology to transform the NHS
+          and social care.
+        - Upcoming events
+        - View all events
     /homepage-labels[2]:
       hippo:availability:
       - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-02-02T13:13:41.756Z
-      hippostdpubwf:lastModificationDate: 2018-02-12T14:06:00.259Z
+      hippostdpubwf:lastModificationDate: 2018-02-14T09:17:03.179Z
       hippostdpubwf:lastModifiedBy: admin
       jcr:mixinTypes:
       - mix:referenceable
@@ -69,6 +89,12 @@
       - Label of the search button
       - ''
       - Home page - Data and information section title
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
       resourcebundle:id: homepage.website.labels
       resourcebundle:keys:
       - search-banner.text
@@ -80,6 +106,12 @@
       - search-banner.buttonLabel
       - systems-and-services.buttonLabel
       - data-and-information.title
+      - about-us.latestNewsTitle
+      - about-us.title
+      - about-us.latestNewsButtonLabel
+      - about-us.text
+      - about-us.upcomingEventsTitle
+      - about-us.upcomingEventsButtonLabel
       resourcebundle:messages:
         type: string
         value:
@@ -94,15 +126,23 @@
         - Search
         - View all services
         - Data and information
+        - Latest news
+        - About us
+        - View all news
+        - We're the national information and technology partner to the health and
+          social care system. We're using digital technology to transform the NHS
+          and social care.
+        - Upcoming events
+        - View all events
     /homepage-labels[3]:
       hippo:availability:
       - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-02-02T13:13:41.756Z
-      hippostdpubwf:lastModificationDate: 2018-02-12T14:06:00.259Z
+      hippostdpubwf:lastModificationDate: 2018-02-14T09:17:03.179Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-02-12T14:06:01.527Z
+      hippostdpubwf:publicationDate: 2018-02-14T09:17:04.690Z
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: resourcebundle:resourcebundle
@@ -116,6 +156,12 @@
       - Label of the search button
       - ''
       - Home page - Data and information section title
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
       resourcebundle:id: homepage.website.labels
       resourcebundle:keys:
       - search-banner.text
@@ -127,6 +173,12 @@
       - search-banner.buttonLabel
       - systems-and-services.buttonLabel
       - data-and-information.title
+      - about-us.latestNewsTitle
+      - about-us.title
+      - about-us.latestNewsButtonLabel
+      - about-us.text
+      - about-us.upcomingEventsTitle
+      - about-us.upcomingEventsButtonLabel
       resourcebundle:messages:
         type: string
         value:
@@ -141,6 +193,14 @@
         - Search
         - View all services
         - Data and information
+        - Latest news
+        - About us
+        - View all news
+        - We're the national information and technology partner to the health and
+          social care system. We're using digital technology to transform the NHS
+          and social care.
+        - Upcoming events
+        - View all events
     hippo:name: Home Page Labels
     jcr:mixinTypes:
     - hippo:named

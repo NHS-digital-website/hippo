@@ -73,23 +73,42 @@
     }
 }
 
+.article-section__title {
+    position: relative;
+}
+
 .article-section--padded {
     padding-top: $baseline-grid-unit * 12;
+}
+
+.article-section__header {
+    max-width: 620px;
+}
+
+.article-section__contents {
+    position: relative;
+    margin-top: 40px;
 }
 
 .article-section__box {
     padding: $gutter * 2 12px $gutter;
 
+    // Top tasks like box title
     .article-section__title {
         margin-bottom: 35px;
     }
 
+    .link,
+    .button {
+        @include core-font(18);
+    }
+
     @include media(mobile) {
         padding: $gutter * 2 12px;
-        background: orange;
     }
 }
 
+/* Latest publications component */
 .article-section__box--latest-publications {
     padding: $gutter * 2 12px;
     background: $col-duodenary;
@@ -98,11 +117,6 @@
         li:not(:first-child) {
             border-left: 1px solid $col-senary;
         }
-    }
-
-    .link,
-    .button {
-        @include core-font(18);
     }
 }
 
@@ -123,15 +137,17 @@
         margin-bottom: 0;
     }
 }
-
 .article-section--data-and-information {
     .cta {
         margin-bottom: 40px;
     }
+}
 
+.article-section--data-and-information,
+.article-section--about-us {
     .article-section__column {
         margin-bottom: $baseline-grid-unit * 8;
-        padding: 0 0;
+        padding: 0;
 
         @include media(desktop) {
             margin-bottom: 0;
@@ -139,12 +155,11 @@
     }
 
     .article-section__column--left {
-        @include media(tablet) {
-            padding-left: 0;
-        }
+        padding-right: $gutter;
 
-        @include media(desktop) {
-            padding-right: $gutter;
+        @include media($max-width: $min-desktop-width) {
+            padding-left: 0;
+            padding-right: 0;
         }
     }
 
@@ -153,8 +168,45 @@
     }
 
     .article-section__column--right {
-        @include media(desktop) {
-            padding-left: $gutter;
+        padding-left: $gutter;
+
+        @include media($max-width: $min-desktop-width) {
+            padding-left: 0;
+        }
+    }
+}
+
+/* About us section */
+.article-section--about-us {
+    .article-section__column {
+        padding: 0 24px;
+    }
+
+    .article-section__column--right {
+        
+    }
+
+    @include media(desktop) {
+        .column:not(:first-child) {
+            border-left: 1px solid $col-senary;
+        }
+
+        .column:first-child {
+            padding-left: 0;
+        }
+    }
+
+    @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+        .article-section__column {
+            padding: 0;
+        }
+
+        .list-of-articles {
+            margin-bottom: 0;
+        }
+
+        .article-section__column--right {
+            margin-bottom: 0;
         }
     }
 }

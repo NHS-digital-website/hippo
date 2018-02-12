@@ -1,0 +1,15 @@
+/* CTA List */
+
+.cta-list {
+    padding-bottom: 10px;
+
+    li {
+        padding: 0;
+        margin-bottom: 20px;
+
+        article {
+            min-height: 0;
+            padding: 0;
+        }
+    }
+}
