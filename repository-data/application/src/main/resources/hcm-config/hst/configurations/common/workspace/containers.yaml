@@ -17,6 +17,12 @@ definitions:
           hst:lastmodified: 2018-02-14T10:05:20.400Z
           hst:xtype: HST.vBox
           jcr:primaryType: hst:containercomponent
+        /homepage-information:
+          .meta:residual-child-node-category: content
+          hst:label: How we use your information
+          hst:lastmodified: 2018-02-15T15:47:33.672Z
+          hst:xtype: HST.vBox
+          jcr:primaryType: hst:containercomponent
         /homepage-top:
           .meta:residual-child-node-category: content
           hst:label: Top
