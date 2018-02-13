@@ -8,6 +8,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      common:searchable: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -37,6 +38,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      common:searchable: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -68,6 +70,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      common:searchable: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -103,6 +106,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      common:searchable: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -132,6 +136,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      common:searchable: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -163,6 +168,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      common:searchable: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -198,6 +204,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      common:searchable: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -227,6 +234,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      common:searchable: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -258,6 +266,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      common:searchable: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -293,6 +302,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      common:searchable: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -322,6 +332,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      common:searchable: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -351,6 +362,7 @@
     jcr:primaryType: hippo:handle
   /time-series-index:
     /time-series-index[1]:
+      common:searchable: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -369,6 +381,7 @@
         pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.
       publicationsystem:Title: Time Series Lorem Ipsum Dolor
     /time-series-index[2]:
+      common:searchable: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -389,6 +402,7 @@
         pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.
       publicationsystem:Title: Time Series Lorem Ipsum Dolor
     /time-series-index[3]:
+      common:searchable: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -415,8 +429,8 @@
     jcr:primaryType: hippo:handle
   hippo:name: valid publication series
   hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  - new-statistical-publications-and-clinical-indicators-document
+  - new-statistical-publications-and-clinical-indicators-folder
   hippotranslation:id: 00000000-0000-0000-0000-000000000000
   hippotranslation:locale: en
   jcr:mixinTypes:

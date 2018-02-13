@@ -327,8 +327,8 @@
     jcr:primaryType: hippo:handle
   hippo:name: valid publication archive
   hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  - new-statistical-publications-and-clinical-indicators-document
+  - new-statistical-publications-and-clinical-indicators-folder
   hippotranslation:id: 756346df-4cf1-4858-a464-72d0cef8951a
   hippotranslation:locale: en
   jcr:mixinTypes:

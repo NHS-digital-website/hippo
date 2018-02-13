@@ -5,8 +5,7 @@ import static java.util.stream.Collectors.toList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.startsWith;
 import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.ps.test.acceptance.util.AssertionHelper.assertWithinTimeoutThat;
 import static uk.nhs.digital.ps.test.acceptance.util.RandomHelper.getRandomInt;
@@ -373,13 +372,20 @@ public class CmsSteps extends AbstractSpringSteps {
         assertTrue("Archive edit screen is displayed", contentPage.isDocumentEditScreenOpen());
     }
 
-    public void createDatasetInEditableState() throws Throwable {
+    private void createDatasetInEditableState() throws Throwable {
         loginSteps.givenIAmLoggedInAsAdmin();
         contentPage.openContentTab();
 
         Dataset dataset = TestDataFactory.createDataset().build();
         testDataRepo.setDataset(dataset);
         contentPage.newDataset(dataset);
+    }
+
+    @When("^I create a new folder$")
+    public void iCreateANewFolder() throws Throwable {
+        Folder folder = TestDataFactory.createFolder();
+        testDataRepo.setFolder(folder);
+        contentPage.createFolder(folder);
     }
 
     @Given("^I have a dataset opened for editing$")
@@ -432,5 +438,36 @@ public class CmsSteps extends AbstractSpringSteps {
     @When("^I clear the nominal date")
     public void iClearTheNominalDate() throws Throwable {
         contentPage.findNominalDateField().clear();
+    }
+
+    @When("^I click the \"([^\"]*)\" menu option on the \"([^\"]*)\" folder$")
+    public void iOpenTheMenuOnTheFolder(String menuOption, String folder) throws Throwable {
+        String[] folders = folder.split("/");
+        contentPage.clickFolderMenuOption(menuOption, folders);
+    }
+
+    @And("^I shouldn't have a \"([^\"]*)\" menu option on the \"([^\"]*)\" folder$")
+    public void iShouldntHaveAMenuOption(String menuOption, String folder) throws Throwable {
+        String[] folders = folder.split("/");
+        assertNull("No document type picker", contentPage.getFolderMenuItem(menuOption, folders));
+    }
+
+    @When("^I click the \"([^\"]*)\" menu option on the folder$")
+    public void iOpenTheMenuOnTheFolder(String menuOption) throws Throwable {
+        iOpenTheMenuOnTheFolder(menuOption, testDataRepo.getFolder().getPath());
+    }
+
+    @Then("^I should see the document options:$")
+    public void iShouldSeeTheDocumentOptions(DataTable options) throws Throwable {
+        Object[] expectedDocumentTypes = options.asList(String.class).toArray();
+
+        List<String> actualOptions = contentPage.getDocumentTypeOptions();
+
+        assertThat("Document option are as expected", actualOptions, containsInAnyOrder(expectedDocumentTypes));
+    }
+
+    @Then("^I should see no document options$")
+    public void iShouldSeeNoDocumentOptions() throws Throwable {
+        assertNull("No document picker is shown", contentPage.getDocumentTypeOptions());
     }
 }

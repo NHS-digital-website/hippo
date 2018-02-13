@@ -121,8 +121,8 @@
     jcr:primaryType: hippo:handle
   hippo:name: Indicator Documents
   hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  - new-statistical-publications-and-clinical-indicators-document
+  - new-statistical-publications-and-clinical-indicators-folder
   hippotranslation:id: eaf4fc44-8d7c-4bdf-afae-550d6a45adac
   hippotranslation:locale: en
   jcr:mixinTypes:

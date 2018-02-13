@@ -2,8 +2,7 @@
 /content/documents/corporate-website/about:
   hippo:name: About
   hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  - new-about-document
   hippotranslation:id: 00000000-0000-0000-0000-000000000000
   hippotranslation:locale: en
   jcr:mixinTypes:

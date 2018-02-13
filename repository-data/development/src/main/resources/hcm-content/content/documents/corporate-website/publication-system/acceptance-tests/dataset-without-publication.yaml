@@ -70,8 +70,8 @@
     jcr:primaryType: hippo:handle
   hippo:name: Dataset without publication
   hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  - new-statistical-publications-and-clinical-indicators-document
+  - new-statistical-publications-and-clinical-indicators-folder
   hippotranslation:id: 51fd2ab2-a465-4ae1-9009-2d538d2ba387
   hippotranslation:locale: en
   jcr:mixinTypes:

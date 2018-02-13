@@ -105,8 +105,9 @@ public class TestDataSteps extends AbstractSpringSteps {
 
             contentPage.openCms();
             contentPage.openContentTab();
-            contentPage.unpublishDocument(currentDocumentName);
-            contentPage.deleteDocument(currentDocumentName);
+            contentPage.navigateToDocument(currentDocumentName);
+            contentPage.unpublishDocument();
+            contentPage.deleteDocument();
 
         } catch (Exception e) {
             log.error("Failed to take publication offline.", e);

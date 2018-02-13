@@ -197,22 +197,23 @@ public class ContentPage extends AbstractCmsPage {
         waitUntilPublished();
     }
 
-    public void deleteDocument(final String documentName) {
-        navigateToDocument(documentName);
-
+    public void deleteDocument() {
         findDocumentMenu().click();
         findDelete().click();
 
         clickButtonOnModalDialog("OK");
     }
 
-    public void unpublishDocument(final String documentName) {
-        navigateToDocument(documentName);
-
+    public void unpublishDocument() {
         findPublicationMenu().click();
+        String takeOfflineXPath = XpathSelectors.EDITOR_BODY + "//span[text()='Take offline...']";
+        WebElement takeOffline = helper.findElement(By.xpath(takeOfflineXPath));
 
-        if (getWebDriver().findElement(By.xpath("//*[@title='Offline']")) == null) {
-            findTakeOffline().click();
+        // if it has a link it can be taken offline, therefore it is online
+        boolean online = helper.findOptionalElement(By.xpath(takeOfflineXPath + "//a")) != null;
+
+        if (online) {
+            takeOffline.click();
             clickButtonOnModalDialog("OK");
         }
     }
@@ -229,43 +230,69 @@ public class ContentPage extends AbstractCmsPage {
             // (see JavaDoc for org.openqa.selenium.WebDriver.findElement).
             helper.waitUntilTrue(() -> getWebDriver().findElements(
                 By.xpath(XpathSelectors.EDITOR_BODY + "//span[@title='" + title + "']")
-            ).isEmpty()
-        ));
+                ).isEmpty()
+            ));
     }
 
-    private WebElement openDocumentMenu() {
+    public WebElement getFolderMenuItem(String menuOption, String... folders) {
 
-        WebElement folderElement = navigateToFolder("Corporate Website", "Publication System");
+        WebElement folderElement = navigateToFolder(folders);
 
         WebElement menuIcon = folderElement.findElement(By.xpath(".//a[contains(@class, 'hippo-tree-dropdown-icon-container')]"));
         helper.waitUntilVisible(menuIcon);
         menuIcon.click();
 
         WebElement menu = helper.findElement(By.cssSelector("ul[class~='hippo-toolbar-menu-item']"));
-        return menu;
+
+        // Find and click "Add new document" option
+        return helper.findOptionalChildElement(menu, By.cssSelector(
+            "span[title='" +
+                menuOption +
+                "']"));
     }
 
     private boolean createDocument(String docType, String name) {
 
-        WebElement menu = openDocumentMenu();
-
-        // Find and click "Add new document" option
-        WebElement menuItem = menu.findElement(By.cssSelector("span[title='Add new document...']"));
-        menuItem.click();
+        clickFolderMenuOption("Add new document...", "Corporate Website", "Publication System");
 
         // Wait for modal dialogue and find new document name field
         WebElement nameField = helper.findElement(By.name("name-url:name"));
         nameField.sendKeys(name);
 
         // Choose document type
-        WebElement documentTypeField = getWebDriver().findElement(By.name("prototype"));
-        Select dropdown = new Select(documentTypeField);
-        dropdown.selectByVisibleText(docType);
+        getDocumentTypeSelect().selectByVisibleText(docType);
 
         // Confirm
         clickButtonOnModalDialog("OK");
 
         return isDocumentPresent(name);
+    }
+
+    private Select getDocumentTypeSelect() {
+        // make sure the dialog is up
+        helper.findElement(By.className("wicket-modal"));
+
+        WebElement documentTypeField = helper.findOptionalElement(By.name("prototype"));
+        return documentTypeField == null ? null : new Select(documentTypeField);
+    }
+
+    public List<String> getDocumentTypeOptions() {
+        Select select = getDocumentTypeSelect();
+        if (select == null) {
+            return null;
+        }
+
+        List<String> options = select.getOptions().stream()
+            .map(WebElement::getText)
+            .collect(toList());
+
+        options.remove("Choose One");
+        return options;
+    }
+
+    public void clickFolderMenuOption(String menuOption, String... folders) {
+        WebElement menuItem = getFolderMenuItem(menuOption, folders);
+        menuItem.click();
     }
 
     private WebElement navigateToFolder(String... folders) {
@@ -300,7 +327,7 @@ public class ContentPage extends AbstractCmsPage {
         return helper.isElementPresent(By.className("hippo-toolbar-status"));
     }
 
-    private void navigateToDocument(String documentName) {
+    public void navigateToDocument(String documentName) {
         navigateToFolder("Corporate Website", "Publication System");
         clickDocument(documentName);
     }
@@ -334,11 +361,6 @@ public class ContentPage extends AbstractCmsPage {
     private WebElement findDelete() {
         return helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Delete...']"));
-    }
-
-    private WebElement findTakeOffline() {
-        return helper.findElement(
-            By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Take offline...']"));
     }
 
     private WebElement findEdit() {
@@ -407,5 +429,16 @@ public class ContentPage extends AbstractCmsPage {
         navigateToDocument(name);
         findEdit().click();
         isDocumentEditScreenOpen();
+    }
+
+    public void createFolder(Folder folder) {
+        clickFolderMenuOption("Add new folder...", folder.getParentPath().split("/"));
+
+        // Wait for modal dialogue and find new document name field
+        WebElement nameField = helper.findElement(By.name("name-url:name"));
+        nameField.sendKeys(folder.getName());
+
+        // Confirm
+        clickButtonOnModalDialog("OK");
     }
 }

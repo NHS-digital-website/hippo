@@ -2,6 +2,7 @@
 /content/documents/corporate-website/publication-system/acceptance-tests/bare-minimum-publication:
   /bare-minimum-dataset:
     /bare-minimum-dataset[1]:
+      common:searchable: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -21,6 +22,7 @@
       publicationsystem:Summary: Bare Minimum Dataset Summary
       publicationsystem:Title: Bare Minimum Dataset
     /bare-minimum-dataset[2]:
+      common:searchable: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -42,6 +44,7 @@
       publicationsystem:Summary: Bare Minimum Dataset Summary
       publicationsystem:Title: Bare Minimum Dataset
     /bare-minimum-dataset[3]:
+      common:searchable: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -69,6 +72,7 @@
     jcr:primaryType: hippo:handle
   /content:
     /content[1]:
+      common:searchable: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -90,6 +94,7 @@
       publicationsystem:Summary: Bare Minimum Publication Summary
       publicationsystem:Title: Bare Minimum Publication
     /content[2]:
+      common:searchable: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
@@ -113,6 +118,7 @@
       publicationsystem:Summary: Bare Minimum Publication Summary
       publicationsystem:Title: Bare Minimum Publication
     /content[3]:
+      common:searchable: true
       hippo:availability:
       - live
       hippostd:state: published
@@ -140,8 +146,8 @@
     jcr:primaryType: hippo:handle
   hippo:name: Bare Minimum Publication
   hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  - new-statistical-publications-and-clinical-indicators-document
+  - new-statistical-publications-and-clinical-indicators-folder
   hippotranslation:id: f49c72e8-d043-4fb8-9a45-41ed549af83f
   hippotranslation:locale: en
   jcr:mixinTypes:

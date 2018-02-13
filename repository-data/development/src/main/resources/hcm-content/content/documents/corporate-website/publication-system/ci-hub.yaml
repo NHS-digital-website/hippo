@@ -1657,8 +1657,7 @@
     jcr:uuid: 2b6ca5d1-61e4-4d01-a05e-d209d309c15c
   hippo:name: CI hub
   hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  - new-cihub-document
   hippotranslation:id: 00000000-0000-0000-0000-000000000000
   hippotranslation:locale: en
   jcr:mixinTypes:

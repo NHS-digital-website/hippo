@@ -143,6 +143,22 @@ public class PageHelper {
         return findElement(selector) != null;
     }
 
+    public WebElement findOptionalElement(By by) {
+        return firstOrNull(getWebDriver().findElements(by));
+    }
+
+    public WebElement findOptionalChildElement(WebElement menu, By by) {
+        return firstOrNull(menu.findElements(by));
+    }
+
+    private WebElement firstOrNull(List<WebElement> elements) {
+        if (elements.size() < 1) {
+            return null;
+        }
+
+        return elements.get(0);
+    }
+
     @FunctionalInterface
     public interface Task {
         void execute();
