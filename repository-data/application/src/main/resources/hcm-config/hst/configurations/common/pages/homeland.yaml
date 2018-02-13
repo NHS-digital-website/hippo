@@ -24,6 +24,9 @@ definitions:
         /center-2:
           hst:referencecomponent: homepage/homepage-center-2
           jcr:primaryType: hst:containercomponentreference
+        /information:
+          hst:referencecomponent: homepage/homepage-information
+          jcr:primaryType: hst:containercomponentreference
         /top:
           hst:referencecomponent: homepage/homepage-top
           jcr:primaryType: hst:containercomponentreference

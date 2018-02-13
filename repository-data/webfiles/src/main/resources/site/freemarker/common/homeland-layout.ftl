@@ -35,7 +35,7 @@
             </div>
 
             <#-- About us section -->
-            <div class="article-section article-section--about-us">
+            <div class="article-section article-section--about-us article-section--no-border">
                 <div class="article-section__header">
                     <h2>${aboutUsSectionTitle}</h2>
                     <p>${aboutUsSectionText}</p>
@@ -54,6 +54,13 @@
                             <@hst.include ref="bottom-right"/>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <#-- Information section -->
+            <div class="article-section article-section--information">
+                <div class="article-section__contents">
+                    <@hst.include ref="information"/>
                 </div>
             </div>
         </div>
