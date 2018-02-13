@@ -2,12 +2,12 @@
 /content/documents/corporate-website/publication-system/search-test-loremipsumdolor:
   hippo:name: Search Test LoremIpsumDolor
   hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  - new-statistical-publications-and-clinical-indicators-document
+  - new-statistical-publications-and-clinical-indicators-folder
   hippotranslation:id: 00000000-0000-0000-0000-000000000000
   hippotranslation:locale: en
   jcr:mixinTypes:
-  - mix:versionable
   - hippo:named
   - hippotranslation:translated
+  - mix:versionable
   jcr:primaryType: hippostd:folder

@@ -3,8 +3,8 @@
   .meta:order-before: ci-hub
   hippo:name: Acceptance Tests
   hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  - new-statistical-publications-and-clinical-indicators-document
+  - new-statistical-publications-and-clinical-indicators-folder
   hippotranslation:id: 00000000-0000-0000-0000-000000000000
   hippotranslation:locale: en
   jcr:mixinTypes:

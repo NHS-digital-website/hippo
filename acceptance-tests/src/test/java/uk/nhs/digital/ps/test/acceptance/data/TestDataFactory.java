@@ -71,6 +71,10 @@ public class TestDataFactory {
             .withNominalDate(Instant.now());
     }
 
+    public static Folder createFolder() {
+        return new Folder("Corporate Website/Publication System", newRandomString());
+    }
+
     public static AttachmentBuilder createAttachmentOfType(final FileType fileType) {
         final Path path = getAttachmentFilePathByType(fileType);
 

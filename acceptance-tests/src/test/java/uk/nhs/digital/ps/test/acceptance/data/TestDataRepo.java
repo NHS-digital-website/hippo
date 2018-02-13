@@ -18,6 +18,7 @@ public class TestDataRepo {
     private PublicationArchive publicationArchive;
     private PublicationSeries publicationSeries;
     private Dataset dataset;
+    private Folder folder;
 
     public void setPublication(final Publication publication) {
         publications.clear();
@@ -82,6 +83,14 @@ public class TestDataRepo {
 
     public void setDataset(Dataset dataset) {
         this.dataset = dataset;
+    }
+
+    public Folder getFolder() {
+        return folder;
+    }
+
+    public void setFolder(Folder folder) {
+        this.folder = folder;
     }
 
     public enum PublicationClassifier {

@@ -100,8 +100,8 @@
     jcr:primaryType: hippo:handle
   hippo:name: Another Upcoming Publication
   hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  - new-statistical-publications-and-clinical-indicators-document
+  - new-statistical-publications-and-clinical-indicators-folder
   hippotranslation:id: 6dac13f8-f59c-4cc8-a6ce-6f09f75f514b
   hippotranslation:locale: en
   jcr:mixinTypes:

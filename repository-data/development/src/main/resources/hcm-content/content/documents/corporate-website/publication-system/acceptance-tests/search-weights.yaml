@@ -661,8 +661,8 @@
     jcr:primaryType: hippo:handle
   hippo:name: Search Weights
   hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  - new-statistical-publications-and-clinical-indicators-document
+  - new-statistical-publications-and-clinical-indicators-folder
   hippotranslation:id: 3ceb4b4f-4e3f-4d5e-84c0-b468ed6ac84e
   hippotranslation:locale: en
   jcr:mixinTypes:

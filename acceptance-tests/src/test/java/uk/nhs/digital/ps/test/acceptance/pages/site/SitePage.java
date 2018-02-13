@@ -50,21 +50,11 @@ public class SitePage extends AbstractSitePage {
     }
 
     public WebElement findElementWithTitle(String title) {
-        return findOptionalElement("//*[@title='" + title + "']");
+        return helper.findOptionalElement(By.xpath("//*[@title='" + title + "']"));
     }
 
     public WebElement findElementWithText(String text) {
-        return findOptionalElement("//*[text()='" + text + "']");
-    }
-
-    private WebElement findOptionalElement(String xpath) {
-        List<WebElement> elements = getWebDriver().findElements(By.xpath(xpath));
-
-        if (elements.size() < 1) {
-            return null;
-        }
-
-        return elements.get(0);
+        return helper.findOptionalElement(By.xpath("//*[text()='" + text + "']"));
     }
 
     public String getDocumentTitle() {

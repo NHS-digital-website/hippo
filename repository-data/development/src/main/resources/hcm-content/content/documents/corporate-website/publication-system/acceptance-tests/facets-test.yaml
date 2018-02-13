@@ -3,6 +3,7 @@
   /facets-other-publication:
     /content:
       /content[1]:
+        common:searchable: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
@@ -31,6 +32,7 @@
         publicationsystem:Summary: "Facets Other Publication Summary\r\n\r\nzzFacets_Testzz"
         publicationsystem:Title: Facets Other Publication
       /content[2]:
+        common:searchable: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -61,6 +63,7 @@
         publicationsystem:Summary: "Facets Other Publication Summary\r\n\r\nzzFacets_Testzz"
         publicationsystem:Title: Facets Other Publication
       /content[3]:
+        common:searchable: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -95,8 +98,8 @@
       jcr:primaryType: hippo:handle
     hippo:name: Facets Other Publication
     hippostd:foldertype:
-    - new-translated-folder
-    - new-document
+    - new-statistical-publications-and-clinical-indicators-document
+    - new-statistical-publications-and-clinical-indicators-folder
     hippotranslation:id: 7727a45f-da1b-41f4-8d1c-043a67453514
     hippotranslation:locale: en
     jcr:mixinTypes:
@@ -112,6 +115,7 @@
         - social-care
         - conditions
         - accidents-and-injuries
+        common:searchable: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
@@ -148,6 +152,7 @@
         - social-care
         - conditions
         - accidents-and-injuries
+        common:searchable: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -186,6 +191,7 @@
         - social-care
         - conditions
         - accidents-and-injuries
+        common:searchable: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -228,6 +234,7 @@
         - social-care
         - cancer
         - conditions
+        common:searchable: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
@@ -259,6 +266,7 @@
         - social-care
         - cancer
         - conditions
+        common:searchable: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
@@ -292,6 +300,7 @@
         - social-care
         - cancer
         - conditions
+        common:searchable: true
         hippo:availability:
         - live
         hippostd:state: published
@@ -326,8 +335,8 @@
       jcr:primaryType: hippo:handle
     hippo:name: Facets Publication
     hippostd:foldertype:
-    - new-translated-folder
-    - new-document
+    - new-statistical-publications-and-clinical-indicators-document
+    - new-statistical-publications-and-clinical-indicators-folder
     hippotranslation:id: 1b94c87a-e597-4bf3-9698-45b0bd0acbf8
     hippotranslation:locale: en
     jcr:mixinTypes:
@@ -337,8 +346,8 @@
     jcr:primaryType: hippostd:folder
   hippo:name: Facets Test
   hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  - new-statistical-publications-and-clinical-indicators-document
+  - new-statistical-publications-and-clinical-indicators-folder
   hippotranslation:id: 6bc00273-9ad8-4d6b-88c7-4ceba56ef499
   hippotranslation:locale: en
   jcr:mixinTypes:

@@ -1,0 +1,9 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:translations/hippo:templates/en:
+      new-about-document: new about document
+      new-cihub-document: new CI hub document
+      new-statistical-publications-and-clinical-indicators-document: new document
+      new-statistical-publications-and-clinical-indicators-folder: new folder
+      new-translated-folder: new folder

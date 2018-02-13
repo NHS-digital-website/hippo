@@ -1,0 +1,30 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:queries/hippo:templates/new-statistical-publications-and-clinical-indicators-folder:
+      /hippostd:templates:
+        /hippostd:folder:
+          hippostd:foldertype:
+          - new-statistical-publications-and-clinical-indicators-folder
+          - new-statistical-publications-and-clinical-indicators-document
+          hippotranslation:id: 399baa72-e236-44e9-b771-680be32585f2
+          hippotranslation:locale: inherited locale
+          jcr:mixinTypes:
+          - hippotranslation:translated
+          - mix:versionable
+          jcr:primaryType: hippostd:folder
+        jcr:primaryType: hippostd:templates
+      hippostd:icon: addfolder_ico
+      hippostd:modify:
+      - ./_name
+      - $name
+      - ./hippotranslation:id
+      - $uuid
+      - ./hippotranslation:locale
+      - $inherited
+      hipposys:classname: org.hippoecm.repository.impl.query.DirectPath
+      jcr:language: xpath
+      jcr:mixinTypes:
+      - hipposys:implementation
+      jcr:primaryType: hippostd:templatequery
+      jcr:statement: /jcr:root/hippo:configuration/hippo:queries/hippo:templates/new-statistical-publications-and-clinical-indicators-folder/hippostd:templates/node()
