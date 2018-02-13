@@ -31,4 +31,9 @@ public class Calltoaction extends BaseDocument {
     public String getContent() {
         return getProperty("website:content");
     }
+
+    @HippoEssentialsGenerated(internalName = "website:image")
+    public HippoGalleryImageSet getImage() {
+        return getLinkedBean("website:image", HippoGalleryImageSet.class);
+    }
 }
