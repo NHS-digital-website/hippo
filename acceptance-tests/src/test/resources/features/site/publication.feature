@@ -9,7 +9,14 @@ Feature: Ensure publication page displays required fields.
             | Publication Geographic Coverage       | England                                                           |
             | Publication Granularity               | NHS Trusts                                                        |
             | Publication Administrative Sources    | Mauris pretium orci ac gravida accumsan. Cras mattis massa ...    |
-            | Publication Date Range                | 10/02/2015 to 15/09/2016                                          |
+            | Publication Date Range                | 10 Feb 2015 to 15 Sep 2016                                        |
+            | Publication Date                      | 10 Oct 2016                                                       |
+
+    Scenario: Check coverage date range when dates are equal
+        Given I navigate to "coverage date publication" page
+        Then I should see publication page titled "Coverage dates Document"
+        And I should also see:
+            | Publication Date Range                | Snapshot on 27 Jan 2018                                           |
 
     Scenario: Display Resource Links, Attachments and Datasets in one list
         Given I navigate to "publication with datasets" page

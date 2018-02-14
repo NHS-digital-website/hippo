@@ -63,6 +63,10 @@ public class TestContentUrls {
         add("attachment test dataset",
             "/publications/acceptance-tests/attachment-test/dataset");
 
+        // coverage date test
+        add("coverage date publication",
+            "/publications/acceptance-tests/coveragedates-test/coverage-test");
+
         // bare minimum documents
         add("bare minimum publication",
             "/publications/acceptance-tests/bare-minimum-publication");
