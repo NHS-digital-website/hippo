@@ -1,0 +1,18 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/nationalindicatorlibrary/basedocument:
+      /hipposysedit:nodetype:
+        /hipposysedit:nodetype:
+          hipposysedit:supertype:
+          - common:basedocument
+          hipposysedit:uri: http://digital.nhs.uk/jcr/nationalindicatorlibrary/nt/1.0
+          jcr:mixinTypes:
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype

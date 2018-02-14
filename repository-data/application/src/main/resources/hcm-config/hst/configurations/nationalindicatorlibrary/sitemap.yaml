@@ -1,0 +1,18 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/nationalindicatorlibrary/hst:sitemap:
+      /_any_:
+        hst:componentconfigurationid: hst:pages/404
+        hst:componentconfigurationmappingnames:
+        - nationalindicatorlibrary:indicator
+        - hippostd:folder
+        hst:componentconfigurationmappingvalues:
+        - hst:pages/indicator
+        - hst:pages/folder
+        hst:relativecontentpath: ${1}
+        jcr:primaryType: hst:sitemapitem
+      /root:
+        hst:componentconfigurationid: hst:pages/home
+        jcr:primaryType: hst:sitemapitem
+      jcr:primaryType: hst:sitemap

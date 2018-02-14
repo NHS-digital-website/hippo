@@ -1,5 +1,6 @@
 ---
 /content/documents/administration/publication-system:
+  .meta:order-before: national-indicator-library
   hippo:name: Publication System
   hippostd:foldertype:
   - new-document

@@ -1,0 +1,7 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/nationalindicatorlibrary/hst:catalog:
+      /nationalindicatorlibrary-catalog:
+        jcr:primaryType: hst:containeritempackage
+      jcr:primaryType: hst:catalog

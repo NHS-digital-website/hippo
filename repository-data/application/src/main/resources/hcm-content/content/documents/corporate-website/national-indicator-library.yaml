@@ -1,14 +1,13 @@
 ---
-/content/documents/corporate-website:
-  hippo:name: Corporate Website
+/content/documents/corporate-website/national-indicator-library:
+  hippo:name: National Indicator Library
   hippostd:foldertype:
   - new-translated-folder
   - new-document
-  hippotranslation:id: 00000000-0000-0000-0000-000000000000
+  hippotranslation:id: a79f6853-1e85-4eb3-8a65-5c6c2aba1a61
   hippotranslation:locale: en
   jcr:mixinTypes:
   - hippo:named
   - hippotranslation:translated
   - mix:versionable
   jcr:primaryType: hippostd:folder
-  jcr:uuid: 12345678-1234-1234-1234-123456789abc

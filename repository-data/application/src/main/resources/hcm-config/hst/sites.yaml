@@ -6,6 +6,9 @@ definitions:
       /common:
         hst:content: /content/documents/corporate-website
         jcr:primaryType: hst:site
+      /nationalindicatorlibrary:
+        hst:content: /content/documents/corporate-website/national-indicator-library
+        jcr:primaryType: hst:site
       /publicationsystem:
         hst:content: /content/documents/corporate-website/publication-system
         jcr:primaryType: hst:site

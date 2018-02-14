@@ -2,9 +2,17 @@
 definitions:
   config:
     /hst:hst/hst:configurations:
+      /base:
+        jcr:primaryType: hst:configuration
       /common:
+        hst:inheritsfrom:
+        - ../base
+        jcr:primaryType: hst:configuration
+      /nationalindicatorlibrary:
+        hst:inheritsfrom:
+        - ../base
         jcr:primaryType: hst:configuration
       /publicationsystem:
         hst:inheritsfrom:
-        - ../common
+        - ../base
         jcr:primaryType: hst:configuration
