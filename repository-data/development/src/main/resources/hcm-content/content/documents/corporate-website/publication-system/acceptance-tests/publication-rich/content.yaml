@@ -1,6 +1,8 @@
 ---
 /content/documents/corporate-website/publication-system/acceptance-tests/publication-rich/content:
   /content[1]:
+    common:FacetType: publication
+    common:searchable: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
@@ -64,6 +66,8 @@
       \ at lorem nulla."
     publicationsystem:Title: publication with rich content
   /content[2]:
+    common:FacetType: publication
+    common:searchable: true
     hippo:availability:
     - preview
     hippostd:state: unpublished
@@ -129,6 +133,8 @@
       \ at lorem nulla."
     publicationsystem:Title: publication with rich content
   /content[3]:
+    common:FacetType: publication
+    common:searchable: true
     hippo:availability:
     - live
     hippostd:state: published

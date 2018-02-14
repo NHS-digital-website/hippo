@@ -24,6 +24,8 @@
       jcr:primaryType: publicationsystem:relatedlink
       publicationsystem:linkText: Related resource link
       publicationsystem:linkUrl: http://google.com
+    common:FacetType: publication
+    common:searchable: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
@@ -99,6 +101,8 @@
       jcr:primaryType: publicationsystem:relatedlink
       publicationsystem:linkText: Related resource link
       publicationsystem:linkUrl: http://google.com
+    common:FacetType: publication
+    common:searchable: true
     hippo:availability:
     - preview
     hippostd:state: unpublished
@@ -176,6 +180,8 @@
       jcr:primaryType: publicationsystem:relatedlink
       publicationsystem:linkText: Related resource link
       publicationsystem:linkUrl: http://google.com
+    common:FacetType: publication
+    common:searchable: true
     hippo:availability:
     - live
     hippostd:state: published

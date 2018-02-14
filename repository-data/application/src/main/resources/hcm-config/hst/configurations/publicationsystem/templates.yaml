@@ -14,6 +14,9 @@ definitions:
       /folder:
         hst:renderpath: webfile:/freemarker/publicationsystem/folder.ftl
         jcr:primaryType: hst:template
+      /legacypublication:
+        hst:renderpath: webfile:/freemarker/publicationsystem/legacy-publication.ftl
+        jcr:primaryType: hst:template
       /publication:
         hst:renderpath: webfile:/freemarker/publicationsystem/publication.ftl
         jcr:primaryType: hst:template

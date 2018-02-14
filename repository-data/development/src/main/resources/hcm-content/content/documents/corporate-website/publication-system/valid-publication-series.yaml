@@ -8,6 +8,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      common:FacetType: publication
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -38,6 +39,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      common:FacetType: publication
       common:searchable: true
       hippo:availability:
       - preview
@@ -70,6 +72,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      common:FacetType: publication
       common:searchable: true
       hippo:availability:
       - live
@@ -106,6 +109,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      common:FacetType: publication
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -136,6 +140,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      common:FacetType: publication
       common:searchable: true
       hippo:availability:
       - preview
@@ -168,6 +173,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      common:FacetType: publication
       common:searchable: true
       hippo:availability:
       - live
@@ -204,6 +210,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      common:FacetType: publication
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -234,6 +241,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      common:FacetType: publication
       common:searchable: true
       hippo:availability:
       - preview
@@ -266,6 +274,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      common:FacetType: publication
       common:searchable: true
       hippo:availability:
       - live
@@ -302,6 +311,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      common:FacetType: publication
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -332,6 +342,7 @@
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+      common:FacetType: publication
       common:searchable: true
       hippo:availability:
       - preview
@@ -362,6 +373,7 @@
     jcr:primaryType: hippo:handle
   /time-series-index:
     /time-series-index[1]:
+      common:FacetType: series
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -381,6 +393,7 @@
         pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.
       publicationsystem:Title: Time Series Lorem Ipsum Dolor
     /time-series-index[2]:
+      common:FacetType: series
       common:searchable: true
       hippo:availability:
       - preview
@@ -402,6 +415,7 @@
         pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.
       publicationsystem:Title: Time Series Lorem Ipsum Dolor
     /time-series-index[3]:
+      common:FacetType: series
       common:searchable: true
       hippo:availability:
       - live

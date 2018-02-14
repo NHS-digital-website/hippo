@@ -7,6 +7,8 @@
       publicationsystem:linkUrl: ''
       publicationsystem:link_text: ''
       publicationsystem:link_url: ''
+    common:FacetType: publication
+    common:searchable: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
@@ -44,6 +46,8 @@
       publicationsystem:linkUrl: ''
       publicationsystem:link_text: ''
       publicationsystem:link_url: ''
+    common:FacetType: publication
+    common:searchable: true
     hippo:availability:
     - preview
     hippostd:state: unpublished
@@ -83,6 +87,8 @@
       publicationsystem:linkUrl: ''
       publicationsystem:link_text: ''
       publicationsystem:link_url: ''
+    common:FacetType: publication
+    common:searchable: true
     hippo:availability:
     - live
     hippostd:state: published

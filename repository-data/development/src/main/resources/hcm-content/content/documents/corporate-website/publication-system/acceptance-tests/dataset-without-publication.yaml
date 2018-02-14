@@ -2,6 +2,7 @@
 /content/documents/corporate-website/publication-system/acceptance-tests/dataset-without-publication:
   /dataset-without-publication:
     /dataset-without-publication[1]:
+      common:FacetType: dataset
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -22,6 +23,7 @@
       publicationsystem:Summary: This dataset has no parent publication
       publicationsystem:Title: Dataset without publication
     /dataset-without-publication[2]:
+      common:FacetType: dataset
       common:searchable: true
       hippo:availability:
       - preview
@@ -44,6 +46,7 @@
       publicationsystem:Summary: This dataset has no parent publication
       publicationsystem:Title: Dataset without publication
     /dataset-without-publication[3]:
+      common:FacetType: dataset
       common:searchable: true
       hippo:availability:
       - live

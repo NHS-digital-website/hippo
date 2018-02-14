@@ -38,8 +38,7 @@
                     <#elseif facet.name="category">
                         <#assign valueName=taxonomy.getValueName(value.name)/>
                     <#elseif facet.name="document-type">
-                        <@fmt.message key=value.name var="documentTypeKey"/>
-                        <@fmt.message key=documentTypeKey var="valueName"/>
+                        <@fmt.message key="labels."+value.name var="valueName"/>
                     <#else>
                         <#assign valueName=value.name/>
                     </#if>

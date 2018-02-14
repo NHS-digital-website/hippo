@@ -122,7 +122,6 @@ Feature: Basic search
             | Publication ( ...         |
             | Data set ( ...            |
             | Series / Collection ( ... |
-            | Archive ( ...             |
 
     Scenario: Navigating to the search page displays the results page with full, unfiltered result set
         Given I navigate to the "search" page
@@ -130,7 +129,6 @@ Feature: Basic search
             | Publication ( ...         |
             | Data set ( ...            |
             | Series / Collection ( ... |
-            | Archive ( ...             |
 
     Scenario: Each document type label is correctly displayed in search results
         Given I navigate to the "home" page

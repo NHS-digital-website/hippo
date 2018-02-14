@@ -145,6 +145,12 @@ version.pprint:
 	@echo "Current version: $(VERSION)"
 	@echo "- - -"
 
+## Ensure that commit message contains JIRA id
+commit-msg-check:
+	@git log -n1 --no-merges --pretty=%B > .commit-msg
+	@grep -E "^\[[A-Z]+-[0-9]+\]" .commit-msg || (echo "Missing JIRA id in the coomit message. Expecitng '[ABC-123] ...' but got" && cat .commit-msg && exit 1)
+	@rm .commit-msg
+
 ## Clean up
 clean:
 	mvn clean $(MVN_OPTS) --quiet

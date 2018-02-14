@@ -8,12 +8,14 @@ definitions:
         - publicationsystem:archive
         - publicationsystem:dataset
         - hippostd:folder
+        - publicationsystem:legacypublication
         - publicationsystem:publication
         - publicationsystem:series
         hst:componentconfigurationmappingvalues:
         - hst:pages/archive
         - hst:pages/dataset
         - hst:pages/folder
+        - hst:pages/legacypublication
         - hst:pages/publication
         - hst:pages/series
         hst:relativecontentpath: ${1}

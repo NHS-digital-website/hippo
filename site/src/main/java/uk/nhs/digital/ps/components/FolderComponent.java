@@ -12,6 +12,7 @@ import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import uk.nhs.digital.ps.beans.Archive;
 import uk.nhs.digital.ps.beans.Dataset;
+import uk.nhs.digital.ps.beans.LegacyPublication;
 import uk.nhs.digital.ps.beans.Publication;
 import uk.nhs.digital.ps.beans.Series;
 
@@ -27,6 +28,7 @@ public class FolderComponent extends BaseHstComponent {
         List<Archive> archivesInFolder = folder.getChildBeans(Archive.class);
         List<Series> seriesInFolder = folder.getChildBeans(Series.class);
         List<Publication> publicationContentInFolder = folder.getChildBeansByName("content", Publication.class);
+        List<LegacyPublication> legacyPublicationContentInFolder = folder.getChildBeansByName("content", LegacyPublication.class);
 
         if (archivesInFolder.size() > 0) {
             ArchiveComponent archiveComponent = new ArchiveComponent();
@@ -39,6 +41,10 @@ public class FolderComponent extends BaseHstComponent {
         } else if (publicationContentInFolder.size() > 0) {
             PublicationComponent publicationComponent = new PublicationComponent();
             publicationComponent.doBeforeRender(request, response);
+            return;
+        } else if (legacyPublicationContentInFolder.size() > 0) {
+            LegacyPublicationComponent legacyPublicationComponent = new LegacyPublicationComponent();
+            legacyPublicationComponent.doBeforeRender(request, response);
             return;
         } else {
             try {

@@ -20,6 +20,7 @@
       jcr:primaryType: publicationsystem:relatedlink
       publicationsystem:linkText: Google Resource Link
       publicationsystem:linkUrl: http://google.com
+    common:FacetType: dataset
     common:searchable: true
     hippo:availability:
     - preview
@@ -77,6 +78,7 @@
       jcr:primaryType: publicationsystem:relatedlink
       publicationsystem:linkText: Google Resource Link
       publicationsystem:linkUrl: http://google.com
+    common:FacetType: dataset
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
@@ -133,6 +135,7 @@
       jcr:primaryType: publicationsystem:relatedlink
       publicationsystem:linkText: Google Resource Link
       publicationsystem:linkUrl: http://google.com
+    common:FacetType: dataset
     common:searchable: true
     hippo:availability:
     - live

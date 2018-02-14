@@ -1,6 +1,8 @@
 ---
 /content/documents/corporate-website/publication-system/search-test-loremipsumdolor/search-test-2:
   /search-test-2[1]:
+    common:FacetType: publication
+    common:searchable: true
     hippo:availability:
     - preview
     hippostd:state: unpublished
@@ -29,6 +31,8 @@
     publicationsystem:Summary: I like apples
     publicationsystem:Title: Apple orange
   /search-test-2[2]:
+    common:FacetType: publication
+    common:searchable: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
@@ -56,6 +60,8 @@
     publicationsystem:Summary: I like apples
     publicationsystem:Title: Apple orange
   /search-test-2[3]:
+    common:FacetType: publication
+    common:searchable: true
     hippo:availability:
     - live
     hippostd:state: published

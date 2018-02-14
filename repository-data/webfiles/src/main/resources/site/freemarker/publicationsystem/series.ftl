@@ -47,6 +47,8 @@
        title="${publication.title}">
         ${publication.title}
     </a>
-    <p><@truncate text=publication.summary.firstParagraph size="300"/></p>
+    <#if publication.class.name == "uk.nhs.digital.ps.beans.Publication">
+        <p><@truncate text=publication.summary.firstParagraph size="300"/></p>
+    </#if>
 </li>
 </#macro>
