@@ -4,7 +4,7 @@
 <@hst.setBundle basename="publicationsystem.headers,publicationsystem.labels"/>
 <#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
 
-<#assign dateFormat="dd/MM/yyyy"/>
+<#assign dateFormat="dd MMM yyyy"/>
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() >
 <#assign formatCoverageDates="uk.nhs.digital.ps.directives.CoverageDatesFormatterDirective"?new() >
 

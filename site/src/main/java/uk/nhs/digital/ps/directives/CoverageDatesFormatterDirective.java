@@ -49,7 +49,7 @@ public class CoverageDatesFormatterDirective implements TemplateDirectiveModel {
     }
 
     private String formatDate(final Date dateToFormat) {
-        SimpleDateFormat requiredFormat = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat requiredFormat = new SimpleDateFormat("dd MMM yyyy");
         return requiredFormat.format(dateToFormat);
     }
 

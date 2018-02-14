@@ -10,9 +10,9 @@ Feature: As a consumer I need to be able to navigate to publication data sets
             | Dataset Summary               | Mauris ex est, dapibus in dictum ut, elementum sit amet ... |
             | Dataset Granularity           | NHS Trusts                                                  |
             | Dataset Geographic Coverage   | England                                                     |
-            | Dataset Date Range            | 01/02/2016 to 01/07/2017                                    |
+            | Dataset Date Range            | 01 Feb 2016 to 01 Jul 2017                                  |
             | Dataset Nominal Date          | 10 Oct 2017                                                 |
-            | Dataset Next Publication Date | 09/07/2018                                                  |
+            | Dataset Next Publication Date | 09 Jul 2018                                                 |
 
     Scenario: Headers don't display for empty fields
         Given I navigate to the "bare minimum dataset" page
