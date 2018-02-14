@@ -15,6 +15,7 @@ import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.nhs.digital.ps.beans.LegacyPublication;
 import uk.nhs.digital.ps.beans.Publication;
 import uk.nhs.digital.ps.beans.Series;
 
@@ -48,7 +49,7 @@ public class SeriesComponent extends EssentialsContentComponent {
         request.setAttribute("series" , seriesIndexDocument);
 
         try {
-            final HstQuery query = requestContext.getQueryManager().createQuery(contentBean, Publication.class);
+            final HstQuery query = requestContext.getQueryManager().createQuery(contentBean, Publication.class, LegacyPublication.class);
 
             query.addOrderByDescending("publicationsystem:NominalDate");
 

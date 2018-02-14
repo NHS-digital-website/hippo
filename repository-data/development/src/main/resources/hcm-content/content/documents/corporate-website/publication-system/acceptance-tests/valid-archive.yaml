@@ -2,6 +2,7 @@
 /content/documents/corporate-website/publication-system/acceptance-tests/valid-publication-archive:
   /2002:
     /2002[1]:
+      common:FacetType: publication
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -24,6 +25,7 @@
       publicationsystem:Summary: Lorem Ipsum Dolor 2002
       publicationsystem:Title: Lorem Ipsum Dolor 2002
     /2002[2]:
+      common:FacetType: publication
       common:searchable: true
       hippo:availability:
       - preview
@@ -48,6 +50,7 @@
       publicationsystem:Summary: Lorem Ipsum Dolor 2002
       publicationsystem:Title: Lorem Ipsum Dolor 2002
     /2002[3]:
+      common:FacetType: publication
       common:searchable: true
       hippo:availability:
       - live
@@ -78,6 +81,7 @@
     jcr:primaryType: hippo:handle
   /2003:
     /2003[1]:
+      common:FacetType: publication
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -100,6 +104,7 @@
       publicationsystem:Summary: Lorem Ipsum Dolor 2003
       publicationsystem:Title: Lorem Ipsum Dolor 2003
     /2003[2]:
+      common:FacetType: publication
       common:searchable: true
       hippo:availability:
       - preview
@@ -124,6 +129,7 @@
       publicationsystem:Summary: Lorem Ipsum Dolor 2003
       publicationsystem:Title: Lorem Ipsum Dolor 2003
     /2003[3]:
+      common:FacetType: publication
       common:searchable: true
       hippo:availability:
       - live
@@ -154,6 +160,7 @@
     jcr:primaryType: hippo:handle
   /2004:
     /2004[1]:
+      common:FacetType: publication
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -176,6 +183,7 @@
       publicationsystem:Summary: Lorem Ipsum Dolor 2014
       publicationsystem:Title: Lorem Ipsum Dolor 2004
     /2004[2]:
+      common:FacetType: publication
       common:searchable: true
       hippo:availability:
       - preview
@@ -200,6 +208,7 @@
       publicationsystem:Summary: Lorem Ipsum Dolor 2014
       publicationsystem:Title: Lorem Ipsum Dolor 2004
     /2004[3]:
+      common:FacetType: publication
       common:searchable: true
       hippo:availability:
       - live
@@ -230,6 +239,7 @@
     jcr:primaryType: hippo:handle
   /time-archive-lorem-ipsum-dolor:
     /time-archive-lorem-ipsum-dolor[1]:
+      common:FacetType: series
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -259,6 +269,7 @@
         \ at iaculis arcu, eget ornare arcu."
       publicationsystem:Title: Time Archive Lorem Ipsum Dolor
     /time-archive-lorem-ipsum-dolor[2]:
+      common:FacetType: series
       common:searchable: true
       hippo:availability:
       - preview
@@ -290,6 +301,7 @@
         \ at iaculis arcu, eget ornare arcu."
       publicationsystem:Title: Time Archive Lorem Ipsum Dolor
     /time-archive-lorem-ipsum-dolor[3]:
+      common:FacetType: series
       common:searchable: true
       hippo:availability:
       - live

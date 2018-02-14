@@ -2,6 +2,7 @@
 /content/documents/corporate-website/publication-system/acceptance-tests/bare-minimum-publication:
   /bare-minimum-dataset:
     /bare-minimum-dataset[1]:
+      common:FacetType: dataset
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -22,6 +23,7 @@
       publicationsystem:Summary: Bare Minimum Dataset Summary
       publicationsystem:Title: Bare Minimum Dataset
     /bare-minimum-dataset[2]:
+      common:FacetType: dataset
       common:searchable: true
       hippo:availability:
       - preview
@@ -44,6 +46,7 @@
       publicationsystem:Summary: Bare Minimum Dataset Summary
       publicationsystem:Title: Bare Minimum Dataset
     /bare-minimum-dataset[3]:
+      common:FacetType: dataset
       common:searchable: true
       hippo:availability:
       - live
@@ -72,6 +75,7 @@
     jcr:primaryType: hippo:handle
   /content:
     /content[1]:
+      common:FacetType: publication
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -94,6 +98,7 @@
       publicationsystem:Summary: Bare Minimum Publication Summary
       publicationsystem:Title: Bare Minimum Publication
     /content[2]:
+      common:FacetType: publication
       common:searchable: true
       hippo:availability:
       - preview
@@ -118,6 +123,7 @@
       publicationsystem:Summary: Bare Minimum Publication Summary
       publicationsystem:Title: Bare Minimum Publication
     /content[3]:
+      common:FacetType: publication
       common:searchable: true
       hippo:availability:
       - live

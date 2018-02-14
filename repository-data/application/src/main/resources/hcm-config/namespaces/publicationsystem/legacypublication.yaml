@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/publicationsystem/dataset:
+    /hippo:namespaces/publicationsystem/legacypublication:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -33,91 +33,96 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
             wicket.id: ${cluster.id}.right
-          /Title:
+          /InformationType:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Title
-            field: Title
+              selectable.options: Audit,Experimental statistics,National statistics,Official
+                statistics,Open data,Other reports and statistics,Survey
+            caption: Information Type
+            field: information_type
+            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.css:
-            - document-title
-            wicket.id: ${cluster.id}.left.item
-          /Summary:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Summary
-            field: Summary
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.css:
-            - document-summary
-            wicket.id: ${cluster.id}.left.item
+            - information-type
+            wicket.id: ${cluster.id}.right.item
           /classifiable:
             /cluster.options:
               caption: Taxonomy
               jcr:primaryType: frontend:pluginconfig
               taxonomy.name: publication_taxonomy
+            essentials-taxonomy-name: publication_taxonomy
             jcr:primaryType: frontend:plugin
             mixin: hippotaxonomy:classifiable
             plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
             wicket.id: ${cluster.id}.right.item
-          /Files:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Attachments
-            field: Files
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-          /ResourceLinks:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Resource Links
-            field: ResourceLinks
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
           /NominalDate:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Nominal Date
-            field: NominalDate
+            caption: Publication Date
+            field: nominal_date
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.css:
             - nominal-date
             wicket.id: ${cluster.id}.right.item
-          /NextPublicationDate:
+          /Title:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Next Publication Date
-            field: NextPublicationDate
+            caption: Title
+            field: title
+            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
+            wicket.css:
+            - document-title
+            wicket.id: ${cluster.id}.left.item
+          /publicly_accessible:
+            /cluster.options:
+              falseLabel: UPCOMING (Show in upcoming publications list only)
+              jcr:primaryType: frontend:pluginconfig
+              trueLabel: FINALISED (Full content publicly accessible)
+            caption: Publicly Accessible
+            field: publicly_accessible
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /Summary:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Summary
+            field: summary
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.css:
+            - document-summary
+            wicket.id: ${cluster.id}.left.item
           /CoverageStart:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Coverage Start
-            field: CoverageStart
+            field: coverage_start
             hint: For snapshot date, set the Coverage Start and End dates to be the
               same
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.css:
+            - coverage-start
             wicket.id: ${cluster.id}.right.item
           /CoverageEnd:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Coverage End
-            field: CoverageEnd
+            field: coverage_end
             hint: For snapshot date, set the Coverage Start and End dates to be the
               same
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.css:
+            - coverage-end
             wicket.id: ${cluster.id}.right.item
           /GeographicCoverage:
             /cluster.options:
@@ -126,9 +131,12 @@ definitions:
                 Scotland,England and Wales,England Scotland and Northern Ireland,England
                 Wales and Northern Ireland,Great Britain,International,Northern Ireland,Scotland,UK,Wales
             caption: Geographic Coverage
-            field: GeographicCoverage
+            field: geographic_coverage
+            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.css:
+            - geographic-coverage
             wicket.id: ${cluster.id}.right.item
           /Granularity:
             /cluster.options:
@@ -147,17 +155,93 @@ definitions:
                 clusters,Regional health body,Regions,Strategic Health Authorities,Sustainability
                 and Transformation Partnerships,Wards
             caption: Granularity
-            field: Granularity
+            field: granularity
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.css:
             - granularity
             wicket.id: ${cluster.id}.right.item
+          /KeyFacts:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Key Facts
+            field: key_facts
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.css:
+            - key-facts
+            wicket.id: ${cluster.id}.left.item
+          /attachments:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Attachments
+            field: attachments
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.css:
+            - attachments
+            wicket.id: ${cluster.id}.left.item
+          /ResourceLinks:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Resource Links
+            field: ResourceLinks
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /RelatedLinks:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Related Links
+            field: related_links
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.css:
+            - related-links
+            wicket.id: ${cluster.id}.left.item
+          /AdministrativeSources:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Administrative Sources
+            field: administrative_sources
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.css:
+            - administrative-sources
+            wicket.id: ${cluster.id}.left.item
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /CoverageEnd:
+          /ResourceLinks:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:ResourceLinks
+            hipposysedit:primary: false
+            hipposysedit:type: publicationsystem:relatedlink
+            jcr:primaryType: hipposysedit:field
+          /administrative_sources:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:AdministrativeSources
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            jcr:primaryType: hipposysedit:field
+          /attachments:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:Attachments-v3
+            hipposysedit:primary: false
+            hipposysedit:type: publicationsystem:attachment
+            jcr:primaryType: hipposysedit:field
+          /coverage_end:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
@@ -167,7 +251,7 @@ definitions:
             hipposysedit:validators:
             - publicationsystem-coverage-dates
             jcr:primaryType: hipposysedit:field
-          /CoverageStart:
+          /coverage_start:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
@@ -175,15 +259,7 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: CalendarDate
             jcr:primaryType: hipposysedit:field
-          /Files:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:Files-v3
-            hipposysedit:primary: false
-            hipposysedit:type: publicationsystem:attachment
-            jcr:primaryType: hipposysedit:field
-          /GeographicCoverage:
+          /geographic_coverage:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
@@ -191,7 +267,7 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             jcr:primaryType: hipposysedit:field
-          /Granularity:
+          /granularity:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
             hipposysedit:ordered: false
@@ -201,15 +277,25 @@ definitions:
             hipposysedit:validators:
             - publicationsystem-blank-granularity
             jcr:primaryType: hipposysedit:field
-          /NextPublicationDate:
+          /information_type:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:InformationType
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - publicationsystem-blank-information-type
+            jcr:primaryType: hipposysedit:field
+          /key_facts:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:NextPublicationDate
+            hipposysedit:path: publicationsystem:KeyFacts
             hipposysedit:primary: false
-            hipposysedit:type: CalendarDate
+            hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
-          /NominalDate:
+          /nominal_date:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
@@ -219,26 +305,33 @@ definitions:
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
-          /ResourceLinks:
+          /publicly_accessible:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:PubliclyAccessible
+            hipposysedit:primary: false
+            hipposysedit:type: selection:BooleanRadioGroup
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /related_links:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
             hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:ResourceLinks
+            hipposysedit:path: publicationsystem:RelatedLinks
             hipposysedit:primary: false
             hipposysedit:type: publicationsystem:relatedlink
             jcr:primaryType: hipposysedit:field
-          /Summary:
+          /summary:
             hipposysedit:mandatory: true
             hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: publicationsystem:Summary
             hipposysedit:primary: false
-            hipposysedit:type: Text
-            hipposysedit:validators:
-            - non-empty
-            - required
+            hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
-          /Title:
+          /title:
             hipposysedit:mandatory: true
             hipposysedit:multiple: false
             hipposysedit:ordered: false
@@ -252,38 +345,44 @@ definitions:
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
-          - publicationsystem:basedocument
-          - hippostd:relaxed
           - hippotranslation:translated
           - hippotaxonomy:classifiable
+          - publicationsystem:basedocument
+          - hippostd:relaxed
           hipposysedit:uri: http://digital.nhs.uk/jcr/publicationsystem/nt/1.0
           jcr:mixinTypes:
-          - hipposysedit:remodel
           - mix:referenceable
+          - hipposysedit:remodel
           jcr:primaryType: hipposysedit:nodetype
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          common:FacetType: dataset
+          /publicationsystem:KeyFacts:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /publicationsystem:Summary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          common:FacetType: publication
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
-          hippostdpubwf:creationDate: 2017-11-01T16:21:22.055Z
-          hippostdpubwf:lastModificationDate: 2017-11-01T16:21:22.055Z
+          hippostdpubwf:creationDate: 2017-09-26T15:14:40.972Z
+          hippostdpubwf:lastModificationDate: 2017-09-26T15:14:40.971Z
           hippostdpubwf:lastModifiedBy: ''
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes:
           - hippotaxonomy:classifiable
           - mix:referenceable
-          jcr:primaryType: publicationsystem:dataset
+          jcr:primaryType: publicationsystem:legacypublication
+          publicationsystem:AdministrativeSources: ''
           publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
           publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-          publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
           publicationsystem:NominalDate: 0001-01-01T12:00:00Z
-          publicationsystem:Summary: ''
+          publicationsystem:PubliclyAccessible: false
           publicationsystem:Title: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:

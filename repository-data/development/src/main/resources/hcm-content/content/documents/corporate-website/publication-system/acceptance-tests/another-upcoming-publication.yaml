@@ -2,6 +2,7 @@
 /content/documents/corporate-website/publication-system/acceptance-tests/another-upcoming-publication:
   /published-upcoming-publication:
     /published-upcoming-publication[1]:
+      common:FacetType: publication
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -32,6 +33,7 @@
       publicationsystem:Summary: Published Upcoming Publication summary.
       publicationsystem:Title: Published Upcoming Publication
     /published-upcoming-publication[2]:
+      common:FacetType: publication
       common:searchable: true
       hippo:availability:
       - preview
@@ -64,6 +66,7 @@
       publicationsystem:Summary: Published Upcoming Publication summary.
       publicationsystem:Title: Published Upcoming Publication
     /published-upcoming-publication[3]:
+      common:FacetType: publication
       common:searchable: false
       hippo:availability:
       - live

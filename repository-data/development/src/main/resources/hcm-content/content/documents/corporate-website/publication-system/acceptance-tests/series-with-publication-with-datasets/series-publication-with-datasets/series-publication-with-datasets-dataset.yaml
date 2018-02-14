@@ -1,6 +1,8 @@
 ---
 ? /content/documents/corporate-website/publication-system/acceptance-tests/series-with-publication-with-datasets/series-publication-with-datasets/series-publication-with-datasets-dataset
 : /series-publication-with-datasets-dataset[1]:
+    common:FacetType: dataset
+    common:searchable: true
     hippo:availability:
     - preview
     hippostd:state: unpublished
@@ -44,6 +46,8 @@
       \ fermentum a a purus."
     publicationsystem:Title: series-publication-with-datasets Dataset
   /series-publication-with-datasets-dataset[2]:
+    common:FacetType: dataset
+    common:searchable: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
@@ -86,6 +90,8 @@
       \ fermentum a a purus."
     publicationsystem:Title: series-publication-with-datasets Dataset
   /series-publication-with-datasets-dataset[3]:
+    common:FacetType: dataset
+    common:searchable: true
     hippo:availability:
     - live
     hippostd:state: published

@@ -11,7 +11,7 @@
   - month${after:'year', sortby:'facetvalue', sortorder:'descending',hide:'year'}
   - timeframe
   hippofacnav:facets:
-  - jcr:primaryType
+  - common:FacetType
   - common:FullTaxonomy
   - publicationsystem:InformationType
   - publicationsystem:GeographicCoverage

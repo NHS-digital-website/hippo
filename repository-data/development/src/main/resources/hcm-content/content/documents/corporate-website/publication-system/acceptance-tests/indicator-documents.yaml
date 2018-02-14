@@ -2,6 +2,7 @@
 /content/documents/corporate-website/publication-system/acceptance-tests/indicator-documents:
   /faceted-search-dummy-document:
     /faceted-search-dummy-document[1]:
+      common:FacetType: publication
       common:FullTaxonomy:
       - clinical-indicators
       - nhs-outcomes-framework
@@ -39,6 +40,7 @@
       publicationsystem:Summary: Dummy document for testing faceted browsing links
       publicationsystem:Title: Indicator Document
     /faceted-search-dummy-document[2]:
+      common:FacetType: publication
       common:FullTaxonomy:
       - clinical-indicators
       - nhs-outcomes-framework
@@ -77,6 +79,7 @@
       publicationsystem:Summary: Dummy document for testing faceted browsing links
       publicationsystem:Title: Indicator Document
     /faceted-search-dummy-document[3]:
+      common:FacetType: publication
       common:FullTaxonomy:
       - clinical-indicators
       - nhs-outcomes-framework

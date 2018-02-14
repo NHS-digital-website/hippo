@@ -118,7 +118,7 @@
     - YEAR
     - MONTH
     - TIMEFRAME
-  hippo:name: month names
+  hippo:name: facet headers
   jcr:mixinTypes:
   - hippo:named
   - mix:referenceable

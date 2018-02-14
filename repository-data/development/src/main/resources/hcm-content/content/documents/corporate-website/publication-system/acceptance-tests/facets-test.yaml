@@ -3,6 +3,7 @@
   /facets-other-publication:
     /content:
       /content[1]:
+        common:FacetType: publication
         common:searchable: true
         hippo:availability: []
         hippostd:state: draft
@@ -32,6 +33,7 @@
         publicationsystem:Summary: "Facets Other Publication Summary\r\n\r\nzzFacets_Testzz"
         publicationsystem:Title: Facets Other Publication
       /content[2]:
+        common:FacetType: publication
         common:searchable: true
         hippo:availability:
         - preview
@@ -63,6 +65,7 @@
         publicationsystem:Summary: "Facets Other Publication Summary\r\n\r\nzzFacets_Testzz"
         publicationsystem:Title: Facets Other Publication
       /content[3]:
+        common:FacetType: publication
         common:searchable: true
         hippo:availability:
         - live
@@ -110,6 +113,7 @@
   /facets-publication:
     /content:
       /content[1]:
+        common:FacetType: publication
         common:FullTaxonomy:
         - falls
         - social-care
@@ -147,6 +151,7 @@
         publicationsystem:Summary: "Facets Publication Summary\r\n\r\nzzFacets_Testzz"
         publicationsystem:Title: Facets Publication
       /content[2]:
+        common:FacetType: publication
         common:FullTaxonomy:
         - falls
         - social-care
@@ -186,6 +191,7 @@
         publicationsystem:Summary: "Facets Publication Summary\r\n\r\nzzFacets_Testzz"
         publicationsystem:Title: Facets Publication
       /content[3]:
+        common:FacetType: publication
         common:FullTaxonomy:
         - falls
         - social-care
@@ -229,6 +235,7 @@
       jcr:primaryType: hippo:handle
     /facets-dataset:
       /facets-dataset[1]:
+        common:FacetType: dataset
         common:FullTaxonomy:
         - bowel-cancer
         - social-care
@@ -261,6 +268,7 @@
         publicationsystem:Summary: "Facets Dataset Summary\r\n\r\nzzFacets_Testzz"
         publicationsystem:Title: Facets Dataset
       /facets-dataset[2]:
+        common:FacetType: dataset
         common:FullTaxonomy:
         - bowel-cancer
         - social-care
@@ -295,6 +303,7 @@
         publicationsystem:Summary: "Facets Dataset Summary\r\n\r\nzzFacets_Testzz"
         publicationsystem:Title: Facets Dataset
       /facets-dataset[3]:
+        common:FacetType: dataset
         common:FullTaxonomy:
         - bowel-cancer
         - social-care

@@ -64,7 +64,7 @@
     resourcebundle:messages:
     - enquiries@nhsdigital.nhs.uk
     - feedback@nhsdigital.nhs.uk
-  hippo:name: month names
+  hippo:name: emails
   jcr:mixinTypes:
   - hippo:named
   - mix:referenceable

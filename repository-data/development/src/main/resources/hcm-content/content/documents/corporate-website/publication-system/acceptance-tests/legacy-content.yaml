@@ -1,0 +1,285 @@
+---
+/content/documents/corporate-website/publication-system/acceptance-tests/legacy-content:
+  /legacy-publication:
+    /legacy-publication[1]:
+      /publicationsystem:KeyFacts:
+        hippostd:content: |-
+          <p style="text-align:center">Quisque eget leo volutpat augue sollicitudin pulvinar in quis erat. Suspendisse interdum ac purus a scelerisque. Maecenas ut risus posuere, gravida erat eget, suscipit quam. Cras eget nunc sodales, pulvinar urna a, convallis augue. Aenean sit amet pretium mauris. Nam malesuada quam nisi, in consectetur mauris commodo vulputate. Sed vulputate placerat auctor.</p>
+
+          <h1>Suspendisse posuere tincidunt est nec viverra</h1>
+
+          <p>Proin luctus euismod est, ac facilisis orci dapibus vitae. Ut pellentesque ante vitae mattis efficitur. Sed pellentesque quis mi eu semper. Duis porta eget magna non efficitur. Mauris feugiat fringilla velit, id lacinia arcu hendrerit a. Sed porta efficitur elementum. Donec vitae efficitur lorem. Aliquam a leo quis mi feugiat aliquet. Mauris sit amet justo ultricies, commodo augue in, euismod elit. Sed gravida vehicula malesuada. Aenean nulla libero, mattis vitae mollis id, pulvinar eget purus. Cras dapibus dolor sed ornare bibendum. Etiam maximus accumsan interdum. Nulla facilisi. Aenean ut erat in augue aliquam pharetra a nec felis.</p>
+        jcr:primaryType: hippostd:html
+      /publicationsystem:Summary:
+        hippostd:content: |-
+          <h1>Praesent nec</h1>
+
+          <p>tellus <strong>quis <u>neque</u> tempus</strong> porttitor nec at dolor. Vestibulum <sup>aliquam</sup> lobortis <sub>libero</sub>, ac molestie erat commodo sit amet. Etiam a quam nec nunc consequat eleifend et vel <strong>massa</strong>. In in tellus id sem facilisis varius in vel est.</p>
+
+          <table border="1" cellpadding="1" cellspacing="1" style="width:100%">
+           <tbody>
+            <tr>
+             <td>lorem</td>
+             <td>ipsum</td>
+            </tr>
+            <tr>
+             <td>dolor</td>
+             <td>sit</td>
+            </tr>
+            <tr>
+             <td>ament</td>
+             <td>donce</td>
+            </tr>
+           </tbody>
+          </table>
+
+          <p>Pellentesque porta imperdiet porta. Integer ante justo, consectetur id feugiat ut, convallis eu ante.</p>
+
+          <h2>Aliquam ut lacinia sapien</h2>
+
+          <p style="text-align:right">Proin at dui vitae metus volutpat posuere. Fusce sed lobortis ex, nec venenatis neque. In ultricies quam sapien, at pretium orci egestas sit amet. Donec sit amet aliquam nunc, eget eleifend magna. Sed scelerisque enim id odio congue, vitae mollis metus ornare.</p>
+
+          <p style="margin-left:40px">Quisque vel pretium nunc. Etiam id lacus laoreet, eleifend libero eu, fermentum velit. Curabitur eu velit malesuada, feugiat dui id, commodo nisi. Cras hendrerit massa orci, commodo semper odio faucibus eget.</p>
+
+          <p>Nulla non urna id arcu ullamcorper malesuada. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sodales fermentum nisi. Fusce dignissim orci sit amet imperdiet dapibus. Cras sed arcu nec lorem malesuada gravida.</p>
+        jcr:primaryType: hippostd:html
+      common:FacetType: publication
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-14T15:22:05.090Z
+      hippostdpubwf:lastModificationDate: 2018-02-14T15:56:41.995Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 30db7b65-3f04-4287-93f4-b5ca2605dddb
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:legacypublication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 2017-11-30T00:00:00Z
+      publicationsystem:CoverageStart: 2017-10-01T00:00:00Z
+      publicationsystem:GeographicCoverage: England and Scotland
+      publicationsystem:Granularity:
+      - Care Trusts
+      - Government Office Regions
+      publicationsystem:InformationType:
+      - Experimental statistics
+      publicationsystem:NominalDate: 2018-02-14T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Title: Legacy Publication
+    /legacy-publication[2]:
+      /publicationsystem:KeyFacts:
+        hippostd:content: |-
+          <p style="text-align:center">Quisque eget leo volutpat augue sollicitudin pulvinar in quis erat. Suspendisse interdum ac purus a scelerisque. Maecenas ut risus posuere, gravida erat eget, suscipit quam. Cras eget nunc sodales, pulvinar urna a, convallis augue. Aenean sit amet pretium mauris. Nam malesuada quam nisi, in consectetur mauris commodo vulputate. Sed vulputate placerat auctor.</p>
+
+          <h1>Suspendisse posuere tincidunt est nec viverra</h1>
+
+          <p>Proin luctus euismod est, ac facilisis orci dapibus vitae. Ut pellentesque ante vitae mattis efficitur. Sed pellentesque quis mi eu semper. Duis porta eget magna non efficitur. Mauris feugiat fringilla velit, id lacinia arcu hendrerit a. Sed porta efficitur elementum. Donec vitae efficitur lorem. Aliquam a leo quis mi feugiat aliquet. Mauris sit amet justo ultricies, commodo augue in, euismod elit. Sed gravida vehicula malesuada. Aenean nulla libero, mattis vitae mollis id, pulvinar eget purus. Cras dapibus dolor sed ornare bibendum. Etiam maximus accumsan interdum. Nulla facilisi. Aenean ut erat in augue aliquam pharetra a nec felis.</p>
+        jcr:primaryType: hippostd:html
+      /publicationsystem:Summary:
+        hippostd:content: |-
+          <h1>Praesent nec</h1>
+
+          <p>tellus <strong>quis <u>neque</u> tempus</strong> porttitor nec at dolor. Vestibulum <sup>aliquam</sup> lobortis <sub>libero</sub>, ac molestie erat commodo sit amet. Etiam a quam nec nunc consequat eleifend et vel <strong>massa</strong>. In in tellus id sem facilisis varius in vel est.</p>
+
+          <table border="1" cellpadding="1" cellspacing="1" style="width:100%">
+           <tbody>
+            <tr>
+             <td>lorem</td>
+             <td>ipsum</td>
+            </tr>
+            <tr>
+             <td>dolor</td>
+             <td>sit</td>
+            </tr>
+            <tr>
+             <td>ament</td>
+             <td>donce</td>
+            </tr>
+           </tbody>
+          </table>
+
+          <p>Pellentesque porta imperdiet porta. Integer ante justo, consectetur id feugiat ut, convallis eu ante.</p>
+
+          <h2>Aliquam ut lacinia sapien</h2>
+
+          <p style="text-align:right">Proin at dui vitae metus volutpat posuere. Fusce sed lobortis ex, nec venenatis neque. In ultricies quam sapien, at pretium orci egestas sit amet. Donec sit amet aliquam nunc, eget eleifend magna. Sed scelerisque enim id odio congue, vitae mollis metus ornare.</p>
+
+          <p style="margin-left:40px">Quisque vel pretium nunc. Etiam id lacus laoreet, eleifend libero eu, fermentum velit. Curabitur eu velit malesuada, feugiat dui id, commodo nisi. Cras hendrerit massa orci, commodo semper odio faucibus eget.</p>
+
+          <p>Nulla non urna id arcu ullamcorper malesuada. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sodales fermentum nisi. Fusce dignissim orci sit amet imperdiet dapibus. Cras sed arcu nec lorem malesuada gravida.</p>
+        jcr:primaryType: hippostd:html
+      common:FacetType: publication
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-14T15:22:05.090Z
+      hippostdpubwf:lastModificationDate: 2018-02-14T15:57:47.946Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 30db7b65-3f04-4287-93f4-b5ca2605dddb
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:legacypublication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 2017-11-30T00:00:00Z
+      publicationsystem:CoverageStart: 2017-10-01T00:00:00Z
+      publicationsystem:GeographicCoverage: England and Scotland
+      publicationsystem:Granularity:
+      - Care Trusts
+      - Government Office Regions
+      publicationsystem:InformationType:
+      - Experimental statistics
+      publicationsystem:NominalDate: 2018-02-14T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Title: Legacy Publication
+    /legacy-publication[3]:
+      /publicationsystem:KeyFacts:
+        hippostd:content: |-
+          <p style="text-align:center">Quisque eget leo volutpat augue sollicitudin pulvinar in quis erat. Suspendisse interdum ac purus a scelerisque. Maecenas ut risus posuere, gravida erat eget, suscipit quam. Cras eget nunc sodales, pulvinar urna a, convallis augue. Aenean sit amet pretium mauris. Nam malesuada quam nisi, in consectetur mauris commodo vulputate. Sed vulputate placerat auctor.</p>
+
+          <h1>Suspendisse posuere tincidunt est nec viverra</h1>
+
+          <p>Proin luctus euismod est, ac facilisis orci dapibus vitae. Ut pellentesque ante vitae mattis efficitur. Sed pellentesque quis mi eu semper. Duis porta eget magna non efficitur. Mauris feugiat fringilla velit, id lacinia arcu hendrerit a. Sed porta efficitur elementum. Donec vitae efficitur lorem. Aliquam a leo quis mi feugiat aliquet. Mauris sit amet justo ultricies, commodo augue in, euismod elit. Sed gravida vehicula malesuada. Aenean nulla libero, mattis vitae mollis id, pulvinar eget purus. Cras dapibus dolor sed ornare bibendum. Etiam maximus accumsan interdum. Nulla facilisi. Aenean ut erat in augue aliquam pharetra a nec felis.</p>
+        jcr:primaryType: hippostd:html
+      /publicationsystem:Summary:
+        hippostd:content: |-
+          <h1>Praesent nec</h1>
+
+          <p>tellus <strong>quis <u>neque</u> tempus</strong> porttitor nec at dolor. Vestibulum <sup>aliquam</sup> lobortis <sub>libero</sub>, ac molestie erat commodo sit amet. Etiam a quam nec nunc consequat eleifend et vel <strong>massa</strong>. In in tellus id sem facilisis varius in vel est.</p>
+
+          <table border="1" cellpadding="1" cellspacing="1" style="width:100%">
+           <tbody>
+            <tr>
+             <td>lorem</td>
+             <td>ipsum</td>
+            </tr>
+            <tr>
+             <td>dolor</td>
+             <td>sit</td>
+            </tr>
+            <tr>
+             <td>ament</td>
+             <td>donce</td>
+            </tr>
+           </tbody>
+          </table>
+
+          <p>Pellentesque porta imperdiet porta. Integer ante justo, consectetur id feugiat ut, convallis eu ante.</p>
+
+          <h2>Aliquam ut lacinia sapien</h2>
+
+          <p style="text-align:right">Proin at dui vitae metus volutpat posuere. Fusce sed lobortis ex, nec venenatis neque. In ultricies quam sapien, at pretium orci egestas sit amet. Donec sit amet aliquam nunc, eget eleifend magna. Sed scelerisque enim id odio congue, vitae mollis metus ornare.</p>
+
+          <p style="margin-left:40px">Quisque vel pretium nunc. Etiam id lacus laoreet, eleifend libero eu, fermentum velit. Curabitur eu velit malesuada, feugiat dui id, commodo nisi. Cras hendrerit massa orci, commodo semper odio faucibus eget.</p>
+
+          <p>Nulla non urna id arcu ullamcorper malesuada. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sodales fermentum nisi. Fusce dignissim orci sit amet imperdiet dapibus. Cras sed arcu nec lorem malesuada gravida.</p>
+        jcr:primaryType: hippostd:html
+      common:FacetType: publication
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-14T15:22:05.090Z
+      hippostdpubwf:lastModificationDate: 2018-02-14T15:57:47.946Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-14T15:57:51.809Z
+      hippotranslation:id: 30db7b65-3f04-4287-93f4-b5ca2605dddb
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:legacypublication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 2017-11-30T00:00:00Z
+      publicationsystem:CoverageStart: 2017-10-01T00:00:00Z
+      publicationsystem:GeographicCoverage: England and Scotland
+      publicationsystem:Granularity:
+      - Care Trusts
+      - Government Office Regions
+      publicationsystem:InformationType:
+      - Experimental statistics
+      publicationsystem:NominalDate: 2018-02-14T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Title: Legacy Publication
+    hippo:name: legacy publication
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /legacy-series:
+    /legacy-series[1]:
+      common:FacetType: series
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-14T15:21:33.726Z
+      hippostdpubwf:lastModificationDate: 2018-02-14T15:21:33.727Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 47f1b334-03fe-400b-b801-51682e43dc07
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:series
+      publicationsystem:Summary: List legacy publications
+      publicationsystem:Title: Legacy Publications List
+    /legacy-series[2]:
+      common:FacetType: series
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-14T15:21:33.726Z
+      hippostdpubwf:lastModificationDate: 2018-02-14T15:21:51.119Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 47f1b334-03fe-400b-b801-51682e43dc07
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:series
+      publicationsystem:Summary: List legacy publications
+      publicationsystem:Title: Legacy Publications List
+    /legacy-series[3]:
+      common:FacetType: series
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-14T15:21:33.726Z
+      hippostdpubwf:lastModificationDate: 2018-02-14T15:21:51.119Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-14T15:21:54.300Z
+      hippotranslation:id: 47f1b334-03fe-400b-b801-51682e43dc07
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:series
+      publicationsystem:Summary: List legacy publications
+      publicationsystem:Title: Legacy Publications List
+    hippo:name: legacy series
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: legacy content
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: fb6de53f-48ac-47f7-85ca-b881fabe1cb5
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

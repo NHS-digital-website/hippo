@@ -1,6 +1,8 @@
 ---
 ? /content/documents/corporate-website/publication-system/acceptance-tests/publication-with-datasets/etiam-placerat-arcu-dataset
 : /etiam-placerat-arcu-dataset[1]:
+    common:FacetType: dataset
+    common:searchable: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
@@ -26,6 +28,8 @@
       vestibulum neque, at aliquet nibh. Aenean sed ante quam.
     publicationsystem:Title: Etiam Placerat Arcu Dataset
   /etiam-placerat-arcu-dataset[2]:
+    common:FacetType: dataset
+    common:searchable: true
     hippo:availability:
     - preview
     hippostd:state: unpublished
@@ -53,6 +57,8 @@
       vestibulum neque, at aliquet nibh. Aenean sed ante quam.
     publicationsystem:Title: Etiam Placerat Arcu Dataset
   /etiam-placerat-arcu-dataset[3]:
+    common:FacetType: dataset
+    common:searchable: true
     hippo:availability:
     - live
     hippostd:state: published

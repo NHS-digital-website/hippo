@@ -32,6 +32,8 @@
         jcr:primaryType: publicationsystem:resource
       jcr:primaryType: publicationsystem:attachment
       publicationsystem:displayName: ''
+    common:FacetType: dataset
+    common:searchable: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
@@ -83,6 +85,8 @@
         jcr:primaryType: publicationsystem:resource
       jcr:primaryType: publicationsystem:attachment
       publicationsystem:displayName: ''
+    common:FacetType: dataset
+    common:searchable: true
     hippo:availability:
     - preview
     hippostd:state: unpublished
@@ -136,6 +140,8 @@
         jcr:primaryType: publicationsystem:resource
       jcr:primaryType: publicationsystem:attachment
       publicationsystem:displayName: ''
+    common:FacetType: dataset
+    common:searchable: true
     hippo:availability:
     - live
     hippostd:state: published

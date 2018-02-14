@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/publicationsystem/hst:pages/legacypublication:
+      /main:
+        hst:componentclassname: uk.nhs.digital.ps.components.LegacyPublicationComponent
+        hst:template: legacypublication
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/basepage
+      jcr:primaryType: hst:component

@@ -96,6 +96,7 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          common:FacetType: series
           common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft

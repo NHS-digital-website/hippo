@@ -1,6 +1,8 @@
 ---
 /content/documents/corporate-website/publication-system/acceptance-tests/series-with-publication-with-datasets/content:
   /content[1]:
+    common:FacetType: series
+    common:searchable: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
@@ -27,6 +29,8 @@
       \ mattis et sodales at, feugiat sed arcu."
     publicationsystem:Title: series-with-publication-with-datasets
   /content[2]:
+    common:FacetType: series
+    common:searchable: true
     hippo:availability:
     - preview
     hippostd:state: unpublished
@@ -55,6 +59,8 @@
       \ mattis et sodales at, feugiat sed arcu."
     publicationsystem:Title: series-with-publication-with-datasets
   /content[3]:
+    common:FacetType: series
+    common:searchable: true
     hippo:availability:
     - live
     hippostd:state: published

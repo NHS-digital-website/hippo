@@ -2,6 +2,7 @@
 /content/documents/corporate-website/publication-system/acceptance-tests/search-fields-test:
   /dataset-fields-test:
     /dataset-fields-test[1]:
+      common:FacetType: dataset
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -26,6 +27,7 @@
       publicationsystem:Summary: dataset summary to include summaryTestWalnuts
       publicationsystem:Title: dataset fields titleTestPotatoes
     /dataset-fields-test[2]:
+      common:FacetType: dataset
       common:searchable: true
       hippo:availability:
       - preview
@@ -52,6 +54,7 @@
       publicationsystem:Summary: dataset summary to include summaryTestWalnuts
       publicationsystem:Title: dataset fields titleTestPotatoes
     /dataset-fields-test[3]:
+      common:FacetType: dataset
       common:searchable: true
       hippo:availability:
       - live
@@ -84,6 +87,7 @@
     jcr:primaryType: hippo:handle
   /publication-fields-test:
     /publication-fields-test[1]:
+      common:FacetType: publication
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -111,6 +115,7 @@
       publicationsystem:Summary: Publication fields word in summary summaryTestBeetroot
       publicationsystem:Title: Publication fields titleTestApricots
     /publication-fields-test[2]:
+      common:FacetType: publication
       common:searchable: true
       hippo:availability:
       - preview
@@ -140,6 +145,7 @@
       publicationsystem:Summary: Publication fields word in summary summaryTestBeetroot
       publicationsystem:Title: Publication fields titleTestApricots
     /publication-fields-test[3]:
+      common:FacetType: publication
       common:searchable: true
       hippo:availability:
       - live
@@ -176,6 +182,7 @@
   /series-with-publication:
     /time-series-index:
       /time-series-index[1]:
+        common:FacetType: series
         common:searchable: true
         hippo:availability: []
         hippostd:state: draft
@@ -191,6 +198,7 @@
         publicationsystem:Summary: series fields test with summary summaryTestBlackberries
         publicationsystem:Title: series fields titleTestStrawberries
       /time-series-index[2]:
+        common:FacetType: series
         common:searchable: true
         hippo:availability:
         - preview
@@ -208,6 +216,7 @@
         publicationsystem:Summary: series fields test with summary summaryTestBlackberries
         publicationsystem:Title: series fields titleTestStrawberries
       /time-series-index[3]:
+        common:FacetType: series
         common:searchable: true
         hippo:availability:
         - live

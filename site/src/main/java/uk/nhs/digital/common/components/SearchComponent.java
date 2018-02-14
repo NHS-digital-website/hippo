@@ -18,6 +18,7 @@ import org.onehippo.cms7.essentials.components.info.EssentialsListComponentInfo;
 import org.onehippo.cms7.essentials.components.paging.Pageable;
 import uk.nhs.digital.ps.beans.Archive;
 import uk.nhs.digital.ps.beans.Dataset;
+import uk.nhs.digital.ps.beans.LegacyPublication;
 import uk.nhs.digital.ps.beans.Publication;
 import uk.nhs.digital.ps.beans.Series;
 
@@ -172,7 +173,13 @@ public class SearchComponent extends CommonComponent {
      * Publication System content types that should be included in search
      */
     private void addPublicationSystemTypes(HstQueryBuilder query) {
-        query.ofTypes(Publication.class, Series.class, Dataset.class, Archive.class);
+        query.ofTypes(
+            Archive.class,
+            Dataset.class,
+            LegacyPublication.class,
+            Publication.class,
+            Series.class
+        );
     }
 
     /**
