@@ -11,3 +11,7 @@
 
 [nationalindicatorlibrary:indicator] > hippostd:relaxed, hippotranslation:translated, nationalindicatorlibrary:basedocument
   orderable
+
+[nationalindicatorlibrary:nihub] > hippostd:relaxed, hippotranslation:translated, nationalindicatorlibrary:basedocument
+  orderable
+

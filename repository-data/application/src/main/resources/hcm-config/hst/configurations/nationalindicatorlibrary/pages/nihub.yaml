@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/nationalindicatorlibrary/hst:pages/nihub:
+      /main:
+        hst:componentclassname: uk.nhs.digital.nil.components.NiHubComponent
+        hst:template: nihub
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/basepage
+      jcr:primaryType: hst:component

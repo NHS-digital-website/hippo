@@ -1,0 +1,62 @@
+---
+/content/documents/corporate-website/national-indicator-library/nihub:
+  /nihub[1]:
+    common:searchable: true
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-02-13T14:27:19.616Z
+    hippostdpubwf:lastModificationDate: 2018-02-14T13:18:56.235Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 14bca618-b33b-4e45-a102-57e0aa6218a0
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: nationalindicatorlibrary:nihub
+    nationalindicatorlibrary:summary: The official hub for health and social care
+      indicators in England. Includes methodology, data output and any independent
+      assurance rating.
+    nationalindicatorlibrary:title: National Indicator Library
+  /nihub[2]:
+    common:searchable: true
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-02-13T14:27:19.616Z
+    hippostdpubwf:lastModificationDate: 2018-02-14T13:18:59.799Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 14bca618-b33b-4e45-a102-57e0aa6218a0
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: nationalindicatorlibrary:nihub
+    nationalindicatorlibrary:summary: The official hub for health and social care
+      indicators in England. Includes methodology, data output and any independent
+      assurance rating.
+    nationalindicatorlibrary:title: National Indicator Library
+  /nihub[3]:
+    common:searchable: true
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-02-13T14:27:19.616Z
+    hippostdpubwf:lastModificationDate: 2018-02-14T13:18:59.799Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2018-02-14T13:19:03.225Z
+    hippotranslation:id: 14bca618-b33b-4e45-a102-57e0aa6218a0
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: nationalindicatorlibrary:nihub
+    nationalindicatorlibrary:summary: The official hub for health and social care
+      indicators in England. Includes methodology, data output and any independent
+      assurance rating.
+    nationalindicatorlibrary:title: National Indicator Library
+  hippo:name: nihub
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

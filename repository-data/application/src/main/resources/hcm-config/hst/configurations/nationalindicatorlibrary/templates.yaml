@@ -5,4 +5,7 @@ definitions:
       /indicator:
         hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/indicator.ftl
         jcr:primaryType: hst:template
+      /nihub:
+        hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/nihub.ftl
+        jcr:primaryType: hst:template
       jcr:primaryType: hst:templates
