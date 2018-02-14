@@ -11,7 +11,7 @@ definitions:
             .meta:residual-child-node-category: content
             /indicators:
               .meta:residual-child-node-category: content
-              hst:homepage: root
+              hst:homepage: nihub
               hst:mountpoint: /hst:hst/hst:sites/nationalindicatorlibrary
               jcr:primaryType: hst:mount
             /publications:
@@ -39,7 +39,7 @@ definitions:
               .meta:residual-child-node-category: content
               /indicators:
                 .meta:residual-child-node-category: content
-                hst:homepage: root
+                hst:homepage: nihub
                 hst:mountpoint: /hst:hst/hst:sites/nationalindicatorlibrary
                 jcr:primaryType: hst:mount
               /publications:
