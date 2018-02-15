@@ -1,0 +1,31 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/homeland:
+      /main:
+        /bottom:
+          hst:referencecomponent: homepage/homepage-bottom/header
+          jcr:primaryType: hst:containercomponentreference
+        /bottom-center:
+          hst:referencecomponent: homepage/homepage-bottom/center
+          jcr:primaryType: hst:containercomponentreference
+        /bottom-header:
+          hst:referencecomponent: homepage/homepage-bottom/header
+          jcr:primaryType: hst:containercomponentreference
+        /bottom-left:
+          hst:referencecomponent: homepage/homepage-bottom/left
+          jcr:primaryType: hst:containercomponentreference
+        /bottom-right:
+          hst:referencecomponent: homepage/homepage-bottom/right
+          jcr:primaryType: hst:containercomponentreference
+        /center:
+          hst:referencecomponent: homepage/homepage-center
+          jcr:primaryType: hst:containercomponentreference
+        /top:
+          hst:referencecomponent: homepage/homepage-top
+          jcr:primaryType: hst:containercomponentreference
+        hst:componentclassname: uk.nhs.digital.common.components.HomelandComponent
+        hst:template: homeland
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/apppage
+      jcr:primaryType: hst:component

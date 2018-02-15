@@ -4,4 +4,34 @@ definitions:
     /hst:hst/hst:configurations/common/hst:catalog:
       /publicationsystem-catalog:
         jcr:primaryType: hst:containeritempackage
+      /website-catalog:
+        /carousel:
+          hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsListPickerComponent
+          hst:iconpath: images/catalog/component-products-30x30.png
+          hst:label: Documents Picker
+          hst:template: document-list
+          hst:xtype: HST.Item
+          jcr:primaryType: hst:containeritemcomponent
+        /list:
+          hst:componentclassname: uk.nhs.digital.common.components.PublicationListComponent
+          hst:iconpath: images/catalog/component-products-30x30.png
+          hst:label: Publication List
+          hst:template: publications-list
+          hst:xtype: HST.Item
+          jcr:primaryType: hst:containeritemcomponent
+        /menu:
+          hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
+          hst:iconpath: images/catalog/component-products-30x30.png
+          hst:label: Menu
+          hst:template: menu
+          hst:xtype: HST.Item
+          jcr:primaryType: hst:containeritemcomponent
+        /search:
+          hst:componentclassname: uk.nhs.digital.common.components.BaseComponent
+          hst:iconpath: images/catalog/component-products-30x30.png
+          hst:label: Search
+          hst:template: searchbanner
+          hst:xtype: HST.Item
+          jcr:primaryType: hst:containeritemcomponent
+        jcr:primaryType: hst:containeritempackage
       jcr:primaryType: hst:catalog

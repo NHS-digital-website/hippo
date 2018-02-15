@@ -1,5 +1,5 @@
 /* Article Blocks */
-.article-block {
+.page-block {
   position: relative;
   padding: 0;
 
@@ -8,18 +8,22 @@
   }
 }
 
-.article-block--main {
+.page-block--main {
   @include media(desktop) {
     padding: 0 0 0 $default-spacing-unit * 0.5;
   }
 }
 
-.article-block--sidebar {
+.page-block--sidebar {
+  margin-bottom: $default-spacing-unit * 2.75;
+}
+
+.page-block--sticky-top {
   top: 0;
-  margin-bottom: $default-spacing-unit * 2;
 
   @include media(desktop) {
-    padding-right: $default-spacing-unit * 3;
+    padding-right: round($default-spacing-unit * 1.5);
+    padding-left: 0;
     position: sticky;
     position: -webkit-sticky;
   }

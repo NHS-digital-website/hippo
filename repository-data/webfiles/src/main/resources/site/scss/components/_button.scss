@@ -1,7 +1,7 @@
 @import "../environment/tools/mixins/button";
 
 .button {
-  @include button($green);
+  @include button($col-primary);
 }
 
 .button--secondary {
@@ -10,4 +10,8 @@
 
 .button--cancel {
   @include button($red);
+}
+
+.button--tertiary {
+  @include button($col-denary);
 }

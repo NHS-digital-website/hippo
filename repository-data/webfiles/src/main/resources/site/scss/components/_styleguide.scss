@@ -1,0 +1,13 @@
+/* Styleguide */
+.styleguide-menu {
+    padding: 0.5rem 0 0;
+    background: black;
+
+    .list {
+        @include core-font(16);
+        
+        a {
+            color: white;
+        }
+    }
+}

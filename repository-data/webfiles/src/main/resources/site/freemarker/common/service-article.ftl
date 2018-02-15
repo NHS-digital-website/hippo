@@ -3,13 +3,13 @@
 <#include "macro/articleSections.ftl">
 
 <article>
-  <div class="article-wrapper">
-    <div class="local-header">
+  <div class="grid-wrapper grid-wrapper--article">
+    <div class="local-header article-header">
       <h1 class="local-header__title">${document.title}</h1>
     </div>
 
     <div class="grid-row">
-      <div class="column column--one-third article-block article-block--sidebar"  role="complementary">
+      <div class="column column--one-third page-block page-block--sidebar page-block--sticky-top">
         <div class="article-section-nav">
           <h2 class="article-section-nav__title">Page contents</h2>
           <hr>
@@ -30,45 +30,33 @@
         </div>
       </div>
 
-      <div class="column column--two-thirds article-block article-block--main" role="main">
+      <div class="column column--two-thirds page-block page-block--main">
         <#-- BEGIN mandatory 'summary section' -->
-        <div class="grid-row">
-          <div class="column">
-            <section id="section-summary" class="article-section article-section--summary">
-              <h2>Summary</h2>
-              <p>${document.summary}</p>
-            </section>
-          </div>
-        </div>
+          <section id="section-summary" class="article-section article-section--summary article-section--no-border">
+            <h2>Summary</h2>
+            <p>${document.summary}</p>
+          </section>
         <#-- END mandatory 'summary section' -->
 
         <#-- BEGIN optional list of 'top tasks section' -->
         <#if document.toptasks?has_content>
-        <div class="grid-row">
-          <div class="column">
-            <section class="article-section article-section--top-tasks">
-              <div class="callout callout--attention">
-                <h2>Top Tasks</h2>
+          <section class="article-section article-section--top-tasks">
+            <div class="callout callout--attention">
+              <h2>Top Tasks</h2>
 
-                <#list document.toptasks as toptask>
-                  <@hst.html hippohtml=toptask/>
-                </#list>
-              </div>
-            </section>
-          </div>
-        </div>
+              <#list document.toptasks as toptask>
+                <@hst.html hippohtml=toptask/>
+              </#list>
+            </div>
+          </section>
         </#if>
         <#-- END optional list of 'top tasks section' -->
 
         <#-- BEGIN optional 'Introduction section' -->
         <#if document.introduction??>
-        <div class="grid-row">
-          <div class="column">
-            <div class="article-section article-section--introduction">
-              <@hst.html hippohtml=document.introduction/>
-            </div>
+          <div class="article-section article-section--introduction">
+            <@hst.html hippohtml=document.introduction/>
           </div>
-        </div>
         </#if>
         <#-- END optional 'Introduction section' -->
 
@@ -76,24 +64,20 @@
 
         <#-- BEGIN optional 'Further information section' -->
         <#if childPages?has_content>
-        <div class="grid-row">
-          <div class="column">
-            <section class="article-section article-section--child-pages" id="section-child-pages">
-              <h2>Further information</h2>
-              <ol class="list list-reset">
-                <#list childPages as childPage>
-                <@hst.link var="link" hippobean=childPage />
-                  <li>
-                    <article>
-                      <h2><a href="${link}">${childPage.title}</a></h2>
-                      <p>${childPage.shortsummary}</p>
-                    </article>
-                  </li>
-                </#list>
-              </ol>
-            </section>
-          </div>
-        </div>
+          <section class="article-section article-section--child-pages" id="section-child-pages">
+            <h2>Further information</h2>
+            <ol class="list list-reset list-of-articles">
+              <#list childPages as childPage>
+              <@hst.link var="link" hippobean=childPage />
+                <li>
+                  <article>
+                    <h2><a href="${link}">${childPage.title}</a></h2>
+                    <p>${childPage.shortsummary}</p>
+                  </article>
+                </li>
+              </#list>
+            </ol>
+          </section>
         </#if>
         <#-- END optional 'Further information section' -->
       </div>

@@ -1,0 +1,13 @@
+---
+/content/documents/corporate-website/services:
+  hippo:name: Services
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: ca1ec125-235f-4465-958e-aca9978b8f84
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

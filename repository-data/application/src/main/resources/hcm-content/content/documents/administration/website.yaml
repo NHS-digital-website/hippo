@@ -1,6 +1,151 @@
 ---
 /content/documents/administration/website:
   .meta:order-before: national-indicator-library
+  /homepage-labels:
+    /homepage-labels[1]:
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-02T13:13:41.756Z
+      hippostdpubwf:lastModificationDate: 2018-02-12T14:05:29.573Z
+      hippostdpubwf:lastModifiedBy: admin
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: resourcebundle:resourcebundle
+      resourcebundle:descriptions:
+      - Text for the search banner
+      - Title attribute of the search input field
+      - Placeholder text for the search input field
+      - ''
+      - ''
+      - ''
+      - Label of the search button
+      - ''
+      - Home page - Data and information section title
+      resourcebundle:id: homepage.website.labels
+      resourcebundle:keys:
+      - search-banner.text
+      - search-banner.title
+      - search-banner.placeholder
+      - systems-and-services.title
+      - systems-and-services.text
+      - systems-and-services.subTitle
+      - search-banner.buttonLabel
+      - systems-and-services.buttonLabel
+      - data-and-information.title
+      resourcebundle:messages:
+        type: string
+        value:
+        - NHSS Digital provides technology, information and services, which help the
+          NHS deliver better care
+        - Search for content on the website
+        - What are you looking for today?
+        - Systems and services
+        - !!binary |-
+          V2UgYXJlIHRoZSBuYXRpb25hbCBwcm92aWRlciBvZiBpbmZvcm1hdGlvbiwgZGF0YSBhbmQgSVQgc3lzdGVtcyADZm9yIGNvbW1pc3Npb25lcnMsIGFuYWx5c3RzIGFuZCBjbGluaWNpYW5zIGluIGhlYWx0aCBhbmQgc29jaWFsIGNhcmUuICAgICBXZSB3b3JrIHdpdGggcGFydG5lcnMgYWNyb3NzIHRoZSBoZWFsdGggYW5kIHNvY2lhbCBjYXJlIHN5c3RlbSB0byBlbnN1cmUgaW5mb3JtYXRpb24gZmxvd3MgZWZmaWNpZW50bHkgYW5kIHNlY3VyZWx5Lg==
+        - Most popular services
+        - Search
+        - View all services
+        - Data and information
+    /homepage-labels[2]:
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-02T13:13:41.756Z
+      hippostdpubwf:lastModificationDate: 2018-02-12T14:06:00.259Z
+      hippostdpubwf:lastModifiedBy: admin
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: resourcebundle:resourcebundle
+      resourcebundle:descriptions:
+      - Text for the search banner
+      - Title attribute of the search input field
+      - Placeholder text for the search input field
+      - ''
+      - ''
+      - ''
+      - Label of the search button
+      - ''
+      - Home page - Data and information section title
+      resourcebundle:id: homepage.website.labels
+      resourcebundle:keys:
+      - search-banner.text
+      - search-banner.title
+      - search-banner.placeholder
+      - systems-and-services.title
+      - systems-and-services.text
+      - systems-and-services.subTitle
+      - search-banner.buttonLabel
+      - systems-and-services.buttonLabel
+      - data-and-information.title
+      resourcebundle:messages:
+        type: string
+        value:
+        - NHSS Digital provides technology, information and services, which help the
+          NHS deliver better care
+        - Search for content on the website
+        - What are you looking for today?
+        - Systems and services
+        - !!binary |-
+          V2UgYXJlIHRoZSBuYXRpb25hbCBwcm92aWRlciBvZiBpbmZvcm1hdGlvbiwgZGF0YSBhbmQgSVQgc3lzdGVtcyADZm9yIGNvbW1pc3Npb25lcnMsIGFuYWx5c3RzIGFuZCBjbGluaWNpYW5zIGluIGhlYWx0aCBhbmQgc29jaWFsIGNhcmUuICAgICBXZSB3b3JrIHdpdGggcGFydG5lcnMgYWNyb3NzIHRoZSBoZWFsdGggYW5kIHNvY2lhbCBjYXJlIHN5c3RlbSB0byBlbnN1cmUgaW5mb3JtYXRpb24gZmxvd3MgZWZmaWNpZW50bHkgYW5kIHNlY3VyZWx5Lg==
+        - Most popular services
+        - Search
+        - View all services
+        - Data and information
+    /homepage-labels[3]:
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-02T13:13:41.756Z
+      hippostdpubwf:lastModificationDate: 2018-02-12T14:06:00.259Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-12T14:06:01.527Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: resourcebundle:resourcebundle
+      resourcebundle:descriptions:
+      - Text for the search banner
+      - Title attribute of the search input field
+      - Placeholder text for the search input field
+      - ''
+      - ''
+      - ''
+      - Label of the search button
+      - ''
+      - Home page - Data and information section title
+      resourcebundle:id: homepage.website.labels
+      resourcebundle:keys:
+      - search-banner.text
+      - search-banner.title
+      - search-banner.placeholder
+      - systems-and-services.title
+      - systems-and-services.text
+      - systems-and-services.subTitle
+      - search-banner.buttonLabel
+      - systems-and-services.buttonLabel
+      - data-and-information.title
+      resourcebundle:messages:
+        type: string
+        value:
+        - NHSS Digital provides technology, information and services, which help the
+          NHS deliver better care
+        - Search for content on the website
+        - What are you looking for today?
+        - Systems and services
+        - !!binary |-
+          V2UgYXJlIHRoZSBuYXRpb25hbCBwcm92aWRlciBvZiBpbmZvcm1hdGlvbiwgZGF0YSBhbmQgSVQgc3lzdGVtcyADZm9yIGNvbW1pc3Npb25lcnMsIGFuYWx5c3RzIGFuZCBjbGluaWNpYW5zIGluIGhlYWx0aCBhbmQgc29jaWFsIGNhcmUuICAgICBXZSB3b3JrIHdpdGggcGFydG5lcnMgYWNyb3NzIHRoZSBoZWFsdGggYW5kIHNvY2lhbCBjYXJlIHN5c3RlbSB0byBlbnN1cmUgaW5mb3JtYXRpb24gZmxvd3MgZWZmaWNpZW50bHkgYW5kIHNlY3VyZWx5Lg==
+        - Most popular services
+        - Search
+        - View all services
+        - Data and information
+    hippo:name: Home Page Labels
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
   /section-type:
     /section-type:
       hippo:availability:

@@ -1,3 +1,8 @@
+@import "../../normalize/_variables.scss";
+@import "../settings/colours";
+@import "../settings/typography";
+@import "../tools/mixins/typography";
+
 body,
 h1,
 h2,
@@ -25,10 +30,112 @@ hr {
   padding: 0;
 }
 
-header,
+html {
+  color: $text-colour;
+  font-family: $nhs-font-stack;
+  line-height: $base-line-height;
+
+  @include core-font(20);
+}
+
+body {
+  background-color: $col-septenary;
+  margin: 0;
+}
+
 footer {
-  background: $col-quaternary;
-  color: $col-septenary;
-  text-align: center;
+  height: 10rem;
+  height: 200px;
   padding: $baseline-grid-unit * 6;
+  background: $col-primary;
+}
+
+iframe {
+  border: none;
+  outline: none;
+}
+
+input {
+  -webkit-border-radius: 0;
+  -webkit-appearance: none;
+}
+
+input::placeholder {
+  color: $col-quaternary;
+  opacity: 0.5;
+  text-shadow: none;
+  -webkit-text-fill-color: initial;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  color: #000 !important;
+  -webkit-box-shadow: 0 0 0 1000px #fff inset;
+  -webkit-text-fill-color: #000;
+}
+
+/* Responsive base font sizes on units */
+p,
+ul,
+ol,
+dl,
+blockquote,
+table {
+  @include core-font(20);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}
+
+h1 {
+  @include bold-font($h1-font-size/1px);
+  margin-bottom: 0;
+}
+
+h2 {
+  @include bold-font($h2-font-size/1px);
+  margin-bottom: round($base-font-size * 0.9);
+
+  @include media(tablet) {
+    margin-bottom: round($base-font-size * 0.75);
+  }
+}
+
+h3 {
+  @include bold-font($h3-font-size/1px);
+  margin-bottom: round($base-font-size * 0.75);
+
+  @include media(tablet) {
+    margin-bottom: $base-font-size;
+  }
+}
+
+h4 {
+  @include bold-font($h4-font-size/1px);
+}
+
+h5 {
+  @include bold-font($h5-font-size/1px);
+}
+
+img {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+ol, ul, dl {
+  li {
+    margin-top: 0;
+  }
 }

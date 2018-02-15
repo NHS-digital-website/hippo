@@ -1,3 +1,6 @@
+@import "../environment/tools/mixins/layout";
+@import "../environment/tools/mixins/typography";
+
 // Grid layout
 // ==========================================================================
 
@@ -15,48 +18,117 @@
 
 // Use .grid-row to define a row for grid columns to sit in
 .grid-row {
-  @include grid-row;
+    @include grid-row;
+
+    margin-top: 20px;
+
+    // IE7-8 style override
+    &:last-child {
+        margin-top: 0;
+    }
+
+    @include media(desktop) {
+        margin-top: 30px;
+    }
+}
+
+.column {
+    @include grid-column(4 / 4);
+}
+
+.column--no-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.column--no-left-padding {
+    padding-left: 0;
+}
+.column--no-right-padding {
+    padding-right: 0;
 }
 
 // Use .grid-column to create a grid column with 15px gutter
 // By default grid columns break to become full width at 925px
 .column--one-quarter {
-  @include grid-column(1 / 4);
+    @include grid-column(1 / 4);
 }
 
 .column--one-third {
-  @include grid-column(1 / 3);
+    @include grid-column(1 / 3);
 }
 
 .column--one-half {
-  @include grid-column(1 / 2);
+    @include grid-column(1 / 2);
 }
 
 .column--two-thirds {
-  @include grid-column(2 / 3);
+    @include grid-column(2 / 3);
 }
 
 .column--three-quarters {
-  @include grid-column(3 / 4);
+    @include grid-column(3 / 4);
 }
 
 // Right floating column classes
 .column--one-quarter-right {
-  @include grid-column(1 / 4, $float: right);
+    @include grid-column(1 / 4, $float: right);
 }
 
 .column--one-third-right {
-  @include grid-column(1 / 3, $float: right);
+    @include grid-column(1 / 3, $float: right);
 }
 
 .column--one-half-right {
-  @include grid-column(1 / 2, $float: right);
+    @include grid-column(1 / 2, $float: right);
 }
 
 .column--two-thirds-right {
-  @include grid-column(2 / 3, $float: right);
+    @include grid-column(2 / 3, $float: right);
 }
 
 .column--three-quarters-right {
-  @include grid-column(3 / 4, $float: right);
+    @include grid-column(3 / 4, $float: right);
+}
+
+
+/* Grid wrapper */
+.grid-wrapper {
+    max-width: $site-width;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 $gutter;
+}
+
+.grid-wrapper--wide {
+    padding: 0;
+}
+
+.grid-wrapper--collapse {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.grid-wrapper--collapse-bottom {
+    padding-bottom: 0;
+}
+
+.grid-wrapper--article {
+    margin-bottom: $baseline-grid-unit * 20;
+
+    + .grid-wrapper--article {
+        padding-top: 0;
+    }
+}
+
+
+.debug {
+    .grid-wrapper {
+        background: rgba(255, 0, 0, 0.05);
+    }
+
+    .column {
+        background: rgba(0, 0, 255, 0.05);
+    }
 }
