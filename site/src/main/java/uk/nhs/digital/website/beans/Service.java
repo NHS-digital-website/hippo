@@ -4,8 +4,6 @@ import org.hippoecm.hst.content.beans.*;
 import org.hippoecm.hst.content.beans.standard.*;
 import org.onehippo.cms7.essentials.dashboard.annotations.*;
 
-import uk.nhs.digital.common.beans.*;
-
 import java.util.*;
 
 @HippoEssentialsGenerated(internalName = "website:service")
@@ -33,8 +31,7 @@ public class Service extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "website:toptasks")
     public List<HippoHtml> getToptasks() {
-        return getChildBeansByName("website:toptasks",
-            HippoHtml.class);
+        return getChildBeansByName("website:toptasks", HippoHtml.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:introduction")
@@ -51,5 +48,9 @@ public class Service extends BaseDocument {
     public HippoHtml getContactdetails() {
         return getHippoHtml("website:contactdetails");
     }
-}
 
+    @HippoEssentialsGenerated(internalName = "website:component")
+    public HippoHtml getComponent() {
+        return getHippoHtml("website:component");
+    }
+}
