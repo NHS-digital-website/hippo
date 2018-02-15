@@ -4,7 +4,7 @@
     @extend .list-reset;
 
     h2 {
-        @include core-font(20);
+        @include bold-font(18);
 
         line-height: 30px;
         margin-bottom: $baseline-grid-unit * 2;

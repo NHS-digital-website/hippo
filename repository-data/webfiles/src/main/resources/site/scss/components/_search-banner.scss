@@ -12,6 +12,7 @@
     color: $col-septenary;
     max-width: 420px;
     margin-bottom: 30px;
+    @include core-font(20);
 
     @include media(desktop) {
         max-width: 500px;

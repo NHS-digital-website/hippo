@@ -7,9 +7,9 @@ import org.slf4j.*;
 
 import java.util.*;
 
-public class ServiceComponent extends EssentialsContentComponent {
+public class DocumentChildComponent extends EssentialsContentComponent {
 
-    private static Logger log = LoggerFactory.getLogger(ServiceComponent.class);
+    private static Logger log = LoggerFactory.getLogger(DocumentChildComponent.class);
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
@@ -22,9 +22,9 @@ public class ServiceComponent extends EssentialsContentComponent {
             List<HippoFolder> childFolders = parentBean.getChildBeans(HippoFolder.class);
             List<HippoDocumentBean> childPages = new ArrayList<>();
             for (HippoFolder childFolder : childFolders) {
-                //retrieving child documents sharing the name with its parent folder
+                //retrieving child documents having name "content"
                 Optional<HippoDocumentBean> optDocument =
-                    childFolder.getDocuments().stream().filter(childDocument -> childFolder.getName().equals(childDocument.getName())).findFirst();
+                    childFolder.getDocuments().stream().filter(childDocument -> childDocument.getName().equals("content")).findFirst();
                 //in case the childFolder contains a document with the same name, include it in the childPages
                 if (optDocument.isPresent()) {
                     childPages.add(optDocument.get());
