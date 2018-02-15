@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/nationalindicatorlibrary/nihub:
+    /hippo:namespaces/nationalindicatorlibrary/nilanding:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -24,66 +24,28 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Title
             field: title
-            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /summary:
+          /content:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Summary
-            field: summary
+            caption: Content
+            field: content
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /populateTopicLinks:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Popular Topics
-            field: populateTopicLinks
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /nihublink:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: National Indicator hub links
-            field: nihublink
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /nihublink:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: nationalindicatorlibrary:nihublink
-            hipposysedit:primary: false
-            hipposysedit:type: nationalindicatorlibrary:nihublink
-            jcr:primaryType: hipposysedit:field
-          /populateTopicLinks:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: false
-            hipposysedit:path: nationalindicatorlibrary:populateTopicLinks
-            hipposysedit:primary: false
-            hipposysedit:type: nationalindicatorlibrary:actionlink
-            jcr:primaryType: hipposysedit:field
-          /summary:
+          /content:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: nationalindicatorlibrary:summary
+            hipposysedit:path: nationalindicatorlibrary:content
             hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators:
-            - non-empty
-            - required
+            hipposysedit:type: Html
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
@@ -111,23 +73,19 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          /nationalindicatorlibrary:populateTopicLinks:
-            jcr:primaryType: nationalindicatorlibrary:actionlink
-            nationalindicatorlibrary:actionLinkTitle: ''
-            nationalindicatorlibrary:actionLinkUrl: ''
           common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
-          hippostdpubwf:creationDate: 2018-02-13T13:56:11.446Z
-          hippostdpubwf:lastModificationDate: 2018-02-13T13:56:11.446Z
+          hippostdpubwf:creationDate: 2018-02-20T09:13:04.762Z
+          hippostdpubwf:lastModificationDate: 2018-02-20T09:13:04.762Z
           hippostdpubwf:lastModifiedBy: ''
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes:
           - mix:referenceable
-          jcr:primaryType: nationalindicatorlibrary:nihub
-          nationalindicatorlibrary:summary: ''
+          jcr:primaryType: nationalindicatorlibrary:nilanding
+          nationalindicatorlibrary:content: ''
           nationalindicatorlibrary:title: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:

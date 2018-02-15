@@ -24,7 +24,9 @@ rootDir.eachFileRecurse(FileType.DIRECTORIES) { dir ->
         // Same for ci-hub and cihublink, since referenced for page links
         boolean removeUuid = !file.getName().equals("corporate-website.yaml") &&
             !file.getName().equals("ci-hub.yaml") &&
-            !file.getName().equals("cihublink.yaml")
+            !file.getName().equals("cihublink.yaml") &&
+            !file.getName().equals("nihub.yaml") &&
+            !file.getName().equals("nihublink.yaml")
         map = format(map, removeUuid, true)
 
         // Write out the formatted yaml

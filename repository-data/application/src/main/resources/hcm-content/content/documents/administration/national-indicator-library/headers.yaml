@@ -51,6 +51,9 @@
     - headers.numerator
     - headers.denominator
     - headers.calculation
+    - headers.popularTopics
+    - headers.topicsAZ
+    - headers.indicatorsAndAssurance
     resourcebundle:messages:
     - Assurance Date
     - Based on data from
@@ -71,6 +74,9 @@
     - Numerator
     - Denominator
     - Calculation
+    - Popular indicator topics
+    - Indicator topics A-Z
+    - Indicators and assurance
   /headers[2]:
     hippo:availability:
     - preview
@@ -124,6 +130,9 @@
     - headers.numerator
     - headers.denominator
     - headers.calculation
+    - headers.popularTopics
+    - headers.topicsAZ
+    - headers.indicatorsAndAssurance
     resourcebundle:messages:
     - Assurance Date
     - Based on data from
@@ -144,6 +153,9 @@
     - Numerator
     - Denominator
     - Calculation
+    - Popular indicator topics
+    - Indicator topics A-Z
+    - Indicators and assurance
   /headers[3]:
     hippo:availability:
     - live
@@ -197,6 +209,9 @@
     - headers.numerator
     - headers.denominator
     - headers.calculation
+    - headers.popularTopics
+    - headers.topicsAZ
+    - headers.indicatorsAndAssurance
     resourcebundle:messages:
     - Assurance Date
     - Based on data from
@@ -217,6 +232,9 @@
     - Numerator
     - Denominator
     - Calculation
+    - Popular indicator topics
+    - Indicator topics A-Z
+    - Indicators and assurance
   hippo:name: Headers
   jcr:mixinTypes:
   - hippo:named

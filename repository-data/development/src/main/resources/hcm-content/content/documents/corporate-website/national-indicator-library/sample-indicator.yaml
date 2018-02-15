@@ -1,10 +1,10 @@
 ---
 /content/documents/corporate-website/national-indicator-library/sample-indicator:
   /sample-indicator[1]:
+    common:FacetType: indicator
     common:FullTaxonomy:
     - cancer
     - conditions
-    common:FacetType: indicator
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
@@ -90,10 +90,10 @@
     nationalindicatorlibrary:title: People with stroke admitted to an acute stroke
       unit within 4 hours of arrival at hospital
   /sample-indicator[2]:
+    common:FacetType: indicator
     common:FullTaxonomy:
     - cancer
     - conditions
-    common:FacetType: indicator
     common:searchable: true
     hippo:availability:
     - preview
@@ -181,10 +181,10 @@
     nationalindicatorlibrary:title: People with stroke admitted to an acute stroke
       unit within 4 hours of arrival at hospital
   /sample-indicator[3]:
+    common:FacetType: indicator
     common:FullTaxonomy:
     - cancer
     - conditions
-    common:FacetType: indicator
     common:searchable: true
     hippo:availability:
     - live
