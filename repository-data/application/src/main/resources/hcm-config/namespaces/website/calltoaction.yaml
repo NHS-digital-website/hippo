@@ -77,6 +77,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /image:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Image
+            field: image
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -95,6 +104,14 @@ definitions:
             hipposysedit:path: website:external
             hipposysedit:primary: false
             hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /image:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:image
+            hipposysedit:primary: false
+            hipposysedit:type: hippogallerypicker:imagelink
             jcr:primaryType: hipposysedit:field
           /internal:
             hipposysedit:mandatory: false
@@ -135,6 +152,12 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
           /website:internal:
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             jcr:primaryType: hippo:mirror
