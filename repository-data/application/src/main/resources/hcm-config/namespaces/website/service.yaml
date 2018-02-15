@@ -94,9 +94,26 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /component:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Component
+            field: component
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
+          /component:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:component
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
           /contactdetails:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -186,6 +203,9 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft
