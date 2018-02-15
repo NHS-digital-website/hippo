@@ -19,6 +19,26 @@ definitions:
           hst:refId: pagenotfound
           jcr:primaryType: hst:sitemapitem
         jcr:primaryType: hst:sitemapitem
+      /general:
+        /_any_:
+          /_index_:
+            hst:componentconfigurationid: hst:pages/general
+            hst:componentconfigurationmappingnames:
+            - website:general
+            hst:componentconfigurationmappingvalues:
+            - hst:pages/general
+            hst:relativecontentpath: ${parent}/content
+            jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/404
+          hst:componentconfigurationmappingnames:
+          - website:general
+          hst:componentconfigurationmappingvalues:
+          - hst:pages/general
+          hst:relativecontentpath: ${parent}/${1}
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/general
+        hst:relativecontentpath: general
+        jcr:primaryType: hst:sitemapitem
       /homeland:
         /_any_:
           hst:componentconfigurationid: hst:pages/homeland
@@ -41,10 +61,20 @@ definitions:
         jcr:primaryType: hst:sitemapitem
       /services:
         /_any_:
-          hst:componentconfigurationid: hst:pages/service
+          /_index_:
+            hst:componentconfigurationid: hst:pages/general
+            hst:componentconfigurationmappingnames:
+            - website:service
+            hst:componentconfigurationmappingvalues:
+            - hst:pages/service
+            hst:relativecontentpath: ${parent}/content
+            jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/404
+          hst:componentconfigurationmappingnames:
+          - website:service
+          hst:componentconfigurationmappingvalues:
+          - hst:pages/service
           hst:relativecontentpath: ${parent}/${1}
-          hst:sitemapitemhandlerids:
-          - DefaultDocumentSitemapHandler
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/service
         hst:relativecontentpath: services

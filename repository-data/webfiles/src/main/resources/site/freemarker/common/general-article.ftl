@@ -5,12 +5,8 @@
 <@hst.setBundle basename="site.website.labels"/>
 <@fmt.message key="child-pages-section.title" var="childPagesSectionTitle"/>
 
-<article class="article article--service">
+<article class="article article--general">
     <div class="grid-wrapper grid-wrapper--article">
-        <div class="local-header article-header">
-            <h1 class="local-header__title">${document.title}</h1>
-        </div>
-
         <div class="grid-row">
             <div class="column column--one-third page-block page-block--sidebar page-block--sticky-top">
                 <div class="article-section-nav">
@@ -34,43 +30,21 @@
             </div>
 
             <div class="column column--two-thirds page-block page-block--main">
+                <div class="article-header article-header--secondary">
+                    <h1>${document.title}</h1>
+                </div>
+                
                 <#-- BEGIN mandatory 'summary section' -->
-                <#if document.toptasks?has_content>
-                    <#assign summarySectionClassName = "article-section article-section--summary">
-                <#else>
-                    <#assign summarySectionClassName = "article-section article-section--summary article-section--summary-with-border">
-                </#if>
-                <section id="section-summary" class="${summarySectionClassName}">
-                    <h2>Summary</h2>
+                <section id="section-summary" class="article-section article-section--summary article-section--summary-with-border">
                     <p>${document.summary}</p>
                 </section>
                 <#-- END mandatory 'summary section' -->
 
-                <#-- BEGIN optional list of 'top tasks section' -->
-                <#if document.toptasks?has_content>
-                <section class="article-section article-section--top-tasks">
-                    <div class="callout callout--attention">
-                        <h2>Top Tasks</h2>
-
-                        <#list document.toptasks as toptask>
-                        <@hst.html hippohtml=toptask/>
-                        </#list>
-                    </div>
-                </section>
-                </#if>
-                <#-- END optional list of 'top tasks section' -->
-
-                <#-- BEGIN optional 'Introduction section' -->
-                <#if document.introduction??>
-                <div class="article-section article-section--introduction">
-                    <@hst.html hippohtml=document.introduction/>
-                </div>
-                </#if>
-                <#-- END optional 'Introduction section' -->
-
+                <#-- BEGIN optional 'Sections' -->
                 <@articleSections document.sections></@articleSections>
+                <#-- END optional 'Sections' -->
 
-                <#-- BEGIN optional 'Further Information section' -->
+                <#-- BEGIN optional 'Further information section' -->
                 <#if childPages?has_content>
                 <section class="article-section article-section--child-pages" id="section-child-pages">
                     <h2>${childPagesSectionTitle}</h2>

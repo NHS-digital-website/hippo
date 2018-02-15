@@ -29,7 +29,7 @@ public class DefaultDocumentLinkProcessor extends HstLinkProcessorTemplate {
         String path = hstLink.getPath();
         String[] pathTokens = path.split("/");
         int tokenLength = pathTokens.length;
-        if (tokenLength > 1 && pathTokens[tokenLength - 1].equals(pathTokens[tokenLength - 2])) {
+        if (tokenLength > 1 && pathTokens[tokenLength - 1].equals("content")) {
             //removing the last token to avoid repetition
             String shortPath = StringUtils.join(pathTokens, "/", 0, tokenLength - 1);
             hstLink.setPath(shortPath);

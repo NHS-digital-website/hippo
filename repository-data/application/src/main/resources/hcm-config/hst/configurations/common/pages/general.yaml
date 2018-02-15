@@ -1,10 +1,10 @@
 ---
 definitions:
   config:
-    /hst:hst/hst:configurations/common/hst:pages/service:
+    /hst:hst/hst:configurations/common/hst:pages/general:
       /main:
         hst:componentclassname: uk.nhs.digital.common.components.DocumentChildComponent
-        hst:template: service-article
+        hst:template: general-article
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/apppage
       jcr:primaryType: hst:component
