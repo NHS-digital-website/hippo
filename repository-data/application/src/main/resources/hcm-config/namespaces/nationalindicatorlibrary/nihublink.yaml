@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/nationalindicatorlibrary/nihub:
+    /hippo:namespaces/nationalindicatorlibrary/nihublink:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -24,7 +24,6 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Title
             field: title
-            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
@@ -33,24 +32,16 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Summary
             field: summary
-            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /populateTopicLinks:
+          /pagelink:
             /cluster.options:
+              base.path: /content/documents/corporate-website/national-indicator-library/nihub
               jcr:primaryType: frontend:pluginconfig
-            caption: Popular Topics
-            field: populateTopicLinks
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /nihublink:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: National Indicator hub links
-            field: nihublink
+              nodetypes: []
+            caption: Landing page link
+            field: pagelink
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
@@ -58,21 +49,15 @@ definitions:
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /nihublink:
+          /pagelink:
             hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: nationalindicatorlibrary:nihublink
-            hipposysedit:primary: false
-            hipposysedit:type: nationalindicatorlibrary:nihublink
-            jcr:primaryType: hipposysedit:field
-          /populateTopicLinks:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
+            hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: nationalindicatorlibrary:populateTopicLinks
+            hipposysedit:path: nationalindicatorlibrary:pagelink
             hipposysedit:primary: false
-            hipposysedit:type: nationalindicatorlibrary:actionlink
+            hipposysedit:type: hippo:mirror
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /summary:
             hipposysedit:mandatory: false
@@ -80,7 +65,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: nationalindicatorlibrary:summary
             hipposysedit:primary: false
-            hipposysedit:type: String
+            hipposysedit:type: Text
             hipposysedit:validators:
             - non-empty
             - required
@@ -98,9 +83,8 @@ definitions:
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
-          - nationalindicatorlibrary:basedocument
+          - hippo:compound
           - hippostd:relaxed
-          - hippotranslation:translated
           hipposysedit:uri: http://digital.nhs.uk/jcr/nationalindicatorlibrary/nt/1.0
           jcr:mixinTypes:
           - mix:referenceable
@@ -111,22 +95,10 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          /nationalindicatorlibrary:populateTopicLinks:
-            jcr:primaryType: nationalindicatorlibrary:actionlink
-            nationalindicatorlibrary:actionLinkTitle: ''
-            nationalindicatorlibrary:actionLinkUrl: ''
-          common:searchable: true
-          hippostd:holder: holder
-          hippostd:state: draft
-          hippostdpubwf:createdBy: ''
-          hippostdpubwf:creationDate: 2018-02-13T13:56:11.446Z
-          hippostdpubwf:lastModificationDate: 2018-02-13T13:56:11.446Z
-          hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: document-type-locale-id
-          hippotranslation:locale: document-type-locale
-          jcr:mixinTypes:
-          - mix:referenceable
-          jcr:primaryType: nationalindicatorlibrary:nihub
+          /nationalindicatorlibrary:pagelink:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: nationalindicatorlibrary:nihublink
           nationalindicatorlibrary:summary: ''
           nationalindicatorlibrary:title: ''
         jcr:primaryType: hipposysedit:prototypeset

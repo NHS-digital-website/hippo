@@ -5,6 +5,9 @@
 <'common'='http://digital.nhs.uk/jcr/common/nt/1.0'>
 <'hippotranslation'='http://www.onehippo.org/jcr/hippotranslation/nt/1.0'>
 
+[nationalindicatorlibrary:actionlink] > hippo:compound, hippostd:relaxed
+  orderable
+
 [nationalindicatorlibrary:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
   orderable
   - common:searchable (boolean) = 'true' autocreated
@@ -13,5 +16,11 @@
   orderable
 
 [nationalindicatorlibrary:nihub] > hippostd:relaxed, hippotranslation:translated, nationalindicatorlibrary:basedocument
+  orderable
+
+[nationalindicatorlibrary:nihublink] > hippo:compound, hippostd:relaxed
+  orderable
+
+[nationalindicatorlibrary:nilanding] > hippostd:relaxed, hippotranslation:translated, nationalindicatorlibrary:basedocument
   orderable
 
