@@ -70,8 +70,17 @@
         <section id="methodology" class="push-double--bottom">
             <h2><@fmt.message key="headers.methodology"/></h2>
 
-            <h3><@fmt.message key="headers.methodology"/></h3>
-            <p>${indicator.descriptor}</p>
+            <h3><@fmt.message key="headers.dataSource"/></h3>
+            <p>${indicator.dataSource}</p>
+
+            <h3><@fmt.message key="headers.numerator"/></h3>
+            <p>${indicator.numerator}</p>
+
+            <h3><@fmt.message key="headers.denominator"/></h3>
+            <p>${indicator.denominator}</p>
+
+            <h3><@fmt.message key="headers.calculation"/></h3>
+            <p>${indicator.calculation}</p>                        
 
             <h3><@fmt.message key="headers.caveats"/></h3>
             <p>${indicator.caveats}</p>

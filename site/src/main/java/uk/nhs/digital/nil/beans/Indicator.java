@@ -89,8 +89,23 @@ public class Indicator extends BaseDocument {
         return getProperty("nationalindicatorlibrary:reviewDate");
     }
 
-    @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:descriptor")
-    public String getDescriptor() {
-        return getProperty("nationalindicatorlibrary:descriptor");
+    @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:dataSource")
+    public String getDataSource() {
+        return getProperty("nationalindicatorlibrary:dataSource");
     }
+
+    @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:numerator")
+    public String getNumerator() {
+        return getProperty("nationalindicatorlibrary:numerator");
+    }
+
+    @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:denominator")
+    public String getDenominator() {
+        return getProperty("nationalindicatorlibrary:denominator");
+    }
+
+    @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:calculation")
+    public String getCalculation() {
+        return getProperty("nationalindicatorlibrary:calculation");
+    }            
 }

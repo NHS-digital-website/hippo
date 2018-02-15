@@ -135,11 +135,38 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /descriptor:
+          /dataSource:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Descriptor
-            field: methodology
+            caption: Data source
+            field: dataSource
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /numerator:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Numerator
+            field: numerator
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /denominator:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Denominator
+            field: denominator
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /calculation:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Calculation
+            field: calculation
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
@@ -181,6 +208,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Text
             jcr:primaryType: hipposysedit:field
+          /calculation:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:calculation
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            jcr:primaryType: hipposysedit:field
           /caveats:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -197,11 +232,27 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Text
             jcr:primaryType: hipposysedit:field
+          /dataSource:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:dataSource
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            jcr:primaryType: hipposysedit:field
           /definition:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: nationalindicatorlibrary:definition
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            jcr:primaryType: hipposysedit:field
+          /denominator:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:denominator
             hipposysedit:primary: false
             hipposysedit:type: Text
             jcr:primaryType: hipposysedit:field
@@ -229,11 +280,11 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Text
             jcr:primaryType: hipposysedit:field
-          /methodology:
+          /numerator:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: nationalindicatorlibrary:descriptor
+            hipposysedit:path: nationalindicatorlibrary:numerator
             hipposysedit:primary: false
             hipposysedit:type: Text
             jcr:primaryType: hipposysedit:field
@@ -333,13 +384,16 @@ definitions:
           jcr:primaryType: nationalindicatorlibrary:indicator
           nationalindicatorlibrary:assuranceDate: 0001-01-01T12:00:00Z
           nationalindicatorlibrary:basedOn: ''
+          nationalindicatorlibrary:calculation: ''
           nationalindicatorlibrary:caveats: ''
           nationalindicatorlibrary:contactAuthor: ''
+          nationalindicatorlibrary:dataSource: ''
           nationalindicatorlibrary:definition: ''
-          nationalindicatorlibrary:descriptor: ''
+          nationalindicatorlibrary:denominator: ''
           nationalindicatorlibrary:iapCode: ''
           nationalindicatorlibrary:indicatorSet: ''
           nationalindicatorlibrary:interpretationGuidelines: ''
+          nationalindicatorlibrary:numerator: ''
           nationalindicatorlibrary:publishedBy: ''
           nationalindicatorlibrary:publishedDate: 0001-01-01T12:00:00Z
           nationalindicatorlibrary:purpose: ''

@@ -39,6 +39,10 @@
       - headers.indicatorSet
       - headers.interpretationGuidelines
       - headers.methodology
+      - headers.dataSource
+      - headers.numerator
+      - headers.denominator
+      - headers.calculation
       - headers.publishedBy
       - headers.publishedDate
       - headers.purpose
@@ -56,6 +60,10 @@
       - 'Indicator Set:'
       - 'Interpretation Guidelines:'
       - 'Methodology: how the indicator is calculated'
+      - 'Data Source:'
+      - 'Numerator:'
+      - 'Denominator:'
+      - 'Calculation:'
       - 'Published by:'
       - 'Published date:'
       - Purpose
@@ -103,6 +111,10 @@
       - headers.indicatorSet
       - headers.interpretationGuidelines
       - headers.methodology
+      - headers.dataSource
+      - headers.numerator
+      - headers.denominator
+      - headers.calculation
       - headers.publishedBy
       - headers.publishedDate
       - headers.purpose
@@ -120,6 +132,10 @@
       - 'Indicator Set:'
       - 'Interpretation Guidelines:'
       - 'Methodology: how the indicator is calculated'
+      - 'Data Source:'
+      - 'Numerator:'
+      - 'Denominator:'
+      - 'Calculation:'
       - 'Published by:'
       - 'Published date:'
       - Purpose
@@ -167,6 +183,10 @@
       - headers.indicatorSet
       - headers.interpretationGuidelines
       - headers.methodology
+      - headers.dataSource
+      - headers.numerator
+      - headers.denominator
+      - headers.calculation
       - headers.publishedBy
       - headers.publishedDate
       - headers.purpose
@@ -184,6 +204,10 @@
       - 'Indicator Set:'
       - 'Interpretation Guidelines:'
       - 'Methodology: how the indicator is calculated'
+      - 'Data Source:'
+      - 'Numerator:'
+      - 'Denominator:'
+      - 'Calculation:'
       - 'Published by:'
       - 'Published date:'
       - Purpose
