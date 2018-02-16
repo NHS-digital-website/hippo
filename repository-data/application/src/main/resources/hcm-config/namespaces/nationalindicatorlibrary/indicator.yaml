@@ -45,14 +45,6 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /publishedDate:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Published date
-            field: publishedDate
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
           /reportingPeriod:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -296,14 +288,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Text
             jcr:primaryType: hipposysedit:field
-          /publishedDate:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: nationalindicatorlibrary:publishedDate
-            hipposysedit:primary: false
-            hipposysedit:type: Date
-            jcr:primaryType: hipposysedit:field
           /purpose:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -395,7 +379,6 @@ definitions:
           nationalindicatorlibrary:interpretationGuidelines: ''
           nationalindicatorlibrary:numerator: ''
           nationalindicatorlibrary:publishedBy: ''
-          nationalindicatorlibrary:publishedDate: 0001-01-01T12:00:00Z
           nationalindicatorlibrary:purpose: ''
           nationalindicatorlibrary:rating: ''
           nationalindicatorlibrary:reportingLevel: ''

@@ -24,7 +24,7 @@
         <div class="layout">
             <div class="layout__item layout-1-2">
                 <p class="push-half--bottom"><strong><@fmt.message key="headers.publishedBy"/></strong> ${indicator.publishedBy}</p>
-                <p class="push-half--bottom"><strong><@fmt.message key="headers.publishedDate"/></strong> ${indicator.publishedDate.time?string[dateFormat]}</p>
+                <p class="push-half--bottom"><strong><@fmt.message key="headers.assuranceDate"/></strong> ${indicator.assuranceDate.time?string[dateFormat]}</p>
                 <p class="push-half--bottom"><strong><@fmt.message key="headers.reportingPeriod"/></strong> ${indicator.reportingPeriod}</p>
                 <p class="push-half--bottom"><strong><@fmt.message key="headers.basedOn"/></strong> ${indicator.basedOn}</p>
             </div><!--
@@ -108,7 +108,7 @@
                 <tr>
                     <td>Title</td>
                     <td>Publisher</td>
-                    <td>Published Date</td>
+                    <td>Assured Date</td>
                     <td>Assured Until</td>
                 </tr>
                 <tr>
