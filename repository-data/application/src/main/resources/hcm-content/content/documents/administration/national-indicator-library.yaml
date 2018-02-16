@@ -44,7 +44,6 @@
       - headers.denominator
       - headers.calculation
       - headers.publishedBy
-      - headers.publishedDate
       - headers.purpose
       - headers.rating
       - headers.reportingLevel
@@ -65,7 +64,6 @@
       - 'Denominator:'
       - 'Calculation:'
       - 'Published by:'
-      - 'Published date:'
       - Purpose
       - 'Rating:'
       - 'Reporting level:'
@@ -116,7 +114,6 @@
       - headers.denominator
       - headers.calculation
       - headers.publishedBy
-      - headers.publishedDate
       - headers.purpose
       - headers.rating
       - headers.reportingLevel
@@ -137,7 +134,6 @@
       - 'Denominator:'
       - 'Calculation:'
       - 'Published by:'
-      - 'Published date:'
       - Purpose
       - 'Rating:'
       - 'Reporting level:'
@@ -188,7 +184,6 @@
       - headers.denominator
       - headers.calculation
       - headers.publishedBy
-      - headers.publishedDate
       - headers.purpose
       - headers.rating
       - headers.reportingLevel
@@ -209,7 +204,6 @@
       - 'Denominator:'
       - 'Calculation:'
       - 'Published by:'
-      - 'Published date:'
       - Purpose
       - 'Rating:'
       - 'Reporting level:'
