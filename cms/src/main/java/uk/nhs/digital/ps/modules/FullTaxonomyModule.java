@@ -1,5 +1,6 @@
 package uk.nhs.digital.ps.modules;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.jackrabbit.value.StringValue;
 import org.hippoecm.repository.util.JcrUtils;
 import org.onehippo.repository.events.HippoWorkflowEvent;
@@ -49,6 +50,12 @@ public class FullTaxonomyModule extends AbstractDaemonModule {
         Value[] fullTaxonomy = fullTaxonomyKeys.stream()
             .map(StringValue::new)
             .toArray(Value[]::new);
+
+        // We have seen this happen when a document has only invalid taxonomy keys
+        // Don't create the new property in this case
+        if (ArrayUtils.isEmpty(fullTaxonomy)) {
+            return;
+        }
 
         try {
             JcrUtils.ensureIsCheckedOut(document);

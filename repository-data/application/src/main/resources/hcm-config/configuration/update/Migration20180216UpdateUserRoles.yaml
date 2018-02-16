@@ -1,0 +1,14 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/Migration-20180216-Update-User-Roles:
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:parameters: ''
+      hipposys:path: /hippo:configuration/hippo:groups
+      hipposys:script:
+        resource: /configuration/update/Migration20180216UpdateUserRoles.groovy
+        type: string
+      hipposys:throttle: 200
+      jcr:primaryType: hipposys:updaterinfo

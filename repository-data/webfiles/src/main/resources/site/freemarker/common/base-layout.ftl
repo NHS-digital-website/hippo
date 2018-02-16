@@ -31,7 +31,7 @@
 
     <div class="beta-banner">
         <div class="beta-banner__inner">
-            You are trying the new Clinical Indicator pages. Please send any feedback to <a href="mailto:<@fmt.message key="email.feedback"/>"><@fmt.message key="email.feedback"/></a>.
+            You are trying the new Beta Clinical Indicator pages. Please send any feedback to <a href="mailto:<@fmt.message key="email.feedback"/>"><@fmt.message key="email.feedback"/></a>.
         </div>
     </div>
 

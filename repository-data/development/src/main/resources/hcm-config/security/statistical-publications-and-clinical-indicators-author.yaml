@@ -1,0 +1,6 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/statistical-publications-and-clinical-indicators-author:
+      hipposys:members:
+      - ci-author

@@ -16,6 +16,7 @@ definitions:
       /error:
         /404:
           hst:componentconfigurationid: hst:pages/404
+          hst:refId: pagenotfound
           jcr:primaryType: hst:sitemapitem
         jcr:primaryType: hst:sitemapitem
       /homeland:

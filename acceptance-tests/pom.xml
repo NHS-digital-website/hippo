@@ -19,7 +19,7 @@
     <properties>
         <cucumber.version>1.2.5</cucumber.version>
         <spring.version>5.0.3.RELEASE</spring.version>
-        <selenium.version>3.9.0</selenium.version>
+        <selenium.version>3.9.1</selenium.version>
     </properties>
 
     <dependencies>

@@ -1,8 +1,8 @@
 ---
 definitions:
   config:
-    /hippo:configuration/hippo:users/author:
+    /hippo:configuration/hippo:users/ci-author:
       hipposys:active: true
-      hipposys:password: author
+      hipposys:password: ci-author
       hipposys:securityprovider: internal
       jcr:primaryType: hipposys:user

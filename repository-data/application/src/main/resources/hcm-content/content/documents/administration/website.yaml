@@ -1,6 +1,6 @@
 ---
 /content/documents/administration/website:
-  .meta:order-before: national-indicator-library
+  .meta:order-before: publication-system
   /homepage-labels:
     /homepage-labels[1]:
       hippo:availability: []

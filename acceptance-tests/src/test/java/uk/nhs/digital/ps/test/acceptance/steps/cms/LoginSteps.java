@@ -1,5 +1,9 @@
 package uk.nhs.digital.ps.test.acceptance.steps.cms;
 
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -7,9 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.pages.DashboardPage;
 import uk.nhs.digital.ps.test.acceptance.pages.LoginPage;
 import uk.nhs.digital.ps.test.acceptance.steps.AbstractSpringSteps;
-
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.assertThat;
 
 public class LoginSteps extends AbstractSpringSteps {
 
@@ -22,11 +23,6 @@ public class LoginSteps extends AbstractSpringSteps {
     @Given("^I am on login page$")
     public void givenIAmOnLoginPage() throws Throwable {
         loginPage.open();
-    }
-
-    @When("^I submit my valid admin credentials$")
-    public void whenISubmitMyValidAdminCredentials() throws Throwable {
-        loginPage.loginWith("admin", "admin");
     }
 
     @Then("^I (?:can )?open the dashboard page$")
@@ -50,11 +46,14 @@ public class LoginSteps extends AbstractSpringSteps {
         assertThat("Current page should be login page", loginPage.isOpen(),is(true) );
     }
 
-    @Given("^I am logged in as admin$")
-    public void givenIAmLoggedInAsAdmin() throws Throwable {
+    public void loginAsCiEditor() throws Throwable {
+        loginAs("ci-editor");
+    }
+
+    public void loginAs(String user) throws Throwable {
         givenIAmOnLoginPage();
-        whenISubmitMyValidAdminCredentials();
-        assertThat("Not logged in",loginPage.isLoggedIn(),is(true));
+        loginPage.loginWith(user, user);
+        assertTrue("Not logged in", loginPage.isLoggedIn());
     }
 
     @When("^I change my password to \"([^\"]*)\"$")

@@ -206,12 +206,12 @@ public class ContentPage extends AbstractCmsPage {
 
     public void unpublishDocument() {
         findPublicationMenu().click();
-        String takeOfflineXPath = XpathSelectors.EDITOR_BODY + "//span[text()='Take offline...']";
-        WebElement takeOffline = helper.findElement(By.xpath(takeOfflineXPath));
+
+        WebElement takeOffline = helper.findElement(By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Take offline...']"));
+        helper.waitUntilVisible(takeOffline);
 
         // if it has a link it can be taken offline, therefore it is online
-        boolean online = helper.findOptionalElement(By.xpath(takeOfflineXPath + "//a")) != null;
-
+        boolean online = helper.findOptionalElement(By.partialLinkText("Take offline...")) != null;
         if (online) {
             takeOffline.click();
             clickButtonOnModalDialog("OK");
@@ -235,20 +235,20 @@ public class ContentPage extends AbstractCmsPage {
     }
 
     public WebElement getFolderMenuItem(String menuOption, String... folders) {
-
-        WebElement folderElement = navigateToFolder(folders);
-
-        WebElement menuIcon = folderElement.findElement(By.xpath(".//a[contains(@class, 'hippo-tree-dropdown-icon-container')]"));
-        helper.waitUntilVisible(menuIcon);
-        menuIcon.click();
-
-        WebElement menu = helper.findElement(By.cssSelector("ul[class~='hippo-toolbar-menu-item']"));
-
-        // Find and click "Add new document" option
-        return helper.findOptionalChildElement(menu, By.cssSelector(
+        return helper.findOptionalChildElement(getFolderMenu(folders), By.cssSelector(
             "span[title='" +
                 menuOption +
                 "']"));
+    }
+
+    private WebElement getFolderMenu(String[] folders) {
+        WebElement folderElement = navigateToFolder(folders);
+
+        WebElement menuIcon = helper.findChildElement(folderElement, By.xpath(".//a[contains(@class, 'hippo-tree-dropdown-icon-container')]"));
+        helper.waitUntilVisible(menuIcon);
+        menuIcon.click();
+
+        return helper.findElement(By.cssSelector("ul[class~='hippo-toolbar-menu-item']"));
     }
 
     private boolean createDocument(String docType, String name) {
@@ -295,22 +295,33 @@ public class ContentPage extends AbstractCmsPage {
         menuItem.click();
     }
 
-    private WebElement navigateToFolder(String... folders) {
+    public List<String> getFolderMenuOptions(String... folders) {
+        return getFolderMenu(folders).findElements(By.tagName("li"))
+            .stream()
+            .map(WebElement::getText)
+            .collect(toList());
+    }
+
+    public WebElement navigateToFolder(String... folders) {
         String xpathSelector = XpathSelectors.NAVIGATION_LEFT + "//div[@class='wicket-tree']/div[1]";
 
         for (String folder : folders) {
             xpathSelector += "/following-sibling::div//a[contains(@class, 'hippo-tree-node-link') and @title='" + folder + "']";
 
-            getWebDriver().findElement(By.xpath(xpathSelector)).click();
-            helper.waitForElementUntil(
-                ExpectedConditions.attributeContains(
-                    By.xpath(xpathSelector), "class", "hippo-tree-node-expanded"));
+            WebElement folderElement = helper.findOptionalElement(By.xpath(xpathSelector));
+            if (folderElement != null
+                && !folderElement.getAttribute("class").contains("hippo-tree-node-expanded")) {
+                folderElement.click();
+                helper.waitForElementUntil(
+                    ExpectedConditions.attributeContains(
+                        By.xpath(xpathSelector), "class", "hippo-tree-node-expanded"));
+            }
 
             // select root again
             xpathSelector += "/ancestor::*[contains(@class, 'row')][1]";
         }
 
-        return helper.findElement(By.xpath(xpathSelector));
+        return helper.findOptionalElement(By.xpath(xpathSelector));
     }
 
     private boolean isDocumentPresent(String name) {
