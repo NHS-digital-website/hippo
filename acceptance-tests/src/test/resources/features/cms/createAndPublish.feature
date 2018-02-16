@@ -41,7 +41,7 @@ Feature: As am author I need to create a new publication
             | publication |
 
     Scenario: Restricted document types in ci hub folder
-        Given I am on the content page
+        Given I am logged in as admin on the content page
         Then I shouldn't have a "Add new folder..." menu option on the "Corporate Website/Publication System/CI hub" folder
         When I click the "Add new CI hub document..." menu option on the "Corporate Website/Publication System/CI hub" folder
         Then I should see the document options:
@@ -49,7 +49,7 @@ Feature: As am author I need to create a new publication
             | cilanding |
 
     Scenario: Restricted document type in about folders
-        Given I am on the content page
+        Given I am logged in as admin on the content page
         Then I shouldn't have a "Add new folder..." menu option on the "Corporate Website/About" folder
         When I click the "Add new about document..." menu option on the "Corporate Website/About" folder
         # No document options as you should automatically be creating an about type

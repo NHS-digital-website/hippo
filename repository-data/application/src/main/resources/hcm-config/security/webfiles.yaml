@@ -7,7 +7,6 @@ definitions:
         - liveusers
         - previewusers
         - sitewriters
-        - webmaster
         hipposys:role: readonly
         jcr:primaryType: hipposys:authrole
       /webfiles-domain:

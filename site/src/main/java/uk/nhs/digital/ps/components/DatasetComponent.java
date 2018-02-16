@@ -1,15 +1,15 @@
 package uk.nhs.digital.ps.components;
 
-import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
+import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
 import uk.nhs.digital.ps.beans.Dataset;
 
 import java.io.IOException;
 
-public class DatasetComponent extends BaseHstComponent {
+public class DatasetComponent extends EssentialsContentComponent {
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {

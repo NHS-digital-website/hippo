@@ -1,0 +1,30 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/statistical-publications-and-clinical-indicators:
+      /author:
+        hipposys:groups:
+        - statistical-publications-and-clinical-indicators-author
+        hipposys:role: author
+        jcr:primaryType: hipposys:authrole
+      /editor:
+        hipposys:groups:
+        - statistical-publications-and-clinical-indicators-editor
+        hipposys:role: editor
+        jcr:primaryType: hipposys:authrole
+      /publication-system-documents:
+        /path-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/corporate-website/publication-system
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      /readwrite:
+        hipposys:groups:
+        - statistical-publications-and-clinical-indicators-author
+        - statistical-publications-and-clinical-indicators-editor
+        hipposys:role: readwrite
+        jcr:primaryType: hipposys:authrole
+      jcr:primaryType: hipposys:domain

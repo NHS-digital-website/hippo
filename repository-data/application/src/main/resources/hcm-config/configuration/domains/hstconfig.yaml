@@ -1,0 +1,5 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/hstconfig/readwrite:
+      hipposys:groups: []

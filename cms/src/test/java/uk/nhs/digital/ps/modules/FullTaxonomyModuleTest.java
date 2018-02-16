@@ -69,7 +69,14 @@ public class FullTaxonomyModuleTest {
 
         fullTaxonomyModule.handleEvent(event);
 
-        Value[] fullTaxonomyValues = docNode.getNode(docName).getProperty(FULL_TAXONOMY_PROPERTY).getValues();
+        Node newNode = docNode.getNode(docName);
+
+        if (expected == null) {
+            assertFalse("Doesn't have taxonomy property", newNode.hasProperty(FULL_TAXONOMY_PROPERTY));
+            return;
+        }
+
+        Value[] fullTaxonomyValues = newNode.getProperty(FULL_TAXONOMY_PROPERTY).getValues();
         List<String> fullTaxonomy = stream(fullTaxonomyValues)
             .map(value -> {
                 try {
@@ -79,7 +86,7 @@ public class FullTaxonomyModuleTest {
                 }
             }).collect(toList());
 
-            assertThat("Full taxonomy is as expected.", fullTaxonomy, containsInAnyOrder(expected.toArray()));
+        assertThat("Full taxonomy is as expected.", fullTaxonomy, containsInAnyOrder(expected.toArray()));
     }
 
     @Test
@@ -182,8 +189,12 @@ public class FullTaxonomyModuleTest {
                 singletonList("taxonomy_2")
             },
             new List[]{
+                singletonList("not-a-taxonomy-key"),
+                null
+            },
+            new List[]{
                 emptyList(),
-                emptyList()
+                null
             }};
     }
 }

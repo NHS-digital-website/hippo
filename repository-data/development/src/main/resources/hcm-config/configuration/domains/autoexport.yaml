@@ -1,0 +1,6 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/autoexport/readwrite:
+      hipposys:groups:
+      - everybody

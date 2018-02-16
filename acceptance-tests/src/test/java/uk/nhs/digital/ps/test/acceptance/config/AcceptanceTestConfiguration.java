@@ -29,8 +29,8 @@ public class AcceptanceTestConfiguration {
     private final static Logger log = getLogger(AcceptanceTestConfiguration.class);
 
     @Bean
-    public LoginPage loginPage(final WebDriverProvider webDriverProvider) {
-        return new LoginPage(webDriverProvider);
+    public LoginPage loginPage(final WebDriverProvider webDriverProvider, PageHelper helper) {
+        return new LoginPage(webDriverProvider, helper);
     }
 
     @Bean
