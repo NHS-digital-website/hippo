@@ -7,6 +7,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 import static org.slf4j.LoggerFactory.getLogger;
+import static uk.nhs.digital.ps.test.acceptance.util.AssertionHelper.assertWithinTimeoutThat;
 import static uk.nhs.digital.ps.test.acceptance.util.RandomHelper.getRandomInt;
 
 import cucumber.api.DataTable;
@@ -28,6 +29,7 @@ import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
 import uk.nhs.digital.ps.test.acceptance.steps.AbstractSpringSteps;
 import uk.nhs.digital.ps.test.acceptance.steps.cms.LoginSteps;
 
+import java.text.MessageFormat;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
@@ -132,8 +134,7 @@ public class CmsSteps extends AbstractSpringSteps {
     @Then("^the upload is rejected with an error message$")
     public void theUploadIsRejectedWithAnErrorMessage() throws Throwable {
 
-        // TODO: RPS-387 This doesn't currently work, i've raised a ticket to fix it
-        /*contentPage.getAttachmentsWidget().addUploadField();
+        contentPage.getAttachmentsWidget().addUploadField();
 
         testDataRepo.getAttachments().forEach(attachment -> {
             contentPage.getAttachmentsWidget().uploadAttachment(attachment);
@@ -146,7 +147,7 @@ public class CmsSteps extends AbstractSpringSteps {
 
             assertWithinTimeoutThat("Error message is displayed",
                () -> contentPage.getFirstErrorMessage(), startsWith(expectedErrorMessage));
-        });*/
+        });
     }
 
     // Scenario: Title and Summary validation ========================================================================
@@ -186,11 +187,6 @@ public class CmsSteps extends AbstractSpringSteps {
 
     @Then("^the save is rejected with error message containing \"([^\"]+)\"$")
     public void validationErrorMessageIsShownAndContains(String errorMessageFragment) throws Throwable {
-
-        // TODO: RPS-387 This doesn't currently work, i've raised a ticket to fix it
-        if (errorMessageFragment.contains("There is an attachment field without an attachment")) {
-            return;
-        }
 
         assertThat("Error message should be shown and contains",
             contentPage.getErrorMessages(),

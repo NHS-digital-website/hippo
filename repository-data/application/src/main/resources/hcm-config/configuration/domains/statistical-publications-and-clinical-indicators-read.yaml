@@ -29,6 +29,24 @@ definitions:
           hipposys:value: /content
           jcr:primaryType: hipposys:facetrule
         jcr:primaryType: hipposys:domainrule
+      /document-types-attachment-node:
+        /path-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /hippo:namespaces/publicationsystem/attachment
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      /document-types-resource-node:
+        /path-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /hippo:namespaces/publicationsystem/resource
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
       /documents-node:
         /node-by-uuid:
           hipposys:equals: true
