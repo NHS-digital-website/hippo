@@ -1,12 +1,6 @@
 ---
 /content/documents/corporate-website/publication-system/lorem-ipsum-content/morbi-tempor-euismod-vehicula:
   /morbi-tempor-euismod-vehicula[1]:
-    /publicationsystem:RelatedLinks:
-      jcr:primaryType: publicationsystem:relatedlink
-      publicationsystem:linkText: ''
-      publicationsystem:linkUrl: ''
-      publicationsystem:link_text: ''
-      publicationsystem:link_url: ''
     common:FacetType: publication
     common:searchable: true
     hippo:availability: []
@@ -24,12 +18,12 @@
     - mix:referenceable
     jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
-    publicationsystem:CoverageEnd: 2017-04-01T08:00:00Z
-    publicationsystem:CoverageStart: 2017-01-01T08:00:00Z
+    publicationsystem:CoverageEnd: 2017-04-01T00:00:00Z
+    publicationsystem:CoverageStart: 2017-01-01T00:00:00Z
     publicationsystem:InformationType:
     - Official statistics
     publicationsystem:KeyFacts: ''
-    publicationsystem:NominalDate: 2017-06-01T08:30:00Z
+    publicationsystem:NominalDate: 2017-06-01T00:00:00Z
     publicationsystem:PubliclyAccessible: true
     publicationsystem:Summary: Duis vel ultricies ante. Vestibulum nec commodo justo.
       Donec et tellus justo. Nunc id lobortis odio. Morbi quis lectus scelerisque,
@@ -41,12 +35,6 @@
       porta ante, id iaculis nisl est ac velit.
     publicationsystem:Title: Morbi tempor euismod vehicula
   /morbi-tempor-euismod-vehicula[2]:
-    /publicationsystem:RelatedLinks:
-      jcr:primaryType: publicationsystem:relatedlink
-      publicationsystem:linkText: ''
-      publicationsystem:linkUrl: ''
-      publicationsystem:link_text: ''
-      publicationsystem:link_url: ''
     common:FacetType: publication
     common:searchable: true
     hippo:availability:
@@ -66,12 +54,12 @@
     - mix:versionable
     jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
-    publicationsystem:CoverageEnd: 2017-04-01T08:00:00Z
-    publicationsystem:CoverageStart: 2017-01-01T08:00:00Z
+    publicationsystem:CoverageEnd: 2017-04-01T00:00:00Z
+    publicationsystem:CoverageStart: 2017-01-01T00:00:00Z
     publicationsystem:InformationType:
     - Official statistics
     publicationsystem:KeyFacts: ''
-    publicationsystem:NominalDate: 2017-06-01T08:30:00Z
+    publicationsystem:NominalDate: 2017-06-01T00:00:00Z
     publicationsystem:PubliclyAccessible: true
     publicationsystem:Summary: Duis vel ultricies ante. Vestibulum nec commodo justo.
       Donec et tellus justo. Nunc id lobortis odio. Morbi quis lectus scelerisque,
@@ -83,12 +71,6 @@
       porta ante, id iaculis nisl est ac velit.
     publicationsystem:Title: Morbi tempor euismod vehicula
   /morbi-tempor-euismod-vehicula[3]:
-    /publicationsystem:RelatedLinks:
-      jcr:primaryType: publicationsystem:relatedlink
-      publicationsystem:linkText: ''
-      publicationsystem:linkUrl: ''
-      publicationsystem:link_text: ''
-      publicationsystem:link_url: ''
     common:FacetType: publication
     common:searchable: true
     hippo:availability:
@@ -108,12 +90,12 @@
     - mix:referenceable
     jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
-    publicationsystem:CoverageEnd: 2017-04-01T08:00:00Z
-    publicationsystem:CoverageStart: 2017-01-01T08:00:00Z
+    publicationsystem:CoverageEnd: 2017-04-01T00:00:00Z
+    publicationsystem:CoverageStart: 2017-01-01T00:00:00Z
     publicationsystem:InformationType:
     - Official statistics
     publicationsystem:KeyFacts: ''
-    publicationsystem:NominalDate: 2017-06-01T08:30:00Z
+    publicationsystem:NominalDate: 2017-06-01T00:00:00Z
     publicationsystem:PubliclyAccessible: true
     publicationsystem:Summary: Duis vel ultricies ante. Vestibulum nec commodo justo.
       Donec et tellus justo. Nunc id lobortis odio. Morbi quis lectus scelerisque,

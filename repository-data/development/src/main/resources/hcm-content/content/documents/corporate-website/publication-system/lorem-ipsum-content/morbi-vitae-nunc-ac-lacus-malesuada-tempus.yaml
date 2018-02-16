@@ -1,12 +1,6 @@
 ---
 /content/documents/corporate-website/publication-system/lorem-ipsum-content/morbi-vitae-nunc-ac-lacus-malesuada-tempus:
   /morbi-vitae-nunc-ac-lacus-malesuada-tempus[1]:
-    /publicationsystem:RelatedLinks:
-      jcr:primaryType: publicationsystem:relatedlink
-      publicationsystem:linkText: ''
-      publicationsystem:linkUrl: ''
-      publicationsystem:link_text: ''
-      publicationsystem:link_url: ''
     common:FacetType: publication
     common:searchable: true
     hippo:availability: []
@@ -25,13 +19,13 @@
     - mix:referenceable
     jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
-    publicationsystem:CoverageEnd: 2017-04-01T08:00:00Z
-    publicationsystem:CoverageStart: 2017-01-01T08:00:00Z
+    publicationsystem:CoverageEnd: 2017-04-01T00:00:00Z
+    publicationsystem:CoverageStart: 2017-01-01T00:00:00Z
     publicationsystem:InformationType:
     - Official statistics
     publicationsystem:KeyFacts: Donec ultricies fringilla mauris nec varius. Pellentesque
       ultricies et libero et venenatis. Mauris accumsan ligula sed enim volutpat scelerisque.
-    publicationsystem:NominalDate: 2017-06-01T08:30:00Z
+    publicationsystem:NominalDate: 2017-06-01T00:00:00Z
     publicationsystem:PubliclyAccessible: true
     publicationsystem:Summary: Etiam tempus quam sed massa ullamcorper, in vestibulum
       ex ultrices. Duis ipsum, eros et accumsan auctor, turpis lectus viverra urna,
@@ -42,12 +36,6 @@
       ipsum a ante nec, tincidunt eleifend tortor.
     publicationsystem:Title: Morbi vitae nunc ac lacus malesuada tempus
   /morbi-vitae-nunc-ac-lacus-malesuada-tempus[2]:
-    /publicationsystem:RelatedLinks:
-      jcr:primaryType: publicationsystem:relatedlink
-      publicationsystem:linkText: ''
-      publicationsystem:linkUrl: ''
-      publicationsystem:link_text: ''
-      publicationsystem:link_url: ''
     common:FacetType: publication
     common:searchable: true
     hippo:availability:
@@ -68,13 +56,13 @@
     - mix:versionable
     jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
-    publicationsystem:CoverageEnd: 2017-04-01T08:00:00Z
-    publicationsystem:CoverageStart: 2017-01-01T08:00:00Z
+    publicationsystem:CoverageEnd: 2017-04-01T00:00:00Z
+    publicationsystem:CoverageStart: 2017-01-01T00:00:00Z
     publicationsystem:InformationType:
     - Official statistics
     publicationsystem:KeyFacts: Donec ultricies fringilla mauris nec varius. Pellentesque
       ultricies et libero et venenatis. Mauris accumsan ligula sed enim volutpat scelerisque.
-    publicationsystem:NominalDate: 2017-06-01T08:30:00Z
+    publicationsystem:NominalDate: 2017-06-01T00:00:00Z
     publicationsystem:PubliclyAccessible: true
     publicationsystem:Summary: Etiam tempus quam sed massa ullamcorper, in vestibulum
       ex ultrices. Duis ipsum, eros et accumsan auctor, turpis lectus viverra urna,
@@ -85,12 +73,6 @@
       ipsum a ante nec, tincidunt eleifend tortor.
     publicationsystem:Title: Morbi vitae nunc ac lacus malesuada tempus
   /morbi-vitae-nunc-ac-lacus-malesuada-tempus[3]:
-    /publicationsystem:RelatedLinks:
-      jcr:primaryType: publicationsystem:relatedlink
-      publicationsystem:linkText: ''
-      publicationsystem:linkUrl: ''
-      publicationsystem:link_text: ''
-      publicationsystem:link_url: ''
     common:FacetType: publication
     common:searchable: true
     hippo:availability:
@@ -111,13 +93,13 @@
     - mix:referenceable
     jcr:primaryType: publicationsystem:publication
     publicationsystem:AdministrativeSources: ''
-    publicationsystem:CoverageEnd: 2017-04-01T08:00:00Z
-    publicationsystem:CoverageStart: 2017-01-01T08:00:00Z
+    publicationsystem:CoverageEnd: 2017-04-01T00:00:00Z
+    publicationsystem:CoverageStart: 2017-01-01T00:00:00Z
     publicationsystem:InformationType:
     - Official statistics
     publicationsystem:KeyFacts: Donec ultricies fringilla mauris nec varius. Pellentesque
       ultricies et libero et venenatis. Mauris accumsan ligula sed enim volutpat scelerisque.
-    publicationsystem:NominalDate: 2017-06-01T08:30:00Z
+    publicationsystem:NominalDate: 2017-06-01T00:00:00Z
     publicationsystem:PubliclyAccessible: true
     publicationsystem:Summary: Etiam tempus quam sed massa ullamcorper, in vestibulum
       ex ultrices. Duis ipsum, eros et accumsan auctor, turpis lectus viverra urna,
