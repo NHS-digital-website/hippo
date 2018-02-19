@@ -2,16 +2,17 @@ package uk.nhs.digital.ps.beans;
 
 import static java.util.Arrays.asList;
 
+import com.google.common.collect.Lists;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.nhs.digital.ps.components.DocumentTitleComparator;
 import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
 
 import java.util.*;
@@ -80,14 +81,13 @@ public abstract class PublicationBase extends BaseDocument {
         return parentBean;
     }
 
-    public HippoBeanIterator getDatasets() throws HstComponentException {
+    public List<Dataset> getDatasets() throws HstComponentException {
         assertPropertyPermitted(PropertyKeys.DATASETS);
 
         HstQueryResult hstQueryResult;
         try {
             hstQueryResult = HstQueryBuilder.create(getParentBean())
                 .ofTypes(Dataset.class)
-                .orderByDescending("publicationsystem:NominalDate")
                 .build()
                 .execute();
         } catch (QueryException queryException) {
@@ -96,7 +96,10 @@ public abstract class PublicationBase extends BaseDocument {
                 "Failed to find datasets for publication " + getCanonicalPath(), queryException);
         }
 
-        return hstQueryResult.getHippoBeans();
+        ArrayList<Dataset> hippoBeans = Lists.newArrayList((Iterator) hstQueryResult.getHippoBeans());
+        hippoBeans.sort(DocumentTitleComparator.COMPARATOR);
+
+        return hippoBeans;
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.TAXONOMY)

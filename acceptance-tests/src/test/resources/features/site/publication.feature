@@ -92,3 +92,11 @@ Feature: Ensure publication page displays required fields.
         And I can download following files:
             | attachment.pdf       | attachment.pdf      |
             | Attachment with text | attachment-text.pdf |
+
+    Scenario: Dataset order on a publication
+        Given I navigate to "ordered publication" page
+        Then I should see "Publication Resources" with:
+            | 1.1 Dataset  |
+            | 1.9 Dataset  |
+            | 1.10 Dataset |
+            | 2.0 Dataset  |

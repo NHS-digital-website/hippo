@@ -96,6 +96,10 @@ public class TestContentUrls {
             getAttachmentUrl("attachment-test/dataset/dataset", "Files-v3"));
         add("dataset-attachment.pdf",
             getAttachmentUrl("attachment-test/dataset/dataset", "Files-v3[2]"));
+
+        // Ordered publication
+        add("ordered publication",
+            "/publications/acceptance-tests/ordered-publication");
     }
 
     private String getAttachmentUrl(String siteUrl, String attachmentTag) {

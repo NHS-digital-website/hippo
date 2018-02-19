@@ -18,7 +18,7 @@ class Migration20180216UpdateUserRoles extends BaseNodeUpdateVisitor {
                 def newMembers = node.getProperty("hipposys:members").getValues()
 
                 def newGroup = node.getParent().getNode("statistical-publications-and-clinical-indicators-" + name)
-                def existingMembers = newGroup.getProperty("hipposys:members").getValues()
+                def existingMembers = newGroup.hasProperty("hipposys:members") ? newGroup.getProperty("hipposys:members").getValues() : new Value[0]
 
                 Value[] members = newMembers + existingMembers;
 

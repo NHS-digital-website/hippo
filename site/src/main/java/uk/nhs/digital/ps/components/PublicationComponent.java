@@ -30,6 +30,7 @@ public class PublicationComponent extends EssentialsContentComponent {
         if (content.getClass().equals(Publication.class)) {
             return (Publication) content;
         }
+
         if (content.getClass().equals(HippoFolder.class)) {
             return Publication.getPublicationInFolder((HippoFolder)content);
         }

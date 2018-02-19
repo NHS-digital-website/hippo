@@ -1,0 +1,374 @@
+---
+/content/documents/corporate-website/publication-system/acceptance-tests/ordered-publication:
+  /1.1:
+    /1.1[1]:
+      common:FacetType: dataset
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-19T14:14:01.461Z
+      hippostdpubwf:lastModificationDate: 2018-02-19T14:14:01.462Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: af0a421d-b466-4fe5-a929-f70bbc38caf5
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-02-19T00:00:00Z
+      publicationsystem:Summary: 1.1 Dataset
+      publicationsystem:Title: 1.1 Dataset
+    /1.1[2]:
+      common:FacetType: dataset
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-19T14:14:01.461Z
+      hippostdpubwf:lastModificationDate: 2018-02-19T14:14:22.627Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: af0a421d-b466-4fe5-a929-f70bbc38caf5
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-02-19T00:00:00Z
+      publicationsystem:Summary: 1.1 Dataset
+      publicationsystem:Title: 1.1 Dataset
+    /1.1[3]:
+      common:FacetType: dataset
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-19T14:14:01.461Z
+      hippostdpubwf:lastModificationDate: 2018-02-19T14:14:22.627Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-19T14:19:27.755Z
+      hippotranslation:id: af0a421d-b466-4fe5-a929-f70bbc38caf5
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-02-19T00:00:00Z
+      publicationsystem:Summary: 1.1 Dataset
+      publicationsystem:Title: 1.1 Dataset
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /1.10:
+    /1.10[1]:
+      common:FacetType: dataset
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-19T14:15:09.556Z
+      hippostdpubwf:lastModificationDate: 2018-02-19T14:15:09.556Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 7e293eff-9178-43ec-a0b8-644502d98f67
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-02-19T00:00:00Z
+      publicationsystem:Summary: 1.10 Dataset
+      publicationsystem:Title: 1.10 Dataset
+    /1.10[2]:
+      common:FacetType: dataset
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-19T14:15:09.556Z
+      hippostdpubwf:lastModificationDate: 2018-02-19T14:15:26.551Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 7e293eff-9178-43ec-a0b8-644502d98f67
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-02-19T00:00:00Z
+      publicationsystem:Summary: 1.10 Dataset
+      publicationsystem:Title: 1.10 Dataset
+    /1.10[3]:
+      common:FacetType: dataset
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-19T14:15:09.556Z
+      hippostdpubwf:lastModificationDate: 2018-02-19T14:15:26.551Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-19T14:19:27.463Z
+      hippotranslation:id: 7e293eff-9178-43ec-a0b8-644502d98f67
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-02-19T00:00:00Z
+      publicationsystem:Summary: 1.10 Dataset
+      publicationsystem:Title: 1.10 Dataset
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /1.9:
+    /1.9[1]:
+      common:FacetType: dataset
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-19T14:14:41.525Z
+      hippostdpubwf:lastModificationDate: 2018-02-19T14:14:41.525Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 960f9f75-d520-44dc-8bc9-47797d08231d
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-02-19T00:00:00Z
+      publicationsystem:Summary: 1.9 Dataset
+      publicationsystem:Title: 1.9 Dataset
+    /1.9[2]:
+      common:FacetType: dataset
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-19T14:14:41.525Z
+      hippostdpubwf:lastModificationDate: 2018-02-19T14:14:54.842Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 960f9f75-d520-44dc-8bc9-47797d08231d
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-02-19T00:00:00Z
+      publicationsystem:Summary: 1.9 Dataset
+      publicationsystem:Title: 1.9 Dataset
+    /1.9[3]:
+      common:FacetType: dataset
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-19T14:14:41.525Z
+      hippostdpubwf:lastModificationDate: 2018-02-19T14:14:54.842Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-19T14:19:27.667Z
+      hippotranslation:id: 960f9f75-d520-44dc-8bc9-47797d08231d
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-02-19T00:00:00Z
+      publicationsystem:Summary: 1.9 Dataset
+      publicationsystem:Title: 1.9 Dataset
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /2.0:
+    /2.0[1]:
+      common:FacetType: dataset
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-19T14:15:43.310Z
+      hippostdpubwf:lastModificationDate: 2018-02-19T14:15:43.311Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 3c929811-e5f7-46ff-9702-d54bb9c0d67e
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-02-19T00:00:00Z
+      publicationsystem:Summary: 2.0 Dataset
+      publicationsystem:Title: 2.0 Dataset
+    /2.0[2]:
+      common:FacetType: dataset
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-19T14:15:43.310Z
+      hippostdpubwf:lastModificationDate: 2018-02-19T14:15:52.934Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 3c929811-e5f7-46ff-9702-d54bb9c0d67e
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-02-19T00:00:00Z
+      publicationsystem:Summary: 2.0 Dataset
+      publicationsystem:Title: 2.0 Dataset
+    /2.0[3]:
+      common:FacetType: dataset
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-19T14:15:43.310Z
+      hippostdpubwf:lastModificationDate: 2018-02-19T14:15:52.934Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-19T14:19:27.830Z
+      hippotranslation:id: 3c929811-e5f7-46ff-9702-d54bb9c0d67e
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-02-19T00:00:00Z
+      publicationsystem:Summary: 2.0 Dataset
+      publicationsystem:Title: 2.0 Dataset
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /content:
+    /content[1]:
+      common:FacetType: publication
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-19T14:19:39.393Z
+      hippostdpubwf:lastModificationDate: 2018-02-19T14:20:27.672Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 258e6965-3684-4cf7-b99a-24408f286a44
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-02-19T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Ordered Publication
+      publicationsystem:Title: Ordered Publication
+    /content[2]:
+      common:FacetType: publication
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-19T14:19:39.393Z
+      hippostdpubwf:lastModificationDate: 2018-02-19T14:20:32.076Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 258e6965-3684-4cf7-b99a-24408f286a44
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-02-19T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Ordered Publication
+      publicationsystem:Title: Ordered Publication
+    /content[3]:
+      common:FacetType: publication
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-19T14:19:39.393Z
+      hippostdpubwf:lastModificationDate: 2018-02-19T14:20:32.076Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-19T14:20:34.824Z
+      hippotranslation:id: 258e6965-3684-4cf7-b99a-24408f286a44
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-02-19T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Ordered Publication
+      publicationsystem:Title: Ordered Publication
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Ordered Publication
+  hippostd:foldertype:
+  - new-statistical-publications-and-clinical-indicators-folder
+  - new-statistical-publications-and-clinical-indicators-document
+  hippotranslation:id: 4adfb974-68dd-41ce-83aa-d157a5c0ba95
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

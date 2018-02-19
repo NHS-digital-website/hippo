@@ -1,5 +1,17 @@
 package uk.nhs.digital.ps.beans;
 
+import static java.util.Arrays.asList;
+import static java.util.Arrays.stream;
+import static java.util.stream.Collectors.toList;
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.MockitoAnnotations.initMocks;
+import static uk.nhs.digital.ps.beans.RestrictableDateTest.assertRestrictableDate;
+
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
@@ -24,26 +36,14 @@ import org.powermock.modules.junit4.PowerMockRunnerDelegate;
 import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
 import uk.nhs.digital.ps.test.util.ReflectionHelper;
 
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
-
-import static java.util.Arrays.asList;
-import static java.util.Arrays.stream;
-import static java.util.stream.Collectors.toList;
-import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.MockitoAnnotations.initMocks;
-import static uk.nhs.digital.ps.beans.RestrictableDateTest.assertRestrictableDate;
+import javax.jcr.Node;
+import javax.jcr.NodeIterator;
 
 
 @RunWith(PowerMockRunner.class)
