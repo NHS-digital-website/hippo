@@ -558,6 +558,41 @@ div.breadcrumb a {
   flex: 1;
 }
 
+/* JUMP-TO */
+/* ########################################################## */
+
+.jumpto {
+  width: 100%;
+}
+.jumpto__inner {
+  position: relative;
+  max-width: @max-width;
+  margin:0px auto;
+}
+.jumpto__inner__nav {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 20%;
+  padding-top: @base-spacing-unit;
+}
+.jumpto__inner__nav__divider {
+  background-color: rgba(121, 121, 121, 1);
+  height:4px;
+  width: 20%;
+  margin-bottom: @base-spacing-unit;
+}
+.sticky .jumpto {
+  position: fixed;
+  top: 0px;
+}
+
+.jumpto-offset-left {
+  padding-left:300px;
+  padding-top: @base-spacing-unit;
+}
+
+
 
 /* FOOTER */
 /* ########################################################## */

@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <!--Need to have a single setBundle call as subsequent ones will overwrite the previous values-->
-<@hst.setBundle basename="document-types,month-names,publicationsystem.labels,facet-headers"/>
+<@hst.setBundle basename="month-names,facet-headers,facet-labels"/>
 <#assign facetMaxCount=7/>
 
 <div class="layout layout--flush">
@@ -38,7 +38,7 @@
                     <#elseif facet.name="category">
                         <#assign valueName=taxonomy.getValueName(value.name)/>
                     <#elseif facet.name="document-type">
-                        <@fmt.message key="labels."+value.name var="valueName"/>
+                        <@fmt.message key="facet."+value.name var="valueName"/>
                     <#else>
                         <#assign valueName=value.name/>
                     </#if>

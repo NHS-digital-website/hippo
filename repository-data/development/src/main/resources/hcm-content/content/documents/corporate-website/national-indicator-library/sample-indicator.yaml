@@ -4,12 +4,13 @@
     common:FullTaxonomy:
     - cancer
     - conditions
+    common:FacetType: indicator
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-08T16:11:52.307Z
-    hippostdpubwf:lastModificationDate: 2018-02-21T09:01:26.071Z
+    hippostdpubwf:lastModificationDate: 2018-02-19T11:33:51.283Z
     hippostdpubwf:lastModifiedBy: admin
     hippotaxonomy:keys:
     - cancer
@@ -72,7 +73,7 @@
       unit within 4 hours of arrival at hospital, except for those patients who were
       already in hospital at the time of new stroke occurrence, who are admitted to
       a stroke unit within 4 hours of onset of stroke symptoms.
-    nationalindicatorlibrary:publishedBy: ''
+    nationalindicatorlibrary:publishedBy: Publisher
     nationalindicatorlibrary:purpose: Patients who have had a stroke should be admitted
       directly to a specialist acute stroke unit. Getting patients to a stroke unit
       quickly is a strong indicator of eventual outcomes and is also closely linked
@@ -92,13 +93,14 @@
     common:FullTaxonomy:
     - cancer
     - conditions
+    common:FacetType: indicator
     common:searchable: true
     hippo:availability:
     - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-08T16:11:52.307Z
-    hippostdpubwf:lastModificationDate: 2018-02-09T10:06:10.974Z
+    hippostdpubwf:lastModificationDate: 2018-02-19T11:33:55.762Z
     hippostdpubwf:lastModifiedBy: admin
     hippotaxonomy:keys:
     - cancer
@@ -162,7 +164,7 @@
       unit within 4 hours of arrival at hospital, except for those patients who were
       already in hospital at the time of new stroke occurrence, who are admitted to
       a stroke unit within 4 hours of onset of stroke symptoms.
-    nationalindicatorlibrary:publishedBy: ''
+    nationalindicatorlibrary:publishedBy: Publisher
     nationalindicatorlibrary:purpose: Patients who have had a stroke should be admitted
       directly to a specialist acute stroke unit. Getting patients to a stroke unit
       quickly is a strong indicator of eventual outcomes and is also closely linked
@@ -182,13 +184,14 @@
     common:FullTaxonomy:
     - cancer
     - conditions
+    common:FacetType: indicator
     common:searchable: true
     hippo:availability:
     - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-08T16:11:52.307Z
-    hippostdpubwf:lastModificationDate: 2018-02-09T10:06:10.974Z
+    hippostdpubwf:lastModificationDate: 2018-02-19T11:33:55.762Z
     hippostdpubwf:lastModifiedBy: admin
     hippostdpubwf:publicationDate: 2018-02-09T10:06:13.538Z
     hippotaxonomy:keys:
@@ -252,7 +255,7 @@
       unit within 4 hours of arrival at hospital, except for those patients who were
       already in hospital at the time of new stroke occurrence, who are admitted to
       a stroke unit within 4 hours of onset of stroke symptoms.
-    nationalindicatorlibrary:publishedBy: ''
+    nationalindicatorlibrary:publishedBy: Publisher
     nationalindicatorlibrary:purpose: Patients who have had a stroke should be admitted
       directly to a specialist acute stroke unit. Getting patients to a stroke unit
       quickly is a strong indicator of eventual outcomes and is also closely linked

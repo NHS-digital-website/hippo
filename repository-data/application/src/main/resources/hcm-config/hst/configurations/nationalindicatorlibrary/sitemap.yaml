@@ -15,6 +15,6 @@ definitions:
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /root:
-        hst:componentconfigurationid: hst:pages/home
+        hst:componentconfigurationid: hst:pages/nihub
         jcr:primaryType: hst:sitemapitem
       jcr:primaryType: hst:sitemap
