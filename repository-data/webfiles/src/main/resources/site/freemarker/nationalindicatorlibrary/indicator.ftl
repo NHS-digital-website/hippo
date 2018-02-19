@@ -5,14 +5,7 @@
 <#assign formatCoverageDates="uk.nhs.digital.ps.directives.CoverageDatesFormatterDirective"?new() />
 
 <@hst.setBundle basename="nationalindicatorlibrary.headers"/>
-<head>
-  <title>NHS - Clinical Indicator - Indicator Page</title>
-  <meta charset="UTF-8" />
-  <meta name="title" content="NHS - National Indicator Library" />
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
+
   <section class="document-header push-double--bottom">
       <div class="document-header__inner">
         <h1 class="layout-5-6 push--bottom">${indicator.title}</h1>
@@ -23,27 +16,26 @@
 
         <div class="layout">
             <div class="layout__item layout-1-2">
-                <p class="push-half--bottom"><strong><@fmt.message key="headers.publishedBy"/></strong> ${indicator.publishedBy}</p>
-                <p class="push-half--bottom"><strong><@fmt.message key="headers.assuranceDate"/></strong> ${indicator.assuranceDate.time?string[dateFormat]}</p>
-                <p class="push-half--bottom"><strong><@fmt.message key="headers.reportingPeriod"/></strong> ${indicator.reportingPeriod}</p>
-                <p class="push-half--bottom"><strong><@fmt.message key="headers.basedOn"/></strong> ${indicator.basedOn}</p>
+                <p class="push-half--bottom"><strong><@fmt.message key="headers.publishedBy"/></strong>: ${indicator.publishedBy}</p>
+                <p class="push-half--bottom"><strong><@fmt.message key="headers.assuranceDate"/></strong>: ${indicator.assuranceDate.time?string[dateFormat]}</p>
+                <p class="push-half--bottom"><strong><@fmt.message key="headers.reportingPeriod"/></strong>: ${indicator.reportingPeriod}</p>
+                <p class="push-half--bottom"><strong><@fmt.message key="headers.basedOn"/></strong>: ${indicator.basedOn}</p>
             </div><!--
             --><div class="layout__item layout-1-2">
-                <p class="push-half--bottom"><strong><@fmt.message key="headers.contactAuthor"/></strong> <a href="mailto:${indicator.contactAuthor}"> ${indicator.contactAuthor}</a></p>
-                <p class="push-half--bottom"><strong><@fmt.message key="headers.reportingLevel"/></strong> ${indicator.reportingLevel}</p>
-                <p class="push-half--bottom"><strong><@fmt.message key="headers.reviewDate"/></strong> ${indicator.reviewDate.time?string[dateFormat]}</p>
+                <p class="push-half--bottom"><strong><@fmt.message key="headers.contactAuthor"/></strong>: <a href="mailto:${indicator.contactAuthor}"> ${indicator.contactAuthor}</a></p>
+                <p class="push-half--bottom"><strong><@fmt.message key="headers.reportingLevel"/></strong>: ${indicator.reportingLevel}</p>
+                <p class="push-half--bottom"><strong><@fmt.message key="headers.reviewDate"/></strong>: ${indicator.reviewDate.time?string[dateFormat]}</p>
             </div>
         </div>
       </div>
-    </section> 
+    </section>
 
     <section class="jumpto">
         <div class="jumpto__inner">
             <div class="jumpto__inner__nav">
 
-                <h4>Contents</h4>
-                <div class="jumpto__inner__nav__divider">&nbsp;</div>
-
+                <h4><strong>Contents</strong></h4>
+                <div class="jumpto__inner__nav__divider"></div>
                 <ul>
                     <li><a href="#purpose"><@fmt.message key="headers.purpose"/></a></li>
                     <li><a href="#definition"><@fmt.message key="headers.definition"/></a></li>
@@ -54,7 +46,7 @@
             </div>
         </div>
     </section>
-
+    
     <section class="document-content jumpto-offset-left">
 
         <section id="purpose" class="push-double--bottom">
@@ -70,19 +62,19 @@
         <section id="methodology" class="push-double--bottom">
             <h2><@fmt.message key="headers.methodology"/></h2>
 
-            <h3><@fmt.message key="headers.dataSource"/></h3>
+            <h3><strong><@fmt.message key="headers.dataSource"/></strong></h3>
             <p>${indicator.dataSource}</p>
 
-            <h3><@fmt.message key="headers.numerator"/></h3>
+            <h3><strong><@fmt.message key="headers.numerator"/></strong></h3>
             <p>${indicator.numerator}</p>
 
-            <h3><@fmt.message key="headers.denominator"/></h3>
+            <h3><strong><@fmt.message key="headers.denominator"/></strong></h3>
             <p>${indicator.denominator}</p>
 
-            <h3><@fmt.message key="headers.calculation"/></h3>
+            <h3><strong><@fmt.message key="headers.calculation"/></strong></h3>
             <p>${indicator.calculation}</p>                        
 
-            <h3><@fmt.message key="headers.caveats"/></h3>
+            <h3><strong><@fmt.message key="headers.caveats"/></strong></h3>
             <p>${indicator.caveats}</p>
 
         </section>
@@ -157,10 +149,4 @@ $(function() {
     }
   });
 });
-
 </script>
-
-
-
-</body>
-

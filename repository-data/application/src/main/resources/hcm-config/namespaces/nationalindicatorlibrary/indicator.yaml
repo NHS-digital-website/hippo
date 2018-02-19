@@ -364,6 +364,7 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          common:FacetType: indicator
           common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft

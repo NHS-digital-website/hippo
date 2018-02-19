@@ -69,11 +69,6 @@ public class Indicator extends BaseDocument {
         return getProperty("nationalindicatorlibrary:publishedBy");
     }
 
-    @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:publishedDate")
-    public Calendar getPublishedDate() {
-        return getProperty("nationalindicatorlibrary:publishedDate");
-    }
-
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:purpose")
     public String getPurpose() {
         return getProperty("nationalindicatorlibrary:purpose");
