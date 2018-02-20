@@ -46,15 +46,15 @@
 
                 <#-- BEGIN optional 'Further information section' -->
                 <#if childPages?has_content>
-                <section class="article-section article-section--child-pages" id="section-child-pages">
+                <section class="article-section article-section--child-pages article-section--last-one" id="section-child-pages">
                     <h2>${childPagesSectionTitle}</h2>
-                    <ol class="list list-reset list-of-articles">
+                    <ol class="list list--reset cta-list">
                         <#list childPages as childPage>
                         <@hst.link var="link" hippobean=childPage />
                         <li>
-                            <article>
-                                <h2><a href="${link}">${childPage.title}</a></h2>
-                                <p>${childPage.shortsummary}</p>
+                            <article class="cta">
+                                <h2 class="cta__title"><a href="${link}">${childPage.title}</a></h2>
+                                <p class="cta__text">${childPage.shortsummary}</p>
                             </article>
                         </li>
                         </#list>

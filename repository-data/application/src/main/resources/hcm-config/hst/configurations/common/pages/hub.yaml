@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/hub:
+      /main:
+        hst:componentclassname: uk.nhs.digital.common.components.HubComponent
+        hst:template: hub-article
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/apppage
+      jcr:primaryType: hst:component

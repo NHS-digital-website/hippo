@@ -20,8 +20,10 @@
 }
 
 .search-banner__form {
+    position: relative;
     display: table;
     width: 100%;
+    left: 3px;
 
     .search-banner__input,
     .search-banner__button {

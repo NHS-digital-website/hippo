@@ -4,7 +4,7 @@
 <#-- @ftlvariable name="menu" type="org.hippoecm.hst.core.sitemenu.HstSiteMenu" -->
 <#if menu??>
 <nav class="menu">
-    <ul class="list list-reset">
+    <ul class="list list--reset">
         <#if hstRequestContext.preview>
           <div style="position:relative">
             <@hst.cmseditmenu menu=menu/>
@@ -15,6 +15,8 @@
             <#assign href><@hst.link link=item.hstLink/></#assign>
             <#elseif item.externalLink??>
             <#assign href>${item.externalLink?replace("\"", "")}</#assign>
+            <#else>
+            <#assign href>#</#assign>
             </#if>
             
             <#if  item.selected || item.expanded>

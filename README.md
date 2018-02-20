@@ -113,11 +113,17 @@ You can run the formatter manually by running `make format-yaml`.
 
 **Run the local dev server (will throw a lot of Splunk errors)**
 
-	mvn clean verify && mvn -P cargo.run
+  mvn clean verify && mvn -Pcargo.run -Drepo.path=storage
 
 **Run the local dev server with quiet Splunk**
     
-    mvn -P cargo.run -D splunk.hec.name=localhost -D splunk.url=http://localhost -D splunk.token=
+  mvn -Pcargo.run -Dsplunk.hec.name=localhost -Dsplunk.url=http://localhost -Dsplunk.token= -Drepo.path=storage
+
+**Mega command**
+
+> If you keep switching between different branches, you will have to remove the `storage` folder, then rebuild the app using the storage path and of course you'll want to quiet `splunk`...
+  
+	rm -rf storage && mvn clean verify && mvn -Pcargo.run -Dsplunk.hec.name=localhost -Dsplunk.url=http://localhost -Dsplunk.token= -Drepo.path=storage  
 
 **Both the CMS and the CMS console has their own AutoExport switch, which can be changed separately.**
 
@@ -135,9 +141,17 @@ There are 2 ways to run the server: with or without `autoexport`. When the app r
 
 > We're using the [NHS Digital UI library](https://github.com/nhsuk/frontend-library) as a base for our UI components and styling. The currently available release ([0.8.0](https://github.com/nhsuk/frontend-library/releases/tag/0.8.0)) is used as described in the [documentation](https://github.com/nhsuk/frontend-library#using-the-scss-directly).
 
+## Running the project for the first time
+
+You'll need a couple of things in place to be able to successfully run the project, you can find the details [here](docs/what-if/first-time-set-up.md)
+
 ## Testing local site on VMs
 
 In order to be able to test your localhost from a VM (such as VirtualBox) you'll have to add your IPv4 address to the server configuration. You can read how it can be done [here](docs/what-if/use-custom-host.md)
+
+## Adding test content
+
+Check out the [What if I want to add test content section for details][what if]
 
 ## Valtech branching strategy
 

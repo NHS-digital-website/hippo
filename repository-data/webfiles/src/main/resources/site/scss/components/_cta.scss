@@ -1,11 +1,53 @@
-/* CTA */
+// CTA Block
+// ==========================================================================
+//
+// Example #1
+//  <article class="cta">
+//      <h2 class="cta__title"><a href="#">Childpage document #1 title</a></h2>
+//      <p class="cta__text">Completely reintermediate world-class technologies</p>
+//  </article>
+//
+//
+// Example #2
+//  <article class="cta">
+//      <h2 class="cta__title"><a href="#">NHS Digital welcomes everyone</a></h2>
+//      <time class="cta__meta" datetime="#">Date published: 2 January 2018</time>
+//  </article>
+//
+// Check out `_cta-list.scss` for examples of using list of CTA blocks
+//
+
 .cta {
-    .cta__title,
-    h2 {
+    .cta__title{
         margin-bottom: 0;
+
+        @include bold-font(18);
+    }
+
+    .cta__text {
+        margin-top: 0;
+
+        @include core-font(18);
     }
 
     .cta__meta {
         @include core-font(16);
+    }
+
+    .cta__button {
+        margin-top: $gutter;
+    }
+}
+
+.cta--large {
+    .cta__title{
+        @include bold-font(26);
+        margin-bottom: round($gutter * 0.5);
+    }
+}
+
+.debug {
+    .cta {
+        background: rgba(255, 255, 0, 0.2);
     }
 }
