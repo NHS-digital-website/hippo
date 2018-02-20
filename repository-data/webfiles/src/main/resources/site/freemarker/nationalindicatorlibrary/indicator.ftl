@@ -41,6 +41,7 @@
                     <li><a href="#definition"><@fmt.message key="headers.definition"/></a></li>
                     <li><a href="#methodology"><@fmt.message key="headers.methodology"/></a></li>
                     <li><a href="#interpretations"><@fmt.message key="headers.interpretationGuidelines"/></a></li>
+                    <li><a href="#caveats"><@fmt.message key="headers.caveats"/></a></li>
                     <li><a href="#resources">Resources</a></li>
                 </ul>
             </div>
@@ -59,28 +60,29 @@
             <p>${indicator.definition}</p>
         </section>
 
-        <section id="methodology" class="push-double--bottom">
-            <h2><@fmt.message key="headers.methodology"/></h2>
 
-            <h3><strong><@fmt.message key="headers.dataSource"/></strong></h3>
+        <h1><details class="push-double--bottom collapse">
+            <summary><span>How this indicator is calculated</span></summary></br>
+            <h2 id="methodology"><@fmt.message key="headers.methodology"/></h2>
+
+            <h6><strong><@fmt.message key="headers.dataSource"/></strong></h6>
             <p>${indicator.dataSource}</p>
 
-            <h3><strong><@fmt.message key="headers.numerator"/></strong></h3>
+            <h6><strong><@fmt.message key="headers.numerator"/></strong></h6>
             <p>${indicator.numerator}</p>
 
-            <h3><strong><@fmt.message key="headers.denominator"/></strong></h3>
+            <h6><strong><@fmt.message key="headers.denominator"/></strong></h6>
             <p>${indicator.denominator}</p>
 
-            <h3><strong><@fmt.message key="headers.calculation"/></strong></h3>
+            <h6><strong><@fmt.message key="headers.calculation"/></strong></h6>
             <p>${indicator.calculation}</p>                        
 
-            <h3><strong><@fmt.message key="headers.caveats"/></strong></h3>
+            <h6><strong><@fmt.message key="headers.caveats"/></strong></h6>
             <p>${indicator.caveats}</p>
-
-        </section>
+        </details></h1>
 
         <section id="interpretations" class="push-double--bottom">
-            <h3><@fmt.message key="headers.interpretationGuidelines"/></h3>
+            <h2><strong><@fmt.message key="headers.interpretationGuidelines"/></strong></h2>
             <li>${indicator.interpretationGuidelines}</li>
         </section>
 
@@ -138,15 +140,42 @@
 
 <script>
 
-$(function() {
-  var $container = $('.jumpto');
-  var $b = $('body');
-  $.waypoints.settings.scrollThrottle = 0;
-  $container.waypoint({
-    handler: function(e, d) {
-      $b.toggleClass('sticky', d === 'down');
-      e.preventDefault();
+    $(function() {
+        var $container = $('.jumpto');
+        var $b = $('body');
+        $.waypoints.settings.scrollThrottle = 0;
+        $container.waypoint({
+            handler: function(e, d) {
+                $b.toggleClass('sticky', d === 'down');
+                e.preventDefault();
+            }
+        });
+    });
+
+    function isMathMLNativelySupported(){
+        var hasMathML = false;
+        if (document.createElement) {
+            var div = document.createElement("div");
+            div.style.position = "absolute"; div.style.top = div.style.left = 0;
+            div.style.visibility = "hidden"; div.style.width = div.style.height = "auto";
+            div.style.fontFamily = "serif"; div.style.lineheight = "normal";
+            div.innerHTML = "<math><mfrac><mi>xx</mi><mi>yy</mi></mfrac></math>";
+            $("body").append(div);
+            hasMathML = div.offsetHeight > div.offsetWidth;
+        }
+        return hasMathML;
     }
-  });
-});
+
+    function setupMathjaxIfNeeded(){
+        if( isMathMLNativelySupported() ) 
+        return true;
+        var scriptMathJax = document.createElement("script");
+        scriptMathJax.type = "text/javascript";
+        scriptMathJax.src  = "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+        $("head").append(scriptMathJax);
+        return false;
+    }
+
+    $( document ).ready( function(){setupMathjaxIfNeeded();} );
+
 </script>
