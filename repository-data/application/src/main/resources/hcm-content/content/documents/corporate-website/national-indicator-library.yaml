@@ -1,5 +1,6 @@
 ---
 /content/documents/corporate-website/national-indicator-library:
+  .meta:order-before: cta
   hippo:name: National Indicator Library
   hippostd:foldertype:
   - new-translated-folder

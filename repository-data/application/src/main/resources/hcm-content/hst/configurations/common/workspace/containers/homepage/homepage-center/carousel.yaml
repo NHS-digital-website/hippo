@@ -1,0 +1,38 @@
+---
+/hst:hst/hst:configurations/common/hst:workspace/hst:containers/homepage/homepage-center/carousel:
+  hst:componentclassname: uk.nhs.digital.common.components.WrappedListPickerComponent
+  hst:iconpath: images/catalog/component-products-30x30.png
+  hst:label: Documents Picker
+  hst:parameternames:
+  - document8
+  - document7
+  - document9
+  - wrappingDocument
+  - document4
+  - document3
+  - document6
+  - document5
+  - pageSize
+  - showPagination
+  - document2
+  - document1
+  - document10
+  - org.hippoecm.hst.core.component.template
+  hst:parametervalues:
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - '2'
+  - 'off'
+  - cta/cta---right
+  - cta/cta---left
+  - ''
+  - webfile:/freemarker/common/document-list/cta-list.ftl
+  hst:template: document-list
+  hst:xtype: HST.Item
+  jcr:primaryType: hst:containeritemcomponent

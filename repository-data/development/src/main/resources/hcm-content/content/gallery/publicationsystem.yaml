@@ -1,5 +1,6 @@
 ---
 /content/gallery/publicationsystem:
+  .meta:order-before: ipad-landscape-v2.png
   hippo:name: NHS Digital Publication System
   hippostd:foldertype:
   - new-image-folder

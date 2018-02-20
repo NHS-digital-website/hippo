@@ -1,0 +1,13 @@
+---
+/content/documents/corporate-website/hubs:
+  hippo:name: Hubs
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: 40edc8b3-8840-4fa5-8fa7-b56f61f934e4
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

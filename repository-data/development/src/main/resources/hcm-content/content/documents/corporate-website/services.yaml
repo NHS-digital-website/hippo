@@ -387,7 +387,10 @@
     /content:
       /content[1]:
         /website:component:
-          hippostd:content: ''
+          hippostd:content: |-
+            <h3>Summary Care Records (SCR)</h3>
+
+            <p>The SCR is an electronic record of important patient  information, created from GP medical records. It can  be seen and used by authorised staff in other areas of the health and care system involved in the patient's direct care.</p>
           jcr:primaryType: hippostd:html
         /website:introduction:
           hippostd:content: |-
@@ -480,7 +483,7 @@
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2018-02-21T11:12:02.193Z
-        hippostdpubwf:lastModificationDate: 2018-02-21T11:25:06.832Z
+        hippostdpubwf:lastModificationDate: 2018-02-27T10:33:34.875Z
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: f8ba7be6-ecd5-4381-b626-8fd5c3046ade
         hippotranslation:locale: en
@@ -502,7 +505,10 @@
         website:title: Summary Care Records (SCR)
       /content[2]:
         /website:component:
-          hippostd:content: ''
+          hippostd:content: |-
+            <h3>Summary Care Records (SCR)</h3>
+
+            <p>The SCR is an electronic record of important patient  information, created from GP medical records. It can  be seen and used by authorised staff in other areas of the health and care system involved in the patient's direct care.</p>
           jcr:primaryType: hippostd:html
         /website:introduction:
           hippostd:content: |-
@@ -596,7 +602,7 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2018-02-21T11:12:02.193Z
-        hippostdpubwf:lastModificationDate: 2018-02-21T11:27:05.799Z
+        hippostdpubwf:lastModificationDate: 2018-02-27T10:33:52.537Z
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: f8ba7be6-ecd5-4381-b626-8fd5c3046ade
         hippotranslation:locale: en
@@ -619,7 +625,10 @@
         website:title: Summary Care Records (SCR)
       /content[3]:
         /website:component:
-          hippostd:content: ''
+          hippostd:content: |-
+            <h3>Summary Care Records (SCR)</h3>
+
+            <p>The SCR is an electronic record of important patient  information, created from GP medical records. It can  be seen and used by authorised staff in other areas of the health and care system involved in the patient's direct care.</p>
           jcr:primaryType: hippostd:html
         /website:introduction:
           hippostd:content: |-
@@ -713,9 +722,9 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2018-02-21T11:12:02.193Z
-        hippostdpubwf:lastModificationDate: 2018-02-21T11:27:05.799Z
+        hippostdpubwf:lastModificationDate: 2018-02-27T10:33:52.537Z
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2018-02-21T11:27:08.595Z
+        hippostdpubwf:publicationDate: 2018-02-27T10:33:54.408Z
         hippotranslation:id: f8ba7be6-ecd5-4381-b626-8fd5c3046ade
         hippotranslation:locale: en
         jcr:mixinTypes:

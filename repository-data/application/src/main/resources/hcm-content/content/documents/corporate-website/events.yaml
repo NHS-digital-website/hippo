@@ -1,0 +1,277 @@
+---
+/content/documents/corporate-website/events:
+  /ehi-live---birmingham-nec:
+    /ehi-live---birmingham-nec[1]:
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:internal:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T11:05:04.284Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T11:05:04.284Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 5a60fb93-125e-48ff-9c99-f3903ec7a586
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:calltoaction
+      website:Label: ''
+      website:content: ''
+      website:external: ''
+      website:title: EHI Live - Birmingham NEC
+    /ehi-live---birmingham-nec[2]:
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:internal:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T11:05:04.284Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T11:05:11.116Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 5a60fb93-125e-48ff-9c99-f3903ec7a586
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:calltoaction
+      website:Label: ''
+      website:content: ''
+      website:external: ''
+      website:title: EHI Live - Birmingham NEC
+    /ehi-live---birmingham-nec[3]:
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:internal:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T11:05:04.284Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T11:05:11.116Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-21T11:05:12.571Z
+      hippotranslation:id: 5a60fb93-125e-48ff-9c99-f3903ec7a586
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:calltoaction
+      website:Label: ''
+      website:content: ''
+      website:external: ''
+      website:title: EHI Live - Birmingham NEC
+    hippo:name: EHI Live - Birmingham NEC
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /hscn-summit-2018:
+    /hscn-summit-2018[1]:
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:internal:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T11:04:40.300Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T11:04:40.300Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 9e9fedd7-be6f-4393-a6e4-5235b3db930e
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:calltoaction
+      website:Label: ''
+      website:content: ''
+      website:external: ''
+      website:title: HSCN Summit 2018
+    /hscn-summit-2018[2]:
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:internal:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T11:04:40.300Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T11:04:58.451Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 9e9fedd7-be6f-4393-a6e4-5235b3db930e
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:calltoaction
+      website:Label: ''
+      website:content: ''
+      website:external: ''
+      website:title: HSCN Summit 2018
+    /hscn-summit-2018[3]:
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:internal:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T11:04:40.300Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T11:04:58.451Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-21T11:04:59.691Z
+      hippotranslation:id: 9e9fedd7-be6f-4393-a6e4-5235b3db930e
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:calltoaction
+      website:Label: ''
+      website:content: ''
+      website:external: ''
+      website:title: HSCN Summit 2018
+    hippo:name: HSCN Summit 2018
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /lorem-ipsum-dolor-sit:
+    /lorem-ipsum-dolor-sit[1]:
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:internal:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T11:05:55.823Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T11:05:55.823Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 8915bdaa-bd81-4a81-ad91-46b00f100e17
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:calltoaction
+      website:Label: ''
+      website:content: ''
+      website:external: ''
+      website:title: Lorem ipsum dolor sit
+    /lorem-ipsum-dolor-sit[2]:
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:internal:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T11:05:55.823Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T11:06:04.831Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 8915bdaa-bd81-4a81-ad91-46b00f100e17
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:calltoaction
+      website:Label: ''
+      website:content: ''
+      website:external: ''
+      website:title: Lorem ipsum dolor sit
+    /lorem-ipsum-dolor-sit[3]:
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:internal:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T11:05:55.823Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T11:06:04.831Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-21T11:06:06.286Z
+      hippotranslation:id: 8915bdaa-bd81-4a81-ad91-46b00f100e17
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:calltoaction
+      website:Label: ''
+      website:content: ''
+      website:external: ''
+      website:title: Lorem ipsum dolor sit
+    hippo:name: Lorem ipsum dolor sit
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Events
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: a1dea5b3-6c67-4482-9e21-f11a5cacdd36
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

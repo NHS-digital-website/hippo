@@ -46,6 +46,26 @@ definitions:
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/homeland
         jcr:primaryType: hst:sitemapitem
+      /hubs:
+        /_any_:
+          /_index_:
+            hst:componentconfigurationid: hst:pages/404
+            hst:componentconfigurationmappingnames:
+            - website:hub
+            hst:componentconfigurationmappingvalues:
+            - hst:pages/hub
+            hst:relativecontentpath: ${parent}/content
+            jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/404
+          hst:componentconfigurationmappingnames:
+          - website:hub
+          hst:componentconfigurationmappingvalues:
+          - hst:pages/hub
+          hst:relativecontentpath: ${parent}/${1}
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/hub
+        hst:relativecontentpath: hubs
+        jcr:primaryType: hst:sitemapitem
       /root:
         hst:componentconfigurationid: hst:pages/cihub
         hst:relativecontentpath: publication-system/ci-hub/main-sections
@@ -62,7 +82,7 @@ definitions:
       /services:
         /_any_:
           /_index_:
-            hst:componentconfigurationid: hst:pages/general
+            hst:componentconfigurationid: hst:pages/404
             hst:componentconfigurationmappingnames:
             - website:service
             hst:componentconfigurationmappingvalues:

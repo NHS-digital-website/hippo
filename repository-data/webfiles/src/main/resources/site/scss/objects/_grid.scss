@@ -19,34 +19,12 @@
 // Use .grid-row to define a row for grid columns to sit in
 .grid-row {
     @include grid-row;
-
-    margin-top: 20px;
-
-    // IE7-8 style override
-    &:last-child {
-        margin-top: 0;
-    }
-
-    @include media(desktop) {
-        margin-top: 30px;
-    }
 }
 
 .column {
     @include grid-column(4 / 4);
 }
 
-.column--no-padding {
-    padding-left: 0;
-    padding-right: 0;
-}
-
-.column--no-left-padding {
-    padding-left: 0;
-}
-.column--no-right-padding {
-    padding-right: 0;
-}
 
 // Use .grid-column to create a grid column with 15px gutter
 // By default grid columns break to become full width at 925px
@@ -91,6 +69,43 @@
     @include grid-column(3 / 4, $float: right);
 }
 
+.column--no-padding,
+.column--reset {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.column--no-left-padding,
+.column--reset-left {
+    padding-left: 0;
+}
+
+.column--no-right-padding,
+.column--reset-right {
+    padding-right: 0;
+}
+
+/* Override padding for custom columns */
+.column--left {
+    padding: 0 round($gutter * 1.5) 0 0;
+}
+
+.column--center {
+    padding: 0 round($gutter * 1.5);
+}
+
+.column--right {
+    padding: 0 0 0 round($gutter * 1.5);
+}
+
+@include media($max-width: $min-desktop-width) {
+    .column--left,
+    .column--center,
+    .column--right {
+        padding: 0;
+    }
+}
+
 
 /* Grid wrapper */
 .grid-wrapper {
@@ -129,6 +144,6 @@
     }
 
     .column {
-        background: rgba(0, 0, 255, 0.05);
+        // background: rgba(0, 0, 255, 0.05);
     }
 }

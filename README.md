@@ -139,6 +139,10 @@ There are 2 ways to run the server: with or without `autoexport`. When the app r
 
 In order to be able to test your localhost from a VM (such as VirtualBox) you'll have to add your IPv4 address to the server configuration. You can read how it can be done [here](docs/what-if/use-custom-host.md)
 
+## Adding test content
+
+Check out the [What if I want to add test content section for details][what if]
+
 ## Valtech branching strategy
 
 Valtech follows RPS's `rebase` strategy - working off `master` branch. Once a feature branch is complete, we squash all commits on it into 1 meaningful commit and make a PR.

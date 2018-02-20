@@ -4,7 +4,7 @@
 <#-- @ftlvariable name="menu" type="org.hippoecm.hst.core.sitemenu.HstSiteMenu" -->
 <#if menu??>
 <nav class="menu">
-    <ul class="list list-reset">
+    <ul class="list list--reset">
         <#if hstRequestContext.preview>
           <div style="position:relative">
             <@hst.cmseditmenu menu=menu/>
