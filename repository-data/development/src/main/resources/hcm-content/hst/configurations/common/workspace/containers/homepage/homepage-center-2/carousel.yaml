@@ -23,14 +23,14 @@
   - ''
   - ''
   - ''
-  - services/summary-care-records-scr
-  - services/nhs-e-referral-service
+  - services/service-document-1/service-child-document-3/content
+  - services/service-document-1/service-child-document-2/content
   - ''
   - ''
   - '4'
   - 'off'
-  - services/gp2gp
-  - services/electronic-prescription-service
+  - services/service-document-1/service-child-document-1/content
+  - services/service-document-1/content
   - ''
   - webfile:/freemarker/common/document-list/services-list.ftl
   hst:template: document-list

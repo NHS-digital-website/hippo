@@ -1,4 +1,8 @@
 /* Article sections */
+.article {
+    padding-top: $gutter * 2;
+}
+
 .article-section {
     position: relative;
     width: 100%;
@@ -6,12 +10,16 @@
     padding-bottom: $default-spacing-unit * 2;
     border-bottom: 1px solid $grey-4;
 
-    * + * {
+    * + *:not(li) {
         margin-top: 14px;
 
         @include media(tablet) {
             margin-top: 20px;
         }
+    }
+
+    h3:not(:first-of-type) {
+        margin-top: $gutter * 2;
     }
 
     .grid-row,
@@ -23,11 +31,6 @@
         }
     }
 
-    &:last-child {
-        margin-bottom: 0;
-        border-bottom: none;
-    }
-
     @include media(desktop) {
         padding-bottom: $default-spacing-unit * 3;
     }
@@ -35,6 +38,15 @@
 
 .article-section--no-border {
     border: none;
+}
+
+.article-section--no-bottom-padding {
+    padding-bottom: 0;
+}
+
+.article-section--last-one {
+    @extend .article-section--no-border;
+    @extend .article-section--no-bottom-padding;
 }
 
 .article-section--summary:not(.article-section--summary-with-border) {
@@ -71,6 +83,12 @@
     }
 }
 
+.article-section--hub-component {
+    .component-list {
+        margin-top: $gutter * 2;
+    }
+}
+
 .article-section--padded {
     padding-top: $baseline-grid-unit * 12;
 }
@@ -88,141 +106,33 @@
     margin-top: 40px;
 }
 
-.article-section__box {
-    padding: $gutter * 2 12px $gutter;
-
-    // Top tasks like box title
-    .article-section__title {
-        margin-bottom: 35px;
-    }
-
-    .link,
-    .button {
-        @include core-font(18);
-    }
-
-    @include media(mobile) {
-        padding: $gutter * 2 12px;
-    }
-
-    &.article-section__box--latest-publications {
-        padding: $gutter * 2 12px;
-        background: $col-duodenary;
-
-        @include media(desktop) {
-            li:not(:first-child) {
-                border-left: 1px solid $col-senary;
-            }
-        }
-    }
-
-    &.article-section__box--services {
-        background: $col-primary;
-        color: $col-septenary;
-        margin: 30px 0 40px;
-
-        a {
-            color: $col-septenary;
-
-            &:hover {
-                text-decoration: none;
-            }
-        }
-
-        .list-of-articles {
-            margin-bottom: 0;
-        }
-    }
-
-    &.article-section__box--information {
-        background: $col-tridenary;
-
-        .article-section__box-title {
-            margin-bottom: 0;
-        }
-
-        .article-section__box-contents {
-            margin-top: 10px;
-        }
-
-        .article-section__box-image-wrapper {
-            position: relative;
-            display: block;
-            width: 100%;
-            height: 100%;
-            vertical-align: middle;
-        }
-
-        .article-section__box-image {
-            display: block;
-            width: 100%;
-            height: auto;
-            vertical-align: middle;
-
-            @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
-                display: none;
-            }
-        }
-
-        .link {
-            display: inline-block;
-            margin: 20px 0 10px;
-        }
-    }
-}
-
 
 .article-section--data-and-information {
-    .article-section__contents {
-        margin-top: 20px;
+    .cta {
+        margin-top: $gutter;
     }
 
-    .cta {
-        margin-bottom: 40px;
+    .cta-list--data-and-information {
+        margin-bottom: $gutter * 2;
+
+        @include media($max-width: $min-desktop-width) {
+            margin-bottom: 0;
+        } 
     }
 }
 
-.article-section--data-and-information,
-.article-section--about-us {
-    .article-section__column {
-        margin-bottom: $baseline-grid-unit * 8;
-        padding: 0;
-
-        @include media(desktop) {
-            margin-bottom: 0;
-        }
-    }
-
-    .article-section__column--left {
-        padding-right: $gutter;
-
-        @include media($max-width: $min-desktop-width) {
-            padding-left: 0;
-            padding-right: 0;
-        }
-    }
-
-    .article-section__column--center {
-
-    }
-
-    .article-section__column--right {
-        padding-left: $gutter;
-
-        @include media($max-width: $min-desktop-width) {
-            padding-left: 0;
-        }
+.article-section--component {
+    .child-page-list {
+        margin-top: $gutter * 2;
     }
 }
 
 /* About us section */
 .article-section--about-us {
-    .article-section__column {
-        padding: 0 24px;
-    }
-
-    .article-section__column--right {
-        
+    .article-section__contents {
+        .column {
+            margin-top: round($vertical-gap * 2);
+        }
     }
 
     @include media(desktop) {
@@ -233,27 +143,5 @@
         .column:first-child {
             padding-left: 0;
         }
-    }
-
-    @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
-        .article-section__column {
-            padding: 0;
-        }
-
-        .list-of-articles {
-            margin-bottom: 0;
-        }
-
-        .article-section__column--right {
-            margin-bottom: 0;
-        }
-    }
-}
-
-// The last row of article section should not have a bottom border
-.page-block {
-    .article-section:last-of-type {
-        border-bottom: none;
-        padding-bottom: 0;
     }
 }

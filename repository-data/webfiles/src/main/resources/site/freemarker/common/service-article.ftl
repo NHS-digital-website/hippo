@@ -34,19 +34,21 @@
             </div>
 
             <div class="column column--two-thirds page-block page-block--main">
-                <#-- BEGIN mandatory 'summary section' -->
+                <#-- [FTL-BEGIN] mandatory 'summary section' -->
                 <#if document.toptasks?has_content>
-                    <#assign summarySectionClassName = "article-section article-section--summary">
+                    <#assign summarySectionClassName = "article-section article-section--summary article-section--no-border">
                 <#else>
-                    <#assign summarySectionClassName = "article-section article-section--summary article-section--summary-with-border">
+                    <#assign summarySectionClassName = "article-section article-section--summary">
                 </#if>
+                <#-- [FTL-END] mandatory 'Summary' section -->
+
                 <section id="section-summary" class="${summarySectionClassName}">
                     <h2>Summary</h2>
                     <p>${document.summary}</p>
                 </section>
-                <#-- END mandatory 'summary section' -->
+                <#-- [FTL-END] mandatory 'Summary' section -->
 
-                <#-- BEGIN optional list of 'top tasks section' -->
+                <#-- [FTL-BEGIN] optional list of 'Top tasks' section -->
                 <#if document.toptasks?has_content>
                 <section class="article-section article-section--top-tasks">
                     <div class="callout callout--attention">
@@ -58,36 +60,36 @@
                     </div>
                 </section>
                 </#if>
-                <#-- END optional list of 'top tasks section' -->
+                <#-- [FTL-END] optional list of 'Top tasks' section -->
 
-                <#-- BEGIN optional 'Introduction section' -->
+                <#-- [FTL-BEGIN] 'Introduction' section -->
                 <#if document.introduction??>
                 <div class="article-section article-section--introduction">
                     <@hst.html hippohtml=document.introduction/>
                 </div>
                 </#if>
-                <#-- END optional 'Introduction section' -->
+                <#-- [FTL-END] 'Introduction' section -->
 
                 <@articleSections document.sections></@articleSections>
 
-                <#-- BEGIN optional 'Further Information section' -->
+                <#-- [FTL-BEGIN] 'Further information' section -->
                 <#if childPages?has_content>
-                <section class="article-section article-section--child-pages" id="section-child-pages">
-                    <h2>${childPagesSectionTitle}</h2>
-                    <ol class="list list-reset list-of-articles">
+                <section class="article-section article-section--child-pages article-section--last-one" id="section-child-pages">
+                    <h2>Further information</h2>
+                    <ol class="list list--reset cta-list">
                         <#list childPages as childPage>
                         <@hst.link var="link" hippobean=childPage />
                         <li>
-                            <article>
-                                <h2><a href="${link}">${childPage.title}</a></h2>
-                                <p>${childPage.shortsummary}</p>
+                            <article class="cta">
+                                <h2 class="cta__title"><a href="${link}">${childPage.title}</a></h2>
+                                <p class="cta__text">${childPage.shortsummary}</p>
                             </article>
                         </li>
                         </#list>
                     </ol>
                 </section>
                 </#if>
-                <#-- END optional 'Further information section' -->
+                <#-- [FTL-END] 'Further information' section -->
             </div>
         </div>
     </div>

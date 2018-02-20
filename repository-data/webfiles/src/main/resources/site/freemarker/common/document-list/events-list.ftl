@@ -6,24 +6,18 @@
 <@fmt.message key="about-us.upcomingEventsButtonLabel" var="buttonLabel"/>
 
 <#if pageable?? && pageable.items?has_content>
-    <div class="cta-list">
-        <h3 class="list-title">${title}</h3>
-        <ol class="list list-reset list-of-articles">
-        <#list pageable.items as item>
-            <li>
-                <article class="cta">
-                    <h2 class="cta__title"><a href="#">${item.title}</a></h2>
-                    <time class="cta__meta" datetime="#">Date: 20 January 2018</time>
-                    <#-- <#assign nomimaldate = item.getNominalPublicationDate()/>
-                    <#if !nomimaldate.isRestricted()>
-                    <#assign pubdate = nomimaldate.dayOfMonth + " " + nomimaldate.month +" "+ nomimaldate.year?c/>
-                        <time class="cta__meta" datetime="${pubdate?date?iso_utc}T08:00">Date: ${pubdate?date}</time>
-                    </#if> -->
-                </article>
-            </li>    
-        </#list>
-        </ol>
+    <h3 class="list-title">${title}</h3>
+    <ol class="list list--reset cta-list">
+    <#list pageable.items as item>
+        <li>
+            <article class="cta">
+                <h2 class="cta__title"><a href="#">${item.title}</a></h2>
+                <#-- [TODO:ROB] Display the actual date value! -->
+                <time class="cta__meta" datetime="#">Date: 20 January 2018</time>
+            </article>
+        </li>    
+    </#list>
+    </ol>
 
-        <a href="#" class="button">${buttonLabel}</a>
-    </div>
+    <a href="#" class="button">${buttonLabel}</a>
 </#if>

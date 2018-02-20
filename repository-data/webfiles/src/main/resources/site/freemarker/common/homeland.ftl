@@ -15,26 +15,32 @@
 <main>
     <div class="page-block">
         <div class="grid-wrapper grid-wrapper--article">
-            <#-- Data and information section -->
-            <div class="article-section article-section--data-and-information">
+            <#-- [FTL-BEGIN] 'Data and information' section -->
+            <div class="article-section article-section--data-and-information article-section--padded">
                 <div class="article-section__header">
                     <h2>${dataAndInformationSectionTitle}</h2>
                 </div>
+                
                 <div class="article-section__contents">
                     <@hst.include ref="center"/>
                 </div>
             </div>
+            <#-- [FTL-END] 'Data and information' section -->
 
-            <#-- Systems and Services section -->
-            <div class="article-section article-section--systems-and-services">
+            <#-- [FTL-BEGIN] 'Systems and Services' section -->
+            <div class="article-section">
                 <div class="article-section__header">
                     <h2>${systemsAndServicesTitle}</h2>
                     <p>${systemsAndServicesText}</p>
                 </div>
-                <@hst.include ref="center-2"/>
-            </div>
 
-            <#-- About us section -->
+                <div class="article-section__contents">
+                    <@hst.include ref="center-2"/>
+                </div>
+            </div>
+            <#-- [FTL-END] 'Systems and Services' section -->
+
+            <#-- [FTL-BEGIN] 'About us' section -->
             <div class="article-section article-section--about-us article-section--no-border">
                 <div class="article-section__header">
                     <h2>${aboutUsSectionTitle}</h2>
@@ -42,27 +48,28 @@
                 </div>
 
                 <div class="article-section__contents">
-                    <#-- <@hst.include ref="bottom-header"/> -->
-                    <div class="grid-row list-of-articles list-of-articles--3-columns">
-                        <div class="column column--one-third article-section__column article-section__column--left">
+                    <div class="grid-row">
+                        <div class="column column--one-third column--left">
                             <@hst.include ref="bottom-left"/>
                         </div>
-                        <div class="column column--one-third article-section__column article-section__column--center">
+                        <div class="column column--one-third column--center">
                             <@hst.include ref="bottom-center"/>
                         </div>
-                        <div class="column column--one-third article-section__column article-section__column--right">
+                        <div class="column column--one-third column--right">
                             <@hst.include ref="bottom-right"/>
                         </div>
                     </div>
                 </div>
             </div>
+            <#-- [FTL-END] 'About us' section -->
 
-            <#-- Information section -->
-            <div class="article-section article-section--information">
+            <#-- [FTL-BEGIN] 'Information box' section -->
+            <div class="article-section article-section--no-border">
                 <div class="article-section__contents">
                     <@hst.include ref="information"/>
                 </div>
             </div>
+            <#-- [FTL-END] 'Information box' section -->
         </div>
     </div>
 </main>

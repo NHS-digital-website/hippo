@@ -1,35 +1,33 @@
 @import "../environment/settings/colours";
 @import "../environment/tools/mixins/typography";
+@import "../environment/settings/layout";
 
 ul {
-  // @include core-font(16);
   list-style: disc outside;
   padding-left: 1em;
 }
 
 ol {
-  // @include core-font(16);
   list-style: decimal outside;
   padding-left: 1em;
 
   @include ie-lte(7) {
     padding-left: 1.5em;
   }
-
-  li {
-    padding-left: .2em;
-  }
 }
 
-dl {
-  // @include core-font(16);
+.list {
+    li {
+        position: relative;
+        margin-top: $gutter;
 
-  dt {
-    // @include bold-font(16);
-  }
+        &:first-child {
+            margin-top: 0;
+        }
+    }
 }
 
-.list-reset {
+.list--reset {
   list-style: none;
   margin: 0;
   padding: 0;

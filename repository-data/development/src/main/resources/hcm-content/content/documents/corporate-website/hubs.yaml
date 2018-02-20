@@ -1,0 +1,496 @@
+---
+/content/documents/corporate-website/hubs/hub-document:
+  /content:
+    /content[1]:
+      /website:body:
+        hippostd:content: |-
+          <p>Distinctively architect quality paradigms through effective niche markets. Intrinsicly maximize next-generation vortals without fully tested supply chains. Phosfluorescently disseminate intuitive imperatives rather than magnetic paradigms. Phosfluorescently facilitate compelling systems before resource maximizing customer service. Authoritatively transform cross-media results via quality e-business.</p>
+
+          <p>Rapidiously morph team driven.</p>
+        jcr:primaryType: hippostd:html
+      /website:component:
+        hippostd:content: |-
+          <h3>Dramatically facilitate front-end</h3>
+
+          <p>scenarios through global testing procedures. Conveniently synthesize ubiquitous quality vectors and real-time methodologies. Synergistically customize seamless information through turnkey opportunities. Collaboratively whiteboard clicks-and-mortar collaboration and idea-sharing through cooperative infomediaries. Collaboratively procrastinate high-quality bandwidth whereas error-free technologies.</p>
+
+          <p>Proactively enhance resource-leveling materials rather than.</p>
+        jcr:primaryType: hippostd:html
+      /website:componentlist:
+        hippo:docbase: bbcc03b7-f4a5-46fc-82d2-18a3f634cca2
+        jcr:primaryType: hippo:mirror
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-27T10:04:53.872Z
+      hippostdpubwf:lastModificationDate: 2018-02-28T12:01:19.519Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: c9f396af-cdc3-4877-9531-7514860d0a42
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:hub
+      website:listtitle: Data and information
+      website:seosummary: Assertively empower wireless communities with client-centric
+        platforms. Monotonectally formulate clicks-and-mortar convergence for long-term
+        high-impact methodologies.
+      website:shortsummary: Seamlessly transform competitive experiences whereas enterprise
+        core competencies
+      website:summary: "Assertively empower wireless communities with client-centric\
+        \ platforms. Monotonectally formulate clicks-and-mortar convergence for long-term\
+        \ high-impact methodologies. Assertively deploy strategic benefits for equity\
+        \ invested technology. Enthusiastically embrace progressive paradigms and\
+        \ orthogonal infrastructures.\r\n\r\nUniquely predominate functional processes\
+        \ and one-to-one catalysts."
+      website:title: Seamlessly transform competitive experiences whereas enterprise
+        core competencies
+    /content[2]:
+      /website:body:
+        hippostd:content: |-
+          <p>Distinctively architect quality paradigms through effective niche markets. Intrinsicly maximize next-generation vortals without fully tested supply chains. Phosfluorescently disseminate intuitive imperatives rather than magnetic paradigms. Phosfluorescently facilitate compelling systems before resource maximizing customer service. Authoritatively transform cross-media results via quality e-business.</p>
+
+          <p>Rapidiously morph team driven.</p>
+        jcr:primaryType: hippostd:html
+      /website:component:
+        hippostd:content: |-
+          <h3>Dramatically facilitate front-end</h3>
+
+          <p>scenarios through global testing procedures. Conveniently synthesize ubiquitous quality vectors and real-time methodologies. Synergistically customize seamless information through turnkey opportunities. Collaboratively whiteboard clicks-and-mortar collaboration and idea-sharing through cooperative infomediaries. Collaboratively procrastinate high-quality bandwidth whereas error-free technologies.</p>
+
+          <p>Proactively enhance resource-leveling materials rather than.</p>
+        jcr:primaryType: hippostd:html
+      /website:componentlist:
+        hippo:docbase: bbcc03b7-f4a5-46fc-82d2-18a3f634cca2
+        jcr:primaryType: hippo:mirror
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-27T10:04:53.872Z
+      hippostdpubwf:lastModificationDate: 2018-02-28T12:01:28.680Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: c9f396af-cdc3-4877-9531-7514860d0a42
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:hub
+      website:listtitle: Data and information
+      website:seosummary: Assertively empower wireless communities with client-centric
+        platforms. Monotonectally formulate clicks-and-mortar convergence for long-term
+        high-impact methodologies.
+      website:shortsummary: Seamlessly transform competitive experiences whereas enterprise
+        core competencies
+      website:summary: "Assertively empower wireless communities with client-centric\
+        \ platforms. Monotonectally formulate clicks-and-mortar convergence for long-term\
+        \ high-impact methodologies. Assertively deploy strategic benefits for equity\
+        \ invested technology. Enthusiastically embrace progressive paradigms and\
+        \ orthogonal infrastructures.\r\n\r\nUniquely predominate functional processes\
+        \ and one-to-one catalysts."
+      website:title: Seamlessly transform competitive experiences whereas enterprise
+        core competencies
+    /content[3]:
+      /website:body:
+        hippostd:content: |-
+          <p>Distinctively architect quality paradigms through effective niche markets. Intrinsicly maximize next-generation vortals without fully tested supply chains. Phosfluorescently disseminate intuitive imperatives rather than magnetic paradigms. Phosfluorescently facilitate compelling systems before resource maximizing customer service. Authoritatively transform cross-media results via quality e-business.</p>
+
+          <p>Rapidiously morph team driven.</p>
+        jcr:primaryType: hippostd:html
+      /website:component:
+        hippostd:content: |-
+          <h3>Dramatically facilitate front-end</h3>
+
+          <p>scenarios through global testing procedures. Conveniently synthesize ubiquitous quality vectors and real-time methodologies. Synergistically customize seamless information through turnkey opportunities. Collaboratively whiteboard clicks-and-mortar collaboration and idea-sharing through cooperative infomediaries. Collaboratively procrastinate high-quality bandwidth whereas error-free technologies.</p>
+
+          <p>Proactively enhance resource-leveling materials rather than.</p>
+        jcr:primaryType: hippostd:html
+      /website:componentlist:
+        hippo:docbase: bbcc03b7-f4a5-46fc-82d2-18a3f634cca2
+        jcr:primaryType: hippo:mirror
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-27T10:04:53.872Z
+      hippostdpubwf:lastModificationDate: 2018-02-28T12:01:28.680Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-28T12:01:30.490Z
+      hippotranslation:id: c9f396af-cdc3-4877-9531-7514860d0a42
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:hub
+      website:listtitle: Data and information
+      website:seosummary: Assertively empower wireless communities with client-centric
+        platforms. Monotonectally formulate clicks-and-mortar convergence for long-term
+        high-impact methodologies.
+      website:shortsummary: Seamlessly transform competitive experiences whereas enterprise
+        core competencies
+      website:summary: "Assertively empower wireless communities with client-centric\
+        \ platforms. Monotonectally formulate clicks-and-mortar convergence for long-term\
+        \ high-impact methodologies. Assertively deploy strategic benefits for equity\
+        \ invested technology. Enthusiastically embrace progressive paradigms and\
+        \ orthogonal infrastructures.\r\n\r\nUniquely predominate functional processes\
+        \ and one-to-one catalysts."
+      website:title: Seamlessly transform competitive experiences whereas enterprise
+        core competencies
+    hippo:name: Hub Document
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /general-document-1:
+    /content:
+      /content[1]:
+        /website:component:
+          hippostd:content: |-
+            <h3>Phosfluorescently develop scalable</h3>
+
+            <p>Convergence without enabled solutions. Dynamically drive cutting-edge e-services with installed base meta-services. Progressively strategize dynamic information via orthogonal experiences. Collaboratively revolutionize client-focused applications with plug-and-play services. Professionally evolve intuitive leadership through granular best practices.</p>
+
+            <p>Appropriately mesh cutting-edge deliverables after user-centric products. Distinctively.</p>
+          jcr:primaryType: hippostd:html
+        common:searchable: true
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-02-27T10:07:47.585Z
+        hippostdpubwf:lastModificationDate: 2018-02-27T10:07:47.585Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: dcc96d53-0008-408e-8e0b-2d982b01a8e0
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:general
+        website:seosummary: Distinctively synergize customer directed collaboration
+          and idea-sharing without standardized
+        website:shortsummary: Distinctively synergize customer directed collaboration
+          and idea-sharing without standardized
+        website:summary: "Distinctively synergize customer directed collaboration\
+          \ and idea-sharing without standardized benefits. Conveniently promote dynamic\
+          \ e-markets for 24/7 schemas. Competently orchestrate real-time models through\
+          \ diverse convergence. Appropriately reinvent technically sound relationships\
+          \ via fully researched meta-services. Completely pontificate high standards\
+          \ in initiatives for low-risk high-yield web-readiness.\r\n\r\nCredibly\
+          \ initiate."
+        website:title: 'General Document #1'
+      /content[2]:
+        /website:component:
+          hippostd:content: |-
+            <h3>Phosfluorescently develop scalable</h3>
+
+            <p>Convergence without enabled solutions. Dynamically drive cutting-edge e-services with installed base meta-services. Progressively strategize dynamic information via orthogonal experiences. Collaboratively revolutionize client-focused applications with plug-and-play services. Professionally evolve intuitive leadership through granular best practices.</p>
+
+            <p>Appropriately mesh cutting-edge deliverables after user-centric products. Distinctively.</p>
+          jcr:primaryType: hippostd:html
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-02-27T10:07:47.585Z
+        hippostdpubwf:lastModificationDate: 2018-02-27T10:08:08.574Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: dcc96d53-0008-408e-8e0b-2d982b01a8e0
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        - mix:versionable
+        jcr:primaryType: website:general
+        website:seosummary: Distinctively synergize customer directed collaboration
+          and idea-sharing without standardized
+        website:shortsummary: Distinctively synergize customer directed collaboration
+          and idea-sharing without standardized
+        website:summary: "Distinctively synergize customer directed collaboration\
+          \ and idea-sharing without standardized benefits. Conveniently promote dynamic\
+          \ e-markets for 24/7 schemas. Competently orchestrate real-time models through\
+          \ diverse convergence. Appropriately reinvent technically sound relationships\
+          \ via fully researched meta-services. Completely pontificate high standards\
+          \ in initiatives for low-risk high-yield web-readiness.\r\n\r\nCredibly\
+          \ initiate."
+        website:title: 'General Document #1'
+      /content[3]:
+        /website:component:
+          hippostd:content: |-
+            <h3>Phosfluorescently develop scalable</h3>
+
+            <p>Convergence without enabled solutions. Dynamically drive cutting-edge e-services with installed base meta-services. Progressively strategize dynamic information via orthogonal experiences. Collaboratively revolutionize client-focused applications with plug-and-play services. Professionally evolve intuitive leadership through granular best practices.</p>
+
+            <p>Appropriately mesh cutting-edge deliverables after user-centric products. Distinctively.</p>
+          jcr:primaryType: hippostd:html
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-02-27T10:07:47.585Z
+        hippostdpubwf:lastModificationDate: 2018-02-27T10:08:08.574Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2018-02-27T10:08:10.118Z
+        hippotranslation:id: dcc96d53-0008-408e-8e0b-2d982b01a8e0
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:general
+        website:seosummary: Distinctively synergize customer directed collaboration
+          and idea-sharing without standardized
+        website:shortsummary: Distinctively synergize customer directed collaboration
+          and idea-sharing without standardized
+        website:summary: "Distinctively synergize customer directed collaboration\
+          \ and idea-sharing without standardized benefits. Conveniently promote dynamic\
+          \ e-markets for 24/7 schemas. Competently orchestrate real-time models through\
+          \ diverse convergence. Appropriately reinvent technically sound relationships\
+          \ via fully researched meta-services. Completely pontificate high standards\
+          \ in initiatives for low-risk high-yield web-readiness.\r\n\r\nCredibly\
+          \ initiate."
+        website:title: 'General Document #1'
+      hippo:name: 'General Document #1'
+      jcr:mixinTypes:
+      - hippo:named
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    hippo:name: 'General Document #1'
+    hippostd:foldertype:
+    - new-translated-folder
+    - new-document
+    hippotranslation:id: 0952e08e-0cd4-49b8-a779-2bd6b7085ad9
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippo:named
+    - hippotranslation:translated
+    - mix:versionable
+    jcr:primaryType: hippostd:folder
+  /general-document-2:
+    /content:
+      /content[1]:
+        /website:component:
+          hippostd:content: |-
+            <h2>General Document #2</h2>
+
+            <p>Continually grow cross functional web-readiness vis-a-vis cross-unit channels. Quickly leverage other's high standards in leadership skills for cross-platform e-markets. Authoritatively network competitive methodologies whereas cross functional value. Credibly brand an expanded array of technologies before enterprise technology. Enthusiastically provide access to timely e-tailers with effective.</p>
+
+            <p><a href="http://digital.nhs.uk">methodologies whereas cross functional</a></p>
+          jcr:primaryType: hippostd:html
+        /website:sections[1]:
+          /website:html:
+            hippostd:content: |-
+              <p>Professionally coordinate bricks-and-clicks methodologies whereas 24/365 e-business. Dynamically facilitate 24/365 internal or "organic" sources with timely metrics. Authoritatively communicate cross-media web-readiness whereas inexpensive interfaces. Completely synergize future-proof leadership skills vis-a-vis innovative web-readiness. Efficiently iterate top-line intellectual capital after resource-leveling strategic theme areas.</p>
+
+              <p>Holisticly conceptualize client-based.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:title: Section One
+          website:type: ''
+        /website:sections[2]:
+          /website:html:
+            hippostd:content: <p>Objectively extend B2B imperatives rather than user
+              friendly synergy. Compellingly maintain holistic schemas for flexible
+              intellectual capital. Credibly synergize worldwide human capital after
+              <a href="http://digital.nhs.uk">alternative functionalities</a>. Objectively
+              supply interactive action items rather than state of the art e-tailers.
+              Interactively monetize user friendly applications without error-free
+              resources.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:title: Section Two
+          website:type: ''
+        /website:sections[3]:
+          /website:html:
+            hippostd:content: |-
+              <p>Completely visualize tactical "outside the box" thinking with diverse quality vectors. Dynamically pontificate reliable core competencies vis-a-vis e-business infomediaries. Conveniently restore integrated e-tailers vis-a-vis focused applications. Holisticly reinvent goal-oriented e-commerce with goal-oriented infomediaries. <a href="http://digital.nhs.uk">Rapidiously leverage other's top</a>-line potentialities via an expanded array of vortals.</p>
+
+              <p>Conveniently.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:title: Section Three
+          website:type: ''
+        common:searchable: true
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-02-27T10:37:07.473Z
+        hippostdpubwf:lastModificationDate: 2018-02-27T10:37:07.473Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: ed2cbe12-46ef-4bdf-98d4-ed88b2c2ea6e
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:general
+        website:seosummary: Continually grow cross functional web-readiness vis-a-vis
+          cross-unit channels. Quickly leverage other's high standards in leadership
+          skills for cross-platform e-markets
+        website:shortsummary: Continually grow cross functional web-readiness vis-a-vis
+          cross-unit channels
+        website:summary: Continually grow cross functional web-readiness vis-a-vis
+          cross-unit channels. Quickly leverage other's high standards in leadership
+          skills for cross-platform e-markets. Authoritatively network competitive
+          methodologies whereas cross functional value. Credibly brand an expanded
+          array of technologies before enterprise technology. Enthusiastically provide
+          access to timely e-tailers with effective.
+        website:title: 'General Document #2'
+      /content[2]:
+        /website:component:
+          hippostd:content: |-
+            <h2>General Document #2</h2>
+
+            <p>Continually grow cross functional web-readiness vis-a-vis cross-unit channels. Quickly leverage other's high standards in leadership skills for cross-platform e-markets. Authoritatively network competitive methodologies whereas cross functional value. Credibly brand an expanded array of technologies before enterprise technology. Enthusiastically provide access to timely e-tailers with effective.</p>
+
+            <p><a href="http://digital.nhs.uk">methodologies whereas cross functional</a></p>
+          jcr:primaryType: hippostd:html
+        /website:sections[1]:
+          /website:html:
+            hippostd:content: |-
+              <p>Professionally coordinate bricks-and-clicks methodologies whereas 24/365 e-business. Dynamically facilitate 24/365 internal or "organic" sources with timely metrics. Authoritatively communicate cross-media web-readiness whereas inexpensive interfaces. Completely synergize future-proof leadership skills vis-a-vis innovative web-readiness. Efficiently iterate top-line intellectual capital after resource-leveling strategic theme areas.</p>
+
+              <p>Holisticly conceptualize client-based.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:title: Section One
+          website:type: ''
+        /website:sections[2]:
+          /website:html:
+            hippostd:content: <p>Objectively extend B2B imperatives rather than user
+              friendly synergy. Compellingly maintain holistic schemas for flexible
+              intellectual capital. Credibly synergize worldwide human capital after
+              <a href="http://digital.nhs.uk">alternative functionalities</a>. Objectively
+              supply interactive action items rather than state of the art e-tailers.
+              Interactively monetize user friendly applications without error-free
+              resources.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:title: Section Two
+          website:type: ''
+        /website:sections[3]:
+          /website:html:
+            hippostd:content: |-
+              <p>Completely visualize tactical "outside the box" thinking with diverse quality vectors. Dynamically pontificate reliable core competencies vis-a-vis e-business infomediaries. Conveniently restore integrated e-tailers vis-a-vis focused applications. Holisticly reinvent goal-oriented e-commerce with goal-oriented infomediaries. <a href="http://digital.nhs.uk">Rapidiously leverage other's top</a>-line potentialities via an expanded array of vortals.</p>
+
+              <p>Conveniently.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:title: Section Three
+          website:type: ''
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-02-27T10:37:07.473Z
+        hippostdpubwf:lastModificationDate: 2018-02-27T10:38:36.359Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: ed2cbe12-46ef-4bdf-98d4-ed88b2c2ea6e
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        - mix:versionable
+        jcr:primaryType: website:general
+        website:seosummary: Continually grow cross functional web-readiness vis-a-vis
+          cross-unit channels. Quickly leverage other's high standards in leadership
+          skills for cross-platform e-markets
+        website:shortsummary: Continually grow cross functional web-readiness vis-a-vis
+          cross-unit channels
+        website:summary: Continually grow cross functional web-readiness vis-a-vis
+          cross-unit channels. Quickly leverage other's high standards in leadership
+          skills for cross-platform e-markets. Authoritatively network competitive
+          methodologies whereas cross functional value. Credibly brand an expanded
+          array of technologies before enterprise technology. Enthusiastically provide
+          access to timely e-tailers with effective.
+        website:title: 'General Document #2'
+      /content[3]:
+        /website:component:
+          hippostd:content: |-
+            <h2>General Document #2</h2>
+
+            <p>Continually grow cross functional web-readiness vis-a-vis cross-unit channels. Quickly leverage other's high standards in leadership skills for cross-platform e-markets. Authoritatively network competitive methodologies whereas cross functional value. Credibly brand an expanded array of technologies before enterprise technology. Enthusiastically provide access to timely e-tailers with effective.</p>
+
+            <p><a href="http://digital.nhs.uk">methodologies whereas cross functional</a></p>
+          jcr:primaryType: hippostd:html
+        /website:sections[1]:
+          /website:html:
+            hippostd:content: |-
+              <p>Professionally coordinate bricks-and-clicks methodologies whereas 24/365 e-business. Dynamically facilitate 24/365 internal or "organic" sources with timely metrics. Authoritatively communicate cross-media web-readiness whereas inexpensive interfaces. Completely synergize future-proof leadership skills vis-a-vis innovative web-readiness. Efficiently iterate top-line intellectual capital after resource-leveling strategic theme areas.</p>
+
+              <p>Holisticly conceptualize client-based.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:title: Section One
+          website:type: ''
+        /website:sections[2]:
+          /website:html:
+            hippostd:content: <p>Objectively extend B2B imperatives rather than user
+              friendly synergy. Compellingly maintain holistic schemas for flexible
+              intellectual capital. Credibly synergize worldwide human capital after
+              <a href="http://digital.nhs.uk">alternative functionalities</a>. Objectively
+              supply interactive action items rather than state of the art e-tailers.
+              Interactively monetize user friendly applications without error-free
+              resources.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:title: Section Two
+          website:type: ''
+        /website:sections[3]:
+          /website:html:
+            hippostd:content: |-
+              <p>Completely visualize tactical "outside the box" thinking with diverse quality vectors. Dynamically pontificate reliable core competencies vis-a-vis e-business infomediaries. Conveniently restore integrated e-tailers vis-a-vis focused applications. Holisticly reinvent goal-oriented e-commerce with goal-oriented infomediaries. <a href="http://digital.nhs.uk">Rapidiously leverage other's top</a>-line potentialities via an expanded array of vortals.</p>
+
+              <p>Conveniently.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:title: Section Three
+          website:type: ''
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-02-27T10:37:07.473Z
+        hippostdpubwf:lastModificationDate: 2018-02-27T10:38:36.359Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2018-02-27T10:38:37.778Z
+        hippotranslation:id: ed2cbe12-46ef-4bdf-98d4-ed88b2c2ea6e
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:general
+        website:seosummary: Continually grow cross functional web-readiness vis-a-vis
+          cross-unit channels. Quickly leverage other's high standards in leadership
+          skills for cross-platform e-markets
+        website:shortsummary: Continually grow cross functional web-readiness vis-a-vis
+          cross-unit channels
+        website:summary: Continually grow cross functional web-readiness vis-a-vis
+          cross-unit channels. Quickly leverage other's high standards in leadership
+          skills for cross-platform e-markets. Authoritatively network competitive
+          methodologies whereas cross functional value. Credibly brand an expanded
+          array of technologies before enterprise technology. Enthusiastically provide
+          access to timely e-tailers with effective.
+        website:title: 'General Document #2'
+      hippo:name: 'General Document #2'
+      jcr:mixinTypes:
+      - hippo:named
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    hippo:name: 'General Document #2'
+    hippostd:foldertype:
+    - new-translated-folder
+    - new-document
+    hippotranslation:id: 3db796db-c413-4f41-b996-588e4688c434
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippo:named
+    - hippotranslation:translated
+    - mix:versionable
+    jcr:primaryType: hippostd:folder
+  hippo:name: Hub Document
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: c974c21f-2dee-49a9-87c8-cf24e1b23f52
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

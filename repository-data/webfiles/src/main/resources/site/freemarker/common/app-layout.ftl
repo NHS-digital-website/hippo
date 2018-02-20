@@ -39,6 +39,7 @@
     <link rel="mask-icon" href="<@hst.webfile  path="icons/safari-pinned-tab.svg"/>" color="#666666">
     <meta name="theme-color" content="#ffffff">
 
+
     <!--[if gt IE 8]><!-->
     <link rel="stylesheet" href="<@hst.webfile  path="/css/nhsuk.css"/>" media="screen" type="text/css"/>
     <!--<![endif]-->
@@ -62,6 +63,8 @@
     <!--[if IE]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
+
+    <@hst.headContributions categoryExcludes="htmlBodyEnd, scripts" xhtml=true/>
 </head>
 
 <body>
@@ -69,6 +72,8 @@
     <@hst.include ref="main"/>
 
     <footer role="contentinfo"></footer>
+
+    <@hst.headContributions categoryIncludes="htmlBodyEnd, scripts" xhtml=true/>
 </body>
 
 </html>

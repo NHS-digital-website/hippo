@@ -32,6 +32,9 @@ definitions:
       /homeland:
         hst:renderpath: webfile:/freemarker/common/homeland.ftl
         jcr:primaryType: hst:template
+      /hub-article:
+        hst:renderpath: webfile:/freemarker/common/hub-article.ftl
+        jcr:primaryType: hst:template
       /menu:
         hst:renderpath: webfile:/freemarker/common/menu.ftl
         jcr:primaryType: hst:template

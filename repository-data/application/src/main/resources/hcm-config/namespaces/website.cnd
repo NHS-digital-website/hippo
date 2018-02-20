@@ -15,6 +15,9 @@
 [website:general] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:hub] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:section] > hippo:compound, hippostd:relaxed
   orderable
 

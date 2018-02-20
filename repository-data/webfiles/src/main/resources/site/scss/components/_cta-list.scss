@@ -1,15 +1,50 @@
-/* CTA List */
-
+// CTA List Block
+// ==========================================================================
+//
+// Example
+//  <ol class="list--reset cta-list">
+//      <li>
+//          <article class="cta">
+//              <h2 class="cta__title"><a href="#">NHS Digital staff shortlisted for Women in IT Awards</a></h2>
+//              <time class="cta__meta" datetime="#">Date published: 3 January 2018</time>
+//          </article>
+//      </li>
+//      <li>
+//          <article class="cta">
+//              <h2 class="cta__title"><a href="#">NHS Digital welcomes everyone</a></h2>
+//              <time class="cta__meta" datetime="#">Date published: 2 January 2018</time>
+//          </article>
+//      </li>
+//  </ol>
+//
+//
 .cta-list {
-    padding-bottom: 10px;
+    @include clearfix;
 
-    li {
-        padding: 0;
-        margin-bottom: 20px;
+    .cta {
+        @include media($max-width: $min-desktop-width) {
+            margin-bottom: $vertical-gap;
+        }
+    }
+}
 
-        article {
+// To make sure that the height of 2 CTAs match in a grid layout
+.cta-list--grid {
+    .cta {
+        min-height: 132px;
+    }
+
+    @include media($max-width: $min-desktop-width) {
+        .cta {
             min-height: 0;
-            padding: 0;
+        }
+    }
+}
+
+.debug {
+    .cta-list {
+        .cta {
+            background: rgba(255, 0, 255, 0.2);
         }
     }
 }
