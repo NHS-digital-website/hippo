@@ -100,6 +100,11 @@ public class TestContentUrls {
         // Ordered publication
         add("ordered publication",
             "/publications/acceptance-tests/ordered-publication");
+
+        // Publication with National Statistic logo
+        add("national statistic publication",
+            "/publications/lorem-ipsum-content/morbi-tempor-euismod-vehicula");
+
     }
 
     private String getAttachmentUrl(String siteUrl, String attachmentTag) {

@@ -30,6 +30,14 @@
             </a>
         </p>
         <p class="flush zeta" data-uipath="ps.search-results.result.date"><@formatRestrictableDate value=item.nominalPublicationDate/></p>
+        <#if item.informationType?has_content>
+            <#list item.informationType as type>
+                <#if type == "National statistics">
+                    <div class="media__icon--national-statistics" data-uipath="ps.search-results.result.national-statistics" title="National Statistics"></div>
+                    <#break>
+                </#if>
+            </#list>
+        </#if>
         <p class="flush" data-uipath="ps.search-results.result.summary"><@truncate text=item.summary.firstParagraph size="300"/></p>
     </div>
 </#macro>

@@ -110,6 +110,17 @@ public class SearchSteps extends AbstractSpringSteps {
         }
     }
 
+    @Then("^I should see search results which (have|doesnt have) the national statistics logo")
+    public void iShouldSeeSearchResultsWithTheNationalStatisticsLogo(String hasLogo) throws Throwable {
+        List<SearchResultWidget> actualResults = searchPage.getSearchResultWidgets();
+
+        actualResults.stream()
+            .forEach(result -> {
+                assertTrue("Search result with national statistic logo",
+                    result.isNationalStatistic() == hasLogo.equals("have"));
+            });
+    }
+
     @Then("^I should see the search term \"(.+)\" on the results page$")
     public void iShouldSeeTheSearchTermOnTheResultsPage(String term) throws Throwable {
         assertThat("Result description ends with search term", searchPage.getResultDescription(), endsWith(term));

@@ -69,7 +69,7 @@ public class SiteSteps extends AbstractSpringSteps {
         sitePage.clickOnElement(element);
     }
 
-    @Then("^I (?:can )?see \"([^\"]+)\" (?:link|button)$")
+    @Then("^I (?:can )?see \"([^\"]+)\" (?:link|button|image)$")
     public void iSeeLink(String linkTitle) throws Throwable {
         assertNotNull("Can see element", sitePage.findElementWithTitle(linkTitle));
     }

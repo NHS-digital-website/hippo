@@ -39,6 +39,16 @@
 <#macro fullContentOfPubliclyAvailablePublication>
     <section class="document-header" aria-label="Document Header">
         <div class="document-header__inner">
+
+            <#if publication.informationType?has_content>
+                <#list publication.informationType as type>
+                    <#if type == "National statistics">
+                        <div class="media__icon--national-statistics" data-uipath="ps.publication.national-statistics" title="National statistics"></div>
+                        <#break>
+                    </#if>
+                </#list>
+            </#if>
+
             <h3 class="flush--bottom push-half--top"><@fmt.message key="labels.publication"/></h3>
 
             <h3 data-uipath="ps.publication.information-types" class="flush--bottom push-half--top">
