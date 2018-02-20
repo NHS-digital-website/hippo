@@ -2,6 +2,7 @@ package uk.nhs.digital.ps.test.acceptance.pages.widgets;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
 public class SearchResultWidget {
@@ -28,6 +29,15 @@ public class SearchResultWidget {
         return findElement("type").getText();
     }
 
+    public boolean isNationalStatistic() {
+        try {
+            rootElement.findElement(By.className("media__icon--national-statistics"));
+            return true;
+        } catch (NoSuchElementException nsee) {
+            return false;
+        }
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this)
@@ -35,6 +45,7 @@ public class SearchResultWidget {
             .append("title", getTitle())
             .append("date", getDate())
             .append("summary", getSummary())
+            .append("national-statistic", isNationalStatistic())
             .toString();
     }
 

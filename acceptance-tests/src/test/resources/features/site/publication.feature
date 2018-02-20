@@ -100,3 +100,13 @@ Feature: Ensure publication page displays required fields.
             | 1.9 Dataset  |
             | 1.10 Dataset |
             | 2.0 Dataset  |
+
+    Scenario: National Statistics kite mark on National statistic information type only
+        Given I navigate to the "national statistic publication" page
+        And I should also see:
+            | Publication Information Types | National statistics           |
+        Then I can see "National statistics" image
+        When I navigate to "publication with rich content" page
+        Then I should also see:
+            | Publication Information Types | Experimental statistics       |
+        And I should not see element with title "National statistics"
