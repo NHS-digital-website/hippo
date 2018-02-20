@@ -3,17 +3,19 @@ include env.mk
 HIPPO_MAVEN_PASSWORD ?=
 HIPPO_MAVEN_USERNAME ?=
 HOME ?= $(shell printenv HOME)
-# speed up dev compilation
-# http://hg.openjdk.java.net/jdk8u/jdk8u/hotspot/file/2b2511bd3cc8/src/share/vm/runtime/advancedThresholdPolicy.hpp#l34
-MAVEN_OPTS ?= "-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
 PWD = $(shell pwd)
 SPLUNK_TOKEN ?=
 SPLUNK_URL ?=
 SPLUNK_HEC ?= localhost
+MVN_OPTS ?=
 
 export HIPPO_MAVEN_PASSWORD
 export HIPPO_MAVEN_USERNAME
 export HOME
+
+ifneq ($(HIPPO_MAVEN_USERNAME),)
+MVN_OPTS ?= $(MVN_OPTS) --global-settings "$(PWD)/.mvn.settings.xml"
+endif
 
 ## Prints this help
 help:
@@ -30,36 +32,36 @@ init: .git/.local-hooks-installed
 ## Clean, build and start local hippo
 # Clean and recompile only modules that we do customise.
 serve: essentials/target/essentials.war
-	mvn clean verify -pl site,cms,repository-data/development,repository-data/migration -am -DskipTests=true
+	mvn clean verify $(MVN_OPTS) -pl site,cms,repository-data/development,repository-data/migration -am -DskipTests=true
 	$(MAKE) run
 
 ## Serve without allowing auto-export
 # Clean and recompile only modules that we do customise.
 serve.noexport: essentials/target/essentials.war
-	mvn clean verify -pl site,cms,repository-data/development,repository-data/migration -am -DskipTests=true
-	mvn -P cargo.run,without-autoexport
+	mvn clean verify $(MVN_OPTS) -pl site,cms,repository-data/development,repository-data/migration -am -DskipTests=true
+	mvn $(MVN_OPTS) -P cargo.run,without-autoexport
 
 ## Start server using cargo.run
 run:
-	mvn -P cargo.run \
+	mvn $(MVN_OPTS) -P cargo.run \
 		-Dsplunk.token=$(SPLUNK_TOKEN) \
 		-Dsplunk.url=$(SPLUNK_URL) \
 		-Dsplunk.hec.name=$(SPLUNK_HEC)
 
 # we don't have to recompile it every time.
 essentials/target/essentials.war:
-	mvn clean verify -pl essentials -am --offline -DskipTests=true
+	mvn clean verify $(MVN_OPTS) -pl essentials -am --offline -DskipTests=true
 
 ## Run acceptance tests against already running server (`make serve`)
 test.site-running:
-	mvn verify -f acceptance-tests/pom.xml \
+	mvn verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
 		-Pacceptance-test \
 		-Dcucumber.options="src/test/resources/features/site"
 
 ## Run only acceptance tests taged with "WIP"
 # This target requires running site (for instance `make serve.noexport`)
 test.wip:
-	mvn verify -f acceptance-tests/pom.xml \
+	mvn verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
 		-Pacceptance-test \
 		-Dheadless=false \
 		-Dcucumber.options="src/test/resources/features --tags @WIP" \
@@ -72,7 +74,7 @@ format-yaml:
 
 ## Update maven dependency versions
 update-dependencies:
-	mvn verify versions:update-parent versions:use-latest-versions versions:update-properties versions:commit -U -DskipTests=true
+	mvn verify $(MVN_OPTS) versions:update-parent versions:use-latest-versions versions:update-properties versions:commit -U -DskipTests=true
 
 ## proxy all other targets to ci-cd/Makefile
 # Usage: make test

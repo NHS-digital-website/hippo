@@ -1,6 +1,41 @@
 ---
 /content/taxonomies/publication_taxonomy:
   /publication_taxonomy[1]:
+    /acceptance-tests:
+      /hippotaxonomy:categoryinfos:
+        /en:
+          hippotaxonomy:name: Acceptance Tests
+          jcr:primaryType: hippotaxonomy:categoryinfo
+        jcr:primaryType: hippotaxonomy:categoryinfos
+      /synonym-test:
+        /hippotaxonomy:categoryinfos:
+          /en:
+            hippotaxonomy:name: SynonymTest Test
+            hippotaxonomy:synonyms:
+            - SynonymSearchTerm
+            - Other Synonym
+            jcr:primaryType: hippotaxonomy:categoryinfo
+          jcr:primaryType: hippotaxonomy:categoryinfos
+        hippotaxonomy:key: synonym-test
+        jcr:primaryType: hippotaxonomy:category
+      /taxonomysearchterm-test:
+        /hippotaxonomy:categoryinfos:
+          /en:
+            hippotaxonomy:name: TaxonomySearchTerm test
+            jcr:primaryType: hippotaxonomy:categoryinfo
+          jcr:primaryType: hippotaxonomy:categoryinfos
+        hippotaxonomy:key: taxonomy-test
+        jcr:primaryType: hippotaxonomy:category
+      /weightsearchterm:
+        /hippotaxonomy:categoryinfos:
+          /en:
+            hippotaxonomy:name: WeightSearchTerm
+            jcr:primaryType: hippotaxonomy:categoryinfo
+          jcr:primaryType: hippotaxonomy:categoryinfos
+        hippotaxonomy:key: weight-search-term
+        jcr:primaryType: hippotaxonomy:category
+      hippotaxonomy:key: acceptance-tests
+      jcr:primaryType: hippotaxonomy:category
     /conditions:
       /accidents-and-injuries:
         /breaks-and-fractures:
@@ -398,9 +433,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-10-05T13:22:23.191Z
-    hippostdpubwf:lastModificationDate: 2017-10-12T11:30:15.855Z
+    hippostdpubwf:lastModificationDate: 2018-02-20T15:25:39.463Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2017-10-12T11:33:08.848Z
+    hippostdpubwf:publicationDate: 2018-02-20T15:25:42.167Z
     hippotaxonomy:locales:
     - en
     jcr:mixinTypes:
@@ -408,6 +443,41 @@
     - mix:versionable
     jcr:primaryType: hippotaxonomy:taxonomy
   /publication_taxonomy[2]:
+    /acceptance-tests:
+      /hippotaxonomy:categoryinfos:
+        /en:
+          hippotaxonomy:name: Acceptance Tests
+          jcr:primaryType: hippotaxonomy:categoryinfo
+        jcr:primaryType: hippotaxonomy:categoryinfos
+      /synonym-test:
+        /hippotaxonomy:categoryinfos:
+          /en:
+            hippotaxonomy:name: SynonymTest Test
+            hippotaxonomy:synonyms:
+            - SynonymSearchTerm
+            - Other Synonym
+            jcr:primaryType: hippotaxonomy:categoryinfo
+          jcr:primaryType: hippotaxonomy:categoryinfos
+        hippotaxonomy:key: synonym-test
+        jcr:primaryType: hippotaxonomy:category
+      /taxonomysearchterm-test:
+        /hippotaxonomy:categoryinfos:
+          /en:
+            hippotaxonomy:name: TaxonomySearchTerm test
+            jcr:primaryType: hippotaxonomy:categoryinfo
+          jcr:primaryType: hippotaxonomy:categoryinfos
+        hippotaxonomy:key: taxonomy-test
+        jcr:primaryType: hippotaxonomy:category
+      /weightsearchterm:
+        /hippotaxonomy:categoryinfos:
+          /en:
+            hippotaxonomy:name: WeightSearchTerm
+            jcr:primaryType: hippotaxonomy:categoryinfo
+          jcr:primaryType: hippotaxonomy:categoryinfos
+        hippotaxonomy:key: weight-search-term
+        jcr:primaryType: hippotaxonomy:category
+      hippotaxonomy:key: acceptance-tests
+      jcr:primaryType: hippotaxonomy:category
     /conditions:
       /accidents-and-injuries:
         /breaks-and-fractures:
@@ -805,7 +875,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-10-05T13:22:23.191Z
-    hippostdpubwf:lastModificationDate: 2017-10-12T11:30:15.855Z
+    hippostdpubwf:lastModificationDate: 2018-02-20T15:25:39.463Z
     hippostdpubwf:lastModifiedBy: admin
     hippostdpubwf:publicationDate: 2017-10-12T11:33:08.848Z
     hippotaxonomy:locales:
@@ -816,6 +886,41 @@
     - mix:versionable
     jcr:primaryType: hippotaxonomy:taxonomy
   /publication_taxonomy[3]:
+    /acceptance-tests:
+      /hippotaxonomy:categoryinfos:
+        /en:
+          hippotaxonomy:name: Acceptance Tests
+          jcr:primaryType: hippotaxonomy:categoryinfo
+        jcr:primaryType: hippotaxonomy:categoryinfos
+      /synonym-test:
+        /hippotaxonomy:categoryinfos:
+          /en:
+            hippotaxonomy:name: SynonymTest Test
+            hippotaxonomy:synonyms:
+            - SynonymSearchTerm
+            - Other Synonym
+            jcr:primaryType: hippotaxonomy:categoryinfo
+          jcr:primaryType: hippotaxonomy:categoryinfos
+        hippotaxonomy:key: synonym-test
+        jcr:primaryType: hippotaxonomy:category
+      /taxonomysearchterm-test:
+        /hippotaxonomy:categoryinfos:
+          /en:
+            hippotaxonomy:name: TaxonomySearchTerm test
+            jcr:primaryType: hippotaxonomy:categoryinfo
+          jcr:primaryType: hippotaxonomy:categoryinfos
+        hippotaxonomy:key: taxonomy-test
+        jcr:primaryType: hippotaxonomy:category
+      /weightsearchterm:
+        /hippotaxonomy:categoryinfos:
+          /en:
+            hippotaxonomy:name: WeightSearchTerm
+            jcr:primaryType: hippotaxonomy:categoryinfo
+          jcr:primaryType: hippotaxonomy:categoryinfos
+        hippotaxonomy:key: weight-search-term
+        jcr:primaryType: hippotaxonomy:category
+      hippotaxonomy:key: acceptance-tests
+      jcr:primaryType: hippotaxonomy:category
     /conditions:
       /accidents-and-injuries:
         /breaks-and-fractures:
@@ -1212,7 +1317,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-10-05T13:22:23.191Z
-    hippostdpubwf:lastModificationDate: 2017-10-12T11:30:15.855Z
+    hippostdpubwf:lastModificationDate: 2018-02-20T15:20:16.204Z
     hippostdpubwf:lastModifiedBy: admin
     hippostdpubwf:publicationDate: 2017-10-12T11:33:08.848Z
     hippotaxonomy:locales:

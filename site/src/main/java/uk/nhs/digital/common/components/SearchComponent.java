@@ -200,7 +200,8 @@ public class SearchComponent extends CommonComponent {
         return or(
             constraint("publicationsystem:Title").contains(query),
             constraint("publicationsystem:Summary").contains(query),
-            constraint("publicationsystem:KeyFacts").contains(query)
+            constraint("publicationsystem:KeyFacts").contains(query),
+            constraint("common:SearchableTags").contains(query)
         );
     }
 

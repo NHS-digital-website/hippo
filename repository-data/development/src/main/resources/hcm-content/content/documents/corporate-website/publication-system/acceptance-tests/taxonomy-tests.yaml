@@ -1,0 +1,213 @@
+---
+/content/documents/corporate-website/publication-system/acceptance-tests/taxonomy-tests:
+  /synonym-test:
+    /synonym-test[1]:
+      common:FacetType: dataset
+      common:FullTaxonomy:
+      - synonym-test
+      - acceptance-tests
+      common:SearchableTags:
+      - Other Synonym
+      - SynonymSearchTerm
+      - SynonymTest Test
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-20T15:11:01.137Z
+      hippostdpubwf:lastModificationDate: 2018-02-20T15:12:42.340Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotaxonomy:keys:
+      - synonym-test
+      hippotranslation:id: 560f6009-18a7-4b92-bcca-2d3d95bba14a
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-02-20T00:00:00Z
+      publicationsystem:Summary: synonym test
+      publicationsystem:Title: synonym test
+    /synonym-test[2]:
+      common:FacetType: dataset
+      common:FullTaxonomy:
+      - synonym-test
+      - acceptance-tests
+      common:SearchableTags:
+      - Other Synonym
+      - SynonymSearchTerm
+      - SynonymTest Test
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-20T15:11:01.137Z
+      hippostdpubwf:lastModificationDate: 2018-02-20T15:12:57.648Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotaxonomy:keys:
+      - synonym-test
+      hippotranslation:id: 560f6009-18a7-4b92-bcca-2d3d95bba14a
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-02-20T00:00:00Z
+      publicationsystem:Summary: synonym test
+      publicationsystem:Title: synonym test
+    /synonym-test[3]:
+      common:FacetType: dataset
+      common:FullTaxonomy:
+      - synonym-test
+      - acceptance-tests
+      common:SearchableTags:
+      - Other Synonym
+      - SynonymSearchTerm
+      - SynonymTest Test
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-20T15:11:01.137Z
+      hippostdpubwf:lastModificationDate: 2018-02-20T15:12:57.648Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-20T15:13:01.209Z
+      hippotaxonomy:keys:
+      - synonym-test
+      hippotranslation:id: 560f6009-18a7-4b92-bcca-2d3d95bba14a
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-02-20T00:00:00Z
+      publicationsystem:Summary: synonym test
+      publicationsystem:Title: synonym test
+    hippo:name: synonym test
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /taxonomy-test:
+    /taxonomy-test[1]:
+      common:FacetType: publication
+      common:FullTaxonomy:
+      - taxonomy-test
+      - acceptance-tests
+      common:SearchableTags:
+      - TaxonomySearchTerm test
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-20T15:10:11.597Z
+      hippostdpubwf:lastModificationDate: 2018-02-20T15:12:32.995Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotaxonomy:keys:
+      - taxonomy-test
+      hippotranslation:id: 8b0c0d28-ec99-4da5-bf41-a6b119d65dac
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-02-20T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: taxonomy test
+      publicationsystem:Title: taxonomy test
+    /taxonomy-test[2]:
+      common:FacetType: publication
+      common:FullTaxonomy:
+      - taxonomy-test
+      - acceptance-tests
+      common:SearchableTags:
+      - TaxonomySearchTerm test
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-20T15:10:11.597Z
+      hippostdpubwf:lastModificationDate: 2018-02-20T15:12:37.175Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotaxonomy:keys:
+      - taxonomy-test
+      hippotranslation:id: 8b0c0d28-ec99-4da5-bf41-a6b119d65dac
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-02-20T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: taxonomy test
+      publicationsystem:Title: taxonomy test
+    /taxonomy-test[3]:
+      common:FacetType: publication
+      common:FullTaxonomy:
+      - taxonomy-test
+      - acceptance-tests
+      common:SearchableTags:
+      - TaxonomySearchTerm test
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-20T15:10:11.597Z
+      hippostdpubwf:lastModificationDate: 2018-02-20T15:12:37.175Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-20T15:12:39.731Z
+      hippotaxonomy:keys:
+      - taxonomy-test
+      hippotranslation:id: 8b0c0d28-ec99-4da5-bf41-a6b119d65dac
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-02-20T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: taxonomy test
+      publicationsystem:Title: taxonomy test
+    hippo:name: taxonomy test
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Taxonomy Tests
+  hippostd:foldertype:
+  - new-statistical-publications-and-clinical-indicators-folder
+  - new-statistical-publications-and-clinical-indicators-document
+  hippotranslation:id: 408e515e-1c0d-4215-8b48-f964062182af
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

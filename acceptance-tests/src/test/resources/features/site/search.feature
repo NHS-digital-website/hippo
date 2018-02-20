@@ -149,3 +149,18 @@ Feature: Basic search
         When I click on the "Series / Collection" button
         Then I can click on the "Lorem Ipsum Dolor 2014" link
         And I should see publication page titled "Lorem Ipsum Dolor 2014"
+
+    Scenario: Searchable taxonomy
+        Given I navigate to the "search" page
+        When I search for "TaxonomySearchTerm"
+        Then I should see 1 search result
+        And I can click on link "taxonomy test"
+
+    Scenario: Same results for taxonomy and it's synonyms
+        Given I navigate to the "search" page
+        When I search for "SynonymSearchTerm"
+        Then I should see 1 search result
+        And I can click on link "synonym test"
+        When I search for "SynonymTest"
+        Then I should see 1 search result
+        And I can click on link "synonym test"

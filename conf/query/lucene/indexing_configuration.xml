@@ -10,6 +10,7 @@ https://wiki.apache.org/jackrabbit/IndexingConfiguration
     xmlns:jcr="http://www.jcp.org/jcr/1.0"
     xmlns:publicationsystem="http://digital.nhs.uk/jcr/publicationsystem/nt/1.0"
     xmlns:nationalindicatorlibrary="http://digital.nhs.uk/jcr/nationalindicatorlibrary/nt/1.0"
+    xmlns:common="http://digital.nhs.uk/jcr/common/nt/1.0"
 >
     <index-rule
         nodeType="publicationsystem:publication"
@@ -17,6 +18,7 @@ https://wiki.apache.org/jackrabbit/IndexingConfiguration
     >
         <property boost="2.0">publicationsystem:Title</property>
         <property boost="1.5">publicationsystem:Summary</property>
+        <property>common:SearchableTags</property>
         <property>publicationsystem:KeyFacts</property>
         <property isRegexp="true" nodeScopeIndex="false">.*:.*</property>
     </index-rule>
@@ -44,6 +46,7 @@ https://wiki.apache.org/jackrabbit/IndexingConfiguration
     >
         <property boost="2.0">publicationsystem:Title</property>
         <property boost="1.5">publicationsystem:Summary</property>
+        <property>common:SearchableTags</property>
         <property isRegexp="true" nodeScopeIndex="false">.*:.*</property>
     </index-rule>
 

@@ -9,3 +9,5 @@ Feature: Full taxonomy gets populated when picking taxonomy leaves
         When I navigate to the "home" page
         And I search for the publication
         Then I can see the full taxonomy in the faceted navigation
+        When I search for a publication taxonomy term
+        Then I can click on the publication

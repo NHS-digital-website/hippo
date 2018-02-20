@@ -8,7 +8,6 @@ import static org.junit.Assert.*;
 import static org.slf4j.LoggerFactory.getLogger;
 
 import cucumber.api.DataTable;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.hamcrest.Matcher;
@@ -21,7 +20,6 @@ import uk.nhs.digital.ps.test.acceptance.pages.widgets.SearchResultWidget;
 import uk.nhs.digital.ps.test.acceptance.steps.AbstractSpringSteps;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
 
 public class SearchSteps extends AbstractSpringSteps {
@@ -43,6 +41,12 @@ public class SearchSteps extends AbstractSpringSteps {
     public void iSearchForThePublication() throws Throwable {
         String title = testDataRepo.getCurrentPublication().getTitle();
         iSearchFor(title);
+    }
+
+    @When("^I search for a publication taxonomy term$")
+    public void iSearchForAPublicationTaxonomyTerm() throws Throwable {
+        String taxonomy = testDataRepo.getCurrentPublication().getTaxonomy().getLevel3();
+        iSearchFor(taxonomy);
     }
 
     @Then("^I should see publication in search results$")
