@@ -292,4 +292,10 @@ public class SiteSteps extends AbstractSpringSteps {
         );
         listMatchesItems("CATEGORY", "containing", expectedTaxonomy);
     }
+
+    @Then("^I can click on the publication$")
+    public void iCanClickOnThePublication() throws Throwable {
+        String title = testDataRepo.getCurrentPublication().getTitle();
+        iClickOn(title);
+    }
 }
