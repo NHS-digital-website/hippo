@@ -181,6 +181,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /classifiable:
+            /cluster.options:
+              caption: Taxonomy
+              jcr:primaryType: frontend:pluginconfig
+              taxonomy.name: publication_taxonomy
+            jcr:primaryType: frontend:plugin
+            mixin: hippotaxonomy:classifiable
+            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -344,6 +353,7 @@ definitions:
           - nationalindicatorlibrary:basedocument
           - hippostd:relaxed
           - hippotranslation:translated
+          - hippotaxonomy:classifiable
           hipposysedit:uri: http://digital.nhs.uk/jcr/nationalindicatorlibrary/nt/1.0
           jcr:mixinTypes:
           - hipposysedit:remodel
@@ -365,6 +375,7 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes:
           - mix:referenceable
+          - hippotaxonomy:classifiable
           jcr:primaryType: nationalindicatorlibrary:indicator
           nationalindicatorlibrary:assuranceDate: 0001-01-01T12:00:00Z
           nationalindicatorlibrary:basedOn: ''

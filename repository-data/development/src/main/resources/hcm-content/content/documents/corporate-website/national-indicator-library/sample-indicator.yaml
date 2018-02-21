@@ -1,16 +1,22 @@
 ---
 /content/documents/corporate-website/national-indicator-library/sample-indicator:
   /sample-indicator[1]:
+    common:FullTaxonomy:
+    - cancer
+    - conditions
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-08T16:11:52.307Z
-    hippostdpubwf:lastModificationDate: 2018-02-08T16:21:00.045Z
+    hippostdpubwf:lastModificationDate: 2018-02-21T09:01:26.071Z
     hippostdpubwf:lastModifiedBy: admin
+    hippotaxonomy:keys:
+    - cancer
     hippotranslation:id: 4323bc7c-735f-41b5-91da-cc37cc8c18cd
     hippotranslation:locale: en
     jcr:mixinTypes:
+    - hippotaxonomy:classifiable
     - mix:referenceable
     jcr:primaryType: nationalindicatorlibrary:indicator
     nationalindicatorlibrary:assuranceDate: 2015-12-14T00:00:00Z
@@ -83,6 +89,9 @@
     nationalindicatorlibrary:title: People with stroke admitted to an acute stroke
       unit within 4 hours of arrival at hospital
   /sample-indicator[2]:
+    common:FullTaxonomy:
+    - cancer
+    - conditions
     common:searchable: true
     hippo:availability:
     - preview
@@ -91,9 +100,12 @@
     hippostdpubwf:creationDate: 2018-02-08T16:11:52.307Z
     hippostdpubwf:lastModificationDate: 2018-02-09T10:06:10.974Z
     hippostdpubwf:lastModifiedBy: admin
+    hippotaxonomy:keys:
+    - cancer
     hippotranslation:id: 4323bc7c-735f-41b5-91da-cc37cc8c18cd
     hippotranslation:locale: en
     jcr:mixinTypes:
+    - hippotaxonomy:classifiable
     - mix:referenceable
     - mix:versionable
     jcr:primaryType: nationalindicatorlibrary:indicator
@@ -167,6 +179,9 @@
     nationalindicatorlibrary:title: People with stroke admitted to an acute stroke
       unit within 4 hours of arrival at hospital
   /sample-indicator[3]:
+    common:FullTaxonomy:
+    - cancer
+    - conditions
     common:searchable: true
     hippo:availability:
     - live
@@ -176,9 +191,12 @@
     hippostdpubwf:lastModificationDate: 2018-02-09T10:06:10.974Z
     hippostdpubwf:lastModifiedBy: admin
     hippostdpubwf:publicationDate: 2018-02-09T10:06:13.538Z
+    hippotaxonomy:keys:
+    - cancer
     hippotranslation:id: 4323bc7c-735f-41b5-91da-cc37cc8c18cd
     hippotranslation:locale: en
     jcr:mixinTypes:
+    - hippotaxonomy:classifiable
     - mix:referenceable
     jcr:primaryType: nationalindicatorlibrary:indicator
     nationalindicatorlibrary:assuranceDate: 2015-12-14T00:00:00Z
