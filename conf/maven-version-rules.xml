@@ -10,4 +10,12 @@
         <ignoreVersion type="regex">(?i).*CR-?.?\d*</ignoreVersion>
         <ignoreVersion type="regex">(?i).*M-?.?\d*</ignoreVersion>
     </ignoreVersions>
+    <rules>
+        <rule groupId="xml-apis" comparisonMethod="maven">
+            <ignoreVersions>
+                <!-- For reasons beyond me, 2.0 versions are actually older than 1.0 -->
+                <ignoreVersion type="regex">2\.0\..*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+    </rules>
 </ruleset>
