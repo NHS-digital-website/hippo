@@ -117,8 +117,8 @@
 
         <Logger name="freemarker" level="warn"/>
 
-        <!-- Freemarker errors -->
-        <Logger name="org.hippoecm.hst.servlet.HstFreemarkerServlet" additivity="false" level="warn">
+        <!-- Freemarker errors - debug because we want the stack traces when this happens -->
+        <Logger name="org.hippoecm.hst.servlet.HstFreemarkerServlet" additivity="false" level="debug">
             <AppenderRef ref="warnings"/>
         </Logger>
         <Logger name="freemarker.servlet" additivity="false" level="fatal">

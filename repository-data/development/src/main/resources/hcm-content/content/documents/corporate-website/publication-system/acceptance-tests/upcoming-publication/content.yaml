@@ -2,12 +2,12 @@
 /content/documents/corporate-website/publication-system/acceptance-tests/upcoming-publication/content:
   /content[1]:
     common:FacetType: publication
-    common:searchable: true
+    common:searchable: false
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-03T13:35:36.812Z
-    hippostdpubwf:lastModificationDate: 2017-11-03T13:35:36.813Z
+    hippostdpubwf:lastModificationDate: 2018-02-21T11:33:37.217Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
@@ -41,13 +41,13 @@
     publicationsystem:Title: Upcoming Publication
   /content[2]:
     common:FacetType: publication
-    common:searchable: true
+    common:searchable: false
     hippo:availability:
     - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-03T13:35:36.812Z
-    hippostdpubwf:lastModificationDate: 2017-11-03T13:37:39.777Z
+    hippostdpubwf:lastModificationDate: 2018-02-21T11:33:44.259Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
@@ -82,15 +82,15 @@
     publicationsystem:Title: Upcoming Publication
   /content[3]:
     common:FacetType: publication
-    common:searchable: true
+    common:searchable: false
     hippo:availability:
     - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-11-03T13:35:36.812Z
-    hippostdpubwf:lastModificationDate: 2017-11-03T13:37:39.777Z
+    hippostdpubwf:lastModificationDate: 2018-02-21T11:33:44.259Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2017-11-03T13:41:09.207Z
+    hippostdpubwf:publicationDate: 2018-02-21T11:33:47.137Z
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
     jcr:mixinTypes:
