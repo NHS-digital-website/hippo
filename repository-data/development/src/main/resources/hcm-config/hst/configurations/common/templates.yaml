@@ -1,0 +1,27 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:templates/static-ui:
+      hst:renderpath: webfile:/freemarker/common/static-ui/index.ftl
+      jcr:primaryType: hst:template
+    /hst:hst/hst:configurations/common/hst:templates/static-ui-filtered-list:
+      hst:renderpath: webfile:/freemarker/common/static-ui/filtered-list-page.ftl
+      jcr:primaryType: hst:template
+    /hst:hst/hst:configurations/common/hst:templates/static-ui-home:
+      hst:renderpath: webfile:/freemarker/common/static-ui/home-page.ftl
+      jcr:primaryType: hst:template
+    /hst:hst/hst:configurations/common/hst:templates/static-ui-hub:
+      hst:renderpath: webfile:/freemarker/common/static-ui/hub-page.ftl
+      jcr:primaryType: hst:template
+    /hst:hst/hst:configurations/common/hst:templates/static-ui-icons:
+      hst:renderpath: webfile:/freemarker/common/static-ui/icons-page.ftl
+      jcr:primaryType: hst:template
+    /hst:hst/hst:configurations/common/hst:templates/static-ui-list:
+      hst:renderpath: webfile:/freemarker/common/static-ui/list-page.ftl
+      jcr:primaryType: hst:template
+    /hst:hst/hst:configurations/common/hst:templates/static-ui-service:
+      hst:renderpath: webfile:/freemarker/common/static-ui/service-page.ftl
+      jcr:primaryType: hst:template
+    /hst:hst/hst:configurations/common/hst:templates/static-ui-standard:
+      hst:renderpath: webfile:/freemarker/common/static-ui/standard-page.ftl
+      jcr:primaryType: hst:template

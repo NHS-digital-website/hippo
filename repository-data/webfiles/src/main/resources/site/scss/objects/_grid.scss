@@ -130,6 +130,10 @@
     padding: 0 $gutter;
 }
 
+.grid-wrapper--full-width {
+    max-width: 100%;
+}
+
 .grid-wrapper--wide {
     padding: 0;
 }

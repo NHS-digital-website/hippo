@@ -160,7 +160,7 @@ repository-data/application/src/main/resources/hcm-config/configuration/modules/
 
 > If you keep switching between different branches, you will have to remove the `storage` folder, then rebuild the app using the storage path and of course you'll want to quiet `splunk`...
   
-	rm -rf storage && mvn clean verify && mvn -Pcargo.run -Dsplunk.hec.name=localhost -Dsplunk.url=http://localhost -Dsplunk.token= -Drepo.path=storage  
+	rm -rf storage && mvn clean verify && mvn -Pcargo.run -Dsplunk.hec.name=localhost -Dsplunk.url=http://localhost -Dsplunk.token= -Drepo.path=storage
 
 **Both the CMS and the CMS console has their own AutoExport switch, which can be changed separately.**
 
