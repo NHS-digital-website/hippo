@@ -30,10 +30,6 @@ Feature: Basic search
         When I can click on the "First" link
         Then I should see:
             | Pagination page | 1 |
-        When I can click on the "Last" link
-        Then I can click on the "First" link
-        # Check for "Last" link intentionally followed by click on "First" link
-        # since 'last' page number could increase if more lorem test documents added.
 
     Scenario: Search partial match (publication, dataset, series)
         Given I navigate to the "home" page

@@ -2,7 +2,7 @@
 <div class="pagination">
     <ul class="pagination__list">
         <#if pageable.totalPages gt 1>
-            <#list pageable.pageNumbersArray as pageNr>
+            <#list pageNumbers as pageNr>
                 <@hst.renderURL var="pageUrl">
                     <@hst.param name="page" value="${pageNr}"/>
                     <@hst.param name="pageSize" value="${pageable.pageSize}"/>
@@ -40,13 +40,6 @@
                         </@hst.renderURL>
                         <li class="pagination__list__item pagination__list__item--next">
                             <#outputformat "undefined"><a href="${pageUrlNext}" title="Next"><span class="next">Next</span></a></#outputformat>
-                        </li>
-                        <@hst.renderURL var="pageUrlLast">
-                            <@hst.param name="page" value="${pageable.totalPages}"/>
-                            <@hst.param name="pageSize" value="${pageable.pageSize}"/>
-                        </@hst.renderURL>
-                        <li class="pagination__list__item pagination__list__item--last">
-                            <#outputformat "undefined"><a href="${pageUrlLast}" title="Last"><span class="next">Last</span></a></#outputformat>
                         </li>
                     </#if>
                 </#if>

@@ -1,13 +1,16 @@
 package uk.nhs.digital.common.components;
 
-import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.and;
-import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
-import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.or;
+import static java.lang.Math.max;
+import static java.lang.Math.min;
+import static java.util.stream.Collectors.toList;
+import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.*;
 
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.builder.Constraint;
 import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
-import org.hippoecm.hst.content.beans.standard.*;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoFacetNavigationBean;
+import org.hippoecm.hst.content.beans.standard.HippoResultSetBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
@@ -17,16 +20,14 @@ import org.onehippo.cms7.essentials.components.CommonComponent;
 import org.onehippo.cms7.essentials.components.info.EssentialsListComponentInfo;
 import org.onehippo.cms7.essentials.components.paging.Pageable;
 import uk.nhs.digital.nil.beans.Indicator;
-import uk.nhs.digital.ps.beans.Archive;
-import uk.nhs.digital.ps.beans.Dataset;
-import uk.nhs.digital.ps.beans.LegacyPublication;
-import uk.nhs.digital.ps.beans.Publication;
-import uk.nhs.digital.ps.beans.Series;
+import uk.nhs.digital.ps.beans.*;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.IntStream;
 
 /**
  * We are not extending "EssentialsSearchComponent" because we could not find a elegant way of using our own search
@@ -42,6 +43,8 @@ public class SearchComponent extends CommonComponent {
     private static final String SORT_RELEVANCE = "relevance";
     private static final String SORT_DATE = "date";
     private static final String SORT_DEFAULT = SORT_RELEVANCE;
+
+    private static final int PAGEABLE_SIZE = 5;
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
@@ -59,12 +62,24 @@ public class SearchComponent extends CommonComponent {
                 );
 
             request.setAttribute("pageable", pageable);
+            request.setAttribute("pageNumbers", getPageNumbers(pageable));
         }
 
         request.setAttribute("query", getQueryParameter(request));
         request.setAttribute("facets", facetNavigationBean);
         request.setAttribute("sort", getSortOption(request));
         request.setAttribute("cparam", paramInfo);
+    }
+
+    protected List<Integer> getPageNumbers(Pageable<HippoBean> pageable) {
+        int currentPage = pageable.getCurrentPage();
+        int buffer = (PAGEABLE_SIZE - 1) / 2;
+        int end = min((int) pageable.getTotalPages(), max(currentPage + buffer, PAGEABLE_SIZE));
+        int start = max(1, end - PAGEABLE_SIZE + 1);
+
+        return IntStream.rangeClosed(start, end)
+            .boxed()
+            .collect(toList());
     }
 
     protected HippoFacetNavigationBean getFacetNavigationBean(HstRequest request) {
