@@ -1,0 +1,6 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/static-ui:
+      hst:referencecomponent: hst:abstractpages/staticuipage
+      jcr:primaryType: hst:component

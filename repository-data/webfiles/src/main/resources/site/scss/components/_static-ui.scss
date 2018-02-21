@@ -1,0 +1,18 @@
+/* Static UI */
+.static-ui-menu {
+    padding: 0.5rem 0 0;
+    background: black;
+
+    .list {
+        @include core-font(16);
+        padding: 0 $gutter;
+        
+        a {
+            color: white;
+        }
+
+        li {
+            margin-top: 0;
+        }
+    }
+}
