@@ -122,57 +122,60 @@
     </section>
 
     <section class="document-content" aria-label="Document Content">
-        <div class="layout layout--large">
-            <div class="layout__item layout-2-3">
-                <h2><@fmt.message key="headers.summary"/></h2>
-                <@structuredText item=publication.summary uipath="ps.publication.summary" />
+        <div>
+            <h2><@fmt.message key="headers.summary"/></h2>
+            <@structuredText item=publication.summary uipath="ps.publication.summary" />
 
-                <#if publication.keyFacts.elements?has_content>
-                    <h2><@fmt.message key="headers.key-facts"/></h2>
-                    <@structuredText item=publication.keyFacts uipath="ps.publication.key-facts" />
-                </#if>
+            <#if publication.keyFacts.elements?has_content>
+                <h2><@fmt.message key="headers.key-facts"/></h2>
+                <@structuredText item=publication.keyFacts uipath="ps.publication.key-facts" />
+            </#if>
 
-                <#if publication.administrativeSources?has_content>
-                    <h2><@fmt.message key="headers.administrative-sources"/></h2>
-                    <p data-uipath="ps.publication.administrative-sources">
-                        ${publication.administrativeSources}
-                    </p>
-                </#if>
-            </div><!--
+            <#if publication.administrativeSources?has_content>
+                <h2><@fmt.message key="headers.administrative-sources"/></h2>
+                <p data-uipath="ps.publication.administrative-sources">
+                    ${publication.administrativeSources}
+                </p>
+            </#if>
 
-            --><div class="layout__item layout-1-3">
-                <div class="panel panel--grey push-half--bottom">
-                    <h3><@fmt.message key="headers.resources"/></h3>
-                    <ul data-uipath="ps.publication.resources">
-                        <#list publication.attachments as attachment>
-                            <li class="attachment">
-                                <a title="${attachment.text}" href="<@hst.link hippobean=attachment.resource/>">${attachment.text}</a>;
-                                <span class="fileSize">size: <@formatFileSize bytesCount=attachment.resource.length/></span>
-                            </li>
-                        </#list>
-                        <#list publication.resourceLinks as link>
-                            <li>
-                                <a href="${link.linkUrl}">${link.linkText}</a>
-                            </li>
-                        </#list>
-                        <#list publication.datasets as dataset>
-                            <li>
-                                <a href="<@hst.link hippobean=dataset.selfLinkBean/>" title="${dataset.title}">${dataset.title}</a>
-                            </li>
-                        </#list>
-                    </ul>
-                    <#if publication.relatedLinks?has_content>
-                        <h3><@fmt.message key="headers.related-links"/></h3>
-                        <ul data-uipath="ps.publication.related-links">
-                            <#list publication.relatedLinks as link>
-                            <li>
-                                <a href="${link.linkUrl}">${link.linkText}</a>
-                            </li>
-                            </#list>
-                        </ul>
-                    </#if>
-                </div>
-            </div>
+            <#if publication.datasets?has_content>
+                <h2><@fmt.message key="headers.datasets"/></h2>
+                <ul data-uipath="ps.publication.datasets">
+                    <#list publication.datasets as dataset>
+                        <li>
+                            <a href="<@hst.link hippobean=dataset.selfLinkBean/>" title="${dataset.title}">${dataset.title}</a>
+                        </li>
+                    </#list>
+                </ul>
+            </#if>
+
+            <#if publication.attachments?has_content || publication.resourceLinks?has_content>
+                <h2><@fmt.message key="headers.resources"/></h2>
+                <ul data-uipath="ps.publication.resources">
+                    <#list publication.attachments as attachment>
+                        <li class="attachment">
+                            <a title="${attachment.text}" href="<@hst.link hippobean=attachment.resource/>">${attachment.text}</a>;
+                            <span class="fileSize">size: <@formatFileSize bytesCount=attachment.resource.length/></span>
+                        </li>
+                    </#list>
+                    <#list publication.resourceLinks as link>
+                        <li>
+                            <a href="${link.linkUrl}">${link.linkText}</a>
+                        </li>
+                    </#list>
+                </ul>
+            </#if>
+
+            <#if publication.relatedLinks?has_content>
+                <h3><@fmt.message key="headers.related-links"/></h3>
+                <ul data-uipath="ps.publication.related-links">
+                    <#list publication.relatedLinks as link>
+                    <li>
+                        <a href="${link.linkUrl}">${link.linkText}</a>
+                    </li>
+                    </#list>
+                </ul>
+            </#if>
         </div>
     </section>
 </#macro>
