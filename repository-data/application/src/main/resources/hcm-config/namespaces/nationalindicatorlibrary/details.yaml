@@ -1,0 +1,238 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/nationalindicatorlibrary/details:
+      /editor:templates:
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
+          /root:
+            extension.left: ${cluster.id}.left
+            extension.right: ${cluster.id}.right
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.layout.TwoColumn
+            wicket.extensions:
+            - extension.left
+            - extension.right
+          /left:
+            item: ${cluster.id}.left.item
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+            wicket.id: ${cluster.id}.left
+          /right:
+            item: ${cluster.id}.right.item
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+            wicket.id: ${cluster.id}.right
+          /iapCode:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: IAP Code
+            field: iapCode
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+          /indicatorSet:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Indicator Set
+            field: indicatorSet
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+          /methodology:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Methodology
+            field: methodology
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /rating:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Rating
+            field: rating
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+          /purpose:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Purpose
+            field: purpose
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+          /definition:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Definition
+            field: definition
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+          /caveats:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Caveats
+            field: caveats
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+          /interpretationGuidelines:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Interpretation Guidelines
+            field: interpretationGuidelines
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+          /classifiable:
+            /cluster.options:
+              caption: Taxonomy
+              jcr:primaryType: frontend:pluginconfig
+              taxonomy.name: publication_taxonomy
+            jcr:primaryType: frontend:plugin
+            mixin: hippotaxonomy:classifiable
+            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
+            wicket.id: ${cluster.id}.right.item
+        jcr:primaryType: editor:templateset
+      /hipposysedit:nodetype:
+        /hipposysedit:nodetype:
+          /caveats:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:caveats
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
+          /definition:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:definition
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /iapCode:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:iapCode
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            jcr:primaryType: hipposysedit:field
+          /indicatorSet:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:indicatorSet
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            jcr:primaryType: hipposysedit:field
+          /interpretationGuidelines:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:interpretationGuidelines
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
+          /methodology:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:methodology
+            hipposysedit:primary: false
+            hipposysedit:type: nationalindicatorlibrary:methodology
+            jcr:primaryType: hipposysedit:field
+          /purpose:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:purpose
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /rating:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:rating
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - hippo:compound
+          - hippostd:relaxed
+          - hippotaxonomy:classifiable
+          hipposysedit:uri: http://digital.nhs.uk/jcr/nationalindicatorlibrary/nt/1.0
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /hipposysedit:prototypes:
+        /hipposysedit:prototype:
+          /nationalindicatorlibrary:caveats:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /nationalindicatorlibrary:definition:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /nationalindicatorlibrary:interpretationGuidelines:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /nationalindicatorlibrary:methodology:
+            /nationalindicatorlibrary:calculation:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /nationalindicatorlibrary:dataSource:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /nationalindicatorlibrary:denominator:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /nationalindicatorlibrary:numerator:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: nationalindicatorlibrary:methodology
+          /nationalindicatorlibrary:purpose:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          jcr:primaryType: nationalindicatorlibrary:details
+          nationalindicatorlibrary:iapCode: ''
+          nationalindicatorlibrary:indicatorSet: ''
+          nationalindicatorlibrary:rating: ''
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype

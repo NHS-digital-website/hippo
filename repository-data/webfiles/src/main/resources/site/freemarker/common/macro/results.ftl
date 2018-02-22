@@ -104,10 +104,10 @@
         <h3 class="flush zeta" data-uipath="ps.search-results.result.type" style="font-weight:bold">Indicator</h3>
         <p class="flush">
             <a href="<@hst.link hippobean=item.selfLinkBean/>" title="${item.title}" data-uipath="ps.search-results.result.title">
-                ${item.title}
+                ${item.topbar.title}
             </a>
         </p>
-        <p class="flush zeta" data-uipath="ps.search-results.result.date"><@fmt.message key="headers.assuranceDate"/> ${item.assuranceDate.time?string[dateFormat]}</p>
-        <#if item.publishedBy?has_content><p class="flush zeta" data-uipath="ps.search-results.result.date"><@fmt.message key="headers.publishedBy"/> ${item.publishedBy}</p></#if>
+        <p class="flush zeta" data-uipath="ps.search-results.result.date"><@fmt.message key="headers.assuranceDate"/> ${item.topbar.assuranceDate.time?string[dateFormat]}</p>
+        <#if item.topbar.publishedBy?has_content><p class="flush zeta" data-uipath="ps.search-results.result.date"><@fmt.message key="headers.publishedBy"/>: ${item.topbar.publishedBy}</p></#if>
     </div>
 </#macro>

@@ -1,278 +1,339 @@
----
 /content/documents/corporate-website/national-indicator-library/sample-indicator:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: a1d0ca75-fb9b-4ee0-af62-548d26741238
+  hippo:name: sample indicator
   /sample-indicator[1]:
+    jcr:primaryType: nationalindicatorlibrary:indicator
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 8f149859-4363-4234-80cf-9f3d6d02f96f
     common:FacetType: indicator
-    common:FullTaxonomy:
-    - cancer
-    - conditions
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2018-02-08T16:11:52.307Z
-    hippostdpubwf:lastModificationDate: 2018-02-19T11:33:51.283Z
+    hippostdpubwf:creationDate: 2018-02-22T13:14:38.445Z
+    hippostdpubwf:lastModificationDate: 2018-02-22T13:55:08.202Z
     hippostdpubwf:lastModifiedBy: admin
-    hippotaxonomy:keys:
-    - cancer
-    hippotranslation:id: 4323bc7c-735f-41b5-91da-cc37cc8c18cd
+    hippotranslation:id: 8760f929-796c-426e-bd55-826b9362a5ae
     hippotranslation:locale: en
-    jcr:mixinTypes:
-    - hippotaxonomy:classifiable
-    - mix:referenceable
-    jcr:primaryType: nationalindicatorlibrary:indicator
-    nationalindicatorlibrary:assuranceDate: 2015-12-14T00:00:00Z
-    nationalindicatorlibrary:basedOn: Royal College of Physicians’ Sentinel Stroke
-      National Audit Programme (SSNAP)
-    nationalindicatorlibrary:calculation: The numerator is divided by the denominator
-      and multiplied by 100 to provide a percentage indicator value. 95% confidence
-      intervals are then calculated using the Wilson Score method.
-    nationalindicatorlibrary:caveats: "The patterns of providing care may vary between\
-      \ organisations in terms of hospital inpatient admission practices and policies.\r\
-      \n\r\nThere may be variation in the prevalence of stroke due to differing levels\
-      \ of deprivation, for other geo-demographic reasons or between patients of different\
-      \ ethnic heritages."
-    nationalindicatorlibrary:contactAuthor: ''
-    nationalindicatorlibrary:dataSource: Royal College of Physicians’ Sentinel Stroke
-      National Audit Programme (RCP SSNAP)
-    nationalindicatorlibrary:definition: "The percentage of people with stroke admitted\
-      \ to an acute stroke unit within 4 hours of arrival to hospital.\r\n\r\n(ITU\
-      \ = Intensive Treatment Unit, CCU = Critical Care Unit, HDU = High Dependency\
-      \ Unit)\r\n\r\nTechnical description: Of all patients admitted to hospital with\
-      \ a primary diagnosis of stroke (except for those whose first ward of admission\
-      \ was ITU, CCU or HDU), the percentage whose first ward of admission is a stroke\
-      \ unit AND who arrive on the stroke unit within 4 hours of arrival at hospital\
-      \ (except for those patients who were already in hospital at the time of new\
-      \ stroke occurrence, who should instead be admitted to a stroke unit within\
-      \ 4 hours of onset of stroke symptoms).\r\n\r\nStroke is defined within this\
-      \ indicator as intracerebral haemorrhage (ICD-10 code: I61), cerebral infarction\
-      \ (I63) and stroke, not specified as haemorrhage or infarction (I64).\r\n\r\n\
-      The indicator is published annually in December for each CCG in England. It\
-      \ was published for the first time in December 2014 (2013/14 data)."
-    nationalindicatorlibrary:denominator: All patients admitted to hospital with a
-      primary diagnosis of stroke, except for those whose first ward of admission
-      was Intensive Treatment Unit (ITU), Critical Care Unit (CCU) or High Dependency
-      Unity (HDU).
-    nationalindicatorlibrary:iapCode: IAP00094
-    nationalindicatorlibrary:indicatorSet: CCG OIS
-    nationalindicatorlibrary:interpretationGuidelines: "A high percentage of patients\
-      \ with stroke admitted to an acute stroke unit within 4 hours of arrival to\
-      \ hospital is desirable.\r\n\r\nThis indicator acknowledges that for a small\
-      \ percentage of patients direct admission to a stroke unit is not appropriate.\
-      \ It differentiates between those who go to an acceptable other location (i.e.\
-      \ people transferred to intensive care are excluded from the indicator) compared\
-      \ to a ‘non acceptable’ location (e.g. generic admissions unit).\r\n\r\nThis\
-      \ indicator requires careful interpretation and should not be viewed in isolation,\
-      \ but instead be considered alongside information from other indicators and\
-      \ alternative sources, such as CCG OIS 3.9 (People who have had an acute stroke\
-      \ who spend 90% or more of their stay on a stroke unit) and the CCG level SSNAP\
-      \ stroke unit key indicators. When evaluated together, these will help to provide\
-      \ a holistic view of CCG outcomes and provide a more complete overview of the\
-      \ impact of the CCGs’ processes on outcomes."
-    nationalindicatorlibrary:numerator: Of the denominator, the number of patients
-      whose first ward of admission is a stroke unit AND who are admitted to the stroke
-      unit within 4 hours of arrival at hospital, except for those patients who were
-      already in hospital at the time of new stroke occurrence, who are admitted to
-      a stroke unit within 4 hours of onset of stroke symptoms.
-    nationalindicatorlibrary:publishedBy: Publisher
-    nationalindicatorlibrary:purpose: Patients who have had a stroke should be admitted
-      directly to a specialist acute stroke unit. Getting patients to a stroke unit
-      quickly is a strong indicator of eventual outcomes and is also closely linked
-      to improved quality of care across other stroke care markers. The indicator
-      is therefore an important measure of the effectiveness of recognition and assessment
-      of the symptoms of stroke, and the process to transfer people to a stroke unit
-      in a timely manner. Patients who have a stroke in hospital are included in the
-      indicator to take into account the process of recognising the stroke has occurred
-      and the systems in place for in-hospital pathways.
-    nationalindicatorlibrary:rating: Fit for use with caveats
-    nationalindicatorlibrary:reportingLevel: CCG
-    nationalindicatorlibrary:reportingPeriod: Annually
-    nationalindicatorlibrary:reviewDate: 2018-12-14T00:00:00Z
-    nationalindicatorlibrary:title: People with stroke admitted to an acute stroke
-      unit within 4 hours of arrival at hospital
+    /nationalindicatorlibrary:details:
+      jcr:primaryType: nationalindicatorlibrary:details
+      jcr:mixinTypes: ['hippotaxonomy:classifiable']
+      hippotaxonomy:keys: [conditions, cancer]
+      nationalindicatorlibrary:iapCode: IAP923845
+      nationalindicatorlibrary:indicatorSet: CCG OIS
+      nationalindicatorlibrary:rating: 5/5
+      /nationalindicatorlibrary:caveats:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>The patterns of providing care may vary between organisations
+          in terms of hospital inpatient admission practices and policies. There may
+          be variation in the prevalence of stroke due to differing levels of deprivation,
+          for other geo-demographic reasons or between patients of different ethnic
+          heritages.</p>
+      /nationalindicatorlibrary:definition:
+        jcr:primaryType: hippostd:html
+        hippostd:content: '<p>The percentage of people with stroke admitted to an
+          acute stroke unit within 4 hours of arrival to hospital. (ITU = Intensive
+          Treatment Unit, CCU = Critical Care Unit, HDU = High Dependency Unit) Technical
+          description: Of all patients admitted to hospital with a primary diagnosis
+          of stroke (except for those whose first ward of admission was ITU, CCU or
+          HDU), the percentage whose first ward of admission is a stroke unit AND
+          who arrive on the stroke unit within 4 hours of arrival at hospital (except
+          for those patients who were already in hospital at the time of new stroke
+          occurrence, who should instead be admitted to a stroke unit within 4 hours
+          of onset of stroke symptoms). Stroke is defined within this indicator as
+          intracerebral haemorrhage (ICD-10 code: I61), cerebral infarction (I63)
+          and stroke, not specified as haemorrhage or infarction (I64). The indicator
+          is published annually in December for each CCG in England. It was published
+          for the first time in December 2014 (2013/14 data).</p>'
+      /nationalindicatorlibrary:interpretationGuidelines:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <ul>
+           <li>A high percentage of patients with stroke admitted to an acute stroke unit within 4 hours of arrival to hospital is desirable.</li>
+           <li>This indicator acknowledges that for a small percentage of patients direct admission to a stroke unit is not appropriate.</li>
+           <li>It differentiates between those who go to an acceptable other location (i.e. people transferred to intensive care are excluded from the indicator) compared to a ‘non acceptable’ location (e.g. generic admissions unit).</li>
+           <li>This indicator requires careful interpretation and should not be viewed in isolation, but instead be considered alongside information from other indicators and alternative sources, such as CCG OIS 3.9 (People who have had an acute stroke who spend 90% or more of their stay on a stroke unit) and the CCG level SSNAP stroke unit key indicators.</li>
+           <li>When evaluated together, these will help to provide a holistic view of CCG outcomes and provide a more complete overview of the impact of the CCGs’ processes on outcomes.</li>
+          </ul>
+      /nationalindicatorlibrary:methodology:
+        jcr:primaryType: nationalindicatorlibrary:methodology
+        /nationalindicatorlibrary:calculation:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>The numerator is divided by the denominator and multiplied
+            by 100 to provide a percentage indicator value. 95% confidence intervals
+            are then calculated using the Wilson Score method.</p>
+        /nationalindicatorlibrary:caveats:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /nationalindicatorlibrary:dataSource:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Royal College of Physicians’ Sentinel Stroke National
+            Audit Programme (RCP SSNAP)</p>
+        /nationalindicatorlibrary:denominator:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>All patients admitted to hospital with a primary diagnosis
+            of stroke, except for those whose first ward of admission was Intensive
+            Treatment Unit (ITU), Critical Care Unit (CCU) or High Dependency Unity
+            (HDU).</p>
+        /nationalindicatorlibrary:interpretationGuidelines:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /nationalindicatorlibrary:numerator:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Of the denominator, the number of patients whose first
+            ward of admission is a stroke unit AND who are admitted to the stroke
+            unit within 4 hours of arrival at hospital, except for those patients
+            who were already in hospital at the time of new stroke occurrence, who
+            are admitted to a stroke unit within 4 hours of onset of stroke symptoms.</p>
+      /nationalindicatorlibrary:purpose:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Patients who have had a stroke should be admitted directly
+          to a specialist acute stroke unit. Getting patients to a stroke unit quickly
+          is a strong indicator of eventual outcomes and is also closely linked to
+          improved quality of care across other stroke care markers. The indicator
+          is therefore an important measure of the effectiveness of recognition and
+          assessment of the symptoms of stroke, and the process to transfer people
+          to a stroke unit in a timely manner. Patients who have a stroke in hospital
+          are included in the indicator to take into account the process of recognising
+          the stroke has occurred and the systems in place for in-hospital pathways.</p>
+    /nationalindicatorlibrary:topbar:
+      jcr:primaryType: nationalindicatorlibrary:topbar
+      nationalindicatorlibrary:assuranceDate: 2015-12-14T00:00:00Z
+      nationalindicatorlibrary:assuredStatus: false
+      nationalindicatorlibrary:basedOn: Royal College of Physicians’ Sentinel Stroke
+        National Audit Programme (SSNAP)
+      nationalindicatorlibrary:publishedBy: Publisher
+      nationalindicatorlibrary:reportingLevel: CCG
+      nationalindicatorlibrary:reportingPeriod: Annually
+      nationalindicatorlibrary:reviewDate: 2018-12-14T00:00:00Z
+      nationalindicatorlibrary:title: People with stroke admitted to an acute stroke
+        unit within 4 hours of arrival at hospital
+      /nationalindicatorlibrary:contactAuthor:
+        jcr:primaryType: nationalindicatorlibrary:contactAuthor
+        nationalindicatorlibrary:contactAuthorEmail: hugo@email.com
+        nationalindicatorlibrary:contactAuthorName: Hugo
   /sample-indicator[2]:
+    jcr:primaryType: nationalindicatorlibrary:indicator
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: 23e60141-ebc4-49d2-ad19-b8d591104ac7
     common:FacetType: indicator
-    common:FullTaxonomy:
-    - cancer
-    - conditions
     common:searchable: true
-    hippo:availability:
-    - preview
+    hippo:availability: [preview]
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2018-02-08T16:11:52.307Z
-    hippostdpubwf:lastModificationDate: 2018-02-19T11:33:55.762Z
+    hippostdpubwf:creationDate: 2018-02-22T13:14:38.445Z
+    hippostdpubwf:lastModificationDate: 2018-02-22T13:55:17.849Z
     hippostdpubwf:lastModifiedBy: admin
-    hippotaxonomy:keys:
-    - cancer
-    hippotranslation:id: 4323bc7c-735f-41b5-91da-cc37cc8c18cd
+    hippotranslation:id: 8760f929-796c-426e-bd55-826b9362a5ae
     hippotranslation:locale: en
-    jcr:mixinTypes:
-    - hippotaxonomy:classifiable
-    - mix:referenceable
-    - mix:versionable
-    jcr:primaryType: nationalindicatorlibrary:indicator
-    nationalindicatorlibrary:assuranceDate: 2015-12-14T00:00:00Z
-    nationalindicatorlibrary:basedOn: Royal College of Physicians’ Sentinel Stroke
-      National Audit Programme (SSNAP)
-    nationalindicatorlibrary:calculation: The numerator is divided by the denominator
-      and multiplied by 100 to provide a percentage indicator value. 95% confidence
-      intervals are then calculated using the Wilson Score method.
-    nationalindicatorlibrary:caveats: "The patterns of providing care may vary between\
-      \ organisations in terms of hospital inpatient admission practices and policies.\r\
-      \n\r\nThere may be variation in the prevalence of stroke due to differing levels\
-      \ of deprivation, for other geo-demographic reasons or between patients of different\
-      \ ethnic heritages."
-    nationalindicatorlibrary:contactAuthor: ''
-    nationalindicatorlibrary:dataSource: Royal College of Physicians’ Sentinel Stroke
-      National Audit Programme (RCP SSNAP)
-    nationalindicatorlibrary:definition: "The percentage of people with stroke admitted\
-      \ to an acute stroke unit within 4 hours of arrival to hospital.\r\n\r\n(ITU\
-      \ = Intensive Treatment Unit, CCU = Critical Care Unit, HDU = High Dependency\
-      \ Unit)\r\n\r\nTechnical description: Of all patients admitted to hospital with\
-      \ a primary diagnosis of stroke (except for those whose first ward of admission\
-      \ was ITU, CCU or HDU), the percentage whose first ward of admission is a stroke\
-      \ unit AND who arrive on the stroke unit within 4 hours of arrival at hospital\
-      \ (except for those patients who were already in hospital at the time of new\
-      \ stroke occurrence, who should instead be admitted to a stroke unit within\
-      \ 4 hours of onset of stroke symptoms).\r\n\r\nStroke is defined within this\
-      \ indicator as intracerebral haemorrhage (ICD-10 code: I61), cerebral infarction\
-      \ (I63) and stroke, not specified as haemorrhage or infarction (I64).\r\n\r\n\
-      The indicator is published annually in December for each CCG in England. It\
-      \ was published for the first time in December 2014 (2013/14 data)."
-    nationalindicatorlibrary:denominator: All patients admitted to hospital with a
-      primary diagnosis of stroke, except for those whose first ward of admission
-      was Intensive Treatment Unit (ITU), Critical Care Unit (CCU) or High Dependency
-      Unity (HDU).
-    nationalindicatorlibrary:iapCode: IAP00094
-    nationalindicatorlibrary:indicatorSet: CCG OIS
-    nationalindicatorlibrary:interpretationGuidelines: "A high percentage of patients\
-      \ with stroke admitted to an acute stroke unit within 4 hours of arrival to\
-      \ hospital is desirable.\r\n\r\nThis indicator acknowledges that for a small\
-      \ percentage of patients direct admission to a stroke unit is not appropriate.\
-      \ It differentiates between those who go to an acceptable other location (i.e.\
-      \ people transferred to intensive care are excluded from the indicator) compared\
-      \ to a ‘non acceptable’ location (e.g. generic admissions unit).\r\n\r\nThis\
-      \ indicator requires careful interpretation and should not be viewed in isolation,\
-      \ but instead be considered alongside information from other indicators and\
-      \ alternative sources, such as CCG OIS 3.9 (People who have had an acute stroke\
-      \ who spend 90% or more of their stay on a stroke unit) and the CCG level SSNAP\
-      \ stroke unit key indicators. When evaluated together, these will help to provide\
-      \ a holistic view of CCG outcomes and provide a more complete overview of the\
-      \ impact of the CCGs’ processes on outcomes."
-    nationalindicatorlibrary:numerator: Of the denominator, the number of patients
-      whose first ward of admission is a stroke unit AND who are admitted to the stroke
-      unit within 4 hours of arrival at hospital, except for those patients who were
-      already in hospital at the time of new stroke occurrence, who are admitted to
-      a stroke unit within 4 hours of onset of stroke symptoms.
-    nationalindicatorlibrary:publishedBy: Publisher
-    nationalindicatorlibrary:purpose: Patients who have had a stroke should be admitted
-      directly to a specialist acute stroke unit. Getting patients to a stroke unit
-      quickly is a strong indicator of eventual outcomes and is also closely linked
-      to improved quality of care across other stroke care markers. The indicator
-      is therefore an important measure of the effectiveness of recognition and assessment
-      of the symptoms of stroke, and the process to transfer people to a stroke unit
-      in a timely manner. Patients who have a stroke in hospital are included in the
-      indicator to take into account the process of recognising the stroke has occurred
-      and the systems in place for in-hospital pathways.
-    nationalindicatorlibrary:rating: Fit for use with caveats
-    nationalindicatorlibrary:reportingLevel: CCG
-    nationalindicatorlibrary:reportingPeriod: Annually
-    nationalindicatorlibrary:reviewDate: 2018-12-14T00:00:00Z
-    nationalindicatorlibrary:title: People with stroke admitted to an acute stroke
-      unit within 4 hours of arrival at hospital
+    /nationalindicatorlibrary:details:
+      jcr:primaryType: nationalindicatorlibrary:details
+      jcr:mixinTypes: ['hippotaxonomy:classifiable']
+      hippotaxonomy:keys: [conditions, cancer]
+      nationalindicatorlibrary:iapCode: IAP923845
+      nationalindicatorlibrary:indicatorSet: CCG OIS
+      nationalindicatorlibrary:rating: 5/5
+      /nationalindicatorlibrary:caveats:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>The patterns of providing care may vary between organisations
+          in terms of hospital inpatient admission practices and policies. There may
+          be variation in the prevalence of stroke due to differing levels of deprivation,
+          for other geo-demographic reasons or between patients of different ethnic
+          heritages.</p>
+      /nationalindicatorlibrary:definition:
+        jcr:primaryType: hippostd:html
+        hippostd:content: '<p>The percentage of people with stroke admitted to an
+          acute stroke unit within 4 hours of arrival to hospital. (ITU = Intensive
+          Treatment Unit, CCU = Critical Care Unit, HDU = High Dependency Unit) Technical
+          description: Of all patients admitted to hospital with a primary diagnosis
+          of stroke (except for those whose first ward of admission was ITU, CCU or
+          HDU), the percentage whose first ward of admission is a stroke unit AND
+          who arrive on the stroke unit within 4 hours of arrival at hospital (except
+          for those patients who were already in hospital at the time of new stroke
+          occurrence, who should instead be admitted to a stroke unit within 4 hours
+          of onset of stroke symptoms). Stroke is defined within this indicator as
+          intracerebral haemorrhage (ICD-10 code: I61), cerebral infarction (I63)
+          and stroke, not specified as haemorrhage or infarction (I64). The indicator
+          is published annually in December for each CCG in England. It was published
+          for the first time in December 2014 (2013/14 data).</p>'
+      /nationalindicatorlibrary:interpretationGuidelines:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <ul>
+           <li>A high percentage of patients with stroke admitted to an acute stroke unit within 4 hours of arrival to hospital is desirable.</li>
+           <li>This indicator acknowledges that for a small percentage of patients direct admission to a stroke unit is not appropriate.</li>
+           <li>It differentiates between those who go to an acceptable other location (i.e. people transferred to intensive care are excluded from the indicator) compared to a ‘non acceptable’ location (e.g. generic admissions unit).</li>
+           <li>This indicator requires careful interpretation and should not be viewed in isolation, but instead be considered alongside information from other indicators and alternative sources, such as CCG OIS 3.9 (People who have had an acute stroke who spend 90% or more of their stay on a stroke unit) and the CCG level SSNAP stroke unit key indicators.</li>
+           <li>When evaluated together, these will help to provide a holistic view of CCG outcomes and provide a more complete overview of the impact of the CCGs’ processes on outcomes.</li>
+          </ul>
+      /nationalindicatorlibrary:methodology:
+        jcr:primaryType: nationalindicatorlibrary:methodology
+        /nationalindicatorlibrary:calculation:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>The numerator is divided by the denominator and multiplied
+            by 100 to provide a percentage indicator value. 95% confidence intervals
+            are then calculated using the Wilson Score method.</p>
+        /nationalindicatorlibrary:caveats:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /nationalindicatorlibrary:dataSource:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Royal College of Physicians’ Sentinel Stroke National
+            Audit Programme (RCP SSNAP)</p>
+        /nationalindicatorlibrary:denominator:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>All patients admitted to hospital with a primary diagnosis
+            of stroke, except for those whose first ward of admission was Intensive
+            Treatment Unit (ITU), Critical Care Unit (CCU) or High Dependency Unity
+            (HDU).</p>
+        /nationalindicatorlibrary:interpretationGuidelines:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /nationalindicatorlibrary:numerator:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Of the denominator, the number of patients whose first
+            ward of admission is a stroke unit AND who are admitted to the stroke
+            unit within 4 hours of arrival at hospital, except for those patients
+            who were already in hospital at the time of new stroke occurrence, who
+            are admitted to a stroke unit within 4 hours of onset of stroke symptoms.</p>
+      /nationalindicatorlibrary:purpose:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Patients who have had a stroke should be admitted directly
+          to a specialist acute stroke unit. Getting patients to a stroke unit quickly
+          is a strong indicator of eventual outcomes and is also closely linked to
+          improved quality of care across other stroke care markers. The indicator
+          is therefore an important measure of the effectiveness of recognition and
+          assessment of the symptoms of stroke, and the process to transfer people
+          to a stroke unit in a timely manner. Patients who have a stroke in hospital
+          are included in the indicator to take into account the process of recognising
+          the stroke has occurred and the systems in place for in-hospital pathways.</p>
+    /nationalindicatorlibrary:topbar:
+      jcr:primaryType: nationalindicatorlibrary:topbar
+      nationalindicatorlibrary:assuranceDate: 2015-12-14T00:00:00Z
+      nationalindicatorlibrary:assuredStatus: false
+      nationalindicatorlibrary:basedOn: Royal College of Physicians’ Sentinel Stroke
+        National Audit Programme (SSNAP)
+      nationalindicatorlibrary:publishedBy: Publisher
+      nationalindicatorlibrary:reportingLevel: CCG
+      nationalindicatorlibrary:reportingPeriod: Annually
+      nationalindicatorlibrary:reviewDate: 2018-12-14T00:00:00Z
+      nationalindicatorlibrary:title: People with stroke admitted to an acute stroke
+        unit within 4 hours of arrival at hospital
+      /nationalindicatorlibrary:contactAuthor:
+        jcr:primaryType: nationalindicatorlibrary:contactAuthor
+        nationalindicatorlibrary:contactAuthorEmail: hugo@email.com
+        nationalindicatorlibrary:contactAuthorName: Hugo
   /sample-indicator[3]:
+    jcr:primaryType: nationalindicatorlibrary:indicator
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 7ff6432f-f1d1-4d2f-b397-1fe4b39665d9
     common:FacetType: indicator
-    common:FullTaxonomy:
-    - cancer
-    - conditions
     common:searchable: true
-    hippo:availability:
-    - live
+    hippo:availability: [live]
     hippostd:state: published
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2018-02-08T16:11:52.307Z
-    hippostdpubwf:lastModificationDate: 2018-02-19T11:33:55.762Z
+    hippostdpubwf:creationDate: 2018-02-22T13:14:38.445Z
+    hippostdpubwf:lastModificationDate: 2018-02-22T13:55:17.849Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-02-09T10:06:13.538Z
-    hippotaxonomy:keys:
-    - cancer
-    hippotranslation:id: 4323bc7c-735f-41b5-91da-cc37cc8c18cd
+    hippostdpubwf:publicationDate: 2018-02-22T13:55:20.172Z
+    hippotranslation:id: 8760f929-796c-426e-bd55-826b9362a5ae
     hippotranslation:locale: en
-    jcr:mixinTypes:
-    - hippotaxonomy:classifiable
-    - mix:referenceable
-    jcr:primaryType: nationalindicatorlibrary:indicator
-    nationalindicatorlibrary:assuranceDate: 2015-12-14T00:00:00Z
-    nationalindicatorlibrary:basedOn: Royal College of Physicians’ Sentinel Stroke
-      National Audit Programme (SSNAP)
-    nationalindicatorlibrary:calculation: The numerator is divided by the denominator
-      and multiplied by 100 to provide a percentage indicator value. 95% confidence
-      intervals are then calculated using the Wilson Score method.
-    nationalindicatorlibrary:caveats: "The patterns of providing care may vary between\
-      \ organisations in terms of hospital inpatient admission practices and policies.\r\
-      \n\r\nThere may be variation in the prevalence of stroke due to differing levels\
-      \ of deprivation, for other geo-demographic reasons or between patients of different\
-      \ ethnic heritages."
-    nationalindicatorlibrary:contactAuthor: ''
-    nationalindicatorlibrary:dataSource: Royal College of Physicians’ Sentinel Stroke
-      National Audit Programme (RCP SSNAP)
-    nationalindicatorlibrary:definition: "The percentage of people with stroke admitted\
-      \ to an acute stroke unit within 4 hours of arrival to hospital.\r\n\r\n(ITU\
-      \ = Intensive Treatment Unit, CCU = Critical Care Unit, HDU = High Dependency\
-      \ Unit)\r\n\r\nTechnical description: Of all patients admitted to hospital with\
-      \ a primary diagnosis of stroke (except for those whose first ward of admission\
-      \ was ITU, CCU or HDU), the percentage whose first ward of admission is a stroke\
-      \ unit AND who arrive on the stroke unit within 4 hours of arrival at hospital\
-      \ (except for those patients who were already in hospital at the time of new\
-      \ stroke occurrence, who should instead be admitted to a stroke unit within\
-      \ 4 hours of onset of stroke symptoms).\r\n\r\nStroke is defined within this\
-      \ indicator as intracerebral haemorrhage (ICD-10 code: I61), cerebral infarction\
-      \ (I63) and stroke, not specified as haemorrhage or infarction (I64).\r\n\r\n\
-      The indicator is published annually in December for each CCG in England. It\
-      \ was published for the first time in December 2014 (2013/14 data)."
-    nationalindicatorlibrary:denominator: All patients admitted to hospital with a
-      primary diagnosis of stroke, except for those whose first ward of admission
-      was Intensive Treatment Unit (ITU), Critical Care Unit (CCU) or High Dependency
-      Unity (HDU).
-    nationalindicatorlibrary:iapCode: IAP00094
-    nationalindicatorlibrary:indicatorSet: CCG OIS
-    nationalindicatorlibrary:interpretationGuidelines: "A high percentage of patients\
-      \ with stroke admitted to an acute stroke unit within 4 hours of arrival to\
-      \ hospital is desirable.\r\n\r\nThis indicator acknowledges that for a small\
-      \ percentage of patients direct admission to a stroke unit is not appropriate.\
-      \ It differentiates between those who go to an acceptable other location (i.e.\
-      \ people transferred to intensive care are excluded from the indicator) compared\
-      \ to a ‘non acceptable’ location (e.g. generic admissions unit).\r\n\r\nThis\
-      \ indicator requires careful interpretation and should not be viewed in isolation,\
-      \ but instead be considered alongside information from other indicators and\
-      \ alternative sources, such as CCG OIS 3.9 (People who have had an acute stroke\
-      \ who spend 90% or more of their stay on a stroke unit) and the CCG level SSNAP\
-      \ stroke unit key indicators. When evaluated together, these will help to provide\
-      \ a holistic view of CCG outcomes and provide a more complete overview of the\
-      \ impact of the CCGs’ processes on outcomes."
-    nationalindicatorlibrary:numerator: Of the denominator, the number of patients
-      whose first ward of admission is a stroke unit AND who are admitted to the stroke
-      unit within 4 hours of arrival at hospital, except for those patients who were
-      already in hospital at the time of new stroke occurrence, who are admitted to
-      a stroke unit within 4 hours of onset of stroke symptoms.
-    nationalindicatorlibrary:publishedBy: Publisher
-    nationalindicatorlibrary:purpose: Patients who have had a stroke should be admitted
-      directly to a specialist acute stroke unit. Getting patients to a stroke unit
-      quickly is a strong indicator of eventual outcomes and is also closely linked
-      to improved quality of care across other stroke care markers. The indicator
-      is therefore an important measure of the effectiveness of recognition and assessment
-      of the symptoms of stroke, and the process to transfer people to a stroke unit
-      in a timely manner. Patients who have a stroke in hospital are included in the
-      indicator to take into account the process of recognising the stroke has occurred
-      and the systems in place for in-hospital pathways.
-    nationalindicatorlibrary:rating: Fit for use with caveats
-    nationalindicatorlibrary:reportingLevel: CCG
-    nationalindicatorlibrary:reportingPeriod: Annually
-    nationalindicatorlibrary:reviewDate: 2018-12-14T00:00:00Z
-    nationalindicatorlibrary:title: People with stroke admitted to an acute stroke
-      unit within 4 hours of arrival at hospital
-  hippo:name: sample indicator
-  jcr:mixinTypes:
-  - hippo:named
-  - mix:referenceable
-  jcr:primaryType: hippo:handle
+    /nationalindicatorlibrary:details:
+      jcr:primaryType: nationalindicatorlibrary:details
+      jcr:mixinTypes: ['hippotaxonomy:classifiable']
+      hippotaxonomy:keys: [conditions, cancer]
+      nationalindicatorlibrary:iapCode: IAP923845
+      nationalindicatorlibrary:indicatorSet: CCG OIS
+      nationalindicatorlibrary:rating: 5/5
+      /nationalindicatorlibrary:caveats:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>The patterns of providing care may vary between organisations
+          in terms of hospital inpatient admission practices and policies. There may
+          be variation in the prevalence of stroke due to differing levels of deprivation,
+          for other geo-demographic reasons or between patients of different ethnic
+          heritages.</p>
+      /nationalindicatorlibrary:definition:
+        jcr:primaryType: hippostd:html
+        hippostd:content: '<p>The percentage of people with stroke admitted to an
+          acute stroke unit within 4 hours of arrival to hospital. (ITU = Intensive
+          Treatment Unit, CCU = Critical Care Unit, HDU = High Dependency Unit) Technical
+          description: Of all patients admitted to hospital with a primary diagnosis
+          of stroke (except for those whose first ward of admission was ITU, CCU or
+          HDU), the percentage whose first ward of admission is a stroke unit AND
+          who arrive on the stroke unit within 4 hours of arrival at hospital (except
+          for those patients who were already in hospital at the time of new stroke
+          occurrence, who should instead be admitted to a stroke unit within 4 hours
+          of onset of stroke symptoms). Stroke is defined within this indicator as
+          intracerebral haemorrhage (ICD-10 code: I61), cerebral infarction (I63)
+          and stroke, not specified as haemorrhage or infarction (I64). The indicator
+          is published annually in December for each CCG in England. It was published
+          for the first time in December 2014 (2013/14 data).</p>'
+      /nationalindicatorlibrary:interpretationGuidelines:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <ul>
+           <li>A high percentage of patients with stroke admitted to an acute stroke unit within 4 hours of arrival to hospital is desirable.</li>
+           <li>This indicator acknowledges that for a small percentage of patients direct admission to a stroke unit is not appropriate.</li>
+           <li>It differentiates between those who go to an acceptable other location (i.e. people transferred to intensive care are excluded from the indicator) compared to a ‘non acceptable’ location (e.g. generic admissions unit).</li>
+           <li>This indicator requires careful interpretation and should not be viewed in isolation, but instead be considered alongside information from other indicators and alternative sources, such as CCG OIS 3.9 (People who have had an acute stroke who spend 90% or more of their stay on a stroke unit) and the CCG level SSNAP stroke unit key indicators.</li>
+           <li>When evaluated together, these will help to provide a holistic view of CCG outcomes and provide a more complete overview of the impact of the CCGs’ processes on outcomes.</li>
+          </ul>
+      /nationalindicatorlibrary:methodology:
+        jcr:primaryType: nationalindicatorlibrary:methodology
+        /nationalindicatorlibrary:calculation:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>The numerator is divided by the denominator and multiplied
+            by 100 to provide a percentage indicator value. 95% confidence intervals
+            are then calculated using the Wilson Score method.</p>
+        /nationalindicatorlibrary:caveats:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /nationalindicatorlibrary:dataSource:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Royal College of Physicians’ Sentinel Stroke National
+            Audit Programme (RCP SSNAP)</p>
+        /nationalindicatorlibrary:denominator:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>All patients admitted to hospital with a primary diagnosis
+            of stroke, except for those whose first ward of admission was Intensive
+            Treatment Unit (ITU), Critical Care Unit (CCU) or High Dependency Unity
+            (HDU).</p>
+        /nationalindicatorlibrary:interpretationGuidelines:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /nationalindicatorlibrary:numerator:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Of the denominator, the number of patients whose first
+            ward of admission is a stroke unit AND who are admitted to the stroke
+            unit within 4 hours of arrival at hospital, except for those patients
+            who were already in hospital at the time of new stroke occurrence, who
+            are admitted to a stroke unit within 4 hours of onset of stroke symptoms.</p>
+      /nationalindicatorlibrary:purpose:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Patients who have had a stroke should be admitted directly
+          to a specialist acute stroke unit. Getting patients to a stroke unit quickly
+          is a strong indicator of eventual outcomes and is also closely linked to
+          improved quality of care across other stroke care markers. The indicator
+          is therefore an important measure of the effectiveness of recognition and
+          assessment of the symptoms of stroke, and the process to transfer people
+          to a stroke unit in a timely manner. Patients who have a stroke in hospital
+          are included in the indicator to take into account the process of recognising
+          the stroke has occurred and the systems in place for in-hospital pathways.</p>
+    /nationalindicatorlibrary:topbar:
+      jcr:primaryType: nationalindicatorlibrary:topbar
+      nationalindicatorlibrary:assuranceDate: 2015-12-14T00:00:00Z
+      nationalindicatorlibrary:assuredStatus: false
+      nationalindicatorlibrary:basedOn: Royal College of Physicians’ Sentinel Stroke
+        National Audit Programme (SSNAP)
+      nationalindicatorlibrary:publishedBy: Publisher
+      nationalindicatorlibrary:reportingLevel: CCG
+      nationalindicatorlibrary:reportingPeriod: Annually
+      nationalindicatorlibrary:reviewDate: 2018-12-14T00:00:00Z
+      nationalindicatorlibrary:title: People with stroke admitted to an acute stroke
+        unit within 4 hours of arrival at hospital
+      /nationalindicatorlibrary:contactAuthor:
+        jcr:primaryType: nationalindicatorlibrary:contactAuthor
+        nationalindicatorlibrary:contactAuthorEmail: hugo@email.com
+        nationalindicatorlibrary:contactAuthorName: Hugo
