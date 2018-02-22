@@ -152,6 +152,8 @@ public class SearchComponent extends CommonComponent {
             String queryIncWildcards = parseAndApplyWildcards(queryParameter);
 
             searchStringConstraint = or(
+                commonConstraint(query),
+                commonConstraint(queryIncWildcards),
                 publicationSystemConstraint(query),
                 publicationSystemConstraint(queryIncWildcards),
                 indicatorLibraryConstraint(query),
@@ -215,8 +217,7 @@ public class SearchComponent extends CommonComponent {
         return or(
             constraint("publicationsystem:Title").contains(query),
             constraint("publicationsystem:Summary").contains(query),
-            constraint("publicationsystem:KeyFacts").contains(query),
-            constraint("common:SearchableTags").contains(query)
+            constraint("publicationsystem:KeyFacts").contains(query)
         );
     }
 
@@ -226,7 +227,16 @@ public class SearchComponent extends CommonComponent {
     private Constraint indicatorLibraryConstraint(String query) {
         return or(
             constraint("nationalindicatorlibrary:title").contains(query),
-            constraint("nationalindicatorlibrary:methodology").contains(query)
+            constraint("nationalindicatorlibrary:definition").contains(query)
         );
     }
+
+    /**
+     * Common search constraint
+     */
+    private Constraint commonConstraint(String query) {
+        return or(
+            constraint("common:SearchableTags").contains(query)
+        );
+    }    
 }

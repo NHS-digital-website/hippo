@@ -10,7 +10,7 @@
 </section>
 
 <section class="document-content">
-    <h2><@fmt.message key="headers.popularTopics"/></h1>
+    <h2><@fmt.message key="headers.popularTopics"/></h2>
     <div class="nihubSection">
         <div class="document-content">
             <#list document.popularTopicLinks as link>
@@ -23,7 +23,7 @@
 </section>
 
 <section class="document-content">
-    <h2><@fmt.message key="headers.topicsAZ"/></h1>
+    <h2><@fmt.message key="headers.topicsAZ"/></h2>
     <div class="nihubSection">
         <div class="document-content">
             <#list ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'] as x>
@@ -33,15 +33,27 @@
     </div>
 </section>
 
+
 <section class="document-content">
-    <h2><@fmt.message key="headers.indicatorsAndAssurance"/></h1>
+    <div class="nihubIgbSection">
+    <h2><@fmt.message key="headers.igbAssurance"/></h2>
+        <div>
+            <div class="layout__item layout-5-6">
+                <p class="zeta" style="text-align:center;">${document.igbHubLink.summary}</p>
+                <h3 style="text-align:center;"><a href="${document.igbHubLink.pageLink}" title="${document.igbHubLink.title}">${document.igbHubLink.title}</a></h3>  
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="document-content">
+    <h2><@fmt.message key="headers.indicatorsAndAssurance"/></h2>
 
     <div class="nihubSection">
             <div class="document-content">
                 <#list document.niHubLink as link><!--
                     --><div class="layout__item layout-1-3">
-                        <@hst.link var="landingPageLink" hippobean=link.pageLink />
-                        <h3><a href="${landingPageLink}" title="${link.title}">${link.title}</a></h3>
+                        <h3><a href="${link.pageLink}" title="${link.title}">${link.title}</a></h3>
                         <p class="zeta">${link.summary}</p>
                     </div><!--
                 --></#list>

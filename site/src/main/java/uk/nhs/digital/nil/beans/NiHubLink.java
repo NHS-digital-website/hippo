@@ -1,7 +1,6 @@
 package uk.nhs.digital.nil.beans;
 
 import org.hippoecm.hst.content.beans.Node;
-import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
@@ -18,8 +17,8 @@ public class NiHubLink extends HippoCompound {
         return getProperty("nationalindicatorlibrary:summary");
     }
 
-    @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:pagelink")
-    public HippoBean getPageLink() {
-        return getLinkedBean("nationalindicatorlibrary:pagelink", HippoBean.class);
+    @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:relativeUrl")
+    public String getPageLink() {
+        return getProperty("nationalindicatorlibrary:relativeUrl");
     }
 }

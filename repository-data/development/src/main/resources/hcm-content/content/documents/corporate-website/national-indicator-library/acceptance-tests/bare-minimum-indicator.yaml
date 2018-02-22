@@ -1,0 +1,194 @@
+---
+/content/documents/corporate-website/national-indicator-library/acceptance-tests/bare-minimum-indicator:
+  /bare-minimum-indicator[1]:
+    /nationalindicatorlibrary:details:
+      /nationalindicatorlibrary:caveats:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /nationalindicatorlibrary:definition:
+        hippostd:content: <p>Definition</p>
+        jcr:primaryType: hippostd:html
+      /nationalindicatorlibrary:interpretationGuidelines:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /nationalindicatorlibrary:methodology:
+        /nationalindicatorlibrary:calculation:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /nationalindicatorlibrary:dataSource:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /nationalindicatorlibrary:denominator:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /nationalindicatorlibrary:numerator:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: nationalindicatorlibrary:methodology
+      /nationalindicatorlibrary:purpose:
+        hippostd:content: <p>Purpose</p>
+        jcr:primaryType: hippostd:html
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      jcr:primaryType: nationalindicatorlibrary:details
+      nationalindicatorlibrary:iapCode: ''
+      nationalindicatorlibrary:indicatorSet: ''
+      nationalindicatorlibrary:rating: ''
+    /nationalindicatorlibrary:topbar:
+      /nationalindicatorlibrary:contactAuthor:
+        jcr:primaryType: nationalindicatorlibrary:contactAuthor
+        nationalindicatorlibrary:contactAuthorEmail: ''
+        nationalindicatorlibrary:contactAuthorName: Test
+      jcr:primaryType: nationalindicatorlibrary:topbar
+      nationalindicatorlibrary:assuranceDate: 2018-02-23T13:57:00Z
+      nationalindicatorlibrary:assuredStatus: true
+      nationalindicatorlibrary:basedOn: Test
+      nationalindicatorlibrary:publishedBy: Test
+      nationalindicatorlibrary:reportingLevel: ''
+      nationalindicatorlibrary:reportingPeriod: Now
+      nationalindicatorlibrary:reviewDate: 2018-02-23T13:57:00Z
+      nationalindicatorlibrary:title: Bare Minimum Indicator
+    common:FacetType: indicator
+    common:searchable: true
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-02-23T13:57:04.917Z
+    hippostdpubwf:lastModificationDate: 2018-02-23T14:12:38.988Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 6052313f-da95-4a53-84ee-8d2d9e69d1e0
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: nationalindicatorlibrary:indicator
+  /bare-minimum-indicator[2]:
+    /nationalindicatorlibrary:details:
+      /nationalindicatorlibrary:caveats:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /nationalindicatorlibrary:definition:
+        hippostd:content: <p>Definition</p>
+        jcr:primaryType: hippostd:html
+      /nationalindicatorlibrary:interpretationGuidelines:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /nationalindicatorlibrary:methodology:
+        /nationalindicatorlibrary:calculation:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /nationalindicatorlibrary:dataSource:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /nationalindicatorlibrary:denominator:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /nationalindicatorlibrary:numerator:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: nationalindicatorlibrary:methodology
+      /nationalindicatorlibrary:purpose:
+        hippostd:content: <p>Purpose</p>
+        jcr:primaryType: hippostd:html
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      jcr:primaryType: nationalindicatorlibrary:details
+      nationalindicatorlibrary:iapCode: ''
+      nationalindicatorlibrary:indicatorSet: ''
+      nationalindicatorlibrary:rating: ''
+    /nationalindicatorlibrary:topbar:
+      /nationalindicatorlibrary:contactAuthor:
+        jcr:primaryType: nationalindicatorlibrary:contactAuthor
+        nationalindicatorlibrary:contactAuthorEmail: ''
+        nationalindicatorlibrary:contactAuthorName: Test
+      jcr:primaryType: nationalindicatorlibrary:topbar
+      nationalindicatorlibrary:assuranceDate: 2018-02-23T13:57:00Z
+      nationalindicatorlibrary:assuredStatus: true
+      nationalindicatorlibrary:basedOn: Test
+      nationalindicatorlibrary:publishedBy: Test
+      nationalindicatorlibrary:reportingLevel: ''
+      nationalindicatorlibrary:reportingPeriod: Now
+      nationalindicatorlibrary:reviewDate: 2018-02-23T13:57:00Z
+      nationalindicatorlibrary:title: Bare Minimum Indicator
+    common:FacetType: indicator
+    common:searchable: true
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-02-23T13:57:04.917Z
+    hippostdpubwf:lastModificationDate: 2018-02-23T13:57:58.300Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 6052313f-da95-4a53-84ee-8d2d9e69d1e0
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: nationalindicatorlibrary:indicator
+  /bare-minimum-indicator[3]:
+    /nationalindicatorlibrary:details:
+      /nationalindicatorlibrary:caveats:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /nationalindicatorlibrary:definition:
+        hippostd:content: <p>Definition</p>
+        jcr:primaryType: hippostd:html
+      /nationalindicatorlibrary:interpretationGuidelines:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /nationalindicatorlibrary:methodology:
+        /nationalindicatorlibrary:calculation:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /nationalindicatorlibrary:dataSource:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /nationalindicatorlibrary:denominator:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /nationalindicatorlibrary:numerator:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: nationalindicatorlibrary:methodology
+      /nationalindicatorlibrary:purpose:
+        hippostd:content: <p>Purpose</p>
+        jcr:primaryType: hippostd:html
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      jcr:primaryType: nationalindicatorlibrary:details
+      nationalindicatorlibrary:iapCode: ''
+      nationalindicatorlibrary:indicatorSet: ''
+      nationalindicatorlibrary:rating: ''
+    /nationalindicatorlibrary:topbar:
+      /nationalindicatorlibrary:contactAuthor:
+        jcr:primaryType: nationalindicatorlibrary:contactAuthor
+        nationalindicatorlibrary:contactAuthorEmail: ''
+        nationalindicatorlibrary:contactAuthorName: Test
+      jcr:primaryType: nationalindicatorlibrary:topbar
+      nationalindicatorlibrary:assuranceDate: 2018-02-23T13:57:00Z
+      nationalindicatorlibrary:assuredStatus: true
+      nationalindicatorlibrary:basedOn: Test
+      nationalindicatorlibrary:publishedBy: Test
+      nationalindicatorlibrary:reportingLevel: ''
+      nationalindicatorlibrary:reportingPeriod: Now
+      nationalindicatorlibrary:reviewDate: 2018-02-23T13:57:00Z
+      nationalindicatorlibrary:title: Bare Minimum Indicator
+    common:FacetType: indicator
+    common:searchable: true
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-02-23T13:57:04.917Z
+    hippostdpubwf:lastModificationDate: 2018-02-23T13:57:58.300Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2018-02-23T14:12:22.725Z
+    hippotranslation:id: 6052313f-da95-4a53-84ee-8d2d9e69d1e0
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: nationalindicatorlibrary:indicator
+  hippo:name: bare minimum indicator
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

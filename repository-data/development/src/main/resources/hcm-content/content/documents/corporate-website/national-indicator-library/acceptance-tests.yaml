@@ -1,0 +1,13 @@
+---
+/content/documents/corporate-website/national-indicator-library/acceptance-tests:
+  hippo:name: Acceptance Tests
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: 00000000-0000-0000-0000-000000000000
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

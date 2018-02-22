@@ -73,6 +73,15 @@ Feature: Basic search
         Then I should see 1 search results
         And I can click on link "series fields titleTestStrawberries"
 
+    Scenario: Indicator searchable fields (title, definition)
+        Given I navigate to the "home" page
+        When I search for "National Indicator"
+        Then I should see 2 search results
+        And I can click on link "National Indicator"
+        When I search for "SearchableNationalIndicatorDefinition"
+        Then I should see 1 search results
+        And I can click on link "National Indicator"     
+
     Scenario: Pdf text is not matched with the search term
         Given I navigate to the "home" page
         And I search for "_Attachment_Search_Term_"
@@ -118,6 +127,7 @@ Feature: Basic search
             | Publication ( ...         |
             | Data set ( ...            |
             | Series / Collection ( ... |
+            | Indicator ( ...           |            
 
     Scenario: Navigating to the search page displays the results page with full, unfiltered result set
         Given I navigate to the "search" page
@@ -125,13 +135,15 @@ Feature: Basic search
             | Publication ( ...         |
             | Data set ( ...            |
             | Series / Collection ( ... |
+            | Indicator ( ...           |
 
     Scenario: Each document type label is correctly displayed in search results
         Given I navigate to the "home" page
         When I search for "Bare Minimum"
         Then I should see search results which also include:
-            | Data set            | Bare Minimum Dataset          |
             | Publication         | Bare Minimum Publication      |
+            | Data set            | Bare Minimum Dataset          |
+            | Indicator           | Bare Minimum Indicator        |
         When I navigate to the "home" page
         When I search for "series"
         Then I should see search results which also include:
