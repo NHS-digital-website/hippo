@@ -21,10 +21,11 @@ Feature: Ensure publication page displays required fields.
     Scenario: Display Resource Links, Attachments and Datasets in one list
         Given I navigate to "publication with datasets" page
         Then I should see publication page titled "publication with datasets"
-        And I should also see "Publication Resources" with:
-            | attachment.pdf; size: 42.2 kB     |
+        And I should also see "Publication Data Sets" with:
             | Etiam Placerat Arcu Dataset       |
             | publication-with-datasets Dataset |
+        And I should also see "Publication Resources" with:
+            | attachment.pdf; size: 42.2 kB     |
             | Related resource link             |
 
     Scenario: Display Related Links list
@@ -43,6 +44,7 @@ Feature: Ensure publication page displays required fields.
             | Key Facts                 |
             | Administrative Sources    |
             | Related Links             |
+            | Resources                 |
 
     Scenario: Headers display for populated fields
         Given I navigate to the "publication with datasets" page
@@ -54,6 +56,7 @@ Feature: Ensure publication page displays required fields.
             | Summary                   |
             | Key Facts                 |
             | Administrative Sources    |
+            | Data Sets                 |
             | Resources                 |
             | Related Links             |
 
@@ -95,7 +98,7 @@ Feature: Ensure publication page displays required fields.
 
     Scenario: Dataset order on a publication
         Given I navigate to "ordered publication" page
-        Then I should see "Publication Resources" with:
+        Then I should see "Publication Data Sets" with:
             | 1.1 Dataset  |
             | 1.9 Dataset  |
             | 1.10 Dataset |

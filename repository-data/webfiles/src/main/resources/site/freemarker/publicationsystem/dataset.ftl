@@ -92,32 +92,24 @@
 </section>
 
 <section class="document-content" aria-label="Document Content">
-    <div class="layout layout--large">
-        <div class="layout__item layout-2-3">
+    <div>
+        <h2><@fmt.message key="headers.summary"/></h2>
+        <@structuredText item=dataset.summary uipath="ps.dataset.summary" />
 
-            <h2><@fmt.message key="headers.summary"/></h2>
-            <@structuredText item=dataset.summary uipath="ps.dataset.summary" />
-
-        </div><!--
-
-        --><div class="layout__item layout-1-3">
-            <div class="panel panel--grey push-half--bottom">
-                <h3><@fmt.message key="headers.resources"/></h3>
-                <ul data-uipath="ps.dataset.resources">
-                    <#list dataset.files as attachment>
-                        <li class="attachment">
-                            <a title="${attachment.text}" href="<@hst.link hippobean=attachment.resource/>">${attachment.text}</a>;
-                            <span class="fileSize">size: <@formatFileSize bytesCount=attachment.resource.length/></span>
-                        </li>
-                    </#list>
-                    <#list dataset.resourceLinks as link>
-                        <li>
-                            <a href="${link.linkUrl}">${link.linkText}</a>
-                        </li>
-                    </#list>
-                </ul>
-            </div>
-        </div>
+        <h2><@fmt.message key="headers.resources"/></h2>
+        <ul data-uipath="ps.dataset.resources">
+            <#list dataset.files as attachment>
+                <li class="attachment">
+                    <a title="${attachment.text}" href="<@hst.link hippobean=attachment.resource/>">${attachment.text}</a>;
+                    <span class="fileSize">size: <@formatFileSize bytesCount=attachment.resource.length/></span>
+                </li>
+            </#list>
+            <#list dataset.resourceLinks as link>
+                <li>
+                    <a href="${link.linkUrl}">${link.linkText}</a>
+                </li>
+            </#list>
+        </ul>
     </div>
 </section>
 
