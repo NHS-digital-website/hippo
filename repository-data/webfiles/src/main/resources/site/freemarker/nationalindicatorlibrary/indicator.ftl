@@ -1,6 +1,5 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
-<#--  <#include "../common/macro/structured-text.ftl">  -->
 <#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
 <#assign formatCoverageDates="uk.nhs.digital.ps.directives.CoverageDatesFormatterDirective"?new() />
 
@@ -8,7 +7,7 @@
 
   <section class="document-header push-double--bottom">
       <div class="document-header__inner">
-        <h1 class="layout-5-6 push--bottom">${indicator.title}</h1>
+        <h1 class="layout-5-6 push--bottom">${indicator.topbar.title}</h1>
 
         <div class="document-header__divider">&nbsp;</div>
 
@@ -16,15 +15,15 @@
 
         <div class="layout">
             <div class="layout__item layout-1-2">
-                <p class="push-half--bottom"><strong><@fmt.message key="headers.publishedBy"/></strong>: ${indicator.publishedBy}</p>
-                <p class="push-half--bottom"><strong><@fmt.message key="headers.assuranceDate"/></strong>: ${indicator.assuranceDate.time?string[dateFormat]}</p>
-                <p class="push-half--bottom"><strong><@fmt.message key="headers.reportingPeriod"/></strong>: ${indicator.reportingPeriod}</p>
-                <p class="push-half--bottom"><strong><@fmt.message key="headers.basedOn"/></strong>: ${indicator.basedOn}</p>
+                <p class="push-half--bottom"><strong><@fmt.message key="headers.publishedBy"/></strong>: ${indicator.topbar.publishedBy}</p>
+                <p class="push-half--bottom"><strong><@fmt.message key="headers.assuranceDate"/></strong>: ${indicator.topbar.assuranceDate.time?string[dateFormat]}</p>
+                <p class="push-half--bottom"><strong><@fmt.message key="headers.reportingPeriod"/></strong>: ${indicator.topbar.reportingPeriod}</p>
+                <p class="push-half--bottom"><strong><@fmt.message key="headers.basedOn"/></strong>: ${indicator.topbar.basedOn}</p>
             </div><!--
             --><div class="layout__item layout-1-2">
-                <p class="push-half--bottom"><strong><@fmt.message key="headers.contactAuthor"/></strong>: <a href="mailto:${indicator.contactAuthor}"> ${indicator.contactAuthor}</a></p>
-                <p class="push-half--bottom"><strong><@fmt.message key="headers.reportingLevel"/></strong>: ${indicator.reportingLevel}</p>
-                <p class="push-half--bottom"><strong><@fmt.message key="headers.reviewDate"/></strong>: ${indicator.reviewDate.time?string[dateFormat]}</p>
+                <p class="push-half--bottom"><strong><@fmt.message key="headers.contactAuthor"/></strong>: <a href="mailto:${indicator.topbar.contactAuthor.contactAuthorEmail}"> ${indicator.topbar.contactAuthor.contactAuthorName}</a></p>
+                <p class="push-half--bottom"><strong><@fmt.message key="headers.reportingLevel"/></strong>: ${indicator.topbar.reportingLevel}</p>
+                <p class="push-half--bottom"><strong><@fmt.message key="headers.reviewDate"/></strong>: ${indicator.topbar.reviewDate.time?string[dateFormat]}</p>
             </div>
         </div>
       </div>
@@ -40,8 +39,8 @@
                     <li><a href="#purpose"><@fmt.message key="headers.purpose"/></a></li>
                     <li><a href="#definition"><@fmt.message key="headers.definition"/></a></li>
                     <li><a href="#methodology"><@fmt.message key="headers.methodology"/></a></li>
-                    <li><a href="#interpretations"><@fmt.message key="headers.interpretationGuidelines"/></a></li>
                     <li><a href="#caveats"><@fmt.message key="headers.caveats"/></a></li>
+                    <li><a href="#interpretations"><@fmt.message key="headers.interpretationGuidelines"/></a></li>
                     <li><a href="#resources">Resources</a></li>
                 </ul>
             </div>
@@ -52,39 +51,44 @@
 
         <section id="purpose" class="push-double--bottom">
             <h2><@fmt.message key="headers.purpose"/></h2>
-            <p>${indicator.purpose}</p>
+            <#outputformat "undefined">${indicator.details.purpose.content}</#outputformat>
         </section>
 
         <section id="definition" class="push-double--bottom">
             <h2><@fmt.message key="headers.definition"/></h2>
-            <p>${indicator.definition}</p>
+            <#outputformat "undefined">${indicator.details.definition.content}</#outputformat>
         </section>
 
 
-        <h1><details class="push-double--bottom collapse">
+        <h1><details id="methodology" class="push-double--bottom collapse">
             <summary><span>How this indicator is calculated</span></summary></br>
-            <h2 id="methodology"><@fmt.message key="headers.methodology"/></h2>
+            <h2><@fmt.message key="headers.methodology"/></h2>
 
             <h6><strong><@fmt.message key="headers.dataSource"/></strong></h6>
-            <p>${indicator.dataSource}</p>
+            <#outputformat "undefined"><p>${indicator.details.methodology.dataSource.content}</p></#outputformat>
 
             <h6><strong><@fmt.message key="headers.numerator"/></strong></h6>
-            <p>${indicator.numerator}</p>
+            <#outputformat "undefined"><p>${indicator.details.methodology.numerator.content}</p></#outputformat>
 
             <h6><strong><@fmt.message key="headers.denominator"/></strong></h6>
-            <p>${indicator.denominator}</p>
+            <#outputformat "undefined"><p>${indicator.details.methodology.denominator.content}</p></#outputformat>
 
             <h6><strong><@fmt.message key="headers.calculation"/></strong></h6>
-            <p>${indicator.calculation}</p>                        
+            <#outputformat "undefined"><p>${indicator.details.methodology.calculation.content}</p></#outputformat>
 
-            <h6><strong><@fmt.message key="headers.caveats"/></strong></h6>
-            <p>${indicator.caveats}</p>
         </details></h1>
+
+        <section id="caveats" class="push-double--bottom">
+            <h2><strong><@fmt.message key="headers.caveats"/></strong></h2>
+            <#outputformat "undefined">${indicator.details.caveats.content}</#outputformat>
+        </section>
 
         <section id="interpretations" class="push-double--bottom">
             <h2><strong><@fmt.message key="headers.interpretationGuidelines"/></strong></h2>
-            <li>${indicator.interpretationGuidelines}</li>
+            <#outputformat "undefined">${indicator.details.interpretationGuidelines.content}</#outputformat>
         </section>
+
+        
 
         <section id="resources" class="push-double--bottom">
             <h3>Resources</h3>

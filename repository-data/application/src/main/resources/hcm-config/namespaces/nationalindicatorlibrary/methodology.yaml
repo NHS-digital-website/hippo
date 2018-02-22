@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/nationalindicatorlibrary/nihub:
+    /hippo:namespaces/nationalindicatorlibrary/methodology:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -19,122 +19,102 @@ definitions:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-          /title:
+          /dataSource:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Title
-            field: title
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /summary:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Summary
-            field: summary
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /populateTopicLinks:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Popular Topics
-            field: populateTopicLinks
-            hint: ''
+            caption: Data Source
+            field: dataSource
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /nihublink:
+          /numerator:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: National Indicator hub links
-            field: nihublink
-            hint: ''
+            caption: Numerator
+            field: numerator
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /denominator:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Denominator
+            field: denominator
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /calculation:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Calculation
+            field: calculation
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /nihublink:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: nationalindicatorlibrary:nihublink
-            hipposysedit:primary: false
-            hipposysedit:type: nationalindicatorlibrary:nihublink
-            jcr:primaryType: hipposysedit:field
-          /populateTopicLinks:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: false
-            hipposysedit:path: nationalindicatorlibrary:populateTopicLinks
-            hipposysedit:primary: false
-            hipposysedit:type: nationalindicatorlibrary:actionlink
-            jcr:primaryType: hipposysedit:field
-          /summary:
+          /calculation:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: nationalindicatorlibrary:summary
+            hipposysedit:path: nationalindicatorlibrary:calculation
             hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators:
-            - non-empty
-            - required
+            hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
-          /title:
+          /dataSource:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: nationalindicatorlibrary:title
+            hipposysedit:path: nationalindicatorlibrary:dataSource
             hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators:
-            - non-empty
-            - required
+            hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
+          /denominator:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:denominator
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
+          /numerator:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:numerator
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
-          - nationalindicatorlibrary:basedocument
+          - hippo:compound
           - hippostd:relaxed
-          - hippotranslation:translated
           hipposysedit:uri: http://digital.nhs.uk/jcr/nationalindicatorlibrary/nt/1.0
           jcr:mixinTypes:
           - mix:referenceable
           - hipposysedit:remodel
           jcr:primaryType: hipposysedit:nodetype
-          jcr:uuid: fc422464-cb54-4aca-8a79-121c31eed844
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: hippo:handle
-        jcr:uuid: 34821275-5b5c-4b9a-b8de-85ca461c792f
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          /nationalindicatorlibrary:populateTopicLinks:
-            jcr:primaryType: nationalindicatorlibrary:actionlink
-            nationalindicatorlibrary:actionLinkTitle: ''
-            nationalindicatorlibrary:actionLinkUrl: ''
-          common:searchable: true
-          hippostd:holder: holder
-          hippostd:state: draft
-          hippostdpubwf:createdBy: ''
-          hippostdpubwf:creationDate: 2018-02-13T13:56:11.446Z
-          hippostdpubwf:lastModificationDate: 2018-02-13T13:56:11.446Z
-          hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: document-type-locale-id
-          hippotranslation:locale: document-type-locale
-          jcr:mixinTypes:
-          - mix:referenceable
-          jcr:primaryType: nationalindicatorlibrary:nihub
-          jcr:uuid: 99a054ec-2c34-4148-bdcd-0bfe2079a870
-          nationalindicatorlibrary:summary: ''
-          nationalindicatorlibrary:title: ''
+          /nationalindicatorlibrary:calculation:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /nationalindicatorlibrary:dataSource:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /nationalindicatorlibrary:denominator:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /nationalindicatorlibrary:numerator:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: nationalindicatorlibrary:methodology
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable
       - mix:referenceable
       jcr:primaryType: hipposysedit:templatetype
-      jcr:uuid: ab6f1871-e0d2-4431-9b11-e039e518dbfb

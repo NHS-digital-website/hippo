@@ -12,7 +12,16 @@
   orderable
   - common:searchable (boolean) = 'true' autocreated
 
+[nationalindicatorlibrary:contactAuthor] > hippo:compound, hippostd:relaxed
+  orderable
+
+[nationalindicatorlibrary:details] > hippo:compound, hippostd:relaxed
+  orderable
+
 [nationalindicatorlibrary:indicator] > hippostd:relaxed, hippotranslation:translated, nationalindicatorlibrary:basedocument
+  orderable
+
+[nationalindicatorlibrary:methodology] > hippo:compound, hippostd:relaxed
   orderable
 
 [nationalindicatorlibrary:nihub] > hippostd:relaxed, hippotranslation:translated, nationalindicatorlibrary:basedocument
@@ -22,5 +31,8 @@
   orderable
 
 [nationalindicatorlibrary:nilanding] > hippostd:relaxed, hippotranslation:translated, nationalindicatorlibrary:basedocument
+  orderable
+
+[nationalindicatorlibrary:topbar] > hippo:compound, hippostd:relaxed
   orderable
 

@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/nationalindicatorlibrary/nihublink:
+    /hippo:namespaces/nationalindicatorlibrary/contactAuthor:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -19,64 +19,42 @@ definitions:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-          /title:
+          /contactAuthorName:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Title
-            field: title
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /summary:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Summary
-            field: summary
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /pagelink:
-            /cluster.options:
-              base.path: /content/documents/corporate-website/national-indicator-library/nihub
-              jcr:primaryType: frontend:pluginconfig
-              nodetypes: []
-            caption: Landing page link
-            field: pagelink
+            caption: Author's name
+            field: contactAuthorName
             hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /contactAuthorEmail:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Author's email
+            field: contactAuthorEmail
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /pagelink:
+          /contactAuthorEmail:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: nationalindicatorlibrary:pagelink
-            hipposysedit:primary: false
-            hipposysedit:type: hippo:mirror
-            hipposysedit:validators:
-            - required
-            jcr:primaryType: hipposysedit:field
-          /summary:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: nationalindicatorlibrary:summary
+            hipposysedit:path: nationalindicatorlibrary:contactAuthorEmail
             hipposysedit:primary: false
             hipposysedit:type: Text
-            hipposysedit:validators:
-            - non-empty
-            - required
             jcr:primaryType: hipposysedit:field
-          /title:
+          /contactAuthorName:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: nationalindicatorlibrary:title
+            hipposysedit:path: nationalindicatorlibrary:contactAuthorName
             hipposysedit:primary: false
-            hipposysedit:type: String
+            hipposysedit:type: Text
             hipposysedit:validators:
             - non-empty
             - required
@@ -90,22 +68,16 @@ definitions:
           - mix:referenceable
           - hipposysedit:remodel
           jcr:primaryType: hipposysedit:nodetype
-          jcr:uuid: b6754c00-f33f-4777-8229-de9ba3d3b2fc
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: hippo:handle
-        jcr:uuid: b63e359a-d3a2-429a-961b-f3a90dec4c64
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          /nationalindicatorlibrary:pagelink:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: nationalindicatorlibrary:nihublink
-          nationalindicatorlibrary:summary: ''
-          nationalindicatorlibrary:title: ''
+          jcr:primaryType: nationalindicatorlibrary:contactAuthor
+          nationalindicatorlibrary:contactAuthorEmail: ''
+          nationalindicatorlibrary:contactAuthorName: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable
       - mix:referenceable
       jcr:primaryType: hipposysedit:templatetype
-      jcr:uuid: f5bbbce8-85f6-4b20-9d1d-d24aa7cb6088
