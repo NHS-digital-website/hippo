@@ -6,10 +6,12 @@ definitions:
         hst:componentconfigurationid: hst:pages/404
         hst:componentconfigurationmappingnames:
         - nationalindicatorlibrary:nihub
+        - nationalindicatorlibrary:nilanding
         - nationalindicatorlibrary:indicator
         - hippostd:folder
         hst:componentconfigurationmappingvalues:
         - hst:pages/nihub
+        - hst:pages/nilanding
         - hst:pages/indicator
         - hst:pages/folder
         hst:relativecontentpath: ${1}

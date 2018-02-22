@@ -31,4 +31,9 @@ public class NiHub extends BaseDocument {
     public List<NiHubLink> getNiHubLink() {
         return getChildBeansByName("nationalindicatorlibrary:nihublink", NiHubLink.class);
     }    
+
+    @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:igbHubLink")
+    public NiHubLink getIgbHubLink() {
+        return getBean("nationalindicatorlibrary:igbHubLink", NiHubLink.class);
+    }        
 }

@@ -7,7 +7,7 @@
 
   <section class="document-header push-double--bottom">
       <div class="document-header__inner">
-        <h1 class="layout-5-6 push--bottom">${indicator.topbar.title}</h1>
+        <h1 class="layout-5-6 push--bottom" data-uipath="ps.indicator.title">${indicator.topbar.title}</h1>
 
         <#if indicator.topbar.assuredStatus><h2 style="text-decoration:underline">Independently assured by IGB</h2></#if>
 

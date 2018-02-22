@@ -46,6 +46,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /igbHubLink:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: IGB Section
+            field: igbHubLink
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
           /nihublink:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -58,6 +67,14 @@ definitions:
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
+          /igbHubLink:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:igbHubLink
+            hipposysedit:primary: false
+            hipposysedit:type: nationalindicatorlibrary:nihublink
+            jcr:primaryType: hipposysedit:field
           /nihublink:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
@@ -113,6 +130,11 @@ definitions:
         jcr:uuid: 34821275-5b5c-4b9a-b8de-85ca461c792f
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /nationalindicatorlibrary:igbHubLink:
+            jcr:primaryType: nationalindicatorlibrary:nihublink
+            nationalindicatorlibrary:relativeUrl: ''
+            nationalindicatorlibrary:summary: ''
+            nationalindicatorlibrary:title: ''
           /nationalindicatorlibrary:populateTopicLinks:
             jcr:primaryType: nationalindicatorlibrary:actionlink
             nationalindicatorlibrary:actionLinkTitle: ''

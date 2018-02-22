@@ -8,4 +8,7 @@ definitions:
       /nihub:
         hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/nihub.ftl
         jcr:primaryType: hst:template
+      /nilanding:
+        hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/nilanding.ftl
+        jcr:primaryType: hst:template
       jcr:primaryType: hst:templates

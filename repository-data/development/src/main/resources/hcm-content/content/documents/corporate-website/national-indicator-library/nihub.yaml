@@ -1,27 +1,50 @@
 ---
 /content/documents/corporate-website/national-indicator-library/nihub:
+  .meta:order-before: add
   /nihub[1]:
+    /nationalindicatorlibrary:igbHubLink:
+      jcr:primaryType: nationalindicatorlibrary:nihublink
+      nationalindicatorlibrary:relativeUrl: igb
+      nationalindicatorlibrary:summary: IGB consists of experts from across the health
+        and social care system who oversee the indicator assurance process, ensuring
+        that all the correct stages have been followed.
+      nationalindicatorlibrary:title: Find out more about the team
     /nationalindicatorlibrary:nihublink[1]:
+      /nationalindicatorlibrary:landingPageLink:
+        jcr:primaryType: nationalindicatorlibrary:actionlink
+        nationalindicatorlibrary:actionLinkTitle: ''
+        nationalindicatorlibrary:actionLinkUrl: ''
       /nationalindicatorlibrary:pagelink:
-        hippo:docbase: f9d31602-6aaf-4098-b883-4878429cff17
+        hippo:docbase: fa03dd28-3a30-45b4-800d-844d2bfda3b5
         jcr:primaryType: hippo:mirror
       jcr:primaryType: nationalindicatorlibrary:nihublink
+      nationalindicatorlibrary:relativeUrl: advice
       nationalindicatorlibrary:summary: Get advice from our health and social care
         experts, on how to develop good quality indicators.
       nationalindicatorlibrary:title: Advice from our experts
     /nationalindicatorlibrary:nihublink[2]:
+      /nationalindicatorlibrary:landingPageLink:
+        jcr:primaryType: nationalindicatorlibrary:actionlink
+        nationalindicatorlibrary:actionLinkTitle: ''
+        nationalindicatorlibrary:actionLinkUrl: ''
       /nationalindicatorlibrary:pagelink:
-        hippo:docbase: 6e26182c-2fac-405d-bfb5-d836ac030255
+        hippo:docbase: d58e9a7a-e37c-496b-ad73-5c5e13865d01
         jcr:primaryType: hippo:mirror
       jcr:primaryType: nationalindicatorlibrary:nihublink
+      nationalindicatorlibrary:relativeUrl: add
       nationalindicatorlibrary:summary: Add an indicator to the library, from your
         health or social care organisation.
       nationalindicatorlibrary:title: Add your indicator to the library
     /nationalindicatorlibrary:nihublink[3]:
+      /nationalindicatorlibrary:landingPageLink:
+        jcr:primaryType: nationalindicatorlibrary:actionlink
+        nationalindicatorlibrary:actionLinkTitle: ''
+        nationalindicatorlibrary:actionLinkUrl: ''
       /nationalindicatorlibrary:pagelink:
-        hippo:docbase: 4a58887d-6125-4808-a7f2-e998f9e171e8
+        hippo:docbase: a4eeb754-e000-4952-a958-37e009ce6290
         jcr:primaryType: hippo:mirror
       jcr:primaryType: nationalindicatorlibrary:nihublink
+      nationalindicatorlibrary:relativeUrl: apply
       nationalindicatorlibrary:summary: Apply to have your indicator's methodology
         independently assured by industry experts.
       nationalindicatorlibrary:title: Apply for independent assurance
@@ -66,7 +89,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-19T14:04:05.264Z
-    hippostdpubwf:lastModificationDate: 2018-02-21T14:06:39.349Z
+    hippostdpubwf:lastModificationDate: 2018-02-23T08:18:44.512Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: cc1f9325-d13d-4864-963d-7058e02362be
     hippotranslation:locale: en
@@ -79,27 +102,49 @@
       assurance rating.
     nationalindicatorlibrary:title: National Indicator Library
   /nihub[2]:
+    /nationalindicatorlibrary:igbHubLink:
+      jcr:primaryType: nationalindicatorlibrary:nihublink
+      nationalindicatorlibrary:relativeUrl: igb
+      nationalindicatorlibrary:summary: IGB consists of experts from across the health
+        and social care system who oversee the indicator assurance process, ensuring
+        that all the correct stages have been followed.
+      nationalindicatorlibrary:title: Find out more about the team
     /nationalindicatorlibrary:nihublink[1]:
+      /nationalindicatorlibrary:landingPageLink:
+        jcr:primaryType: nationalindicatorlibrary:actionlink
+        nationalindicatorlibrary:actionLinkTitle: ''
+        nationalindicatorlibrary:actionLinkUrl: ''
       /nationalindicatorlibrary:pagelink:
-        hippo:docbase: f9d31602-6aaf-4098-b883-4878429cff17
+        hippo:docbase: fa03dd28-3a30-45b4-800d-844d2bfda3b5
         jcr:primaryType: hippo:mirror
       jcr:primaryType: nationalindicatorlibrary:nihublink
+      nationalindicatorlibrary:relativeUrl: advice
       nationalindicatorlibrary:summary: Get advice from our health and social care
         experts, on how to develop good quality indicators.
       nationalindicatorlibrary:title: Advice from our experts
     /nationalindicatorlibrary:nihublink[2]:
+      /nationalindicatorlibrary:landingPageLink:
+        jcr:primaryType: nationalindicatorlibrary:actionlink
+        nationalindicatorlibrary:actionLinkTitle: ''
+        nationalindicatorlibrary:actionLinkUrl: ''
       /nationalindicatorlibrary:pagelink:
-        hippo:docbase: 6e26182c-2fac-405d-bfb5-d836ac030255
+        hippo:docbase: d58e9a7a-e37c-496b-ad73-5c5e13865d01
         jcr:primaryType: hippo:mirror
       jcr:primaryType: nationalindicatorlibrary:nihublink
+      nationalindicatorlibrary:relativeUrl: add
       nationalindicatorlibrary:summary: Add an indicator to the library, from your
         health or social care organisation.
       nationalindicatorlibrary:title: Add your indicator to the library
     /nationalindicatorlibrary:nihublink[3]:
+      /nationalindicatorlibrary:landingPageLink:
+        jcr:primaryType: nationalindicatorlibrary:actionlink
+        nationalindicatorlibrary:actionLinkTitle: ''
+        nationalindicatorlibrary:actionLinkUrl: ''
       /nationalindicatorlibrary:pagelink:
-        hippo:docbase: 4a58887d-6125-4808-a7f2-e998f9e171e8
+        hippo:docbase: a4eeb754-e000-4952-a958-37e009ce6290
         jcr:primaryType: hippo:mirror
       jcr:primaryType: nationalindicatorlibrary:nihublink
+      nationalindicatorlibrary:relativeUrl: apply
       nationalindicatorlibrary:summary: Apply to have your indicator's methodology
         independently assured by industry experts.
       nationalindicatorlibrary:title: Apply for independent assurance
@@ -145,7 +190,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-19T14:04:05.264Z
-    hippostdpubwf:lastModificationDate: 2018-02-21T14:07:09.079Z
+    hippostdpubwf:lastModificationDate: 2018-02-23T08:12:49.432Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: cc1f9325-d13d-4864-963d-7058e02362be
     hippotranslation:locale: en
@@ -159,27 +204,49 @@
       assurance rating.
     nationalindicatorlibrary:title: National Indicator Library
   /nihub[3]:
+    /nationalindicatorlibrary:igbHubLink:
+      jcr:primaryType: nationalindicatorlibrary:nihublink
+      nationalindicatorlibrary:relativeUrl: igb
+      nationalindicatorlibrary:summary: IGB consists of experts from across the health
+        and social care system who oversee the indicator assurance process, ensuring
+        that all the correct stages have been followed.
+      nationalindicatorlibrary:title: Find out more about the team
     /nationalindicatorlibrary:nihublink[1]:
+      /nationalindicatorlibrary:landingPageLink:
+        jcr:primaryType: nationalindicatorlibrary:actionlink
+        nationalindicatorlibrary:actionLinkTitle: ''
+        nationalindicatorlibrary:actionLinkUrl: ''
       /nationalindicatorlibrary:pagelink:
-        hippo:docbase: f9d31602-6aaf-4098-b883-4878429cff17
+        hippo:docbase: fa03dd28-3a30-45b4-800d-844d2bfda3b5
         jcr:primaryType: hippo:mirror
       jcr:primaryType: nationalindicatorlibrary:nihublink
+      nationalindicatorlibrary:relativeUrl: advice
       nationalindicatorlibrary:summary: Get advice from our health and social care
         experts, on how to develop good quality indicators.
       nationalindicatorlibrary:title: Advice from our experts
     /nationalindicatorlibrary:nihublink[2]:
+      /nationalindicatorlibrary:landingPageLink:
+        jcr:primaryType: nationalindicatorlibrary:actionlink
+        nationalindicatorlibrary:actionLinkTitle: ''
+        nationalindicatorlibrary:actionLinkUrl: ''
       /nationalindicatorlibrary:pagelink:
-        hippo:docbase: 6e26182c-2fac-405d-bfb5-d836ac030255
+        hippo:docbase: d58e9a7a-e37c-496b-ad73-5c5e13865d01
         jcr:primaryType: hippo:mirror
       jcr:primaryType: nationalindicatorlibrary:nihublink
+      nationalindicatorlibrary:relativeUrl: add
       nationalindicatorlibrary:summary: Add an indicator to the library, from your
         health or social care organisation.
       nationalindicatorlibrary:title: Add your indicator to the library
     /nationalindicatorlibrary:nihublink[3]:
+      /nationalindicatorlibrary:landingPageLink:
+        jcr:primaryType: nationalindicatorlibrary:actionlink
+        nationalindicatorlibrary:actionLinkTitle: ''
+        nationalindicatorlibrary:actionLinkUrl: ''
       /nationalindicatorlibrary:pagelink:
-        hippo:docbase: 4a58887d-6125-4808-a7f2-e998f9e171e8
+        hippo:docbase: a4eeb754-e000-4952-a958-37e009ce6290
         jcr:primaryType: hippo:mirror
       jcr:primaryType: nationalindicatorlibrary:nihublink
+      nationalindicatorlibrary:relativeUrl: apply
       nationalindicatorlibrary:summary: Apply to have your indicator's methodology
         independently assured by industry experts.
       nationalindicatorlibrary:title: Apply for independent assurance
@@ -225,9 +292,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-19T14:04:05.264Z
-    hippostdpubwf:lastModificationDate: 2018-02-21T14:07:09.079Z
+    hippostdpubwf:lastModificationDate: 2018-02-23T08:12:49.432Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-02-21T14:07:17.847Z
+    hippostdpubwf:publicationDate: 2018-02-23T08:12:55.182Z
     hippotranslation:id: cc1f9325-d13d-4864-963d-7058e02362be
     hippotranslation:locale: en
     jcr:mixinTypes:

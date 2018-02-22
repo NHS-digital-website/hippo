@@ -100,15 +100,15 @@
 </#macro>
 
 <#macro indicator item>
-    <div class="push-double--bottom" data-uipath="nil.search-results.result">
-        <h3 class="flush zeta" data-uipath="nil.search-results.result.type" style="font-weight:bold">Indicator</h3>
+    <div class="push-double--bottom" data-uipath="ps.search-results.result">
+        <h3 class="flush zeta" data-uipath="ps.search-results.result.type" style="font-weight:bold">Indicator</h3>
         <p class="flush">
-            <a href="<@hst.link hippobean=item.selfLinkBean/>" title="${item.topbar.title}" data-uipath="nil.search-results.result.title">
+            <a href="<@hst.link hippobean=item.selfLinkBean/>" title="${item.topbar.title}" data-uipath="ps.search-results.result.title">
                 ${item.topbar.title}
             </a>
         </p>
-        <#if item.topbar.assuredStatus><p class="flush zeta" data-uipath="nil.search-results.result.assured-status">Independently Assured by IGB (conditional)</p></#if>
-        <p class="flush zeta" data-uipath="nil.search-results.result.publisher-and-date" style="font-weight:bold"><@fmt.message key="headers.publishedBy"/>: ${item.topbar.publishedBy}, <@fmt.message key="headers.assured"/>: ${item.topbar.assuranceDate.time?string[dateFormat]}</p>
-        <p class="flush" data-uipath="nil.search-results.result.brief-description">${item.details.briefDescription}</p>        
+        <#if item.topbar.assuredStatus><p class="flush zeta" data-uipath="ps.search-results.result.assured-status">Independently Assured by IGB (conditional)</p></#if>
+        <p class="flush zeta" data-uipath="ps.search-results.result.publisher-and-date" style="font-weight:bold"><@fmt.message key="headers.publishedBy"/>: ${item.topbar.publishedBy}, <@fmt.message key="headers.assured"/>: ${item.topbar.assuranceDate.time?string[dateFormat]}</p>
+        <p class="flush" data-uipath="ps.search-results.result.brief-description">${item.details.briefDescription}</p>        
     </div>
 </#macro>

@@ -35,29 +35,25 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /pagelink:
+          /relativeUrl:
             /cluster.options:
-              base.path: /content/documents/corporate-website/national-indicator-library/nihub
               jcr:primaryType: frontend:pluginconfig
-              nodetypes: []
-            caption: Landing page link
-            field: pagelink
+            caption: Relative Url
+            field: relativeUrl
             hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /pagelink:
+          /relativeUrl:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: nationalindicatorlibrary:pagelink
+            hipposysedit:path: nationalindicatorlibrary:relativeUrl
             hipposysedit:primary: false
-            hipposysedit:type: hippo:mirror
-            hipposysedit:validators:
-            - required
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           /summary:
             hipposysedit:mandatory: false
@@ -97,10 +93,8 @@ definitions:
         jcr:uuid: b63e359a-d3a2-429a-961b-f3a90dec4c64
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          /nationalindicatorlibrary:pagelink:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
           jcr:primaryType: nationalindicatorlibrary:nihublink
+          nationalindicatorlibrary:relativeUrl: ''
           nationalindicatorlibrary:summary: ''
           nationalindicatorlibrary:title: ''
         jcr:primaryType: hipposysedit:prototypeset

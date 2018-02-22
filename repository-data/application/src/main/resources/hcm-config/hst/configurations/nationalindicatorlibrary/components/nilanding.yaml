@@ -1,0 +1,6 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/nationalindicatorlibrary/hst:components/nilanding:
+      hst:componentclassname: uk.nhs.digital.nil.components.NiLandingComponent
+      jcr:primaryType: hst:component

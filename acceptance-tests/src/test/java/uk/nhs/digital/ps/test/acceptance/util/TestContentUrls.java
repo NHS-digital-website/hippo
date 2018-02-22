@@ -107,6 +107,8 @@ public class TestContentUrls {
         add("national statistic publication",
             "/publications/lorem-ipsum-content/morbi-tempor-euismod-vehicula");
 
+        // National Indicator Library
+        add("nihub","/indicators/nihub");
     }
 
     private String getAttachmentUrl(String siteUrl, String attachmentTag) {
