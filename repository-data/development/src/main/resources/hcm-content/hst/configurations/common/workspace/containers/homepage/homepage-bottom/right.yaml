@@ -1,0 +1,38 @@
+---
+/hst:hst/hst:configurations/common/hst:workspace/hst:containers/homepage/homepage-bottom/right/carousel:
+  hst:componentclassname: uk.nhs.digital.common.components.WrappedListPickerComponent
+  hst:iconpath: images/catalog/component-products-30x30.png
+  hst:label: Documents Picker
+  hst:parameternames:
+  - document8
+  - document7
+  - document9
+  - wrappingDocument
+  - document4
+  - document3
+  - document6
+  - document5
+  - pageSize
+  - showPagination
+  - document2
+  - document1
+  - document10
+  - org.hippoecm.hst.core.component.template
+  hst:parametervalues:
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - events/lorem-ipsum-dolor-sit
+  - ''
+  - ''
+  - '10'
+  - 'off'
+  - events/ehi-live---birmingham-nec
+  - events/hscn-summit-2018
+  - ''
+  - webfile:/freemarker/common/document-list/events-list.ftl
+  hst:template: document-list
+  hst:xtype: HST.Item
+  jcr:primaryType: hst:containeritemcomponent

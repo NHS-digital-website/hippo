@@ -4,6 +4,6 @@ definitions:
     /hst:hst/hst:configurations/common/hst:workspace/hst:containers/homepage/homepage-bottom/right:
       .meta:residual-child-node-category: content
       hst:label: Bottom Right
-      hst:lastmodified: 2018-02-05T20:39:14.327Z
+      hst:lastmodified: 2018-02-21T11:10:05.928Z
       hst:xtype: HST.vBox
       jcr:primaryType: hst:containercomponent

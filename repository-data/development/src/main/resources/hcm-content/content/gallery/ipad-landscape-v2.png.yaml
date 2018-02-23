@@ -1,0 +1,5 @@
+---
+/content/gallery/ipad-landscape-v2.png:
+  jcr:mixinTypes:
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

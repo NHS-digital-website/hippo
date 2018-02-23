@@ -1,0 +1,1236 @@
+---
+/content/documents/corporate-website/services:
+  .meta:order-before: cta
+  /electronic-prescription-service:
+    /electronic-prescription-service[1]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T10:54:23.753Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T10:59:29.721Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 4efa3ce3-2b46-4871-8472-6f73f699f7a8
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:service
+      website:seosummary:
+        type: string
+        value: !!binary |-
+          VGhlIEVsZWN0cm9uaWMgUHJlc2NyaXB0aW9uIFNlcnZpY2UgKEVQUykgc2VuZHMgA2VsZWN0cm9uaWMgcHJlc2NyaXB0aW9ucyBmcm9tIEdQIHN1cmdlcmllcyB0byADcGhhcm1hY2llcy4=
+      website:shortsummary:
+        type: string
+        value: !!binary |-
+          VGhlIEVsZWN0cm9uaWMgUHJlc2NyaXB0aW9uIFNlcnZpY2UgKEVQUykgc2VuZHMgA2VsZWN0cm9uaWMgcHJlc2NyaXB0aW9ucyBmcm9tIEdQIHN1cmdlcmllcyB0byADcGhhcm1hY2llcy4=
+      website:summary:
+        type: string
+        value: !!binary |-
+          VGhlIEVsZWN0cm9uaWMgUHJlc2NyaXB0aW9uIFNlcnZpY2UgKEVQUykgc2VuZHMgA2VsZWN0cm9uaWMgcHJlc2NyaXB0aW9ucyBmcm9tIEdQIHN1cmdlcmllcyB0byADcGhhcm1hY2llcy4=
+      website:title: Electronic Prescription Service
+    /electronic-prescription-service[2]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T10:54:23.753Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T10:59:25.876Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 4efa3ce3-2b46-4871-8472-6f73f699f7a8
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:service
+      website:seosummary:
+        type: string
+        value: !!binary |-
+          VGhlIEVsZWN0cm9uaWMgUHJlc2NyaXB0aW9uIFNlcnZpY2UgKEVQUykgc2VuZHMgA2VsZWN0cm9uaWMgcHJlc2NyaXB0aW9ucyBmcm9tIEdQIHN1cmdlcmllcyB0byADcGhhcm1hY2llcy4=
+      website:shortsummary:
+        type: string
+        value: !!binary |-
+          VGhlIEVsZWN0cm9uaWMgUHJlc2NyaXB0aW9uIFNlcnZpY2UgKEVQUykgc2VuZHMgA2VsZWN0cm9uaWMgcHJlc2NyaXB0aW9ucyBmcm9tIEdQIHN1cmdlcmllcyB0byADcGhhcm1hY2llcy4=
+      website:summary:
+        type: string
+        value: !!binary |-
+          VGhlIEVsZWN0cm9uaWMgUHJlc2NyaXB0aW9uIFNlcnZpY2UgKEVQUykgc2VuZHMgA2VsZWN0cm9uaWMgcHJlc2NyaXB0aW9ucyBmcm9tIEdQIHN1cmdlcmllcyB0byADcGhhcm1hY2llcy4=
+      website:title: Electronic Prescription Service
+    /electronic-prescription-service[3]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T10:54:23.753Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T10:59:25.876Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-21T10:59:33.409Z
+      hippotranslation:id: 4efa3ce3-2b46-4871-8472-6f73f699f7a8
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:service
+      website:seosummary:
+        type: string
+        value: !!binary |-
+          VGhlIEVsZWN0cm9uaWMgUHJlc2NyaXB0aW9uIFNlcnZpY2UgKEVQUykgc2VuZHMgA2VsZWN0cm9uaWMgcHJlc2NyaXB0aW9ucyBmcm9tIEdQIHN1cmdlcmllcyB0byADcGhhcm1hY2llcy4=
+      website:shortsummary:
+        type: string
+        value: !!binary |-
+          VGhlIEVsZWN0cm9uaWMgUHJlc2NyaXB0aW9uIFNlcnZpY2UgKEVQUykgc2VuZHMgA2VsZWN0cm9uaWMgcHJlc2NyaXB0aW9ucyBmcm9tIEdQIHN1cmdlcmllcyB0byADcGhhcm1hY2llcy4=
+      website:summary:
+        type: string
+        value: !!binary |-
+          VGhlIEVsZWN0cm9uaWMgUHJlc2NyaXB0aW9uIFNlcnZpY2UgKEVQUykgc2VuZHMgA2VsZWN0cm9uaWMgcHJlc2NyaXB0aW9ucyBmcm9tIEdQIHN1cmdlcmllcyB0byADcGhhcm1hY2llcy4=
+      website:title: Electronic Prescription Service
+    hippo:name: Electronic Prescription Service
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /gp2gp:
+    /gp2gp[1]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T10:54:56.198Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T10:59:41.156Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: ef04b29b-fbc0-4457-84f8-902fbbc12c8c
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:service
+      website:seosummary:
+        type: string
+        value: !!binary |-
+          R1AyR1AgZW5hYmxlcyBwYXRpZW50cycgZWxlY3Ryb25pYyBoZWFsdGggA3JlY29yZHMgdG8gYmUgdHJhbnNmZXJyZWQgZGlyZWN0bHkgYW5kIHNlY3VyZWx5IGJldHdlZW4gR1AgcHJhY3RpY2VzLg==
+      website:shortsummary:
+        type: string
+        value: !!binary |-
+          R1AyR1AgZW5hYmxlcyBwYXRpZW50cycgZWxlY3Ryb25pYyBoZWFsdGggA3JlY29yZHMgdG8gYmUgdHJhbnNmZXJyZWQgZGlyZWN0bHkgYW5kIHNlY3VyZWx5IGJldHdlZW4gR1AgcHJhY3RpY2VzLg==
+      website:summary:
+        type: string
+        value: !!binary |-
+          R1AyR1AgZW5hYmxlcyBwYXRpZW50cycgZWxlY3Ryb25pYyBoZWFsdGggA3JlY29yZHMgdG8gYmUgdHJhbnNmZXJyZWQgZGlyZWN0bHkgYW5kIHNlY3VyZWx5IGJldHdlZW4gR1AgcHJhY3RpY2VzLg==
+      website:title: GP2GP
+    /gp2gp[2]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T10:54:56.198Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T10:59:41.138Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: ef04b29b-fbc0-4457-84f8-902fbbc12c8c
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:service
+      website:seosummary:
+        type: string
+        value: !!binary |-
+          R1AyR1AgZW5hYmxlcyBwYXRpZW50cycgZWxlY3Ryb25pYyBoZWFsdGggA3JlY29yZHMgdG8gYmUgdHJhbnNmZXJyZWQgZGlyZWN0bHkgYW5kIHNlY3VyZWx5IGJldHdlZW4gR1AgcHJhY3RpY2VzLg==
+      website:shortsummary:
+        type: string
+        value: !!binary |-
+          R1AyR1AgZW5hYmxlcyBwYXRpZW50cycgZWxlY3Ryb25pYyBoZWFsdGggA3JlY29yZHMgdG8gYmUgdHJhbnNmZXJyZWQgZGlyZWN0bHkgYW5kIHNlY3VyZWx5IGJldHdlZW4gR1AgcHJhY3RpY2VzLg==
+      website:summary:
+        type: string
+        value: !!binary |-
+          R1AyR1AgZW5hYmxlcyBwYXRpZW50cycgZWxlY3Ryb25pYyBoZWFsdGggA3JlY29yZHMgdG8gYmUgdHJhbnNmZXJyZWQgZGlyZWN0bHkgYW5kIHNlY3VyZWx5IGJldHdlZW4gR1AgcHJhY3RpY2VzLg==
+      website:title: GP2GP
+    /gp2gp[3]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T10:54:56.198Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T10:59:41.138Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-21T10:59:43.016Z
+      hippotranslation:id: ef04b29b-fbc0-4457-84f8-902fbbc12c8c
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:service
+      website:seosummary:
+        type: string
+        value: !!binary |-
+          R1AyR1AgZW5hYmxlcyBwYXRpZW50cycgZWxlY3Ryb25pYyBoZWFsdGggA3JlY29yZHMgdG8gYmUgdHJhbnNmZXJyZWQgZGlyZWN0bHkgYW5kIHNlY3VyZWx5IGJldHdlZW4gR1AgcHJhY3RpY2VzLg==
+      website:shortsummary:
+        type: string
+        value: !!binary |-
+          R1AyR1AgZW5hYmxlcyBwYXRpZW50cycgZWxlY3Ryb25pYyBoZWFsdGggA3JlY29yZHMgdG8gYmUgdHJhbnNmZXJyZWQgZGlyZWN0bHkgYW5kIHNlY3VyZWx5IGJldHdlZW4gR1AgcHJhY3RpY2VzLg==
+      website:summary:
+        type: string
+        value: !!binary |-
+          R1AyR1AgZW5hYmxlcyBwYXRpZW50cycgZWxlY3Ryb25pYyBoZWFsdGggA3JlY29yZHMgdG8gYmUgdHJhbnNmZXJyZWQgZGlyZWN0bHkgYW5kIHNlY3VyZWx5IGJldHdlZW4gR1AgcHJhY3RpY2VzLg==
+      website:title: GP2GP
+    hippo:name: GP2GP
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /nhs-e-referral-service:
+    /nhs-e-referral-service[1]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T10:55:24.850Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T10:59:45.406Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 4b021782-063b-45fa-bf58-1b01bc56906e
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:service
+      website:seosummary:
+        type: string
+        value: !!binary |-
+          VGhlIE5IUyBlLVJlZmVycmFsIFNlcnZpY2UgcHJvdmlkZXMgcGF0aWVudHMgA3dpdGggYSBjaG9pY2Ugb2YgaG9zcGl0YWxzIGFuZCBjbGluaWNzIHdoZW4gA2Jvb2tpbmc=
+      website:shortsummary:
+        type: string
+        value: !!binary |-
+          VGhlIE5IUyBlLVJlZmVycmFsIFNlcnZpY2UgcHJvdmlkZXMgcGF0aWVudHMgA3dpdGggYSBjaG9pY2Ugb2YgaG9zcGl0YWxzIGFuZCBjbGluaWNzIHdoZW4gA2Jvb2tpbmc=
+      website:summary:
+        type: string
+        value: !!binary |-
+          VGhlIE5IUyBlLVJlZmVycmFsIFNlcnZpY2UgcHJvdmlkZXMgcGF0aWVudHMgA3dpdGggYSBjaG9pY2Ugb2YgaG9zcGl0YWxzIGFuZCBjbGluaWNzIHdoZW4gA2Jvb2tpbmc=
+      website:title: NHS e-Referral Service
+    /nhs-e-referral-service[2]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T10:55:24.850Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T10:59:48.571Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 4b021782-063b-45fa-bf58-1b01bc56906e
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:service
+      website:seosummary:
+        type: string
+        value: !!binary |-
+          VGhlIE5IUyBlLVJlZmVycmFsIFNlcnZpY2UgcHJvdmlkZXMgcGF0aWVudHMgA3dpdGggYSBjaG9pY2Ugb2YgaG9zcGl0YWxzIGFuZCBjbGluaWNzIHdoZW4gA2Jvb2tpbmc=
+      website:shortsummary:
+        type: string
+        value: !!binary |-
+          VGhlIE5IUyBlLVJlZmVycmFsIFNlcnZpY2UgcHJvdmlkZXMgcGF0aWVudHMgA3dpdGggYSBjaG9pY2Ugb2YgaG9zcGl0YWxzIGFuZCBjbGluaWNzIHdoZW4gA2Jvb2tpbmc=
+      website:summary:
+        type: string
+        value: !!binary |-
+          VGhlIE5IUyBlLVJlZmVycmFsIFNlcnZpY2UgcHJvdmlkZXMgcGF0aWVudHMgA3dpdGggYSBjaG9pY2Ugb2YgaG9zcGl0YWxzIGFuZCBjbGluaWNzIHdoZW4gA2Jvb2tpbmc=
+      website:title: NHS e-Referral Service
+    /nhs-e-referral-service[3]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T10:55:24.850Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T10:59:48.571Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-21T10:59:49.615Z
+      hippotranslation:id: 4b021782-063b-45fa-bf58-1b01bc56906e
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:service
+      website:seosummary:
+        type: string
+        value: !!binary |-
+          VGhlIE5IUyBlLVJlZmVycmFsIFNlcnZpY2UgcHJvdmlkZXMgcGF0aWVudHMgA3dpdGggYSBjaG9pY2Ugb2YgaG9zcGl0YWxzIGFuZCBjbGluaWNzIHdoZW4gA2Jvb2tpbmc=
+      website:shortsummary:
+        type: string
+        value: !!binary |-
+          VGhlIE5IUyBlLVJlZmVycmFsIFNlcnZpY2UgcHJvdmlkZXMgcGF0aWVudHMgA3dpdGggYSBjaG9pY2Ugb2YgaG9zcGl0YWxzIGFuZCBjbGluaWNzIHdoZW4gA2Jvb2tpbmc=
+      website:summary:
+        type: string
+        value: !!binary |-
+          VGhlIE5IUyBlLVJlZmVycmFsIFNlcnZpY2UgcHJvdmlkZXMgcGF0aWVudHMgA3dpdGggYSBjaG9pY2Ugb2YgaG9zcGl0YWxzIGFuZCBjbGluaWNzIHdoZW4gA2Jvb2tpbmc=
+      website:title: NHS e-Referral Service
+    hippo:name: NHS e-Referral Service
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /service-document:
+    /additional-information-in-scr:
+      /content:
+        /content[1]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          common:searchable: true
+          hippo:availability: []
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2018-02-21T11:28:16.590Z
+          hippostdpubwf:lastModificationDate: 2018-02-21T11:28:16.590Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 5bf7440f-09df-4e46-aedc-3d6925863ed7
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: website:service
+          website:seosummary: Guidance for GPs to use SCR to make more information
+            available across care settings.
+          website:shortsummary: Guidance for GPs to use SCR to make more information
+            available across care settings.
+          website:summary: Guidance for GPs to use SCR to make more information available
+            across care settings.
+          website:title: Additional information in SCR
+        /content[2]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          common:searchable: true
+          hippo:availability:
+          - preview
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2018-02-21T11:28:16.590Z
+          hippostdpubwf:lastModificationDate: 2018-02-21T11:28:22.599Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 5bf7440f-09df-4e46-aedc-3d6925863ed7
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          - mix:versionable
+          jcr:primaryType: website:service
+          website:seosummary: Guidance for GPs to use SCR to make more information
+            available across care settings.
+          website:shortsummary: Guidance for GPs to use SCR to make more information
+            available across care settings.
+          website:summary: Guidance for GPs to use SCR to make more information available
+            across care settings.
+          website:title: Additional information in SCR
+        /content[3]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          common:searchable: true
+          hippo:availability:
+          - live
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2018-02-21T11:28:16.590Z
+          hippostdpubwf:lastModificationDate: 2018-02-21T11:28:22.599Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2018-02-21T11:28:23.755Z
+          hippotranslation:id: 5bf7440f-09df-4e46-aedc-3d6925863ed7
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: website:service
+          website:seosummary: Guidance for GPs to use SCR to make more information
+            available across care settings.
+          website:shortsummary: Guidance for GPs to use SCR to make more information
+            available across care settings.
+          website:summary: Guidance for GPs to use SCR to make more information available
+            across care settings.
+          website:title: Additional information in SCR
+        hippo:name: Additional information in SCR
+        jcr:mixinTypes:
+        - hippo:named
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      hippo:name: Additional information in SCR
+      hippostd:foldertype:
+      - new-translated-folder
+      - new-document
+      hippotranslation:id: cd853ecc-e8a5-4eb8-adfe-199acb7d241d
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippo:named
+      - hippotranslation:translated
+      - mix:versionable
+      jcr:primaryType: hippostd:folder
+    /content:
+      /content[1]:
+        /website:component:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:introduction:
+          hippostd:content: |-
+            <p>Access to SCR information means that care in other settings is safer, reducing the risk of prescribing errors. It also helps avoid delays to urgent care.</p>
+
+            <p>At a minimum, the SCR holds important information about:</p>
+
+            <ul>
+             <li>current medication</li>
+             <li>allergies and details of any previous bad reactions to medicines</li>
+             <li>the name, address, date of birth and NHS number of the patient</li>
+            </ul>
+
+            <p>The patient can also choose to include <a href="http://digital.nhs.uk">additional information in the SCR</a>, such as details of long-term conditions, significant medical history, or specific communications needs.</p>
+          jcr:primaryType: hippostd:html
+        /website:sections[1]:
+          /website:html:
+            hippostd:content: |-
+              <h3>SCR for patients</h3>
+
+              <p>If you are registered with a GP practice in England your SCR is created automatically, unless you have opted out. 98% of practices are now using the system. You can talk to your practice about including additional information to do with long term conditions, care preferences or specific communications needs.</p>
+
+              <p><a href="http://digital.nhs.uk">Read more patient information on SCR</a></p>
+
+              <h3>GP information on creating SCRs and including additional information</h3>
+
+              <p>The SCR is created automatically through clinical systems in GP practices and uploaded to the <a href="http://digital.nhs.uk">Spine</a>. It will then be updated&nbsp;<br />
+              automatically. When new patients are registered the practice should check they are happy to have an SCR. A <a href="http://digital.nhs.uk">sample letter for new patients [151.19KB]</a> is available. Additional information can be added to the SCR, with express patient consent, by the GP. The additional information dataset can be included automatically by changing the patient's consent status.</p>
+
+              <p>From 1 July 2017, the General Medical Services (GMS) contract requires GPs to identify patients with moderate or severe frailty, and promote the inclusion of additional information in the SCRs of those with severe frailty by seeking their consent to add it. NHS Digital have sent a resource pack, <a href="http://digital.nhs.uk">Supporting Guidance for promoting enriched Summary Care Records for patients with frailty [480.53KB]</a>, to CCGs, to be distributed to GP practices, containing support and guidance on their new duties and how to include additional information in SCRs.</p>
+
+              <p><a href="http://digital.nhs.uk">Read NHS England guidance on the requirements to support frailty in the GMS contract 2017-18. </a></p>
+
+              <p><a href="http://digital.nhs.uk">Read more on including additional information in the SCR</a></p>
+
+              <h3>Viewing SCRs</h3>
+
+              <p>The SCR can be viewed by health and care staff, and viewing is now being rolled out to community pharmacies. SCRs can be viewed through clinical systems or through the SCRa web viewer, from a machine logged in to the secure NHS network, using a smartcard with the appropriate Role Based Access Control codes set.</p>
+
+              <p><a href="http://digital.nhs.uk">Read more on viewing SCR and implementing viewing in your organisation</a></p>
+
+              <p><a href="http://digital.nhs.uk">Read more on SCR in community pharmacies</a></p>
+
+              <h3>Security and the SCR</h3>
+
+              <p>Data within the SCR is protected by secure technology. Users must have a <a href="http://digital.nhs.uk">smartcard</a> with the correct codes set. Each use is recorded. A patient can ask to see the record of who has looked at their SCR, from the viewing organisation. This is called a 'Subject Access Request'.</p>
+
+              <p>Patient data is protected by strict <a href="http://digital.nhs.uk">information governance</a> rules and procedures. Each organisation using the SCR has at least one privacy officer who is responsible for monitoring access and can generate audits and reports.</p>
+
+              <p>A patient can also opt out of having an SCR by returning a completed <a href="http://digital.nhs.uk">opt-out form</a> to their GP practice.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:title: Using SCR
+          website:type: ''
+        /website:sections[2]:
+          /website:html:
+            hippostd:content: |-
+              <p>Use of SCR is featured in NHS England's <a href="http://digital.nhs.uk">Universal capabilities  information and resources</a> for helping organisations to fulfil  commitments in their <a href="http://digital.nhs.uk">Local Digital Roadmaps</a> and <a href="http://digital.nhs.uk">Sustainability and Transformation Plans</a>.</p>
+
+              <p>  SCR helps organisations fulfil capabilities: </p>
+
+              <ol>
+               <li>professionals across care settings can access GP held information on GP prescribed medications, patient allergies and adverse reactions (SCR core functionality)</li>
+               <li>Clinicians in urgent and emergency care settings can access key GP-held information for patients previously identified by GPs as most likely to present in urgent and emergency care) (SCR with additional information)</li>
+               <li>Professionals across care settings made aware of end-of-life   &nbsp; &nbsp;preference information (SCR with additional information)</li>
+              </ol>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:title:
+            type: string
+            value: !!binary |-
+              SW5mb3JtYXRpb24gZm9yIENsaW5pY2FsIANDb21taXNzaW9uaW5nIEdyb3VwcyBhbmQgb3RoZXJzIHJlc3BvbnNpYmxlIGZvciBoZWFsdGggcGxhbm5pbmc=
+          website:type: ''
+        /website:toptasks[1]:
+          hippostd:content: <p>Health and care staff can <a href="http://digital.nhs.uk">access
+            SCR through the Spine web portal</a></p>
+          jcr:primaryType: hippostd:html
+        /website:toptasks[2]:
+          hippostd:content: <p>Patients can ask to view or add information to their
+            SCR by visiting their GP practice. For more patient information <a href="http://digital.nhs.uk">see
+            your health records - NHS Choices</a>.</p>
+          jcr:primaryType: hippostd:html
+        /website:toptasks[3]:
+          hippostd:content: <p>These pages are under construction. If you can't find
+            what you are looking for try the <a href="http://digital.nhs.uk">Summary
+            Care Record archive pages</a>.</p>
+          jcr:primaryType: hippostd:html
+        common:searchable: true
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-02-21T11:12:02.193Z
+        hippostdpubwf:lastModificationDate: 2018-02-21T11:25:06.832Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: f8ba7be6-ecd5-4381-b626-8fd5c3046ade
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:service
+        website:seosummary:
+          type: string
+          value: !!binary |-
+            VGhlIFNDUiBpcyBhbiBlbGVjdHJvbmljIHJlY29yZCBvZiBpbXBvcnRhbnQgcGF0aWVudCADaW5mb3JtYXRpb24sIGNyZWF0ZWQgZnJvbSBHUCBtZWRpY2FsIHJlY29yZHMuIEl0IGNhbiADYmUgc2VlbiBhbmQgdXNlZCBieSBhdXRob3Jpc2VkIHN0YWZmIGluIG90aGVyIGFyZWFzIG9mIHRoZSBoZWFsdGggYW5kIGNhcmUgc3lzdGVtIGludm9sdmVkIGluIHRoZSBwYXRpZW50J3MgZGlyZWN0IGNhcmUu
+        website:shortsummary:
+          type: string
+          value: !!binary |-
+            VGhlIFNDUiBpcyBhbiBlbGVjdHJvbmljIHJlY29yZCBvZiBpbXBvcnRhbnQgcGF0aWVudCADaW5mb3JtYXRpb24=
+        website:summary:
+          type: string
+          value: !!binary |-
+            VGhlIFNDUiBpcyBhbiBlbGVjdHJvbmljIHJlY29yZCBvZiBpbXBvcnRhbnQgcGF0aWVudCADaW5mb3JtYXRpb24sIGNyZWF0ZWQgZnJvbSBHUCBtZWRpY2FsIHJlY29yZHMuIEl0IGNhbiADYmUgc2VlbiBhbmQgdXNlZCBieSBhdXRob3Jpc2VkIHN0YWZmIGluIG90aGVyIGFyZWFzIG9mIHRoZSBoZWFsdGggYW5kIGNhcmUgc3lzdGVtIGludm9sdmVkIGluIHRoZSBwYXRpZW50J3MgZGlyZWN0IGNhcmUu
+        website:title: Summary Care Records (SCR)
+      /content[2]:
+        /website:component:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:introduction:
+          hippostd:content: |-
+            <p>Access to SCR information means that care in other settings is safer, reducing the risk of prescribing errors. It also helps avoid delays to urgent care.</p>
+
+            <p>At a minimum, the SCR holds important information about:</p>
+
+            <ul>
+             <li>current medication</li>
+             <li>allergies and details of any previous bad reactions to medicines</li>
+             <li>the name, address, date of birth and NHS number of the patient</li>
+            </ul>
+
+            <p>The patient can also choose to include <a href="http://digital.nhs.uk">additional information in the SCR</a>, such as details of long-term conditions, significant medical history, or specific communications needs.</p>
+          jcr:primaryType: hippostd:html
+        /website:sections[1]:
+          /website:html:
+            hippostd:content: |-
+              <h3>SCR for patients</h3>
+
+              <p>If you are registered with a GP practice in England your SCR is created automatically, unless you have opted out. 98% of practices are now using the system. You can talk to your practice about including additional information to do with long term conditions, care preferences or specific communications needs.</p>
+
+              <p><a href="http://digital.nhs.uk">Read more patient information on SCR</a></p>
+
+              <h3>GP information on creating SCRs and including additional information</h3>
+
+              <p>The SCR is created automatically through clinical systems in GP practices and uploaded to the <a href="http://digital.nhs.uk">Spine</a>. It will then be updated&nbsp;<br />
+              automatically. When new patients are registered the practice should check they are happy to have an SCR. A <a href="http://digital.nhs.uk">sample letter for new patients [151.19KB]</a> is available. Additional information can be added to the SCR, with express patient consent, by the GP. The additional information dataset can be included automatically by changing the patient's consent status.</p>
+
+              <p>From 1 July 2017, the General Medical Services (GMS) contract requires GPs to identify patients with moderate or severe frailty, and promote the inclusion of additional information in the SCRs of those with severe frailty by seeking their consent to add it. NHS Digital have sent a resource pack, <a href="http://digital.nhs.uk">Supporting Guidance for promoting enriched Summary Care Records for patients with frailty [480.53KB]</a>, to CCGs, to be distributed to GP practices, containing support and guidance on their new duties and how to include additional information in SCRs.</p>
+
+              <p><a href="http://digital.nhs.uk">Read NHS England guidance on the requirements to support frailty in the GMS contract 2017-18. </a></p>
+
+              <p><a href="http://digital.nhs.uk">Read more on including additional information in the SCR</a></p>
+
+              <h3>Viewing SCRs</h3>
+
+              <p>The SCR can be viewed by health and care staff, and viewing is now being rolled out to community pharmacies. SCRs can be viewed through clinical systems or through the SCRa web viewer, from a machine logged in to the secure NHS network, using a smartcard with the appropriate Role Based Access Control codes set.</p>
+
+              <p><a href="http://digital.nhs.uk">Read more on viewing SCR and implementing viewing in your organisation</a></p>
+
+              <p><a href="http://digital.nhs.uk">Read more on SCR in community pharmacies</a></p>
+
+              <h3>Security and the SCR</h3>
+
+              <p>Data within the SCR is protected by secure technology. Users must have a <a href="http://digital.nhs.uk">smartcard</a> with the correct codes set. Each use is recorded. A patient can ask to see the record of who has looked at their SCR, from the viewing organisation. This is called a 'Subject Access Request'.</p>
+
+              <p>Patient data is protected by strict <a href="http://digital.nhs.uk">information governance</a> rules and procedures. Each organisation using the SCR has at least one privacy officer who is responsible for monitoring access and can generate audits and reports.</p>
+
+              <p>A patient can also opt out of having an SCR by returning a completed <a href="http://digital.nhs.uk">opt-out form</a> to their GP practice.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:title: Using SCR
+          website:type: ''
+        /website:sections[2]:
+          /website:html:
+            hippostd:content: |-
+              <p>Use of SCR is featured in NHS England's <a href="http://digital.nhs.uk">Universal capabilities  information and resources</a> for helping organisations to fulfil  commitments in their <a href="http://digital.nhs.uk">Local Digital Roadmaps</a> and <a href="http://digital.nhs.uk">Sustainability and Transformation Plans</a>.</p>
+
+              <p>  SCR helps organisations fulfil capabilities: </p>
+
+              <ol>
+               <li>professionals across care settings can access GP held information on GP prescribed medications, patient allergies and adverse reactions (SCR core functionality)</li>
+               <li>Clinicians in urgent and emergency care settings can access key GP-held information for patients previously identified by GPs as most likely to present in urgent and emergency care) (SCR with additional information)</li>
+               <li>Professionals across care settings made aware of end-of-life   &nbsp; &nbsp;preference information (SCR with additional information)</li>
+              </ol>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:title:
+            type: string
+            value: !!binary |-
+              SW5mb3JtYXRpb24gZm9yIENsaW5pY2FsIANDb21taXNzaW9uaW5nIEdyb3VwcyBhbmQgb3RoZXJzIHJlc3BvbnNpYmxlIGZvciBoZWFsdGggcGxhbm5pbmc=
+          website:type: ''
+        /website:toptasks[1]:
+          hippostd:content: <p>Health and care staff can <a href="http://digital.nhs.uk">access
+            SCR through the Spine web portal</a></p>
+          jcr:primaryType: hippostd:html
+        /website:toptasks[2]:
+          hippostd:content: <p>Patients can ask to view or add information to their
+            SCR by visiting their GP practice. For more patient information <a href="http://digital.nhs.uk">see
+            your health records - NHS Choices</a>.</p>
+          jcr:primaryType: hippostd:html
+        /website:toptasks[3]:
+          hippostd:content: <p>These pages are under construction. If you can't find
+            what you are looking for try the <a href="http://digital.nhs.uk">Summary
+            Care Record archive pages</a>.</p>
+          jcr:primaryType: hippostd:html
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-02-21T11:12:02.193Z
+        hippostdpubwf:lastModificationDate: 2018-02-21T11:27:05.799Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: f8ba7be6-ecd5-4381-b626-8fd5c3046ade
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        - mix:versionable
+        jcr:primaryType: website:service
+        website:seosummary:
+          type: string
+          value: !!binary |-
+            VGhlIFNDUiBpcyBhbiBlbGVjdHJvbmljIHJlY29yZCBvZiBpbXBvcnRhbnQgcGF0aWVudCADaW5mb3JtYXRpb24sIGNyZWF0ZWQgZnJvbSBHUCBtZWRpY2FsIHJlY29yZHMuIEl0IGNhbiADYmUgc2VlbiBhbmQgdXNlZCBieSBhdXRob3Jpc2VkIHN0YWZmIGluIG90aGVyIGFyZWFzIG9mIHRoZSBoZWFsdGggYW5kIGNhcmUgc3lzdGVtIGludm9sdmVkIGluIHRoZSBwYXRpZW50J3MgZGlyZWN0IGNhcmUu
+        website:shortsummary:
+          type: string
+          value: !!binary |-
+            VGhlIFNDUiBpcyBhbiBlbGVjdHJvbmljIHJlY29yZCBvZiBpbXBvcnRhbnQgcGF0aWVudCADaW5mb3JtYXRpb24=
+        website:summary:
+          type: string
+          value: !!binary |-
+            VGhlIFNDUiBpcyBhbiBlbGVjdHJvbmljIHJlY29yZCBvZiBpbXBvcnRhbnQgcGF0aWVudCADaW5mb3JtYXRpb24sIGNyZWF0ZWQgZnJvbSBHUCBtZWRpY2FsIHJlY29yZHMuIEl0IGNhbiADYmUgc2VlbiBhbmQgdXNlZCBieSBhdXRob3Jpc2VkIHN0YWZmIGluIG90aGVyIGFyZWFzIG9mIHRoZSBoZWFsdGggYW5kIGNhcmUgc3lzdGVtIGludm9sdmVkIGluIHRoZSBwYXRpZW50J3MgZGlyZWN0IGNhcmUu
+        website:title: Summary Care Records (SCR)
+      /content[3]:
+        /website:component:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:introduction:
+          hippostd:content: |-
+            <p>Access to SCR information means that care in other settings is safer, reducing the risk of prescribing errors. It also helps avoid delays to urgent care.</p>
+
+            <p>At a minimum, the SCR holds important information about:</p>
+
+            <ul>
+             <li>current medication</li>
+             <li>allergies and details of any previous bad reactions to medicines</li>
+             <li>the name, address, date of birth and NHS number of the patient</li>
+            </ul>
+
+            <p>The patient can also choose to include <a href="http://digital.nhs.uk">additional information in the SCR</a>, such as details of long-term conditions, significant medical history, or specific communications needs.</p>
+          jcr:primaryType: hippostd:html
+        /website:sections[1]:
+          /website:html:
+            hippostd:content: |-
+              <h3>SCR for patients</h3>
+
+              <p>If you are registered with a GP practice in England your SCR is created automatically, unless you have opted out. 98% of practices are now using the system. You can talk to your practice about including additional information to do with long term conditions, care preferences or specific communications needs.</p>
+
+              <p><a href="http://digital.nhs.uk">Read more patient information on SCR</a></p>
+
+              <h3>GP information on creating SCRs and including additional information</h3>
+
+              <p>The SCR is created automatically through clinical systems in GP practices and uploaded to the <a href="http://digital.nhs.uk">Spine</a>. It will then be updated&nbsp;<br />
+              automatically. When new patients are registered the practice should check they are happy to have an SCR. A <a href="http://digital.nhs.uk">sample letter for new patients [151.19KB]</a> is available. Additional information can be added to the SCR, with express patient consent, by the GP. The additional information dataset can be included automatically by changing the patient's consent status.</p>
+
+              <p>From 1 July 2017, the General Medical Services (GMS) contract requires GPs to identify patients with moderate or severe frailty, and promote the inclusion of additional information in the SCRs of those with severe frailty by seeking their consent to add it. NHS Digital have sent a resource pack, <a href="http://digital.nhs.uk">Supporting Guidance for promoting enriched Summary Care Records for patients with frailty [480.53KB]</a>, to CCGs, to be distributed to GP practices, containing support and guidance on their new duties and how to include additional information in SCRs.</p>
+
+              <p><a href="http://digital.nhs.uk">Read NHS England guidance on the requirements to support frailty in the GMS contract 2017-18. </a></p>
+
+              <p><a href="http://digital.nhs.uk">Read more on including additional information in the SCR</a></p>
+
+              <h3>Viewing SCRs</h3>
+
+              <p>The SCR can be viewed by health and care staff, and viewing is now being rolled out to community pharmacies. SCRs can be viewed through clinical systems or through the SCRa web viewer, from a machine logged in to the secure NHS network, using a smartcard with the appropriate Role Based Access Control codes set.</p>
+
+              <p><a href="http://digital.nhs.uk">Read more on viewing SCR and implementing viewing in your organisation</a></p>
+
+              <p><a href="http://digital.nhs.uk">Read more on SCR in community pharmacies</a></p>
+
+              <h3>Security and the SCR</h3>
+
+              <p>Data within the SCR is protected by secure technology. Users must have a <a href="http://digital.nhs.uk">smartcard</a> with the correct codes set. Each use is recorded. A patient can ask to see the record of who has looked at their SCR, from the viewing organisation. This is called a 'Subject Access Request'.</p>
+
+              <p>Patient data is protected by strict <a href="http://digital.nhs.uk">information governance</a> rules and procedures. Each organisation using the SCR has at least one privacy officer who is responsible for monitoring access and can generate audits and reports.</p>
+
+              <p>A patient can also opt out of having an SCR by returning a completed <a href="http://digital.nhs.uk">opt-out form</a> to their GP practice.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:title: Using SCR
+          website:type: ''
+        /website:sections[2]:
+          /website:html:
+            hippostd:content: |-
+              <p>Use of SCR is featured in NHS England's <a href="http://digital.nhs.uk">Universal capabilities  information and resources</a> for helping organisations to fulfil  commitments in their <a href="http://digital.nhs.uk">Local Digital Roadmaps</a> and <a href="http://digital.nhs.uk">Sustainability and Transformation Plans</a>.</p>
+
+              <p>  SCR helps organisations fulfil capabilities: </p>
+
+              <ol>
+               <li>professionals across care settings can access GP held information on GP prescribed medications, patient allergies and adverse reactions (SCR core functionality)</li>
+               <li>Clinicians in urgent and emergency care settings can access key GP-held information for patients previously identified by GPs as most likely to present in urgent and emergency care) (SCR with additional information)</li>
+               <li>Professionals across care settings made aware of end-of-life   &nbsp; &nbsp;preference information (SCR with additional information)</li>
+              </ol>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:title:
+            type: string
+            value: !!binary |-
+              SW5mb3JtYXRpb24gZm9yIENsaW5pY2FsIANDb21taXNzaW9uaW5nIEdyb3VwcyBhbmQgb3RoZXJzIHJlc3BvbnNpYmxlIGZvciBoZWFsdGggcGxhbm5pbmc=
+          website:type: ''
+        /website:toptasks[1]:
+          hippostd:content: <p>Health and care staff can <a href="http://digital.nhs.uk">access
+            SCR through the Spine web portal</a></p>
+          jcr:primaryType: hippostd:html
+        /website:toptasks[2]:
+          hippostd:content: <p>Patients can ask to view or add information to their
+            SCR by visiting their GP practice. For more patient information <a href="http://digital.nhs.uk">see
+            your health records - NHS Choices</a>.</p>
+          jcr:primaryType: hippostd:html
+        /website:toptasks[3]:
+          hippostd:content: <p>These pages are under construction. If you can't find
+            what you are looking for try the <a href="http://digital.nhs.uk">Summary
+            Care Record archive pages</a>.</p>
+          jcr:primaryType: hippostd:html
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-02-21T11:12:02.193Z
+        hippostdpubwf:lastModificationDate: 2018-02-21T11:27:05.799Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2018-02-21T11:27:08.595Z
+        hippotranslation:id: f8ba7be6-ecd5-4381-b626-8fd5c3046ade
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:service
+        website:seosummary:
+          type: string
+          value: !!binary |-
+            VGhlIFNDUiBpcyBhbiBlbGVjdHJvbmljIHJlY29yZCBvZiBpbXBvcnRhbnQgcGF0aWVudCADaW5mb3JtYXRpb24sIGNyZWF0ZWQgZnJvbSBHUCBtZWRpY2FsIHJlY29yZHMuIEl0IGNhbiADYmUgc2VlbiBhbmQgdXNlZCBieSBhdXRob3Jpc2VkIHN0YWZmIGluIG90aGVyIGFyZWFzIG9mIHRoZSBoZWFsdGggYW5kIGNhcmUgc3lzdGVtIGludm9sdmVkIGluIHRoZSBwYXRpZW50J3MgZGlyZWN0IGNhcmUu
+        website:shortsummary:
+          type: string
+          value: !!binary |-
+            VGhlIFNDUiBpcyBhbiBlbGVjdHJvbmljIHJlY29yZCBvZiBpbXBvcnRhbnQgcGF0aWVudCADaW5mb3JtYXRpb24=
+        website:summary:
+          type: string
+          value: !!binary |-
+            VGhlIFNDUiBpcyBhbiBlbGVjdHJvbmljIHJlY29yZCBvZiBpbXBvcnRhbnQgcGF0aWVudCADaW5mb3JtYXRpb24sIGNyZWF0ZWQgZnJvbSBHUCBtZWRpY2FsIHJlY29yZHMuIEl0IGNhbiADYmUgc2VlbiBhbmQgdXNlZCBieSBhdXRob3Jpc2VkIHN0YWZmIGluIG90aGVyIGFyZWFzIG9mIHRoZSBoZWFsdGggYW5kIGNhcmUgc3lzdGVtIGludm9sdmVkIGluIHRoZSBwYXRpZW50J3MgZGlyZWN0IGNhcmUu
+        website:title: Summary Care Records (SCR)
+      hippo:name: Summary Care Records (SCR)
+      jcr:mixinTypes:
+      - hippo:named
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    /deployment-and-utilisation-progress-data:
+      /content:
+        /content[1]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          common:searchable: true
+          hippo:availability: []
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2018-02-21T11:29:32.438Z
+          hippostdpubwf:lastModificationDate: 2018-02-21T11:29:32.438Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 16ee094a-9285-480e-b172-da78ece3ff20
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: website:service
+          website:seosummary:
+            type: string
+            value: !!binary |-
+              V2UncmUgcmVzcG9uc2libGUgZm9yIHJlY29yZGluZyBkYXRhIHJlbGF0ZWQgdG8gdGhlIGRlcGxveW1lbnQgb2Ygc3lzdGVtcyBhbmQgc2VydmljZXMgYWNyb3NzIGhlYWx0aCBhbmQgc29jaWFsIGNhcmUgc3lzdGVtcyBpbiADRW5nbGFuZC4gT24gdGhpcyBwYWdlIHlvdSdsbCBmaW5kIGxpbmtzIHRvIG1hbmFnZW1lbnQgA2luZm9ybWF0aW9uIGRhc2hib2FyZHMgY29udGFpbmluZyB0aGlzIGRhdGEu
+          website:shortsummary: We're responsible for recording data related to the
+            deployment of systems
+          website:summary:
+            type: string
+            value: !!binary |-
+              V2UncmUgcmVzcG9uc2libGUgZm9yIHJlY29yZGluZyBkYXRhIHJlbGF0ZWQgdG8gdGhlIGRlcGxveW1lbnQgb2Ygc3lzdGVtcyBhbmQgc2VydmljZXMgYWNyb3NzIGhlYWx0aCBhbmQgc29jaWFsIGNhcmUgc3lzdGVtcyBpbiADRW5nbGFuZC4gT24gdGhpcyBwYWdlIHlvdSdsbCBmaW5kIGxpbmtzIHRvIG1hbmFnZW1lbnQgA2luZm9ybWF0aW9uIGRhc2hib2FyZHMgY29udGFpbmluZyB0aGlzIGRhdGEu
+          website:title: Deployment and utilisation progress data
+        /content[2]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          common:searchable: true
+          hippo:availability:
+          - preview
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2018-02-21T11:29:32.438Z
+          hippostdpubwf:lastModificationDate: 2018-02-21T11:29:47.036Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 16ee094a-9285-480e-b172-da78ece3ff20
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          - mix:versionable
+          jcr:primaryType: website:service
+          website:seosummary:
+            type: string
+            value: !!binary |-
+              V2UncmUgcmVzcG9uc2libGUgZm9yIHJlY29yZGluZyBkYXRhIHJlbGF0ZWQgdG8gdGhlIGRlcGxveW1lbnQgb2Ygc3lzdGVtcyBhbmQgc2VydmljZXMgYWNyb3NzIGhlYWx0aCBhbmQgc29jaWFsIGNhcmUgc3lzdGVtcyBpbiADRW5nbGFuZC4gT24gdGhpcyBwYWdlIHlvdSdsbCBmaW5kIGxpbmtzIHRvIG1hbmFnZW1lbnQgA2luZm9ybWF0aW9uIGRhc2hib2FyZHMgY29udGFpbmluZyB0aGlzIGRhdGEu
+          website:shortsummary: We're responsible for recording data related to the
+            deployment of systems
+          website:summary:
+            type: string
+            value: !!binary |-
+              V2UncmUgcmVzcG9uc2libGUgZm9yIHJlY29yZGluZyBkYXRhIHJlbGF0ZWQgdG8gdGhlIGRlcGxveW1lbnQgb2Ygc3lzdGVtcyBhbmQgc2VydmljZXMgYWNyb3NzIGhlYWx0aCBhbmQgc29jaWFsIGNhcmUgc3lzdGVtcyBpbiADRW5nbGFuZC4gT24gdGhpcyBwYWdlIHlvdSdsbCBmaW5kIGxpbmtzIHRvIG1hbmFnZW1lbnQgA2luZm9ybWF0aW9uIGRhc2hib2FyZHMgY29udGFpbmluZyB0aGlzIGRhdGEu
+          website:title: Deployment and utilisation progress data
+        /content[3]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          common:searchable: true
+          hippo:availability:
+          - live
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2018-02-21T11:29:32.438Z
+          hippostdpubwf:lastModificationDate: 2018-02-21T11:29:47.036Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2018-02-21T11:29:48.338Z
+          hippotranslation:id: 16ee094a-9285-480e-b172-da78ece3ff20
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: website:service
+          website:seosummary:
+            type: string
+            value: !!binary |-
+              V2UncmUgcmVzcG9uc2libGUgZm9yIHJlY29yZGluZyBkYXRhIHJlbGF0ZWQgdG8gdGhlIGRlcGxveW1lbnQgb2Ygc3lzdGVtcyBhbmQgc2VydmljZXMgYWNyb3NzIGhlYWx0aCBhbmQgc29jaWFsIGNhcmUgc3lzdGVtcyBpbiADRW5nbGFuZC4gT24gdGhpcyBwYWdlIHlvdSdsbCBmaW5kIGxpbmtzIHRvIG1hbmFnZW1lbnQgA2luZm9ybWF0aW9uIGRhc2hib2FyZHMgY29udGFpbmluZyB0aGlzIGRhdGEu
+          website:shortsummary: We're responsible for recording data related to the
+            deployment of systems
+          website:summary:
+            type: string
+            value: !!binary |-
+              V2UncmUgcmVzcG9uc2libGUgZm9yIHJlY29yZGluZyBkYXRhIHJlbGF0ZWQgdG8gdGhlIGRlcGxveW1lbnQgb2Ygc3lzdGVtcyBhbmQgc2VydmljZXMgYWNyb3NzIGhlYWx0aCBhbmQgc29jaWFsIGNhcmUgc3lzdGVtcyBpbiADRW5nbGFuZC4gT24gdGhpcyBwYWdlIHlvdSdsbCBmaW5kIGxpbmtzIHRvIG1hbmFnZW1lbnQgA2luZm9ybWF0aW9uIGRhc2hib2FyZHMgY29udGFpbmluZyB0aGlzIGRhdGEu
+          website:title: Deployment and utilisation progress data
+        hippo:name: Deployment and utilisation progress data
+        jcr:mixinTypes:
+        - hippo:named
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      hippo:name: Deployment and utilisation progress data
+      hippostd:foldertype:
+      - new-translated-folder
+      - new-document
+      hippotranslation:id: 0428cfe3-7183-4cc7-a1d3-2834263e02f1
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippo:named
+      - hippotranslation:translated
+      - mix:versionable
+      jcr:primaryType: hippostd:folder
+    /information-governance-for-scr:
+      /content:
+        /content[1]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          common:searchable: true
+          hippo:availability: []
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2018-02-21T11:29:09.461Z
+          hippostdpubwf:lastModificationDate: 2018-02-21T11:29:09.461Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 72f44ae8-15a8-4b56-910b-0b024d1235be
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: website:service
+          website:seosummary:
+            type: string
+            value: !!binary |-
+              TWFraW5nIHN1cmUgcGF0aWVudCBpbmZvcm1hdGlvbiBpcyBzZWN1cmUgYW5kIG9ubHkgYWNjZXNzZWQgA2FwcHJvcHJpYXRlbHku
+          website:shortsummary:
+            type: string
+            value: !!binary |-
+              TWFraW5nIHN1cmUgcGF0aWVudCBpbmZvcm1hdGlvbiBpcyBzZWN1cmUgYW5kIG9ubHkgYWNjZXNzZWQgA2FwcHJvcHJpYXRlbHku
+          website:summary:
+            type: string
+            value: !!binary |-
+              TWFraW5nIHN1cmUgcGF0aWVudCBpbmZvcm1hdGlvbiBpcyBzZWN1cmUgYW5kIG9ubHkgYWNjZXNzZWQgA2FwcHJvcHJpYXRlbHku
+          website:title: Information governance for SCR
+        /content[2]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          common:searchable: true
+          hippo:availability:
+          - preview
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2018-02-21T11:29:09.461Z
+          hippostdpubwf:lastModificationDate: 2018-02-21T11:29:16.724Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 72f44ae8-15a8-4b56-910b-0b024d1235be
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          - mix:versionable
+          jcr:primaryType: website:service
+          website:seosummary:
+            type: string
+            value: !!binary |-
+              TWFraW5nIHN1cmUgcGF0aWVudCBpbmZvcm1hdGlvbiBpcyBzZWN1cmUgYW5kIG9ubHkgYWNjZXNzZWQgA2FwcHJvcHJpYXRlbHku
+          website:shortsummary:
+            type: string
+            value: !!binary |-
+              TWFraW5nIHN1cmUgcGF0aWVudCBpbmZvcm1hdGlvbiBpcyBzZWN1cmUgYW5kIG9ubHkgYWNjZXNzZWQgA2FwcHJvcHJpYXRlbHku
+          website:summary:
+            type: string
+            value: !!binary |-
+              TWFraW5nIHN1cmUgcGF0aWVudCBpbmZvcm1hdGlvbiBpcyBzZWN1cmUgYW5kIG9ubHkgYWNjZXNzZWQgA2FwcHJvcHJpYXRlbHku
+          website:title: Information governance for SCR
+        /content[3]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          common:searchable: true
+          hippo:availability:
+          - live
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2018-02-21T11:29:09.461Z
+          hippostdpubwf:lastModificationDate: 2018-02-21T11:29:16.724Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2018-02-21T11:29:18.208Z
+          hippotranslation:id: 72f44ae8-15a8-4b56-910b-0b024d1235be
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: website:service
+          website:seosummary:
+            type: string
+            value: !!binary |-
+              TWFraW5nIHN1cmUgcGF0aWVudCBpbmZvcm1hdGlvbiBpcyBzZWN1cmUgYW5kIG9ubHkgYWNjZXNzZWQgA2FwcHJvcHJpYXRlbHku
+          website:shortsummary:
+            type: string
+            value: !!binary |-
+              TWFraW5nIHN1cmUgcGF0aWVudCBpbmZvcm1hdGlvbiBpcyBzZWN1cmUgYW5kIG9ubHkgYWNjZXNzZWQgA2FwcHJvcHJpYXRlbHku
+          website:summary:
+            type: string
+            value: !!binary |-
+              TWFraW5nIHN1cmUgcGF0aWVudCBpbmZvcm1hdGlvbiBpcyBzZWN1cmUgYW5kIG9ubHkgYWNjZXNzZWQgA2FwcHJvcHJpYXRlbHku
+          website:title: Information governance for SCR
+        hippo:name: Information governance for SCR
+        jcr:mixinTypes:
+        - hippo:named
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      hippo:name: Information governance for SCR
+      hippostd:foldertype:
+      - new-translated-folder
+      - new-document
+      hippotranslation:id: 420131a7-65f5-47b6-908e-5119e277d9f1
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippo:named
+      - hippotranslation:translated
+      - mix:versionable
+      jcr:primaryType: hippostd:folder
+    /summary-care-record-scr-in-community-pharmacy:
+      /content:
+        /content[1]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          common:searchable: true
+          hippo:availability: []
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2018-02-21T11:28:45.727Z
+          hippostdpubwf:lastModificationDate: 2018-02-21T11:28:45.727Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 7cbb5a62-a2bd-40df-9d55-fb59949a6773
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: website:service
+          website:seosummary: NHS Digital is working to make sure all community pharmacies
+            can view the Summary Care Record.
+          website:shortsummary: NHS Digital is working to make sure all community
+            pharmacies can view the Summary Care Record.
+          website:summary: NHS Digital is working to make sure all community pharmacies
+            can view the Summary Care Record.
+          website:title: Summary Care Record (SCR) in community pharmacy
+        /content[2]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          common:searchable: true
+          hippo:availability:
+          - preview
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2018-02-21T11:28:45.727Z
+          hippostdpubwf:lastModificationDate: 2018-02-21T11:28:52.710Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 7cbb5a62-a2bd-40df-9d55-fb59949a6773
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          - mix:versionable
+          jcr:primaryType: website:service
+          website:seosummary: NHS Digital is working to make sure all community pharmacies
+            can view the Summary Care Record.
+          website:shortsummary: NHS Digital is working to make sure all community
+            pharmacies can view the Summary Care Record.
+          website:summary: NHS Digital is working to make sure all community pharmacies
+            can view the Summary Care Record.
+          website:title: Summary Care Record (SCR) in community pharmacy
+        /content[3]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          common:searchable: true
+          hippo:availability:
+          - live
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2018-02-21T11:28:45.727Z
+          hippostdpubwf:lastModificationDate: 2018-02-21T11:28:52.710Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2018-02-21T11:28:53.833Z
+          hippotranslation:id: 7cbb5a62-a2bd-40df-9d55-fb59949a6773
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: website:service
+          website:seosummary: NHS Digital is working to make sure all community pharmacies
+            can view the Summary Care Record.
+          website:shortsummary: NHS Digital is working to make sure all community
+            pharmacies can view the Summary Care Record.
+          website:summary: NHS Digital is working to make sure all community pharmacies
+            can view the Summary Care Record.
+          website:title: Summary Care Record (SCR) in community pharmacy
+        hippo:name: Summary Care Record (SCR) in community pharmacy
+        jcr:mixinTypes:
+        - hippo:named
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      hippo:name: Summary Care Record (SCR) in community pharmacy
+      hippostd:foldertype:
+      - new-translated-folder
+      - new-document
+      hippotranslation:id: 353f056e-819e-4f2c-8083-1b4b5b979c8d
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippo:named
+      - hippotranslation:translated
+      - mix:versionable
+      jcr:primaryType: hippostd:folder
+    /summary-care-records-scr---information-for-patients:
+      /content:
+        /content[1]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          common:searchable: true
+          hippo:availability: []
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2018-02-21T11:27:44.426Z
+          hippostdpubwf:lastModificationDate: 2018-02-21T11:27:44.426Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 9c00cd9d-5c03-4fa6-be5b-dc2ca5a11de9
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: website:service
+          website:seosummary: Your SCR can improve your care when you're treated away
+            from your own GP practice.
+          website:shortsummary: Your SCR can improve your care when you're treated
+            away from your own GP practice.
+          website:summary: Your SCR can improve your care when you're treated away
+            from your own GP practice.
+          website:title: Summary Care Records (SCR) - information for patients
+        /content[2]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          common:searchable: true
+          hippo:availability:
+          - preview
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2018-02-21T11:27:44.426Z
+          hippostdpubwf:lastModificationDate: 2018-02-21T11:27:50.643Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 9c00cd9d-5c03-4fa6-be5b-dc2ca5a11de9
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          - mix:versionable
+          jcr:primaryType: website:service
+          website:seosummary: Your SCR can improve your care when you're treated away
+            from your own GP practice.
+          website:shortsummary: Your SCR can improve your care when you're treated
+            away from your own GP practice.
+          website:summary: Your SCR can improve your care when you're treated away
+            from your own GP practice.
+          website:title: Summary Care Records (SCR) - information for patients
+        /content[3]:
+          /website:component:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          common:searchable: true
+          hippo:availability:
+          - live
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2018-02-21T11:27:44.426Z
+          hippostdpubwf:lastModificationDate: 2018-02-21T11:27:50.643Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2018-02-21T11:27:52.069Z
+          hippotranslation:id: 9c00cd9d-5c03-4fa6-be5b-dc2ca5a11de9
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: website:service
+          website:seosummary: Your SCR can improve your care when you're treated away
+            from your own GP practice.
+          website:shortsummary: Your SCR can improve your care when you're treated
+            away from your own GP practice.
+          website:summary: Your SCR can improve your care when you're treated away
+            from your own GP practice.
+          website:title: Summary Care Records (SCR) - information for patients
+        hippo:name: Summary Care Records (SCR) - information for patients
+        jcr:mixinTypes:
+        - hippo:named
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      hippo:name: Summary Care Records (SCR) - information for patients
+      hippostd:foldertype:
+      - new-translated-folder
+      - new-document
+      hippotranslation:id: c9d13459-4d6d-4c9a-ac46-b2fbdfdc532e
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippo:named
+      - hippotranslation:translated
+      - mix:versionable
+      jcr:primaryType: hippostd:folder
+    hippo:name: Service Document
+    hippostd:foldertype:
+    - new-translated-folder
+    - new-document
+    hippotranslation:id: 5dc33b36-a15b-4485-aad0-befa0536e1e6
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippo:named
+    - hippotranslation:translated
+    - mix:versionable
+    jcr:primaryType: hippostd:folder
+  /summary-care-records-scr:
+    /summary-care-records-scr[1]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T10:55:54.147Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T10:59:51.093Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 905f410b-3634-40ee-8dea-c9fa66a24f26
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:service
+      website:seosummary: The SCR is an electronic record of important patient information,
+        created from GP medical records.
+      website:shortsummary: The SCR is an electronic record of important patient information,
+        created from GP medical records.
+      website:summary: The SCR is an electronic record of important patient information,
+        created from GP medical records.
+      website:title: Summary Care Records (SCR)
+    /summary-care-records-scr[2]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T10:55:54.147Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T10:59:54.658Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 905f410b-3634-40ee-8dea-c9fa66a24f26
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:service
+      website:seosummary: The SCR is an electronic record of important patient information,
+        created from GP medical records.
+      website:shortsummary: The SCR is an electronic record of important patient information,
+        created from GP medical records.
+      website:summary: The SCR is an electronic record of important patient information,
+        created from GP medical records.
+      website:title: Summary Care Records (SCR)
+    /summary-care-records-scr[3]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T10:55:54.147Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T10:59:54.658Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-21T10:59:55.839Z
+      hippotranslation:id: 905f410b-3634-40ee-8dea-c9fa66a24f26
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:service
+      website:seosummary: The SCR is an electronic record of important patient information,
+        created from GP medical records.
+      website:shortsummary: The SCR is an electronic record of important patient information,
+        created from GP medical records.
+      website:summary: The SCR is an electronic record of important patient information,
+        created from GP medical records.
+      website:title: Summary Care Records (SCR)
+    hippo:name: Summary Care Records (SCR)
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Services
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: ca1ec125-235f-4465-958e-aca9978b8f84
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder
