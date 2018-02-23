@@ -136,13 +136,13 @@
                     <ul data-uipath="ps.publication.resources">
                         <#list publication.attachments as attachment>
                             <li class="attachment">
-                                <a title="${attachment.text}" href="<@hst.link hippobean=attachment.resource/>">${attachment.text}</a>;
+                                <a title="${attachment.text}" href="<@hst.link hippobean=attachment.resource/>" onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${attachment.resource.filename}');">${attachment.text}</a>;
                                 <span class="fileSize">size: <@formatFileSize bytesCount=attachment.resource.length/></span>
                             </li>
                         </#list>
                         <#list publication.resourceLinks as link>
                             <li>
-                                <a href="${link.linkUrl}">${link.linkText}</a>
+                                <a href="${link.linkUrl}" onClick="logGoogleAnalyticsEvent('Link click','Publication','${link.linkUrl}');">${link.linkText}</a>
                             </li>
                         </#list>
                         <#list publication.datasets as dataset>
@@ -156,7 +156,7 @@
                         <ul data-uipath="ps.publication.related-links">
                             <#list publication.relatedLinks as link>
                             <li>
-                                <a href="${link.linkUrl}">${link.linkText}</a>
+                                <a href="${link.linkUrl}" onClick="logGoogleAnalyticsEvent('Link click','Publication','${link.linkUrl}');">${link.linkText}</a>
                             </li>
                             </#list>
                         </ul>
