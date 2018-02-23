@@ -34,7 +34,7 @@
                                         <div class="attachment media push-half--bottom">
                                             <@resourceImage file=attachment.resource.filename />
                                             <p class="media__body zeta">
-                                                <a href="<@hst.link hippobean=attachment.resource/>" title="${attachment.text}">${attachment.text}</a>
+                                                <a href="<@hst.link hippobean=attachment.resource/>" onClick="logGoogleAnalyticsEvent('Download attachment','CI landing page','${document.title} - ${attachment.resource.filename}');" title="${attachment.text}">${attachment.text}</a>;
                                                 <span class="fileSize">size: <@formatFileSize bytesCount=attachment.resource.length/></span>
                                             </p>
                                         </div>
@@ -47,7 +47,7 @@
                             <ul data-uipath="ps.cilanding.links" class="push-double--bottom">
                                 <#list section.relatedLinks as link>
                                     <@hst.link var="assetLink" hippobean=asset />
-                                    <li><a href="${link.linkUrl}" title="${link.linkText}">${link.linkText}</a></li>
+                                    <li><a href="${link.linkUrl}" onClick="logGoogleAnalyticsEvent('Link click','CI landing page','${document.title} - ${link.linkUrl}');" title="${link.linkText}">${link.linkText}</a></li>
                                 </#list>
                             </ul>
                         </#if>
