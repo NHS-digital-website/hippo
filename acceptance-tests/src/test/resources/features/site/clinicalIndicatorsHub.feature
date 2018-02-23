@@ -19,7 +19,7 @@ Feature: Clinical Indicator hub page and sub sections
         When I click on link "Clinical Commissioning Group Outcomes Indicator Set"
         Then I should see page titled "CCG Outcomes - Indicator Set"
         When I click on link "Browse CCG Outcomes"
-        Then I should see the "CATEGORY" list including:
+        Then I should see the list with title "CATEGORY" including:
             | Clinical Commissioning Groups Outcomes Framework   |
         And I should see 1 search result
 
@@ -28,7 +28,7 @@ Feature: Clinical Indicator hub page and sub sections
         When I click on link "Compendium of Population Health Indicators"
         Then I should see page titled "Compendium of Population Health Indicators"
         When I click on link "Browse Compendium Indicators"
-        Then I should see the "CATEGORY" list including:
+        Then I should see the list with title "CATEGORY" including:
             | Compendium   |
         And I should see 1 search result
 
@@ -37,7 +37,7 @@ Feature: Clinical Indicator hub page and sub sections
         When I click on link "Social Care"
         Then I should see page titled "Social Care"
         When I click on link "Browse Social Care"
-        Then I should see the "CATEGORY" list including:
+        Then I should see the list with title "CATEGORY" including:
             | Adult Social Outcomes Framework (ASCOF)   |
         And I should see 1 search result
 
@@ -46,7 +46,7 @@ Feature: Clinical Indicator hub page and sub sections
         When I click on link "NHS Outcomes Framework"
         Then I should see page titled "NHS Outcomes Framework"
         When I click on link "Browse NHS Outcomes"
-        Then I should see the "CATEGORY" list including:
+        Then I should see the list with title "CATEGORY" including:
             | NHS Outcomes Framework   |
         And I should see 1 search result
 
@@ -55,7 +55,7 @@ Feature: Clinical Indicator hub page and sub sections
         When I click on link "Summary Hospital-level Mortality Indicator (SHMI)"
         Then I should see page titled "Summary Hospital-level Mortality Indicator (SHMI)"
         When I click on link "Browse SHMI"
-        Then I should see the "CATEGORY" list including:
+        Then I should see the list with title "CATEGORY" including:
             | Summary Hospital-level Mortality Indicator (SHMI)   |
         And I should see 1 search result
 

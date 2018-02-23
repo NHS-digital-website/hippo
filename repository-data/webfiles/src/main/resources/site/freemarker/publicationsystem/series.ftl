@@ -20,19 +20,27 @@
                 <@structuredText item=series.summary uipath="ps.series.summary" />
 
                 <#if publications?has_content>
-                    <h3 class="flush push--bottom"><@fmt.message key="headers.latest-version"/></h3>
-                    <ul class="simple-list simple-list--publications" data-uipath="ps.series.publications-list.latest">
-                        <@publicationItem publication=publications?first/>
-                    </ul>
-                </#if>
+                    <#if series.showLatest>
+                        <h3 class="flush push--bottom"><@fmt.message key="headers.latest-version"/></h3>
+                        <ul class="simple-list simple-list--publications" data-uipath="ps.series.publications-list.latest">
+                            <@publicationItem publication=publications?first/>
+                        </ul>
 
-                <#if publications?size gt 1>
-                    <h3 class="flush push--bottom"><@fmt.message key="headers.previous-versions"/></h3>
-                    <ul class="simple-list simple-list--publications" data-uipath="ps.series.publications-list.previous">
-                        <#list publications[1..] as publication>
-                            <@publicationItem publication=publication/>
-                        </#list>
-                    </ul>
+                        <#if publications?size gt 1>
+                            <h3 class="flush push--bottom"><@fmt.message key="headers.previous-versions"/></h3>
+                            <ul class="simple-list simple-list--publications" data-uipath="ps.series.publications-list.previous">
+                                <#list publications[1..] as publication>
+                                    <@publicationItem publication=publication/>
+                                </#list>
+                            </ul>
+                        </#if>
+                    <#else>
+                        <ul class="simple-list simple-list--publications" data-uipath="ps.series.publications-list">
+                            <#list publications as publication>
+                                <@publicationItem publication=publication/>
+                            </#list>
+                        </ul>
+                    </#if>
                 </#if>
             </div>
         </div>

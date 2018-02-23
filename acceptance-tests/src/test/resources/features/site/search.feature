@@ -114,14 +114,14 @@ Feature: Basic search
     Scenario: Searching with no search term provided displays the results page with full, unfiltered result set
         Given I navigate to the "home" page
         When I search for ""
-        Then I should see the "DOCUMENT TYPE" list including:
+        Then I should see the list with title "DOCUMENT TYPE" including:
             | Publication ( ...         |
             | Data set ( ...            |
             | Series / Collection ( ... |
 
     Scenario: Navigating to the search page displays the results page with full, unfiltered result set
         Given I navigate to the "search" page
-        Then I should see the "DOCUMENT TYPE" list including:
+        Then I should see the list with title "DOCUMENT TYPE" including:
             | Publication ( ...         |
             | Data set ( ...            |
             | Series / Collection ( ... |
@@ -145,6 +145,13 @@ Feature: Basic search
         When I click on the "Series / Collection" button
         Then I can click on the "Lorem Ipsum Dolor 2014" link
         And I should see publication page titled "Lorem Ipsum Dolor 2014"
+
+    Scenario: No latest publication links for series without flag
+        Given I navigate to the "search" page
+        When I click on the "Series / Collection" button
+        Then I should not see element with title "Latest 2019"
+        When I click on the "Series without latest" link
+        Then I can click on the "Latest 2019" link
 
     Scenario: Searchable taxonomy
         Given I navigate to the "search" page

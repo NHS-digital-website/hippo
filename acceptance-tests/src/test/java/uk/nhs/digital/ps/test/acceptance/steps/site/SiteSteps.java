@@ -3,7 +3,7 @@ package uk.nhs.digital.ps.test.acceptance.steps.site;
 import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.toList;
 import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.startsWith;
 import static org.junit.Assert.*;
 import static org.slf4j.LoggerFactory.getLogger;
@@ -246,14 +246,19 @@ public class SiteSteps extends AbstractSpringSteps {
     @Then("^I should see the \"([^\"]*)\" list (containing|(?:not )?including):$")
     public void iShouldSeeTheListWith(String title, String qualifier, DataTable listItems) throws Throwable {
         List<String> items = listItems.asList(String.class);
-        listMatchesItems(title, qualifier, items);
+        listMatchesItems(qualifier, items, sitePage.findPageElement(title));
     }
 
-    private void listMatchesItems(String title, String qualifier, List<String> items) {
-        WebElement element = sitePage.findElementWithTitle(title);
-        assertNotNull("I should find page element: " + title, element);
+    @Then("^I should see the list with title \"([^\"]*)\" (containing|(?:not )?including):$")
+    public void iShouldSeeTheListWithTitle(String title, String qualifier, DataTable listItems) throws Throwable {
+        List<String> items = listItems.asList(String.class);
+        listMatchesItems(qualifier, items, sitePage.findElementWithTitle(title));
+    }
 
-        assertThat("List contains items", getElementTextList(element), getMatcherForQualifier(qualifier, items));
+    private void listMatchesItems(String qualifier, List<String> items, WebElement listElement) {
+        assertNotNull("I should find page element", listElement);
+
+        assertThat("List contains items", getElementTextList(listElement), getMatcherForQualifier(qualifier, items));
     }
 
     private Matcher<Iterable<String>> getMatcherForQualifier(String qualifier, List<String> items) {
@@ -261,7 +266,7 @@ public class SiteSteps extends AbstractSpringSteps {
             .map(SiteSteps::getMatcherForText);
 
         switch (qualifier) {
-            case "containing":    return (Matcher)containsInAnyOrder(matcherStream.collect(toList()));
+            case "containing":    return (Matcher)contains(matcherStream.collect(toList()));
             case "including":     return hasItems(matcherStream.toArray(Matcher[]::new));
             case "not including":
                 return not(
@@ -290,7 +295,7 @@ public class SiteSteps extends AbstractSpringSteps {
             taxonomy.getLevel2() + " (1)",
             taxonomy.getLevel3() + " (1)"
         );
-        listMatchesItems("CATEGORY", "containing", expectedTaxonomy);
+        listMatchesItems("containing", expectedTaxonomy, sitePage.findElementWithTitle("CATEGORY"));
     }
 
     @Then("^I can click on the publication$")

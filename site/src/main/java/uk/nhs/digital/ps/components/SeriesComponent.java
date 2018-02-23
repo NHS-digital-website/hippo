@@ -7,7 +7,6 @@ import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -50,13 +49,16 @@ public class SeriesComponent extends EssentialsContentComponent {
 
         try {
             final HstQuery query = requestContext.getQueryManager().createQuery(contentBean, Publication.class, LegacyPublication.class);
-
             query.addOrderByDescending("publicationsystem:NominalDate");
 
             final HstQueryResult hstQueryResult = query.execute();
+            List<Publication> publications = toList(hstQueryResult.getHippoBeans());
 
-            HippoBeanIterator publications = hstQueryResult.getHippoBeans();
-            request.setAttribute("publications", toList(publications));
+            if (!seriesIndexDocument.getShowLatest()) {
+                publications.sort(DocumentTitleComparator.COMPARATOR);
+            }
+
+            request.setAttribute("publications", publications);
 
         } catch (QueryException queryException) {
             log.error("Failed to find publications for series " + seriesIndexDocument.getTitle(), queryException);

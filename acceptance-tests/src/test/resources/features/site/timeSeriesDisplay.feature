@@ -45,3 +45,26 @@ Feature: Display of publications forming a series
             | Latest Version    |
         And I should not see header:
             | Previous Versions |
+
+    Scenario: No version headers for series publications without flag
+        Given I navigate to the "series without latest" page
+        Then I can see "Publication 2017" link
+        And I can see "Latest 2019" link
+        And I should not see headers:
+            | Latest Version    |
+            | Previous Versions |
+
+    Scenario: Ordering of publications by date
+        When I navigate to the "valid publication series" page
+        Then I should see the "Series Latest Publication" list containing:
+            | Lorem Ipsum Dolor 2014 ... |
+        And I should see the "Series Previous Publications" list containing:
+            | Lorem Ipsum Dolor 2013 ... |
+            | Lorem Ipsum Dolor 2012 ... |
+
+    Scenario: Ordering of publications by title
+        When I navigate to the "series without latest" page
+        Then I should see the "Series Publications" list containing:
+            | A publication 2018 ... |
+            | Latest 2019 ...        |
+            | Publication 2017 ...   |

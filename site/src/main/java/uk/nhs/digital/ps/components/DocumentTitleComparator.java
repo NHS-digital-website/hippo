@@ -3,7 +3,7 @@ package uk.nhs.digital.ps.components;
 import static java.lang.Character.isDigit;
 import static java.lang.Integer.parseInt;
 
-import uk.nhs.digital.ps.beans.Dataset;
+import uk.nhs.digital.ps.beans.BaseDocument;
 
 import java.util.Comparator;
 
@@ -11,12 +11,12 @@ import java.util.Comparator;
  * Imported datasets are prefixed with numbers, we want to show them in this order (not strictly alphabetical or numberical):
  * 1.9 -> 1.10 -> 1.11 -> 2 -> bar -> foo
  */
-public class DocumentTitleComparator implements Comparator<Dataset> {
+public class DocumentTitleComparator implements Comparator<BaseDocument> {
 
     public static final DocumentTitleComparator COMPARATOR = new DocumentTitleComparator();
 
     @Override
-    public int compare(Dataset d1, Dataset d2) {
+    public int compare(BaseDocument d1, BaseDocument d2) {
 
         String s1 = d1.getTitle();
         String s2 = d2.getTitle();

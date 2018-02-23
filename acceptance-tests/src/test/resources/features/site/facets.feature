@@ -7,31 +7,31 @@ Feature: Faceted search
     Scenario: All expected facets are displayed
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"
-        Then I should see the "DOCUMENT TYPE" list containing:
+        Then I should see the list with title "DOCUMENT TYPE" containing:
             | Publication (2) |
             | Data set (1)    |
-        And I should see the "CATEGORY" list containing:
+        And I should see the list with title "CATEGORY" containing:
             | Conditions (2)             |
             | Social care (2)            |
             | Accidents and injuries (1) |
             | Bowel cancer (1)           |
             | Cancer (1)                 |
             | Falls (1)                  |
-        And I should see the "INFORMATION TYPE" list containing:
+        And I should see the list with title "INFORMATION TYPE" containing:
             | Experimental statistics (2) |
             | Audit (1)                   |
             | National statistics (1)     |
-        And I should see the "GEOGRAPHICAL COVERAGE" list containing:
+        And I should see the list with title "GEOGRAPHICAL COVERAGE" containing:
             | England (1)       |
             | International (1) |
             | Scotland (1)      |
-        And I should see the "GEOGRAPHICAL GRANULARITY" list containing:
+        And I should see the list with title "GEOGRAPHICAL GRANULARITY" containing:
             | Cancer networks (2)  |
             | Ambulance Trusts (1) |
             | Care Trusts (1)      |
             | Country (1)          |
             | County (1)           |
-        And I should see the "YEAR" list containing:
+        And I should see the list with title "YEAR" containing:
             | 2018 (2) |
             | 2017 (1) |
 
@@ -46,13 +46,13 @@ Feature: Faceted search
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"
         And I click on the "2018" link
-        Then I should see the "MONTH" list containing:
+        Then I should see the list with title "MONTH" containing:
             | January (2) |
-        And I should see the "YEAR" list containing:
+        And I should see the list with title "YEAR" containing:
             | 2018   |
         When I click on the "2018" link
         Then I should not see element with title "MONTH"
-        And I should see the "YEAR" list containing:
+        And I should see the list with title "YEAR" containing:
             | 2018 (2) |
             | 2017 (1) |
 
@@ -63,9 +63,9 @@ Feature: Faceted search
         Then I should see 3 search results
         When I click on the "Publication" link
         Then I should see 2 search results
-        And I should see the "DOCUMENT TYPE" list containing:
+        And I should see the list with title "DOCUMENT TYPE" containing:
             | Publication   |
-        And I should see the "CATEGORY" list containing:
+        And I should see the list with title "CATEGORY" containing:
             | Accidents and injuries (1) |
             | Conditions (1)             |
             | Falls (1)                  |
@@ -84,9 +84,9 @@ Feature: Faceted search
         Then I should see 1 search results
         When I search for "WeightSearchTerm"
         Then I should see 3 search result
-        And I should see the "DOCUMENT TYPE" list containing:
+        And I should see the list with title "DOCUMENT TYPE" containing:
             | Publication   |
-        And I should see the "YEAR" list containing:
+        And I should see the list with title "YEAR" containing:
             | 2018   |
 
 
@@ -98,9 +98,9 @@ Feature: Faceted search
         Then I should see 1 search results
         When I can click on the "Clear all" link
         Then I should see 3 search results
-        And I should see the "CATEGORY" list including:
+        And I should see the list with title "CATEGORY" including:
             | Social care (2) |
-        And I should see the "GEOGRAPHICAL COVERAGE" list including:
+        And I should see the list with title "GEOGRAPHICAL COVERAGE" including:
             | England (1) |
 
 
@@ -111,7 +111,7 @@ Feature: Faceted search
         And I click on the "Cancer networks" link
         And I click on the "Order by date" link
         Then I can see the search description matching "2 results containing 'zzFacets_Testzz', sorted by date."
-        And I should see the "CATEGORY" list including:
+        And I should see the list with title "CATEGORY" including:
             | Conditions   |
-        And I should see the "GEOGRAPHICAL GRANULARITY" list including:
+        And I should see the list with title "GEOGRAPHICAL GRANULARITY" including:
             | Cancer networks   |

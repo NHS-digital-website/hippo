@@ -10,9 +10,11 @@ import java.util.Calendar;
 import java.util.List;
 
 @Node(jcrType = "publicationsystem:basedocument")
-public class BaseDocument extends HippoDocument {
+public abstract class BaseDocument extends HippoDocument {
 
     private static final int WEEKS_TO_CUTOFF = 8;
+
+    public abstract String getTitle();
 
     /**
      * <p>
@@ -61,5 +63,4 @@ public class BaseDocument extends HippoDocument {
             ? RestrictableDate.restrictedDateFrom(nominalPublicationDate)
             : RestrictableDate.fullDateFrom(nominalPublicationDate);
     }
-
 }

@@ -1,0 +1,305 @@
+---
+/content/documents/corporate-website/publication-system/acceptance-tests/series-without-latest:
+  /2017:
+    /2017[1]:
+      common:FacetType: publication
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-22T16:13:23.563Z
+      hippostdpubwf:lastModificationDate: 2018-02-22T16:13:23.564Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 6066d0d2-b4e1-4de8-a84a-e6473a9aca90
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2017-02-22T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: '2017'
+      publicationsystem:Title: Publication 2017
+    /2017[2]:
+      common:FacetType: publication
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-22T16:13:23.563Z
+      hippostdpubwf:lastModificationDate: 2018-02-22T16:16:35.935Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 6066d0d2-b4e1-4de8-a84a-e6473a9aca90
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2017-02-22T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: '2017'
+      publicationsystem:Title: Publication 2017
+    /2017[3]:
+      common:FacetType: publication
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-22T16:13:23.563Z
+      hippostdpubwf:lastModificationDate: 2018-02-22T16:16:35.935Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-22T16:16:58.030Z
+      hippotranslation:id: 6066d0d2-b4e1-4de8-a84a-e6473a9aca90
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2017-02-22T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: '2017'
+      publicationsystem:Title: Publication 2017
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /2018:
+    /2018[1]:
+      common:FacetType: publication
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-22T16:14:03.803Z
+      hippostdpubwf:lastModificationDate: 2018-02-22T16:14:03.803Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 7ffbb872-1f9a-4f74-8d81-ad4582285cf3
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-02-22T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: A publication 2018
+      publicationsystem:Title: A publication 2018
+    /2018[2]:
+      common:FacetType: publication
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-22T16:14:03.803Z
+      hippostdpubwf:lastModificationDate: 2018-02-22T16:16:33.368Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 7ffbb872-1f9a-4f74-8d81-ad4582285cf3
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-02-22T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: A publication 2018
+      publicationsystem:Title: A publication 2018
+    /2018[3]:
+      common:FacetType: publication
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-22T16:14:03.803Z
+      hippostdpubwf:lastModificationDate: 2018-02-22T16:16:33.368Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-22T16:16:58.204Z
+      hippotranslation:id: 7ffbb872-1f9a-4f74-8d81-ad4582285cf3
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-02-22T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: A publication 2018
+      publicationsystem:Title: A publication 2018
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /2019:
+    /2019[1]:
+      common:FacetType: publication
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-22T16:14:58.519Z
+      hippostdpubwf:lastModificationDate: 2018-02-22T16:45:32.455Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 31a04c7e-7e83-45e7-a4a4-9c20a0625a4b
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2019-02-22T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Latest 2019
+      publicationsystem:Title: Latest 2019
+    /2019[2]:
+      common:FacetType: publication
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-22T16:14:58.519Z
+      hippostdpubwf:lastModificationDate: 2018-02-22T16:45:50.040Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 31a04c7e-7e83-45e7-a4a4-9c20a0625a4b
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2019-02-22T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Latest 2019
+      publicationsystem:Title: Latest 2019
+    /2019[3]:
+      common:FacetType: publication
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-22T16:14:58.519Z
+      hippostdpubwf:lastModificationDate: 2018-02-22T16:45:50.040Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-22T16:45:53.508Z
+      hippotranslation:id: 31a04c7e-7e83-45e7-a4a4-9c20a0625a4b
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2019-02-22T00:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: Latest 2019
+      publicationsystem:Title: Latest 2019
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /series-without-latest:
+    /series-without-latest[1]:
+      common:FacetType: series
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-22T16:12:54.318Z
+      hippostdpubwf:lastModificationDate: 2018-02-22T16:12:54.318Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 87fa43a3-fc96-43f7-b6c8-d1f4f1735d5b
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:series
+      publicationsystem:ShowLatest: false
+      publicationsystem:Summary: Series without latest
+      publicationsystem:Title: Series without latest
+    /series-without-latest[2]:
+      common:FacetType: series
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-22T16:12:54.318Z
+      hippostdpubwf:lastModificationDate: 2018-02-22T16:16:37.578Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 87fa43a3-fc96-43f7-b6c8-d1f4f1735d5b
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:series
+      publicationsystem:ShowLatest: false
+      publicationsystem:Summary: Series without latest
+      publicationsystem:Title: Series without latest
+    /series-without-latest[3]:
+      common:FacetType: series
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-22T16:12:54.318Z
+      hippostdpubwf:lastModificationDate: 2018-02-22T16:16:37.578Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-22T16:16:58.118Z
+      hippotranslation:id: 87fa43a3-fc96-43f7-b6c8-d1f4f1735d5b
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:series
+      publicationsystem:ShowLatest: false
+      publicationsystem:Summary: Series without latest
+      publicationsystem:Title: Series without latest
+    hippo:name: Series without latest
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Series without latest
+  hippostd:foldertype:
+  - new-statistical-publications-and-clinical-indicators-folder
+  - new-statistical-publications-and-clinical-indicators-document
+  hippotranslation:id: 31c6b32b-d81f-4f75-aed1-86110ad1250e
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

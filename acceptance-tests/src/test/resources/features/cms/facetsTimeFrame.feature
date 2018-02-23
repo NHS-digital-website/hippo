@@ -11,7 +11,7 @@ Feature: Faceted Time Frame search
         Given I have a published publication with nominal date falling before 0 days from now
         When I navigate to the "home" page
         And I search for the publication
-        Then I should see the "TIMEFRAME" list containing:
+        Then I should see the list with title "TIMEFRAME" containing:
             | today (1)      |
             | this week (1)  |
             | this month (1) |
@@ -24,9 +24,9 @@ Feature: Faceted Time Frame search
         When I navigate to the "home" page
         And I search for the publication
         # Just check it includes 'yesterday' as we don't know if yesterday is this week/month/year or not
-        Then I should see the "TIMEFRAME" list including:
+        Then I should see the list with title "TIMEFRAME" including:
             | yesterday (1) |
-        And I should see the "TIMEFRAME" list not including:
+        And I should see the list with title "TIMEFRAME" not including:
             | today ... |
 
 
@@ -35,7 +35,7 @@ Feature: Faceted Time Frame search
         Given I have a published publication with nominal date falling before -1 years from now
         When I navigate to the "home" page
         And I search for the publication
-        Then I should see the "TIMEFRAME" list containing:
+        Then I should see the list with title "TIMEFRAME" containing:
             | before this year (1) |
 
 
@@ -45,9 +45,9 @@ Feature: Faceted Time Frame search
         When I navigate to the "home" page
         And I search for the publication
         # Don't know if it's this month or year but it's not today or yesterday
-        Then I should see the "TIMEFRAME" list including:
+        Then I should see the list with title "TIMEFRAME" including:
             | this week (1) |
-        And I should see the "TIMEFRAME" list not including:
+        And I should see the list with title "TIMEFRAME" not including:
             | today ...     |
             | yesterday ... |
 
@@ -57,7 +57,7 @@ Feature: Faceted Time Frame search
         Given I have a published publication with nominal date falling this month
         When I navigate to the "home" page
         And I search for the publication
-        Then I should see the "TIMEFRAME" list containing:
+        Then I should see the list with title "TIMEFRAME" containing:
             | this month (1) |
             | this year (1)  |
 
@@ -67,5 +67,5 @@ Feature: Faceted Time Frame search
         Given I have a published publication with nominal date falling this year
         When I navigate to the "home" page
         And I search for the publication
-        Then I should see the "TIMEFRAME" list containing:
+        Then I should see the list with title "TIMEFRAME" containing:
             | this year (1)  |

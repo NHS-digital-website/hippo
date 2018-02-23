@@ -41,6 +41,8 @@ public class TestContentUrls {
         // series page
         add("valid publication series",
             "/publications/valid-publication-series");
+        add("series without latest",
+            "/publications/acceptance-tests/series-without-latest");
 
         // archive page
         add("valid publication archive",
