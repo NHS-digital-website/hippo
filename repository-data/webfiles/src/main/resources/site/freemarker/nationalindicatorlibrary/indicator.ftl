@@ -9,9 +9,7 @@
       <div class="document-header__inner">
         <h1 class="layout-5-6 push--bottom">${indicator.topbar.title}</h1>
 
-        <div class="document-header__divider">&nbsp;</div>
-
-        <h2>Independently assured by IGB</h2>
+        <#if indicator.topbar.assuredStatus><h2 style="text-decoration:underline">Independently assured by IGB</h2></#if>
 
         <div class="layout">
             <div class="layout__item layout-1-2">
@@ -60,7 +58,7 @@
         </section>
 
 
-        <h1><details id="methodology" class="push-double--bottom collapse">
+        <h2><details id="methodology" class="push-double--bottom">
             <summary><span>How this indicator is calculated</span></summary></br>
             <h2><@fmt.message key="headers.methodology"/></h2>
 
@@ -76,7 +74,7 @@
             <h6><strong><@fmt.message key="headers.calculation"/></strong></h6>
             <#outputformat "undefined"><p>${indicator.details.methodology.calculation.content}</p></#outputformat>
 
-        </details></h1>
+        </details></h2>
 
         <section id="caveats" class="push-double--bottom">
             <h2><strong><@fmt.message key="headers.caveats"/></strong></h2>

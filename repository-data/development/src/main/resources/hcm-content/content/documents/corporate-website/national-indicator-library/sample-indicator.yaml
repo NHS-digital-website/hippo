@@ -93,7 +93,7 @@
         nationalindicatorlibrary:contactAuthorName: Hugo
       jcr:primaryType: nationalindicatorlibrary:topbar
       nationalindicatorlibrary:assuranceDate: 2015-12-14T00:00:00Z
-      nationalindicatorlibrary:assuredStatus: false
+      nationalindicatorlibrary:assuredStatus: true
       nationalindicatorlibrary:basedOn: Royal College of Physicians’ Sentinel Stroke
         National Audit Programme (SSNAP)
       nationalindicatorlibrary:publishedBy: Publisher
@@ -208,7 +208,7 @@
         nationalindicatorlibrary:contactAuthorName: Hugo
       jcr:primaryType: nationalindicatorlibrary:topbar
       nationalindicatorlibrary:assuranceDate: 2015-12-14T00:00:00Z
-      nationalindicatorlibrary:assuredStatus: false
+      nationalindicatorlibrary:assuredStatus: true
       nationalindicatorlibrary:basedOn: Royal College of Physicians’ Sentinel Stroke
         National Audit Programme (SSNAP)
       nationalindicatorlibrary:publishedBy: Publisher
@@ -325,7 +325,7 @@
         nationalindicatorlibrary:contactAuthorName: Hugo
       jcr:primaryType: nationalindicatorlibrary:topbar
       nationalindicatorlibrary:assuranceDate: 2015-12-14T00:00:00Z
-      nationalindicatorlibrary:assuredStatus: false
+      nationalindicatorlibrary:assuredStatus: true
       nationalindicatorlibrary:basedOn: Royal College of Physicians’ Sentinel Stroke
         National Audit Programme (SSNAP)
       nationalindicatorlibrary:publishedBy: Publisher
@@ -341,9 +341,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-22T13:14:38.445Z
-    hippostdpubwf:lastModificationDate: 2018-02-26T09:34:50.640Z
+    hippostdpubwf:lastModificationDate: 2018-02-23T16:09:07.787Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-02-26T09:34:52.821Z
+    hippostdpubwf:publicationDate: 2018-02-23T16:09:10.121Z
     hippotranslation:id: 8760f929-796c-426e-bd55-826b9362a5ae
     hippotranslation:locale: en
     jcr:mixinTypes:
