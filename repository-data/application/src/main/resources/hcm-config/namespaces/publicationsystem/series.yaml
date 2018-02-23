@@ -55,9 +55,26 @@ definitions:
             wicket.css:
             - document-summary
             wicket.id: ${cluster.id}.left.item
+          /ShowLatest:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Show most recent publication as Latest
+            field: ShowLatest
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
+          /ShowLatest:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:ShowLatest
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+            jcr:primaryType: hipposysedit:field
           /Summary:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -97,6 +114,7 @@ definitions:
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
           common:FacetType: series
+          common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -106,9 +124,9 @@ definitions:
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes:
-          - hippotranslation:translated
           - mix:referenceable
           jcr:primaryType: publicationsystem:series
+          publicationsystem:ShowLatest: false
           publicationsystem:Summary: ''
           publicationsystem:Title: ''
         jcr:primaryType: hipposysedit:prototypeset

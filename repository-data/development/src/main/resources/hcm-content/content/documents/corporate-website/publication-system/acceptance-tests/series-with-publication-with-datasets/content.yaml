@@ -7,13 +7,14 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-10-16T13:58:50.358Z
-    hippostdpubwf:lastModificationDate: 2017-12-05T09:43:01.070Z
+    hippostdpubwf:lastModificationDate: 2018-02-22T16:08:24.891Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: publicationsystem:series
+    publicationsystem:ShowLatest: true
     publicationsystem:Summary: "Integer suscipit pulvinar lacus non porta. Aenean\
       \ ut tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget, aliquam\
       \ quam. Nullam euismod accumsan nibh at lobortis. Nam non eleifend mauris. Aliquam\
@@ -36,7 +37,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-10-16T13:58:50.358Z
-    hippostdpubwf:lastModificationDate: 2017-12-05T09:43:21.659Z
+    hippostdpubwf:lastModificationDate: 2018-02-22T16:08:29.546Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
@@ -44,6 +45,7 @@
     - mix:referenceable
     - mix:versionable
     jcr:primaryType: publicationsystem:series
+    publicationsystem:ShowLatest: true
     publicationsystem:Summary: "Integer suscipit pulvinar lacus non porta. Aenean\
       \ ut tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget, aliquam\
       \ quam. Nullam euismod accumsan nibh at lobortis. Nam non eleifend mauris. Aliquam\
@@ -66,14 +68,15 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-10-16T13:58:50.358Z
-    hippostdpubwf:lastModificationDate: 2017-12-05T09:43:21.659Z
+    hippostdpubwf:lastModificationDate: 2018-02-22T16:08:29.546Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2017-12-05T09:43:26.168Z
+    hippostdpubwf:publicationDate: 2018-02-22T16:08:45.805Z
     hippotranslation:id: 00000000-0000-0000-0000-000000000000
     hippotranslation:locale: en
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: publicationsystem:series
+    publicationsystem:ShowLatest: true
     publicationsystem:Summary: "Integer suscipit pulvinar lacus non porta. Aenean\
       \ ut tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget, aliquam\
       \ quam. Nullam euismod accumsan nibh at lobortis. Nam non eleifend mauris. Aliquam\

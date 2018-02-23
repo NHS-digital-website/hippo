@@ -20,6 +20,12 @@ public class SeriesPageElements implements PageElements {
             By.xpath("//*[" + getDataUiPathXpath("granularity") + "]"));
         put("Series Geographic Coverage",
             By.xpath("//*[" + getDataUiPathXpath("geographic-coverage") + "]"));
+        put("Series Latest Publication",
+            By.xpath("//*[" + getDataUiPathXpath("publications-list.latest") + "]"));
+        put("Series Previous Publications",
+            By.xpath("//*[" + getDataUiPathXpath("publications-list.previous") + "]"));
+        put("Series Publications",
+            By.xpath("//*[" + getDataUiPathXpath("publications-list") + "]"));
     }};
 
     @Override

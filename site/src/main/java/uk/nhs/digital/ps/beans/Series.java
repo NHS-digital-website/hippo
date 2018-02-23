@@ -27,7 +27,16 @@ public class Series extends BaseDocument {
         return new StructuredText(getProperty("publicationsystem:Summary"));
     }
 
+    @HippoEssentialsGenerated(internalName = "publicationsystem:ShowLatest")
+    public boolean getShowLatest() {
+        return getProperty("publicationsystem:ShowLatest", false);
+    }
+
     public Publication getLatestPublication() throws HstComponentException, QueryException {
+        if (!getShowLatest()) {
+            return null;
+        }
+
         HippoBean folder = getCanonicalBean().getParentBean();
 
         HippoBeanIterator hippoBeans = HstQueryBuilder.create(folder)
