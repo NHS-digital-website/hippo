@@ -16,9 +16,7 @@
 
 package org.hippoecm.frontend.plugins.cms.admin.updater
 
-import org.apache.commons.lang.ArrayUtils
 import org.apache.commons.lang.StringUtils
-import org.hippoecm.repository.util.JcrUtils
 import org.onehippo.repository.update.BaseNodeUpdateVisitor
 
 import javax.jcr.Node
@@ -27,29 +25,17 @@ class CleaningDocbasesHavingPathsUpdateVisitor extends BaseNodeUpdateVisitor {
 
     boolean doUpdate(Node node) {
         log.debug "Visiting ${node.path}"
-        def propsUpdated = false
+        def docbasePath = node.getProperty("hippo:docbase").getString()
         def docbase
 
-        parametersMap.docbasePropNames.eachWithIndex { docbasePropName, i ->
-            def valuesUpdated = false
-            String [] docbaseValues = JcrUtils.getMultipleStringProperty(node, docbasePropName, ArrayUtils.EMPTY_STRING_ARRAY)
-
-            docbaseValues.eachWithIndex { docbaseValue, j ->
-                if (StringUtils.startsWith(docbaseValue, "/") && node.session.nodeExists(docbaseValue)) {
-                    docbase = node.session.getNode(docbaseValue).getIdentifier()
-                    docbaseValues[j] = docbase
-                    log.info "Reset ${node.path}/${docbasePropName} value at position ${i} to '${docbase}' from '${docbaseValue}'."
-                    valuesUpdated = true
-                }
-            }
-
-            if (valuesUpdated) {
-                node.setProperty(docbasePropName, docbaseValues)
-                propsUpdated = true
-            }
+        if (StringUtils.startsWith(docbasePath, "/") && node.session.nodeExists(docbasePath)) {
+            docbase = node.session.getNode(docbasePath).getIdentifier()
+            node.setProperty("hippo:docbase", docbase)
+            log.info "Reset ${node.path}/hippo:docbase to '${docbase}' from '${docbasePath}'."
+            return true
         }
 
-        return propsUpdated
+        return false
 
     }
 

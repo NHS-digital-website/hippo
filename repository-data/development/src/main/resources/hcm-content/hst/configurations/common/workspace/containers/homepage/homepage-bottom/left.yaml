@@ -1,0 +1,12 @@
+---
+/hst:hst/hst:configurations/common/hst:workspace/hst:containers/homepage/homepage-bottom/left/menu:
+  hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
+  hst:iconpath: images/catalog/component-products-30x30.png
+  hst:label: Menu
+  hst:parameternames:
+  - menu
+  hst:parametervalues:
+  - about
+  hst:template: menu
+  hst:xtype: HST.Item
+  jcr:primaryType: hst:containeritemcomponent

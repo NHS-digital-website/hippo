@@ -1,0 +1,5 @@
+---
+/hst:hst/hst:configurations/common/hst:workspace/hst:sitemenus/about/Our leadership and governance:
+  .meta:order-before: Careers
+  hst:repobased: false
+  jcr:primaryType: hst:sitemenuitem

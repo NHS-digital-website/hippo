@@ -1,0 +1,24 @@
+---
+/hst:hst/hst:configurations/common/hst:workspace/hst:containers/homepage/homepage-center/list:
+  hst:componentclassname: uk.nhs.digital.common.components.PublicationListComponent
+  hst:iconpath: images/catalog/component-products-30x30.png
+  hst:label: Publication List
+  hst:parameternames:
+  - path
+  - documentTypes
+  - sortOrder
+  - sortField
+  - pageSize
+  - showPagination
+  - includeSubtypes
+  hst:parametervalues:
+  - publication-system
+  - publicationsystem:publication
+  - desc
+  - ''
+  - '3'
+  - 'off'
+  - 'on'
+  hst:template: publications-list
+  hst:xtype: HST.Item
+  jcr:primaryType: hst:containeritemcomponent

@@ -1,0 +1,4 @@
+---
+/hst:hst/hst:configurations/common/hst:workspace/hst:sitemenus/about/About us:
+  hst:repobased: false
+  jcr:primaryType: hst:sitemenuitem

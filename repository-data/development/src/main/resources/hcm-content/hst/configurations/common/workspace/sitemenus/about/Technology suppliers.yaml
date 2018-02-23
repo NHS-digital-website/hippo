@@ -1,0 +1,5 @@
+---
+/hst:hst/hst:configurations/common/hst:workspace/hst:sitemenus/about/Technology suppliers:
+  .meta:order-before: Careers
+  hst:repobased: false
+  jcr:primaryType: hst:sitemenuitem

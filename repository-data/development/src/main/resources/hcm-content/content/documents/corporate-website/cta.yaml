@@ -1,0 +1,295 @@
+---
+/content/documents/corporate-website/cta:
+  /cta---left:
+    /cta---left[1]:
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:internal:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T10:53:03.691Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T10:53:03.692Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: a370c8b0-3571-43b5-80ed-3160fe029fdf
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:calltoaction
+      website:Label: See all data and publications
+      website:content: NHS Digital has responsibility for standardising, collecting
+        and publishing data and information from across the health and social care
+        system in England.
+      website:external: ''
+      website:title: Find data and information
+    /cta---left[2]:
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:internal:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T10:53:03.691Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T10:53:29.643Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: a370c8b0-3571-43b5-80ed-3160fe029fdf
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:calltoaction
+      website:Label: See all data and publications
+      website:content: NHS Digital has responsibility for standardising, collecting
+        and publishing data and information from across the health and social care
+        system in England.
+      website:external: ''
+      website:title: Find data and information
+    /cta---left[3]:
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:internal:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T10:53:03.691Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T10:53:29.643Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-21T10:53:31.827Z
+      hippotranslation:id: a370c8b0-3571-43b5-80ed-3160fe029fdf
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:calltoaction
+      website:Label: See all data and publications
+      website:content: NHS Digital has responsibility for standardising, collecting
+        and publishing data and information from across the health and social care
+        system in England.
+      website:external: ''
+      website:title: Find data and information
+    hippo:name: CTA - Left
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /cta---right:
+    /cta---right[1]:
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:internal:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T10:53:56.095Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T10:53:56.095Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 08229111-fc90-4952-9349-72d480a93166
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:calltoaction
+      website:Label: View Indicator Library
+      website:content: NHS Digital publishes over a thousand indicators covering quality
+        through to population health and outcomes of treatments.
+      website:external: ''
+      website:title: Indicator library
+    /cta---right[2]:
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:internal:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T10:53:56.095Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T10:54:07.029Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 08229111-fc90-4952-9349-72d480a93166
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:calltoaction
+      website:Label: View Indicator Library
+      website:content: NHS Digital publishes over a thousand indicators covering quality
+        through to population health and outcomes of treatments.
+      website:external: ''
+      website:title: Indicator library
+    /cta---right[3]:
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:internal:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T10:53:56.095Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T10:54:07.029Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-21T10:54:08.243Z
+      hippotranslation:id: 08229111-fc90-4952-9349-72d480a93166
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:calltoaction
+      website:Label: View Indicator Library
+      website:content: NHS Digital publishes over a thousand indicators covering quality
+        through to population health and outcomes of treatments.
+      website:external: ''
+      website:title: Indicator library
+    hippo:name: CTA - Right
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /how-we-look-after-your-information:
+    /how-we-look-after-your-information[1]:
+      /website:image:
+        hippo:docbase: 1c4b9db1-4df8-4bed-a76b-a4e151d740e9
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:internal:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T11:00:51.425Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T11:00:51.425Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 9fc42d22-b7bf-436e-959d-d61d969129d4
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:calltoaction
+      website:Label: Find out how we look after your information
+      website:content:
+        type: string
+        value: !!binary |-
+          V2UgdGFrZSBvdXIgcmVzcG9uc2liaWxpdHkgZm9yIGxvb2tpbmcgYWZ0ZXIgY2FyZSADaW5mb3JtYXRpb24gdmVyeSBzZXJpb3VzbHkuIFdlIGZvbGxvdyB0aGUgbGVnYWwgcnVsZXMsIANndWlkYW5jZSBhbmQgcHJhY3RpY2VzIGtub3duIGFzIEluZm9ybWF0aW9uIEdvdmVybmFuY2UgKElHKSAgZm9yIGJvdGggdGhlIGNvbGxlY3Rpb25zIHdlIG1ha2UgYW5kIHRoZSBJVCBzeXN0ZW1zIHdlIHByb3ZpZGUgYW5kIHJ1bi4=
+      website:external: ''
+      website:title: How we look after your information
+    /how-we-look-after-your-information[2]:
+      /website:image:
+        hippo:docbase: 1c4b9db1-4df8-4bed-a76b-a4e151d740e9
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:internal:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T11:00:51.425Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T11:01:31.379Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 9fc42d22-b7bf-436e-959d-d61d969129d4
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:calltoaction
+      website:Label: Find out how we look after your information
+      website:content:
+        type: string
+        value: !!binary |-
+          V2UgdGFrZSBvdXIgcmVzcG9uc2liaWxpdHkgZm9yIGxvb2tpbmcgYWZ0ZXIgY2FyZSADaW5mb3JtYXRpb24gdmVyeSBzZXJpb3VzbHkuIFdlIGZvbGxvdyB0aGUgbGVnYWwgcnVsZXMsIANndWlkYW5jZSBhbmQgcHJhY3RpY2VzIGtub3duIGFzIEluZm9ybWF0aW9uIEdvdmVybmFuY2UgKElHKSAgZm9yIGJvdGggdGhlIGNvbGxlY3Rpb25zIHdlIG1ha2UgYW5kIHRoZSBJVCBzeXN0ZW1zIHdlIHByb3ZpZGUgYW5kIHJ1bi4=
+      website:external: ''
+      website:title: How we look after your information
+    /how-we-look-after-your-information[3]:
+      /website:image:
+        hippo:docbase: 1c4b9db1-4df8-4bed-a76b-a4e151d740e9
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:internal:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        jcr:primaryType: hippo:mirror
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-21T11:00:51.425Z
+      hippostdpubwf:lastModificationDate: 2018-02-21T11:01:31.379Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-21T11:01:33.085Z
+      hippotranslation:id: 9fc42d22-b7bf-436e-959d-d61d969129d4
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:calltoaction
+      website:Label: Find out how we look after your information
+      website:content:
+        type: string
+        value: !!binary |-
+          V2UgdGFrZSBvdXIgcmVzcG9uc2liaWxpdHkgZm9yIGxvb2tpbmcgYWZ0ZXIgY2FyZSADaW5mb3JtYXRpb24gdmVyeSBzZXJpb3VzbHkuIFdlIGZvbGxvdyB0aGUgbGVnYWwgcnVsZXMsIANndWlkYW5jZSBhbmQgcHJhY3RpY2VzIGtub3duIGFzIEluZm9ybWF0aW9uIEdvdmVybmFuY2UgKElHKSAgZm9yIGJvdGggdGhlIGNvbGxlY3Rpb25zIHdlIG1ha2UgYW5kIHRoZSBJVCBzeXN0ZW1zIHdlIHByb3ZpZGUgYW5kIHJ1bi4=
+      website:external: ''
+      website:title: How we look after your information
+    hippo:name: How we look after your information
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: CTA
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: ae678c18-3fd8-459f-adda-cf75932cbfcb
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder
