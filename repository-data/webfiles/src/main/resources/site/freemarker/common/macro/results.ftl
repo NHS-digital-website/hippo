@@ -24,12 +24,6 @@
 <#macro publication item>
     <div class="push-double--bottom" data-uipath="ps.search-results.result">
         <h3 class="flush zeta" data-uipath="ps.search-results.result.type" style="font-weight:bold"><@fmt.message key="labels.publication"/></h3>
-        <p class="flush">
-            <a href="<@hst.link hippobean=item.selfLinkBean/>" title="${item.title}" data-uipath="ps.search-results.result.title">
-                ${item.title}
-            </a>
-        </p>
-        <p class="flush zeta" data-uipath="ps.search-results.result.date"><@formatRestrictableDate value=item.nominalPublicationDate/></p>
         <#if item.informationType?has_content>
             <#list item.informationType as type>
                 <#if type == "National statistics">
@@ -38,6 +32,12 @@
                 </#if>
             </#list>
         </#if>
+        <p class="flush">
+            <a href="<@hst.link hippobean=item.selfLinkBean/>" title="${item.title}" data-uipath="ps.search-results.result.title">
+                ${item.title}
+            </a>
+        </p>
+        <p class="flush zeta" data-uipath="ps.search-results.result.date"><@formatRestrictableDate value=item.nominalPublicationDate/></p>
         <p class="flush" data-uipath="ps.search-results.result.summary"><@truncate text=item.summary.firstParagraph size="300"/></p>
     </div>
 </#macro>
