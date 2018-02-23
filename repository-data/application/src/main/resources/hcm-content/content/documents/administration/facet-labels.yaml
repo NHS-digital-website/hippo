@@ -5,7 +5,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-01-17T15:49:40.466Z
-    hippostdpubwf:lastModificationDate: 2018-01-17T13:33:44.229Z
+    hippostdpubwf:lastModificationDate: 2018-02-22T14:13:54.865Z
     hippostdpubwf:lastModifiedBy: admin
     jcr:mixinTypes:
     - mix:referenceable
@@ -62,7 +62,7 @@
     hippostdpubwf:creationDate: 2018-01-17T15:49:40.466Z
     hippostdpubwf:lastModificationDate: 2018-01-17T13:34:05.375Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-01-17T13:34:08.188Z
+    hippostdpubwf:publicationDate: 2018-02-22T14:14:02.953Z
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: resourcebundle:resourcebundle
@@ -82,7 +82,7 @@
     - Data set
     - Series / Collection
     - Indicator
-  hippo:name: Labels
+  hippo:name: Facet Labels
   jcr:mixinTypes:
   - hippo:named
   - mix:referenceable

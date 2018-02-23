@@ -1,5 +1,9 @@
 package uk.nhs.digital.ps.test.acceptance.pages.site.ps;
 
+import static java.util.Arrays.asList;
+import static java.util.stream.Collectors.toList;
+import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.*;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
@@ -11,10 +15,6 @@ import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
 import java.util.Collection;
 import java.util.List;
-
-import static java.util.Arrays.asList;
-import static java.util.stream.Collectors.toList;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.*;
 
 public class PublicationPage extends AbstractSitePage {
 
@@ -86,6 +86,7 @@ public class PublicationPage extends AbstractSitePage {
             INFORMATION_TYPES,
             KEY_FACTS,
             RESOURCES,
+            DATA_SETS,
             ADMINISTRATIVE_SOURCES
         );
 

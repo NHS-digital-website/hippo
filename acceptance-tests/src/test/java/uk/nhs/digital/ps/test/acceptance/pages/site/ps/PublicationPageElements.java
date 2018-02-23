@@ -1,5 +1,7 @@
 package uk.nhs.digital.ps.test.acceptance.pages.site.ps;
 
+import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.*;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,8 +10,6 @@ import uk.nhs.digital.ps.test.acceptance.pages.site.PageElements;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.*;
 
 public class PublicationPageElements implements PageElements {
 
@@ -34,6 +34,8 @@ public class PublicationPageElements implements PageElements {
             By.xpath("//*[" + getDataUiPathXpath("key-facts") + "]"));
         put(RESOURCES,
             By.xpath("//*[" + getDataUiPathXpath("resources") + "]"));
+        put(DATA_SETS,
+            By.xpath("//*[" + getDataUiPathXpath("datasets") + "]"));
         put(RELATED_LINKS,
             By.xpath("//*[" + getDataUiPathXpath("related-links") + "]"));
         put(ADMINISTRATIVE_SOURCES,
@@ -79,6 +81,7 @@ public class PublicationPageElements implements PageElements {
         String INFORMATION_TYPES = "Publication Information Types";
         String KEY_FACTS = "Publication Key Facts";
         String RESOURCES = "Publication Resources";
+        String DATA_SETS = "Publication Data Sets";
         String RELATED_LINKS = "Publication Related Links";
         String ADMINISTRATIVE_SOURCES = "Publication Administrative Sources";
     }
