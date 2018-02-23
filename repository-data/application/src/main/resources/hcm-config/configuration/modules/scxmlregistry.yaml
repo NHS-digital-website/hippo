@@ -1,0 +1,7 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/scxmlregistry/hippo:moduleconfig/hipposcxml:definitions/documentworkflow:
+      hipposcxml:source:
+        resource: /configuration/modules/documentworkflow.scxml
+        type: string
