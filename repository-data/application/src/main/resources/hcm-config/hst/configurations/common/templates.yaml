@@ -35,6 +35,9 @@ definitions:
       /hub-article:
         hst:renderpath: webfile:/freemarker/common/hub-article.ftl
         jcr:primaryType: hst:template
+      /list-article:
+        hst:renderpath: webfile:/freemarker/common/list-article.ftl
+        jcr:primaryType: hst:template
       /menu:
         hst:renderpath: webfile:/freemarker/common/menu.ftl
         jcr:primaryType: hst:template

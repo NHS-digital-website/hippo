@@ -41,6 +41,22 @@
     }
 }
 
+.cta-list--sections {
+    .cta {
+        margin-top: round($gutter * 2);
+        padding-bottom: round($gutter * 1.5);
+        border-bottom: 1px solid $grey-4;
+
+        &:last-child {
+            border: none;
+        }
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}
+
 .debug {
     .cta-list {
         .cta {
