@@ -53,4 +53,9 @@ public class Details extends HippoCompound {
     public HippoHtml getInterpretationGuidelines() {
         return getHippoHtml("nationalindicatorlibrary:interpretationGuidelines");
     }
+
+    @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:briefDescription")
+    public String getBriefDescription() {
+        return getProperty("nationalindicatorlibrary:briefDescription");
+    }
 }

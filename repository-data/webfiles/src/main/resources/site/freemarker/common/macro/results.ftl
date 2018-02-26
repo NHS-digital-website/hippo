@@ -109,5 +109,6 @@
         </p>
         <p class="flush zeta" data-uipath="ps.search-results.result.date"><@fmt.message key="headers.assuranceDate"/> ${item.topbar.assuranceDate.time?string[dateFormat]}</p>
         <#if item.topbar.publishedBy?has_content><p class="flush zeta" data-uipath="ps.search-results.result.date"><@fmt.message key="headers.publishedBy"/>: ${item.topbar.publishedBy}</p></#if>
+        <p class="flush" data-uipath="nil.search-results.result.brief-description">${item.details.briefDescription}</p>        
     </div>
 </#macro>
