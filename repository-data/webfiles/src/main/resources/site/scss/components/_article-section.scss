@@ -44,6 +44,12 @@
     padding-bottom: 0;
 }
 
+.article-section--letter-group {
+    @extend .article-section--no-bottom-padding;
+
+    margin-bottom: $default-spacing-unit * 2;
+}
+
 .article-section--last-one {
     @extend .article-section--no-border;
     @extend .article-section--no-bottom-padding;
