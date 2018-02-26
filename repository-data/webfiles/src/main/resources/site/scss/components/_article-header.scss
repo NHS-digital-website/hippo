@@ -1,9 +1,23 @@
 /* Article header */
 
 .article-header {
-  margin-bottom: 40px;
+    margin-bottom: 40px;
 }
 
 .article-header--secondary {
     margin-bottom: 20px;
+}
+
+.article-header--tertiary {
+    margin-bottom: 10px;
+}
+
+.sticky-top {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+.article-header__title {
+    background: $col-septenary;
 }
