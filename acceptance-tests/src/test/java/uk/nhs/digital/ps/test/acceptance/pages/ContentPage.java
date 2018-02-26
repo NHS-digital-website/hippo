@@ -197,6 +197,13 @@ public class ContentPage extends AbstractCmsPage {
         waitUntilPublished();
     }
 
+    public void copyDocument(){
+        findDocumentMenu().click();
+        findCopy().click();
+
+        clickButtonOnModalDialog("OK");
+    }
+
     public void deleteDocument() {
         findDocumentMenu().click();
         findDelete().click();
@@ -372,6 +379,11 @@ public class ContentPage extends AbstractCmsPage {
     private WebElement findDelete() {
         return helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Delete...']"));
+    }
+
+    private WebElement findCopy() {
+        return helper.findElement(
+            By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Copy...']"));
     }
 
     private WebElement findEdit() {

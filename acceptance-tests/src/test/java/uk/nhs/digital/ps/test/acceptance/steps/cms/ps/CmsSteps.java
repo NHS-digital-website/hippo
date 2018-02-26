@@ -503,4 +503,11 @@ public class CmsSteps extends AbstractSpringSteps {
         boolean expectedPresent = isEmpty(not);
         assertThat("Folder presence is as expected", contentPage.navigateToFolder(folders) != null, is(expectedPresent));
     }
+
+    @Then("^I can copy the publication$")
+    public void iCanCopyThePublication() throws Throwable {
+        contentPage.navigateToDocument(testDataRepo.getCurrentPublication().getName());
+        contentPage.copyDocument();
+
+    }
 }

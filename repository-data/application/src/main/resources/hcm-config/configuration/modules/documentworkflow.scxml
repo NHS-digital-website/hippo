@@ -65,7 +65,7 @@
 
     <parallel id="handle">
 
-        <!-- the atomic status state is used to report several statuses and info feedback to the invoking workflow -->
+        <!--  -->
         <state id="status">
             <onentry>
                 <hippo:feedback key="status" value="editable"/>
