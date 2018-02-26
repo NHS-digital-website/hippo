@@ -12,10 +12,19 @@
 [website:calltoaction] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:externallink] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:general] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
 [website:hub] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:internallink] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:componentlist] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
 [website:section] > hippo:compound, hippostd:relaxed

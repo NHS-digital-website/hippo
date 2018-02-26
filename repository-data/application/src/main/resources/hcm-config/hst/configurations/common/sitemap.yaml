@@ -66,6 +66,18 @@ definitions:
         hst:componentconfigurationid: hst:pages/hub
         hst:relativecontentpath: hubs
         jcr:primaryType: hst:sitemapitem
+      /lists:
+        /_any_:
+          hst:componentconfigurationid: hst:pages/404
+          hst:componentconfigurationmappingnames:
+          - website:componentlist
+          hst:componentconfigurationmappingvalues:
+          - hst:pages/componentlist
+          hst:relativecontentpath: ${parent}/${1}
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/componentlist
+        hst:relativecontentpath: lists
+        jcr:primaryType: hst:sitemapitem
       /root:
         hst:componentconfigurationid: hst:pages/cihub
         hst:relativecontentpath: publication-system/ci-hub/main-sections
