@@ -113,9 +113,29 @@ definitions:
             mixin: hippotaxonomy:classifiable
             plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
             wicket.id: ${cluster.id}.right.item
+          /briefDescription:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Brief Description for search results
+            field: briefDescription
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
+          /briefDescription:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:briefDescription
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
           /caveats:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -228,6 +248,7 @@ definitions:
           jcr:mixinTypes:
           - hippotaxonomy:classifiable
           jcr:primaryType: nationalindicatorlibrary:details
+          nationalindicatorlibrary:briefDescription: ''
           nationalindicatorlibrary:iapCode: ''
           nationalindicatorlibrary:indicatorSet: ''
           nationalindicatorlibrary:rating: ''

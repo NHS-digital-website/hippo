@@ -82,6 +82,7 @@
       jcr:mixinTypes:
       - hippotaxonomy:classifiable
       jcr:primaryType: nationalindicatorlibrary:details
+      nationalindicatorlibrary:briefDescription: Brief Search description
       nationalindicatorlibrary:iapCode: IAP923845
       nationalindicatorlibrary:indicatorSet: CCG OIS
       nationalindicatorlibrary:rating: 5/5
@@ -107,7 +108,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-22T13:14:38.445Z
-    hippostdpubwf:lastModificationDate: 2018-02-22T13:55:08.202Z
+    hippostdpubwf:lastModificationDate: 2018-02-26T09:34:34.912Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 8760f929-796c-426e-bd55-826b9362a5ae
     hippotranslation:locale: en
@@ -196,6 +197,7 @@
       jcr:mixinTypes:
       - hippotaxonomy:classifiable
       jcr:primaryType: nationalindicatorlibrary:details
+      nationalindicatorlibrary:briefDescription: Brief Search description
       nationalindicatorlibrary:iapCode: IAP923845
       nationalindicatorlibrary:indicatorSet: CCG OIS
       nationalindicatorlibrary:rating: 5/5
@@ -222,7 +224,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-22T13:14:38.445Z
-    hippostdpubwf:lastModificationDate: 2018-02-22T13:55:17.849Z
+    hippostdpubwf:lastModificationDate: 2018-02-26T09:34:50.640Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 8760f929-796c-426e-bd55-826b9362a5ae
     hippotranslation:locale: en
@@ -312,6 +314,7 @@
       jcr:mixinTypes:
       - hippotaxonomy:classifiable
       jcr:primaryType: nationalindicatorlibrary:details
+      nationalindicatorlibrary:briefDescription: Brief Search description
       nationalindicatorlibrary:iapCode: IAP923845
       nationalindicatorlibrary:indicatorSet: CCG OIS
       nationalindicatorlibrary:rating: 5/5
@@ -338,9 +341,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-22T13:14:38.445Z
-    hippostdpubwf:lastModificationDate: 2018-02-22T13:55:17.849Z
+    hippostdpubwf:lastModificationDate: 2018-02-26T09:34:50.640Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-02-22T13:55:20.172Z
+    hippostdpubwf:publicationDate: 2018-02-26T09:34:52.821Z
     hippotranslation:id: 8760f929-796c-426e-bd55-826b9362a5ae
     hippotranslation:locale: en
     jcr:mixinTypes:
