@@ -35,7 +35,7 @@ html {
   font-family: $nhs-font-stack;
   line-height: $base-line-height;
 
-  @include core-font(20);
+  @include core-font(18);
 }
 
 body {
@@ -84,7 +84,7 @@ ol,
 dl,
 blockquote,
 table {
-  @include core-font(20);
+  @include core-font(18);
 }
 
 h1,

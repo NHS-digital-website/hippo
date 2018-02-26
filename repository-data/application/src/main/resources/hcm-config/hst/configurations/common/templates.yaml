@@ -11,9 +11,6 @@ definitions:
       /app-layout:
         hst:renderpath: webfile:/freemarker/common/app-layout.ftl
         jcr:primaryType: hst:template
-      /article:
-        hst:renderpath: webfile:/freemarker/common/article-layout.ftl
-        jcr:primaryType: hst:template
       /cihub:
         hst:renderpath: webfile:/freemarker/publicationsystem/cihub.ftl
         jcr:primaryType: hst:template
@@ -29,8 +26,11 @@ definitions:
       /footer:
         hst:renderpath: webfile:/freemarker/common/base-footer.ftl
         jcr:primaryType: hst:template
+      /general-article:
+        hst:renderpath: webfile:/freemarker/common/general-article.ftl
+        jcr:primaryType: hst:template
       /homeland:
-        hst:renderpath: webfile:/freemarker/common/homeland-layout.ftl
+        hst:renderpath: webfile:/freemarker/common/homeland.ftl
         jcr:primaryType: hst:template
       /menu:
         hst:renderpath: webfile:/freemarker/common/menu.ftl

@@ -33,7 +33,7 @@ $type-settings: (
     ),
     small: (
       font-size: 16px,
-      line-height: $baseline-grid-unit * 6, // 24px
+      line-height: 26px,
     ),
     print: (
       font-size: 10pt,
@@ -42,7 +42,7 @@ $type-settings: (
   -2: (
     large: (
       font-size: 18px,
-      line-height: 28px,
+      line-height: 30px,
     ),
     medium: (
       font-size: 16px,
@@ -50,7 +50,7 @@ $type-settings: (
     ),
     small: (
       font-size: 16px,
-      line-height: $baseline-grid-unit * 6, // 24px
+      line-height: 26px,
     ),
     print: (
       font-size: 10pt,

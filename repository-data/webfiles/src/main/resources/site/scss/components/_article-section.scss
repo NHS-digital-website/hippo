@@ -25,6 +25,7 @@
 
     &:last-child {
         margin-bottom: 0;
+        border-bottom: none;
     }
 
     @include media(desktop) {
@@ -36,12 +37,9 @@
     border: none;
 }
 
-.article-section--summary {
+.article-section--summary:not(.article-section--summary-with-border) {
     padding-bottom: 0;
-
-    & > * {
-        @include bold-font(24);
-    }
+    border: none;
 
     h2 {
         @include bold-font(36);
@@ -73,12 +71,12 @@
     }
 }
 
-.article-section__title {
-    position: relative;
-}
-
 .article-section--padded {
     padding-top: $baseline-grid-unit * 12;
+}
+
+.article-section__title {
+    position: relative;
 }
 
 .article-section__header {
@@ -175,6 +173,10 @@
 
 
 .article-section--data-and-information {
+    .article-section__contents {
+        margin-top: 20px;
+    }
+
     .cta {
         margin-bottom: 40px;
     }

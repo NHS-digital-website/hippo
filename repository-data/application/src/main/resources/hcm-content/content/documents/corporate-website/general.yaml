@@ -1,0 +1,13 @@
+---
+/content/documents/corporate-website/general:
+  hippo:name: General
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: bafe22a0-e8af-4f99-a344-1ffd5e0662d4
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

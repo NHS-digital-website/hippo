@@ -111,13 +111,15 @@ You can run the formatter manually by running `make format-yaml`.
 	cd repository-data/webfiles
 	mvn com.github.warmuuh:libsass-maven-plugin:0.2.8-libsass_3.4.4:watch
 
-**To provision and Run the local dev server without autoexport**
+**Run the local dev server (will throw a lot of Splunk errors)**
 
-	make serve.noexport
+	mvn clean verify && mvn -P cargo.run
 
-**To provision and Run the local dev server with autoexport (default)**
+**Run the local dev server with quiet Splunk**
+    
+    mvn -P cargo.run -D splunk.hec.name=localhost -D splunk.url=http://localhost -D splunk.token=
 
-	make serve
+**Both the CMS and the CMS console has their own AutoExport switch, which can be changed separately.**
 
 #### Auto export - on/off
 
@@ -139,50 +141,34 @@ In order to be able to test your localhost from a VM (such as VirtualBox) you'll
 
 ## Valtech branching strategy
 
-Valtech follows RPS's `rebase` strategy - working off a `DW-0000-master` branch, which is kept in line with `master` daily, and all feature branches are created off `DW-0000-master`. Once a feature branch is complete, we squash all commits on it into 1 meaningful commit and merge it into `DW-0000-master` - 1 at a time.
+Valtech follows RPS's `rebase` strategy - working off `master` branch. Once a feature branch is complete, we squash all commits on it into 1 meaningful commit and make a PR.
 
-### Step 0 - Checkout `DW-0000-master` branch
+### Step 0 - Checkout `master` branch
 ```
-git checkout DW-0000-master
-```
-
-### Step 1 - Getting `DW-0000-master` up to date with `master` before creating a new feature branch
-```
-git pull --rebase origin DW-0000-master // pull latest updates of the branch from origin
-git pull --rebase origin master // to make sure it's up to date locally
-git push origin DW-0000-master // if it's out of sync with origin
+git checkout master
+git pull --rebase origin master
 ```
 
-### Step 2 - Create new feature branch
+### Step 1 - Create new feature branch
 ```
-git branch DW-0000-my-feature
-git checkout DW-0000-my-feature
+git branch DW-XX-my-feature
+git checkout DW-XX-my-feature
 ```
 
-**Make changes, create new commits...**
+**Make changes, create new commits, work work work...**
 
-### Step 3 - Getting feature branch up to date with `DW-0000-master` branch - update origin
+### Step 2 - Push work to remote and keep it in line with origin
 ```
 git pull --rebase origin DW-0000-feature // pull latest updates of the branch from origin
-git push origin DW-0000-feature // push new commits to origin
+git push origin DW-0000-feature // push new commits to origin (might need to force push)
 ```
 
-### Step 4 - Once the feature is complete, squash the commits into 1 meaningful commit
-
->Always run step 1 and step 3 directly before doing step 4 - to make sure our feature branch is not misaligned with it's remote self and DW-0000-master
+### Step 3 - Once Feature is complete, squash the commits into 1 meaningful commit and make a PR to the master branch
 
 ```
-git rebase -i origin/DW-0000-master
-git push origin DW-0000-feature
-```
-
-### Step 5 - Once Feature is complete, squash the commits into 1 meaningful commit and make a PR to the RPS master branch
-
-```
-git checkout DW-0000-master
-git pull --rebase origin DW-0000-master
-git merge origin DW-0000-feature
-git push origin DW-0000-master
+git fetch
+git rebase -i origin/master
+git push origin DW-0000-feature // again - might need to force push
 ```
 
 ## Automated Acceptance Tests
