@@ -80,6 +80,7 @@ public class DatasetProcessor extends AbstractProcessor {
         try {
             JcrUtils.ensureIsCheckedOut(document);
             document.setProperty(SEARCHABLE_FLAG, searchable);
+            document.getSession().save();
         } catch (RepositoryException ex) {
             log.error("RepositoryException during setting common:searchable flag", ex);
         }

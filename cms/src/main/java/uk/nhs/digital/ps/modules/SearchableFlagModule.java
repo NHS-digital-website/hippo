@@ -43,8 +43,6 @@ public class SearchableFlagModule extends AbstractDaemonModule {
 
             publicationUpdater.processNode(node, acceptedStates);
             datasetUpdater.processNode(node, acceptedStates);
-
-            getSession().save();
         } catch (RepositoryException repositoryException) {
             log.error("Something's very wrong: unexpected exception while doing simple JCR read operations", repositoryException);
         }
@@ -55,8 +53,6 @@ public class SearchableFlagModule extends AbstractDaemonModule {
             Node node = getSession().getNode(event.subjectPath());
 
             publicationDepublishProcessor.processNode(node, acceptedStates);
-
-            getSession().save();
         } catch (RepositoryException repositoryException) {
             log.error("Something's very wrong: unexpected exception while doing simple JCR read operations", repositoryException);
         }

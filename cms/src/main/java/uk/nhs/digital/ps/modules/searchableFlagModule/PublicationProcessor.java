@@ -69,5 +69,6 @@ public class PublicationProcessor extends AbstractProcessor {
     protected void setSearchableFlag(Node document, boolean searchable) throws RepositoryException {
         JcrUtils.ensureIsCheckedOut(document);
         document.setProperty(SEARCHABLE_FLAG, searchable);
+        document.getSession().save();
     }
 }
