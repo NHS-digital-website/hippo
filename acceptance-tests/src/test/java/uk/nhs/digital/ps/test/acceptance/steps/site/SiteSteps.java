@@ -4,6 +4,7 @@ import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.toList;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.startsWith;
 import static org.junit.Assert.*;
 import static org.slf4j.LoggerFactory.getLogger;
@@ -266,6 +267,7 @@ public class SiteSteps extends AbstractSpringSteps {
             .map(SiteSteps::getMatcherForText);
 
         switch (qualifier) {
+            case "containing in any order": return (Matcher)containsInAnyOrder(matcherStream.collect(toList()));
             case "containing":    return (Matcher)contains(matcherStream.collect(toList()));
             case "including":     return hasItems(matcherStream.toArray(Matcher[]::new));
             case "not including":
@@ -295,7 +297,7 @@ public class SiteSteps extends AbstractSpringSteps {
             taxonomy.getLevel2() + " (1)",
             taxonomy.getLevel3() + " (1)"
         );
-        listMatchesItems("containing", expectedTaxonomy, sitePage.findElementWithTitle("CATEGORY"));
+        listMatchesItems("containing in any order", expectedTaxonomy, sitePage.findElementWithTitle("CATEGORY"));
     }
 
     @Then("^I can click on the publication$")

@@ -25,20 +25,22 @@ Feature: As am author I need to create a new publication
         Given I am on the content page
         When I click the "Add new document..." menu option on the "Corporate Website/Publication System" folder
         Then I should see the document options:
-         | archive     |
-         | series      |
-         | dataset     |
-         | publication |
+            | Archive             |
+            | Series / Collection |
+            | Data set            |
+            | Publication         |
+            | Legacy Publication  |
 
     Scenario: Restricted document types in new publication system folders
         Given I am on the content page
         When I create a new folder
         And I click the "Add new document..." menu option on the folder
         Then I should see the document options:
-            | archive     |
-            | series      |
-            | dataset     |
-            | publication |
+            | Archive             |
+            | Series / Collection |
+            | Data set            |
+            | Publication         |
+            | Legacy Publication  |
 
     Scenario: Restricted document types in ci hub folder
         Given I am logged in as admin on the content page

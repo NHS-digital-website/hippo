@@ -1,16 +1,18 @@
 package uk.nhs.digital.ps.test.acceptance.data;
 
-import uk.nhs.digital.ps.test.acceptance.models.*;
-
-import java.time.Instant;
-import java.time.format.DateTimeFormatter;
-
 import static uk.nhs.digital.ps.test.acceptance.models.InformationType.OFFICIAL_STATISTICS;
 import static uk.nhs.digital.ps.test.acceptance.models.PublicationBuilder.collectionOf;
 import static uk.nhs.digital.ps.test.acceptance.models.PublicationBuilder.newPublication;
+import static uk.nhs.digital.ps.test.acceptance.models.PublicationSeriesBuilder.newPublicationSeries;
 import static uk.nhs.digital.ps.test.acceptance.models.PublicationState.CREATED;
 import static uk.nhs.digital.ps.test.acceptance.models.PublicationState.PUBLISHED;
-import static uk.nhs.digital.ps.test.acceptance.models.PublicationSeriesBuilder.newPublicationSeries;
+
+import uk.nhs.digital.ps.test.acceptance.models.InformationType;
+import uk.nhs.digital.ps.test.acceptance.models.PublicationBuilder;
+import uk.nhs.digital.ps.test.acceptance.models.PublicationSeriesBuilder;
+
+import java.time.Instant;
+import java.time.format.DateTimeFormatter;
 
 /**
  * <p>
@@ -121,6 +123,7 @@ public class ExpectedTestDataProvider {
         return collectionOf(newPublication()
                 .withName("published-upcoming-publication")
                 .withTitle("Published Upcoming Publication")
+                .withSummary("Published Upcoming Publication Summary")
                 .withInformationType(InformationType.OFFICIAL_STATISTICS)
                 .withNominalDate(asInstant("2017-06-01T09:30:00.000+01:00"))
                 .inState(PUBLISHED)
@@ -128,6 +131,7 @@ public class ExpectedTestDataProvider {
             newPublication()
                 .withName("upcoming-publication")
                 .withTitle("Upcoming Publication")
+                .withSummary("Upcoming Publication Summary")
                 .withInformationType(InformationType.EXPERIMENTAL_STATISTICS)
                 .withNominalDate(asInstant("2017-10-10T01:00:00.000+01:00"))
                 .inState(PUBLISHED)
