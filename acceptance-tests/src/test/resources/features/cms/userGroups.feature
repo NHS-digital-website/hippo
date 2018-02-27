@@ -44,3 +44,11 @@ Feature: As a user I want the CMS content to be restricted so I'm not able to do
         When I am logged in as ci-author on the content page
         Then The "Corporate Website" folder should have the menu options including:
             | No actions available |
+
+    Scenario: Author and editor can both copy documents
+        Given I have a publication opened for editing
+        And I populate and save the publication
+        When I am logged in as ci-editor on the content page
+        Then I can copy the publication
+        When I am logged in as ci-author on the content page
+        Then I can copy the publication
