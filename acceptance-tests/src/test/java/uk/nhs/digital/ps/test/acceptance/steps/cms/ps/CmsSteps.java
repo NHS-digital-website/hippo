@@ -228,6 +228,10 @@ public class CmsSteps extends AbstractSpringSteps {
     public void iHaveAReleasedPublicationFlaggedAsUpcoming() throws Throwable {
         final Publication publication = ExpectedTestDataProvider.getPublishedUpcomingPublications().build().get(0);
         testDataRepo.setPublication(publication);
+
+        createPublicationInEditableState(publication);
+        whenIPopulateAndSaveThePublication();
+        whenIPublishThePublication();
     }
 
     @When("^I view the publication$")
@@ -502,5 +506,12 @@ public class CmsSteps extends AbstractSpringSteps {
         String[] folders = folder.split("/");
         boolean expectedPresent = isEmpty(not);
         assertThat("Folder presence is as expected", contentPage.navigateToFolder(folders) != null, is(expectedPresent));
+    }
+
+    @Then("^I can copy the publication$")
+    public void iCanCopyThePublication() throws Throwable {
+        String docName = testDataRepo.getCurrentPublication().getName();
+        contentPage.navigateToDocument(docName);
+        contentPage.copyDocument();
     }
 }

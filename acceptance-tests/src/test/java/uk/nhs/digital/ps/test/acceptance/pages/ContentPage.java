@@ -5,6 +5,7 @@ import static java.util.stream.Collectors.toList;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import uk.nhs.digital.ps.test.acceptance.models.*;
@@ -18,10 +19,10 @@ import java.util.stream.Stream;
 
 public class ContentPage extends AbstractCmsPage {
 
-    private static final String PUBLICATION = "publication";
-    private static final String DATASET = "dataset";
-    private static final String SERIES = "series";
-    private static final String ARCHIVE = "archive";
+    private static final String PUBLICATION = "Publication";
+    private static final String DATASET = "Data set";
+    private static final String SERIES = "Series / Collection";
+    private static final String ARCHIVE = "Archive";
 
     private PageHelper helper;
 
@@ -197,6 +198,13 @@ public class ContentPage extends AbstractCmsPage {
         waitUntilPublished();
     }
 
+    public void copyDocument(){
+        findDocumentMenu().click();
+        findCopy().click();
+
+        clickButtonOnModalDialog("OK");
+    }
+
     public void deleteDocument() {
         findDocumentMenu().click();
         findDelete().click();
@@ -244,9 +252,15 @@ public class ContentPage extends AbstractCmsPage {
     private WebElement getFolderMenu(String[] folders) {
         WebElement folderElement = navigateToFolder(folders);
 
-        WebElement menuIcon = helper.findChildElement(folderElement, By.xpath(".//a[contains(@class, 'hippo-tree-dropdown-icon-container')]"));
-        helper.waitUntilVisible(menuIcon);
-        menuIcon.click();
+        // Hover over the folder to reveal the dropdown
+        Actions action = new Actions(getWebDriver());
+        action.moveToElement(folderElement)
+            .moveToElement(
+                helper.findChildElement(folderElement,
+                    By.xpath(".//a[contains(@class, 'hippo-tree-dropdown-icon-container')]")))
+            .click()
+            .build()
+            .perform();
 
         return helper.findElement(By.cssSelector("ul[class~='hippo-toolbar-menu-item']"));
     }
@@ -372,6 +386,11 @@ public class ContentPage extends AbstractCmsPage {
     private WebElement findDelete() {
         return helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Delete...']"));
+    }
+
+    private WebElement findCopy() {
+        return helper.findElement(
+            By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Copy...']"));
     }
 
     private WebElement findEdit() {
