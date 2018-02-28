@@ -89,13 +89,16 @@
         
 
         <section id="resources" class="push-double--bottom">
-            <h3>Resources</h3>
-            <ul>
-                <li><a href="#">Sample file</a></li>
-                <li><a href="#">Sample file</a></li>
-                <li><a href="#">Sample file</a></li>
-                <li><a href="#">Sample file</a></li>
-            </ul>
+            <h2><strong><@fmt.message key="headers.resources"/></strong></h2>
+            <#if indicator.attachments?has_content>
+                 <ul data-uipath="nil.indicator.resources">
+                    <#list indicator.attachments as attachment>
+                        <li class="attachment">
+                            <a title="${attachment.text}" href="<@hst.link hippobean=attachment.resource/>" onClick="logGoogleAnalyticsEvent('Download attachment','Indicator','${attachment.resource.filename}');">${attachment.text}</a>
+                        </li>
+                    </#list>
+                </ul>
+            </#if>
         </section>
 
         <section id="compare" class="push-double--bottom">
