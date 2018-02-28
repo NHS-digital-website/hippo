@@ -42,6 +42,16 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /attachments:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Attachments
+            field: attachments
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.css:
+            - attachments
+            wicket.id: ${cluster.id}.left.item
           /topbar:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -54,6 +64,14 @@ definitions:
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
+          /attachments:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:attachments
+            hipposysedit:primary: false
+            hipposysedit:type: publicationsystem:attachment
+            jcr:primaryType: hipposysedit:field
           /details:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
