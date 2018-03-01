@@ -1,0 +1,89 @@
+---
+/content/documents/administration/website/general-type:
+  /general-type:
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: board-meeting-minutes-agenda
+      selection:label: Board meeting / minutes / agenda
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: clinical-audit-dataset
+      selection:label: Clinical audit / dataset
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: corporate-publication
+      selection:label: Corporate publication
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: corporate-report
+      selection:label: Corporate report
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: data-collection
+      selection:label: Data collection
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: data-hub
+      selection:label: Data hub
+    /selection:listitem[7]:
+      jcr:primaryType: selection:listitem
+      selection:key: data-provision-notice
+      selection:label: Data provision notice
+    /selection:listitem[8]:
+      jcr:primaryType: selection:listitem
+      selection:key: data-report
+      selection:label: Data report
+    /selection:listitem[9]:
+      jcr:primaryType: selection:listitem
+      selection:key: direction
+      selection:label: Direction
+    /selection:listitem[10]:
+      jcr:primaryType: selection:listitem
+      selection:key: document-download-page
+      selection:label: Document download page
+    /selection:listitem[11]:
+      jcr:primaryType: selection:listitem
+      selection:key: event
+      selection:label: Event
+    /selection:listitem[12]:
+      jcr:primaryType: selection:listitem
+      selection:key: foi
+      selection:label: FOI
+    /selection:listitem[13]:
+      jcr:primaryType: selection:listitem
+      selection:key: guidance
+      selection:label: Guidance
+    /selection:listitem[14]:
+      jcr:primaryType: selection:listitem
+      selection:key: list
+      selection:label: List
+    /selection:listitem[15]:
+      jcr:primaryType: selection:listitem
+      selection:key: news-article
+      selection:label: News article
+    /selection:listitem[16]:
+      jcr:primaryType: selection:listitem
+      selection:key: person
+      selection:label: Person
+    /selection:listitem[17]:
+      jcr:primaryType: selection:listitem
+      selection:key: service
+      selection:label: Service
+    /selection:listitem[18]:
+      jcr:primaryType: selection:listitem
+      selection:key: tool
+      selection:label: Tool
+    hippo:availability:
+    - live
+    - preview
+    hippotranslation:id: 82d87097-eecf-4ee5-a742-aba6f90ce337
+    hippotranslation:locale: inherited - from query
+    jcr:mixinTypes:
+    - hippotranslation:translated
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: General Type
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
