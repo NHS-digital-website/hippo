@@ -81,6 +81,9 @@ Feature: Basic search
         When I search for "SearchableNationalIndicatorDefinition"
         Then I should see 1 search results
         And I can click on link "National Indicator"     
+        When I search for "SearchableNationalIndicatorPurpose"
+        Then I should see 1 search results
+        And I can click on link "National Indicator"           
 
     Scenario: Pdf text is not matched with the search term
         Given I navigate to the "home" page

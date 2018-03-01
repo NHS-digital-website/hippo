@@ -227,7 +227,8 @@ public class SearchComponent extends CommonComponent {
     private Constraint indicatorLibraryConstraint(String query) {
         return or(
             constraint("nationalindicatorlibrary:title").contains(query),
-            constraint("nationalindicatorlibrary:definition").contains(query)
+            constraint("nationalindicatorlibrary:definition").contains(query),
+            constraint("nationalindicatorlibrary:purpose").contains(query)
         );
     }
 
