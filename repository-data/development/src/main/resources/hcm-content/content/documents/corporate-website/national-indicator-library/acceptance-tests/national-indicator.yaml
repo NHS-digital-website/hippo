@@ -26,7 +26,7 @@
           jcr:primaryType: hippostd:html
         jcr:primaryType: nationalindicatorlibrary:methodology
       /nationalindicatorlibrary:purpose:
-        hippostd:content: <p>Purpose</p>
+        hippostd:content: <p>SearchableNationalIndicatorPurpose</p>
         jcr:primaryType: hippostd:html
       hippotaxonomy:keys:
       - cancer
@@ -89,7 +89,7 @@
           jcr:primaryType: hippostd:html
         jcr:primaryType: nationalindicatorlibrary:methodology
       /nationalindicatorlibrary:purpose:
-        hippostd:content: <p>Purpose</p>
+        hippostd:content: <p>SearchableNationalIndicatorPurpose</p>
         jcr:primaryType: hippostd:html
       hippotaxonomy:keys:
       - cancer
@@ -154,7 +154,7 @@
           jcr:primaryType: hippostd:html
         jcr:primaryType: nationalindicatorlibrary:methodology
       /nationalindicatorlibrary:purpose:
-        hippostd:content: <p>Purpose</p>
+        hippostd:content: <p>SearchableNationalIndicatorPurpose</p>
         jcr:primaryType: hippostd:html
       hippotaxonomy:keys:
       - cancer
