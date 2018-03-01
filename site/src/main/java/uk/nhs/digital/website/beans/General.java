@@ -38,4 +38,9 @@ public class General extends BaseDocument {
     public HippoHtml getComponent() {
         return getHippoHtml("website:component");
     }
+
+    @HippoEssentialsGenerated(internalName = "website:type")
+    public String getType() {
+        return getProperty("website:type");
+    }
 }
