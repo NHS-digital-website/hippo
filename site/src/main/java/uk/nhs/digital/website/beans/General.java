@@ -39,6 +39,11 @@ public class General extends BaseDocument {
         return getHippoHtml("website:component");
     }
 
+    @HippoEssentialsGenerated(internalName = "website:items")
+    public List<?> getBlocks() {
+        return getChildBeansByName("website:items");
+    }
+
     @HippoEssentialsGenerated(internalName = "website:type")
     public String getType() {
         return getProperty("website:type");

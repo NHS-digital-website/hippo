@@ -53,4 +53,9 @@ public class Service extends BaseDocument {
     public HippoHtml getComponent() {
         return getHippoHtml("website:component");
     }
+
+    @HippoEssentialsGenerated(internalName = "website:items")
+    public List<?> getBlocks() {
+        return getChildBeansByName("website:items");
+    }
 }

@@ -48,4 +48,9 @@ public class Hub extends BaseDocument {
     public HippoHtml getBody() {
         return getHippoHtml("website:body");
     }
+
+    @HippoEssentialsGenerated(internalName = "website:items")
+    public List<?> getBlocks() {
+        return getChildBeansByName("website:items");
+    }
 }
