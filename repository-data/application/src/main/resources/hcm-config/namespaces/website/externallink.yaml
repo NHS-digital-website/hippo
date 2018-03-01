@@ -31,7 +31,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Summary
-            field: summary
+            field: shortsummary
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
@@ -59,7 +59,7 @@ definitions:
             - non-empty
             - required
             jcr:primaryType: hipposysedit:field
-          /summary:
+          /shortsummary:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false

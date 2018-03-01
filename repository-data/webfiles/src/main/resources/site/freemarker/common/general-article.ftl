@@ -33,7 +33,7 @@
                 <div class="article-header article-header--secondary">
                     <h1>${document.title}</h1>
                 </div>
-                
+
                 <#-- BEGIN mandatory 'summary section' -->
                 <section id="section-summary" class="article-section article-section--summary article-section--summary-with-border">
                     <p>${document.summary}</p>
@@ -50,13 +50,18 @@
                     <h2>${childPagesSectionTitle}</h2>
                     <ol class="list list--reset cta-list">
                         <#list childPages as childPage>
-                        <@hst.link var="link" hippobean=childPage />
-                        <li>
-                            <article class="cta">
-                                <h2 class="cta__title"><a href="${link}">${childPage.title}</a></h2>
-                                <p class="cta__text">${childPage.shortsummary}</p>
-                            </article>
-                        </li>
+                            <li>
+                                <article class="cta">
+                                    <#if childPage.type?? && childPage.type == "external">
+                                    <#-- Assign the link property of the externallink compound -->
+                                    <h2 class="cta__title"><a href="${childPage.link}">${childPage.title}</a></h2>
+                                    <#elseif hst.isBeanType(childPage, 'org.hippoecm.hst.content.beans.standard.HippoBean')>
+                                    <#-- In case the childPage is not a compound but still a document in the cms, then create a link to it-->
+                                    <h2 class="cta__title"><a href="<@hst.link var=link hippobean=childPage />">${childPage.title}</a></h2>
+                                    </#if>
+                                    <p class="cta__text">${childPage.shortsummary}</p>
+                                </article>
+                            </li>
                         </#list>
                     </ol>
                 </section>
