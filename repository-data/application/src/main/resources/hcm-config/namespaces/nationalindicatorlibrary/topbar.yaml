@@ -19,32 +19,6 @@ definitions:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-          /title:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Title
-            field: title
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /assuredStatus:
-            /cluster.options:
-              falseLabel: Not Assured
-              jcr:primaryType: frontend:pluginconfig
-              trueLabel: Assured
-            caption: Assured Status
-            field: assuredStatus
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /publishedBy:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Published By
-            field: publishedBy
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
           /reportingPeriod:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -58,15 +32,6 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Based on data from
             field: text
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /reportingLevel:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Reporting Level
-            field: reportingLevel
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
@@ -109,16 +74,6 @@ definitions:
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
-          /assuredStatus:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: nationalindicatorlibrary:assuredStatus
-            hipposysedit:primary: false
-            hipposysedit:type: selection:BooleanRadioGroup
-            hipposysedit:validators:
-            - required
-            jcr:primaryType: hipposysedit:field
           /contactAuthor:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -126,25 +81,6 @@ definitions:
             hipposysedit:path: nationalindicatorlibrary:contactAuthor
             hipposysedit:primary: false
             hipposysedit:type: nationalindicatorlibrary:contactAuthor
-            jcr:primaryType: hipposysedit:field
-          /publishedBy:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: nationalindicatorlibrary:publishedBy
-            hipposysedit:primary: false
-            hipposysedit:type: Text
-            hipposysedit:validators:
-            - non-empty
-            - required
-            jcr:primaryType: hipposysedit:field
-          /reportingLevel:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: nationalindicatorlibrary:reportingLevel
-            hipposysedit:primary: false
-            hipposysedit:type: Text
             jcr:primaryType: hipposysedit:field
           /reportingPeriod:
             hipposysedit:mandatory: false
@@ -178,17 +114,6 @@ definitions:
             - non-empty
             - required
             jcr:primaryType: hipposysedit:field
-          /title:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: nationalindicatorlibrary:title
-            hipposysedit:primary: false
-            hipposysedit:type: Text
-            hipposysedit:validators:
-            - non-empty
-            - required
-            jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
           - hippo:compound
@@ -209,13 +134,9 @@ definitions:
             nationalindicatorlibrary:contactAuthorName: ''
           jcr:primaryType: nationalindicatorlibrary:topbar
           nationalindicatorlibrary:assuranceDate: 0001-01-01T12:00:00Z
-          nationalindicatorlibrary:assuredStatus: false
           nationalindicatorlibrary:basedOn: ''
-          nationalindicatorlibrary:publishedBy: ''
-          nationalindicatorlibrary:reportingLevel: ''
           nationalindicatorlibrary:reportingPeriod: ''
           nationalindicatorlibrary:reviewDate: 0001-01-01T12:00:00Z
-          nationalindicatorlibrary:title: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable

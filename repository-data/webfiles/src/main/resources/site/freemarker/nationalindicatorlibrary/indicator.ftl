@@ -7,21 +7,33 @@
 
   <section class="document-header push-double--bottom">
       <div class="document-header__inner">
-        <h1 class="layout-5-6 push--bottom" data-uipath="ps.indicator.title">${indicator.topbar.title}</h1>
+        <h1 class="layout-5-6 push--bottom" data-uipath="ps.indicator.title">${indicator.title}</h1>
 
-        <#if indicator.topbar.assuredStatus><h2 style="text-decoration:underline">Independently assured by IGB</h2></#if>
+        <#if indicator.assuredStatus><h2 style="text-decoration:underline">Independently assured by IGB</h2></#if>
 
         <div class="layout">
             <div class="layout__item layout-1-2">
-                <p class="push-half--bottom"><strong><@fmt.message key="headers.publishedBy"/></strong>: ${indicator.topbar.publishedBy}</p>
+                <p class="push-half--bottom"><strong><@fmt.message key="headers.publishedBy"/></strong>: ${indicator.publishedBy}</p>
                 <p class="push-half--bottom"><strong><@fmt.message key="headers.assuranceDate"/></strong>: ${indicator.topbar.assuranceDate.time?string[dateFormat]}</p>
                 <p class="push-half--bottom"><strong><@fmt.message key="headers.reportingPeriod"/></strong>: ${indicator.topbar.reportingPeriod}</p>
                 <p class="push-half--bottom"><strong><@fmt.message key="headers.basedOn"/></strong>: ${indicator.topbar.basedOn}</p>
             </div><!--
             --><div class="layout__item layout-1-2">
                 <p class="push-half--bottom"><strong><@fmt.message key="headers.contactAuthor"/></strong>: <a href="mailto:${indicator.topbar.contactAuthor.contactAuthorEmail}"> ${indicator.topbar.contactAuthor.contactAuthorName}</a></p>
-                <p class="push-half--bottom"><strong><@fmt.message key="headers.reportingLevel"/></strong>: ${indicator.topbar.reportingLevel}</p>
+                <p class="push-half--bottom"><strong><@fmt.message key="headers.reportingLevel"/></strong>: ${indicator.reportingLevel}</p>
                 <p class="push-half--bottom"><strong><@fmt.message key="headers.reviewDate"/></strong>: ${indicator.topbar.reviewDate.time?string[dateFormat]}</p>
+                <#if indicator.geographicCoverage?has_content><div class="flex__item">
+                    <div class="media">
+                        <div class="media__icon media__icon--geographic-coverage"></div>
+                        <dl class="media__body">
+                            <dt id="geographic-coverage"><@fmt.message key="headers.geographicCoverage"/></dt>
+                            <dd data-uipath="ps.indicator.geographic-coverage">
+                                ${indicator.geographicCoverage}
+                            </dd>
+                        </dl>
+                    </div>
+                    </div>
+                </#if>
             </div>
         </div>
       </div>
@@ -39,7 +51,9 @@
                     <li><a href="#methodology"><@fmt.message key="headers.methodology"/></a></li>
                     <li><a href="#caveats"><@fmt.message key="headers.caveats"/></a></li>
                     <li><a href="#interpretations"><@fmt.message key="headers.interpretationGuidelines"/></a></li>
+                    <#if indicator.attachments?has_content>
                     <li><a href="#resources">Resources</a></li>
+                    </#if>
                 </ul>
             </div>
         </div>
@@ -58,23 +72,30 @@
         </section>
 
 
-        <h2><details id="methodology" class="push-double--bottom">
+        <details id="methodology" class="push-double--bottom">
             <summary><span>How this indicator is calculated</span></summary></br>
-            <h2><@fmt.message key="headers.methodology"/></h2>
+            <div class="panel panel--grey">
+                <#if indicator.details.methodology.dataSource?has_content>
+                    <h3><strong><@fmt.message key="headers.dataSource"/></strong></h3>
+                    <#outputformat "undefined">${indicator.details.methodology.dataSource.content}</#outputformat>
+                </#if>
+                
+                <#if indicator.details.methodology.numerator?has_content> 
+                    <h3><strong><@fmt.message key="headers.numerator"/></strong></h3>
+                    <#outputformat "undefined">${indicator.details.methodology.numerator.content}</#outputformat>
+                </#if>
 
-            <h6><strong><@fmt.message key="headers.dataSource"/></strong></h6>
-            <#outputformat "undefined"><p>${indicator.details.methodology.dataSource.content}</p></#outputformat>
+                <#if indicator.details.methodology.denominator?has_content>
+                    <h3><strong><@fmt.message key="headers.denominator"/></strong></h3>
+                    <#outputformat "undefined">${indicator.details.methodology.denominator.content}</#outputformat>
+                </#if>            
 
-            <h6><strong><@fmt.message key="headers.numerator"/></strong></h6>
-            <#outputformat "undefined"><p>${indicator.details.methodology.numerator.content}</p></#outputformat>
-
-            <h6><strong><@fmt.message key="headers.denominator"/></strong></h6>
-            <#outputformat "undefined"><p>${indicator.details.methodology.denominator.content}</p></#outputformat>
-
-            <h6><strong><@fmt.message key="headers.calculation"/></strong></h6>
-            <#outputformat "undefined"><p>${indicator.details.methodology.calculation.content}</p></#outputformat>
-
-        </details></h2>
+                <#if indicator.details.methodology.calculation?has_content>
+                    <h3><strong><@fmt.message key="headers.calculation"/></strong></h3>
+                    <#outputformat "undefined">${indicator.details.methodology.calculation.content}</#outputformat>
+                </#if>              
+            </div>
+        </details>
 
         <section id="caveats" class="push-double--bottom">
             <h2><strong><@fmt.message key="headers.caveats"/></strong></h2>
@@ -87,57 +108,20 @@
         </section>
 
         
-
-        <section id="resources" class="push-double--bottom">
-            <h2><strong><@fmt.message key="headers.resources"/></strong></h2>
-            <#if indicator.attachments?has_content>
-                 <ul data-uipath="nil.indicator.resources">
-                    <#list indicator.attachments as attachment>
-                        <li class="attachment">
-                            <a title="${attachment.text}" href="<@hst.link hippobean=attachment.resource/>" onClick="logGoogleAnalyticsEvent('Download attachment','Indicator','${attachment.resource.filename}');">${attachment.text}</a>
-                        </li>
-                    </#list>
-                </ul>
-            </#if>
-        </section>
-
-        <section id="compare" class="push-double--bottom">
-            <h2>Compare</h2>
-            <table>
-                <tr>
-                    <td>Title</td>
-                    <td>Publisher</td>
-                    <td>Assured Date</td>
-                    <td>Assured Until</td>
-                </tr>
-                <tr>
-                    <td><a href="#">Cancers diagnosed via emergency routes</a></td>
-                    <td>PHE</td>
-                    <td>10 June 2017</td>
-                    <td>10 June 2020</td>
-                </tr>
-                <tr>
-                    <td><a href="#">PHE</a></td>
-                    <td>PHE</td>
-                    <td>10 June 2017</td>
-                    <td>10 June 2020</td>
-                </tr>
-                <tr>
-                    <td><a href="#">Under 75 mortality rate from cancer</a></td>
-                    <td>PHE</td>
-                    <td>10 June 2017</td>
-                    <td>10 June 2020</td>
-                </tr>
-            </table>
-        </section>
-
-        <section id="resources" class="push-double--bottom">
-            <h2>5 comments</h2>
-            <div class="panel panel--grey">
-                <p>TBC</p>
-            </div>
-        </section>
-
+        <#if indicator.attachments?has_content>
+            <section id="resources" class="push-double--bottom">
+                <h2><strong><@fmt.message key="headers.resources"/></strong></h2>
+            
+                    <ul data-uipath="nil.indicator.resources">
+                        <#list indicator.attachments as attachment>
+                            <li class="attachment">
+                                <a title="${attachment.text}" href="<@hst.link hippobean=attachment.resource/>" onClick="logGoogleAnalyticsEvent('Download attachment','Indicator','${attachment.resource.filename}');">${attachment.text}</a>
+                            </li>
+                        </#list>
+                    </ul>
+                
+            </section>
+        </#if>
     </section>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

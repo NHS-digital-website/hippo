@@ -28,9 +28,8 @@
       /nationalindicatorlibrary:purpose:
         hippostd:content: <p>Purpose</p>
         jcr:primaryType: hippostd:html
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
       jcr:primaryType: nationalindicatorlibrary:details
+      nationalindicatorlibrary:briefDescription: Bare Minimum Indicator
       nationalindicatorlibrary:iapCode: ''
       nationalindicatorlibrary:indicatorSet: ''
       nationalindicatorlibrary:rating: ''
@@ -41,26 +40,35 @@
         nationalindicatorlibrary:contactAuthorName: Test
       jcr:primaryType: nationalindicatorlibrary:topbar
       nationalindicatorlibrary:assuranceDate: 2018-02-23T13:57:00Z
-      nationalindicatorlibrary:assuredStatus: true
       nationalindicatorlibrary:basedOn: Test
-      nationalindicatorlibrary:publishedBy: Test
-      nationalindicatorlibrary:reportingLevel: ''
       nationalindicatorlibrary:reportingPeriod: Now
       nationalindicatorlibrary:reviewDate: 2018-02-23T13:57:00Z
-      nationalindicatorlibrary:title: Bare Minimum Indicator
     common:FacetType: indicator
+    common:FullTaxonomy:
+    - nil-taxonomy-test
+    - acceptance-tests
+    common:SearchableTags:
+    - NilTaxonomySearchTerm test
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-23T13:57:04.917Z
-    hippostdpubwf:lastModificationDate: 2018-02-23T14:12:38.988Z
+    hippostdpubwf:lastModificationDate: 2018-03-07T08:14:36.344Z
     hippostdpubwf:lastModifiedBy: admin
+    hippotaxonomy:keys:
+    - nil-taxonomy-test
     hippotranslation:id: 6052313f-da95-4a53-84ee-8d2d9e69d1e0
     hippotranslation:locale: en
     jcr:mixinTypes:
+    - hippotaxonomy:classifiable
     - mix:referenceable
     jcr:primaryType: nationalindicatorlibrary:indicator
+    nationalindicatorlibrary:assuredStatus: true
+    nationalindicatorlibrary:publishedBy: NHS Digital
+    nationalindicatorlibrary:reportingLevel: CCG
+    nationalindicatorlibrary:title: Bare Minimum Indicator
+    publicationsystem:GeographicCoverage: England
   /bare-minimum-indicator[2]:
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
@@ -89,9 +97,8 @@
       /nationalindicatorlibrary:purpose:
         hippostd:content: <p>Purpose</p>
         jcr:primaryType: hippostd:html
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
       jcr:primaryType: nationalindicatorlibrary:details
+      nationalindicatorlibrary:briefDescription: Bare Minimum Indicator
       nationalindicatorlibrary:iapCode: ''
       nationalindicatorlibrary:indicatorSet: ''
       nationalindicatorlibrary:rating: ''
@@ -102,28 +109,37 @@
         nationalindicatorlibrary:contactAuthorName: Test
       jcr:primaryType: nationalindicatorlibrary:topbar
       nationalindicatorlibrary:assuranceDate: 2018-02-23T13:57:00Z
-      nationalindicatorlibrary:assuredStatus: true
       nationalindicatorlibrary:basedOn: Test
-      nationalindicatorlibrary:publishedBy: Test
-      nationalindicatorlibrary:reportingLevel: ''
       nationalindicatorlibrary:reportingPeriod: Now
       nationalindicatorlibrary:reviewDate: 2018-02-23T13:57:00Z
-      nationalindicatorlibrary:title: Bare Minimum Indicator
     common:FacetType: indicator
+    common:FullTaxonomy:
+    - nil-taxonomy-test
+    - acceptance-tests
+    common:SearchableTags:
+    - NilTaxonomySearchTerm test
     common:searchable: true
     hippo:availability:
     - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-23T13:57:04.917Z
-    hippostdpubwf:lastModificationDate: 2018-02-23T13:57:58.300Z
+    hippostdpubwf:lastModificationDate: 2018-03-07T08:14:43.394Z
     hippostdpubwf:lastModifiedBy: admin
+    hippotaxonomy:keys:
+    - nil-taxonomy-test
     hippotranslation:id: 6052313f-da95-4a53-84ee-8d2d9e69d1e0
     hippotranslation:locale: en
     jcr:mixinTypes:
+    - hippotaxonomy:classifiable
     - mix:referenceable
     - mix:versionable
     jcr:primaryType: nationalindicatorlibrary:indicator
+    nationalindicatorlibrary:assuredStatus: true
+    nationalindicatorlibrary:publishedBy: NHS Digital
+    nationalindicatorlibrary:reportingLevel: CCG
+    nationalindicatorlibrary:title: Bare Minimum Indicator
+    publicationsystem:GeographicCoverage: England
   /bare-minimum-indicator[3]:
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
@@ -152,9 +168,8 @@
       /nationalindicatorlibrary:purpose:
         hippostd:content: <p>Purpose</p>
         jcr:primaryType: hippostd:html
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
       jcr:primaryType: nationalindicatorlibrary:details
+      nationalindicatorlibrary:briefDescription: Bare Minimum Indicator
       nationalindicatorlibrary:iapCode: ''
       nationalindicatorlibrary:indicatorSet: ''
       nationalindicatorlibrary:rating: ''
@@ -165,28 +180,37 @@
         nationalindicatorlibrary:contactAuthorName: Test
       jcr:primaryType: nationalindicatorlibrary:topbar
       nationalindicatorlibrary:assuranceDate: 2018-02-23T13:57:00Z
-      nationalindicatorlibrary:assuredStatus: true
       nationalindicatorlibrary:basedOn: Test
-      nationalindicatorlibrary:publishedBy: Test
-      nationalindicatorlibrary:reportingLevel: ''
       nationalindicatorlibrary:reportingPeriod: Now
       nationalindicatorlibrary:reviewDate: 2018-02-23T13:57:00Z
-      nationalindicatorlibrary:title: Bare Minimum Indicator
     common:FacetType: indicator
+    common:FullTaxonomy:
+    - nil-taxonomy-test
+    - acceptance-tests
+    common:SearchableTags:
+    - NilTaxonomySearchTerm test
     common:searchable: true
     hippo:availability:
     - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-23T13:57:04.917Z
-    hippostdpubwf:lastModificationDate: 2018-02-23T13:57:58.300Z
+    hippostdpubwf:lastModificationDate: 2018-03-07T08:14:43.394Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-02-23T14:12:22.725Z
+    hippostdpubwf:publicationDate: 2018-03-07T08:14:47.777Z
+    hippotaxonomy:keys:
+    - nil-taxonomy-test
     hippotranslation:id: 6052313f-da95-4a53-84ee-8d2d9e69d1e0
     hippotranslation:locale: en
     jcr:mixinTypes:
+    - hippotaxonomy:classifiable
     - mix:referenceable
     jcr:primaryType: nationalindicatorlibrary:indicator
+    nationalindicatorlibrary:assuredStatus: true
+    nationalindicatorlibrary:publishedBy: NHS Digital
+    nationalindicatorlibrary:reportingLevel: CCG
+    nationalindicatorlibrary:title: Bare Minimum Indicator
+    publicationsystem:GeographicCoverage: England
   hippo:name: bare minimum indicator
   jcr:mixinTypes:
   - hippo:named

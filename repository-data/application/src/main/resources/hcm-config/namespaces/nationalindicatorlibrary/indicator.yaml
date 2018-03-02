@@ -33,6 +33,77 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
             wicket.id: ${cluster.id}.right
+          /title:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Title
+            field: title
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /topbar:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Top Bar
+            field: topbar
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+          /assuredStatus:
+            /cluster.options:
+              falseLabel: Not Assured
+              jcr:primaryType: frontend:pluginconfig
+              trueLabel: Assured
+            caption: Assured Status
+            field: assuredStatus
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /publishedBy:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Published By
+            field: publishedBy
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /reportingLevel:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Reporting Level
+            field: reportingLevel
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /classifiable:
+            /cluster.options:
+              caption: Taxonomy
+              jcr:primaryType: frontend:pluginconfig
+              taxonomy.name: publication_taxonomy
+            essentials-taxonomy-name: publication_taxonomy
+            jcr:primaryType: frontend:plugin
+            mixin: hippotaxonomy:classifiable
+            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
+            wicket.id: ${cluster.id}.left.item
+          /GeographicCoverage:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: England,England and Northern Ireland,England and
+                Scotland,England and Wales,England Scotland and Northern Ireland,England
+                Wales and Northern Ireland,Great Britain,International,Northern Ireland,Scotland,UK,Wales
+            caption: Geographic Coverage
+            field: geographic_coverage
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.css:
+            - geographic-coverage
+            wicket.id: ${cluster.id}.left.item
           /details:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -52,18 +123,17 @@ definitions:
             wicket.css:
             - attachments
             wicket.id: ${cluster.id}.left.item
-          /topbar:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Top Bar
-            field: topbar
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.right.item
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
+          /assuredStatus:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:assuredStatus
+            hipposysedit:primary: false
+            hipposysedit:type: selection:BooleanRadioGroup
+            jcr:primaryType: hipposysedit:field
           /attachments:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
@@ -80,6 +150,47 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: nationalindicatorlibrary:details
             jcr:primaryType: hipposysedit:field
+          /geographic_coverage:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:GeographicCoverage
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            jcr:primaryType: hipposysedit:field
+          /publishedBy:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:publishedBy
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
+          /reportingLevel:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:reportingLevel
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
+          /title:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:title
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
           /topbar:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -91,6 +202,7 @@ definitions:
           hipposysedit:node: true
           hipposysedit:supertype:
           - nationalindicatorlibrary:basedocument
+          - hippotaxonomy:classifiable
           - hippostd:relaxed
           - hippotranslation:translated
           hipposysedit:uri: http://digital.nhs.uk/jcr/nationalindicatorlibrary/nt/1.0
@@ -133,6 +245,7 @@ definitions:
             jcr:mixinTypes:
             - hippotaxonomy:classifiable
             jcr:primaryType: nationalindicatorlibrary:details
+            nationalindicatorlibrary:briefDescription: ''
             nationalindicatorlibrary:iapCode: ''
             nationalindicatorlibrary:indicatorSet: ''
             nationalindicatorlibrary:rating: ''
@@ -143,13 +256,9 @@ definitions:
               nationalindicatorlibrary:contactAuthorName: ''
             jcr:primaryType: nationalindicatorlibrary:topbar
             nationalindicatorlibrary:assuranceDate: 0001-01-01T12:00:00Z
-            nationalindicatorlibrary:assuredStatus: false
             nationalindicatorlibrary:basedOn: ''
-            nationalindicatorlibrary:publishedBy: ''
-            nationalindicatorlibrary:reportingLevel: ''
             nationalindicatorlibrary:reportingPeriod: ''
             nationalindicatorlibrary:reviewDate: 0001-01-01T12:00:00Z
-            nationalindicatorlibrary:title: ''
           common:FacetType: indicator
           common:searchable: true
           hippostd:holder: holder
@@ -161,8 +270,13 @@ definitions:
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes:
+          - hippotaxonomy:classifiable
           - mix:referenceable
           jcr:primaryType: nationalindicatorlibrary:indicator
+          nationalindicatorlibrary:assuredStatus: false
+          nationalindicatorlibrary:publishedBy: ''
+          nationalindicatorlibrary:reportingLevel: ''
+          nationalindicatorlibrary:title: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable

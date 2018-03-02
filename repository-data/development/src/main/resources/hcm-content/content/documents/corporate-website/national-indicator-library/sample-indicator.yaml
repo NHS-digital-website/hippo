@@ -76,11 +76,6 @@
           are included in the indicator to take into account the process of recognising
           the stroke has occurred and the systems in place for in-hospital pathways.</p>
         jcr:primaryType: hippostd:html
-      hippotaxonomy:keys:
-      - conditions
-      - cancer
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
       jcr:primaryType: nationalindicatorlibrary:details
       nationalindicatorlibrary:briefDescription: Brief Search description
       nationalindicatorlibrary:iapCode: IAP923845
@@ -93,28 +88,40 @@
         nationalindicatorlibrary:contactAuthorName: Hugo
       jcr:primaryType: nationalindicatorlibrary:topbar
       nationalindicatorlibrary:assuranceDate: 2015-12-14T00:00:00Z
-      nationalindicatorlibrary:assuredStatus: true
       nationalindicatorlibrary:basedOn: Royal College of Physicians’ Sentinel Stroke
         National Audit Programme (SSNAP)
       nationalindicatorlibrary:publishedBy: Publisher
-      nationalindicatorlibrary:reportingLevel: CCG
       nationalindicatorlibrary:reportingPeriod: Annually
       nationalindicatorlibrary:reviewDate: 2018-12-14T00:00:00Z
-      nationalindicatorlibrary:title: People with stroke admitted to an acute stroke
-        unit within 4 hours of arrival at hospital
     common:FacetType: indicator
+    common:FullTaxonomy:
+    - cancer
+    - conditions
+    common:SearchableTags:
+    - Conditions
+    - Cancer
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-22T13:14:38.445Z
-    hippostdpubwf:lastModificationDate: 2018-02-26T09:34:34.912Z
+    hippostdpubwf:lastModificationDate: 2018-03-07T08:57:37.172Z
     hippostdpubwf:lastModifiedBy: admin
+    hippotaxonomy:keys:
+    - conditions
+    - cancer
     hippotranslation:id: 8760f929-796c-426e-bd55-826b9362a5ae
     hippotranslation:locale: en
     jcr:mixinTypes:
+    - hippotaxonomy:classifiable
     - mix:referenceable
     jcr:primaryType: nationalindicatorlibrary:indicator
+    nationalindicatorlibrary:assuredStatus: true
+    nationalindicatorlibrary:publishedBy: NHS Digital
+    nationalindicatorlibrary:reportingLevel: CCG
+    nationalindicatorlibrary:title: People with stroke admitted to an acute stroke
+      unit within 4 hours of arrival at hospital
+    publicationsystem:GeographicCoverage: England
   /sample-indicator[2]:
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
@@ -191,11 +198,6 @@
           are included in the indicator to take into account the process of recognising
           the stroke has occurred and the systems in place for in-hospital pathways.</p>
         jcr:primaryType: hippostd:html
-      hippotaxonomy:keys:
-      - conditions
-      - cancer
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
       jcr:primaryType: nationalindicatorlibrary:details
       nationalindicatorlibrary:briefDescription: Brief Search description
       nationalindicatorlibrary:iapCode: IAP923845
@@ -208,30 +210,42 @@
         nationalindicatorlibrary:contactAuthorName: Hugo
       jcr:primaryType: nationalindicatorlibrary:topbar
       nationalindicatorlibrary:assuranceDate: 2015-12-14T00:00:00Z
-      nationalindicatorlibrary:assuredStatus: true
       nationalindicatorlibrary:basedOn: Royal College of Physicians’ Sentinel Stroke
         National Audit Programme (SSNAP)
       nationalindicatorlibrary:publishedBy: Publisher
-      nationalindicatorlibrary:reportingLevel: CCG
       nationalindicatorlibrary:reportingPeriod: Annually
       nationalindicatorlibrary:reviewDate: 2018-12-14T00:00:00Z
-      nationalindicatorlibrary:title: People with stroke admitted to an acute stroke
-        unit within 4 hours of arrival at hospital
     common:FacetType: indicator
+    common:FullTaxonomy:
+    - cancer
+    - conditions
+    common:SearchableTags:
+    - Conditions
+    - Cancer
     common:searchable: true
     hippo:availability:
     - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-22T13:14:38.445Z
-    hippostdpubwf:lastModificationDate: 2018-02-26T09:34:50.640Z
+    hippostdpubwf:lastModificationDate: 2018-03-07T08:14:15.542Z
     hippostdpubwf:lastModifiedBy: admin
+    hippotaxonomy:keys:
+    - conditions
+    - cancer
     hippotranslation:id: 8760f929-796c-426e-bd55-826b9362a5ae
     hippotranslation:locale: en
     jcr:mixinTypes:
+    - hippotaxonomy:classifiable
     - mix:referenceable
     - mix:versionable
     jcr:primaryType: nationalindicatorlibrary:indicator
+    nationalindicatorlibrary:assuredStatus: true
+    nationalindicatorlibrary:publishedBy: NHS Digital
+    nationalindicatorlibrary:reportingLevel: CCG
+    nationalindicatorlibrary:title: People with stroke admitted to an acute stroke
+      unit within 4 hours of arrival at hospital
+    publicationsystem:GeographicCoverage: England
   /sample-indicator[3]:
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
@@ -308,11 +322,6 @@
           are included in the indicator to take into account the process of recognising
           the stroke has occurred and the systems in place for in-hospital pathways.</p>
         jcr:primaryType: hippostd:html
-      hippotaxonomy:keys:
-      - conditions
-      - cancer
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
       jcr:primaryType: nationalindicatorlibrary:details
       nationalindicatorlibrary:briefDescription: Brief Search description
       nationalindicatorlibrary:iapCode: IAP923845
@@ -325,30 +334,43 @@
         nationalindicatorlibrary:contactAuthorName: Hugo
       jcr:primaryType: nationalindicatorlibrary:topbar
       nationalindicatorlibrary:assuranceDate: 2015-12-14T00:00:00Z
-      nationalindicatorlibrary:assuredStatus: true
       nationalindicatorlibrary:basedOn: Royal College of Physicians’ Sentinel Stroke
         National Audit Programme (SSNAP)
       nationalindicatorlibrary:publishedBy: Publisher
-      nationalindicatorlibrary:reportingLevel: CCG
       nationalindicatorlibrary:reportingPeriod: Annually
       nationalindicatorlibrary:reviewDate: 2018-12-14T00:00:00Z
-      nationalindicatorlibrary:title: People with stroke admitted to an acute stroke
-        unit within 4 hours of arrival at hospital
     common:FacetType: indicator
+    common:FullTaxonomy:
+    - cancer
+    - conditions
+    common:SearchableTags:
+    - Conditions
+    - Cancer
     common:searchable: true
     hippo:availability:
     - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-22T13:14:38.445Z
-    hippostdpubwf:lastModificationDate: 2018-02-23T16:09:07.787Z
+    hippostdpubwf:lastModificationDate: 2018-03-07T08:14:15.542Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-02-23T16:09:10.121Z
+    hippostdpubwf:publicationDate: 2018-03-07T08:14:27.666Z
+    hippotaxonomy:keys:
+    - conditions
+    - cancer
     hippotranslation:id: 8760f929-796c-426e-bd55-826b9362a5ae
     hippotranslation:locale: en
     jcr:mixinTypes:
+    - hippotaxonomy:classifiable
     - mix:referenceable
+    - mix:versionable
     jcr:primaryType: nationalindicatorlibrary:indicator
+    nationalindicatorlibrary:assuredStatus: true
+    nationalindicatorlibrary:publishedBy: NHS Digital
+    nationalindicatorlibrary:reportingLevel: CCG
+    nationalindicatorlibrary:title: People with stroke admitted to an acute stroke
+      unit within 4 hours of arrival at hospital
+    publicationsystem:GeographicCoverage: England
   hippo:name: sample indicator
   jcr:mixinTypes:
   - hippo:named
