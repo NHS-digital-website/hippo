@@ -35,6 +35,23 @@ Feature: Faceted search
             | 2018 (2) |
             | 2017 (1) |
 
+    Scenario: All expected NIL facets are displayed
+        Given I navigate to the "home" page
+        When I search for "NilTaxonomySearchTerm"
+        Then I should see the list with title "DOCUMENT TYPE" containing:
+            | Indicator (3) |
+        And I should see the list with title "CATEGORY" containing:
+            | Acceptance Tests (3)             |
+            | NilTaxonomySearchTerm test (3)   |
+        And I should see the list with title "ASSURED" containing:
+            | Yes (2)  |
+            | No (1)   |      
+        And I should see the list with title "PUBLISHED BY" containing:
+            | NHS Digital (3)  |
+        And I should see the list with title "REPORTING LEVEL" containing:
+            | CCG (1)                                           |       
+            | CCG and National (1)                              |  
+            | CCG and National GP registered population (1)     |                                    
 
     Scenario: Months are not shown initially
         Given I navigate to the "home" page

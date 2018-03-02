@@ -29,6 +29,9 @@
     - year
     - month
     - timeframe
+    - assuredStatus
+    - publishedBy
+    - reportingLevel
     resourcebundle:messages:
     - DOCUMENT TYPE
     - CATEGORY
@@ -38,6 +41,9 @@
     - YEAR
     - MONTH
     - TIMEFRAME
+    - ASSURED
+    - PUBLISHED BY
+    - REPORTING LEVEL
   /facet-headers[2]:
     hippo:availability:
     - preview
@@ -69,6 +75,9 @@
     - year
     - month
     - timeframe
+    - assuredStatus
+    - publishedBy
+    - reportingLevel
     resourcebundle:messages:
     - DOCUMENT TYPE
     - CATEGORY
@@ -78,6 +87,9 @@
     - YEAR
     - MONTH
     - TIMEFRAME
+    - ASSURED
+    - PUBLISHED BY
+    - REPORTING LEVEL
   /facet-headers[3]:
     hippo:availability:
     - live
@@ -109,6 +121,9 @@
     - year
     - month
     - timeframe
+    - assuredStatus
+    - publishedBy
+    - reportingLevel
     resourcebundle:messages:
     - DOCUMENT TYPE
     - CATEGORY
@@ -118,6 +133,9 @@
     - YEAR
     - MONTH
     - TIMEFRAME
+    - ASSURED
+    - PUBLISHED BY
+    - REPORTING LEVEL
   hippo:name: facet headers
   jcr:mixinTypes:
   - hippo:named

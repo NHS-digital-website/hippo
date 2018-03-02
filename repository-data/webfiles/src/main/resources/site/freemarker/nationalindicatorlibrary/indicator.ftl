@@ -7,20 +7,20 @@
 
   <section class="document-header push-double--bottom">
       <div class="document-header__inner">
-        <h1 class="layout-5-6 push--bottom" data-uipath="ps.indicator.title">${indicator.topbar.title}</h1>
+        <h1 class="layout-5-6 push--bottom" data-uipath="ps.indicator.title">${indicator.title}</h1>
 
-        <#if indicator.topbar.assuredStatus><h2 style="text-decoration:underline">Independently assured by IGB</h2></#if>
+        <#if indicator.assuredStatus><h2 style="text-decoration:underline">Independently assured by IGB</h2></#if>
 
         <div class="layout">
             <div class="layout__item layout-1-2">
-                <p class="push-half--bottom"><strong><@fmt.message key="headers.publishedBy"/></strong>: ${indicator.topbar.publishedBy}</p>
+                <p class="push-half--bottom"><strong><@fmt.message key="headers.publishedBy"/></strong>: ${indicator.publishedBy}</p>
                 <p class="push-half--bottom"><strong><@fmt.message key="headers.assuranceDate"/></strong>: ${indicator.topbar.assuranceDate.time?string[dateFormat]}</p>
                 <p class="push-half--bottom"><strong><@fmt.message key="headers.reportingPeriod"/></strong>: ${indicator.topbar.reportingPeriod}</p>
                 <p class="push-half--bottom"><strong><@fmt.message key="headers.basedOn"/></strong>: ${indicator.topbar.basedOn}</p>
             </div><!--
             --><div class="layout__item layout-1-2">
                 <p class="push-half--bottom"><strong><@fmt.message key="headers.contactAuthor"/></strong>: <a href="mailto:${indicator.topbar.contactAuthor.contactAuthorEmail}"> ${indicator.topbar.contactAuthor.contactAuthorName}</a></p>
-                <p class="push-half--bottom"><strong><@fmt.message key="headers.reportingLevel"/></strong>: ${indicator.topbar.reportingLevel}</p>
+                <p class="push-half--bottom"><strong><@fmt.message key="headers.reportingLevel"/></strong>: ${indicator.reportingLevel}</p>
                 <p class="push-half--bottom"><strong><@fmt.message key="headers.reviewDate"/></strong>: ${indicator.topbar.reviewDate.time?string[dateFormat]}</p>
             </div>
         </div>

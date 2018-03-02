@@ -25,9 +25,33 @@ public class Indicator extends BaseDocument {
         return getChildBeansByName(PropertyKeys.ATTACHMENTS, Attachment.class);
     }
 
+    @HippoEssentialsGenerated(internalName = PropertyKeys.TITLE)
+    public String getTitle() {
+        return getProperty(PropertyKeys.TITLE);
+    }
+
+    @HippoEssentialsGenerated(internalName = PropertyKeys.ASSUREDSTATUS)
+    public Boolean getAssuredStatus() {
+        return getProperty(PropertyKeys.ASSUREDSTATUS);
+    }
+
+    @HippoEssentialsGenerated(internalName = PropertyKeys.PUBLISHEDBY)
+    public String getPublishedBy() {
+        return getProperty(PropertyKeys.PUBLISHEDBY);
+    }
+
+    @HippoEssentialsGenerated(internalName = PropertyKeys.REPORTINGLEVEL)
+    public String getReportingLevel() {
+        return getProperty(PropertyKeys.REPORTINGLEVEL);
+    }
+
     interface PropertyKeys {
         String ATTACHMENTS = "nationalindicatorlibrary:attachments";
         String DETAILS = "nationalindicatorlibrary:details";
         String TOPBAR = "nationalindicatorlibrary:topbar";
+        String TITLE = "nationalindicatorlibrary:title";
+        String ASSUREDSTATUS = "nationalindicatorlibrary:assuredStatus";
+        String PUBLISHEDBY = "nationalindicatorlibrary:publishedBy"; 
+        String REPORTINGLEVEL = "nationalindicatorlibrary:reportingLevel";                   
     }
 }

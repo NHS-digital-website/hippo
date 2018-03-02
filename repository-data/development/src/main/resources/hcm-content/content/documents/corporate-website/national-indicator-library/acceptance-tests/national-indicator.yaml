@@ -28,11 +28,8 @@
       /nationalindicatorlibrary:purpose:
         hippostd:content: <p>SearchableNationalIndicatorPurpose</p>
         jcr:primaryType: hippostd:html
-      hippotaxonomy:keys:
-      - cancer
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
       jcr:primaryType: nationalindicatorlibrary:details
+      nationalindicatorlibrary:briefDescription: National Indicator
       nationalindicatorlibrary:iapCode: IAPCODE1
       nationalindicatorlibrary:indicatorSet: ''
       nationalindicatorlibrary:rating: ''
@@ -43,26 +40,34 @@
         nationalindicatorlibrary:contactAuthorName: Author
       jcr:primaryType: nationalindicatorlibrary:topbar
       nationalindicatorlibrary:assuranceDate: 2018-02-23T13:53:00Z
-      nationalindicatorlibrary:assuredStatus: true
       nationalindicatorlibrary:basedOn: Test
-      nationalindicatorlibrary:publishedBy: Admin
-      nationalindicatorlibrary:reportingLevel: ''
       nationalindicatorlibrary:reportingPeriod: Now
       nationalindicatorlibrary:reviewDate: 2018-02-23T13:53:00Z
-      nationalindicatorlibrary:title: National Indicator
     common:FacetType: indicator
+    common:FullTaxonomy:
+    - nil-taxonomy-test
+    - acceptance-tests
+    common:SearchableTags:
+    - NilTaxonomySearchTerm test
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-23T13:52:36.010Z
-    hippostdpubwf:lastModificationDate: 2018-02-23T14:12:55.314Z
+    hippostdpubwf:lastModificationDate: 2018-03-06T13:26:47.707Z
     hippostdpubwf:lastModifiedBy: admin
+    hippotaxonomy:keys:
+    - nil-taxonomy-test
     hippotranslation:id: e1403a71-7217-4752-88ee-a83266332aa9
     hippotranslation:locale: en
     jcr:mixinTypes:
+    - hippotaxonomy:classifiable
     - mix:referenceable
     jcr:primaryType: nationalindicatorlibrary:indicator
+    nationalindicatorlibrary:assuredStatus: true
+    nationalindicatorlibrary:publishedBy: NHS Digital
+    nationalindicatorlibrary:reportingLevel: CCG and National
+    nationalindicatorlibrary:title: National Indicator
   /national-indicator[2]:
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
@@ -91,11 +96,8 @@
       /nationalindicatorlibrary:purpose:
         hippostd:content: <p>SearchableNationalIndicatorPurpose</p>
         jcr:primaryType: hippostd:html
-      hippotaxonomy:keys:
-      - cancer
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
       jcr:primaryType: nationalindicatorlibrary:details
+      nationalindicatorlibrary:briefDescription: National Indicator
       nationalindicatorlibrary:iapCode: IAPCODE1
       nationalindicatorlibrary:indicatorSet: ''
       nationalindicatorlibrary:rating: ''
@@ -106,28 +108,36 @@
         nationalindicatorlibrary:contactAuthorName: Author
       jcr:primaryType: nationalindicatorlibrary:topbar
       nationalindicatorlibrary:assuranceDate: 2018-02-23T13:53:00Z
-      nationalindicatorlibrary:assuredStatus: true
       nationalindicatorlibrary:basedOn: Test
-      nationalindicatorlibrary:publishedBy: Admin
-      nationalindicatorlibrary:reportingLevel: ''
       nationalindicatorlibrary:reportingPeriod: Now
       nationalindicatorlibrary:reviewDate: 2018-02-23T13:53:00Z
-      nationalindicatorlibrary:title: National Indicator
     common:FacetType: indicator
+    common:FullTaxonomy:
+    - nil-taxonomy-test
+    - acceptance-tests
+    common:SearchableTags:
+    - NilTaxonomySearchTerm test
     common:searchable: true
     hippo:availability:
     - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-23T13:52:36.010Z
-    hippostdpubwf:lastModificationDate: 2018-02-23T13:55:17.853Z
+    hippostdpubwf:lastModificationDate: 2018-03-06T13:27:03.233Z
     hippostdpubwf:lastModifiedBy: admin
+    hippotaxonomy:keys:
+    - nil-taxonomy-test
     hippotranslation:id: e1403a71-7217-4752-88ee-a83266332aa9
     hippotranslation:locale: en
     jcr:mixinTypes:
+    - hippotaxonomy:classifiable
     - mix:referenceable
     - mix:versionable
     jcr:primaryType: nationalindicatorlibrary:indicator
+    nationalindicatorlibrary:assuredStatus: true
+    nationalindicatorlibrary:publishedBy: NHS Digital
+    nationalindicatorlibrary:reportingLevel: CCG and National
+    nationalindicatorlibrary:title: National Indicator
   /national-indicator[3]:
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
@@ -156,11 +166,8 @@
       /nationalindicatorlibrary:purpose:
         hippostd:content: <p>SearchableNationalIndicatorPurpose</p>
         jcr:primaryType: hippostd:html
-      hippotaxonomy:keys:
-      - cancer
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
       jcr:primaryType: nationalindicatorlibrary:details
+      nationalindicatorlibrary:briefDescription: National Indicator
       nationalindicatorlibrary:iapCode: IAPCODE1
       nationalindicatorlibrary:indicatorSet: ''
       nationalindicatorlibrary:rating: ''
@@ -171,28 +178,36 @@
         nationalindicatorlibrary:contactAuthorName: Author
       jcr:primaryType: nationalindicatorlibrary:topbar
       nationalindicatorlibrary:assuranceDate: 2018-02-23T13:53:00Z
-      nationalindicatorlibrary:assuredStatus: true
       nationalindicatorlibrary:basedOn: Test
-      nationalindicatorlibrary:publishedBy: Admin
-      nationalindicatorlibrary:reportingLevel: ''
       nationalindicatorlibrary:reportingPeriod: Now
       nationalindicatorlibrary:reviewDate: 2018-02-23T13:53:00Z
-      nationalindicatorlibrary:title: National Indicator
     common:FacetType: indicator
+    common:FullTaxonomy:
+    - nil-taxonomy-test
+    - acceptance-tests
+    common:SearchableTags:
+    - NilTaxonomySearchTerm test
     common:searchable: true
     hippo:availability:
     - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-23T13:52:36.010Z
-    hippostdpubwf:lastModificationDate: 2018-02-23T13:55:17.853Z
+    hippostdpubwf:lastModificationDate: 2018-03-06T13:27:03.233Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-02-23T14:13:05.091Z
+    hippostdpubwf:publicationDate: 2018-03-06T13:27:07.584Z
+    hippotaxonomy:keys:
+    - nil-taxonomy-test
     hippotranslation:id: e1403a71-7217-4752-88ee-a83266332aa9
     hippotranslation:locale: en
     jcr:mixinTypes:
+    - hippotaxonomy:classifiable
     - mix:referenceable
     jcr:primaryType: nationalindicatorlibrary:indicator
+    nationalindicatorlibrary:assuredStatus: true
+    nationalindicatorlibrary:publishedBy: NHS Digital
+    nationalindicatorlibrary:reportingLevel: CCG and National
+    nationalindicatorlibrary:title: National Indicator
   hippo:name: national indicator
   jcr:mixinTypes:
   - hippo:named

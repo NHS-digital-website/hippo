@@ -1,48 +1,50 @@
 ---
-/content/documents/corporate-website/national-indicator-library/acceptance-tests/bare-minimum-indicator:
-  /bare-minimum-indicator[1]:
+/content/documents/corporate-website/national-indicator-library/acceptance-tests/unassured-indicator:
+  /unassured-indicator[1]:
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
-        hippostd:content: ''
+        hippostd:content: <p>Caveats</p>
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:definition:
         hippostd:content: <p>Definition</p>
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:interpretationGuidelines:
-        hippostd:content: ''
+        hippostd:content: <p>Interpretation Guidelines</p>
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:methodology:
         /nationalindicatorlibrary:calculation:
-          hippostd:content: ''
+          hippostd:content: <p>Calculation</p>
           jcr:primaryType: hippostd:html
         /nationalindicatorlibrary:dataSource:
-          hippostd:content: ''
+          hippostd:content: <p>Date Source</p>
           jcr:primaryType: hippostd:html
         /nationalindicatorlibrary:denominator:
-          hippostd:content: ''
+          hippostd:content: <p>Denominator</p>
           jcr:primaryType: hippostd:html
         /nationalindicatorlibrary:numerator:
-          hippostd:content: ''
+          hippostd:content: <p>Numerator</p>
           jcr:primaryType: hippostd:html
         jcr:primaryType: nationalindicatorlibrary:methodology
       /nationalindicatorlibrary:purpose:
         hippostd:content: <p>Purpose</p>
         jcr:primaryType: hippostd:html
       jcr:primaryType: nationalindicatorlibrary:details
-      nationalindicatorlibrary:briefDescription: Bare Minimum Indicator
-      nationalindicatorlibrary:iapCode: ''
+      nationalindicatorlibrary:briefDescription: Unassured Indicator
+      nationalindicatorlibrary:iapCode: IAPCODE1
       nationalindicatorlibrary:indicatorSet: ''
       nationalindicatorlibrary:rating: ''
     /nationalindicatorlibrary:topbar:
       /nationalindicatorlibrary:contactAuthor:
         jcr:primaryType: nationalindicatorlibrary:contactAuthor
         nationalindicatorlibrary:contactAuthorEmail: ''
-        nationalindicatorlibrary:contactAuthorName: Test
+        nationalindicatorlibrary:contactAuthorName: Author
       jcr:primaryType: nationalindicatorlibrary:topbar
-      nationalindicatorlibrary:assuranceDate: 2018-02-23T13:57:00Z
+      nationalindicatorlibrary:assuranceDate: 2018-02-23T13:53:00Z
+      nationalindicatorlibrary:assuredStatus: false
       nationalindicatorlibrary:basedOn: Test
       nationalindicatorlibrary:reportingPeriod: Now
-      nationalindicatorlibrary:reviewDate: 2018-02-23T13:57:00Z
+      nationalindicatorlibrary:reviewDate: 2018-02-23T13:53:00Z
+      nationalindicatorlibrary:title: Unassured Indicator
     common:FacetType: indicator
     common:FullTaxonomy:
     - nil-taxonomy-test
@@ -53,64 +55,68 @@
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2018-02-23T13:57:04.917Z
-    hippostdpubwf:lastModificationDate: 2018-03-06T13:26:12.215Z
+    hippostdpubwf:creationDate: 2018-02-23T13:52:36.010Z
+    hippostdpubwf:lastModificationDate: 2018-03-06T13:27:30.817Z
     hippostdpubwf:lastModifiedBy: admin
     hippotaxonomy:keys:
     - nil-taxonomy-test
-    hippotranslation:id: 6052313f-da95-4a53-84ee-8d2d9e69d1e0
+    hippotranslation:id: e1403a71-7217-4752-88ee-a83266332aa9
     hippotranslation:locale: en
     jcr:mixinTypes:
     - hippotaxonomy:classifiable
     - mix:referenceable
     jcr:primaryType: nationalindicatorlibrary:indicator
-    nationalindicatorlibrary:assuredStatus: true
+    nationalindicatorlibrary:assuredStatus: false
+    nationalindicatorlibrary:assuredStatus2: false
     nationalindicatorlibrary:publishedBy: NHS Digital
-    nationalindicatorlibrary:reportingLevel: CCG
-    nationalindicatorlibrary:title: Bare Minimum Indicator
-  /bare-minimum-indicator[2]:
+    nationalindicatorlibrary:reportingLevel: CCG and National GP registered population
+    nationalindicatorlibrary:title: Unassured Indicator
+    nationalindicatorlibrary:title2: Unassured Indicator
+  /unassured-indicator[2]:
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
-        hippostd:content: ''
+        hippostd:content: <p>Caveats</p>
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:definition:
         hippostd:content: <p>Definition</p>
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:interpretationGuidelines:
-        hippostd:content: ''
+        hippostd:content: <p>Interpretation Guidelines</p>
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:methodology:
         /nationalindicatorlibrary:calculation:
-          hippostd:content: ''
+          hippostd:content: <p>Calculation</p>
           jcr:primaryType: hippostd:html
         /nationalindicatorlibrary:dataSource:
-          hippostd:content: ''
+          hippostd:content: <p>Date Source</p>
           jcr:primaryType: hippostd:html
         /nationalindicatorlibrary:denominator:
-          hippostd:content: ''
+          hippostd:content: <p>Denominator</p>
           jcr:primaryType: hippostd:html
         /nationalindicatorlibrary:numerator:
-          hippostd:content: ''
+          hippostd:content: <p>Numerator</p>
           jcr:primaryType: hippostd:html
         jcr:primaryType: nationalindicatorlibrary:methodology
       /nationalindicatorlibrary:purpose:
         hippostd:content: <p>Purpose</p>
         jcr:primaryType: hippostd:html
       jcr:primaryType: nationalindicatorlibrary:details
-      nationalindicatorlibrary:briefDescription: Bare Minimum Indicator
-      nationalindicatorlibrary:iapCode: ''
+      nationalindicatorlibrary:briefDescription: Unassured Indicator
+      nationalindicatorlibrary:iapCode: IAPCODE1
       nationalindicatorlibrary:indicatorSet: ''
       nationalindicatorlibrary:rating: ''
     /nationalindicatorlibrary:topbar:
       /nationalindicatorlibrary:contactAuthor:
         jcr:primaryType: nationalindicatorlibrary:contactAuthor
         nationalindicatorlibrary:contactAuthorEmail: ''
-        nationalindicatorlibrary:contactAuthorName: Test
+        nationalindicatorlibrary:contactAuthorName: Author
       jcr:primaryType: nationalindicatorlibrary:topbar
-      nationalindicatorlibrary:assuranceDate: 2018-02-23T13:57:00Z
+      nationalindicatorlibrary:assuranceDate: 2018-02-23T13:53:00Z
+      nationalindicatorlibrary:assuredStatus: false
       nationalindicatorlibrary:basedOn: Test
       nationalindicatorlibrary:reportingPeriod: Now
-      nationalindicatorlibrary:reviewDate: 2018-02-23T13:57:00Z
+      nationalindicatorlibrary:reviewDate: 2018-02-23T13:53:00Z
+      nationalindicatorlibrary:title: Unassured Indicator
     common:FacetType: indicator
     common:FullTaxonomy:
     - nil-taxonomy-test
@@ -122,65 +128,69 @@
     - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2018-02-23T13:57:04.917Z
-    hippostdpubwf:lastModificationDate: 2018-03-06T13:26:33.210Z
+    hippostdpubwf:creationDate: 2018-02-23T13:52:36.010Z
+    hippostdpubwf:lastModificationDate: 2018-03-06T13:27:42.221Z
     hippostdpubwf:lastModifiedBy: admin
     hippotaxonomy:keys:
     - nil-taxonomy-test
-    hippotranslation:id: 6052313f-da95-4a53-84ee-8d2d9e69d1e0
+    hippotranslation:id: e1403a71-7217-4752-88ee-a83266332aa9
     hippotranslation:locale: en
     jcr:mixinTypes:
     - hippotaxonomy:classifiable
     - mix:referenceable
     - mix:versionable
     jcr:primaryType: nationalindicatorlibrary:indicator
-    nationalindicatorlibrary:assuredStatus: true
+    nationalindicatorlibrary:assuredStatus: false
+    nationalindicatorlibrary:assuredStatus2: false
     nationalindicatorlibrary:publishedBy: NHS Digital
-    nationalindicatorlibrary:reportingLevel: CCG
-    nationalindicatorlibrary:title: Bare Minimum Indicator
-  /bare-minimum-indicator[3]:
+    nationalindicatorlibrary:reportingLevel: CCG and National GP registered population
+    nationalindicatorlibrary:title: Unassured Indicator
+    nationalindicatorlibrary:title2: Unassured Indicator
+  /unassured-indicator[3]:
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
-        hippostd:content: ''
+        hippostd:content: <p>Caveats</p>
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:definition:
         hippostd:content: <p>Definition</p>
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:interpretationGuidelines:
-        hippostd:content: ''
+        hippostd:content: <p>Interpretation Guidelines</p>
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:methodology:
         /nationalindicatorlibrary:calculation:
-          hippostd:content: ''
+          hippostd:content: <p>Calculation</p>
           jcr:primaryType: hippostd:html
         /nationalindicatorlibrary:dataSource:
-          hippostd:content: ''
+          hippostd:content: <p>Date Source</p>
           jcr:primaryType: hippostd:html
         /nationalindicatorlibrary:denominator:
-          hippostd:content: ''
+          hippostd:content: <p>Denominator</p>
           jcr:primaryType: hippostd:html
         /nationalindicatorlibrary:numerator:
-          hippostd:content: ''
+          hippostd:content: <p>Numerator</p>
           jcr:primaryType: hippostd:html
         jcr:primaryType: nationalindicatorlibrary:methodology
       /nationalindicatorlibrary:purpose:
         hippostd:content: <p>Purpose</p>
         jcr:primaryType: hippostd:html
       jcr:primaryType: nationalindicatorlibrary:details
-      nationalindicatorlibrary:briefDescription: Bare Minimum Indicator
-      nationalindicatorlibrary:iapCode: ''
+      nationalindicatorlibrary:briefDescription: Unassured Indicator
+      nationalindicatorlibrary:iapCode: IAPCODE1
       nationalindicatorlibrary:indicatorSet: ''
       nationalindicatorlibrary:rating: ''
     /nationalindicatorlibrary:topbar:
       /nationalindicatorlibrary:contactAuthor:
         jcr:primaryType: nationalindicatorlibrary:contactAuthor
         nationalindicatorlibrary:contactAuthorEmail: ''
-        nationalindicatorlibrary:contactAuthorName: Test
+        nationalindicatorlibrary:contactAuthorName: Author
       jcr:primaryType: nationalindicatorlibrary:topbar
-      nationalindicatorlibrary:assuranceDate: 2018-02-23T13:57:00Z
+      nationalindicatorlibrary:assuranceDate: 2018-02-23T13:53:00Z
+      nationalindicatorlibrary:assuredStatus: false
       nationalindicatorlibrary:basedOn: Test
       nationalindicatorlibrary:reportingPeriod: Now
-      nationalindicatorlibrary:reviewDate: 2018-02-23T13:57:00Z
+      nationalindicatorlibrary:reviewDate: 2018-02-23T13:53:00Z
+      nationalindicatorlibrary:title: Unassured Indicator
     common:FacetType: indicator
     common:FullTaxonomy:
     - nil-taxonomy-test
@@ -192,23 +202,25 @@
     - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2018-02-23T13:57:04.917Z
-    hippostdpubwf:lastModificationDate: 2018-03-06T13:26:33.210Z
+    hippostdpubwf:creationDate: 2018-02-23T13:52:36.010Z
+    hippostdpubwf:lastModificationDate: 2018-03-06T13:27:42.221Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-03-06T13:26:40.101Z
+    hippostdpubwf:publicationDate: 2018-03-06T13:27:46.732Z
     hippotaxonomy:keys:
     - nil-taxonomy-test
-    hippotranslation:id: 6052313f-da95-4a53-84ee-8d2d9e69d1e0
+    hippotranslation:id: e1403a71-7217-4752-88ee-a83266332aa9
     hippotranslation:locale: en
     jcr:mixinTypes:
     - hippotaxonomy:classifiable
     - mix:referenceable
     jcr:primaryType: nationalindicatorlibrary:indicator
-    nationalindicatorlibrary:assuredStatus: true
+    nationalindicatorlibrary:assuredStatus: false
+    nationalindicatorlibrary:assuredStatus2: false
     nationalindicatorlibrary:publishedBy: NHS Digital
-    nationalindicatorlibrary:reportingLevel: CCG
-    nationalindicatorlibrary:title: Bare Minimum Indicator
-  hippo:name: bare minimum indicator
+    nationalindicatorlibrary:reportingLevel: CCG and National GP registered population
+    nationalindicatorlibrary:title: Unassured Indicator
+    nationalindicatorlibrary:title2: Unassured Indicator
+  hippo:name: unassured indicator
   jcr:mixinTypes:
   - hippo:named
   - mix:referenceable
