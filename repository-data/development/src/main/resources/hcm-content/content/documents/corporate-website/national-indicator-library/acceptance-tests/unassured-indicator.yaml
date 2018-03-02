@@ -1,12 +1,12 @@
 ---
-/content/documents/corporate-website/national-indicator-library/acceptance-tests/national-indicator:
-  /national-indicator[1]:
+/content/documents/corporate-website/national-indicator-library/acceptance-tests/unassured-indicator:
+  /unassured-indicator[1]:
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
         hippostd:content: <p>Caveats</p>
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:definition:
-        hippostd:content: <p>SearchableNationalIndicatorDefinition</p>
+        hippostd:content: <p>Definition</p>
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:interpretationGuidelines:
         hippostd:content: <p>Interpretation Guidelines</p>
@@ -26,10 +26,10 @@
           jcr:primaryType: hippostd:html
         jcr:primaryType: nationalindicatorlibrary:methodology
       /nationalindicatorlibrary:purpose:
-        hippostd:content: <p>SearchableNationalIndicatorPurpose</p>
+        hippostd:content: <p>Purpose</p>
         jcr:primaryType: hippostd:html
       jcr:primaryType: nationalindicatorlibrary:details
-      nationalindicatorlibrary:briefDescription: National Indicator
+      nationalindicatorlibrary:briefDescription: Unassured Indicator
       nationalindicatorlibrary:iapCode: IAPCODE1
       nationalindicatorlibrary:indicatorSet: ''
       nationalindicatorlibrary:rating: ''
@@ -40,9 +40,11 @@
         nationalindicatorlibrary:contactAuthorName: Author
       jcr:primaryType: nationalindicatorlibrary:topbar
       nationalindicatorlibrary:assuranceDate: 2018-02-23T13:53:00Z
+      nationalindicatorlibrary:assuredStatus: false
       nationalindicatorlibrary:basedOn: Test
       nationalindicatorlibrary:reportingPeriod: Now
       nationalindicatorlibrary:reviewDate: 2018-02-23T13:53:00Z
+      nationalindicatorlibrary:title: Unassured Indicator
     common:FacetType: indicator
     common:FullTaxonomy:
     - nil-taxonomy-test
@@ -54,7 +56,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-23T13:52:36.010Z
-    hippostdpubwf:lastModificationDate: 2018-03-07T08:14:54.168Z
+    hippostdpubwf:lastModificationDate: 2018-03-07T08:15:10.327Z
     hippostdpubwf:lastModifiedBy: admin
     hippotaxonomy:keys:
     - nil-taxonomy-test
@@ -64,18 +66,20 @@
     - hippotaxonomy:classifiable
     - mix:referenceable
     jcr:primaryType: nationalindicatorlibrary:indicator
-    nationalindicatorlibrary:assuredStatus: true
+    nationalindicatorlibrary:assuredStatus: false
+    nationalindicatorlibrary:assuredStatus2: false
     nationalindicatorlibrary:publishedBy: NHS Digital
-    nationalindicatorlibrary:reportingLevel: CCG and National
-    nationalindicatorlibrary:title: National Indicator
+    nationalindicatorlibrary:reportingLevel: CCG and National GP registered population
+    nationalindicatorlibrary:title: Unassured Indicator
+    nationalindicatorlibrary:title2: Unassured Indicator
     publicationsystem:GeographicCoverage: England
-  /national-indicator[2]:
+  /unassured-indicator[2]:
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
         hippostd:content: <p>Caveats</p>
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:definition:
-        hippostd:content: <p>SearchableNationalIndicatorDefinition</p>
+        hippostd:content: <p>Definition</p>
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:interpretationGuidelines:
         hippostd:content: <p>Interpretation Guidelines</p>
@@ -95,10 +99,10 @@
           jcr:primaryType: hippostd:html
         jcr:primaryType: nationalindicatorlibrary:methodology
       /nationalindicatorlibrary:purpose:
-        hippostd:content: <p>SearchableNationalIndicatorPurpose</p>
+        hippostd:content: <p>Purpose</p>
         jcr:primaryType: hippostd:html
       jcr:primaryType: nationalindicatorlibrary:details
-      nationalindicatorlibrary:briefDescription: National Indicator
+      nationalindicatorlibrary:briefDescription: Unassured Indicator
       nationalindicatorlibrary:iapCode: IAPCODE1
       nationalindicatorlibrary:indicatorSet: ''
       nationalindicatorlibrary:rating: ''
@@ -109,9 +113,11 @@
         nationalindicatorlibrary:contactAuthorName: Author
       jcr:primaryType: nationalindicatorlibrary:topbar
       nationalindicatorlibrary:assuranceDate: 2018-02-23T13:53:00Z
+      nationalindicatorlibrary:assuredStatus: false
       nationalindicatorlibrary:basedOn: Test
       nationalindicatorlibrary:reportingPeriod: Now
       nationalindicatorlibrary:reviewDate: 2018-02-23T13:53:00Z
+      nationalindicatorlibrary:title: Unassured Indicator
     common:FacetType: indicator
     common:FullTaxonomy:
     - nil-taxonomy-test
@@ -124,7 +130,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-23T13:52:36.010Z
-    hippostdpubwf:lastModificationDate: 2018-03-07T08:15:01.791Z
+    hippostdpubwf:lastModificationDate: 2018-03-07T08:15:16.856Z
     hippostdpubwf:lastModifiedBy: admin
     hippotaxonomy:keys:
     - nil-taxonomy-test
@@ -135,18 +141,20 @@
     - mix:referenceable
     - mix:versionable
     jcr:primaryType: nationalindicatorlibrary:indicator
-    nationalindicatorlibrary:assuredStatus: true
+    nationalindicatorlibrary:assuredStatus: false
+    nationalindicatorlibrary:assuredStatus2: false
     nationalindicatorlibrary:publishedBy: NHS Digital
-    nationalindicatorlibrary:reportingLevel: CCG and National
-    nationalindicatorlibrary:title: National Indicator
+    nationalindicatorlibrary:reportingLevel: CCG and National GP registered population
+    nationalindicatorlibrary:title: Unassured Indicator
+    nationalindicatorlibrary:title2: Unassured Indicator
     publicationsystem:GeographicCoverage: England
-  /national-indicator[3]:
+  /unassured-indicator[3]:
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
         hippostd:content: <p>Caveats</p>
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:definition:
-        hippostd:content: <p>SearchableNationalIndicatorDefinition</p>
+        hippostd:content: <p>Definition</p>
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:interpretationGuidelines:
         hippostd:content: <p>Interpretation Guidelines</p>
@@ -166,10 +174,10 @@
           jcr:primaryType: hippostd:html
         jcr:primaryType: nationalindicatorlibrary:methodology
       /nationalindicatorlibrary:purpose:
-        hippostd:content: <p>SearchableNationalIndicatorPurpose</p>
+        hippostd:content: <p>Purpose</p>
         jcr:primaryType: hippostd:html
       jcr:primaryType: nationalindicatorlibrary:details
-      nationalindicatorlibrary:briefDescription: National Indicator
+      nationalindicatorlibrary:briefDescription: Unassured Indicator
       nationalindicatorlibrary:iapCode: IAPCODE1
       nationalindicatorlibrary:indicatorSet: ''
       nationalindicatorlibrary:rating: ''
@@ -180,9 +188,11 @@
         nationalindicatorlibrary:contactAuthorName: Author
       jcr:primaryType: nationalindicatorlibrary:topbar
       nationalindicatorlibrary:assuranceDate: 2018-02-23T13:53:00Z
+      nationalindicatorlibrary:assuredStatus: false
       nationalindicatorlibrary:basedOn: Test
       nationalindicatorlibrary:reportingPeriod: Now
       nationalindicatorlibrary:reviewDate: 2018-02-23T13:53:00Z
+      nationalindicatorlibrary:title: Unassured Indicator
     common:FacetType: indicator
     common:FullTaxonomy:
     - nil-taxonomy-test
@@ -195,9 +205,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-23T13:52:36.010Z
-    hippostdpubwf:lastModificationDate: 2018-03-07T08:15:01.791Z
+    hippostdpubwf:lastModificationDate: 2018-03-07T08:15:16.856Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-03-07T08:15:05.868Z
+    hippostdpubwf:publicationDate: 2018-03-07T08:15:21.924Z
     hippotaxonomy:keys:
     - nil-taxonomy-test
     hippotranslation:id: e1403a71-7217-4752-88ee-a83266332aa9
@@ -206,12 +216,14 @@
     - hippotaxonomy:classifiable
     - mix:referenceable
     jcr:primaryType: nationalindicatorlibrary:indicator
-    nationalindicatorlibrary:assuredStatus: true
+    nationalindicatorlibrary:assuredStatus: false
+    nationalindicatorlibrary:assuredStatus2: false
     nationalindicatorlibrary:publishedBy: NHS Digital
-    nationalindicatorlibrary:reportingLevel: CCG and National
-    nationalindicatorlibrary:title: National Indicator
+    nationalindicatorlibrary:reportingLevel: CCG and National GP registered population
+    nationalindicatorlibrary:title: Unassured Indicator
+    nationalindicatorlibrary:title2: Unassured Indicator
     publicationsystem:GeographicCoverage: England
-  hippo:name: national indicator
+  hippo:name: unassured indicator
   jcr:mixinTypes:
   - hippo:named
   - mix:referenceable

@@ -40,6 +40,7 @@
     - headers.basedOn
     - headers.caveats
     - headers.contactAuthor
+    - headers.geographicCoverage
     - headers.definition
     - headers.iapCode
     - headers.indicatorSet
@@ -66,6 +67,7 @@
     - Based on data from
     - Caveats
     - Contact Author
+    - Geographic Coverage
     - Definition
     - IAP Code
     - Indicator Set
@@ -129,6 +131,7 @@
     - headers.basedOn
     - headers.caveats
     - headers.contactAuthor
+    - headers.geographicCoverage
     - headers.definition
     - headers.iapCode
     - headers.indicatorSet
@@ -155,6 +158,7 @@
     - Based on data from
     - Caveats
     - Contact Author
+    - Geographic Coverage
     - Definition
     - IAP Code
     - Indicator Set
@@ -218,6 +222,7 @@
     - headers.basedOn
     - headers.caveats
     - headers.contactAuthor
+    - headers.geographicCoverage
     - headers.definition
     - headers.iapCode
     - headers.indicatorSet
@@ -244,6 +249,7 @@
     - Based on data from
     - Caveats
     - Contact Author
+    - Geographic Coverage
     - Definition
     - IAP Code
     - Indicator Set

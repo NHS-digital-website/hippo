@@ -7,6 +7,14 @@
           hippotaxonomy:name: Acceptance Tests
           jcr:primaryType: hippotaxonomy:categoryinfo
         jcr:primaryType: hippotaxonomy:categoryinfos
+      /niltaxonomysearchterm-test:
+        /hippotaxonomy:categoryinfos:
+          /en:
+            hippotaxonomy:name: NilTaxonomySearchTerm test
+            jcr:primaryType: hippotaxonomy:categoryinfo
+          jcr:primaryType: hippotaxonomy:categoryinfos
+        hippotaxonomy:key: nil-taxonomy-test
+        jcr:primaryType: hippotaxonomy:category
       /synonym-test:
         /hippotaxonomy:categoryinfos:
           /en:
@@ -449,6 +457,14 @@
           hippotaxonomy:name: Acceptance Tests
           jcr:primaryType: hippotaxonomy:categoryinfo
         jcr:primaryType: hippotaxonomy:categoryinfos
+      /niltaxonomysearchterm-test:
+        /hippotaxonomy:categoryinfos:
+          /en:
+            hippotaxonomy:name: NilTaxonomySearchTerm test
+            jcr:primaryType: hippotaxonomy:categoryinfo
+          jcr:primaryType: hippotaxonomy:categoryinfos
+        hippotaxonomy:key: nil-taxonomy-test
+        jcr:primaryType: hippotaxonomy:category
       /synonym-test:
         /hippotaxonomy:categoryinfos:
           /en:
