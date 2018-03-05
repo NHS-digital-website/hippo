@@ -1,0 +1,40 @@
+/* Breadcrumb */
+
+.breadcrumb {
+    padding: round($gutter * 1.375) $gutter;
+
+    li,
+    a {
+        @include core-font(16);
+    }
+}
+
+.breadcrumb__link {
+    text-decoration: none;
+    color: $col-primary;
+    @include core-font(16);
+
+    &:hover {
+        text-decoration: underline;
+        color: $col-primary;
+    }
+}
+
+.breadcrumb__sep {
+    position: relative;
+    display: inline-block;
+    height: round($gutter * 0.5);
+    width: auto;
+    margin: 0;
+}
+
+.breadcrumb__link--secondary {
+    &,
+    &:link,
+    &:hover,
+    &:active,
+    &:visited {
+        color: $col-quinary;
+        text-decoration: none;
+    }
+}

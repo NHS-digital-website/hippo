@@ -4,8 +4,10 @@
 
 <#include "app-layout-head.ftl">
 
-<body class="debugs">
+<body>
     <@siteHeader true></@siteHeader>
+
+    <@hst.include ref="breadcrumb"/>
 
     <@hst.include ref="main"/>
 

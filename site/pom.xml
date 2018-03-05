@@ -137,6 +137,11 @@
             <scope>compile</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.onehippo.forge</groupId>
+            <artifactId>breadcrumb</artifactId>
+        </dependency>
+
     </dependencies>
     <build>
         <resources>
