@@ -109,6 +109,12 @@ public class TestContentUrls {
 
         // National Indicator Library
         add("nihub","/indicators/nihub");
+
+        add("service with rich content - parent",
+            "/services/service-document-1/");
+
+        add("homeland",
+            "/homeland");
     }
 
     private String getAttachmentUrl(String siteUrl, String attachmentTag) {

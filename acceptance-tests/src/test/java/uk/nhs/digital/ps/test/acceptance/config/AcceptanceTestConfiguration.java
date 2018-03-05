@@ -12,6 +12,8 @@ import uk.nhs.digital.ps.test.acceptance.pages.DashboardPage;
 import uk.nhs.digital.ps.test.acceptance.pages.LoginPage;
 import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
 import uk.nhs.digital.ps.test.acceptance.pages.site.SitePage;
+import uk.nhs.digital.ps.test.acceptance.pages.site.HomePage;
+import uk.nhs.digital.ps.test.acceptance.pages.site.ServicePage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.common.SearchPage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationsOverviewPage;
@@ -111,6 +113,18 @@ public class AcceptanceTestConfiguration {
     @Bean
     public SitePage sitePage(final WebDriverProvider webDriverProvider, final PageHelper pageHelper) {
         return new SitePage(webDriverProvider, pageHelper);
+    }
+
+    @Bean
+    public ServicePage servicePage(final WebDriverProvider webDriverProvider,
+                                   final PageHelper pageHelper) {
+        return new ServicePage(webDriverProvider, pageHelper);
+    }
+
+    @Bean
+    public HomePage homePage(final WebDriverProvider webDriverProvider,
+                             final PageHelper pageHelper) {
+        return new HomePage(webDriverProvider, pageHelper);
     }
 
 }
