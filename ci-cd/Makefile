@@ -115,7 +115,7 @@ ondemand.upload-migration:
 #        make ondemand.deploy ENV=uat
 #        make ondemand.deploy ENV=prd
 ondemand.deploy: vendor/rd
-	source rd.conf && vendor/rd run -p nhs -j "jobs/$(OD_ENV)/Deploy" -- \
+	source $(RD_CONF) && vendor/rd run -p nhs -j "jobs/$(OD_ENV)/Deploy" -- \
 		-bootstrap full \
 		-distribution "$(VERSION).tar.gz"
 
@@ -146,10 +146,20 @@ version.pprint:
 	@echo "- - -"
 
 ## Ensure that commit message contains JIRA id
-commit-msg-check:
+check.commit-msg:
 	@git log -n1 --no-merges --pretty=%B > .commit-msg
 	@grep -E "^\[[A-Z]+-[0-9]+\]" .commit-msg || (echo "Missing JIRA id in the coomit message. Expecitng '[ABC-123] ...' but got" && cat .commit-msg && exit 1)
 	@rm .commit-msg
+
+check.yaml:
+	cd .. && make format-yaml
+	@git status | grep ".yaml" | grep "modified" \
+		&& (\
+			echo "Modified yaml files found. Run 'make format-yaml' before submiting pull request." && exit 1 \
+		)\
+		|| (\
+			echo "No YAML changes." \
+		)
 
 ## Clean up
 clean:

@@ -1,0 +1,16 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/HotFix-Searchable-and-Full-Taxonomy:
+      hipposys:batchsize: 1
+      hipposys:description: Update two hidden fields based on taxonomy. SearchableTaxonomy
+        and FullTaxonomy
+      hipposys:dryrun: false
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root/content/documents/corporate-website/publication-system//*[@jcr:primaryType='publicationsystem:publication'
+        or @jcr:primaryType='publicationsystem:dataset']/..
+      hipposys:script:
+        resource: /configuration/update/HotFixSearchableAndFullTaxonomy.groovy
+        type: string
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo

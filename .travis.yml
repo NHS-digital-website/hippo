@@ -22,7 +22,8 @@ cache:
     - "$HOME/.m2"
 
 install:
-  - make commit-msg-check
+  - make check.commit-msg
+  - make check.yaml
 
 script:
   - make test.unit
