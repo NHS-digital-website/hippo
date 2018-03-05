@@ -62,7 +62,7 @@ public class FullTaxonomyModule extends AbstractDaemonModule {
         createSearchableTagsProperty(node);
     }
 
-    private void createSearchableTagsProperty(Node document) {
+    protected void createSearchableTagsProperty(Node document) {
         Value[] values = getRepoValue(() -> document.getProperty(TAXONOMY_KEYS_PROPERTY).getValues());
         Set<String> keys = Arrays.stream(values)
             .map(value -> getRepoValue(value::getString))
@@ -106,7 +106,7 @@ public class FullTaxonomyModule extends AbstractDaemonModule {
         });
     }
 
-    private void createFullTaxonomyProperty(Node document) {
+    protected void createFullTaxonomyProperty(Node document) {
         Set<String> fullTaxonomyKeys = getFullTaxonomyKeys(document);
         Value[] fullTaxonomy = stringsToValues(fullTaxonomyKeys);
 

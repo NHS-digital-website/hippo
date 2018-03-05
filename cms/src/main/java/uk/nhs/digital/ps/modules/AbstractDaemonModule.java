@@ -52,7 +52,7 @@ public abstract class AbstractDaemonModule implements DaemonModule {
         }
     }
 
-    public final Session getSession() {
+    public Session getSession() {
         return session;
     }
 

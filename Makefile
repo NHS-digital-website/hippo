@@ -14,7 +14,7 @@ export HIPPO_MAVEN_USERNAME
 export HOME
 
 ifneq ($(HIPPO_MAVEN_USERNAME),)
-MVN_OPTS ?= $(MVN_OPTS) --global-settings "$(PWD)/.mvn.settings.xml"
+MVN_OPTS = --global-settings "$(PWD)/.mvn.settings.xml"
 endif
 
 ## Prints this help
