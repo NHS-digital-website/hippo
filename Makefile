@@ -1,13 +1,15 @@
 include env.mk
 
+AWS_KEY ?=
+AWS_SECRET ?=
 HIPPO_MAVEN_PASSWORD ?=
 HIPPO_MAVEN_USERNAME ?=
 HOME ?= $(shell printenv HOME)
+MVN_OPTS ?=
 PWD = $(shell pwd)
+SPLUNK_HEC ?= localhost
 SPLUNK_TOKEN ?=
 SPLUNK_URL ?=
-SPLUNK_HEC ?= localhost
-MVN_OPTS ?=
 
 export HIPPO_MAVEN_PASSWORD
 export HIPPO_MAVEN_USERNAME
@@ -44,9 +46,11 @@ serve.noexport: essentials/target/essentials.war
 ## Start server using cargo.run
 run:
 	mvn $(MVN_OPTS) -P cargo.run \
-		-Dsplunk.token=$(SPLUNK_TOKEN) \
-		-Dsplunk.url=$(SPLUNK_URL) \
-		-Dsplunk.hec.name=$(SPLUNK_HEC)
+		-D splunk.token=$(SPLUNK_TOKEN) \
+		-D splunk.url=$(SPLUNK_URL) \
+		-D splunk.hec.name=$(SPLUNK_HEC) \
+		-D aws.secretKey=$(AWS_SECRET) \
+		-D aws.accessKeyId=$(AWS_KEY)
 
 # we don't have to recompile it every time.
 essentials/target/essentials.war:
@@ -68,7 +72,7 @@ test.wip:
 
 ## Format YAML files, run after exporting to reduce changes
 format-yaml:
-	mvn groovy:execute \
+	mvn groovy:execute $(MVN_OPTS) \
 		-Dsource=repository-data/development/src/main/script/YamlFormatter.groovy \
 		-pl repository-data/development
 

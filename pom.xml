@@ -82,6 +82,10 @@
         <!-- Set to 1 for testing (once 1 event is queued, it's considered a batch).
         In production, start with a setting of "10" and adjust as necessary. -->
         <splunk.batch.size.count>1</splunk.batch.size.count>
+
+        <!-- AWS S3 access -->
+        <aws.accessKeyId></aws.accessKeyId>
+        <aws.secretKey></aws.secretKey>
     </properties>
 
     <repositories>
@@ -232,6 +236,12 @@
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-annotations</artifactId>
                 <version>2.9.4</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.amazonaws</groupId>
+                <artifactId>aws-java-sdk</artifactId>
+                <version>1.9.6</version>
             </dependency>
 
             <!-- Although we don't explicitly use these dependencys, there are conflicts
@@ -469,6 +479,7 @@
                 </property>
             </activation>
             <modules>
+                <module>s3connector</module>
                 <module>cms</module>
                 <module>essentials</module>
                 <module>repository-data</module>
@@ -517,6 +528,10 @@
                                         <file>${project.basedir}/repository-data/migration/target/website-repository-data-migration-${project.version}.jar</file>
                                         <todir>${migration-module-deploy-dir}</todir>
                                     </file>
+                                    <file>
+                                        <file>${project.basedir}/s3connector/target/s3-connector-${project.version}.jar</file>
+                                        <todir>shared/lib</todir>
+                                    </file>
                                 </files>
                             </configuration>
                             <deployables>
@@ -554,6 +569,8 @@
                                     <splunk.token>${splunk.token}</splunk.token>
                                     <splunk.url>${splunk.url}</splunk.url>
                                     <splunk.batch.size.count>${splunk.batch.size.count}</splunk.batch.size.count>
+                                    <aws.accessKeyId>${aws.accessKeyId}</aws.accessKeyId>
+                                    <aws.secretKey>${aws.secretKey}</aws.secretKey>
                                 </systemProperties>
                             </container>
                         </configuration>
