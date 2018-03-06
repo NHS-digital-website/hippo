@@ -14,7 +14,7 @@ public class HubComponent extends DocumentChildComponent {
 
         Hub hubDocument = request.getRequestContext().getContentBean(Hub.class);
         //creating a map where key is the component and value is a list of its children
-        Map<HippoBean, List<HippoDocumentBean>> componentsMap = new HashMap<>();
+        Map<HippoBean, List<HippoDocumentBean>> componentsMap = new LinkedHashMap<>();
         for (HippoBean component : hubDocument.getComponentlist()) {
             componentsMap.put(component, getChildrenDocuments(component));
         }
