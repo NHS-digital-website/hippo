@@ -57,6 +57,7 @@ public class PublicationTest {
     private static final String ATTACHMENTS_PROPERTY_KEY = "publicationsystem:Attachments-v3";
     private static final String RELATED_LINKS_PROPERTY_KEY = "publicationsystem:RelatedLinks";
     private static final String RESOURCE_LINKS_PROPERTY_KEY = "publicationsystem:ResourceLinks";
+    private static final String BODY_PROPERTY_KEY = "publicationsystem:bodySections";
 
     @Mock private JCRValueProvider valueProvider;
     @Mock private Node node;
@@ -93,6 +94,7 @@ public class PublicationTest {
         given(node.getNodes(ATTACHMENTS_PROPERTY_KEY)).willReturn(nodeIterator);
         given(node.getNodes(RELATED_LINKS_PROPERTY_KEY)).willReturn(nodeIterator);
         given(node.getNodes(RESOURCE_LINKS_PROPERTY_KEY)).willReturn(nodeIterator);
+        given(node.getNodes(BODY_PROPERTY_KEY)).willReturn(nodeIterator);
 
         given(objectConverter.getObject(folderNode)).willReturn(folder);
         given(folderNode.getNodes()).willReturn(nodeIterator);

@@ -1,28 +1,5 @@
 package uk.nhs.digital.ps.test.acceptance.steps.site.ps;
 
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import org.hamcrest.Matchers;
-import org.slf4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import uk.nhs.digital.ps.test.acceptance.config.AcceptanceTestProperties;
-import uk.nhs.digital.ps.test.acceptance.data.ExpectedTestDataProvider;
-import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
-import uk.nhs.digital.ps.test.acceptance.models.Attachment;
-import uk.nhs.digital.ps.test.acceptance.models.Publication;
-import uk.nhs.digital.ps.test.acceptance.pages.site.SitePage;
-import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
-import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationsOverviewPage;
-import uk.nhs.digital.ps.test.acceptance.pages.widgets.AttachmentWidget;
-import uk.nhs.digital.ps.test.acceptance.pages.widgets.LivePublicationOverviewWidget;
-import uk.nhs.digital.ps.test.acceptance.pages.widgets.UpcomingPublicationOverivewWidget;
-import uk.nhs.digital.ps.test.acceptance.steps.AbstractSpringSteps;
-import uk.nhs.digital.ps.test.acceptance.util.FileHelper;
-
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.List;
-
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.hasItem;
@@ -35,6 +12,33 @@ import static uk.nhs.digital.ps.test.acceptance.pages.widgets.LivePublicationOve
 import static uk.nhs.digital.ps.test.acceptance.pages.widgets.UpcomingPublicationOverivewWidget.matchesUpcomingPublication;
 import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.readFileAsByteArray;
 import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.waitUntilFileAppears;
+
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import org.hamcrest.Matcher;
+import org.slf4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import uk.nhs.digital.ps.test.acceptance.config.AcceptanceTestProperties;
+import uk.nhs.digital.ps.test.acceptance.data.ExpectedTestDataProvider;
+import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
+import uk.nhs.digital.ps.test.acceptance.models.Attachment;
+import uk.nhs.digital.ps.test.acceptance.models.Publication;
+import uk.nhs.digital.ps.test.acceptance.models.PublicationBuilder;
+import uk.nhs.digital.ps.test.acceptance.models.section.BodySection;
+import uk.nhs.digital.ps.test.acceptance.pages.site.SitePage;
+import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
+import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationsOverviewPage;
+import uk.nhs.digital.ps.test.acceptance.pages.widgets.AttachmentWidget;
+import uk.nhs.digital.ps.test.acceptance.pages.widgets.LivePublicationOverviewWidget;
+import uk.nhs.digital.ps.test.acceptance.pages.widgets.SectionWidget;
+import uk.nhs.digital.ps.test.acceptance.pages.widgets.UpcomingPublicationOverivewWidget;
+import uk.nhs.digital.ps.test.acceptance.steps.AbstractSpringSteps;
+import uk.nhs.digital.ps.test.acceptance.util.FileHelper;
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class PublicationSteps extends AbstractSpringSteps {
 
@@ -82,6 +86,8 @@ public class PublicationSteps extends AbstractSpringSteps {
 
         assertThat("Granularity is as expected", publicationPage.getGranularity(),
             is(publication.getGranularity().getDisplayValue()));
+
+        iCanSeeTheSectionedPublicationBody();
 
         assertAttachmentsUpload(publication.getAttachments());
     }
@@ -179,5 +185,22 @@ public class PublicationSteps extends AbstractSpringSteps {
                 hasItem(matchesLivePublication(expectedPublication))
             );
         }
+    }
+
+    @Given("^I have a sectioned publication$")
+    public void iHaveASectionedPublication() throws Throwable {
+        PublicationBuilder sectionedPublication = ExpectedTestDataProvider.getSectionedPublication();
+        testDataRepo.setPublication(sectionedPublication.build());
+    }
+
+    @Then("^I can see the sectioned publication body$")
+    public void iCanSeeTheSectionedPublicationBody() throws Throwable {
+        Publication publication = testDataRepo.getCurrentPublication();
+
+        List<Matcher<? super SectionWidget>> matchers = publication.getBodySections()
+            .stream()
+            .map(BodySection::getMatcher)
+            .collect(Collectors.toList());
+        assertThat("Body sections are as expected", publicationPage.getBodySections(), contains(matchers));
     }
 }

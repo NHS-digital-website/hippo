@@ -1,16 +1,15 @@
 package uk.nhs.digital.ps.test.acceptance.pages;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
+import java.time.Duration;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -136,7 +135,7 @@ public class PageHelper {
     private FluentWait<WebDriver> pollWithTimeout() {
         return new WebDriverWait(getWebDriver(), 5)
             .ignoring(StaleElementReferenceException.class)
-            .pollingEvery(100, TimeUnit.MILLISECONDS);
+            .pollingEvery(Duration.ofMillis(500));
     }
 
     public boolean isElementPresent(By selector) {

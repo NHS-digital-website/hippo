@@ -6,7 +6,7 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 
 @HippoEssentialsGenerated(internalName = "publicationsystem:relatedlink")
 @Node(jcrType = "publicationsystem:relatedlink")
-public class Relatedlink extends HippoCompound {
+public class RelatedLink extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "publicationsystem:linkText")
     public String getLinkText() {
         return getProperty("publicationsystem:linkText", getLinkUrl());

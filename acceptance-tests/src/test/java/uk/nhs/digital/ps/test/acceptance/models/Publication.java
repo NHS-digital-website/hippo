@@ -1,11 +1,13 @@
 package uk.nhs.digital.ps.test.acceptance.models;
 
+import static uk.nhs.digital.ps.test.acceptance.util.FormatHelper.formatInstant;
+
+import uk.nhs.digital.ps.test.acceptance.models.section.BodySection;
+
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
-
-import static uk.nhs.digital.ps.test.acceptance.util.FormatHelper.formatInstant;
 
 public class Publication {
 
@@ -16,7 +18,8 @@ public class Publication {
     private InformationType informationType;
     private Granularity granularity;
     private NominalPublicationDate nominalPublicationDate;
-    boolean publiclyAccessible;
+    private boolean publiclyAccessible;
+    private List<BodySection> bodySections;
 
     private List<Attachment> attachments = new ArrayList<>();
 
@@ -35,6 +38,7 @@ public class Publication {
         taxonomy = builder.getTaxonomy();
         attachments = builder.getAttachments();
         publiclyAccessible = builder.isPubliclyAccessible();
+        bodySections = builder.getBodySections();
 
         state = builder.getState();
     }
@@ -75,6 +79,10 @@ public class Publication {
         return taxonomy;
     }
 
+    public List<BodySection> getBodySections() {
+        return bodySections;
+    }
+
     public String getPublicationUrlName() {
         return name.toLowerCase().replace(' ', '-');
     }
@@ -98,7 +106,7 @@ public class Publication {
 
         private final Instant instant;
 
-        NominalPublicationDate(final Instant instant) {
+        private NominalPublicationDate(final Instant instant) {
             this.instant = instant;
         }
 

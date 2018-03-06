@@ -14,6 +14,7 @@ import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.ps.beans.Archive;
+import uk.nhs.digital.ps.beans.LegacyPublication;
 import uk.nhs.digital.ps.beans.Publication;
 
 import java.util.List;
@@ -29,24 +30,26 @@ public class ArchiveComponent extends EssentialsContentComponent {
         final HstRequestContext requestContext = request.getRequestContext();
         final HippoBean contentBean = requestContext.getContentBean();
 
-        if (!contentBean.isHippoFolderBean()) {
+        final Archive archiveIndexDocument;
+        if (contentBean.isHippoFolderBean()) {
+            final List<Archive> archiveIndexDocuments = contentBean.getChildBeans(Archive.class);
+            if (archiveIndexDocuments.size() != 1) {
+                reportInvalidTarget(request, contentBean, archiveIndexDocuments.size());
+                return;
+            }
+
+            archiveIndexDocument = archiveIndexDocuments.get(0);
+        } else if (contentBean instanceof Archive) {
+            archiveIndexDocument = (Archive) contentBean;
+        } else {
             reportInvalidInvocation(request, contentBean);
             return;
         }
 
-        final List<Archive> archiveIndexDocuments = contentBean.getChildBeans(Archive.class);
-
-        if (archiveIndexDocuments.size() != 1) {
-            reportInvalidTarget(request, contentBean, archiveIndexDocuments.size());
-            return;
-        }
-
-        final Archive archiveIndexDocument = archiveIndexDocuments.get(0);
-
-        request.setAttribute("archive" , archiveIndexDocument);
+        request.setAttribute("archive", archiveIndexDocument);
 
         try {
-            final HstQuery query = requestContext.getQueryManager().createQuery(contentBean, Publication.class);
+            final HstQuery query = requestContext.getQueryManager().createQuery(archiveIndexDocument.getParentBean(), Publication.class, LegacyPublication.class);
 
             query.addOrderByDescending("publicationsystem:NominalDate");
 

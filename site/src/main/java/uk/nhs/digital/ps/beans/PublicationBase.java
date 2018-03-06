@@ -170,12 +170,12 @@ public abstract class PublicationBase extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.RELATED_LINKS)
-    public List<Relatedlink> getRelatedLinks() {
-        return getChildBeansIfPermitted(PropertyKeys.RELATED_LINKS, Relatedlink.class);
+    public List<RelatedLink> getRelatedLinks() {
+        return getChildBeansIfPermitted(PropertyKeys.RELATED_LINKS, RelatedLink.class);
     }
 
-    public List<Relatedlink> getResourceLinks() {
-        return getChildBeansIfPermitted(PropertyKeys.RESOURCE_LINKS, Relatedlink.class);
+    public List<RelatedLink> getResourceLinks() {
+        return getChildBeansIfPermitted(PropertyKeys.RESOURCE_LINKS, RelatedLink.class);
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.ATTACHMENTS_V3)
@@ -219,6 +219,7 @@ public abstract class PublicationBase extends BaseDocument {
         String RELATED_LINKS = "publicationsystem:RelatedLinks";
         String RESOURCE_LINKS = "publicationsystem:ResourceLinks";
         String ATTACHMENTS_V3 = "publicationsystem:Attachments-v3";
+        String BODY_SECTIONS = "publicationsystem:bodySections";
 
         String PARENT_BEAN = "PARENT_BEAN";
         String PARENT_SERIES = "PARENT_SERIES";

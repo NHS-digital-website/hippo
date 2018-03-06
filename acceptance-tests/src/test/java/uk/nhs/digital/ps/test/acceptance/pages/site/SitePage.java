@@ -4,11 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
+import uk.nhs.digital.ps.test.acceptance.pages.site.nil.IndicatorPageElements;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.ArchivePageElements;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.DatasetPageElements;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.SeriesPageElements;
-import uk.nhs.digital.ps.test.acceptance.pages.site.nil.IndicatorPageElements;
 import uk.nhs.digital.ps.test.acceptance.util.TestContentUrls;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
@@ -37,7 +37,8 @@ public class SitePage extends AbstractSitePage {
     }
 
     public void openByPageName(final String pageName) {
-        getWebDriver().get(URL + urlLookup.lookupUrl(pageName));
+        String lookupUrl = urlLookup.lookupUrl(pageName);
+        getWebDriver().get(lookupUrl);
     }
 
     public void clickOnElement(WebElement element) {

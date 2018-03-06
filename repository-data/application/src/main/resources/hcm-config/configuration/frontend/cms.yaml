@@ -16,6 +16,9 @@ definitions:
       - rar
       - ppt
       - pptx
+      - jpeg
+      - jpg
+      - png
       max.file.size: 100M
     /hippo:configuration/hippo:frontend/cms/cms-services/localeProviderService:
       /en:

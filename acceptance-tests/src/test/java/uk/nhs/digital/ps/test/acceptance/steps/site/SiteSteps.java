@@ -2,13 +2,16 @@ package uk.nhs.digital.ps.test.acceptance.steps.site;
 
 import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.toList;
-import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.CoreMatchers.anyOf;
+import static org.hamcrest.CoreMatchers.hasItem;
+import static org.hamcrest.CoreMatchers.hasItems;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.Matchers.*;
 import static org.hamcrest.Matchers.startsWith;
 import static org.junit.Assert.*;
 import static org.slf4j.LoggerFactory.getLogger;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.AbstractSitePage.URL;
 import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.waitUntilFileAppears;
 
 import cucumber.api.DataTable;
@@ -48,7 +51,8 @@ public class SiteSteps extends AbstractSpringSteps {
     @Autowired
     private TestDataRepo testDataRepo;
 
-    private TestContentUrls urlLookup = new TestContentUrls();
+    @Autowired
+    private TestContentUrls urlLookup;
 
     @Given("^I navigate to (?:the )?\"([^\"]+)\" (?:.* )?page$")
     public void iNavigateToPage(String pageName) throws Throwable {
@@ -169,7 +173,7 @@ public class SiteSteps extends AbstractSpringSteps {
                 downloadElement, is(notNullValue()));
 
             String url = downloadElement.getAttribute("href");
-            assertEquals("I can find link with expected URL for file " + linkFileName, URL + urlLookup.lookupUrl(linkFileName), url);
+            assertEquals("I can find link with expected URL for file " + linkFileName, urlLookup.lookupUrl(linkFileName), url);
 
             if (acceptanceTestProperties.isHeadlessMode()) {
                 // At the moment of writing, there doesn't seem to be any easy way available to force Chromedriver

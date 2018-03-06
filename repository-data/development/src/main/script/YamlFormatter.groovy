@@ -10,6 +10,15 @@ options.setDefaultFlowStyle(DumperOptions.FlowStyle.BLOCK)
 options.setExplicitStart(true) // This puts '---' at the start of the document
 Yaml parser = new Yaml(options)
 
+// We don't want to strip UUIDs for some cross referenced files
+Set keepUuidFiles =
+    ["corporate-website.yaml",
+     "ci-hub.yaml",
+     "cihublink.yaml",
+     "nihub.yaml",
+     "nihublink.yaml",
+     "acceptance-tests-images.yaml"]
+
 Logger log = LoggerFactory.getLogger(YamlFormatter.class)
 log.info("Starting to format yaml files")
 
@@ -22,11 +31,7 @@ rootDir.eachFileRecurse(FileType.DIRECTORIES) { dir ->
 
         // Don't remove the UUID for corporate-website, it's referenced in the facet configuration
         // Same for ci-hub and cihublink, since referenced for page links
-        boolean removeUuid = !file.getName().equals("corporate-website.yaml") &&
-            !file.getName().equals("ci-hub.yaml") &&
-            !file.getName().equals("cihublink.yaml") &&
-            !file.getName().equals("nihub.yaml") &&
-            !file.getName().equals("nihublink.yaml")
+        boolean removeUuid = !keepUuidFiles.contains(file.getName())
         map = format(map, removeUuid, true)
 
         // Write out the formatted yaml
