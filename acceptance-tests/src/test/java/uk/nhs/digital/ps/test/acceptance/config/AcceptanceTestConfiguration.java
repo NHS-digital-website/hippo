@@ -17,6 +17,7 @@ import uk.nhs.digital.ps.test.acceptance.pages.site.ServicePage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.common.SearchPage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationsOverviewPage;
+import uk.nhs.digital.ps.test.acceptance.util.TestContentUrls;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverServiceProvider;
 
@@ -70,6 +71,11 @@ public class AcceptanceTestConfiguration {
     @Bean
     public TestDataRepo testDataRepo() {
         return new TestDataRepo();
+    }
+
+    @Bean
+    public TestContentUrls testContentUrls() {
+        return new TestContentUrls();
     }
 
     @Bean

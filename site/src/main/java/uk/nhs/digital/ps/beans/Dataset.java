@@ -63,8 +63,8 @@ public class Dataset extends BaseDocument {
         return getChildBeansIfPermitted(PropertyKeys.FILES_V3, Attachment.class);
     }
 
-    public List<Relatedlink> getResourceLinks() {
-        return getChildBeansIfPermitted(PropertyKeys.RESOURCE_LINKS, Relatedlink.class);
+    public List<RelatedLink> getResourceLinks() {
+        return getChildBeansIfPermitted(PropertyKeys.RESOURCE_LINKS, RelatedLink.class);
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.GRANULARITY)

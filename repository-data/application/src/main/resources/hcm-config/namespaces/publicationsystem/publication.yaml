@@ -215,6 +215,17 @@ definitions:
             wicket.css:
             - administrative-sources
             wicket.id: ${cluster.id}.left.item
+          /body:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Body
+            compoundList: publicationsystem:imageSection,publicationsystem:textSection
+            contentPickerType: links
+            field: body
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.left.item
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -241,6 +252,14 @@ definitions:
             hipposysedit:path: publicationsystem:Attachments-v3
             hipposysedit:primary: false
             hipposysedit:type: publicationsystem:attachment
+            jcr:primaryType: hipposysedit:field
+          /body:
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publicationsystem:bodySections
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /coverage_end:
             hipposysedit:mandatory: false
@@ -364,6 +383,7 @@ definitions:
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
           common:FacetType: publication
+          common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''

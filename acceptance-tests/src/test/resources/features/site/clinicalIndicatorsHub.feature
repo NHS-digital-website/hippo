@@ -72,3 +72,7 @@ Feature: Clinical Indicator hub page and sub sections
     Scenario: SHMI resources - links
         Given I navigate to the "SHMI landing" page
         Then I can click on link "National review of the Hospital Standardised Mortality Ratio"
+
+    Scenario: Root gives 404
+        Given I navigate to the "ci hub root" page
+        Then I should see the "page not found" error page

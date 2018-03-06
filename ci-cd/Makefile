@@ -54,19 +54,27 @@ release: test version.bumpup
 test: clean test.unit test.e2e
 
 ## Run unit tests
-test.unit: clean
+test.unit:
 	mvn package $(MVN_OPTS) -DskipTests --quiet
 	mvn test $(MVN_OPTS) --quiet
 
 ## Run BDD tests for "site" only.
-test.site: clean
+test.site:
+	mvn package $(MVN_OPTS) -DskipTests --quiet
+	mvn verify $(MVN_OPTS) --quiet \
+		-Dcucumber.options="src/test/resources/features/site" \
+		-Pacceptance-test-hippo,acceptance-test
+
+## Run the tests that we want for travis pull requests
+# This does unit tests and site tests
+test.travis:
 	mvn package $(MVN_OPTS) -DskipTests --quiet
 	mvn verify $(MVN_OPTS) --quiet \
 		-Dcucumber.options="src/test/resources/features/site" \
 		-Pacceptance-test-hippo,acceptance-test
 
 ## Run BDD tests
-test.e2e: clean
+test.e2e:
 	mvn package $(MVN_OPTS) -DskipTests --quiet
 	mvn verify $(MVN_OPTS) --quiet \
 		-Pacceptance-test-hippo,acceptance-test

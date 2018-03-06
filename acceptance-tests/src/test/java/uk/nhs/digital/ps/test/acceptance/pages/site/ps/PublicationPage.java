@@ -11,6 +11,9 @@ import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
 import uk.nhs.digital.ps.test.acceptance.pages.site.AbstractSitePage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.PageElements;
 import uk.nhs.digital.ps.test.acceptance.pages.widgets.AttachmentWidget;
+import uk.nhs.digital.ps.test.acceptance.pages.widgets.ImageSectionWidget;
+import uk.nhs.digital.ps.test.acceptance.pages.widgets.SectionWidget;
+import uk.nhs.digital.ps.test.acceptance.pages.widgets.TextSectionWidget;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
 import java.util.Collection;
@@ -29,10 +32,6 @@ public class PublicationPage extends AbstractSitePage {
 
     public void open(final Publication publication) {
         getWebDriver().get(URL + "/publications/" + publication.getPublicationUrlName());
-    }
-
-    public String getTitleText() {
-        return findPageElement(PUBLICATION_TITLE).getText();
     }
 
     public String getSummaryText() {
@@ -87,7 +86,8 @@ public class PublicationPage extends AbstractSitePage {
             KEY_FACTS,
             RESOURCES,
             DATA_SETS,
-            ADMINISTRATIVE_SOURCES
+            ADMINISTRATIVE_SOURCES,
+            BODY
         );
 
         return fieldsHiddenForUpcoming.stream()
@@ -103,5 +103,25 @@ public class PublicationPage extends AbstractSitePage {
             .findFirst()
             .map(pageElements -> pageElements.getElementByName(pageElementName, getWebDriver()))
             .orElse(null);
+    }
+
+    public List<SectionWidget> getBodySections() {
+        return findPageElement(BODY)
+            .findElements(By.xpath("./*"))
+            .stream()
+            .map(this::createSectionWidget)
+            .collect(toList());
+    }
+
+    private SectionWidget createSectionWidget(WebElement webElement) {
+        String uipath = webElement.getAttribute("data-uipath");
+        switch (uipath) {
+            case ImageSectionWidget.UIPATH:
+                return new ImageSectionWidget(webElement);
+            case TextSectionWidget.UIPATH:
+                return new TextSectionWidget(webElement);
+            default:
+                throw new RuntimeException("Unknown uipath: " + uipath);
+        }
     }
 }

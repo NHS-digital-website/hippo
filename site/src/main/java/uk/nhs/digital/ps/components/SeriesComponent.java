@@ -31,24 +31,26 @@ public class SeriesComponent extends EssentialsContentComponent {
         final HstRequestContext requestContext = request.getRequestContext();
         final HippoBean contentBean = requestContext.getContentBean();
 
-        if (!contentBean.isHippoFolderBean()) {
+        final Series seriesIndexDocument;
+        if (contentBean.isHippoFolderBean()) {
+            final List<Series> seriesIndexDocuments = contentBean.getChildBeans(Series.class);
+            if (seriesIndexDocuments.size() != 1) {
+                reportInvalidTarget(request, contentBean, seriesIndexDocuments.size());
+                return;
+            }
+
+            seriesIndexDocument = seriesIndexDocuments.get(0);
+        } else if (contentBean instanceof Series) {
+            seriesIndexDocument = (Series) contentBean;
+        } else {
             reportInvalidInvocation(request, contentBean);
             return;
         }
 
-        final List<Series> seriesIndexDocuments = contentBean.getChildBeans(Series.class);
-
-        if (seriesIndexDocuments.size() != 1) {
-            reportInvalidTarget(request, contentBean, seriesIndexDocuments.size());
-            return;
-        }
-
-        final Series seriesIndexDocument = seriesIndexDocuments.get(0);
-
-        request.setAttribute("series" , seriesIndexDocument);
+        request.setAttribute("series", seriesIndexDocument);
 
         try {
-            final HstQuery query = requestContext.getQueryManager().createQuery(contentBean, Publication.class, LegacyPublication.class);
+            final HstQuery query = requestContext.getQueryManager().createQuery(seriesIndexDocument.getParentBean(), Publication.class, LegacyPublication.class);
             query.addOrderByDescending("publicationsystem:NominalDate");
 
             final HstQueryResult hstQueryResult = query.execute();

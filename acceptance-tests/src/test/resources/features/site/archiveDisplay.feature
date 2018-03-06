@@ -10,6 +10,12 @@ Feature: Display of publications forming a archive
         And I can see "Lorem Ipsum Dolor 2003" link
         And I can see "Lorem Ipsum Dolor 2002" link
 
+    Scenario: Direct navigation to archive
+        Given I navigate to the "valid publication archive direct" page
+        Then I can see "Lorem Ipsum Dolor 2004" link
+        And I can see "Lorem Ipsum Dolor 2003" link
+        And I can see "Lorem Ipsum Dolor 2002" link
+
     Scenario: Navigate from archive to publication and back to archive
         Given I navigate to the "valid publication archive" archive page
         When I click on link "Lorem Ipsum Dolor 2004"

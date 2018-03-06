@@ -40,6 +40,8 @@ public class PublicationPageElements implements PageElements {
             By.xpath("//*[" + getDataUiPathXpath("related-links") + "]"));
         put(ADMINISTRATIVE_SOURCES,
             By.xpath("//*[" + getDataUiPathXpath("administrative-sources") + "]"));
+        put(BODY,
+            By.xpath("//*[" + getDataUiPathXpath("body") + "]"));
     }};
 
     @Override
@@ -84,5 +86,6 @@ public class PublicationPageElements implements PageElements {
         String DATA_SETS = "Publication Data Sets";
         String RELATED_LINKS = "Publication Related Links";
         String ADMINISTRATIVE_SOURCES = "Publication Administrative Sources";
+        String BODY = "Publication Body";
     }
 }

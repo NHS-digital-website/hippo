@@ -106,10 +106,15 @@ Feature: Ensure publication page displays required fields.
 
     Scenario: National Statistics kite mark on National statistic information type only
         Given I navigate to the "national statistic publication" page
-        And I should also see:
+        Then I should also see:
             | Publication Information Types | National statistics           |
-        Then I can see "National statistics" image
+        And I can see "National statistics" image
         When I navigate to "publication with rich content" page
         Then I should also see:
             | Publication Information Types | Experimental statistics       |
         And I should not see element with title "National statistics"
+
+    Scenario: Sectioned body
+        Given I have a sectioned publication
+        When I navigate to the "sectioned publication" page
+        Then I can see the sectioned publication body

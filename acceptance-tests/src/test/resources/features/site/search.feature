@@ -80,38 +80,34 @@ Feature: Basic search
         And I can click on link "National Indicator"
         When I search for "SearchableNationalIndicatorDefinition"
         Then I should see 1 search results
-        And I can click on link "National Indicator"     
+        And I can click on link "National Indicator"
         When I search for "SearchableNationalIndicatorPurpose"
         Then I should see 1 search results
-        And I can click on link "National Indicator"           
+        And I can click on link "National Indicator"
 
     Scenario: Pdf text is not matched with the search term
         Given I navigate to the "home" page
         And I search for "_Attachment_Search_Term_"
         Then I can see the search description matching "No results for: _Attachment_Search_Term_"
 
-    Scenario: Search boosts are applied correctly to the different fields
-        Given I navigate to the "home" page
-        And I search for "WeightSearchTerm"
-        Then I should see the weight search test results ordered by relevance
-
     Scenario: Using the sort by options
         Given I navigate to the "home" page
         When I search for "WeightSearchTerm"
-        Then I can click on the "Order by date" link
-        And I should see the weight search test results ordered by date
+        Then I should see the weight search test results ordered by date
         When I can click on the "Order by relevance" link
         Then I should see the weight search test results ordered by relevance
+        When I can click on the "Order by date" link
+        Then I should see the weight search test results ordered by date
 
     Scenario: Search results description is shown correctly with and without search terms
         When I navigate to the "search" page
-        Then I can see the search description matching "\d+ results sorted by relevance\."
-        When I click on the "Order by date" link
         Then I can see the search description matching "\d+ results sorted by date\."
+        When I click on the "Order by relevance" link
+        Then I can see the search description matching "\d+ results sorted by relevance\."
         When I search for "test"
-        Then I can see the search description matching "\d+ results containing 'test', sorted by relevance\."
-        When I click on the "Order by date" link
         Then I can see the search description matching "\d+ results containing 'test', sorted by date\."
+        When I click on the "Order by relevance" link
+        Then I can see the search description matching "\d+ results containing 'test', sorted by relevance\."
 
     Scenario: Search terms are displayed correctly on the results page
         Given I navigate to the "home" page
@@ -130,7 +126,7 @@ Feature: Basic search
             | Publication ( ...         |
             | Data set ( ...            |
             | Series / Collection ( ... |
-            | Indicator ( ...           |            
+            | Indicator ( ...           |
 
     Scenario: Navigating to the search page displays the results page with full, unfiltered result set
         Given I navigate to the "search" page

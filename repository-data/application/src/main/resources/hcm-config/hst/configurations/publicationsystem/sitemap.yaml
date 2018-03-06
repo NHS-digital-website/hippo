@@ -25,6 +25,7 @@ definitions:
           hst:componentconfigurationid: hst:pages/cilanding
           hst:relativecontentpath: ci-hub/${1}
           jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/404
         hst:relativecontentpath: ci-hub
         jcr:primaryType: hst:sitemapitem
       /root:

@@ -1,11 +1,13 @@
 package uk.nhs.digital.ps.test.acceptance.models;
 
+import static java.util.Arrays.asList;
+import static java.util.stream.Collectors.toList;
+
+import uk.nhs.digital.ps.test.acceptance.models.section.BodySection;
+
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
-
-import static java.util.Arrays.asList;
-import static java.util.stream.Collectors.toList;
 
 @SuppressWarnings("WeakerAccess") // builder's methods are intentionally public
 public class PublicationBuilder {
@@ -20,6 +22,7 @@ public class PublicationBuilder {
     private boolean publiclyAccessible;
     private List<AttachmentBuilder> attachmentBuilders = new ArrayList<>();
     private Taxonomy taxonomy;
+    private List<BodySection> bodySections;
 
     private PublicationState state;
 
@@ -69,6 +72,10 @@ public class PublicationBuilder {
 
     public PublicationBuilder withTaxonomy(final Taxonomy taxonomy) {
         return cloneAndAmend(builder -> builder.taxonomy = taxonomy);
+    }
+
+    public PublicationBuilder withBodySections(final List<BodySection> bodySections) {
+        return cloneAndAmend(builder -> builder.bodySections = bodySections);
     }
 
     public PublicationBuilder withPubliclyAccessible(final boolean publiclyAccessible) {
@@ -125,6 +132,10 @@ public class PublicationBuilder {
         return state;
     }
 
+    public List<BodySection> getBodySections() {
+        return bodySections;
+    }
+
     public boolean isPubliclyAccessible() {
         return publiclyAccessible;
     }
@@ -141,6 +152,7 @@ public class PublicationBuilder {
         publiclyAccessible = original.isPubliclyAccessible();
         taxonomy = original.getTaxonomy();
         attachmentBuilders = original.getAttachmentBuilders();
+        bodySections = original.getBodySections();
 
         state = original.getState();
     }

@@ -2,6 +2,8 @@ package uk.nhs.digital.ps.test.acceptance.util;
 
 import static org.openqa.selenium.net.Urls.urlEncode;
 
+import uk.nhs.digital.ps.test.acceptance.pages.site.AbstractSitePage;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,7 +16,12 @@ public class TestContentUrls {
     }
 
     public String lookupUrl(String pageName) {
-        return urlLookup.get(pageName.toLowerCase());
+        String url = urlLookup.get(pageName.toLowerCase());
+        if (url == null) {
+            throw new RuntimeException("Unknown pageName: " + pageName);
+        }
+
+        return AbstractSitePage.URL + url;
     }
 
     private void setup() {
@@ -41,12 +48,16 @@ public class TestContentUrls {
         // series page
         add("valid publication series",
             "/publications/valid-publication-series");
+        add("valid publication series direct",
+            "/publications/valid-publication-series/time-series-index");
         add("series without latest",
             "/publications/acceptance-tests/series-without-latest");
 
         // archive page
         add("valid publication archive",
             "/publications/acceptance-tests/valid-publication-archive");
+        add("valid publication archive direct",
+            "/publications/acceptance-tests/valid-publication-archive/time-archive-lorem-ipsum-dolor");
 
         add("publication with rich content",
             "/publications/acceptance-tests/publication-rich");
@@ -87,6 +98,7 @@ public class TestContentUrls {
         add("SHMI landing", "/publications/ci-hub/summary-hospital-level-mortality-indicator-shmi");
         add("SHMI timetable attachment",
             "/binaries/content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi/publicationsystem%3Acilandingasset/publicationsystem%3AAttachments/publicationsystem%3AattachmentResource");
+        add("ci hub root", "/publications/ci-hub");
 
         // attachments
         add("attachment-text.pdf",
@@ -103,6 +115,14 @@ public class TestContentUrls {
         add("ordered publication",
             "/publications/acceptance-tests/ordered-publication");
 
+        // Sectioned publication
+        add("sectioned publication",
+            "/publications/acceptance-tests/sectioned-publication");
+        add("sectioned publication robots",
+            getAttachmentUrl("sectioned-publication/content/content", "bodySections[2]", "image"));
+        add("sectioned publication snowman",
+            getAttachmentUrl("sectioned-publication/content/content", "bodySections[5]", "image"));
+
         // Publication with National Statistic logo
         add("national statistic publication",
             "/publications/lorem-ipsum-content/morbi-tempor-euismod-vehicula");
@@ -118,10 +138,14 @@ public class TestContentUrls {
     }
 
     private String getAttachmentUrl(String siteUrl, String attachmentTag) {
+        return getAttachmentUrl(siteUrl, attachmentTag, "attachmentResource");
+    }
+
+    private String getAttachmentUrl(String siteUrl, String attachmentTag, String resourceTag) {
         return "/binaries/content/documents/corporate-website/publication-system/acceptance-tests/"
             + siteUrl + "/"
             + urlEncode("publicationsystem:" + attachmentTag) + "/"
-            + urlEncode("publicationsystem:attachmentResource");
+            + urlEncode("publicationsystem:" + resourceTag);
     }
 
     private void add(String pageName, String url) {

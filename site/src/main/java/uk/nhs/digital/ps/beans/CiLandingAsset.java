@@ -27,7 +27,7 @@ public class CiLandingAsset extends HippoCompound {
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:relatedlink")
-    public List<Relatedlink> getRelatedLinks() {
-        return getChildBeansByName("publicationsystem:relatedlink", Relatedlink.class);
+    public List<RelatedLink> getRelatedLinks() {
+        return getChildBeansByName("publicationsystem:relatedlink", RelatedLink.class);
     }
 }

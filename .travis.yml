@@ -26,8 +26,7 @@ install:
   - make check.yaml
 
 script:
-  - make test.unit
-  - make test.site
+  - make test.travis
 
 notifications:
   slack:

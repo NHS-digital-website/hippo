@@ -1,5 +1,6 @@
 package uk.nhs.digital.ps.test.acceptance.data;
 
+import static java.util.Arrays.asList;
 import static uk.nhs.digital.ps.test.acceptance.models.InformationType.OFFICIAL_STATISTICS;
 import static uk.nhs.digital.ps.test.acceptance.models.PublicationBuilder.collectionOf;
 import static uk.nhs.digital.ps.test.acceptance.models.PublicationBuilder.newPublication;
@@ -10,9 +11,12 @@ import static uk.nhs.digital.ps.test.acceptance.models.PublicationState.PUBLISHE
 import uk.nhs.digital.ps.test.acceptance.models.InformationType;
 import uk.nhs.digital.ps.test.acceptance.models.PublicationBuilder;
 import uk.nhs.digital.ps.test.acceptance.models.PublicationSeriesBuilder;
+import uk.nhs.digital.ps.test.acceptance.models.section.ImageSection;
+import uk.nhs.digital.ps.test.acceptance.models.section.TextSection;
 
 import java.time.Instant;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 /**
  * <p>
@@ -136,6 +140,42 @@ public class ExpectedTestDataProvider {
                 .withNominalDate(asInstant("2017-10-10T01:00:00.000+01:00"))
                 .inState(PUBLISHED)
                 .withPubliclyAccessible(false));
+    }
+
+    public static PublicationBuilder getSectionedPublication() {
+        List bodySections = asList(
+            new TextSection("Text section heading without body", null),
+            new ImageSection("sectioned publication robots",
+                "Robots",
+                "Image with link and caption",
+                "https://google.com/"),
+            new TextSection("Second text section with body below",
+                "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, " +
+                    "there live the blind texts. Separated they live in Bookmarksgrove right at the coast of " +
+                    "the Semantics, a large language ocean. A small river named Duden flows by their place and" +
+                    " supplies it with the necessary regelialia. It is a paradisematic country, in which roasted" +
+                    " parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about" +
+                    " the blind texts it is an almost unorthographic life One day however a small line of blind" +
+                    " text by the name of Lorem Ipsum decided to"),
+            new TextSection(null,
+                "Body without heading. Convallis, nascetur. Pede tristique nam interdum augue euismod nibh " +
+                    "hendrerit. Ut. Condimentum libero facilisi sed. Inceptos natoque feugiat venenatis mattis " +
+                    "turpis leo platea est mollis quam pretium lacus hymenaeos metus ac. Convallis tristique. " +
+                    "Suscipit accumsan tempor ante natoque fermentum nisl, iaculis natoque molestie magna mattis" +
+                    " porttitor ligula Consequat mattis facilisis amet montes consequat vel dis class quisque netus" +
+                    " montes. Placerat nam bibendum libero consectetuer. Mattis aliquam. Consequat."),
+            new ImageSection("sectioned publication snowman",
+                "Snowman",
+                null,
+                null)
+        );
+
+
+        return newPublication()
+            .withTitle("Sectioned publication")
+            .withSummary("Summary for the sectioned publication")
+            .withNominalDate(asInstant("2018-02-28T01:00:00.000+01:00"))
+            .withBodySections(bodySections);
     }
 
     private static Instant asInstant(final String timestamp) {

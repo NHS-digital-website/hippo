@@ -1,6 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <#include "./macro/structured-text.ftl">
+<#include "./macro/sections/sections.ftl">
 <#assign dateFormat="dd/MM/yyyy"/>
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() />
 <#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
@@ -136,6 +137,10 @@
                 <p data-uipath="ps.publication.administrative-sources">
                     ${publication.administrativeSources}
                 </p>
+            </#if>
+
+            <#if publication.bodySections?has_content>
+                <@sections sections=publication.bodySections />
             </#if>
 
             <#if publication.datasets?has_content>

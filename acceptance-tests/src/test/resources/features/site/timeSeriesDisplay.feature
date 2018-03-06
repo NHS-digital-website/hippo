@@ -10,6 +10,13 @@ Feature: Display of publications forming a series
         And I can see "Lorem Ipsum Dolor 2013" link
         And I can see "Lorem Ipsum Dolor 2012" link
 
+    Scenario: Direct links to series documents
+        Given I navigate to the "valid publication series direct" page
+        Then I should see the page titled "Time Series Lorem Ipsum Dolor"
+        And I can see "Lorem Ipsum Dolor 2014" link
+        And I can see "Lorem Ipsum Dolor 2013" link
+        And I can see "Lorem Ipsum Dolor 2012" link
+
     Scenario: Navigate from series to publication and back to series
         Given I navigate to the "valid publication series" series page
         When I click on link "Lorem Ipsum Dolor 2014"

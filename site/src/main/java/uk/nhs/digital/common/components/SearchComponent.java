@@ -19,6 +19,8 @@ import org.hippoecm.hst.util.SearchInputParsingUtils;
 import org.onehippo.cms7.essentials.components.CommonComponent;
 import org.onehippo.cms7.essentials.components.info.EssentialsListComponentInfo;
 import org.onehippo.cms7.essentials.components.paging.Pageable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.nhs.digital.nil.beans.Indicator;
 import uk.nhs.digital.ps.beans.*;
 
@@ -42,9 +44,11 @@ public class SearchComponent extends CommonComponent {
     private static final String REQUEST_PARAM_SORT = "sort";
     private static final String SORT_RELEVANCE = "relevance";
     private static final String SORT_DATE = "date";
-    private static final String SORT_DEFAULT = SORT_RELEVANCE;
+    private static final String SORT_DEFAULT = SORT_DATE;
 
     private static final int PAGEABLE_SIZE = 5;
+
+    private static final Logger log = LoggerFactory.getLogger(SearchComponent.class);
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
@@ -168,8 +172,16 @@ public class SearchComponent extends CommonComponent {
         addIndicatorLibraryTypes(queryBuilder);
 
         String sortParam = getSortOption(request);
-        if (sortParam.equals(SORT_DATE)) {
-            queryBuilder.orderByDescending("publicationsystem:NominalDate", "publicationsystem:Title");
+        switch (sortParam) {
+            case SORT_DATE:
+                queryBuilder.orderByDescending("publicationsystem:NominalDate", "publicationsystem:Title");
+                break;
+            case SORT_RELEVANCE:
+                // no op - relevence is the default sort order
+                break;
+            default:
+                log.error("Unknown sort mode: " + sortParam);
+                break;
         }
 
         return constructQuery(queryBuilder, searchStringConstraint);
@@ -239,5 +251,5 @@ public class SearchComponent extends CommonComponent {
         return or(
             constraint("common:SearchableTags").contains(query)
         );
-    }    
+    }
 }
