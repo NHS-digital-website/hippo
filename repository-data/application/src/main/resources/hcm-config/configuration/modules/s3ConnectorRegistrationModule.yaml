@@ -1,0 +1,11 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/s3ConnectorRegistrationModule:
+      /hippo:moduleconfig:
+        jcr:primaryType: hipposys:moduleconfig
+        s3Bucket: files.digital.nhs.uk
+        s3Region: eu-west-2
+      hipposys:className: uk.nhs.digital.ps.modules.S3ConnectorServiceRegistrationModule
+      hipposys:cmsonly: true
+      jcr:primaryType: hipposys:module

@@ -45,6 +45,15 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>uk.nhs.digital</groupId>
+            <artifactId>s3-connector</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.onehippo.cms7</groupId>
             <artifactId>hippo-plugin-gallerypicker</artifactId>
         </dependency>
