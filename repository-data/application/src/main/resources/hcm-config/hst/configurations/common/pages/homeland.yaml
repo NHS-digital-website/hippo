@@ -33,5 +33,5 @@ definitions:
         hst:componentclassname: uk.nhs.digital.common.components.HomelandComponent
         hst:template: homeland
         jcr:primaryType: hst:component
-      hst:referencecomponent: hst:abstractpages/apppage
+      hst:referencecomponent: hst:abstractpages/apppage-no-header-search
       jcr:primaryType: hst:component

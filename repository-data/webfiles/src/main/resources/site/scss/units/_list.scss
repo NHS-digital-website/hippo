@@ -1,6 +1,7 @@
 @import "../environment/settings/colours";
 @import "../environment/tools/mixins/typography";
 @import "../environment/settings/layout";
+@import "../environment/tools/mixins/_addons";
 
 ul {
   list-style: disc outside;
@@ -33,18 +34,20 @@ ol {
   padding: 0;
 }
 
-.list-inline {
+.list--inline {
     display: inline-block;
+    @include clearfix;
 
     li {
         display: inline-block;
         float: left;
+        vertical-align: top;
+        margin-top: 0;
+        margin-left: 20px;
+        margin-left: 1rem;
 
-        margin-right: 20px;
-        margin-right: 1rem;
-
-        &:last-child {
-            margin-right: 0;
+        &:first-child {
+            margin-left: 0;
         }
     }
 }

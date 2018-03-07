@@ -1,0 +1,6 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:abstractpages/apppage-no-header-search:
+      hst:template: app-layout-no-header-search
+      jcr:primaryType: hst:component
