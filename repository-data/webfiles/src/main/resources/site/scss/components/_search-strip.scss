@@ -1,0 +1,81 @@
+/* Search strip */
+.search-strip {
+    position: relative;
+    display: block;
+    height: $search-strip-height;
+    overflow: hidden;
+}
+
+.search-strip__table-cell {
+    position: relative;
+    display: table-cell;
+    width: auto;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.search-strip__table-cell--button {
+    width: $search-strip-height;
+}
+
+.search-strip__contents {
+    position: relative;
+    width: 100%;
+    display: table;
+    top: 3px;
+    left: 3px;
+}
+
+.search-strip__input {
+    @include core-font(18);
+    @include border-highlight;
+
+    border: 2px solid $col-primary;
+    border-right-width: 0;
+    border-right-color: $col-septenary;
+
+    outline: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: $search-strip-height;
+    line-height: 18px;
+    padding: round($baseline-grid-unit * 2.6) $gutter - 2px;
+    color: $col-quaternary;
+
+    &:focus {
+        padding: round($baseline-grid-unit * 2.6) $gutter - 3px;
+    }
+}
+
+.search-strip__button {
+    @include static-button($col-primary);
+    @include border-highlight;
+    
+    width: $search-strip-height;
+    height: $search-strip-height;
+    padding: 0;
+    box-shadow: none;
+    outline-offset: -3px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: $search-strip-height;
+
+    &:before {
+        height: 0;
+    }
+
+    @include media(tablet, $ignore-for-ie: true) {
+        width: $search-strip-height;
+    }
+
+    svg,
+    img {
+        position: relative;
+        display: block;
+        width: 50%;
+        height: auto;
+        left: 25%;
+        fill: $col-septenary;
+    }
+}

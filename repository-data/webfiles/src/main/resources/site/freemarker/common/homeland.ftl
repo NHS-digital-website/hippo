@@ -8,9 +8,9 @@
 <@fmt.message key="systems-and-services.title" var="systemsAndServicesTitle"/>
 <@fmt.message key="systems-and-services.text" var="systemsAndServicesText"/>
 
-<header role="banner">
+<div>
   <@hst.include ref="top"/>
-</header>
+</div>
 
 <main>
     <div class="page-block">

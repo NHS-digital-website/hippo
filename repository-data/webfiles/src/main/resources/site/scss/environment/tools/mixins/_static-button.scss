@@ -18,7 +18,12 @@
 // }
 
 @mixin static-button($colour) {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+
   @include core-font(20);
+
   -webkit-font-smoothing: antialiased;
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -27,16 +32,14 @@
   border: 0;
   box-shadow: 0 2px 0 darken($colour, 2%);
   cursor: pointer;
-  display: inline-block;
+  
   letter-spacing: .5px;
   line-height: 1.25;
   outline: 1px solid transparent; // keep some button appearance when changing colour settings in browsers
   outline-offset: -1px; // fixes bug in Safari that outline width on focus is not overwritten, is reset to 0 on focus in govuk_template
   padding: round($baseline-grid-unit * 2.6) round($baseline-grid-unit * 6);
-  position: relative;
   text-align: center;
   text-decoration: none;
-  width: 100%;
   border-radius: 0;
 
   @include media(tablet) {

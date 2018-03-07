@@ -11,6 +11,9 @@ definitions:
       /app-layout:
         hst:renderpath: webfile:/freemarker/common/app-layout.ftl
         jcr:primaryType: hst:template
+      /app-layout-no-header-search:
+        hst:renderpath: webfile:/freemarker/common/app-layout-no-header-search.ftl
+        jcr:primaryType: hst:template
       /cihub:
         hst:renderpath: webfile:/freemarker/publicationsystem/cihub.ftl
         jcr:primaryType: hst:template

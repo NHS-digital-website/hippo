@@ -69,6 +69,21 @@
     @include grid-column(3 / 4, $float: right);
 }
 
+.column--18-75 {
+    @include grid-column(0.1875);
+}
+
+.column--81-25 {
+    @include grid-column(0.8125);
+}
+
+.column--18-75,
+.column--81-25 {
+    @include media($max-width: $site-width, $ignore-for-ie: true) {
+        width: 100%;
+    }
+}
+
 .column--no-padding,
 .column--reset {
     padding-left: 0;
@@ -140,10 +155,20 @@
 
 .debug {
     .grid-wrapper {
+        background: red;
         background: rgba(255, 0, 0, 0.05);
     }
 
     .column {
-        // background: rgba(0, 0, 255, 0.05);
+        background: blue;
+        background: rgba(0, 0, 255, 0.05);
+    }
+
+    .column--18-75 {
+        background: yellow;
+    }
+
+    .column--81-25 {
+        background: orange;
     }
 }

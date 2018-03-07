@@ -5,7 +5,7 @@
 <#include "app-layout-head.ftl">
 
 <body class="debugs">
-    <@siteHeader true></@siteHeader>
+    <@siteHeader false></@siteHeader>
 
     <@hst.include ref="main"/>
 

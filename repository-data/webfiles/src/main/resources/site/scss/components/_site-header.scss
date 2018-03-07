@@ -1,0 +1,99 @@
+/* Site header */
+
+.site-header {
+    position: relative;
+    border-bottom: 1px solid $col-primary;
+    padding: round($gutter * 1.375) 0;
+    vertical-align: bottom;
+
+    .search-strip {
+        position: absolute;
+        right: 0;
+        width: 50%;
+    }
+
+    @include media($max-width: $site-width, $ignore-for-ie: true) {
+        .search-strip {
+            width: 100%;
+        }
+
+        .column--81-25 {
+            margin-top: $gutter * 2;
+        }
+
+        .site-header__search-wrapper {
+            margin-bottom: round($gutter * 0.5);
+        }
+
+        .site-header__search-wrapper--collapse {
+            height: auto;
+        }
+
+        .site-header__logo {
+            margin-bottom: round($gutter * 1.5);
+        }
+
+        .site-header__nav {
+            text-align: left;
+            margin-top: 0;
+
+            .list {
+                display: block;
+
+                li {
+                    display: block;
+                    width: 100%;
+                    margin-left: 0;
+                    padding: $gutter 0;
+                    border-bottom: 1px solid lighten($col-senary, 10%);
+                }
+            }
+        }
+    }
+}
+
+.site-header__nav {
+    position: relative;
+    margin-top: $gutter;
+    bottom: 0;
+    line-height: 0;
+    width: 100%;
+    text-align: right;
+
+    .list--inline {
+        li {
+            margin-left: 40px;
+            margin-left: 2rem;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+
+    a {
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+            color: $col-primary;
+        }
+    }
+}
+
+.site-header__logo {
+    position: relative;
+    display: block;
+    border: none;
+    margin: 0;
+    max-width: 168px;
+    width: 168px;
+    height: auto;
+    top: round($gutter * 0.75);
+}
+
+.site-header__search-wrapper {
+    position: relative;
+    width: 100%;
+    height: $search-strip-height;
+}
