@@ -9,3 +9,4 @@
 * [What If I want to use custom host](what-if/use-custom-host.md)
 * [What If I want to add test content](what-if/add-test-content.md)
 * [What If I want to deploy to Test](what-if/deploy-to-test.md)
+* [What If I want to do a hot fix](what-if/hot-fix.md)
