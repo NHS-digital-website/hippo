@@ -2,8 +2,8 @@ package uk.nhs.digital.ps.beans;
 
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
-import org.hippoecm.hst.content.beans.standard.HippoResource;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import uk.nhs.digital.externalstorage.beans.Resource;
 
 @HippoEssentialsGenerated(internalName = "publicationsystem:attachment")
 @Node(jcrType = "publicationsystem:attachment")
@@ -19,7 +19,7 @@ public class Attachment extends HippoCompound {
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:attachmentResource")
-    public HippoResource getResource() {
-        return getChildBeansByName("publicationsystem:attachmentResource", HippoResource.class).get(0);
+    public Resource getResource() {
+        return getChildBeansByName("publicationsystem:attachmentResource", Resource.class).get(0);
     }
 }
