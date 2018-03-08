@@ -107,7 +107,13 @@
             <#outputformat "undefined">${indicator.details.interpretationGuidelines.content}</#outputformat>
         </section>
 
-        
+        <section class="push-double--bottom">
+            <h2><strong><@fmt.message key="headers.categories"/></strong></h2>
+            <#list indicator.taxonomyList as taxonomy>
+                <p class="filter-list__item__link" data-uipath="ps.indicator.taxonomy-${taxonomy}">${taxonomy}</p>
+            </#list>   
+        </section>     
+
         <#if indicator.attachments?has_content>
             <section id="resources" class="push-double--bottom">
                 <h2><strong><@fmt.message key="headers.resources"/></strong></h2>

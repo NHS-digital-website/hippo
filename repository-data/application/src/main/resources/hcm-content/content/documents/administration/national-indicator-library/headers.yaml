@@ -45,6 +45,7 @@
     - headers.iapCode
     - headers.indicatorSet
     - headers.interpretationGuidelines
+    - headers.categories
     - headers.resources
     - headers.methodology
     - headers.publishedBy
@@ -72,6 +73,7 @@
     - IAP Code
     - Indicator Set
     - Interpretation Guidelines
+    - Categories
     - Resources
     - Methodology
     - Published by
@@ -136,6 +138,7 @@
     - headers.iapCode
     - headers.indicatorSet
     - headers.interpretationGuidelines
+    - headers.categories
     - headers.resources
     - headers.methodology
     - headers.publishedBy
@@ -163,6 +166,7 @@
     - IAP Code
     - Indicator Set
     - Interpretation Guidelines
+    - Categories
     - Resources
     - Methodology
     - Published by
@@ -227,6 +231,7 @@
     - headers.iapCode
     - headers.indicatorSet
     - headers.interpretationGuidelines
+    - headers.categories
     - headers.resources
     - headers.methodology
     - headers.publishedBy
@@ -254,6 +259,7 @@
     - IAP Code
     - Indicator Set
     - Interpretation Guidelines
+    - Categories
     - Resources
     - Methodology
     - Published by
