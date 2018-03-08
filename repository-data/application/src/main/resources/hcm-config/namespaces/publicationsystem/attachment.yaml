@@ -46,9 +46,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: publicationsystem:attachmentResource
             hipposysedit:primary: false
-            hipposysedit:type: publicationsystem:resource
-            hipposysedit:validators:
-            - publicationsystem-blank-attachment
+            hipposysedit:type: externalstorage:resource
             jcr:primaryType: hipposysedit:field
           /displayName:
             hipposysedit:mandatory: false
@@ -73,14 +71,14 @@ definitions:
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
           /publicationsystem:attachmentResource:
-            hippo:filename: publicationsystem:resource
+            hippo:filename: externalstorage:resource
             jcr:data:
               resource: data.bin
               type: binary
             jcr:encoding: UTF-8
             jcr:lastModified: 2008-03-26T11:03:00Z
             jcr:mimeType: application/vnd.hippo.blank
-            jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: externalstorage:resource
           jcr:primaryType: publicationsystem:attachment
           publicationsystem:displayName: ''
         jcr:primaryType: hipposysedit:prototypeset

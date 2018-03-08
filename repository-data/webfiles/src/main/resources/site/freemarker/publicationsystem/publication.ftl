@@ -156,19 +156,19 @@
 
             <#if publication.attachments?has_content || publication.resourceLinks?has_content>
                 <h2><@fmt.message key="headers.resources"/></h2>
-                <ul data-uipath="ps.publication.resources">
-                    <#list publication.attachments as attachment>
-                        <li class="attachment">
-                            <a title="${attachment.text}" href="<@hst.link hippobean=attachment.resource/>" onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${attachment.resource.filename}');">${attachment.text}</a>;
-                            <span class="fileSize">size: <@formatFileSize bytesCount=attachment.resource.length/></span>
-                        </li>
-                    </#list>
-                    <#list publication.resourceLinks as link>
-                        <li>
-                            <a href="${link.linkUrl}" onClick="logGoogleAnalyticsEvent('Link click','Publication','${link.linkUrl}');">${link.linkText}</a>
-                        </li>
-                    </#list>
-                </ul>
+                <ul data-uipath="ps.publication.resources"><#list publication.attachments as attachment>
+                    <li class="attachment">
+                        <@externalstorageLink attachment.resource; url>
+                            <a title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${attachment.resource.filename}');">${attachment.text}</a>;
+                        </@externalstorageLink>
+                        <span class="fileSize">size: <@formatFileSize bytesCount=attachment.resource.length/></span>
+                    </li>
+                </#list>
+                <#list publication.resourceLinks as link>
+                    <li>
+                        <a href="${link.linkUrl}" onClick="logGoogleAnalyticsEvent('Link click','Publication','${link.linkUrl}');">${link.linkText}</a>
+                    </li>
+                </#list></ul>
             </#if>
 
             <#if publication.relatedLinks?has_content>
