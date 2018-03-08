@@ -4,8 +4,10 @@ import org.hippoecm.hst.content.beans.Node;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
 import uk.nhs.digital.ps.beans.Attachment;
+import uk.nhs.digital.ps.beans.HippoBeanHelper;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:indicator")
 @Node(jcrType = "nationalindicatorlibrary:indicator")
@@ -50,7 +52,18 @@ public class Indicator extends BaseDocument {
         return getProperty(PropertyKeys.GEOGRAPHIC_COVERAGE);
     }
 
+    @HippoEssentialsGenerated(internalName = PropertyKeys.TAXONOMY)
+    public String[] getKeys() {
+        return getProperty(PropertyKeys.TAXONOMY);
+    }
+
+    public List<String> getTaxonomyList() {
+        List<List<String>> allTaxonomies = HippoBeanHelper.getTaxonomyList(getKeys());
+        return allTaxonomies.stream().flatMap(x -> x.stream()).distinct().collect(Collectors.toList());
+    }
+
     interface PropertyKeys {
+        String TAXONOMY = "hippotaxonomy:keys";
         String ATTACHMENTS = "nationalindicatorlibrary:attachments";
         String DETAILS = "nationalindicatorlibrary:details";
         String TOPBAR = "nationalindicatorlibrary:topbar";
