@@ -28,6 +28,9 @@ definitions:
     common:
       cnd: namespaces/common.cnd
       uri: http://digital.nhs.uk/jcr/common/nt/1.0
+    externalstorage:
+      cnd: namespaces/externalstorage.cnd
+      uri: http://digital.nhs.uk/jcr/externalstorage/nt/1.0
     nationalindicatorlibrary:
       cnd: namespaces/nationalindicatorlibrary.cnd
       uri: http://digital.nhs.uk/jcr/nationalindicatorlibrary/nt/1.0

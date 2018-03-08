@@ -10,8 +10,8 @@ import org.onehippo.cms7.services.HippoServiceRegistry;
 import org.onehippo.repository.modules.AbstractReconfigurableDaemonModule;
 import org.onehippo.repository.modules.ProvidesService;
 
-import uk.nhs.digital.s3.S3Connector;
-import uk.nhs.digital.s3.S3ConnectorImpl;
+import uk.nhs.digital.externalstorage.s3.S3Connector;
+import uk.nhs.digital.externalstorage.s3.S3ConnectorImpl;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;

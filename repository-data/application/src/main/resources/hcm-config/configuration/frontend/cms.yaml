@@ -19,7 +19,7 @@ definitions:
       - jpeg
       - jpg
       - png
-      max.file.size: 100M
+      max.file.size: 3000M
     /hippo:configuration/hippo:frontend/cms/cms-services/localeProviderService:
       /en:
         country: gb
