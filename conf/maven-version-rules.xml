@@ -17,5 +17,11 @@
                 <ignoreVersion type="regex">2\.0\..*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="com.fasterxml.jackson.core" comparisonMethod="maven">
+            <ignoreVersions>
+                <!-- CMS preview breaks if we go above 2.8.9, so don't -->
+                <ignoreVersion type="regex">^(?!2\.8\.9).*$</ignoreVersion>
+            </ignoreVersions>
+        </rule>
     </rules>
 </ruleset>
