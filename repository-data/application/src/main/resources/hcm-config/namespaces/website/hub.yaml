@@ -101,6 +101,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /gossid:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Goss article ID
+            field: gossid
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -127,6 +136,14 @@ definitions:
             hipposysedit:path: website:componentlist
             hipposysedit:primary: false
             hipposysedit:type: hippo:mirror
+            jcr:primaryType: hipposysedit:field
+          /gossid:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:gossid
+            hipposysedit:primary: false
+            hipposysedit:type: Long
             jcr:primaryType: hipposysedit:field
           /items:
             hipposysedit:multiple: true
@@ -212,6 +229,7 @@ definitions:
           jcr:mixinTypes:
           - mix:referenceable
           jcr:primaryType: website:hub
+          website:gossid: 0
           website:listtitle: ''
           website:seosummary: ''
           website:shortsummary: ''

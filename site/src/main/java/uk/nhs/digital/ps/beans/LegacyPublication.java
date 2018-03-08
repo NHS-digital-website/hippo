@@ -21,4 +21,14 @@ public class LegacyPublication extends PublicationBase {
 
         return getHippoHtml(PropertyKeys.KEY_FACTS);
     }
+
+    @HippoEssentialsGenerated(internalName = "publicationsystem:publicationid")
+    public Long getPublicationid() {
+        return getProperty("publicationsystem:publicationid");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publicationsystem:gossid")
+    public Long getGossid() {
+        return getProperty("publicationsystem:gossid");
+    }
 }

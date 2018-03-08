@@ -48,4 +48,9 @@ public class General extends BaseDocument {
     public String getType() {
         return getProperty("website:type");
     }
+
+    @HippoEssentialsGenerated(internalName = "website:gossid")
+    public Long getGossid() {
+        return getProperty("website:gossid");
+    }
 }
