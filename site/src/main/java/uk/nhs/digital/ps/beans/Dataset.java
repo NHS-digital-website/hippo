@@ -87,7 +87,7 @@ public class Dataset extends BaseDocument {
 
         HippoFolder folder = (HippoFolder) getParentBean();
         while (!HippoBeanHelper.isRootFolder(folder)) {
-            publicationBean = Publication.getPublicationInFolder(folder);
+            publicationBean = Publication.getPublicationInFolder(folder, Publication.class);
 
             if (publicationBean != null) {
                 break;

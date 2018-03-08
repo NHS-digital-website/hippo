@@ -128,7 +128,13 @@ public class TestContentUrls {
             "/publications/lorem-ipsum-content/morbi-tempor-euismod-vehicula");
 
         // National Indicator Library
-        add("nihub","/indicators/nihub");
+        add("nihub", "/indicators/nihub");
+
+        // Legacy publication
+        add("legacy publication",
+            "/publications/acceptance-tests/legacy-series/legacy-publication");
+        add("legacy publication direct",
+            "/publications/acceptance-tests/legacy-series/legacy-publication/content");
 
         add("service with rich content - parent",
             "/services/service-document-1/");
