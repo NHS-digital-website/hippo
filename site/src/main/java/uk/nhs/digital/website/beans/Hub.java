@@ -53,4 +53,9 @@ public class Hub extends BaseDocument {
     public List<?> getBlocks() {
         return getChildBeansByName("website:items");
     }
+
+    @HippoEssentialsGenerated(internalName = "website:gossid")
+    public Long getGossid() {
+        return getProperty("website:gossid");
+    }
 }

@@ -214,6 +214,24 @@ definitions:
             wicket.css:
             - administrative-sources
             wicket.id: ${cluster.id}.left.item
+          /gossid:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Goss article ID
+            field: gossid
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+          /publicationid:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Goss publication ID
+            field: publicationid
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -267,6 +285,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             jcr:primaryType: hipposysedit:field
+          /gossid:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:gossid
+            hipposysedit:primary: false
+            hipposysedit:type: Long
+            jcr:primaryType: hipposysedit:field
           /granularity:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
@@ -304,6 +330,14 @@ definitions:
             hipposysedit:type: CalendarDate
             hipposysedit:validators:
             - required
+            jcr:primaryType: hipposysedit:field
+          /publicationid:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:publicationid
+            hipposysedit:primary: false
+            hipposysedit:type: Long
             jcr:primaryType: hipposysedit:field
           /publicly_accessible:
             hipposysedit:mandatory: false
@@ -366,6 +400,7 @@ definitions:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
           common:FacetType: publication
+          common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -384,6 +419,8 @@ definitions:
           publicationsystem:NominalDate: 0001-01-01T12:00:00Z
           publicationsystem:PubliclyAccessible: false
           publicationsystem:Title: ''
+          publicationsystem:gossid: 0
+          publicationsystem:publicationid: 0
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable
