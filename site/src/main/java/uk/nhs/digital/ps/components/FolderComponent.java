@@ -33,19 +33,15 @@ public class FolderComponent extends BaseHstComponent {
         if (archivesInFolder.size() > 0) {
             ArchiveComponent archiveComponent = new ArchiveComponent();
             archiveComponent.doBeforeRender(request, response);
-            return;
         } else if (seriesInFolder.size() > 0) {
             SeriesComponent seriesComponent = new SeriesComponent();
             seriesComponent.doBeforeRender(request, response);
-            return;
         } else if (publicationContentInFolder.size() > 0) {
             PublicationComponent publicationComponent = new PublicationComponent();
             publicationComponent.doBeforeRender(request, response);
-            return;
         } else if (legacyPublicationContentInFolder.size() > 0) {
             LegacyPublicationComponent legacyPublicationComponent = new LegacyPublicationComponent();
             legacyPublicationComponent.doBeforeRender(request, response);
-            return;
         } else {
             try {
                 request.setAttribute("publications", findAllDocuments(folder));

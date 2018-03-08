@@ -7,6 +7,8 @@
     <#include "./series.ftl">
 <#elseif publication??>
     <#include "./publication.ftl">
+<#elseif legacyPublication??>
+    <#include "./legacy-publication.ftl">
 <#else>
     <section class="document-content" aria-label="Document Content">
         <div class="layout layout--large">

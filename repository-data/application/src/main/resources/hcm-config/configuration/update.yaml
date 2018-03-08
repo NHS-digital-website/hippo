@@ -1,6 +1,0 @@
----
-definitions:
-  config:
-    /hippo:configuration/hippo:update:
-      jcr:mixinTypes:
-      - hippo:lockable

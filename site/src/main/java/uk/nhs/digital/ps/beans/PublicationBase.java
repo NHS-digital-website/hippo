@@ -29,8 +29,8 @@ public abstract class PublicationBase extends BaseDocument {
 
     private RestrictableDate nominalPublicationDate;
 
-    public static Publication getPublicationInFolder(HippoFolder folder) {
-        return folder.getBean("content", Publication.class);
+    public static <T extends PublicationBase> T getPublicationInFolder(HippoFolder folder, Class<T> beanMappingClass) {
+        return folder.getBean("content", beanMappingClass);
     }
 
     /**

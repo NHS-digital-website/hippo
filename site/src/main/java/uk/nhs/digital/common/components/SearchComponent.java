@@ -87,6 +87,15 @@ public class SearchComponent extends CommonComponent {
     }
 
     protected HippoFacetNavigationBean getFacetNavigationBean(HstRequest request) {
+        // If we went to a random URL and are on the 404 error page we won't have
+        // a relative content path to get the facets from so return null
+        String relativeContentPath = request.getRequestContext()
+            .getResolvedSiteMapItem()
+            .getRelativeContentPath();
+        if (relativeContentPath == null) {
+            return null;
+        }
+
         return ContentBeanUtils.getFacetNavigationBean(buildQuery(request));
     }
 

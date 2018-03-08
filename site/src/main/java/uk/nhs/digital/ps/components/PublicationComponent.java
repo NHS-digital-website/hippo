@@ -32,7 +32,7 @@ public class PublicationComponent extends EssentialsContentComponent {
         }
 
         if (content.getClass().equals(HippoFolder.class)) {
-            return Publication.getPublicationInFolder((HippoFolder)content);
+            return Publication.getPublicationInFolder((HippoFolder)content, Publication.class);
         }
 
         log.warn("Cannot find Publication document for: {}", content.getPath());
