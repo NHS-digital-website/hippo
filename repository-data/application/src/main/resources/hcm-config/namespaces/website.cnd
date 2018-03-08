@@ -32,4 +32,3 @@
 
 [website:service] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
-

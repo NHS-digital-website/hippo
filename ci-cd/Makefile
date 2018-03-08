@@ -161,13 +161,12 @@ check.commit-msg:
 
 check.yaml:
 	cd .. && make format-yaml
-	@git status | grep ".yaml" | grep "modified" \
-		&& (\
-			echo "Modified yaml files found. Run 'make format-yaml' before submiting pull request." && exit 1 \
-		)\
-		|| (\
-			echo "No YAML changes." \
-		)
+	@if git status | grep ".yaml" | grep "modified"; then \
+		echo "Modified yaml files found. Run 'make format-yaml' before submiting pull request."; \
+		exit 1; \
+	else \
+		echo "No YAML changes."; \
+	fi
 
 ## Clean up
 clean:
