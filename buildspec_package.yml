@@ -8,6 +8,7 @@ version: 0.1
 phases:
   install:
     commands:
+      - service resolvconf stop
       - apt-get update
       - apt-get install -qqy awscli curl git openssh-client
       # SSH key
