@@ -36,14 +36,6 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /assuranceDate:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Assurance Date
-            field: assuranceDate
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
           /reviewDate:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -64,16 +56,6 @@ definitions:
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /assuranceDate:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: nationalindicatorlibrary:assuranceDate
-            hipposysedit:primary: false
-            hipposysedit:type: Date
-            hipposysedit:validators:
-            - required
-            jcr:primaryType: hipposysedit:field
           /contactAuthor:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -133,7 +115,6 @@ definitions:
             nationalindicatorlibrary:contactAuthorEmail: ''
             nationalindicatorlibrary:contactAuthorName: ''
           jcr:primaryType: nationalindicatorlibrary:topbar
-          nationalindicatorlibrary:assuranceDate: 0001-01-01T12:00:00Z
           nationalindicatorlibrary:basedOn: ''
           nationalindicatorlibrary:reportingPeriod: ''
           nationalindicatorlibrary:reviewDate: 0001-01-01T12:00:00Z

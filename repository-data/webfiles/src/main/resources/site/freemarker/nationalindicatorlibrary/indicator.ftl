@@ -2,6 +2,7 @@
 <#include "../include/imports.ftl">
 <#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
 <#assign formatCoverageDates="uk.nhs.digital.ps.directives.CoverageDatesFormatterDirective"?new() />
+<#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() />
 
 <@hst.setBundle basename="nationalindicatorlibrary.headers"/>
 
@@ -14,7 +15,7 @@
         <div class="layout">
             <div class="layout__item layout-1-2">
                 <p class="push-half--bottom"><strong><@fmt.message key="headers.publishedBy"/></strong>: ${indicator.publishedBy}</p>
-                <p class="push-half--bottom"><strong><@fmt.message key="headers.assuranceDate"/></strong>: ${indicator.topbar.assuranceDate.time?string[dateFormat]}</p>
+                <p class="push-half--bottom"><strong><@fmt.message key="headers.assuranceDate"/></strong>: ${indicator.assuranceDate.time?string[dateFormat]}</p>
                 <p class="push-half--bottom"><strong><@fmt.message key="headers.reportingPeriod"/></strong>: ${indicator.topbar.reportingPeriod}</p>
                 <p class="push-half--bottom"><strong><@fmt.message key="headers.basedOn"/></strong>: ${indicator.topbar.basedOn}</p>
             </div><!--
@@ -122,6 +123,7 @@
                         <#list indicator.attachments as attachment>
                             <li class="attachment">
                                 <a title="${attachment.text}" href="<@hst.link hippobean=attachment.resource/>" onClick="logGoogleAnalyticsEvent('Download attachment','Indicator','${attachment.resource.filename}');">${attachment.text}</a>
+                                <span class="fileSize">(<@formatFileSize bytesCount=attachment.resource.length/>)</span>
                             </li>
                         </#list>
                     </ul>

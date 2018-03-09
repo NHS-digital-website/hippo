@@ -99,6 +99,15 @@ Feature: Basic search
         When I can click on the "Order by date" link
         Then I should see the weight search test results ordered by date
 
+    Scenario: Using the sort by options with NIL content
+        Given I navigate to the "home" page
+        When I search for "NilSortSearchTerm"
+        Then I should see the NIL weight search test results ordered by date
+        When I can click on the "Order by relevance" link
+        Then I should see the NIL weight search test results ordered by relevance
+        When I can click on the "Order by date" link
+        Then I should see the NIL weight search test results ordered by date
+
     Scenario: Search results description is shown correctly with and without search terms
         When I navigate to the "search" page
         Then I can see the search description matching "\d+ results sorted by date\."

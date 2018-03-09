@@ -107,8 +107,15 @@
                 ${item.title}
             </a>
         </p>
-        <#if item.assuredStatus><p class="flush zeta" data-uipath="ps.search-results.result.assured-status"><@fmt.message key="labels.assured"/></p></#if>
-        <p class="flush zeta" data-uipath="ps.search-results.result.publisher-and-date" style="font-weight:bold"><@fmt.message key="headers.publishedBy"/>: ${item.publishedBy}<#if item.assuredStatus>, <@fmt.message key="headers.assured"/>: ${item.topbar.assuranceDate.time?string[dateFormat]}</p></#if>
+
+        <#if item.assuredStatus>
+            <p class="flush zeta" data-uipath="ps.search-results.result.assured-status"><@fmt.message key="labels.assured"/></p>
+            <p class="flush zeta" data-uipath="ps.search-results.result.publisher-and-date" style="font-weight:bold"><@fmt.message key="headers.publishedBy"/>: ${item.publishedBy}. <@fmt.message key="headers.assured"/>: ${item.assuranceDate.time?string[dateFormat]}</p>
+        <#else>
+            <p class="flush zeta" data-uipath="ps.search-results.result.assured-status"><@fmt.message key="labels.unassured"/></p>
+            <p class="flush zeta" data-uipath="ps.search-results.result.publisher-and-date" style="font-weight:bold"><@fmt.message key="headers.publishedBy"/>: ${item.publishedBy}. <@fmt.message key="headers.unassured"/>: ${item.assuranceDate.time?string[dateFormat]}</p>
+        </#if>         
+        
         <p class="flush" data-uipath="ps.search-results.result.brief-description">${item.details.briefDescription}</p>        
     </div>
 </#macro>

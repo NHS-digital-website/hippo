@@ -56,7 +56,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-23T13:52:36.010Z
-    hippostdpubwf:lastModificationDate: 2018-03-07T08:15:10.327Z
+    hippostdpubwf:lastModificationDate: 2018-03-09T13:25:37.282Z
     hippostdpubwf:lastModifiedBy: admin
     hippotaxonomy:keys:
     - nil-taxonomy-test
@@ -66,6 +66,7 @@
     - hippotaxonomy:classifiable
     - mix:referenceable
     jcr:primaryType: nationalindicatorlibrary:indicator
+    nationalindicatorlibrary:assuranceDate: 2018-03-03T00:00:00Z
     nationalindicatorlibrary:assuredStatus: false
     nationalindicatorlibrary:assuredStatus2: false
     nationalindicatorlibrary:publishedBy: NHS Digital
@@ -130,7 +131,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-23T13:52:36.010Z
-    hippostdpubwf:lastModificationDate: 2018-03-07T08:15:16.856Z
+    hippostdpubwf:lastModificationDate: 2018-03-09T13:25:46.679Z
     hippostdpubwf:lastModifiedBy: admin
     hippotaxonomy:keys:
     - nil-taxonomy-test
@@ -141,6 +142,7 @@
     - mix:referenceable
     - mix:versionable
     jcr:primaryType: nationalindicatorlibrary:indicator
+    nationalindicatorlibrary:assuranceDate: 2018-03-03T00:00:00Z
     nationalindicatorlibrary:assuredStatus: false
     nationalindicatorlibrary:assuredStatus2: false
     nationalindicatorlibrary:publishedBy: NHS Digital
@@ -205,9 +207,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-23T13:52:36.010Z
-    hippostdpubwf:lastModificationDate: 2018-03-07T08:15:16.856Z
+    hippostdpubwf:lastModificationDate: 2018-03-09T13:25:46.679Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-03-07T08:15:21.924Z
+    hippostdpubwf:publicationDate: 2018-03-09T13:25:50.783Z
     hippotaxonomy:keys:
     - nil-taxonomy-test
     hippotranslation:id: e1403a71-7217-4752-88ee-a83266332aa9
@@ -216,6 +218,7 @@
     - hippotaxonomy:classifiable
     - mix:referenceable
     jcr:primaryType: nationalindicatorlibrary:indicator
+    nationalindicatorlibrary:assuranceDate: 2018-03-03T00:00:00Z
     nationalindicatorlibrary:assuredStatus: false
     nationalindicatorlibrary:assuredStatus2: false
     nationalindicatorlibrary:publishedBy: NHS Digital

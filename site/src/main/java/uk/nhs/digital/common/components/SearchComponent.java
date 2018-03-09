@@ -183,7 +183,8 @@ public class SearchComponent extends CommonComponent {
         String sortParam = getSortOption(request);
         switch (sortParam) {
             case SORT_DATE:
-                queryBuilder.orderByDescending("publicationsystem:NominalDate", "publicationsystem:Title");
+                queryBuilder.orderByDescending("publicationsystem:NominalDate", "nationalindicatorlibrary:assuranceDate", 
+                    "publicationsystem:Title", "nationalindicatorlibrary:title");
                 break;
             case SORT_RELEVANCE:
                 // no op - relevence is the default sort order

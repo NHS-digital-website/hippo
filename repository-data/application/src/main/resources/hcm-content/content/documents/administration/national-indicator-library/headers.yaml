@@ -62,6 +62,7 @@
     - headers.topicsAZ
     - headers.indicatorsAndAssurance
     - headers.assured
+    - headers.unassured
     - headers.igbAssurance
     resourcebundle:messages:
     - Assurance Date
@@ -90,6 +91,7 @@
     - Indicator topics A-Z
     - Indicators and assurance
     - Assured
+    - Date
     - Indicator Governance Board (IGB) Assurance
   /headers[2]:
     hippo:availability:
@@ -155,6 +157,7 @@
     - headers.topicsAZ
     - headers.indicatorsAndAssurance
     - headers.assured
+    - headers.unassured
     - headers.igbAssurance
     resourcebundle:messages:
     - Assurance Date
@@ -183,6 +186,7 @@
     - Indicator topics A-Z
     - Indicators and assurance
     - Assured
+    - Date
     - Indicator Governance Board (IGB) Assurance
   /headers[3]:
     hippo:availability:
@@ -248,6 +252,7 @@
     - headers.topicsAZ
     - headers.indicatorsAndAssurance
     - headers.assured
+    - headers.unassured
     - headers.igbAssurance
     resourcebundle:messages:
     - Assurance Date
@@ -276,6 +281,7 @@
     - Indicator topics A-Z
     - Indicators and assurance
     - Assured
+    - Date
     - Indicator Governance Board (IGB) Assurance
   hippo:name: Headers
   jcr:mixinTypes:
