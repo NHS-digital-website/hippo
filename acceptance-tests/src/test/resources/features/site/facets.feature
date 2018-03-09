@@ -39,7 +39,7 @@ Feature: Faceted search
         Given I navigate to the "home" page
         When I search for "NilTaxonomySearchTerm"
         Then I should see the list with title "DOCUMENT TYPE" containing:
-            | Indicator (3) |
+            | Methodology (3) |
         And I should see the list with title "CATEGORY" containing:
             | Acceptance Tests (3)             |
             | NilTaxonomySearchTerm test (3)   |

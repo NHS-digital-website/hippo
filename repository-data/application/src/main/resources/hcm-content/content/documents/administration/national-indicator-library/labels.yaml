@@ -1,11 +1,11 @@
 ---
-/content/documents/administration/publication-system/facet-labels:
-  /facet-labels[1]:
+/content/documents/administration/national-indicator-library/labels:
+  /labels[1]:
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2018-01-17T15:49:40.466Z
-    hippostdpubwf:lastModificationDate: 2018-03-08T11:00:17.976Z
+    hippostdpubwf:creationDate: 2018-03-08T10:58:44.737Z
+    hippostdpubwf:lastModificationDate: 2018-03-08T14:39:28.892Z
     hippostdpubwf:lastModifiedBy: admin
     jcr:mixinTypes:
     - mix:referenceable
@@ -13,26 +13,20 @@
     resourcebundle:descriptions:
     - ''
     - ''
-    - ''
-    - ''
-    resourcebundle:id: facet-labels
+    resourcebundle:id: nationalindicatorlibrary.labels
     resourcebundle:keys:
-    - facet.publication
-    - facet.dataset
-    - facet.series
-    - facet.indicator
+    - labels.indicator
+    - labels.assured
     resourcebundle:messages:
-    - Publication
-    - Data set
-    - Series / Collection
     - Methodology
-  /facet-labels[2]:
+    - Independently Assured by IGB
+  /labels[2]:
     hippo:availability:
     - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2018-01-17T15:49:40.466Z
-    hippostdpubwf:lastModificationDate: 2018-03-08T11:00:26.168Z
+    hippostdpubwf:creationDate: 2018-03-08T10:58:44.737Z
+    hippostdpubwf:lastModificationDate: 2018-03-08T14:39:53.694Z
     hippostdpubwf:lastModifiedBy: admin
     jcr:mixinTypes:
     - mix:referenceable
@@ -41,48 +35,36 @@
     resourcebundle:descriptions:
     - ''
     - ''
-    - ''
-    - ''
-    resourcebundle:id: facet-labels
+    resourcebundle:id: nationalindicatorlibrary.labels
     resourcebundle:keys:
-    - facet.publication
-    - facet.dataset
-    - facet.series
-    - facet.indicator
+    - labels.indicator
+    - labels.assured
     resourcebundle:messages:
-    - Publication
-    - Data set
-    - Series / Collection
     - Methodology
-  /facet-labels[3]:
+    - Independently Assured by IGB
+  /labels[3]:
     hippo:availability:
     - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2018-01-17T15:49:40.466Z
-    hippostdpubwf:lastModificationDate: 2018-03-08T11:00:26.168Z
+    hippostdpubwf:creationDate: 2018-03-08T10:58:44.737Z
+    hippostdpubwf:lastModificationDate: 2018-03-08T14:39:53.694Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-03-08T11:00:27.440Z
+    hippostdpubwf:publicationDate: 2018-03-08T14:39:57.128Z
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: resourcebundle:resourcebundle
     resourcebundle:descriptions:
     - ''
     - ''
-    - ''
-    - ''
-    resourcebundle:id: facet-labels
+    resourcebundle:id: nationalindicatorlibrary.labels
     resourcebundle:keys:
-    - facet.publication
-    - facet.dataset
-    - facet.series
-    - facet.indicator
+    - labels.indicator
+    - labels.assured
     resourcebundle:messages:
-    - Publication
-    - Data set
-    - Series / Collection
     - Methodology
-  hippo:name: Facet Labels
+    - Independently Assured by IGB
+  hippo:name: Labels
   jcr:mixinTypes:
   - hippo:named
   - mix:referenceable
