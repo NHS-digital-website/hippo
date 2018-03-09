@@ -39,7 +39,6 @@
         nationalindicatorlibrary:contactAuthorEmail: ''
         nationalindicatorlibrary:contactAuthorName: Author
       jcr:primaryType: nationalindicatorlibrary:topbar
-      nationalindicatorlibrary:assuranceDate: 2018-02-23T13:53:00Z
       nationalindicatorlibrary:basedOn: Test
       nationalindicatorlibrary:reportingPeriod: Now
       nationalindicatorlibrary:reviewDate: 2018-02-23T13:53:00Z
@@ -54,7 +53,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-23T13:52:36.010Z
-    hippostdpubwf:lastModificationDate: 2018-03-07T08:14:54.168Z
+    hippostdpubwf:lastModificationDate: 2018-03-09T13:25:15.233Z
     hippostdpubwf:lastModifiedBy: admin
     hippotaxonomy:keys:
     - nil-taxonomy-test
@@ -64,6 +63,7 @@
     - hippotaxonomy:classifiable
     - mix:referenceable
     jcr:primaryType: nationalindicatorlibrary:indicator
+    nationalindicatorlibrary:assuranceDate: 2018-03-02T00:00:00Z
     nationalindicatorlibrary:assuredStatus: true
     nationalindicatorlibrary:publishedBy: NHS Digital
     nationalindicatorlibrary:reportingLevel: CCG and National
@@ -108,7 +108,6 @@
         nationalindicatorlibrary:contactAuthorEmail: ''
         nationalindicatorlibrary:contactAuthorName: Author
       jcr:primaryType: nationalindicatorlibrary:topbar
-      nationalindicatorlibrary:assuranceDate: 2018-02-23T13:53:00Z
       nationalindicatorlibrary:basedOn: Test
       nationalindicatorlibrary:reportingPeriod: Now
       nationalindicatorlibrary:reviewDate: 2018-02-23T13:53:00Z
@@ -124,7 +123,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-23T13:52:36.010Z
-    hippostdpubwf:lastModificationDate: 2018-03-07T08:15:01.791Z
+    hippostdpubwf:lastModificationDate: 2018-03-09T13:25:27.784Z
     hippostdpubwf:lastModifiedBy: admin
     hippotaxonomy:keys:
     - nil-taxonomy-test
@@ -135,6 +134,7 @@
     - mix:referenceable
     - mix:versionable
     jcr:primaryType: nationalindicatorlibrary:indicator
+    nationalindicatorlibrary:assuranceDate: 2018-03-02T00:00:00Z
     nationalindicatorlibrary:assuredStatus: true
     nationalindicatorlibrary:publishedBy: NHS Digital
     nationalindicatorlibrary:reportingLevel: CCG and National
@@ -179,7 +179,6 @@
         nationalindicatorlibrary:contactAuthorEmail: ''
         nationalindicatorlibrary:contactAuthorName: Author
       jcr:primaryType: nationalindicatorlibrary:topbar
-      nationalindicatorlibrary:assuranceDate: 2018-02-23T13:53:00Z
       nationalindicatorlibrary:basedOn: Test
       nationalindicatorlibrary:reportingPeriod: Now
       nationalindicatorlibrary:reviewDate: 2018-02-23T13:53:00Z
@@ -195,9 +194,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-23T13:52:36.010Z
-    hippostdpubwf:lastModificationDate: 2018-03-07T08:15:01.791Z
+    hippostdpubwf:lastModificationDate: 2018-03-09T13:25:27.784Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-03-07T08:15:05.868Z
+    hippostdpubwf:publicationDate: 2018-03-09T13:25:32.572Z
     hippotaxonomy:keys:
     - nil-taxonomy-test
     hippotranslation:id: e1403a71-7217-4752-88ee-a83266332aa9
@@ -206,6 +205,7 @@
     - hippotaxonomy:classifiable
     - mix:referenceable
     jcr:primaryType: nationalindicatorlibrary:indicator
+    nationalindicatorlibrary:assuranceDate: 2018-03-02T00:00:00Z
     nationalindicatorlibrary:assuredStatus: true
     nationalindicatorlibrary:publishedBy: NHS Digital
     nationalindicatorlibrary:reportingLevel: CCG and National

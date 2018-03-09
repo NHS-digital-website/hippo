@@ -17,9 +17,11 @@
     resourcebundle:keys:
     - labels.indicator
     - labels.assured
+    - labels.unassured
     resourcebundle:messages:
     - Methodology
     - Independently Assured by IGB
+    - Unassured
   /labels[2]:
     hippo:availability:
     - preview
@@ -39,9 +41,11 @@
     resourcebundle:keys:
     - labels.indicator
     - labels.assured
+    - labels.unassured
     resourcebundle:messages:
     - Methodology
     - Independently Assured by IGB
+    - Unassured
   /labels[3]:
     hippo:availability:
     - live
@@ -61,9 +65,11 @@
     resourcebundle:keys:
     - labels.indicator
     - labels.assured
+    - labels.unassured
     resourcebundle:messages:
     - Methodology
     - Independently Assured by IGB
+    - Unassured
   hippo:name: Labels
   jcr:mixinTypes:
   - hippo:named

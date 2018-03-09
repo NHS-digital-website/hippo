@@ -104,6 +104,15 @@ definitions:
             wicket.css:
             - geographic-coverage
             wicket.id: ${cluster.id}.left.item
+          /assuranceDate:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Assurance Date
+            field: assuranceDate
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
           /details:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -126,6 +135,14 @@ definitions:
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
+          /assuranceDate:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:assuranceDate
+            hipposysedit:primary: false
+            hipposysedit:type: Date
+            jcr:primaryType: hipposysedit:field
           /assuredStatus:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -255,7 +272,6 @@ definitions:
               nationalindicatorlibrary:contactAuthorEmail: ''
               nationalindicatorlibrary:contactAuthorName: ''
             jcr:primaryType: nationalindicatorlibrary:topbar
-            nationalindicatorlibrary:assuranceDate: 0001-01-01T12:00:00Z
             nationalindicatorlibrary:basedOn: ''
             nationalindicatorlibrary:reportingPeriod: ''
             nationalindicatorlibrary:reviewDate: 0001-01-01T12:00:00Z
@@ -273,6 +289,7 @@ definitions:
           - hippotaxonomy:classifiable
           - mix:referenceable
           jcr:primaryType: nationalindicatorlibrary:indicator
+          nationalindicatorlibrary:assuranceDate: 0001-01-01T12:00:00Z
           nationalindicatorlibrary:assuredStatus: false
           nationalindicatorlibrary:publishedBy: ''
           nationalindicatorlibrary:reportingLevel: ''

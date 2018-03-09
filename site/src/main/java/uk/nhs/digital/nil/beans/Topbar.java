@@ -9,10 +9,6 @@ import java.util.Calendar;
 @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:topbar")
 @Node(jcrType = "nationalindicatorlibrary:topbar")
 public class Topbar extends HippoCompound {
-    @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:assuranceDate")
-    public Calendar getAssuranceDate() {
-        return getProperty("nationalindicatorlibrary:assuranceDate");
-    }
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:reviewDate")
     public Calendar getReviewDate() {

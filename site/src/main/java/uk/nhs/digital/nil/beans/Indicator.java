@@ -6,6 +6,7 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import uk.nhs.digital.ps.beans.Attachment;
 import uk.nhs.digital.ps.beans.HippoBeanHelper;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -62,6 +63,11 @@ public class Indicator extends BaseDocument {
         return allTaxonomies.stream().flatMap(x -> x.stream()).distinct().collect(Collectors.toList());
     }
 
+    @HippoEssentialsGenerated(internalName = PropertyKeys.ASSURANCE_DATE)
+    public Calendar getAssuranceDate() {
+        return getProperty(PropertyKeys.ASSURANCE_DATE);
+    }
+
     interface PropertyKeys {
         String TAXONOMY = "hippotaxonomy:keys";
         String ATTACHMENTS = "nationalindicatorlibrary:attachments";
@@ -71,6 +77,7 @@ public class Indicator extends BaseDocument {
         String ASSUREDSTATUS = "nationalindicatorlibrary:assuredStatus";
         String PUBLISHEDBY = "nationalindicatorlibrary:publishedBy"; 
         String REPORTINGLEVEL = "nationalindicatorlibrary:reportingLevel";     
-        String GEOGRAPHIC_COVERAGE = "publicationsystem:GeographicCoverage";                   
+        String GEOGRAPHIC_COVERAGE = "publicationsystem:GeographicCoverage";   
+        String ASSURANCE_DATE = "nationalindicatorlibrary:assuranceDate";                
     }
 }

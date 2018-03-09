@@ -184,4 +184,41 @@ public class SearchSteps extends AbstractSpringSteps {
             "Search Test Archive Summary"
         );
     }
+
+    @Then("^I should see the NIL weight search test results ordered by (relevance|date)$")
+    public void iShouldSeeTheNilWeightSearchTestResultsOrderedBy(String sort) throws Throwable {
+        // check the results are actually sorted correctly
+        assertSearchResultsStartWith(getSortedNilWeightSearchResults(sort));
+
+        assertEquals("Sort mode is displayed in selector", capitalize(sort), searchPage.getSortSelection());
+
+        assertThat("Sort mode is displayed in result description", searchPage.getResultDescription(), endsWith("sorted by " + sort + "."));
+    }
+
+    private static List<String> getSortedNilWeightSearchResults(String sort) {
+        switch (sort) {
+            case "relevance":
+                return getNilWeightSearchResultsSortedByRelevance();
+            case "date":
+                return getNilWeightSearchResultsOrderedByDate();
+            default:
+                throw new RuntimeException("Unknown sort mode: " + sort);
+        }
+    }
+
+    private static List<String> getNilWeightSearchResultsSortedByRelevance() {
+        return asList(
+            // title takes precedence over definition
+            "Search Test Indicator Title",
+            "Search Test Indicator Definition"
+        );
+    }
+
+    private static List<String> getNilWeightSearchResultsOrderedByDate() {
+        return asList(
+            // These are in assurance date order
+            "Search Test Indicator Definition",
+            "Search Test Indicator Title"
+        );
+    }    
 }

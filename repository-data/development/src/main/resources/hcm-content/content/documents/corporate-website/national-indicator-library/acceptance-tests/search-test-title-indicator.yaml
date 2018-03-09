@@ -1,12 +1,12 @@
 ---
-/content/documents/corporate-website/national-indicator-library/acceptance-tests/bare-minimum-indicator:
-  /bare-minimum-indicator[1]:
+/content/documents/corporate-website/national-indicator-library/acceptance-tests/search-test-title-indicator:
+  /search-test-title-indicator[1]:
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
         hippostd:content: ''
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:definition:
-        hippostd:content: <p>Definition</p>
+        hippostd:content: <p>test</p>
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:interpretationGuidelines:
         hippostd:content: ''
@@ -26,10 +26,12 @@
           jcr:primaryType: hippostd:html
         jcr:primaryType: nationalindicatorlibrary:methodology
       /nationalindicatorlibrary:purpose:
-        hippostd:content: <p>Purpose</p>
+        hippostd:content: <p>test</p>
         jcr:primaryType: hippostd:html
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
       jcr:primaryType: nationalindicatorlibrary:details
-      nationalindicatorlibrary:briefDescription: Bare Minimum Indicator
+      nationalindicatorlibrary:briefDescription: test
       nationalindicatorlibrary:iapCode: ''
       nationalindicatorlibrary:indicatorSet: ''
       nationalindicatorlibrary:rating: ''
@@ -37,45 +39,37 @@
       /nationalindicatorlibrary:contactAuthor:
         jcr:primaryType: nationalindicatorlibrary:contactAuthor
         nationalindicatorlibrary:contactAuthorEmail: ''
-        nationalindicatorlibrary:contactAuthorName: Test
+        nationalindicatorlibrary:contactAuthorName: test
       jcr:primaryType: nationalindicatorlibrary:topbar
-      nationalindicatorlibrary:basedOn: Test
-      nationalindicatorlibrary:reportingPeriod: Now
-      nationalindicatorlibrary:reviewDate: 2018-02-23T13:57:00Z
+      nationalindicatorlibrary:basedOn: test
+      nationalindicatorlibrary:reportingPeriod: test
+      nationalindicatorlibrary:reviewDate: 2018-03-09T16:04:00Z
     common:FacetType: indicator
-    common:FullTaxonomy:
-    - nil-taxonomy-test
-    - acceptance-tests
-    common:SearchableTags:
-    - NilTaxonomySearchTerm test
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2018-02-23T13:57:04.917Z
-    hippostdpubwf:lastModificationDate: 2018-03-09T13:24:47.119Z
+    hippostdpubwf:creationDate: 2018-03-09T16:03:28.182Z
+    hippostdpubwf:lastModificationDate: 2018-03-09T16:03:28.182Z
     hippostdpubwf:lastModifiedBy: admin
-    hippotaxonomy:keys:
-    - nil-taxonomy-test
-    hippotranslation:id: 6052313f-da95-4a53-84ee-8d2d9e69d1e0
+    hippotranslation:id: 7ba16511-bdef-42fd-ad49-8db02dd3a5ec
     hippotranslation:locale: en
     jcr:mixinTypes:
     - hippotaxonomy:classifiable
     - mix:referenceable
     jcr:primaryType: nationalindicatorlibrary:indicator
-    nationalindicatorlibrary:assuranceDate: 2018-03-01T00:00:00Z
+    nationalindicatorlibrary:assuranceDate: 2018-02-01T00:00:00Z
     nationalindicatorlibrary:assuredStatus: true
-    nationalindicatorlibrary:publishedBy: NHS Digital
-    nationalindicatorlibrary:reportingLevel: CCG
-    nationalindicatorlibrary:title: Bare Minimum Indicator
-    publicationsystem:GeographicCoverage: England
-  /bare-minimum-indicator[2]:
+    nationalindicatorlibrary:publishedBy: test
+    nationalindicatorlibrary:reportingLevel: test
+    nationalindicatorlibrary:title: Search Test Indicator Title NilSortSearchTerm
+  /search-test-title-indicator[2]:
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
         hippostd:content: ''
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:definition:
-        hippostd:content: <p>Definition</p>
+        hippostd:content: <p>test</p>
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:interpretationGuidelines:
         hippostd:content: ''
@@ -95,10 +89,12 @@
           jcr:primaryType: hippostd:html
         jcr:primaryType: nationalindicatorlibrary:methodology
       /nationalindicatorlibrary:purpose:
-        hippostd:content: <p>Purpose</p>
+        hippostd:content: <p>test</p>
         jcr:primaryType: hippostd:html
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
       jcr:primaryType: nationalindicatorlibrary:details
-      nationalindicatorlibrary:briefDescription: Bare Minimum Indicator
+      nationalindicatorlibrary:briefDescription: test
       nationalindicatorlibrary:iapCode: ''
       nationalindicatorlibrary:indicatorSet: ''
       nationalindicatorlibrary:rating: ''
@@ -106,47 +102,39 @@
       /nationalindicatorlibrary:contactAuthor:
         jcr:primaryType: nationalindicatorlibrary:contactAuthor
         nationalindicatorlibrary:contactAuthorEmail: ''
-        nationalindicatorlibrary:contactAuthorName: Test
+        nationalindicatorlibrary:contactAuthorName: test
       jcr:primaryType: nationalindicatorlibrary:topbar
-      nationalindicatorlibrary:basedOn: Test
-      nationalindicatorlibrary:reportingPeriod: Now
-      nationalindicatorlibrary:reviewDate: 2018-02-23T13:57:00Z
+      nationalindicatorlibrary:basedOn: test
+      nationalindicatorlibrary:reportingPeriod: test
+      nationalindicatorlibrary:reviewDate: 2018-03-09T16:04:00Z
     common:FacetType: indicator
-    common:FullTaxonomy:
-    - nil-taxonomy-test
-    - acceptance-tests
-    common:SearchableTags:
-    - NilTaxonomySearchTerm test
     common:searchable: true
     hippo:availability:
     - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2018-02-23T13:57:04.917Z
-    hippostdpubwf:lastModificationDate: 2018-03-09T13:25:05.329Z
+    hippostdpubwf:creationDate: 2018-03-09T16:03:28.182Z
+    hippostdpubwf:lastModificationDate: 2018-03-09T16:04:27.806Z
     hippostdpubwf:lastModifiedBy: admin
-    hippotaxonomy:keys:
-    - nil-taxonomy-test
-    hippotranslation:id: 6052313f-da95-4a53-84ee-8d2d9e69d1e0
+    hippotranslation:id: 7ba16511-bdef-42fd-ad49-8db02dd3a5ec
     hippotranslation:locale: en
     jcr:mixinTypes:
     - hippotaxonomy:classifiable
     - mix:referenceable
     - mix:versionable
     jcr:primaryType: nationalindicatorlibrary:indicator
-    nationalindicatorlibrary:assuranceDate: 2018-03-01T00:00:00Z
+    nationalindicatorlibrary:assuranceDate: 2018-02-01T00:00:00Z
     nationalindicatorlibrary:assuredStatus: true
-    nationalindicatorlibrary:publishedBy: NHS Digital
-    nationalindicatorlibrary:reportingLevel: CCG
-    nationalindicatorlibrary:title: Bare Minimum Indicator
-    publicationsystem:GeographicCoverage: England
-  /bare-minimum-indicator[3]:
+    nationalindicatorlibrary:publishedBy: test
+    nationalindicatorlibrary:reportingLevel: test
+    nationalindicatorlibrary:title: Search Test Indicator Title NilSortSearchTerm
+  /search-test-title-indicator[3]:
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
         hippostd:content: ''
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:definition:
-        hippostd:content: <p>Definition</p>
+        hippostd:content: <p>test</p>
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:interpretationGuidelines:
         hippostd:content: ''
@@ -166,10 +154,12 @@
           jcr:primaryType: hippostd:html
         jcr:primaryType: nationalindicatorlibrary:methodology
       /nationalindicatorlibrary:purpose:
-        hippostd:content: <p>Purpose</p>
+        hippostd:content: <p>test</p>
         jcr:primaryType: hippostd:html
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
       jcr:primaryType: nationalindicatorlibrary:details
-      nationalindicatorlibrary:briefDescription: Bare Minimum Indicator
+      nationalindicatorlibrary:briefDescription: test
       nationalindicatorlibrary:iapCode: ''
       nationalindicatorlibrary:indicatorSet: ''
       nationalindicatorlibrary:rating: ''
@@ -177,41 +167,33 @@
       /nationalindicatorlibrary:contactAuthor:
         jcr:primaryType: nationalindicatorlibrary:contactAuthor
         nationalindicatorlibrary:contactAuthorEmail: ''
-        nationalindicatorlibrary:contactAuthorName: Test
+        nationalindicatorlibrary:contactAuthorName: test
       jcr:primaryType: nationalindicatorlibrary:topbar
-      nationalindicatorlibrary:basedOn: Test
-      nationalindicatorlibrary:reportingPeriod: Now
-      nationalindicatorlibrary:reviewDate: 2018-02-23T13:57:00Z
+      nationalindicatorlibrary:basedOn: test
+      nationalindicatorlibrary:reportingPeriod: test
+      nationalindicatorlibrary:reviewDate: 2018-03-09T16:04:00Z
     common:FacetType: indicator
-    common:FullTaxonomy:
-    - nil-taxonomy-test
-    - acceptance-tests
-    common:SearchableTags:
-    - NilTaxonomySearchTerm test
     common:searchable: true
     hippo:availability:
     - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2018-02-23T13:57:04.917Z
-    hippostdpubwf:lastModificationDate: 2018-03-09T13:25:05.329Z
+    hippostdpubwf:creationDate: 2018-03-09T16:03:28.182Z
+    hippostdpubwf:lastModificationDate: 2018-03-09T16:04:27.806Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-03-09T13:25:08.924Z
-    hippotaxonomy:keys:
-    - nil-taxonomy-test
-    hippotranslation:id: 6052313f-da95-4a53-84ee-8d2d9e69d1e0
+    hippostdpubwf:publicationDate: 2018-03-09T16:04:35.260Z
+    hippotranslation:id: 7ba16511-bdef-42fd-ad49-8db02dd3a5ec
     hippotranslation:locale: en
     jcr:mixinTypes:
     - hippotaxonomy:classifiable
     - mix:referenceable
     jcr:primaryType: nationalindicatorlibrary:indicator
-    nationalindicatorlibrary:assuranceDate: 2018-03-01T00:00:00Z
+    nationalindicatorlibrary:assuranceDate: 2018-02-01T00:00:00Z
     nationalindicatorlibrary:assuredStatus: true
-    nationalindicatorlibrary:publishedBy: NHS Digital
-    nationalindicatorlibrary:reportingLevel: CCG
-    nationalindicatorlibrary:title: Bare Minimum Indicator
-    publicationsystem:GeographicCoverage: England
-  hippo:name: bare minimum indicator
+    nationalindicatorlibrary:publishedBy: test
+    nationalindicatorlibrary:reportingLevel: test
+    nationalindicatorlibrary:title: Search Test Indicator Title NilSortSearchTerm
+  hippo:name: search test title indicator
   jcr:mixinTypes:
   - hippo:named
   - mix:referenceable
