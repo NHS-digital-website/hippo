@@ -126,7 +126,7 @@ Feature: Basic search
             | Publication ( ...         |
             | Data set ( ...            |
             | Series / Collection ( ... |
-            | Indicator ( ...           |
+            | Methodology ( ...         |            
 
     Scenario: Navigating to the search page displays the results page with full, unfiltered result set
         Given I navigate to the "search" page
@@ -134,7 +134,7 @@ Feature: Basic search
             | Publication ( ...         |
             | Data set ( ...            |
             | Series / Collection ( ... |
-            | Indicator ( ...           |
+            | Methodology ( ...         |
 
     Scenario: Each document type label is correctly displayed in search results
         Given I navigate to the "home" page
@@ -142,7 +142,7 @@ Feature: Basic search
         Then I should see search results which also include:
             | Publication         | Bare Minimum Publication      |
             | Data set            | Bare Minimum Dataset          |
-            | Indicator           | Bare Minimum Indicator        |
+            | Methodology         | Bare Minimum Indicator        |
         When I navigate to the "home" page
         When I search for "series"
         Then I should see search results which also include:
