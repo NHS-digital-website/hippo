@@ -11,7 +11,6 @@ phases:
       - apt-get update
       - apt-get install -qqy awscli git openssh-client
       # SSH key
-      - ls -l $HOME/.aws
       - aws configure list
       - aws s3 cp s3://config.dev.ps.nhsd.io/codebuild/ps_hippo_build/nhs-ci_rsa $HOME/.ssh/nhs-ci_rsa
       - aws s3 cp s3://config.dev.ps.nhsd.io/codebuild/ps_hippo_build/nhs-ci_rsa.pub $HOME/.ssh/nhs-ci_rsa.pub
