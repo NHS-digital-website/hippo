@@ -142,6 +142,13 @@
             <artifactId>breadcrumb</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>uk.nhs.digital</groupId>
+            <artifactId>s3-connector</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
     <build>
         <resources>

@@ -2,6 +2,7 @@ package uk.nhs.digital.externalstorage.resource;
 
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.link.ExternalLink;
 import org.apache.wicket.markup.html.panel.Fragment;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
@@ -81,7 +82,9 @@ public class ImageDisplayPlugin extends RenderPlugin<Node> {
         fragment.add(new Label("mimetype", Model.of(metadata.getMimeType())));
 
         if (!metadata.getFileName().isEmpty()) {
-            fragment.add(new Label("filename", new Model<String>(metadata.getFileName())));
+            ExternalLink link = new ExternalLink("link", getDownloadUrl(metadata));
+            link.add(new Label("filename", new Model<String>(metadata.getFileName())));
+            fragment.add(link);
         }
 
         if (metadata.getMimeType().equals(MIME_TYPE_HIPPO_BLANK)) {
@@ -89,6 +92,13 @@ public class ImageDisplayPlugin extends RenderPlugin<Node> {
         }
 
         return fragment;
+    }
+
+    private String getDownloadUrl(final S3NodeMetadata metadata) {
+        // http://localhost:8080/site/_cmsinternal/s3endpoint/?s3Reference=/57/B6E75E/garden%202%20(1).pdf&fileName=garden%202%20(1).pdf
+        return  "/_cmsinternal/s3endpoint/?s3Reference="
+            + metadata.getReference()
+            + "&fileName=" + metadata.getFileName();
     }
 
     @Override

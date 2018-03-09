@@ -2,7 +2,8 @@
 
 <#macro externalstorageLink item>
     <#if hstRequestContext.preview>
-        <#assign url="/?s3Reference="+item.reference+"&fileName="+item.filename/>
+        <@hst.link siteMapItemRefId="S3CONNECTOR-PIPELINE-ID" var="s3EndpointBaseUrl"/>
+        <#assign url=s3EndpointBaseUrl + "/?s3Reference=" + item.reference + "&fileName=" + item.filename/>
     <#else>
         <#assign url=item.url/>
     </#if>

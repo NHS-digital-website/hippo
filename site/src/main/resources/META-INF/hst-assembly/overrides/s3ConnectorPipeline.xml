@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <import resource="classpath:/org/hippoecm/hst/site/container/SpringComponentManager-pipelines.xml"/>
+
+    <bean name="MAX_CONCURRENT_PREVIEW_DOWNLOADS" class="java.lang.Integer">
+        <constructor-arg value="2"/>
+    </bean>
+
+    <bean id="s3ConnectorValve" class="uk.nhs.digital.common.valve.S3ConnectorValve"
+          init-method="initialize" destroy-method="destroy">
+        <constructor-arg name="executorService">
+            <bean class="java.util.concurrent.Executors" factory-method="newWorkStealingPool">
+                <constructor-arg type="int" ref="MAX_CONCURRENT_PREVIEW_DOWNLOADS"/>
+            </bean>
+        </constructor-arg>
+        <constructor-arg name="s3Connector">
+            <bean class="org.onehippo.cms7.services.HippoServiceRegistry" factory-method="getService">
+                <constructor-arg type="java.lang.Class" value="uk.nhs.digital.externalstorage.s3.S3Connector"/>
+            </bean>
+        </constructor-arg>
+        <property name="valveName" value="S3ConnectorValve"/>
+    </bean>
+
+    <bean class="org.hippoecm.hst.site.container.TypeDeterminedMethodInvokingFactoryBean">
+        <constructor-arg value="org.hippoecm.hst.core.container.Pipeline"/>
+        <property name="targetObject">
+            <bean class="org.springframework.beans.factory.config.PropertyPathFactoryBean">
+                <property name="targetObject" ref="org.hippoecm.hst.core.container.Pipelines"/>
+                <property name="propertyPath" value="pipelines"/>
+            </bean>
+        </property>
+        <property name="targetMethod" value="put"/>
+        <property name="arguments">
+            <list>
+                <value>S3ConnectorPipeline</value>
+                <bean class="org.hippoecm.hst.core.container.HstSitePipeline">
+                    <property name="initializationValves">
+                        <list>
+                            <ref bean="initializationValve"/>
+                            <ref bean="cmsSecurityValve"/>
+                        </list>
+                    </property>
+                    <property name="processingValves">
+                        <list>
+                            <ref bean="securityValve"/>
+                            <ref bean="subjectBasedSessionValve"/>
+                            <ref bean="jcrSessionStatefulConcurrencyValve"/>
+                            <ref bean="s3ConnectorValve"/>
+                        </list>
+                    </property>
+                    <property name="cleanupValves">
+                        <list>
+                            <ref bean="diagnosticReportingValve"/>
+                            <ref bean="cleanupValve"/>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+</beans>
+

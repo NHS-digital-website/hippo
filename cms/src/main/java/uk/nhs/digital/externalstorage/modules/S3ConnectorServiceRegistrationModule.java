@@ -1,5 +1,9 @@
 package uk.nhs.digital.externalstorage.modules;
 
+import static uk.nhs.digital.externalstorage.ExternalStorageConstants.SYSTEM_PROPERTY_AWS_BUCKET_NAME;
+import static uk.nhs.digital.externalstorage.ExternalStorageConstants.SYSTEM_PROPERTY_AWS_REGION;
+import static uk.nhs.digital.externalstorage.ExternalStorageConstants.SYSTEM_PROPERTY_AWS_S3_ENDPOINT;
+
 import com.amazonaws.auth.AWSCredentialsProvider;
 import com.amazonaws.auth.SystemPropertiesCredentialsProvider;
 import com.amazonaws.client.builder.AwsClientBuilder;
@@ -12,7 +16,9 @@ import org.onehippo.repository.modules.ProvidesService;
 
 import uk.nhs.digital.externalstorage.s3.S3Connector;
 import uk.nhs.digital.externalstorage.s3.S3ConnectorImpl;
+import uk.nhs.digital.externalstorage.s3.S3ObjectKeyGenerator;
 
+import java.util.UUID;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
@@ -29,17 +35,30 @@ public class S3ConnectorServiceRegistrationModule extends AbstractReconfigurable
     @Override
     protected void doConfigure(final Node moduleConfig) throws RepositoryException {
         synchronized (configurationLock) {
-            s3Bucket = moduleConfig.getProperty("s3Bucket").getString();
-            s3Region = moduleConfig.getProperty("s3Region").getString();
-            s3Endpoint = moduleConfig.hasProperty("s3Endpoint")
-                ? moduleConfig.getProperty("s3Endpoint").getString() : "";
+            s3Bucket = getConfigValue(SYSTEM_PROPERTY_AWS_BUCKET_NAME, "s3Bucket", moduleConfig);
+            s3Region = getConfigValue(SYSTEM_PROPERTY_AWS_REGION, "s3Region", moduleConfig);
+
+            if (moduleConfig.hasProperty("s3Endpoint")) {
+                s3Endpoint = getConfigValue(SYSTEM_PROPERTY_AWS_S3_ENDPOINT, "s3Endpoint", moduleConfig);
+            } else {
+                s3Endpoint = System.getProperty(SYSTEM_PROPERTY_AWS_S3_ENDPOINT, "");
+            }
         }
     }
 
     @Override
     protected void doInitialize(final Session session) throws RepositoryException {
-        s3Connector = new S3ConnectorImpl(getAmazonS3(), s3Bucket);
+        s3Connector = new S3ConnectorImpl(
+            getAmazonS3(),
+            s3Bucket,
+            new S3ObjectKeyGenerator(this::newRandomString)
+        );
+
         HippoServiceRegistry.registerService(s3Connector, S3Connector.class);
+    }
+
+    private String newRandomString() {
+        return UUID.randomUUID().toString();
     }
 
     @Override
@@ -58,5 +77,14 @@ public class S3ConnectorServiceRegistrationModule extends AbstractReconfigurable
         }
 
         return s3Builder.build();
+    }
+
+    private String getConfigValue(final String systemProperty, final String moduleProperty, Node moduleConfig) throws RepositoryException {
+        String value = System.getProperty(systemProperty, "");
+        if (value.isEmpty()) {
+            value = moduleConfig.getProperty(moduleProperty).getString();
+        }
+
+        return value;
     }
 }

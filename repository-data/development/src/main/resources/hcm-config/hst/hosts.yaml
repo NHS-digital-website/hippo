@@ -9,7 +9,7 @@ definitions:
           .meta:residual-child-node-category: content
           /hst:root:
             .meta:residual-child-node-category: content
-            hst:contextpath: /site
+            hst:contextpath: ''
             hst:homepage: root
             hst:mountpoint: /hst:hst/hst:sites/common
             jcr:primaryType: hst:mount
@@ -26,6 +26,7 @@ definitions:
             .meta:residual-child-node-category: content
             /hst:root:
               .meta:residual-child-node-category: content
+              hst:contextpath: ''
               hst:homepage: root
               hst:mountpoint: /hst:hst/hst:sites/common
               jcr:primaryType: hst:mount

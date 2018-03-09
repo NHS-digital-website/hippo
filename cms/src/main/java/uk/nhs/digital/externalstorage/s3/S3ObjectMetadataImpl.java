@@ -17,7 +17,7 @@ public class S3ObjectMetadataImpl implements S3ObjectMetadata {
     private final String url;
     private final String reference;
 
-    public S3ObjectMetadataImpl(ObjectMetadata metadata, String bucketName, String objectKey) {
+    S3ObjectMetadataImpl(ObjectMetadata metadata, String bucketName, String objectKey) {
         URL url = getUrlObject(bucketName, objectKey);
 
         size = metadata.getContentLength();
@@ -47,7 +47,7 @@ public class S3ObjectMetadataImpl implements S3ObjectMetadata {
         return reference;
     }
 
-    protected URL getUrlObject(String bucketName, String objectKey) {
+    private URL getUrlObject(String bucketName, String objectKey) {
         try {
             return new URL("https://" + bucketName + "/" + objectKey);
         } catch (MalformedURLException ex) {
