@@ -55,18 +55,18 @@ phases:
       # Build
       - cd ci-cd && make clean build
       # Set git commit status
-      - cd ci-cd && make github.status.success
+      # - cd ci-cd && make github.status.success
       # Upload tgz files to various destinations
-      - ssh-agent bash -c "
-        ssh-add $HOME/.ssh/nhs-ci_rsa &&
-        cd ci-cd && make ondemand.upload upload"
+      # - ssh-agent bash -c "
+      #   ssh-add $HOME/.ssh/nhs-ci_rsa &&
+      #   cd ci-cd && make ondemand.upload upload"
       # Deploy to Test Environment
-      - . $HOME/rd.password && cd ci-cd && make ondemand.deploy
+      # - . $HOME/rd.password && cd ci-cd && make ondemand.deploy
       # Push tag back to github
-      - ssh-agent bash -c "
-        ssh-add $HOME/.ssh/nhs-ci_rsa && cd ci-cd &&
-        make git.update-environment-tag &&
-        git push --tags"
+      # - ssh-agent bash -c "
+      #   ssh-add $HOME/.ssh/nhs-ci_rsa && cd ci-cd &&
+      #   make git.update-environment-tag &&
+      #   git push --tags"
 
 artifacts:
   files:
