@@ -29,6 +29,8 @@ phases:
       - rm -rf /var/cache/oracle-jdk8-installer
 
       # SSH key
+      - ls -l $HOME/.aws
+      - aws configure list
       - aws s3 cp s3://config.dev.ps.nhsd.io/codebuild/ps_hippo_build/nhs-ci_rsa $HOME/.ssh/nhs-ci_rsa
       - aws s3 cp s3://config.dev.ps.nhsd.io/codebuild/ps_hippo_build/nhs-ci_rsa.pub $HOME/.ssh/nhs-ci_rsa.pub
       - chmod 600 $HOME/.ssh/nhs-ci_rsa
