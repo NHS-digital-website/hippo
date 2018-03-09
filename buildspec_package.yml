@@ -9,7 +9,7 @@ phases:
   install:
     commands:
       - apt-get update
-      - apt-get install -qqy awscli git openssh-client
+      - apt-get install -qqy awscli curl git openssh-client
       # SSH key
       - curl http://169.254.169.254
       - aws s3 cp s3://config.dev.ps.nhsd.io/codebuild/ps_hippo_build/nhs-ci_rsa $HOME/.ssh/nhs-ci_rsa
