@@ -8,7 +8,7 @@ version: 0.1
 phases:
   install:
     commands:
-      - service resolvconf stop
+      - apt-get -yqs remove resolvconf
       - service --status-all
       - apt-get update
       - apt-get install -qqy awscli curl git openssh-client net-tools
