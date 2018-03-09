@@ -359,7 +359,7 @@
                 <!-- target-less transition to publish the document when no event payload parameter targetDate is provided -->
                 <transition event="publish" cond="!_event.data?.targetDate">
                     <!-- Trigger publication of external files -->
-                    <externalstorage:externalFilePublish/>
+                    <externalstorage:publishExternalFile/>
 
                     <!-- copy the content of the unpublished variant to the published variant -->
                     <hippo:copyVariant sourceState="unpublished" targetState="published"/>
@@ -437,7 +437,7 @@
                     <nhsdigital:populateSearchableFlag variant="published" depublishing="true"/>
 
 		    <!-- Trigger publication of external files -->
-                    <externalstorage:externalFileUnpublish/>
+                    <externalstorage:unpublishExternalFile/>
 
                     <!-- ensure the unpublished variant to be versionable set its availability to (only) 'live' -->
                     <hippo:configVariant variant="unpublished" versionable="true" availabilities="preview"/>

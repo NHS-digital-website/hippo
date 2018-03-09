@@ -290,6 +290,10 @@
                                         <file>${website.basedir}/repository-data/development/target/website-repository-data-development-${project.version}.jar</file>
                                         <todir>${development-module-deploy-dir}</todir>
                                     </file>
+                                    <file>
+                                        <file>${website.basedir}/s3connector/target/s3-connector-${project.version}.jar</file>
+                                        <todir>shared/lib</todir>
+                                    </file>
                                 </files>
                             </configuration>
                             <deployables>
@@ -303,7 +307,7 @@
                                 <deployable>
                                     <type>war</type>
                                     <properties>
-                                        <context>/site</context>
+                                        <context>/</context>
                                     </properties>
                                     <location>${website.basedir}/site/target/ROOT.war</location>
                                 </deployable>

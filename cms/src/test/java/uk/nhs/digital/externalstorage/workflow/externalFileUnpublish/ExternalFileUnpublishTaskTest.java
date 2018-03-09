@@ -52,7 +52,7 @@ public class ExternalFileUnpublishTaskTest {
     @Test
     public void shouldCallS3() throws WorkflowException, RepositoryException {
         Node docNode = rootNode.addNode("test-document");
-        addSubDocument(docNode, PUBLISHED);
+        addVariantNode(docNode, PUBLISHED);
         MockJcr.setQueryResult(session, getQueryResults());
 
         executeTask(docNode, externalFileUnpublishTask);
@@ -70,7 +70,7 @@ public class ExternalFileUnpublishTaskTest {
         task.execute();
     }
 
-    private Node addSubDocument(Node documentNode, String state) throws RepositoryException {
+    private Node addVariantNode(Node documentNode, String state) throws RepositoryException {
         String name = documentNode.getName();
         Node document = documentNode.addNode(name);
         document.setProperty("hippostd:state", state);

@@ -86,6 +86,10 @@
         <!-- AWS S3 access -->
         <aws.accessKeyId></aws.accessKeyId>
         <aws.secretKey></aws.secretKey>
+
+        <externalstorage.aws.bucket></externalstorage.aws.bucket>
+        <externalstorage.aws.region></externalstorage.aws.region>
+        <externalstorage.aws.s3.endpoint></externalstorage.aws.s3.endpoint>
     </properties>
 
     <repositories>
@@ -134,7 +138,7 @@
                 <artifactId>hippo-essentials-plugin-sdk-api</artifactId>
                 <version>12.2.0</version>
             </dependency>
-            
+
             <dependency>
                 <groupId>org.onehippo.forge</groupId>
                 <artifactId>breadcrumb</artifactId>
@@ -548,6 +552,17 @@
                                         <todir>shared/lib</todir>
                                     </file>
                                 </files>
+                                <properties>
+                                    <cargo.jvmargs>
+                                        -Xmx1024m
+                                        -Duser.timezone=Etc/UTC
+                                        -Dfile.encoding=ANSI_X3.4-1968
+                                    </cargo.jvmargs>
+                                    <cargo.start.jvmargs>
+                                        -Xdebug
+                                        -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000
+                                    </cargo.start.jvmargs>
+                                </properties>
                             </configuration>
                             <deployables>
                                 <deployable>
@@ -561,7 +576,7 @@
                                     <location>${project.basedir}/site/target/ROOT.war</location>
                                     <type>war</type>
                                     <properties>
-                                        <context>/site</context>
+                                        <context>/</context>
                                     </properties>
                                 </deployable>
                                 <deployable>
@@ -579,13 +594,19 @@
                                     <project.basedir>${project.basedir}</project.basedir>
                                     <send.usage.statistics.to.hippo>false</send.usage.statistics.to.hippo>
                                     <repo.config>file://${project.basedir}/conf/repository.xml</repo.config>
+
                                     <!-- Splunk forwarder config -->
                                     <splunk.hec.name>${splunk.hec.name}</splunk.hec.name>
                                     <splunk.token>${splunk.token}</splunk.token>
                                     <splunk.url>${splunk.url}</splunk.url>
                                     <splunk.batch.size.count>${splunk.batch.size.count}</splunk.batch.size.count>
+
                                     <aws.accessKeyId>${aws.accessKeyId}</aws.accessKeyId>
                                     <aws.secretKey>${aws.secretKey}</aws.secretKey>
+
+                                    <externalstorage.aws.bucket>${externalstorage.aws.bucket}</externalstorage.aws.bucket>
+                                    <externalstorage.aws.region>${externalstorage.aws.region}</externalstorage.aws.region>
+                                    <externalstorage.aws.s3.endpoint>${externalstorage.aws.s3.endpoint}</externalstorage.aws.s3.endpoint>
                                 </systemProperties>
                             </container>
                         </configuration>

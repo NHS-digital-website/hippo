@@ -2,14 +2,6 @@
 definitions:
   config:
     /hippo:configuration/hippo:modules/scxmlregistry/hippo:moduleconfig/hipposcxml:definitions/documentworkflow:
-      /externalFilePublish:
-        hipposcxml:classname: uk.nhs.digital.externalstorage.workflow.externalFilePublish.ExternalFilePublishAction
-        hipposcxml:namespace: http://digital.nhs.uk/externalstorage/scxml
-        jcr:primaryType: hipposcxml:action
-      /externalFileUnpublish:
-        hipposcxml:classname: uk.nhs.digital.externalstorage.workflow.externalFileUnpublish.ExternalFileUnpublishAction
-        hipposcxml:namespace: http://digital.nhs.uk/externalstorage/scxml
-        jcr:primaryType: hipposcxml:action
       /populateSearchableFlag:
         hipposcxml:classname: uk.nhs.digital.ps.workflow.searchableFlag.SearchableFlagAction
         hipposcxml:namespace: http://digital.nhs.uk/repository/scxml
@@ -17,6 +9,14 @@ definitions:
       /populateSearchableTaxonomy:
         hipposcxml:classname: uk.nhs.digital.ps.workflow.searchableTaxonomy.SearchableTaxonomyAction
         hipposcxml:namespace: http://digital.nhs.uk/repository/scxml
+        jcr:primaryType: hipposcxml:action
+      /publishExternalFile:
+        hipposcxml:classname: uk.nhs.digital.externalstorage.workflow.externalFilePublish.ExternalFilePublishAction
+        hipposcxml:namespace: http://digital.nhs.uk/externalstorage/scxml
+        jcr:primaryType: hipposcxml:action
+      /unpublishExternalFile:
+        hipposcxml:classname: uk.nhs.digital.externalstorage.workflow.externalFileUnpublish.ExternalFileUnpublishAction
+        hipposcxml:namespace: http://digital.nhs.uk/externalstorage/scxml
         jcr:primaryType: hipposcxml:action
       hipposcxml:source:
         resource: /configuration/modules/documentworkflow.scxml
