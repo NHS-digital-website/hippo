@@ -43,13 +43,11 @@ phases:
       - ssh-keygen -R github.com
       - ssh-keyscan github.com >> $HOME/.ssh/known_hosts
 
-      - Xvfb :99 &
-
   build:
     commands:
       # Test
       - cd ci-cd && make test.unit
-      - cd ci-cd && make test.site
+      - cd ci-cd && xvfb-run make test.site
       # Tag
       - ssh-agent bash -c "
         ssh-add $HOME/.ssh/nhs-ci_rsa && cd ci-cd &&
