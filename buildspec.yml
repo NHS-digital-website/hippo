@@ -29,7 +29,6 @@ phases:
       - rm -rf /var/cache/oracle-jdk8-installer
 
       # SSH key
-      - aws configure list
       - aws s3 cp s3://config.dev.ps.nhsd.io/codebuild/ps_hippo_build/nhs-ci_rsa $HOME/.ssh/nhs-ci_rsa
       - aws s3 cp s3://config.dev.ps.nhsd.io/codebuild/ps_hippo_build/nhs-ci_rsa.pub $HOME/.ssh/nhs-ci_rsa.pub
       - chmod 600 $HOME/.ssh/nhs-ci_rsa
@@ -43,6 +42,8 @@ phases:
       - ssh-keyscan static.hosting.onehippo.com >> $HOME/.ssh/known_hosts
       - ssh-keygen -R github.com
       - ssh-keyscan github.com >> $HOME/.ssh/known_hosts
+
+      - Xvfb :99 &
 
   build:
     commands:
