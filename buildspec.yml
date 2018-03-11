@@ -47,7 +47,7 @@ phases:
     commands:
       # Test
       - cd ci-cd && make test.unit
-      - cd ci-cd && xvfb-run make test.site
+      - cd ci-cd && make test.site
       # Tag
       - ssh-agent bash -c "
         ssh-add $HOME/.ssh/nhs-ci_rsa && cd ci-cd &&
