@@ -58,4 +58,14 @@ public class Details extends HippoCompound {
     public String getBriefDescription() {
         return getProperty("nationalindicatorlibrary:briefDescription");
     }
+
+    @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:qualityStatementUrl")
+    public String getQualityStatementUrl() {
+        return getProperty("nationalindicatorlibrary:qualityStatementUrl");
+    }  
+
+    @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:technicalSpecificationUrl")
+    public String getTechnicalSpecificationUrl() {
+        return getProperty("nationalindicatorlibrary:technicalSpecificationUrl");
+    }       
 }

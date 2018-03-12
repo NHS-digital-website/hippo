@@ -76,22 +76,22 @@
         <details id="methodology" class="push-double--bottom">
             <summary><span>How this indicator is calculated</span></summary></br>
             <div class="panel panel--grey">
-                <#if indicator.details.methodology.dataSource?has_content>
+                <#if indicator.details.methodology.dataSource.content?has_content>
                     <h3><strong><@fmt.message key="headers.dataSource"/></strong></h3>
                     <#outputformat "undefined">${indicator.details.methodology.dataSource.content}</#outputformat>
                 </#if>
                 
-                <#if indicator.details.methodology.numerator?has_content> 
+                <#if indicator.details.methodology.numerator.content?has_content> 
                     <h3><strong><@fmt.message key="headers.numerator"/></strong></h3>
                     <#outputformat "undefined">${indicator.details.methodology.numerator.content}</#outputformat>
                 </#if>
 
-                <#if indicator.details.methodology.denominator?has_content>
+                <#if indicator.details.methodology.denominator.content?has_content>
                     <h3><strong><@fmt.message key="headers.denominator"/></strong></h3>
                     <#outputformat "undefined">${indicator.details.methodology.denominator.content}</#outputformat>
                 </#if>            
 
-                <#if indicator.details.methodology.calculation?has_content>
+                <#if indicator.details.methodology.calculation.content?has_content>
                     <h3><strong><@fmt.message key="headers.calculation"/></strong></h3>
                     <#outputformat "undefined">${indicator.details.methodology.calculation.content}</#outputformat>
                 </#if>              
@@ -115,19 +115,32 @@
             </#list>   
         </section>     
 
-        <#if indicator.attachments?has_content>
+
+        <#if indicator.hasAttachments()>
             <section id="resources" class="push-double--bottom">
                 <h2><strong><@fmt.message key="headers.resources"/></strong></h2>
-            
-                    <ul data-uipath="nil.indicator.resources">
-                        <#list indicator.attachments as attachment>
-                            <li class="attachment">
-                                <a title="${attachment.text}" href="<@hst.link hippobean=attachment.resource/>" onClick="logGoogleAnalyticsEvent('Download attachment','Indicator','${attachment.resource.filename}');">${attachment.text}</a>
-                                <span class="fileSize">(<@formatFileSize bytesCount=attachment.resource.length/>)</span>
-                            </li>
-                        </#list>
-                    </ul>
-                
+                        <ul data-uipath="nil.indicator.resources">
+                            <#if indicator.details.qualityStatementUrl?has_content>
+                                <li class="attachment">
+                                    <a href="${indicator.details.qualityStatementUrl}" target="_blank" onClick="logGoogleAnalyticsEvent('View quality statement','Indicator','${indicator.details.iapCode}');"><@fmt.message key="headers.qualityStatement"/></a>
+                                </li>
+                            </#if>
+
+                            <#if indicator.details.technicalSpecificationUrl?has_content>
+                                <li class="attachment">
+                                    <a href="${indicator.details.technicalSpecificationUrl}" target="_blank" onClick="logGoogleAnalyticsEvent('View technical specification','Indicator','${indicator.details.iapCode}');"><@fmt.message key="headers.technicalSpecification"/></a>
+                                </li>
+                            </#if>
+
+                            <#if indicator.attachments?has_content>
+                                <#list indicator.attachments as attachment>
+                                    <li class="attachment">
+                                        <a title="${attachment.text}" href="<@hst.link hippobean=attachment.resource/>" onClick="logGoogleAnalyticsEvent('Download attachment','Indicator','${attachment.resource.filename}');">${attachment.text}</a>
+                                        <span class="fileSize">(<@formatFileSize bytesCount=attachment.resource.length/>)</span>
+                                    </li>
+                                </#list>
+                            </#if>
+                        </ul>    
             </section>
         </#if>
     </section>
