@@ -1,11 +1,11 @@
-package uk.nhs.digital.ps.modules;
+package uk.nhs.digital.externalstorage.modules;
 
 import com.amazonaws.auth.AWSCredentialsProvider;
 import com.amazonaws.auth.SystemPropertiesCredentialsProvider;
-import com.amazonaws.regions.Region;
+import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.AmazonS3Client;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import org.onehippo.cms7.services.HippoServiceRegistry;
 import org.onehippo.repository.modules.AbstractReconfigurableDaemonModule;
 import org.onehippo.repository.modules.ProvidesService;
@@ -48,17 +48,15 @@ public class S3ConnectorServiceRegistrationModule extends AbstractReconfigurable
     }
 
     private AmazonS3 getAmazonS3() {
-        Region reg = Region.getRegion(Regions.fromName(s3Region));
         AWSCredentialsProvider provider = new SystemPropertiesCredentialsProvider();
-        AmazonS3 s3 = new AmazonS3Client(provider);
-        s3.setRegion(reg);
+        AmazonS3ClientBuilder s3Builder = AmazonS3ClientBuilder.standard()
+            .withCredentials(provider)
+            .withRegion(Regions.fromName(s3Region));
 
-        String endpoint = reg.getServiceEndpoint("s3");
         if (!s3Endpoint.isEmpty()) {
-            endpoint = s3Endpoint;
+            s3Builder.withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(s3Endpoint, s3Region));
         }
-        s3.setEndpoint(endpoint);
 
-        return s3;
+        return s3Builder.build();
     }
 }
