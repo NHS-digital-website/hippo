@@ -1,11 +1,10 @@
 ---
-/content/documents/corporate-website/services:
-  .meta:order-before: data-and-information
-  hippo:name: Systems and services
+/content/documents/corporate-website/news-and-events:
+  hippo:name: News and events
   hippostd:foldertype:
   - new-translated-folder
   - new-document
-  hippotranslation:id: ca1ec125-235f-4465-958e-aca9978b8f84
+  hippotranslation:id: c0c0facf-0411-44eb-97bf-21e45e7b0baa
   hippotranslation:locale: en
   jcr:mixinTypes:
   - hippo:named

@@ -1,11 +1,10 @@
 ---
-/content/documents/corporate-website/services:
-  .meta:order-before: data-and-information
-  hippo:name: Systems and services
+/content/documents/corporate-website/about-nhs-digital:
+  hippo:name: About NHS Digital
   hippostd:foldertype:
   - new-translated-folder
   - new-document
-  hippotranslation:id: ca1ec125-235f-4465-958e-aca9978b8f84
+  hippotranslation:id: ee3b00dc-d3ed-413b-99df-7b2aef2fb7b9
   hippotranslation:locale: en
   jcr:mixinTypes:
   - hippo:named
