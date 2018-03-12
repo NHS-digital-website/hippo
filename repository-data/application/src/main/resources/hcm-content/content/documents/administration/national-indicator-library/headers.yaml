@@ -45,6 +45,8 @@
     - headers.iapCode
     - headers.indicatorSet
     - headers.interpretationGuidelines
+    - headers.qualityStatement
+    - headers.technicalSpecification
     - headers.categories
     - headers.resources
     - headers.methodology
@@ -74,6 +76,8 @@
     - IAP Code
     - Indicator Set
     - Interpretation Guidelines
+    - Quality Statement
+    - Technical Specification
     - Categories
     - Resources
     - Methodology
@@ -140,6 +144,8 @@
     - headers.iapCode
     - headers.indicatorSet
     - headers.interpretationGuidelines
+    - headers.qualityStatement
+    - headers.technicalSpecification
     - headers.categories
     - headers.resources
     - headers.methodology
@@ -169,6 +175,8 @@
     - IAP Code
     - Indicator Set
     - Interpretation Guidelines
+    - Quality Statement
+    - Technical Specification
     - Categories
     - Resources
     - Methodology
@@ -235,6 +243,8 @@
     - headers.iapCode
     - headers.indicatorSet
     - headers.interpretationGuidelines
+    - headers.qualityStatement
+    - headers.technicalSpecification
     - headers.categories
     - headers.resources
     - headers.methodology
@@ -264,6 +274,8 @@
     - IAP Code
     - Indicator Set
     - Interpretation Guidelines
+    - Quality Statement
+    - Technical Specification
     - Categories
     - Resources
     - Methodology

@@ -1,6 +1,21 @@
 ---
 /content/documents/corporate-website/national-indicator-library/sample-indicator:
   /sample-indicator[1]:
+    /nationalindicatorlibrary:attachments:
+      /publicationsystem:attachmentResource:
+        hippo:filename: testattachment.pdf
+        hippo:text:
+          resource: /content/documents/corporate-website/national-indicator-library/sample-indicator/sample-indicator[1]/attachments/attachmentResource/text.pdf
+          type: binary
+        jcr:data:
+          resource: /content/documents/corporate-website/national-indicator-library/sample-indicator/sample-indicator[1]/attachments/attachmentResource/data.pdf
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2018-03-12T15:26:40.972Z
+        jcr:mimeType: application/pdf
+        jcr:primaryType: publicationsystem:resource
+      jcr:primaryType: publicationsystem:attachment
+      publicationsystem:displayName: Test Attachment
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
         hippostd:content: <p>The patterns of providing care may vary between organisations
@@ -80,7 +95,9 @@
       nationalindicatorlibrary:briefDescription: Brief Search description
       nationalindicatorlibrary:iapCode: IAP923845
       nationalindicatorlibrary:indicatorSet: CCG OIS
+      nationalindicatorlibrary:qualityStatementUrl: https://qualitystatement.pdf
       nationalindicatorlibrary:rating: 5/5
+      nationalindicatorlibrary:technicalSpecificationUrl: https://technicalspec.pdf
     /nationalindicatorlibrary:topbar:
       /nationalindicatorlibrary:contactAuthor:
         jcr:primaryType: nationalindicatorlibrary:contactAuthor
@@ -104,7 +121,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-22T13:14:38.445Z
-    hippostdpubwf:lastModificationDate: 2018-03-09T13:24:14.009Z
+    hippostdpubwf:lastModificationDate: 2018-03-12T15:25:22.355Z
     hippostdpubwf:lastModifiedBy: admin
     hippotaxonomy:keys:
     - conditions
@@ -123,6 +140,21 @@
       unit within 4 hours of arrival at hospital
     publicationsystem:GeographicCoverage: England
   /sample-indicator[2]:
+    /nationalindicatorlibrary:attachments:
+      /publicationsystem:attachmentResource:
+        hippo:filename: testattachment.pdf
+        hippo:text:
+          resource: /content/documents/corporate-website/national-indicator-library/sample-indicator/sample-indicator[2]/attachments/attachmentResource/text.pdf
+          type: binary
+        jcr:data:
+          resource: /content/documents/corporate-website/national-indicator-library/sample-indicator/sample-indicator[2]/attachments/attachmentResource/data.pdf
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2018-03-12T15:26:40.972Z
+        jcr:mimeType: application/pdf
+        jcr:primaryType: publicationsystem:resource
+      jcr:primaryType: publicationsystem:attachment
+      publicationsystem:displayName: Test Attachment
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
         hippostd:content: <p>The patterns of providing care may vary between organisations
@@ -202,7 +234,9 @@
       nationalindicatorlibrary:briefDescription: Brief Search description
       nationalindicatorlibrary:iapCode: IAP923845
       nationalindicatorlibrary:indicatorSet: CCG OIS
+      nationalindicatorlibrary:qualityStatementUrl: https://qualitystatement.pdf
       nationalindicatorlibrary:rating: 5/5
+      nationalindicatorlibrary:technicalSpecificationUrl: https://technicalspec.pdf
     /nationalindicatorlibrary:topbar:
       /nationalindicatorlibrary:contactAuthor:
         jcr:primaryType: nationalindicatorlibrary:contactAuthor
@@ -227,7 +261,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-22T13:14:38.445Z
-    hippostdpubwf:lastModificationDate: 2018-03-09T13:24:31.777Z
+    hippostdpubwf:lastModificationDate: 2018-03-12T15:26:59.499Z
     hippostdpubwf:lastModifiedBy: admin
     hippotaxonomy:keys:
     - conditions
@@ -247,6 +281,21 @@
       unit within 4 hours of arrival at hospital
     publicationsystem:GeographicCoverage: England
   /sample-indicator[3]:
+    /nationalindicatorlibrary:attachments:
+      /publicationsystem:attachmentResource:
+        hippo:filename: testattachment.pdf
+        hippo:text:
+          resource: /content/documents/corporate-website/national-indicator-library/sample-indicator/sample-indicator[3]/attachments/attachmentResource/text.pdf
+          type: binary
+        jcr:data:
+          resource: /content/documents/corporate-website/national-indicator-library/sample-indicator/sample-indicator[3]/attachments/attachmentResource/data.pdf
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2018-03-12T15:26:40.972Z
+        jcr:mimeType: application/pdf
+        jcr:primaryType: publicationsystem:resource
+      jcr:primaryType: publicationsystem:attachment
+      publicationsystem:displayName: Test Attachment
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
         hippostd:content: <p>The patterns of providing care may vary between organisations
@@ -326,7 +375,9 @@
       nationalindicatorlibrary:briefDescription: Brief Search description
       nationalindicatorlibrary:iapCode: IAP923845
       nationalindicatorlibrary:indicatorSet: CCG OIS
+      nationalindicatorlibrary:qualityStatementUrl: https://qualitystatement.pdf
       nationalindicatorlibrary:rating: 5/5
+      nationalindicatorlibrary:technicalSpecificationUrl: https://technicalspec.pdf
     /nationalindicatorlibrary:topbar:
       /nationalindicatorlibrary:contactAuthor:
         jcr:primaryType: nationalindicatorlibrary:contactAuthor
@@ -351,9 +402,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-22T13:14:38.445Z
-    hippostdpubwf:lastModificationDate: 2018-03-09T13:24:31.777Z
+    hippostdpubwf:lastModificationDate: 2018-03-12T15:26:59.499Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-03-09T13:24:37.697Z
+    hippostdpubwf:publicationDate: 2018-03-12T15:27:10.805Z
     hippotaxonomy:keys:
     - conditions
     - cancer

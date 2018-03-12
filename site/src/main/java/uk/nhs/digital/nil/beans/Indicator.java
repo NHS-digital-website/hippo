@@ -1,5 +1,8 @@
 package uk.nhs.digital.nil.beans;
 
+import static org.apache.cxf.common.util.CollectionUtils.isEmpty;
+
+import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.content.beans.Node;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
@@ -66,6 +69,10 @@ public class Indicator extends BaseDocument {
     @HippoEssentialsGenerated(internalName = PropertyKeys.ASSURANCE_DATE)
     public Calendar getAssuranceDate() {
         return getProperty(PropertyKeys.ASSURANCE_DATE);
+    }
+
+    public boolean hasAttachments() {
+        return !isEmpty(getAttachments()) || !StringUtils.isEmpty(getDetails().getTechnicalSpecificationUrl()) || !StringUtils.isEmpty(getDetails().getQualityStatementUrl());
     }
 
     interface PropertyKeys {

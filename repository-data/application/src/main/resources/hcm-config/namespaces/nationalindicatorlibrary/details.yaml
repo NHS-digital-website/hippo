@@ -113,6 +113,23 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
+          /qualityStatementUrl:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Quality Statement URL
+            field: qualityStatementUrl
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+          /technicalSpecificationUrl:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Technical Specification URL
+            field: technicalSpecificationUrl
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -187,6 +204,14 @@ definitions:
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
+          /qualityStatementUrl:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:qualityStatementUrl
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           /rating:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -194,6 +219,14 @@ definitions:
             hipposysedit:path: nationalindicatorlibrary:rating
             hipposysedit:primary: false
             hipposysedit:type: Text
+            jcr:primaryType: hipposysedit:field
+          /technicalSpecificationUrl:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:technicalSpecificationUrl
+            hipposysedit:primary: false
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
@@ -239,7 +272,9 @@ definitions:
           nationalindicatorlibrary:briefDescription: ''
           nationalindicatorlibrary:iapCode: ''
           nationalindicatorlibrary:indicatorSet: ''
+          nationalindicatorlibrary:qualityStatementUrl: ''
           nationalindicatorlibrary:rating: ''
+          nationalindicatorlibrary:technicalSpecificationUrl: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable
