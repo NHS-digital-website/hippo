@@ -1,9 +1,10 @@
-package uk.nhs.digital.ps.modules
+package uk.nhs.digital.ps.workflow.searchableTaxonomy;
 
 import org.onehippo.repository.update.BaseNodeUpdateVisitor
 
-import javax.jcr.*
 import javax.jcr.Node
+import javax.jcr.NodeIterator
+import javax.jcr.Session
 
 /**
  * This migration updates "SearchableTaxonomy" and "FullTaxonomy" fields
@@ -14,14 +15,15 @@ class HotFixSearchableAndFullTaxonomy extends BaseNodeUpdateVisitor {
         "publicationsystem:dataset"
     ]
 
-    TaxonomyDaemonCopy daemonCopy
+    SearchableTaxonomyTaskCopy task
     Session session
 
     private static final String TAXONOMY_KEYS_PROPERTY = "hippotaxonomy:keys"
 
     boolean doUpdate(Node node) {
         session = node.getSession()
-        daemonCopy = new TaxonomyDaemonCopy(session)
+        task = new SearchableTaxonomyTaskCopy()
+        task.hookSetSession(session)
 
         try {
             // make sure it's "handle"
@@ -47,10 +49,10 @@ class HotFixSearchableAndFullTaxonomy extends BaseNodeUpdateVisitor {
                 }
 
                 log.warn("SearchableTaxonomy " + n.getProperty("hippostd:state").getString())
-                daemonCopy.hookCreateSearchableTagsProperty(n)
+                task.hookCreateSearchableTagsProperty(n)
 
                 log.warn("FullTaxonomy " + n.getProperty("hippostd:state").getString())
-                daemonCopy.hookCreateFullTaxonomyProperty(n)
+                task.hookCreateFullTaxonomyProperty(n)
             }
 
             return true
@@ -78,23 +80,17 @@ class HotFixSearchableAndFullTaxonomy extends BaseNodeUpdateVisitor {
         return false
     }
 
-    class TaxonomyDaemonCopy extends FullTaxonomyModule {
-        Session session
-
-        TaxonomyDaemonCopy(Session session) {
-            this.session = session
-        }
-
-        public Session getSession() {
-            return session
-        }
-
-        public void hookCreateSearchableTagsProperty(Node document) {
+    class SearchableTaxonomyTaskCopy extends SearchableTaxonomyTask {
+        void hookCreateSearchableTagsProperty(Node document) {
             createSearchableTagsProperty(document)
         }
 
-        public void hookCreateFullTaxonomyProperty(Node document) {
+        void hookCreateFullTaxonomyProperty(Node document) {
             createFullTaxonomyProperty(document)
+        }
+
+        void hookSetSession(Session session) {
+            super.setSession(session)
         }
     }
 }

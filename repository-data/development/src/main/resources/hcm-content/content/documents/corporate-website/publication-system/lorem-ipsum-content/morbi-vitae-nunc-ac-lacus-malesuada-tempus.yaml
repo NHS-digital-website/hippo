@@ -2,6 +2,13 @@
 /content/documents/corporate-website/publication-system/lorem-ipsum-content/morbi-vitae-nunc-ac-lacus-malesuada-tempus:
   /morbi-vitae-nunc-ac-lacus-malesuada-tempus[1]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - infectious-diseases
+    - workforce
+    - conditions
+    common:SearchableTags:
+    - Infectious diseases
+    - Workforce
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
@@ -37,6 +44,13 @@
     publicationsystem:Title: Morbi vitae nunc ac lacus malesuada tempus
   /morbi-vitae-nunc-ac-lacus-malesuada-tempus[2]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - infectious-diseases
+    - workforce
+    - conditions
+    common:SearchableTags:
+    - Infectious diseases
+    - Workforce
     common:searchable: true
     hippo:availability:
     - preview
@@ -74,6 +88,13 @@
     publicationsystem:Title: Morbi vitae nunc ac lacus malesuada tempus
   /morbi-vitae-nunc-ac-lacus-malesuada-tempus[3]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - infectious-diseases
+    - workforce
+    - conditions
+    common:SearchableTags:
+    - Infectious diseases
+    - Workforce
     common:searchable: true
     hippo:availability:
     - live

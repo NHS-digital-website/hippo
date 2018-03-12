@@ -3,6 +3,14 @@
   /dataset-fields-test:
     /dataset-fields-test[1]:
       common:FacetType: dataset
+      common:FullTaxonomy:
+      - major-accidents
+      - conditions
+      - circulatory-system-diseases
+      - accidents-and-injuries
+      common:SearchableTags:
+      - Circulatory system diseases
+      - Major accidents
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -28,6 +36,14 @@
       publicationsystem:Title: dataset fields titleTestPotatoes
     /dataset-fields-test[2]:
       common:FacetType: dataset
+      common:FullTaxonomy:
+      - major-accidents
+      - conditions
+      - circulatory-system-diseases
+      - accidents-and-injuries
+      common:SearchableTags:
+      - Circulatory system diseases
+      - Major accidents
       common:searchable: true
       hippo:availability:
       - preview
@@ -55,6 +71,14 @@
       publicationsystem:Title: dataset fields titleTestPotatoes
     /dataset-fields-test[3]:
       common:FacetType: dataset
+      common:FullTaxonomy:
+      - major-accidents
+      - conditions
+      - circulatory-system-diseases
+      - accidents-and-injuries
+      common:SearchableTags:
+      - Circulatory system diseases
+      - Major accidents
       common:searchable: true
       hippo:availability:
       - live

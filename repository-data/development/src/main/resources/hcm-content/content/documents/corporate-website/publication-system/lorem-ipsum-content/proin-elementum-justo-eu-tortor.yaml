@@ -2,6 +2,14 @@
 /content/documents/corporate-website/publication-system/lorem-ipsum-content/proin-elementum-justo-eu-tortor:
   /proin-elementum-justo-eu-tortor[1]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - falls
+    - workforce
+    - conditions
+    - accidents-and-injuries
+    common:SearchableTags:
+    - Falls
+    - Workforce
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
@@ -35,6 +43,14 @@
     publicationsystem:Title: Proin elementum justo eu tortor
   /proin-elementum-justo-eu-tortor[2]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - falls
+    - workforce
+    - conditions
+    - accidents-and-injuries
+    common:SearchableTags:
+    - Falls
+    - Workforce
     common:searchable: true
     hippo:availability:
     - preview
@@ -70,6 +86,14 @@
     publicationsystem:Title: Proin elementum justo eu tortor
   /proin-elementum-justo-eu-tortor[3]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - falls
+    - workforce
+    - conditions
+    - accidents-and-injuries
+    common:SearchableTags:
+    - Falls
+    - Workforce
     common:searchable: true
     hippo:availability:
     - live

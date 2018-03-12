@@ -90,9 +90,19 @@ public class CmsSteps extends AbstractSpringSteps {
         assertThat("Current page should be content page.", contentPage.openContentTab(), is(true));
     }
 
-    @When("^I create a new publication$")
+    @When("^I create a fully populated publication$")
     public void whenICreateANewPublication() throws Throwable {
-        final Publication publication = TestDataFactory.createValidPublication().build();
+        final Publication publication = TestDataFactory.createFullyPopulatedPublication().build();
+        testDataRepo.setPublication(publication);
+
+        assertThat("New publication created.", contentPage.newPublication(publication), is(true));
+    }
+
+    @When("^I create a publication with taxonomy$")
+    public void whenICreateANewPublicationWithTaxonomy() throws Throwable {
+        final Publication publication = TestDataFactory.createBareMinimumPublication()
+            .withTaxonomy(Taxonomy.createNew("Conditions", "Accidents and injuries", "Falls"))
+            .build();
         testDataRepo.setPublication(publication);
 
         assertThat("New publication created.", contentPage.newPublication(publication), is(true));

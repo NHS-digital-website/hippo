@@ -1,24 +1,24 @@
-package uk.nhs.digital.ps.modules.searchableFlagModule;
+package uk.nhs.digital.ps;
 
 import static java.util.Collections.emptyMap;
 
 import org.apache.sling.testing.mock.jcr.MockJcr;
 import org.yaml.snakeyaml.Yaml;
 
-import javax.jcr.Node;
-import javax.jcr.Repository;
-import javax.jcr.RepositoryException;
-import javax.jcr.Session;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import javax.jcr.Node;
+import javax.jcr.Repository;
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
 
 public class JcrProvider {
 
     public Session getJcrFromFixture(InputStream fixture) {
-        Repository repository = null;
-        Session session = null;
+        Repository repository;
+        Session session;
         try {
             repository = MockJcr.newRepository();
             session = repository.login();
@@ -51,12 +51,12 @@ public class JcrProvider {
         return session;
     }
 
-    public static class NodeYaml {
-        public String path;
-        public String primaryType;
-        public Map<String, Object> properties;
+    private static class NodeYaml {
+        private String path;
+        private String primaryType;
+        private Map<String, Object> properties;
 
-        public NodeYaml(String path, String primaryType, Map<String, Object> properties) {
+        private NodeYaml(String path, String primaryType, Map<String, Object> properties) {
             this.path = path;
             this.primaryType = primaryType;
             this.properties = properties;

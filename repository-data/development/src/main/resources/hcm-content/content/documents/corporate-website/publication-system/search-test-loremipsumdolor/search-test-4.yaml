@@ -2,6 +2,13 @@
 /content/documents/corporate-website/publication-system/search-test-loremipsumdolor/search-test-4:
   /search-test-4[1]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - conditions
+    - dental-health
+    - circulatory-system-diseases
+    common:SearchableTags:
+    - Circulatory system diseases
+    - Dental health
     common:searchable: true
     hippo:availability:
     - preview
@@ -32,6 +39,13 @@
     publicationsystem:Title: No mention of interesting terms in the title
   /search-test-4[2]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - conditions
+    - dental-health
+    - circulatory-system-diseases
+    common:SearchableTags:
+    - Circulatory system diseases
+    - Dental health
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
@@ -61,6 +75,13 @@
     publicationsystem:Title: No mention of interesting terms in the title
   /search-test-4[3]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - conditions
+    - dental-health
+    - circulatory-system-diseases
+    common:SearchableTags:
+    - Circulatory system diseases
+    - Dental health
     common:searchable: true
     hippo:availability:
     - live

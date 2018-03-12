@@ -119,6 +119,9 @@
         - social-care
         - conditions
         - accidents-and-injuries
+        common:SearchableTags:
+        - Falls
+        - Social care
         common:searchable: true
         hippo:availability: []
         hippostd:state: draft
@@ -157,6 +160,9 @@
         - social-care
         - conditions
         - accidents-and-injuries
+        common:SearchableTags:
+        - Falls
+        - Social care
         common:searchable: true
         hippo:availability:
         - preview
@@ -197,6 +203,9 @@
         - social-care
         - conditions
         - accidents-and-injuries
+        common:SearchableTags:
+        - Falls
+        - Social care
         common:searchable: true
         hippo:availability:
         - live
@@ -241,6 +250,9 @@
         - social-care
         - cancer
         - conditions
+        common:SearchableTags:
+        - Bowel cancer
+        - Social care
         common:searchable: true
         hippo:availability: []
         hippostd:state: draft
@@ -274,6 +286,9 @@
         - social-care
         - cancer
         - conditions
+        common:SearchableTags:
+        - Bowel cancer
+        - Social care
         common:searchable: true
         hippo:availability:
         - preview
@@ -309,6 +324,9 @@
         - social-care
         - cancer
         - conditions
+        common:SearchableTags:
+        - Bowel cancer
+        - Social care
         common:searchable: true
         hippo:availability:
         - live

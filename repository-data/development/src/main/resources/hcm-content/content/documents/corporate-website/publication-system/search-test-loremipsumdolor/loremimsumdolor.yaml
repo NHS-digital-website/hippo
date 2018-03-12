@@ -2,6 +2,16 @@
 /content/documents/corporate-website/publication-system/search-test-loremipsumdolor/loremipsumdolor:
   /loremipsumdolor[1]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - falls
+    - infectious-diseases
+    - workforce
+    - conditions
+    - accidents-and-injuries
+    common:SearchableTags:
+    - Falls
+    - Infectious diseases
+    - Workforce
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
@@ -31,6 +41,16 @@
     publicationsystem:Title: loremipsumdolor
   /loremipsumdolor[2]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - falls
+    - infectious-diseases
+    - workforce
+    - conditions
+    - accidents-and-injuries
+    common:SearchableTags:
+    - Falls
+    - Infectious diseases
+    - Workforce
     common:searchable: true
     hippo:availability:
     - preview
@@ -62,6 +82,16 @@
     publicationsystem:Title: loremipsumdolor
   /loremipsumdolor[3]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - falls
+    - infectious-diseases
+    - workforce
+    - conditions
+    - accidents-and-injuries
+    common:SearchableTags:
+    - Falls
+    - Infectious diseases
+    - Workforce
     common:searchable: true
     hippo:availability:
     - live
