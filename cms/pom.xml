@@ -169,7 +169,6 @@
             <artifactId>hippo-plugin-content-blocks</artifactId>
             <scope>compile</scope>
         </dependency>
-
     </dependencies>
     <build>
         <finalName>cms</finalName>

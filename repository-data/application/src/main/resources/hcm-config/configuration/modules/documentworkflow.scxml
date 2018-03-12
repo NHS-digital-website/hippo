@@ -15,10 +15,12 @@
   limitations under the License.
   -->
 <scxml version="1.0"
-       xmlns="http://www.w3.org/2005/07/scxml"
-       xmlns:hippo="http://www.onehippo.org/cms7/repository/scxml"
-       xmlns:cs="http://commons.apache.org/scxml"
-       xmlns:nhsdigital="http://digital.nhs.uk/repository/scxml">
+    xmlns="http://www.w3.org/2005/07/scxml"
+    xmlns:hippo="http://www.onehippo.org/cms7/repository/scxml"
+    xmlns:cs="http://commons.apache.org/scxml"
+    xmlns:nhsdigital="http://digital.nhs.uk/repository/scxml"
+    xmlns:externalstorage="http://digital.nhs.uk/externalstorage/scxml"
+>
 
     <script>
         def getScxmlId() { workflowContext.scxmlId }
@@ -356,6 +358,9 @@
 
                 <!-- target-less transition to publish the document when no event payload parameter targetDate is provided -->
                 <transition event="publish" cond="!_event.data?.targetDate">
+                    <!-- Trigger publication of external files -->
+                    <externalstorage:externalFilePublish/>
+
                     <!-- copy the content of the unpublished variant to the published variant -->
                     <hippo:copyVariant sourceState="unpublished" targetState="published"/>
                     <!-- mark the published variant as published and set its availability to (only) 'live' -->
@@ -430,6 +435,9 @@
                     <!-- trigger the creation of searchable flag being false on all published datasets on the published version after it's been copied
                          to trigger the published datasets to be updated if applicable -->
                     <nhsdigital:populateSearchableFlag variant="published" depublishing="true"/>
+
+		    <!-- Trigger publication of external files -->
+                    <externalstorage:externalFileUnpublish/>
 
                     <!-- ensure the unpublished variant to be versionable set its availability to (only) 'live' -->
                     <hippo:configVariant variant="unpublished" versionable="true" availabilities="preview"/>

@@ -5,7 +5,6 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Fragment;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
-import org.hippoecm.frontend.editor.compare.StreamComparer;
 import org.hippoecm.frontend.model.IModelReference;
 import org.hippoecm.frontend.plugin.IPluginContext;
 import org.hippoecm.frontend.plugin.config.IPluginConfig;
@@ -14,8 +13,8 @@ import org.hippoecm.frontend.service.IEditor;
 import org.hippoecm.frontend.service.render.RenderPlugin;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.nhs.digital.externalstorage.ExternalStorageConstants;
 
-import java.io.InputStream;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 
@@ -43,14 +42,11 @@ public class ImageDisplayPlugin extends RenderPlugin<Node> {
                 Node currentNode = getModel().getObject();
                 if (baseNode != null && currentNode != null) {
                     try {
-                        InputStream baseStream = baseNode.getProperty("jcr:data").getStream();
-                        InputStream currentStream = currentNode.getProperty("jcr:data").getStream();
-                        StreamComparer comparer = new StreamComparer();
-                        if (!comparer.areEqual(baseStream, currentStream)) {
-                            doCompare = true;
-                        }
+                        String baseNodeReference = baseNode.getProperty(ExternalStorageConstants.PROPERTY_EXTERNAL_STORAGE_REFERENCE).getString();
+                        String currentNodeReference = currentNode.getProperty(ExternalStorageConstants.PROPERTY_EXTERNAL_STORAGE_REFERENCE).getString();
+                        doCompare = baseNodeReference != currentNodeReference;
                     } catch (RepositoryException ex) {
-                        log.error("Could not compare streams", ex);
+                        log.error("Could not compare references", ex);
                     }
                 }
             }
