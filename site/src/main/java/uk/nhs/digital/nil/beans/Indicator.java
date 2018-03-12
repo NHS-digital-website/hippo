@@ -13,6 +13,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
+
 @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:indicator")
 @Node(jcrType = "nationalindicatorlibrary:indicator")
 public class Indicator extends BaseDocument {

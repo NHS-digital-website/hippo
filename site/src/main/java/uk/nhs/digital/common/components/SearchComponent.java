@@ -172,7 +172,9 @@ public class SearchComponent extends CommonComponent {
                 indicatorLibraryConstraint(query),
                 indicatorLibraryConstraint(queryIncWildcards),
                 constraint(".").contains(query),
-                constraint(".").contains(queryIncWildcards)
+                constraint(".").contains(queryIncWildcards),
+                alphabetConstraint(query),
+                alphabetConstraint(queryIncWildcards)
             );
         }
 
@@ -261,5 +263,25 @@ public class SearchComponent extends CommonComponent {
         return or(
             constraint("common:SearchableTags").contains(query)
         );
+    }
+
+    /**
+     * Constraint builder for the A-Z buttons on the NI Hub
+     */
+    private Constraint alphabetConstraint(String query) {
+        String[] queryWords = query.split(" ");
+        Constraint alpha = or(
+            constraint("common:FullTaxonomy").contains(queryWords[0]),
+            constraint("common:SearchableTags").contains(queryWords[0])
+        );
+        for (int i = 1; i < queryWords.length ; i++) {
+            alpha = or(
+                alpha,
+                constraint("common:FullTaxonomy").contains(queryWords[i]),
+                constraint("common:SearchableTags").contains(queryWords[i])
+            );
+        }
+        
+        return alpha;
     }
 }

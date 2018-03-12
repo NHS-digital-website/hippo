@@ -11,6 +11,7 @@ import org.onehippo.taxonomy.api.TaxonomyManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -57,11 +58,11 @@ public class HippoBeanHelper {
             for (String key : keys) {
                 List<Category> ancestors = (List<Category>) taxonomyTree.getCategoryByKey(key).getAncestors();
 
-                List<String> list = ancestors.stream()
+                List<String> ancestorList = ancestors.stream()
                     .map(category -> category.getInfo(Locale.UK).getName())
                     .collect(Collectors.toList());
-                list.add(taxonomyTree.getCategoryByKey(key).getInfo(Locale.UK).getName());
-                taxonomyList.add(list);
+                ancestorList.add(taxonomyTree.getCategoryByKey(key).getInfo(Locale.UK).getName());
+                taxonomyList.add(ancestorList);
             }
         }
 
@@ -98,4 +99,39 @@ public class HippoBeanHelper {
         return keyNamePairs;
     }    
     
+
+    /**
+     *  Returns the full list of all taxonomy terms
+     */
+    public static ArrayList<Category> getFullTaxonomyList() {
+        TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent(TaxonomyManager.class.getName());
+        Taxonomy taxonomyTree = taxonomyManager.getTaxonomies().getTaxonomy(getTaxonomyName());
+
+        List<Category> categories = (List<Category>) taxonomyTree.getCategories();
+        ArrayList<Category> expandingList = new ArrayList<Category>();
+        
+        for (int i = 0; i < categories.size(); i ++) {
+            expandingList.add(categories.get(i));
+        }
+        
+        // Use a counter of 5 to make sure all children and ancestors are caught
+        for (int counter = 0; counter < 5 ; counter++) {
+            int size = expandingList.size();
+            for (int i = 0; i < size ; i++) {
+                for (int j = 0; j < expandingList.get(i).getChildren().size() ; j++) {
+                    expandingList.add(expandingList.get(i).getChildren().get(j));
+                }
+                for (int j = 0; j < expandingList.get(i).getAncestors().size() ; j++) {                
+                    expandingList.add(expandingList.get(i).getAncestors().get(j));
+                }
+
+                // HashSet used to weed out duplicates
+                HashSet<Category> distinct = new HashSet<Category>(expandingList);
+                expandingList.clear();
+                expandingList.addAll(distinct);
+            }
+        }
+
+        return expandingList;
+    }
 }
