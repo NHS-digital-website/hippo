@@ -24,10 +24,14 @@ import org.apache.jackrabbit.JcrConstants;
 import org.apache.jackrabbit.commons.ItemNameMatcher;
 import org.apache.jackrabbit.commons.iterator.NodeIteratorAdapter;
 import org.apache.jackrabbit.commons.iterator.PropertyIteratorAdapter;
+import org.springframework.expression.spel.support.ReflectionHelper;
+import org.springframework.util.ReflectionUtils;
 
 import java.io.InputStream;
+import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.util.Calendar;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.jcr.Binary;
 import javax.jcr.Item;
@@ -64,6 +68,16 @@ class MockNode extends AbstractItem implements Node {
     public Node addNode(final String relPath, final String primaryNodeTypeName) throws RepositoryException {
         String path = makeAbsolutePath(relPath);
         ItemData itemData = ItemData.newNode(path, new MockNodeType(primaryNodeTypeName));
+
+        // Hack to set the names of the nodes to be correct for hippo docs
+        // Turns `docs/doc[2]` node name into `doc`
+        Matcher matcher = Pattern.compile("(.*)\\[\\d+]$").matcher(itemData.getName());
+        if (matcher.find()) {
+            final Field field = ReflectionUtils.findField(ItemData.class, "name");
+            field.setAccessible(true);
+            ReflectionUtils.setField(field, itemData, matcher.group(1));
+        }
+
         Node node = new MockNode(itemData, getSession());
         getMockedSession().addItem(itemData);
         node.setProperty(JcrConstants.JCR_PRIMARYTYPE, primaryNodeTypeName);

@@ -2,6 +2,14 @@
 /content/documents/corporate-website/publication-system/lorem-ipsum-content/nunc-tempus-ante-nec:
   /nunc-tempus-ante-nec[1]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - falls
+    - conditions
+    - circulatory-system-diseases
+    - accidents-and-injuries
+    common:SearchableTags:
+    - Falls
+    - Circulatory system diseases
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
@@ -39,6 +47,14 @@
     publicationsystem:Title: Nunc tempus ante nec
   /nunc-tempus-ante-nec[2]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - falls
+    - conditions
+    - circulatory-system-diseases
+    - accidents-and-injuries
+    common:SearchableTags:
+    - Falls
+    - Circulatory system diseases
     common:searchable: true
     hippo:availability:
     - preview
@@ -78,6 +94,14 @@
     publicationsystem:Title: Nunc tempus ante nec
   /nunc-tempus-ante-nec[3]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - falls
+    - conditions
+    - circulatory-system-diseases
+    - accidents-and-injuries
+    common:SearchableTags:
+    - Falls
+    - Circulatory system diseases
     common:searchable: true
     hippo:availability:
     - live

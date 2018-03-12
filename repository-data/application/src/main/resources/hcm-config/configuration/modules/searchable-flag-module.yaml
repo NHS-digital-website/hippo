@@ -1,6 +1,0 @@
----
-definitions:
-  config:
-    /hippo:configuration/hippo:modules/SearchableFlagModule:
-      hipposys:className: uk.nhs.digital.ps.modules.SearchableFlagModule
-      jcr:primaryType: hipposys:module

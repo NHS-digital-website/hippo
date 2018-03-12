@@ -11,6 +11,12 @@
       - team
       - adult-social-outcomes-framework--ascof-
       - summary-hospital-level-mortality-indicator--shmi-
+      common:SearchableTags:
+      - Compendium
+      - Adult Social Outcomes Framework (ASCOF)
+      - NHS Outcomes Framework
+      - Summary Hospital-level Mortality Indicator (SHMI)
+      - Clinical Commissioning Groups Outcomes Framework
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -49,6 +55,12 @@
       - team
       - adult-social-outcomes-framework--ascof-
       - summary-hospital-level-mortality-indicator--shmi-
+      common:SearchableTags:
+      - Compendium
+      - Adult Social Outcomes Framework (ASCOF)
+      - NHS Outcomes Framework
+      - Summary Hospital-level Mortality Indicator (SHMI)
+      - Clinical Commissioning Groups Outcomes Framework
       common:searchable: true
       hippo:availability:
       - preview
@@ -88,6 +100,12 @@
       - team
       - adult-social-outcomes-framework--ascof-
       - summary-hospital-level-mortality-indicator--shmi-
+      common:SearchableTags:
+      - Compendium
+      - Adult Social Outcomes Framework (ASCOF)
+      - NHS Outcomes Framework
+      - Summary Hospital-level Mortality Indicator (SHMI)
+      - Clinical Commissioning Groups Outcomes Framework
       common:searchable: true
       hippo:availability:
       - live

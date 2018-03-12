@@ -2,6 +2,11 @@
 /content/documents/corporate-website/publication-system/lorem-ipsum-content/lorem-ipsum:
   /lorem-ipsum[1]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - infectious-diseases
+    - conditions
+    common:SearchableTags:
+    - Infectious diseases
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
@@ -34,6 +39,11 @@
     publicationsystem:Title: Lorem ipsum dolor sit amet.
   /lorem-ipsum[2]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - infectious-diseases
+    - conditions
+    common:SearchableTags:
+    - Infectious diseases
     common:searchable: true
     hippo:availability:
     - preview
@@ -68,6 +78,11 @@
     publicationsystem:Title: Lorem ipsum dolor sit amet.
   /lorem-ipsum[3]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - infectious-diseases
+    - conditions
+    common:SearchableTags:
+    - Infectious diseases
     common:searchable: true
     hippo:availability:
     - live

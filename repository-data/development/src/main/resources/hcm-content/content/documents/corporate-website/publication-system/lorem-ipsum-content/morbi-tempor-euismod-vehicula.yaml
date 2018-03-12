@@ -2,6 +2,10 @@
 /content/documents/corporate-website/publication-system/lorem-ipsum-content/morbi-tempor-euismod-vehicula:
   /morbi-tempor-euismod-vehicula[1]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - workforce
+    common:SearchableTags:
+    - Workforce
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
@@ -36,6 +40,10 @@
     publicationsystem:Title: Morbi tempor euismod vehicula
   /morbi-tempor-euismod-vehicula[2]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - workforce
+    common:SearchableTags:
+    - Workforce
     common:searchable: true
     hippo:availability:
     - preview
@@ -72,6 +80,10 @@
     publicationsystem:Title: Morbi tempor euismod vehicula
   /morbi-tempor-euismod-vehicula[3]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - workforce
+    common:SearchableTags:
+    - Workforce
     common:searchable: true
     hippo:availability:
     - live

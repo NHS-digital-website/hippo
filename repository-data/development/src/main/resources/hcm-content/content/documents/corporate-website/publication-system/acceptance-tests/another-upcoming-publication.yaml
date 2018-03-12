@@ -3,6 +3,16 @@
   /published-upcoming-publication:
     /published-upcoming-publication[1]:
       common:FacetType: publication
+      common:FullTaxonomy:
+      - falls
+      - infectious-diseases
+      - workforce
+      - conditions
+      - accidents-and-injuries
+      common:SearchableTags:
+      - Falls
+      - Infectious diseases
+      - Workforce
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -34,6 +44,16 @@
       publicationsystem:Title: Published Upcoming Publication
     /published-upcoming-publication[2]:
       common:FacetType: publication
+      common:FullTaxonomy:
+      - falls
+      - infectious-diseases
+      - workforce
+      - conditions
+      - accidents-and-injuries
+      common:SearchableTags:
+      - Falls
+      - Infectious diseases
+      - Workforce
       common:searchable: true
       hippo:availability:
       - preview
@@ -67,6 +87,16 @@
       publicationsystem:Title: Published Upcoming Publication
     /published-upcoming-publication[3]:
       common:FacetType: publication
+      common:FullTaxonomy:
+      - falls
+      - infectious-diseases
+      - workforce
+      - conditions
+      - accidents-and-injuries
+      common:SearchableTags:
+      - Falls
+      - Infectious diseases
+      - Workforce
       common:searchable: false
       hippo:availability:
       - live

@@ -17,7 +17,8 @@
 <scxml version="1.0"
        xmlns="http://www.w3.org/2005/07/scxml"
        xmlns:hippo="http://www.onehippo.org/cms7/repository/scxml"
-       xmlns:cs="http://commons.apache.org/scxml">
+       xmlns:cs="http://commons.apache.org/scxml"
+       xmlns:nhsdigital="http://digital.nhs.uk/repository/scxml">
 
     <script>
         def getScxmlId() { workflowContext.scxmlId }
@@ -187,10 +188,19 @@
                             <hippo:configVariant variant="published" availabilities=""/>
                         </if>
                     </if>
+
+                    <!-- trigger the creation of extra searchable taxonomy tags -->
+                    <nhsdigital:populateSearchableTaxonomy variant="draft"/>
+
                     <!-- copy the new or modified draft variant to the unpublished variant, creating it if needed -->
                     <hippo:copyVariant sourceState="draft" targetState="unpublished"/>
                     <!-- configure the new or updated unpublished to be versionable, modified and available as 'preview' -->
                     <hippo:configVariant variant="unpublished" versionable="true" applyModified="true" availabilities="preview"/>
+
+                    <!-- trigger the creation of searchable flag on the unpublished version after it's been copied
+                         to trigger the unpublished datasets to be updated -->
+                    <nhsdigital:populateSearchableFlag variant="unpublished"/>
+
                 </if>
                 <!-- return the possibly updated unpublished variant -->
                 <hippo:result value="unpublished"/>
@@ -352,6 +362,11 @@
                     <hippo:configVariant variant="published" applyPublished="true" availabilities="live"/>
                     <!-- create a JCR version of the published document via the unpublished variant -->
                     <hippo:version variant="unpublished"/>
+
+                    <!-- trigger the creation of searchable flag on the published version after it's been copied
+                         to trigger the published datasets to be updated if applicable -->
+                    <nhsdigital:populateSearchableFlag variant="published"/>
+
                 </transition>
 
                 <!-- target-less transition to schedule the publication of the document at the required event payload parameter targetDate -->
@@ -411,6 +426,11 @@
                         <!-- if no unpublished variant exists yet, copy it from the published variant -->
                         <hippo:copyVariant sourceState="published" targetState="unpublished"/>
                     </if>
+
+                    <!-- trigger the creation of searchable flag being false on all published datasets on the published version after it's been copied
+                         to trigger the published datasets to be updated if applicable -->
+                    <nhsdigital:populateSearchableFlag variant="published" depublishing="true"/>
+
                     <!-- ensure the unpublished variant to be versionable set its availability to (only) 'live' -->
                     <hippo:configVariant variant="unpublished" versionable="true" availabilities="preview"/>
                     <!-- remove all availabilities from the published variant -->

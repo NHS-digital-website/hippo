@@ -25,6 +25,10 @@
       publicationsystem:linkText: Related resource link
       publicationsystem:linkUrl: http://google.com
     common:FacetType: publication
+    common:FullTaxonomy:
+    - people,-patients-and-geography
+    common:SearchableTags:
+    - People, patients and geography
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
@@ -102,6 +106,10 @@
       publicationsystem:linkText: Related resource link
       publicationsystem:linkUrl: http://google.com
     common:FacetType: publication
+    common:FullTaxonomy:
+    - people,-patients-and-geography
+    common:SearchableTags:
+    - People, patients and geography
     common:searchable: true
     hippo:availability:
     - preview
@@ -181,6 +189,10 @@
       publicationsystem:linkText: Related resource link
       publicationsystem:linkUrl: http://google.com
     common:FacetType: publication
+    common:FullTaxonomy:
+    - people,-patients-and-geography
+    common:SearchableTags:
+    - People, patients and geography
     common:searchable: true
     hippo:availability:
     - live

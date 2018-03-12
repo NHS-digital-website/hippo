@@ -21,6 +21,10 @@
       publicationsystem:linkText: Google Resource Link
       publicationsystem:linkUrl: http://google.com
     common:FacetType: dataset
+    common:FullTaxonomy:
+    - conditions
+    common:SearchableTags:
+    - Conditions
     common:searchable: true
     hippo:availability:
     - preview
@@ -79,6 +83,10 @@
       publicationsystem:linkText: Google Resource Link
       publicationsystem:linkUrl: http://google.com
     common:FacetType: dataset
+    common:FullTaxonomy:
+    - conditions
+    common:SearchableTags:
+    - Conditions
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
@@ -136,6 +144,10 @@
       publicationsystem:linkText: Google Resource Link
       publicationsystem:linkUrl: http://google.com
     common:FacetType: dataset
+    common:FullTaxonomy:
+    - conditions
+    common:SearchableTags:
+    - Conditions
     common:searchable: true
     hippo:availability:
     - live

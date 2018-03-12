@@ -2,6 +2,13 @@
 /content/documents/corporate-website/publication-system/lorem-ipsum-content/proin-nec-justo:
   /proin-nec-justo[1]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - workforce
+    - conditions
+    - circulatory-system-diseases
+    common:SearchableTags:
+    - Circulatory system diseases
+    - Workforce
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
@@ -39,6 +46,16 @@
     publicationsystem:Title: Proin nec justo
   /proin-nec-justo[2]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - falls
+    - infectious-diseases
+    - workforce
+    - conditions
+    - accidents-and-injuries
+    common:SearchableTags:
+    - Falls
+    - Infectious diseases
+    - Workforce
     common:searchable: true
     hippo:availability:
     - preview
@@ -79,6 +96,16 @@
     publicationsystem:Title: Proin nec justo
   /proin-nec-justo[3]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - falls
+    - infectious-diseases
+    - workforce
+    - conditions
+    - accidents-and-injuries
+    common:SearchableTags:
+    - Falls
+    - Infectious diseases
+    - Workforce
     common:searchable: true
     hippo:availability:
     - live

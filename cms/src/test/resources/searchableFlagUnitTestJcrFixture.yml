@@ -64,6 +64,50 @@
     common:searchable: true
     hippostd:state: unpublished
 
+# folder
+- path: /content/documents/corporate-website/publication-system/accessible-publication-with-datasets
+  primaryType: hippo:folder
+# Publication
+- path: /content/documents/corporate-website/publication-system/accessible-publication-with-datasets/content
+  primaryType: hippo:handle
+- path: /content/documents/corporate-website/publication-system/accessible-publication-with-datasets/content/content
+  primaryType: publicationsystem:publication
+  properties:
+    common:searchable: true
+    hippostd:state: published
+    publicationsystem:PubliclyAccessible: true
+- path: /content/documents/corporate-website/publication-system/accessible-publication-with-datasets/content/content[2]
+  primaryType: publicationsystem:publication
+  properties:
+    common:searchable: true
+    hippostd:state: draft
+    publicationsystem:PubliclyAccessible: true
+- path: /content/documents/corporate-website/publication-system/accessible-publication-with-datasets/content/content[3]
+  primaryType: publicationsystem:publication
+  properties:
+    common:searchable: true
+    hippostd:state: unpublished
+    publicationsystem:PubliclyAccessible: true
+
+# Dataset
+- path: /content/documents/corporate-website/publication-system/accessible-publication-with-datasets/dataset
+  primaryType: hippo:handle
+- path: /content/documents/corporate-website/publication-system/accessible-publication-with-datasets/dataset/dataset
+  primaryType: publicationsystem:dataset
+  properties:
+    common:searchable: true
+    hippostd:state: published
+- path: /content/documents/corporate-website/publication-system/accessible-publication-with-datasets/dataset/dataset[2]
+  primaryType: publicationsystem:dataset
+  properties:
+    common:searchable: true
+    hippostd:state: draft
+- path: /content/documents/corporate-website/publication-system/accessible-publication-with-datasets/dataset/dataset[3]
+  primaryType: publicationsystem:dataset
+  properties:
+    common:searchable: true
+    hippostd:state: unpublished
+
 # random folder
 - path: /content/documents/corporate-website/publication-system/random-folder
   primaryType: hippo:folder

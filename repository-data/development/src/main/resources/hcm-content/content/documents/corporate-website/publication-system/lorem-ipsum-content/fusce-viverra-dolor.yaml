@@ -2,6 +2,12 @@
 /content/documents/corporate-website/publication-system/lorem-ipsum-content/fusce-viverra-dolor:
   /fusce-viverra-dolor[1]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - falls
+    - conditions
+    - accidents-and-injuries
+    common:SearchableTags:
+    - Falls
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
@@ -36,6 +42,12 @@
     publicationsystem:Title: Fusce viverra dolor
   /fusce-viverra-dolor[2]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - falls
+    - conditions
+    - accidents-and-injuries
+    common:SearchableTags:
+    - Falls
     common:searchable: true
     hippo:availability:
     - preview
@@ -72,6 +84,12 @@
     publicationsystem:Title: Fusce viverra dolor
   /fusce-viverra-dolor[3]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - falls
+    - conditions
+    - accidents-and-injuries
+    common:SearchableTags:
+    - Falls
     common:searchable: true
     hippo:availability:
     - live

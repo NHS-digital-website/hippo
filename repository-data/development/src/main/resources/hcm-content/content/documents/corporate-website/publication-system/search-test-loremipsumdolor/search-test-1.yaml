@@ -2,6 +2,13 @@
 /content/documents/corporate-website/publication-system/search-test-loremipsumdolor/search-test-1:
   /search-test-1[1]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - conditions
+    - dental-health
+    - circulatory-system-diseases
+    common:SearchableTags:
+    - Circulatory system diseases
+    - Dental health
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
@@ -31,6 +38,13 @@
     publicationsystem:Title: Apple pear orange bear
   /search-test-1[2]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - conditions
+    - dental-health
+    - circulatory-system-diseases
+    common:SearchableTags:
+    - Circulatory system diseases
+    - Dental health
     common:searchable: true
     hippo:availability:
     - preview
@@ -62,6 +76,13 @@
     publicationsystem:Title: Apple pear orange bear
   /search-test-1[3]:
     common:FacetType: publication
+    common:FullTaxonomy:
+    - conditions
+    - dental-health
+    - circulatory-system-diseases
+    common:SearchableTags:
+    - Circulatory system diseases
+    - Dental health
     common:searchable: true
     hippo:availability:
     - live

@@ -26,7 +26,7 @@ public class TestDataFactory {
     /**
      * @return New instance, fully populated with random or default values.
      */
-    public static PublicationBuilder createValidPublication() {
+    public static PublicationBuilder createFullyPopulatedPublication() {
         return createBareMinimumPublication()
             .withGeographicCoverage(getRandomEnumConstant(GeographicCoverage.class))
             .withInformationType(getRandomEnumConstant(InformationType.class))
