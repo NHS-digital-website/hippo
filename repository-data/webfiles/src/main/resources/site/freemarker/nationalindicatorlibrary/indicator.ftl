@@ -110,8 +110,9 @@
 
         <section class="push-double--bottom">
             <h2><strong><@fmt.message key="headers.categories"/></strong></h2>
-            <#list indicator.taxonomyList as taxonomy>
-                <p class="filter-list__item__link" data-uipath="ps.indicator.taxonomy-${taxonomy}">${taxonomy}</p>
+
+            <#list indicator.taxonomyList?keys as key>
+                <p class="filter-list__item__link" data-uipath="ps.indicator.taxonomy-${key}"><a title="Search for ${indicator.taxonomyList[key]}" href="../search/category/${key}">${indicator.taxonomyList[key]}</a></p>
             </#list>   
         </section>     
 

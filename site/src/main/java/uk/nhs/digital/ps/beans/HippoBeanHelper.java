@@ -10,8 +10,10 @@ import org.onehippo.taxonomy.api.Taxonomy;
 import org.onehippo.taxonomy.api.TaxonomyManager;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.stream.Collectors;
 import javax.jcr.RepositoryException;
 
@@ -65,4 +67,35 @@ public class HippoBeanHelper {
 
         return taxonomyList;
     }
+
+    /**
+     * Return distinct collection of taxonomy in the format of [Key, Name]
+     */
+    public static Map<String, String> getTaxonomyKeysAndNames(String[] keys) {
+        Map<String, String> keyNamePairs = new HashMap<String,String>();
+
+        // For each taxonomy tag key, get the name and also include hierarchy context (ancestors)
+        if (keys != null) {
+            // Lookup Taxonomy Tree
+            TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent(TaxonomyManager.class.getName());
+            Taxonomy taxonomyTree = taxonomyManager.getTaxonomies().getTaxonomy(getTaxonomyName());
+
+            for (String key : keys) {
+                List<Category> ancestors = (List<Category>) taxonomyTree.getCategoryByKey(key).getAncestors();
+
+                // collect the ancestors
+                Map<String, String> map = ancestors.stream().distinct()
+                    .collect(Collectors.toMap(category -> category.getKey(), category -> category.getInfo(Locale.UK).getName()));
+                
+                // add the current node
+                map.putIfAbsent(key,taxonomyTree.getCategoryByKey(key).getInfo(Locale.UK).getName());
+                   
+                // combine with master collection if haven't been collected already
+                map.forEach(keyNamePairs::putIfAbsent);
+            }
+        }
+
+        return keyNamePairs;
+    }    
+    
 }

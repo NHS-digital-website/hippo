@@ -11,7 +11,7 @@ import uk.nhs.digital.ps.beans.HippoBeanHelper;
 
 import java.util.Calendar;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Map;
 
 @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:indicator")
 @Node(jcrType = "nationalindicatorlibrary:indicator")
@@ -61,9 +61,8 @@ public class Indicator extends BaseDocument {
         return getProperty(PropertyKeys.TAXONOMY);
     }
 
-    public List<String> getTaxonomyList() {
-        List<List<String>> allTaxonomies = HippoBeanHelper.getTaxonomyList(getKeys());
-        return allTaxonomies.stream().flatMap(x -> x.stream()).distinct().collect(Collectors.toList());
+    public Map<String,String> getTaxonomyList() {
+        return HippoBeanHelper.getTaxonomyKeysAndNames(getKeys());
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.ASSURANCE_DATE)
