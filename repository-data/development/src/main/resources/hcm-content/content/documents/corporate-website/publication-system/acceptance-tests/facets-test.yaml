@@ -20,7 +20,8 @@
         publicationsystem:AdministrativeSources: ''
         publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
         publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-        publicationsystem:GeographicCoverage: International
+        publicationsystem:GeographicCoverage:
+        - International
         publicationsystem:Granularity:
         - Country
         - County
@@ -52,7 +53,8 @@
         publicationsystem:AdministrativeSources: ''
         publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
         publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-        publicationsystem:GeographicCoverage: International
+        publicationsystem:GeographicCoverage:
+        - International
         publicationsystem:Granularity:
         - Country
         - County
@@ -84,7 +86,8 @@
         publicationsystem:AdministrativeSources: ''
         publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
         publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-        publicationsystem:GeographicCoverage: International
+        publicationsystem:GeographicCoverage:
+        - International
         publicationsystem:Granularity:
         - Country
         - County
@@ -141,7 +144,8 @@
         publicationsystem:AdministrativeSources: ''
         publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
         publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-        publicationsystem:GeographicCoverage: England
+        publicationsystem:GeographicCoverage:
+        - England
         publicationsystem:Granularity:
         - Ambulance Trusts
         - Cancer networks
@@ -184,7 +188,8 @@
         publicationsystem:AdministrativeSources: ''
         publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
         publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-        publicationsystem:GeographicCoverage: England
+        publicationsystem:GeographicCoverage:
+        - England
         publicationsystem:Granularity:
         - Ambulance Trusts
         - Cancer networks
@@ -227,7 +232,8 @@
         publicationsystem:AdministrativeSources: ''
         publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
         publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-        publicationsystem:GeographicCoverage: England
+        publicationsystem:GeographicCoverage:
+        - England
         publicationsystem:Granularity:
         - Ambulance Trusts
         - Cancer networks
@@ -271,7 +277,8 @@
         jcr:primaryType: publicationsystem:dataset
         publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
         publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-        publicationsystem:GeographicCoverage: Scotland
+        publicationsystem:GeographicCoverage:
+        - Scotland
         publicationsystem:Granularity:
         - Cancer networks
         - Care Trusts
@@ -309,7 +316,8 @@
         jcr:primaryType: publicationsystem:dataset
         publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
         publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-        publicationsystem:GeographicCoverage: Scotland
+        publicationsystem:GeographicCoverage:
+        - Scotland
         publicationsystem:Granularity:
         - Cancer networks
         - Care Trusts
@@ -347,7 +355,8 @@
         jcr:primaryType: publicationsystem:dataset
         publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
         publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-        publicationsystem:GeographicCoverage: Scotland
+        publicationsystem:GeographicCoverage:
+        - Scotland
         publicationsystem:Granularity:
         - Cancer networks
         - Care Trusts

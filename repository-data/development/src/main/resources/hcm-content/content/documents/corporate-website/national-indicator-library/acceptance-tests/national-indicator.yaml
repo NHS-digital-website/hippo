@@ -68,7 +68,8 @@
     nationalindicatorlibrary:publishedBy: NHS Digital
     nationalindicatorlibrary:reportingLevel: CCG and National
     nationalindicatorlibrary:title: National Indicator
-    publicationsystem:GeographicCoverage: England
+    publicationsystem:GeographicCoverage:
+    - England
   /national-indicator[2]:
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
@@ -139,7 +140,8 @@
     nationalindicatorlibrary:publishedBy: NHS Digital
     nationalindicatorlibrary:reportingLevel: CCG and National
     nationalindicatorlibrary:title: National Indicator
-    publicationsystem:GeographicCoverage: England
+    publicationsystem:GeographicCoverage:
+    - England
   /national-indicator[3]:
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
@@ -210,7 +212,8 @@
     nationalindicatorlibrary:publishedBy: NHS Digital
     nationalindicatorlibrary:reportingLevel: CCG and National
     nationalindicatorlibrary:title: National Indicator
-    publicationsystem:GeographicCoverage: England
+    publicationsystem:GeographicCoverage:
+    - England
   hippo:name: national indicator
   jcr:mixinTypes:
   - hippo:named

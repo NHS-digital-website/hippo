@@ -24,6 +24,10 @@
             <artifactId>content-exim-core</artifactId>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.jackrabbit</groupId>
+            <artifactId>jackrabbit-jcr-commons</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

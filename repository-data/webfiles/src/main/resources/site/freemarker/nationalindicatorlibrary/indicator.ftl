@@ -31,7 +31,7 @@
                         <dl class="media__body">
                             <dt id="geographic-coverage"><@fmt.message key="headers.geographicCoverage"/></dt>
                             <dd data-uipath="ps.indicator.geographic-coverage">
-                                ${indicator.geographicCoverage}
+                                <#list indicator.geographicCoverage as geographicCoverageItem><#if geographicCoverageItem?index != 0>, </#if>${geographicCoverageItem}</#list>
                             </dd>
                         </dl>
                     </div>
@@ -65,7 +65,7 @@
             </div>
         </div>
     </section>
-    
+
     <section class="document-content jumpto-offset-left">
 
         <section id="purpose" class="push-double--bottom">
@@ -86,8 +86,8 @@
                     <h3><strong><@fmt.message key="headers.dataSource"/></strong></h3>
                     <#outputformat "undefined">${indicator.details.methodology.dataSource.content}</#outputformat>
                 </#if>
-                
-                <#if indicator.details.methodology.numerator.content?has_content> 
+
+                <#if indicator.details.methodology.numerator.content?has_content>
                     <h3><strong><@fmt.message key="headers.numerator"/></strong></h3>
                     <#outputformat "undefined">${indicator.details.methodology.numerator.content}</#outputformat>
                 </#if>
@@ -95,12 +95,12 @@
                 <#if indicator.details.methodology.denominator.content?has_content>
                     <h3><strong><@fmt.message key="headers.denominator"/></strong></h3>
                     <#outputformat "undefined">${indicator.details.methodology.denominator.content}</#outputformat>
-                </#if>            
+                </#if>
 
                 <#if indicator.details.methodology.calculation.content?has_content>
                     <h3><strong><@fmt.message key="headers.calculation"/></strong></h3>
                     <#outputformat "undefined">${indicator.details.methodology.calculation.content}</#outputformat>
-                </#if>              
+                </#if>
             </div>
         </details>
 
@@ -123,8 +123,8 @@
 
             <#list indicator.taxonomyList?keys as key>
                 <p class="filter-list__item__link" data-uipath="ps.indicator.taxonomy-${key}"><a title="Search for ${indicator.taxonomyList[key]}" href="../search/category/${key}">${indicator.taxonomyList[key]}</a></p>
-            </#list>   
-        </section>     
+            </#list>
+        </section>
 
 
         <#if indicator.hasAttachments()>
@@ -151,7 +151,7 @@
                                     </li>
                                 </#list>
                             </#if>
-                        </ul>    
+                        </ul>
             </section>
         </#if>
     </section>
@@ -188,7 +188,7 @@
     }
 
     function setupMathjaxIfNeeded(){
-        if( isMathMLNativelySupported() ) 
+        if( isMathMLNativelySupported() )
         return true;
         var scriptMathJax = document.createElement("script");
         scriptMathJax.type = "text/javascript";

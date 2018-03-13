@@ -122,9 +122,7 @@ definitions:
           /GeographicCoverage:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: England,England and Northern Ireland,England and
-                Scotland,England and Wales,England Scotland and Northern Ireland,England
-                Wales and Northern Ireland,Great Britain,International,Northern Ireland,Scotland,UK,Wales
+              selectable.options: England,Great Britain,International,Northern Ireland,Scotland,UK,Wales
             caption: Geographic Coverage
             field: GeographicCoverage
             jcr:primaryType: frontend:plugin
@@ -185,11 +183,13 @@ definitions:
             jcr:primaryType: hipposysedit:field
           /GeographicCoverage:
             hipposysedit:mandatory: false
-            hipposysedit:multiple: false
+            hipposysedit:multiple: true
             hipposysedit:ordered: false
             hipposysedit:path: publicationsystem:GeographicCoverage
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - publicationsystem-blank-geographic-coverage
             jcr:primaryType: hipposysedit:field
           /Granularity:
             hipposysedit:mandatory: false

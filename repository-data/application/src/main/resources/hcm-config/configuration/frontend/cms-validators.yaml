@@ -4,6 +4,10 @@ definitions:
     /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-blank-attachment:
       jcr:primaryType: frontend:plugin
       plugin.class: uk.nhs.digital.ps.BlankAttachmentFieldValidator
+    /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-blank-geographic-coverage:
+      fieldDisplayName: Geographic Coverage
+      jcr:primaryType: frontend:plugin
+      plugin.class: uk.nhs.digital.ps.BlankStaticDropdownSelectionFieldValidator
     /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-blank-granularity:
       fieldDisplayName: Granularity
       jcr:primaryType: frontend:plugin

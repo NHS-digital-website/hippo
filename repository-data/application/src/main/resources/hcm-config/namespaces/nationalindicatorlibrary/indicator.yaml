@@ -93,9 +93,7 @@ definitions:
           /GeographicCoverage:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: England,England and Northern Ireland,England and
-                Scotland,England and Wales,England Scotland and Northern Ireland,England
-                Wales and Northern Ireland,Great Britain,International,Northern Ireland,Scotland,UK,Wales
+              selectable.options: England,Great Britain,International,Northern Ireland,Scotland,UK,Wales
             caption: Geographic Coverage
             field: geographic_coverage
             hint: ''

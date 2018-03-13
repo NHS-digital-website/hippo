@@ -18,7 +18,8 @@
     jcr:primaryType: publicationsystem:dataset
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-    publicationsystem:GeographicCoverage: Great Britain
+    publicationsystem:GeographicCoverage:
+    - Great Britain
     publicationsystem:Granularity:
     - NHS Health Boards
     publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
@@ -62,7 +63,8 @@
     jcr:primaryType: publicationsystem:dataset
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-    publicationsystem:GeographicCoverage: Great Britain
+    publicationsystem:GeographicCoverage:
+    - Great Britain
     publicationsystem:Granularity:
     - NHS Health Boards
     publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
@@ -108,7 +110,8 @@
     jcr:primaryType: publicationsystem:dataset
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-    publicationsystem:GeographicCoverage: Great Britain
+    publicationsystem:GeographicCoverage:
+    - Great Britain
     publicationsystem:Granularity:
     - NHS Health Boards
     publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z

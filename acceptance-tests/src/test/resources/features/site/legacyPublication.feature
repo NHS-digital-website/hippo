@@ -8,21 +8,21 @@ Feature: As a site user I need to be able to find and display legacy publication
         And I click on link "Legacy Publication"
         Then I should see page titled "Legacy Publication"
         And I should see:
-            | Publication Geographic Coverage   | England and Scotland  |
-            | Publication Date                  | 14 Feb 2018           |
+            | Publication Geographic Coverage   | England, Scotland  |
+            | Publication Date                  | 14 Feb 2018        |
 
     Scenario: Navigation to legacy publication
         Given I navigate to the "home" page
         When I navigate to the "legacy publication" page
         Then I should see page titled "Legacy Publication"
         And I should see:
-            | Publication Geographic Coverage   | England and Scotland  |
-            | Publication Date                  | 14 Feb 2018           |
+            | Publication Geographic Coverage   | England, Scotland  |
+            | Publication Date                  | 14 Feb 2018        |
 
     Scenario: Navigation to legacy publication direct
         Given I navigate to the "home" page
         When I navigate to the "legacy publication direct" page
         Then I should see page titled "Legacy Publication"
         And I should see:
-            | Publication Geographic Coverage   | England and Scotland  |
-            | Publication Date                  | 14 Feb 2018           |
+            | Publication Geographic Coverage   | England, Scotland  |
+            | Publication Date                  | 14 Feb 2018        |

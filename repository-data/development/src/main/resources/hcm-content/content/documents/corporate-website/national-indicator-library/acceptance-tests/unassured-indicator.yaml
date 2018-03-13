@@ -73,7 +73,8 @@
     nationalindicatorlibrary:reportingLevel: CCG and National GP registered population
     nationalindicatorlibrary:title: Unassured Indicator
     nationalindicatorlibrary:title2: Unassured Indicator
-    publicationsystem:GeographicCoverage: England
+    publicationsystem:GeographicCoverage:
+    - England
   /unassured-indicator[2]:
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
@@ -149,7 +150,8 @@
     nationalindicatorlibrary:reportingLevel: CCG and National GP registered population
     nationalindicatorlibrary:title: Unassured Indicator
     nationalindicatorlibrary:title2: Unassured Indicator
-    publicationsystem:GeographicCoverage: England
+    publicationsystem:GeographicCoverage:
+    - England
   /unassured-indicator[3]:
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
@@ -225,7 +227,8 @@
     nationalindicatorlibrary:reportingLevel: CCG and National GP registered population
     nationalindicatorlibrary:title: Unassured Indicator
     nationalindicatorlibrary:title2: Unassured Indicator
-    publicationsystem:GeographicCoverage: England
+    publicationsystem:GeographicCoverage:
+    - England
   hippo:name: unassured indicator
   jcr:mixinTypes:
   - hippo:named

@@ -1,0 +1,15 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/Migration-20180313-Update-Geographic-Coverage:
+      hipposys:batchsize: 10
+      hipposys:description: Update existing geographic coverage values from single
+        value to multi value.
+      hipposys:dryrun: false
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root/content/documents/corporate-website//*[@jcr:primaryType='hippo:handle']
+      hipposys:script:
+        resource: /configuration/update/Migration20180313UpdateGeographicCoverage.groovy
+        type: string
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo
