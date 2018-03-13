@@ -4,7 +4,9 @@
 
 <#include "app-layout-head.ftl">
 
-<body>
+<body>  
+    <#include "scripts/live-engage-chat.ftl"/>
+
     <@siteHeader true></@siteHeader>
 
     <@hst.include ref="breadcrumb"/>

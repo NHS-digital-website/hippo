@@ -5,6 +5,8 @@
 <#include "app-layout-head.ftl">
 
 <body class="debugs">
+    <#include "scripts/live-engage-chat.ftl"/>
+
     <@siteHeader false></@siteHeader>
 
     <@hst.include ref="main"/>

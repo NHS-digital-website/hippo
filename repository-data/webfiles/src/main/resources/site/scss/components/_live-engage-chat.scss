@@ -1,0 +1,26 @@
+/* Live Engage Chat */
+.LPMcontainer.LPMoverlay {
+    background: $col-denary !important;
+
+    &:focus {
+        outline: none !important;
+    }
+
+    img {
+        height: 90%;
+        width: auto;
+        top: 10px !important;
+        left: 6px !important;
+    }
+}
+
+.lpmx,
+.lp_main {
+    .lp_header {
+        background: $col-primary !important;
+    }
+
+    button:focus {
+        outline: none !important;
+    }
+}
