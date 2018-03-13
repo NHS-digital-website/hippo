@@ -21,6 +21,10 @@ Access the Hippo Essentials at http://localhost:8080/essentials.
 After your project is set up, access the CMS at http://localhost:8080/cms and the site at http://localhost:8080/site.
 Logs are located in target/tomcat8x/logs
 
+Moreover, YamlFormatter.groovy can be automatically executed while building. The *format* profile can be used:
+
+  mvn clean verify -Pformat
+
 Building distributions
 ======================
 
