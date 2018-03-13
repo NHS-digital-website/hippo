@@ -119,7 +119,9 @@
         publicationsystem:AdministrativeSources: ''
         publicationsystem:CoverageEnd: 2017-11-30T00:00:00Z
         publicationsystem:CoverageStart: 2017-09-30T23:00:00Z
-        publicationsystem:GeographicCoverage: England and Scotland
+        publicationsystem:GeographicCoverage:
+        - England
+        - Scotland
         publicationsystem:Granularity:
         - Care Trusts
         - Government Office Regions
@@ -189,7 +191,9 @@
         publicationsystem:AdministrativeSources: ''
         publicationsystem:CoverageEnd: 2017-11-30T00:00:00Z
         publicationsystem:CoverageStart: 2017-09-30T23:00:00Z
-        publicationsystem:GeographicCoverage: England and Scotland
+        publicationsystem:GeographicCoverage:
+        - England
+        - Scotland
         publicationsystem:Granularity:
         - Care Trusts
         - Government Office Regions
@@ -259,7 +263,9 @@
         publicationsystem:AdministrativeSources: ''
         publicationsystem:CoverageEnd: 2017-11-30T00:00:00Z
         publicationsystem:CoverageStart: 2017-09-30T23:00:00Z
-        publicationsystem:GeographicCoverage: England and Scotland
+        publicationsystem:GeographicCoverage:
+        - England
+        - Scotland
         publicationsystem:Granularity:
         - Care Trusts
         - Government Office Regions

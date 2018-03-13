@@ -146,7 +146,7 @@ public abstract class PublicationBase extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.GEOGRAPHIC_COVERAGE)
-    public String getGeographicCoverage() {
+    public String[] getGeographicCoverage() {
         return getPropertyIfPermitted(PropertyKeys.GEOGRAPHIC_COVERAGE);
     }
 

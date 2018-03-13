@@ -29,7 +29,10 @@
       jcr:primaryType: publicationsystem:dataset
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:GeographicCoverage: England Scotland and Northern Ireland
+      publicationsystem:GeographicCoverage:
+      - England
+      - Scotland
+      - Northern Ireland
       publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
       publicationsystem:NominalDate: 2018-07-12T00:00:00Z
       publicationsystem:Summary: dataset summary to include summaryTestWalnuts
@@ -64,7 +67,10 @@
       jcr:primaryType: publicationsystem:dataset
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:GeographicCoverage: England Scotland and Northern Ireland
+      publicationsystem:GeographicCoverage:
+      - England
+      - Scotland
+      - Northern Ireland
       publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
       publicationsystem:NominalDate: 2018-07-12T00:00:00Z
       publicationsystem:Summary: dataset summary to include summaryTestWalnuts
@@ -99,7 +105,10 @@
       jcr:primaryType: publicationsystem:dataset
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:GeographicCoverage: England Scotland and Northern Ireland
+      publicationsystem:GeographicCoverage:
+      - England
+      - Scotland
+      - Northern Ireland
       publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
       publicationsystem:NominalDate: 2018-07-12T00:00:00Z
       publicationsystem:Summary: dataset summary to include summaryTestWalnuts
@@ -128,7 +137,8 @@
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:GeographicCoverage: England
+      publicationsystem:GeographicCoverage:
+      - England
       publicationsystem:Granularity:
       - Dental practices
       publicationsystem:InformationType:
@@ -158,7 +168,8 @@
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:GeographicCoverage: England
+      publicationsystem:GeographicCoverage:
+      - England
       publicationsystem:Granularity:
       - Dental practices
       publicationsystem:InformationType:
@@ -188,7 +199,8 @@
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:GeographicCoverage: England
+      publicationsystem:GeographicCoverage:
+      - England
       publicationsystem:Granularity:
       - Dental practices
       publicationsystem:InformationType:

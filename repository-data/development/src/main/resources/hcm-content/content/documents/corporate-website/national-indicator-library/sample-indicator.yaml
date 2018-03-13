@@ -138,7 +138,8 @@
     nationalindicatorlibrary:reportingLevel: CCG
     nationalindicatorlibrary:title: People with stroke admitted to an acute stroke
       unit within 4 hours of arrival at hospital
-    publicationsystem:GeographicCoverage: England
+    publicationsystem:GeographicCoverage:
+    - England
   /sample-indicator[2]:
     /nationalindicatorlibrary:attachments:
       /publicationsystem:attachmentResource:
@@ -279,7 +280,8 @@
     nationalindicatorlibrary:reportingLevel: CCG
     nationalindicatorlibrary:title: People with stroke admitted to an acute stroke
       unit within 4 hours of arrival at hospital
-    publicationsystem:GeographicCoverage: England
+    publicationsystem:GeographicCoverage:
+    - England
   /sample-indicator[3]:
     /nationalindicatorlibrary:attachments:
       /publicationsystem:attachmentResource:
@@ -421,7 +423,8 @@
     nationalindicatorlibrary:reportingLevel: CCG
     nationalindicatorlibrary:title: People with stroke admitted to an acute stroke
       unit within 4 hours of arrival at hospital
-    publicationsystem:GeographicCoverage: England
+    publicationsystem:GeographicCoverage:
+    - England
   hippo:name: sample indicator
   jcr:mixinTypes:
   - hippo:named

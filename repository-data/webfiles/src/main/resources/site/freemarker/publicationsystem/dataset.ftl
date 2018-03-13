@@ -39,13 +39,13 @@
                 </div>
             </div><!--
 
-            --><#if dataset.geographicCoverage??><div class="flex__item">
+            --><#if dataset.geographicCoverage?has_content><div class="flex__item">
                 <div class="media">
                     <div class="media__icon media__icon--granularity"></div>
                     <dl class="media__body">
                         <dt id="geographic-coverage"><@fmt.message key="headers.geographical-coverage"/></dt>
                         <dd data-uipath="ps.dataset.geographic-coverage">
-                            ${dataset.geographicCoverage}
+                            <#list dataset.geographicCoverage as geographicCoverageItem>${geographicCoverageItem}<#sep>, </#list>
                         </dd>
                     </dl>
                 </div>
@@ -57,7 +57,7 @@
                     <dl class="media__body">
                         <dt><@fmt.message key="headers.geographical-granularity"/></dt>
                         <dd data-uipath="ps.dataset.granularity">
-                            <#list dataset.granularity as granularityItem><#if granularityItem?index != 0>, </#if>${granularityItem}</#list>
+                            <#list dataset.granularity as granularityItem>${granularityItem}<#sep>, </#list>
                         </dd>
                     </dl>
                 </div>

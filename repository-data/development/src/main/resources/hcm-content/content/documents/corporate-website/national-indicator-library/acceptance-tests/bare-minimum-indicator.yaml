@@ -68,7 +68,8 @@
     nationalindicatorlibrary:publishedBy: NHS Digital
     nationalindicatorlibrary:reportingLevel: CCG
     nationalindicatorlibrary:title: Bare Minimum Indicator
-    publicationsystem:GeographicCoverage: England
+    publicationsystem:GeographicCoverage:
+    - England
   /bare-minimum-indicator[2]:
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
@@ -139,7 +140,8 @@
     nationalindicatorlibrary:publishedBy: NHS Digital
     nationalindicatorlibrary:reportingLevel: CCG
     nationalindicatorlibrary:title: Bare Minimum Indicator
-    publicationsystem:GeographicCoverage: England
+    publicationsystem:GeographicCoverage:
+    - England
   /bare-minimum-indicator[3]:
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
@@ -210,7 +212,8 @@
     nationalindicatorlibrary:publishedBy: NHS Digital
     nationalindicatorlibrary:reportingLevel: CCG
     nationalindicatorlibrary:title: Bare Minimum Indicator
-    publicationsystem:GeographicCoverage: England
+    publicationsystem:GeographicCoverage:
+    - England
   hippo:name: bare minimum indicator
   jcr:mixinTypes:
   - hippo:named

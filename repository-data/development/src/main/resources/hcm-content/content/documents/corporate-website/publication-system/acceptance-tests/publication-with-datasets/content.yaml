@@ -47,7 +47,8 @@
     publicationsystem:AdministrativeSources: Admin sources
     publicationsystem:CoverageEnd: 2018-02-01T00:00:00Z
     publicationsystem:CoverageStart: 2017-11-01T00:00:00Z
-    publicationsystem:GeographicCoverage: England
+    publicationsystem:GeographicCoverage:
+    - England
     publicationsystem:Granularity:
     - NHS Trusts
     - GP practices
@@ -130,7 +131,8 @@
     publicationsystem:AdministrativeSources: Admin sources
     publicationsystem:CoverageEnd: 2018-02-01T00:00:00Z
     publicationsystem:CoverageStart: 2017-11-01T00:00:00Z
-    publicationsystem:GeographicCoverage: England
+    publicationsystem:GeographicCoverage:
+    - England
     publicationsystem:Granularity:
     - NHS Trusts
     - GP practices
@@ -213,7 +215,8 @@
     publicationsystem:AdministrativeSources: Admin sources
     publicationsystem:CoverageEnd: 2018-02-01T00:00:00Z
     publicationsystem:CoverageStart: 2017-11-01T00:00:00Z
-    publicationsystem:GeographicCoverage: England
+    publicationsystem:GeographicCoverage:
+    - England
     publicationsystem:Granularity:
     - NHS Trusts
     - GP practices

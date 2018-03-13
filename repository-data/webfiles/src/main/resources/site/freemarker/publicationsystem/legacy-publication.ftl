@@ -43,7 +43,7 @@
 
             <h3 data-uipath="ps.publication.information-types" class="flush--bottom push-half--top">
                 <#if legacyPublication.informationType?has_content>
-                    <#list legacyPublication.informationType as type><#if type?index != 0>, </#if>${type}</#list>
+                    <#list legacyPublication.informationType as type>${type}<#sep>, </#list>
                 </#if>
             </h3>
 
@@ -73,7 +73,7 @@
                         <dl class="media__body">
                             <dt id="geographic-coverage"><@fmt.message key="headers.geographical-coverage"/></dt>
                             <dd data-uipath="ps.publication.geographic-coverage">
-                                ${legacyPublication.geographicCoverage}
+                                <#list legacyPublication.geographicCoverage as geographicCoverageItem>${geographicCoverageItem}<#sep>, </#list>
                             </dd>
                         </dl>
                     </div>
@@ -85,7 +85,7 @@
                         <dl class="media__body">
                             <dt><@fmt.message key="headers.geographical-granularity"/></dt>
                             <dd data-uipath="ps.publication.granularity">
-                                <#list legacyPublication.granularity as granularityItem><#if granularityItem?index != 0>, </#if>${granularityItem}</#list>
+                                <#list legacyPublication.granularity as granularityItem>${granularityItem}<#sep>, </#list>
                             </dd>
                         </dl>
                     </div>

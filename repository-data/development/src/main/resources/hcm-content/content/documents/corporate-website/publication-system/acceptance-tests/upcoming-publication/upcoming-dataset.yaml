@@ -17,7 +17,8 @@
     jcr:primaryType: publicationsystem:dataset
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-    publicationsystem:GeographicCoverage: England
+    publicationsystem:GeographicCoverage:
+    - England
     publicationsystem:Granularity:
     - GP practices
     publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
@@ -46,7 +47,8 @@
     jcr:primaryType: publicationsystem:dataset
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-    publicationsystem:GeographicCoverage: England
+    publicationsystem:GeographicCoverage:
+    - England
     publicationsystem:Granularity:
     - GP practices
     publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
@@ -75,7 +77,8 @@
     jcr:primaryType: publicationsystem:dataset
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-    publicationsystem:GeographicCoverage: England
+    publicationsystem:GeographicCoverage:
+    - England
     publicationsystem:Granularity:
     - GP practices
     publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z

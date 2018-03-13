@@ -29,7 +29,9 @@
     publicationsystem:AdministrativeSources: ''
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-    publicationsystem:GeographicCoverage: England and Northern Ireland
+    publicationsystem:GeographicCoverage:
+    - England
+    - Northern Ireland
     publicationsystem:InformationType:
     - Experimental statistics
     publicationsystem:KeyFacts: And I like bears
@@ -65,7 +67,9 @@
     publicationsystem:AdministrativeSources: ''
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-    publicationsystem:GeographicCoverage: England and Northern Ireland
+    publicationsystem:GeographicCoverage:
+    - England
+    - Northern Ireland
     publicationsystem:InformationType:
     - Experimental statistics
     publicationsystem:KeyFacts: And I like bears
@@ -103,7 +107,9 @@
     publicationsystem:AdministrativeSources: ''
     publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
     publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-    publicationsystem:GeographicCoverage: England and Northern Ireland
+    publicationsystem:GeographicCoverage:
+    - England
+    - Northern Ireland
     publicationsystem:InformationType:
     - Experimental statistics
     publicationsystem:KeyFacts: And I like bears

@@ -43,7 +43,8 @@
     jcr:primaryType: publicationsystem:dataset
     publicationsystem:CoverageEnd: 2017-07-01T00:00:00Z
     publicationsystem:CoverageStart: 2016-02-01T00:00:00Z
-    publicationsystem:GeographicCoverage: England
+    publicationsystem:GeographicCoverage:
+    - England
     publicationsystem:Granularity:
     - NHS Trusts
     publicationsystem:NextPublicationDate: 2018-07-09T00:00:00Z
@@ -104,7 +105,8 @@
     jcr:primaryType: publicationsystem:dataset
     publicationsystem:CoverageEnd: 2017-07-01T00:00:00Z
     publicationsystem:CoverageStart: 2016-02-01T00:00:00Z
-    publicationsystem:GeographicCoverage: England
+    publicationsystem:GeographicCoverage:
+    - England
     publicationsystem:Granularity:
     - NHS Trusts
     publicationsystem:NextPublicationDate: 2018-07-09T00:00:00Z
@@ -167,7 +169,8 @@
     jcr:primaryType: publicationsystem:dataset
     publicationsystem:CoverageEnd: 2017-07-01T00:00:00Z
     publicationsystem:CoverageStart: 2016-02-01T00:00:00Z
-    publicationsystem:GeographicCoverage: England
+    publicationsystem:GeographicCoverage:
+    - England
     publicationsystem:Granularity:
     - NHS Trusts
     publicationsystem:NextPublicationDate: 2018-07-09T00:00:00Z
