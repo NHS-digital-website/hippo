@@ -1,4 +1,5 @@
 <#ftl output_format="HTML">
+<#include "../../include/imports.ftl">
 
 <#assign lettersOfTheAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]/>
 
@@ -34,7 +35,8 @@
                     <#list blockGroups[letter] as block>
                     <div class="cta">
                         <#if block.type?? && block.type == "external">
-                        <h2 class="cta__title"><a href="${block.link}">${block.title}</a></h2>
+                        <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, block.link) />
+                        <h2 class="cta__title"><a href="${block.link}" onClick="${onClickMethodCall}">${block.title}</a></h2>
                         <#else>
                         <h2 class="cta__title"><a href="<@hst.link hippobean=block />">${block.title}</a></h2>
                         </#if>

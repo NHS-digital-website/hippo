@@ -53,10 +53,11 @@
                 <section class="article-section article-section--top-tasks">
                     <div class="callout callout--attention">
                         <h2>Top Tasks</h2>
-
-                        <#list document.toptasks as toptask>
-                        <@hst.html hippohtml=toptask/>
-                        </#list>
+                        <div class="rich-text-content">
+                            <#list document.toptasks as toptask>
+                            <@hst.html hippohtml=toptask contentRewriter=gaContentRewriter/>
+                            </#list>
+                        </div>
                     </div>
                 </section>
                 </#if>
@@ -65,7 +66,9 @@
                 <#-- [FTL-BEGIN] 'Introduction' section -->
                 <#if document.introduction??>
                 <div class="article-section article-section--introduction">
-                    <@hst.html hippohtml=document.introduction/>
+                    <div class="rich-text-content">
+                        <@hst.html hippohtml=document.introduction contentRewriter=gaContentRewriter/>
+                    </div>
                 </div>
                 </#if>
                 <#-- [FTL-END] 'Introduction' section -->
@@ -82,7 +85,8 @@
                                 <article class="cta">
                                     <#if childPage.type?? && childPage.type == "external">
                                     <#-- Assign the link property of the externallink compound -->
-                                    <h2 class="cta__title"><a href="${childPage.link}">${childPage.title}</a></h2>
+                                    <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, childPage.link) />
+                                    <h2 class="cta__title"><a href="${childPage.link}" onClick="${onClickMethodCall}">${childPage.title}</a></h2>
                                     <#elseif hst.isBeanType(childPage, 'org.hippoecm.hst.content.beans.standard.HippoBean')>
                                     <#-- In case the childPage is not a compound but still a document in the cms, then create a link to it-->
                                     <h2 class="cta__title"><a href="<@hst.link var=link hippobean=childPage />">${childPage.title}</a></h2>

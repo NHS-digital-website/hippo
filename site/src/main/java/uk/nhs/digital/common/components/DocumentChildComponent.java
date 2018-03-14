@@ -6,14 +6,13 @@ import org.hippoecm.hst.content.beans.manager.*;
 import org.hippoecm.hst.content.beans.standard.*;
 import org.hippoecm.hst.core.component.*;
 import org.hippoecm.hst.core.request.*;
-import org.onehippo.cms7.essentials.components.*;
 import org.slf4j.*;
 import uk.nhs.digital.website.beans.*;
 
 import java.util.*;
 import javax.jcr.*;
 
-public class DocumentChildComponent extends EssentialsContentComponent {
+public class DocumentChildComponent extends BaseGaContentComponent {
 
     private static Logger log = LoggerFactory.getLogger(DocumentChildComponent.class);
 
@@ -51,6 +50,7 @@ public class DocumentChildComponent extends EssentialsContentComponent {
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
         super.doBeforeRender(request, response);
+
         Object bean = request.getAttribute(REQUEST_ATTR_DOCUMENT);
         if (bean != null && bean instanceof HippoBean) {
             List<HippoDocumentBean> childPages = getRelatedDocuments((HippoBean) bean);

@@ -20,10 +20,10 @@
                 <div id="section-summary" class="article-section article-section--summary article-section--summary-with-border">
                     <div class="grid-row">
                         <div class="column column--two-thirds column--reset">
-                            <div class="rtc">
+                            <div class="rich-text-content">
                                 <p>${document.summary}</p>
                                 <#if document.body?has_content??>
-                                <@hst.html hippohtml=document.body/>
+                                <@hst.html hippohtml=document.body contentRewriter=gaContentRewriter/>
                                 </#if>
                             </div>
                         </div>
@@ -32,10 +32,6 @@
                 <#-- [FTL-END] 'Summary and optional Body' sections -->
             </div>
         </div>
-
-        <#-- [FTL-BEGIN] 'Sections' -->
-        <#-- <@narrowArticleSections document.sections></@narrowArticleSections> -->
-        <#-- [FTL-END] 'Sections' -->
 
         <#-- [FTL-BEGIN] 'Child pages' section -->
         <#if childPages?? && childPages?size!=0>

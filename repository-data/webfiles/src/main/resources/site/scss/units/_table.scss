@@ -3,10 +3,11 @@
 @import "../environment/tools/mixins/typography";
 
 table {
-    width: 100%;
+    width: 100% !important;
     border-collapse: collapse;
     border-spacing: 0;
     text-align: left;
+    border: none;
 
     caption {
         text-align: left;
@@ -24,6 +25,7 @@ table {
         padding: 17px 10px;
         width: 25%;
         text-align: left;
+        border: none;
     }
 
     th {

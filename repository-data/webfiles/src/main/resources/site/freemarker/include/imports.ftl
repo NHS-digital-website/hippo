@@ -13,3 +13,36 @@
 <#else>
     <@hst.link siteMapItemRefId="search" var="searchLink"/>
 </#if>
+
+<#-- Doctype helper function -->
+<#function getDocTypeName className>
+    <#local docType = '' />
+    <#local docTypes = {
+        "Service":  "uk.nhs.digital.website.beans.Service",
+        "General":  "uk.nhs.digital.website.beans.General",
+        "Hub":      "uk.nhs.digital.website.beans.Hub",
+        "List":     "uk.nhs.digital.website.beans.ComponentList",
+        "Footer":   "Footer"
+    }/>
+
+    <#list docTypes?keys as key>
+        <#if docTypes[key] == className>
+            <#local docType = key/>
+            <#break>
+        </#if>
+    </#list>
+    
+    <#return docType/>
+</#function>
+
+<#-- onClick attribute helper function -->
+<#function getOnClickMethodCall className, link>
+    <#if className?? && link??>
+        <#local docType = getDocTypeName(className) />
+
+        <#if docType?length gt 0>
+            <#local onClickAttr="logGoogleAnalyticsEvent('Link click', '${docType}', '${link}')" />
+            <#return onClickAttr/>
+        </#if>
+    </#if>
+</#function>

@@ -19,7 +19,7 @@
 }
 
 .site-footer__section--bottom {
-    padding: $gutter * 2 0;
+    padding: $gutter * 2 0 round($gutter * 1.5);
     background: $col-14;
 
     @include clearfix;
@@ -79,11 +79,20 @@
                 margin-left: 0;
                 clear: both;
                 float: none;
+                margin-top: $gutter;
+
+                &:first-child {
+                    margin-top: 0;
+                }
             }
         }
 
         .site-footer__menu--5 {
             float: none;
         }
+    }
+
+    .site-footer__section--bottom {
+        padding-bottom: $gutter * 2
     }
 }

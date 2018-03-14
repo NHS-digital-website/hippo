@@ -19,10 +19,10 @@
                 <div id="section-summary" class="article-section article-section--summary">
                     <div class="grid-row">
                         <div class="columncolumn--reset">
-                            <div class="rtc">
+                            <div class="rich-text-content">
                                 <p>${document.summary}</p>
                                 <#if document.body?has_content??>
-                                <@hst.html hippohtml=document.body/>
+                                <@hst.html hippohtml=document.body contentRewriter=gaContentRewriter/>
                                 </#if>
                             </div>
                         </div>
