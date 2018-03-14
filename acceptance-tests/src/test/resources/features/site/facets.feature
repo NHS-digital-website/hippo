@@ -10,7 +10,7 @@ Feature: Faceted search
         Then I should see the list with title "DOCUMENT TYPE" containing:
             | Publication (2) |
             | Data set (1)    |
-        And I should see the list with title "CATEGORY" containing:
+        And I should see the list with title "CATEGORY/TOPIC" containing:
             | Conditions (2)             |
             | Social care (2)            |
             | Accidents and injuries (1) |
@@ -40,7 +40,7 @@ Feature: Faceted search
         When I search for "NilTaxonomySearchTerm"
         Then I should see the list with title "DOCUMENT TYPE" containing:
             | Methodology (3) |
-        And I should see the list with title "CATEGORY" containing:
+        And I should see the list with title "CATEGORY/TOPIC" containing:
             | Acceptance Tests (3)             |
             | NilTaxonomySearchTerm test (3)   |
         And I should see the list with title "GEOGRAPHICAL COVERAGE" containing:
@@ -84,7 +84,7 @@ Feature: Faceted search
         Then I should see 2 search results
         And I should see the list with title "DOCUMENT TYPE" containing:
             | Publication   |
-        And I should see the list with title "CATEGORY" containing:
+        And I should see the list with title "CATEGORY/TOPIC" containing:
             | Accidents and injuries (1) |
             | Conditions (1)             |
             | Falls (1)                  |
@@ -109,15 +109,15 @@ Feature: Faceted search
             | 2018   |
 
 
-    Scenario: Clear all facets
+    Scenario: Reset facets
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"
         And I click on the "Social care" link
         And I click on the "England" link
         Then I should see 1 search results
-        When I can click on the "Clear all" link
+        When I can click on the "Reset" link
         Then I should see 3 search results
-        And I should see the list with title "CATEGORY" including:
+        And I should see the list with title "CATEGORY/TOPIC" including:
             | Social care (2) |
         And I should see the list with title "GEOGRAPHICAL COVERAGE" including:
             | England (1) |
@@ -130,7 +130,7 @@ Feature: Faceted search
         And I click on the "Cancer networks" link
         And I click on the "Order by date" link
         Then I can see the search description matching "2 results containing 'zzFacets_Testzz', sorted by date."
-        And I should see the list with title "CATEGORY" including:
+        And I should see the list with title "CATEGORY/TOPIC" including:
             | Conditions   |
         And I should see the list with title "GEOGRAPHICAL GRANULARITY" including:
             | Cancer networks   |
