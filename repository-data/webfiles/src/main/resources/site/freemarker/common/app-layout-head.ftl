@@ -12,8 +12,6 @@
     <#assign documentSEOSummary = "Document SEO summary">
 </#if>
 
-<!DOCTYPE html>
-<html lang="en" class="no-js">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -53,11 +51,11 @@
     <![endif]-->
     <link rel="stylesheet" href="<@hst.webfile  path="/css/nhsuk-print.css"/>" media="print" type="text/css"/>
 
-    <script>
-        (function(d) {
-            d.className = d.className.replace(/\bno-js\b/, 'js-enabled')
-        })(document.documentElement)
-    </script>
+    <#-- Add CSS class to mark JS enabled -->
+    <#include "scripts/js-enabled.ftl"/>
+
+    <#-- GA Tracking code -->
+    <#include "scripts/google-analytics.ftl"/>
 
     <!--[if IE]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>

@@ -7,8 +7,8 @@
 <section class="article-section article-section--hub-component">
     <div class="grid-row">
         <div class="column column--two-thirds column--left">
-            <div class="rtc">
-                <@hst.html hippohtml=component.component/>
+            <div class="rich-text-content">
+                <@hst.html hippohtml=component.component contentRewriter=gaContentRewriter/>
             </div>
 
             <#assign seq_index = component_list?seq_index_of(component) />

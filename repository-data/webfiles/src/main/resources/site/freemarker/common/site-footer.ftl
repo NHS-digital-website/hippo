@@ -1,4 +1,5 @@
 <#ftl output_format="HTML">
+<#include "../include/imports.ftl">
 
 <footer role="contentinfo" class="site-footer white-links">
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
@@ -68,12 +69,12 @@
                                 <div class="site-footer__menu site-footer__menu--5">
                                     <ul class="list list--inline list--reset">
                                         <li>
-                                            <a href="//www.linkedin.com/company/nhs-digital">
+                                            <a href="https://www.linkedin.com/company/nhs-digital" onClick="${getOnClickMethodCall('Footer', 'https://www.linkedin.com/company/nhs-digital')}">
                                                 <img src="<@hst.webfile  path="images/icon-linkedin.png"/>" alt="Linkedin logo" class="image-icon" /><span>LinkedIn</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="//www.twitter.com/NHSDigital">
+                                            <a href="https://www.twitter.com/NHSDigital" onClick="${getOnClickMethodCall('Footer', 'https://www.twitter.com/NHSDigital')}">
                                                 <img src="<@hst.webfile  path="images/icon-twitter.png"/>" alt="Twitter logo" class="image-icon"/><span>Twitter</span>
                                             </a>
                                         </li>

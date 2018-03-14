@@ -2,13 +2,13 @@
 <#include "../include/imports.ftl">
 <#include "macro/siteHeader.ftl">
 
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
 <#include "app-layout-head.ftl">
 
 <body class="debugs">
-    <#include "cookie-banner.ftl"/>
-    
-    <#include "scripts/live-engage-chat.ftl"/>
-
+    <#-- Add site header with the search bar -->
     <@siteHeader true></@siteHeader>
 
     <@hst.include ref="breadcrumb"/>
@@ -16,6 +16,10 @@
     <@hst.include ref="main"/>
 
     <#include "site-footer.ftl"/>
+
+    <#include "cookie-banner.ftl"/>
+
+    <#include "scripts/live-engage-chat.ftl"/>
 
     <@hst.headContributions categoryIncludes="htmlBodyEnd, scripts" xhtml=true/>
 </body>

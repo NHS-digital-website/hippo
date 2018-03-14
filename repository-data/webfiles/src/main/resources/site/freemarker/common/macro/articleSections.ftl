@@ -4,7 +4,9 @@
 <#list sections as section>
 <section id="section-${section?index+1}" class="article-section">
     <h2>${section.title}</h2>
-    <@hst.html hippohtml=section.html/>
+    <div class="rich-text-content">
+        <@hst.html hippohtml=section.html contentRewriter=gaContentRewriter/>
+    </div>
 </section>
 </#list>
 </#if>

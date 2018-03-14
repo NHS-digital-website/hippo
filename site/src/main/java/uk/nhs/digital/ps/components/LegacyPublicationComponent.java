@@ -1,18 +1,13 @@
 package uk.nhs.digital.ps.components;
 
-import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.content.beans.standard.HippoFolder;
-import org.hippoecm.hst.core.component.HstComponentException;
-import org.hippoecm.hst.core.component.HstRequest;
-import org.hippoecm.hst.core.component.HstResponse;
-import org.hippoecm.hst.core.request.HstRequestContext;
-import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import uk.nhs.digital.ps.beans.LegacyPublication;
-import uk.nhs.digital.ps.beans.Publication;
+import org.hippoecm.hst.content.beans.standard.*;
+import org.hippoecm.hst.core.component.*;
+import org.hippoecm.hst.core.request.*;
+import org.slf4j.*;
+import uk.nhs.digital.common.components.*;
+import uk.nhs.digital.ps.beans.*;
 
-public class LegacyPublicationComponent extends EssentialsContentComponent {
+public class LegacyPublicationComponent extends BaseGaContentComponent {
 
     private static final Logger log = LoggerFactory.getLogger(LegacyPublicationComponent.class);
 

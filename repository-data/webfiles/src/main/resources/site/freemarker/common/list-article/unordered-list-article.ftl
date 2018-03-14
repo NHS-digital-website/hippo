@@ -17,10 +17,10 @@
                 <div id="section-summary" class="article-section article-section--summary article-section--summary-with-border">
                     <div class="grid-row">
                         <div class="column column--two-thirds column--reset">
-                            <div class="rtc">
+                            <div class="rich-text-content">
                                 <p>${document.summary}</p>
                                 <#if document.body?has_content??>
-                                <@hst.html hippohtml=document.body/>
+                                <@hst.html hippohtml=document.body contentRewriter=gaContentRewriter/>
                                 </#if>
                             </div>
                         </div>
@@ -40,7 +40,8 @@
                                     <h2 class="cta__title"><a href="<@hst.link hippobean=block.link />">${block.link.title}</a></h2>
                                     <p class="cta__text">${block.link.shortsummary}</p>
                                     <#elseif block.getType() == "external">
-                                    <h2 class="cta__title"><a href="${block.link}">${block.title}</a></h2>
+                                    <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, block.link) />
+                                    <h2 class="cta__title"><a href="${block.link}" onClick="${onClickMethodCall}">${block.title}</a></h2>
                                     <p class="cta__text">${block.shortsummary}</p>
                                     </#if>
                                 </div>

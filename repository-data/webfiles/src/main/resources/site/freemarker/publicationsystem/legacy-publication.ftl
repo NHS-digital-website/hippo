@@ -115,11 +115,11 @@
         <div class="layout layout--large">
             <div class="layout__item layout-2-3">
                 <h2><@fmt.message key="headers.summary"/></h2>
-                <@hst.html hippohtml=legacyPublication.summary />
+                <@hst.html hippohtml=legacyPublication.summary contentRewriter=gaContentRewriter/>
 
                 <#if legacyPublication.keyFacts.elements?has_content>
                     <h2><@fmt.message key="headers.key-facts"/></h2>
-                    <@hst.html hippohtml=legacyPublication.keyFacts />
+                    <@hst.html hippohtml=legacyPublication.keyFacts contentRewriter=gaContentRewriter/>
                 </#if>
 
                 <#if legacyPublication.administrativeSources?has_content>
