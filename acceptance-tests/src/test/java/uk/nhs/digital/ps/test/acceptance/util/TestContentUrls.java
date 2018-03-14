@@ -129,6 +129,7 @@ public class TestContentUrls {
 
         // National Indicator Library
         add("nihub", "/data-and-information/national-indicator-library/nihub");
+        add("sample-indicator", "/data-and-information/national-indicator-library/sample-indicator");
 
         // Legacy publication
         add("legacy publication",

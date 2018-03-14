@@ -79,6 +79,17 @@ public class SiteSteps extends AbstractSpringSteps {
         assertNotNull("Can see element", sitePage.findElementWithTitle(linkTitle));
     }
 
+    @Then("^I (?:can )?see labelled element \"([^\"]+)\" with content \"([^\"]+)\"$")
+    public void iSeeElementWithUiPathAndContent(String uiPath, String content) throws Throwable {
+        assertNotNull("Can see element with data-uipath: " + uiPath, sitePage.findElementWithUiPath(uiPath));
+        assertThat(sitePage.findElementWithUiPath(uiPath).getText(), containsString(content));
+    }
+
+    @Then("^I (?:can )?see element with data-uipath \"([^\"]+)\"$")
+    public void iSeeElementWithUiPath(String uiPath) throws Throwable {
+        assertNotNull("Can see element with data-uipath: " + uiPath, sitePage.findElementWithUiPath(uiPath));
+    }
+
     @Then("^I should see (?:.* )?page titled \"([^\"]+)\"$")
     public void iShouldSeePageTitled(String pageTitle) throws Throwable {
         assertThat("I should see page titled.", sitePage.getDocumentTitle(), is(pageTitle));
