@@ -34,6 +34,12 @@ ol {
   padding: 0;
 }
 
+.list--close {
+    li {
+        margin-top: round($gutter * 0.5);
+    }
+}
+
 .list--inline {
     display: inline-block;
     @include clearfix;
@@ -50,6 +56,14 @@ ol {
             margin-left: 0;
         }
     }
+}
+
+.list__header {
+    @include bold-font(18);
+}
+
+.list__item {
+    margin-top: round($gutter * 0.5);
 }
 
 .local-header,

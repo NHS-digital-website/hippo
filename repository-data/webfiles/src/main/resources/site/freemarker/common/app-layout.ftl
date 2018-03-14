@@ -4,7 +4,7 @@
 
 <#include "app-layout-head.ftl">
 
-<body>  
+<body class="debugs">
     <#include "scripts/live-engage-chat.ftl"/>
 
     <@siteHeader true></@siteHeader>
@@ -13,7 +13,7 @@
 
     <@hst.include ref="main"/>
 
-    <footer role="contentinfo"></footer>
+    <#include "site-footer.ftl"/>
 
     <@hst.headContributions categoryIncludes="htmlBodyEnd, scripts" xhtml=true/>
 </body>

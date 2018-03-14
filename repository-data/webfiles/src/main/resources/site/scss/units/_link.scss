@@ -4,25 +4,47 @@
 a {
   &:link {
     color: $link-colour;
-  }
+}
 
-  &:visited {
+&:visited {
     color: $link-visited-colour;
-  }
+}
 
-  &:hover {
+&:hover {
     color: $link-hover-colour;
-  }
+}
 
-  &:active {
+&:active {
     color: $link-active-colour;
-  }
+}
 
-  &:focus {
+&:focus {
     outline: 3px solid $focus-colour;
-  }
+}
 }
 
 .link--reverse-polarity {
-  @include link-reverse-polarity;
+    @include link-reverse-polarity;
+}
+
+.white-links {
+    a {
+        text-decoration: none;
+
+        &:link,
+        &:visited,
+        &:active,
+        &:hover,
+        &:focus {
+            color: $col-septenary;
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &:focus {
+            outline: 3px solid $focus-colour;
+        }
+    }
 }
