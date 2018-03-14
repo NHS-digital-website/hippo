@@ -5,7 +5,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-01-12T10:00:00Z
-    hippostdpubwf:lastModificationDate: 2018-01-12T10:00:00Z
+    hippostdpubwf:lastModificationDate: 2018-03-15T11:02:53.984Z
     hippostdpubwf:lastModifiedBy: admin
     jcr:mixinTypes:
     - mix:referenceable
@@ -19,8 +19,12 @@
     - ''
     - ''
     - ''
+    - ''
+    - ''
+    - ''
     resourcebundle:id: facet-headers
     resourcebundle:keys:
+    - assuredStatus
     - document-type
     - category
     - information-type
@@ -29,19 +33,18 @@
     - year
     - month
     - timeframe
-    - assuredStatus
     - publishedBy
     - reportingLevel
     resourcebundle:messages:
+    - ASSURED
     - DOCUMENT TYPE
-    - CATEGORY
+    - CATEGORY/TOPIC
     - INFORMATION TYPE
     - GEOGRAPHICAL COVERAGE
     - GEOGRAPHICAL GRANULARITY
     - YEAR
     - MONTH
     - TIMEFRAME
-    - ASSURED
     - PUBLISHED BY
     - REPORTING LEVEL
   /facet-headers[2]:
@@ -50,7 +53,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-01-12T10:00:00Z
-    hippostdpubwf:lastModificationDate: 2018-01-12T10:00:00Z
+    hippostdpubwf:lastModificationDate: 2018-03-15T11:03:11.086Z
     hippostdpubwf:lastModifiedBy: admin
     jcr:mixinTypes:
     - mix:referenceable
@@ -65,8 +68,12 @@
     - ''
     - ''
     - ''
+    - ''
+    - ''
+    - ''
     resourcebundle:id: facet-headers
     resourcebundle:keys:
+    - assuredStatus
     - document-type
     - category
     - information-type
@@ -75,19 +82,18 @@
     - year
     - month
     - timeframe
-    - assuredStatus
     - publishedBy
     - reportingLevel
     resourcebundle:messages:
+    - ASSURED
     - DOCUMENT TYPE
-    - CATEGORY
+    - CATEGORY/TOPIC
     - INFORMATION TYPE
     - GEOGRAPHICAL COVERAGE
     - GEOGRAPHICAL GRANULARITY
     - YEAR
     - MONTH
     - TIMEFRAME
-    - ASSURED
     - PUBLISHED BY
     - REPORTING LEVEL
   /facet-headers[3]:
@@ -96,9 +102,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-01-12T10:00:00Z
-    hippostdpubwf:lastModificationDate: 2018-01-12T10:00:00Z
+    hippostdpubwf:lastModificationDate: 2018-03-15T11:03:11.086Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-01-12T10:00:00Z
+    hippostdpubwf:publicationDate: 2018-03-15T11:03:13.291Z
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: resourcebundle:resourcebundle
@@ -111,8 +117,12 @@
     - ''
     - ''
     - ''
+    - ''
+    - ''
+    - ''
     resourcebundle:id: facet-headers
     resourcebundle:keys:
+    - assuredStatus
     - document-type
     - category
     - information-type
@@ -121,19 +131,18 @@
     - year
     - month
     - timeframe
-    - assuredStatus
     - publishedBy
     - reportingLevel
     resourcebundle:messages:
+    - ASSURED
     - DOCUMENT TYPE
-    - CATEGORY
+    - CATEGORY/TOPIC
     - INFORMATION TYPE
     - GEOGRAPHICAL COVERAGE
     - GEOGRAPHICAL GRANULARITY
     - YEAR
     - MONTH
     - TIMEFRAME
-    - ASSURED
     - PUBLISHED BY
     - REPORTING LEVEL
   hippo:name: facet headers

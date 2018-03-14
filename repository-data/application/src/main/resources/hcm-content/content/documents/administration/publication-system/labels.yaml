@@ -27,7 +27,7 @@
     - Publication
     - Data set
     - Series / Collection
-    - Search Clinical Indicators
+    - Search in Indicators
   /labels[2]:
     hippo:availability:
     - preview
@@ -57,7 +57,7 @@
     - Publication
     - Data set
     - Series / Collection
-    - Search Clinical Indicators
+    - Search in Indicators
   /labels[3]:
     hippo:availability:
     - live
@@ -87,7 +87,7 @@
     - Publication
     - Data set
     - Series / Collection
-    - Search Clinical Indicators
+    - Search in Indicators
   hippo:name: Labels
   jcr:mixinTypes:
   - hippo:named

@@ -10,7 +10,7 @@
     </div><!--
     --><div class="layout__item layout-1-2" style="text-align:right">
         <@hst.link siteMapItemRefId="search" var="searchLink" navigationStateful=true/>
-        <a href="${searchLink}" title="Clear all">Clear all</a>
+        <a href="${searchLink}" title="Reset">Reset</a>
     </div>
 </div>
 <#if facets??>
@@ -38,7 +38,8 @@
                     <#elseif facet.name="category">
                         <#assign valueName=taxonomy.getValueName(value.name)/>
                     <#elseif facet.name="document-type">
-                        <@fmt.message key="facet."+value.name var="valueName"/>  
+                        <@fmt.message key="facet."+value.name var="docname"/> 
+                        <#assign valueName=docname/>
                     <#elseif facet.name="assuredStatus">
                         <#assign valueName=value.name?boolean?then('Yes','No')/>                                         
                     <#else>

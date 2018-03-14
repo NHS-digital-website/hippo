@@ -12,7 +12,7 @@
       <div class="document-header__inner">
         <h1 class="layout-5-6 push--bottom" data-uipath="ps.indicator.title">${indicator.title}</h1>
 
-        <#if indicator.assuredStatus><h2 style="text-decoration:underline">Independently assured by IGB</h2></#if>
+        <#if indicator.assuredStatus><h2 style="text-decoration:underline">Independently assured by Information Governance Board (IGB)</h2></#if>
 
         <div class="layout">
             <div class="layout__item layout-1-2">
@@ -25,16 +25,17 @@
                 <p class="push-half--bottom"><strong><@fmt.message key="headers.contactAuthor"/></strong>: <a href="mailto:${indicator.topbar.contactAuthor.contactAuthorEmail}"> ${indicator.topbar.contactAuthor.contactAuthorName}</a></p>
                 <p class="push-half--bottom"><strong><@fmt.message key="headers.reportingLevel"/></strong>: ${indicator.reportingLevel}</p>
                 <p class="push-half--bottom"><strong><@fmt.message key="headers.reviewDate"/></strong>: ${indicator.topbar.reviewDate.time?string[dateFormat]}</p>
-                <#if indicator.geographicCoverage?has_content><div class="flex__item">
-                    <div class="media">
-                        <div class="media__icon media__icon--geographic-coverage"></div>
-                        <dl class="media__body">
-                            <dt id="geographic-coverage"><@fmt.message key="headers.geographicCoverage"/></dt>
-                            <dd data-uipath="ps.indicator.geographic-coverage">
-                                <#list indicator.geographicCoverage as geographicCoverageItem><#if geographicCoverageItem?index != 0>, </#if>${geographicCoverageItem}</#list>
-                            </dd>
-                        </dl>
-                    </div>
+                <#if indicator.geographicCoverage?has_content>
+                    <div class="flex__item">
+                        <div class="media">
+                            <div class="media__icon media__icon--geographic-coverage"></div>
+                            <dl class="media__body">
+                                <dt id="geographic-coverage"><@fmt.message key="headers.geographicCoverage"/></dt>
+                                <dd data-uipath="ps.indicator.geographic-coverage">
+                                    ${indicator.geographicCoverage}
+                                </dd>
+                            </dl>
+                        </div>
                     </div>
                 </#if>
             </div>
@@ -46,7 +47,7 @@
         <div class="jumpto__inner">
             <div class="jumpto__inner__nav">
 
-                <h4><strong>Contents</strong></h4>
+                <h4><strong>Page Contents</strong></h4>
                 <div class="jumpto__inner__nav__divider"></div>
                 <ul>
                     <li><a href="#purpose"><@fmt.message key="headers.purpose"/></a></li>
@@ -80,7 +81,7 @@
 
 
         <details id="methodology" class="push-double--bottom">
-            <summary><span>How this indicator is calculated</span></summary></br>
+            <summary><span class="pointer" style="font-size:16px;text-decoration:underline;">How this indicator is calculated</span></summary></br>
             <div class="panel panel--grey">
                 <#if indicator.details.methodology.dataSource.content?has_content>
                     <h3><strong><@fmt.message key="headers.dataSource"/></strong></h3>
@@ -122,9 +123,9 @@
             <h2><strong><@fmt.message key="headers.categories"/></strong></h2>
 
             <#list indicator.taxonomyList?keys as key>
-                <p class="filter-list__item__link" data-uipath="ps.indicator.taxonomy-${key}"><a title="Search for ${indicator.taxonomyList[key]}" href="../search/category/${key}">${indicator.taxonomyList[key]}</a></p>
-            </#list>
-        </section>
+                <p class="filter-list__item__link" data-uipath="ps.indicator.taxonomy-${key}"><a title="Search for ${indicator.taxonomyList[key]}" href="${searchLink}/category/${key}/">${indicator.taxonomyList[key]}</a></p>
+            </#list>   
+        </section>     
 
 
         <#if indicator.hasAttachments()>

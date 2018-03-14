@@ -109,6 +109,7 @@
         </p>
 
         <#if item.assuredStatus>
+            <div class="media__icon--assured-indicator" data-uipath="ps.search-results.result.assured-indicator-icon" title="Assured Indicator"></div>
             <p class="flush zeta" data-uipath="ps.search-results.result.assured-status"><@fmt.message key="labels.assured"/></p>
             <p class="flush zeta" data-uipath="ps.search-results.result.publisher-and-date" style="font-weight:bold"><@fmt.message key="headers.publishedBy"/>: ${item.publishedBy}. <@fmt.message key="headers.assured"/>: ${item.assuranceDate.time?string[dateFormat]}</p>
         <#else>

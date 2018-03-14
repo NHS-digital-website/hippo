@@ -301,7 +301,7 @@ public class SiteSteps extends AbstractSpringSteps {
             taxonomy.getLevel2() + " (1)",
             taxonomy.getLevel3() + " (1)"
         );
-        listMatchesItems("containing in any order", expectedTaxonomy, sitePage.findElementWithTitle("CATEGORY"));
+        listMatchesItems("containing in any order", expectedTaxonomy, sitePage.findElementWithTitle("CATEGORY/TOPIC"));
     }
 
     @Then("^I can click on the publication$")
