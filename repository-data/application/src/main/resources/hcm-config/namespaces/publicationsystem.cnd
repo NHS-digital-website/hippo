@@ -30,6 +30,9 @@
 [publicationsystem:dataset] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
   orderable
 
+[publicationsystem:extattachment] > hippo:compound, hippostd:relaxed
+  orderable
+
 [publicationsystem:imageSection] > hippo:compound, hippostd:relaxed
   orderable
 

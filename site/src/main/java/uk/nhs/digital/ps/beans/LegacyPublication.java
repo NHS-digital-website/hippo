@@ -4,6 +4,8 @@ import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
+import java.util.*;
+
 @HippoEssentialsGenerated(internalName = "publicationsystem:legacypublication")
 @Node(jcrType = "publicationsystem:legacypublication")
 public class LegacyPublication extends PublicationBase {
@@ -20,6 +22,11 @@ public class LegacyPublication extends PublicationBase {
         assertPropertyPermitted(PropertyKeys.KEY_FACTS);
 
         return getHippoHtml(PropertyKeys.KEY_FACTS);
+    }
+
+    @HippoEssentialsGenerated(internalName = PropertyKeys.ATTACHMENTS_V3)
+    public List<ExtAttachment> getExtAttachments() {
+        return getChildBeansIfPermitted(PropertyKeys.ATTACHMENTS_V3, ExtAttachment.class);
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:publicationid")
