@@ -134,7 +134,7 @@
                 <div class="panel panel--grey push-half--bottom">
                     <h3><@fmt.message key="headers.resources"/></h3>
                     <ul data-uipath="ps.publication.resources">
-                        <#list legacyPublication.attachments as attachment>
+                        <#list legacyPublication.getExtAttachments() as attachment>
                             <li class="attachment">
                                 <a title="${attachment.text}" href="<@hst.link hippobean=attachment.resource/>" onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${attachment.resource.filename}');">${attachment.text}</a>;
                                 <span class="fileSize">size: <@formatFileSize bytesCount=attachment.resource.length/></span>
