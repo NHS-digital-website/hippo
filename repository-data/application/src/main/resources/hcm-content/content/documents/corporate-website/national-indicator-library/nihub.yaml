@@ -1,13 +1,45 @@
 ---
 /content/documents/corporate-website/national-indicator-library/nihub:
   /nihub[1]:
-    /nationalindicatorlibrary:igbHubLink:
+    /nationalindicatorlibrary:gettingAssured:
+      /nationalindicatorlibrary:content:
+        hippostd:content: |-
+          <h1 style="text-align:center">We are here to help</h1>
+
+          <table border="0" cellpadding="5" cellspacing="10" style="width:100%" align="left">
+           <thead>
+            <tr>
+             <th scope="col">
+             <h3 style="text-align:center">Advice from our experts</h3>
+             </th>
+             <th scope="col">
+             <h3 style="text-align:center">Add your indicator to the library</h3>
+             </th>
+             <th scope="col">
+             <h3 style="text-align:center">Apply for independent assurance</h3>
+             </th>
+            </tr>
+           </thead>
+           <tbody>
+            <tr>
+             <td style="text-align:center">
+             <h4>Get advice from our health and social care experts on how to develop good quality indicators</h4>
+             </td>
+             <td style="text-align:center">
+             <h4>Add an indicator to the library, from your health or social care organisation</h4>
+             </td>
+             <td style="text-align:center">
+             <h4>Apply to have your indicator's methodology independently assured by industry experts</h4>
+             </td>
+            </tr>
+           </tbody>
+          </table>
+
+          <p>&nbsp;</p>
+        jcr:primaryType: hippostd:html
       jcr:primaryType: nationalindicatorlibrary:nihublink
-      nationalindicatorlibrary:relativeUrl: igb
-      nationalindicatorlibrary:summary: IGB consists of experts from across the health
-        and social care system who oversee the indicator assurance process, ensuring
-        that all the correct stages have been followed.
-      nationalindicatorlibrary:title: Find out more about the team
+      nationalindicatorlibrary:relativeUrl: help
+      nationalindicatorlibrary:title: Find out more about our services
     /nationalindicatorlibrary:nihublink[1]:
       /nationalindicatorlibrary:landingPageLink:
         jcr:primaryType: nationalindicatorlibrary:actionlink
@@ -47,48 +79,96 @@
       nationalindicatorlibrary:summary: Apply to have your indicator's methodology
         independently assured by industry experts.
       nationalindicatorlibrary:title: Apply for independent assurance
-    /nationalindicatorlibrary:populateTopicLinks[1]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Accidents and emergencies
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/accident-and-emergency
-    /nationalindicatorlibrary:populateTopicLinks[2]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Mental health
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/mental-health
-    /nationalindicatorlibrary:populateTopicLinks[3]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Autism
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/autistic-spectrum
-    /nationalindicatorlibrary:populateTopicLinks[4]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Mortality
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/mortality-and-death
-    /nationalindicatorlibrary:populateTopicLinks[5]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Cancer
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/cancer
-    /nationalindicatorlibrary:populateTopicLinks[6]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Pregnancy
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/pregnancy
-    /nationalindicatorlibrary:populateTopicLinks[7]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Child health
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/child-development
-    /nationalindicatorlibrary:populateTopicLinks[8]:
+    /nationalindicatorlibrary:popularTopicLinks[10]:
       jcr:primaryType: nationalindicatorlibrary:actionlink
       nationalindicatorlibrary:actionLinkTitle: Population health
       nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/population
-    /nationalindicatorlibrary:populateTopicLinks[9]:
+    /nationalindicatorlibrary:popularTopicLinks[11]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Smoking
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/smoking
+    /nationalindicatorlibrary:popularTopicLinks[12]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Stroke related illness
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/stroke
+    /nationalindicatorlibrary:popularTopicLinks[1]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Accidents and emergencies
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/accident-and-emergency
+    /nationalindicatorlibrary:popularTopicLinks[2]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Autism
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/autistic-spectrum
+    /nationalindicatorlibrary:popularTopicLinks[3]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Cancer
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/cancer
+    /nationalindicatorlibrary:popularTopicLinks[4]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Child Health
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/maternal--infant-and-child-health
+    /nationalindicatorlibrary:popularTopicLinks[5]:
       jcr:primaryType: nationalindicatorlibrary:actionlink
       nationalindicatorlibrary:actionLinkTitle: Diabetes
       nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/diabetes
+    /nationalindicatorlibrary:popularTopicLinks[6]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Mental health
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/mental-health
+    /nationalindicatorlibrary:popularTopicLinks[7]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Mortality
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/mortality-and-death
+    /nationalindicatorlibrary:popularTopicLinks[8]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Obesity
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/obesity
+    /nationalindicatorlibrary:popularTopicLinks[9]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Pregnancy
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/pregnancy
+    /nationalindicatorlibrary:populateTopicLinks[1]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Population health
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/population
+    /nationalindicatorlibrary:populateTopicLinks[2]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Smoking
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/smoking
+    /nationalindicatorlibrary:populateTopicLinks[3]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Cancer
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/cancer
+    /nationalindicatorlibrary:populateTopicLinks[4]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Child Health
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/maternal--infant-and-child-health
+    /nationalindicatorlibrary:populateTopicLinks[5]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Diabetes
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/diabetes
+    /nationalindicatorlibrary:populateTopicLinks[6]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Mental Health
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/mental-health
+    /nationalindicatorlibrary:populateTopicLinks[7]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Mortality
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/mortality-and-death
+    /nationalindicatorlibrary:populateTopicLinks[8]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Obesity
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/obese
+    /nationalindicatorlibrary:populateTopicLinks[9]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Pregnancy
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/pregnancy
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-19T14:04:05.264Z
-    hippostdpubwf:lastModificationDate: 2018-02-23T08:18:44.512Z
+    hippostdpubwf:lastModificationDate: 2018-03-16T10:24:04.548Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: cc1f9325-d13d-4864-963d-7058e02362be
     hippotranslation:locale: en
@@ -101,13 +181,45 @@
       assurance rating.
     nationalindicatorlibrary:title: National Indicator Library
   /nihub[2]:
-    /nationalindicatorlibrary:igbHubLink:
+    /nationalindicatorlibrary:gettingAssured:
+      /nationalindicatorlibrary:content:
+        hippostd:content: |-
+          <h1 style="text-align:center">We are here to help</h1>
+
+          <table border="0" cellpadding="5" cellspacing="10" style="width:100%" align="left">
+           <thead>
+            <tr>
+             <th scope="col">
+             <h3 style="text-align:center">Advice from our experts</h3>
+             </th>
+             <th scope="col">
+             <h3 style="text-align:center">Add your indicator to the library</h3>
+             </th>
+             <th scope="col">
+             <h3 style="text-align:center">Apply for independent assurance</h3>
+             </th>
+            </tr>
+           </thead>
+           <tbody>
+            <tr>
+             <td style="text-align:center">
+             <h4>Get advice from our health and social care experts on how to develop good quality indicators</h4>
+             </td>
+             <td style="text-align:center">
+             <h4>Add an indicator to the library, from your health or social care organisation</h4>
+             </td>
+             <td style="text-align:center">
+             <h4>Apply to have your indicator's methodology independently assured by industry experts</h4>
+             </td>
+            </tr>
+           </tbody>
+          </table>
+
+          <p>&nbsp;</p>
+        jcr:primaryType: hippostd:html
       jcr:primaryType: nationalindicatorlibrary:nihublink
-      nationalindicatorlibrary:relativeUrl: igb
-      nationalindicatorlibrary:summary: IGB consists of experts from across the health
-        and social care system who oversee the indicator assurance process, ensuring
-        that all the correct stages have been followed.
-      nationalindicatorlibrary:title: Find out more about the team
+      nationalindicatorlibrary:relativeUrl: help
+      nationalindicatorlibrary:title: Find out more about our services
     /nationalindicatorlibrary:nihublink[1]:
       /nationalindicatorlibrary:landingPageLink:
         jcr:primaryType: nationalindicatorlibrary:actionlink
@@ -147,49 +259,97 @@
       nationalindicatorlibrary:summary: Apply to have your indicator's methodology
         independently assured by industry experts.
       nationalindicatorlibrary:title: Apply for independent assurance
-    /nationalindicatorlibrary:populateTopicLinks[1]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Accidents and emergencies
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/accident-and-emergency
-    /nationalindicatorlibrary:populateTopicLinks[2]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Mental health
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/mental-health
-    /nationalindicatorlibrary:populateTopicLinks[3]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Autism
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/autistic-spectrum
-    /nationalindicatorlibrary:populateTopicLinks[4]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Mortality
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/mortality-and-death
-    /nationalindicatorlibrary:populateTopicLinks[5]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Cancer
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/cancer
-    /nationalindicatorlibrary:populateTopicLinks[6]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Pregnancy
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/pregnancy
-    /nationalindicatorlibrary:populateTopicLinks[7]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Child health
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/child-development
-    /nationalindicatorlibrary:populateTopicLinks[8]:
+    /nationalindicatorlibrary:popularTopicLinks[10]:
       jcr:primaryType: nationalindicatorlibrary:actionlink
       nationalindicatorlibrary:actionLinkTitle: Population health
       nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/population
-    /nationalindicatorlibrary:populateTopicLinks[9]:
+    /nationalindicatorlibrary:popularTopicLinks[11]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Smoking
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/smoking
+    /nationalindicatorlibrary:popularTopicLinks[12]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Stroke related illness
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/stroke
+    /nationalindicatorlibrary:popularTopicLinks[1]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Accidents and emergencies
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/accident-and-emergency
+    /nationalindicatorlibrary:popularTopicLinks[2]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Autism
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/autistic-spectrum
+    /nationalindicatorlibrary:popularTopicLinks[3]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Cancer
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/cancer
+    /nationalindicatorlibrary:popularTopicLinks[4]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Child Health
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/maternal--infant-and-child-health
+    /nationalindicatorlibrary:popularTopicLinks[5]:
       jcr:primaryType: nationalindicatorlibrary:actionlink
       nationalindicatorlibrary:actionLinkTitle: Diabetes
       nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/diabetes
+    /nationalindicatorlibrary:popularTopicLinks[6]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Mental health
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/mental-health
+    /nationalindicatorlibrary:popularTopicLinks[7]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Mortality
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/mortality-and-death
+    /nationalindicatorlibrary:popularTopicLinks[8]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Obesity
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/obesity
+    /nationalindicatorlibrary:popularTopicLinks[9]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Pregnancy
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/pregnancy
+    /nationalindicatorlibrary:populateTopicLinks[1]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Population health
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/population
+    /nationalindicatorlibrary:populateTopicLinks[2]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Smoking
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/smoking
+    /nationalindicatorlibrary:populateTopicLinks[3]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Cancer
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/cancer
+    /nationalindicatorlibrary:populateTopicLinks[4]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Child Health
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/maternal--infant-and-child-health
+    /nationalindicatorlibrary:populateTopicLinks[5]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Diabetes
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/diabetes
+    /nationalindicatorlibrary:populateTopicLinks[6]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Mental Health
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/mental-health
+    /nationalindicatorlibrary:populateTopicLinks[7]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Mortality
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/mortality-and-death
+    /nationalindicatorlibrary:populateTopicLinks[8]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Obesity
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/obese
+    /nationalindicatorlibrary:populateTopicLinks[9]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Pregnancy
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/pregnancy
     common:searchable: true
     hippo:availability:
     - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-19T14:04:05.264Z
-    hippostdpubwf:lastModificationDate: 2018-02-23T08:12:49.432Z
+    hippostdpubwf:lastModificationDate: 2018-03-16T10:27:40.278Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: cc1f9325-d13d-4864-963d-7058e02362be
     hippotranslation:locale: en
@@ -203,13 +363,45 @@
       assurance rating.
     nationalindicatorlibrary:title: National Indicator Library
   /nihub[3]:
-    /nationalindicatorlibrary:igbHubLink:
+    /nationalindicatorlibrary:gettingAssured:
+      /nationalindicatorlibrary:content:
+        hippostd:content: |-
+          <h1 style="text-align:center">We are here to help</h1>
+
+          <table border="0" cellpadding="5" cellspacing="10" style="width:100%" align="left">
+           <thead>
+            <tr>
+             <th scope="col">
+             <h3 style="text-align:center">Advice from our experts</h3>
+             </th>
+             <th scope="col">
+             <h3 style="text-align:center">Add your indicator to the library</h3>
+             </th>
+             <th scope="col">
+             <h3 style="text-align:center">Apply for independent assurance</h3>
+             </th>
+            </tr>
+           </thead>
+           <tbody>
+            <tr>
+             <td style="text-align:center">
+             <h4>Get advice from our health and social care experts on how to develop good quality indicators</h4>
+             </td>
+             <td style="text-align:center">
+             <h4>Add an indicator to the library, from your health or social care organisation</h4>
+             </td>
+             <td style="text-align:center">
+             <h4>Apply to have your indicator's methodology independently assured by industry experts</h4>
+             </td>
+            </tr>
+           </tbody>
+          </table>
+
+          <p>&nbsp;</p>
+        jcr:primaryType: hippostd:html
       jcr:primaryType: nationalindicatorlibrary:nihublink
-      nationalindicatorlibrary:relativeUrl: igb
-      nationalindicatorlibrary:summary: IGB consists of experts from across the health
-        and social care system who oversee the indicator assurance process, ensuring
-        that all the correct stages have been followed.
-      nationalindicatorlibrary:title: Find out more about the team
+      nationalindicatorlibrary:relativeUrl: help
+      nationalindicatorlibrary:title: Find out more about our services
     /nationalindicatorlibrary:nihublink[1]:
       /nationalindicatorlibrary:landingPageLink:
         jcr:primaryType: nationalindicatorlibrary:actionlink
@@ -249,51 +441,99 @@
       nationalindicatorlibrary:summary: Apply to have your indicator's methodology
         independently assured by industry experts.
       nationalindicatorlibrary:title: Apply for independent assurance
-    /nationalindicatorlibrary:populateTopicLinks[1]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Accidents and emergencies
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/accident-and-emergency
-    /nationalindicatorlibrary:populateTopicLinks[2]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Mental health
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/mental-health
-    /nationalindicatorlibrary:populateTopicLinks[3]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Autism
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/autistic-spectrum
-    /nationalindicatorlibrary:populateTopicLinks[4]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Mortality
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/mortality-and-death
-    /nationalindicatorlibrary:populateTopicLinks[5]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Cancer
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/cancer
-    /nationalindicatorlibrary:populateTopicLinks[6]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Pregnancy
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/pregnancy
-    /nationalindicatorlibrary:populateTopicLinks[7]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Child health
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/child-development
-    /nationalindicatorlibrary:populateTopicLinks[8]:
+    /nationalindicatorlibrary:popularTopicLinks[10]:
       jcr:primaryType: nationalindicatorlibrary:actionlink
       nationalindicatorlibrary:actionLinkTitle: Population health
       nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/population
-    /nationalindicatorlibrary:populateTopicLinks[9]:
+    /nationalindicatorlibrary:popularTopicLinks[11]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Smoking
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/smoking
+    /nationalindicatorlibrary:popularTopicLinks[12]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Stroke related illness
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/stroke
+    /nationalindicatorlibrary:popularTopicLinks[1]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Accidents and emergencies
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/accident-and-emergency
+    /nationalindicatorlibrary:popularTopicLinks[2]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Autism
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/autistic-spectrum
+    /nationalindicatorlibrary:popularTopicLinks[3]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Cancer
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/cancer
+    /nationalindicatorlibrary:popularTopicLinks[4]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Child Health
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/maternal--infant-and-child-health
+    /nationalindicatorlibrary:popularTopicLinks[5]:
       jcr:primaryType: nationalindicatorlibrary:actionlink
       nationalindicatorlibrary:actionLinkTitle: Diabetes
       nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/diabetes
+    /nationalindicatorlibrary:popularTopicLinks[6]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Mental health
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/mental-health
+    /nationalindicatorlibrary:popularTopicLinks[7]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Mortality
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/mortality-and-death
+    /nationalindicatorlibrary:popularTopicLinks[8]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Obesity
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/obesity
+    /nationalindicatorlibrary:popularTopicLinks[9]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Pregnancy
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/pregnancy
+    /nationalindicatorlibrary:populateTopicLinks[1]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Population health
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/population
+    /nationalindicatorlibrary:populateTopicLinks[2]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Smoking
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/smoking
+    /nationalindicatorlibrary:populateTopicLinks[3]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Cancer
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/cancer
+    /nationalindicatorlibrary:populateTopicLinks[4]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Child Health
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/maternal--infant-and-child-health
+    /nationalindicatorlibrary:populateTopicLinks[5]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Diabetes
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/diabetes
+    /nationalindicatorlibrary:populateTopicLinks[6]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Mental Health
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/mental-health
+    /nationalindicatorlibrary:populateTopicLinks[7]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Mortality
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/mortality-and-death
+    /nationalindicatorlibrary:populateTopicLinks[8]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Obesity
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/obese
+    /nationalindicatorlibrary:populateTopicLinks[9]:
+      jcr:primaryType: nationalindicatorlibrary:actionlink
+      nationalindicatorlibrary:actionLinkTitle: Pregnancy
+      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/pregnancy
     common:searchable: true
     hippo:availability:
     - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-19T14:04:05.264Z
-    hippostdpubwf:lastModificationDate: 2018-02-23T08:12:49.432Z
+    hippostdpubwf:lastModificationDate: 2018-03-16T10:27:40.278Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-02-23T08:12:55.182Z
+    hippostdpubwf:publicationDate: 2018-03-16T10:27:44.134Z
     hippotranslation:id: cc1f9325-d13d-4864-963d-7058e02362be
     hippotranslation:locale: en
     jcr:mixinTypes:

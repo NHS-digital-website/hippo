@@ -27,25 +27,193 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /content:
+          /mainContent:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Content
-            field: content
+            caption: Main Content
+            field: mainContent
             hint: ''
             jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /adviceTitle:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Advice Title
+            field: adviceTitle
+            jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /adviceContent:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Advice Content
+            field: adviceContent
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /adviceForm:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Advice Form
+            field: adviceForm
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /addTitle:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Add Title
+            field: addTitle
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /addContent:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Add Content
+            field: addContent
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /addForm:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Add Form
+            field: addForm
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /applyTitle:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Apply Title
+            field: applyTitle
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /applyContent:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Apply Content
+            field: applyContent
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /applyForm:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Apply Form
+            field: applyForm
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /content:
+          /addContent:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: nationalindicatorlibrary:content
+            hipposysedit:path: nationalindicatorlibrary:addContent
             hipposysedit:primary: false
-            hipposysedit:type: Html
+            hipposysedit:type: hippostd:html
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /addForm:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:addForm
+            hipposysedit:primary: false
+            hipposysedit:type: publicationsystem:attachment
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /addTitle:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:addTitle
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
+          /adviceContent:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:adviceContent
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /adviceForm:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:adviceForm
+            hipposysedit:primary: false
+            hipposysedit:type: publicationsystem:attachment
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /adviceTitle:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:adviceTitle
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
+          /applyContent:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:applyContent
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /applyForm:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:applyForm
+            hipposysedit:primary: false
+            hipposysedit:type: publicationsystem:attachment
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /applyTitle:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:applyTitle
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
+          /mainContent:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:mainContent
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
@@ -73,6 +241,63 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /nationalindicatorlibrary:addContent:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /nationalindicatorlibrary:addForm:
+            /publicationsystem:attachmentResource:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /namespaces/nationalindicatorlibrary/nilanding/prototypes/prototype/addForm/attachmentResource/text.bin
+                type: binary
+              jcr:data:
+                resource: /namespaces/nationalindicatorlibrary/nilanding/prototypes/prototype/addForm/attachmentResource/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:attachment
+            publicationsystem:displayName: ''
+          /nationalindicatorlibrary:adviceContent:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /nationalindicatorlibrary:adviceForm:
+            /publicationsystem:attachmentResource:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /namespaces/nationalindicatorlibrary/nilanding/prototypes/prototype/adviceForm/attachmentResource/text.bin
+                type: binary
+              jcr:data:
+                resource: /namespaces/nationalindicatorlibrary/nilanding/prototypes/prototype/adviceForm/attachmentResource/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:attachment
+            publicationsystem:displayName: ''
+          /nationalindicatorlibrary:applyContent:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /nationalindicatorlibrary:applyForm:
+            /publicationsystem:attachmentResource:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /namespaces/nationalindicatorlibrary/nilanding/prototypes/prototype/applyForm/attachmentResource/text.bin
+                type: binary
+              jcr:data:
+                resource: /namespaces/nationalindicatorlibrary/nilanding/prototypes/prototype/applyForm/attachmentResource/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:attachment
+            publicationsystem:displayName: ''
+          /nationalindicatorlibrary:mainContent:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft
@@ -85,7 +310,10 @@ definitions:
           jcr:mixinTypes:
           - mix:referenceable
           jcr:primaryType: nationalindicatorlibrary:nilanding
-          nationalindicatorlibrary:content: ''
+          nationalindicatorlibrary:addTitle: ''
+          nationalindicatorlibrary:adviceTitle: ''
+          nationalindicatorlibrary:applyTitle: ''
+          nationalindicatorlibrary:mainContent: ''
           nationalindicatorlibrary:title: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:

@@ -47,6 +47,9 @@
     - headers.interpretationGuidelines
     - headers.qualityStatement
     - headers.technicalSpecification
+    - headers.adviceForm
+    - headers.addForm
+    - headers.applyForm
     - headers.categories
     - headers.resources
     - headers.methodology
@@ -78,6 +81,9 @@
     - Interpretation Guidelines
     - Quality Statement
     - Technical Specification
+    - Advice form
+    - Indicator template form
+    - Assurance application form
     - Categories
     - Resources
     - Methodology
@@ -93,7 +99,7 @@
     - Calculation
     - Popular indicator topics
     - Indicator topics A-Z
-    - Indicators and assurance
+    - Getting assured
     - Assured
     - Date
     - Indicator Governance Board (IGB) Assurance
@@ -146,6 +152,9 @@
     - headers.interpretationGuidelines
     - headers.qualityStatement
     - headers.technicalSpecification
+    - headers.adviceForm
+    - headers.addForm
+    - headers.applyForm
     - headers.categories
     - headers.resources
     - headers.methodology
@@ -177,6 +186,9 @@
     - Interpretation Guidelines
     - Quality Statement
     - Technical Specification
+    - Advice form
+    - Indicator template form
+    - Assurance application form
     - Categories
     - Resources
     - Methodology
@@ -192,7 +204,7 @@
     - Calculation
     - Popular indicator topics
     - Indicator topics A-Z
-    - Indicators and assurance
+    - Getting Assured
     - Assured
     - Date
     - Indicator Governance Board (IGB) Assurance
@@ -245,6 +257,9 @@
     - headers.interpretationGuidelines
     - headers.qualityStatement
     - headers.technicalSpecification
+    - headers.adviceForm
+    - headers.addForm
+    - headers.applyForm
     - headers.categories
     - headers.resources
     - headers.methodology
@@ -276,6 +291,9 @@
     - Interpretation Guidelines
     - Quality Statement
     - Technical Specification
+    - Advice form
+    - Indicator template form
+    - Assurance application form
     - Categories
     - Resources
     - Methodology
@@ -291,7 +309,7 @@
     - Calculation
     - Popular indicator topics
     - Indicator topics A-Z
-    - Indicators and assurance
+    - Getting Assured
     - Assured
     - Date
     - Indicator Governance Board (IGB) Assurance

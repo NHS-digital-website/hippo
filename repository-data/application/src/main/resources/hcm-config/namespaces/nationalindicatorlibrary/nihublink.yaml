@@ -27,13 +27,14 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /summary:
+          /content:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Summary
-            field: summary
+            caption: Content
+            field: content
+            hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
           /relativeUrl:
             /cluster.options:
@@ -47,6 +48,16 @@ definitions:
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
+          /content:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:content
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
           /relativeUrl:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -54,14 +65,6 @@ definitions:
             hipposysedit:path: nationalindicatorlibrary:relativeUrl
             hipposysedit:primary: false
             hipposysedit:type: String
-            jcr:primaryType: hipposysedit:field
-          /summary:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: nationalindicatorlibrary:summary
-            hipposysedit:primary: false
-            hipposysedit:type: Text
             hipposysedit:validators:
             - non-empty
             - required
@@ -86,16 +89,18 @@ definitions:
           - mix:referenceable
           - hipposysedit:remodel
           jcr:primaryType: hipposysedit:nodetype
-          jcr:uuid: b6754c00-f33f-4777-8229-de9ba3d3b2fc
+          jcr:uuid: 6d3044fb-cf57-49a6-a1b2-c33d3bd9fad3
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: hippo:handle
         jcr:uuid: b63e359a-d3a2-429a-961b-f3a90dec4c64
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /nationalindicatorlibrary:content:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           jcr:primaryType: nationalindicatorlibrary:nihublink
           nationalindicatorlibrary:relativeUrl: ''
-          nationalindicatorlibrary:summary: ''
           nationalindicatorlibrary:title: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:

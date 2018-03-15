@@ -12,52 +12,26 @@
 <section class="document-content">
     <h2><@fmt.message key="headers.popularTopics"/></h2>
     <div class="nihubSection">
-        <div class="document-content">
+        <div class="document-content" style="text-align:center">
             <#list document.popularTopicLinks as link>
-                <li>
-                    <a href="${link.linkUrl}" target="_blank">${link.linkText}</a>
-                </li>
+                <div class="layout__item layout-1-4">
+                    <h3><a href="${link.linkUrl}" target="_blank">${link.linkText}</a></h3>
+                </div>
             </#list>
-        </div>
-    </div>
-</section>
-
-<section class="document-content">
-    <h2><@fmt.message key="headers.topicsAZ"/></h2>
-    <div class="nihubSection">
-        <div class="document-content">
-            <#list ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'] as x>
-                <a class="niHubAlpha" href="/indicators/search?topic=a" title="">${x}</a>
-            </#list>
-        </div>
-    </div>
-</section>
-
-
-<section class="document-content">
-    <div class="nihubIgbSection">
-    <h2><@fmt.message key="headers.igbAssurance"/></h2>
-        <div>
-            <div class="layout__item layout-5-6">
-                <p class="zeta" style="text-align:center;">${document.igbHubLink.summary}</p>
-                <h3 style="text-align:center;"><a href="${document.igbHubLink.pageLink}" title="${document.igbHubLink.title}">${document.igbHubLink.title}</a></h3>  
-            </div>
         </div>
     </div>
 </section>
 
 <section class="document-content">
     <h2><@fmt.message key="headers.indicatorsAndAssurance"/></h2>
-
-    <div class="nihubSection">
-            <div class="document-content">
-                <#list document.niHubLink as link><!--
-                    --><div class="layout__item layout-1-3">
-                        <h3><a href="${link.pageLink}" title="${link.title}">${link.title}</a></h3>
-                        <p class="zeta">${link.summary}</p>
-                    </div><!--
-                --></#list>
-            </div>
+    <div class="nihubSection"><br>
+    <div class="nihubIgbSection">
+        <div>
+            <p class="zeta" style="text-align:center;"><#outputformat "undefined">${document.gettingAssured.content.content}</#outputformat></p>
+            <h3 style="text-align:center;"><a href="${document.gettingAssured.pageLink}" title="${document.gettingAssured.title}">${document.gettingAssured.title}</a></h3>  
+            <br>
+        </div>
+    </div>
     </div>
 </section>
 
