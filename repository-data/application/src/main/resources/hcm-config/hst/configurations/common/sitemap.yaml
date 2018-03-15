@@ -3,7 +3,32 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:sitemap:
       /_any_:
+        /_index_:
+          hst:componentconfigurationid: hst:pages/404
+          hst:componentconfigurationmappingnames:
+          - website:service
+          - website:general
+          - website:hub
+          - website:componentlist
+          hst:componentconfigurationmappingvalues:
+          - hst:pages/service
+          - hst:pages/general
+          - hst:pages/hub
+          - hst:pages/componentlist
+          hst:relativecontentpath: ${parent}/content
+          jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404
+        hst:componentconfigurationmappingnames:
+        - website:service
+        - website:general
+        - website:hub
+        - website:componentlist
+        hst:componentconfigurationmappingvalues:
+        - hst:pages/service
+        - hst:pages/general
+        - hst:pages/hub
+        - hst:pages/componentlist
+        hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:
         /_any_:
@@ -13,54 +38,8 @@ definitions:
         hst:componentconfigurationid: hst:pages/about
         hst:relativecontentpath: about
         jcr:primaryType: hst:sitemapitem
-      /about-nhs-digital:
-        /_any_:
-          /_index_:
-            hst:componentconfigurationid: hst:pages/404
-            hst:componentconfigurationmappingnames:
-            - website:service
-            - website:general
-            - website:hub
-            - website:componentlist
-            hst:componentconfigurationmappingvalues:
-            - hst:pages/service
-            - hst:pages/general
-            - hst:pages/hub
-            - hst:pages/componentlist
-            hst:relativecontentpath: ${parent}/content
-            jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationid: hst:pages/404
-          hst:componentconfigurationmappingnames:
-          - website:service
-          - website:general
-          - website:hub
-          - website:componentlist
-          hst:componentconfigurationmappingvalues:
-          - hst:pages/service
-          - hst:pages/general
-          - hst:pages/hub
-          - hst:pages/componentlist
-          hst:relativecontentpath: ${parent}/${1}
-          jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/404
-        hst:relativecontentpath: about-nhs-digital
-        jcr:primaryType: hst:sitemapitem
       /data-and-information:
-        /_any_:
-          /_index_:
-            hst:componentconfigurationid: hst:pages/404
-            hst:componentconfigurationmappingnames:
-            - website:service
-            - website:general
-            - website:hub
-            - website:componentlist
-            hst:componentconfigurationmappingvalues:
-            - hst:pages/service
-            - hst:pages/general
-            - hst:pages/hub
-            - hst:pages/componentlist
-            hst:relativecontentpath: ${parent}/content
-            jcr:primaryType: hst:sitemapitem
+        /_index_:
           hst:componentconfigurationid: hst:pages/404
           hst:componentconfigurationmappingnames:
           - website:service
@@ -72,10 +51,67 @@ definitions:
           - hst:pages/general
           - hst:pages/hub
           - hst:pages/componentlist
-          hst:relativecontentpath: ${parent}/${1}
+          hst:relativecontentpath: data-and-information/content
+          jcr:primaryType: hst:sitemapitem
+        /methodologies:
+          /_any_:
+            hst:componentconfigurationid: hst:pages/404
+            hst:componentconfigurationmappingnames:
+            - nationalindicatorlibrary:nihub
+            - nationalindicatorlibrary:nilanding
+            - nationalindicatorlibrary:indicator
+            hst:componentconfigurationmappingvalues:
+            - hst:pages/nihub
+            - hst:pages/nilanding
+            - hst:pages/indicator
+            hst:relativecontentpath: national-indicator-library/${1}
+            jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/404
+          jcr:primaryType: hst:sitemapitem
+        /publications:
+          /_any_:
+            /_index_:
+              hst:componentconfigurationid: hst:pages/404
+              hst:componentconfigurationmappingnames:
+              - publicationsystem:archive
+              - publicationsystem:legacypublication
+              - publicationsystem:publication
+              - publicationsystem:series
+              hst:componentconfigurationmappingvalues:
+              - hst:pages/archive
+              - hst:pages/legacypublication
+              - hst:pages/publication
+              - hst:pages/series
+              hst:relativecontentpath: ${parent}/content
+              jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/404
+            hst:componentconfigurationmappingnames:
+            - publicationsystem:archive
+            - publicationsystem:dataset
+            - hippostd:folder
+            - publicationsystem:legacypublication
+            - publicationsystem:publication
+            - publicationsystem:series
+            hst:componentconfigurationmappingvalues:
+            - hst:pages/archive
+            - hst:pages/dataset
+            - hst:pages/folder
+            - hst:pages/legacypublication
+            - hst:pages/publication
+            - hst:pages/series
+            hst:relativecontentpath: publication-system/${1}
+            jcr:primaryType: hst:sitemapitem
+          /ci-hub:
+            /_any_:
+              hst:componentconfigurationid: hst:pages/cilanding
+              hst:relativecontentpath: publication-system/ci-hub/${1}
+              jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/404
+            hst:relativecontentpath: publication-system/ci-hub
+            jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/404
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404
-        hst:relativecontentpath: data-and-information
         jcr:primaryType: hst:sitemapitem
       /error:
         /404:
@@ -83,96 +119,12 @@ definitions:
           hst:refId: pagenotfound
           jcr:primaryType: hst:sitemapitem
         jcr:primaryType: hst:sitemapitem
-      /general:
-        /_any_:
-          /_index_:
-            hst:componentconfigurationid: hst:pages/general
-            hst:componentconfigurationmappingnames:
-            - website:general
-            hst:componentconfigurationmappingvalues:
-            - hst:pages/general
-            hst:relativecontentpath: ${parent}/content
-            jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationid: hst:pages/404
-          hst:componentconfigurationmappingnames:
-          - website:general
-          hst:componentconfigurationmappingvalues:
-          - hst:pages/general
-          hst:relativecontentpath: ${parent}/${1}
-          jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/general
-        hst:relativecontentpath: general
-        jcr:primaryType: hst:sitemapitem
       /homeland:
         /_any_:
           hst:componentconfigurationid: hst:pages/homeland
           hst:relativecontentpath: homeland
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/homeland
-        jcr:primaryType: hst:sitemapitem
-      /hubs:
-        /_any_:
-          /_index_:
-            hst:componentconfigurationid: hst:pages/404
-            hst:componentconfigurationmappingnames:
-            - website:hub
-            hst:componentconfigurationmappingvalues:
-            - hst:pages/hub
-            hst:relativecontentpath: ${parent}/content
-            jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationid: hst:pages/404
-          hst:componentconfigurationmappingnames:
-          - website:hub
-          hst:componentconfigurationmappingvalues:
-          - hst:pages/hub
-          hst:relativecontentpath: ${parent}/${1}
-          jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/hub
-        hst:relativecontentpath: hubs
-        jcr:primaryType: hst:sitemapitem
-      /lists:
-        /_any_:
-          hst:componentconfigurationid: hst:pages/404
-          hst:componentconfigurationmappingnames:
-          - website:componentlist
-          hst:componentconfigurationmappingvalues:
-          - hst:pages/componentlist
-          hst:relativecontentpath: ${parent}/${1}
-          jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/componentlist
-        hst:relativecontentpath: lists
-        jcr:primaryType: hst:sitemapitem
-      /news-and-events:
-        /_any_:
-          /_index_:
-            hst:componentconfigurationid: hst:pages/404
-            hst:componentconfigurationmappingnames:
-            - website:service
-            - website:general
-            - website:hub
-            - website:componentlist
-            hst:componentconfigurationmappingvalues:
-            - hst:pages/service
-            - hst:pages/general
-            - hst:pages/hub
-            - hst:pages/componentlist
-            hst:relativecontentpath: ${parent}/content
-            jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationid: hst:pages/404
-          hst:componentconfigurationmappingnames:
-          - website:service
-          - website:general
-          - website:hub
-          - website:componentlist
-          hst:componentconfigurationmappingvalues:
-          - hst:pages/service
-          - hst:pages/general
-          - hst:pages/hub
-          - hst:pages/componentlist
-          hst:relativecontentpath: ${parent}/${1}
-          jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/404
-        hst:relativecontentpath: news-and-events
         jcr:primaryType: hst:sitemapitem
       /root:
         hst:componentconfigurationid: hst:pages/cihub
@@ -186,37 +138,5 @@ definitions:
         hst:componentconfigurationid: hst:pages/search
         hst:refId: search
         hst:relativecontentpath: facet
-        jcr:primaryType: hst:sitemapitem
-      /services:
-        /_any_:
-          /_index_:
-            hst:componentconfigurationid: hst:pages/404
-            hst:componentconfigurationmappingnames:
-            - website:service
-            - website:general
-            - website:hub
-            - website:componentlist
-            hst:componentconfigurationmappingvalues:
-            - hst:pages/service
-            - hst:pages/general
-            - hst:pages/hub
-            - hst:pages/componentlist
-            hst:relativecontentpath: ${parent}/content
-            jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationid: hst:pages/404
-          hst:componentconfigurationmappingnames:
-          - website:service
-          - website:general
-          - website:hub
-          - website:componentlist
-          hst:componentconfigurationmappingvalues:
-          - hst:pages/service
-          - hst:pages/general
-          - hst:pages/hub
-          - hst:pages/componentlist
-          hst:relativecontentpath: ${parent}/${1}
-          jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/service
-        hst:relativecontentpath: services
         jcr:primaryType: hst:sitemapitem
       jcr:primaryType: hst:sitemap

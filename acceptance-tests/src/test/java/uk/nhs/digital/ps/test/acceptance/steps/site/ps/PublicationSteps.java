@@ -2,14 +2,8 @@ package uk.nhs.digital.ps.test.acceptance.steps.site.ps;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.Matchers.hasItem;
-import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
 import static org.slf4j.LoggerFactory.getLogger;
-import static uk.nhs.digital.ps.test.acceptance.data.TestDataRepo.PublicationClassifier.LIVE;
-import static uk.nhs.digital.ps.test.acceptance.data.TestDataRepo.PublicationClassifier.UPCOMING;
-import static uk.nhs.digital.ps.test.acceptance.pages.widgets.LivePublicationOverviewWidget.matchesLivePublication;
-import static uk.nhs.digital.ps.test.acceptance.pages.widgets.UpcomingPublicationOverivewWidget.matchesUpcomingPublication;
 import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.readFileAsByteArray;
 import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.waitUntilFileAppears;
 
@@ -27,11 +21,8 @@ import uk.nhs.digital.ps.test.acceptance.models.PublicationBuilder;
 import uk.nhs.digital.ps.test.acceptance.models.section.BodySection;
 import uk.nhs.digital.ps.test.acceptance.pages.site.SitePage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
-import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationsOverviewPage;
 import uk.nhs.digital.ps.test.acceptance.pages.widgets.AttachmentWidget;
-import uk.nhs.digital.ps.test.acceptance.pages.widgets.LivePublicationOverviewWidget;
 import uk.nhs.digital.ps.test.acceptance.pages.widgets.SectionWidget;
-import uk.nhs.digital.ps.test.acceptance.pages.widgets.UpcomingPublicationOverivewWidget;
 import uk.nhs.digital.ps.test.acceptance.steps.AbstractSpringSteps;
 import uk.nhs.digital.ps.test.acceptance.util.FileHelper;
 
@@ -55,15 +46,6 @@ public class PublicationSteps extends AbstractSpringSteps {
 
     @Autowired
     private SitePage sitePage;
-
-    @Autowired
-    private PublicationsOverviewPage publicationsOverviewPage;
-
-    @Given("^Published and upcoming publications are available in the system$")
-    public void publishedAndUpcomingPublicationsAreAvailableInTheSystem() throws Throwable {
-        testDataRepo.addPublications(UPCOMING, ExpectedTestDataProvider.getPublishedUpcomingPublications().build());
-        testDataRepo.addPublications(LIVE, ExpectedTestDataProvider.getRecentPublishedLivePublications().build());
-    }
 
     @Then(("^it is visible to consumers"))
     public void thenItIsVisibleToConsumers() throws Throwable {
@@ -146,45 +128,6 @@ public class PublicationSteps extends AbstractSpringSteps {
         assertThat("Correct size of attachment " + attachment.getFullName() + " is displayed",
             attachmentWidget.getSizeText(),
             is("size: " + FileHelper.toHumanFriendlyFileSize((long) attachment.getContent().length)));
-    }
-
-    @Then("^I can see upcoming publications$")
-    public void iCanSeeUpcomingPublications() throws Throwable {
-
-        final List<Publication> expectedPublications = testDataRepo.getPublications(UPCOMING);
-
-        final List<UpcomingPublicationOverivewWidget> actualPublicationEntries =
-            publicationsOverviewPage.getUpcomingPublicationsWidgets();
-
-        assertThat("Should display correct quantity of upcoming publications.",
-            actualPublicationEntries,
-            hasSize(expectedPublications.size())
-        );
-
-        for (int i = 0; i < expectedPublications.size(); i++) {
-            assertThat("Should display upcoming publication.",
-                actualPublicationEntries.get(i),
-                matchesUpcomingPublication(expectedPublications.get(i))
-            );
-        }
-    }
-
-    @Then("^I can see recent publications$")
-    public void iCanSeeRecentPublications() throws Throwable {
-
-        final List<Publication> expectedPublications = testDataRepo.getPublications(LIVE);
-
-        final List<LivePublicationOverviewWidget> actualPublicationEntries =
-            publicationsOverviewPage.getLatestPublicationsWidgets();
-
-        // Making this test more relaxed, just check that 5 recent publications are shown in the list of 10.
-        // This means when we publish new publications this test should still pass.
-        for (Publication expectedPublication : expectedPublications) {
-            assertThat("Recent publication should be shown.",
-                actualPublicationEntries,
-                hasItem(matchesLivePublication(expectedPublication))
-            );
-        }
     }
 
     @Given("^I have a sectioned publication$")

@@ -11,5 +11,5 @@
 <#if facets??>
     <@hst.link var="searchLink" hippobean=facets />
 <#else>
-    <@hst.link siteMapItemRefId="search" mount="common-context" var="searchLink"/>
+    <@hst.link siteMapItemRefId="search" var="searchLink"/>
 </#if>

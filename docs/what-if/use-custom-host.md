@@ -14,11 +14,6 @@ definitions:
     /hst:hst/hst:hosts/localhost-two:
       /127.0.0.2:
         /hst:root:
-          /publications:
-            hst:homepage: root
-            hst:mountpoint: /hst:hst/hst:sites/publicationsystem
-            jcr:primaryType: hst:mount
-          hst:alias: common-context
           hst:contextpath: /site
           hst:homepage: root
           hst:mountpoint: /hst:hst/hst:sites/common

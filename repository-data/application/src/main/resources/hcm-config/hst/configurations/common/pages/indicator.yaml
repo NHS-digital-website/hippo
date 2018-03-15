@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hst:hst/hst:configurations/nationalindicatorlibrary/hst:pages/indicator:
+    /hst:hst/hst:configurations/common/hst:pages/indicator:
       /main:
         hst:componentclassname: uk.nhs.digital.nil.components.IndicatorComponent
         hst:template: indicator

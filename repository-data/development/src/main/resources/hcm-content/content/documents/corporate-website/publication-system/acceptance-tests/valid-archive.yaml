@@ -237,8 +237,8 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
-  /time-archive-lorem-ipsum-dolor:
-    /time-archive-lorem-ipsum-dolor[1]:
+  /content:
+    /content[1]:
       common:FacetType: series
       common:searchable: true
       hippo:availability: []
@@ -268,7 +268,7 @@
         \ Suspendisse in ex sit amet lectus vehicula varius pharetra eget elit. Quisque\
         \ at iaculis arcu, eget ornare arcu."
       publicationsystem:Title: Time Archive Lorem Ipsum Dolor
-    /time-archive-lorem-ipsum-dolor[2]:
+    /content[2]:
       common:FacetType: series
       common:searchable: true
       hippo:availability:
@@ -300,7 +300,7 @@
         \ Suspendisse in ex sit amet lectus vehicula varius pharetra eget elit. Quisque\
         \ at iaculis arcu, eget ornare arcu."
       publicationsystem:Title: Time Archive Lorem Ipsum Dolor
-    /time-archive-lorem-ipsum-dolor[3]:
+    /content[3]:
       common:FacetType: series
       common:searchable: true
       hippo:availability:
@@ -310,7 +310,7 @@
       hippostdpubwf:creationDate: 2018-02-01T11:45:45.790Z
       hippostdpubwf:lastModificationDate: 2018-02-01T11:53:35.810Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-02-01T11:53:39.122Z
+      hippostdpubwf:publicationDate: 2018-03-14T17:21:18.084Z
       hippotranslation:id: 5aa94139-497d-489d-b605-e4a2c3182e06
       hippotranslation:locale: en
       jcr:mixinTypes:

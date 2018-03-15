@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hst:hst/hst:configurations/nationalindicatorlibrary/hst:pages/nilanding:
+    /hst:hst/hst:configurations/common/hst:pages/nilanding:
       /main:
         hst:componentclassname: uk.nhs.digital.nil.components.NiLandingComponent
         hst:template: nilanding

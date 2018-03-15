@@ -6,3 +6,4 @@ action-lists:
     /content/documents/corporate-website/about/accessibility-help: reload
     /content/documents/corporate-website/about/privacy-and-cookies: reload
     /content/documents/corporate-website/publication-system/ci-hub: reload
+    /content/urlrewriter/rules/publications-to-data-and-information: reload

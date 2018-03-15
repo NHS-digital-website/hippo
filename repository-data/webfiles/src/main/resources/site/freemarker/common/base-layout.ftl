@@ -71,7 +71,7 @@
             </li>
             <li class="separator">/</li>
             <li class="breadcrumb__crumb">
-                <@hst.link var="rootLink" mount="common-context" path="/"/>
+                <@hst.link var="rootLink" path="/"/>
                 <a href="${rootLink}">Clinical Indicators</a>
             </li>
         </ol>

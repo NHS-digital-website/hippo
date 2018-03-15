@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hst:hst/hst:configurations/publicationsystem/hst:pages/cilanding:
+    /hst:hst/hst:configurations/common/hst:pages/cilanding:
       /main:
         hst:componentclassname: uk.nhs.digital.ps.components.CiLandingComponent
         hst:template: cilanding
