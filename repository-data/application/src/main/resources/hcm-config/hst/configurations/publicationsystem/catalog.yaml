@@ -1,7 +1,0 @@
----
-definitions:
-  config:
-    /hst:hst/hst:configurations/publicationsystem/hst:catalog:
-      /publicationsystem-catalog:
-        jcr:primaryType: hst:containeritempackage
-      jcr:primaryType: hst:catalog

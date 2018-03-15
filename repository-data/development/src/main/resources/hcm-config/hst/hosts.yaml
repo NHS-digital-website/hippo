@@ -9,17 +9,6 @@ definitions:
           .meta:residual-child-node-category: content
           /hst:root:
             .meta:residual-child-node-category: content
-            /indicators:
-              .meta:residual-child-node-category: content
-              hst:homepage: nihub
-              hst:mountpoint: /hst:hst/hst:sites/nationalindicatorlibrary
-              jcr:primaryType: hst:mount
-            /publications:
-              .meta:residual-child-node-category: content
-              hst:homepage: root
-              hst:mountpoint: /hst:hst/hst:sites/publicationsystem
-              jcr:primaryType: hst:mount
-            hst:alias: common-context
             hst:contextpath: /site
             hst:homepage: root
             hst:mountpoint: /hst:hst/hst:sites/common
@@ -37,17 +26,6 @@ definitions:
             .meta:residual-child-node-category: content
             /hst:root:
               .meta:residual-child-node-category: content
-              /indicators:
-                .meta:residual-child-node-category: content
-                hst:homepage: nihub
-                hst:mountpoint: /hst:hst/hst:sites/nationalindicatorlibrary
-                jcr:primaryType: hst:mount
-              /publications:
-                .meta:residual-child-node-category: content
-                hst:homepage: root
-                hst:mountpoint: /hst:hst/hst:sites/publicationsystem
-                jcr:primaryType: hst:mount
-              hst:alias: common-context
               hst:homepage: root
               hst:mountpoint: /hst:hst/hst:sites/common
               jcr:primaryType: hst:mount

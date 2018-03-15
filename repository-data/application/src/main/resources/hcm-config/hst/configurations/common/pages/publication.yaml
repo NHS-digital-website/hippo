@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hst:hst/hst:configurations/publicationsystem/hst:pages/publication:
+    /hst:hst/hst:configurations/common/hst:pages/publication:
       /main:
         hst:componentclassname: uk.nhs.digital.ps.components.PublicationComponent
         hst:template: publication

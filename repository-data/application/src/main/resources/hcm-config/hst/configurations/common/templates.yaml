@@ -14,17 +14,29 @@ definitions:
       /app-layout-no-header-search:
         hst:renderpath: webfile:/freemarker/common/app-layout-no-header-search.ftl
         jcr:primaryType: hst:template
+      /archive:
+        hst:renderpath: webfile:/freemarker/publicationsystem/archive.ftl
+        jcr:primaryType: hst:template
       /cihub:
         hst:renderpath: webfile:/freemarker/publicationsystem/cihub.ftl
         jcr:primaryType: hst:template
+      /cilanding:
+        hst:renderpath: webfile:/freemarker/publicationsystem/cilanding.ftl
+        jcr:primaryType: hst:template
       /cta-list:
         hst:renderpath: webfile:/freemarker/common/cta-list.ftl
+        jcr:primaryType: hst:template
+      /dataset:
+        hst:renderpath: webfile:/freemarker/publicationsystem/dataset.ftl
         jcr:primaryType: hst:template
       /document-list:
         hst:renderpath: webfile:/freemarker/common/document-list.ftl
         jcr:primaryType: hst:template
       /facets:
         hst:renderpath: webfile:/freemarker/common/facets.ftl
+        jcr:primaryType: hst:template
+      /folder:
+        hst:renderpath: webfile:/freemarker/publicationsystem/folder.ftl
         jcr:primaryType: hst:template
       /footer:
         hst:renderpath: webfile:/freemarker/common/base-footer.ftl
@@ -38,11 +50,26 @@ definitions:
       /hub-article:
         hst:renderpath: webfile:/freemarker/common/hub-article.ftl
         jcr:primaryType: hst:template
+      /indicator:
+        hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/indicator.ftl
+        jcr:primaryType: hst:template
+      /legacypublication:
+        hst:renderpath: webfile:/freemarker/publicationsystem/legacy-publication.ftl
+        jcr:primaryType: hst:template
       /list-article:
         hst:renderpath: webfile:/freemarker/common/list-article.ftl
         jcr:primaryType: hst:template
       /menu:
         hst:renderpath: webfile:/freemarker/common/menu.ftl
+        jcr:primaryType: hst:template
+      /nihub:
+        hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/nihub.ftl
+        jcr:primaryType: hst:template
+      /nilanding:
+        hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/nilanding.ftl
+        jcr:primaryType: hst:template
+      /publication:
+        hst:renderpath: webfile:/freemarker/publicationsystem/publication.ftl
         jcr:primaryType: hst:template
       /publications-list:
         hst:renderpath: webfile:/freemarker/common/publications-list.ftl
@@ -55,6 +82,9 @@ definitions:
         jcr:primaryType: hst:template
       /searchresults:
         hst:renderpath: webfile:/freemarker/common/searchresults.ftl
+        jcr:primaryType: hst:template
+      /series:
+        hst:renderpath: webfile:/freemarker/publicationsystem/series.ftl
         jcr:primaryType: hst:template
       /service-article:
         hst:renderpath: webfile:/freemarker/common/service-article.ftl

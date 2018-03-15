@@ -231,8 +231,8 @@
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: hippo:handle
-  /series-without-latest:
-    /series-without-latest[1]:
+  /content:
+    /content[1]:
       common:FacetType: series
       common:searchable: true
       hippo:availability: []
@@ -249,7 +249,7 @@
       publicationsystem:ShowLatest: false
       publicationsystem:Summary: Series without latest
       publicationsystem:Title: Series without latest
-    /series-without-latest[2]:
+    /content[2]:
       common:FacetType: series
       common:searchable: true
       hippo:availability:
@@ -268,7 +268,7 @@
       publicationsystem:ShowLatest: false
       publicationsystem:Summary: Series without latest
       publicationsystem:Title: Series without latest
-    /series-without-latest[3]:
+    /content[3]:
       common:FacetType: series
       common:searchable: true
       hippo:availability:
@@ -278,7 +278,7 @@
       hippostdpubwf:creationDate: 2018-02-22T16:12:54.318Z
       hippostdpubwf:lastModificationDate: 2018-02-22T16:16:37.578Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-02-22T16:16:58.118Z
+      hippostdpubwf:publicationDate: 2018-03-14T17:22:38.790Z
       hippotranslation:id: 87fa43a3-fc96-43f7-b6c8-d1f4f1735d5b
       hippotranslation:locale: en
       jcr:mixinTypes:

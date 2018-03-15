@@ -60,7 +60,7 @@
                 <div class="panel panel--grey push-half--bottom push--top">
                     <h3><@fmt.message key="headers.ci-landing-actions"/></h3>
                     <ul>
-                        <@hst.link var="homelink" mount="common-context" path="/" />
+                        <@hst.link var="homelink" path="/" />
                         <li><a href="${homelink}" title="Back to Clinical Indicators">Back to Clinical Indicators</a></li>
                         <#if document.actionLinkRelPath??>
                             <li><a href="${homelink}${document.actionLinkRelPath}" title="${document.actionLinkName}">${document.actionLinkName}</a></li>

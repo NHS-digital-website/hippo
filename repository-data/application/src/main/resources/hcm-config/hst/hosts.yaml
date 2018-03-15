@@ -11,15 +11,6 @@ definitions:
                 /web:
                   /hippo-delivery:
                     /hst:root:
-                      /indicators:
-                        hst:homepage: root
-                        hst:mountpoint: /hst:hst/hst:sites/nationalindicatorlibrary
-                        jcr:primaryType: hst:mount
-                      /publications:
-                        hst:homepage: root
-                        hst:mountpoint: /hst:hst/hst:sites/publicationsystem
-                        jcr:primaryType: hst:mount
-                      hst:alias: common-context
                       hst:contextpath: ''
                       hst:homepage: root
                       hst:mountpoint: /hst:hst/hst:sites/common
@@ -42,15 +33,6 @@ definitions:
                 /web:
                   /hippo-authoring:
                     /hst:root:
-                      /indicators:
-                        hst:homepage: root
-                        hst:mountpoint: /hst:hst/hst:sites/nationalindicatorlibrary
-                        jcr:primaryType: hst:mount
-                      /publications:
-                        hst:homepage: root
-                        hst:mountpoint: /hst:hst/hst:sites/publicationsystem
-                        jcr:primaryType: hst:mount
-                      hst:alias: common-context
                       hst:contextpath: /site
                       hst:homepage: root
                       hst:mountpoint: /hst:hst/hst:sites/common
@@ -72,15 +54,6 @@ definitions:
             /digital:
               /beta:
                 /hst:root:
-                  /indicators:
-                    hst:homepage: root
-                    hst:mountpoint: /hst:hst/hst:sites/nationalindicatorlibrary
-                    jcr:primaryType: hst:mount
-                  /publications:
-                    hst:homepage: root
-                    hst:mountpoint: /hst:hst/hst:sites/publicationsystem
-                    jcr:primaryType: hst:mount
-                  hst:alias: common-context
                   hst:contextpath: /site
                   hst:homepage: root
                   hst:mountpoint: /hst:hst/hst:sites/common
@@ -98,15 +71,6 @@ definitions:
             /digital:
               /cms:
                 /hst:root:
-                  /indicators:
-                    hst:homepage: root
-                    hst:mountpoint: /hst:hst/hst:sites/nationalindicatorlibrary
-                    jcr:primaryType: hst:mount
-                  /publications:
-                    hst:homepage: root
-                    hst:mountpoint: /hst:hst/hst:sites/publicationsystem
-                    jcr:primaryType: hst:mount
-                  hst:alias: common-context
                   hst:contextpath: /site
                   hst:homepage: root
                   hst:mountpoint: /hst:hst/hst:sites/common
@@ -123,15 +87,6 @@ definitions:
           /nhsd:
             /tst:
               /hst:root:
-                /indicators:
-                  hst:homepage: root
-                  hst:mountpoint: /hst:hst/hst:sites/nationalindicatorlibrary
-                  jcr:primaryType: hst:mount
-                /publications:
-                  hst:homepage: root
-                  hst:mountpoint: /hst:hst/hst:sites/publicationsystem
-                  jcr:primaryType: hst:mount
-                hst:alias: common-context
                 hst:contextpath: /site
                 hst:homepage: root
                 hst:mountpoint: /hst:hst/hst:sites/common
@@ -147,15 +102,6 @@ definitions:
           /nhsd:
             /cms-tst:
               /hst:root:
-                /indicators:
-                  hst:homepage: root
-                  hst:mountpoint: /hst:hst/hst:sites/nationalindicatorlibrary
-                  jcr:primaryType: hst:mount
-                /publications:
-                  hst:homepage: root
-                  hst:mountpoint: /hst:hst/hst:sites/publicationsystem
-                  jcr:primaryType: hst:mount
-                hst:alias: common-context
                 hst:contextpath: /site
                 hst:homepage: root
                 hst:mountpoint: /hst:hst/hst:sites/common
@@ -171,15 +117,6 @@ definitions:
           /nhsd:
             /uat:
               /hst:root:
-                /indicators:
-                  hst:homepage: root
-                  hst:mountpoint: /hst:hst/hst:sites/nationalindicatorlibrary
-                  jcr:primaryType: hst:mount
-                /publications:
-                  hst:homepage: root
-                  hst:mountpoint: /hst:hst/hst:sites/publicationsystem
-                  jcr:primaryType: hst:mount
-                hst:alias: common-context
                 hst:contextpath: /site
                 hst:homepage: root
                 hst:mountpoint: /hst:hst/hst:sites/common
@@ -195,15 +132,6 @@ definitions:
           /nhsd:
             /cms-uat:
               /hst:root:
-                /indicators:
-                  hst:homepage: root
-                  hst:mountpoint: /hst:hst/hst:sites/nationalindicatorlibrary
-                  jcr:primaryType: hst:mount
-                /publications:
-                  hst:homepage: root
-                  hst:mountpoint: /hst:hst/hst:sites/publicationsystem
-                  jcr:primaryType: hst:mount
-                hst:alias: common-context
                 hst:contextpath: /site
                 hst:homepage: root
                 hst:mountpoint: /hst:hst/hst:sites/common

@@ -1,5 +1,0 @@
----
-definitions:
-  config:
-    /hst:hst/hst:configurations/nationalindicatorlibrary/hst:prototypepages:
-      jcr:primaryType: hst:pages

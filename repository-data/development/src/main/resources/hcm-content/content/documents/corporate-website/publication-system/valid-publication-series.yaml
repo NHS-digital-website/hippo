@@ -371,8 +371,8 @@
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: hippo:handle
-  /time-series-index:
-    /time-series-index[1]:
+  /content:
+    /content[1]:
       common:FacetType: series
       common:searchable: true
       hippo:availability: []
@@ -393,7 +393,7 @@
         tempor nec odio non aliquam. Suspendisse in ex sit amet lectus vehicula varius
         pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.
       publicationsystem:Title: Time Series Lorem Ipsum Dolor
-    /time-series-index[2]:
+    /content[2]:
       common:FacetType: series
       common:searchable: true
       hippo:availability:
@@ -416,7 +416,7 @@
         tempor nec odio non aliquam. Suspendisse in ex sit amet lectus vehicula varius
         pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.
       publicationsystem:Title: Time Series Lorem Ipsum Dolor
-    /time-series-index[3]:
+    /content[3]:
       common:FacetType: series
       common:searchable: true
       hippo:availability:
@@ -426,7 +426,7 @@
       hippostdpubwf:creationDate: 2017-10-16T13:58:50.358Z
       hippostdpubwf:lastModificationDate: 2018-02-22T16:12:10.903Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-02-22T16:12:15.852Z
+      hippostdpubwf:publicationDate: 2018-03-14T17:21:51.813Z
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
       jcr:mixinTypes:

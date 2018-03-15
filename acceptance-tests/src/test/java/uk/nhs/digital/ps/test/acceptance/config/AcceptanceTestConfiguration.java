@@ -11,12 +11,11 @@ import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
 import uk.nhs.digital.ps.test.acceptance.pages.DashboardPage;
 import uk.nhs.digital.ps.test.acceptance.pages.LoginPage;
 import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
-import uk.nhs.digital.ps.test.acceptance.pages.site.SitePage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.HomePage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ServicePage;
+import uk.nhs.digital.ps.test.acceptance.pages.site.SitePage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.common.SearchPage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
-import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationsOverviewPage;
 import uk.nhs.digital.ps.test.acceptance.util.TestContentUrls;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverServiceProvider;
@@ -50,11 +49,6 @@ public class AcceptanceTestConfiguration {
     public PublicationPage publicationPage(final WebDriverProvider webDriverProvider,
                                                      final PageHelper pageHelper) {
         return new PublicationPage(webDriverProvider, pageHelper);
-    }
-
-    @Bean
-    public PublicationsOverviewPage publicationsOverviewPage(final WebDriverProvider webDriverProvider) {
-        return new PublicationsOverviewPage(webDriverProvider);
     }
 
     @Bean
