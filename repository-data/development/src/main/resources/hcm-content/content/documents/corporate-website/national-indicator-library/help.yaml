@@ -1,0 +1,302 @@
+---
+/content/documents/corporate-website/national-indicator-library/help:
+  /help[1]:
+    /nationalindicatorlibrary:addContent:
+      hippostd:content: |-
+        <p>Tell us about your indicator, to have it added to the National Indicator Library.</p>
+
+        <p>Send your indicator to: <a href="mailto:nhsdigital.imas@nhs.net?Subject=New%20Indicator%20Application" target="_top">nhsdigital.imas@nhs.net</a>.</p>
+      jcr:primaryType: hippostd:html
+    /nationalindicatorlibrary:addForm:
+      /publicationsystem:attachmentResource:
+        hippo:filename: IMAS Application Form (NHS Digital).docx
+        hippo:text:
+          resource: /content/documents/corporate-website/national-indicator-library/help/help[1]/addForm/attachmentResource/text.bin
+          type: binary
+        jcr:data:
+          resource: /content/documents/corporate-website/national-indicator-library/help/help[1]/addForm/attachmentResource/data.bin
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2018-03-15T14:55:35.271Z
+        jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+        jcr:primaryType: publicationsystem:resource
+      jcr:primaryType: publicationsystem:attachment
+      publicationsystem:displayName: Indicator template form
+    /nationalindicatorlibrary:adviceContent:
+      hippostd:content: |-
+        <p>If you need a steer as an indicator developer, tell us your problem and we can help you.</p>
+
+        <p>Complete the form and email to: <a href="mailto:nhsdigital.imas@nhs.net?Subject=Advice%20on%20developing%20an%20Indicator" target="_top">nhsdigital.imas@nhs.net</a>.</p>
+
+        <p>You will hear back from us in 5 working days.</p>
+      jcr:primaryType: hippostd:html
+    /nationalindicatorlibrary:adviceForm:
+      /publicationsystem:attachmentResource:
+        hippo:filename: Guidance on completing the application form v3.docx
+        hippo:text:
+          resource: /content/documents/corporate-website/national-indicator-library/help/help[1]/adviceForm/attachmentResource/text.bin
+          type: binary
+        jcr:data:
+          resource: /content/documents/corporate-website/national-indicator-library/help/help[1]/adviceForm/attachmentResource/data.bin
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2018-03-15T14:55:10.537Z
+        jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+        jcr:primaryType: publicationsystem:resource
+      jcr:primaryType: publicationsystem:attachment
+      publicationsystem:displayName: Advice form
+    /nationalindicatorlibrary:applyContent:
+      hippostd:content: |-
+        <p>If you need a steer as an indicator developer, tell us your problem and we can help you.</p>
+
+        <p>Complete the form and email to: <a href="mailto:nhsdigital.imas@nhs.net?Subject=New%20Indicator ApplicationApply%20for%20Indicator%20assurance" target="_top">nhsdigital.imas@nhs.net</a>.</p>
+
+        <p>You will hear back from us in 5 working days.</p>
+      jcr:primaryType: hippostd:html
+    /nationalindicatorlibrary:applyForm:
+      /publicationsystem:attachmentResource:
+        hippo:filename: IMAS Application Form (NHS Digital).docx
+        hippo:text:
+          resource: /content/documents/corporate-website/national-indicator-library/help/help[1]/applyForm/attachmentResource/text.bin
+          type: binary
+        jcr:data:
+          resource: /content/documents/corporate-website/national-indicator-library/help/help[1]/applyForm/attachmentResource/data.bin
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2018-03-15T14:55:47.246Z
+        jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+        jcr:primaryType: publicationsystem:resource
+      jcr:primaryType: publicationsystem:attachment
+      publicationsystem:displayName: Assurance application form
+    /nationalindicatorlibrary:jon:
+      hippostd:content: <p>jon</p>
+      jcr:primaryType: hippostd:html
+    /nationalindicatorlibrary:mainContent:
+      hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan
+        et viverra justo commodo.</p>
+      jcr:primaryType: hippostd:html
+    common:searchable: true
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-03-15T14:03:26.057Z
+    hippostdpubwf:lastModificationDate: 2018-03-15T16:34:44.621Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 6b239a4e-4ae2-41e6-a81c-df9b8d061d4e
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: nationalindicatorlibrary:nilanding
+    nationalindicatorlibrary:addTitle: Add your indicator to the library
+    nationalindicatorlibrary:adviceTitle: Get advice for how to develop an indicator
+    nationalindicatorlibrary:applyTitle: Apply to have your indicator assured
+    nationalindicatorlibrary:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+      elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan
+      et viverra justo commodo.</p>
+    nationalindicatorlibrary:jon: <p>jon</p>
+    nationalindicatorlibrary:jon2: jon2
+    nationalindicatorlibrary:title: What IMAS can help you with
+  /help[2]:
+    /nationalindicatorlibrary:addContent:
+      hippostd:content: |-
+        <p>Tell us about your indicator, to have it added to the National Indicator Library.</p>
+
+        <p>Send your indicator to: <a href="mailto:nhsdigital.imas@nhs.net?Subject=New%20Indicator%20Application" target="_top">nhsdigital.imas@nhs.net</a>.</p>
+      jcr:primaryType: hippostd:html
+    /nationalindicatorlibrary:addForm:
+      /publicationsystem:attachmentResource:
+        hippo:filename: IMAS Application Form (NHS Digital).docx
+        hippo:text:
+          resource: /content/documents/corporate-website/national-indicator-library/help/help[2]/addForm/attachmentResource/text.bin
+          type: binary
+        jcr:data:
+          resource: /content/documents/corporate-website/national-indicator-library/help/help[2]/addForm/attachmentResource/data.bin
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2018-03-15T14:55:35.271Z
+        jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+        jcr:primaryType: publicationsystem:resource
+      jcr:primaryType: publicationsystem:attachment
+      publicationsystem:displayName: Indicator template form
+    /nationalindicatorlibrary:adviceContent:
+      hippostd:content: |-
+        <p>If you need a steer as an indicator developer, tell us your problem and we can help you.</p>
+
+        <p>Complete the form and email to: <a href="mailto:nhsdigital.imas@nhs.net?Subject=Advice%20on%20developing%20an%20Indicator" target="_top">nhsdigital.imas@nhs.net</a>.</p>
+
+        <p>You will hear back from us in 5 working days.</p>
+      jcr:primaryType: hippostd:html
+    /nationalindicatorlibrary:adviceForm:
+      /publicationsystem:attachmentResource:
+        hippo:filename: Guidance on completing the application form v3.docx
+        hippo:text:
+          resource: /content/documents/corporate-website/national-indicator-library/help/help[2]/adviceForm/attachmentResource/text.bin
+          type: binary
+        jcr:data:
+          resource: /content/documents/corporate-website/national-indicator-library/help/help[2]/adviceForm/attachmentResource/data.bin
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2018-03-15T14:55:10.537Z
+        jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+        jcr:primaryType: publicationsystem:resource
+      jcr:primaryType: publicationsystem:attachment
+      publicationsystem:displayName: Advice form
+    /nationalindicatorlibrary:applyContent:
+      hippostd:content: |-
+        <p>If you need a steer as an indicator developer, tell us your problem and we can help you.</p>
+
+        <p>Complete the form and email to: <a href="mailto:nhsdigital.imas@nhs.net?Subject=New%20Indicator ApplicationApply%20for%20Indicator%20assurance" target="_top">nhsdigital.imas@nhs.net</a>.</p>
+
+        <p>You will hear back from us in 5 working days.</p>
+      jcr:primaryType: hippostd:html
+    /nationalindicatorlibrary:applyForm:
+      /publicationsystem:attachmentResource:
+        hippo:filename: IMAS Application Form (NHS Digital).docx
+        hippo:text:
+          resource: /content/documents/corporate-website/national-indicator-library/help/help[2]/applyForm/attachmentResource/text.bin
+          type: binary
+        jcr:data:
+          resource: /content/documents/corporate-website/national-indicator-library/help/help[2]/applyForm/attachmentResource/data.bin
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2018-03-15T14:55:47.246Z
+        jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+        jcr:primaryType: publicationsystem:resource
+      jcr:primaryType: publicationsystem:attachment
+      publicationsystem:displayName: Assurance application form
+    /nationalindicatorlibrary:jon:
+      hippostd:content: <p>jon</p>
+      jcr:primaryType: hippostd:html
+    /nationalindicatorlibrary:mainContent:
+      hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan
+        et viverra justo commodo.</p>
+      jcr:primaryType: hippostd:html
+    common:searchable: true
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-03-15T14:03:26.057Z
+    hippostdpubwf:lastModificationDate: 2018-03-15T16:35:02.319Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 6b239a4e-4ae2-41e6-a81c-df9b8d061d4e
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: nationalindicatorlibrary:nilanding
+    nationalindicatorlibrary:addTitle: Add your indicator to the library
+    nationalindicatorlibrary:adviceTitle: Get advice for how to develop an indicator
+    nationalindicatorlibrary:applyTitle: Apply to have your indicator assured
+    nationalindicatorlibrary:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+      elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan
+      et viverra justo commodo.</p>
+    nationalindicatorlibrary:jon: <p>jon</p>
+    nationalindicatorlibrary:jon2: jon2
+    nationalindicatorlibrary:title: What IMAS can help you with
+  /help[3]:
+    /nationalindicatorlibrary:addContent:
+      hippostd:content: |-
+        <p>Tell us about your indicator, to have it added to the National Indicator Library.</p>
+
+        <p>Send your indicator to: <a href="mailto:nhsdigital.imas@nhs.net?Subject=New%20Indicator%20Application" target="_top">nhsdigital.imas@nhs.net</a>.</p>
+      jcr:primaryType: hippostd:html
+    /nationalindicatorlibrary:addForm:
+      /publicationsystem:attachmentResource:
+        hippo:filename: IMAS Application Form (NHS Digital).docx
+        hippo:text:
+          resource: /content/documents/corporate-website/national-indicator-library/help/help[3]/addForm/attachmentResource/text.bin
+          type: binary
+        jcr:data:
+          resource: /content/documents/corporate-website/national-indicator-library/help/help[3]/addForm/attachmentResource/data.bin
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2018-03-15T14:55:35.271Z
+        jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+        jcr:primaryType: publicationsystem:resource
+      jcr:primaryType: publicationsystem:attachment
+      publicationsystem:displayName: Indicator template form
+    /nationalindicatorlibrary:adviceContent:
+      hippostd:content: |-
+        <p>If you need a steer as an indicator developer, tell us your problem and we can help you.</p>
+
+        <p>Complete the form and email to: <a href="mailto:nhsdigital.imas@nhs.net?Subject=Advice%20on%20developing%20an%20Indicator" target="_top">nhsdigital.imas@nhs.net</a>.</p>
+
+        <p>You will hear back from us in 5 working days.</p>
+      jcr:primaryType: hippostd:html
+    /nationalindicatorlibrary:adviceForm:
+      /publicationsystem:attachmentResource:
+        hippo:filename: Guidance on completing the application form v3.docx
+        hippo:text:
+          resource: /content/documents/corporate-website/national-indicator-library/help/help[3]/adviceForm/attachmentResource/text.bin
+          type: binary
+        jcr:data:
+          resource: /content/documents/corporate-website/national-indicator-library/help/help[3]/adviceForm/attachmentResource/data.bin
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2018-03-15T14:55:10.537Z
+        jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+        jcr:primaryType: publicationsystem:resource
+      jcr:primaryType: publicationsystem:attachment
+      publicationsystem:displayName: Advice form
+    /nationalindicatorlibrary:applyContent:
+      hippostd:content: |-
+        <p>If you need a steer as an indicator developer, tell us your problem and we can help you.</p>
+
+        <p>Complete the form and email to: <a href="mailto:nhsdigital.imas@nhs.net?Subject=New%20Indicator ApplicationApply%20for%20Indicator%20assurance" target="_top">nhsdigital.imas@nhs.net</a>.</p>
+
+        <p>You will hear back from us in 5 working days.</p>
+      jcr:primaryType: hippostd:html
+    /nationalindicatorlibrary:applyForm:
+      /publicationsystem:attachmentResource:
+        hippo:filename: IMAS Application Form (NHS Digital).docx
+        hippo:text:
+          resource: /content/documents/corporate-website/national-indicator-library/help/help[3]/applyForm/attachmentResource/text.bin
+          type: binary
+        jcr:data:
+          resource: /content/documents/corporate-website/national-indicator-library/help/help[3]/applyForm/attachmentResource/data.bin
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2018-03-15T14:55:47.246Z
+        jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+        jcr:primaryType: publicationsystem:resource
+      jcr:primaryType: publicationsystem:attachment
+      publicationsystem:displayName: Assurance application form
+    /nationalindicatorlibrary:jon:
+      hippostd:content: <p>jon</p>
+      jcr:primaryType: hippostd:html
+    /nationalindicatorlibrary:mainContent:
+      hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan
+        et viverra justo commodo.</p>
+      jcr:primaryType: hippostd:html
+    common:searchable: true
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-03-15T14:03:26.057Z
+    hippostdpubwf:lastModificationDate: 2018-03-15T16:35:02.319Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2018-03-15T16:35:08.260Z
+    hippotranslation:id: 6b239a4e-4ae2-41e6-a81c-df9b8d061d4e
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: nationalindicatorlibrary:nilanding
+    nationalindicatorlibrary:addTitle: Add your indicator to the library
+    nationalindicatorlibrary:adviceTitle: Get advice for how to develop an indicator
+    nationalindicatorlibrary:applyTitle: Apply to have your indicator assured
+    nationalindicatorlibrary:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+      elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan
+      et viverra justo commodo.</p>
+    nationalindicatorlibrary:jon: <p>jon</p>
+    nationalindicatorlibrary:jon2: jon2
+    nationalindicatorlibrary:title: What IMAS can help you with
+  hippo:name: help
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

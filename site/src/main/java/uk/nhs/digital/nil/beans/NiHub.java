@@ -22,18 +22,13 @@ public class NiHub extends BaseDocument {
         return getProperty("nationalindicatorlibrary:summary");
     }
 
-    @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:populateTopicLinks")
+    @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:popularTopicLinks")
     public List<ActionLink> getPopularTopicLinks() {
-        return getChildBeansByName("nationalindicatorlibrary:populateTopicLinks", ActionLink.class);
+        return getChildBeansByName("nationalindicatorlibrary:popularTopicLinks", ActionLink.class);
     }
     
-    @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:nihublink")
-    public List<NiHubLink> getNiHubLink() {
-        return getChildBeansByName("nationalindicatorlibrary:nihublink", NiHubLink.class);
-    }    
-
-    @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:igbHubLink")
-    public NiHubLink getIgbHubLink() {
-        return getBean("nationalindicatorlibrary:igbHubLink", NiHubLink.class);
+    @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:gettingAssured")
+    public NiHubLink getGettingAssured() {
+        return getBean("nationalindicatorlibrary:gettingAssured", NiHubLink.class);
     }        
 }

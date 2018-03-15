@@ -1,5 +1,6 @@
 ---
 /content/documents/corporate-website/about:
+  .meta:order-before: facet
   hippo:name: About
   hippostd:foldertype:
   - new-about-document
