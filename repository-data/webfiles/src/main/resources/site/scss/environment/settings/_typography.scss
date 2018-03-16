@@ -12,6 +12,7 @@ $default-spacing-unit: $baseline-grid-unit * 4;
 $measure: 40em; // comfy reading width of ~ 55-65 characters
 
 $type-settings-map: (
+  14: -4,
   16: -3,
   18: -2,
   20: -1,
@@ -22,6 +23,23 @@ $type-settings-map: (
 );
 
 $type-settings: (
+  -4: (
+    large: (
+      font-size: 14px,
+      line-height: 20px,
+    ),
+    medium: (
+      font-size: 14px,
+      line-height: 20px,
+    ),
+    small: (
+      font-size: 12px,
+      line-height: 23px,
+    ),
+    print: (
+      font-size: 10pt,
+    ),
+  ),
   -3: (
     large: (
       font-size: 16px,

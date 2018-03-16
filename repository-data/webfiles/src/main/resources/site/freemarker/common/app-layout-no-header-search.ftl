@@ -6,12 +6,14 @@
 
 <body class="debugs">
     <#include "scripts/live-engage-chat.ftl"/>
-
+    
     <@siteHeader false></@siteHeader>
 
     <@hst.include ref="main"/>
 
     <#include "site-footer.ftl"/>
+
+    <#include "cookie-banner.ftl"/>
 
     <@hst.headContributions categoryIncludes="htmlBodyEnd, scripts" xhtml=true/>
 </body>
