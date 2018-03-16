@@ -1,37 +1,69 @@
 @import "../environment/settings/colours";
+@import "../environment/settings/typography";
 @import "../environment/tools/mixins/typography";
 
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  margin: ($baseline-grid-unit * 4) 0 ($baseline-grid-unit * 8);
-  width: 100%;
-
-  caption {
-    @include core-font(24);
-    margin: 0 0 $baseline-grid-unit * 4;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
     text-align: left;
 
-    @include media(tablet) {
-      margin-bottom: $baseline-grid-unit * 8;
+    caption {
+        text-align: left;
+        margin-bottom: round($base-font-size);
+
+        @include bold-font($h3-font-size/1px);
+
+        @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+            margin-bottom: round($base-font-size * 0.75);
+        }
     }
-  }
 
-  th,
-  td {
-    // @include core-font(20);
-    // line-height: 30px;
-    border-bottom: 2px solid $grey-4;
-    padding: ($baseline-grid-unit * 6) ($baseline-grid-unit * 3) ($baseline-grid-unit * 8) 0;
-    vertical-align: top;
-  }
+    th,
+    td {
+        padding: 17px 10px;
+        width: 25%;
+        text-align: left;
+    }
 
-  th {
-    // @include bold-font(20);
-    text-align: left;
-  }
+    th {
+        background-color: $col-15;
+        border-left: 2px solid $col-septenary;
+
+        &,
+        * {
+            @include bold-font(16);
+        }
+
+        &:first-child {
+            border-left: none;
+        }
+    }
+
+    td {
+        border-top: 1px solid $col-15;
+
+        &,
+        * {
+            @include core-font(16);
+        }
+    }
+
+    tr:first-child td {
+        border-top: none;
+    }
+}
+
+.table-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    
+    @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+        @include touch-scroll-x;
+    }
 }
 
 .table--two-column th {
-  width: 50%;
+    width: 50%;
 }

@@ -1,7 +1,10 @@
 @import "../environment/settings/colours";
 @import "../environment/tools/mixins/addons";
+@import "../environment/tools/mixins/custom";
 
 a {
+    @include no-tap-highlight;
+    
     &:link {
         color: $link-colour;
     }

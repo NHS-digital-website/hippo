@@ -32,6 +32,7 @@
 .cta-list--grid {
     .cta {
         min-height: 132px;
+        margin-bottom: $gutter * 2;
     }
 
     @include media($max-width: $min-desktop-width) {
