@@ -1,15 +1,16 @@
 @import "../environment/tools/mixins/button";
 
 .button {
-  @include button($col-primary);
+    @include button($col-primary);
+    @include no-tap-highlight;
 }
 
 .button--secondary {
-  @include button($grey-4);
+    @include button($grey-4);
 }
 
 .button--cancel {
-  @include button($red);
+    @include button($red);
 }
 
 .button--warning {
@@ -17,7 +18,7 @@
 }
 
 .button--tertiary {
-  @include button($col-denary);
+    @include button($col-denary);
 }
 
 .button--small {

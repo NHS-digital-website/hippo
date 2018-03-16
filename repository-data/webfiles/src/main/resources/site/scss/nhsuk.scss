@@ -3,6 +3,7 @@
 @import "normalize/normalize-mixin";
 
 @import "environment/tools/mixins/addons";
+@import "environment/tools/mixins/custom";
 
 @import "environment/generic/border-box";
 @import "environment/generic/reset";
@@ -64,6 +65,7 @@
 // NHS Digital components
 @import "components/icon";
 @import "components/image-icon";
+@import "components/rich-text-content";
 @import "components/menu";
 @import "components/iframe-wrapper";
 @import "components/breadcrumb";
