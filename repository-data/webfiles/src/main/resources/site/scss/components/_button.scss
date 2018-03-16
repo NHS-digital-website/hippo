@@ -12,6 +12,16 @@
   @include button($red);
 }
 
+.button--warning {
+  @include button($col-octonary, $col-15);
+}
+
 .button--tertiary {
   @include button($col-denary);
+}
+
+.button--small {
+    padding: 2px 12px 1px;
+
+    @include core-font(16);
 }

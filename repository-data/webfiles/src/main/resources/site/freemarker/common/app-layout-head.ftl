@@ -17,7 +17,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     
     <title>${documentTitle}</title>
     <meta name="title" content="${documentTitle}" />

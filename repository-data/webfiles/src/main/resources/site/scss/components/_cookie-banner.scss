@@ -1,0 +1,32 @@
+/* Cookie Banner */
+.cookie-banner {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    bottom: 0;
+    background: $col-15;
+    background: rgba($col-15, 0.9);
+
+    color: $col-septenary;
+    @include core-font(16);
+}
+
+.cookie-banner__contents-wrapper {
+    padding: $gutter 0;
+}
+
+.cookie-banner__button-wrapper {
+    text-align: center;
+    padding-top: round($gutter * 1.4);
+
+    @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+        width: 100%;
+        text-align: left;
+        padding-top: round($gutter * 1.2);
+    }
+}
+
+.cookie-banner--hidden {
+    display: none;
+    visibility: hidden;
+}
