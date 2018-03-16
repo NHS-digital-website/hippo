@@ -1,54 +1,83 @@
 package uk.nhs.digital.externalstorage.s3;
 
-import org.junit.Before;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertThat;
+
 import org.junit.Test;
 
-import javax.xml.bind.DatatypeConverter;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.UUID;
-
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
 
 public class S3ObjectKeyGeneratorTest {
 
-    private String randomObjectKeySeed;
-
-    @Before
-    public void setUp() throws Exception {
-        randomObjectKeySeed = newRandomString();
-    }
-
     @Test
-    public void generatesS3ObjectReference() throws Exception {
+    public void generatesS3ObjectFolderStructure() throws Exception {
 
         // given
         final String fileName = newRandomString();
-        final String expectedObjectKey = generateObjectKey(fileName);
 
-        final S3ObjectKeyGenerator s3ObjectKeyGenerator = new S3ObjectKeyGenerator(() -> randomObjectKeySeed);
+        final S3ObjectKeyGenerator s3ObjectKeyGenerator = new S3ObjectKeyGenerator(() -> newRandomString());
 
         // when
         final String actualObjectKey = s3ObjectKeyGenerator.generateObjectKey(fileName);
 
         // then
-        assertThat("Generates S3 object key.", actualObjectKey, is(expectedObjectKey));
+        assertThat("Generates S3 object key folder structure.", actualObjectKey.matches("^[0-9A-F]{2}/[0-9A-F]{6}/.*"), is(true));
+    }
 
+    @Test
+    public void shouldContainFileName() throws Exception {
+
+        // given
+        final String fileName = newRandomString();
+
+        final S3ObjectKeyGenerator s3ObjectKeyGenerator = new S3ObjectKeyGenerator(() -> newRandomString());
+
+        // when
+        final String actualObjectKey = s3ObjectKeyGenerator.generateObjectKey(fileName);
+
+        // then
+        Path path = Paths.get(actualObjectKey);
+        assertThat("path contains filename at the end.", path.getName(2).toString(), equalTo(fileName));
+    }
+
+    @Test
+    public void generatedS3ObjectFolderStructuresAreIdentical_forTheFileNameAndSeed() throws Exception {
+
+        // given
+        final String fileName = newRandomString();
+        final String randomSeed = newRandomString();
+
+        final S3ObjectKeyGenerator s3ObjectKeyGenerator = new S3ObjectKeyGenerator(() -> randomSeed);
+
+        // when
+        final String actualObjectKeyA = s3ObjectKeyGenerator.generateObjectKey(fileName);
+        final String actualObjectKeyB = s3ObjectKeyGenerator.generateObjectKey(fileName);
+
+        // then
+        assertThat("Generated S3 object keys are identical.", actualObjectKeyA, is(actualObjectKeyB));
+    }
+
+    @Test
+    public void generatedS3ObjectFolderStructuresAreDifferentFor_forTheFileNameAndDifferentSeeds() throws Exception {
+
+        // given
+        final String fileName = newRandomString();
+
+        final S3ObjectKeyGenerator s3ObjectKeyGeneratorA = new S3ObjectKeyGenerator(() -> newRandomString());
+        final S3ObjectKeyGenerator s3ObjectKeyGeneratorB = new S3ObjectKeyGenerator(() -> newRandomString());
+
+        // when
+        final String actualObjectKeyA = s3ObjectKeyGeneratorA.generateObjectKey(fileName);
+        final String actualObjectKeyB = s3ObjectKeyGeneratorB.generateObjectKey(fileName);
+
+        // then
+        assertThat("Generated S3 object keys are different.", actualObjectKeyA, is(not(actualObjectKeyB)));
     }
 
     private String newRandomString() {
         return UUID.randomUUID().toString();
-    }
-
-    private String generateObjectKey(String fileName) throws NoSuchAlgorithmException {
-
-        final MessageDigest md = MessageDigest.getInstance("MD5");
-
-        md.update((fileName + randomObjectKeySeed).getBytes());
-
-        String hash = DatatypeConverter.printHexBinary(md.digest()).toUpperCase();
-
-        return "/" + hash.substring(0,2) + "/" + hash.substring(2,8) + "/" + fileName;
     }
 }

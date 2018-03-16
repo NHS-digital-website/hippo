@@ -26,7 +26,7 @@ public class S3ObjectKeyGenerator {
 
         final String hash = DatatypeConverter.printHexBinary(digest).toUpperCase();
 
-        return "/" + hash.substring(0,2) + "/" + hash.substring(2,8) + "/" + fileName;
+        return hash.substring(0,2) + "/" + hash.substring(2,8) + "/" + fileName;
     }
 
     private MessageDigest getMd5MessageDigest() {
