@@ -132,6 +132,7 @@ definitions:
         jcr:primaryType: hst:sitemapitem
       /root:
         hst:componentconfigurationid: hst:pages/cihub
+        hst:refId: root
         hst:relativecontentpath: publication-system/ci-hub/main-sections
         jcr:primaryType: hst:sitemapitem
       /search:
