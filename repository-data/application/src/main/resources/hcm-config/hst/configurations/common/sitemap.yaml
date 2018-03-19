@@ -53,7 +53,7 @@ definitions:
           - hst:pages/componentlist
           hst:relativecontentpath: data-and-information/content
           jcr:primaryType: hst:sitemapitem
-        /methodologies:
+        /national-indicator-library:
           /_any_:
             hst:componentconfigurationid: hst:pages/404
             hst:componentconfigurationmappingnames:
