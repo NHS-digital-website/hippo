@@ -93,30 +93,21 @@ Feature: Basic search
     Scenario: Using the sort by options
         Given I navigate to the "home" page
         When I search for "WeightSearchTerm"
-        Then I should see the weight search test results ordered by date
-        When I can click on the "Order by relevance" link
         Then I should see the weight search test results ordered by relevance
         When I can click on the "Order by date" link
         Then I should see the weight search test results ordered by date
-
-    Scenario: Using the sort by options with NIL content
-        Given I navigate to the "home" page
-        When I search for "NilSortSearchTerm"
-        Then I should see the NIL weight search test results ordered by date
         When I can click on the "Order by relevance" link
-        Then I should see the NIL weight search test results ordered by relevance
-        When I can click on the "Order by date" link
-        Then I should see the NIL weight search test results ordered by date
+        Then I should see the weight search test results ordered by relevance
 
     Scenario: Search results description is shown correctly with and without search terms
         When I navigate to the "search" page
-        Then I can see the search description matching "\d+ results sorted by date\."
-        When I click on the "Order by relevance" link
         Then I can see the search description matching "\d+ results sorted by relevance\."
+        When I click on the "Order by date" link
+        Then I can see the search description matching "\d+ results sorted by date\."
         When I search for "test"
-        Then I can see the search description matching "\d+ results containing 'test', sorted by date\."
-        When I click on the "Order by relevance" link
         Then I can see the search description matching "\d+ results containing 'test', sorted by relevance\."
+        When I click on the "Order by date" link
+        Then I can see the search description matching "\d+ results containing 'test', sorted by date\."
 
     Scenario: Search terms are displayed correctly on the results page
         Given I navigate to the "home" page
@@ -135,7 +126,7 @@ Feature: Basic search
             | Publication ( ...         |
             | Data set ( ...            |
             | Series / Collection ( ... |
-            | Methodology ( ...         |            
+            | Methodology ( ...         |
 
     Scenario: Navigating to the search page displays the results page with full, unfiltered result set
         Given I navigate to the "search" page

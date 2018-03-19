@@ -7,57 +7,42 @@ https://wiki.apache.org/jackrabbit/IndexingConfiguration
 <configuration
     xmlns:hippostd="http://www.onehippo.org/jcr/hippostd/nt/2.0"
     xmlns:hippostdpubwf="http://www.onehippo.org/jcr/hippostdpubwf/nt/1.0"
-    xmlns:jcr="http://www.jcp.org/jcr/1.0"
     xmlns:publicationsystem="http://digital.nhs.uk/jcr/publicationsystem/nt/1.0"
     xmlns:nationalindicatorlibrary="http://digital.nhs.uk/jcr/nationalindicatorlibrary/nt/1.0"
     xmlns:common="http://digital.nhs.uk/jcr/common/nt/1.0"
 >
-    <index-rule
-        nodeType="publicationsystem:publication"
-        boost="3.0"
-    >
-        <property boost="2.0">publicationsystem:Title</property>
-        <property boost="1.5">publicationsystem:Summary</property>
+    <index-rule nodeType="publicationsystem:publication">
+        <property>publicationsystem:Title</property>
+        <property>publicationsystem:Summary</property>
         <property>common:SearchableTags</property>
         <property>publicationsystem:KeyFacts</property>
         <property isRegexp="true" nodeScopeIndex="false">.*:.*</property>
     </index-rule>
 
-    <index-rule
-        nodeType="nationalindicatorlibrary:indicator"
-        boost="4.0"
-    >
-        <property boost="2.0">nationalindicatorlibrary:title</property>
-        <property boost="1.5">nationalindicatorlibrary:definition</property>
-        <property boost="1.0">nationalindicatorlibrary:purpose</property>        
+    <index-rule nodeType="nationalindicatorlibrary:indicator">
+        <property>nationalindicatorlibrary:title</property>
+        <property>nationalindicatorlibrary:definition</property>
+        <property>nationalindicatorlibrary:purpose</property>
         <property>common:SearchableTags</property>
         <property isRegexp="true" nodeScopeIndex="false">.*:.*</property>
     </index-rule>
 
-    <index-rule
-        nodeType="publicationsystem:series"
-        boost="5.0"
-    >
-        <property boost="2.0">publicationsystem:Title</property>
-        <property boost="1.5">publicationsystem:Summary</property>
+    <index-rule nodeType="publicationsystem:series">
+        <property>publicationsystem:Title</property>
+        <property>publicationsystem:Summary</property>
         <property isRegexp="true" nodeScopeIndex="false">.*:.*</property>
     </index-rule>
 
-    <index-rule
-        nodeType="publicationsystem:dataset"
-    >
-        <property boost="2.0">publicationsystem:Title</property>
-        <property boost="1.5">publicationsystem:Summary</property>
+    <index-rule nodeType="publicationsystem:dataset">
+        <property>publicationsystem:Title</property>
+        <property>publicationsystem:Summary</property>
         <property>common:SearchableTags</property>
         <property isRegexp="true" nodeScopeIndex="false">.*:.*</property>
     </index-rule>
 
-    <index-rule
-        nodeType="publicationsystem:archive"
-        boost="0.5"
-    >
-        <property boost="2.0">publicationsystem:Title</property>
-        <property boost="1.5">publicationsystem:Summary</property>
+    <index-rule nodeType="publicationsystem:archive">
+        <property>publicationsystem:Title</property>
+        <property>publicationsystem:Summary</property>
         <property isRegexp="true" nodeScopeIndex="false">.*:.*</property>
     </index-rule>
 

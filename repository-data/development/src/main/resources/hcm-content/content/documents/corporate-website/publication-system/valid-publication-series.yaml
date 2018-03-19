@@ -374,6 +374,7 @@
   /content:
     /content[1]:
       common:FacetType: series
+      common:searchRank: 1
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -395,6 +396,7 @@
       publicationsystem:Title: Time Series Lorem Ipsum Dolor
     /content[2]:
       common:FacetType: series
+      common:searchRank: 1
       common:searchable: true
       hippo:availability:
       - preview
@@ -418,6 +420,7 @@
       publicationsystem:Title: Time Series Lorem Ipsum Dolor
     /content[3]:
       common:FacetType: series
+      common:searchRank: 1
       common:searchable: true
       hippo:availability:
       - live

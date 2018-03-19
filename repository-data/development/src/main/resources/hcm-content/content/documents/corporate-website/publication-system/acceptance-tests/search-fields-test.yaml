@@ -219,6 +219,7 @@
     /time-series-index:
       /time-series-index[1]:
         common:FacetType: series
+        common:searchRank: 1
         common:searchable: true
         hippo:availability: []
         hippostd:state: draft
@@ -235,6 +236,7 @@
         publicationsystem:Title: series fields titleTestStrawberries
       /time-series-index[2]:
         common:FacetType: series
+        common:searchRank: 1
         common:searchable: true
         hippo:availability:
         - preview
@@ -253,6 +255,7 @@
         publicationsystem:Title: series fields titleTestStrawberries
       /time-series-index[3]:
         common:FacetType: series
+        common:searchRank: 1
         common:searchable: true
         hippo:availability:
         - live

@@ -202,7 +202,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-08T16:55:02.641Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T13:08:33.590Z
+      hippostdpubwf:lastModificationDate: 2018-03-19T10:53:55.449Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 1c5d71f7-404c-438d-be68-574635234885
       hippotranslation:locale: en
@@ -215,7 +215,7 @@
       publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
       publicationsystem:NominalDate: 2018-03-11T00:00:00Z
       publicationsystem:Summary: "Search Test Dataset Summary\r\nWeightSearchTerm"
-      publicationsystem:Title: Search Test Dataset Summary
+      publicationsystem:Title: Search Test Dataset Summary Mar 18
     /dataset-summary[2]:
       common:FacetType: dataset
       common:searchable: true
@@ -224,9 +224,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-08T16:55:02.641Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T13:08:33.590Z
+      hippostdpubwf:lastModificationDate: 2018-03-19T10:53:55.449Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-02-05T13:08:42.575Z
+      hippostdpubwf:publicationDate: 2018-03-19T10:56:49.698Z
       hippotranslation:id: 1c5d71f7-404c-438d-be68-574635234885
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -238,7 +238,7 @@
       publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
       publicationsystem:NominalDate: 2018-03-11T00:00:00Z
       publicationsystem:Summary: "Search Test Dataset Summary\r\nWeightSearchTerm"
-      publicationsystem:Title: Search Test Dataset Summary
+      publicationsystem:Title: Search Test Dataset Summary Mar 18
     /dataset-summary[3]:
       common:FacetType: dataset
       common:searchable: true
@@ -246,7 +246,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-08T16:55:02.641Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T13:23:42.299Z
+      hippostdpubwf:lastModificationDate: 2018-03-19T10:52:24.439Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 1c5d71f7-404c-438d-be68-574635234885
       hippotranslation:locale: en
@@ -259,7 +259,7 @@
       publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
       publicationsystem:NominalDate: 2018-03-11T00:00:00Z
       publicationsystem:Summary: "Search Test Dataset Summary\r\nWeightSearchTerm"
-      publicationsystem:Title: Search Test Dataset Summary
+      publicationsystem:Title: Search Test Dataset Summary Mar 18
     hippo:name: Dataset Summary
     jcr:mixinTypes:
     - hippo:named
@@ -273,7 +273,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-08T16:55:02.641Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T13:07:40.877Z
+      hippostdpubwf:lastModificationDate: 2018-03-19T10:55:55.402Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 0b15556c-11c2-4903-a85c-108e78e6ac6b
       hippotranslation:locale: en
@@ -286,7 +286,7 @@
       publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
       publicationsystem:NominalDate: 2018-01-08T00:00:00Z
       publicationsystem:Summary: Search Test Dataset Title
-      publicationsystem:Title: "Search Test Dataset Title\r\nWeightSearchTerm"
+      publicationsystem:Title: "Search Test Dataset Title Jan 18\r\nWeightSearchTerm"
     /dataset-title[2]:
       common:FacetType: dataset
       common:searchable: true
@@ -295,7 +295,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-08T16:55:02.641Z
-      hippostdpubwf:lastModificationDate: 2018-01-09T16:59:21.656Z
+      hippostdpubwf:lastModificationDate: 2018-03-19T10:56:02.229Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 0b15556c-11c2-4903-a85c-108e78e6ac6b
       hippotranslation:locale: en
@@ -309,7 +309,7 @@
       publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
       publicationsystem:NominalDate: 2018-01-08T00:00:00Z
       publicationsystem:Summary: Search Test Dataset Title
-      publicationsystem:Title: "Search Test Dataset Title\r\nWeightSearchTerm"
+      publicationsystem:Title: "Search Test Dataset Title Jan 18\r\nWeightSearchTerm"
     /dataset-title[3]:
       common:FacetType: dataset
       common:searchable: true
@@ -318,9 +318,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-08T16:55:02.641Z
-      hippostdpubwf:lastModificationDate: 2018-01-09T16:59:21.656Z
+      hippostdpubwf:lastModificationDate: 2018-03-19T10:56:02.229Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-01-09T16:59:34.022Z
+      hippostdpubwf:publicationDate: 2018-03-19T10:56:49.246Z
       hippotranslation:id: 0b15556c-11c2-4903-a85c-108e78e6ac6b
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -332,7 +332,7 @@
       publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
       publicationsystem:NominalDate: 2018-01-08T00:00:00Z
       publicationsystem:Summary: Search Test Dataset Title
-      publicationsystem:Title: "Search Test Dataset Title\r\nWeightSearchTerm"
+      publicationsystem:Title: "Search Test Dataset Title Jan 18\r\nWeightSearchTerm"
     hippo:name: Dataset Title
     jcr:mixinTypes:
     - hippo:named
@@ -347,7 +347,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-08T17:00:00.686Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T13:08:27.790Z
+      hippostdpubwf:lastModificationDate: 2018-03-19T10:54:18.171Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 61571ddd-4f76-4922-b8e0-c7957199eb49
       hippotranslation:locale: en
@@ -359,10 +359,10 @@
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:KeyFacts: "Search Test Publication Key Facts\r\nWeightSearchTerm"
-      publicationsystem:NominalDate: 2018-01-17T00:00:00Z
+      publicationsystem:NominalDate: 2018-02-13T00:00:00Z
       publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: Search Test Publication Key Facts
-      publicationsystem:Title: Search Test Publication Key Facts
+      publicationsystem:Title: Search Test Publication Key Facts Feb 18
     /publication-key-facts[2]:
       common:FacetType: publication
       common:searchable: true
@@ -370,7 +370,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-08T17:00:00.686Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T13:23:50.826Z
+      hippostdpubwf:lastModificationDate: 2018-03-19T10:54:02.759Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 61571ddd-4f76-4922-b8e0-c7957199eb49
       hippotranslation:locale: en
@@ -382,10 +382,10 @@
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:KeyFacts: "Search Test Publication Key Facts\r\nWeightSearchTerm"
-      publicationsystem:NominalDate: 2018-01-17T00:00:00Z
+      publicationsystem:NominalDate: 2018-02-13T00:00:00Z
       publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: Search Test Publication Key Facts
-      publicationsystem:Title: Search Test Publication Key Facts
+      publicationsystem:Title: Search Test Publication Key Facts Feb 18
     /publication-key-facts[3]:
       common:FacetType: publication
       common:searchable: true
@@ -394,9 +394,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-08T17:00:00.686Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T13:08:27.790Z
+      hippostdpubwf:lastModificationDate: 2018-03-19T10:54:18.171Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-02-05T13:08:42.132Z
+      hippostdpubwf:publicationDate: 2018-03-19T10:56:49.540Z
       hippotranslation:id: 61571ddd-4f76-4922-b8e0-c7957199eb49
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -407,10 +407,10 @@
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:KeyFacts: "Search Test Publication Key Facts\r\nWeightSearchTerm"
-      publicationsystem:NominalDate: 2018-01-17T00:00:00Z
+      publicationsystem:NominalDate: 2018-02-13T00:00:00Z
       publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: Search Test Publication Key Facts
-      publicationsystem:Title: Search Test Publication Key Facts
+      publicationsystem:Title: Search Test Publication Key Facts Feb 18
     hippo:name: Publication Key Facts
     jcr:mixinTypes:
     - hippo:named
@@ -425,7 +425,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-08T17:00:00.686Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T13:08:33.463Z
+      hippostdpubwf:lastModificationDate: 2018-03-19T10:53:32.059Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: e265ff0c-483f-45ba-882a-cff8b1d8744c
       hippotranslation:locale: en
@@ -437,10 +437,10 @@
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2018-02-27T00:00:00Z
+      publicationsystem:NominalDate: 2018-04-10T23:00:00Z
       publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: "Search Test Publication Summary\r\nWeightSearchTerm"
-      publicationsystem:Title: Search Test Publication Summary
+      publicationsystem:Title: Search Test Publication Summary Apr 18
     /publication-summary[2]:
       common:FacetType: publication
       common:searchable: true
@@ -448,7 +448,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-08T17:00:00.686Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T13:23:54.439Z
+      hippostdpubwf:lastModificationDate: 2018-03-19T10:53:11.095Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: e265ff0c-483f-45ba-882a-cff8b1d8744c
       hippotranslation:locale: en
@@ -460,10 +460,10 @@
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2018-02-27T00:00:00Z
+      publicationsystem:NominalDate: 2018-04-10T23:00:00Z
       publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: "Search Test Publication Summary\r\nWeightSearchTerm"
-      publicationsystem:Title: Search Test Publication Summary
+      publicationsystem:Title: Search Test Publication Summary Apr 18
     /publication-summary[3]:
       common:FacetType: publication
       common:searchable: true
@@ -472,9 +472,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-08T17:00:00.686Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T13:08:33.463Z
+      hippostdpubwf:lastModificationDate: 2018-03-19T10:53:32.059Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-02-05T13:08:42.448Z
+      hippostdpubwf:publicationDate: 2018-03-19T10:56:49.889Z
       hippotranslation:id: e265ff0c-483f-45ba-882a-cff8b1d8744c
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -485,10 +485,10 @@
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2018-02-27T00:00:00Z
+      publicationsystem:NominalDate: 2018-04-10T23:00:00Z
       publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: "Search Test Publication Summary\r\nWeightSearchTerm"
-      publicationsystem:Title: Search Test Publication Summary
+      publicationsystem:Title: Search Test Publication Summary Apr 18
     hippo:name: Publication Summary
     jcr:mixinTypes:
     - hippo:named
@@ -502,7 +502,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-08T17:00:00.686Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T13:23:57.867Z
+      hippostdpubwf:lastModificationDate: 2018-03-19T10:56:32.438Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: fa7260bb-753b-441c-93e6-5d95d29dcb3c
       hippotranslation:locale: en
@@ -514,10 +514,10 @@
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2018-01-01T00:00:00Z
+      publicationsystem:NominalDate: 2017-12-31T00:00:00Z
       publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: Search Test Publication Title
-      publicationsystem:Title: "Search Test Publication Title\r\nWeightSearchTerm"
+      publicationsystem:Title: "Search Test Publication Title Dec 17\r\nWeightSearchTerm"
     /publication-title[2]:
       common:FacetType: publication
       common:searchable: true
@@ -526,7 +526,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-08T17:00:00.686Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T13:08:20.893Z
+      hippostdpubwf:lastModificationDate: 2018-03-19T10:56:40.147Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: fa7260bb-753b-441c-93e6-5d95d29dcb3c
       hippotranslation:locale: en
@@ -539,10 +539,10 @@
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2018-01-01T00:00:00Z
+      publicationsystem:NominalDate: 2017-12-31T00:00:00Z
       publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: Search Test Publication Title
-      publicationsystem:Title: "Search Test Publication Title\r\nWeightSearchTerm"
+      publicationsystem:Title: "Search Test Publication Title Dec 17\r\nWeightSearchTerm"
     /publication-title[3]:
       common:FacetType: publication
       common:searchable: true
@@ -551,9 +551,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-08T17:00:00.686Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T13:08:20.893Z
+      hippostdpubwf:lastModificationDate: 2018-03-19T10:56:40.147Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-02-05T13:08:42.293Z
+      hippostdpubwf:publicationDate: 2018-03-19T10:56:50.044Z
       hippotranslation:id: fa7260bb-753b-441c-93e6-5d95d29dcb3c
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -564,10 +564,10 @@
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2018-01-01T00:00:00Z
+      publicationsystem:NominalDate: 2017-12-31T00:00:00Z
       publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: Search Test Publication Title
-      publicationsystem:Title: "Search Test Publication Title\r\nWeightSearchTerm"
+      publicationsystem:Title: "Search Test Publication Title Dec 17\r\nWeightSearchTerm"
     hippo:name: Publication Title
     jcr:mixinTypes:
     - hippo:named
@@ -576,6 +576,7 @@
   /series-summary:
     /series-summary[1]:
       common:FacetType: series
+      common:searchRank: 1
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -592,6 +593,7 @@
       publicationsystem:Title: Search Test Series Summary
     /series-summary[2]:
       common:FacetType: series
+      common:searchRank: 1
       common:searchable: true
       hippo:availability:
       - preview
@@ -610,6 +612,7 @@
       publicationsystem:Title: Search Test Series Summary
     /series-summary[3]:
       common:FacetType: series
+      common:searchRank: 1
       common:searchable: true
       hippo:availability:
       - live
@@ -634,6 +637,7 @@
   /series-title:
     /series-title[1]:
       common:FacetType: series
+      common:searchRank: 1
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -650,6 +654,7 @@
       publicationsystem:Title: "Search Test Series Title\r\nWeightSearchTerm"
     /series-title[2]:
       common:FacetType: series
+      common:searchRank: 1
       common:searchable: true
       hippo:availability:
       - preview
@@ -668,6 +673,7 @@
       publicationsystem:Title: "Search Test Series Title\r\nWeightSearchTerm"
     /series-title[3]:
       common:FacetType: series
+      common:searchRank: 1
       common:searchable: true
       hippo:availability:
       - live

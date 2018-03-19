@@ -62,7 +62,7 @@
     nationalindicatorlibrary:assuredStatus: true
     nationalindicatorlibrary:publishedBy: test
     nationalindicatorlibrary:reportingLevel: test
-    nationalindicatorlibrary:title: Search Test Indicator Title NilSortSearchTerm
+    nationalindicatorlibrary:title: Search Test Indicator Title WeightSearchTerm
   /search-test-title-indicator[2]:
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
@@ -127,7 +127,7 @@
     nationalindicatorlibrary:assuredStatus: true
     nationalindicatorlibrary:publishedBy: test
     nationalindicatorlibrary:reportingLevel: test
-    nationalindicatorlibrary:title: Search Test Indicator Title NilSortSearchTerm
+    nationalindicatorlibrary:title: Search Test Indicator Title WeightSearchTerm
   /search-test-title-indicator[3]:
     /nationalindicatorlibrary:details:
       /nationalindicatorlibrary:caveats:
@@ -192,7 +192,7 @@
     nationalindicatorlibrary:assuredStatus: true
     nationalindicatorlibrary:publishedBy: test
     nationalindicatorlibrary:reportingLevel: test
-    nationalindicatorlibrary:title: Search Test Indicator Title NilSortSearchTerm
+    nationalindicatorlibrary:title: Search Test Indicator Title WeightSearchTerm
   hippo:name: search test title indicator
   jcr:mixinTypes:
   - hippo:named

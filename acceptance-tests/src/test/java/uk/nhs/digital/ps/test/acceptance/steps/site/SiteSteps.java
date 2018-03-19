@@ -278,8 +278,8 @@ public class SiteSteps extends AbstractSpringSteps {
                 return not(
                     anyOf(
                         matcherStream
-                        .map(Matchers::hasItem)
-                        .collect(toList())
+                            .map(Matchers::hasItem)
+                            .collect(toList())
                     )
                 );
 
