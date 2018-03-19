@@ -3,6 +3,8 @@
 <#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
 <#assign formatCoverageDates="uk.nhs.digital.ps.directives.CoverageDatesFormatterDirective"?new() />
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() />
+<#assign interpHasContent=indicator.details.interpretationGuidelines.content?has_content>
+<#assign caveatsHasContent=indicator.details.caveats.content?has_content>
 
 <@hst.setBundle basename="nationalindicatorlibrary.headers"/>
 
@@ -50,10 +52,14 @@
                     <li><a href="#purpose"><@fmt.message key="headers.purpose"/></a></li>
                     <li><a href="#definition"><@fmt.message key="headers.definition"/></a></li>
                     <li><a href="#methodology"><@fmt.message key="headers.methodology"/></a></li>
-                    <li><a href="#caveats"><@fmt.message key="headers.caveats"/></a></li>
-                    <li><a href="#interpretations"><@fmt.message key="headers.interpretationGuidelines"/></a></li>
+                    <#if caveatsHasContent>
+                        <li><a href="#caveats"><@fmt.message key="headers.caveats"/></a></li>
+                    </#if>
+                    <#if interpHasContent>
+                        <li><a href="#interpretations"><@fmt.message key="headers.interpretationGuidelines"/></a></li>
+                    </#if>
                     <#if indicator.attachments?has_content>
-                    <li><a href="#resources">Resources</a></li>
+                        <li><a href="#resources">Resources</a></li>
                     </#if>
                 </ul>
             </div>
@@ -98,15 +104,19 @@
             </div>
         </details>
 
-        <section id="caveats" class="push-double--bottom">
-            <h2><strong><@fmt.message key="headers.caveats"/></strong></h2>
-            <#outputformat "undefined">${indicator.details.caveats.content}</#outputformat>
-        </section>
+        <#if caveatsHasContent>
+            <section id="caveats" class="push-double--bottom">
+                <h2><strong><@fmt.message key="headers.caveats"/></strong></h2>
+                <#outputformat "undefined">${indicator.details.caveats.content}</#outputformat>
+            </section>
+        </#if>
 
-        <section id="interpretations" class="push-double--bottom">
-            <h2><strong><@fmt.message key="headers.interpretationGuidelines"/></strong></h2>
-            <#outputformat "undefined">${indicator.details.interpretationGuidelines.content}</#outputformat>
-        </section>
+        <#if interpHasContent>
+            <section id="interpretations" class="push-double--bottom">
+                <h2><strong><@fmt.message key="headers.interpretationGuidelines"/></strong></h2>
+                <#outputformat "undefined">${indicator.details.interpretationGuidelines.content}</#outputformat>
+            </section>
+        </#if>
 
         <section class="push-double--bottom">
             <h2><strong><@fmt.message key="headers.categories"/></strong></h2>
