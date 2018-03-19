@@ -1,7 +1,8 @@
 <#ftl output_format="HTML">
 <!DOCTYPE html>
 <#include "../include/imports.ftl">
-<@hst.setBundle basename="emails"/>
+<#include "macro/searchTabsComponent.ftl">
+<@hst.setBundle basename="emails, feature-toggles"/>
 
 <html lang="en">
   <head>
@@ -88,11 +89,14 @@
           </div>
         </div><!--
         --><div class="layout__item layout-2-3">
+          <@searchTabsComponent contentNames=hstResponseChildContentNames></@searchTabsComponent>
+                  
           <@hst.include ref="main"/>
         </div>
       </div>
     </section>
     <#else>
+      <@searchTabsComponent contentNames=hstResponseChildContentNames></@searchTabsComponent>
 
       <@hst.include ref="main"/>
 

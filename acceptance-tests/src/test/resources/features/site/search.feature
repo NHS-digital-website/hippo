@@ -145,6 +145,34 @@ Feature: Basic search
             | Series / Collection ( ... |
             | Methodology ( ...         |
 
+    Scenario: Clicking on the 'All' tab displays the results page with full, unfiltered result set
+        Given I navigate to the "search" page
+        When I can click on the "All" link
+        Then I should see the list with title "DOCUMENT TYPE" including:
+            | Publication ( ...         |
+            | Data set ( ...            |
+            | Series / Collection ( ... |
+            | Methodology ( ...         |
+
+    Scenario: Clicking on the 'Data and Information' tab displays the results page with publications, data sets, series and methodologies
+        Given I navigate to the "search" page
+        When I can click on the "Data and Information" link
+        Then I should see the list with title "DOCUMENT TYPE" including:
+            | Publication ( ...         |
+            | Data set ( ...            |
+            | Series / Collection ( ... |
+            | Methodology ( ...         |
+
+    Scenario: Clicking on the 'Systems and Services' tab displays no results because we don't yet include them in the search component
+        Given I navigate to the "search" page
+        When I can click on the "Systems and Services" link
+        Then I can see the search description matching "No results for filters"
+
+    Scenario: Clicking on the 'News and Events' tab displays no results because we don't yet include them in the search component
+        Given I navigate to the "search" page
+        When I can click on the "News and Events" link
+        Then I can see the search description matching "No results for filters"
+
     Scenario: Each document type label is correctly displayed in search results
         Given I navigate to the "home" page
         When I search for "Bare Minimum"

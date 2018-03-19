@@ -16,5 +16,9 @@ definitions:
         - 'true'
         hst:template: searchresults
         jcr:primaryType: hst:component
+      /tabs:
+        hst:componentclassname: uk.nhs.digital.common.components.SearchTabsComponent
+        hst:template: searchtabs
+        jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/basepage
       jcr:primaryType: hst:component

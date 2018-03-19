@@ -5,6 +5,7 @@ import static java.lang.Math.min;
 import static java.util.stream.Collectors.toList;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.*;
 
+import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.builder.Constraint;
 import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
@@ -21,6 +22,8 @@ import org.onehippo.cms7.essentials.components.info.EssentialsListComponentInfo;
 import org.onehippo.cms7.essentials.components.paging.Pageable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import uk.nhs.digital.common.enums.SearchArea;
 import uk.nhs.digital.nil.beans.Indicator;
 import uk.nhs.digital.ps.beans.*;
 
@@ -42,9 +45,17 @@ public class SearchComponent extends CommonComponent {
     private static final int WILDCARD_POSTFIX_MIN_LENGTH = 3;
 
     private static final String REQUEST_PARAM_SORT = "sort";
+    private static final String REQUEST_PARAM_AREA = "area";    
     private static final String SORT_RELEVANCE = "relevance";
     private static final String SORT_DATE = "date";
     private static final String SORT_DEFAULT = SORT_DATE;
+    private static final SearchArea AREA_DEFAULT = SearchArea.ALL;
+
+    private static final String FOLDER_NEWS = "news-and-events";
+    private static final String FOLDER_PUBLICATIONS = "publication-system";
+    private static final String FOLDER_SERVICES = "services";
+    private static final String FOLDER_DATAANDINFORMATION = "data-and-information";
+    private static final String FOLDER_NIL = "national-indicator-library";
 
     private static final int PAGEABLE_SIZE = 5;
 
@@ -72,6 +83,7 @@ public class SearchComponent extends CommonComponent {
         request.setAttribute("query", getQueryParameter(request));
         request.setAttribute("facets", facetNavigationBean);
         request.setAttribute("sort", getSortOption(request));
+        request.setAttribute("area", getAreaOption(request).toString());
         request.setAttribute("cparam", paramInfo);
     }
 
@@ -158,7 +170,7 @@ public class SearchComponent extends CommonComponent {
         String queryParameter = getQueryParameter(request);
         Constraint searchStringConstraint = null;
 
-        HstQueryBuilder queryBuilder = HstQueryBuilder.create(request.getRequestContext().getSiteContentBaseBean());
+        HstQueryBuilder queryBuilder = HstQueryBuilder.create(deriveScope(request));
 
         if (queryParameter != null) {
             String query = SearchInputParsingUtils.parse(queryParameter, true);
@@ -192,13 +204,57 @@ public class SearchComponent extends CommonComponent {
             default:
                 log.error("Unknown sort mode: " + sortParam);
                 break;
-        }
+        }    
 
         return constructQuery(queryBuilder, searchStringConstraint);
     }
 
+    private HippoBean[] deriveScope(HstRequest request) {
+        SearchArea areaParam = getAreaOption(request);
+
+        final HippoBean base = RequestContextProvider.get().getSiteContentBaseBean();
+        final HippoBean newsFolder = base.getBean(FOLDER_NEWS);
+        final HippoBean publicationsFolder = base.getBean(FOLDER_PUBLICATIONS);
+        final HippoBean servicesFolder = base.getBean(FOLDER_SERVICES);
+        final HippoBean dataAndInformationFolder = base.getBean(FOLDER_DATAANDINFORMATION);
+        final HippoBean nationalIndicatorLibraryFolder = base.getBean(FOLDER_NIL);
+
+        List<HippoBean> scopeBeans = new ArrayList<HippoBean>();
+
+        switch (areaParam) {
+            case NEWS:
+                scopeBeans.add(newsFolder);
+                break;
+            case DATA:
+                scopeBeans.add(publicationsFolder);
+                scopeBeans.add(nationalIndicatorLibraryFolder);
+                scopeBeans.add(dataAndInformationFolder);
+                break;     
+            case SERVICES:
+                scopeBeans.add(servicesFolder);
+                break;   
+            case ALL:    
+                scopeBeans.add(request.getRequestContext().getSiteContentBaseBean());    
+                break;      
+            default:
+                scopeBeans.add(request.getRequestContext().getSiteContentBaseBean());                                        
+        }
+
+        return scopeBeans.toArray(new HippoBean[scopeBeans.size()]);
+    }
+
     private String getSortOption(HstRequest request) {
         return Optional.ofNullable(getAnyParameter(request, REQUEST_PARAM_SORT)).orElse(SORT_DEFAULT);
+    }
+
+    private SearchArea getAreaOption(HstRequest request) {
+        Optional<String> param = Optional.ofNullable(getAnyParameter(request, REQUEST_PARAM_AREA));    
+        
+        if (param.isPresent()) {
+            return SearchArea.valueOf(param.get().toUpperCase());
+        }    
+
+        return AREA_DEFAULT;
     }
 
     private HstQuery constructQuery(HstQueryBuilder queryBuilder, Constraint searchStringConstraint) {

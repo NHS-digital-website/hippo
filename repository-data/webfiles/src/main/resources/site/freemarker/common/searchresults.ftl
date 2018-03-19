@@ -14,7 +14,7 @@
             --><div class="layout__item layout-1-3" style="text-align:right">
                 <label for="sortBy">Sort by:</label>
                 <select id="sortBy" onChange="window.location.href=this.value" data-uipath="ps.search-results.sort-selector">
-                    <#assign sortLink = searchLink + query???then('?query=${query}&', '?') + 'sort='>
+                    <#assign sortLink = searchLink + query???then('?query=${query}&', '?') +'area=${area}&' + 'sort='>
                     <option title="Order by date" value="${sortLink}date"
                         <#if sort?? && sort == 'date'>selected</#if>>Date</option>
                     <option title="Order by relevance" value="${sortLink}relevance"
