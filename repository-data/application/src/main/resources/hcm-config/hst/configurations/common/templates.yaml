@@ -83,6 +83,9 @@ definitions:
       /searchresults:
         hst:renderpath: webfile:/freemarker/common/searchresults.ftl
         jcr:primaryType: hst:template
+      /searchtabs:
+        hst:renderpath: webfile:/freemarker/common/searchtabs.ftl
+        jcr:primaryType: hst:template
       /series:
         hst:renderpath: webfile:/freemarker/publicationsystem/series.ftl
         jcr:primaryType: hst:template

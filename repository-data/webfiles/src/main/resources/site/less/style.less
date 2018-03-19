@@ -797,8 +797,83 @@ div.nihubSection {
 div.nihubSection ul {
   list-style: none;
 }
+
 .pointer:hover {
   cursor: pointer;
+}
+
+/* TOP TABS */
+/* ########################################################## */
+.nav-tabs {
+  margin-bottom:20px;
+}
+
+.nav-tabs:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.nav-tabs ul, .nav-tabs .tabs-nav {
+  float: left;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 5;
+}
+
+.nav-tabs li, .nav-tabs .tabs-nav li {
+    font-size: 16px;
+    line-height: 1.25;
+}
+
+.nav-tabs li, .nav-tabs .tabs-nav li {
+    font-family: "nta", Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    font-size: 14px;
+    line-height: 1.1428571429;
+    padding: 0;
+    margin: 0;
+    float: left;
+}
+
+.nav-tabs li:first-child a, .nav-tabs .tabs-nav li:first-child a {
+  margin-left: 0;
+}
+.nav-tabs li.active a, .nav-tabs .tabs-nav li.active a {
+  background-color: #fff;
+  border: solid 1px #bfc1c3;
+  border-bottom: solid 1px #fff;
+  color: #0b0c0c;
+  position: relative;
+  text-decoration: none;
+  z-index: 5;
+}
+.nav-tabs li a, .nav-tabs .tabs-nav li a {
+  border: solid 1px #fff;
+  border-bottom: none;
+  float: left;
+  height: 2.25em;
+  line-height: 2.25em;
+  margin-bottom: -1px;
+  padding: 0 1em 0 1em;
+  position: relative;
+  text-align: center;
+  top: 0;
+}
+.nav-tabs li a, .nav-tabs .tabs-nav li a {
+  border: solid 1px #fff;
+  border-bottom: none;
+  float: left;
+  height: 2.25em;
+  line-height: 2.25em;
+  margin-bottom: -1px;
+  padding: 0 1em 0 1em;
+  position: relative;
+  text-align: center;
+  top: 0;
 }
 
 
