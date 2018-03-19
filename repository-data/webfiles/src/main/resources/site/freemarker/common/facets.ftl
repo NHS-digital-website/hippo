@@ -2,7 +2,7 @@
 <#include "../include/imports.ftl">
 <!--Need to have a single setBundle call as subsequent ones will overwrite the previous values-->
 <@hst.setBundle basename="month-names,facet-headers,facet-labels"/>
-<#assign facetMaxCount=7/>
+<#assign facetMaxCount=6/>
 
 <div class="layout layout--flush">
     <div class="layout__item layout-1-2">
@@ -32,16 +32,20 @@
             <h3 class="filter-list-title"><@fmt.message key=facet.name /></h3>
             <ul class="filter-list" title="<@fmt.message key=facet.name />" data-max-count="${facetMaxCount}" data-state="short">
                 <#list facetItems as value>
+                    <#assign valueName="Not Defined"/>
                     <#if facet.name="month">
                         <@fmt.message key=value.name var="monthName"/>
                         <#assign valueName=monthName/>
                     <#elseif facet.name="category">
                         <#assign valueName=taxonomy.getValueName(value.name)/>
                     <#elseif facet.name="document-type">
-                        <@fmt.message key="facet."+value.name var="docname"/> 
-                        <#assign valueName=docname/>
+                        <@fmt.message key="facet."+value.name var="docType"/>
+                        <#assign valueName=docType/>
                     <#elseif facet.name="assuredStatus">
-                        <#assign valueName=value.name?boolean?then('Yes','No')/>                                         
+                        <#assign valueName=value.name?boolean?then('Yes','No')/>
+                    <#elseif facet.name="publicationStatus">
+                        <@fmt.message key="facet." + value.name?boolean?then("liveStatus", "upcomingStatus") var="publicationStatus"/>
+                        <#assign valueName=publicationStatus/>
                     <#else>
                         <#assign valueName=value.name/>
                     </#if>

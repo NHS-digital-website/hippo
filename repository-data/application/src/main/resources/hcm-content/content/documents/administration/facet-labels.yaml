@@ -5,12 +5,14 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-01-17T15:49:40.466Z
-    hippostdpubwf:lastModificationDate: 2018-03-08T11:00:17.976Z
+    hippostdpubwf:lastModificationDate: 2018-03-19T17:09:40.369Z
     hippostdpubwf:lastModifiedBy: admin
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: resourcebundle:resourcebundle
     resourcebundle:descriptions:
+    - ''
+    - ''
     - ''
     - ''
     - ''
@@ -21,18 +23,22 @@
     - facet.dataset
     - facet.series
     - facet.indicator
+    - facet.liveStatus
+    - facet.upcomingStatus
     resourcebundle:messages:
     - Publication
     - Data set
     - Series / Collection
     - Methodology
+    - Published
+    - Upcoming
   /facet-labels[2]:
     hippo:availability:
     - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-01-17T15:49:40.466Z
-    hippostdpubwf:lastModificationDate: 2018-03-08T11:00:26.168Z
+    hippostdpubwf:lastModificationDate: 2018-03-19T17:10:11.411Z
     hippostdpubwf:lastModifiedBy: admin
     jcr:mixinTypes:
     - mix:referenceable
@@ -43,26 +49,32 @@
     - ''
     - ''
     - ''
+    - ''
+    - ''
     resourcebundle:id: facet-labels
     resourcebundle:keys:
     - facet.publication
     - facet.dataset
     - facet.series
     - facet.indicator
+    - facet.liveStatus
+    - facet.upcomingStatus
     resourcebundle:messages:
     - Publication
     - Data set
     - Series / Collection
     - Methodology
+    - Published
+    - Upcoming
   /facet-labels[3]:
     hippo:availability:
     - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-01-17T15:49:40.466Z
-    hippostdpubwf:lastModificationDate: 2018-03-08T11:00:26.168Z
+    hippostdpubwf:lastModificationDate: 2018-03-19T17:10:11.411Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-03-08T11:00:27.440Z
+    hippostdpubwf:publicationDate: 2018-03-19T17:10:14.338Z
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: resourcebundle:resourcebundle
@@ -71,17 +83,23 @@
     - ''
     - ''
     - ''
+    - ''
+    - ''
     resourcebundle:id: facet-labels
     resourcebundle:keys:
     - facet.publication
     - facet.dataset
     - facet.series
     - facet.indicator
+    - facet.liveStatus
+    - facet.upcomingStatus
     resourcebundle:messages:
     - Publication
     - Data set
     - Series / Collection
     - Methodology
+    - Published
+    - Upcoming
   hippo:name: Facet Labels
   jcr:mixinTypes:
   - hippo:named

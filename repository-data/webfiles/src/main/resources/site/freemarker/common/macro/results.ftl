@@ -24,7 +24,7 @@
 <#macro publication item>
     <div class="push-double--bottom" data-uipath="ps.search-results.result">
         <h3 class="flush zeta" data-uipath="ps.search-results.result.type" style="font-weight:bold"><@fmt.message key="labels.publication"/></h3>
-        <#if item.informationType?has_content>
+        <#if item.publiclyAccessible && item.informationType?has_content>
             <#list item.informationType as type>
                 <#if type == "National statistics">
                     <div class="media__icon--national-statistics" data-uipath="ps.search-results.result.national-statistics" title="National Statistics"></div>
@@ -38,7 +38,11 @@
             </a>
         </p>
         <p class="flush zeta" data-uipath="ps.search-results.result.date"><@formatRestrictableDate value=item.nominalPublicationDate/></p>
-        <p class="flush" data-uipath="ps.search-results.result.summary"><@truncate text=item.summary.firstParagraph size="300"/></p>
+        <#if item.publiclyAccessible>
+            <p class="flush" data-uipath="ps.search-results.result.summary"><@truncate text=item.summary.firstParagraph size="300"/></p>
+        <#else>
+            <p class="flush" data-uipath="ps.search-results.result.summary"><@fmt.message key="labels.upcoming-publication"/></p>
+        </#if>
     </div>
 </#macro>
 
@@ -115,8 +119,8 @@
         <#else>
             <p class="flush zeta" data-uipath="ps.search-results.result.assured-status"><@fmt.message key="labels.unassured"/></p>
             <p class="flush zeta" data-uipath="ps.search-results.result.publisher-and-date" style="font-weight:bold"><@fmt.message key="headers.publishedBy"/>: ${item.publishedBy}. <@fmt.message key="headers.unassured"/>: ${item.assuranceDate.time?string[dateFormat]}</p>
-        </#if>         
-        
-        <p class="flush" data-uipath="ps.search-results.result.brief-description">${item.details.briefDescription}</p>        
+        </#if>
+
+        <p class="flush" data-uipath="ps.search-results.result.brief-description">${item.details.briefDescription}</p>
     </div>
 </#macro>
