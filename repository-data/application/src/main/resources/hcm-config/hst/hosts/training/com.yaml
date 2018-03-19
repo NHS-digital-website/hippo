@@ -1,0 +1,30 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:hosts/training/com:
+      .meta:residual-child-node-category: content
+      /onehippo:
+        .meta:residual-child-node-category: content
+        /training:
+          .meta:residual-child-node-category: content
+          /nhs:
+            .meta:residual-child-node-category: content
+            /www:
+              .meta:residual-child-node-category: content
+              /hst:root:
+                .meta:residual-child-node-category: content
+                /publications:
+                  .meta:residual-child-node-category: content
+                  hst:homepage: root
+                  hst:mountpoint: /hst:hst/hst:sites/publicationsystem
+                  jcr:primaryType: hst:mount
+                hst:alias: common-context
+                hst:homepage: root
+                hst:mountpoint: /hst:hst/hst:sites/common
+                hst:showcontextpath: false
+                jcr:primaryType: hst:mount
+              jcr:primaryType: hst:virtualhost
+            jcr:primaryType: hst:virtualhost
+          jcr:primaryType: hst:virtualhost
+        jcr:primaryType: hst:virtualhost
+      jcr:primaryType: hst:virtualhost

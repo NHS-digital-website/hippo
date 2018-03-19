@@ -1,0 +1,7 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:hosts/training:
+      .meta:residual-child-node-category: content
+      hst:cmslocation: https://cms-nhs.training.onehippo.com
+      jcr:primaryType: hst:virtualhostgroup
