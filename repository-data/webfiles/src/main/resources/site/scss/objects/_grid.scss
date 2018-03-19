@@ -18,6 +18,7 @@
 
 // Use .grid-row to define a row for grid columns to sit in
 .grid-row {
+    position: relative;
     @include grid-row;
 }
 
@@ -79,7 +80,9 @@
 
 .column--18-75,
 .column--81-25 {
-    @include media($max-width: $site-width, $ignore-for-ie: true) {
+    position: relative;
+    
+    @include media($max-width: $desktop-width, $ignore-for-ie: true) {
         width: 100%;
     }
 }
