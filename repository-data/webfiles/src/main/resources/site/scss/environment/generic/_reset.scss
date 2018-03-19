@@ -1,7 +1,8 @@
-@import "../../normalize/_variables.scss";
+@import "../../normalize/variables";
 @import "../settings/colours";
 @import "../settings/typography";
 @import "../tools/mixins/typography";
+@import "../tools/mixins/custom";
 
 body,
 h1,
@@ -134,4 +135,18 @@ ol, ul, dl {
     li {
         margin-top: 0;
     }
+}
+
+button {
+    background: none;
+    appearance: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+
+    &:focus {
+        outline: none;
+    }
+
+    @include no-tap-highlight;
 }
