@@ -66,6 +66,10 @@ definitions:
             - hst:pages/indicator
             hst:relativecontentpath: national-indicator-library/${1}
             jcr:primaryType: hst:sitemapitem
+          /_index_:
+            hst:componentconfigurationid: hst:pages/nihub
+            hst:relativecontentpath: national-indicator-library/nihub
+            jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/404
           jcr:primaryType: hst:sitemapitem
         /publications:
