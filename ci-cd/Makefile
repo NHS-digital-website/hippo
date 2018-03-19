@@ -3,12 +3,14 @@ BUILD_DIR ?= ../../ps-build
 ENV ?= tst
 HIPPO_MAVEN_PASSWORD ?=
 HIPPO_MAVEN_USERNAME ?=
+TRAVIS_EVENT_TYPE ?=
 HOME ?= $(shell printenv HOME)
 OD_ENV = $(shell bash ondemand-env-name $(ENV))
 PWD = $(shell pwd)
 RD_CONF = $(PWD)/rd.conf
+TRAVIS_BUILD_CMD ?= test.site
 VENV ?= $(PWD)/.venv
-VERSION ?= $(shell git describe --tags --match "$$(cat $(PWD)/../.version)*")
+VERSION ?= $(shell git describe --tags --match "$$(cat $(PWD)/../.version)*" || echo "$$(cat $(PWD)/../.version).0")
 
 PATH := $(VENV)/bin:$(PWD)/bin:$(PWD)/vendor:$(shell printenv PATH)
 SHELL := env PATH=$(PATH) /bin/bash
@@ -20,6 +22,10 @@ ifneq ($(HIPPO_MAVEN_USERNAME),)
 MVN_OPTS ?= --file ../pom.xml -Drevision=$(VERSION) --global-settings "$(PWD)/../.mvn.settings.xml"
 endif
 MVN_OPTS ?= --file ../pom.xml -Drevision=$(VERSION)
+
+ifeq ($(TRAVIS_EVENT_TYPE),cron)
+TRAVIS_BUILD_CMD = test.e2e
+endif
 
 .PHONY: .phony
 
@@ -65,13 +71,12 @@ test.site:
 		-Dcucumber.options="src/test/resources/features/site" \
 		-Pacceptance-test-hippo,acceptance-test
 
-## Run the tests that we want for travis pull requests
-# This does unit tests and site tests
+## Run the tests that we want for travis builds
+# We only run site tests for pull requests as the CMS tests are unreliable
+# however we are adding a cron job that will run all test once a day and
+# we can fix these as we go along.
 test.travis:
-	mvn package $(MVN_OPTS) -DskipTests --quiet
-	mvn verify $(MVN_OPTS) --quiet \
-		-Dcucumber.options="src/test/resources/features/site" \
-		-Pacceptance-test-hippo,acceptance-test
+	$(MAKE) $(TRAVIS_BUILD_CMD)
 
 ## Run BDD tests
 test.e2e:
