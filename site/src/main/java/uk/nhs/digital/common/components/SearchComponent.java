@@ -17,6 +17,7 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.hippoecm.hst.util.ContentBeanUtils;
 import org.hippoecm.hst.util.SearchInputParsingUtils;
+import org.hippoecm.repository.HippoStdPubWfNodeType;
 import org.onehippo.cms7.essentials.components.CommonComponent;
 import org.onehippo.cms7.essentials.components.info.EssentialsListComponentInfo;
 import org.onehippo.cms7.essentials.components.paging.Pageable;
@@ -45,10 +46,10 @@ public class SearchComponent extends CommonComponent {
     private static final int WILDCARD_POSTFIX_MIN_LENGTH = 3;
 
     private static final String REQUEST_PARAM_SORT = "sort";
-    private static final String REQUEST_PARAM_AREA = "area";    
+    private static final String REQUEST_PARAM_AREA = "area";
     private static final String SORT_RELEVANCE = "relevance";
     private static final String SORT_DATE = "date";
-    private static final String SORT_DEFAULT = SORT_DATE;
+    private static final String SORT_DEFAULT = SORT_RELEVANCE;
     private static final SearchArea AREA_DEFAULT = SearchArea.ALL;
 
     private static final String FOLDER_NEWS = "news-and-events";
@@ -56,6 +57,8 @@ public class SearchComponent extends CommonComponent {
     private static final String FOLDER_SERVICES = "services";
     private static final String FOLDER_DATAANDINFORMATION = "data-and-information";
     private static final String FOLDER_NIL = "national-indicator-library";
+
+    private static final String PROPERTY_SEARCH_RANK = "common:searchRank";
 
     private static final int PAGEABLE_SIZE = 5;
 
@@ -177,34 +180,35 @@ public class SearchComponent extends CommonComponent {
             String queryIncWildcards = parseAndApplyWildcards(queryParameter);
 
             searchStringConstraint = or(
-                commonConstraint(query),
-                commonConstraint(queryIncWildcards),
-                publicationSystemConstraint(query),
-                publicationSystemConstraint(queryIncWildcards),
-                indicatorLibraryConstraint(query),
-                indicatorLibraryConstraint(queryIncWildcards),
                 constraint(".").contains(query),
                 constraint(".").contains(queryIncWildcards)
             );
         }
 
         // register content classes
-        addPublicationSystemTypes(queryBuilder);
-        addIndicatorLibraryTypes(queryBuilder);
+        addDataAndInfoTypes(queryBuilder);
 
         String sortParam = getSortOption(request);
         switch (sortParam) {
             case SORT_DATE:
-                queryBuilder.orderByDescending("publicationsystem:NominalDate", "nationalindicatorlibrary:assuranceDate", 
-                    "publicationsystem:Title", "nationalindicatorlibrary:title");
+                queryBuilder.orderByDescending(
+                    "publicationsystem:NominalDate",
+                    "nationalindicatorlibrary:assuranceDate",
+                    PROPERTY_SEARCH_RANK,
+                    HippoStdPubWfNodeType.HIPPOSTDPUBWF_LAST_MODIFIED_DATE);
                 break;
             case SORT_RELEVANCE:
-                // no op - relevence is the default sort order
+                // This is what we want for data and info - when we have tabs this will need to be made specific
+                queryBuilder.orderByDescending(
+                    PROPERTY_SEARCH_RANK,
+                    "publicationsystem:NominalDate",
+                    "nationalindicatorlibrary:assuranceDate",
+                    HippoStdPubWfNodeType.HIPPOSTDPUBWF_LAST_MODIFIED_DATE);
                 break;
             default:
                 log.error("Unknown sort mode: " + sortParam);
                 break;
-        }    
+        }
 
         return constructQuery(queryBuilder, searchStringConstraint);
     }
@@ -229,15 +233,15 @@ public class SearchComponent extends CommonComponent {
                 scopeBeans.add(publicationsFolder);
                 scopeBeans.add(nationalIndicatorLibraryFolder);
                 scopeBeans.add(dataAndInformationFolder);
-                break;     
+                break;
             case SERVICES:
                 scopeBeans.add(servicesFolder);
-                break;   
-            case ALL:    
-                scopeBeans.add(request.getRequestContext().getSiteContentBaseBean());    
-                break;      
+                break;
+            case ALL:
+                scopeBeans.add(request.getRequestContext().getSiteContentBaseBean());
+                break;
             default:
-                scopeBeans.add(request.getRequestContext().getSiteContentBaseBean());                                        
+                scopeBeans.add(request.getRequestContext().getSiteContentBaseBean());
         }
 
         return scopeBeans.toArray(new HippoBean[scopeBeans.size()]);
@@ -248,13 +252,9 @@ public class SearchComponent extends CommonComponent {
     }
 
     private SearchArea getAreaOption(HstRequest request) {
-        Optional<String> param = Optional.ofNullable(getAnyParameter(request, REQUEST_PARAM_AREA));    
-        
-        if (param.isPresent()) {
-            return SearchArea.valueOf(param.get().toUpperCase());
-        }    
+        Optional<String> param = Optional.ofNullable(getAnyParameter(request, REQUEST_PARAM_AREA));
 
-        return AREA_DEFAULT;
+        return param.map(s -> SearchArea.valueOf(s.toUpperCase())).orElse(AREA_DEFAULT);
     }
 
     private HstQuery constructQuery(HstQueryBuilder queryBuilder, Constraint searchStringConstraint) {
@@ -271,51 +271,14 @@ public class SearchComponent extends CommonComponent {
     /**
      * Publication System content types that should be included in search
      */
-    private void addPublicationSystemTypes(HstQueryBuilder query) {
+    private void addDataAndInfoTypes(HstQueryBuilder query) {
         query.ofTypes(
             Archive.class,
             Dataset.class,
             LegacyPublication.class,
             Publication.class,
-            Series.class
-        );
-    }
-
-    /**
-     * National Indicator Library content type(s) that should be included in the search results
-     */
-    private void addIndicatorLibraryTypes(HstQueryBuilder query) {
-        query.ofTypes(Indicator.class);
-    }
-
-    /**
-     * Publication System search constraint
-     */
-    private Constraint publicationSystemConstraint(String query) {
-        return or(
-            constraint("publicationsystem:Title").contains(query),
-            constraint("publicationsystem:Summary").contains(query),
-            constraint("publicationsystem:KeyFacts").contains(query)
-        );
-    }
-
-    /**
-     * National Indicator Library search constraint
-     */
-    private Constraint indicatorLibraryConstraint(String query) {
-        return or(
-            constraint("nationalindicatorlibrary:title").contains(query),
-            constraint("nationalindicatorlibrary:definition").contains(query),
-            constraint("nationalindicatorlibrary:purpose").contains(query)
-        );
-    }
-
-    /**
-     * Common search constraint
-     */
-    private Constraint commonConstraint(String query) {
-        return or(
-            constraint("common:SearchableTags").contains(query)
+            Series.class,
+            Indicator.class
         );
     }
 }

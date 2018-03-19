@@ -101,7 +101,7 @@ Feature: Faceted search
         And I click on the "2018" link
         Then I should see 1 search results
         When I search for "WeightSearchTerm"
-        Then I should see 3 search result
+        Then I should see 2 search result
         And I should see the list with title "DOCUMENT TYPE" containing:
             | Publication   |
         And I should see the list with title "YEAR" containing:

@@ -156,69 +156,36 @@ public class SearchSteps extends AbstractSpringSteps {
 
     private static List<String> getWeightSearchResultsSortedByRelevance() {
         return asList(
-            // Search results should go Series -> Publication -> Dataset
-            // within those groups the order should be Title -> Summary (-> Key Facts)
-            "Search Test Series Title",
+            // Search results should go Series by jcr score
+            // -> Publications & Datasets ordered by date
+            // -> NIL docs by date
+            // -> Archives by jcr score
             "Search Test Series Summary",
-            "Search Test Publication Title",
-            "Search Test Publication Summary",
-            "Search Test Publication Key Facts",
-            "Search Test Dataset Title",
-            "Search Test Dataset Summary",
-            "Search Test Archive Title",
+            "Search Test Series Title",
+            "Search Test Publication Summary Apr 18",
+            "Search Test Dataset Summary Mar 18",
+            "Search Test Publication Key Facts Feb 18",
+            "Search Test Dataset Title Jan 18",
+            "Search Test Publication Title Dec 17",
+            "Search Test Indicator Definition",
+            "Search Test Indicator Title",
             "Search Test Archive Summary"
         );
     }
 
     private static List<String> getWeightSearchResultsOrderedByDate() {
         return asList(
-            // These are in nominal date order
-            "Search Test Dataset Summary",
-            "Search Test Publication Summary",
-            "Search Test Publication Key Facts",
-            "Search Test Dataset Title",
-            "Search Test Publication Title",
-            "Search Test Series Title",
+            // These are in date order
+            "Search Test Publication Summary Apr 18",
+            "Search Test Dataset Summary Mar 18",
+            "Search Test Publication Key Facts Feb 18",
+            "Search Test Dataset Title Jan 18",
+            "Search Test Publication Title Dec 17",
+            "Search Test Indicator Definition",
+            "Search Test Indicator Title",
             "Search Test Series Summary",
-            "Search Test Archive Title",
+            "Search Test Series Title",
             "Search Test Archive Summary"
         );
     }
-
-    @Then("^I should see the NIL weight search test results ordered by (relevance|date)$")
-    public void iShouldSeeTheNilWeightSearchTestResultsOrderedBy(String sort) throws Throwable {
-        // check the results are actually sorted correctly
-        assertSearchResultsStartWith(getSortedNilWeightSearchResults(sort));
-
-        assertEquals("Sort mode is displayed in selector", capitalize(sort), searchPage.getSortSelection());
-
-        assertThat("Sort mode is displayed in result description", searchPage.getResultDescription(), endsWith("sorted by " + sort + "."));
-    }
-
-    private static List<String> getSortedNilWeightSearchResults(String sort) {
-        switch (sort) {
-            case "relevance":
-                return getNilWeightSearchResultsSortedByRelevance();
-            case "date":
-                return getNilWeightSearchResultsOrderedByDate();
-            default:
-                throw new RuntimeException("Unknown sort mode: " + sort);
-        }
-    }
-
-    private static List<String> getNilWeightSearchResultsSortedByRelevance() {
-        return asList(
-            // title takes precedence over definition
-            "Search Test Indicator Title",
-            "Search Test Indicator Definition"
-        );
-    }
-
-    private static List<String> getNilWeightSearchResultsOrderedByDate() {
-        return asList(
-            // These are in assurance date order
-            "Search Test Indicator Definition",
-            "Search Test Indicator Title"
-        );
-    }    
 }

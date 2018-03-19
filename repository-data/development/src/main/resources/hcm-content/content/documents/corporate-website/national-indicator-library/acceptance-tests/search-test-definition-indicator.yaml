@@ -6,7 +6,7 @@
         hippostd:content: ''
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:definition:
-        hippostd:content: <p>NilSortSearchTerm</p>
+        hippostd:content: <p>WeightSearchTerm</p>
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:interpretationGuidelines:
         hippostd:content: ''
@@ -69,7 +69,7 @@
         hippostd:content: ''
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:definition:
-        hippostd:content: <p>NilSortSearchTerm</p>
+        hippostd:content: <p>WeightSearchTerm</p>
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:interpretationGuidelines:
         hippostd:content: ''
@@ -134,7 +134,7 @@
         hippostd:content: ''
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:definition:
-        hippostd:content: <p>NilSortSearchTerm</p>
+        hippostd:content: <p>WeightSearchTerm</p>
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:interpretationGuidelines:
         hippostd:content: ''

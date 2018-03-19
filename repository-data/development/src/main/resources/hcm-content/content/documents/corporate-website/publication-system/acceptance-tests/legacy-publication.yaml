@@ -3,6 +3,7 @@
   /content:
     /content[1]:
       common:FacetType: series
+      common:searchRank: 1
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -19,6 +20,7 @@
       publicationsystem:Title: Legacy Publications List
     /content[2]:
       common:FacetType: series
+      common:searchRank: 1
       common:searchable: true
       hippo:availability:
       - preview
@@ -37,6 +39,7 @@
       publicationsystem:Title: Legacy Publications List
     /content[3]:
       common:FacetType: series
+      common:searchRank: 1
       common:searchable: true
       hippo:availability:
       - live
