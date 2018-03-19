@@ -44,10 +44,7 @@ public class SearchableFlagTask extends AbstractDocumentTask {
             return;
         }
 
-        boolean searchable = !depublishing && publication.getProperty("publicationsystem:PubliclyAccessible").getBoolean();
-        publication.setProperty(SEARCHABLE_FLAG, searchable);
-
-        // now the tricky bit - update all datasets documents belonging to this publication,
+        // update all dataset documents belonging to this publication,
         // only if publication name is "content"
         if ("content".equals(publication.getName())) {
             Node folder = WorkflowUtils.getContainingFolder(variant, session).getNode(session);
@@ -64,6 +61,8 @@ public class SearchableFlagTask extends AbstractDocumentTask {
                 .createQuery(query, Query.JCR_SQL2)
                 .execute()
                 .getNodes();
+
+            boolean searchable = !depublishing && publication.getProperty("publicationsystem:PubliclyAccessible").getBoolean();
 
             while (nodes.hasNext()) {
                 nodes.nextNode().setProperty(SEARCHABLE_FLAG, searchable);

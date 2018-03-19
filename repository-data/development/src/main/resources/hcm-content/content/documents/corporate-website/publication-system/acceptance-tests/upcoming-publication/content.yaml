@@ -2,7 +2,7 @@
 /content/documents/corporate-website/publication-system/acceptance-tests/upcoming-publication/content:
   /content[1]:
     common:FacetType: publication
-    common:searchable: false
+    common:searchable: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
@@ -42,7 +42,7 @@
     publicationsystem:Title: Upcoming Publication
   /content[2]:
     common:FacetType: publication
-    common:searchable: false
+    common:searchable: true
     hippo:availability:
     - preview
     hippostd:state: unpublished
@@ -84,7 +84,7 @@
     publicationsystem:Title: Upcoming Publication
   /content[3]:
     common:FacetType: publication
-    common:searchable: false
+    common:searchable: true
     hippo:availability:
     - live
     hippostd:state: published

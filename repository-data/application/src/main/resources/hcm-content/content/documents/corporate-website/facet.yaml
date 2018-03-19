@@ -4,24 +4,26 @@
   hippofacnav:facetnodenames:
   - assuredStatus
   - document-type
+  - year${sortby:'facetvalue', sortorder:'descending'}
+  - month${after:'year', sortby:'facetvalue', sortorder:'descending',hide:'year'}
+  - publicationStatus
   - category
   - information-type
   - geographical-coverage
   - geographical-granularity
-  - year${sortby:'facetvalue', sortorder:'descending'}
-  - month${after:'year', sortby:'facetvalue', sortorder:'descending',hide:'year'}
   - timeframe
   - publishedBy
   - reportingLevel
   hippofacnav:facets:
   - nationalindicatorlibrary:assuredStatus
   - common:FacetType
+  - publicationsystem:NominalDate$year
+  - publicationsystem:NominalDate$month
+  - publicationsystem:PubliclyAccessible
   - common:FullTaxonomy
   - publicationsystem:InformationType
   - publicationsystem:GeographicCoverage
   - publicationsystem:Granularity
-  - publicationsystem:NominalDate$year
-  - publicationsystem:NominalDate$month
   - publicationsystem:NominalDate$[{name:'today', resolution:'day', begin:0, end:1},
     {name:'yesterday', resolution:'day', begin:-1, end:0},{name:'this week', resolution:'week',
     begin:0, end:1},{name:'this month', resolution:'month', begin:0, end:1},{name:'this

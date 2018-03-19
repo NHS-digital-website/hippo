@@ -47,30 +47,6 @@ public class SearchableFlagTaskTest {
         searchableFlagTask.setWorkflowContext(workflowContext);
     }
 
-    @Test
-    @UseDataProvider("publicationDocumentState")
-    public void shouldUpdatePublicationWithGivenStatusTest(final String state, ArrayList<String> changed, ArrayList<String> unchanged) throws Exception {
-        // mock query results
-        MockJcr.setQueryResult(session, getQueryResults(singletonList(getResult(state))));
-
-        // process publication and datasets
-        execute("/publication-with-datasets/content", state, false);
-
-        for (int i = 0; i < changed.size(); i++) {
-            assertFalse(
-                "common:searchable flag is set to false for " + changed.get(i),
-                getNodeBooleanProperty(changed.get(i), "common:searchable")
-            );
-        }
-
-        for (int i = 0; i < unchanged.size(); i++) {
-            assertTrue(
-                "common:searchable flag is set to true for " + unchanged.get(i),
-                getNodeBooleanProperty(unchanged.get(i), "common:searchable")
-            );
-        }
-    }
-
     private String getResult(String state) {
         switch (state) {
             case HippoStdNodeType.PUBLISHED:
@@ -206,51 +182,10 @@ public class SearchableFlagTaskTest {
     }
 
     @DataProvider
-    public static Object[][] publicationDocumentState() {
-        return new Object[][] {
-            {
-                "draft",
-                new ArrayList() {{
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/content/content[2]");
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset[2]");
-                }},
-                new ArrayList() {{
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/content/content");
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/content/content[3]");
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset");
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset[3]");
-                    // unrelated dataset should not be changed
-                    add(RPS_ROOT_FOLDER + "/random-folder/dataset/dataset");
-                    add(RPS_ROOT_FOLDER + "/random-folder/dataset/dataset[2]");
-                    add(RPS_ROOT_FOLDER + "/random-folder/dataset/dataset[3]");
-                }}
-            },
-            {
-                "published",
-                new ArrayList() {{
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/content/content");
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset");
-                }},
-                new ArrayList() {{
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/content/content[2]");
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/content/content[3]");
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset[2]");
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset[3]");
-                    // unrelated dataset should not be changed
-                    add(RPS_ROOT_FOLDER + "/random-folder/dataset/dataset");
-                    add(RPS_ROOT_FOLDER + "/random-folder/dataset/dataset[2]");
-                    add(RPS_ROOT_FOLDER + "/random-folder/dataset/dataset[3]");
-                }}
-            },
-        };
-    }
-
-    @DataProvider
     public static Object[][] unpublishDocuments() {
         return new Object[][] {
             {
                 new ArrayList() {{
-                    add(RPS_ROOT_FOLDER + "/accessible-publication-with-datasets/content/content");
                     add(RPS_ROOT_FOLDER + "/accessible-publication-with-datasets/dataset/dataset");
                 }},
                 new ArrayList() {{

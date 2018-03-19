@@ -97,7 +97,7 @@
       - Falls
       - Infectious diseases
       - Workforce
-      common:searchable: false
+      common:searchable: true
       hippo:availability:
       - live
       hippostd:state: published

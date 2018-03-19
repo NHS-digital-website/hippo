@@ -10,6 +10,8 @@ Feature: Faceted search
         Then I should see the list with title "DOCUMENT TYPE" containing:
             | Publication (2) |
             | Data set (1)    |
+        And I should see the list with title "PUBLICATION STATUS" containing:
+            | Published (2) |
         And I should see the list with title "CATEGORY/TOPIC" containing:
             | Conditions (2)             |
             | Social care (2)            |
@@ -44,22 +46,21 @@ Feature: Faceted search
             | Acceptance Tests (3)             |
             | NilTaxonomySearchTerm test (3)   |
         And I should see the list with title "GEOGRAPHICAL COVERAGE" containing:
-            | England (3)  |            
+            | England (3)  |
         And I should see the list with title "ASSURED" containing:
             | Yes (2)  |
-            | No (1)   |      
+            | No (1)   |
         And I should see the list with title "PUBLISHED BY" containing:
             | NHS Digital (3)  |
         And I should see the list with title "REPORTING LEVEL" containing:
-            | CCG (1)                                           |       
-            | CCG and National (1)                              |  
-            | CCG and National GP registered population (1)     |                                    
+            | CCG (1)                                           |
+            | CCG and National (1)                              |
+            | CCG and National GP registered population (1)     |
 
     Scenario: Months are not shown initially
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"
         Then I should not see element with title "MONTH"
-
 
     Scenario: Months are shown when a year is selected
         Given I navigate to the "home" page
@@ -74,7 +75,6 @@ Feature: Faceted search
         And I should see the list with title "YEAR" containing:
             | 2018 (2) |
             | 2017 (1) |
-
 
     Scenario: Navigation and filtering
         Given I navigate to the "home" page
@@ -94,7 +94,6 @@ Feature: Faceted search
         When I can click on the "Publication" link
         Then I should see 2 search results
 
-
     Scenario: Sticky facets when searching for new queries
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"
@@ -107,7 +106,6 @@ Feature: Faceted search
             | Publication   |
         And I should see the list with title "YEAR" containing:
             | 2018   |
-
 
     Scenario: Reset facets
         Given I navigate to the "home" page
@@ -122,7 +120,6 @@ Feature: Faceted search
         And I should see the list with title "GEOGRAPHICAL COVERAGE" including:
             | England (1) |
 
-
     Scenario: Sort by maintains selected facets
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"
@@ -134,3 +131,11 @@ Feature: Faceted search
             | Conditions   |
         And I should see the list with title "GEOGRAPHICAL GRANULARITY" including:
             | Cancer networks   |
+
+    Scenario: Upcoming publications are returned
+        Given I navigate to the "search" page
+        Then I should see the list with title "PUBLICATION STATUS" containing:
+            | Published ( ... |
+            | Upcoming (2) |
+        When I click on the "Upcoming" button
+        Then I can click on the "Upcoming Publication" link
