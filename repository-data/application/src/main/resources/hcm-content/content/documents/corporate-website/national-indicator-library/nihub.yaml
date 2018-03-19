@@ -1,6 +1,5 @@
 ---
 /content/documents/corporate-website/national-indicator-library/nihub:
-  .meta:order-before: add
   /nihub[1]:
     /nationalindicatorlibrary:igbHubLink:
       jcr:primaryType: nationalindicatorlibrary:nihublink
