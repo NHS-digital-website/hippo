@@ -16,4 +16,8 @@ public class RelatedLink extends HippoCompound {
     public String getLinkUrl() {
         return getProperty("publicationsystem:linkUrl");
     }
+
+    public String getSectionType() {
+        return "relatedLink";
+    }
 }

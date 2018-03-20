@@ -12,6 +12,7 @@ import uk.nhs.digital.ps.test.acceptance.models.InformationType;
 import uk.nhs.digital.ps.test.acceptance.models.PublicationBuilder;
 import uk.nhs.digital.ps.test.acceptance.models.PublicationSeriesBuilder;
 import uk.nhs.digital.ps.test.acceptance.models.section.ImageSection;
+import uk.nhs.digital.ps.test.acceptance.models.section.RelatedLinkSection;
 import uk.nhs.digital.ps.test.acceptance.models.section.TextSection;
 
 import java.time.Instant;
@@ -167,7 +168,11 @@ public class ExpectedTestDataProvider {
             new ImageSection("sectioned publication snowman",
                 "Snowman",
                 null,
-                null)
+                null),
+            new RelatedLinkSection("BBC Homepage",
+            "https://www.bbc.co.uk/"),
+            new RelatedLinkSection("Sky website",
+                "http://www.sky.com/")
         );
 
 
