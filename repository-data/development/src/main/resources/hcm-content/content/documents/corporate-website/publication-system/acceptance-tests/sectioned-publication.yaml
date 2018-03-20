@@ -63,6 +63,14 @@
         publicationsystem:altText: Snowman
         publicationsystem:caption: ''
         publicationsystem:link: ''
+      /publicationsystem:bodySections[6]:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: BBC Homepage
+        publicationsystem:linkUrl: https://www.bbc.co.uk
+      /publicationsystem:bodySections[7]:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: Sky website
+        publicationsystem:linkUrl: http://www.sky.com
       common:FacetType: publication
       common:searchable: true
       hippo:availability: []
@@ -147,6 +155,14 @@
         publicationsystem:altText: Snowman
         publicationsystem:caption: ''
         publicationsystem:link: ''
+      /publicationsystem:bodySections[6]:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: BBC Homepage
+        publicationsystem:linkUrl: https://www.bbc.co.uk
+      /publicationsystem:bodySections[7]:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: Sky website
+        publicationsystem:linkUrl: http://www.sky.com
       common:FacetType: publication
       common:searchable: true
       hippo:availability:
@@ -233,6 +249,14 @@
         publicationsystem:altText: Snowman
         publicationsystem:caption: ''
         publicationsystem:link: ''
+      /publicationsystem:bodySections[6]:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: BBC Homepage
+        publicationsystem:linkUrl: https://www.bbc.co.uk
+      /publicationsystem:bodySections[7]:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: Sky website
+        publicationsystem:linkUrl: http://www.sky.com
       common:FacetType: publication
       common:searchable: true
       hippo:availability:

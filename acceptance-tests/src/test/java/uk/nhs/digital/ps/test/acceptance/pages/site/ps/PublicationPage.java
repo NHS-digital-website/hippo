@@ -14,6 +14,7 @@ import uk.nhs.digital.ps.test.acceptance.pages.widgets.AttachmentWidget;
 import uk.nhs.digital.ps.test.acceptance.pages.widgets.ImageSectionWidget;
 import uk.nhs.digital.ps.test.acceptance.pages.widgets.SectionWidget;
 import uk.nhs.digital.ps.test.acceptance.pages.widgets.TextSectionWidget;
+import uk.nhs.digital.ps.test.acceptance.pages.widgets.RelatedLinkSectionWidget;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
 import java.util.Collection;
@@ -120,6 +121,8 @@ public class PublicationPage extends AbstractSitePage {
                 return new ImageSectionWidget(webElement);
             case TextSectionWidget.UIPATH:
                 return new TextSectionWidget(webElement);
+            case RelatedLinkSectionWidget.UIPATH:
+                return new RelatedLinkSectionWidget(webElement);
             default:
                 throw new RuntimeException("Unknown uipath: " + uipath);
         }
