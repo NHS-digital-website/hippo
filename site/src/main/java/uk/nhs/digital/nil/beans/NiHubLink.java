@@ -22,4 +22,9 @@ public class NiHubLink extends HippoCompound {
     public String getPageLink() {
         return getProperty("nationalindicatorlibrary:relativeUrl");
     }
+
+    @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:text")
+    public String getText() {
+        return getProperty("nationalindicatorlibrary:text");
+    }
 }

@@ -4,7 +4,7 @@
 
 <section class="document-content">
     <#if document??>
-        <h1 data-uipath="ps.document.title">${document.title}</h1>
+        <h1 data-uipath='ps.document.title'>${document.title}</h1>
         <#outputformat "undefined">${document.mainContent.content}</#outputformat>
 
         <section class="push-double--bottom">

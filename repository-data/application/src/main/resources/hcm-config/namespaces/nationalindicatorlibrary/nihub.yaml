@@ -46,11 +46,27 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /gettingAssured:
+          /advice:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Getting Assured
-            field: gettingAssured
+            caption: Advice from experts
+            field: advice
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /addYourIndicator:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Add your indicator
+            field: addYourIndicator
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /applyForAssurance:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Apply for assurance
+            field: applyForAssurance
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
@@ -58,11 +74,27 @@ definitions:
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /gettingAssured:
+          /addYourIndicator:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: nationalindicatorlibrary:gettingAssured
+            hipposysedit:path: nationalindicatorlibrary:addYourIndicator
+            hipposysedit:primary: false
+            hipposysedit:type: nationalindicatorlibrary:nihublink
+            jcr:primaryType: hipposysedit:field
+          /advice:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:advice
+            hipposysedit:primary: false
+            hipposysedit:type: nationalindicatorlibrary:nihublink
+            jcr:primaryType: hipposysedit:field
+          /applyForAssurance:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:applyForAssurance
             hipposysedit:primary: false
             hipposysedit:type: nationalindicatorlibrary:nihublink
             jcr:primaryType: hipposysedit:field
@@ -106,19 +138,27 @@ definitions:
           - mix:referenceable
           - hipposysedit:remodel
           jcr:primaryType: hipposysedit:nodetype
-          jcr:uuid: 7315d3c3-9372-4aea-a3ca-8f178ef963f7
+          jcr:uuid: 7696a001-4abb-456c-8f7d-e98d23b20d17
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: hippo:handle
         jcr:uuid: 34821275-5b5c-4b9a-b8de-85ca461c792f
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          /nationalindicatorlibrary:gettingAssured:
-            /nationalindicatorlibrary:content:
-              hippostd:content: ''
-              jcr:primaryType: hippostd:html
+          /nationalindicatorlibrary:addYourIndicator:
             jcr:primaryType: nationalindicatorlibrary:nihublink
             nationalindicatorlibrary:relativeUrl: ''
+            nationalindicatorlibrary:text: ''
+            nationalindicatorlibrary:title: ''
+          /nationalindicatorlibrary:advice:
+            jcr:primaryType: nationalindicatorlibrary:nihublink
+            nationalindicatorlibrary:relativeUrl: ''
+            nationalindicatorlibrary:text: ''
+            nationalindicatorlibrary:title: ''
+          /nationalindicatorlibrary:applyForAssurance:
+            jcr:primaryType: nationalindicatorlibrary:nihublink
+            nationalindicatorlibrary:relativeUrl: ''
+            nationalindicatorlibrary:text: ''
             nationalindicatorlibrary:title: ''
           /nationalindicatorlibrary:popularTopicLinks:
             jcr:primaryType: nationalindicatorlibrary:actionlink
@@ -136,7 +176,7 @@ definitions:
           jcr:mixinTypes:
           - mix:referenceable
           jcr:primaryType: nationalindicatorlibrary:nihub
-          jcr:uuid: 02deab63-d056-41a0-aed4-843a35905a97
+          jcr:uuid: 45dd4891-db05-41f5-8515-23be438843ea
           nationalindicatorlibrary:summary: ''
           nationalindicatorlibrary:title: ''
         jcr:primaryType: hipposysedit:prototypeset

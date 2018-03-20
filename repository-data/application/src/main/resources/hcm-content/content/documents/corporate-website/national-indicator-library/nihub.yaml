@@ -1,35 +1,50 @@
 ---
 /content/documents/corporate-website/national-indicator-library/nihub:
   /nihub[1]:
+    /nationalindicatorlibrary:addYourIndicator:
+      jcr:primaryType: nationalindicatorlibrary:nihublink
+      nationalindicatorlibrary:relativeUrl: add-your-indicator
+      nationalindicatorlibrary:text: Allow others to find and use your indicator
+      nationalindicatorlibrary:title: Add your indicator to the library
+    /nationalindicatorlibrary:advice:
+      jcr:primaryType: nationalindicatorlibrary:nihublink
+      nationalindicatorlibrary:relativeUrl: advice
+      nationalindicatorlibrary:text: Experts from across the health and social care
+        sector can support anyone developing indicators
+      nationalindicatorlibrary:title: Expert advice
+    /nationalindicatorlibrary:applyForAssurance:
+      jcr:primaryType: nationalindicatorlibrary:nihublink
+      nationalindicatorlibrary:relativeUrl: apply-for-assurance
+      nationalindicatorlibrary:text: Apply to have your indicator independently assured
+        by industry experts
+      nationalindicatorlibrary:title: Apply for independent assurance
     /nationalindicatorlibrary:gettingAssured:
       /nationalindicatorlibrary:content:
         hippostd:content: |-
-          <h1 style="text-align:center">We are here to help</h1>
-
           <table border="0" cellpadding="5" cellspacing="10" style="width:100%" align="left">
            <thead>
             <tr>
              <th scope="col">
-             <h3 style="text-align:center">Advice from our experts</h3>
+             <h3>Advice from our experts</h3>
              </th>
              <th scope="col">
-             <h3 style="text-align:center">Add your indicator to the library</h3>
+             <h3>Add your indicator to the library</h3>
              </th>
              <th scope="col">
-             <h3 style="text-align:center">Apply for independent assurance</h3>
+             <h3>Apply for independent assurance</h3>
              </th>
             </tr>
            </thead>
            <tbody>
             <tr>
              <td style="text-align:center">
-             <h4>Get advice from our health and social care experts on how to develop good quality indicators</h4>
+             <h4 style="text-align:left">Get advice from our health and social care experts on how to develop good quality indicators</h4>
              </td>
              <td style="text-align:center">
-             <h4>Add an indicator to the library, from your health or social care organisation</h4>
+             <h4 style="text-align:left">Add an indicator to the library, from your health or social care organisation</h4>
              </td>
              <td style="text-align:center">
-             <h4>Apply to have your indicator's methodology independently assured by industry experts</h4>
+             <h4 style="text-align:left">Apply to have your indicator's methodology independently assured by industry experts</h4>
              </td>
             </tr>
            </tbody>
@@ -79,26 +94,14 @@
       nationalindicatorlibrary:summary: Apply to have your indicator's methodology
         independently assured by industry experts.
       nationalindicatorlibrary:title: Apply for independent assurance
-    /nationalindicatorlibrary:popularTopicLinks[10]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Population health
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/population
-    /nationalindicatorlibrary:popularTopicLinks[11]:
+    /nationalindicatorlibrary:popularTopicLinks[1]:
       jcr:primaryType: nationalindicatorlibrary:actionlink
       nationalindicatorlibrary:actionLinkTitle: Smoking
       nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/smoking
-    /nationalindicatorlibrary:popularTopicLinks[12]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Stroke related illness
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/stroke
-    /nationalindicatorlibrary:popularTopicLinks[1]:
+    /nationalindicatorlibrary:popularTopicLinks[2]:
       jcr:primaryType: nationalindicatorlibrary:actionlink
       nationalindicatorlibrary:actionLinkTitle: Accidents and emergencies
       nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/accident-and-emergency
-    /nationalindicatorlibrary:popularTopicLinks[2]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Autism
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/autistic-spectrum
     /nationalindicatorlibrary:popularTopicLinks[3]:
       jcr:primaryType: nationalindicatorlibrary:actionlink
       nationalindicatorlibrary:actionLinkTitle: Cancer
@@ -168,7 +171,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-19T14:04:05.264Z
-    hippostdpubwf:lastModificationDate: 2018-03-16T10:24:04.548Z
+    hippostdpubwf:lastModificationDate: 2018-03-21T12:57:45.558Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: cc1f9325-d13d-4864-963d-7058e02362be
     hippotranslation:locale: en
@@ -176,40 +179,55 @@
     - mix:referenceable
     jcr:primaryType: nationalindicatorlibrary:nihub
     jcr:uuid: 9f385787-ebe8-4b15-937d-40f7bea88887
-    nationalindicatorlibrary:summary: The official hub for health and social care
-      indicators in England. Includes methodology, data output and any independent
-      assurance rating.
+    nationalindicatorlibrary:summary: Health and social care indicators in England.
+      Get advice from our experts, add your indicator to the library and apply for
+      independent assurance.
     nationalindicatorlibrary:title: National Indicator Library
   /nihub[2]:
+    /nationalindicatorlibrary:addYourIndicator:
+      jcr:primaryType: nationalindicatorlibrary:nihublink
+      nationalindicatorlibrary:relativeUrl: add-your-indicator
+      nationalindicatorlibrary:text: Allow others to find and use your indicator
+      nationalindicatorlibrary:title: Add your indicator to the library
+    /nationalindicatorlibrary:advice:
+      jcr:primaryType: nationalindicatorlibrary:nihublink
+      nationalindicatorlibrary:relativeUrl: advice
+      nationalindicatorlibrary:text: Experts from across the health and social care
+        sector can support anyone developing indicators
+      nationalindicatorlibrary:title: Expert advice
+    /nationalindicatorlibrary:applyForAssurance:
+      jcr:primaryType: nationalindicatorlibrary:nihublink
+      nationalindicatorlibrary:relativeUrl: apply-for-assurance
+      nationalindicatorlibrary:text: Apply to have your indicator independently assured
+        by industry experts
+      nationalindicatorlibrary:title: Apply for independent assurance
     /nationalindicatorlibrary:gettingAssured:
       /nationalindicatorlibrary:content:
         hippostd:content: |-
-          <h1 style="text-align:center">We are here to help</h1>
-
           <table border="0" cellpadding="5" cellspacing="10" style="width:100%" align="left">
            <thead>
             <tr>
              <th scope="col">
-             <h3 style="text-align:center">Advice from our experts</h3>
+             <h3>Advice from our experts</h3>
              </th>
              <th scope="col">
-             <h3 style="text-align:center">Add your indicator to the library</h3>
+             <h3>Add your indicator to the library</h3>
              </th>
              <th scope="col">
-             <h3 style="text-align:center">Apply for independent assurance</h3>
+             <h3>Apply for independent assurance</h3>
              </th>
             </tr>
            </thead>
            <tbody>
             <tr>
              <td style="text-align:center">
-             <h4>Get advice from our health and social care experts on how to develop good quality indicators</h4>
+             <h4 style="text-align:left">Get advice from our health and social care experts on how to develop good quality indicators</h4>
              </td>
              <td style="text-align:center">
-             <h4>Add an indicator to the library, from your health or social care organisation</h4>
+             <h4 style="text-align:left">Add an indicator to the library, from your health or social care organisation</h4>
              </td>
              <td style="text-align:center">
-             <h4>Apply to have your indicator's methodology independently assured by industry experts</h4>
+             <h4 style="text-align:left">Apply to have your indicator's methodology independently assured by industry experts</h4>
              </td>
             </tr>
            </tbody>
@@ -259,26 +277,14 @@
       nationalindicatorlibrary:summary: Apply to have your indicator's methodology
         independently assured by industry experts.
       nationalindicatorlibrary:title: Apply for independent assurance
-    /nationalindicatorlibrary:popularTopicLinks[10]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Population health
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/population
-    /nationalindicatorlibrary:popularTopicLinks[11]:
+    /nationalindicatorlibrary:popularTopicLinks[1]:
       jcr:primaryType: nationalindicatorlibrary:actionlink
       nationalindicatorlibrary:actionLinkTitle: Smoking
       nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/smoking
-    /nationalindicatorlibrary:popularTopicLinks[12]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Stroke related illness
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/stroke
-    /nationalindicatorlibrary:popularTopicLinks[1]:
+    /nationalindicatorlibrary:popularTopicLinks[2]:
       jcr:primaryType: nationalindicatorlibrary:actionlink
       nationalindicatorlibrary:actionLinkTitle: Accidents and emergencies
       nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/accident-and-emergency
-    /nationalindicatorlibrary:popularTopicLinks[2]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Autism
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/autistic-spectrum
     /nationalindicatorlibrary:popularTopicLinks[3]:
       jcr:primaryType: nationalindicatorlibrary:actionlink
       nationalindicatorlibrary:actionLinkTitle: Cancer
@@ -349,7 +355,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-19T14:04:05.264Z
-    hippostdpubwf:lastModificationDate: 2018-03-16T10:27:40.278Z
+    hippostdpubwf:lastModificationDate: 2018-03-21T12:59:00.373Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: cc1f9325-d13d-4864-963d-7058e02362be
     hippotranslation:locale: en
@@ -358,40 +364,55 @@
     - mix:versionable
     jcr:primaryType: nationalindicatorlibrary:nihub
     jcr:uuid: d0b3fd9d-d7ac-4aab-b4cb-28b719ba9e08
-    nationalindicatorlibrary:summary: The official hub for health and social care
-      indicators in England. Includes methodology, data output and any independent
-      assurance rating.
+    nationalindicatorlibrary:summary: Health and social care indicators in England.
+      Get advice from our experts, add your indicator to the library and apply for
+      independent assurance.
     nationalindicatorlibrary:title: National Indicator Library
   /nihub[3]:
+    /nationalindicatorlibrary:addYourIndicator:
+      jcr:primaryType: nationalindicatorlibrary:nihublink
+      nationalindicatorlibrary:relativeUrl: add-your-indicator
+      nationalindicatorlibrary:text: Allow others to find and use your indicator
+      nationalindicatorlibrary:title: Add your indicator to the library
+    /nationalindicatorlibrary:advice:
+      jcr:primaryType: nationalindicatorlibrary:nihublink
+      nationalindicatorlibrary:relativeUrl: advice
+      nationalindicatorlibrary:text: Experts from across the health and social care
+        sector can support anyone developing indicators
+      nationalindicatorlibrary:title: Expert advice
+    /nationalindicatorlibrary:applyForAssurance:
+      jcr:primaryType: nationalindicatorlibrary:nihublink
+      nationalindicatorlibrary:relativeUrl: apply-for-assurance
+      nationalindicatorlibrary:text: Apply to have your indicator independently assured
+        by industry experts
+      nationalindicatorlibrary:title: Apply for independent assurance
     /nationalindicatorlibrary:gettingAssured:
       /nationalindicatorlibrary:content:
         hippostd:content: |-
-          <h1 style="text-align:center">We are here to help</h1>
-
           <table border="0" cellpadding="5" cellspacing="10" style="width:100%" align="left">
            <thead>
             <tr>
              <th scope="col">
-             <h3 style="text-align:center">Advice from our experts</h3>
+             <h3>Advice from our experts</h3>
              </th>
              <th scope="col">
-             <h3 style="text-align:center">Add your indicator to the library</h3>
+             <h3>Add your indicator to the library</h3>
              </th>
              <th scope="col">
-             <h3 style="text-align:center">Apply for independent assurance</h3>
+             <h3>Apply for independent assurance</h3>
              </th>
             </tr>
            </thead>
            <tbody>
             <tr>
              <td style="text-align:center">
-             <h4>Get advice from our health and social care experts on how to develop good quality indicators</h4>
+             <h4 style="text-align:left">Get advice from our health and social care experts on how to develop good quality indicators</h4>
              </td>
              <td style="text-align:center">
-             <h4>Add an indicator to the library, from your health or social care organisation</h4>
+             <h4 style="text-align:left">Add an indicator to the library, from your health or social care organisation</h4>
              </td>
              <td style="text-align:center">
-             <h4>Apply to have your indicator's methodology independently assured by industry experts</h4>
+             <h4 style="text-align:left">Apply to have your indicator's methodology independently assured by industry experts</h4>
              </td>
             </tr>
            </tbody>
@@ -441,26 +462,14 @@
       nationalindicatorlibrary:summary: Apply to have your indicator's methodology
         independently assured by industry experts.
       nationalindicatorlibrary:title: Apply for independent assurance
-    /nationalindicatorlibrary:popularTopicLinks[10]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Population health
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/population
-    /nationalindicatorlibrary:popularTopicLinks[11]:
+    /nationalindicatorlibrary:popularTopicLinks[1]:
       jcr:primaryType: nationalindicatorlibrary:actionlink
       nationalindicatorlibrary:actionLinkTitle: Smoking
       nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/smoking
-    /nationalindicatorlibrary:popularTopicLinks[12]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Stroke related illness
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/stroke
-    /nationalindicatorlibrary:popularTopicLinks[1]:
+    /nationalindicatorlibrary:popularTopicLinks[2]:
       jcr:primaryType: nationalindicatorlibrary:actionlink
       nationalindicatorlibrary:actionLinkTitle: Accidents and emergencies
       nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/accident-and-emergency
-    /nationalindicatorlibrary:popularTopicLinks[2]:
-      jcr:primaryType: nationalindicatorlibrary:actionlink
-      nationalindicatorlibrary:actionLinkTitle: Autism
-      nationalindicatorlibrary:actionLinkUrl: ../search/document-type/indicator/category/autistic-spectrum
     /nationalindicatorlibrary:popularTopicLinks[3]:
       jcr:primaryType: nationalindicatorlibrary:actionlink
       nationalindicatorlibrary:actionLinkTitle: Cancer
@@ -531,18 +540,18 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-19T14:04:05.264Z
-    hippostdpubwf:lastModificationDate: 2018-03-16T10:27:40.278Z
+    hippostdpubwf:lastModificationDate: 2018-03-21T12:59:00.373Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-03-16T10:27:44.134Z
+    hippostdpubwf:publicationDate: 2018-03-21T12:59:02.585Z
     hippotranslation:id: cc1f9325-d13d-4864-963d-7058e02362be
     hippotranslation:locale: en
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: nationalindicatorlibrary:nihub
     jcr:uuid: cad9848d-e1ac-44e4-a5e3-96841819c646
-    nationalindicatorlibrary:summary: The official hub for health and social care
-      indicators in England. Includes methodology, data output and any independent
-      assurance rating.
+    nationalindicatorlibrary:summary: Health and social care indicators in England.
+      Get advice from our experts, add your indicator to the library and apply for
+      independent assurance.
     nationalindicatorlibrary:title: National Indicator Library
   hippo:name: nihub
   jcr:mixinTypes:

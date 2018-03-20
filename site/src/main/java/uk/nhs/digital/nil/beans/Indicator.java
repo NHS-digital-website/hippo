@@ -1,17 +1,16 @@
 package uk.nhs.digital.nil.beans;
 
-import static org.apache.cxf.common.util.CollectionUtils.isEmpty;
-
 import org.apache.commons.lang3.StringUtils;
+import org.apache.cxf.common.util.CollectionUtils;
 import org.hippoecm.hst.content.beans.Node;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
-
 import uk.nhs.digital.ps.beans.Attachment;
 import uk.nhs.digital.ps.beans.HippoBeanHelper;
 
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
+
 
 @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:indicator")
 @Node(jcrType = "nationalindicatorlibrary:indicator")
@@ -61,7 +60,7 @@ public class Indicator extends BaseDocument {
         return getProperty(PropertyKeys.TAXONOMY);
     }
 
-    public Map<String,String> getTaxonomyList() {
+    public Map<String, String> getTaxonomyList() {
         return HippoBeanHelper.getTaxonomyKeysAndNames(getKeys());
     }
 
@@ -71,7 +70,10 @@ public class Indicator extends BaseDocument {
     }
 
     public boolean hasAttachments() {
-        return !isEmpty(getAttachments()) || !StringUtils.isEmpty(getDetails().getTechnicalSpecificationUrl()) || !StringUtils.isEmpty(getDetails().getQualityStatementUrl());
+        return !CollectionUtils.isEmpty(getAttachments())
+                || !StringUtils.isEmpty(getDetails()
+                        .getTechnicalSpecificationUrl())
+                || !StringUtils.isEmpty(getDetails().getQualityStatementUrl());
     }
 
     interface PropertyKeys {
