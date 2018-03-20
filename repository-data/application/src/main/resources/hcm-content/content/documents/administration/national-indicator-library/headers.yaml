@@ -5,12 +5,24 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-08T11:24:07.560Z
-    hippostdpubwf:lastModificationDate: 2018-02-23T16:09:19.123Z
+    hippostdpubwf:lastModificationDate: 2018-03-20T12:44:28.396Z
     hippostdpubwf:lastModifiedBy: admin
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: resourcebundle:resourcebundle
     resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
     - ''
     - ''
     - ''
@@ -69,6 +81,8 @@
     - headers.assured
     - headers.unassured
     - headers.igbAssurance
+    - headers.hereToHelp
+    - headers.findOutMore
     resourcebundle:messages:
     - Assurance Date
     - Based on data from
@@ -99,17 +113,19 @@
     - Calculation
     - Popular indicator topics
     - Indicator topics A-Z
-    - Getting assured
+    - Getting Assured
     - Assured
     - Date
     - Indicator Governance Board (IGB) Assurance
+    - We are here to help
+    - Find out more about our services
   /headers[2]:
     hippo:availability:
     - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-08T11:24:07.560Z
-    hippostdpubwf:lastModificationDate: 2018-02-23T15:55:50.150Z
+    hippostdpubwf:lastModificationDate: 2018-03-20T12:44:43.438Z
     hippostdpubwf:lastModifiedBy: admin
     jcr:mixinTypes:
     - mix:referenceable
@@ -139,6 +155,18 @@
     - ''
     - ''
     - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
     resourcebundle:id: nationalindicatorlibrary.headers
     resourcebundle:keys:
     - headers.assuranceDate
@@ -174,6 +202,8 @@
     - headers.assured
     - headers.unassured
     - headers.igbAssurance
+    - headers.hereToHelp
+    - headers.findOutMore
     resourcebundle:messages:
     - Assurance Date
     - Based on data from
@@ -208,15 +238,17 @@
     - Assured
     - Date
     - Indicator Governance Board (IGB) Assurance
+    - We are here to help
+    - Find out more about our services
   /headers[3]:
     hippo:availability:
     - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-02-08T11:24:07.560Z
-    hippostdpubwf:lastModificationDate: 2018-02-23T15:55:50.150Z
+    hippostdpubwf:lastModificationDate: 2018-03-20T12:44:43.438Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-02-23T15:55:51.653Z
+    hippostdpubwf:publicationDate: 2018-03-20T12:44:44.676Z
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: resourcebundle:resourcebundle
@@ -244,6 +276,18 @@
     - ''
     - ''
     - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
     resourcebundle:id: nationalindicatorlibrary.headers
     resourcebundle:keys:
     - headers.assuranceDate
@@ -279,6 +323,8 @@
     - headers.assured
     - headers.unassured
     - headers.igbAssurance
+    - headers.hereToHelp
+    - headers.findOutMore
     resourcebundle:messages:
     - Assurance Date
     - Based on data from
@@ -313,6 +359,8 @@
     - Assured
     - Date
     - Indicator Governance Board (IGB) Assurance
+    - We are here to help
+    - Find out more about our services
   hippo:name: Headers
   jcr:mixinTypes:
   - hippo:named
