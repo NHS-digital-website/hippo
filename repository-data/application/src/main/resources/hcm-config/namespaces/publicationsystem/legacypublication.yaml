@@ -337,7 +337,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: publicationsystem:publicationid
             hipposysedit:primary: false
-            hipposysedit:type: Long
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           /publicly_accessible:
             hipposysedit:mandatory: false
@@ -420,7 +420,7 @@ definitions:
           publicationsystem:PubliclyAccessible: false
           publicationsystem:Title: ''
           publicationsystem:gossid: 0
-          publicationsystem:publicationid: 0
+          publicationsystem:publicationid: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable
