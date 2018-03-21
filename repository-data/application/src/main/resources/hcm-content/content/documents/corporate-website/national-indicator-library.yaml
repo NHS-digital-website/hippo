@@ -2,8 +2,8 @@
 /content/documents/corporate-website/national-indicator-library:
   hippo:name: National Indicator Library
   hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  - new-national-indicator-library-document
+  - new-national-indicator-library-folder
   hippotranslation:id: a79f6853-1e85-4eb3-8a65-5c6c2aba1a61
   hippotranslation:locale: en
   jcr:mixinTypes:

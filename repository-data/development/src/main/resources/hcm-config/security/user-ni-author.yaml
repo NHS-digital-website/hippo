@@ -1,0 +1,8 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:users/ni-author:
+      hipposys:active: true
+      hipposys:password: ni-author
+      hipposys:securityprovider: internal
+      jcr:primaryType: hipposys:user
