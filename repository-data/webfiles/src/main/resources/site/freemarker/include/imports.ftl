@@ -1,4 +1,6 @@
 <#ftl output_format="HTML">
+<#include "../externalstorage/resource.ftl">
+
 <#assign dateFormat="dd/MM/yyyy"/>
 
 <#assign hst=JspTaglibs["http://www.hippoecm.org/jsp/hst/core"] >
