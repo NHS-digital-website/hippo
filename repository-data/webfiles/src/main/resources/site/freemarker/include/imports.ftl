@@ -48,3 +48,16 @@
         </#if>
     </#if>
 </#function>
+
+
+<#function getPageTitle documentTitle = ''>
+    <#local siteTitle = "NHS Digital"/>
+    <#assign pageTitle = siteTitle/>
+    <#assign delimeter = " - "/>
+
+    <#if documentTitle != ''>
+    <#assign pageTitle += delimeter + documentTitle />
+    </#if>
+
+    <#return pageTitle/>
+</#function>

@@ -1,6 +1,10 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <#include "macro/articleSections.ftl">
+<#include "macro/metaTags.ftl">
+
+<#-- Add meta tags -->
+<@metaTags></@metaTags>
 
 <@hst.setBundle basename="site.website.labels"/>
 <@fmt.message key="child-pages-section.title" var="childPagesSectionTitle"/>
