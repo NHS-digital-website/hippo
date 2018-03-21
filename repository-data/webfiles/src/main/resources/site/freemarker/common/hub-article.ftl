@@ -3,6 +3,10 @@
 <#include "macro/narrowArticleSections.ftl">
 <#include "macro/childPageGrid.ftl">
 <#include "macro/hubPageComponents.ftl">
+<#include "macro/metaTags.ftl">
+
+<#-- Add meta tags -->
+<@metaTags></@metaTags>
 
 <article class="article article--hub">
     <div class="grid-wrapper grid-wrapper--article">

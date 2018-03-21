@@ -1,5 +1,9 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
+<#include "macro/metaTags.ftl">
+
+<#-- Add meta tags -->
+<@metaTags></@metaTags>
 
 <@hst.setBundle basename="homepage.website.labels"/>
 <@fmt.message key="data-and-information.title" var="dataAndInformationSectionTitle"/>
