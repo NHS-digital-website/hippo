@@ -118,11 +118,6 @@ ondemand.upload:
 	echo "put ../target/website-$(VERSION)-on-demand-distribution.tar.gz /uploads/dists/$(VERSION).tar.gz" \
 		| sftp nhs@static.hosting.onehippo.com
 
-## Upload migration distribution file to ondemand sftp server
-ondemand.upload-migration:
-	echo "put ../target/website-$(VERSION)-distribution-with-migration-data.tar.gz /uploads/dists/$(VERSION)-with-migration-data.tar.gz" \
-		| sftp nhs@static.hosting.onehippo.com
-
 ## Deploy to OnDemand environment
 # Usage: make ondemand.deploy ENV=tst
 #        make ondemand.deploy ENV=uat

@@ -25,14 +25,6 @@ application module, it is intended to be included on every environment.
 If your application requires so, you can create more repository-data submodules to be deployed to the
 environments of your liking, similar to above described default setup.
 
-**Migration Module**
-
-There is also now a module for migration. This is used when running an EXIM import on the migrated 
-content. 
-
-To export just to the migration module:
-
-  1) Go to `/repository-data/application/src/main/resources/hcm-config/configuration/modules/autoexport-module.yaml`
-  and change the autoexport module to `migration`
-  2) Run `mvn verify` (builds the migration module with all the others)
-  3) Run `-Pcargo.run,with-migration-data`
+NOTE: We have added another module called local which contains the bare minimum config required to run 
+and test locally without including development data. This is useful for testing locally
+on a 'production like' environment.

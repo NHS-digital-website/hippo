@@ -12,9 +12,9 @@
         <version>${revision}</version>
     </parent>
 
-    <name>NHS Digital Website Repository Data For Migration</name>
-    <description>NHS Digital Website Repository Data For Migration</description>
-    <artifactId>website-repository-data-migration</artifactId>
+    <name>NHS Digital Website Repository Data For Local</name>
+    <description>NHS Digital Website Repository Data For Local</description>
+    <artifactId>website-repository-data-local</artifactId>
 
     <build>
         <defaultGoal>install</defaultGoal>
