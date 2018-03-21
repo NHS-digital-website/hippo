@@ -5,5 +5,9 @@
       <source>repository-data/development/target/website-repository-data-development-${project.version}.jar</source>
       <outputDirectory>shared/lib</outputDirectory>
     </file>
+    <file>
+      <source>repository-data/local/target/website-repository-data-local-${project.version}.jar</source>
+      <outputDirectory>shared/lib</outputDirectory>
+    </file>
   </files>
 </component>

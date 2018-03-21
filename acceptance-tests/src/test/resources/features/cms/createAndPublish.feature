@@ -4,7 +4,7 @@ Feature: As am author I need to create a new publication
     @DiscardAfter
     Scenario: New Publication screen
         Given I am on the content page
-        When I create a new publication
+        When I create a fully populated publication
         Then an edit screen is displayed which allows me to populate details of the publication
 
     @DeleteAfter
@@ -16,7 +16,7 @@ Feature: As am author I need to create a new publication
     @DeleteAfter
     Scenario: Publishing a publication
         Given I am on the content page
-        And I create a new publication
+        And I create a fully populated publication
         When I populate and save the publication
         And I publish the publication
         Then it is visible to consumers

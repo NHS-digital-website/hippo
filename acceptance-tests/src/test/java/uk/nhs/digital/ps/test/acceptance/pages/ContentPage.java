@@ -24,6 +24,8 @@ public class ContentPage extends AbstractCmsPage {
     private static final String SERIES = "Series / Collection";
     private static final String ARCHIVE = "Archive";
 
+    private static final String PREVIEW_URL = "http://localhost:8080/_rp/cafebabe-cafe-babe-cafe-babecafebabe./channels/common-preview";
+
     private PageHelper helper;
 
     public ContentPage(final WebDriverProvider webDriverProvider, final PageHelper helper) {
@@ -217,6 +219,14 @@ public class ContentPage extends AbstractCmsPage {
         clickButtonOnModalDialog("OK");
     }
 
+    public String previewDocument() {
+        findViewMenu().click();
+        findPreview().click();
+
+        getWebDriver().get(PREVIEW_URL);
+        return helper.findElement(By.xpath("//pre")).getText();
+    }
+
     public void unpublishDocument() {
         findPublicationMenu().click();
 
@@ -388,9 +398,19 @@ public class ContentPage extends AbstractCmsPage {
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Document']"));
     }
 
+    private WebElement findViewMenu(){
+        return helper.findElement(
+            By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='View']"));
+    }
+
     private WebElement findDelete() {
         return helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Delete...']"));
+    }
+
+    private WebElement findPreview() {
+        return helper.findElement(
+            By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='NHS Digital Website']"));
     }
 
     private WebElement findCopy() {
