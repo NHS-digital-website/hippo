@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/national-indicator-library-author:
+      hipposys:description: Users of the national indicator library folders who are
+        authors
+      hipposys:members:
+      - ni-author
+      hipposys:securityprovider: internal
+      jcr:primaryType: hipposys:group

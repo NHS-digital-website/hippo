@@ -4,8 +4,10 @@ definitions:
     /hippo:configuration/hippo:domains/hipporequests/author:
       hipposys:groups:
       - statistical-publications-and-clinical-indicators-author
+      - national-indicator-library-author
       - author
     /hippo:configuration/hippo:domains/hipporequests/editor:
       hipposys:groups:
       - statistical-publications-and-clinical-indicators-editor
+      - national-indicator-library-editor
       - editor
