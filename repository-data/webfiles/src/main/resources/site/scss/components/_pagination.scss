@@ -1,0 +1,34 @@
+
+.pagination {
+    border-top: 1px solid $col-senary;
+    text-align: center;
+    padding-top: $gutter;
+
+    a {
+        display: inline-block;
+        text-decoration: none;
+        padding: $gutter / 2;
+    }
+
+    .pagination__list {
+        list-style: none;
+
+        .pagination__list__item {
+            display: inline-block;
+            border: 1px solid $col-senary;
+        }
+
+        .pagination__list__item--previous {
+            margin-right: $gutter / 2;
+        }
+
+        .pagination__list__item--current {
+            padding: $gutter / 2;
+            background-color: $col-duodenary;
+        }
+
+        .pagination__list__item--next {
+            margin-left: $gutter / 2;
+        }
+    }
+}

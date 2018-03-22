@@ -1,0 +1,1165 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Base template - NHS.UK</title>
+
+    <!--[if IE]><link rel="shortcut icon" href="images/favicon.ico"><![endif]-->
+    <!-- Touch Icons - iOS and Android 2.1+ 180x180 pixels in size. -->
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 192x192 pixels in size. -->
+    <link rel="icon" href="images/favicon.png">
+
+    <!--[if gt IE 8]><!--><link rel="stylesheet" href="css/nhsuk.css" /><!--<![endif]-->
+    <!--[if IE 6]><link rel="stylesheet" href="css/nhsuk-ie6.css" media="screen" type="text/css"><![endif]-->
+    <!--[if IE 7]><link rel="stylesheet" href="css/nhsuk-ie7.css" media="screen" type="text/css"><![endif]-->
+    <!--[if IE 8]><link rel="stylesheet" href="css/nhsuk-ie8.css" media="screen" type="text/css"><![endif]-->
+    <link rel="stylesheet" href="css/nhsuk-print.css" media="print" type="text/css">
+
+    <script>
+    (function(d) {
+      d.className = d.className.replace(/\bno-js\b/, 'js-enabled')
+    })(document.documentElement)
+    </script>
+
+</head>
+<body>
+
+    <div class="skiplinks">
+      <div class="skiplinks__inner">
+        <a href="#content" class="skiplinks__link">Skip to main content</a>
+      </div>
+    </div>
+
+    <div class="notification-banner notification-banner--js-hidden util-print-hide" id="global-cookies-banner" role="alert">
+      <p class="notification-banner__inner">
+      NHS.UK uses cookies to make the site simpler.
+      <a href="https://beta.nhs.uk/help/cookies">Find out more about cookies</a>
+      </p>
+    </div>
+
+    <header class="site-header" role="banner">
+        <div class="grid-wrapper">
+            <img src="img/nhs-logo.png" alt="NHS Digital logo" style="max-width: 168px">
+        </div>
+    </header>
+
+    <div class="local-header">
+        <div class="grid-wrapper">
+            <h1 class="local-header__title">NHS Digital Styleguide</h1>
+            <div class="local-header__intro">
+                <div class="reading-width">
+                    <p>Details required for how to use this toolkit. References to the CMS and Styleguides</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main id="content" role="main" class="grid-wrapper">
+
+        <p>&nbsp;</p>
+
+        <div class="js-tabs">
+          <ul class="tabs-nav" role="tablist">
+            <li class="tabs-nav__item">
+                <a href="index.html" role="tab" id="tab01" tabindex="0" class="tabs-nav__item__link">Styleguide</a>
+            </li>
+            <li class="tabs-nav__item tabs-nav__item--active">
+                <a href="toolkit.html" role="tab" id="tab02" tabindex="-1" class="tabs-nav__item__link">Toolkit</a>
+            </li>
+          </ul>
+        </div>
+
+        <section class="panel__content">
+            <nav>
+                <h2 id="local-header">Components</h2>
+                <ul>
+                  <li><a href="#colours">Colours</a></li>
+                  <li><a href="#pagination">Pagination</a></li>
+                  <li><a href="#breadcrumbs">Breadcrumbs</a></li>
+                  <li><a href="#heading">Heading</a></li>
+                  <li><a href="#tabs">Tabs</a></li>
+                  <li><a href="#content-box">Content box</a></li>
+                  <li><a href="#cta-list">CTA list</a></li>
+                  <li><a href="#local-header">Local header</a></li>
+                  <li><a href="#search-banner">Search banner</a></li>
+                  <li><a href="#button">Button</a></li>
+                  <li><a href="#callout">Callout</a></li>
+                  <li><a href="#reveal">Reveal</a></li>
+                  <li><a href="#grid">Grid</a></li>
+                  <li><a href="#nhs-icons">NHS icons</a></li>
+                  <li><a href="#icon-block">NHS block</a></li>
+                  <li><a href="#sass-helpers">Sass Helpers</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <hr>
+
+        <section class="panel__content">
+            <h2 id="colours">Colours</h2>
+            <p>Try to use the "Col-" prefixed colours</p>
+
+            <div class="swatch">
+                <div class="swatch__color col-primary">&nbsp;</div>
+                <div class="swatch__title">$col-primary <br> #005EB8</div>
+            </div>
+            <div class="swatch">
+                <div class="swatch__color col-secondary">&nbsp;</div>
+                <div class="swatch__title">$col-secondary <br> #4C92D9</div>
+            </div>
+            <div class="swatch">
+                <div class="swatch__color col-tertiary">&nbsp;</div>
+                <div class="swatch__title">$col-tertiary <br> #D4EFFF</div>
+            </div>
+            <div class="swatch">
+                <div class="swatch__color col-quaternary">&nbsp;</div>
+                <div class="swatch__title">$col-quaternary <br> #425563</div>
+            </div>
+            <div class="swatch">
+                <div class="swatch__color col-quinary">&nbsp;</div>
+                <div class="swatch__title">$col-quinary <br> #666666</div>
+            </div>
+            <div class="swatch">
+                <div class="swatch__color col-senary">&nbsp;</div>
+                <div class="swatch__title">$col-senary <br> #CBCBCB</div>
+            </div>
+            <div class="swatch">
+                <div class="swatch__color col-septenary">&nbsp;</div>
+                <div class="swatch__title">$col-septenary <br> #FFFFFF</div>
+            </div>
+            <div class="swatch">
+                <div class="swatch__color col-octonary">&nbsp;</div>
+                <div class="swatch__title">$col-octonary <br> #FFB81C</div>
+            </div>
+            <div class="swatch">
+                <div class="swatch__color col-nonary">&nbsp;</div>
+                <div class="swatch__title">$col-nonary <br> #DA291C</div>
+            </div>
+            <div class="swatch">
+                <div class="swatch__color col-denary">&nbsp;</div>
+                <div class="swatch__title">$col-denary <br> #00386E</div>
+            </div>
+            <div class="swatch">
+                <div class="swatch__color col-undenary">&nbsp;</div>
+                <div class="swatch__title">$col-undenary <br> #003087</div>
+            </div>
+            <div class="swatch">
+                <div class="swatch__color col-duodenary">&nbsp;</div>
+                <div class="swatch__title">$col-duodenary <br> #F4F5F7</div>
+            </div>
+            <div class="swatch">
+                <div class="swatch__color col-tridenary">&nbsp;</div>
+                <div class="swatch__title">$col-tridenary <br> #E5EFF8</div>
+            </div>
+            <div class="swatch">
+                <div class="swatch__color col-14">&nbsp;</div>
+                <div class="swatch__title">$col-14 <br> #334451</div>
+            </div>
+            <div class="swatch">
+                <div class="swatch__color col-15">&nbsp;</div>
+                <div class="swatch__title">$col-15 <br> #DFE2E4</div>
+            </div>
+            <div class="swatch">
+                <div class="swatch__color col-16">&nbsp;</div>
+                <div class="swatch__title">$col-16 <br> #000000</div>
+            </div>
+
+
+            <!--
+            <div class="swatch">
+                <div class="swatch__color blue">&nbsp;</div>
+                <div class="swatch__title">$blue <br> #005eb8</div>
+            </div>
+
+            <div class="swatch">
+                <div class="swatch__color blue-50">&nbsp;</div>
+                <div class="swatch__title">$blue-50 <br> #76adda</div>
+            </div>
+
+            <div class="swatch">
+                <div class="swatch__color blue-10">&nbsp;</div>
+                <div class="swatch__title">$blue-10 <br> #e6eff8</div>
+            </div>
+
+            <div class="swatch">
+                <div class="swatch__color dark-blue">&nbsp;</div>
+                <div class="swatch__title">$dark-blue <br> #003087</div>
+            </div>
+
+            <div class="swatch">
+                <div class="swatch__color bright-blue">&nbsp;</div>
+                <div class="swatch__title">$bright-blue <br> #0072ce</div>
+            </div>
+
+            <div class="swatch">
+                <div class="swatch__color black">&nbsp;</div>
+                <div class="swatch__title">$black <br> #231f20</div>
+            </div>
+
+            <div class="swatch">
+                <div class="swatch__color grey-1">&nbsp;</div>
+                <div class="swatch__title">$grey-1 <br> #425563</div>
+            </div>
+
+            <div class="swatch">
+                <div class="swatch__color grey-2">&nbsp;</div>
+                <div class="swatch__title">$grey-2 <br> #768692</div>
+            </div>
+
+            <div class="swatch">
+                <div class="swatch__color grey-3">&nbsp;</div>
+                <div class="swatch__title">$grey-3 <br> #aeb7bd</div>
+            </div>
+
+            <div class="swatch">
+                <div class="swatch__color grey-4">&nbsp;</div>
+                <div class="swatch__title">$grey-4 <br> #d8dde0</div>
+            </div>
+
+            <div class="swatch">
+                <div class="swatch__color grey-5">&nbsp;</div>
+                <div class="swatch__title">$grey-5 <br> #f0f4f5</div>
+            </div>
+
+            <div class="swatch">
+                <div class="swatch__color grey-6">&nbsp;</div>
+                <div class="swatch__title">$grey-6 <br> #666666</div>
+            </div>
+
+            <div class="swatch">
+                <div class="swatch__color grey-7">&nbsp;</div>
+                <div class="swatch__title">$grey-7 <br> #CBCBCB</div>
+            </div>
+
+            <div class="swatch">
+                <div class="swatch__color white">&nbsp;</div>
+                <div class="swatch__title">$white <br> #FFFFFF</div>
+            </div>
+
+            <div class="swatch">
+                <div class="swatch__color dark-green">&nbsp;</div>
+                <div class="swatch__title">$dark-green <br> #006747</div>
+            </div>
+
+            <div class="swatch">
+                <div class="swatch__color green">&nbsp;</div>
+                <div class="swatch__title">$green <br> #007f3b</div>
+            </div>
+
+            <div class="swatch">
+                <div class="swatch__color light-green">&nbsp;</div>
+                <div class="swatch__title">$light-green <br> #78be20</div>
+            </div>
+
+            <div class="swatch">
+                <div class="swatch__color red">&nbsp;</div>
+                <div class="swatch__title">$red <br> #da291c</div>
+            </div>
+
+            <div class="swatch">
+                <div class="swatch__color red-50">&nbsp;</div>
+                <div class="swatch__title">$red-50 <br> #e3968a</div>
+            </div>
+
+            <div class="swatch">
+                <div class="swatch__color red-10">&nbsp;</div>
+                <div class="swatch__title">$red-10 <br> #f5e6e4</div>
+            </div>
+
+            <div class="swatch">
+                <div class="swatch__color yellow">&nbsp;</div>
+                <div class="swatch__title">$yellow <br> #ffb81c</div>
+            </div>
+
+            <div class="swatch">
+                <div class="swatch__color yellow-50">&nbsp;</div>
+                <div class="swatch__title">$yellow-50 <br> #fada8b</div>
+            </div>
+
+            <div class="swatch">
+                <div class="swatch__color yellow-10">&nbsp;</div>
+                <div class="swatch__title">$yellow-10 <br> #fdf2d5</div>
+            </div>
+            -->
+            <p style="clear:both">&nbsp;</p>
+        </section>
+
+        <hr>
+
+        <section class="panel__content">
+            <h2 id="pagination">Pagination</h2>
+
+            <div class="pagination">
+                <ul class="pagination__list">
+                    <li class="pagination__list__item pagination__list__item--current">
+                        <span class="">1</span>
+                    </li>
+                    <li class="pagination__list__item">
+                        <a href="#" title="Page 2">2</a>
+                    </li>
+                    <li class="pagination__list__item pagination__list__item--next">
+                        <a href="#" title="Next">
+                            <span class="next">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <details class="" role="group">
+                <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+                    <span class="details__summary">Code example</span>
+                </summary>
+                <div class="details__content" id="details-content-0" aria-hidden="false">
+                    <pre class="brush: php;">
+                        <div class="pagination">
+                            <ul class="pagination__list">
+                                <li class="pagination__list__item pagination__list__item--current">
+                                    <span class="">1</span>
+                                </li>
+                                <li class="pagination__list__item">
+                                    <a href="#" title="Page 2">2</a>
+                                </li>
+                                <li class="pagination__list__item pagination__list__item--next">
+                                    <a href="#" title="Next">
+                                        <span class="next">Next</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </pre>
+                </div>
+            </details>
+        </section>
+
+        <hr>
+
+        <section class="panel__content">
+            <h2 id="breadcrumbs">Breadcrumbs</h2>
+
+            <div class="breadcrumb list list--inline list--reset">
+                <a href="" class="breadcrumb__link">Home</a>
+                <img src="img/icon-arrow.png" alt="" class="breadcrumb__sep">
+                <a href="/services" class="breadcrumb__link">Systems and services</a>
+                <img src="img/icon-arrow.png" alt="" class="breadcrumb__sep">
+                <span class="breadcrumb__link breadcrumb__link--secondary">Service Document #1</span>
+            </div>
+
+            <details class="" role="group">
+                <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+                    <span class="details__summary">Code example</span>
+                </summary>
+                <div class="details__content" id="details-content-0" aria-hidden="false">
+                    <pre class="brush: php;">
+                        <div class="breadcrumb list list--inline list--reset">
+                            <a href="" class="breadcrumb__link">Home</a>
+                            <img src="img/icon-arrow.png" alt="" class="breadcrumb__sep">
+                            <a href="/services" class="breadcrumb__link">Systems and services</a>
+                            <img src="img/icon-arrow.png" alt="" class="breadcrumb__sep">
+                            <span class="breadcrumb__link breadcrumb__link--secondary">Service Document #1</span>
+                        </div>
+                    </pre>
+                </div>
+            </details>
+        </section>
+
+        <hr>
+
+        <section class="panel__content">
+            <h2 id="heading">Headings</h2>
+            <p class="util-bg-tint__yellow">DISCUSS: Could do with adding the Gov text convention here. </p>
+
+            <h1>Heading 1</h1>
+            <h2>Heading 2</h2>
+            <h3>Heading 2</h3>
+            <h4>Heading 2</h4>
+            <h5>Heading 2</h5>
+            <p>Sample paragraph</p>
+            <p>Small paragraph</p>
+
+            <details class="" role="group">
+                <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+                    <span class="details__summary">Code example</span>
+                </summary>
+                <div class="details__content" id="details-content-0" aria-hidden="false">
+                    <pre class="brush: php;">
+                        <h1>Heading 1</h1>
+                        <h2>Heading 2</h2>
+                        <h3>Heading 2</h3>
+                        <h4>Heading 2</h4>
+                        <h5>Heading 2</h5>
+                        <p>Sample paragraph</p>
+                        <p>Small paragraph</p>
+                    </pre>
+                </div>
+            </details>
+        </section>
+
+        <hr>
+
+        <section class="panel__content">
+            <h2 id="tabs">Tabs</h2>
+
+            <div class="js-tabs">
+              <ul class="tabs-nav" role="tablist">
+                <li class="tabs-nav__item tabs-nav__item--active">
+                    <a href="#" role="tab" id="tab01" tabindex="0" class="tabs-nav__item__link">Tab1</a>
+                </li>
+                <li class="tabs-nav__item">
+                    <a href="#" role="tab" id="tab02" tabindex="-1" class="tabs-nav__item__link">Tab2</a>
+                </li>
+              </ul>
+            </div>
+
+            <details class="" role="group">
+                <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+                    <span class="details__summary">Code example</span>
+                </summary>
+                <div class="details__content" id="details-content-0" aria-hidden="false">
+                    <pre class="brush: php;">
+                        <div class="js-tabs">
+                          <ul class="tabs-nav" role="tablist">
+                            <li class="tabs-nav__item tabs-nav__item--active">
+                                <a href="#" role="tab" id="tab01" tabindex="0" class="tabs-nav__item__link">Tab1</a>
+                            </li>
+                            <li class="tabs-nav__item">
+                                <a href="#" role="tab" id="tab02" tabindex="-1" class="tabs-nav__item__link">Tab2</a>
+                            </li>
+                          </ul>
+                        </div>
+                    </pre>
+                </div>
+            </details>
+        </section>
+
+        <hr>
+
+        <section class="panel__content">
+            <h2 id="content-box">Content Box</h2>
+            <p class="util-bg-tint__yellow">NOTE: The colour of the text is wrong here?</p>
+
+            <!-- Primary -->
+            <div class="content-box content-box--primary">
+                <div class="grid-row">
+                    <div class="column">
+                        <h3>Content Box - Primary</h3>
+                    </div>
+                </div>
+                <div class="grid-row">
+                    <div class="column">
+                        <div class="cta-list cta-list--grid">
+                            <div class="grid-row">
+                                <div class="column column--one-half column--left">
+                                    <article class="cta">
+                                        <h2 class="cta__title"><a href="/services/service-document-1">Service Document #1</a></h2>
+                                        <p class="cta__text">Collaboratively morph magnetic growth strategies without seamless e-business</p>
+                                    </article>
+                                </div>
+                                <div class="column column--one-half column--right">
+                                    <article class="cta">
+                                        <h2 class="cta__title"><a href="/services/service-document-1/service-child-document-1">Service Child Document #1</a></h2>
+                                        <p class="cta__text">Compellingly deliver technically sound potentialities through cost effective methodologies.</p>
+                                    </article>
+                                </div>
+                            </div>
+                            <div class="grid-row">
+                                <div class="column column--one-half column--left">
+                                    <article class="cta">
+                                        <h2 class="cta__title"><a href="/services/service-document-1/service-child-document-2">Service Child Document #2</a></h2>
+                                        <p class="cta__text">Competently network superior expertise after orthogonal experiences. Collaboratively envisioneer</p>
+                                    </article>
+                                </div>
+                                <div class="column column--one-half column--right">
+                                    <article class="cta">
+                                        <h2 class="cta__title"><a href="/services/service-document-1/service-child-document-3">Service Child Document #3</a></h2>
+                                        <p class="cta__text">Intrinsicly deploy business models before an expanded array of growth strategies</p>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secondary -->
+            <div class="content-box content-box--secondary content-box--visible-sections content-box--latest-publications">
+                <div class="grid-row">
+                    <div class="column">
+                        <h3>Content Box - Secondary</h3>
+                    </div>
+                </div>
+                <div class="grid-row">
+                    <ol class="list--reset cta-list cta-list--grid">
+                        <li class="column column--one-third column--left">
+                            <article class="cta">
+                                <h2 class="cta__title"><a href="/data-and-information/publications/valid-publication-series/2013">Lorem Ipsum Dolor 2013</a></h2>
+                                <time class="cta__meta" datetime="2014-01-10">10 January 2014</time>
+                            </article>
+                        </li>
+                        <li class="column column--one-third column--center">
+                            <article class="cta">
+                                <h2 class="cta__title"><a href="/data-and-information/publications/valid-publication-series/2012">Lorem Ipsum Dolor 2012</a></h2>
+                                <time class="cta__meta" datetime="2013-01-10">10 January 2013</time>
+                            </article>
+                        </li>
+                        <li class="column column--one-third column--right">
+                            <article class="cta">
+                                <h2 class="cta__title"><a href="/data-and-information/publications/valid-publication-series/2014">Lorem Ipsum Dolor 2014</a></h2>
+                                <time class="cta__meta" datetime="2015-01-10">10 January 2015</time>
+                            </article>
+                        </li>
+                    </ol>
+                </div>
+                <div class="grid-row">
+                    <div class="column">
+                        <a href="#" class="link">View the latest publications</a>
+                    </div>
+                </div>
+            </div>
+
+            <details class="" role="group">
+                <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+                    <span class="details__summary">Code example</span>
+                </summary>
+                <div class="details__content" id="details-content-0" aria-hidden="false">
+                    <pre class="brush: php;">
+
+                        <!-- Primary -->
+                        <div class="content-box content-box--primary content-box--services">
+                            <div class="grid-row">
+                                <div class="column">
+                                    <h3>Most popular services</h3>
+                                </div>
+                            </div>
+                            <div class="grid-row">
+                                <div class="column">
+                                    <div class="cta-list cta-list--grid">
+                                        <div class="grid-row">
+                                            <div class="column column--one-half column--left">
+                                                <article class="cta">
+                                                    <h2 class="cta__title"><a href="/services/service-document-1">Service Document #1</a></h2>
+                                                    <p class="cta__text">Collaboratively morph magnetic growth strategies without seamless e-business</p>
+                                                </article>
+                                            </div>
+                                            <div class="column column--one-half column--right">
+                                                <article class="cta">
+                                                    <h2 class="cta__title"><a href="/services/service-document-1/service-child-document-1">Service Child Document #1</a></h2>
+                                                    <p class="cta__text">Compellingly deliver technically sound potentialities through cost effective methodologies.</p>
+                                                </article>
+                                            </div>
+                                        </div>
+                                        <div class="grid-row">
+                                            <div class="column column--one-half column--left">
+                                                <article class="cta">
+                                                    <h2 class="cta__title"><a href="/services/service-document-1/service-child-document-2">Service Child Document #2</a></h2>
+                                                    <p class="cta__text">Competently network superior expertise after orthogonal experiences. Collaboratively envisioneer</p>
+                                                </article>
+                                            </div>
+                                            <div class="column column--one-half column--right">
+                                                <article class="cta">
+                                                    <h2 class="cta__title"><a href="/services/service-document-1/service-child-document-3">Service Child Document #3</a></h2>
+                                                    <p class="cta__text">Intrinsicly deploy business models before an expanded array of growth strategies</p>
+                                                </article>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Secondary -->
+                        <div class="content-box content-box--secondary content-box--visible-sections content-box--latest-publications">
+                            <div class="grid-row">
+                                <div class="column">
+                                    <h3>Content Box - Secondary</h3>
+                                </div>
+                            </div>
+                            <div class="grid-row">
+                                <ol class="list--reset cta-list cta-list--grid">
+                                    <li class="column column--one-third column--left">
+                                        <article class="cta">
+                                            <h2 class="cta__title"><a href="/data-and-information/publications/valid-publication-series/2013">Lorem Ipsum Dolor 2013</a></h2>
+                                            <time class="cta__meta" datetime="2014-01-10">10 January 2014</time>
+                                        </article>
+                                    </li>
+                                    <li class="column column--one-third column--center">
+                                        <article class="cta">
+                                            <h2 class="cta__title"><a href="/data-and-information/publications/valid-publication-series/2012">Lorem Ipsum Dolor 2012</a></h2>
+                                            <time class="cta__meta" datetime="2013-01-10">10 January 2013</time>
+                                        </article>
+                                    </li>
+                                    <li class="column column--one-third column--right">
+                                        <article class="cta">
+                                            <h2 class="cta__title"><a href="/data-and-information/publications/valid-publication-series/2014">Lorem Ipsum Dolor 2014</a></h2>
+                                            <time class="cta__meta" datetime="2015-01-10">10 January 2015</time>
+                                        </article>
+                                    </li>
+                                </ol>
+                            </div>
+                            <div class="grid-row">
+                                <div class="column">
+                                    <a href="#" class="link">View the latest publications</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </pre>
+                </div>
+            </details>
+        </section>
+
+        <hr>
+
+        <section class="panel__content">
+            <h2 id="cta-list">CTA List</h2>
+            <ol class="list--reset cta-list">
+                <li>
+                    <article class="cta">
+                        <h2 class="cta__title"><a href="#">NHS Digital staff shortlisted for Women in IT Awards</a></h2>
+                        <time class="cta__meta" datetime="#">Date published: 3 January 2018</time>
+                    </article>
+                </li>
+                <li>
+                    <article class="cta">
+                        <h2 class="cta__title"><a href="#">NHS Digital welcomes everyone</a></h2>
+                        <time class="cta__meta" datetime="#">Date published: 2 January 2018</time>
+                    </article>
+                </li>
+            </ol>
+            <details class="" role="group">
+                <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+                    <span class="details__summary">Code example</span>
+                </summary>
+                <div class="details__content" id="details-content-0" aria-hidden="false">
+                    <pre class="brush: php;">
+                        <ol class="list--reset cta-list">
+                            <li>
+                                <article class="cta">
+                                    <h2 class="cta__title"><a href="#">NHS Digital staff shortlisted for Women in IT Awards</a></h2>
+                                    <time class="cta__meta" datetime="#">Date published: 3 January 2018</time>
+                                </article>
+                            </li>
+                            <li>
+                                <article class="cta">
+                                    <h2 class="cta__title"><a href="#">NHS Digital welcomes everyone</a></h2>
+                                    <time class="cta__meta" datetime="#">Date published: 2 January 2018</time>
+                                </article>
+                            </li>
+                        </ol>
+                    </pre>
+                </div>
+            </details>
+        </section>
+
+        <hr>
+
+        <section class="panel__content">
+            <h2 id="local-header">Local Header</h2>
+            <div class="local-header">
+              <h1 class="local-header__title">Blisters</h1>
+              <div class="local-header__intro">
+                <div class="reading-width">
+                  <p>Blisters should heal on their own within a week. They can be painful while they heal, but you shouldn’t need to see a GP.</p>
+                </div>
+              </div>
+            </div>
+            <details class="" role="group">
+                <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+                    <span class="details__summary">Code example</span>
+                </summary>
+                <div class="details__content" id="details-content-0" aria-hidden="false">
+                    <pre class="brush: php;">
+                        <div class="local-header">
+                          <h1 class="local-header__title">Blisters</h1>
+                          <div class="local-header__intro">
+                            <div class="reading-width">
+                              <p>Blisters should heal on their own within a week. They can be painful while they heal, but you shouldn’t need to see a GP.</p>
+                            </div>
+                          </div>
+                        </div>
+                    </pre>
+                </div>
+            </details>
+        </section>
+
+        <hr>
+
+        <section class="panel__content">
+            <h2 id="search-banner">Search Banner</h2>
+            <section class="search-banner" aria-label="Search form">
+                <div class="grid-wrapper grid-wrapper--collapse">
+                    <p class="search-banner__headline">NHSS Digital provides technology, information and services, which help the NHS deliver better care</p>
+                    <form role="search" method="get" action="/search" class="search-banner__form">
+                        <div>
+                            <input type="text" name="query" id="query" class="search-banner__input" placeholder="What are you looking for today?" value="" title="Search for content on the website">
+                        </div>
+                        <div>
+                            <button class="search-banner__button">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <details class="" role="group">
+                <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+                    <span class="details__summary">Code example</span>
+                </summary>
+                <div class="details__content" id="details-content-0" aria-hidden="false">
+                    <pre class="brush: php;">
+                        <section class="search-banner" aria-label="Search form">
+                            <div class="grid-wrapper grid-wrapper--collapse">
+                                <p class="search-banner__headline">NHSS Digital provides technology, information and services, which help the NHS deliver better care</p>
+                                <form role="search" method="get" action="/search" class="search-banner__form">
+                                    <div>
+                                        <input type="text" name="query" id="query" class="search-banner__input" placeholder="What are you looking for today?" value="" title="Search for content on the website">
+                                    </div>
+                                    <div>
+                                        <button class="search-banner__button">Search</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </section>
+                    </pre>
+                </div>
+            </details>
+        </section>
+
+        <hr>
+
+        <section class="panel__content">
+            <h2 id="button">Button</h2>
+            <button class="button">Button</button>
+            <button class="button button--tiny">Button Tiny</button>
+            <button class="button" disabled>Disabled button</button>
+            <a class="button button--cancel" href="#">Cancel</a>
+            <input type="submit" class="button" value="Submit">
+            <details class="" role="group">
+                <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+                    <span class="details__summary">Code example</span>
+                </summary>
+                <div class="details__content" id="details-content-0" aria-hidden="false">
+                    <pre class="brush: php;">
+                        <button class="button">Button</button>
+                        <button class="button button--tiny">Button Small</button>
+                        <button class="button" disabled>Disabled button</button>
+                        <a class="button button--cancel" href="#">Cancel</a>
+                        <input type="submit" class="button" value="Submit">
+                    </pre>
+                </div>
+            </details>
+        </section>
+
+        <hr>
+
+        <section class="panel__content">
+            <h2 id="callout">Call out</h2>
+            <div class="callout">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure, laborum libero magnam magni natus non quasi quibusdam repellendus saepe sapiente, velit.</p>
+            </div>
+            <div class="callout callout--info">
+              <h2>Info</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure, laborum libero magnam magni natus non quasi quibusdam repellendus saepe sapiente, velit.</p>
+            </div>
+            <div class="callout callout--attention">
+              <h2>Attention</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure, laborum libero magnam magni natus non quasi quibusdam repellendus saepe sapiente, velit.</p>
+            </div>
+            <div class="callout callout--warning">
+              <h2>Warning</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure, laborum libero magnam magni natus non quasi quibusdam repellendus saepe sapiente, velit.</p>
+            </div>
+            <div class="callout callout--alert">
+              <h2>Alert</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure, laborum libero magnam magni natus non quasi quibusdam repellendus saepe sapiente, velit.</p>
+            </div>
+            <div class="callout callout--severe">
+              <h2>Severe</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure, laborum libero magnam magni natus non quasi quibusdam repellendus saepe sapiente, velit.</p>
+            </div>
+            <div class="callout callout--error">
+              <h2>Error</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure, laborum libero magnam magni natus non quasi quibusdam repellendus saepe sapiente, velit.</p>
+            </div>
+            <div class="callout callout--muted">
+              <h2>Muted</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure, laborum libero magnam magni natus non quasi quibusdam repellendus saepe sapiente, velit.</p>
+            </div>
+            <div class="callout callout--compact">
+              <h2>Compact</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure, laborum libero magnam magni natus non quasi quibusdam repellendus saepe sapiente, velit.</p>
+            </div>
+            <details class="" role="group">
+                <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+                    <span class="details__summary">Code example</span>
+                </summary>
+                <div class="details__content" id="details-content-0" aria-hidden="false">
+                    <pre class="brush: php;">
+                        <div class="callout">
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure, laborum libero magnam magni natus non quasi quibusdam repellendus saepe sapiente, velit.</p>
+                        </div>
+                        <div class="callout callout--info">
+                          <h2>Info</h2>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure, laborum libero magnam magni natus non quasi quibusdam repellendus saepe sapiente, velit.</p>
+                        </div>
+                        <div class="callout callout--attention">
+                          <h2>Attention</h2>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure, laborum libero magnam magni natus non quasi quibusdam repellendus saepe sapiente, velit.</p>
+                        </div>
+                        <div class="callout callout--warning">
+                          <h2>Warning</h2>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure, laborum libero magnam magni natus non quasi quibusdam repellendus saepe sapiente, velit.</p>
+                        </div>
+                        <div class="callout callout--alert">
+                          <h2>Alert</h2>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure, laborum libero magnam magni natus non quasi quibusdam repellendus saepe sapiente, velit.</p>
+                        </div>
+                        <div class="callout callout--severe">
+                          <h2>Severe</h2>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure, laborum libero magnam magni natus non quasi quibusdam repellendus saepe sapiente, velit.</p>
+                        </div>
+                        <div class="callout callout--error">
+                          <h2>Error</h2>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure, laborum libero magnam magni natus non quasi quibusdam repellendus saepe sapiente, velit.</p>
+                        </div>
+                        <div class="callout callout--muted">
+                          <h2>Muted</h2>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure, laborum libero magnam magni natus non quasi quibusdam repellendus saepe sapiente, velit.</p>
+                        </div>
+                        <div class="callout callout--compact">
+                          <h2>Compact</h2>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure, laborum libero magnam magni natus non quasi quibusdam repellendus saepe sapiente, velit.</p>
+                        </div>
+                    </pre>
+                </div>
+            </details>
+        </section>
+
+        <hr>
+
+        <section class="panel__content">
+            <h2 id="reveal">Reveal</h2>
+            <details class="" role="group">
+              <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+                <span class="details__summary">Click to reveal</span>
+              </summary>
+              <div class="details__content" id="details-content-0" aria-hidden="false">
+                <div class="reading-width">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure, laborum libero magnam magni natus non quasi quibusdam repellendus saepe sapiente, velit.</p>
+                </div>
+              </div>
+            </details>
+            <details class="" role="group">
+                <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+                    <span class="details__summary">Code example</span>
+                </summary>
+                <div class="details__content" id="details-content-0" aria-hidden="false">
+                    <pre class="brush: php;">
+                        <details class="" role="group">
+                          <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+                            <span class="details__summary">Click to reveal</span>
+                          </summary>
+                          <div class="details__content" id="details-content-0" aria-hidden="false">
+                            <div class="reading-width">
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur assumenda beatae, dolor eaque eos expedita fugiat iure, laborum libero magnam magni natus non quasi quibusdam repellendus saepe sapiente, velit.</p>
+                            </div>
+                          </div>
+                        </details>
+                    </pre>
+                </div>
+            </details>
+        </section>
+
+        <hr>
+
+        <section class="panel__content">
+            <h2 id="nhs-icons">Icons</h2>
+            <ul>
+              <li>
+                <a href=""><span class="icon"></span>Default icon</a>
+              </li>
+              <li>
+                <a href=""><span class="icon icon--pdf"></span>PDF icon</a>
+              </li>
+              <li>
+                <a href=""><span class="icon icon--word"></span>Word icon</a>
+              </li>
+              <li>
+                <a href=""><span class="icon icon--ppt"></span>PPT icon</a>
+              </li>
+              <li>
+                <a href=""><span class="icon icon--zip"></span>ZIP icon</a>
+              </li>
+              <li>
+                <a href=""><span class="icon icon--video"></span>Video icon</a>
+              </li>
+              <li>
+                <a href=""><span class="icon icon--spreadsheet"></span>Spreadsheet icon</a>
+              </li>
+              <li>
+                <a href=""><span class="icon icon--text"></span>Text icon</a>
+              </li>
+            </ul>
+
+            <details class="" role="group">
+                <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+                    <span class="details__summary">Code example</span>
+                </summary>
+                <div class="details__content" id="details-content-0" aria-hidden="false">
+                    <pre class="brush: php;">
+                        <ul>
+                          <li>
+                            <a href=""><span class="icon"></span>Default icon</a>
+                          </li>
+                          <li>
+                            <a href=""><span class="icon icon--pdf"></span>PDF icon</a>
+                          </li>
+                          <li>
+                            <a href=""><span class="icon icon--word"></span>Word icon</a>
+                          </li>
+                          <li>
+                            <a href=""><span class="icon icon--ppt"></span>PPT icon</a>
+                          </li>
+                          <li>
+                            <a href=""><span class="icon icon--zip"></span>ZIP icon</a>
+                          </li>
+                          <li>
+                            <a href=""><span class="icon icon--video"></span>Video icon</a>
+                          </li>
+                          <li>
+                            <a href=""><span class="icon icon--spreadsheet"></span>Spreadsheet icon</a>
+                          </li>
+                          <li>
+                            <a href=""><span class="icon icon--text"></span>Text icon</a>
+                          </li>
+                        </ul>
+                    </pre>
+                </div>
+            </details>
+        </section>
+
+        <hr>
+
+        <section class="panel__content">
+            <h2 id="icon-block">Icon block</h2>
+
+            <div class="content-box content-box--primary">
+                <div class="ico-block">
+                    <div class="ico-block__icon ico-block__icon--date-range"></div>
+                    <dl class="ico-block__body">
+                      <dt>Date Range:</dt>
+                      <dd data-uipath="ps.dataset.date-range">(Not specified)
+                      </dd>
+                    </dl>
+                </div>
+            </div>
+
+            <details class="" role="group">
+                <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+                    <span class="details__summary">Code example</span>
+                </summary>
+                <div class="details__content" id="details-content-0" aria-hidden="false">
+                    <pre class="brush: php;">
+                        <div class="ico-block">
+                            <div class="ico-block__icon ico-block__icon--date-range"></div>
+                            <dl class="ico-block__body">
+                              <dt>Date Range:</dt>
+                              <dd data-uipath="ps.dataset.date-range">(Not specified)
+                              </dd>
+                            </dl>
+                        </div>
+                    </pre>
+                </div>
+            </details>
+        </section>
+
+        <hr>
+
+        <section class="panel__content">
+
+            <h2 id="grid">Grid</h2>
+            <div class="grid-row">
+              <div class="column--one-third">
+                <h3>.column--one-third</h3>
+                <p>Your GP might burst a large or painful blister using a sterilised needle. If your blister is infected, they may prescribe antibiotics.</p>
+              </div>
+              <div class="column--two-thirds">
+                <h3>.column--two-thirds</h3>
+                <p>Your GP might burst a large or painful blister using a sterilised needle. If your blister is infected, they may prescribe antibiotics.</p>
+              </div>
+            </div>
+            <div class="grid-row">
+              <div class="column--one-quarter">
+                <h3>.column--one-quarter</h3>
+                <p>Your GP might burst a large or painful blister using a sterilised needle. If your blister is infected, they may prescribe antibiotics.</p>
+              </div>
+              <div class="column--three-quarters">
+                <h3>.column--three-quarters</h3>
+                <p>Your GP might burst a large or painful blister using a sterilised needle. If your blister is infected, they may prescribe antibiotics.</p>
+              </div>
+            </div>
+            <div class="grid-row">
+              <div class="column--one-half">
+                <h3>.column--one-half</h3>
+                <p>Your GP might burst a large or painful blister using a sterilised needle. If your blister is infected, they may prescribe antibiotics.</p>
+              </div>
+              <div class="column--one-half">
+                <h3>.column--one-half</h3>
+                <p>Your GP might burst a large or painful blister using a sterilised needle. If your blister is infected, they may prescribe antibiotics.</p>
+              </div>
+            </div>
+            <div class="grid-row">
+              <div class="column--one-quarter-right">
+                <h3>.column--one-quarter-right</h3>
+                <p>Your GP might burst a large or painful blister using a sterilised needle. If your blister is infected, they may prescribe antibiotics.</p>
+              </div>
+            </div>
+            <div class="grid-row">
+              <div class="column--one-third-right">
+                <h3>.column--one-third-right</h3>
+                <p>Your GP might burst a large or painful blister using a sterilised needle. If your blister is infected, they may prescribe antibiotics.</p>
+              </div>
+            </div>
+            <div class="grid-row">
+              <div class="column--one-half-right">
+                <h3>.column--one-half-right</h3>
+                <p>Your GP might burst a large or painful blister using a sterilised needle. If your blister is infected, they may prescribe antibiotics.</p>
+              </div>
+            </div>
+            <div class="grid-row">
+              <div class="column--two-thirds-right">
+                <h3>.column--two-thirds-right</h3>
+                <p>Your GP might burst a large or painful blister using a sterilised needle. If your blister is infected, they may prescribe antibiotics.</p>
+              </div>
+            </div>
+            <div class="grid-row">
+              <div class="column--three-quarters-right">
+                <h3>.column--three-quarters-right</h3>
+                <p>Your GP might burst a large or painful blister using a sterilised needle. If your blister is infected, they may prescribe antibiotics.</p>
+              </div>
+            </div>
+            <details class="" role="group">
+                <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+                    <span class="details__summary">Code example</span>
+                </summary>
+                <div class="details__content" id="details-content-0" aria-hidden="false">
+                    <pre class="brush: php;">
+                        <div class="grid-row">
+                          <div class="column--one-third">
+                            <h3>.column--one-third</h3>
+                            <p>Your GP might burst a large or painful blister using a sterilised needle. If your blister is infected, they may prescribe antibiotics.</p>
+                          </div>
+                          <div class="column--two-thirds">
+                            <h3>.column--two-thirds</h3>
+                            <p>Your GP might burst a large or painful blister using a sterilised needle. If your blister is infected, they may prescribe antibiotics.</p>
+                          </div>
+                        </div>
+                        <div class="grid-row">
+                          <div class="column--one-quarter">
+                            <h3>.column--one-quarter</h3>
+                            <p>Your GP might burst a large or painful blister using a sterilised needle. If your blister is infected, they may prescribe antibiotics.</p>
+                          </div>
+                          <div class="column--three-quarters">
+                            <h3>.column--three-quarters</h3>
+                            <p>Your GP might burst a large or painful blister using a sterilised needle. If your blister is infected, they may prescribe antibiotics.</p>
+                          </div>
+                        </div>
+                        <div class="grid-row">
+                          <div class="column--one-half">
+                            <h3>.column--one-half</h3>
+                            <p>Your GP might burst a large or painful blister using a sterilised needle. If your blister is infected, they may prescribe antibiotics.</p>
+                          </div>
+                          <div class="column--one-half">
+                            <h3>.column--one-half</h3>
+                            <p>Your GP might burst a large or painful blister using a sterilised needle. If your blister is infected, they may prescribe antibiotics.</p>
+                          </div>
+                        </div>
+                        <div class="grid-row">
+                          <div class="column--one-quarter-right">
+                            <h3>.column--one-quarter-right</h3>
+                            <p>Your GP might burst a large or painful blister using a sterilised needle. If your blister is infected, they may prescribe antibiotics.</p>
+                          </div>
+                        </div>
+                        <div class="grid-row">
+                          <div class="column--one-third-right">
+                            <h3>.column--one-third-right</h3>
+                            <p>Your GP might burst a large or painful blister using a sterilised needle. If your blister is infected, they may prescribe antibiotics.</p>
+                          </div>
+                        </div>
+                        <div class="grid-row">
+                          <div class="column--one-half-right">
+                            <h3>.column--one-half-right</h3>
+                            <p>Your GP might burst a large or painful blister using a sterilised needle. If your blister is infected, they may prescribe antibiotics.</p>
+                          </div>
+                        </div>
+                        <div class="grid-row">
+                          <div class="column--two-thirds-right">
+                            <h3>.column--two-thirds-right</h3>
+                            <p>Your GP might burst a large or painful blister using a sterilised needle. If your blister is infected, they may prescribe antibiotics.</p>
+                          </div>
+                        </div>
+                        <div class="grid-row">
+                          <div class="column--three-quarters-right">
+                            <h3>.column--three-quarters-right</h3>
+                            <p>Your GP might burst a large or painful blister using a sterilised needle. If your blister is infected, they may prescribe antibiotics.</p>
+                          </div>
+                        </div>
+                    </pre>
+                </div>
+            </details>
+        </section>
+
+        <hr>
+
+        <section class="panel__content">
+            <h2 id="sass-helpers">Sass Helpers</h2>
+            <div class="details__content" id="details-content-0" aria-hidden="false">
+                <pre class="brush: php;">
+
+                    // Base
+                    $min-desktop-width
+
+                    // Spacing
+                    $default-spacing-unit;
+                    $gutter;
+                    $vertical-gap;
+
+                    // Fonts
+                    $base-font-size;
+                    @include bold-font($h3-font-size/1px);
+                    @include core-font(16);
+
+                    // Includes
+                    @include clearfix;
+                    @include element-padding(top);
+
+                    // Media queries
+                    @include media(mobile) {
+
+                    }
+                    @include media(tablet) {
+
+                    }
+                    @include media(desktop) {
+
+                    }
+                    @include media($max-width: $min-desktop-width) {
+
+                    }
+                </pre>
+            </div>
+        </section>
+
+    </main>
+
+
+
+    <script type="text/javascript" src="js/shCore.js"></script>
+    <script type="text/javascript" src="js/shBrushJScript.js"></script>
+    <script type="text/javascript" src="js/shBrushPhp.js"></script>
+    <script type="text/javascript">SyntaxHighlighter.all();</script>
+
+</body>
+</html>

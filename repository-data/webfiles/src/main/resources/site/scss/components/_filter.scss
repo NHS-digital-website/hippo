@@ -1,0 +1,144 @@
+/* Filter */
+.filter {
+    background-color: $col-duodenary;
+    margin-right: 0;
+    margin-bottom: 40px;
+
+    @include media(tablet) {
+        margin-right: $gutter * 2;
+    }
+
+    .filter__title {
+        padding: $gutter;
+        border-bottom: 1px solid $col-15;
+
+        .filter__title__reset {
+            float: right;
+        }
+    }
+
+    .filter__list {
+        padding-left: 0;
+        list-style: none;
+
+        ul {
+            list-style: none;
+            padding-left: 10px;
+        }
+
+        .filter__list-item {
+            padding: 2px 8px 2px 0;
+
+            a.filter__link {
+                display: inline-block;
+                position: relative;
+                color: $col-quinary;
+                padding: 5px 24px 5px 20px;
+                border: 1px solid transparent;
+                text-decoration: none;
+                border-radius: 3px;
+                background-image: url("../img/icon-filter.png");
+                background-position: 7px 9px;
+                background-repeat: no-repeat;
+                background-size: 8px;
+                line-height: 18px;
+
+                @include core-font(14);
+            }
+
+            a.filter__link--selected {
+                background-color: $col-septenary;
+                color: $col-primary;
+                border: 1px solid $col-15;
+                background-image: url("../img/icon-filter-down.png");
+            }
+
+            a.filter__link--selected:after {
+                content: "X";
+                position: absolute;
+                top: 50%;
+                right: 7px;
+                font-size: 15px;
+                margin-top: -10px;
+                color: $col-14;
+            }
+        }
+
+        .filter__list-item--no-children {
+            a.filter__link,  {
+                background-image: none;
+                padding-left: 8px;
+                padding-right: 8px;
+                background-color: $col-15;
+            }
+
+            a.filter__link--selected {
+                background-color: $col-septenary;
+                padding-right: 22px;
+            }
+        }
+
+        .filter__list-controller a {
+            color: $col-primary;
+            padding: 8px 16px;
+            display: inline-block;
+
+            @include core-font(14);
+        }
+    }
+
+    /* Expand link if over 10 items */
+    .filter-list-expand {
+
+        .filter-list-expand__item {
+            color: $col-primary;
+
+            @include core-font(14);
+        }
+
+    }
+
+    /* Sections */
+    // Show section by default
+    .filter-section {
+        border-bottom: 1px solid $col-15;
+
+        .filter-section__title {
+            padding: $gutter $gutter * 2 $gutter $gutter;
+            line-height: 1.2;
+        }
+
+        .filter-section__content {
+            paddng: 0 $gutter $gutter $gutter;
+        }
+    }
+
+    /* Unless you add the filter-section--collapse class */
+    /* Then hide behind an accordion */
+
+    .filter-section--closed {
+        .filter-section__title {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .filter-section__title:after {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            margin-top: -15px;
+            content: "+";
+            font-size: 22px;
+        }
+
+        .filter-section__content {
+            display: none;
+        }
+    }
+
+    .filter-section--open {
+        .filter-section__title:after {
+            content: "-";
+        }
+    }
+}

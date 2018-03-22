@@ -1,0 +1,78 @@
+.swatch {
+    float: left;
+    width: 140px;
+    text-align: center;
+    margin-bottom: 18px;
+    .swatch__color {
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-radius: 60px;
+        border: 1px solid rgba(0,0,0,0.1);
+    }
+    .swatch__title {
+        @include core-font(14);
+    }
+}
+
+
+
+// Primary NHS blues
+// =================
+.blue { background-color: $blue; }
+.blue-50 { background-color: $blue-50; }
+.blue-10 { background-color: $blue-10; }
+.dark-blue { background-color: $dark-blue; }
+.bright-blue { background-color: $bright-blue; }
+
+// NHS greyscale
+// =============
+// This is an 5 step greyscale
+// Uses NHS brand colours as a foundation for the first 2 steps
+// and adds three modified greys
+.black { background-color: $black; }
+.grey-1 { background-color: $grey-1; }
+.grey-2 { background-color: $grey-2; }
+.grey-3 { background-color: $grey-3; }
+.grey-4 { background-color: $grey-4; }
+.grey-5 { background-color: $grey-5; }
+.grey-6 { background-color: $grey-6; }
+.grey-7 { background-color: $grey-7; }
+.white { background-color: $white; }
+
+// Secondary colours
+// =================
+.dark-green { background-color: $dark-green; }
+.green { background-color: $green; } // modified to comply with WCAG contrast with white
+.light-green { background-color: $light-green; }
+
+.red { background-color: $red; }
+.red-50 { background-color: $red-50; }
+.red-10 { background-color: $red-10; }
+
+.yellow { background-color: $yellow; }
+.yellow-50 { background-color: $yellow-50; }
+.yellow-10 { background-color: $yellow-10; }
+
+
+// NEW colours
+// =================
+// Use these for all new development
+.col-primary { background-color: $col-primary; }
+.col-secondary { background-color: $col-secondary; }
+.col-tertiary { background-color: $col-tertiary; }
+.col-quaternary { background-color: $col-quaternary; }
+.col-quinary { background-color: $col-quinary; }
+.col-senary { background-color: $col-senary; }
+.col-septenary { background-color: $col-septenary; }
+.col-octonary { background-color: $col-octonary; }
+.col-nonary { background-color: $col-nonary; }
+.col-denary { background-color: $col-denary; }
+.col-undenary { background-color: $col-undenary; }
+.col-duodenary { background-color: $col-duodenary; }
+.col-tridenary { background-color: $col-tridenary; }
+.col-14 { background-color: $col-14; }
+.col-15 { background-color: $col-15; }
+.col-16 { background-color: $col-16; }

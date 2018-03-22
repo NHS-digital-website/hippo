@@ -1,0 +1,45 @@
+
+// Heading for search results page
+.search-result-heading {
+    border-bottom: 1px solid $col-15;
+    min-height: 63px;
+}
+
+.search-result-heading__title {
+    margin-bottom: 0px;
+}
+
+.search-result-heading__subcopy {
+    @include core-font(14);
+}
+.search-result-heading__sort {
+    @include media(tablet) {
+        float:right;
+    }
+    @include core-font(14);
+}
+
+// Single search result
+.search-result {
+    border-bottom: 1px solid $col-15;
+    padding-top: $gutter;
+    padding-bottom: $gutter;
+}
+
+.search-result__title {
+    margin-bottom: 0;
+}
+
+.search-result__type {
+    @include core-font(14);
+    font-weight: bold;
+}
+
+.search-result__title__link {
+    font-size: 18px;
+}
+
+.search-result__para {
+    @include core-font(14);
+    line-height: 22px;
+}
