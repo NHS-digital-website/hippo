@@ -1,0 +1,111 @@
+/* Filter */
+
+.filter {
+    background-color: $grey-5;
+    margin-right: 0;
+    margin-bottom: 40px;
+    @include media(tablet) {
+        margin-right: $gutter * 2;
+    }
+}
+
+.filter__heading {
+    padding: $gutter;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.filter__heading__reset {
+    float: right;
+}
+
+.filter__list, .filter__list ul {
+    font-size: 14px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.filter__list .filter__list__item {
+    padding: 2px 8px;
+}
+
+a.filter__list__item__link {
+    position: relative;
+    color: $grey-6;
+    padding: 5px 8px 5px 18px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    border-radius: 3px;
+    background-image: url("../img/icon-filter.svg");
+    background-position: 7px 9px;
+    background-repeat: no-repeat;
+    background-size: 8px;
+}
+
+a.filter__list__item__link--selected {
+    background-color: #FFF;
+    border: 1px solid rgba(0,0,0,0.1);
+    background-image: url("../img/icon-filter-down.svg");
+    font-weight: bold;
+    padding-right: 20px;
+}
+a.filter__list__item__link--selected:after {
+    content: "X";
+    position: absolute;
+    top: 0px;
+    right: 6px;
+}
+
+.filter__list__item--no-children {
+    a.filter__list__item__link,  {
+        background-image: none;
+        padding-left: 8px;
+        background-color: #DEE2E5;
+    }
+    a.filter__list__item__link--selected {
+        background-color: #FFF;
+    }
+}
+
+.filter__list-controller a {
+    font-size: 14px;
+    color: $nhs-blue;
+    padding: 8px 16px;
+    display: inline-block;
+}
+
+
+
+// Show section by default
+.filter__section {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.filter__section__subheading {
+    padding: $gutter;
+    line-height: 1.2;
+}
+.filter__section__content {
+    padding-bottom: $gutter;
+}
+
+// Unless you add the filter__section--collapse class
+// Then hide behind an accordion
+
+.filter__section--collapse {
+    .filter__section__subheading {
+        position: relative;
+    }
+    .filter__section__subheading:after {
+        position: absolute;
+        right: 14px;
+        content: "+";
+    }
+    .filter__section__content {
+        display: none;
+    }
+}
+
+.filter__section--collapse--open {
+    .filter__section__subheading:after {
+        content: "-";
+    }
+}

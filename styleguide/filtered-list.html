@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <title>NHS Digital / Filtered list</title>
+    <meta name="title" content="NHS Digital" />
+    <meta property="og:title" name="twitter:title" content="NHS Digital">
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:8080/static-ui/filtered-list">
+    <meta name="description" content="Document SEO summary" />
+    <meta property="og:description" name="twitter:description" content="Document SEO summary">
+    <meta name="twitter:card" content="summary">
+
+    <!--[if IE]><link rel="shortcut icon" href="/webfiles/1521643440426/icons/favicon.ico"><![endif]-->
+    <link rel="apple-touch-icon" sizes="180x180" href="/webfiles/1521643440426/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/webfiles/1521643440426/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/webfiles/1521643440426/icons/favicon-16x16.png">
+    <link rel="manifest" href="/webfiles/1521643440426/icons/manifest.json">
+    <link rel="mask-icon" href="/webfiles/1521643440426/icons/safari-pinned-tab.svg" color="#666666">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="css/nhsuk.css" media="screen" type="text/css"/>
+    <!--<![endif]-->
+    <!--[if IE 6]>
+    <link rel="stylesheet" href="css/nhsuk-ie6.css" media="screen" type="text/css"/>
+    <![endif]-->
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="css/nhsuk-ie7.css" media="screen" type="text/css"/>
+    <![endif]-->
+    <!--[if IE 8]>
+    <link rel="stylesheet" href="css/nhsuk-ie8.css" media="screen" type="text/css"/>
+    <![endif]-->
+    <link rel="stylesheet" href="css/nhsuk-print.css" media="print" type="text/css"/>
+
+    <script>
+        (function(d) {
+            d.className = d.className.replace(/\bno-js\b/, 'js-enabled')
+        })(document.documentElement)
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-76954916-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-76954916-2', { 'anonymize_ip': true });
+
+        function logGoogleAnalyticsEvent(action,category,label) {
+            gtag('event', action, {
+                    'event_category': category,
+                    'event_label': label
+                });
+        }
+    </script>
+
+    <!--[if IE]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="debugs">
+
+    <header class="site-header" role="banner">
+        <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
+            <div class="grid-row">
+                <div class="column column--reset">
+                    <div class="grid-wrapper grid-wrapper--collapse">
+                        <div class="grid-row">
+                            <div class="column column--18-75 column--reset">
+                                <img src="img/nhs-logo.png" alt="NHS Digital logo" class="site-header__logo">
+                            </div>
+                            <div class="column column--81-25  column--reset">
+                                <div class="site-header__search-wrapper site-header__search-wrapper--collapse">
+                                </div>
+                                <nav class="site-header__nav">
+                                    <ol class="list list--reset list--inline">
+                                        <li><a href="/data-and-information">Data and information</a></li>
+                                        <li><a href="/services">Systems and services</a></li>
+                                        <li><a href="/news-and-events">News and events</a></li>
+                                        <li><a href="/about-nhs-digital">About NHS Digital</a></li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main role="main">
+
+        <article class="article article--service">
+            <div class="grid-wrapper grid-wrapper--article">
+                <div class="grid-row">
+                    <div class="column column--two-thirds column--reset">
+                        <div class="article-header article-header--secondary">
+                            <h1>Filtered list page</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-row">
+                    <div class="column column--two-thirds column--reset">
+                        <div id="section-summary" class="article-section article-section--summary">
+                            <div class="grid-row">
+                                <div class="column column--reset">
+                                    <div class="rtc">
+                                        <p>An alphabetical list and description of systems, services and tools.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-row">
+                    <div class="column column--one-third page-block page-block--sidebar page-block--sticky-top">
+                        <div class="article-section-nav">
+                            <h2 class="article-section-nav__title">Refine results</h2>
+                            <hr>
+                            <nav role="navigation">
+                                <ol class="article-section-nav__menu list--reset">
+                                    <li><a href="#section-a">A</a></li>
+                                    <li><a href="#section-b">B</a></li>
+                                    <li class="is-disabled"><a href="#">C</a></li>
+                                    <li class="is-disabled"><a href="#">D</a></li>
+                                    <li class="is-disabled"><a href="#">E</a></li>
+                                    <li class="is-disabled"><a href="#">F</a></li>
+                                    <li class="is-disabled"><a href="#">G</a></li>
+                                    <li class="is-disabled"><a href="#">H</a></li>
+                                    <li class="is-disabled"><a href="#">I</a></li>
+                                    <li class="is-disabled"><a href="#">J</a></li>
+                                    <li class="is-disabled"><a href="#">K</a></li>
+                                    <li class="is-disabled"><a href="#">L</a></li>
+                                    <li class="is-disabled"><a href="#">M</a></li>
+                                    <li class="is-disabled"><a href="#">N</a></li>
+                                    <li class="is-disabled"><a href="#">O</a></li>
+                                    <li class="is-disabled"><a href="#">P</a></li>
+                                    <li class="is-disabled"><a href="#">Q</a></li>
+                                    <li class="is-disabled"><a href="#">R</a></li>
+                                    <li class="is-disabled"><a href="#">S</a></li>
+                                    <li class="is-disabled"><a href="#">T</a></li>
+                                    <li class="is-disabled"><a href="#">U</a></li>
+                                    <li class="is-disabled"><a href="#">V</a></li>
+                                    <li class="is-disabled"><a href="#">W</a></li>
+                                    <li class="is-disabled"><a href="#">X</a></li>
+                                    <li class="is-disabled"><a href="#">Y</a></li>
+                                    <li class="is-disabled"><a href="#">Z</a></li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <div class="column column--two-thirds page-block page-block--main">
+                        <section class="article-section article-section--letter-group" id="section-a">
+                            <div class="grid-row sticky-top">
+                                <div class="column column--reset">
+                                    <div class="article-header article-header--tertiary">
+                                        <div class="grid-row">
+                                            <div class="column column--reset">
+                                                <h2 class="article-header__title">A</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="grid-row">
+                                <div class="column column--reset">
+                                    <div class="list list--reset cta-list cta-list--sections">
+                                        <div class="cta">
+                                            <h2 class="cta__title"><a href="#">Abdominal Aortic Aneurysm screening</a></h2>
+                                            <p class="cta__text">A cohort of eligible males is extracted each year from NHAIS systems and uploaded to our Population Index (PI) database.</p>
+                                        </div>
+                                        <div class="cta">
+                                            <h2 class="cta__title"><a href="#">Adoption Registration Service</a></h2>
+                                            <p class="cta__text">This service can check for a record of a Civil Death Registration in England, Wales and the Isle of Man on behalf of adoptees and birth relatives to establish if an adoptee or birth relative is recorded as having died. You can also use this service to forward information about hereditary medical conditions to an adoptee's or birth relative's GP. </p>
+                                        </div>
+                                        <div class="cta">
+                                            <h2 class="cta__title"><a href="#">Adult Social Care Outcomes Framework (ASCOF)</a></h2>
+                                            <p class="cta__text">The Adult Social Care Outcomes Framework (ASCOF) measures how well care and support services achieve the outcomes that matter most to people. The measures are grouped into four domains which are typically reviewed in terms of movement over time. Data is provided at council, regional and national level.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="article-section article-section--letter-group article-section--last-one" id="section-b">
+                            <div class="grid-row sticky-top">
+                                <div class="column column--reset">
+                                    <div class="article-header article-header--tertiary">
+                                        <div class="grid-row">
+                                            <div class="column column--two-thirds column--reset">
+                                                <h2 class="article-header__title">B</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="grid-row">
+                                <div class="column column--reset">
+                                    <div class="list list--reset cta-list cta-list--sections">
+                                        <div class="cta">
+                                            <h2 class="cta__title"><a href="#">Benefits management: summary</a></h2>
+                                            <p class="cta__text">NHS Digital's benefit management team ensures that benefits are considered throughout the lifecycle of every programme and into service.</p>
+                                        </div>
+                                        <div class="cta">
+                                            <h2 class="cta__title"><a href="#">Bowel Cancer Screening Services</a></h2>
+                                            <p class="cta__text">The Bowel Cancer Screening System (BCSS) identifies eligible men and women to participate in bowel cancer screening.</p>
+                                        </div>
+                                        <div class="cta">
+                                            <h2 class="cta__title"><a href="#">Breast screening</a></h2>
+                                            <p class="cta__text">The National Health Application and Infrastructure Services (NHAIS) Breast Screening System is used to select women on local NHAIS systems who are eligible for breast screening.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+
+    <footer role="contentinfo" class="site-footer white-links">
+        <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
+            <div class="grid-row">
+                <div class="column column--reset">
+
+                    <div class="site-footer__section site-footer__section--top">
+                        <div class="grid-wrapper grid-wrapper--collapse">
+                            <div class="grid-row">
+                                <div class="column column--one-half column--left">
+                                    <nav class="site-footer__menu site-footer__menu--1">
+                                        <h3 class="list__header">About NHS Digital</h3>
+                                        <ul class="list list--reset list--close">
+                                            <li><a href="/about-nhs-digital">About us</a></li>
+                                            <li><a href="/our-strategy">Our strategy</a></li>
+                                            <li><a href="/annual-report-and-accounts">Annual report and accounts</a></li>
+                                            <li><a href="/our-business-plan">Our business plan</a></li>
+                                            <li><a href="/press-releases">Press releases</a></li>
+                                            <li><a href="/how-we-look-after-your-information">How we look after your information</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+
+                                <div class="column column--one-quarter">
+                                    <nav class="site-footer__menu site-footer__menu--2">
+                                        <h3 class="list__header">Contact us</h3>
+                                        <div class="list">
+                                            <div class="list__item">
+                                                <span>Telephone:</span><br>
+                                                <a href="tel:004403003035678">0300 303 5678</a>
+                                            </div>
+
+                                            <div class="list__item">
+                                                <span>Email:</span><br>
+                                                <a href="mailto:enquiries@nhsdigital.nhs.uk">enquiries@nhsdigital.nhs.uk</a>
+                                            </div>
+                                        </div>
+                                    </nav>
+                                </div>
+
+                                <div class="column column--one-quarter column--right">
+                                    <nav class="site-footer__menu site-footer__menu--3">
+                                        <ul class="list list--reset list--close">
+                                            <li><a href="/press-office">Press office</a></li>
+                                            <li><a href="/freedom-of-information">Freedom of information</a></li>
+                                            <li><a href="/careers">Careers</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="site-footer__section site-footer__section--bottom">
+                        <div class="grid-wrapper grid-wrapper--collapse">
+                            <div class="grid-row">
+                                <div class="column column--left">
+                                    <nav class="site-footer__menu site-footer__menu--4">
+                                        <ul class="list list--inline list--reset">
+                                            <li><a href="/legal">Legal</a></li>
+                                            <li><a href="/privacy-and-cookies">Privacy and cookies</a></li>
+                                            <li><a href="/terms-and-conditions">Terms and conditions</a></li>
+                                            <li><a href="/accessibility">Accessibility</a></li>
+                                        </ul>
+                                    </nav>
+
+                                    <div class="site-footer__menu site-footer__menu--5">
+                                        <ul class="list list--inline list--reset">
+                                            <li>
+                                                <a href="https://www.linkedin.com/company/nhs-digital" onClick="logGoogleAnalyticsEvent(&#39;Link click&#39;, &#39;Footer&#39;, &#39;https://www.linkedin.com/company/nhs-digital&#39;)">
+                                                    <img src="img/icon-linkedin.png" alt="Linkedin logo" class="image-icon" /><span>LinkedIn</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.twitter.com/NHSDigital" onClick="logGoogleAnalyticsEvent(&#39;Link click&#39;, &#39;Footer&#39;, &#39;https://www.twitter.com/NHSDigital&#39;)">
+                                                    <img src="img/icon-twitter.png" alt="Twitter logo" class="image-icon"/><span>Twitter</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

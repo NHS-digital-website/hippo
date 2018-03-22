@@ -25,6 +25,9 @@
   * + * {
     @include element-spacing;
   }
+  *, a:link {
+      color: #FFF;
+  }
 }
 
 .local-header__return {

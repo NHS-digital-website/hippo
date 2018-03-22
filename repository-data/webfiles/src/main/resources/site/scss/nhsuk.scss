@@ -24,6 +24,7 @@
 @import "environment/tools/mixins/layout";
 @import "environment/tools/mixins/typography";
 
+
 @import "objects/grid";
 // @import "objects/page-section";
 
@@ -62,6 +63,7 @@
 // @import "components/tabs";
 // @import "components/error";
 
+
 // NHS Digital components
 @import "components/icon";
 @import "components/image-icon";
@@ -76,6 +78,7 @@
 @import "components/page-block";
 @import "components/search-banner";
 @import "components/search-strip";
+@import "components/search-result";
 @import "components/article";
 @import "components/article-header";
 @import "components/article-section";
@@ -85,3 +88,7 @@
 @import "components/live-engage-chat";
 @import "components/cookie-banner";
 @import "components/static-ui";
+@import "components/syntax-highlighter";
+@import "components/swatch";
+@import "components/filter";
+@import "components/pagination";

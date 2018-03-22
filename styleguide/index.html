@@ -1,104 +1,160 @@
+
 <!DOCTYPE html>
-<html lang="en" class="">
+<html lang="en" class="no-js">
 <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>NHS - Replacement Publication System</title>
+    <title>Base template - NHS.UK</title>
 
-  <meta charset="UTF-8" />
-  <meta name="title" content="NHS - Replacement Publication System" />
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
-  <link rel="stylesheet" href="css/style.css" />
-  <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
+    <!--[if IE]><link rel="shortcut icon" href="images/favicon.ico"><![endif]-->
+    <!-- Touch Icons - iOS and Android 2.1+ 180x180 pixels in size. -->
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 192x192 pixels in size. -->
+    <link rel="icon" href="images/favicon.png">
+
+    <!--[if gt IE 8]><!--><link rel="stylesheet" href="css/nhsuk.css" /><!--<![endif]-->
+    <!--[if IE 6]><link rel="stylesheet" href="css/nhsuk-ie6.css" media="screen" type="text/css"><![endif]-->
+    <!--[if IE 7]><link rel="stylesheet" href="css/nhsuk-ie7.css" media="screen" type="text/css"><![endif]-->
+    <!--[if IE 8]><link rel="stylesheet" href="css/nhsuk-ie8.css" media="screen" type="text/css"><![endif]-->
+    <link rel="stylesheet" href="css/nhsuk-print.css" media="print" type="text/css">
+
+    <script>
+    (function(d) {
+      d.className = d.className.replace(/\bno-js\b/, 'js-enabled')
+    })(document.documentElement)
+    </script>
 
 </head>
 <body class="">
 
+    <div class="document-content">
 
+        <div class="skiplinks">
+          <div class="skiplinks__inner">
+            <a href="#content" class="skiplinks__link">Skip to main content</a>
+          </div>
+        </div>
 
-<div class="document-content">
+        <div class="notification-banner notification-banner--js-hidden util-print-hide" id="global-cookies-banner" role="alert">
+          <p class="notification-banner__inner">
+          NHS.UK uses cookies to make the site simpler.
+          <a href="https://beta.nhs.uk/help/cookies">Find out more about cookies</a>
+          </p>
+        </div>
 
-  <br><br>
-  <h2>NHS - Replacement Publication System</h2>
-  <br><br>
+        <header class="site-header" role="banner">
+            <div class="grid-wrapper">
+                <img src="img/nhs-logo.png" alt="NHS Digital logo" style="max-width: 168px">
+            </div>
+        </header>
 
-  <h1>Ticket #184</h1>
+        <div class="local-header">
+            <div class="grid-wrapper">
+                <h1 class="local-header__title">NHS Digital Styleguide</h1>
+                <div class="local-header__intro">
+                    <div class="reading-width">
+                        <p>Details required for how to use this toolkit. References to the CMS and Styleguides</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <main id="content" role="main" class="grid-wrapper">
 
-  <div class="panel panel--grey push--bottom">
-    <h3>CI Hub page:</h3>
-    <ul>
-      <li><a href="">Example page</a>
-      <li><a href="../styleguide/ci-hub.html">Template</a></li>
-    </ul>
-  </div>
+            <p>&nbsp;</p>
 
-  <div class="panel panel--grey push--bottom">
-    <h3>Dataset:</h3>
-    <ul>
-      <li><a href="http://localhost:8080/publications/acceptance-tests/series-with-publication-with-datasets/series-publication-with-datasets/series-publication-with-datasets-dataset">Example page</a>
-      <li><a href="../styleguide/dataset.html">Template</a></li>
-    </ul>
-  </div>
+            <div class="js-tabs nav-tabs">
+              <ul class="tabs-nav" role="tablist">
+                <li class="active">
+                    <a href="index.html" role="tab" id="tab-more-information" tabindex="0">Styleguide</a>
+                </li>
+                <li>
+                    <a href="toolkit.html" role="tab" id="tab-other-ways-to-apply" tabindex="-1">Toolkit</a>
+                </li>
+              </ul>
+            </div>
 
-  <div class="panel panel--grey push--bottom">
-    <h3>Publication:</h3>
-    <ul>
-      <li><a href="http://localhost:8080/publications/acceptance-tests/publication-with-datasets">Example page</a>
-      <li><a href="../styleguide/publication.html">Template</a></li>
-    </ul>
-  </div>
+            <section class="panel__content">
+                <h3>New pages</h3>
+                <p>These use the new SASS setup in repository-data/webfiles/src/main/resources/site/scss/nhsuk.scss</p>
+                <ul>
+                    <li style="margin-top: 20px"><strong>Home:</strong>
+                        <ul>
+                            <li><a href="http://localhost:8080/homeland">http://localhost:8080/homeland</a></li>
+                            <li><a href="home.html">Template</a></li>
+                        </ul>
+                    </li>
+                    <li style="margin-top: 20px"><strong>Service Document:</strong>
+                        <ul>
+                            <li><a href="http://localhost:8080/services/service-document-1/content">http://localhost:8080/services/service-document-1/content</a></li>
+                            <li><a href="service-document.html">Template</a></li>
+                        </ul>
+                    </li>
+                    <li style="margin-top: 20px"><strong>Search:</strong>
+                        <ul>
+                            <li><a href="http://localhost:8080/search">http://localhost:8080/search</a></li>
+                            <li><a href="search.html">Template</a></li>
+                        </ul>
+                    </li>
+                    <li style="margin-top: 20px"><strong>Hub page:</strong>
+                        <ul>
+                            <li><a href="https://beta.digital.nhs.uk/">https://beta.digital.nhs.uk/</a></li>
+                            <li><a href="../styleguide/ci-hub-v2.html">Template</a></li>
+                        </ul>
+                    </li>
+                    <li style="margin-top: 20px"><strong>Dataset:</strong>
+                        <ul>
+                            <li><a href="http://localhost:8080/publications/acceptance-tests/series-with-publication-with-datasets/series-publication-with-datasets/series-publication-with-datasets-dataset">http://localhost:8080/publications/acceptance-tests/series-with-publication-with-datasets/series-publication-with-datasets/series-publication-with-datasets-dataset</a></li>
+                            <li><a href="dataset-v2.html">Template</a></li>
+                        </ul>
+                    </li>
+                    <li style="margin-top: 20px"><strong>Filtered list:</strong>
+                        <ul>
 
-  <div class="panel panel--grey push--bottom">
-    <h3>Series:</h3>
-    <ul>
-      <li><a href="http://localhost:8080/publications/valid-publication-series">Example page</a>
-      <li><a href="../styleguide/series.html">Template</a></li>
-    </ul>
-  </div>
+                            <li><a href="filtered-list.html">Template</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
 
+            <hr>
 
+            <section class="panel__content">
+                <h3>Deprecated pages</h3>
+                <p>These are built using the original LESS framework and is not maintained</p>
+                <ul>
+                    <li style="margin-top: 20px"><strong>CI hub page:</strong>
+                        <ul>
+                            <li><a href="">Example page</a>
+                            <li><a href="../styleguide/ci-hub.html">Template</a></li>
+                        </ul>
+                    </li>
+                    <li style="margin-top: 20px"><strong>Dataset:</strong>
+                        <ul>
+                            <li><a href="http://localhost:8080/publications/acceptance-tests/series-with-publication-with-datasets/series-publication-with-datasets/series-publication-with-datasets-dataset">Example page</a>
+                            <li><a href="../styleguide/dataset.html">Template</a></li>
+                        </ul>
+                    </li>
+                    <li style="margin-top: 20px"><strong>Publication:</strong>
+                        <ul>
+                            <li><a href="http://localhost:8080/publications/acceptance-tests/publication-with-datasets">Example page</a>
+                            <li><a href="../styleguide/publication.html">Template</a></li>
+                        </ul>
+                    </li>
+                    <li style="margin-top: 20px"><strong>Series:</strong>
+                        <ul>
+                            <li><a href="http://localhost:8080/publications/valid-publication-series">Example page</a>
+                            <li><a href="../styleguide/series.html">Template</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
 
-  <br><br><br>
+        </main>
 
-  <h3>Notes</h3>
-  <ul class="push-double--bottom">
-    <li><a href="https://www.gov.uk/service-manual/design/using-the-govuk-template-frontend-toolkit-and-elements">Gov UK Framework</a></li>
-    <li><a href="https://www.nhs.uk/transformation/manual/">NHS Digital Framework</a></li>
-    <li><a href="https://www.gov.uk/service-manual/technology/designing-for-different-browsers-and-devices">Brower compatibility requirements</a></li>
-  </ul>
-
-
-
-
-
-  <h3>Styleguide</h3>
-  <ul>
-    <li>Grids</li>
-    <li>Buttons</li>
-  </ul>
-
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    </div>
 
 </body>
 </html>
