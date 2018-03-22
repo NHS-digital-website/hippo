@@ -29,16 +29,16 @@
             <h1 class="here-to-help"><@fmt.message key="headers.hereToHelp"/></h1><br>
             <div class="columns">
                 <div class="advice igb-link">
-                    <a href="${document.advice.pageLink}" style="text-decoration:none;"><h3 class="advice-title">${document.advice.title}</h3>
-                    <p class="advice-content">${document.advice.text}</p></a>
+                    <h3 class="advice-title">${document.advice.title}</h3>
+                    <p class="advice-content">${document.advice.text}</p>
                 </div>
                 <div class="add-your-indicator igb-link">
-                    <a href="${document.addYourIndicator.pageLink}" style="text-decoration:none;"><h3 class="add-your-indicator-title">${document.addYourIndicator.title}</h3>
-                    <p class="add-your-indicator-content">${document.addYourIndicator.text}</p></a>
+                    <h3 class="add-your-indicator-title">${document.addYourIndicator.title}</h3>
+                    <p class="add-your-indicator-content">${document.addYourIndicator.text}</p>
                 </div>
                 <div class="apply-for-assurance igb-link">
-                    <a href="${document.applyForAssurance.pageLink}" style="text-decoration:none;"><h3 class="apply-for-assurance-title">${document.applyForAssurance.title}</h3>
-                    <p class="apply-for-assurance-content">${document.applyForAssurance.text}</p></a>
+                    <h3 class="apply-for-assurance-title">${document.applyForAssurance.title}</h3>
+                    <p class="apply-for-assurance-content">${document.applyForAssurance.text}</p>
                 </div>
             </div>
             <@fmt.message key="headers.findOutMore" var="findOut"/>
