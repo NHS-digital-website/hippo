@@ -18,7 +18,6 @@ import uk.nhs.digital.externalstorage.ExternalStorageConstants;
 import uk.nhs.digital.externalstorage.s3.S3Connector;
 import uk.nhs.digital.externalstorage.s3.S3ObjectMetadata;
 
-import java.io.IOException;
 import java.util.Calendar;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
@@ -73,7 +72,7 @@ public class ResourceUploadPlugin extends RenderPlugin {
         try {
             S3ObjectMetadata metadata = s3Connector.uploadFile(upload.getInputStream(), fileName, mimeType);
             setResourceProperties(node, metadata);
-        } catch (RepositoryException | IOException ex) {
+        } catch (Exception ex) {
             log.error("Cannot upload resource", ex);
             throw new FileUploadViolationException(ex.getMessage());
         }

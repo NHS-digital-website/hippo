@@ -1,0 +1,30 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/national-indicator-library:
+      /author:
+        hipposys:groups:
+        - national-indicator-library-author
+        hipposys:role: author
+        jcr:primaryType: hipposys:authrole
+      /editor:
+        hipposys:groups:
+        - national-indicator-library-editor
+        hipposys:role: editor
+        jcr:primaryType: hipposys:authrole
+      /national-indicator-library-documents:
+        /path-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/corporate-website/national-indicator-library
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      /readwrite:
+        hipposys:groups:
+        - national-indicator-library-author
+        - national-indicator-library-editor
+        hipposys:role: readwrite
+        jcr:primaryType: hipposys:authrole
+      jcr:primaryType: hipposys:domain

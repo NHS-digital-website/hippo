@@ -12,6 +12,16 @@ Feature: As a user I want the CMS content to be restricted so I'm not able to do
         Then I should not see the "Administration" folder
         And I should not see the "Corporate Website/About" folder
 
+    Scenario: National Indicator Library authors and editors can only see the NIL folder
+        When I am logged in as ni-editor on the content page
+        Then I should not see the "Administration" folder
+        And I should not see the "Corporate Website/About" folder
+        And I should see the "Corporate Website/National Indicator Library" folder
+        When I am logged in as ni-author on the content page
+        Then I should not see the "Administration" folder
+        And I should not see the "Corporate Website/About" folder
+        And I should see the "Corporate Website/National Indicator Library" folder
+
     Scenario: Everyone can see publication system folder menus according to their role
         When I am logged in as admin on the content page
         Then The "Corporate Website/Publication System" folder should have the menu options including:
@@ -33,6 +43,22 @@ Feature: As a user I want the CMS content to be restricted so I'm not able to do
         And The "Corporate Website/Publication System" folder should have the menu options not including:
             | Publish all in folder... |
             | Edit allowed content...  |
+
+    Scenario: National Indicator Library users can see NIL folder menus according to their role            
+        When I am logged in as ni-editor on the content page
+        Then The "Corporate Website/National Indicator Library" folder should have the menu options including:
+            | Add new document...      |
+            | Add new folder...        |
+            | Publish all in folder... |
+        And The "Corporate Website/National Indicator Library" folder should have the menu options not including:
+            | Edit allowed content...  |
+        When I am logged in as ni-author on the content page
+        Then The "Corporate Website/National Indicator Library" folder should have the menu options including:
+            | Add new document...      |
+            | Add new folder...        |
+        And The "Corporate Website/National Indicator Library" folder should have the menu options not including:
+            | Publish all in folder... |
+            | Edit allowed content...  |            
 
     Scenario: Only admin can add new folders to corporate website
         When I am logged in as admin on the content page

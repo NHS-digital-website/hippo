@@ -1,0 +1,8 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:users/ni-editor:
+      hipposys:active: true
+      hipposys:password: ni-editor
+      hipposys:securityprovider: internal
+      jcr:primaryType: hipposys:user

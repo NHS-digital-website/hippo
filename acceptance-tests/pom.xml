@@ -291,6 +291,10 @@
                                         <todir>${development-module-deploy-dir}</todir>
                                     </file>
                                     <file>
+                                        <file>${website.basedir}/repository-data/local/target/website-repository-data-local-${project.version}.jar</file>
+                                        <todir>${local-module-deploy-dir}</todir>
+                                    </file>
+                                    <file>
                                         <file>${website.basedir}/s3connector/target/s3-connector-${project.version}.jar</file>
                                         <todir>shared/lib</todir>
                                     </file>
