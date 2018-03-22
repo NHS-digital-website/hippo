@@ -21,13 +21,13 @@
     @include button($col-denary);
 }
 
-.button--small {
+.button--tiny {
     padding: 2px 12px 1px;
 
     @include core-font(16);
 }
 
-.button--small {
+.button--tiny {
     font-size: 12px;
     padding: 0px 8px;
 }

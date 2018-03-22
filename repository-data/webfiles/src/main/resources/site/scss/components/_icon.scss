@@ -112,53 +112,48 @@
 
 
 .ico-block {
-  display: flex;
-  align-items: flex-start;
-}
 
-.ico-block__figure {
-  margin-right: 1em;
-}
+    .ico-block__figure {
+      margin-right: 1em;
+    }
 
-.ico-block__body {
-  flex: 1;
-  margin: 0px 0px 0px 20px;
-  line-height: 1.4;
-}
-.ico-block__icon {
-    width:52px;
-    height:52px;
-}
-.ico-block__icon--calendar {
-    background-image: url(img/icon-calendar.svg);
-    background-position: 0px 0px;
-    background-repeat: no-repeat;
-    background-size: 52px;
-}
-.ico-block__icon--granularity {
-    background-image: url(img/icon-granularity.svg);
-    background-position: 0px 0px;
-    background-repeat: no-repeat;
-    background-size: 52px;
-}
-.ico-block__icon--geographic-coverage {
-    background-image: url(img/icon-geographic-coverage.svg);
-    background-position: 0px 0px;
-    background-repeat: no-repeat;
-    background-size: 52px;
-}
-.ico-block__icon--date-range {
-    background-image: url(img/icon-date-range.svg);
-    background-position: 0px 0px;
-    background-repeat: no-repeat;
-    background-size: 52px;
-}
+    .ico-block__body {
+      margin: 0px 0px 0px 64px;
+      line-height: 1.4;
+    }
 
-.ico-block__icon--national-statistics {
-    background-image: url(img/statistical-icon.png);
-    float: right;
-    height: 70px;
-    width: 70px;
-    background-size: 70px 70px;
-    margin: 0px 0px 10px 20px;
+    .ico-block__icon {
+        float: left;
+        width:52px;
+        height:52px;
+        background-position: 0px 0px;
+        background-repeat: no-repeat;
+        background-size: 52px;
+    }
+
+    .ico-block__icon--calendar {
+        background-image: url(img/icon-calendar.svg);
+    }
+
+    .ico-block__icon--granularity {
+        background-image: url(img/icon-granularity.svg);
+    }
+
+    .ico-block__icon--geographic-coverage {
+        background-image: url(img/icon-geographic-coverage.svg);
+    }
+
+    .ico-block__icon--date-range {
+        background-image: url(img/icon-date-range.svg);
+    }
+
+    .ico-block__icon--national-statistics {
+        background-image: url(img/statistical-icon.png);
+        float: right;
+        height: 70px;
+        width: 70px;
+        background-size: 70px 70px;
+        margin: 0px 0px 10px 20px;
+    }
+
 }

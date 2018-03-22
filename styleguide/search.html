@@ -131,14 +131,14 @@
 
               <div class="filter">
 
-                <div class="filter__heading">
-                    <a class="filter__heading__reset button button--small" href="#">Reset</a>
-                    <div class="filter__heading__text">Filter by:</div>
+                <div class="filter__title">
+                    <a class="filter__title__reset button button--tiny" href="#">Reset</a>
+                    <div class="filter__title__text">Filter by:</div>
                 </div>
 
 
                 <div class="filter__section">
-                    <div class="filter__section__subheading">
+                    <div class="filter__section__title">
                         TOPIC
                     </div>
                     <div class="filter__section__content">
@@ -199,8 +199,8 @@
 
 
                 <!-- STANDARD FILTER SECTION -->
-                <div class="filter__section">
-                    <div class="filter__section__subheading">
+                <div class="filter__section filter__section--collapse">
+                    <div class="filter__section__title">
                         CATEGORY
                     </div>
                     <div class="filter__section__content">
@@ -223,7 +223,7 @@
 
                 <!-- COLLAPSE FILTER SECTION -->
                 <div class="filter__section filter__section--collapse">
-                    <div class="filter__section__subheading">
+                    <div class="filter__section__title">
                         INFORMATION TYPE
                     </div>
                     <div class="filter__section__content">
@@ -236,7 +236,7 @@
 
                 <!-- COLLAPSE FILTER SECTION -->
                 <div class="filter__section filter__section--collapse">
-                    <div class="filter__section__subheading">
+                    <div class="filter__section__title">
                         GEOGRAPHICAL COVERAGE
                     </div>
                     <div class="filter__section__content">
@@ -250,7 +250,7 @@
 
                 <!-- COLLAPSE FILTER SECTION -->
                 <div class="filter__section filter__section--collapse">
-                    <div class="filter__section__subheading">
+                    <div class="filter__section__title">
                         GEOGRAPHICAL GRANULARITY
                     </div>
                     <div class="filter__section__content">
@@ -268,7 +268,7 @@
 
                 <!-- COLLAPSE FILTER SECTION -->
                 <div class="filter__section filter__section--collapse">
-                    <div class="filter__section__subheading">
+                    <div class="filter__section__title">
                         PUBLICATION YEAR
                     </div>
                     <div class="filter__section__content">
@@ -286,7 +286,7 @@
 
                 <!-- COLLAPSE FILTER SECTION -->
                 <div class="filter__section filter__section--collapse">
-                    <div class="filter__section__subheading">
+                    <div class="filter__section__title">
                         TIMEFRAME (PUBLICATION DATE)
                     </div>
                     <div class="filter__section__content">
@@ -472,7 +472,7 @@ $( ".filter__list__item__link" ).click(function(e) {
 });
 
 
-$( ".filter__section__subheading" ).click(function(e) {
+$( ".filter__section--collapse .filter__section__title" ).click(function(e) {
     e.preventDefault();
     $(this).parent().toggleClass( "filter__section--collapse--open" );
     $(this).next().toggle();
