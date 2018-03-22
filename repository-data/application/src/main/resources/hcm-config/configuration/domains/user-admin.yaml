@@ -1,0 +1,91 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/user-admin:
+      /admin:
+        hipposys:groups:
+        - user-admin
+        hipposys:role: admin
+        jcr:primaryType: hipposys:authrole
+      /admin-perspective:
+        /admin-perspective:
+          hipposys:equals: true
+          hipposys:facet: plugin.class
+          hipposys:filter: false
+          hipposys:type: String
+          hipposys:value: org.hippoecm.frontend.plugins.cms.admin.AdminPerspective
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      /groups:
+        /type-hippo-group:
+          hipposys:equals: true
+          hipposys:facet: nodetype
+          hipposys:filter: false
+          hipposys:type: Name
+          hipposys:value: hipposys:group
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      /hippo-groupfolder:
+        /type-hippo-groupfolder:
+          hipposys:equals: true
+          hipposys:facet: jcr:primaryType
+          hipposys:filter: false
+          hipposys:type: Name
+          hipposys:value: hipposys:groupfolder
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      /hippo-userfolder:
+        /type-hippo-userfolder:
+          hipposys:equals: true
+          hipposys:facet: jcr:primaryType
+          hipposys:filter: false
+          hipposys:type: Name
+          hipposys:value: hipposys:userfolder
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      /list-users-plugin:
+        /admin-perspective:
+          hipposys:equals: true
+          hipposys:facet: plugin.class
+          hipposys:filter: false
+          hipposys:type: String
+          hipposys:value: org.hippoecm.frontend.plugins.cms.admin.users.ListUsersPlugin
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      /taxonomy-view:
+        /taxonomy-view:
+          hipposys:equals: true
+          hipposys:facet: cluster.name
+          hipposys:filter: false
+          hipposys:type: String
+          hipposys:value: cms-tree-views/taxonomies
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      /url-rewrite-folder:
+        /url-rewrite-folder:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/urlrewriter
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      /url-rewrite-view:
+        /url-rewrite-view:
+          hipposys:equals: true
+          hipposys:facet: cluster.name
+          hipposys:filter: false
+          hipposys:type: String
+          hipposys:value: cms-tree-views/urlrewriter
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      /users:
+        /type-hippo-user:
+          hipposys:equals: true
+          hipposys:facet: nodetype
+          hipposys:filter: false
+          hipposys:type: Name
+          hipposys:value: hipposys:user
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      jcr:primaryType: hipposys:domain

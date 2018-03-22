@@ -1,0 +1,8 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:users/user-admin:
+      hipposys:active: true
+      hipposys:password: user-admin
+      hipposys:securityprovider: internal
+      jcr:primaryType: hipposys:user
