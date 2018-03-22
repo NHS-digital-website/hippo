@@ -41,7 +41,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Popular Topics
-            field: populateTopicLinks
+            field: popularTopicLinks
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
@@ -98,7 +98,7 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: nationalindicatorlibrary:nihublink
             jcr:primaryType: hipposysedit:field
-          /populateTopicLinks:
+          /popularTopicLinks:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
             hipposysedit:ordered: true

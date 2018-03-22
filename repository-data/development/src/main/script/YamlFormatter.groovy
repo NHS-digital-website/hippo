@@ -19,6 +19,10 @@ Set keepUuidFiles =
      "nihublink.yaml",
      "acceptance-tests-images.yaml"]
 
+// We don't want to sort where element order should be retained
+Set ignoreSortFiles =
+    ["nihub.yaml"]     
+
 Logger log = LoggerFactory.getLogger(YamlFormatter.class)
 log.info("Starting to format yaml files")
 
@@ -32,7 +36,10 @@ rootDir.eachFileRecurse(FileType.DIRECTORIES) { dir ->
         // Don't remove the UUID for corporate-website, it's referenced in the facet configuration
         // Same for ci-hub and cihublink, since referenced for page links
         boolean removeUuid = !keepUuidFiles.contains(file.getName())
-        map = format(map, removeUuid, true)
+
+        // Don't sort where document specifically requires order to be retained
+        boolean sort = !ignoreSortFiles.contains(file.getName())
+        map = format(map, removeUuid, sort)
 
         // Write out the formatted yaml
         parser.dump(map, new FileWriter(file))
@@ -59,7 +66,7 @@ LinkedHashMap format(LinkedHashMap map, boolean removeUuid, boolean sort) {
             // We don't want to change the order of the children of '/_default_' tags
             // as these are used below '/editor:templates:' tags and determine the order
             // of the components in the CMS.
-            boolean sortChild = !key.equals("/_default_")
+            boolean sortChild = !key.equals("/_default_") && sort
             map.put(key, format(value, removeUuid, sortChild))
         }
     }
