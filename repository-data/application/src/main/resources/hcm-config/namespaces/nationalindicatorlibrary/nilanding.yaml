@@ -111,6 +111,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /applyGuidanceForm:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Guidance Form
+            field: applyGuidanceForm
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -195,6 +204,14 @@ definitions:
             hipposysedit:type: publicationsystem:attachment
             hipposysedit:validators:
             - required
+            jcr:primaryType: hipposysedit:field
+          /applyGuidanceForm:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: nationalindicatorlibrary:applyGuidanceForm
+            hipposysedit:primary: false
+            hipposysedit:type: publicationsystem:attachment
             jcr:primaryType: hipposysedit:field
           /applyTitle:
             hipposysedit:mandatory: false
@@ -288,6 +305,21 @@ definitions:
                 type: binary
               jcr:data:
                 resource: /namespaces/nationalindicatorlibrary/nilanding/prototypes/prototype/applyForm/attachmentResource/data.bin
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: application/vnd.hippo.blank
+              jcr:primaryType: publicationsystem:resource
+            jcr:primaryType: publicationsystem:attachment
+            publicationsystem:displayName: ''
+          /nationalindicatorlibrary:applyGuidanceForm:
+            /publicationsystem:attachmentResource:
+              hippo:filename: publicationsystem:resource
+              hippo:text:
+                resource: /namespaces/nationalindicatorlibrary/nilanding/prototypes/prototype/applyGuidanceForm/attachmentResource/text.bin
+                type: binary
+              jcr:data:
+                resource: /namespaces/nationalindicatorlibrary/nilanding/prototypes/prototype/applyGuidanceForm/attachmentResource/data.bin
                 type: binary
               jcr:encoding: UTF-8
               jcr:lastModified: 2008-03-26T11:03:00Z

@@ -23,6 +23,7 @@
             <h2>${document.applyTitle}</h2>
             <#outputformat "undefined">${document.applyContent.content}</#outputformat>       
             <a class="niFormBtn" title="${document.applyForm.text}" href="<@hst.link hippobean=document.applyForm.resource/>" onClick="logGoogleAnalyticsEvent('Download assurance application form','Indicator','${document.applyForm.resource.filename}');"><@fmt.message key="headers.applyForm"/></a>
+            <a class="niFormBtn" title="${document.applyGuidanceForm.text}" href="<@hst.link hippobean=document.applyGuidanceForm.resource/>" onClick="logGoogleAnalyticsEvent('Download application guidance form','Indicator','${document.applyGuidanceForm.resource.filename}');"><@fmt.message key="headers.applyGuidanceForm"/></a>            
         </section>         
     </#if>
 </section>

@@ -3,9 +3,9 @@
   /help[1]:
     /nationalindicatorlibrary:addContent:
       hippostd:content: |-
-        <p>Tell us about your indicator, to have it added to the National Indicator Library.</p>
+        <p>To request that your indicator is added to the library, complete and return the summary form below to: <a href="mailto:indicator.assurance@nhs.net">indicator.assurance@nhs.net</a>.</p>
 
-        <p>Send your indicator to: <a href="mailto:nhsdigital.imas@nhs.net?Subject=New%20Indicator%20Application" target="_top">nhsdigital.imas@nhs.net</a>.</p>
+        <p>The details of your indicator will be reviewed. We will contact you within 5 working days.</p>
       jcr:primaryType: hippostd:html
     /nationalindicatorlibrary:addForm:
       /publicationsystem:attachmentResource:
@@ -21,14 +21,12 @@
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
         jcr:primaryType: publicationsystem:resource
       jcr:primaryType: publicationsystem:attachment
-      publicationsystem:displayName: Indicator template form
+      publicationsystem:displayName: Summary Form
     /nationalindicatorlibrary:adviceContent:
       hippostd:content: |-
-        <p>If you need a steer as an indicator developer, tell us your problem and we can help you.</p>
+        <p style="margin-left:0cm; margin-right:0cm">If you would like support to develop an indicator, complete and return the form below to:&nbsp;<a href="mailto:indicator.assurance@nhs.net">indicator.assurance@nhs.net</a>.</p>
 
-        <p>Complete the form and email to: <a href="mailto:nhsdigital.imas@nhs.net?Subject=Advice%20on%20developing%20an%20Indicator" target="_top">nhsdigital.imas@nhs.net</a>.</p>
-
-        <p>You will hear back from us in 5 working days.</p>
+        <p style="margin-left:0cm; margin-right:0cm">We will contact you within 5 working days.</p>
       jcr:primaryType: hippostd:html
     /nationalindicatorlibrary:adviceForm:
       /publicationsystem:attachmentResource:
@@ -47,11 +45,27 @@
       publicationsystem:displayName: Advice form
     /nationalindicatorlibrary:applyContent:
       hippostd:content: |-
-        <p>If you need a steer as an indicator developer, tell us your problem and we can help you.</p>
+        <p><strong>Benefits of having your indicator assured</strong></p>
 
-        <p>Complete the form and email to: <a href="mailto:nhsdigital.imas@nhs.net?Subject=New%20Indicator ApplicationApply%20for%20Indicator%20assurance" target="_top">nhsdigital.imas@nhs.net</a>.</p>
+        <ul>
+         <li>users can be sure your indicator is trustworthy having been through rigorous scrutiny by health and social care experts</li>
+         <li>you will receive feedback and input from health and social care experts &nbsp;</li>
+         <li>there will be a transparent record of the assurance process</li>
+        </ul>
 
-        <p>You will hear back from us in 5 working days.</p>
+        <p><strong>How to get your indicator assured</strong><br />
+        To request that your indicator is assured, complete and return the form below to: <a href="mailto:indicator.assurance@nhs.net">indicator.assurance@nhs.net</a>.</p>
+
+        <p>We will contact you within 5 working days. Your application will be assessed on:</p>
+
+        <ul>
+         <li>clarity</li>
+         <li>rationale</li>
+         <li>data</li>
+         <li>construction</li>
+         <li>interpretation</li>
+         <li>risks and usefulness</li>
+        </ul>
       jcr:primaryType: hippostd:html
     /nationalindicatorlibrary:applyForm:
       /publicationsystem:attachmentResource:
@@ -67,21 +81,36 @@
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
         jcr:primaryType: publicationsystem:resource
       jcr:primaryType: publicationsystem:attachment
-      publicationsystem:displayName: Assurance application form
+      publicationsystem:displayName: Application form
+    /nationalindicatorlibrary:applyGuidanceForm:
+      /publicationsystem:attachmentResource:
+        hippo:filename: IMAS+Application+Form+%28NHS+Digital%29 (5).docx
+        hippo:text:
+          resource: /content/documents/corporate-website/national-indicator-library/help/help[1]/applyGuidanceForm/attachmentResource/text.bin
+          type: binary
+        jcr:data:
+          resource: /content/documents/corporate-website/national-indicator-library/help/help[1]/applyGuidanceForm/attachmentResource/data.bin
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2018-03-22T08:02:50.982Z
+        jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+        jcr:primaryType: publicationsystem:resource
+      jcr:primaryType: publicationsystem:attachment
+      publicationsystem:displayName: Guidance form
     /nationalindicatorlibrary:jon:
       hippostd:content: <p>jon</p>
       jcr:primaryType: hippostd:html
     /nationalindicatorlibrary:mainContent:
-      hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan
-        et viverra justo commodo.</p>
+      hippostd:content: <p>Health and social care indicators are evidence-based measures.
+        NHS Digital’s IMAS provides support to anyone who wishes to develop an indicator,
+        get an indicator reviewed or have their indicator assured.</p>
       jcr:primaryType: hippostd:html
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-03-15T14:03:26.057Z
-    hippostdpubwf:lastModificationDate: 2018-03-15T16:34:44.621Z
+    hippostdpubwf:lastModificationDate: 2018-03-22T08:03:39.441Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 6b239a4e-4ae2-41e6-a81c-df9b8d061d4e
     hippotranslation:locale: en
@@ -89,20 +118,21 @@
     - mix:referenceable
     jcr:primaryType: nationalindicatorlibrary:nilanding
     nationalindicatorlibrary:addTitle: Add your indicator to the library
-    nationalindicatorlibrary:adviceTitle: Get advice for how to develop an indicator
+    nationalindicatorlibrary:adviceTitle: Advice and guidance
     nationalindicatorlibrary:applyTitle: Apply to have your indicator assured
     nationalindicatorlibrary:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
       elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan
       et viverra justo commodo.</p>
     nationalindicatorlibrary:jon: <p>jon</p>
     nationalindicatorlibrary:jon2: jon2
-    nationalindicatorlibrary:title: What IMAS can help you with
+    nationalindicatorlibrary:title: How the Indicator Methodology Assurance Service
+      (IMAS) can help you
   /help[2]:
     /nationalindicatorlibrary:addContent:
       hippostd:content: |-
-        <p>Tell us about your indicator, to have it added to the National Indicator Library.</p>
+        <p>To request that your indicator is added to the library, complete and return the summary form below to: <a href="mailto:indicator.assurance@nhs.net">indicator.assurance@nhs.net</a>.</p>
 
-        <p>Send your indicator to: <a href="mailto:nhsdigital.imas@nhs.net?Subject=New%20Indicator%20Application" target="_top">nhsdigital.imas@nhs.net</a>.</p>
+        <p>The details of your indicator will be reviewed. We will contact you within 5 working days.</p>
       jcr:primaryType: hippostd:html
     /nationalindicatorlibrary:addForm:
       /publicationsystem:attachmentResource:
@@ -118,14 +148,12 @@
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
         jcr:primaryType: publicationsystem:resource
       jcr:primaryType: publicationsystem:attachment
-      publicationsystem:displayName: Indicator template form
+      publicationsystem:displayName: Summary Form
     /nationalindicatorlibrary:adviceContent:
       hippostd:content: |-
-        <p>If you need a steer as an indicator developer, tell us your problem and we can help you.</p>
+        <p style="margin-left:0cm; margin-right:0cm">If you would like support to develop an indicator, complete and return the form below to:&nbsp;<a href="mailto:indicator.assurance@nhs.net">indicator.assurance@nhs.net</a>.</p>
 
-        <p>Complete the form and email to: <a href="mailto:nhsdigital.imas@nhs.net?Subject=Advice%20on%20developing%20an%20Indicator" target="_top">nhsdigital.imas@nhs.net</a>.</p>
-
-        <p>You will hear back from us in 5 working days.</p>
+        <p style="margin-left:0cm; margin-right:0cm">We will contact you within 5 working days.</p>
       jcr:primaryType: hippostd:html
     /nationalindicatorlibrary:adviceForm:
       /publicationsystem:attachmentResource:
@@ -144,11 +172,27 @@
       publicationsystem:displayName: Advice form
     /nationalindicatorlibrary:applyContent:
       hippostd:content: |-
-        <p>If you need a steer as an indicator developer, tell us your problem and we can help you.</p>
+        <p><strong>Benefits of having your indicator assured</strong></p>
 
-        <p>Complete the form and email to: <a href="mailto:nhsdigital.imas@nhs.net?Subject=New%20Indicator ApplicationApply%20for%20Indicator%20assurance" target="_top">nhsdigital.imas@nhs.net</a>.</p>
+        <ul>
+         <li>users can be sure your indicator is trustworthy having been through rigorous scrutiny by health and social care experts</li>
+         <li>you will receive feedback and input from health and social care experts &nbsp;</li>
+         <li>there will be a transparent record of the assurance process</li>
+        </ul>
 
-        <p>You will hear back from us in 5 working days.</p>
+        <p><strong>How to get your indicator assured</strong><br />
+        To request that your indicator is assured, complete and return the form below to: <a href="mailto:indicator.assurance@nhs.net">indicator.assurance@nhs.net</a>.</p>
+
+        <p>We will contact you within 5 working days. Your application will be assessed on:</p>
+
+        <ul>
+         <li>clarity</li>
+         <li>rationale</li>
+         <li>data</li>
+         <li>construction</li>
+         <li>interpretation</li>
+         <li>risks and usefulness</li>
+        </ul>
       jcr:primaryType: hippostd:html
     /nationalindicatorlibrary:applyForm:
       /publicationsystem:attachmentResource:
@@ -164,14 +208,29 @@
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
         jcr:primaryType: publicationsystem:resource
       jcr:primaryType: publicationsystem:attachment
-      publicationsystem:displayName: Assurance application form
+      publicationsystem:displayName: Application form
+    /nationalindicatorlibrary:applyGuidanceForm:
+      /publicationsystem:attachmentResource:
+        hippo:filename: IMAS+Application+Form+%28NHS+Digital%29 (5).docx
+        hippo:text:
+          resource: /content/documents/corporate-website/national-indicator-library/help/help[2]/applyGuidanceForm/attachmentResource/text.bin
+          type: binary
+        jcr:data:
+          resource: /content/documents/corporate-website/national-indicator-library/help/help[2]/applyGuidanceForm/attachmentResource/data.bin
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2018-03-22T08:02:50.982Z
+        jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+        jcr:primaryType: publicationsystem:resource
+      jcr:primaryType: publicationsystem:attachment
+      publicationsystem:displayName: Guidance form
     /nationalindicatorlibrary:jon:
       hippostd:content: <p>jon</p>
       jcr:primaryType: hippostd:html
     /nationalindicatorlibrary:mainContent:
-      hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan
-        et viverra justo commodo.</p>
+      hippostd:content: <p>Health and social care indicators are evidence-based measures.
+        NHS Digital’s IMAS provides support to anyone who wishes to develop an indicator,
+        get an indicator reviewed or have their indicator assured.</p>
       jcr:primaryType: hippostd:html
     common:searchable: true
     hippo:availability:
@@ -179,7 +238,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-03-15T14:03:26.057Z
-    hippostdpubwf:lastModificationDate: 2018-03-15T16:35:02.319Z
+    hippostdpubwf:lastModificationDate: 2018-03-22T08:02:54.811Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 6b239a4e-4ae2-41e6-a81c-df9b8d061d4e
     hippotranslation:locale: en
@@ -188,20 +247,21 @@
     - mix:versionable
     jcr:primaryType: nationalindicatorlibrary:nilanding
     nationalindicatorlibrary:addTitle: Add your indicator to the library
-    nationalindicatorlibrary:adviceTitle: Get advice for how to develop an indicator
+    nationalindicatorlibrary:adviceTitle: Advice and guidance
     nationalindicatorlibrary:applyTitle: Apply to have your indicator assured
     nationalindicatorlibrary:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
       elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan
       et viverra justo commodo.</p>
     nationalindicatorlibrary:jon: <p>jon</p>
     nationalindicatorlibrary:jon2: jon2
-    nationalindicatorlibrary:title: What IMAS can help you with
+    nationalindicatorlibrary:title: How the Indicator Methodology Assurance Service
+      (IMAS) can help you
   /help[3]:
     /nationalindicatorlibrary:addContent:
       hippostd:content: |-
-        <p>Tell us about your indicator, to have it added to the National Indicator Library.</p>
+        <p>To request that your indicator is added to the library, complete and return the summary form below to: <a href="mailto:indicator.assurance@nhs.net">indicator.assurance@nhs.net</a>.</p>
 
-        <p>Send your indicator to: <a href="mailto:nhsdigital.imas@nhs.net?Subject=New%20Indicator%20Application" target="_top">nhsdigital.imas@nhs.net</a>.</p>
+        <p>The details of your indicator will be reviewed. We will contact you within 5 working days.</p>
       jcr:primaryType: hippostd:html
     /nationalindicatorlibrary:addForm:
       /publicationsystem:attachmentResource:
@@ -217,14 +277,12 @@
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
         jcr:primaryType: publicationsystem:resource
       jcr:primaryType: publicationsystem:attachment
-      publicationsystem:displayName: Indicator template form
+      publicationsystem:displayName: Summary Form
     /nationalindicatorlibrary:adviceContent:
       hippostd:content: |-
-        <p>If you need a steer as an indicator developer, tell us your problem and we can help you.</p>
+        <p style="margin-left:0cm; margin-right:0cm">If you would like support to develop an indicator, complete and return the form below to:&nbsp;<a href="mailto:indicator.assurance@nhs.net">indicator.assurance@nhs.net</a>.</p>
 
-        <p>Complete the form and email to: <a href="mailto:nhsdigital.imas@nhs.net?Subject=Advice%20on%20developing%20an%20Indicator" target="_top">nhsdigital.imas@nhs.net</a>.</p>
-
-        <p>You will hear back from us in 5 working days.</p>
+        <p style="margin-left:0cm; margin-right:0cm">We will contact you within 5 working days.</p>
       jcr:primaryType: hippostd:html
     /nationalindicatorlibrary:adviceForm:
       /publicationsystem:attachmentResource:
@@ -243,11 +301,27 @@
       publicationsystem:displayName: Advice form
     /nationalindicatorlibrary:applyContent:
       hippostd:content: |-
-        <p>If you need a steer as an indicator developer, tell us your problem and we can help you.</p>
+        <p><strong>Benefits of having your indicator assured</strong></p>
 
-        <p>Complete the form and email to: <a href="mailto:nhsdigital.imas@nhs.net?Subject=New%20Indicator ApplicationApply%20for%20Indicator%20assurance" target="_top">nhsdigital.imas@nhs.net</a>.</p>
+        <ul>
+         <li>users can be sure your indicator is trustworthy having been through rigorous scrutiny by health and social care experts</li>
+         <li>you will receive feedback and input from health and social care experts &nbsp;</li>
+         <li>there will be a transparent record of the assurance process</li>
+        </ul>
 
-        <p>You will hear back from us in 5 working days.</p>
+        <p><strong>How to get your indicator assured</strong><br />
+        To request that your indicator is assured, complete and return the form below to: <a href="mailto:indicator.assurance@nhs.net">indicator.assurance@nhs.net</a>.</p>
+
+        <p>We will contact you within 5 working days. Your application will be assessed on:</p>
+
+        <ul>
+         <li>clarity</li>
+         <li>rationale</li>
+         <li>data</li>
+         <li>construction</li>
+         <li>interpretation</li>
+         <li>risks and usefulness</li>
+        </ul>
       jcr:primaryType: hippostd:html
     /nationalindicatorlibrary:applyForm:
       /publicationsystem:attachmentResource:
@@ -263,14 +337,29 @@
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
         jcr:primaryType: publicationsystem:resource
       jcr:primaryType: publicationsystem:attachment
-      publicationsystem:displayName: Assurance application form
+      publicationsystem:displayName: Application form
+    /nationalindicatorlibrary:applyGuidanceForm:
+      /publicationsystem:attachmentResource:
+        hippo:filename: IMAS+Application+Form+%28NHS+Digital%29 (5).docx
+        hippo:text:
+          resource: /content/documents/corporate-website/national-indicator-library/help/help[3]/applyGuidanceForm/attachmentResource/text.bin
+          type: binary
+        jcr:data:
+          resource: /content/documents/corporate-website/national-indicator-library/help/help[3]/applyGuidanceForm/attachmentResource/data.bin
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2018-03-22T08:02:50.982Z
+        jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+        jcr:primaryType: publicationsystem:resource
+      jcr:primaryType: publicationsystem:attachment
+      publicationsystem:displayName: Guidance form
     /nationalindicatorlibrary:jon:
       hippostd:content: <p>jon</p>
       jcr:primaryType: hippostd:html
     /nationalindicatorlibrary:mainContent:
-      hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan
-        et viverra justo commodo.</p>
+      hippostd:content: <p>Health and social care indicators are evidence-based measures.
+        NHS Digital’s IMAS provides support to anyone who wishes to develop an indicator,
+        get an indicator reviewed or have their indicator assured.</p>
       jcr:primaryType: hippostd:html
     common:searchable: true
     hippo:availability:
@@ -278,23 +367,24 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-03-15T14:03:26.057Z
-    hippostdpubwf:lastModificationDate: 2018-03-15T16:35:02.319Z
+    hippostdpubwf:lastModificationDate: 2018-03-22T08:02:54.811Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-03-15T16:35:08.260Z
+    hippostdpubwf:publicationDate: 2018-03-22T08:02:58.421Z
     hippotranslation:id: 6b239a4e-4ae2-41e6-a81c-df9b8d061d4e
     hippotranslation:locale: en
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: nationalindicatorlibrary:nilanding
     nationalindicatorlibrary:addTitle: Add your indicator to the library
-    nationalindicatorlibrary:adviceTitle: Get advice for how to develop an indicator
+    nationalindicatorlibrary:adviceTitle: Advice and guidance
     nationalindicatorlibrary:applyTitle: Apply to have your indicator assured
     nationalindicatorlibrary:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
       elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan
       et viverra justo commodo.</p>
     nationalindicatorlibrary:jon: <p>jon</p>
     nationalindicatorlibrary:jon2: jon2
-    nationalindicatorlibrary:title: What IMAS can help you with
+    nationalindicatorlibrary:title: How the Indicator Methodology Assurance Service
+      (IMAS) can help you
   hippo:name: help
   jcr:mixinTypes:
   - hippo:named

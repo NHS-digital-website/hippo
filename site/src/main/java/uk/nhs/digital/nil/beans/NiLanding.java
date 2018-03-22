@@ -63,4 +63,9 @@ public class NiLanding extends BaseDocument {
     public Attachment getApplyForm() {
         return getBean("nationalindicatorlibrary:applyForm", Attachment.class);
     }        
+
+    @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:applyGuidanceForm")
+    public Attachment getApplyGuidanceForm() {
+        return getBean("nationalindicatorlibrary:applyGuidanceForm", Attachment.class);
+    }        
 }
