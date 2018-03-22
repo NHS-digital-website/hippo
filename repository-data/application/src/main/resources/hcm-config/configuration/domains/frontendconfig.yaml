@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/frontendconfig/frontend-plugins/exclude-cms-admin:
+      hipposys:equals: false
+      hipposys:facet: jcr:path
+      hipposys:filter: false
+      hipposys:type: Reference
+      hipposys:value: /hippo:configuration/hippo:frontend/cms/cms-admin
+      jcr:primaryType: hipposys:facetrule
