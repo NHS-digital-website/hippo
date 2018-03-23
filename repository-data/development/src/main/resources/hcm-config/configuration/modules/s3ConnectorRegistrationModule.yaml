@@ -3,5 +3,5 @@ definitions:
   config:
     /hippo:configuration/hippo:modules/s3ConnectorRegistrationModule:
       /hippo:moduleconfig:
-        s3Bucket: files.dev.nhsd.io
+        s3Bucket: files.local.nhsd.io
         s3Region: eu-west-1

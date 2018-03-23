@@ -3,14 +3,20 @@
 ## Return OnDemand environment name
 
 case $1 in
+    dev)
+        echo "dev";
+        ;;
+    prd)
+        echo "prod";
+        ;;
+    trg)
+        echo "training";
+        ;;
     tst)
         echo "test";
         ;;
     uat)
         echo "acct";
-        ;;
-    prd)
-        echo "prod";
         ;;
     *)
         echo "unknown"
