@@ -3,12 +3,12 @@
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() />
 <@hst.setBundle basename="nationalindicatorlibrary.headers"/>
 
-<section class="document-content">
+<section class="document-content nilanding">
     <#if document??>
-        <h1 data-uipath='ps.document.title'>${document.title}</h1>
+        <h1 data-uipath='ps.document.title' style="margin: 0px 0px 25px">${document.title}</h1>
         <#outputformat "undefined">${document.mainContent.content}</#outputformat>
 
-        <section class="push-double--bottom">
+        <section class="push-double--bottom" style="margin: 40px 0px 40px">
             <h2>${document.adviceTitle}</h2>
             <#outputformat "undefined">${document.adviceContent.content}</#outputformat>
             <a class="niFormBtn" title="${document.adviceForm.text}" href="<@hst.link hippobean=document.adviceForm.resource/>" onClick="logGoogleAnalyticsEvent('Download advice form','Indicator','${document.adviceForm.resource.filename}');"><@fmt.message key="headers.adviceForm"/></a>

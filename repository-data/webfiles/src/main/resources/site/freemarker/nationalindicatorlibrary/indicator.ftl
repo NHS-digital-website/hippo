@@ -12,7 +12,7 @@
       <div class="document-header__inner">
         <h1 class="layout-5-6 push--bottom" data-uipath="ps.indicator.title">${indicator.title}</h1>
 
-        <#if indicator.assuredStatus><h2 style="text-decoration:underline">Independently assured by Information Governance Board (IGB)</h2></#if>
+        <#if indicator.assuredStatus><h2>Independently assured by Information Governance Board (IGB)</h2></#if>
 
         <div class="layout">
             <div class="layout__item layout-1-2">
@@ -47,7 +47,7 @@
         <div class="jumpto__inner">
             <div class="jumpto__inner__nav">
 
-                <h4><strong>Page Contents</strong></h4>
+                <p class="page-contents">Page Contents</p>
                 <div class="jumpto__inner__nav__divider"></div>
                 <ul>
                     <li><a href="#purpose"><@fmt.message key="headers.purpose"/></a></li>
