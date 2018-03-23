@@ -23,10 +23,9 @@
 </section>
 
 <section id="getting-assured" class="document-content">
-    <h2><@fmt.message key="headers.indicatorsAndAssurance"/></h2>
+    <h2><@fmt.message key="headers.hereToHelp"/></h2>
     <div class="nihubSection"><br>
         <div class="nihubIgbSection">
-            <h1 class="here-to-help"><@fmt.message key="headers.hereToHelp"/></h1><br>
             <div class="columns">
                 <div class="advice igb-link">
                     <h3 class="advice-title">${document.advice.title}</h3>
@@ -42,7 +41,7 @@
                 </div>
             </div>
             <@fmt.message key="headers.findOutMore" var="findOut"/>
-            <h2 class="find-out-more"><a href="<@hst.link siteMapItemRefId='nilHelp' />" title="${findOut}">${findOut}</a></h2>
+            <h3 class="find-out-more"><a href="<@hst.link siteMapItemRefId='nilHelp' />" title="${findOut}">${findOut}</a></h3>
         </div>
     </div>
 </section>
