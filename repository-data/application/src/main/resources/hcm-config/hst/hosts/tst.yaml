@@ -1,15 +1,15 @@
 ---
 definitions:
   config:
-    /hst:hst/hst:hosts/training:
+    /hst:hst/hst:hosts/tst:
       /io:
         /nhsd:
-          /training:
+          /tst:
             /hst:root:
               hst:mountpoint: /hst:hst/hst:sites/common
               jcr:primaryType: hst:mount
             jcr:primaryType: hst:virtualhost
           jcr:primaryType: hst:virtualhost
         jcr:primaryType: hst:virtualhost
-      hst:cmslocation: https://cms-training.nhsd.io
+      hst:cmslocation: https://cms-tst.nhsd.io
       jcr:primaryType: hst:virtualhostgroup
