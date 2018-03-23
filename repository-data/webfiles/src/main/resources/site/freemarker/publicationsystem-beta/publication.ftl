@@ -18,8 +18,6 @@
     </dl>
 </#macro>
 
-THIS IS NEW TEMPALTE
-
 <#macro restrictedContentOfUpcomingPublication>
     <section class="document-header">
         <div class="document-header__inner">

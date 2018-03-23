@@ -4,15 +4,16 @@ definitions:
     /hst:hst/hst:configurations:
       /base:
         jcr:primaryType: hst:configuration
+      /beta:
+        jcr:primaryType: hst:configuration
       /common:
         hst:inheritsfrom:
+        - ../beta
         - ../base
+        jcr:primaryType: hst:configuration
+      /golive:
         jcr:primaryType: hst:configuration
       /nationalindicatorlibrary:
-        hst:inheritsfrom:
-        - ../base
-        jcr:primaryType: hst:configuration
-      /publicationsystem:
         hst:inheritsfrom:
         - ../base
         jcr:primaryType: hst:configuration

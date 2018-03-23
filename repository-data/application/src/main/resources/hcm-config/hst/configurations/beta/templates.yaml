@@ -1,0 +1,38 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/beta/hst:templates:
+      /archive:
+        hst:renderpath: webfile:/freemarker/publicationsystem-beta/archive.ftl
+        jcr:primaryType: hst:template
+      /cihub:
+        hst:renderpath: webfile:/freemarker/publicationsystem-beta/cihub.ftl
+        jcr:primaryType: hst:template
+      /cilanding:
+        hst:renderpath: webfile:/freemarker/publicationsystem-beta/cilanding.ftl
+        jcr:primaryType: hst:template
+      /dataset:
+        hst:renderpath: webfile:/freemarker/publicationsystem-beta/dataset.ftl
+        jcr:primaryType: hst:template
+      /folder:
+        hst:renderpath: webfile:/freemarker/publicationsystem-beta/folder.ftl
+        jcr:primaryType: hst:template
+      /indicator:
+        hst:renderpath: webfile:/freemarker/nationalindicatorlibrary-beta/indicator.ftl
+        jcr:primaryType: hst:template
+      /legacypublication:
+        hst:renderpath: webfile:/freemarker/publicationsystem-beta/legacy-publication.ftl
+        jcr:primaryType: hst:template
+      /nihub:
+        hst:renderpath: webfile:/freemarker/nationalindicatorlibrary-beta/nihub.ftl
+        jcr:primaryType: hst:template
+      /nilanding:
+        hst:renderpath: webfile:/freemarker/nationalindicatorlibrary-beta/nilanding.ftl
+        jcr:primaryType: hst:template
+      /publication:
+        hst:renderpath: webfile:/freemarker/publicationsystem-beta/publication.ftl
+        jcr:primaryType: hst:template
+      /series:
+        hst:renderpath: webfile:/freemarker/publicationsystem-beta/series.ftl
+        jcr:primaryType: hst:template
+      jcr:primaryType: hst:templates
