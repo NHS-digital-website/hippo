@@ -1,0 +1,27 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:hosts/prd:
+      /uk:
+        /nhs:
+          /digital:
+            /beta:
+              /hst:root:
+                hst:mountpoint: /hst:hst/hst:sites/common
+                hst:nochannelinfo: true
+                jcr:primaryType: hst:mount
+              jcr:primaryType: hst:virtualhost
+            /hst:root:
+              hst:mountpoint: /hst:hst/hst:sites/common
+              jcr:primaryType: hst:mount
+            /www:
+              /hst:root:
+                hst:mountpoint: /hst:hst/hst:sites/common
+                hst:nochannelinfo: true
+                jcr:primaryType: hst:mount
+              jcr:primaryType: hst:virtualhost
+            jcr:primaryType: hst:virtualhost
+          jcr:primaryType: hst:virtualhost
+        jcr:primaryType: hst:virtualhost
+      hst:cmslocation: https://cms.digital.nhs.uk
+      jcr:primaryType: hst:virtualhostgroup
