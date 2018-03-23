@@ -67,7 +67,7 @@ Feature: Clinical Indicator hub page and sub sections
     Scenario: SHMI resources - attachments
         Given I navigate to the "SHMI landing" page
         And I can download following files:
-            | SHMI publication timetable        | SHMI timetable attachment |
+            | SHMI publication timetable        | SHMI_publication_timetable.xlsx |
 
     Scenario: SHMI resources - links
         Given I navigate to the "SHMI landing" page

@@ -3,9 +3,14 @@ definitions:
   config:
     /hippo:configuration/hippo:modules/s3ConnectorRegistrationModule:
       /hippo:moduleconfig:
+        downloadShutdownTimeoutInSecs: 30
         jcr:primaryType: hipposys:moduleconfig
+        maxConcurrentDownloadsCount: 50
+        maxConcurrentUploadsCount: 10
         s3Bucket: files.digital.nhs.uk
+        s3Endpoint: ''
         s3Region: eu-west-2
+        uploadShutdownTimeoutInSecs: 30
       hipposys:className: uk.nhs.digital.externalstorage.modules.S3ConnectorServiceRegistrationModule
       hipposys:cmsonly: true
       jcr:primaryType: hipposys:module

@@ -6,20 +6,12 @@
 
     <import resource="classpath:/org/hippoecm/hst/site/container/SpringComponentManager-pipelines.xml"/>
 
-    <bean name="MAX_CONCURRENT_PREVIEW_DOWNLOADS" class="java.lang.Integer">
-        <constructor-arg value="2"/>
-    </bean>
-
     <bean id="s3ConnectorValve" class="uk.nhs.digital.common.valve.S3ConnectorValve"
           init-method="initialize" destroy-method="destroy">
-        <constructor-arg name="executorService">
-            <bean class="java.util.concurrent.Executors" factory-method="newWorkStealingPool">
-                <constructor-arg type="int" ref="MAX_CONCURRENT_PREVIEW_DOWNLOADS"/>
-            </bean>
-        </constructor-arg>
-        <constructor-arg name="s3Connector">
+
+        <constructor-arg type="uk.nhs.digital.externalstorage.s3.SchedulingS3Connector">
             <bean class="org.onehippo.cms7.services.HippoServiceRegistry" factory-method="getService">
-                <constructor-arg type="java.lang.Class" value="uk.nhs.digital.externalstorage.s3.S3Connector"/>
+                <constructor-arg type="java.lang.Class" value="uk.nhs.digital.externalstorage.s3.SchedulingS3Connector"/>
             </bean>
         </constructor-arg>
         <property name="valveName" value="S3ConnectorValve"/>

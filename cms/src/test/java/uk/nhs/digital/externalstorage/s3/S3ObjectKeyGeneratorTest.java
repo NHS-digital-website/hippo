@@ -18,7 +18,7 @@ public class S3ObjectKeyGeneratorTest {
         // given
         final String fileName = newRandomString();
 
-        final S3ObjectKeyGenerator s3ObjectKeyGenerator = new S3ObjectKeyGenerator(() -> newRandomString());
+        final S3ObjectKeyGenerator s3ObjectKeyGenerator = new S3ObjectKeyGenerator(this::newRandomString);
 
         // when
         final String actualObjectKey = s3ObjectKeyGenerator.generateObjectKey(fileName);
@@ -33,7 +33,7 @@ public class S3ObjectKeyGeneratorTest {
         // given
         final String fileName = newRandomString();
 
-        final S3ObjectKeyGenerator s3ObjectKeyGenerator = new S3ObjectKeyGenerator(() -> newRandomString());
+        final S3ObjectKeyGenerator s3ObjectKeyGenerator = new S3ObjectKeyGenerator(this::newRandomString);
 
         // when
         final String actualObjectKey = s3ObjectKeyGenerator.generateObjectKey(fileName);
@@ -66,8 +66,8 @@ public class S3ObjectKeyGeneratorTest {
         // given
         final String fileName = newRandomString();
 
-        final S3ObjectKeyGenerator s3ObjectKeyGeneratorA = new S3ObjectKeyGenerator(() -> newRandomString());
-        final S3ObjectKeyGenerator s3ObjectKeyGeneratorB = new S3ObjectKeyGenerator(() -> newRandomString());
+        final S3ObjectKeyGenerator s3ObjectKeyGeneratorA = new S3ObjectKeyGenerator(this::newRandomString);
+        final S3ObjectKeyGenerator s3ObjectKeyGeneratorB = new S3ObjectKeyGenerator(this::newRandomString);
 
         // when
         final String actualObjectKeyA = s3ObjectKeyGeneratorA.generateObjectKey(fileName);
