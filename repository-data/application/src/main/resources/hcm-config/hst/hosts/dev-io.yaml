@@ -1,0 +1,7 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:hosts/dev-io:
+      .meta:residual-child-node-category: content
+      hst:cmslocation: http://cms-dev.nhsd.io
+      jcr:primaryType: hst:virtualhostgroup

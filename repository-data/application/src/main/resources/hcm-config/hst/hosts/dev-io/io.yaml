@@ -1,0 +1,19 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:hosts/dev-io/io:
+      .meta:residual-child-node-category: content
+      /nhsd:
+        .meta:residual-child-node-category: content
+        /dev:
+          .meta:residual-child-node-category: content
+          /hst:root:
+            .meta:residual-child-node-category: content
+            hst:contextpath: /site
+            hst:homepage: root
+            hst:mountpoint: /hst:hst/hst:sites/common
+            hst:showcontextpath: false
+            jcr:primaryType: hst:mount
+          jcr:primaryType: hst:virtualhost
+        jcr:primaryType: hst:virtualhost
+      jcr:primaryType: hst:virtualhost
