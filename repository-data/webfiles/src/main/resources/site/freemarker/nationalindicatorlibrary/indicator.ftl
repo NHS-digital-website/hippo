@@ -32,7 +32,7 @@
                             <dl class="media__body">
                                 <dt id="geographic-coverage"><@fmt.message key="headers.geographicCoverage"/></dt>
                                 <dd data-uipath="ps.indicator.geographic-coverage">
-                                    ${indicator.geographicCoverage}
+                                    <#list indicator.geographicCoverage as geographicCoverageItem>${geographicCoverageItem}<#sep>, </#list>
                                 </dd>
                             </dl>
                         </div>
@@ -124,8 +124,8 @@
 
             <#list indicator.taxonomyList?keys as key>
                 <p class="filter-list__item__link" data-uipath="ps.indicator.taxonomy-${key}"><a title="Search for ${indicator.taxonomyList[key]}" href="${searchLink}/category/${key}/">${indicator.taxonomyList[key]}</a></p>
-            </#list>   
-        </section>     
+            </#list>
+        </section>
 
 
         <#if indicator.hasAttachments()>
