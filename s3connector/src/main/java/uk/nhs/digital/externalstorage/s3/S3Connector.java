@@ -1,13 +1,8 @@
 package uk.nhs.digital.externalstorage.s3;
 
-import org.onehippo.cms7.services.SingletonService;
-
 import java.io.InputStream;
 
-@SingletonService
 public interface S3Connector {
-
-    String getBucketName();
 
     boolean publishResource(String objectPath);
 
@@ -30,5 +25,5 @@ public interface S3Connector {
      * @param objectPath Path, uniquely idendifying the file in S3.
      * @return Proxy to S3 file.
      */
-    S3File getFile(String objectPath);
+    S3File downloadFile(String objectPath);
 }

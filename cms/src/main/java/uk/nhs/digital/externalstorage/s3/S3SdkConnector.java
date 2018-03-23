@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * Implement S3Connector to allow uploading files to S3 and managing ACL.
  */
-public class S3ConnectorImpl implements S3Connector {
+public class S3SdkConnector implements S3Connector {
 
     private String bucketName;
 
@@ -32,18 +32,14 @@ public class S3ConnectorImpl implements S3Connector {
     private S3ObjectKeyGenerator s3ObjectKeyGenerator;
 
     // minimum multi part upload is 5MB
-    private static final int BUFFER_SIZE = 5 * 1024 * 1024;
+    private static final int UPLOAD_BUFFER_SIZE = 5 * 1024 * 1024;
 
-    static final Logger log = LoggerFactory.getLogger(S3ConnectorImpl.class);
+    static final Logger log = LoggerFactory.getLogger(S3SdkConnector.class);
 
-    public S3ConnectorImpl(AmazonS3 s3, String bucketName, S3ObjectKeyGenerator s3ObjectKeyGenerator) {
+    public S3SdkConnector(AmazonS3 s3, String bucketName, S3ObjectKeyGenerator s3ObjectKeyGenerator) {
         this.bucketName = bucketName;
         this.s3 = s3;
         this.s3ObjectKeyGenerator = s3ObjectKeyGenerator;
-    }
-
-    public String getBucketName() {
-        return bucketName;
     }
 
     public boolean publishResource(String objectPath) {
@@ -68,7 +64,9 @@ public class S3ConnectorImpl implements S3Connector {
         metadata.setContentType(contentType);
 
         // initialise multipart upload
-        InitiateMultipartUploadResult initResult = s3.initiateMultipartUpload(new InitiateMultipartUploadRequest(bucketName, objectKey, metadata));
+        InitiateMultipartUploadResult initResult = s3.initiateMultipartUpload(
+            new InitiateMultipartUploadRequest(bucketName, objectKey, metadata)
+        );
 
         // loop parts
         List<PartETag> partETags;
@@ -103,8 +101,8 @@ public class S3ConnectorImpl implements S3Connector {
         int currentPartNumber = 0;
 
         while (lastBytesReadCount >= 0) {
-            final byte[] buffer = new byte[BUFFER_SIZE];
-            lastBytesReadCount = fileStream.read(buffer, 0, BUFFER_SIZE);
+            final byte[] buffer = new byte[UPLOAD_BUFFER_SIZE];
+            lastBytesReadCount = fileStream.read(buffer, 0, UPLOAD_BUFFER_SIZE);
 
             if (lastBytesReadCount >= 0) {
                 processedBytesCount += lastBytesReadCount;
@@ -133,7 +131,7 @@ public class S3ConnectorImpl implements S3Connector {
         return partETags;
     }
 
-    public S3File getFile(String objectPath) {
+    public S3File downloadFile(String objectPath) {
         return new S3FileProxy(s3.getObject(bucketName, objectPath));
     }
 }

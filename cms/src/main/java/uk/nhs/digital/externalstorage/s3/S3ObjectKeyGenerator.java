@@ -2,15 +2,16 @@ package uk.nhs.digital.externalstorage.s3;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.function.Supplier;
 import javax.xml.bind.DatatypeConverter;
 
 public class S3ObjectKeyGenerator {
 
     private final MessageDigest messageDigest;
 
-    private final RandomSeedProvider randomSeedProvider;
+    private final Supplier<String> randomSeedProvider;
 
-    public S3ObjectKeyGenerator(final RandomSeedProvider randomSeedProvider) {
+    public S3ObjectKeyGenerator(final Supplier<String> randomSeedProvider) {
         this.randomSeedProvider = randomSeedProvider;
         messageDigest = getMd5MessageDigest();
     }
@@ -18,7 +19,7 @@ public class S3ObjectKeyGenerator {
 
     public String generateObjectKey(String fileName) {
 
-        final String fileNameSalt = randomSeedProvider.getRandomSeed();
+        final String fileNameSalt = randomSeedProvider.get();
 
         messageDigest.update((fileName + fileNameSalt).getBytes());
 
@@ -33,11 +34,7 @@ public class S3ObjectKeyGenerator {
         try {
             return MessageDigest.getInstance("MD5");
         } catch (NoSuchAlgorithmException ex) {
-            throw new RuntimeException("Error initialising MD5 MessageDigest in " + S3ConnectorImpl.class.getName(), ex);
+            throw new RuntimeException("Error initialising MD5 MessageDigest in " + S3SdkConnector.class.getName(), ex);
         }
-    }
-
-    public interface RandomSeedProvider {
-        String getRandomSeed();
     }
 }

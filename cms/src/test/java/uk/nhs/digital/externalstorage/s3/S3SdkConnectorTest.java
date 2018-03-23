@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
-public class S3ConnectorImplTest {
+public class S3SdkConnectorTest {
 
     private static Random random = new Random();
     private static final int BUFFER_SIZE = 5 * 1024 * 1024;
@@ -37,7 +37,7 @@ public class S3ConnectorImplTest {
     private String objectKey;
     private String fileName;
 
-    private S3ConnectorImpl s3Connector;
+    private S3SdkConnector s3Connector;
 
     @Before
     public void setUp() throws Exception {
@@ -47,21 +47,7 @@ public class S3ConnectorImplTest {
         fileName = newRandomString();
         objectKey = newRandomString() + "/" + fileName;
 
-        s3Connector = new S3ConnectorImpl(s3, bucketName, s3ObjectKeyGenerator);
-    }
-
-    @Test
-    public void preservesS3BucketName() throws Exception {
-
-        // given
-        // setUp
-
-        // when
-        final String actualBucketName = s3Connector.getBucketName();
-
-        // then
-        assertThat("S3 bucket name is as provided to the constructor.", actualBucketName, is(bucketName));
-
+        s3Connector = new S3SdkConnector(s3, bucketName, s3ObjectKeyGenerator);
     }
 
     @Test
@@ -248,7 +234,7 @@ public class S3ConnectorImplTest {
         given(s3.getObject(bucketName, objectKey)).willReturn(s3ResponseObject);
 
         // when
-        final S3File actualS3File = s3Connector.getFile(objectKey);
+        final S3File actualS3File = s3Connector.downloadFile(objectKey);
 
         // then
         assertThat("Returned content stream is the one returned by S3.", actualS3File.getContent(),

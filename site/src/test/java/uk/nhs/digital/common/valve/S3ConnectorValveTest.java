@@ -7,16 +7,14 @@ import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.Mock;
-import uk.nhs.digital.externalstorage.s3.S3Connector;
+import uk.nhs.digital.externalstorage.s3.SchedulingS3Connector;
 import uk.nhs.digital.externalstorage.s3.S3File;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
+import java.util.function.Consumer;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletOutputStream;
@@ -25,9 +23,12 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.sameInstance;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static uk.nhs.digital.test.util.RandomHelper.newRandomByteArray;
@@ -36,16 +37,14 @@ import static uk.nhs.digital.test.util.RandomHelper.newRandomString;
 
 public class S3ConnectorValveTest {
 
-    @Mock private ExecutorService executorService;
-    @Mock private S3Connector s3Connector;
+    @Mock private SchedulingS3Connector s3Connector;
     @Mock private HttpServletRequest request;
     @Mock private HttpServletResponse response;
     @Mock private HstRequestContext hstRequestContext;
     @Mock private ValveContext valveContext;
-    @Mock private Future future;
     @Mock private S3File s3File;
 
-    @Captor private ArgumentCaptor<Runnable> downloadTaskArgumentCaptor;
+    @Captor private ArgumentCaptor<Consumer<S3File>> downloadTaskArgumentCaptor;
 
     private String expectedFileName;
     private long expectedFileLength;
@@ -67,8 +66,6 @@ public class S3ConnectorValveTest {
         given(valveContext.getServletResponse()).willReturn(response);
         given(valveContext.getRequestContext()).willReturn(hstRequestContext);
 
-        given(executorService.submit(downloadTaskArgumentCaptor.capture())).willReturn(future);
-
         expectedFileName = newRandomString();
         expectedFileLength = newRandomInt();
         expectedFileContent = newRandomByteArray();
@@ -86,9 +83,7 @@ public class S3ConnectorValveTest {
         given(s3File.getContent()).willReturn(s3InputStream);
         given(s3File.getLength()).willReturn(expectedFileLength);
 
-        given(s3Connector.getFile(s3ObjectPath)).willReturn(s3File);
-
-        s3ConnectorValve = new S3ConnectorValve(executorService, s3Connector);
+        s3ConnectorValve = new S3ConnectorValve(s3Connector);
     }
 
     @Test
@@ -101,8 +96,8 @@ public class S3ConnectorValveTest {
         s3ConnectorValve.invoke(valveContext);
 
         // then
-        then(future).should().get(); // ensures execution was delegated to provided ExecutorService
-        downloadTaskArgumentCaptor.getValue().run(); // ensures that the download task Runnable actually gets called
+        then(s3Connector).should().scheduleDownload(eq(s3ObjectPath), downloadTaskArgumentCaptor.capture());
+        downloadTaskArgumentCaptor.getValue().accept(s3File); // ensures that the download task actually gets called
 
         // verify response headers
         then(response).should().setContentType("application/octet-stream");
@@ -130,8 +125,8 @@ public class S3ConnectorValveTest {
         s3ConnectorValve.invoke(valveContext);
 
         // then
-        then(future).should().get(); // ensures execution was delegated to provided ExecutorService
-        downloadTaskArgumentCaptor.getValue().run(); // ensures that the download task Runnable actually gets called
+        then(s3Connector).should().scheduleDownload(eq(s3ObjectPath), downloadTaskArgumentCaptor.capture());
+        downloadTaskArgumentCaptor.getValue().accept(s3File); // ensures that the download task actually gets called
 
         verifyZeroInteractions(s3Connector);
         then(response).should().setStatus(HttpServletResponse.SC_FORBIDDEN);
@@ -141,12 +136,23 @@ public class S3ConnectorValveTest {
     public void handlesS3RequestFailure() {
 
         // given
-        final RuntimeException expectedCauseException = new RuntimeException();
+        final RuntimeException expectedConnecorException = new RuntimeException();
 
-        given(s3Connector.getFile(anyString())).willThrow(expectedCauseException);
+        doThrow(expectedConnecorException).when(s3Connector).scheduleDownload(anyString(), any());
 
-        // when + then
-        assertExceptionsAreHandledAndThrown(expectedCauseException);
+        try {
+            // when
+            s3ConnectorValve.invoke(valveContext);
+
+            // then
+            fail("Expected an exception but none was thrown");
+        } catch (final RuntimeException runtimeException) {
+            assertThat("Exception is as thrown by the connector.",
+                runtimeException, is(sameInstance(expectedConnecorException))
+            );
+        } catch (final Exception unexpectedException) {
+            fail("Exception of unexpected type was thrown: " + unexpectedException);
+        }
     }
 
     @Test
@@ -157,34 +163,13 @@ public class S3ConnectorValveTest {
 
         s3InputStream.willThrowException(expectedCauseException);
 
-        // when + then
-        assertExceptionsAreHandledAndThrown(expectedCauseException);
-
-        assertThat("Response output stream was closed once.", userResponseOutputStream.getClosedCount(), is(1));
-        assertThat("S3 input stream was closed once.", s3InputStream.getClosedCount(), is(1));
-    }
-
-    @Test
-    public void blocksShutdown_untilTimeOutOrAllDownloadsDone() throws Exception {
-
-        // given
-
-        // when
-        s3ConnectorValve.destroy();
-
-        // then
-        then(executorService).should().shutdown();
-        then(executorService).should().awaitTermination(30, TimeUnit.SECONDS);
-    }
-
-    private void assertExceptionsAreHandledAndThrown(final RuntimeException expectedCauseException) {
         try {
             // when
             s3ConnectorValve.invoke(valveContext);
 
             // then
-            then(future).should().get(); // ensures execution was delegated to provided ExecutorService
-            downloadTaskArgumentCaptor.getValue().run(); // ensures that the download task Runnable actually gets called
+            then(s3Connector).should().scheduleDownload(eq(s3ObjectPath), downloadTaskArgumentCaptor.capture());
+            downloadTaskArgumentCaptor.getValue().accept(s3File); // ensures that the download task actually gets called
 
             fail("Expected an exception but none was thrown");
         } catch (final RuntimeException runtimeException) {
@@ -199,7 +184,11 @@ public class S3ConnectorValveTest {
         } catch (final Exception unexpectedException) {
             fail("Exception of unexpected type was thrown: " + unexpectedException);
         }
+
+        assertThat("Response output stream was closed once.", userResponseOutputStream.getClosedCount(), is(1));
+        assertThat("S3 input stream was closed once.", s3InputStream.getClosedCount(), is(1));
     }
+
 
     class ServletOutputStreamDouble extends ServletOutputStream {
 
