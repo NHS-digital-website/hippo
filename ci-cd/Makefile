@@ -119,9 +119,9 @@ ondemand.upload:
 		| sftp nhs@static.hosting.onehippo.com
 
 ## Deploy to OnDemand environment
-# Usage: make ondemand.deploy ENV=tst
-#        make ondemand.deploy ENV=uat
-#        make ondemand.deploy ENV=prd
+# Usage: make ondemand.deploy ENV=tst RD_CONF=my-rd.conf
+#        make ondemand.deploy ENV=uat RD_CONF=my-rd.conf
+#        make ondemand.deploy ENV=prd RD_CONF=my-rd.conf
 ondemand.deploy: vendor/rd
 	source $(RD_CONF) && vendor/rd run -p nhs -j "jobs/$(OD_ENV)/Deploy" -- \
 		-bootstrap full \
@@ -155,10 +155,12 @@ version.pprint:
 
 ## Ensure that commit message contains JIRA id
 check.commit-msg:
-	@git log -n1 --no-merges --pretty=%B > .commit-msg
-	@grep -E "^\[[A-Z]+-[0-9]+\]" .commit-msg || (echo "Missing JIRA id in the coomit message. Expecitng '[ABC-123] ...' but got" && cat .commit-msg && exit 1)
-	@rm .commit-msg
+	@git log -n1 --no-merges --pretty=%B > $(PWD)/.commit-msg
+	@head -n1 $(PWD)/.commit-msg | grep -E "^\[[A-Z]+-[0-9]+\]" || (echo "Missing JIRA id in the coomit message. Expecitng '[ABC-123] ...' but got" && cat .commit-msg && exit 1)
+	python $(PWD)/../.git-local/hooks/commit-msg $(PWD)/.commit-msg
+	@rm $(PWD)/.commit-msg
 
+## Ensure that `make format-yaml` was run
 check.yaml:
 	cd .. && make format-yaml
 	@if git status | grep ".yaml" | grep "modified"; then \

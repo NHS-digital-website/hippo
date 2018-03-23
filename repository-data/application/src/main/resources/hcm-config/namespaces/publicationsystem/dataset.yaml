@@ -176,7 +176,7 @@ definitions:
           /Files:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
-            hipposysedit:ordered: false
+            hipposysedit:ordered: true
             hipposysedit:path: publicationsystem:Files-v3
             hipposysedit:primary: false
             hipposysedit:type: publicationsystem:attachment
@@ -222,7 +222,7 @@ definitions:
           /ResourceLinks:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
-            hipposysedit:ordered: false
+            hipposysedit:ordered: true
             hipposysedit:path: publicationsystem:ResourceLinks
             hipposysedit:primary: false
             hipposysedit:type: publicationsystem:relatedlink

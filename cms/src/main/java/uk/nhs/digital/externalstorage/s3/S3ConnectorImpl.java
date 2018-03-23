@@ -122,13 +122,13 @@ public class S3ConnectorImpl implements S3Connector {
                     partETags.add(s3.uploadPart(req).getPartETag());
 
                 } catch (Exception ex) {
-                    log.error("Error processing upload part {1} for object {2} with upload id {3}", currentPartNumber, objectKey, uploadId);
+                    log.error("Error processing upload part {} for object {} with upload id {}", currentPartNumber, objectKey, uploadId);
                     throw ex;
                 }
             }
         }
 
-        log.info("Uploaded {1} bytes in {2} parts for {3}", processedBytesCount, currentPartNumber, objectKey);
+        log.info("Uploaded {} bytes in {} parts for {}", processedBytesCount, currentPartNumber, objectKey);
 
         return partETags;
     }
