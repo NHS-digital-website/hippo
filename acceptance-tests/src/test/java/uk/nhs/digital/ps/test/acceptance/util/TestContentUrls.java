@@ -144,6 +144,15 @@ public class TestContentUrls {
         addSiteUrl("dataset-attachment.pdf",
             S3_BUCKET_URL + "2E/636380/dataset-attachment.pdf");
 
+        addSiteUrl("Application Guidance.docx",
+            S3_BUCKET_URL + "99/225B47/Application%20Guidance.docx");
+        addSiteUrl("Application Form.docx",
+            S3_BUCKET_URL + "CC/0AB209/Application%20Form.docx");
+        addSiteUrl("Add your indicator to the library.docx",
+            S3_BUCKET_URL + "97/FEA9E2/Add%20your%20indicator%20to%20the%20library.docx");
+        addSiteUrl("Request IMAS help.docx",
+            S3_BUCKET_URL + "90/18350A/Request%20IMAS%20help.docx");
+
         // Ordered publication
         addSiteUrl("ordered publication",
             "/data-and-information/publications/acceptance-tests/ordered-publication");
@@ -175,7 +184,8 @@ public class TestContentUrls {
             "/data-and-information/publications/clinical-indicators/ccg-outcomes-indicator-set/archive/ccg-archive-document-1");
 
         // National Indicator Library
-        addSiteUrl("nihub", "/data-and-information/national-indicator-library/nihub");
+        addSiteUrl("NIL Hub", "/data-and-information/national-indicator-library/nihub");
+        addSiteUrl("NIL Help", "/data-and-information/national-indicator-library/help");
         addSiteUrl("sample-indicator", "/data-and-information/national-indicator-library/sample-indicator");
 
         // Legacy publication
