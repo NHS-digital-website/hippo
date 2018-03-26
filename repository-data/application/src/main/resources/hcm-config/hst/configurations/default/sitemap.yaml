@@ -2,6 +2,8 @@
 definitions:
   config:
     /hst:hst/hst:configurations/hst:default/hst:sitemap:
+      /login:
+        .meta:delete: true
       /s3endpoint:
         /_any_:
           jcr:primaryType: hst:sitemapitem

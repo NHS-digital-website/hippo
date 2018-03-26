@@ -1,0 +1,7 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:roles/unlocker:
+      hipposys:privileges:
+      - hippo:unlocker
+      jcr:primaryType: hipposys:role

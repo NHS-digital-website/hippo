@@ -1,0 +1,8 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:users/unlocker:
+      hipposys:active: true
+      hipposys:password: unlocker
+      hipposys:securityprovider: internal
+      jcr:primaryType: hipposys:user

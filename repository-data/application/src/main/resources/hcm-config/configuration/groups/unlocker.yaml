@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/unlocker:
+      .meta:residual-child-node-category: content
+      hipposys:description: Users with power to unlock documents
+      hipposys:members:
+      - admin
+      hipposys:securityprovider: internal
+      jcr:primaryType: hipposys:group
