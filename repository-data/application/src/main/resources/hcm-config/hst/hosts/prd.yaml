@@ -11,6 +11,9 @@ definitions:
                 hst:nochannelinfo: true
                 jcr:primaryType: hst:mount
               jcr:primaryType: hst:virtualhost
+            /content:
+              .meta:residual-child-node-category: content
+              jcr:primaryType: hst:virtualhost
             /hst:root:
               hst:mountpoint: /hst:hst/hst:sites/common
               jcr:primaryType: hst:mount
