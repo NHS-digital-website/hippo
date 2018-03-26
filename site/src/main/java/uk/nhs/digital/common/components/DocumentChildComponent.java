@@ -54,7 +54,7 @@ public class DocumentChildComponent extends BaseGaContentComponent {
         Object bean = request.getAttribute(REQUEST_ATTR_DOCUMENT);
         if (bean != null && bean instanceof HippoBean) {
             List<HippoDocumentBean> childPages = getRelatedDocuments((HippoBean) bean);
-            request.setAttribute("childPages", childPages.subList(0, Math.min(childPages.size(), 6)));
+            request.setAttribute("childPages", childPages);
         } else {
             log.debug("Document missing or not referring to HippoBean {}", bean);
         }
