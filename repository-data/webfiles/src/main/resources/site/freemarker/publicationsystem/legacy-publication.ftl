@@ -117,9 +117,13 @@
                 <h2><@fmt.message key="headers.summary"/></h2>
                 <@hst.html hippohtml=legacyPublication.summary contentRewriter=gaContentRewriter/>
 
-                <#if legacyPublication.keyFacts.elements?has_content>
-                    <h2><@fmt.message key="headers.key-facts"/></h2>
-                    <@hst.html hippohtml=legacyPublication.keyFacts contentRewriter=gaContentRewriter/>
+                <#if legacyPublication.keyFacts?has_content>
+                    <div class="callout callout--attention">
+                        <h2><@fmt.message key="headers.key-facts"/></h2>
+                        <div class="rich-text-content">
+                            <@hst.html hippohtml=legacyPublication.keyFacts contentRewriter=gaContentRewriter/>
+                        </div>
+                    </div>
                 </#if>
 
                 <#if legacyPublication.administrativeSources?has_content>
