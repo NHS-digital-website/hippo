@@ -5,6 +5,9 @@ definitions:
       /io:
         /nhsd:
           /dev:
+            /content:
+              .meta:residual-child-node-category: content
+              jcr:primaryType: hst:virtualhost
             /hst:root:
               hst:mountpoint: /hst:hst/hst:sites/common
               jcr:primaryType: hst:mount
