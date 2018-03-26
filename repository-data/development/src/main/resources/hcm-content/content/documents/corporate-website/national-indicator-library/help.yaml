@@ -9,11 +9,11 @@
       jcr:primaryType: hippostd:html
     /nationalindicatorlibrary:addForm:
       /publicationsystem:attachmentResource:
-        externalstorage:reference: F6/4E6640/IMAS Application Form (NHS Digital).docx
-        externalstorage:size: 117877
-        externalstorage:url: https://files.local.nhsd.io/F6/4E6640/IMAS Application
-          Form (NHS Digital).docx
-        hippo:filename: IMAS Application Form (NHS Digital).docx
+        externalstorage:reference: 97/FEA9E2/Add your indicator to the library.docx
+        externalstorage:size: 45065
+        externalstorage:url: https://files.local.nhsd.io/97/FEA9E2/Add your indicator
+          to the library.docx
+        hippo:filename: Add your indicator to the library.docx
         hippo:text:
           resource: /content/documents/corporate-website/national-indicator-library/help/help[1]/addForm/attachmentResource/text.bin
           type: binary
@@ -21,7 +21,7 @@
           resource: /content/documents/corporate-website/national-indicator-library/help/help[1]/addForm/attachmentResource/data.bin
           type: binary
         jcr:encoding: UTF-8
-        jcr:lastModified: 2018-04-27T09:30:16.588Z
+        jcr:lastModified: 2018-05-10T14:58:02.994Z
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
         jcr:primaryType: externalstorage:resource
       jcr:primaryType: publicationsystem:extattachment
@@ -34,12 +34,10 @@
       jcr:primaryType: hippostd:html
     /nationalindicatorlibrary:adviceForm:
       /publicationsystem:attachmentResource:
-        externalstorage:reference: B3/BD9A45/Guidance on completing the application
-          form v3.docx
-        externalstorage:size: 123492
-        externalstorage:url: https://files.local.nhsd.io/B3/BD9A45/Guidance on completing
-          the application form v3.docx
-        hippo:filename: Guidance on completing the application form v3.docx
+        externalstorage:reference: 90/18350A/Request IMAS help.docx
+        externalstorage:size: 43924
+        externalstorage:url: https://files.local.nhsd.io/90/18350A/Request IMAS help.docx
+        hippo:filename: Request IMAS help.docx
         hippo:text:
           resource: /content/documents/corporate-website/national-indicator-library/help/help[1]/adviceForm/attachmentResource/text.bin
           type: binary
@@ -47,7 +45,7 @@
           resource: /content/documents/corporate-website/national-indicator-library/help/help[1]/adviceForm/attachmentResource/data.bin
           type: binary
         jcr:encoding: UTF-8
-        jcr:lastModified: 2018-04-27T09:30:16.588Z
+        jcr:lastModified: 2018-05-10T14:57:48.405Z
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
         jcr:primaryType: externalstorage:resource
       jcr:primaryType: publicationsystem:extattachment
@@ -78,11 +76,10 @@
       jcr:primaryType: hippostd:html
     /nationalindicatorlibrary:applyForm:
       /publicationsystem:attachmentResource:
-        externalstorage:reference: F6/4E6640/IMAS Application Form (NHS Digital).docx
+        externalstorage:reference: CC/0AB209/Application Form.docx
         externalstorage:size: 117877
-        externalstorage:url: https://files.local.nhsd.io/F6/4E6640/IMAS Application
-          Form (NHS Digital).docx
-        hippo:filename: IMAS Application Form (NHS Digital).docx
+        externalstorage:url: https://files.local.nhsd.io/CC/0AB209/Application Form.docx
+        hippo:filename: Application Form.docx
         hippo:text:
           resource: /content/documents/corporate-website/national-indicator-library/help/help[1]/applyForm/attachmentResource/text.bin
           type: binary
@@ -90,19 +87,17 @@
           resource: /content/documents/corporate-website/national-indicator-library/help/help[1]/applyForm/attachmentResource/data.bin
           type: binary
         jcr:encoding: UTF-8
-        jcr:lastModified: 2018-04-27T09:30:16.588Z
+        jcr:lastModified: 2018-05-10T14:58:22.216Z
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
         jcr:primaryType: externalstorage:resource
       jcr:primaryType: publicationsystem:extattachment
       publicationsystem:displayName: Application form
     /nationalindicatorlibrary:applyGuidanceForm:
       /publicationsystem:attachmentResource:
-        externalstorage:reference: B6/4883F5/IMAS+Application+Form+%28NHS+Digital%29
-          (5).docx
-        externalstorage:size: 117877
-        externalstorage:url: https://files.local.nhsd.io/B6/4883F5/IMAS+Application+Form+%28NHS+Digital%29
-          (5).docx
-        hippo:filename: IMAS+Application+Form+%28NHS+Digital%29 (5).docx
+        externalstorage:reference: 99/225B47/Application Guidance.docx
+        externalstorage:size: 123492
+        externalstorage:url: https://files.local.nhsd.io/99/225B47/Application Guidance.docx
+        hippo:filename: Application Guidance.docx
         hippo:text:
           resource: /content/documents/corporate-website/national-indicator-library/help/help[1]/applyGuidanceForm/attachmentResource/text.bin
           type: binary
@@ -110,7 +105,7 @@
           resource: /content/documents/corporate-website/national-indicator-library/help/help[1]/applyGuidanceForm/attachmentResource/data.bin
           type: binary
         jcr:encoding: UTF-8
-        jcr:lastModified: 2018-04-27T09:30:16.588Z
+        jcr:lastModified: 2018-05-10T14:58:29.799Z
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
         jcr:primaryType: externalstorage:resource
       jcr:primaryType: publicationsystem:extattachment
@@ -128,7 +123,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-03-15T14:03:26.057Z
-    hippostdpubwf:lastModificationDate: 2018-03-22T12:06:47.093Z
+    hippostdpubwf:lastModificationDate: 2018-05-10T14:56:07.657Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 6b239a4e-4ae2-41e6-a81c-df9b8d061d4e
     hippotranslation:locale: en
@@ -154,11 +149,11 @@
       jcr:primaryType: hippostd:html
     /nationalindicatorlibrary:addForm:
       /publicationsystem:attachmentResource:
-        externalstorage:reference: F6/4E6640/IMAS Application Form (NHS Digital).docx
-        externalstorage:size: 117877
-        externalstorage:url: https://files.local.nhsd.io/F6/4E6640/IMAS Application
-          Form (NHS Digital).docx
-        hippo:filename: IMAS Application Form (NHS Digital).docx
+        externalstorage:reference: 97/FEA9E2/Add your indicator to the library.docx
+        externalstorage:size: 45065
+        externalstorage:url: https://files.local.nhsd.io/97/FEA9E2/Add your indicator
+          to the library.docx
+        hippo:filename: Add your indicator to the library.docx
         hippo:text:
           resource: /content/documents/corporate-website/national-indicator-library/help/help[2]/addForm/attachmentResource/text.bin
           type: binary
@@ -166,7 +161,7 @@
           resource: /content/documents/corporate-website/national-indicator-library/help/help[2]/addForm/attachmentResource/data.bin
           type: binary
         jcr:encoding: UTF-8
-        jcr:lastModified: 2018-04-27T09:30:16.588Z
+        jcr:lastModified: 2018-05-10T14:58:02.994Z
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
         jcr:primaryType: externalstorage:resource
       jcr:primaryType: publicationsystem:extattachment
@@ -179,12 +174,10 @@
       jcr:primaryType: hippostd:html
     /nationalindicatorlibrary:adviceForm:
       /publicationsystem:attachmentResource:
-        externalstorage:reference: B3/BD9A45/Guidance on completing the application
-          form v3.docx
-        externalstorage:size: 123492
-        externalstorage:url: https://files.local.nhsd.io/B3/BD9A45/Guidance on completing
-          the application form v3.docx
-        hippo:filename: Guidance on completing the application form v3.docx
+        externalstorage:reference: 90/18350A/Request IMAS help.docx
+        externalstorage:size: 43924
+        externalstorage:url: https://files.local.nhsd.io/90/18350A/Request IMAS help.docx
+        hippo:filename: Request IMAS help.docx
         hippo:text:
           resource: /content/documents/corporate-website/national-indicator-library/help/help[2]/adviceForm/attachmentResource/text.bin
           type: binary
@@ -192,7 +185,7 @@
           resource: /content/documents/corporate-website/national-indicator-library/help/help[2]/adviceForm/attachmentResource/data.bin
           type: binary
         jcr:encoding: UTF-8
-        jcr:lastModified: 2018-04-27T09:30:16.588Z
+        jcr:lastModified: 2018-05-10T14:57:48.405Z
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
         jcr:primaryType: externalstorage:resource
       jcr:primaryType: publicationsystem:extattachment
@@ -223,11 +216,10 @@
       jcr:primaryType: hippostd:html
     /nationalindicatorlibrary:applyForm:
       /publicationsystem:attachmentResource:
-        externalstorage:reference: F6/4E6640/IMAS Application Form (NHS Digital).docx
+        externalstorage:reference: CC/0AB209/Application Form.docx
         externalstorage:size: 117877
-        externalstorage:url: https://files.local.nhsd.io/F6/4E6640/IMAS Application
-          Form (NHS Digital).docx
-        hippo:filename: IMAS Application Form (NHS Digital).docx
+        externalstorage:url: https://files.local.nhsd.io/CC/0AB209/Application Form.docx
+        hippo:filename: Application Form.docx
         hippo:text:
           resource: /content/documents/corporate-website/national-indicator-library/help/help[2]/applyForm/attachmentResource/text.bin
           type: binary
@@ -235,19 +227,17 @@
           resource: /content/documents/corporate-website/national-indicator-library/help/help[2]/applyForm/attachmentResource/data.bin
           type: binary
         jcr:encoding: UTF-8
-        jcr:lastModified: 2018-04-27T09:30:16.588Z
+        jcr:lastModified: 2018-05-10T14:58:22.216Z
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
         jcr:primaryType: externalstorage:resource
       jcr:primaryType: publicationsystem:extattachment
       publicationsystem:displayName: Application form
     /nationalindicatorlibrary:applyGuidanceForm:
       /publicationsystem:attachmentResource:
-        externalstorage:reference: B6/4883F5/IMAS+Application+Form+%28NHS+Digital%29
-          (5).docx
-        externalstorage:size: 117877
-        externalstorage:url: https://files.local.nhsd.io/B6/4883F5/IMAS+Application+Form+%28NHS+Digital%29
-          (5).docx
-        hippo:filename: IMAS+Application+Form+%28NHS+Digital%29 (5).docx
+        externalstorage:reference: 99/225B47/Application Guidance.docx
+        externalstorage:size: 123492
+        externalstorage:url: https://files.local.nhsd.io/99/225B47/Application Guidance.docx
+        hippo:filename: Application Guidance.docx
         hippo:text:
           resource: /content/documents/corporate-website/national-indicator-library/help/help[2]/applyGuidanceForm/attachmentResource/text.bin
           type: binary
@@ -255,7 +245,7 @@
           resource: /content/documents/corporate-website/national-indicator-library/help/help[2]/applyGuidanceForm/attachmentResource/data.bin
           type: binary
         jcr:encoding: UTF-8
-        jcr:lastModified: 2018-04-27T09:30:16.588Z
+        jcr:lastModified: 2018-05-10T14:58:29.799Z
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
         jcr:primaryType: externalstorage:resource
       jcr:primaryType: publicationsystem:extattachment
@@ -274,7 +264,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-03-15T14:03:26.057Z
-    hippostdpubwf:lastModificationDate: 2018-03-22T08:02:54.811Z
+    hippostdpubwf:lastModificationDate: 2018-05-10T14:58:33.100Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 6b239a4e-4ae2-41e6-a81c-df9b8d061d4e
     hippotranslation:locale: en
@@ -301,11 +291,11 @@
       jcr:primaryType: hippostd:html
     /nationalindicatorlibrary:addForm:
       /publicationsystem:attachmentResource:
-        externalstorage:reference: F6/4E6640/IMAS Application Form (NHS Digital).docx
-        externalstorage:size: 117877
-        externalstorage:url: https://files.local.nhsd.io/F6/4E6640/IMAS Application
-          Form (NHS Digital).docx
-        hippo:filename: IMAS Application Form (NHS Digital).docx
+        externalstorage:reference: 97/FEA9E2/Add your indicator to the library.docx
+        externalstorage:size: 45065
+        externalstorage:url: https://files.local.nhsd.io/97/FEA9E2/Add your indicator
+          to the library.docx
+        hippo:filename: Add your indicator to the library.docx
         hippo:text:
           resource: /content/documents/corporate-website/national-indicator-library/help/help[3]/addForm/attachmentResource/text.bin
           type: binary
@@ -313,7 +303,7 @@
           resource: /content/documents/corporate-website/national-indicator-library/help/help[3]/addForm/attachmentResource/data.bin
           type: binary
         jcr:encoding: UTF-8
-        jcr:lastModified: 2018-04-27T09:30:16.588Z
+        jcr:lastModified: 2018-05-10T14:58:02.994Z
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
         jcr:primaryType: externalstorage:resource
       jcr:primaryType: publicationsystem:extattachment
@@ -326,12 +316,10 @@
       jcr:primaryType: hippostd:html
     /nationalindicatorlibrary:adviceForm:
       /publicationsystem:attachmentResource:
-        externalstorage:reference: B3/BD9A45/Guidance on completing the application
-          form v3.docx
-        externalstorage:size: 123492
-        externalstorage:url: https://files.local.nhsd.io/B3/BD9A45/Guidance on completing
-          the application form v3.docx
-        hippo:filename: Guidance on completing the application form v3.docx
+        externalstorage:reference: 90/18350A/Request IMAS help.docx
+        externalstorage:size: 43924
+        externalstorage:url: https://files.local.nhsd.io/90/18350A/Request IMAS help.docx
+        hippo:filename: Request IMAS help.docx
         hippo:text:
           resource: /content/documents/corporate-website/national-indicator-library/help/help[3]/adviceForm/attachmentResource/text.bin
           type: binary
@@ -339,7 +327,7 @@
           resource: /content/documents/corporate-website/national-indicator-library/help/help[3]/adviceForm/attachmentResource/data.bin
           type: binary
         jcr:encoding: UTF-8
-        jcr:lastModified: 2018-04-27T09:30:16.588Z
+        jcr:lastModified: 2018-05-10T14:57:48.405Z
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
         jcr:primaryType: externalstorage:resource
       jcr:primaryType: publicationsystem:extattachment
@@ -370,11 +358,10 @@
       jcr:primaryType: hippostd:html
     /nationalindicatorlibrary:applyForm:
       /publicationsystem:attachmentResource:
-        externalstorage:reference: F6/4E6640/IMAS Application Form (NHS Digital).docx
+        externalstorage:reference: CC/0AB209/Application Form.docx
         externalstorage:size: 117877
-        externalstorage:url: https://files.local.nhsd.io/F6/4E6640/IMAS Application
-          Form (NHS Digital).docx
-        hippo:filename: IMAS Application Form (NHS Digital).docx
+        externalstorage:url: https://files.local.nhsd.io/CC/0AB209/Application Form.docx
+        hippo:filename: Application Form.docx
         hippo:text:
           resource: /content/documents/corporate-website/national-indicator-library/help/help[3]/applyForm/attachmentResource/text.bin
           type: binary
@@ -382,19 +369,17 @@
           resource: /content/documents/corporate-website/national-indicator-library/help/help[3]/applyForm/attachmentResource/data.bin
           type: binary
         jcr:encoding: UTF-8
-        jcr:lastModified: 2018-04-27T09:30:16.588Z
+        jcr:lastModified: 2018-05-10T14:58:22.216Z
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
         jcr:primaryType: externalstorage:resource
       jcr:primaryType: publicationsystem:extattachment
       publicationsystem:displayName: Application form
     /nationalindicatorlibrary:applyGuidanceForm:
       /publicationsystem:attachmentResource:
-        externalstorage:reference: B6/4883F5/IMAS+Application+Form+%28NHS+Digital%29
-          (5).docx
-        externalstorage:size: 117877
-        externalstorage:url: https://files.local.nhsd.io/B6/4883F5/IMAS+Application+Form+%28NHS+Digital%29
-          (5).docx
-        hippo:filename: IMAS+Application+Form+%28NHS+Digital%29 (5).docx
+        externalstorage:reference: 99/225B47/Application Guidance.docx
+        externalstorage:size: 123492
+        externalstorage:url: https://files.local.nhsd.io/99/225B47/Application Guidance.docx
+        hippo:filename: Application Guidance.docx
         hippo:text:
           resource: /content/documents/corporate-website/national-indicator-library/help/help[3]/applyGuidanceForm/attachmentResource/text.bin
           type: binary
@@ -402,7 +387,7 @@
           resource: /content/documents/corporate-website/national-indicator-library/help/help[3]/applyGuidanceForm/attachmentResource/data.bin
           type: binary
         jcr:encoding: UTF-8
-        jcr:lastModified: 2018-04-27T09:30:16.588Z
+        jcr:lastModified: 2018-05-10T14:58:29.799Z
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
         jcr:primaryType: externalstorage:resource
       jcr:primaryType: publicationsystem:extattachment
@@ -421,9 +406,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-03-15T14:03:26.057Z
-    hippostdpubwf:lastModificationDate: 2018-03-22T08:02:54.811Z
+    hippostdpubwf:lastModificationDate: 2018-05-10T14:58:33.100Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-03-22T08:02:58.421Z
+    hippostdpubwf:publicationDate: 2018-05-10T14:58:40.172Z
     hippotranslation:id: 6b239a4e-4ae2-41e6-a81c-df9b8d061d4e
     hippotranslation:locale: en
     jcr:mixinTypes:

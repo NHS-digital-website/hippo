@@ -8,7 +8,7 @@
         <h1 data-uipath='document.title' style="margin: 0px 0px 25px">${document.title}</h1>
         <#outputformat "undefined">${document.mainContent.content}</#outputformat>
 
-        <section class="push-double--bottom" style="margin: 40px 0px 40px">
+        <section class="push-double--bottom" style="margin: 40px 0px 40px" data-uipath="nil.landing.section.advice">
             <h2>${document.adviceTitle}</h2>
             <#outputformat "undefined">${document.adviceContent.content}</#outputformat>
             <@externalstorageLink document.adviceForm.resource; url>
@@ -17,7 +17,7 @@
             <span class="fileSize">(<@formatFileSize bytesCount=document.adviceForm.resource.length/>)</span>
         </section>
 
-        <section class="push-double--bottom">
+        <section class="push-double--bottom" data-uipath="nil.landing.section.add">
             <h2>${document.addTitle}</h2>
             <#outputformat "undefined">${document.addContent.content}</#outputformat>
             <@externalstorageLink document.addForm.resource; url>
@@ -26,7 +26,7 @@
             <span class="fileSize">(<@formatFileSize bytesCount=document.addForm.resource.length/>)</span>
         </section>
 
-        <section class="push-double--bottom">
+        <section class="push-double--bottom" data-uipath="nil.landing.section.apply">
             <h2>${document.applyTitle}</h2>
             <#outputformat "undefined">${document.applyContent.content}</#outputformat>
             <@externalstorageLink document.applyForm.resource; url>
@@ -35,8 +35,7 @@
             <span class="fileSize">(<@formatFileSize bytesCount=document.applyForm.resource.length/>)</span>
             <br>
             <@externalstorageLink document.applyGuidanceForm.resource; url>
-            <a class="niFormBtn" title="${document.applyGuidanceForm.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download application guidance form','Indicator','${document.applyGuidanceForm.resource.filename}');"><@fmt.message key="headers.applyGuidanceForm"/></a>
-            </@externalstorageLink>
+            <a class="niFormBtn" title="${document.applyGuidanceForm.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download application guidance form','Indicator','${document.applyGuidanceForm.resource.filename}');"><@fmt.message key="headers.applyGuidanceForm"/></a>            </@externalstorageLink>
             <span class="fileSize">(<@formatFileSize bytesCount=document.applyGuidanceForm.resource.length/>)</span>
         </section>
     </#if>

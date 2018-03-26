@@ -145,6 +145,17 @@ public class SiteSteps extends AbstractSpringSteps {
         }
     }
 
+    @Then("^I should see section \"([^\"]+)\" with hyperlink \"([^\"]+)\"")
+    public void thenIShouldSeeSectionWithLink(String sectionUiPathSuffix, String linkName) throws Throwable  {
+        final String nilLandingSectionUiDatapathPrefix = "nil.landing.section.";
+
+        WebElement pageElement = sitePage.findLinkWithinUiPath(
+            nilLandingSectionUiDatapathPrefix + sectionUiPathSuffix, linkName
+        );
+
+        assertNotNull("I should find page link: " + linkName + " within: " + sectionUiPathSuffix, pageElement);
+    }
+
     @Then("^I should not see headers?:$")
     public void thenIShouldNotSeeHeaders(DataTable headersTable) throws Throwable {
         List<String> headers = headersTable.asList(String.class);
@@ -192,7 +203,9 @@ public class SiteSteps extends AbstractSpringSteps {
                 downloadElement, is(notNullValue()));
 
             String url = downloadElement.getAttribute("href");
-            assertEquals("I can find link with expected URL for file " + linkFileName, urlLookup.lookupSiteUrl(linkFileName), url);
+            assertThat("I can find link with expected URL for file " + linkFileName,
+                url, is(urlLookup.lookupSiteUrl(linkFileName))
+            );
 
             if (acceptanceTestProperties.isHeadlessMode()) {
                 // At the moment of writing, there doesn't seem to be any easy way available to force Chromedriver

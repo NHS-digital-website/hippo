@@ -9,7 +9,7 @@
     </#if>
 </section>
 
-<section id="popular-topics" class="document-content">
+<section id="popular-topics" class="document-content" data-uipath="nil.landing.section.popular-topics">
     <h2><@fmt.message key="headers.popularTopics"/></h2>
     <div class="nihubSection">
         <div class="document-content columns" style="text-align:center">

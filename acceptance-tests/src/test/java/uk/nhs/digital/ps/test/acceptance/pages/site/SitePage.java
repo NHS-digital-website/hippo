@@ -64,6 +64,11 @@ public class SitePage extends AbstractSitePage {
         return helper.findOptionalElement(By.xpath("//*[@title='" + title + "']"));
     }
 
+    public WebElement findLinkWithinUiPath(String uiPath, String linkName) {
+        return helper.findOptionalElement(By.xpath("//*[@data-uipath='" + uiPath + "']"))
+            .findElement(By.xpath("//a[text()='" + linkName + "']"));
+    }
+
     public WebElement findElementWithUiPath(String uiPath) {
         return helper.findElement(By.xpath("//*[@data-uipath='" + uiPath + "']"));
     }
