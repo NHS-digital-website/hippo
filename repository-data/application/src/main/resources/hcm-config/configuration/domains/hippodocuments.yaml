@@ -1,0 +1,8 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/hippodocuments/unlock:
+      hipposys:groups:
+      - unlocker
+      hipposys:role: unlocker
+      jcr:primaryType: hipposys:authrole

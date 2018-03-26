@@ -1,0 +1,8 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/unlocker:
+      hipposys:members:
+        operation: add
+        value:
+        - unlocker
