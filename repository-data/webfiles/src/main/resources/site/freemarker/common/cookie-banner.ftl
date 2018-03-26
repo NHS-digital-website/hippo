@@ -70,7 +70,7 @@
                 expires = '';
             }
 
-            document.cookie = name + '=' + value.toString() + ';' + expires;
+            document.cookie = name + '=' + value.toString() + ';' + expires + ';path=/';
         }
 
         function initCookieBanner() {
