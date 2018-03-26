@@ -8,6 +8,8 @@
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 <#-- @ftlvariable name="publication" type="uk.nhs.digital.ps.beans.Publication" -->
 
+<h2>template: legacy-publication.ftl</h2>
+
 <#macro nominalPublicationDate>
     <dl class="media__body">
         <dt><@fmt.message key="headers.publication-date"/></dt>

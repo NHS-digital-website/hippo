@@ -3,7 +3,7 @@
 <#include "./macro/structured-text.ftl">
 <@hst.setBundle basename="publicationsystem.headers,publicationsystem.labels"/>
 
-NEW LIVE !!
+<h2>template: series.ftl</h2>
 
 <#if series??>
     <section class="document-header" aria-label="Series Title">

@@ -3,6 +3,8 @@
 <#include "./macro/structured-text.ftl">
 <@hst.setBundle basename="publicationsystem.headers,publicationsystem.labels"/>
 
+<h2>template: archive.ftl</h2>
+
 <#if archive??>
     <section class="document-header" aria-label="Archive Title">
         <div class="document-header__inner">

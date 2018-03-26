@@ -1,6 +1,8 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 
+<h2>template: folder.ftl</h2>
+
 <#if archive??>
     <#include "./archive.ftl">
 <#elseif series??>

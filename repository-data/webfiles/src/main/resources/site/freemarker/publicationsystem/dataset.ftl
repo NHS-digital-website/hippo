@@ -8,6 +8,8 @@
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() >
 <#assign formatCoverageDates="uk.nhs.digital.ps.directives.CoverageDatesFormatterDirective"?new() >
 
+<h2>template: dataset.ftl</h2>
+
 <#if dataset??>
 
 <section class="document-header" aria-label="Document Header">

@@ -93,7 +93,7 @@
         </div><!--
         --><div class="layout__item layout-2-3">
           <@searchTabsComponent contentNames=hstResponseChildContentNames></@searchTabsComponent>
-                  
+
           <@hst.include ref="main"/>
         </div>
       </div>
