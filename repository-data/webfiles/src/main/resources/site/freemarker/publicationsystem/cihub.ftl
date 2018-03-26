@@ -19,67 +19,70 @@
 
 
                     <!-- MARKUP -->
-                    <!--
-                    <div class="grid-row">
-                        <div class="column column--one-half column--left">
-                            <div class="cta cta--large">
-                                <h3 class="cta__title">Col 1</h3>
-                                <p class="cta__text">Col 1 Text</p>
-                                <a href="#" class="cta__button button">Col 1 button</a>
-                            </div>
-                        </div>
-                        <div class="column column--one-half column--right">
-                            <div class="cta cta--large">
-                                <h3 class="cta__title">Col 2</h3>
-                                <p class="cta__text">Col 2 TextCol 2 TextCol 2 TextCol 2 TextCol 2 TextCol 2 TextCol 2 TextCol 2 TextCol 2 TextCol 2 TextCol 2 TextTextCol 2 TextCol 2 TextCol 2 TextCol 2 TextCol 2 TextCol 2 TextCol 2 TextCol 2 Text</p>
-                                <a href="#" class="cta__button button">Col 2 button</a>
-                            </div>
-                        </div>
-
-                        <div class="column column--one-half column--left">
-                            <div class="cta cta--large">
-                                <h3 class="cta__title">Col 1</h3>
-                                <p class="cta__text">Col 1 Text</p>
-                                <a href="#" class="cta__button button">Col 1 button</a>
-                            </div>
-                        </div>
-
-                        <div class="column column--one-half column--right">
-                            <div class="cta cta--large">
-                                <h3 class="cta__title">Col 2</h3>
-                                <p class="cta__text">Col 2 Text</p>
-                                <a href="#" class="cta__button button">Col 2 button</a>
-                            </div>
-                        </div>
+                    <div class="cta-list cta-list--grid cta-list--data-and-information">
+                      <div class="grid-row">
+                          <div class="column column--one-half column--left">
+                              <div class="cta cta--large">
+                                  <h3 class="cta__title">Col 1</h3>
+                                  <p class="cta__text">Col 1 Text</p>
+                                  <a href="#" class="cta__button button">Col 1 button</a>
+                              </div>
+                          </div>
+                          <div class="column column--one-half column--right">
+                              <div class="cta cta--large">
+                                  <h3 class="cta__title">Col 2</h3>
+                                  <p class="cta__text">Col 2 Text</p>
+                                  <a href="#" class="cta__button button">Col 2 button</a>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="grid-row">
+                          <div class="column column--one-half column--left">
+                              <div class="cta cta--large">
+                                  <h3 class="cta__title">Col 3</h3>
+                                  <p class="cta__text">Col 3 Text</p>
+                                  <a href="#" class="cta__button button">Col 3 button</a>
+                              </div>
+                          </div>
+                          <div class="column column--one-half column--right">
+                              <div class="cta cta--large">
+                                  <h3 class="cta__title">Col 4</h3>
+                                  <p class="cta__text">Col 4 Text</p>
+                                  <a href="#" class="cta__button button">Col 4 button</a>
+                              </div>
+                          </div>
+                      </div>
                     </div>
-                    -->
+
 
                     <!-- TEMPLATE -->
-
 
                     <div class="grid-row">
 
                         <#function zebra index>
                           <#if (index % 2) == 0>
                             <#return "column--left" />
-
                           <#else>
                             <#return "column--right" />
                           </#if>
                         </#function>
 
                         <#list document.ciHubLink as link>
-
                             <div class="column column--one-half ${zebra(link_index)}">
                                 <div class="cta cta--large">
                                     <@hst.link var="landingPageLink" hippobean=link.pageLink />
-                                    <h4>${link.title}</h4>
-                                    <p>${link.summary}</p>
-                                    <a href="${landingPageLink}" title="${link.title}" class="button">See all data and publications</a>
+                                    <h3 class="cta__title">${link.title}</h3>
+                                    <p class="cta__text">${link.summary}</p>
+                                    <a href="${landingPageLink}" title="${link.title}" class="cta__button button">See all data and publications</a>
                                 </div>
                             </div>
                         </#list>
+
                     </div>
+
+
+
+
                 </#if>
             </section>
 
