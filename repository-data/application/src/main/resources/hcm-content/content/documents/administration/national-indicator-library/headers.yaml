@@ -120,7 +120,7 @@
     - Date
     - Indicator Governance Board (IGB) Assurance
     - We are here to help
-    - Find out more about our services
+    - Find out more about these services
   /headers[2]:
     hippo:availability:
     - preview
@@ -243,7 +243,7 @@
     - Date
     - Indicator Governance Board (IGB) Assurance
     - We are here to help
-    - Find out more about our services
+    - Find out more about these services
   /headers[3]:
     hippo:availability:
     - live
@@ -366,7 +366,7 @@
     - Date
     - Indicator Governance Board (IGB) Assurance
     - We are here to help
-    - Find out more about our services
+    - Find out more about these services
   hippo:name: Headers
   jcr:mixinTypes:
   - hippo:named

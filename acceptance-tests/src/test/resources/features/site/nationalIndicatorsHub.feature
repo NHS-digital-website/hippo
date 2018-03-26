@@ -10,6 +10,5 @@ Feature: National Indicator hub page and sub sections
 
     Scenario: NI landing pages - Advice from our experts
         Given I navigate to the "nihub" page
-        When I click on link "Find out more about our services"
+        When I click on link "Find out more about these services"
         Then I should see page titled "How the Indicator Methodology Assurance Service (IMAS) can help you"
-        
