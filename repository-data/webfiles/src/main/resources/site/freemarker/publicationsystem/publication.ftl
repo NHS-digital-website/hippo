@@ -9,10 +9,10 @@
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 <#-- @ftlvariable name="publication" type="uk.nhs.digital.ps.beans.Publication" -->
 
-<h2>template: publication.ftl</h2>
+
 
 <#macro nominalPublicationDate>
-    <dl class="media__body">
+    <dl class="ico-block__body">
         <dt><@fmt.message key="headers.publication-date"/></dt>
         <dd class="zeta" data-uipath="ps.publication.nominal-publication-date">
             <@formatRestrictableDate value=publication.nominalPublicationDate/>
@@ -20,14 +20,12 @@
     </dl>
 </#macro>
 
-THIS IS NEW TEMPALTE
-
 <#macro restrictedContentOfUpcomingPublication>
     <section class="document-header">
         <div class="document-header__inner">
             <h1 data-uipath="ps.document.title">${publication.title}</h1>
-            <div class="media push--top push--bottom">
-                <div class="media__icon media__icon--calendar"></div>
+            <div class="ico-block push--top push--bottom">
+                <div class="ico-block__icon ico-block__icon--calendar"></div>
                 <@nominalPublicationDate/>
             </div>
         </div>
@@ -41,75 +39,82 @@ THIS IS NEW TEMPALTE
     </section>
 </#macro>
 
+
 <#macro fullContentOfPubliclyAvailablePublication>
-    <section class="document-header" aria-label="Document Header">
+
+    <div class="local-header article-header" aria-label="Document Header">
         <div class="document-header__inner">
 
             <#if publication.informationType?has_content>
                 <#list publication.informationType as type>
                     <#if type == "National statistics">
-                        <div class="media__icon--national-statistics" data-uipath="ps.publication.national-statistics" title="National statistics"></div>
+                        <div class="ico-block__icon--national-statistics" data-uipath="ps.publication.national-statistics" title="National statistics"></div>
                         <#break>
                     </#if>
                 </#list>
             </#if>
 
-            <h3 class="flush--bottom push-half--top"><@fmt.message key="labels.publication"/></h3>
+            <h3><@fmt.message key="labels.publication"/></h3>
 
-            <h3 data-uipath="ps.publication.information-types" class="flush--bottom push-half--top">
+            <h3 data-uipath="ps.publication.information-types">
                 <#if publication.informationType?has_content>
                     <#list publication.informationType as type>${type}<#sep>, </#list>
                 </#if>
             </h3>
 
-            <h1 class="layout-5-6" data-uipath="ps.document.title">${publication.title}</h1>
+            <h1 class="local-header__title" data-uipath="ps.document.title">${publication.title}</h1>
 
             <#if publication.parentDocument??>
-                <p class="flush--top">
+                <p>
                     This is part of
-                    <a class="label label--parent-document" href="<@hst.link hippobean=publication.parentDocument.selfLinkBean/>"
+                    <a href="<@hst.link hippobean=publication.parentDocument.selfLinkBean/>"
                         title="${publication.parentDocument.title}">
                         ${publication.parentDocument.title}
                     </a>
                 </p>
             </#if>
 
-            <div class="flex push--top push--bottom">
-                <div class="flex__item">
-                    <div class="media">
-                        <div class="media__icon media__icon--calendar"></div>
+            <div class="grid-row">
+                <div class="column--one-quarter">
+                    <div class="ico-block">
+                        <div class="ico-block__icon ico-block__icon--calendar"></div>
                         <@nominalPublicationDate/>
                     </div>
-                </div><!--
+                </div>
 
-                --><#if publication.geographicCoverage?has_content><div class="flex__item">
-                    <div class="media">
-                        <div class="media__icon media__icon--geographic-coverage"></div>
-                        <dl class="media__body">
+                <#if publication.geographicCoverage?has_content>
+                <div class="column--one-quarter">
+                    <div class="ico-block">
+                        <div class="ico-block__icon ico-block__icon--geographic-coverage"></div>
+                        <dl class="ico-block__body">
                             <dt id="geographic-coverage"><@fmt.message key="headers.geographical-coverage"/></dt>
                             <dd data-uipath="ps.publication.geographic-coverage">
                                 <#list publication.geographicCoverage as geographicCoverageItem>${geographicCoverageItem}<#sep>, </#list>
                             </dd>
                         </dl>
                     </div>
-                </div></#if><!--
+                </div>
+                </#if>
 
-                --><#if publication.granularity?has_content ><div class="flex__item">
-                    <div class="media">
-                        <div class="media__icon media__icon--granularity"></div>
-                        <dl class="media__body">
+                <#if publication.granularity?has_content >
+                <div class="column--one-quarter">
+                    <div class="ico-block">
+                        <div class="ico-block__icon ico-block__icon--granularity"></div>
+                        <dl class="ico-block__body">
                             <dt><@fmt.message key="headers.geographical-granularity"/></dt>
                             <dd data-uipath="ps.publication.granularity">
                                 <#list publication.granularity as granularityItem>${granularityItem}<#sep>, </#list>
                             </dd>
                         </dl>
                     </div>
-                </div></#if><!--
+                </div>
+                </#if>
 
-                --><#if publication.coverageStart?? ><div class="flex__item">
-                    <div class="media">
-                        <div class="media__icon media__icon--date-range"></div>
-                        <dl class="media__body">
+                <#if publication.coverageStart?? >
+                <div class="column--one-quarter">
+                    <div class="ico-block">
+                        <div class="ico-block__icon ico-block__icon--date-range"></div>
+                        <dl class="ico-block__body">
                             <dt><@fmt.message key="headers.date-range"/></dt>
                             <dd data-uipath="ps.publication.date-range">
                                 <#if publication.coverageStart?? && publication.coverageEnd??>
@@ -120,13 +125,14 @@ THIS IS NEW TEMPALTE
                             </dd>
                         </dl>
                     </div>
-                </div></#if>
+                </div>
+                </#if>
 
             </div>
         </div>
-    </section>
+    </div>
 
-    <section class="document-content" aria-label="Document Content">
+    <section class="article-section" aria-label="Document Content">
         <div>
             <h2><@fmt.message key="headers.summary"/></h2>
             <@structuredText item=publication.summary uipath="ps.publication.summary" />
@@ -189,11 +195,21 @@ THIS IS NEW TEMPALTE
     </section>
 </#macro>
 
+
 <#-- ACTUAL TEMPLATE -->
-<#if publication?? >
-    <#if publication.publiclyAccessible>
-        <@fullContentOfPubliclyAvailablePublication/>
-    <#else>
-        <@restrictedContentOfUpcomingPublication/>
-    </#if>
-</#if>
+<main>
+    <div class="page-block">
+        <div class="grid-wrapper grid-wrapper--article">
+
+            <p>template: publication.ftl</p>
+            <#if publication?? >
+                <#if publication.publiclyAccessible>
+                    <@fullContentOfPubliclyAvailablePublication/>
+                <#else>
+                    <@restrictedContentOfUpcomingPublication/>
+                </#if>
+            </#if>
+
+        </div>
+    </div>
+</main>

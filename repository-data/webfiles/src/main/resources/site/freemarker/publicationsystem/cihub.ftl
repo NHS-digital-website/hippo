@@ -3,13 +3,15 @@
 <#include "./macro/structured-text.ftl">
 <@hst.setBundle basename="publicationsystem.headers"/>
 
-<h2>template: cihub.ftl</h2>
+
 
 <main>
     <div class="page-block">
         <div class="grid-wrapper grid-wrapper--article">
 
-            <section class="document-content">
+            <p>template: cihub.ftl</p>
+
+            <section class="article-section">
                 <#if document??>
                     <h1 data-uipath="ps.document.title">${document.title}</h1>
                     <p data-uipath="ps.document.content">
