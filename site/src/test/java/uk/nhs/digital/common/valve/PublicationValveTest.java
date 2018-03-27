@@ -44,8 +44,6 @@ public class PublicationValveTest {
     @Mock private HippoBeanIterator hippoBeanIterator;
     @Mock private HippoBean nextHippoBean;
     @Mock private HstLink hstLink;
-    @Mock private Mount mount;
-    @Mock private HstContainerURL hstContainerURL;
     @Mock private HttpServletResponse httpServletResponse;
 
     @Before
@@ -66,12 +64,8 @@ public class PublicationValveTest {
         given(hstQueryResult.getHippoBeans()).willReturn(hippoBeanIterator);
         given(hippoBeanIterator.nextHippoBean()).willReturn(nextHippoBean);
         given(hstLinkCreator.create(nextHippoBean, hstRequestContext)).willReturn(hstLink);
-        given(hstLink.getMount()).willReturn(mount);
-        given(mount.getMountPath()).willReturn("Mock-Mount-path");
         given(hstRequestContext.getServletResponse()).willReturn(httpServletResponse);
-        given(hstRequestContext.getBaseURL()).willReturn(hstContainerURL);
-        given(hstContainerURL.getContextPath()).willReturn("Mock-Context-path/");
-        given(hstLink.getPath()).willReturn("Mock-Link-path");
+        given(hstLink.toUrlForm(hstRequestContext,false)).willReturn("Mock-Link-path");
     }
 
 
@@ -81,7 +75,7 @@ public class PublicationValveTest {
         given(hstQueryResult.getSize()).willReturn(1);
         PublicationValve publicationValve = new PublicationValve();
         publicationValve.invoke(valveContext);
-        then(httpServletResponse).should().sendRedirect("Mock-Context-path/Mock-Mount-path/Mock-Link-path");
+        then(httpServletResponse).should().sendRedirect("Mock-Link-path");
     }
 
     @Test
@@ -90,7 +84,7 @@ public class PublicationValveTest {
         given(hstQueryResult.getSize()).willReturn(1);
         PublicationValve publicationValve = new PublicationValve();
         publicationValve.invoke(valveContext);
-        then(httpServletResponse).should().sendRedirect("Mock-Context-path/Mock-Mount-path/Mock-Link-path");
+        then(httpServletResponse).should().sendRedirect("Mock-Link-path");
     }
 
     @Test
@@ -99,7 +93,7 @@ public class PublicationValveTest {
         given(hstQueryResult.getSize()).willReturn(0);
         PublicationValve publicationValve = new PublicationValve();
         publicationValve.invoke(valveContext);
-        verify(httpServletResponse, never()).sendRedirect("Mock-Context-path/Mock-Mount-path/Mock-Link-path");
+        verify(httpServletResponse, never()).sendRedirect("Mock-Link-path");
     }
 
     @Test
@@ -108,6 +102,6 @@ public class PublicationValveTest {
         PublicationValve publicationValve = new PublicationValve();
         publicationValve.invoke(valveContext);
         verify(hstQueryResult, never()).getSize();
-        verify(httpServletResponse, never()).sendRedirect("Mock-Context-path/Mock-Mount-path/Mock-Link-path");
+        verify(httpServletResponse, never()).sendRedirect("Mock-Link-path");
     }
 }
