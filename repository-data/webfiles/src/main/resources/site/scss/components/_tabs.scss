@@ -1,7 +1,8 @@
-
+/* Tabs */
 .tabs-nav {
     list-style: none;
     padding: 0;
+
     @include media(tablet) {
         border-bottom: 1px solid $col-senary;
         margin-bottom: $baseline-grid-unit * 4;
@@ -11,11 +12,14 @@
         @include media(tablet) {
             display: inline-block;
         }
+
         .tabs-nav__item__link {
             display: block;
-            font-size: core-font(14);
             padding: $baseline-grid-unit * 4;
             border-bottom: 1px solid $col-senary;
+
+            font-size: core-font(14);
+
             @include media(tablet) {
                 border-bottom: 0;
                 padding: $baseline-grid-unit * 2 $baseline-grid-unit * 4;
@@ -25,6 +29,7 @@
 
     .tabs-nav__item--active {
         background-color: $col-septenary;
+
         @include media(tablet) {
             border-left: 1px solid $col-senary;
             border-right: 1px solid $col-senary;
@@ -32,6 +37,7 @@
             position: relative;
             top: 1px;
         }
+
         .tabs-nav__item__link {
             text-decoration: none;
             color: $col-16;

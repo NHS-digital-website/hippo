@@ -3,6 +3,7 @@
     width: 140px;
     text-align: center;
     margin-bottom: 18px;
+
     .swatch__color {
         display: inline-block;
         width: 60px;
@@ -10,8 +11,9 @@
         margin-top: 10px;
         margin-bottom: 10px;
         border-radius: 60px;
-        border: 1px solid rgba(0,0,0,0.1);
+        border: 1px solid rgba($col-16, 10%);
     }
+
     .swatch__title {
         @include core-font(14);
     }

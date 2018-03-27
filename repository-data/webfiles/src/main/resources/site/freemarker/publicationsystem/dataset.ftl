@@ -9,7 +9,6 @@
 <#assign formatCoverageDates="uk.nhs.digital.ps.directives.CoverageDatesFormatterDirective"?new() >
 
 <#if dataset??>
-blah
 <section class="document-header" aria-label="Document Header">
     <div class="document-header__inner">
         <h3 class="flush--bottom push-half--top"><@fmt.message key="labels.dataset"/></h3>

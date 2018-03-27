@@ -16,6 +16,7 @@
     @include media(tablet) {
         float:right;
     }
+
     @include core-font(14);
 }
 
@@ -31,8 +32,7 @@
 }
 
 .search-result__type {
-    @include core-font(14);
-    font-weight: bold;
+    @include bold-font(14);
 }
 
 .search-result__title__link {
@@ -40,6 +40,7 @@
 }
 
 .search-result__para {
-    @include core-font(14);
     line-height: 22px;
+
+    @include core-font(14);
 }

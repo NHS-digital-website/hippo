@@ -16,7 +16,7 @@
                                             <a href="/privacy-and-cookies">Find out more</a> about changing your cookie settings, otherwise we’ll assume you’re OK to continue.</span>
                                         </div>
                                         <div class="column column--one-third column--reset cookie-banner__button-wrapper">
-                                            <a href="#" class="button button--tiny button--warning" id="cookieAcceptButton">I’m fine with this</a>
+                                            <a href="#" class="button button--small button--warning" id="cookieAcceptButton">I’m fine with this</a>
                                         </div>
                                     </div>
                                 </div>

@@ -2,7 +2,7 @@
 @import "../environment/tools/mixins/typography";
 
 .local-header {
-  background-color: $nhs-blue;
+  background-color: $col-primary;
   overflow: hidden;
   padding: 1.6em;
 
@@ -25,15 +25,16 @@
   * + * {
     @include element-spacing;
   }
+  
   *, a:link {
-      color: $white;
+      color: $col-septenary;
   }
 }
 
 .local-header__return {
   @include link-reverse-polarity;
-  background-color: $nhs-blue;
-  border: $baseline-grid-unit / 2 solid $blue-50;
+  background-color: $col-primary;
+  border: $baseline-grid-unit / 2 solid $col-tertiary;
   display: inline-block;
   margin-bottom: $baseline-grid-unit * 4;
   padding: $default-spacing-unit / 2 $default-spacing-unit;
@@ -41,18 +42,19 @@
 
   &:hover {
     border-color: $blue-10;
-    color: $white;
+    color: $col-septenary;
   }
 }
 
 .local-header__title {
-  @include bold-font(48);
-  color: $white;
+  color: $col-septenary;
   margin: 0;
+
+  @include bold-font(48);
 }
 
 .local-header__intro {
-  color: $white;
+  color: $col-septenary;
   margin-top: $baseline-grid-unit * 4;
   max-width: $measure;
   padding-top: $baseline-grid-unit * 4;
@@ -64,7 +66,7 @@
   }
 
   &:before {
-    background-color: $blue-50;
+    background-color: $col-tertiary;
     content: "";
     display: block;
     height: $baseline-grid-unit;
