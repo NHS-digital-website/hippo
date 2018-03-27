@@ -27,6 +27,7 @@ import org.slf4j.LoggerFactory;
 import uk.nhs.digital.common.enums.SearchArea;
 import uk.nhs.digital.nil.beans.Indicator;
 import uk.nhs.digital.ps.beans.*;
+import uk.nhs.digital.website.beans.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -186,7 +187,7 @@ public class SearchComponent extends CommonComponent {
         }
 
         // register content classes
-        addDataAndInfoTypes(queryBuilder);
+        deriveTypes(queryBuilder, request);
 
         String sortParam = getSortOption(request);
         switch (sortParam) {
@@ -271,6 +272,29 @@ public class SearchComponent extends CommonComponent {
     /**
      * Publication System content types that should be included in search
      */
+    private void deriveTypes(final HstQueryBuilder query, final HstRequest request) {
+
+        SearchArea areaParam = getAreaOption(request);
+
+        switch (areaParam) {
+            case NEWS:
+                addNewsTypes(query);
+                break;
+            case DATA:
+                addDataAndInfoTypes(query);
+                break;
+            case SERVICES:
+                addServiceTypes(query);
+                break;
+            default:
+                addAllTypes(query);
+
+        }
+    }
+
+    /**
+     * Adding document type classes related to the Data and information domain
+     */
     private void addDataAndInfoTypes(HstQueryBuilder query) {
         query.ofTypes(
             Archive.class,
@@ -281,4 +305,54 @@ public class SearchComponent extends CommonComponent {
             Indicator.class
         );
     }
+
+    /**
+     * TODO: create a custom document type for the News items
+     * Adding the calltoaction document type for the News documents. The query will
+     * have the right scope, pointing to the News folder
+     */
+    private void addNewsTypes(HstQueryBuilder query) {
+        query.ofTypes(
+            Calltoaction.class
+        );
+    }
+
+    /**
+     * Adding the Service document type
+     */
+    private void addServiceTypes(HstQueryBuilder query) {
+        query.ofTypes(
+            Service.class
+        );
+    }
+
+    /**
+     * Adding the General document type
+     */
+    private void addGeneralTypes(HstQueryBuilder query) {
+        query.ofTypes(
+            General.class
+        );
+    }
+
+    /**
+     * Adding the Hub document type
+     */
+    private void addHubTypes(HstQueryBuilder query) {
+        query.ofTypes(
+            Hub.class
+        );
+    }
+
+    /**
+     * Adding all the document types supported by the SearchComponent
+     */
+    private void addAllTypes(HstQueryBuilder query) {
+        addDataAndInfoTypes(query);
+        addGeneralTypes(query);
+        addHubTypes(query);
+        addNewsTypes(query);
+        addServiceTypes(query);
+    }
+
 }

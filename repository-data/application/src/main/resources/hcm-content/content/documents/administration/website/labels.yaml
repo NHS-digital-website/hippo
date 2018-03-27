@@ -1,0 +1,61 @@
+---
+/content/documents/administration/website/labels:
+  /labels[1]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-01-17T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2018-03-27T14:30:26.880Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    resourcebundle:id: website.labels
+    resourcebundle:keys:
+    - labels.service
+    resourcebundle:messages:
+    - Service
+  /labels[2]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-01-17T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2018-03-27T14:29:55.445Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    resourcebundle:id: website.labels
+    resourcebundle:keys:
+    - labels.service
+    resourcebundle:messages:
+    - Service
+  /labels[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-01-17T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2018-03-27T14:30:26.880Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2018-03-27T14:30:29.606Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    resourcebundle:id: website.labels
+    resourcebundle:keys:
+    - labels.service
+    resourcebundle:messages:
+    - Service
+  hippo:name: Labels
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
