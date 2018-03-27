@@ -58,11 +58,8 @@ public abstract class AbstractDocumentIdValve extends AbstractOrderableValve {
                         HstLinkCreator linkCreator = requestContext.getHstLinkCreator();
                         // fetching the canonical url related to the retrieved bean
                         HstLink link = linkCreator.create(result.getHippoBeans().nextHippoBean(), requestContext);
-                        //in case the document is served in a non root channel, add the channel name to the url
-                        String channelName = link.getMount().getMountPath();
-                        //redirecting the user to the new url, taking into consideration the servlet context + channel path and it's trailing slash
-                        requestContext.getServletResponse().sendRedirect(requestContext.getBaseURL().getContextPath()
-                            + channelName + "/" + link.getPath());
+                        //redirecting the user to the new url, taking into consideration the servlet context + channel path
+                        requestContext.getServletResponse().sendRedirect(link.toUrlForm(requestContext, false));
                     }
                 } catch (QueryException queryExcpetion) {
                     log.error("Query exception while creating query having scope {} {}", requestContext.getSiteContentBaseBean(), queryExcpetion);
