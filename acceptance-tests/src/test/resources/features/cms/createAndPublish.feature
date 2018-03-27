@@ -56,3 +56,15 @@ Feature: As am author I need to create a new publication
         When I click the "Add new about document..." menu option on the "Corporate Website/About" folder
         # No document options as you should automatically be creating an about type
         Then I should see no document options
+
+    @DeleteAfter
+    Scenario: Schedule publication, and check date format is NOT in the default format of m/d/yyyy
+        Given I am logged in as ci-editor on the content page
+        When I have a publication opened for editing
+        And I populate and save the publication
+        And I schedule the publication for publishing on "03/27/2015"
+        Then the save is rejected with error message containing "'Date' must be a date."
+        When I cancel the modal dialog
+        # Scheduled to distant future to prevent "date cannot be in past" validation message
+        And I schedule the publication for publishing on "27/03/2099"
+        Then The document is scheduled for publication

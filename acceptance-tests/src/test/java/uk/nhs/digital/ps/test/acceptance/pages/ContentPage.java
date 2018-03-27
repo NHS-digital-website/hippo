@@ -205,6 +205,26 @@ public class ContentPage extends AbstractCmsPage {
         waitUntilPublished();
     }
 
+    public void schedulePublication(String date) {
+        findPublicationMenu().click();
+        findSchedulePublication().click();
+
+        WebElement publishDocumentOnField = helper.findElement(
+            By.xpath("//div[text()='Publish document on:']/following-sibling::div//input[@name='bottom-left:value:date']"));
+
+        publishDocumentOnField.clear();
+        publishDocumentOnField.sendKeys(date);
+
+        // use below instead of clickButtonOnModalDialog("OK"), since latter will timeout/error
+        // if validation message occurs and prevents the dialog from closing (test for
+        // schedule publication date format needs to check for this message)
+        helper.findElement(By.xpath("//input[@type='submit' and @value='OK']")).click();
+    }
+
+    public void cancelModalDialog(){
+        clickButtonOnModalDialog("Cancel");
+    }
+
     public void copyDocument(){
         findDocumentMenu().click();
         findCopy().click();
@@ -367,6 +387,12 @@ public class ContentPage extends AbstractCmsPage {
         return helper.isElementPresent(By.className("hippo-toolbar-status"));
     }
 
+    public boolean isDocumentScheduledForPublication() {
+        return helper.isElementPresent(
+            By.xpath(XpathSelectors.EDITOR_BODY + "//span[contains(@title, 'Scheduled publication on ')]")
+        );
+    }
+
     public void navigateToDocument(String documentName) {
         navigateToFolder("Corporate Website", "Publication System");
         clickDocument(documentName);
@@ -391,6 +417,11 @@ public class ContentPage extends AbstractCmsPage {
     private WebElement findPublish() {
         return helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Publish']"));
+    }
+
+    private WebElement findSchedulePublication() {
+        return helper.findElement(
+            By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Schedule publication...']"));
     }
 
     private WebElement findDocumentMenu(){
@@ -436,7 +467,7 @@ public class ContentPage extends AbstractCmsPage {
     }
     private void clickButtonOnModalDialogOnce(String buttonText) {
         helper.findElement(
-            By.xpath("//div[contains(@class, 'wicket-modal')]//input[@type='submit' and @value='"+ buttonText +"']"))
+            By.xpath("//div[contains(@class, 'wicket-modal')]//input[@value='"+ buttonText +"']"))
             .click();
 
         helper.waitForElementUntil(ExpectedConditions.invisibilityOfElementLocated(
