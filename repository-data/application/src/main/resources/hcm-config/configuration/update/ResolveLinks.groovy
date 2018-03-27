@@ -29,10 +29,6 @@ class ResolveLinks extends BaseNodeUpdateVisitor {
 
         log.debug "Visiting ${node.path}"
 
-        def id = getArticleId(node)
-
-        log.debug(id)
-
         def content = node.getProperty("hippostd:content").getString()
 
         if(content){
@@ -74,7 +70,7 @@ class ResolveLinks extends BaseNodeUpdateVisitor {
                                 log.debug("Replaced original link: " + originalLink + " with "+ finalLink)
                             }
                         }catch(Exception e){
-                            log.error("Link failed in article path: [" + node.getPath() + "] - Link: " + originalLink)
+                            log.error("Link failed in path: [" + node.getPath() + "] - Link: " + originalLink)
                             log.error("Error message: " + e.getMessage())
                         }
                     }else{
@@ -85,8 +81,6 @@ class ResolveLinks extends BaseNodeUpdateVisitor {
 
                     node.setProperty("hippostd:content", content)
 
-                    log.debug("Updated content: " + node.getProperty("hippostd:content").getString())
-
                     return true
                 }
             }
@@ -94,26 +88,6 @@ class ResolveLinks extends BaseNodeUpdateVisitor {
 
         return false
 
-    }
-
-    String getArticleId(Node node) {
-        def nodename = node.getName()
-        log.debug(nodename)
-        def articlePattern = /^(.*)\/${nodename}$/
-        log.debug(articlePattern)
-        def matcher = node.getPath() =~ articlePattern
-        if (matcher) {
-            def articlePath = matcher[0][1]
-            log.debug(articlePath)
-            final javax.jcr.query.QueryManager queryManager = node.getSession().getWorkspace().getQueryManager();
-            final javax.jcr.query.Query jcrQuery = queryManager.createQuery(query, "xpath");
-            def nodeIterator = jcrQuery.execute().getNodes();
-            if (nodeIterator && nodeIterator.nextNode()) {
-                return nodeIterator.nextNode().getProperty().toString()
-            } else {
-                return "unknown"
-            }
-        }
     }
 
     boolean undoUpdate(Node node) {
