@@ -3,6 +3,7 @@ package uk.nhs.digital.ps.test.acceptance.steps.cms.ps;
 import static java.time.temporal.ChronoField.*;
 import static java.util.stream.Collectors.toList;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
@@ -522,6 +523,21 @@ public class CmsSteps extends AbstractSpringSteps {
         String[] folders = folder.split("/");
         boolean expectedPresent = isEmpty(not);
         assertThat("Folder presence is as expected", contentPage.navigateToFolder(folders) != null, is(expectedPresent));
+    }
+
+    @And("^I schedule the publication for publishing on \"([^\"]*)\"")
+    public void iScheduleThePublicationForPublishingOn(String publishDate) throws Throwable {
+        contentPage.schedulePublication(publishDate);
+    }
+
+    @And("^I cancel the modal dialog")
+    public void iCancelTheModalDialog() throws Throwable {
+        contentPage.cancelModalDialog();
+    }
+
+    @Then("^The document is scheduled for publication")
+    public void theDocumentIsScheduledForPublication() throws Throwable {
+        assertTrue("Document is scheduled for publication", contentPage.isDocumentScheduledForPublication());
     }
 
     @Then("^I can copy the publication$")
