@@ -1,5 +1,5 @@
 <#ftl output_format="HTML">
-<@hst.setBundle basename="publicationsystem.labels,nationalindicatorlibrary.headers,nationalindicatorlibrary.labels"/>
+<@hst.setBundle basename="publicationsystem.labels,nationalindicatorlibrary.headers,nationalindicatorlibrary.labels,website.labels"/>
 <#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
 <#assign dateFormat="dd/MM/yyyy"/>
 
@@ -17,6 +17,11 @@
             <@dataset item=document />
         <#elseif document.class.name == "uk.nhs.digital.nil.beans.Indicator">
             <@indicator item=document />
+        <#elseif document.class.name == "uk.nhs.digital.website.beans.Service">
+            <@service item=document />
+        <#elseif document.class.name == "uk.nhs.digital.website.beans.General" ||
+                 document.class.name == "uk.nhs.digital.website.beans.Hub">
+            <@general item=document />
         </#if>
     </#list>
 </#macro>
@@ -122,5 +127,28 @@
         </#if>
 
         <p class="flush" data-uipath="ps.search-results.result.brief-description">${item.details.briefDescription}</p>
+    </div>
+</#macro>
+
+<#macro service item>
+    <div class="push-double--bottom" data-uipath="ps.search-results.result">
+        <h3 class="flush zeta" data-uipath="ps.search-results.result.type" style="font-weight:bold"><@fmt.message key="labels.service"/></h3>
+        <p class="flush">
+            <a href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
+                ${item.title}
+            </a>
+        </p>
+        <p class="flush" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
+    </div>
+</#macro>
+
+<#macro general item>
+    <div class="push-double--bottom" data-uipath="ps.search-results.result">
+        <p class="flush">
+            <a href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
+                ${item.title}
+            </a>
+        </p>
+        <p class="flush" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
     </div>
 </#macro>

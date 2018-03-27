@@ -10,6 +10,8 @@ https://wiki.apache.org/jackrabbit/IndexingConfiguration
     xmlns:publicationsystem="http://digital.nhs.uk/jcr/publicationsystem/nt/1.0"
     xmlns:nationalindicatorlibrary="http://digital.nhs.uk/jcr/nationalindicatorlibrary/nt/1.0"
     xmlns:common="http://digital.nhs.uk/jcr/common/nt/1.0"
+    xmlns:website="http://digital.nhs.uk/jcr/website/nt/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0"
 >
     <index-rule nodeType="publicationsystem:publication">
         <property>publicationsystem:Title</property>
@@ -43,6 +45,51 @@ https://wiki.apache.org/jackrabbit/IndexingConfiguration
     <index-rule nodeType="publicationsystem:archive">
         <property>publicationsystem:Title</property>
         <property>publicationsystem:Summary</property>
+        <property isRegexp="true" nodeScopeIndex="false">.*:.*</property>
+    </index-rule>
+
+    <index-rule nodeType="hippostd:html"
+                condition="@element(website:contactdetails, hippostd:html)/@jcr:primaryType='{http://www.onehippo.org/jcr/hippostd/nt/2.0}html'">
+    </index-rule>
+
+    <index-rule nodeType="hippostd:html"
+                condition="@element(website:toptasks, hippostd:html)/@jcr:primaryType='{http://www.onehippo.org/jcr/hippostd/nt/2.0}html'">
+    </index-rule>
+
+    <index-rule nodeType="hippostd:html"
+                condition="@element(website:introduction, hippostd:html)/@jcr:primaryType='{http://www.onehippo.org/jcr/hippostd/nt/2.0}html'">
+    </index-rule>
+
+    <index-rule nodeType="website:externallink">
+    </index-rule>
+
+
+    <index-rule nodeType="website:service">
+        <property>website:title</property>
+        <property>website:summary</property>
+        <property>website:shortsummary</property>
+        <property>website:seosummary</property>
+        <property>website:sections</property>
+        <property>website:component</property>
+        <property isRegexp="true" nodeScopeIndex="false">.*:.*</property>
+    </index-rule>
+
+    <index-rule nodeType="website:general">
+        <property>website:title</property>
+        <property>website:summary</property>
+        <property>website:shortsummary</property>
+        <property>website:seosummary</property>
+        <property>website:sections</property>
+        <property>website:component</property>
+        <property isRegexp="true" nodeScopeIndex="false">.*:.*</property>
+    </index-rule>
+
+    <index-rule nodeType="website:hub">
+        <property>website:title</property>
+        <property>website:summary</property>
+        <property>website:shortsummary</property>
+        <property>website:seosummary</property>
+        <property>website:body</property>
         <property isRegexp="true" nodeScopeIndex="false">.*:.*</property>
     </index-rule>
 
