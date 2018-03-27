@@ -4,6 +4,7 @@
 
 table {
     width: 100% !important;
+    table-layout: auto;
     border-collapse: collapse;
     border-spacing: 0;
     text-align: left;
@@ -22,10 +23,16 @@ table {
 
     th,
     td {
-        padding: 17px 10px;
-        width: 25%;
+        padding: 12px 7px;
         text-align: left;
         border: none;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+
+        @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+            padding: 13px 5px;
+        }
     }
 
     th {
@@ -34,7 +41,7 @@ table {
 
         &,
         * {
-            @include bold-font(16);
+            @include bold-font(14);
         }
 
         &:first-child {
@@ -47,7 +54,7 @@ table {
 
         &,
         * {
-            @include core-font(16);
+            @include core-font(14);
         }
     }
 
