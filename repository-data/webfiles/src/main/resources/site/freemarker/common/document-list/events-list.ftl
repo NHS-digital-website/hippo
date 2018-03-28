@@ -13,7 +13,7 @@
             <article class="cta">
                 <h2 class="cta__title"><a href="#">${item.title}</a></h2>
                 <#-- [TODO:ROB] Display the actual date value! -->
-                <time class="cta__meta" datetime="#">Date: 20 January 2018</time>
+                <time class="cta__meta" datetime="2018">Date: 20 January 2018</time>
             </article>
         </li>    
     </#list>
