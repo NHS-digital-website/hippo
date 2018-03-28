@@ -1,7 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <#include "macro/siteHeader.ftl">
-
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 

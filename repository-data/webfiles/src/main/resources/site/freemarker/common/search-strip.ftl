@@ -6,13 +6,13 @@
 <@fmt.message key="search-banner.buttonLabel" var="buttonLabel"/>
 <@fmt.message key="search-banner.title" var="searchTitle"/>
 
-<form role="search" method="get" action="${searchLink}" class="search-strip">
+<form role="search" method="get" action="${searchLink}" class="search-strip" aria-label="${searchTitle}">
     <div class="search-strip__contents">
         <div class="search-strip__table-cell">
-            <input type="text" name="query" id="query" class="search-strip__input" placeholder="${buttonLabel}" value="${query!""}" title="${buttonLabel}">
+            <input type="text" name="query" id="query" class="search-strip__input" placeholder="${buttonLabel}" value="${query!""}" aria-label="${buttonLabel}">
         </div>
         <div class="search-strip__table-cell search-strip__table-cell--button">
-            <button class="search-strip__button">
+            <button class="search-strip__button" aria-label="${buttonLabel}">
                 <img src="<@hst.webfile path="/images/icon-search-white.png"/>" alt="Magnifying glass" />
             </button>
         </div>

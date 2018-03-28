@@ -18,10 +18,10 @@
 
                         <div class="main-nav">
                             <div class="main-nav__burger" id="navToggle">
-                                <button class="main-nav__burger-button">
-                                    <span class="main-nav__burger-line"></span>
-                                    <span class="main-nav__burger-line"></span>
-                                    <span class="main-nav__burger-line"></span>
+                                <button class="main-nav__burger-button" aria-label="Navigation menu">
+                                    <span class="main-nav__burger-line">&nbsp;</span>
+                                    <span class="main-nav__burger-line">&nbsp;</span>
+                                    <span class="main-nav__burger-line">&nbsp;</span>
                                 </button>
                             </div>
                             

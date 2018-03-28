@@ -10,11 +10,13 @@
     <nav role="navigation">
         <ol class="article-section-nav__menu list--reset">
         <#list lettersOfTheAlphabet as letter>
-            <#assign className = "is-disabled"/>
             <#if blockGroups[letter]??>
-                <#assign className = ""/>
+                <li>
+                    <a href="#section-${letter}" aria-label="Jump to articles starting with the letter '${letter}'">${letter}</a>
+                </li>
+            <#else>
+                <li class="is-disabled">${letter}</li>
             </#if>
-            <li class="${className}"><a href="#section-${letter}">${letter}</a></li>
         </#list>
         </ol>
     </nav>
