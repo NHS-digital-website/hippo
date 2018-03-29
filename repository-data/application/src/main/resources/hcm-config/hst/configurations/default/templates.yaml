@@ -1,0 +1,7 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/hst:default/hst:templates/robotstxt.ftl:
+      hst:renderpath: webfile:/freemarker/common/robotstxt.ftl
+      hst:script:
+        operation: delete

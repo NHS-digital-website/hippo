@@ -27,7 +27,8 @@ import static org.hamcrest.core.Is.is;
 public class FreemarkerFileTest {
 
     private final static String FTL_FILES_DIRECTORY = System.getProperty("user.dir") + "/src/main/resources/site/freemarker";
-    private final static String DIRECTIVE_OUTPUT_FORMAT_HTML = "<#ftl output_format=\"HTML\">";
+    private final static String DIRECTIVE_OUTPUT_FORMAT_HTML = "<#ftl output_format=\"HTML\"";
+    private final static String DIRECTIVE_OUTPUT_FORMAT_PLAIN_TEXT = "<#ftl output_format=\"plainText\"";
 
     @Test
     public void checkOutputFormatDirectiveIncluded() {
@@ -64,7 +65,8 @@ public class FreemarkerFileTest {
                         try (Stream<String> stream = Files.lines(file.toAbsolutePath())) {
                             stream
                                 .limit(1)
-                                .filter(s -> !s.contains(DIRECTIVE_OUTPUT_FORMAT_HTML))
+                                .filter(s -> !s.contains(DIRECTIVE_OUTPUT_FORMAT_HTML)
+                                            && !s.contains(DIRECTIVE_OUTPUT_FORMAT_PLAIN_TEXT))
                                 .map(f -> file.getFileName())
                                 .forEach(element -> filesMissingOutputFormatDirective.add(element.toString()));
 

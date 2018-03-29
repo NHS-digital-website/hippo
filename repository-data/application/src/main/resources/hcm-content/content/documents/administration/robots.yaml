@@ -1,0 +1,57 @@
+---
+/content/documents/administration/robots:
+  /robots[1]:
+    /robotstxt:section:
+      jcr:primaryType: robotstxt:section
+      robotstxt:disallow:
+      - ''
+      robotstxt:useragent: '*'
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-03-29T10:37:41.023Z
+    hippostdpubwf:lastModificationDate: 2018-03-29T13:07:31.450Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: robotstxt:robotstxt
+    robotstxt:disallowfacnav: false
+  /robots[2]:
+    /robotstxt:section:
+      jcr:primaryType: robotstxt:section
+      robotstxt:disallow:
+      - ''
+      robotstxt:useragent: '*'
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-03-29T10:37:41.023Z
+    hippostdpubwf:lastModificationDate: 2018-03-29T13:07:12.071Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: robotstxt:robotstxt
+    robotstxt:disallowfacnav: false
+  /robots[3]:
+    /robotstxt:section:
+      jcr:primaryType: robotstxt:section
+      robotstxt:disallow:
+      - ''
+      robotstxt:useragent: '*'
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-03-29T10:37:41.023Z
+    hippostdpubwf:lastModificationDate: 2018-03-29T13:07:31.450Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2018-03-29T13:07:34.145Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: robotstxt:robotstxt
+    robotstxt:disallowfacnav: false
+  jcr:mixinTypes:
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

@@ -133,6 +133,10 @@ definitions:
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/homeland
         jcr:primaryType: hst:sitemapitem
+      /robots.txt:
+        hst:componentconfigurationid: hst:pages/robotstxt
+        hst:relativecontentpath: ../administration/robots
+        jcr:primaryType: hst:sitemapitem
       /root:
         hst:componentconfigurationid: hst:pages/cihub
         hst:refId: root
