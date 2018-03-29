@@ -11,8 +11,8 @@ phases:
       - apt-get update
       - apt-get install -qqy awscli git openssh-client
       # SSH key
-      - aws s3 cp s3://config.dev.ps.nhsd.io/codebuild/ps_hippo_build/nhs-ci_rsa $HOME/.ssh/nhs-ci_rsa
-      - aws s3 cp s3://config.dev.ps.nhsd.io/codebuild/ps_hippo_build/nhs-ci_rsa.pub $HOME/.ssh/nhs-ci_rsa.pub
+      - aws s3 cp s3://config.mgt.nhsd.io/codebuild/ps_hippo_build/nhs-ci_rsa $HOME/.ssh/nhs-ci_rsa
+      - aws s3 cp s3://config.mgt.nhsd.io/codebuild/ps_hippo_build/nhs-ci_rsa.pub $HOME/.ssh/nhs-ci_rsa.pub
       - chmod 600 $HOME/.ssh/nhs-ci_rsa
 
       # Add github.com as known host
