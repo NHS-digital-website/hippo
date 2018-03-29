@@ -1,6 +1,6 @@
 package uk.nhs.digital.ps.workflow.searchableFlag;
 
-import static java.text.MessageFormat.format;
+import static uk.nhs.digital.ps.PublicationSystemConstants.INDEX_FILE_NAME;
 
 import org.hippoecm.repository.HippoStdNodeType;
 import org.hippoecm.repository.util.WorkflowUtils;
@@ -8,12 +8,14 @@ import org.onehippo.repository.documentworkflow.DocumentVariant;
 import org.onehippo.repository.documentworkflow.task.AbstractDocumentTask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.nhs.digital.JcrQueryHelper;
+import uk.nhs.digital.ps.PublicationSystemConstants;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
-import javax.jcr.query.Query;
+import javax.jcr.query.QueryResult;
 
 public class SearchableFlagTask extends AbstractDocumentTask {
 
@@ -46,22 +48,11 @@ public class SearchableFlagTask extends AbstractDocumentTask {
 
         // update all dataset documents belonging to this publication,
         // only if publication name is "content"
-        if ("content".equals(publication.getName())) {
+        if (INDEX_FILE_NAME.equals(publication.getName())) {
             Node folder = WorkflowUtils.getContainingFolder(variant, session).getNode(session);
 
-            String query = format("SELECT * FROM [{0}] WHERE ISDESCENDANTNODE ([{1}]) AND [{2}] = ''{3}''",
-                TYPE_DATASET,
-                folder.getPath(),
-                HippoStdNodeType.HIPPOSTD_STATE,
-                variant.getState());
-
-            NodeIterator nodes = session
-                .getWorkspace()
-                .getQueryManager()
-                .createQuery(query, Query.JCR_SQL2)
-                .execute()
-                .getNodes();
-
+            QueryResult res = JcrQueryHelper.findDescendantVariants(folder, PublicationSystemConstants.NODE_TYPE_DATASET, variant.getState());
+            NodeIterator nodes = res.getNodes();
             boolean searchable = !depublishing && publication.getProperty("publicationsystem:PubliclyAccessible").getBoolean();
 
             while (nodes.hasNext()) {
@@ -125,7 +116,7 @@ public class SearchableFlagTask extends AbstractDocumentTask {
 
     private boolean isContentHandle(Node node) throws RepositoryException {
         return node.isNodeType("hippo:handle")
-            && "content".equals(node.getName());
+            && INDEX_FILE_NAME.equals(node.getName());
     }
 
     public void setVariant(DocumentVariant variant) {

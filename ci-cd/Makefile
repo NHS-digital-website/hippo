@@ -150,7 +150,7 @@ ondemand.deploy: vendor/rd
 #        make ondemand.schedule-deploy ENV=uat RD_CONF=my-rd.conf RELEASE_DATE=2018-02-28 RELEASE_TIME_UTC=02:00:00
 ondemand.schedule-deploy: vendor/rd
 	source $(RD_CONF) && vendor/rd run \
-		--at $(RELEASE_DATE)T$(RELEASE_TIME_UTC)Z\
+		--at "$(RELEASE_DATE)T$(RELEASE_TIME_UTC)Z"\
 		--project nhs \
 		--job "jobs/$(OD_ENV)/Deploy" \
 		-- \

@@ -1,6 +1,6 @@
 # What If I want to deploy to Test?
 
-## How to Deploy specific branch to Test Environment 
+## How to Deploy specific branch to Test Environment
 
 1. Get Rundek access first
 
@@ -18,13 +18,12 @@
 		export RD_AUTH_PROMPT=false
 		export RD_COLOR=0
 
-
-6. Checkout the branch you want to deploy 
+6. Checkout the branch you want to deploy
 
 		cd ci-cd
 
 		make clean build ondemand.upload ondemand.deploy ENV=tst RD_CONF=~/nhsd.rundec.env
 
-7. Now see the status here: 
+7. Now see the status here:
 
 		https://deploys.onehippo.com/project/nhs/activity
