@@ -18,10 +18,15 @@
                     <hr>
                     <nav role="navigation">
                         <ol class="article-section-nav__list">
+                            <#if document.summary?has_content>
                             <li><a href="#section-summary">Summary</a></li>
+                            </#if>
+
                             <#if document.sections?has_content>
                             <#list document.sections as section>
+                            <#if section.title?has_content>
                             <li><a href="#section-${section?index+1}">${section.title}</a></li>
+                            </#if>
                             </#list>
                             </#if>
 
@@ -38,11 +43,13 @@
                     <h1>${document.title}</h1>
                 </div>
 
-                <#-- BEGIN mandatory 'summary section' -->
+                <#-- BEGIN optional 'summary section' -->
+                <#if document.summary?has_content>
                 <section id="section-summary" class="article-section article-section--summary article-section--summary-with-border">
                     <p>${document.summary}</p>
                 </section>
-                <#-- END mandatory 'summary section' -->
+                </#if>
+                <#-- END optional 'summary section' -->
 
                 <#-- BEGIN optional 'Sections' -->
                 <@articleSections document.sections></@articleSections>
