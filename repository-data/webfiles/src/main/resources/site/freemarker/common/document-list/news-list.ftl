@@ -12,12 +12,11 @@
         <li>
             <article class="cta">
                 <h2 class="cta__title"><a href="#">${item.title}</a></h2>
-                <#-- [TODO:ROB] Display the actual date value! -->
                 <time class="cta__meta" datetime="2018">Date published: 02 January 2018</time>
             </article>
         </li>
     </#list>
     </ol>
 
-    <a href="#" class="button">${buttonLabel}</a>
+    <a href="/news-and-events/latest-news" class="button">${buttonLabel}</a>
 </#if>

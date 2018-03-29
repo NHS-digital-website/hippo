@@ -37,7 +37,7 @@
         
         <div class="grid-row">
             <div class="column">
-                <a href="#" class="link">View the latest publications</a>
+                <a href="search?sort=relevance&area=data" class="link">View the latest publications</a>
             </div>
         </div>
     </div>
