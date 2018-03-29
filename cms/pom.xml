@@ -170,6 +170,13 @@
             <artifactId>hippo-plugin-content-blocks</artifactId>
             <scope>compile</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.onehippo.cms7</groupId>
+            <artifactId>hippo-plugin-robotstxt-addon-repository</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>cms</finalName>
