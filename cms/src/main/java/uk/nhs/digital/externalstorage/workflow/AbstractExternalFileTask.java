@@ -7,19 +7,20 @@ import org.onehippo.cms7.services.eventbus.HippoEventBus;
 import org.onehippo.repository.documentworkflow.DocumentVariant;
 import org.onehippo.repository.documentworkflow.task.AbstractDocumentTask;
 import org.onehippo.repository.events.HippoWorkflowEvent;
+import uk.nhs.digital.JcrQueryHelper;
 import uk.nhs.digital.externalstorage.ExternalStorageConstants;
 import uk.nhs.digital.externalstorage.s3.SchedulingS3Connector;
+import uk.nhs.digital.ps.PublicationSystemConstants;
 
 import java.rmi.RemoteException;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
-import javax.jcr.query.Query;
 import javax.jcr.query.QueryResult;
 
 public abstract class AbstractExternalFileTask extends AbstractDocumentTask {
 
-    private String variantState;
+    protected String variantState;
 
     private SchedulingS3Connector s3Connector;
 
@@ -35,7 +36,7 @@ public abstract class AbstractExternalFileTask extends AbstractDocumentTask {
         variantState = state;
     }
 
-    private DocumentVariant getVariant() {
+    protected DocumentVariant getVariant() {
         return getDocumentHandle().getDocuments().get(variantState);
     }
 
@@ -48,36 +49,26 @@ public abstract class AbstractExternalFileTask extends AbstractDocumentTask {
 
         Node variantNode = getVariant().getNode(getWorkflowContext().getInternalWorkflowSession());
 
-        for (NodeIterator i = findResourceNodes(variantNode); i.hasNext(); ) {
-            Node doc = i.nextNode();
-            if (doc.hasProperty(ExternalStorageConstants.PROPERTY_EXTERNAL_STORAGE_REFERENCE)) {
-                String externalResource = doc
-                    .getProperty(ExternalStorageConstants.PROPERTY_EXTERNAL_STORAGE_REFERENCE)
-                    .getString();
-                setTargetStatus(s3Connector, externalResource);
-            }
-        }
+        setResourcePermission(s3Connector, findResourceNodes(variantNode));
 
         return null;
     }
 
-    private NodeIterator findResourceNodes(Node node) throws RepositoryException {
-        String documentPath = node.getPath();
-
-        //variantNode.
-        String query = "SELECT * FROM [" + ExternalStorageConstants.NODE_TYPE_EXTERNAL_RESOURCE + "] "
-            + "WHERE ISDESCENDANTNODE (['" + documentPath + "'])";
-
-        QueryResult res = node.getSession()
-            .getWorkspace()
-            .getQueryManager()
-            .createQuery(query, Query.JCR_SQL2)
-            .execute();
+    protected NodeIterator findResourceNodes(Node node) throws RepositoryException {
+        QueryResult res = JcrQueryHelper.findDescendantNodes(node, ExternalStorageConstants.NODE_TYPE_EXTERNAL_RESOURCE);
 
         return res.getNodes();
     }
 
-    protected abstract void setTargetStatus(SchedulingS3Connector s3, String objectKey);
+    protected  NodeIterator findPublicationDatasetsVariant(Node node, String variant) throws RepositoryException {
+        Node folder = node.getParent().getParent();
+
+        QueryResult res = JcrQueryHelper.findDescendantVariants(folder, PublicationSystemConstants.NODE_TYPE_DATASET, variant);
+
+        return res.getNodes();
+    }
+
+    protected abstract void setResourcePermission(SchedulingS3Connector s3, final NodeIterator resourceNodes) throws RepositoryException, WorkflowException;
 
     public void logInCmsActivityStream(final String documentPath, final String message) {
         final HippoEventBus eventBus = HippoServiceRegistry.getService(HippoEventBus.class);
