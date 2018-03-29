@@ -3,14 +3,17 @@ BUILD_DIR ?= ../../ps-build
 ENV ?= tst
 HIPPO_MAVEN_PASSWORD ?=
 HIPPO_MAVEN_USERNAME ?=
-TRAVIS_EVENT_TYPE ?=
 HOME ?= $(shell printenv HOME)
 OD_ENV = $(shell bash ondemand-env-name $(ENV))
 PWD = $(shell pwd)
 RD_CONF = $(PWD)/rd.conf
+RELEASE_DATE = $(shell d=1; while (($$(date -v +$${d}d +%u) >= 6)); do ((++d)); done; date -v +$${d}d +%d/%m/%Y)
+RELEASE_TIME_UTC = $(shell ((noon_utc=12-$$(date +%-H)+$$(TZ=UTC-24 date +%-H))); echo $${noon_utc}:05:00)
 TRAVIS_BUILD_CMD ?= test.site
+TRAVIS_EVENT_TYPE ?=
 VENV ?= $(PWD)/.venv
-VERSION ?= $(shell git describe --tags --match "$$(cat $(PWD)/../.version)*")
+VERSION ?= $(shell git describe --tags --match "$(VERSION_BASE)*")
+VERSION_BASE ?= $(shell cat "$(PWD)/../.version")
 
 PATH := $(VENV)/bin:$(PWD)/bin:$(PWD)/vendor:$(shell printenv PATH)
 SHELL := env PATH=$(PATH) /bin/bash
@@ -103,15 +106,15 @@ git.update-environment-tag:
 	git tag --force $(ENV) $(VERSION)
 	git push --force --no-verify origin tag $(ENV)
 
-## Upload build artefact
+## Upload build artefact to AWS
 upload: $(VENV)
 	@echo "Task: upload Hippo $(VERSION) build distribution to S3 bucket"
 	aws s3 \
 		cp ../target/website-$(VERSION)-cms-distribution.tar.gz \
-		s3://artefacts.ps.digital.nhs.uk/hippo_authoring/$(VERSION)/website.tgz
+		s3://artefacts.mgt.nhsd.io/hippo_authoring/$(VERSION)/website.tgz
 	aws s3 \
 		cp ../target/website-$(VERSION)-site-distribution.tar.gz \
-		s3://artefacts.ps.digital.nhs.uk/hippo_delivery/$(VERSION)/website.tgz
+		s3://artefacts.mgt.nhsd.io/hippo_delivery/$(VERSION)/website.tgz
 
 ## Upload distribution file to ondemand sftp server
 ondemand.upload:
@@ -122,10 +125,33 @@ ondemand.upload:
 # Usage: make ondemand.deploy ENV=tst RD_CONF=my-rd.conf
 #        make ondemand.deploy ENV=uat RD_CONF=my-rd.conf
 #        make ondemand.deploy ENV=prd RD_CONF=my-rd.conf
+#
+#        manually specify version (previously uploaded to on-demand)
+#        make ondemand.deploy ENV=tst VERSION=v2.0.10 RD_CONF=my-rd.conf
 ondemand.deploy: vendor/rd
-	source $(RD_CONF) && vendor/rd run -p nhs -j "jobs/$(OD_ENV)/Deploy" -- \
+	source $(RD_CONF) && vendor/rd run \
+		--project nhs \
+		-job "jobs/$(OD_ENV)/Deploy" \
+		-- \
 		-bootstrap full \
 		-distribution "$(VERSION).tar.gz"
+
+## Schedule deployment of the "rc" tag for next working day
+# Please make note this does not take into account bank holidays.
+#
+# Usage: make ondemand.schedule-deploy ENV=tst
+#        make ondemand.schedule-deploy ENV=uat RD_CONF=my-rd.conf
+#
+#        3am (2am UTC) automated deploy on 28th Feb
+#        make ondemand.schedule-deploy ENV=uat RD_CONF=my-rd.conf RELEASE_DATE=28/02/2018 RELEASE_TIME_UTC=02:00:00
+ondemand.schedule-deploy: vendor/rd
+	source $(RD_CONF) && vendor/rd run \
+		--at $(RELEASE_DATE)T$(RELEASE_TIME_UTC)Z\
+		--project nhs \
+		--job "jobs/$(OD_ENV)/Deploy" \
+		-- \
+		-bootstrap full \
+		-distribution "$$(git describe --tags --match $(VERSION_BASE)* rc).tar.gz"
 
 ondemand.restart: vendor/rd
 	vendor/rd run -p nhs -j "jobs/$(OD_ENV)/Control" -- \
