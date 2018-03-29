@@ -19,7 +19,7 @@
                     <#else>
                         <#assign link=item.external/>
                     </#if>
-                    <a href="#" class="cta__button button">${item.label}</a>
+                    <a href="${link}" class="cta__button button">${item.label}</a>
                 </div>
             </div>
           </#list>

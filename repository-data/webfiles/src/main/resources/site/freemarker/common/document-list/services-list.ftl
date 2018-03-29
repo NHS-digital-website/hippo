@@ -38,6 +38,6 @@
 </div>
 <div class="grid-row">
     <div class="column column--reset">
-        <a href="#" class="button">${buttonLabel}</a>
+        <a href="/services" class="button">${buttonLabel}</a>
     </div>
 </div>
