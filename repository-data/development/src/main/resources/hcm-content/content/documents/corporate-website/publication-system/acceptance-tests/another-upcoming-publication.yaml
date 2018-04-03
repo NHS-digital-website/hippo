@@ -13,6 +13,7 @@
       - Falls
       - Infectious diseases
       - Workforce
+      common:searchRank: 4
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -54,6 +55,7 @@
       - Falls
       - Infectious diseases
       - Workforce
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - preview
@@ -97,6 +99,7 @@
       - Falls
       - Infectious diseases
       - Workforce
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - live

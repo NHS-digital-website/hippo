@@ -2,6 +2,7 @@
 /content/documents/corporate-website/publication-system/acceptance-tests/upcoming-publication/content:
   /content[1]:
     common:FacetType: publication
+    common:searchRank: 4
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
@@ -42,6 +43,7 @@
     publicationsystem:Title: Upcoming Publication
   /content[2]:
     common:FacetType: publication
+    common:searchRank: 4
     common:searchable: true
     hippo:availability:
     - preview
@@ -84,6 +86,7 @@
     publicationsystem:Title: Upcoming Publication
   /content[3]:
     common:FacetType: publication
+    common:searchRank: 4
     common:searchable: true
     hippo:availability:
     - live

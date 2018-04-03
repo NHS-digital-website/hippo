@@ -3,6 +3,7 @@
   /2017:
     /2017[1]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -26,6 +27,7 @@
       publicationsystem:Title: Publication 2017
     /2017[2]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - preview
@@ -51,6 +53,7 @@
       publicationsystem:Title: Publication 2017
     /2017[3]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - live
@@ -80,6 +83,7 @@
   /2018:
     /2018[1]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -103,6 +107,7 @@
       publicationsystem:Title: A publication 2018
     /2018[2]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - preview
@@ -128,6 +133,7 @@
       publicationsystem:Title: A publication 2018
     /2018[3]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - live
@@ -157,6 +163,7 @@
   /2019:
     /2019[1]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -180,6 +187,7 @@
       publicationsystem:Title: Latest 2019
     /2019[2]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - preview
@@ -205,6 +213,7 @@
       publicationsystem:Title: Latest 2019
     /2019[3]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - live
@@ -234,7 +243,7 @@
   /content:
     /content[1]:
       common:FacetType: series
-      common:searchRank: 1
+      common:searchRank: 5
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -252,7 +261,7 @@
       publicationsystem:Title: Series without latest
     /content[2]:
       common:FacetType: series
-      common:searchRank: 1
+      common:searchRank: 5
       common:searchable: true
       hippo:availability:
       - preview
@@ -272,7 +281,7 @@
       publicationsystem:Title: Series without latest
     /content[3]:
       common:FacetType: series
-      common:searchRank: 1
+      common:searchRank: 5
       common:searchable: true
       hippo:availability:
       - live

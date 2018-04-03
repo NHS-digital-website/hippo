@@ -72,6 +72,7 @@
         publicationsystem:linkText: Sky website
         publicationsystem:linkUrl: http://www.sky.com
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -164,6 +165,7 @@
         publicationsystem:linkText: Sky website
         publicationsystem:linkUrl: http://www.sky.com
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - preview
@@ -258,6 +260,7 @@
         publicationsystem:linkText: Sky website
         publicationsystem:linkUrl: http://www.sky.com
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - live

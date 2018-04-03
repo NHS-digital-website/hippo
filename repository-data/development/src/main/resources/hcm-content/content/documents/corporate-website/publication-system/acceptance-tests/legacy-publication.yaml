@@ -3,7 +3,7 @@
   /content:
     /content[1]:
       common:FacetType: series
-      common:searchRank: 1
+      common:searchRank: 5
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -20,7 +20,7 @@
       publicationsystem:Title: Legacy Publications List
     /content[2]:
       common:FacetType: series
-      common:searchRank: 1
+      common:searchRank: 5
       common:searchable: true
       hippo:availability:
       - preview
@@ -39,7 +39,7 @@
       publicationsystem:Title: Legacy Publications List
     /content[3]:
       common:FacetType: series
-      common:searchRank: 1
+      common:searchRank: 5
       common:searchable: true
       hippo:availability:
       - live
@@ -106,6 +106,7 @@
             <p>Nulla non urna id arcu ullamcorper malesuada. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sodales fermentum nisi. Fusce dignissim orci sit amet imperdiet dapibus. Cras sed arcu nec lorem malesuada gravida.</p>
           jcr:primaryType: hippostd:html
         common:FacetType: publication
+        common:searchRank: 4
         common:searchable: true
         hippo:availability: []
         hippostd:state: draft
@@ -176,6 +177,7 @@
             <p>Nulla non urna id arcu ullamcorper malesuada. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sodales fermentum nisi. Fusce dignissim orci sit amet imperdiet dapibus. Cras sed arcu nec lorem malesuada gravida.</p>
           jcr:primaryType: hippostd:html
         common:FacetType: publication
+        common:searchRank: 4
         common:searchable: true
         hippo:availability:
         - preview
@@ -248,6 +250,7 @@
             <p>Nulla non urna id arcu ullamcorper malesuada. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sodales fermentum nisi. Fusce dignissim orci sit amet imperdiet dapibus. Cras sed arcu nec lorem malesuada gravida.</p>
           jcr:primaryType: hippostd:html
         common:FacetType: publication
+        common:searchRank: 4
         common:searchable: true
         hippo:availability:
         - live

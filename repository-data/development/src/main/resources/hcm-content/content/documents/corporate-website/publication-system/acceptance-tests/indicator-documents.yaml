@@ -17,6 +17,7 @@
       - NHS Outcomes Framework
       - Summary Hospital-level Mortality Indicator (SHMI)
       - Clinical Commissioning Groups Outcomes Framework
+      common:searchRank: 4
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -60,6 +61,7 @@
       - NHS Outcomes Framework
       - Summary Hospital-level Mortality Indicator (SHMI)
       - Clinical Commissioning Groups Outcomes Framework
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - preview
@@ -105,6 +107,7 @@
       - NHS Outcomes Framework
       - Summary Hospital-level Mortality Indicator (SHMI)
       - Clinical Commissioning Groups Outcomes Framework
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - live

@@ -267,6 +267,7 @@ definitions:
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
           common:FacetType: dataset
+          common:searchRank: 3
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''

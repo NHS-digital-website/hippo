@@ -3,6 +3,7 @@
   /2002:
     /2002[1]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -26,6 +27,7 @@
       publicationsystem:Title: Lorem Ipsum Dolor 2002
     /2002[2]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - preview
@@ -51,6 +53,7 @@
       publicationsystem:Title: Lorem Ipsum Dolor 2002
     /2002[3]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - live
@@ -82,6 +85,7 @@
   /2003:
     /2003[1]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -105,6 +109,7 @@
       publicationsystem:Title: Lorem Ipsum Dolor 2003
     /2003[2]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - preview
@@ -130,6 +135,7 @@
       publicationsystem:Title: Lorem Ipsum Dolor 2003
     /2003[3]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - live
@@ -161,6 +167,7 @@
   /2004:
     /2004[1]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -184,6 +191,7 @@
       publicationsystem:Title: Lorem Ipsum Dolor 2004
     /2004[2]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - preview
@@ -209,6 +217,7 @@
       publicationsystem:Title: Lorem Ipsum Dolor 2004
     /2004[3]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - live
@@ -240,6 +249,7 @@
   /content:
     /content[1]:
       common:FacetType: series
+      common:searchRank: 1
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -270,6 +280,7 @@
       publicationsystem:Title: Time Archive Lorem Ipsum Dolor
     /content[2]:
       common:FacetType: series
+      common:searchRank: 1
       common:searchable: true
       hippo:availability:
       - preview
@@ -302,6 +313,7 @@
       publicationsystem:Title: Time Archive Lorem Ipsum Dolor
     /content[3]:
       common:FacetType: series
+      common:searchRank: 1
       common:searchable: true
       hippo:availability:
       - live

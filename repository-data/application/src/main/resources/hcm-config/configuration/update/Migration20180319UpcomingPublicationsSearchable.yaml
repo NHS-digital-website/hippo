@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:configuration/hippo:update/hippo:registry/Migration-20180319-SearchRank:
+    /hippo:configuration/hippo:update/hippo:registry/Migration-20180319-SearchableFlag:
       hipposys:batchsize: 10
       hipposys:description: ''
       hipposys:dryrun: false

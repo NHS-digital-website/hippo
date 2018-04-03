@@ -25,6 +25,7 @@
     - conditions
     common:SearchableTags:
     - Conditions
+    common:searchRank: 3
     common:searchable: true
     hippo:availability:
     - preview
@@ -88,6 +89,7 @@
     - conditions
     common:SearchableTags:
     - Conditions
+    common:searchRank: 3
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
@@ -150,6 +152,7 @@
     - conditions
     common:SearchableTags:
     - Conditions
+    common:searchRank: 3
     common:searchable: true
     hippo:availability:
     - live

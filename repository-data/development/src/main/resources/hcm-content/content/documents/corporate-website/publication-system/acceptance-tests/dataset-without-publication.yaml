@@ -3,6 +3,7 @@
   /dataset-without-publication:
     /dataset-without-publication[1]:
       common:FacetType: dataset
+      common:searchRank: 3
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -24,6 +25,7 @@
       publicationsystem:Title: Dataset without publication
     /dataset-without-publication[2]:
       common:FacetType: dataset
+      common:searchRank: 3
       common:searchable: true
       hippo:availability:
       - preview
@@ -47,6 +49,7 @@
       publicationsystem:Title: Dataset without publication
     /dataset-without-publication[3]:
       common:FacetType: dataset
+      common:searchRank: 3
       common:searchable: true
       hippo:availability:
       - live

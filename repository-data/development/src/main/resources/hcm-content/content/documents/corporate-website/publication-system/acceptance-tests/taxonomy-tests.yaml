@@ -10,6 +10,7 @@
       - SynonymTest Test
       - Other Synonym
       - SynonymSearchTerm
+      common:searchRank: 3
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -40,6 +41,7 @@
       - SynonymTest Test
       - Other Synonym
       - SynonymSearchTerm
+      common:searchRank: 3
       common:searchable: true
       hippo:availability:
       - preview
@@ -72,6 +74,7 @@
       - SynonymTest Test
       - Other Synonym
       - SynonymSearchTerm
+      common:searchRank: 3
       common:searchable: true
       hippo:availability:
       - live
@@ -108,6 +111,7 @@
       - acceptance-tests
       common:SearchableTags:
       - TaxonomySearchTerm test
+      common:searchRank: 4
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -138,6 +142,7 @@
       - acceptance-tests
       common:SearchableTags:
       - TaxonomySearchTerm test
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - preview
@@ -170,6 +175,7 @@
       - acceptance-tests
       common:SearchableTags:
       - TaxonomySearchTerm test
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - live

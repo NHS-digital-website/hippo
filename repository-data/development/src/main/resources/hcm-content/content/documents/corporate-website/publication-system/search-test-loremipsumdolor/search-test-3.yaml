@@ -9,6 +9,7 @@
     common:SearchableTags:
     - Circulatory system diseases
     - Dental health
+    common:searchRank: 4
     common:searchable: true
     hippo:availability:
     - preview
@@ -47,6 +48,7 @@
     common:SearchableTags:
     - Circulatory system diseases
     - Dental health
+    common:searchRank: 4
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
@@ -84,6 +86,7 @@
     common:SearchableTags:
     - Circulatory system diseases
     - Dental health
+    common:searchRank: 4
     common:searchable: true
     hippo:availability:
     - live

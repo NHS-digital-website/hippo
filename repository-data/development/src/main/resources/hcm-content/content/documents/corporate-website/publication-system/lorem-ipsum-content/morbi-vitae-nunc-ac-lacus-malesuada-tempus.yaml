@@ -9,6 +9,7 @@
     common:SearchableTags:
     - Infectious diseases
     - Workforce
+    common:searchRank: 4
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
@@ -51,6 +52,7 @@
     common:SearchableTags:
     - Infectious diseases
     - Workforce
+    common:searchRank: 4
     common:searchable: true
     hippo:availability:
     - preview
@@ -95,6 +97,7 @@
     common:SearchableTags:
     - Infectious diseases
     - Workforce
+    common:searchRank: 4
     common:searchable: true
     hippo:availability:
     - live
