@@ -73,12 +73,7 @@ public class ContentPage extends AbstractCmsPage {
 
         GeographicCoverage geographicCoverage = publication.getGeographicCoverage();
         if (geographicCoverage != null) {
-            getGeographicCoverageSection().addGeographicCoverageField();
-            new Select(helper.findElement(
-                By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Geographic Coverage']/../following-sibling::div//select[@class='dropdown-plugin']")
-            )).selectByVisibleText(
-                geographicCoverage.getDisplayValue()
-            );
+            getGeographicCoverageSection().selectCheckbox(publication.getGeographicCoverage().getDisplayValue());
         }
 
         InformationType informationType = publication.getInformationType();

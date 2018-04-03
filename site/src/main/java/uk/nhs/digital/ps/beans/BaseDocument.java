@@ -3,6 +3,7 @@ package uk.nhs.digital.ps.beans;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoDocument;
+import uk.nhs.digital.common.enums.Region;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -62,5 +63,12 @@ public abstract class BaseDocument extends HippoDocument {
         return nominalPublicationDate.isAfter(cutOffPoint)
             ? RestrictableDate.restrictedDateFrom(nominalPublicationDate)
             : RestrictableDate.fullDateFrom(nominalPublicationDate);
+    }
+
+    /**
+    * Convert selected values to appropriate geographic region
+    */
+    protected String[] geographicCoverageValuesToRegionValue(final String[] cmsValues) {
+        return Region.convertGeographicCoverageValues(cmsValues);
     }
 }

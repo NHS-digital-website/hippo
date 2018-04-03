@@ -20,9 +20,9 @@ Feature: Faceted search
             | Audit (1)                   |
             | National statistics (1)     |
         And I should see the list with title "GEOGRAPHICAL COVERAGE" containing:
-            | England (1)       |
-            | International (1) |
-            | Scotland (1)      |
+            | England (1)          |
+            | Northern Ireland (1) |
+            | Scotland (1)         |
         And I should see the list with title "GEOGRAPHICAL GRANULARITY" containing:
             | Cancer networks (2)  |
             | Ambulance Trusts (1) |

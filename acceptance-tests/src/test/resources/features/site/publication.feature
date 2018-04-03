@@ -113,3 +113,22 @@ Feature: Ensure publication page displays required fields.
         Then I should also see:
             | Publication Information Types | Experimental statistics       |
         And I should not see element with title "National statistics"
+
+    Scenario: Sectioned body
+        Given I have a sectioned publication
+        When I navigate to the "sectioned publication" page
+        Then I can see the sectioned publication body
+
+    Scenario: Geographic Coverage displays appropriate label based on selections
+        Given I navigate to the "Geographic Coverage - Great Britain" page
+        Then I should also see:
+            | Publication Geographic Coverage | Great Britain                                  |
+        When I navigate to the "Geographic Coverage - United Kingdom" page
+        Then I should also see:
+            | Publication Geographic Coverage | United Kingdom                                 |
+        When I navigate to the "Geographic Coverage - British Isles" page
+        Then I should also see:
+            | Publication Geographic Coverage | British Isles                                  |
+        When I navigate to the "Geographic Coverage - Other combination" page
+        Then I should also see:
+            | Publication Geographic Coverage | England, Northern Ireland, Republic of Ireland |

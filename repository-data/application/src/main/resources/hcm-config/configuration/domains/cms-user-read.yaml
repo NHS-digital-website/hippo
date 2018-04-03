@@ -2,6 +2,15 @@
 definitions:
   config:
     /hippo:configuration/hippo:domains/cms-user-read:
+      /administration-node:
+        /node-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/administration
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
       /assets-node:
         /node-by-uuid:
           hipposys:equals: true

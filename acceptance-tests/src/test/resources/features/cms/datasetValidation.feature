@@ -70,14 +70,6 @@ Feature: Dataset edit screen - validation
 
 
     @DiscardAfter
-    Scenario: Blank Geographic Coverage field rejection
-        Given I have a publication opened for editing
-        When I add an empty Geographic Coverage field
-        And I save the publication
-        Then the save is rejected with error message containing "Geographic Coverage has a 'Choose One' placeholder without a value."
-
-
-    @DiscardAfter
     Scenario: Blank Resource Links field rejection
         Given I have a dataset opened for editing
         When I add an empty resource link field

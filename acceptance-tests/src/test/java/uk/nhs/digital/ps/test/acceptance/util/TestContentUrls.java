@@ -155,6 +155,17 @@ public class TestContentUrls {
 
         add("Data and information",
             "/data-and-information");
+
+        // Geographic coverage publications
+        add("Geographic Coverage - Great Britain",
+            "/data-and-information/publications/acceptance-tests/geographiccoverage-test/great-britain");
+        add("Geographic Coverage - United Kingdom",
+            "/data-and-information/publications/acceptance-tests/geographiccoverage-test/united-kingdom");
+        add("Geographic Coverage - British Isles",
+            "/data-and-information/publications/acceptance-tests/geographiccoverage-test/british-isles");
+        add("Geographic Coverage - Other combination",
+            "/data-and-information/publications/acceptance-tests/geographiccoverage-test/other-combination");
+
     }
 
     private String getAttachmentUrl(String siteUrl, String attachmentTag) {

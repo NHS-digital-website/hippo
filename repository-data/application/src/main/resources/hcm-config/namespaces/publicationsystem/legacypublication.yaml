@@ -127,38 +127,16 @@ definitions:
           /GeographicCoverage:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: England,Great Britain,International,Northern Ireland,Scotland,UK,Wales
+              source: /content/documents/administration/value-lists/geographic-coverage
             caption: Geographic Coverage
-            field: geographic_coverage
-            hint: ''
+            field: GeographicCoverage
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.css:
-            - geographic-coverage
-            wicket.id: ${cluster.id}.right.item
-          /Granularity:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              selectable.options: Ambulance Trusts,Cancer networks,Care Trusts,Census
-                Area Statistics Wards,Clinical Commissioning Area Teams,Clinical Commissioning
-                Groups,Clinical Commissioning Regions,Community health services,Councils
-                with Adult Social Services Responsibilities (CASSRs),Country,County,Crime
-                & disorder reduction partnership,Dental practices,Deprivation,Education
-                Authority,Government Office Regions,GP practices,Health Education
-                England Region,Hospital and Community Health Services,Hospital Trusts,Independent
-                Sector Health Care Providers,Local Authorities,London Authorities,Mental
-                Health Trusts,Middle Layer Super Output Areas,NHS Health Boards,NHS
-                Trusts,ONS Area Classification,Parliamentary constituency,Pharmacies
-                and clinics,Primary Care Organisations,Primary Care Trusts,Provider,Provider
-                clusters,Regional health body,Regions,Strategic Health Authorities,Sustainability
-                and Transformation Partnerships,Wards
-            caption: Granularity
-            field: granularity
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.css:
-            - granularity
+            multiselect.type: checkboxes
+            palette.alloworder: false
+            palette.maxrows: '10'
+            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
+            selectlist.maxrows: '10'
+            valuelist.provider: service.valuelist.default
             wicket.id: ${cluster.id}.right.item
           /KeyFacts:
             /cluster.options:
@@ -212,6 +190,30 @@ definitions:
             wicket.css:
             - administrative-sources
             wicket.id: ${cluster.id}.left.item
+          /Granularity:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: Ambulance Trusts,Cancer networks,Care Trusts,Census
+                Area Statistics Wards,Clinical Commissioning Area Teams,Clinical Commissioning
+                Groups,Clinical Commissioning Regions,Community health services,Councils
+                with Adult Social Services Responsibilities (CASSRs),Country,County,Crime
+                & disorder reduction partnership,Dental practices,Deprivation,Education
+                Authority,Government Office Regions,GP practices,Health Education
+                England Region,Hospital and Community Health Services,Hospital Trusts,Independent
+                Sector Health Care Providers,Local Authorities,London Authorities,Mental
+                Health Trusts,Middle Layer Super Output Areas,NHS Health Boards,NHS
+                Trusts,ONS Area Classification,Parliamentary constituency,Pharmacies
+                and clinics,Primary Care Organisations,Primary Care Trusts,Provider,Provider
+                clusters,Regional health body,Regions,Strategic Health Authorities,Sustainability
+                and Transformation Partnerships,Wards
+            caption: Granularity
+            field: granularity
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.css:
+            - granularity
+            wicket.id: ${cluster.id}.right.item
           /gossid:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -233,6 +235,14 @@ definitions:
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
+          /GeographicCoverage:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:GeographicCoverage
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           /ResourceLinks:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
@@ -274,16 +284,6 @@ definitions:
             hipposysedit:path: publicationsystem:CoverageStart
             hipposysedit:primary: false
             hipposysedit:type: CalendarDate
-            jcr:primaryType: hipposysedit:field
-          /geographic_coverage:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:GeographicCoverage
-            hipposysedit:primary: false
-            hipposysedit:type: StaticDropdown
-            hipposysedit:validators:
-            - publicationsystem-blank-geographic-coverage
             jcr:primaryType: hipposysedit:field
           /gossid:
             hipposysedit:mandatory: false
@@ -417,6 +417,7 @@ definitions:
           publicationsystem:AdministrativeSources: ''
           publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
           publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+          publicationsystem:GeographicCoverage: []
           publicationsystem:NominalDate: 0001-01-01T12:00:00Z
           publicationsystem:PubliclyAccessible: false
           publicationsystem:Title: ''

@@ -122,11 +122,16 @@ definitions:
           /GeographicCoverage:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: England,Great Britain,International,Northern Ireland,Scotland,UK,Wales
+              source: /content/documents/administration/value-lists/geographic-coverage
             caption: Geographic Coverage
             field: GeographicCoverage
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            multiselect.type: checkboxes
+            palette.alloworder: false
+            palette.maxrows: '10'
+            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
+            selectlist.maxrows: '10'
+            valuelist.provider: service.valuelist.default
             wicket.id: ${cluster.id}.right.item
           /Granularity:
             /cluster.options:
@@ -187,9 +192,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: publicationsystem:GeographicCoverage
             hipposysedit:primary: false
-            hipposysedit:type: StaticDropdown
-            hipposysedit:validators:
-            - publicationsystem-blank-geographic-coverage
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           /Granularity:
             hipposysedit:mandatory: false
@@ -282,6 +285,7 @@ definitions:
           jcr:primaryType: publicationsystem:dataset
           publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
           publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+          publicationsystem:GeographicCoverage: []
           publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
           publicationsystem:NominalDate: 0001-01-01T12:00:00Z
           publicationsystem:Summary: ''

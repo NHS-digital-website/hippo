@@ -232,12 +232,6 @@ public class CmsSteps extends AbstractSpringSteps {
         contentPage.getGranularitySection().addGranularityField();
     }
 
-    // Scenario: Blank Geographic Coverage field rejection =====================================================================
-    @When("^I add an empty Geographic Coverage field$")
-    public void whenIAddAnEmptyGeographicCoverageField() throws Throwable {
-        contentPage.getGeographicCoverageSection().addGeographicCoverageField();
-    }
-
     // Scenario: Blank related link rejection =========================================================================
     @When("^I add an empty related link field$")
     public void whenIAddAnEmptyRelatedLinkField() throws Throwable {

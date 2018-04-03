@@ -5,6 +5,7 @@ import org.apache.cxf.common.util.CollectionUtils;
 import org.hippoecm.hst.content.beans.Node;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.ps.beans.Attachment;
+import uk.nhs.digital.ps.beans.BaseDocument;
 import uk.nhs.digital.ps.beans.HippoBeanHelper;
 
 import java.util.Calendar;
@@ -52,7 +53,7 @@ public class Indicator extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.GEOGRAPHIC_COVERAGE)
     public String[] getGeographicCoverage() {
-        return getProperty(PropertyKeys.GEOGRAPHIC_COVERAGE);
+        return geographicCoverageValuesToRegionValue(getProperty(PropertyKeys.GEOGRAPHIC_COVERAGE));
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.TAXONOMY)
