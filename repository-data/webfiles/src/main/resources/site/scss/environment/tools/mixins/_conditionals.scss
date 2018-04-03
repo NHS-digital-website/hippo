@@ -29,7 +29,11 @@
       }
     }
   } @else {
-    @if $size == desktop {
+    @if $size == wide {
+      @media (min-width: 1520px) {
+        @content;
+      }
+    } @else if $size == desktop {
       @media (min-width: 925px) {
         @content;
       }

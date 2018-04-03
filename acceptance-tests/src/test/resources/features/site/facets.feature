@@ -7,6 +7,7 @@ Feature: Faceted search
     Scenario: All expected facets are displayed
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"
+        And I click on the accept cookie banner
         Then I should see the list with title "DOCUMENT TYPE" containing:
             | Publication (2) |
             | Data set (1)    |
@@ -40,6 +41,7 @@ Feature: Faceted search
     Scenario: All expected NIL facets are displayed
         Given I navigate to the "home" page
         When I search for "NilTaxonomySearchTerm"
+        And I click on the accept cookie banner
         Then I should see the list with title "DOCUMENT TYPE" containing:
             | Methodology (3) |
         And I should see the list with title "CATEGORY/TOPIC" containing:
@@ -65,6 +67,7 @@ Feature: Faceted search
     Scenario: Months are shown when a year is selected
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"
+        And I click on the accept cookie banner
         And I click on the "2018" link
         Then I should see the list with title "MONTH" containing:
             | January (2) |
@@ -80,6 +83,7 @@ Feature: Faceted search
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"
         Then I should see 3 search results
+        And I click on the accept cookie banner
         When I click on the "Publication" link
         Then I should see 2 search results
         And I should see the list with title "DOCUMENT TYPE" containing:
@@ -97,6 +101,7 @@ Feature: Faceted search
     Scenario: Sticky facets when searching for new queries
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"
+        And I click on the accept cookie banner
         And I click on the "Publication" link
         And I click on the "2018" link
         Then I should see 1 search results
@@ -110,6 +115,7 @@ Feature: Faceted search
     Scenario: Reset facets
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"
+        And I click on the accept cookie banner
         And I click on the "Social care" link
         And I click on the "England" link
         Then I should see 1 search results
@@ -123,6 +129,7 @@ Feature: Faceted search
     Scenario: Sort by maintains selected facets
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"
+        And I click on the accept cookie banner
         And I click on the "Conditions" link
         And I click on the "Cancer networks" link
         And I click on the "Order by date" link
@@ -134,6 +141,7 @@ Feature: Faceted search
 
     Scenario: Upcoming publications are returned
         Given I navigate to the "search" page
+        And I click on the accept cookie banner
         Then I should see the list with title "PUBLICATION STATUS" containing:
             | Published ( ... |
             | Upcoming (2) |

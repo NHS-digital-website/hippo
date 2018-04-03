@@ -13,10 +13,10 @@
 
     <#assign sectionClassName = "article-section article-section--letter-group"/>
     <#if matchesFound == blockGroups?size>
-        <#assign sectionClassName = "article-section article-section--letter-group article-section--last-one"/>
+        <#assign sectionClassName = "article-section article-section--letter-group"/>
     </#if>
 
-    <section class="${sectionClassName}" id="section-${letter}">
+    <div class="${sectionClassName}" id="section-${letter}">
         <div class="grid-row sticky-top">
             <div class="column column--reset">
                 <div class="article-header article-header--tertiary">
@@ -46,7 +46,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
     </#if>
 </#list>
 </#if>

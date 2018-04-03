@@ -14,7 +14,7 @@
 }
 
 .button--warning {
-  @include button($col-octonary, $col-16);
+    @include button($col-octonary, $col-16);
 }
 
 .button--tertiary {
@@ -25,4 +25,10 @@
     padding: 2px 12px 1px;
 
     @include core-font(16);
+}
+
+.button--tiny {
+    padding: 3px 8px 2px;
+
+    @include core-font(14);
 }

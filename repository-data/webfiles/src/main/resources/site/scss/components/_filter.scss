@@ -1,0 +1,202 @@
+/* Filter */
+.filter {
+    margin: 0 0 40px;
+    background-color: $col-duodenary;
+
+    @include media($min-width: $min-desktop-width) {
+        margin-right: $gutter * 2;
+    }
+}
+
+/* Filter head */
+.filter-head {
+    padding: $gutter;
+    border-bottom: 1px solid $col-15;
+
+    @include clearfix;
+
+    .filter-head__title {
+        float: left;
+        user-select: none;
+    }
+
+    .filter-head__reset {
+        float: right;
+        top: 1px;
+    }
+}
+
+/* Filter Sections */
+// Show section by default
+.filter-section {
+    border-top: 1px solid $col-15;
+
+    &:first-child {
+        border-top: none;
+    }
+
+    .filter-section__title {
+        display: block;
+        padding: $gutter $gutter * 2 $gutter $gutter;
+        line-height: 1.2;
+        user-select: none;
+    }
+
+    .filter-section__contents {
+        padding: 0 $gutter $gutter;
+    }
+
+    /* Unless you add the filter-section--collapse class */
+    /* Then hide behind an accordion */
+    &.filter-section--toggles {
+        .filter-section__title {
+            position: relative;
+            cursor: pointer;
+
+            &:after {
+                position: absolute;
+                right: 14px;
+                top: 50%;
+                margin-top: -15px;
+                content: "+";
+                text-align: center;
+                font-size: 22px;
+                min-width: 20px;
+            }
+
+            &:hover {
+                &:after {
+                    opacity: 0.75;
+                }
+            }
+        }
+
+        .filter-section__contents {
+            display: none;
+        }
+    }
+
+    &.is-open {
+        .filter-section__title:after {
+            content: "-";
+        }
+
+        .filter-section__contents {
+            display: block;
+        }
+    }
+
+    &:hover {
+        background: rgba($col-16, 0.02);
+    }
+}
+
+/* Filter list */
+.filter-list {
+    padding-left: 0;
+    list-style: none;
+
+    ul {
+        list-style: none;
+        padding-left: 10px;
+    }
+
+    .filter-list__item {
+        padding: 2px 8px 2px 0;
+        display: block;
+
+        @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+            display: inline-block;
+            padding-right: 0;
+        }
+
+        &.is-hidden {
+            display: none;
+        }
+    }
+
+    .filter-list__controller a {
+        color: $col-primary;
+        padding: 8px 16px;
+        display: inline-block;
+
+        @include core-font(14);
+    }
+}
+
+.filter-list__item--no-children {
+    .filter-link,  {
+        background-image: none;
+        padding-left: 8px;
+        padding-right: 8px;
+        background-color: $col-15;
+
+        &.filter-link--selected {
+            background-color: $col-septenary;
+            padding-right: 22px;
+        }
+    }
+}
+
+/* Expand link if over 10 items */
+.filter-vis-toggles {
+    padding-top: round($gutter * 0.5);
+
+    .filter-vis-toggle {
+        display: inline-block;
+        color: $col-primary;
+
+        @include core-font(14);
+
+        &.is-hidden {
+            display: none;
+        }
+    }
+
+}
+
+/* Filter link */
+a.filter-link {
+    display: inline-block;
+    position: relative;
+    color: $col-quinary;
+    padding: 5px 24px 5px 20px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    border-radius: 3px;
+    background-position: 7px 9px;
+    background-repeat: no-repeat;
+    background-size: 8px;
+    background-image: image-url("icon-filter.png");
+    line-height: 18px;
+
+    @include core-font(14);
+
+    &.filter-link--selected,
+    &.filter-link--active {
+        color: $col-quinary;
+        border: 1px solid $col-15;
+        background-color: $col-septenary;
+        background-image: image-url("icon-filter-down.png");
+
+        &:after {
+            content: "x";
+            position: absolute;
+            top: 50%;
+            right: 7px;
+            font-size: 15px;
+            margin-top: -10px;
+            color: $col-quinary;
+        }
+    }
+
+    &.filter-link--active {
+        padding: 5px 30px 5px 8px;
+        box-shadow: 0 0 0 1px rgba($col-quinary, 0.2);
+
+        &:after {
+            right: 10px;
+            margin-top: -12px;
+        }
+    }
+}

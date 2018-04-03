@@ -1,7 +1,12 @@
 /* Breadcrumb */
-
 .breadcrumb {
-    padding: round($gutter * 1.375) $gutter;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    padding: round($gutter * 1.375) 0;
+    vertical-align: middle;
+
+    @include clearfix;
 
     li,
     a {
@@ -9,9 +14,15 @@
     }
 }
 
+.breadcrumb__link,
+.breadcrumb__sep {
+    display: inline-block;
+}
+
 .breadcrumb__link {
     text-decoration: none;
     color: $col-primary;
+    
     @include core-font(16);
 
     &:hover {
@@ -21,8 +32,6 @@
 }
 
 .breadcrumb__sep {
-    position: relative;
-    display: inline-block;
     height: round($gutter * 0.5);
     width: auto;
     margin: 0;

@@ -2,47 +2,25 @@
 <#include "../../include/imports.ftl">
 <#include "../macro/siteHeader.ftl">
 
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
 <#include "../app-layout-head.ftl">
 
-<body class="debugs">
-    <#include "../cookie-banner.ftl"/>
+<body class="debugs static-ui">    
+    <#include "shared/nav.ftl"/>
     
-    <#include "../scripts/live-engage-chat.ftl"/>
-    
-    <nav class="static-ui-menu">
-        <div class="grid-wrapper grid-wrapper--wide">
-            <ul class="list list--reset list--inline">
-                <li>
-                    <a href="/static-ui/home">Home page</a>
-                </li>
-                <li>
-                    <a href="/static-ui/service">Service document</a>
-                </li>
-                <li>
-                    <a href="/static-ui/standard">General document</a>
-                </li>
-                <li>
-                    <a href="/static-ui/hub">Hub page</a>
-                </li>
-                <li>
-                    <a href="/static-ui/list">List page</a>
-                </li>
-                <li>
-                    <a href="/static-ui/filtered-list">Filtered list page</a>
-                </li>
-                <li>
-                    <a href="/static-ui/icons">Icons</a>
-                </li>
-            </ul>
-        </div>
-        <hr>
-    </nav>
+    <@siteHeader true></@siteHeader>
+
+    <#include "shared/breadcrumb.ftl"/>
 
     <main role="main">
         <@hst.include ref="main"/>
     </main>
 
     <#include "../site-footer.ftl"/>
+
+    <#include "../cookie-banner.ftl"/>
 
     <@hst.headContributions categoryIncludes="htmlBodyEnd, scripts" xhtml=true/>
 </body>

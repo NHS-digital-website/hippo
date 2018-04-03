@@ -4,151 +4,184 @@
 <#assign dateFormat="dd/MM/yyyy"/>
 
 <#macro searchResults items>
-    <#list items as document>
-        <#if document.class.name == "uk.nhs.digital.ps.beans.Publication">
-            <@publication item=document />
-        <#elseif document.class.name == "uk.nhs.digital.ps.beans.LegacyPublication">
-            <@legacypublication item=document />
-        <#elseif document.class.name == "uk.nhs.digital.ps.beans.Archive">
-            <@archive item=document />
-        <#elseif document.class.name == "uk.nhs.digital.ps.beans.Series">
-            <@series item=document />
-        <#elseif document.class.name == "uk.nhs.digital.ps.beans.Dataset">
-            <@dataset item=document />
-        <#elseif document.class.name == "uk.nhs.digital.nil.beans.Indicator">
-            <@indicator item=document />
-        <#elseif document.class.name == "uk.nhs.digital.website.beans.Service">
-            <@service item=document />
-        <#elseif document.class.name == "uk.nhs.digital.website.beans.General" ||
-                 document.class.name == "uk.nhs.digital.website.beans.Hub">
-            <@general item=document />
-        </#if>
-    </#list>
+    <div class="cta-list">
+        <#list items as document>
+            <#if document.class.name == "uk.nhs.digital.ps.beans.Publication">
+                <@publication item=document />
+            <#elseif document.class.name == "uk.nhs.digital.ps.beans.LegacyPublication">
+                <@legacypublication item=document />
+            <#elseif document.class.name == "uk.nhs.digital.ps.beans.Archive">
+                <@archive item=document />
+            <#elseif document.class.name == "uk.nhs.digital.ps.beans.Series">
+                <@series item=document />
+            <#elseif document.class.name == "uk.nhs.digital.ps.beans.Dataset">
+                <@dataset item=document />
+            <#elseif document.class.name == "uk.nhs.digital.nil.beans.Indicator">
+                <@indicator item=document />
+            <#elseif document.class.name == "uk.nhs.digital.website.beans.Service">
+                <@service item=document />
+            <#elseif document.class.name == "uk.nhs.digital.website.beans.General" ||
+                     document.class.name == "uk.nhs.digital.website.beans.Hub">
+                <@general item=document />
+            </#if>
+        </#list>
+    </div>
 </#macro>
 
 <#macro publication item>
-    <div class="push-double--bottom" data-uipath="ps.search-results.result">
-        <h3 class="flush zeta" data-uipath="ps.search-results.result.type" style="font-weight:bold"><@fmt.message key="labels.publication"/></h3>
-        <#if item.publiclyAccessible && item.informationType?has_content>
-            <#list item.informationType as type>
-                <#if type == "National statistics">
-                    <div class="media__icon--national-statistics" data-uipath="ps.search-results.result.national-statistics" title="National Statistics"></div>
-                    <#break>
-                </#if>
-            </#list>
+    <#assign stampedPublication = false />
+    <#if item.publiclyAccessible && item.informationType?has_content>
+        <#list item.informationType as type>
+            <#if type == "National statistics">
+                <#assign stampedPublication = true />
+                <#break>
+            </#if>
+        </#list>
+    </#if>
+
+    <div class="cta cta--detailed ${stampedPublication?then(" cta--stamped", "")}" data-uipath="ps.search-results.result">
+        <#if stampedPublication>
+            <div class="cta__stamped-header">
+                <div class="cta__stamped-header-col cta__stamped-header-col--left">
         </#if>
-        <p class="flush">
-            <a href="<@hst.link hippobean=item.selfLinkBean/>" title="${item.title}" data-uipath="ps.search-results.result.title">
-                ${item.title}
-            </a>
-        </p>
-        <p class="flush zeta" data-uipath="ps.search-results.result.date"><@formatRestrictableDate value=item.nominalPublicationDate/></p>
+        
+        <div>
+            <h3 class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publication"/></h3>
+        </div>
+
+        <a class="cta__title cta__button" href="<@hst.link hippobean=item.selfLinkBean/>" title="${item.title}" data-uipath="ps.search-results.result.title">
+            ${item.title}
+        </a>
+        <span class="cta__meta" data-uipath="ps.search-results.result.date"><@formatRestrictableDate value=item.nominalPublicationDate/></span>
+
+        <#if stampedPublication>
+                </div>
+
+                <div class="cta__stamped-header-col cta__stamped-header-col--right">
+                    <img src="<@hst.webfile  path="images/national-statistics-logo@2x.png"/>" data-uipath="ps.search-results.result.national-statistics" title="National Statistics" class="image-icon image-icon--large" />
+                </div>
+            </div>
+        </#if>
+
         <#if item.publiclyAccessible>
-            <p class="flush" data-uipath="ps.search-results.result.summary"><@truncate text=item.summary.firstParagraph size="300"/></p>
+            <p class="cta__text" data-uipath="ps.search-results.result.summary">
+                <@truncate text=item.summary.firstParagraph size="300"/>
+            </p>
         <#else>
-            <p class="flush" data-uipath="ps.search-results.result.summary"><@fmt.message key="labels.upcoming-publication"/></p>
+            <span class="cta__meta" data-uipath="ps.search-results.result.summary">
+                <@fmt.message key="labels.upcoming-publication"/>
+            </span>
         </#if>
     </div>
 </#macro>
 
 <#macro legacypublication item>
-    <div class="push-double--bottom" data-uipath="ps.search-results.result">
-        <h3 class="flush zeta" data-uipath="ps.search-results.result.type" style="font-weight:bold"><@fmt.message key="labels.publication"/></h3>
-        <p class="flush">
-            <a href="<@hst.link hippobean=item.selfLinkBean/>" title="${item.title}" data-uipath="ps.search-results.result.title">
-                ${item.title}
-            </a>
-        </p>
-        <p class="flush zeta" data-uipath="ps.search-results.result.date"><@formatRestrictableDate value=item.nominalPublicationDate/></p>
+    <div class="cta cta--detailed" data-uipath="ps.search-results.result">
+        <div>
+            <h3 class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publication"/></h3>
+        </div>
+        <a class="cta__title cta__button" href="<@hst.link hippobean=item.selfLinkBean/>" title="${item.title}" data-uipath="ps.search-results.result.title">
+            ${item.title}
+        </a>
+        <span class="cta__meta" data-uipath="ps.search-results.result.date"><@formatRestrictableDate value=item.nominalPublicationDate/></span>
     </div>
 </#macro>
 
 <#macro series item>
-    <div class="push-double--bottom" data-uipath="ps.search-results.result">
-        <h3 class="flush zeta" data-uipath="ps.search-results.result.type" style="font-weight:bold"><@fmt.message key="labels.series"/></h3>
-        <p class="flush">
-            <a href="<@hst.link hippobean=item.selfLinkBean/>" title="${item.title}" data-uipath="ps.search-results.result.title">
-                ${item.title}
+    <div class="cta cta--detailed" data-uipath="ps.search-results.result">
+        <div>
+            <h3 class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.series"/></h3>
+        </div>
+        <a class="cta__title cta__button" href="<@hst.link hippobean=item.selfLinkBean/>" title="${item.title}" data-uipath="ps.search-results.result.title">
+            ${item.title}
+        </a>
+        <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.summary.firstParagraph size="300"/></p>
+        
+        <#if item.latestPublication??>
+        <p class="cta__text" data-uipath="ps.search-results.result.latest-publication">
+            Latest publication:
+            <a href="<@hst.link hippobean=item.latestPublication.selfLinkBean/>" title="${item.latestPublication.title}">
+                ${item.latestPublication.title}
             </a>
         </p>
-        <p class="flush" data-uipath="ps.search-results.result.summary"><@truncate text=item.summary.firstParagraph size="300"/></p>
-        <#if item.latestPublication??>
-            <p class="flush zeta" data-uipath="ps.search-results.result.latest-publication" style="font-weight:bold">
-                Latest publication:
-                <a href="<@hst.link hippobean=item.latestPublication.selfLinkBean/>" title="${item.latestPublication.title}">
-                    ${item.latestPublication.title}
-                </a>
-            </p>
         </#if>
     </div>
 </#macro>
 
 <#macro archive item>
-    <div class="push-double--bottom" data-uipath="ps.search-results.result">
-        <h3 class="flush zeta" data-uipath="ps.search-results.result.type" style="font-weight:bold"><@fmt.message key="labels.archive"/></h3>
-        <p class="flush">
-            <a href="<@hst.link hippobean=item.selfLinkBean/>" title="${item.title}" data-uipath="ps.search-results.result.title">
-                ${item.title}
-            </a>
-        </p>
-        <p class="flush" data-uipath="ps.search-results.result.summary"><@truncate text=item.summary.firstParagraph size="300"/></p>
+    <div class="cta cta--detailed" data-uipath="ps.search-results.result">
+        <div>
+            <h3 class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.archive"/></h3>
+        </div>
+        <a class="cta__title cta__button" href="<@hst.link hippobean=item.selfLinkBean/>" title="${item.title}" data-uipath="ps.search-results.result.title">
+            ${item.title}
+        </a>
+        <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.summary.firstParagraph size="300"/></p>
     </div>
 </#macro>
 
 <#macro dataset item>
-    <div class="push-double--bottom" data-uipath="ps.search-results.result">
-        <h3 class="flush zeta" data-uipath="ps.search-results.result.type" style="font-weight:bold"><@fmt.message key="labels.dataset"/></h3>
-        <p class="flush">
-            <a href="<@hst.link hippobean=item.selfLinkBean/>" title="${item.title}" data-uipath="ps.search-results.result.title">
-                ${item.title}
-            </a>
-        </p>
-        <p class="flush zeta" data-uipath="ps.search-results.result.date"><@formatRestrictableDate value=item.nominalDate/></p>
-        <p class="flush" data-uipath="ps.search-results.result.summary"><@truncate text=item.summary.firstParagraph size="300"/></p>
+    <div class="cta cta--detailed" data-uipath="ps.search-results.result">
+        <div>
+            <h3 class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.dataset"/></h3>
+        </div>
+        <a class="cta__title cta__button" href="<@hst.link hippobean=item.selfLinkBean/>" title="${item.title}" data-uipath="ps.search-results.result.title">
+            ${item.title}
+        </a>
+        <span class="cta__meta" data-uipath="ps.search-results.result.date"><@formatRestrictableDate value=item.nominalDate/></span>
+        <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.summary.firstParagraph size="300"/></p>
     </div>
 </#macro>
 
 <#macro indicator item>
-    <div class="push-double--bottom" data-uipath="ps.search-results.result">
-        <h3 class="flush zeta" data-uipath="ps.search-results.result.type" style="font-weight:bold"><@fmt.message key="labels.indicator"/></h3>
-        <p class="flush">
-            <a href="<@hst.link hippobean=item.selfLinkBean/>" title="${item.title}" data-uipath="ps.search-results.result.title">
+    <div class="cta cta--detailed" data-uipath="ps.search-results.result">
+        <div>
+            <h3 class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.indicator"/></h3>
+        </div>
+        <a class="cta__title cta__button" href="<@hst.link hippobean=item.selfLinkBean/>" title="${item.title}" data-uipath="ps.search-results.result.title">
                 ${item.title}
-            </a>
-        </p>
+        </a>
+
+        <p class="cta__text" data-uipath="ps.search-results.result.brief-description">${item.details.briefDescription}</p>
 
         <#if item.assuredStatus>
-            <div class="media__icon--assured-indicator" data-uipath="ps.search-results.result.assured-indicator-icon" title="Assured Indicator"></div>
-            <p class="flush zeta" data-uipath="ps.search-results.result.assured-status"><@fmt.message key="labels.assured"/></p>
-            <p class="flush zeta" data-uipath="ps.search-results.result.publisher-and-date" style="font-weight:bold"><@fmt.message key="headers.publishedBy"/>: ${item.publishedBy}. <@fmt.message key="headers.assured"/>: ${item.assuranceDate.time?string[dateFormat]}</p>
+            <div class="cta__assurance">
+                <div class="cta__metas">
+                    <span class="cta__meta" data-uipath="ps.search-results.result.assured-status"><@fmt.message key="labels.assured"/></span>
+                    <span class="cta__meta" data-uipath="ps.search-results.result.publisher-and-date">
+                    <span class="strong"><@fmt.message key="headers.publishedBy"/>:</span> ${item.publishedBy}. 
+                    <span class="strong"><@fmt.message key="headers.assured"/>:</span> ${item.assuranceDate.time?string[dateFormat]}</span>
+                </div>
+                <div class="cta__badge">
+                    <span data-uipath="ps.search-results.result.assured-indicator-icon" title="Assured Indicator" class="badge badge--assured"></span>
+                </div>
+            </div>
         <#else>
-            <p class="flush zeta" data-uipath="ps.search-results.result.assured-status"><@fmt.message key="labels.unassured"/></p>
-            <p class="flush zeta" data-uipath="ps.search-results.result.publisher-and-date" style="font-weight:bold"><@fmt.message key="headers.publishedBy"/>: ${item.publishedBy}. <@fmt.message key="headers.unassured"/>: ${item.assuranceDate.time?string[dateFormat]}</p>
+            <div class="cta__metas">
+                <span class="cta__meta" data-uipath="ps.search-results.result.assured-status"><@fmt.message key="labels.unassured"/></span>
+                <span class="cta__meta" data-uipath="ps.search-results.result.publisher-and-date"><span class="strong"><@fmt.message key="headers.publishedBy"/>:</span> ${item.publishedBy}. <@fmt.message key="headers.unassured"/>: ${item.assuranceDate.time?string[dateFormat]}</span>
+            </div>
         </#if>
-
-        <p class="flush" data-uipath="ps.search-results.result.brief-description">${item.details.briefDescription}</p>
     </div>
 </#macro>
 
 <#macro service item>
-    <div class="push-double--bottom" data-uipath="ps.search-results.result">
-        <h3 class="flush zeta" data-uipath="ps.search-results.result.type" style="font-weight:bold"><@fmt.message key="labels.service"/></h3>
-        <p class="flush">
-            <a href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
-                ${item.title}
-            </a>
-        </p>
-        <p class="flush" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
+    <div class="cta cta--detailed" data-uipath="ps.search-results.result">
+        <div>
+            <h3 class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.service"/></h3>
+        </div>
+        <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
+            ${item.title}
+        </a>
+        <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
     </div>
 </#macro>
 
 <#macro general item>
-    <div class="push-double--bottom" data-uipath="ps.search-results.result">
-        <p class="flush">
-            <a href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
-                ${item.title}
-            </a>
-        </p>
-        <p class="flush" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
+    <div class="cta cta--detailed" data-uipath="ps.search-results.result">
+        <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
+            ${item.title}
+        </a>
+        <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
     </div>
 </#macro>

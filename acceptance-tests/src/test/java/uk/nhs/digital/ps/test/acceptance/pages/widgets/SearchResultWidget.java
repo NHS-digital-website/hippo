@@ -31,7 +31,7 @@ public class SearchResultWidget {
 
     public boolean isNationalStatistic() {
         try {
-            rootElement.findElement(By.className("media__icon--national-statistics"));
+            rootElement.findElement(By.className("cta__stamped-header"));
             return true;
         } catch (NoSuchElementException nsee) {
             return false;

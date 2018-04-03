@@ -25,7 +25,6 @@
 @import "environment/tools/mixins/typography";
 
 @import "objects/grid";
-// @import "objects/page-section";
 
 @import "units/details";
 @import "units/figure";
@@ -39,28 +38,11 @@
 @import "units/quote";
 @import "units/table";
 
-// @import "components/global-header";
-// @import "components/global-footer";
-// @import "components/notification-banner";
-// @import "components/skiplinks";
 @import "components/local-header";
 @import "components/button";
-// @import "components/link-list";
 
 // NHS.UK components
-// @import "components/article-pagination";
 @import "components/callout";
-// @import "components/media";
-// @import "components/gallery";
-// @import "components/form-label";
-// @import "components/form-textbox";
-// @import "components/form-multiple-choice";
-// @import "components/inline-list";
-// @import "components/meta";
-// @import "components/panel";
-// @import "components/step-list";
-// @import "components/tabs";
-// @import "components/error";
 
 // NHS Digital components
 @import "components/icon";
@@ -85,3 +67,9 @@
 @import "components/live-engage-chat";
 @import "components/cookie-banner";
 @import "components/static-ui";
+@import "components/filter";
+@import "components/pagination";
+@import "components/tabs-nav";
+@import "components/search-result";
+@import "components/badge";
+@import "components/utils";

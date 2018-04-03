@@ -14,7 +14,7 @@
                 </div>
 
                 <#-- [FTL-BEGIN] 'Summary and optional Body' sections -->
-                <div id="section-summary" class="article-section article-section--summary article-section--summary-with-border">
+                <div id="section-summary" class="article-section article-section--summary article-section--reset-top">
                     <div class="grid-row">
                         <div class="column column--two-thirds column--reset">
                             <div class="rich-text-content">
@@ -30,7 +30,7 @@
 
                 <#-- [FTL-BEGIN] 'List' sections -->
                 <#if document.blocks??>
-                <section class="article-section article-section--list article-section--last-one">
+                <div class="article-section article-section--list">
                     <div class="grid-row">
                         <div class="column column--two-thirds column--reset">
                             <div class="list list--reset cta-list cta-list--sections">
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
                 </#if>
                 <#-- [FTL-END] 'List' sections -->
             </div>

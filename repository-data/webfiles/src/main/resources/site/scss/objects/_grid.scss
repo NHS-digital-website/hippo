@@ -116,7 +116,7 @@
     padding: 0 0 0 round($gutter * 1.5);
 }
 
-@include media($max-width: $min-desktop-width) {
+@include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
     .column--left,
     .column--center,
     .column--right {
@@ -131,10 +131,10 @@
     margin: 0 auto;
     width: 100%;
     padding: 0 $gutter;
-}
 
-.grid-wrapper--full-width {
-    max-width: 100%;
+    @include media(wide) {
+        max-width: $wide-desktop-width;
+    }
 }
 
 .grid-wrapper--wide {
@@ -143,6 +143,11 @@
 
 .grid-wrapper--full-width {
     max-width: 100%;
+}
+
+.grid-wrapper--bordered {
+    border-bottom: 1px solid $col-senary;
+    margin-bottom: $gutter * 2;
 }
 
 .grid-wrapper--collapse {
@@ -177,9 +182,11 @@
 
     .column--18-75 {
         background: yellow;
+        background: rgba(255, 255, 0, 0.6);
     }
 
     .column--81-25 {
         background: orange;
+        background: rgba(255, 100, 100, 0.9);
     }
 }

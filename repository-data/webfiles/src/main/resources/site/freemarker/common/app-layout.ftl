@@ -13,7 +13,9 @@
 
     <@hst.include ref="breadcrumb"/>
 
-    <@hst.include ref="main"/>
+    <main role="main">
+        <@hst.include ref="main"/>
+    </main>
 
     <#include "site-footer.ftl"/>
 

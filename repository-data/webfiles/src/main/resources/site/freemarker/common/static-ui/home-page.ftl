@@ -36,7 +36,7 @@
     <#-- [FTL-END] Systems & Services section -->
 
     <#-- [FTL-BEGIN] About us section -->
-    <div class="article-section article-section--about-us article-section--no-border">
+    <div class="article-section article-section--about-us">
         <div class="article-section__header">
             <h2>About us</h2>
             <p>We're the national information and technology partner to the health and social care system. We're using digital technology to transform the NHS and social care.</p>
@@ -48,5 +48,7 @@
     </div>
     <#-- [FTL-END] About us section -->
 
-    <#include "home-page/information-box.ftl"/>
+    <div class="article-section article-section--padded no-border">
+        <#include "home-page/information-box.ftl"/>
+    </div>
 </div>

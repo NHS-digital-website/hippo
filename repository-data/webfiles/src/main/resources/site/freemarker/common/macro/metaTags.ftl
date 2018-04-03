@@ -14,7 +14,7 @@
     <#assign pageSEOSummary = document.seosummary />
 </#if>
 
-<!-- Generic meta tags -->
+<#-- Generic meta tags -->
 <@hst.headContribution keyHint="metaTitle" category="genericMeta">
     <title>${pageTitle}</title>
 </@hst.headContribution>
@@ -25,7 +25,7 @@
     <meta name="description" content="${pageSEOSummary}" />
 </@hst.headContribution>
     
-<!-- Facebook OG meta tags -->
+<#-- Facebook OG meta tags -->
 <@hst.headContribution keyHint="facebookMetaTitle" category="facebookMeta">
     <meta property="og:title" content="${pageTitle}" />
 </@hst.headContribution>
@@ -36,7 +36,7 @@
     <meta property="og:description" content="${pageSEOSummary}" />
 </@hst.headContribution>
 
-<!-- Twitter meta tags -->
+<#-- Twitter meta tags -->
 <@hst.headContribution keyHint="twitterMetaTitle" category="twitterMeta">
     <meta property="og:title" name="twitter:title" content="${pageTitle}" />
 </@hst.headContribution>

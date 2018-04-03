@@ -40,7 +40,7 @@
   }
 
   @include ie-lte(7) {
-    width: (($site-width + $gutter) * $width) - $gutter;
+    // width: (($site-width + $gutter) * $width) - $gutter;
   }
 }
 

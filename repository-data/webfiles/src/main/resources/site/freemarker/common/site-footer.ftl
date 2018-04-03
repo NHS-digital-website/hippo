@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 
-<footer role="contentinfo" class="site-footer white-links">
+<footer role="contentinfo" class="site-footer white-links" id="footer">
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
         <div class="grid-row">
             <div class="column column--reset">
@@ -59,10 +59,10 @@
                             <div class="column column--left">
                                 <nav class="site-footer__menu site-footer__menu--4">
                                     <ul class="list list--inline list--reset">
-                                        <li><a href="/legal">Legal</a></li>
-                                        <li><a href="/privacy-and-cookies">Privacy and cookies</a></li>
-                                        <li><a href="/terms-and-conditions">Terms and conditions</a></li>
-                                        <li><a href="/accessibility">Accessibility</a></li>
+                                        <li><a href="/legal" title="Legal">Legal</a></li>
+                                        <li><a href="/privacy-and-cookies" title="Privacy and cookies">Privacy and cookies</a></li>
+                                        <li><a href="/terms-and-conditions" title="Terms and conditions">Terms and conditions</a></li>
+                                        <li><a href="/accessibility" title="Accessibility help">Accessibility</a></li>
                                     </ul>
                                 </nav>
 

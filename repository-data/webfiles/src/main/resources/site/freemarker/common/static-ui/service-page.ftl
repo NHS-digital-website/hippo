@@ -15,14 +15,14 @@
 
             <div class="column column--two-thirds page-block page-block--main">
                 <#-- BEGIN mandatory 'summary section' -->
-                <section id="section-summary" class="article-section article-section--summary">
+                <div id="section-summary" class="article-section article-section--summary">
                     <h2>Summary</h2>
                     <p>Compellingly plagiarize multimedia based materials via B2C functionalities. Continually conceptualize B2B synergy with ethical catalysts for change. Monotonectally whiteboard proactive potentialities via front-end action items.</p>
-                </section>
+                </div>
                 <#-- END mandatory 'summary section' -->
 
                 <#-- [FTL-BEGIN] optional list of 'top tasks section' -->
-                <section class="article-section article-section--top-tasks">
+                <div class="article-section article-section--top-tasks">
                     <div class="callout callout--attention">
                         <h2>Top Tasks</h2>
                         <p>Objectively engage turnkey interfaces without impactful architectures.</p>
@@ -31,7 +31,7 @@
                         <p>Efficiently customize global web services after fully researched growth strategies.</p>
                         <p>Seamlessly grow revolutionary quality vectors rather than covalent technology.</p>
                     </div>
-                </section>
+                </div>
                 <#-- [FTL-END] optional list of 'top tasks section' -->
 
                 <#-- [FTL-BEGIN] optional 'Introduction section' -->
