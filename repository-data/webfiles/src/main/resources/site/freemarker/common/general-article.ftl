@@ -40,7 +40,7 @@
 
             <div class="column column--two-thirds page-block page-block--main">
                 <div class="article-header article-header--secondary">
-                    <h1>${document.title}</h1>
+                    <h1 data-uipath="document.title">${document.title}</h1>
                 </div>
 
                 <#-- BEGIN optional 'summary section' -->

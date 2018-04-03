@@ -7,7 +7,7 @@
 <section class="document-content">
 
     <#if document??>
-        <h1 data-uipath="ps.document.title">${document.title}</h1>
+        <h1 data-uipath="document.title">${document.title}</h1>
 
         <div class="layout layout--large">
             <div class="layout__item layout-2-3" data-uipath="ps.cilanding.sections">

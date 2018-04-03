@@ -15,7 +15,7 @@ public class HomePage extends AbstractSitePage{
     }
 
     public String getPageTitle(){
-        return getWebDriver().findElement(By.xpath("html/body/header/div/div/section/div/form/div[2]/button")).getText();
+        return getWebDriver().getTitle();
     }
 
     public String findPageElement(String elementName) {

@@ -8,7 +8,7 @@
         <div class="document-header__inner">
             <h3 class="flush--bottom push-half--top"><@fmt.message key="labels.archive"/></h3>
             <div class="layout-5-6">
-                <h1 class="push--bottom" data-uipath="ps.document.title">${archive.title}</h1>
+                <h1 class="push--bottom" data-uipath="document.title">${archive.title}</h1>
             </div>
         </div>
     </section>

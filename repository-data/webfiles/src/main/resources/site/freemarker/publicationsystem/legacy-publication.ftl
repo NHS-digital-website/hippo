@@ -20,7 +20,7 @@
 <#macro restrictedContentOfUpcomingPublication>
     <section class="document-header">
         <div class="document-header__inner">
-            <h1 data-uipath="ps.document.title">${legacyPublication.title}</h1>
+            <h1 data-uipath="document.title">${legacyPublication.title}</h1>
             <div class="media push--top push--bottom">
                 <div class="media__icon media__icon--calendar"></div>
                 <@nominalPublicationDate/>
@@ -47,7 +47,7 @@
                 </#if>
             </h3>
 
-            <h1 class="layout-5-6" data-uipath="ps.document.title">${legacyPublication.title}</h1>
+            <h1 class="layout-5-6" data-uipath="document.title">${legacyPublication.title}</h1>
 
             <#if legacyPublication.parentDocument??>
                 <p class="flush--top">

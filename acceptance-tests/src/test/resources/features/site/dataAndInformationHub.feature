@@ -1,22 +1,23 @@
-Feature: Clinical Indicator hub page and sub sections
+Feature: Data and Information hub page and sub sections
 
-    As a site user I should see a summary page of all the Clinical Indicator
+    As a site user I should see a summary page of all the Data and information
     sections so I can navigate to each one individually to find out more.
 
-    Scenario: Clinical Indicators hub page
-        Given I navigate to the "home" page
-        Then I should see a page titled "Clinical Indicators"
+    Scenario: Data and information hub page
+        Given I navigate to the "Data and information" page
+        When I click on the accept cookie banner
+        Then I should see a page titled "Data and information"
 
     Scenario: CI landing pages - CCG Outcomes (and back link)
-        Given I navigate to the "home" page
-        When I click on link "Clinical Commissioning Group Outcomes Indicator Set"
+        Given I navigate to the "Data and information" page
+        When I click on the accept cookie banner
+        And I click on link "Clinical Commissioning Group Outcomes Indicator Set"
         Then I should see page titled "CCG Outcomes - Indicator Set"
-        When I click on link "Back to Clinical Indicators"
-        Then I should see a page titled "Clinical Indicators"
 
     Scenario: CI landing pages - CCG Outcomes (and back link)
-        Given I navigate to the "home" page
-        When I click on link "Clinical Commissioning Group Outcomes Indicator Set"
+        Given I navigate to the "Data and information" page
+        When I click on the accept cookie banner
+        And I click on link "Clinical Commissioning Group Outcomes Indicator Set"
         Then I should see page titled "CCG Outcomes - Indicator Set"
         When I click on link "Browse CCG Outcomes"
         Then I should see the list with title "CATEGORY/TOPIC" including:
@@ -24,8 +25,9 @@ Feature: Clinical Indicator hub page and sub sections
         And I should see 1 search result
 
     Scenario: CI landing pages - Compendium
-        Given I navigate to the "home" page
-        When I click on link "Compendium of Population Health Indicators"
+        Given I navigate to the "Data and information" page
+        When I click on the accept cookie banner
+        And I click on link "Compendium of Population Health Indicators"
         Then I should see page titled "Compendium of Population Health Indicators"
         When I click on link "Browse Compendium Indicators"
         Then I should see the list with title "CATEGORY/TOPIC" including:
@@ -33,8 +35,9 @@ Feature: Clinical Indicator hub page and sub sections
         And I should see 1 search result
 
     Scenario: CI landing pages - Social Care
-        Given I navigate to the "home" page
-        When I click on link "Social Care"
+        Given I navigate to the "Data and information" page
+        When I click on the accept cookie banner
+        And I click on link "Social Care"
         Then I should see page titled "Social Care"
         When I click on link "Browse Social Care"
         Then I should see the list with title "CATEGORY/TOPIC" including:
@@ -42,8 +45,9 @@ Feature: Clinical Indicator hub page and sub sections
         And I should see 1 search result
 
     Scenario: CI landing pages - NHS Outcomes Framework
-        Given I navigate to the "home" page
-        When I click on link "NHS Outcomes Framework"
+        Given I navigate to the "Data and information" page
+        When I click on the accept cookie banner
+        And I click on link "NHS Outcomes Framework"
         Then I should see page titled "NHS Outcomes Framework"
         When I click on link "Browse NHS Outcomes"
         Then I should see the list with title "CATEGORY/TOPIC" including:
@@ -51,18 +55,14 @@ Feature: Clinical Indicator hub page and sub sections
         And I should see 1 search result
 
     Scenario: CI landing pages - SHMI
-        Given I navigate to the "home" page
-        When I click on link "Summary Hospital-level Mortality Indicator (SHMI)"
+        Given I navigate to the "Data and information" page
+        When I click on the accept cookie banner
+        And I click on link "Summary Hospital-level Mortality Indicator (SHMI)"
         Then I should see page titled "Summary Hospital-level Mortality Indicator (SHMI)"
         When I click on link "Browse SHMI"
         Then I should see the list with title "CATEGORY/TOPIC" including:
             | Summary Hospital-level Mortality Indicator (SHMI)   |
         And I should see 1 search result
-
-    Scenario: CI landing pages - POMI
-        Given I navigate to the "home" page
-        When I click on link "Patient Online Management Information (POMI)"
-        Then I should see page titled "Patient Online Management Information (POMI)"
 
     Scenario: SHMI resources - attachments
         Given I navigate to the "SHMI landing" page

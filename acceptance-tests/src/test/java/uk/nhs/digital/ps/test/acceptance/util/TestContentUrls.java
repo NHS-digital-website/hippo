@@ -142,6 +142,9 @@ public class TestContentUrls {
 
         add("homeland",
             "/homeland");
+
+        add("Data and information",
+            "/data-and-information");
     }
 
     private String getAttachmentUrl(String siteUrl, String attachmentTag) {

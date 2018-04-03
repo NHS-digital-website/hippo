@@ -4,7 +4,7 @@
 <@hst.setBundle basename="publicationsystem.headers"/>
 <section class="document-content">
     <#if document??>
-        <h1 data-uipath="ps.document.title">${document.title}</h1>
+        <h1 data-uipath="document.title">${document.title}</h1>
         <p data-uipath="ps.document.content">
             <@structuredText item=document.summary uipath="ps.document.summary" />
         </p>

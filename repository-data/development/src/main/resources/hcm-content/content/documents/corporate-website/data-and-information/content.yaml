@@ -1,0 +1,323 @@
+---
+/content/documents/corporate-website/data-and-information/content:
+  /content[1]:
+    /website:body:
+      /ccg-outcomes:
+        hippo:docbase: a35c56f4-1a16-46d8-a76e-97afcff09afa
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippo:facetselect
+      /compendium-indicators_1:
+        hippo:docbase: 2877ffb8-5ea8-4a4f-b0d2-d6cec1506f24
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippo:facetselect
+      /nhs-outcomes-framework_1:
+        hippo:docbase: 08f3157a-b3c4-4496-a6e5-0855c43301bd
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippo:facetselect
+      /nihub:
+        hippo:docbase: 434ff8fb-9d6d-465d-874c-8cc2a3b119fc
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippo:facetselect
+      /seven-day-services:
+        hippo:docbase: 94183c47-2368-4bb3-ab30-e1e1aac8f427
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippo:facetselect
+      /social-care_1:
+        hippo:docbase: a6ac8e34-e305-41a1-adc6-36027dc3dff2
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippo:facetselect
+      /summary-hospital-level-mortality-indicator-shmi_1:
+        hippo:docbase: 2b6ca5d1-61e4-4d01-a05e-d209d309c15c
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippo:facetselect
+      hippostd:content: |-
+        <h2><strong>Publications</strong></h2>
+
+        <p><a href="https://digital.nhs.uk/data-and-information/find-data-and-publications">All our publications</a>&nbsp;- with options to search, filter and view them by date and other categories</p>
+
+        <p><a href="https://digital.nhs.uk/data-and-information/find-data-and-publications/schedule-of-future-publications">Upcoming publications</a>&nbsp;- a&nbsp;list of all our scheduled publications</p>
+
+        <p><a href="https://digital.nhs.uk/data-and-information/find-data-and-publications/supplementary-information">Supplementary information</a>&nbsp;- statistics produced by request which are related to our publications or data</p>
+
+        <h2><strong>Clinical Indicators</strong></h2>
+
+        <p>This is a collection of over a thousand datasets that we publish. The information is for clinical staff, commissioners, researchers, and others needing data and evidence to help with decision-making in health and care.</p>
+
+        <p>A wide variety of subjects are covered, ranging from quality through to population health and the outcome of treatments.</p>
+
+        <h3>Overview</h3>
+
+        <p><a href="ccg-outcomes" title="Clinical Commissioning Group Outcomes Indicator Set">Clinical Commissioning Group Outcomes Indicator Set&nbsp;</a>- The CCG Outcomes Indicator Set (CCG OIS) is an important part of NHS England's systematic approach to quality improvement.</p>
+
+        <p><a href="compendium-indicators_1" title="giacomo">Compendium of Population Health Indicators</a>&nbsp;- A wide-ranging collection of over 1,000 indicators designed to provide a comprehensive overview of population health at a national, regional and local level.</p>
+
+        <p><a href="social-care_1" title="giacomo">Social Care</a>&nbsp;- The latest figures for the Adult Social Care Outcomes Framework (ASCOF) for 2016-17 were released in October 2017. In total, there are 26 measures which are designed to enable users to compare the effectiveness of care delivered by councils responsible for adult social care services in England.</p>
+
+        <p><a href="nhs-outcomes-framework_1" title="giacomo">NHS Outcomes Framework</a>&nbsp;- The NHS Outcomes Framework (NHS OF) provides national level accountability for the outcomes the NHS delivers.</p>
+
+        <p><a href="summary-hospital-level-mortality-indicator-shmi_1" title="giacomo">Summary Hospital-level Mortality Indicator (SHMI)</a>&nbsp;- The Summary Hospital-level Mortality Indicator (SHMI) reports on mortality at trust level across the NHS in England using a standard and transparent methodology. It is produced and published quarterly as a National Statistic by NHS Digital.</p>
+
+        <p><a href="seven-day-services">Seven-day Services</a>&nbsp;- These are experimental statistics which provide information on how we can effectively measure both improvement and variation in care provision across the week.</p>
+
+        <h2><strong>National Indicator Library</strong></h2>
+
+        <p>The <a href="nihub">official hub</a>&nbsp;for health and social care indicators in England. It includes methodology, data output and any independent assurance rating.</p>
+      jcr:primaryType: hippostd:html
+    /website:component:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    common:searchable: true
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: mashuk.reza
+    hippostdpubwf:creationDate: 2018-04-04T10:23:22.513Z
+    hippostdpubwf:lastModificationDate: 2018-04-06T12:54:39.280Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: c5d8012f-537a-46fd-b992-88a59f5d7dec
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: website:hub
+    website:gossid: 0
+    website:listtitle: ''
+    website:seosummary: NHS Digital has responsibility for standardising, collecting
+      and publishing data and information from across the health and social care system
+      in England
+    website:shortsummary: NHS Digital has responsibility for standardising, collecting
+      and publishing data and information from across the health and social care system
+      in England.
+    website:summary: NHS Digital has responsibility for standardising, collecting
+      and publishing data and information from across the health and social care system
+      in England.
+    website:title: Data and information
+  /content[2]:
+    /website:body:
+      /ccg-outcomes:
+        hippo:docbase: a35c56f4-1a16-46d8-a76e-97afcff09afa
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippo:facetselect
+      /compendium-indicators_1:
+        hippo:docbase: 2877ffb8-5ea8-4a4f-b0d2-d6cec1506f24
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippo:facetselect
+      /nhs-outcomes-framework_1:
+        hippo:docbase: 08f3157a-b3c4-4496-a6e5-0855c43301bd
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippo:facetselect
+      /nihub:
+        hippo:docbase: 434ff8fb-9d6d-465d-874c-8cc2a3b119fc
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippo:facetselect
+      /seven-day-services:
+        hippo:docbase: 94183c47-2368-4bb3-ab30-e1e1aac8f427
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippo:facetselect
+      /social-care_1:
+        hippo:docbase: a6ac8e34-e305-41a1-adc6-36027dc3dff2
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippo:facetselect
+      /summary-hospital-level-mortality-indicator-shmi_1:
+        hippo:docbase: 2b6ca5d1-61e4-4d01-a05e-d209d309c15c
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippo:facetselect
+      hippostd:content: |-
+        <h2><strong>Publications</strong></h2>
+
+        <p><a href="https://digital.nhs.uk/data-and-information/find-data-and-publications">All our publications</a>&nbsp;- with options to search, filter and view them by date and other categories</p>
+
+        <p><a href="https://digital.nhs.uk/data-and-information/find-data-and-publications/schedule-of-future-publications">Upcoming publications</a>&nbsp;- a&nbsp;list of all our scheduled publications</p>
+
+        <p><a href="https://digital.nhs.uk/data-and-information/find-data-and-publications/supplementary-information">Supplementary information</a>&nbsp;- statistics produced by request which are related to our publications or data</p>
+
+        <h2><strong>Clinical Indicators</strong></h2>
+
+        <p>This is a collection of over a thousand datasets that we publish. The information is for clinical staff, commissioners, researchers, and others needing data and evidence to help with decision-making in health and care.</p>
+
+        <p>A wide variety of subjects are covered, ranging from quality through to population health and the outcome of treatments.</p>
+
+        <h3>Overview</h3>
+
+        <p><a href="ccg-outcomes" title="Clinical Commissioning Group Outcomes Indicator Set">Clinical Commissioning Group Outcomes Indicator Set&nbsp;</a>- The CCG Outcomes Indicator Set (CCG OIS) is an important part of NHS England's systematic approach to quality improvement.</p>
+
+        <p><a href="compendium-indicators_1" title="giacomo">Compendium of Population Health Indicators</a>&nbsp;- A wide-ranging collection of over 1,000 indicators designed to provide a comprehensive overview of population health at a national, regional and local level.</p>
+
+        <p><a href="social-care_1" title="giacomo">Social Care</a>&nbsp;- The latest figures for the Adult Social Care Outcomes Framework (ASCOF) for 2016-17 were released in October 2017. In total, there are 26 measures which are designed to enable users to compare the effectiveness of care delivered by councils responsible for adult social care services in England.</p>
+
+        <p><a href="nhs-outcomes-framework_1" title="giacomo">NHS Outcomes Framework</a>&nbsp;- The NHS Outcomes Framework (NHS OF) provides national level accountability for the outcomes the NHS delivers.</p>
+
+        <p><a href="summary-hospital-level-mortality-indicator-shmi_1" title="giacomo">Summary Hospital-level Mortality Indicator (SHMI)</a>&nbsp;- The Summary Hospital-level Mortality Indicator (SHMI) reports on mortality at trust level across the NHS in England using a standard and transparent methodology. It is produced and published quarterly as a National Statistic by NHS Digital.</p>
+
+        <p><a href="seven-day-services">Seven-day Services</a>&nbsp;- These are experimental statistics which provide information on how we can effectively measure both improvement and variation in care provision across the week.</p>
+
+        <h2><strong>National Indicator Library</strong></h2>
+
+        <p>The <a href="nihub">official hub</a>&nbsp;for health and social care indicators in England. It includes methodology, data output and any independent assurance rating.</p>
+      jcr:primaryType: hippostd:html
+    /website:component:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    common:searchable: true
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: mashuk.reza
+    hippostdpubwf:creationDate: 2018-04-04T10:23:22.513Z
+    hippostdpubwf:lastModificationDate: 2018-04-06T12:54:39.238Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: c5d8012f-537a-46fd-b992-88a59f5d7dec
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: website:hub
+    website:gossid: 0
+    website:listtitle: ''
+    website:seosummary: NHS Digital has responsibility for standardising, collecting
+      and publishing data and information from across the health and social care system
+      in England
+    website:shortsummary: NHS Digital has responsibility for standardising, collecting
+      and publishing data and information from across the health and social care system
+      in England.
+    website:summary: NHS Digital has responsibility for standardising, collecting
+      and publishing data and information from across the health and social care system
+      in England.
+    website:title: Data and information
+  /content[3]:
+    /website:body:
+      /ccg-outcomes:
+        hippo:docbase: a35c56f4-1a16-46d8-a76e-97afcff09afa
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippo:facetselect
+      /compendium-indicators_1:
+        hippo:docbase: 2877ffb8-5ea8-4a4f-b0d2-d6cec1506f24
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippo:facetselect
+      /nhs-outcomes-framework_1:
+        hippo:docbase: 08f3157a-b3c4-4496-a6e5-0855c43301bd
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippo:facetselect
+      /nihub:
+        hippo:docbase: 434ff8fb-9d6d-465d-874c-8cc2a3b119fc
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippo:facetselect
+      /seven-day-services:
+        hippo:docbase: 94183c47-2368-4bb3-ab30-e1e1aac8f427
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippo:facetselect
+      /social-care_1:
+        hippo:docbase: a6ac8e34-e305-41a1-adc6-36027dc3dff2
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippo:facetselect
+      /summary-hospital-level-mortality-indicator-shmi_1:
+        hippo:docbase: 2b6ca5d1-61e4-4d01-a05e-d209d309c15c
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippo:facetselect
+      hippostd:content: |-
+        <h2><strong>Publications</strong></h2>
+
+        <p><a href="https://digital.nhs.uk/data-and-information/find-data-and-publications">All our publications</a>&nbsp;- with options to search, filter and view them by date and other categories</p>
+
+        <p><a href="https://digital.nhs.uk/data-and-information/find-data-and-publications/schedule-of-future-publications">Upcoming publications</a>&nbsp;- a&nbsp;list of all our scheduled publications</p>
+
+        <p><a href="https://digital.nhs.uk/data-and-information/find-data-and-publications/supplementary-information">Supplementary information</a>&nbsp;- statistics produced by request which are related to our publications or data</p>
+
+        <h2><strong>Clinical Indicators</strong></h2>
+
+        <p>This is a collection of over a thousand datasets that we publish. The information is for clinical staff, commissioners, researchers, and others needing data and evidence to help with decision-making in health and care.</p>
+
+        <p>A wide variety of subjects are covered, ranging from quality through to population health and the outcome of treatments.</p>
+
+        <h3>Overview</h3>
+
+        <p><a href="ccg-outcomes" title="Clinical Commissioning Group Outcomes Indicator Set">Clinical Commissioning Group Outcomes Indicator Set&nbsp;</a>- The CCG Outcomes Indicator Set (CCG OIS) is an important part of NHS England's systematic approach to quality improvement.</p>
+
+        <p><a href="compendium-indicators_1" title="Compendium of Population Health Indicators">Compendium of Population Health Indicators</a>&nbsp;- A wide-ranging collection of over 1,000 indicators designed to provide a comprehensive overview of population health at a national, regional and local level.</p>
+
+        <p><a href="social-care_1" title="Social Care">Social Care</a>&nbsp;- The latest figures for the Adult Social Care Outcomes Framework (ASCOF) for 2016-17 were released in October 2017. In total, there are 26 measures which are designed to enable users to compare the effectiveness of care delivered by councils responsible for adult social care services in England.</p>
+
+        <p><a href="nhs-outcomes-framework_1" title="NHS Outcomes Framework">NHS Outcomes Framework</a>&nbsp;- The NHS Outcomes Framework (NHS OF) provides national level accountability for the outcomes the NHS delivers.</p>
+
+        <p><a href="summary-hospital-level-mortality-indicator-shmi_1" title="Summary Hospital-level Mortality Indicator (SHMI)">Summary Hospital-level Mortality Indicator (SHMI)</a>&nbsp;- The Summary Hospital-level Mortality Indicator (SHMI) reports on mortality at trust level across the NHS in England using a standard and transparent methodology. It is produced and published quarterly as a National Statistic by NHS Digital.</p>
+
+        <p><a href="seven-day-services">Seven-day Services</a>&nbsp;- These are experimental statistics which provide information on how we can effectively measure both improvement and variation in care provision across the week.</p>
+
+        <h2><strong>National Indicator Library</strong></h2>
+
+        <p>The <a href="nihub">official hub</a>&nbsp;for health and social care indicators in England. It includes methodology, data output and any independent assurance rating.</p>
+      jcr:primaryType: hippostd:html
+    /website:component:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    common:searchable: true
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: mashuk.reza
+    hippostdpubwf:creationDate: 2018-04-04T10:23:22.513Z
+    hippostdpubwf:lastModificationDate: 2018-04-06T12:54:39.238Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2018-04-06T12:54:42.044Z
+    hippotranslation:id: c5d8012f-537a-46fd-b992-88a59f5d7dec
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: website:hub
+    website:gossid: 0
+    website:listtitle: ''
+    website:seosummary: NHS Digital has responsibility for standardising, collecting
+      and publishing data and information from across the health and social care system
+      in England
+    website:shortsummary: NHS Digital has responsibility for standardising, collecting
+      and publishing data and information from across the health and social care system
+      in England.
+    website:summary: NHS Digital has responsibility for standardising, collecting
+      and publishing data and information from across the health and social care system
+      in England.
+    website:title: Data and information
+  hippo:name: Data and information
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

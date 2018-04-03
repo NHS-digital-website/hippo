@@ -13,7 +13,7 @@
 <section class="document-header" aria-label="Document Header">
     <div class="document-header__inner">
         <h3 class="flush--bottom push-half--top"><@fmt.message key="labels.dataset"/></h3>
-        <h1 class="layout-5-6" data-uipath="ps.document.title">${dataset.title}</h1>
+        <h1 class="layout-5-6" data-uipath="document.title">${dataset.title}</h1>
         <p class="flush--top">
             This data set is part of
             <a class="label label--parent-document"

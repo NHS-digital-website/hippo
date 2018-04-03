@@ -4,7 +4,7 @@
 <section class="document-header" aria-label="Error Header">
     <div class="document-header__inner">
         <div class="layout-5-6">
-            <h1 class="push--bottom" data-uipath="ps.document.title" id="header">Page not found</h1>
+            <h1 class="push--bottom" data-uipath="document.title" id="header">Page not found</h1>
         </div>
     </div>
 </section>
