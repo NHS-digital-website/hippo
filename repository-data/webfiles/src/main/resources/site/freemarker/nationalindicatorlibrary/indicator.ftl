@@ -10,7 +10,7 @@
 <section data-uipath="ps.document.content">
   <section class="document-header push-double--bottom">
       <div class="document-header__inner">
-        <h1 class="layout-5-6 push--bottom" data-uipath="ps.document.title">${indicator.title}</h1>
+        <h1 class="layout-5-6 push--bottom" data-uipath="document.title">${indicator.title}</h1>
 
         <#if indicator.assuredStatus><h2 data-uipath="assuredStatus">Independently assured by Information Governance Board (IGB)</h2></#if>
 
@@ -96,12 +96,12 @@
                 <#if indicator.details.methodology.denominator.content?has_content>
                     <h3><strong><@fmt.message key="headers.denominator"/></strong></h3>
                     <span data-uipath="denominator"><#outputformat "undefined">${indicator.details.methodology.denominator.content}</#outputformat></span>
-                </#if>            
+                </#if>
 
                 <#if indicator.details.methodology.calculation.content?has_content>
                     <h3><strong><@fmt.message key="headers.calculation"/></strong></h3>
                     <span data-uipath="calculation"><#outputformat "undefined">${indicator.details.methodology.calculation.content}</#outputformat></span>
-                </#if>              
+                </#if>
             </div>
         </details>
 
@@ -124,8 +124,8 @@
 
             <#list indicator.taxonomyList?keys as key>
                 <p class="filter-list__item__link" data-uipath="ps.document.taxonomy-${key}"><a title="Search for ${indicator.taxonomyList[key]}" href="${searchLink}/category/${key}/">${indicator.taxonomyList[key]}</a></p>
-            </#list>   
-        </section>     
+            </#list>
+        </section>
 
 
         <#if indicator.hasAttachments()>

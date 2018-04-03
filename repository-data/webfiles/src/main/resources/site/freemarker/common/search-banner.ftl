@@ -15,7 +15,7 @@
                 <input type="text" name="query" id="query" class="search-banner__input" placeholder="${placeholderText}" value="${query!""}" aria-label="${searchTitle}">
             </div>
             <div>
-                <button class="search-banner__button">${buttonLabel}</button>
+                <button class="search-banner__button" id="btnSearch">${buttonLabel}</button>
             </div>
         </form>
     </div>

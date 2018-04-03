@@ -65,7 +65,7 @@ public class SitePage extends AbstractSitePage {
     }
 
     public String getDocumentTitle() {
-        return helper.findElement(By.xpath("//*[@data-uipath='ps.document.title']")).getText();
+        return helper.findElement(By.xpath("//*[@data-uipath='document.title']")).getText();
     }
 
     public String getDocumentContent() {
@@ -84,6 +84,10 @@ public class SitePage extends AbstractSitePage {
         }
 
         return null;
+    }
+
+    public WebElement findPageElementById(String elementId) {
+        return helper.findElement(By.id(elementId));
     }
 
     public WebElement findFooter() {

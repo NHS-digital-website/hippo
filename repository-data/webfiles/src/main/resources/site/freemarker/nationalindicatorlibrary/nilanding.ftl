@@ -5,7 +5,7 @@
 
 <section class="document-content nilanding">
     <#if document??>
-        <h1 data-uipath='ps.document.title' style="margin: 0px 0px 25px">${document.title}</h1>
+        <h1 data-uipath='document.title' style="margin: 0px 0px 25px">${document.title}</h1>
         <#outputformat "undefined">${document.mainContent.content}</#outputformat>
 
         <section class="push-double--bottom" style="margin: 40px 0px 40px">
@@ -22,15 +22,15 @@
             <span class="fileSize">(<@formatFileSize bytesCount=document.addForm.resource.length/>)</span>
         </section>
 
-        <section class="push-double--bottom">        
+        <section class="push-double--bottom">
             <h2>${document.applyTitle}</h2>
-            <#outputformat "undefined">${document.applyContent.content}</#outputformat>  
+            <#outputformat "undefined">${document.applyContent.content}</#outputformat>
             <a class="niFormBtn" title="${document.applyForm.text}" href="<@hst.link hippobean=document.applyForm.resource/>" onClick="logGoogleAnalyticsEvent('Download assurance application form','Indicator','${document.applyForm.resource.filename}');"><@fmt.message key="headers.applyForm"/></a>
             <span class="fileSize">(<@formatFileSize bytesCount=document.applyForm.resource.length/>)</span>
             <br>
-            <a class="niFormBtn" title="${document.applyGuidanceForm.text}" href="<@hst.link hippobean=document.applyGuidanceForm.resource/>" onClick="logGoogleAnalyticsEvent('Download application guidance form','Indicator','${document.applyGuidanceForm.resource.filename}');"><@fmt.message key="headers.applyGuidanceForm"/></a>            
-            <span class="fileSize">(<@formatFileSize bytesCount=document.applyGuidanceForm.resource.length/>)</span>                
-        </section>         
+            <a class="niFormBtn" title="${document.applyGuidanceForm.text}" href="<@hst.link hippobean=document.applyGuidanceForm.resource/>" onClick="logGoogleAnalyticsEvent('Download application guidance form','Indicator','${document.applyGuidanceForm.resource.filename}');"><@fmt.message key="headers.applyGuidanceForm"/></a>
+            <span class="fileSize">(<@formatFileSize bytesCount=document.applyGuidanceForm.resource.length/>)</span>
+        </section>
     </#if>
 </section>
 

@@ -4,8 +4,8 @@
 
 <section id="title" class="document-content">
     <#if document??>
-        <h1 class="NIL-title" data-uipath="ps.document.title">${document.title}</h1>
-        <p style="width:70%;">${document.summary}</p>      
+        <h1 class="NIL-title" data-uipath="document.title">${document.title}</h1>
+        <p style="width:70%;">${document.summary}</p>
     </#if>
 </section>
 

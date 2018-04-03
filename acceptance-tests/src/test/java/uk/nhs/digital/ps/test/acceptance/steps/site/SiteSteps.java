@@ -23,6 +23,8 @@ import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.config.AcceptanceTestProperties;
@@ -71,6 +73,7 @@ public class SiteSteps extends AbstractSpringSteps {
         assertThat("I can find element with title: " + linkTitle,
             element, is(notNullValue()));
 
+
         sitePage.clickOnElement(element);
     }
 
@@ -88,6 +91,11 @@ public class SiteSteps extends AbstractSpringSteps {
     @Then("^I (?:can )?see element with data-uipath \"([^\"]+)\"$")
     public void iSeeElementWithUiPath(String uiPath) throws Throwable {
         assertNotNull("Can see element with data-uipath: " + uiPath, sitePage.findElementWithUiPath(uiPath));
+    }
+
+    @Then("^I click on the accept cookie banner")
+    public void iShouldSeeCookieBanner() throws Throwable {
+        sitePage.findPageElementById("cookieAcceptButton").click();
     }
 
     @Then("^I should see (?:.* )?page titled \"([^\"]+)\"$")
