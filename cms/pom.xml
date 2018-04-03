@@ -176,7 +176,15 @@
             <artifactId>hippo-plugin-robotstxt-addon-repository</artifactId>
             <scope>compile</scope>
         </dependency>
-
+        <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-advanced-search-frontend</artifactId>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-advanced-search-repository</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <finalName>cms</finalName>
