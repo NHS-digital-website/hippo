@@ -20,6 +20,7 @@ import java.util.stream.Stream;
 public class ContentPage extends AbstractCmsPage {
 
     private static final String PUBLICATION = "Publication";
+    private static final String LEGACY_PUBLICATION = "Legacy Publication";
     private static final String DATASET = "Data set";
     private static final String SERIES = "Series / Collection";
     private static final String ARCHIVE = "Archive";
@@ -43,6 +44,10 @@ public class ContentPage extends AbstractCmsPage {
 
     public boolean newPublication(final Publication publication) {
         return createDocument(PUBLICATION, publication.getName());
+    }
+
+    public boolean newLegacyPublication(final LegacyPublication legacyPublication) {
+        return createDocument(LEGACY_PUBLICATION, legacyPublication.getName());
     }
 
     public boolean newDataset(Dataset dataset) {
@@ -100,6 +105,12 @@ public class ContentPage extends AbstractCmsPage {
         populateTaxonomy(publication);
 
         getAttachmentsWidget().uploadAttachments(publication.getAttachments());
+    }
+
+    public void populateLegacyPublication(LegacyPublication legacyPublication) {
+        populateDocumentTitle(legacyPublication.getTitle());
+        populateDocumentNominalDate(legacyPublication.getNominalPublicationDate().asInstant());
+        // getAttachmentsWidget().uploadAttachments(legacyPublication.getAttachments());
     }
 
     public DateCmsWidget findNominalDateField() {

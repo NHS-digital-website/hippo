@@ -1,12 +1,22 @@
 package uk.nhs.digital.ps.test.acceptance.steps.cms.ps;
 
-import static java.time.temporal.ChronoField.*;
+import static java.time.temporal.ChronoField.DAY_OF_MONTH;
+import static java.time.temporal.ChronoField.DAY_OF_WEEK;
+import static java.time.temporal.ChronoField.MONTH_OF_YEAR;
 import static java.util.stream.Collectors.toList;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.anyOf;
+import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.empty;
+import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.startsWith;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.ps.test.acceptance.util.AssertionHelper.assertWithinTimeoutThat;
 import static uk.nhs.digital.ps.test.acceptance.util.RandomHelper.getRandomInt;
@@ -23,7 +33,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.data.ExpectedTestDataProvider;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataFactory;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
-import uk.nhs.digital.ps.test.acceptance.models.*;
+import uk.nhs.digital.ps.test.acceptance.models.Attachment;
+import uk.nhs.digital.ps.test.acceptance.models.Dataset;
+import uk.nhs.digital.ps.test.acceptance.models.FileType;
+import uk.nhs.digital.ps.test.acceptance.models.Folder;
+import uk.nhs.digital.ps.test.acceptance.models.LegacyPublication;
+import uk.nhs.digital.ps.test.acceptance.models.Publication;
+import uk.nhs.digital.ps.test.acceptance.models.PublicationArchive;
+import uk.nhs.digital.ps.test.acceptance.models.PublicationSeries;
+import uk.nhs.digital.ps.test.acceptance.models.Taxonomy;
 import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.SitePage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
@@ -71,10 +89,28 @@ public class CmsSteps extends AbstractSpringSteps {
         assertTrue("Publication edit screen is displayed", contentPage.isDocumentEditScreenOpen());
     }
 
+    @Given("^I have a legacy publication opened for editing$")
+    public void iHaveALegacyPublicationOpenForEditing() throws Throwable {
+        final LegacyPublication legacyPublication = TestDataFactory.createBareMinimumLegacyPublication().build();
+        testDataRepo.setLegacyPublication(legacyPublication);
+
+        createLegacyPublicationInEditableState(legacyPublication);
+
+        // Since previous step created a new document which was not saved, immediately after a login,
+        // the edit document screen is displayed (instead of dashboard)
+        assertTrue("Publication edit screen is displayed", contentPage.isDocumentEditScreenOpen());
+    }
+
     public void createPublicationInEditableState(final Publication publication) throws Throwable {
         loginSteps.loginAsCiEditor();
         contentPage.openContentTab();
         contentPage.newPublication(publication);
+    }
+
+    public void createLegacyPublicationInEditableState(final LegacyPublication legacyPublication) throws Throwable {
+        loginSteps.loginAsCiEditor();
+        contentPage.openContentTab();
+        contentPage.newLegacyPublication(legacyPublication);
     }
 
     public void createPublishedPublication(final Publication publication) throws Throwable {
@@ -128,6 +164,22 @@ public class CmsSteps extends AbstractSpringSteps {
     @When("^I publish the publication")
     public void whenIPublishThePublication() throws Throwable {
         contentPage.publish();
+    }
+
+    @When("^I try to upload files of different size:$")
+    public void iTryToUploadAFile(final DataTable files) throws Throwable {
+//        Attachment attachment = TestDataFactory.createAttachmentOfSize(fileSize).build();
+        final List<Attachment> filesToUpload = files.asList(String.class).stream()
+            .map(fileSize -> TestDataFactory.createAttachmentOfSize(fileSize).build())
+            .collect(toList());
+
+        testDataRepo.setAttachments(filesToUpload);
+//        contentPage.getAttachmentsWidget()
+//            .addUploadField();
+        contentPage.getAttachmentsWidget()
+            .uploadAttachments(testDataRepo.getAttachments());
+
+        contentPage.saveAndCloseDocument();
     }
 
     // Scenario: Forbidden file type upload rejection ==================================================================
@@ -432,6 +484,13 @@ public class CmsSteps extends AbstractSpringSteps {
     public void iPopulateThePublication() throws Throwable {
         contentPage.populatePublication(testDataRepo.getCurrentPublication());
     }
+
+    @When("^I populate the legacy publication$")
+    public void iPopulateTheLegacyPublication() throws Throwable {
+        contentPage.populateLegacyPublication(testDataRepo.getCurrentLegacyPublication());
+    }
+
+
 
     @And("^I populate the series$")
     public void iPopulateTheSeries() throws Throwable {

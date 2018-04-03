@@ -68,7 +68,15 @@ test.wip:
 	mvn verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
 		-Pacceptance-test \
 		-Dheadless=false \
-		-Dcucumber.options="src/test/resources/features --tags @WIP" \
+		-Dcucumber.options="src/test/resources/features --tags @WIP"
+
+## Run only acceptance tests taged with "WIP"
+# This target requires running site (for instance `make serve.noexport`)
+test.s3-upload:
+	mvn verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
+		-Pacceptance-test \
+		-Dheadless=false \
+		-Dcucumber.options="src/test/resources/features/s3-upload"
 
 ## Format YAML files, run after exporting to reduce changes
 format-yaml:

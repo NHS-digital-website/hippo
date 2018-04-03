@@ -67,6 +67,17 @@ public class PageHelper {
         });
     }
 
+    public void waitUntilTrue(final Predicate predicate, int timeout) {
+
+        pollWithTimeout(timeout).until(webDriver -> {
+            try {
+                return predicate.executeWithPredicate();
+            } catch (final Exception e) {
+                return false;
+            }
+        });
+    }
+
     public void executeWhenStable(final Task task) {
 
         final AtomicReference<Exception> lastException = new AtomicReference<>();
@@ -104,6 +115,12 @@ public class PageHelper {
 
     private FluentWait<WebDriver> pollWithTimeout() {
         return new WebDriverWait(getWebDriver(), TIME_OUT)
+            .ignoring(StaleElementReferenceException.class)
+            .pollingEvery(Duration.ofMillis(500));
+    }
+
+    private FluentWait<WebDriver> pollWithTimeout(int timeout) {
+        return new WebDriverWait(getWebDriver(), timeout)
             .ignoring(StaleElementReferenceException.class)
             .pollingEvery(Duration.ofMillis(500));
     }

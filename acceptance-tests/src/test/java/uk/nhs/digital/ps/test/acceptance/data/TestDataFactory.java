@@ -49,6 +49,14 @@ public class TestDataFactory {
             .withPubliclyAccessible(true);
     }
 
+    public static LegacyPublicationBuilder createBareMinimumLegacyPublication() {
+        return LegacyPublicationBuilder.newLegacyPublication()
+            .withName(newRandomString())
+            .withTitle(newRandomString())
+            .withNominalDate(Instant.now())
+            .withPubliclyAccessible(true);
+    }
+
     public static PublicationSeriesBuilder createSeries() {
         return PublicationSeriesBuilder.newPublicationSeries()
             .withName(newRandomString() + " Series")
@@ -83,6 +91,14 @@ public class TestDataFactory {
             .withFile(path);
     }
 
+    public static AttachmentBuilder createAttachmentOfSize(final String size) {
+        final Path path = getAttachmentFilePathByFileSize(size);
+
+        return AttachmentBuilder.newAttachment()
+            .withName(newRandomString())
+            .withFile(path);
+    }
+
     /**
      * @return List of new instances, fully populated with default, random, valid values. The list contains
      * one attachment per each {@linkplain FileType#getAllowedFileTypes() allowed file type}.
@@ -97,6 +113,16 @@ public class TestDataFactory {
     static Path getAttachmentFilePathByType(final FileType fileType) {
 
         final String fullFileName = "attachment." + fileType.getExtension();
+
+        // NOTE: the path is relative to the current module's working directory which is the normal
+        // situation when executing tests with Maven. In an unlikely scenario of executing the tests
+        // by other means (say, using direct IDE support that bypases Maven), this path may not be valid.
+        return Paths.get("src", "test", "resources", "attachments", fullFileName);
+    }
+
+    static Path getAttachmentFilePathByFileSize(final String fileSize) {
+
+        final String fullFileName = "attachment." + fileSize + ".zip";
 
         // NOTE: the path is relative to the current module's working directory which is the normal
         // situation when executing tests with Maven. In an unlikely scenario of executing the tests
