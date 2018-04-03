@@ -14,9 +14,9 @@
                 </div>
                 
                 <#-- BEGIN mandatory 'summary section' -->
-                <section id="section-summary" class="article-section article-section--summary article-section--summary-with-border">
+                <div id="section-summary" class="article-section article-section--summary article-section--reset-top">
                     <p>Compellingly plagiarize multimedia based materials via B2C functionalities. Continually conceptualize B2B synergy with ethical catalysts for change. Monotonectally whiteboard proactive potentialities via front-end action items.</p>
-                </section>
+                </div>
                 <#-- END mandatory 'summary section' -->
                 
                 <#include "shared/sections.ftl"/>

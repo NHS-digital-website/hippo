@@ -45,9 +45,9 @@
 
                 <#-- BEGIN optional 'summary section' -->
                 <#if document.summary?has_content>
-                <section id="section-summary" class="article-section article-section--summary article-section--summary-with-border">
+                <div id="section-summary" class="article-section article-section--summary article-section--reset-top">
                     <p>${document.summary}</p>
-                </section>
+                </div>
                 </#if>
                 <#-- END optional 'summary section' -->
 
@@ -57,7 +57,7 @@
 
                 <#-- BEGIN optional 'Further information section' -->
                 <#if childPages?has_content>
-                <section class="article-section article-section--child-pages article-section--last-one" id="section-child-pages">
+                <div class="article-section article-section--child-pages article-section--last-one" id="section-child-pages">
                     <h2>${childPagesSectionTitle}</h2>
                     <ol class="list list--reset cta-list">
                         <#list childPages as childPage>
@@ -76,7 +76,7 @@
                             </li>
                         </#list>
                     </ol>
-                </section>
+                </div>
                 </#if>
                 <#-- END optional 'Further information section' -->
             </div>

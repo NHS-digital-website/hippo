@@ -2,7 +2,7 @@
 <#include "../../include/imports.ftl">
 <#include "../macro/articleSections.ftl">
 
-<article class="article article--service">
+<article class="article article--filtered-list">
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--two-thirds column--reset">
@@ -18,7 +18,7 @@
                 <div id="section-summary" class="article-section article-section--summary">
                     <div class="grid-row">
                         <div class="column column--reset">
-                            <div class="rtc">
+                            <div class="rich-text-content">
                                 <p>An alphabetical list and description of systems, services and tools.</p>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
 
             <div class="column column--two-thirds page-block page-block--main">
                 <#-- [FTL-BEGIN] 'Article group' section -->
-                <section class="article-section article-section--letter-group" id="section-a">
+                <div class="article-section article-section--letter-group" id="section-a">
                     <div class="grid-row sticky-top">
                         <div class="column column--reset">
                             <div class="article-header article-header--tertiary">
@@ -66,16 +66,16 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
                 <#-- [FTL-END] 'Article group' section -->
 
                 <#-- [FTL-BEGIN] 'Article group' section -->
-                <section class="article-section article-section--letter-group article-section--last-one" id="section-b">
+                <div class="article-section article-section--letter-group" id="section-b">
                     <div class="grid-row sticky-top">
                         <div class="column column--reset">
                             <div class="article-header article-header--tertiary">
                                 <div class="grid-row">
-                                    <div class="column column--two-thirds column--reset">
+                                    <div class="column column--reset">
                                         <h2 class="article-header__title">B</h2>
                                     </div>
                                 </div>
@@ -101,7 +101,7 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
                 <#-- [FTL-END] 'Article group' section -->
             </div>
         </div>

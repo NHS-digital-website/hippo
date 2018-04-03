@@ -38,6 +38,7 @@
                 text-decoration: none;
                 width: 100%;
                 border-radius: 0;
+                user-select: none;
 
                 @include media(tablet) {
                     width: auto;
@@ -64,12 +65,14 @@
                     background-color: $colour;
                 }
 
-                &:focus {
+                &:focus,
+                &:active {
                     outline: 3px solid $focus-colour;
                 }
 
                 &:hover,
-                &:focus {
+                &:focus,
+                &:active {
                     background-color: darken($colour, 5%);
                 }
 

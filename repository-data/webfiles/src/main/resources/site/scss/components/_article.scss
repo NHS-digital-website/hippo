@@ -12,3 +12,59 @@
         }
     }
 }
+
+.article--search-results {
+    .article-section-nav {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+}
+
+.article--filtered-list {
+    .article-section--summary {
+        margin-bottom: $baseline-grid-unit * 12;
+    }
+}
+
+.article--list {
+    .cta-list {
+        .cta:last-child {
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.article-section--letter-group {
+    .cta-list {
+        .cta:last-child {
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+    }
+}
+
+// Remove bottom border from the last article section
+.article:not(.article--list) {
+    .article-section:first-of-type {
+        border-top: none;
+        padding-top: 0;
+        margin-top: 0;
+    }
+}
+
+.article--search-results {
+    .article-section-nav {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+}
+
+.debug {
+    .article:not(.article--list) {
+        .article-section:first-of-type {
+            background: yellow;
+            background: rgba(255, 255, 0, 0.6);
+        }
+    }
+}

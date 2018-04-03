@@ -21,7 +21,7 @@
                 </div>
 
                 <#-- [FTL-BEGIN] 'Summary and optional Body' sections -->
-                <div id="section-summary" class="article-section article-section--summary article-section--summary-with-border">
+                <div id="section-summary" class="article-section article-section--summary article-section--reset-top">
                     <div class="grid-row">
                         <div class="column column--two-thirds column--reset">
                             <div class="rich-text-content">
@@ -34,39 +34,41 @@
                     </div>
                 </div>
                 <#-- [FTL-END] 'Summary and optional Body' sections -->
-            </div>
-        </div>
 
-        <#-- [FTL-BEGIN] 'Child pages' section -->
-        <#if childPages?? && childPages?size!=0>
-        <div class="grid-row">
-            <div class="column column--reset">
-                <div class="article-section article-section--no-bottom-padding">
-                    <div class="cta-list cta-list--grid">
-                        <div class="grid-row">
-                            <div class="column column--reset">
-                                <h3 class="list-title">${document.listtitle}</h3>
+                <#-- [FTL-BEGIN] 'Child pages' section -->
+                <#if childPages?? && childPages?size!=0>
+                <div class="article-section">
+                    <div class="grid-row">
+                        <div class="column column--reset">
+                            <div class="cta-list cta-list--grid">
+                                <div class="grid-row">
+                                    <div class="column column--reset">
+                                        <h3 class="list-title">${document.listtitle}</h3>
+                                    </div>
+                                </div>
+
+                                <#-- [FTL-BEGIN] 'Child page' grid -->
+                                <@childPageGrid childPages></@childPageGrid>
+                                <#-- [FTL-END] 'Child page' grid -->
                             </div>
                         </div>
-
-                        <#-- [FTL-BEGIN] 'Child page' grid -->
-                        <@childPageGrid childPages></@childPageGrid>
-                        <#-- [FTL-END] 'Child page' grid -->
                     </div>
                 </div>
-            </div>
-        </div>
-        </#if>
-        <#-- [FTL-END] 'Child pages' section -->
+                </#if>
+                <#-- [FTL-END] 'Child pages' section -->
 
-        <#if document.componentlist??>
-        <div class="grid-row">
-            <div class="column column--reset">
                 <#-- [FTL-BEGIN] 'Components' section -->
-                <@hubPageComponents components></@hubPageComponents>
+                <#if document.componentlist??>
+                <div class="article-section">
+                    <div class="grid-row">
+                        <div class="column column--reset">
+                            <@hubPageComponents components></@hubPageComponents>
+                        </div>
+                    </div>
+                </div>
+                </#if>
                 <#-- [FTL-END] 'Components' section -->
             </div>
         </div>
-        </#if>
     </div>
 </article>

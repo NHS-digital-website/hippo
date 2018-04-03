@@ -2,12 +2,14 @@
 <#include "../include/imports.ftl">
 <@hst.setBundle basename="month-names,facet-headers,facet-labels,searchtab-labels"/>
 
-<div data-uipath="ps.search-tabs">
+<div data-uipath="ps.search-tabs" class="js-tabs">
     <#assign tabLink = searchLink + query???then('?query=${query}&', '?') + 'sort=${sort}&' +'area=' >
 
     <ul class="tabs-nav" role="tablist">
         <#list tabs as tab>
-            <li class="${(area=='${tab}')?string("active", "")}"><a tabindex="${tab?index}" href="${tabLink}${tab}" title="<@fmt.message key="searchtab.${tab}"/>"><@fmt.message key="searchtab.${tab}"/></a></li>
+            <li class="tabs-nav__item ${(area=='${tab}')?string("tabs-nav__item--active", "")}">
+                <a tabindex="${tab?index}" href="${tabLink}${tab}" class="tabs-link" title="<@fmt.message key="searchtab.${tab}"/>" role="tab"><@fmt.message key="searchtab.${tab}"/></a>
+            </li>
         </#list>
     </ul>
 </div>

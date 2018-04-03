@@ -1,10 +1,8 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 
-<#-- @ftlvariable name="breadcrumb" type="org.onehippo.forge.breadcrumb.om.Breadcrumb" -->
-
 <#if breadcrumb?? && breadcrumb.items?size gte 1>
-<div class="grid-wrapper grid-wrapper--wide">
+<div class="grid-wrapper">
     <div class="grid-row">
         <div class="column column--reset">
             <div class="breadcrumb list list--inline list--reset">

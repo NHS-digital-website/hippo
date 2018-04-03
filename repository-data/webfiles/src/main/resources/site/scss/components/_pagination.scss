@@ -1,0 +1,36 @@
+/* Pagination */
+.pagination {
+    border-top: 1px solid $col-senary;
+    text-align: center;
+    padding-top: $gutter;
+}
+
+.pagination-list {
+    list-style: none;
+    padding: 0;
+
+    .pagination-list__item {
+        display: inline-block;
+        border: 1px solid $col-senary;
+        border-radius: 5px;
+
+        & > a,
+        & > span {
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+    }
+
+    .pagination-list__item--previous {
+        margin-right: round($gutter * 0.5);
+    }
+
+    .pagination-list__item--current {
+        background-color: $col-duodenary;
+    }
+
+    .pagination-list__item--next {
+        margin-left: round($gutter * 0.5);
+    }
+}

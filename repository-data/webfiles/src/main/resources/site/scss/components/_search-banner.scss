@@ -8,12 +8,16 @@
     min-height: 30px;
 }
 
+.search-banner--short {
+    padding: 2em 0 1.8em;
+}
+
 .search-banner__headline {
     color: $col-septenary;
     max-width: 420px;
     margin-bottom: 30px;
-    @include core-font(20);
 
+    @include core-font(20);
     @include media(desktop) {
         max-width: 500px;
     }

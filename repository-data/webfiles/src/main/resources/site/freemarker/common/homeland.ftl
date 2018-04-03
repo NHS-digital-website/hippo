@@ -45,7 +45,7 @@
             <#-- [FTL-END] 'Systems and Services' section -->
 
             <#-- [FTL-BEGIN] 'About us' section -->
-            <div class="article-section article-section--about-us article-section--no-border">
+            <div class="article-section article-section--about-us">
                 <div class="article-section__header">
                     <h2>${aboutUsSectionTitle}</h2>
                     <p>${aboutUsSectionText}</p>
@@ -68,7 +68,7 @@
             <#-- [FTL-END] 'About us' section -->
 
             <#-- [FTL-BEGIN] 'Information box' section -->
-            <div class="article-section article-section--no-border">
+            <div class="article-section article-section--reset-top">
                 <div class="article-section__contents">
                     <@hst.include ref="information"/>
                 </div>

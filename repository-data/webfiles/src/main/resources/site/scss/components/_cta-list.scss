@@ -33,9 +33,17 @@
     .cta {
         min-height: 132px;
         margin-bottom: $gutter * 2;
+    }    
+
+    @include media(tablet) {
+        .grid-row:last-child {
+            .cta {
+                margin-bottom: 0;
+            }
+        }
     }
 
-    @include media($max-width: $min-desktop-width) {
+    @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
         .cta {
             min-height: 0;
         }
@@ -44,16 +52,17 @@
 
 .cta-list--sections {
     .cta {
-        margin-top: round($gutter * 2);
-        padding-bottom: round($gutter * 1.5);
-        border-bottom: 1px solid $grey-4;
-
-        &:last-child {
-            border: none;
-        }
+        border-top: 1px solid $grey-4;
+        padding-top: $gutter * 2;
+        margin-bottom: $gutter;
 
         &:first-child {
-            margin-top: 0;
+            border: none;
+            padding-top: 0;
+        }
+
+        & + .cta {
+            padding-top: round($gutter * 1.5);
         }
     }
 }

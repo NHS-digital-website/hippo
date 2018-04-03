@@ -34,6 +34,7 @@ Feature: Footer
     Scenario: Search Results
         Given I navigate to the "home" page
         And I search for "test"
+        And I click on the accept cookie banner
         Then I should see the footer
 
     Scenario: Publication

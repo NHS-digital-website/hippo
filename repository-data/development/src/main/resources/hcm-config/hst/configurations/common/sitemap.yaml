@@ -10,6 +10,10 @@ definitions:
         hst:componentconfigurationid: hst:pages/static-ui-filtered-list
         hst:relativecontentpath: static-ui/filtered-list
         jcr:primaryType: hst:sitemapitem
+      /general:
+        hst:componentconfigurationid: hst:pages/static-ui-general
+        hst:relativecontentpath: static-ui/general
+        jcr:primaryType: hst:sitemapitem
       /home:
         hst:componentconfigurationid: hst:pages/static-ui-home
         hst:relativecontentpath: static-ui/home
@@ -29,10 +33,6 @@ definitions:
       /service:
         hst:componentconfigurationid: hst:pages/static-ui-service
         hst:relativecontentpath: static-ui/service
-        jcr:primaryType: hst:sitemapitem
-      /standard:
-        hst:componentconfigurationid: hst:pages/static-ui-standard
-        hst:relativecontentpath: static-ui/standard
         jcr:primaryType: hst:sitemapitem
       hst:componentconfigurationid: hst:pages/static-ui-home
       hst:relativecontentpath: static-ui

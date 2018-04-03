@@ -15,7 +15,7 @@ public class CommonPageElements implements PageElements {
                 By.xpath("//input[@name='query']"));
             put("Pagination page",
                 By.xpath(
-                    "//li[contains(@class, 'pagination__list__item pagination__list__item--current')]/span"));
+                    "//li[contains(@class, 'pagination-list__item pagination-list__item--current')]/span"));
         }
     };
 

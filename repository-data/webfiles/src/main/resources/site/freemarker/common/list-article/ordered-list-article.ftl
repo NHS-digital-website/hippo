@@ -3,7 +3,7 @@
 <#include "../macro/alphabeticalFilterNav.ftl">
 <#include "../macro/alphabeticalGroupOfBlocks.ftl">
 
-<article class="article article--service">
+<article class="article article--filtered-list">
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--two-thirds column--reset">
@@ -16,9 +16,9 @@
         <div class="grid-row">
             <div class="column column--two-thirds column--reset">
                 <#-- [FTL-BEGIN] 'Summary and optional Body' sections -->
-                <div id="section-summary" class="article-section article-section--summary">
+                <div id="section-summary" class="article-section article-section--summary  no-border">
                     <div class="grid-row">
-                        <div class="columncolumn--reset">
+                        <div class="column column--reset">
                             <div class="rich-text-content">
                                 <p>${document.summary}</p>
                                 <#if document.body?has_content??>

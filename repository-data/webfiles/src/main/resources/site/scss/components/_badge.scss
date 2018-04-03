@@ -1,0 +1,22 @@
+/* Bagde */
+.badge {
+    display: inline-block;
+    position: relative;
+    width: 122px;
+    height: 40px;
+    background-position:  50% 50%;
+    background-repeat: no-repeat;
+    background-size: 122px 40px;
+    border-radius: 3px;
+}
+
+.badge--assured {
+    background-image: url("../images/badge-assured.png");
+}
+
+@include retina-background {
+    .badge--assured {
+        background-image: url("../images/badge-assured@2x.png");
+        background-size: 122px 40px;
+    }
+}

@@ -74,6 +74,12 @@ definitions:
       /publications-list:
         hst:renderpath: webfile:/freemarker/common/publications-list.ftl
         jcr:primaryType: hst:template
+      /pubs_app-layout:
+        hst:renderpath: webfile:/freemarker/common/pubs_app-layout.ftl
+        jcr:primaryType: hst:template
+      /pubs_searchbar:
+        hst:renderpath: webfile:/freemarker/common/pubs_searchbar.ftl
+        jcr:primaryType: hst:template
       /searchbanner:
         hst:renderpath: webfile:/freemarker/common/search-banner.ftl
         jcr:primaryType: hst:template
@@ -91,5 +97,8 @@ definitions:
         jcr:primaryType: hst:template
       /service-article:
         hst:renderpath: webfile:/freemarker/common/service-article.ftl
+        jcr:primaryType: hst:template
+      /static-ui-general:
+        hst:renderpath: webfile:/freemarker/common/static-ui/general-page.ftl
         jcr:primaryType: hst:template
       jcr:primaryType: hst:templates

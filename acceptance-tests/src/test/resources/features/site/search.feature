@@ -6,6 +6,7 @@ Feature: Basic search
     Scenario: Clickable links
         Given I navigate to the "home" page
         When I search for "loremipsumdolor"
+        And I click on the accept cookie banner
         And I click on link "loremipsumdolor"
         Then I should see page titled "loremipsumdolor"
 
@@ -18,6 +19,7 @@ Feature: Basic search
     Scenario: Clickable pagination links
         Given I navigate to the "home" page
         When I search for "lorem"
+        And I click on the accept cookie banner
         Then I can click on the "Page 2" link
         And I should see:
             | Pagination page | 2 |
@@ -35,6 +37,7 @@ Feature: Basic search
         Given I navigate to the "home" page
         When I search for "titleTestApric"
         Then I should see 1 search results
+        And I click on the accept cookie banner
         And I can click on link "Publication fields titleTestApricots"
         When I search for "titleTestPota"
         Then I should see 1 search results
@@ -47,6 +50,7 @@ Feature: Basic search
         Given I navigate to the "home" page
         When I search for "titleTestApricots"
         Then I should see 1 search results
+        And I click on the accept cookie banner
         And I can click on link "Publication fields titleTestApricots"
         When I search for "summaryTestBeetroot"
         Then I should see 1 search results
@@ -59,6 +63,7 @@ Feature: Basic search
         Given I navigate to the "home" page
         When I search for "titleTestPotatoes"
         Then I should see 1 search results
+        And I click on the accept cookie banner
         And I can click on link "dataset fields titleTestPotatoes"
         When I search for "summaryTestWalnuts"
         Then I should see 1 search results
@@ -68,6 +73,7 @@ Feature: Basic search
         Given I navigate to the "home" page
         When I search for "titleTestStrawberries"
         Then I should see 1 search results
+        And I click on the accept cookie banner
         And I can click on link "series fields titleTestStrawberries"
         When I search for "summaryTestBlackberries"
         Then I should see 1 search results
@@ -77,6 +83,7 @@ Feature: Basic search
         Given I navigate to the "home" page
         When I search for "National Indicator"
         Then I should see 3 search results
+        And I click on the accept cookie banner
         And I can click on link "National Indicator"
         When I search for "SearchableNationalIndicatorDefinition"
         Then I should see 1 search results
@@ -181,6 +188,7 @@ Feature: Basic search
 
     Scenario: Latest publication links for series
         Given I navigate to the "search" page
+        And I click on the accept cookie banner
         When I click on the "Series / Collection" button
         Then I can click on the "Lorem Ipsum Dolor 2014" link
         And I should see publication page titled "Lorem Ipsum Dolor 2014"
@@ -189,6 +197,7 @@ Feature: Basic search
         Given I navigate to the "search" page
         When I click on the "Series / Collection" button
         Then I should not see element with title "Latest 2019"
+        And I click on the accept cookie banner
         When I click on the "Series without latest" link
         Then I can click on the "Latest 2019" link
 
@@ -202,6 +211,7 @@ Feature: Basic search
         Given I navigate to the "search" page
         When I search for "SynonymSearchTerm"
         Then I should see 1 search result
+        And I click on the accept cookie banner
         And I can click on link "synonym test"
         When I search for "SynonymTest"
         Then I should see 1 search result
@@ -210,11 +220,13 @@ Feature: Basic search
     Scenario: National Statistics kite mark on National statistic information type
         Given I navigate to the "search" page
         When I search for ""
+        And I click on the accept cookie banner
         And I click on the "National statistics" link
         Then I should see search results which have the national statistics logo
 
     Scenario: National Statistics kite mark not displayed on other information type
         Given I navigate to the "search" page
         When I search for ""
+        And I click on the accept cookie banner
         And I click on the "Audit" link
         Then I should see search results which doesnt have the national statistics logo

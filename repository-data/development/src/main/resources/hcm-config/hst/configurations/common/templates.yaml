@@ -22,6 +22,3 @@ definitions:
     /hst:hst/hst:configurations/common/hst:templates/static-ui-service:
       hst:renderpath: webfile:/freemarker/common/static-ui/service-page.ftl
       jcr:primaryType: hst:template
-    /hst:hst/hst:configurations/common/hst:templates/static-ui-standard:
-      hst:renderpath: webfile:/freemarker/common/static-ui/standard-page.ftl
-      jcr:primaryType: hst:template

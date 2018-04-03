@@ -51,6 +51,8 @@
     <#-- Add CSS class to mark JS enabled -->
     <#include "scripts/js-enabled.ftl"/>
 
+    <#include "scripts/vanilla-js-utils.ftl"/>
+
     <#-- GA Tracking code -->
     <#include "scripts/google-analytics.ftl"/>
 
