@@ -6,19 +6,23 @@ Feature: As a user I want the CMS content to be restricted so I'm not able to do
         Then I should see the "Administration" folder
         And I should see the "Corporate Website/About" folder
         When I am logged in as ci-editor on the content page
-        Then I should not see the "Administration" folder
+        Then The "Administration" folder should have the menu options including:
+            | No actions available |
         And I should not see the "Corporate Website/About" folder
         When I am logged in as ci-author on the content page
-        Then I should not see the "Administration" folder
+        Then The "Administration" folder should have the menu options including:
+            | No actions available |
         And I should not see the "Corporate Website/About" folder
 
     Scenario: National Indicator Library authors and editors can only see the NIL folder
         When I am logged in as ni-editor on the content page
-        Then I should not see the "Administration" folder
+        Then The "Administration" folder should have the menu options including:
+            | No actions available |
         And I should not see the "Corporate Website/About" folder
         And I should see the "Corporate Website/National Indicator Library" folder
         When I am logged in as ni-author on the content page
-        Then I should not see the "Administration" folder
+        Then The "Administration" folder should have the menu options including:
+            | No actions available |
         And I should not see the "Corporate Website/About" folder
         And I should see the "Corporate Website/National Indicator Library" folder
 

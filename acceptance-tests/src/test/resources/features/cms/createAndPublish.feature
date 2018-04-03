@@ -30,6 +30,7 @@ Feature: As am author I need to create a new publication
             | Data set            |
             | Publication         |
             | Legacy Publication  |
+            | Publication Page    |
 
     Scenario: Restricted document types in new publication system folders
         Given I am on the content page
@@ -41,6 +42,7 @@ Feature: As am author I need to create a new publication
             | Data set            |
             | Publication         |
             | Legacy Publication  |
+            | Publication Page    |
 
     Scenario: Restricted document types in ci hub folder
         Given I am logged in as admin on the content page

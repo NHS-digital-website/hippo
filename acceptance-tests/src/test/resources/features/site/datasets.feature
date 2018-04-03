@@ -62,7 +62,7 @@ Feature: As a consumer I need to be able to navigate to publication data sets
         And I should also see:
             | Dataset Summary               | Sed viverra, odio nec eleifend sodales, ligula lectus varius ...  |
             | Dataset Granularity           | NHS Health Boards                                                 |
-            | Dataset Geographic Coverage   | Great Britain                                                     |
+            | Dataset Geographic Coverage   | Northern Ireland                                                  |
 
     Scenario: Click back to publication from data set
         Given I navigate to "publication with datasets Dataset" data set page

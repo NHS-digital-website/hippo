@@ -1,0 +1,46 @@
+---
+/content/documents/administration/value-lists:
+  /geographic-coverage:
+    /geographic-coverage:
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: England
+        selection:label: England
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: Scotland
+        selection:label: Scotland
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: Wales
+        selection:label: Wales
+      /selection:listitem[4]:
+        jcr:primaryType: selection:listitem
+        selection:key: Northern Ireland
+        selection:label: Northern Ireland
+      /selection:listitem[5]:
+        jcr:primaryType: selection:listitem
+        selection:key: Republic of Ireland
+        selection:label: Republic of Ireland
+      hippo:availability:
+      - live
+      - preview
+      hippotranslation:id: 28b37ec2-8848-4df4-b1f0-40d4bae74cb4
+      hippotranslation:locale: inherited - from query
+      jcr:mixinTypes:
+      - hippotranslation:translated
+      - mix:referenceable
+      jcr:primaryType: selection:valuelist
+    hippo:name: Geographic coverage
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Value lists
+  hippostd:foldertype:
+  - new-document
+  - new-folder
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:versionable
+  jcr:primaryType: hippostd:folder
