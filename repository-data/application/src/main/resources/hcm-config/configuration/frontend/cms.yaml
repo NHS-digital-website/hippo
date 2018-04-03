@@ -3,6 +3,11 @@ definitions:
   config:
     /hippo:configuration/hippo:frontend/cms:
       frontend:privileges: jcr:read
+    /hippo:configuration/hippo:frontend/cms/cms-advanced-search/genericFilters:
+      document.type.namespaces:
+      - website
+      - nationalindicatorlibrary
+      - publicationsystem
     /hippo:configuration/hippo:frontend/cms/cms-services/assetValidationService:
       extensions.allowed:
       - doc
