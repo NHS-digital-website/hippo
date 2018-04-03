@@ -2,6 +2,7 @@
 /content/documents/corporate-website/publication-system/acceptance-tests/upcoming-publication/upcoming-dataset:
   /upcoming-dataset[1]:
     common:FacetType: dataset
+    common:searchRank: 3
     common:searchable: false
     hippo:availability: []
     hippostd:state: draft
@@ -30,6 +31,7 @@
     publicationsystem:Title: Upcoming Dataset
   /upcoming-dataset[2]:
     common:FacetType: dataset
+    common:searchRank: 3
     common:searchable: false
     hippo:availability:
     - preview
@@ -60,6 +62,7 @@
     publicationsystem:Title: Upcoming Dataset
   /upcoming-dataset[3]:
     common:FacetType: dataset
+    common:searchRank: 3
     common:searchable: false
     hippo:availability:
     - live

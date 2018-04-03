@@ -29,6 +29,7 @@
     - people,-patients-and-geography
     common:SearchableTags:
     - People, patients and geography
+    common:searchRank: 4
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
@@ -111,6 +112,7 @@
     - people,-patients-and-geography
     common:SearchableTags:
     - People, patients and geography
+    common:searchRank: 4
     common:searchable: true
     hippo:availability:
     - preview
@@ -195,6 +197,7 @@
     - people,-patients-and-geography
     common:SearchableTags:
     - People, patients and geography
+    common:searchRank: 4
     common:searchable: true
     hippo:availability:
     - live

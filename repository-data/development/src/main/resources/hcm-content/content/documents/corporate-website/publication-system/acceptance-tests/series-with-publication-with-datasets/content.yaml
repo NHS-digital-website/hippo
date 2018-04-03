@@ -2,7 +2,7 @@
 /content/documents/corporate-website/publication-system/acceptance-tests/series-with-publication-with-datasets/content:
   /content[1]:
     common:FacetType: series
-    common:searchRank: 1
+    common:searchRank: 5
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
@@ -32,7 +32,7 @@
     publicationsystem:Title: series-with-publication-with-datasets
   /content[2]:
     common:FacetType: series
-    common:searchRank: 1
+    common:searchRank: 5
     common:searchable: true
     hippo:availability:
     - preview
@@ -64,7 +64,7 @@
     publicationsystem:Title: series-with-publication-with-datasets
   /content[3]:
     common:FacetType: series
-    common:searchRank: 1
+    common:searchRank: 5
     common:searchable: true
     hippo:availability:
     - live

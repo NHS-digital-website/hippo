@@ -3,6 +3,7 @@
   /archive-summary:
     /archive-summary[1]:
       common:FacetType: series
+      common:searchRank: 1
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -19,6 +20,7 @@
       publicationsystem:Title: Search Test Archive Summary
     /archive-summary[2]:
       common:FacetType: series
+      common:searchRank: 1
       common:searchable: true
       hippo:availability:
       - preview
@@ -37,6 +39,7 @@
       publicationsystem:Title: Search Test Archive Summary
     /archive-summary[3]:
       common:FacetType: series
+      common:searchRank: 1
       common:searchable: true
       hippo:availability:
       - live
@@ -61,6 +64,7 @@
   /archive-title:
     /archive-title[1]:
       common:FacetType: series
+      common:searchRank: 1
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -77,6 +81,7 @@
       publicationsystem:Title: "Search Test Archive Title\r\nWeightSearchTerm"
     /archive-title[2]:
       common:FacetType: series
+      common:searchRank: 1
       common:searchable: true
       hippo:availability:
       - preview
@@ -95,6 +100,7 @@
       publicationsystem:Title: "Search Test Archive Title\r\nWeightSearchTerm"
     /archive-title[3]:
       common:FacetType: series
+      common:searchRank: 1
       common:searchable: true
       hippo:availability:
       - live
@@ -119,6 +125,7 @@
   /content:
     /content[1]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -142,6 +149,7 @@
       publicationsystem:Title: Search Weights Publication
     /content[2]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - preview
@@ -167,6 +175,7 @@
       publicationsystem:Title: Search Weights Publication
     /content[3]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - live
@@ -196,6 +205,7 @@
   /dataset-summary:
     /dataset-summary[1]:
       common:FacetType: dataset
+      common:searchRank: 3
       common:searchable: true
       hippo:availability:
       - preview
@@ -218,6 +228,7 @@
       publicationsystem:Title: Search Test Dataset Summary Mar 18
     /dataset-summary[2]:
       common:FacetType: dataset
+      common:searchRank: 3
       common:searchable: true
       hippo:availability:
       - live
@@ -241,6 +252,7 @@
       publicationsystem:Title: Search Test Dataset Summary Mar 18
     /dataset-summary[3]:
       common:FacetType: dataset
+      common:searchRank: 3
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -268,6 +280,7 @@
   /dataset-title:
     /dataset-title[1]:
       common:FacetType: dataset
+      common:searchRank: 3
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -289,6 +302,7 @@
       publicationsystem:Title: "Search Test Dataset Title Jan 18\r\nWeightSearchTerm"
     /dataset-title[2]:
       common:FacetType: dataset
+      common:searchRank: 3
       common:searchable: true
       hippo:availability:
       - preview
@@ -312,6 +326,7 @@
       publicationsystem:Title: "Search Test Dataset Title Jan 18\r\nWeightSearchTerm"
     /dataset-title[3]:
       common:FacetType: dataset
+      common:searchRank: 3
       common:searchable: true
       hippo:availability:
       - live
@@ -341,6 +356,7 @@
   /publication-key-facts:
     /publication-key-facts[1]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - preview
@@ -365,6 +381,7 @@
       publicationsystem:Title: Search Test Publication Key Facts Feb 18
     /publication-key-facts[2]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -388,6 +405,7 @@
       publicationsystem:Title: Search Test Publication Key Facts Feb 18
     /publication-key-facts[3]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - live
@@ -419,6 +437,7 @@
   /publication-summary:
     /publication-summary[1]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - preview
@@ -443,6 +462,7 @@
       publicationsystem:Title: Search Test Publication Summary Apr 18
     /publication-summary[2]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -466,6 +486,7 @@
       publicationsystem:Title: Search Test Publication Summary Apr 18
     /publication-summary[3]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - live
@@ -497,6 +518,7 @@
   /publication-title:
     /publication-title[1]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -520,6 +542,7 @@
       publicationsystem:Title: "Search Test Publication Title Dec 17\r\nWeightSearchTerm"
     /publication-title[2]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - preview
@@ -545,6 +568,7 @@
       publicationsystem:Title: "Search Test Publication Title Dec 17\r\nWeightSearchTerm"
     /publication-title[3]:
       common:FacetType: publication
+      common:searchRank: 4
       common:searchable: true
       hippo:availability:
       - live
@@ -576,7 +600,7 @@
   /series-summary:
     /series-summary[1]:
       common:FacetType: series
-      common:searchRank: 1
+      common:searchRank: 5
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -593,7 +617,7 @@
       publicationsystem:Title: Search Test Series Summary
     /series-summary[2]:
       common:FacetType: series
-      common:searchRank: 1
+      common:searchRank: 5
       common:searchable: true
       hippo:availability:
       - preview
@@ -612,7 +636,7 @@
       publicationsystem:Title: Search Test Series Summary
     /series-summary[3]:
       common:FacetType: series
-      common:searchRank: 1
+      common:searchRank: 5
       common:searchable: true
       hippo:availability:
       - live
@@ -637,7 +661,7 @@
   /series-title:
     /series-title[1]:
       common:FacetType: series
-      common:searchRank: 1
+      common:searchRank: 5
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -654,7 +678,7 @@
       publicationsystem:Title: "Search Test Series Title\r\nWeightSearchTerm"
     /series-title[2]:
       common:FacetType: series
-      common:searchRank: 1
+      common:searchRank: 5
       common:searchable: true
       hippo:availability:
       - preview
@@ -673,7 +697,7 @@
       publicationsystem:Title: "Search Test Series Title\r\nWeightSearchTerm"
     /series-title[3]:
       common:FacetType: series
-      common:searchRank: 1
+      common:searchRank: 5
       common:searchable: true
       hippo:availability:
       - live

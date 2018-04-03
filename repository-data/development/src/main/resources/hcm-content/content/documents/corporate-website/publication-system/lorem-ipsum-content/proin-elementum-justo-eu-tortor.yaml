@@ -10,6 +10,7 @@
     common:SearchableTags:
     - Falls
     - Workforce
+    common:searchRank: 4
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
@@ -51,6 +52,7 @@
     common:SearchableTags:
     - Falls
     - Workforce
+    common:searchRank: 4
     common:searchable: true
     hippo:availability:
     - preview
@@ -94,6 +96,7 @@
     common:SearchableTags:
     - Falls
     - Workforce
+    common:searchRank: 4
     common:searchable: true
     hippo:availability:
     - live

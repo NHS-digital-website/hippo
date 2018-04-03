@@ -6,6 +6,7 @@
     - workforce
     common:SearchableTags:
     - Workforce
+    common:searchRank: 4
     common:searchable: true
     hippo:availability: []
     hippostd:state: draft
@@ -44,6 +45,7 @@
     - workforce
     common:SearchableTags:
     - Workforce
+    common:searchRank: 4
     common:searchable: true
     hippo:availability:
     - preview
@@ -84,6 +86,7 @@
     - workforce
     common:SearchableTags:
     - Workforce
+    common:searchRank: 4
     common:searchable: true
     hippo:availability:
     - live

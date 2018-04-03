@@ -4,6 +4,7 @@
     /content:
       /content[1]:
         common:FacetType: publication
+        common:searchRank: 4
         common:searchable: true
         hippo:availability: []
         hippostd:state: draft
@@ -35,6 +36,7 @@
         publicationsystem:Title: Facets Other Publication
       /content[2]:
         common:FacetType: publication
+        common:searchRank: 4
         common:searchable: true
         hippo:availability:
         - preview
@@ -68,6 +70,7 @@
         publicationsystem:Title: Facets Other Publication
       /content[3]:
         common:FacetType: publication
+        common:searchRank: 4
         common:searchable: true
         hippo:availability:
         - live
@@ -125,6 +128,7 @@
         common:SearchableTags:
         - Falls
         - Social care
+        common:searchRank: 4
         common:searchable: true
         hippo:availability: []
         hippostd:state: draft
@@ -167,6 +171,7 @@
         common:SearchableTags:
         - Falls
         - Social care
+        common:searchRank: 4
         common:searchable: true
         hippo:availability:
         - preview
@@ -211,6 +216,7 @@
         common:SearchableTags:
         - Falls
         - Social care
+        common:searchRank: 4
         common:searchable: true
         hippo:availability:
         - live
@@ -259,6 +265,7 @@
         common:SearchableTags:
         - Bowel cancer
         - Social care
+        common:searchRank: 3
         common:searchable: true
         hippo:availability: []
         hippostd:state: draft
@@ -296,6 +303,7 @@
         common:SearchableTags:
         - Bowel cancer
         - Social care
+        common:searchRank: 3
         common:searchable: true
         hippo:availability:
         - preview
@@ -335,6 +343,7 @@
         common:SearchableTags:
         - Bowel cancer
         - Social care
+        common:searchRank: 3
         common:searchable: true
         hippo:availability:
         - live

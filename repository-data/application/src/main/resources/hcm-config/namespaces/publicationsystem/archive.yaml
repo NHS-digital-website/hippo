@@ -97,6 +97,7 @@ definitions:
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
           common:FacetType: series
+          common:searchRank: 1
           common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft

@@ -156,20 +156,17 @@ public class SearchSteps extends AbstractSpringSteps {
 
     private static List<String> getWeightSearchResultsSortedByRelevance() {
         return asList(
-            // Search results should go Series by jcr score
-            // -> Publications & Datasets ordered by date
-            // -> NIL docs by date
-            // -> Archives by jcr score
+            // Search results should go Series -> Publications -> Datasets -> Archives internally ordered by date
             "Search Test Series Summary",
             "Search Test Series Title",
             "Search Test Publication Summary Apr 18",
-            "Search Test Dataset Summary Mar 18",
             "Search Test Publication Key Facts Feb 18",
-            "Search Test Dataset Title Jan 18",
             "Search Test Publication Title Dec 17",
-            "Search Test Indicator Definition",
-            "Search Test Indicator Title",
-            "Search Test Archive Summary"
+            "Search Test Dataset Summary Mar 18",
+            "Search Test Dataset Title Jan 18",
+            "Search Test Archive Summary",
+            "Search Test Archive Title",
+            "Search Test Indicator Definition"
         );
     }
 
