@@ -131,7 +131,7 @@ ondemand.upload:
 ondemand.deploy: vendor/rd
 	source $(RD_CONF) && vendor/rd run \
 		--project nhs \
-		-job "jobs/$(OD_ENV)/Deploy" \
+		--job "jobs/$(OD_ENV)/Deploy" \
 		-- \
 		-bootstrap full \
 		-distribution "$(VERSION).tar.gz"
