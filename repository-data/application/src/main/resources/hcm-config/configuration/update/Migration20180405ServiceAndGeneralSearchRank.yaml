@@ -1,0 +1,16 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/Migration-20180405-SearchRank:
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: "{\r\n    \"searchRankValue\" : 5\r\n}"
+      hipposys:query: /jcr:root/content/documents/corporate-website//*[(@jcr:primaryType='website:service')
+        or ((@jcr:primaryType='website:general'))]
+      hipposys:script:
+        resource: /configuration/update/Migration20180405ServiceAndGeneralSearchRank.groovy
+        type: string
+      hipposys:throttle: 200
+      jcr:primaryType: hipposys:updaterinfo
