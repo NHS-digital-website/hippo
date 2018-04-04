@@ -23,9 +23,9 @@
     - searchtab.news
     resourcebundle:messages:
     - All
-    - Data and Information
-    - Systems and Services
-    - News and Events
+    - Data and information
+    - Systems and services
+    - News and events
   /searchtab-labels[2]:
     hippo:availability:
     - preview
@@ -51,9 +51,9 @@
     - searchtab.news
     resourcebundle:messages:
     - All
-    - Data and Information
-    - Systems and Services
-    - News and Events
+    - Data and information
+    - Systems and services
+    - News and events
   /searchtab-labels[3]:
     hippo:availability:
     - live
@@ -79,9 +79,9 @@
     - searchtab.news
     resourcebundle:messages:
     - All
-    - Data and Information
-    - Systems and Services
-    - News and Events
+    - Data and information
+    - Systems and services
+    - News and events
   hippo:name: Search Tab Labels
   jcr:mixinTypes:
   - hippo:named
