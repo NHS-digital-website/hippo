@@ -312,7 +312,7 @@ public class ContentPage extends AbstractCmsPage {
 
     private boolean createDocument(String docType, String name) {
 
-        clickFolderMenuOption("Add new document...", "Corporate Website", "Publication System");
+        clickFolderMenuOption("Add new document...", "Corporate Website", "Publication System", "Acceptance Tests");
 
         // Wait for modal dialogue and find new document name field
         WebElement nameField = helper.findElement(By.name("name-url:name"));
@@ -404,7 +404,7 @@ public class ContentPage extends AbstractCmsPage {
     }
 
     public void navigateToDocument(String documentName) {
-        navigateToFolder("Corporate Website", "Publication System");
+        navigateToFolder("Corporate Website", "Publication System", "Acceptance Tests");
         clickDocument(documentName);
     }
 

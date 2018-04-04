@@ -29,18 +29,27 @@ Feature: As a user I want the CMS content to be restricted so I'm not able to do
             | Add new folder...        |
             | Publish all in folder... |
             | Edit allowed content...  |
-        When I am logged in as ci-editor on the content page
-        Then The "Corporate Website/Publication System" folder should have the menu options including:
+        And The "Corporate Website/Publication System/Acceptance Tests" folder should have the menu options including:
             | Add new document...      |
             | Add new folder...        |
             | Publish all in folder... |
-        And The "Corporate Website/Publication System" folder should have the menu options not including:
+            | Edit allowed content...  |
+        When I am logged in as ci-editor on the content page
+        Then The "Corporate Website/Publication System" folder should have the menu options including:
+            | No actions available |
+        And The "Corporate Website/Publication System/Acceptance Tests" folder should have the menu options including:
+            | Add new document...      |
+            | Add new folder...        |
+            | Publish all in folder... |
+        And The "Corporate Website/Publication System/Acceptance Tests" folder should have the menu options not including:
             | Edit allowed content...  |
         When I am logged in as ci-author on the content page
         Then The "Corporate Website/Publication System" folder should have the menu options including:
+            | No actions available |
+        And The "Corporate Website/Publication System/Acceptance Tests" folder should have the menu options including:
             | Add new document...      |
             | Add new folder...        |
-        And The "Corporate Website/Publication System" folder should have the menu options not including:
+        And The "Corporate Website/Publication System/Acceptance Tests" folder should have the menu options not including:
             | Publish all in folder... |
             | Edit allowed content...  |
 
