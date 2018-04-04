@@ -23,7 +23,7 @@ Feature: As am author I need to create a new publication
 
     Scenario: Restricted document types in publication system folders
         Given I am on the content page
-        When I click the "Add new document..." menu option on the "Corporate Website/Publication System" folder
+        When I click the "Add new document..." menu option on the "Corporate Website/Publication System/Acceptance Tests" folder
         Then I should see the document options:
             | Archive             |
             | Series / Collection |

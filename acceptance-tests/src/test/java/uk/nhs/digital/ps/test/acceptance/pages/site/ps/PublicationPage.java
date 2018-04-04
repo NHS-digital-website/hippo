@@ -33,7 +33,7 @@ public class PublicationPage extends AbstractSitePage {
     }
 
     public void open(final Publication publication) {
-        getWebDriver().get(URL + "/publications/" + publication.getPublicationUrlName());
+        getWebDriver().get(URL + "/publications/acceptance-tests/" + publication.getPublicationUrlName());
     }
 
     public String getSummaryText() {

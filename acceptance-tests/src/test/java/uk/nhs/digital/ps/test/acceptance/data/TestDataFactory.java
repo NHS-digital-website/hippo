@@ -72,7 +72,7 @@ public class TestDataFactory {
     }
 
     public static Folder createFolder() {
-        return new Folder("Corporate Website/Publication System", newRandomString());
+        return new Folder("Corporate Website/Publication System/Acceptance Tests", newRandomString());
     }
 
     public static AttachmentBuilder createAttachmentOfType(final FileType fileType) {
