@@ -4,7 +4,7 @@ Feature: Restricted Publication details display
     I need to ensure that only permitted details of individual publication are displayed to the end users
     So that the system does not disclose data until it is officially published
 
-
+    @DeleteAfter
     Scenario: Details are hidden from the end users in a published upcoming publication
         Given I have a published publication flagged as upcoming
         When I view the publication

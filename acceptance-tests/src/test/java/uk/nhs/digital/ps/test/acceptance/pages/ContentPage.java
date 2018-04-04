@@ -24,8 +24,6 @@ public class ContentPage extends AbstractCmsPage {
     private static final String SERIES = "Series / Collection";
     private static final String ARCHIVE = "Archive";
 
-    private static final String PREVIEW_URL = "http://localhost:8080/_rp/cafebabe-cafe-babe-cafe-babecafebabe./channels/common-preview";
-
     private PageHelper helper;
 
     public ContentPage(final WebDriverProvider webDriverProvider, final PageHelper helper) {
@@ -35,7 +33,7 @@ public class ContentPage extends AbstractCmsPage {
 
     /* used as step assertion */
     public boolean openContentTab() {
-        getWebDriver().findElement(
+        helper.findElement(
             By.xpath(XpathSelectors.TABBED_PANEL + "//li[contains(@class, 'tab2')]")).click();
 
         return helper.waitForElementUntil(
@@ -114,22 +112,25 @@ public class ContentPage extends AbstractCmsPage {
             return;
         }
 
-        helper.findElement(
+        helper.click(
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Select taxonomy terms']/../../a")
-        ).click();
+        );
 
-        helper.findElement(
+        helper.click(
             By.xpath(XpathSelectors.TAXONOMY_PICKER + "//span[text()='" + taxonomy.getLevel1() + "']/..")
-        ).click();
-        helper.findElement(
+        );
+
+        helper.click(
             By.xpath(XpathSelectors.TAXONOMY_PICKER + "//span[text()='" + taxonomy.getLevel2() + "']/..")
-        ).click();
-        helper.findElement(
+        );
+
+        helper.click(
             By.xpath(XpathSelectors.TAXONOMY_PICKER + "//span[text()='" + taxonomy.getLevel3() + "']/..")
-        ).click();
-        helper.findElement(
+        );
+
+        helper.click(
             By.xpath(XpathSelectors.TAXONOMY_PICKER + "//a[normalize-space(text())='Add category']")
-        ).click();
+        );
 
         clickButtonOnModalDialog("OK");
     }
@@ -239,12 +240,15 @@ public class ContentPage extends AbstractCmsPage {
         clickButtonOnModalDialog("OK");
     }
 
-    public String previewDocument() {
+    public void previewDocument() {
         findViewMenu().click();
         findPreview().click();
 
-        getWebDriver().get(PREVIEW_URL);
-        return helper.findElement(By.xpath("//pre")).getText();
+        WebElement mainIFrame = helper.findElement(By.xpath("//iframe"));
+        getWebDriver().switchTo().frame(mainIFrame);
+
+        WebElement previewIFrame = helper.findElement(By.xpath("//iframe[@class='qa-view']"));
+        getWebDriver().switchTo().frame(previewIFrame);
     }
 
     public void unpublishDocument() {
@@ -271,9 +275,9 @@ public class ContentPage extends AbstractCmsPage {
         ).forEach(title ->
             // Using 'findElements' as this is the method recommended for asserting absence of elements
             // (see JavaDoc for org.openqa.selenium.WebDriver.findElement).
-            helper.waitUntilTrue(() -> getWebDriver().findElements(
+            helper.waitUntilTrue(() -> helper.findOptionalElement(
                 By.xpath(XpathSelectors.EDITOR_BODY + "//span[@title='" + title + "']")
-                ).isEmpty()
+                ) == null
             ));
     }
 
@@ -285,6 +289,12 @@ public class ContentPage extends AbstractCmsPage {
     }
 
     private WebElement getFolderMenu(String[] folders) {
+        // If a menu is already expanded then collapse it first by clicking off it
+        if (helper.isElementPresent(By.cssSelector("ul[class~='hippo-toolbar-menu-item']"))) {
+            // click a random icon on the screen to collapse the menu
+            helper.findElement(By.className("hippo-user-icon")).click();
+        }
+
         WebElement folderElement = navigateToFolder(folders);
 
         // Hover over the folder to reveal the dropdown
@@ -345,7 +355,7 @@ public class ContentPage extends AbstractCmsPage {
     }
 
     public List<String> getFolderMenuOptions(String... folders) {
-        return getFolderMenu(folders).findElements(By.tagName("li"))
+        return helper.findChildElements(getFolderMenu(folders), By.tagName("li"))
             .stream()
             .map(WebElement::getText)
             .collect(toList());
@@ -384,11 +394,11 @@ public class ContentPage extends AbstractCmsPage {
     public boolean isDocumentSaved(){
         // When a document is saved, a yellow status bar appears informing user document is either offline
         // or a previous version is live
-        return helper.isElementPresent(By.className("hippo-toolbar-status"));
+        return helper.assertElementPresent(By.className("hippo-toolbar-status"));
     }
 
     public boolean isDocumentScheduledForPublication() {
-        return helper.isElementPresent(
+        return helper.assertElementPresent(
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[contains(@title, 'Scheduled publication on ')]")
         );
     }

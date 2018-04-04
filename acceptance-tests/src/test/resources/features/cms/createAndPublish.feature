@@ -57,7 +57,6 @@ Feature: As am author I need to create a new publication
         # No document options as you should automatically be creating an about type
         Then I should see no document options
 
-    @DeleteAfter
     Scenario: Schedule publication, and check date format is NOT in the default format of m/d/yyyy
         Given I am logged in as ci-editor on the content page
         When I have a publication opened for editing

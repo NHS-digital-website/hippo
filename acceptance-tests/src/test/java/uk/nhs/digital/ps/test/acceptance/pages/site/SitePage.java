@@ -79,7 +79,7 @@ public class SitePage extends AbstractSitePage {
     public WebElement findPageElement(String elementName, int nth) {
         for (PageElements pageElements : pagesElements) {
             if (pageElements.contains(elementName)) {
-                return pageElements.getElementByName(elementName, nth, getWebDriver());
+                return pageElements.getElementByName(elementName, nth, helper);
             }
         }
 

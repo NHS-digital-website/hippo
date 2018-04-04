@@ -44,21 +44,21 @@ Feature: As a user I want the CMS content to be restricted so I'm not able to do
             | Publish all in folder... |
             | Edit allowed content...  |
 
-    Scenario: National Indicator Library users can see NIL folder menus according to their role            
+    Scenario: National Indicator Library users can see NIL folder menus according to their role
         When I am logged in as ni-editor on the content page
         Then The "Corporate Website/National Indicator Library" folder should have the menu options including:
-            | Add new document...      |
+            | Add new indicator...      |
             | Add new folder...        |
             | Publish all in folder... |
         And The "Corporate Website/National Indicator Library" folder should have the menu options not including:
             | Edit allowed content...  |
         When I am logged in as ni-author on the content page
         Then The "Corporate Website/National Indicator Library" folder should have the menu options including:
-            | Add new document...      |
+            | Add new indicator...      |
             | Add new folder...        |
         And The "Corporate Website/National Indicator Library" folder should have the menu options not including:
             | Publish all in folder... |
-            | Edit allowed content...  |            
+            | Edit allowed content...  |
 
     Scenario: Only admin can add new folders to corporate website
         When I am logged in as admin on the content page

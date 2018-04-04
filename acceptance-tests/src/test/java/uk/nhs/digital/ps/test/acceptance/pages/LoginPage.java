@@ -49,9 +49,9 @@ public class LoginPage extends AbstractCmsPage {
 
     public String findLoginErrorMessage() {
 
-        final WebElement hippoLoginFeedbackPanel = getWebDriver().findElement(By.className("hippo-login-feedback"));
+        final WebElement hippoLoginFeedbackPanel = helper.findElement(By.className("hippo-login-feedback"));
 
-        return hippoLoginFeedbackPanel.findElement(By.tagName("span")).getText();
+        return helper.findChildElement(hippoLoginFeedbackPanel, By.tagName("span")).getText();
     }
 
     public boolean isLoggedIn(){

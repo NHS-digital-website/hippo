@@ -80,10 +80,10 @@ development cycle when working on acceptance tests.
 
 ## Auto-export
 
-When making changes to the CMS or console data, you may want your changes to be persisted in the yaml configuration 
+When making changes to the CMS or console data, you may want your changes to be persisted in the yaml configuration
 to be boot strapped into the application on startup. The easiest way to do this is to turn auto-export on in the CMS
-(gray button on bottom left of every CMS page) or in the Console (top menu options). Make sure you turn it on before 
-making any of the changes and turn it off again once you are done. This will produce new/amended yaml files. You should 
+(gray button on bottom left of every CMS page) or in the Console (top menu options). Make sure you turn it on before
+making any of the changes and turn it off again once you are done. This will produce new/amended yaml files. You should
 make sure the changes are in the correct module (`application` / `development`) creating a new file for new nodes where appropriate.
 
 ### YAML Formatter
@@ -96,7 +96,7 @@ You can run the formatter manually by running `make format-yaml`.
 ## Updating versions
 
 Periodically the versions of the dependencies we use should be updated to the latest versions, in order to
-ensure we have the latest bug fixes and security patches. For the same reason, the version of Hippo that we 
+ensure we have the latest bug fixes and security patches. For the same reason, the version of Hippo that we
 use as the parent pom should be updated whenever there is a new release.
 
 To update versions automatically we use the [maven versions plugin](http://www.mojohaus.org/versions-maven-plugin/).
@@ -111,15 +111,15 @@ in the pom.
 
 ### Potential issues when upgrading Hippo version
 
-This section should be kept up to date with all known changes we have made to the code base which require 
+This section should be kept up to date with all known changes we have made to the code base which require
 consideration when changing parent Hippo version.
 
 #### Document Workflow
 
 We have our own version of the Hippo document workflow which is a copy of the out of the box workflow with
-some customizations to meet our requirements. When changing hippo version there may be changes to the 
+some customizations to meet our requirements. When changing hippo version there may be changes to the
 document workflow which we need to implement in our forked version.
- 
+
 The original workflow can be sound in the sources jar:
 ```
 hippo-repository-workflow-[VERSION]-sources.jar/hcm-config/documentworkflow.scxml
@@ -142,7 +142,7 @@ repository-data/application/src/main/resources/hcm-config/configuration/modules/
 
 	cd repository-data/webfiles
 	mvn lesscss:compile -D lesscss.watch=true
-	
+
 **Run SASS compiler watching for local dev**
 
 	cd repository-data/webfiles
@@ -153,13 +153,13 @@ repository-data/application/src/main/resources/hcm-config/configuration/modules/
   mvn clean verify && mvn -Pcargo.run -Drepo.path=storage
 
 **Run the local dev server with quiet Splunk**
-    
+
   mvn -Pcargo.run -Dsplunk.hec.name=localhost -Dsplunk.url=http://localhost -Dsplunk.token= -Drepo.path=storage
 
 **Mega command**
 
 > If you keep switching between different branches, you will have to remove the `storage` folder, then rebuild the app using the storage path and of course you'll want to quiet `splunk`...
-  
+
 	rm -rf storage && mvn clean verify && mvn -Pcargo.run -Dsplunk.hec.name=localhost -Dsplunk.url=http://localhost -Dsplunk.token= -Drepo.path=storage
 
 **Both the CMS and the CMS console has their own AutoExport switch, which can be changed separately.**
@@ -167,13 +167,13 @@ repository-data/application/src/main/resources/hcm-config/configuration/modules/
 #### Auto export - on/off
 
 There are 2 ways to run the server: with or without `autoexport`. When the app runs with `autoexport` on, it exports new- and updated files triggered by CMS content updates and additions. To avoid these files accidentally being tracked by git, you better run the app without `autoexport`.
-	
 
-	
+
+
 #### About the SASS compiler
 
 > The most up to date Maven LibSass plugin is [this one](https://github.com/warmuuh/libsass-maven-plugin). The latest version as of 16/01/2018 is 0.2.8 (important to know what version is currently used in the project because it has to be specified in both the `pom.xml` file and in the command line).
- 
+
 #### Front-end library
 
 > We're using the [NHS Digital UI library](https://github.com/nhsuk/frontend-library) as a base for our UI components and styling. The currently available release ([0.8.0](https://github.com/nhsuk/frontend-library/releases/tag/0.8.0)) is used as described in the [documentation](https://github.com/nhsuk/frontend-library#using-the-scss-directly).
@@ -244,14 +244,6 @@ To do that:
 
 Remember to remove these custom tags before executing a final complete suite of tests and
 before pushing your changes to the central repo.
-
-**Exclude Scenarios From Execution**
-
-Occasionally it can be useful to temporarily exclude specific scenarios from executing. To do that, tag them with `@WIP`
-\- class `AcceptanceTest` configures Cucumber to ignore scenarios annotated with this tag.
-
-
-
 
 ## More details
 

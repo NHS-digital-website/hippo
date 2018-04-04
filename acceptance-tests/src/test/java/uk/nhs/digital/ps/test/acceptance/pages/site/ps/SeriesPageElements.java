@@ -1,8 +1,8 @@
 package uk.nhs.digital.ps.test.acceptance.pages.site.ps;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
 import uk.nhs.digital.ps.test.acceptance.pages.site.PageElements;
 
 import java.util.HashMap;
@@ -34,13 +34,13 @@ public class SeriesPageElements implements PageElements {
     }
 
     @Override
-    public WebElement getElementByName(String elementName, WebDriver webDriver) {
-        return getElementByName(elementName, 0, webDriver);
+    public WebElement getElementByName(String elementName, PageHelper helper) {
+        return getElementByName(elementName, 0, helper);
     }
 
     @Override
-    public WebElement getElementByName(String elementName, int nth, WebDriver webDriver) {
-        List<WebElement> elements = webDriver.findElements(pageElements.get(elementName));
+    public WebElement getElementByName(String elementName, int nth, PageHelper helper) {
+        List<WebElement> elements = helper.findElements(pageElements.get(elementName));
 
         if (elements.size() == 0) {
             return null;

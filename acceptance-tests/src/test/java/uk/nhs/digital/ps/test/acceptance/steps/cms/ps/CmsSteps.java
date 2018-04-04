@@ -547,13 +547,8 @@ public class CmsSteps extends AbstractSpringSteps {
         contentPage.copyDocument();
     }
 
-    @Then("^I can preview the document$")
+    @When("^I preview the document$")
     public void iCanPreviewTheDocument() throws Throwable {
-        String jsonReply = contentPage.previewDocument();
-
-        // this is a bit nasty but you can't query the iFrame inside the preview so we just
-        // check the the preview url works and gives us back expected JSON
-        assertThat(jsonReply, containsString(
-            "\"id\":\"common-preview\",\"name\":\"NHS Digital Website\""));
+        contentPage.previewDocument();
     }
 }

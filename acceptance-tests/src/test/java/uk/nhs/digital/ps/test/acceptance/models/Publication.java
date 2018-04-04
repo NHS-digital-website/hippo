@@ -21,7 +21,7 @@ public class Publication {
     private boolean publiclyAccessible;
     private List<BodySection> bodySections;
 
-    private List<Attachment> attachments = new ArrayList<>();
+    private List<Attachment> attachments;
 
     private final PublicationState state;
     private Taxonomy taxonomy;

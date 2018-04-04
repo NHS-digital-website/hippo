@@ -1,5 +1,7 @@
 package uk.nhs.digital.ps.test.acceptance.pages.widgets;
 
+import static org.slf4j.LoggerFactory.getLogger;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,8 +11,6 @@ import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
 import uk.nhs.digital.ps.test.acceptance.pages.XpathSelectors;
 
 import java.util.List;
-
-import static org.slf4j.LoggerFactory.getLogger;
 
 public class AttachmentsCmsWidget {
 
@@ -80,7 +80,7 @@ public class AttachmentsCmsWidget {
         // proceed further if it has.
         helper.waitUntilTrue(() -> {
             log.debug("Found attachment link: {}", attachment.getFullName());
-            return findRootElement().findElement(By.linkText(attachment.getFullName())) != null;
+            return helper.findOptionalChildElement(findRootElement(), By.linkText(attachment.getFullName())) != null;
         });
     }
 
@@ -89,7 +89,7 @@ public class AttachmentsCmsWidget {
     }
 
     private WebElement findAddButton() {
-        return helper.findElement(() -> findRootElement().findElement(By.linkText("Add")));
+        return helper.findChildElement(findRootElement(), By.linkText("Add"));
     }
 
     private WebElement findRootElement() {

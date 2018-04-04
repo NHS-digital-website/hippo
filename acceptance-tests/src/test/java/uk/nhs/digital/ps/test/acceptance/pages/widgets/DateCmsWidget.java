@@ -1,13 +1,13 @@
 package uk.nhs.digital.ps.test.acceptance.pages.widgets;
 
+import static uk.nhs.digital.ps.test.acceptance.util.FormatHelper.formatInstant;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
 import uk.nhs.digital.ps.test.acceptance.pages.XpathSelectors;
 
 import java.time.Instant;
-
-import static uk.nhs.digital.ps.test.acceptance.util.FormatHelper.formatInstant;
 
 public class DateCmsWidget {
 
@@ -37,7 +37,7 @@ public class DateCmsWidget {
     }
 
     public void setToToday() {
-        WebElement resetButton = find().findElement(By.xpath("//a[contains(@class, 'hippo-datepicker-reset')]"));
+        WebElement resetButton = helper.findChildElement(find(), By.xpath("//a[contains(@class, 'hippo-datepicker-reset')]"));
         resetButton.click();
     }
 

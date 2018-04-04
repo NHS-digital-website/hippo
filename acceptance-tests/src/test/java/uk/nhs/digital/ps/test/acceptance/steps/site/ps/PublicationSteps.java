@@ -2,6 +2,7 @@ package uk.nhs.digital.ps.test.acceptance.steps.site.ps;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.empty;
 import static org.junit.Assert.assertThat;
 import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.readFileAsByteArray;
@@ -144,6 +145,11 @@ public class PublicationSteps extends AbstractSpringSteps {
             .stream()
             .map(BodySection::getMatcher)
             .collect(Collectors.toList());
-        assertThat("Body sections are as expected", publicationPage.getBodySections(), contains(matchers));
+
+        if (matchers.isEmpty()) {
+            assertThat("No body sections displayed", publicationPage.getBodySections(), empty());
+        } else {
+            assertThat("Body sections are as expected", publicationPage.getBodySections(), contains(matchers));
+        }
     }
 }
