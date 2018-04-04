@@ -1,7 +1,5 @@
 package uk.nhs.digital.ps.test.acceptance.pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
 public class AbstractCmsPage extends AbstractPage {
@@ -14,14 +12,5 @@ public class AbstractCmsPage extends AbstractPage {
 
     public void openCms() {
         getWebDriver().get(URL);
-    }
-
-    public void logout() {
-
-        new Actions(getWebDriver())
-            .moveToElement(getWebDriver().findElement(By.className("hippo-user-menu")))
-            .moveToElement(getWebDriver().findElement(By.className("hippo-logout")))
-            .click()
-            .perform();
     }
 }

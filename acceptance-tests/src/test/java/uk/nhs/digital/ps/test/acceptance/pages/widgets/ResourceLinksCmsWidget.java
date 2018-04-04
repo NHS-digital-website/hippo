@@ -9,11 +9,9 @@ import uk.nhs.digital.ps.test.acceptance.pages.XpathSelectors;
 public class ResourceLinksCmsWidget {
 
     private final PageHelper helper;
-    private final WebDriver webDriver;
 
     public ResourceLinksCmsWidget(final PageHelper helper, final WebDriver webDriver) {
         this.helper = helper;
-        this.webDriver = webDriver;
     }
 
     public void addResourceLinkField() {
@@ -21,15 +19,11 @@ public class ResourceLinksCmsWidget {
     }
 
     private WebElement findRootElement() {
-        return getWebDriver().findElement(
+        return helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//div[@class='hippo-editor-field' and h3/span[text() = 'Resource Links']]"));
     }
 
     private WebElement findAddButton() {
-        return helper.findElement(() -> findRootElement().findElement(By.linkText("Add")));
-    }
-
-    private WebDriver getWebDriver() {
-        return webDriver;
+        return helper.findChildElement(findRootElement(), By.linkText("Add"));
     }
 }

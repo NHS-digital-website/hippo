@@ -18,6 +18,7 @@ import uk.nhs.digital.ps.test.acceptance.pages.widgets.RelatedLinkSectionWidget;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class PublicationPage extends AbstractSitePage {
@@ -102,16 +103,17 @@ public class PublicationPage extends AbstractSitePage {
         return pageElements.stream()
             .filter(pageElements -> pageElements.contains(pageElementName))
             .findFirst()
-            .map(pageElements -> pageElements.getElementByName(pageElementName, getWebDriver()))
+            .map(pageElements -> pageElements.getElementByName(pageElementName, helper))
             .orElse(null);
     }
 
     public List<SectionWidget> getBodySections() {
-        return findPageElement(BODY)
-            .findElements(By.xpath("./*"))
-            .stream()
-            .map(this::createSectionWidget)
-            .collect(toList());
+        WebElement body = findPageElement(BODY);
+        return body == null ? Collections.emptyList() :
+            body.findElements(By.xpath("./*"))
+                .stream()
+                .map(this::createSectionWidget)
+                .collect(toList());
     }
 
     private SectionWidget createSectionWidget(WebElement webElement) {

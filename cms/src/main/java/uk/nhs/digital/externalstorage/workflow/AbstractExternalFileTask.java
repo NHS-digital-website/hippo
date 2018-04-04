@@ -66,7 +66,7 @@ public abstract class AbstractExternalFileTask extends AbstractDocumentTask {
 
         //variantNode.
         String query = "SELECT * FROM [" + ExternalStorageConstants.NODE_TYPE_EXTERNAL_RESOURCE + "] "
-            + "WHERE ISDESCENDANTNODE ([" + documentPath + "])";
+            + "WHERE ISDESCENDANTNODE (['" + documentPath + "'])";
 
         QueryResult res = node.getSession()
             .getWorkspace()

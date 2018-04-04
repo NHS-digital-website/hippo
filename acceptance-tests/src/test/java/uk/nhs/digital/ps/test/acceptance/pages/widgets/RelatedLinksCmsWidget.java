@@ -9,11 +9,9 @@ import uk.nhs.digital.ps.test.acceptance.pages.XpathSelectors;
 public class RelatedLinksCmsWidget {
 
     private final PageHelper helper;
-    private final WebDriver webDriver;
 
     public RelatedLinksCmsWidget(final PageHelper helper, final WebDriver webDriver) {
         this.helper = helper;
-        this.webDriver = webDriver;
     }
 
     public void addRelatedLinkField() {
@@ -21,15 +19,11 @@ public class RelatedLinksCmsWidget {
     }
 
     private WebElement findRootElement() {
-        return getWebDriver().findElement(
+        return helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//div[@class='hippo-editor-field' and h3/span[text() = 'Related Links']]"));
     }
 
     private WebElement findAddButton() {
-        return helper.findElement(() -> findRootElement().findElement(By.linkText("Add")));
-    }
-
-    private WebDriver getWebDriver() {
-        return webDriver;
+        return helper.findChildElement(findRootElement(), By.linkText("Add"));
     }
 }

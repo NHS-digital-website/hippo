@@ -60,7 +60,7 @@ release: test version.bumpup
 	$(MAKE) build upload
 
 ## Run all tests
-test: clean test.unit test.e2e
+test: clean test.e2e
 
 ## Run unit tests
 test.unit:
@@ -69,10 +69,15 @@ test.unit:
 
 ## Run BDD tests for "site" only.
 test.site:
-	mvn package $(MVN_OPTS) -DskipTests --quiet
-	mvn verify $(MVN_OPTS) --quiet \
+	mvn clean verify $(MVN_OPTS) --quiet \
 		-Dcucumber.options="src/test/resources/features/site" \
 		-Pacceptance-test-hippo,acceptance-test
+
+## Run tests for cms only, without development data
+test.cms:
+	mvn clean verify $(MVN_OPTS) --quiet \
+		-Dcucumber.options="src/test/resources/features/cms" \
+		-Pacceptance-test-hippo,acceptance-test,acceptance-without-development-data
 
 ## Run the tests that we want for travis builds
 # We only run site tests for pull requests as the CMS tests are unreliable
@@ -83,9 +88,8 @@ test.travis:
 
 ## Run BDD tests
 test.e2e:
-	mvn package $(MVN_OPTS) -DskipTests --quiet
-	mvn verify $(MVN_OPTS) --quiet \
-		-Pacceptance-test-hippo,acceptance-test
+	$(MAKE) test.site
+	$(MAKE) test.cms
 
 ## Build distribution package
 build:

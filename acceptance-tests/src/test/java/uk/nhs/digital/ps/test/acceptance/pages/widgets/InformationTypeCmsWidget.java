@@ -55,11 +55,6 @@ public class InformationTypeCmsWidget {
     }
 
     private WebElement findRootElement() {
-        return getWebDriver().findElement(By.xpath(ROOT_ELEMENT_XPATH));
+        return helper.findElement(By.xpath(ROOT_ELEMENT_XPATH));
     }
-
-    private WebDriver getWebDriver() {
-        return webDriver;
-    }
-
 }

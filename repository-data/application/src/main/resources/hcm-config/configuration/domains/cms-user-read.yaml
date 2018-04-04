@@ -65,15 +65,6 @@ definitions:
           hipposys:value: /content/gallery
           jcr:primaryType: hipposys:facetrule
         jcr:primaryType: hipposys:domainrule
-      /national-indicator-library-template:
-        /node-by-uuid:
-          hipposys:equals: true
-          hipposys:facet: jcr:uuid
-          hipposys:filter: false
-          hipposys:type: Reference
-          hipposys:value: /hippo:configuration/hippo:queries/hippo:templates/new-national-indicator-library-folder/hippostd:templates/hippostd:folder
-          jcr:primaryType: hipposys:facetrule
-        jcr:primaryType: hipposys:domainrule
       /readonly:
         hipposys:groups:
         - national-indicator-library-author

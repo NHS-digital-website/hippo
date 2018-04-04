@@ -1,6 +1,7 @@
 package uk.nhs.digital.ps.test.acceptance.models;
 
 import static java.util.Arrays.asList;
+import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.toList;
 
 import uk.nhs.digital.ps.test.acceptance.models.section.BodySection;
@@ -22,7 +23,7 @@ public class PublicationBuilder {
     private boolean publiclyAccessible;
     private List<AttachmentBuilder> attachmentBuilders = new ArrayList<>();
     private Taxonomy taxonomy;
-    private List<BodySection> bodySections;
+    private List<BodySection> bodySections = emptyList();
 
     private PublicationState state;
 

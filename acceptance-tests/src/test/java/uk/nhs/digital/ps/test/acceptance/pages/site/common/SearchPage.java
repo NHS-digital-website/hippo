@@ -22,7 +22,7 @@ public class SearchPage extends AbstractSitePage {
     }
 
     public List<SearchResultWidget> getSearchResultWidgets() {
-        return getWebDriver()
+        return helper
             .findElements(By.xpath("//*[@data-uipath='ps.search-results.result']"))
             .stream()
             .map(SearchResultWidget::new)

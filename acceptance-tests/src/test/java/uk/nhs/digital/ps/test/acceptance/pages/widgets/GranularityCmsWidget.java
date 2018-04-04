@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import uk.nhs.digital.ps.test.acceptance.models.Granularity;
 import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
@@ -53,10 +52,6 @@ public class GranularityCmsWidget {
 
     private Select findDropDown() {
         return new Select(helper.findElement(By.xpath(DROPDOWN_XPATH)));
-    }
-
-    private WebElement findRootElement() {
-        return getWebDriver().findElement(By.xpath(ROOT_ELEMENT_XPATH));
     }
 
     private WebDriver getWebDriver() {
