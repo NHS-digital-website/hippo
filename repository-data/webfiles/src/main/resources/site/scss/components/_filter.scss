@@ -8,11 +8,11 @@
         margin-right: $gutter * 2;
     }
 
-    .filter__title {
+    .filter-title {
         padding: $gutter;
         border-bottom: 1px solid $col-15;
 
-        .filter__title__reset {
+        .filter-title__reset {
             float: right;
         }
     }
@@ -27,9 +27,9 @@
         }
 
         .filter__list-item {
-            padding: 2px 8px 2px 0;
+            padding: 2px 0px;
 
-            a.filter__link {
+            a.filter-link {
                 display: inline-block;
                 position: relative;
                 color: $col-quinary;
@@ -46,14 +46,14 @@
                 @include core-font(14);
             }
 
-            a.filter__link--selected {
+            a.filter-link--selected {
                 background-color: $col-septenary;
                 color: $col-primary;
                 border: 1px solid $col-15;
                 background-image: url("../img/icon-filter-down.png");
             }
 
-            a.filter__link--selected:after {
+            a.filter-link--selected:after {
                 content: "X";
                 position: absolute;
                 top: 50%;
@@ -65,14 +65,14 @@
         }
 
         .filter__list-item--no-children {
-            a.filter__link,  {
+            a.filter-link,  {
                 background-image: none;
                 padding-left: 8px;
                 padding-right: 8px;
                 background-color: $col-15;
             }
 
-            a.filter__link--selected {
+            a.filter-link--selected {
                 background-color: $col-septenary;
                 padding-right: 22px;
             }
@@ -109,7 +109,7 @@
         }
 
         .filter-section__content {
-            paddng: 0 $gutter $gutter $gutter;
+            padding: 0 $gutter $gutter $gutter;
         }
     }
 
