@@ -52,7 +52,9 @@
                 <#-- END optional 'summary section' -->
 
                 <#-- BEGIN optional 'Sections' -->
+                <#if document.sections?has_content>
                 <@articleSections document.sections></@articleSections>
+                </#if>
                 <#-- END optional 'Sections' -->
 
                 <#-- BEGIN optional 'Further information section' -->
