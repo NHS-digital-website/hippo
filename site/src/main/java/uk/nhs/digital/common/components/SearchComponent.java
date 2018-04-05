@@ -309,13 +309,11 @@ public class SearchComponent extends CommonComponent {
     }
 
     /**
-     * TODO: create a custom document type for the News items
-     * Adding the calltoaction document type for the News documents. The query will
-     * have the right scope, pointing to the News folder
+     * Adding the news document type for the News documents.
      */
     private void addNewsTypes(HstQueryBuilder query) {
         query.ofTypes(
-            Calltoaction.class
+            News.class
         );
     }
 

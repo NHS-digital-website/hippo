@@ -10,11 +10,13 @@ definitions:
           - website:general
           - website:hub
           - website:componentlist
+          - website:news
           hst:componentconfigurationmappingvalues:
           - hst:pages/service
           - hst:pages/general
           - hst:pages/hub
           - hst:pages/componentlist
+          - hst:pages/news
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404
@@ -23,11 +25,13 @@ definitions:
         - website:general
         - website:hub
         - website:componentlist
+        - website:news
         hst:componentconfigurationmappingvalues:
         - hst:pages/service
         - hst:pages/general
         - hst:pages/hub
         - hst:pages/componentlist
+        - hst:pages/news
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:
