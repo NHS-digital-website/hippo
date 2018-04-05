@@ -1,0 +1,37 @@
+---
+/content/documents/administration/website/news-type:
+  /news-type:
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: press-releases
+      selection:label: Press releases
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: programme-updates
+      selection:label: Programme updates
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: methodology-updates
+      selection:label: Methodology updates
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: corporate-announcements
+      selection:label: Corporate announcements
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: urgent-reactive-news
+      selection:label: Urgent/reactive news
+    hippo:availability:
+    - live
+    - preview
+    hippotranslation:id: 6b7c9b30-1748-489e-93a9-75ceacf70472
+    hippotranslation:locale: inherited - from query
+    jcr:mixinTypes:
+    - hippotranslation:translated
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: News Type
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

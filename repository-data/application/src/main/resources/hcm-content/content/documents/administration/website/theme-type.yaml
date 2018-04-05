@@ -1,0 +1,17 @@
+---
+/content/documents/administration/website/theme-type:
+  /theme-type:
+    hippo:availability:
+    - live
+    - preview
+    hippotranslation:id: ad441b69-b137-401c-92f0-a8445cebf19e
+    hippotranslation:locale: inherited - from query
+    jcr:mixinTypes:
+    - hippotranslation:translated
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: Theme Type
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
