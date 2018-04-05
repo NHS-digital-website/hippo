@@ -1,24 +1,24 @@
 @import "../environment/settings/colours";
 
 .skiplinks {
-  background-color: $blue-10;
+    background-color: $col-denary;
 }
 
 .skiplinks__inner {
-  @include site-width-container;
+    @include site-width-container;
 }
 
 .skiplinks__link {
-  color: $white;
-  display: inline-block;
-  left: -999em;
-  padding: ($baseline-grid-unit * 2);
-  position: absolute;
+    display: inline-block;
+    position: absolute;
+    left: -999em;
+    padding: ($baseline-grid-unit * 2);
+    color: $col-septenary;
 
-  &:focus {
-    background-color: $blue-10;
-    border: 3px solid $yellow;
-    outline: none;
-    position: static;
-  }
+    &:focus {
+        background-color: $col-denary;
+        border: 3px solid $col-octonary;
+        outline: none;
+        position: static;
+    }
 }
