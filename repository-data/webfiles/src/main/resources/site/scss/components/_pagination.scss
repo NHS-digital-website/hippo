@@ -33,4 +33,10 @@
     .pagination-list__item--next {
         margin-left: round($gutter * 0.5);
     }
+
+    @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+        .pagination-list__item {
+            margin-bottom: $gutter * 0.5;
+        }
+    }
 }

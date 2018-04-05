@@ -12,6 +12,13 @@ definitions:
           hst:template: document-list
           hst:xtype: HST.Item
           jcr:primaryType: hst:containeritemcomponent
+        /eventslist:
+          hst:componentclassname: uk.nhs.digital.common.components.LatestEventsComponent
+          hst:iconpath: images/essentials/catalog-component-icons/events-list.png
+          hst:label: Event List
+          hst:template: eventlist-main-eventlist
+          hst:xtype: hst.item
+          jcr:primaryType: hst:containeritemcomponent
         /list:
           hst:componentclassname: uk.nhs.digital.common.components.PublicationListComponent
           hst:iconpath: images/catalog/component-products-30x30.png

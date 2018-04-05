@@ -17,7 +17,7 @@
     </#if>
 
     <div class="${sectionClassName}" id="section-${letter}">
-        <div class="grid-row sticky-top">
+        <div class="grid-row sticky sticky--top">
             <div class="column column--reset">
                 <div class="article-header article-header--tertiary">
                     <div class="grid-row">

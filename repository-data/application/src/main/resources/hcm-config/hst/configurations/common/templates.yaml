@@ -35,6 +35,9 @@ definitions:
       /event-article:
         hst:renderpath: webfile:/freemarker/common/event-article.ftl
         jcr:primaryType: hst:template
+      /eventlist-main-eventlist:
+        hst:renderpath: webfile:/freemarker/common/eventlist-main-eventlist.ftl
+        jcr:primaryType: hst:template
       /facets:
         hst:renderpath: webfile:/freemarker/common/facets.ftl
         jcr:primaryType: hst:template

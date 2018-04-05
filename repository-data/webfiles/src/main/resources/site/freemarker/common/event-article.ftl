@@ -93,14 +93,12 @@
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--two-thirds page-block page-block--main">
-                <div class="article-header article-header--secondary">
-                    <h1 data-uipath="document.title">${document.title}</h1>
-                </div>
-
+                <#if document.booking?has_content>
                 <div class="article-section">
                     <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, document.booking) />
                     <a class="button" href="${document.booking}" onClick="${onClickMethodCall}">Book Now</a>
                 </div>
+                </#if>
 
                 <#-- [FTL-BEGIN] 'Body' section -->
                 <div class="article-section">

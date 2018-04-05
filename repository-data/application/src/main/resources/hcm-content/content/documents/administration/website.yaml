@@ -194,7 +194,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-02-02T13:13:41.756Z
-      hippostdpubwf:lastModificationDate: 2018-04-20T08:38:33.915Z
+      hippostdpubwf:lastModificationDate: 2018-04-30T11:45:51.842Z
       hippostdpubwf:lastModifiedBy: admin
       jcr:mixinTypes:
       - mix:referenceable
@@ -216,6 +216,9 @@
       - ''
       - ''
       - Prefix of the news item date label
+      - Latest Events button label
+      - Title of the latest events section
+      - Prefix of the event date
       resourcebundle:id: homepage.website.labels
       resourcebundle:keys:
       - search-banner.text
@@ -234,6 +237,9 @@
       - about-us.upcomingEventsTitle
       - about-us.upcomingEventsButtonLabel
       - about-us.newsDateLabel
+      - about-us.latestEventsButtonLabel
+      - about-us.latestEventsTitle
+      - about-us.eventDateLabel
       resourcebundle:messages:
         type: string
         value:
@@ -257,13 +263,16 @@
         - Upcoming events
         - View all events
         - Date published
+        - View all events
+        - Upcoming events
+        - Date
     /homepage-labels[2]:
       hippo:availability:
       - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-02-02T13:13:41.756Z
-      hippostdpubwf:lastModificationDate: 2018-04-20T08:38:47.741Z
+      hippostdpubwf:lastModificationDate: 2018-04-30T11:46:11.598Z
       hippostdpubwf:lastModifiedBy: admin
       jcr:mixinTypes:
       - mix:referenceable
@@ -286,6 +295,9 @@
       - ''
       - ''
       - Prefix of the news item date label
+      - Latest Events button label
+      - Title of the latest events section
+      - Prefix of the event date
       resourcebundle:id: homepage.website.labels
       resourcebundle:keys:
       - search-banner.text
@@ -304,6 +316,9 @@
       - about-us.upcomingEventsTitle
       - about-us.upcomingEventsButtonLabel
       - about-us.newsDateLabel
+      - about-us.latestEventsButtonLabel
+      - about-us.latestEventsTitle
+      - about-us.eventDateLabel
       resourcebundle:messages:
         type: string
         value:
@@ -327,15 +342,18 @@
         - Upcoming events
         - View all events
         - Date published
+        - View all events
+        - Upcoming events
+        - Date
     /homepage-labels[3]:
       hippo:availability:
       - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-02-02T13:13:41.756Z
-      hippostdpubwf:lastModificationDate: 2018-04-20T08:38:47.741Z
+      hippostdpubwf:lastModificationDate: 2018-04-30T11:46:11.598Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-04-20T08:38:48.900Z
+      hippostdpubwf:publicationDate: 2018-04-30T11:46:12.713Z
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: resourcebundle:resourcebundle
@@ -356,6 +374,9 @@
       - ''
       - ''
       - Prefix of the news item date label
+      - Latest Events button label
+      - Title of the latest events section
+      - Prefix of the event date
       resourcebundle:id: homepage.website.labels
       resourcebundle:keys:
       - search-banner.text
@@ -374,6 +395,9 @@
       - about-us.upcomingEventsTitle
       - about-us.upcomingEventsButtonLabel
       - about-us.newsDateLabel
+      - about-us.latestEventsButtonLabel
+      - about-us.latestEventsTitle
+      - about-us.eventDateLabel
       resourcebundle:messages:
         type: string
         value:
@@ -397,6 +421,9 @@
         - Upcoming events
         - View all events
         - Date published
+        - View all events
+        - Upcoming events
+        - Date
     hippo:name: Home Page Labels
     jcr:mixinTypes:
     - hippo:named
