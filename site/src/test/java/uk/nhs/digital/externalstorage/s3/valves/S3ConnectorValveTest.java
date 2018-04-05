@@ -1,4 +1,4 @@
-package uk.nhs.digital.common.valve;
+package uk.nhs.digital.externalstorage.s3.valves;
 
 import org.hippoecm.hst.core.container.ValveContext;
 import org.hippoecm.hst.core.request.HstRequestContext;
@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.Mock;
+import uk.nhs.digital.common.ServiceProvider;
 import uk.nhs.digital.externalstorage.s3.SchedulingS3Connector;
 import uk.nhs.digital.externalstorage.s3.S3File;
 
@@ -37,6 +38,7 @@ import static uk.nhs.digital.test.util.RandomHelper.newRandomString;
 
 public class S3ConnectorValveTest {
 
+    @Mock private ServiceProvider serviceProvider;
     @Mock private SchedulingS3Connector s3Connector;
     @Mock private HttpServletRequest request;
     @Mock private HttpServletResponse response;
@@ -83,7 +85,9 @@ public class S3ConnectorValveTest {
         given(s3File.getContent()).willReturn(s3InputStream);
         given(s3File.getLength()).willReturn(expectedFileLength);
 
-        s3ConnectorValve = new S3ConnectorValve(s3Connector);
+        given(serviceProvider.getService(SchedulingS3Connector.class)).willReturn(s3Connector);
+
+        s3ConnectorValve = new S3ConnectorValve(serviceProvider);
     }
 
     @Test
