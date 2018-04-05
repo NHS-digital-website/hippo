@@ -6,13 +6,11 @@
 
     <import resource="classpath:/org/hippoecm/hst/site/container/SpringComponentManager-pipelines.xml"/>
 
-    <bean id="s3ConnectorValve" class="uk.nhs.digital.common.valve.S3ConnectorValve"
+    <bean id="s3ConnectorValve" class="uk.nhs.digital.externalstorage.s3.valves.S3ConnectorValve"
           init-method="initialize" destroy-method="destroy">
 
-        <constructor-arg type="uk.nhs.digital.externalstorage.s3.SchedulingS3Connector">
-            <bean class="org.onehippo.cms7.services.HippoServiceRegistry" factory-method="getService">
-                <constructor-arg type="java.lang.Class" value="uk.nhs.digital.externalstorage.s3.SchedulingS3Connector"/>
-            </bean>
+        <constructor-arg type="uk.nhs.digital.common.ServiceProvider">
+            <bean class="uk.nhs.digital.common.ServiceProvider"/>
         </constructor-arg>
         <property name="valveName" value="S3ConnectorValve"/>
     </bean>
