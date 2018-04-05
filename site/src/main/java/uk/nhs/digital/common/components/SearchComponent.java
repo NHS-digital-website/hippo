@@ -72,16 +72,18 @@ public class SearchComponent extends CommonComponent {
 
         if (facetNavigationBean != null) {
             HippoResultSetBean resultSet = facetNavigationBean.getResultSet();
-            Pageable<HippoBean> pageable = getPageableFactory()
-                .createPageable(
-                    resultSet.getDocumentIterator(HippoBean.class),
-                    facetNavigationBean.getCount().intValue(),
-                    paramInfo.getPageSize(),
-                    getCurrentPage(request)
-                );
+            if (resultSet != null) {
+                Pageable<HippoBean> pageable = getPageableFactory()
+                    .createPageable(
+                        resultSet.getDocumentIterator(HippoBean.class),
+                        facetNavigationBean.getCount().intValue(),
+                        paramInfo.getPageSize(),
+                        getCurrentPage(request)
+                    );
 
-            request.setAttribute("pageable", pageable);
-            request.setAttribute("pageNumbers", getPageNumbers(pageable));
+                request.setAttribute("pageable", pageable);
+                request.setAttribute("pageNumbers", getPageNumbers(pageable));
+            }
         }
 
         request.setAttribute("query", getQueryParameter(request));
