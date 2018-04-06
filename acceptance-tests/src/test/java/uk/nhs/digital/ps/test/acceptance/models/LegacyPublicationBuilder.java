@@ -14,7 +14,7 @@ public class LegacyPublicationBuilder {
     private String title;
     private Instant nominalDate;
     private boolean publiclyAccessible;
-    private List<AttachmentBuilder> attachmentBuilders = new ArrayList<>();
+    private List<ResourceBuilder> resourceBuilders = new ArrayList<>();
 
     private PublicationState state;
 
@@ -35,12 +35,12 @@ public class LegacyPublicationBuilder {
         return cloneAndAmend(builder -> builder.nominalDate = nominalDate);
     }
 
-    public LegacyPublicationBuilder withAttachments(final List<AttachmentBuilder> attachmentBuilders) {
-        return cloneAndAmend(builder -> builder.attachmentBuilders = attachmentBuilders);
+    public LegacyPublicationBuilder withAttachments(final List<ResourceBuilder> resourceBuilders) {
+        return cloneAndAmend(builder -> builder.resourceBuilders = resourceBuilders);
     }
 
-    public LegacyPublicationBuilder withAttachments(final AttachmentBuilder... attachmentBuilders) {
-        return cloneAndAmend(builder -> builder.attachmentBuilders = asList(attachmentBuilders));
+    public LegacyPublicationBuilder withAttachments(final ResourceBuilder... resourceBuilders) {
+        return cloneAndAmend(builder -> builder.resourceBuilders = asList(resourceBuilders));
     }
 
     public LegacyPublicationBuilder inState(final PublicationState state) {
@@ -69,12 +69,12 @@ public class LegacyPublicationBuilder {
         return nominalDate;
     }
 
-    List<Attachment> getAttachments() {
-        return getAttachmentBuilders().stream().map(AttachmentBuilder::build).collect(toList());
+    List<Resource> getAttachments() {
+        return getAttachmentBuilders().stream().map(ResourceBuilder::build).collect(toList());
     }
 
-    List<AttachmentBuilder> getAttachmentBuilders() {
-        return new ArrayList<>(attachmentBuilders);
+    List<ResourceBuilder> getAttachmentBuilders() {
+        return new ArrayList<>(resourceBuilders);
     }
 
     PublicationState getState() {
@@ -91,7 +91,7 @@ public class LegacyPublicationBuilder {
         title = original.getTitle();
         nominalDate = original.getNominalDate();
         publiclyAccessible = original.isPubliclyAccessible();
-        attachmentBuilders = original.getAttachmentBuilders();
+        resourceBuilders = original.getAttachmentBuilders();
 
         state = original.getState();
     }
