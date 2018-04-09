@@ -11,8 +11,9 @@
     <#list pageable.items as item>
         <li>
             <article class="cta">
-                <h2 class="cta__title"><a href="#">${item.title}</a></h2>
-                <time class="cta__meta" datetime="2018">Date published: 02 January 2018</time>
+                <h2 class="cta__title">
+                    <a href="<@hst.link hippobean=item/>">${item.title}</a>
+                </h2>
             </article>
         </li>
     </#list>
