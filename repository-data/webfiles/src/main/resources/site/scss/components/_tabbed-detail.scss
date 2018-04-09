@@ -1,0 +1,45 @@
+/* Tabbed detail */
+.tabbed-detail-list {}
+
+.tabbed-detail {
+    border-bottom: 1px solid rgba($col-septenary, 0.5);
+    margin-top: 0;
+    padding: $gutter 0 round($gutter * 0.5);
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    .tabbed-detail__wrapper {
+        @extend .list;
+        @extend .list--inline;
+        @extend .list--reset;
+
+        display: block;
+
+        @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+            .tabbed-detail__key,
+            .tabbed-detail__value {
+                display: block;
+                float: none;
+                min-width: auto;
+            }
+        }
+    }
+
+    .tabbed-detail__key {
+        min-width: 220px;
+
+        @include bold-font(16);
+    }
+
+    .tabbed-detail__value {
+        margin: 0;
+
+        @include core-font(16);
+    }
+}
+
+.tabbed-detail--pushed {
+    @include element-spacing;
+}
