@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/event:
+      /main:
+        hst:componentclassname: uk.nhs.digital.common.components.BaseGaContentComponent
+        hst:template: event-article
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/apppage
+      jcr:primaryType: hst:component

@@ -20,6 +20,10 @@ hr,
 .hr--short {
     width: 100%;
     max-width: 220px;
+
+    @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+        max-width: 100%;
+    }
 }
 
 .hr--light {
