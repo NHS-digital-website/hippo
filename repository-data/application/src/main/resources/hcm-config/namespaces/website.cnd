@@ -15,6 +15,9 @@
 [website:componentlist] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:event] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:externallink] > hippo:compound, hippostd:relaxed
   orderable
 
