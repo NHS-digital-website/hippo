@@ -53,7 +53,7 @@ public class GoogleAnalyticsContentRewriter extends SimpleContentRewriter {
         // rewrite of links
         for (TagNode link : links) {
             String documentPath = link.getAttributeByName("href");
-            if (isExternal(documentPath)) {
+            if (documentPath != null && isExternal(documentPath)) {
                 //fetching content bean type
                 HippoBean contentBean = requestContext.getContentBean();
                 String contentBeanTypeName = "";
