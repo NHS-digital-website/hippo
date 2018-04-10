@@ -39,13 +39,13 @@ public class AttachmentBuilder {
 
     public AttachmentBuilder withFile(final Path path) {
 
-        final byte[] content = FileHelper.readFileAsByteArray(path);
+//        final byte[] content = FileHelper.readFileAsByteArray(path);
         final FileType fileType = FileHelper.getFileType(path);
         final String fileName = FilenameUtils.getBaseName(path.getFileName().toString());
 
         return cloneAndAmend(builder -> {
             builder.path = path;
-            builder.content = content;
+//            builder.content = content;
             builder.fileType = fileType;
             builder.name = fileName;
         });

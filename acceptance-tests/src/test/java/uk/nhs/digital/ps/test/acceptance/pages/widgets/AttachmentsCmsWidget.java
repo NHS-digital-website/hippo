@@ -1,5 +1,6 @@
 package uk.nhs.digital.ps.test.acceptance.pages.widgets;
 
+import static java.lang.String.format;
 import static org.slf4j.LoggerFactory.getLogger;
 
 import org.openqa.selenium.By;
@@ -45,15 +46,20 @@ public class AttachmentsCmsWidget {
             for (int i = 0; i < attachments.size(); i++) {
                 addUploadField();
                 final int expectedUploadFieldsCount = i + 1;
-                helper.waitUntilTrue(() -> findFileUploadElements().size() == expectedUploadFieldsCount);
+                helper.waitUntilTrue(() -> {
+                    System.out.println(findFileUploadElements().size());
+                    System.out.println(expectedUploadFieldsCount);
+                    return findFileUploadElements().size() == expectedUploadFieldsCount;
+                });
             }
 
             // Upload attachments one by one, using the newly created fields.
             for (int i = 0; i < attachments.size(); i++) {
                 final Attachment attachment = attachments.get(i);
+                System.out.println(attachment.getFullName());
 
                 uploadAttachment(i, attachment);
-                waitForUploadToFinish(attachment);
+                waitForUploadToFinish(i, attachment);
             }
         }
     }
@@ -66,22 +72,35 @@ public class AttachmentsCmsWidget {
 
         log.debug("Uploading attachment[{}] {} from {}", uploadFileFieldIndex, attachment.getFullName(),
             attachment.getPath().toAbsolutePath());
+        System.out.println(format("Uploading attachment[{}] {} from {}", uploadFileFieldIndex, attachment.getFullName(),
+            attachment.getPath().toAbsolutePath()));
 
         helper.executeWhenStable(() -> {
             final List<WebElement> fileUploadElements = findFileUploadElements();
             final WebElement nextFileUploadElement = fileUploadElements.get(uploadFileFieldIndex);
+            System.out.println(fileUploadElements.size());
+            System.out.println(attachment.getPath().toAbsolutePath().toString());
 
             nextFileUploadElement.sendKeys(attachment.getPath().toAbsolutePath().toString());
         });
     }
 
-    private void waitForUploadToFinish(final Attachment attachment) {
+    public void waitForUploadToFinish(final Attachment attachment) {
         // Uploads are handled asynchronously so we should detect whether it has completed and only
         // proceed further if it has.
         helper.waitUntilTrue(() -> {
             log.debug("Found attachment link: {}", attachment.getFullName());
             return helper.findOptionalChildElement(findRootElement(), By.linkText(attachment.getFullName())) != null;
-        });
+        }, 120);
+    }
+
+    public void waitForUploadToFinish(int uploadFileFieldIndex, final Attachment attachment) {
+        // Uploads are handled asynchronously so we should detect whether it has completed and only
+        // proceed further if it has.
+        helper.waitUntilTrue(() -> {
+            log.debug("Found attachment link: {}", attachment.getFullName());
+            return findRootElement().findElement(By.xpath("(.//span[text() = 'External File'])[" + (uploadFileFieldIndex + 1) + "]/../..")).findElement(By.linkText(attachment.getFullName())) != null;
+        }, 120);
     }
 
     private List<WebElement> findFileUploadElements() {

@@ -14,6 +14,8 @@ public class TestDataRepo {
 
     private Map<PublicationClassifier, List<Publication>> publications = new HashMap<>();
 
+    private List<LegacyPublication> legacyPublications = new ArrayList<>();
+
     private List<Attachment> attachments;
     private PublicationArchive publicationArchive;
     private PublicationSeries publicationSeries;
@@ -25,9 +27,18 @@ public class TestDataRepo {
         addPublications(SINGLE, publication);
     }
 
+    public void setLegacyPublication(final LegacyPublication legacyPublication) {
+        legacyPublications.clear();
+        legacyPublications.add(legacyPublication);
+    }
+
     public Publication getCurrentPublication() {
         List<Publication> publications = this.publications.get(SINGLE);
         return publications == null ? null : publications.get(0);
+    }
+
+    public LegacyPublication getCurrentLegacyPublication() {
+        return legacyPublications == null ? null : legacyPublications.get(0);
     }
 
     public void setAttachments(final List<Attachment> attachments) {
