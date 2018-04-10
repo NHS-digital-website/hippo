@@ -108,12 +108,14 @@ public class ExpectedTestDataProvider {
                 .withPubliclyAccessible(true),
             newPublication()
                 .withTitle("publication with datasets")
-                .withSummary("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis convallis non massa vel " +
-                    "dictum. In vel ex sapien. Donec sit amet leo lobortis, tempor ex ut, luctus eros. In in eleifend" +
-                    " orci, nec suscipit nisi. Maecenas sed velit condimentum, lobortis tortor id, ultricies metus. " +
-                    "Integer odio ante, congue pulvinar ultrices nec, mollis vitae dolor. Curabitur euismod erat " +
-                    "elit, quis facilisis neque eleifend id. Maecenas convallis vel mi nec bibendum. Donec ut erat " +
-                    "dictum, molestie dolor non, aliquet nibh.")
+                .withSummary("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis"
+                    + " convallis non massa vel dictum. In vel ex sapien. Donec sit amet leo"
+                    + " lobortis, tempor ex ut, luctus eros. In in eleifend orci, nec suscipit nisi."
+                    + " Maecenas sed velit condimentum, lobortis tortor id, ultricies metus."
+                    + " Integer odio ante, congue pulvinar ultrices nec, mollis vitae dolor."
+                    + " Curabitur euismod erat elit, quis facilisis neque eleifend id."
+                    + " Maecenas convallis vel mi nec bibendum. Donec ut erat dictum, molestie dolor"
+                    + " non, aliquet nibh.")
                 .withNominalDate(asInstant("2020-10-11T00:00:00Z"))
                 .inState(PUBLISHED)
                 .withPubliclyAccessible(true)
@@ -151,30 +153,27 @@ public class ExpectedTestDataProvider {
                 "Image with link and caption",
                 "https://google.com/"),
             new TextSection("Second text section with body below",
-                "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, " +
-                    "there live the blind texts. Separated they live in Bookmarksgrove right at the coast of " +
-                    "the Semantics, a large language ocean. A small river named Duden flows by their place and" +
-                    " supplies it with the necessary regelialia. It is a paradisematic country, in which roasted" +
-                    " parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about" +
-                    " the blind texts it is an almost unorthographic life One day however a small line of blind" +
-                    " text by the name of Lorem Ipsum decided to"),
+                "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, "
+                    + "there live the blind texts. Separated they live in Bookmarksgrove right at the coast of "
+                    + "the Semantics, a large language ocean. A small river named Duden flows by their place and"
+                    + " supplies it with the necessary regelialia. It is a paradisematic country, in which roasted"
+                    + " parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about"
+                    + " the blind texts it is an almost unorthographic life One day however a small line of blind"
+                    + " text by the name of Lorem Ipsum decided to"),
             new TextSection(null,
-                "Body without heading. Convallis, nascetur. Pede tristique nam interdum augue euismod nibh " +
-                    "hendrerit. Ut. Condimentum libero facilisi sed. Inceptos natoque feugiat venenatis mattis " +
-                    "turpis leo platea est mollis quam pretium lacus hymenaeos metus ac. Convallis tristique. " +
-                    "Suscipit accumsan tempor ante natoque fermentum nisl, iaculis natoque molestie magna mattis" +
-                    " porttitor ligula Consequat mattis facilisis amet montes consequat vel dis class quisque netus" +
-                    " montes. Placerat nam bibendum libero consectetuer. Mattis aliquam. Consequat."),
+                "Body without heading. Convallis, nascetur. Pede tristique nam interdum augue euismod nibh "
+                    + "hendrerit. Ut. Condimentum libero facilisi sed. Inceptos natoque feugiat venenatis mattis "
+                    + "turpis leo platea est mollis quam pretium lacus hymenaeos metus ac. Convallis tristique. "
+                    + "Suscipit accumsan tempor ante natoque fermentum nisl, iaculis natoque molestie magna mattis"
+                    + " porttitor ligula Consequat mattis facilisis amet montes consequat vel dis class quisque netus"
+                    + " montes. Placerat nam bibendum libero consectetuer. Mattis aliquam. Consequat."),
             new ImageSection("sectioned publication snowman",
                 "Snowman",
                 null,
                 null),
-            new RelatedLinkSection("BBC Homepage",
-            "https://www.bbc.co.uk/"),
-            new RelatedLinkSection("Sky website",
-                "http://www.sky.com/")
+            new RelatedLinkSection("BBC Homepage", "https://www.bbc.co.uk/"),
+            new RelatedLinkSection("Sky website", "http://www.sky.com/")
         );
-
 
         return newPublication()
             .withTitle("Sectioned publication")

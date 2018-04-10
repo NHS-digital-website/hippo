@@ -1,5 +1,7 @@
 package uk.nhs.digital.ps.test.acceptance.models;
 
+import static java.text.MessageFormat.format;
+
 import org.apache.commons.io.FilenameUtils;
 import uk.nhs.digital.ps.test.acceptance.util.FileHelper;
 
@@ -13,6 +15,17 @@ public class AttachmentBuilder {
     private FileType fileType;
     private byte[] content;
     private Path path;
+
+    private AttachmentBuilder() {
+        // no-op; made private to promote the use of factory methods
+    }
+
+    private AttachmentBuilder(final AttachmentBuilder original) {
+        name = original.getName();
+        fileType = original.getFileType();
+        content = original.getContent();
+        path = original.getPath();
+    }
 
     public static AttachmentBuilder newAttachment() {
         return new AttachmentBuilder();
@@ -36,6 +49,7 @@ public class AttachmentBuilder {
 
         return cloneAndAmend(builder -> builder.content = content);
     }
+    //</editor-fold>
 
     public AttachmentBuilder withFile(final Path path) {
 
@@ -54,7 +68,6 @@ public class AttachmentBuilder {
     public Path getPath() {
         return path;
     }
-    //</editor-fold>
 
     public Attachment build() {
         return new Attachment(this);
@@ -64,6 +77,7 @@ public class AttachmentBuilder {
     String getName() {
         return name;
     }
+    //</editor-fold>
 
     FileType getFileType() {
         return fileType;
@@ -71,18 +85,6 @@ public class AttachmentBuilder {
 
     byte[] getContent() {
         return content;
-    }
-    //</editor-fold>
-
-    private AttachmentBuilder() {
-        // no-op; made private to promote the use of factory methods
-    }
-
-    private AttachmentBuilder(final AttachmentBuilder original) {
-        name = original.getName();
-        fileType = original.getFileType();
-        content = original.getContent();
-        path = original.getPath();
     }
 
     private AttachmentBuilder cloneAndAmend(final PropertySetter propertySetter) {
@@ -93,17 +95,17 @@ public class AttachmentBuilder {
 
     private void vetSettingProperty(final String propertyName) {
         if (path != null) {
-            throw new IllegalStateException(MessageFormat.format(
-                "Setting of {0} is not permitted as this attachment is already backed by an actual file and " +
-                    "changing its {0} would leave it in inconsistent state. To set arbitrary {0} use use a builder " +
-                    "without the path set.", propertyName)
-            );
+            throw new IllegalStateException(format(
+                "Setting of {0} is not permitted as this attachment is already backed by an actual"
+                    + " file and changing its {0} would leave it in inconsistent state."
+                    + " To set arbitrary {0} use a builder without the path set.",
+                propertyName
+            ));
         }
     }
 
     @FunctionalInterface
     interface PropertySetter {
-
         void setProperties(AttachmentBuilder builder);
     }
 }

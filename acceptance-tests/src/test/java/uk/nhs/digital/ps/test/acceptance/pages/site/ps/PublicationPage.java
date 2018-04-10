@@ -2,7 +2,18 @@ package uk.nhs.digital.ps.test.acceptance.pages.site.ps;
 
 import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.toList;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.*;
+import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.ADMINISTRATIVE_SOURCES;
+import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.BODY;
+import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.DATA_SETS;
+import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.DATE_RANGE;
+import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.GEOGRAPHIC_COVERAGE;
+import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.GRANULARITY;
+import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.INFORMATION_TYPES;
+import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.KEY_FACTS;
+import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.NOMINAL_PUBLICATION_DATE;
+import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.RESOURCES;
+import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.SUMMARY;
+import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.UPCOMING_DISCLAIMER;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -12,9 +23,9 @@ import uk.nhs.digital.ps.test.acceptance.pages.site.AbstractSitePage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.PageElements;
 import uk.nhs.digital.ps.test.acceptance.pages.widgets.AttachmentWidget;
 import uk.nhs.digital.ps.test.acceptance.pages.widgets.ImageSectionWidget;
+import uk.nhs.digital.ps.test.acceptance.pages.widgets.RelatedLinkSectionWidget;
 import uk.nhs.digital.ps.test.acceptance.pages.widgets.SectionWidget;
 import uk.nhs.digital.ps.test.acceptance.pages.widgets.TextSectionWidget;
-import uk.nhs.digital.ps.test.acceptance.pages.widgets.RelatedLinkSectionWidget;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
 import java.util.Collection;

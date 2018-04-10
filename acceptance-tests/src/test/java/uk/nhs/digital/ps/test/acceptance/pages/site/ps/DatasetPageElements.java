@@ -11,24 +11,30 @@ import java.util.Map;
 
 public class DatasetPageElements implements PageElements {
 
-    private final static Map<String, By> pageElements = new HashMap<String, By>() {{
-        put("Dataset Title",
-            By.xpath("//*[" + getDataUiPathXpath("title") + "]"));
-        put("Dataset Summary",
-            By.xpath("//*[" + getDataUiPathXpath("summary") + "]"));
-        put("Dataset Granularity",
-            By.xpath("//*[" + getDataUiPathXpath("granularity") + "]"));
-        put("Dataset Geographic Coverage",
-            By.xpath("//*[" + getDataUiPathXpath("geographic-coverage") + "]"));
-        put("Dataset Date Range",
-            By.xpath("//*[" + getDataUiPathXpath("date-range") + "]"));
-        put("Dataset Resources",
-            By.xpath("//*[" + getDataUiPathXpath("resources") + "]"));
-        put("Dataset Nominal Date",
-            By.xpath("//*[" + getDataUiPathXpath("nominal-date") + "]"));
-        put("Dataset Next Publication Date",
-            By.xpath("//*[" + getDataUiPathXpath("next-publication-date") + "]"));
-    }};
+    private static final Map<String, By> pageElements = new HashMap<String, By>() {
+        {
+            put("Dataset Title",
+                By.xpath("//*[" + getDataUiPathXpath("title") + "]"));
+            put("Dataset Summary",
+                By.xpath("//*[" + getDataUiPathXpath("summary") + "]"));
+            put("Dataset Granularity",
+                By.xpath("//*[" + getDataUiPathXpath("granularity") + "]"));
+            put("Dataset Geographic Coverage",
+                By.xpath("//*[" + getDataUiPathXpath("geographic-coverage") + "]"));
+            put("Dataset Date Range",
+                By.xpath("//*[" + getDataUiPathXpath("date-range") + "]"));
+            put("Dataset Resources",
+                By.xpath("//*[" + getDataUiPathXpath("resources") + "]"));
+            put("Dataset Nominal Date",
+                By.xpath("//*[" + getDataUiPathXpath("nominal-date") + "]"));
+            put("Dataset Next Publication Date",
+                By.xpath("//*[" + getDataUiPathXpath("next-publication-date") + "]"));
+        }
+    };
+
+    private static String getDataUiPathXpath(String fieldName) {
+        return "@data-uipath='ps.dataset." + fieldName + "'";
+    }
 
     @Override
     public boolean contains(String elementName) {
@@ -49,10 +55,6 @@ public class DatasetPageElements implements PageElements {
         }
 
         return elements.get(nth);
-    }
-
-    private static String getDataUiPathXpath(String fieldName) {
-        return "@data-uipath='ps.dataset." + fieldName + "'";
     }
 
 }

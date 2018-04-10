@@ -19,7 +19,7 @@ public class S3NodeMetadataTest {
     private static final String VALUE_MIME_TYPE = "application/pdf";
 
     @Test
-    public void shouldGiveAccessToFields () {
+    public void shouldGiveAccessToFields() {
         S3NodeMetadata actualMetadata = new S3NodeMetadata(getNode());
 
         assertThat("metadata contains valid .", actualMetadata.getFileName(), equalTo(VALUE_FILE_NAME));

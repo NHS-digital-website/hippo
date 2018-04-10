@@ -1,14 +1,14 @@
 package uk.nhs.digital.test.util;
 
+import static java.util.Collections.shuffle;
+import static java.util.stream.Collectors.toList;
+
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 import java.util.stream.IntStream;
-
-import static java.util.Collections.shuffle;
-import static java.util.stream.Collectors.toList;
 
 public class RandomHelper {
 

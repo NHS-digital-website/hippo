@@ -93,7 +93,6 @@ public class S3SdkConnectorTest {
         final byte[][] expectedChunks = {fullChunk, partialChunk};
         final long contentLength = fullChunk.length + partialChunk.length;
 
-
         given(s3ObjectKeyGenerator.generateObjectKey(fileName)).willReturn(objectKey);
 
         final InitiateMultipartUploadResult result = mock(InitiateMultipartUploadResult.class);
@@ -229,7 +228,6 @@ public class S3SdkConnectorTest {
         final S3Object s3ResponseObject = mock(S3Object.class);
         given(s3ResponseObject.getObjectContent()).willReturn(expectedDownloadedFileInputStream);
         given(s3ResponseObject.getObjectMetadata()).willReturn(objectMetadata);
-
 
         given(s3.getObject(bucketName, objectKey)).willReturn(s3ResponseObject);
 

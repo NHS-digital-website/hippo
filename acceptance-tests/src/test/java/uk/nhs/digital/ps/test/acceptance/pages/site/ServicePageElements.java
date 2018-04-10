@@ -10,11 +10,13 @@ import java.util.Map;
 
 public class ServicePageElements implements PageElements {
 
-    private final static Map<String, By> pageElements = new HashMap<String, By>() {{
-        put("Summary",
-            By.cssSelector("#section-summary>p"));
+    private static final Map<String, By> pageElements = new HashMap<String, By>() {
+        {
+            put("Summary",
+                By.cssSelector("#section-summary>p"));
 
-    }};
+        }
+    };
 
     @Override
     public boolean contains(String elementName) {

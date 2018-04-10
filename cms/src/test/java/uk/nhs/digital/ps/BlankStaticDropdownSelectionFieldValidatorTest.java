@@ -1,5 +1,19 @@
 package uk.nhs.digital.ps;
 
+import static java.text.MessageFormat.format;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.empty;
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.core.Is.is;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.ArgumentMatchers.isA;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.then;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.reset;
+import static org.mockito.MockitoAnnotations.initMocks;
+
 import org.apache.wicket.Page;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.protocol.http.WebApplication;
@@ -19,22 +33,10 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mock;
 
-import javax.jcr.Value;
 import java.util.Collections;
 import java.util.Set;
 import java.util.UUID;
-
-import static java.text.MessageFormat.format;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
-import static org.hamcrest.core.Is.is;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.ArgumentMatchers.isA;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.BDDMockito.then;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.reset;
-import static org.mockito.MockitoAnnotations.initMocks;
+import javax.jcr.Value;
 
 public class BlankStaticDropdownSelectionFieldValidatorTest {
 
@@ -44,8 +46,7 @@ public class BlankStaticDropdownSelectionFieldValidatorTest {
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
 
-    @Mock
-    private IFieldValidator fieldValidator;
+    @Mock private IFieldValidator fieldValidator;
     @Mock private IFieldDescriptor fieldDescriptor;
     @Mock private ITypeDescriptor typeDescriptor;
     @Mock private JcrNodeModel documentNodeModel;

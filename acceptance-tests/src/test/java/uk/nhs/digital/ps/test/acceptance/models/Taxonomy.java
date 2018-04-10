@@ -16,6 +16,13 @@ public class Taxonomy {
         this.level3 = level3;
     }
 
+    /**
+     * @return New instance
+     */
+    public static Taxonomy createNew(final String level1, final String level2, final String level3) {
+        return new Taxonomy(level1, level2, level3);
+    }
+
     public String getLevel1() {
         return level1;
     }
@@ -28,29 +35,21 @@ public class Taxonomy {
         return level3;
     }
 
-    /**
-     * @return New instance
-     */
-    public static Taxonomy createNew(final String level1, final String level2, final String level3) {
-
-        return new Taxonomy(level1, level2, level3);
-
-    }
-
-    public String getTaxonomyContext(){
+    public String getTaxonomyContext() {
 
         String taxonomyContext = "";
 
-        if (!StringUtils.isBlank(level1)){
+        if (!StringUtils.isBlank(level1)) {
             taxonomyContext += level1;
         }
 
-        if (!StringUtils.isBlank(level2)){
+        if (!StringUtils.isBlank(level2)) {
             taxonomyContext += DELIMITER + level2;
         }
 
-        if (!StringUtils.isBlank(level3)){
-            taxonomyContext += DELIMITER + level3;}
+        if (!StringUtils.isBlank(level3)) {
+            taxonomyContext += DELIMITER + level3;
+        }
 
         return taxonomyContext;
     }

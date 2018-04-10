@@ -1,10 +1,17 @@
 package uk.nhs.digital.ps.directives;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import freemarker.core.Environment;
-import freemarker.template.*;
+import freemarker.template.SimpleNumber;
+import freemarker.template.Template;
+import freemarker.template.TemplateDirectiveBody;
+import freemarker.template.TemplateException;
+import freemarker.template.TemplateModel;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -14,9 +21,6 @@ import org.junit.runner.RunWith;
 import java.io.Writer;
 import java.util.HashMap;
 import java.util.Map;
-
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 
 @RunWith(DataProviderRunner.class)
 public class FileSizeFormatterDirectiveTest {
@@ -101,8 +105,8 @@ public class FileSizeFormatterDirectiveTest {
         parameters.remove(BYTES_COUNT_PARAM_NAME);
 
         expectedException.expect(TemplateException.class);
-        expectedException.expectMessage("Required parameter 'bytesCount' was not provided to template uk.nhs.digital" +
-            ".ps.directives.FileSizeFormatterDirective.");
+        expectedException.expectMessage("Required parameter 'bytesCount' was not provided to template uk.nhs.digital"
+            + ".ps.directives.FileSizeFormatterDirective.");
 
         // when
         fileSizeFormatterDirective.execute(environment, parameters, loopVariables, body);

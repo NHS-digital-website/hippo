@@ -3,6 +3,7 @@ package uk.nhs.digital.ps.test.acceptance.steps.site.ps;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.empty;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
 import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.readFileAsByteArray;
@@ -34,7 +35,7 @@ import java.util.stream.Collectors;
 
 public class PublicationSteps extends AbstractSpringSteps {
 
-    private final static Logger log = getLogger(PublicationSteps.class);
+    private static final Logger log = getLogger(PublicationSteps.class);
 
     @Autowired
     private TestDataRepo testDataRepo;
@@ -70,7 +71,7 @@ public class PublicationSteps extends AbstractSpringSteps {
         assertThat("Granularity is as expected", publicationPage.getGranularity(),
             is(publication.getGranularity().getDisplayValue()));
 
-        iCanSeeTheSectionedPublicationBody();
+        thenICanSeeTheSectionedPublicationBody();
 
         assertAttachmentsUpload(publication.getAttachments());
     }
@@ -123,8 +124,8 @@ public class PublicationSteps extends AbstractSpringSteps {
 
     private void assertDisplayedAttachmentDetails(final Attachment attachment, final AttachmentWidget
         attachmentWidget) {
-        assertThat("Attachment " + attachment.getFullName() +" is displayed",
-            attachmentWidget != null, is(true));
+        assertThat("Attachment " + attachment.getFullName() + " is displayed",
+            attachmentWidget, is(notNullValue()));
 
         assertThat("Correct size of attachment " + attachment.getFullName() + " is displayed",
             attachmentWidget.getSizeText(),
@@ -132,13 +133,13 @@ public class PublicationSteps extends AbstractSpringSteps {
     }
 
     @Given("^I have a sectioned publication$")
-    public void iHaveASectionedPublication() throws Throwable {
+    public void givenIHaveASectionedPublication() throws Throwable {
         PublicationBuilder sectionedPublication = ExpectedTestDataProvider.getSectionedPublication();
         testDataRepo.setPublication(sectionedPublication.build());
     }
 
     @Then("^I can see the sectioned publication body$")
-    public void iCanSeeTheSectionedPublicationBody() throws Throwable {
+    public void thenICanSeeTheSectionedPublicationBody() throws Throwable {
         Publication publication = testDataRepo.getCurrentPublication();
 
         List<Matcher<? super SectionWidget>> matchers = publication.getBodySections()

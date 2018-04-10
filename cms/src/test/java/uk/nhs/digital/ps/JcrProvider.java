@@ -33,19 +33,19 @@ public class JcrProvider {
                     (String) object.get("primaryType"),
                     (Map<String, Object>) object.getOrDefault("properties", emptyMap())
                 );
-                Node n = rootNode.addNode(node.path, node.primaryType);
+                Node secondaryNode = rootNode.addNode(node.path, node.primaryType);
                 for (Map.Entry<String, Object> entry : node.properties.entrySet()) {
                     if (entry.getValue() instanceof Boolean) {
-                        n.setProperty(entry.getKey(), (Boolean) entry.getValue());
+                        secondaryNode.setProperty(entry.getKey(), (Boolean) entry.getValue());
                     } else {
-                        n.setProperty(entry.getKey(), entry.getValue().toString());
+                        secondaryNode.setProperty(entry.getKey(), entry.getValue().toString());
                     }
                 }
             }
 
             session.save();
-        } catch (RepositoryException e) {
-            throw new RuntimeException("Failed to set property on JCR node", e);
+        } catch (RepositoryException exception) {
+            throw new RuntimeException("Failed to set property on JCR node", exception);
         }
 
         return session;

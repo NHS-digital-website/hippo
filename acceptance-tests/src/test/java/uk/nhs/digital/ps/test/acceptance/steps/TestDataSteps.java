@@ -15,7 +15,7 @@ import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
 
 public class TestDataSteps extends AbstractSpringSteps {
 
-    private final static Logger log = getLogger(TestDataSteps.class);
+    private static final Logger log = getLogger(TestDataSteps.class);
 
     @Autowired
     private ContentPage contentPage;
@@ -109,8 +109,8 @@ public class TestDataSteps extends AbstractSpringSteps {
             contentPage.unpublishDocument();
             contentPage.deleteDocument();
 
-        } catch (Exception e) {
-            log.error("Failed to take publication offline.", e);
+        } catch (Exception exception) {
+            log.error("Failed to take publication offline.", exception);
         }
     }
 }

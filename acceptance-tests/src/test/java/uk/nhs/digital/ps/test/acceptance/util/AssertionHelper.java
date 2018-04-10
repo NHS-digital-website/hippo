@@ -1,14 +1,14 @@
 package uk.nhs.digital.ps.test.acceptance.util;
 
-import org.hamcrest.Matcher;
-
-import java.time.Instant;
-import java.util.function.Supplier;
-
 import static java.text.MessageFormat.format;
 import static java.time.temporal.ChronoUnit.SECONDS;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static org.junit.Assert.assertThat;
+
+import org.hamcrest.Matcher;
+
+import java.time.Instant;
+import java.util.function.Supplier;
 
 public abstract class AssertionHelper {
 
@@ -39,7 +39,7 @@ public abstract class AssertionHelper {
 
                 assertThat(assertionFailureMessage, actualValueSupplier.get(), matcher);
 
-            } catch (final Exception | AssertionError e) {
+            } catch (final Exception | AssertionError exception) {
                 // We don't want to suppress java.lang.Error instances other than AssertionError, hence going with the
                 // above selection rather than with blanket Throwable; this is so that we do not snuff out unexpected
                 // errors (we do expect Exceptions and AssertionErrors during normal course of resolving assertions
@@ -51,7 +51,7 @@ public abstract class AssertionHelper {
                 } catch (final InterruptedException ie) {
                     throw new Error(ie);
                 }
-                throwable = e;
+                throwable = exception;
             }
         }
         while (throwable != null && Instant.now().isBefore(timeout));

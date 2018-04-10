@@ -17,3 +17,6 @@
 
 	# delete branches that are gone from origin
 	delete-gone = "!f() { d=${1-origin/master}; git branch --merged \"$d\" -vv | grep ': gone]' | awk '{ print $1; }' | xargs git branch -d; }; f"
+
+[pull]
+    rebase = true

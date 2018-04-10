@@ -3,8 +3,8 @@ package uk.nhs.digital.ps.test.acceptance.models.section;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeDiagnosingMatcher;
-import uk.nhs.digital.ps.test.acceptance.pages.widgets.SectionWidget;
 import uk.nhs.digital.ps.test.acceptance.pages.widgets.RelatedLinkSectionWidget;
+import uk.nhs.digital.ps.test.acceptance.pages.widgets.SectionWidget;
 
 public class RelatedLinkSection extends BodySection {
     private final String linkText;

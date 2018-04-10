@@ -1,16 +1,18 @@
 package uk.nhs.digital.ps.beans.structuredText;
 
+import static java.util.Arrays.asList;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
+import java.util.stream.Collectors;
 
 @RunWith(DataProviderRunner.class)
 public class UnorderedListTest {
@@ -26,10 +28,9 @@ public class UnorderedListTest {
         List<String> actualItems = actual.getItems();
 
         // then
-        int i = 0;
-        for(String item: actualItems) {
+        for (int i = 0; i < actualItems.size(); i++) {
             assertThat("List Item matches: " + expectedElements.get(i),
-                item, is(expectedElements.get(i++)));
+                actualItems.get(i), is(expectedElements.get(i++)));
         }
     }
 
@@ -39,55 +40,63 @@ public class UnorderedListTest {
             {
                 "* First item.",
 
-                new ArrayList() {{
-                    add("First item.");
-                }}
+                asList(
+                    "First item."
+                )
             },
             {
-                "* First item.\n" +
-                "* Second item.\n" +
-                "* Third item.",
-
-                new ArrayList() {{
-                    add("First item.");
-                    add("Second item.");
-                    add("Third item.");
-                }}
+                asOneString(
+                    "* First item.\n",
+                    "* Second item.\n",
+                    "* Third item."
+                ),
+                asList(
+                    "First item.",
+                    "Second item.",
+                    "Third item."
+                )
             },
             {
-                "  *  First item.\n" +
-                "  *  Second item.\n" +
-                "  *  Third item.",
-
-                new ArrayList() {{
-                    add("First item.");
-                    add("Second item.");
-                    add("Third item.");
-                }}
+                asOneString(
+                    "  *  First item.\n",
+                    "  *  Second item.\n",
+                    "  *  Third item."
+                ),
+                asList(
+                    "First item.",
+                    "Second item.",
+                    "Third item."
+                )
             },
             {
-                " * First item\n" +
-                "   with long text.\n" +
-                " * Second item.\n" +
-                " * Third item.",
-
-                new ArrayList() {{
-                    add("First item with long text.");
-                    add("Second item.");
-                    add("Third item.");
-                }}
+                asOneString(
+                    " * First item\n",
+                    "   with long text.\n",
+                    " * Second item.\n",
+                    " * Third item."
+                ),
+                asList(
+                    "First item with long text.",
+                    "Second item.",
+                    "Third item."
+                )
             },
             {
-                "*  First item.\n" +
-                "*  Second item with * character.\n" +
-                "*  Third item.\n",
-
-                new ArrayList() {{
-                    add("First item.");
-                    add("Second item with * character.");
-                    add("Third item.");
-                }}
+                asOneString(
+                    "*  First item.\n",
+                    "*  Second item with * character.\n",
+                    "*  Third item.\n"
+                ),
+                asList(
+                    "First item.",
+                    "Second item with * character.",
+                    "Third item."
+                )
             },
         };
+    }
+
+    private static String asOneString(final String... text) {
+        return Arrays.stream(text).collect(Collectors.joining(""));
     }
 }

@@ -81,11 +81,12 @@ public class ExternalFileUnpublishTaskTest {
     private List<Node> getQueryResults() throws RepositoryException {
         List<Node> nodes = new ArrayList<>();
 
-        Node r = rootNode.addNode("resources");
+        Node node = rootNode
+            .addNode("resources")
+            .addNode("one");
+        node.setProperty(ExternalStorageConstants.PROPERTY_EXTERNAL_STORAGE_REFERENCE, "the/one");
 
-        Node o = r.addNode("one");
-        o.setProperty(ExternalStorageConstants.PROPERTY_EXTERNAL_STORAGE_REFERENCE, "the/one");
-        nodes.add(o);
+        nodes.add(node);
 
         return nodes;
     }

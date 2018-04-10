@@ -14,7 +14,7 @@ import java.util.List;
 
 public class AttachmentsCmsWidget {
 
-    private final static Logger log = getLogger(AttachmentsCmsWidget.class);
+    private static final Logger log = getLogger(AttachmentsCmsWidget.class);
 
     private final PageHelper helper;
     private WebDriver webDriver;

@@ -1,25 +1,5 @@
 package uk.nhs.digital.externalstorage.s3.valves;
 
-import org.hippoecm.hst.core.container.ValveContext;
-import org.hippoecm.hst.core.request.HstRequestContext;
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
-import org.mockito.Mock;
-import uk.nhs.digital.common.ServiceProvider;
-import uk.nhs.digital.externalstorage.s3.SchedulingS3Connector;
-import uk.nhs.digital.externalstorage.s3.S3File;
-
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.function.Consumer;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.ServletOutputStream;
-
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.sameInstance;
 import static org.junit.Assert.assertThat;
@@ -35,6 +15,26 @@ import static org.mockito.MockitoAnnotations.initMocks;
 import static uk.nhs.digital.test.util.RandomHelper.newRandomByteArray;
 import static uk.nhs.digital.test.util.RandomHelper.newRandomInt;
 import static uk.nhs.digital.test.util.RandomHelper.newRandomString;
+
+import org.hippoecm.hst.core.container.ValveContext;
+import org.hippoecm.hst.core.request.HstRequestContext;
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
+import org.mockito.Mock;
+import uk.nhs.digital.common.ServiceProvider;
+import uk.nhs.digital.externalstorage.s3.S3File;
+import uk.nhs.digital.externalstorage.s3.SchedulingS3Connector;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.function.Consumer;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public class S3ConnectorValveTest {
 
@@ -120,7 +120,7 @@ public class S3ConnectorValveTest {
     }
 
     @Test
-    public void reportsBadRequest_onNotCMSRequest() throws Exception {
+    public void reportsBadRequest_onNotCmsRequest() throws Exception {
 
         // given
         given(hstRequestContext.isCmsRequest()).willReturn(false);
@@ -201,23 +201,23 @@ public class S3ConnectorValveTest {
         private int closedCount = 0;
 
         @Override
-        public void write(final int b) throws IOException {
+        public void write(final int bytes) throws IOException {
             throw new UnsupportedOperationException("Not applicable in this test.");
         }
 
         @Override
-        public void write(final byte[] b, final int off, final int len) throws IOException {
-            byteArrayOutputStream.write(b, off, len);
-        }
-
-        byte[] getContent() {
-            return byteArrayOutputStream.toByteArray();
+        public void write(final byte[] bytes, final int off, final int len) throws IOException {
+            byteArrayOutputStream.write(bytes, off, len);
         }
 
         @Override
         public void close() throws IOException {
             byteArrayOutputStream.close();
             closedCount++;
+        }
+
+        byte[] getContent() {
+            return byteArrayOutputStream.toByteArray();
         }
 
         int getClosedCount() {
@@ -244,12 +244,6 @@ public class S3ConnectorValveTest {
             return byteArrayInputStream.read(buffer);
         }
 
-        void throwExceptionIfProgrammedTo() {
-            if (expectedException != null) {
-                throw expectedException;
-            }
-        }
-
         @Override
         public int read() throws IOException {
             throw new UnsupportedOperationException("Not applicable in this test.");
@@ -267,6 +261,12 @@ public class S3ConnectorValveTest {
 
         void willThrowException(final RuntimeException expectedException) {
             this.expectedException = expectedException;
+        }
+
+        private void throwExceptionIfProgrammedTo() {
+            if (expectedException != null) {
+                throw expectedException;
+            }
         }
     }
 }

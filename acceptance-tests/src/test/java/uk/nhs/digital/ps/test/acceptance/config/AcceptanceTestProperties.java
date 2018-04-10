@@ -42,10 +42,10 @@ public class AcceptanceTestProperties {
 
     @Override
     public String toString() {
-        return "AcceptanceTestProperties{" +
-            "headlessMode=" + headlessMode +
-            ", downloadDir=" + downloadDir +
-            ", tempDir=" + tempDir +
-            '}';
+        return "AcceptanceTestProperties{"
+            + "headlessMode=" + headlessMode
+            + ", downloadDir=" + downloadDir
+            + ", tempDir=" + tempDir
+            + '}';
     }
 }

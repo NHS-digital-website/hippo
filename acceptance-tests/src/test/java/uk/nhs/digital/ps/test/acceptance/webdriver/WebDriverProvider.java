@@ -1,19 +1,15 @@
 package uk.nhs.digital.ps.test.acceptance.webdriver;
 
+import static org.slf4j.LoggerFactory.getLogger;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
-
-import static org.slf4j.LoggerFactory.getLogger;
 
 /**
  * Manages WebDriver (the client component of the WebDriver).
@@ -26,7 +22,7 @@ import static org.slf4j.LoggerFactory.getLogger;
  */
 public class WebDriverProvider {
 
-    private final static Logger log = getLogger(WebDriverProvider.class);
+    private static final Logger log = getLogger(WebDriverProvider.class);
 
     private final WebDriverServiceProvider webDriverServiceProvider;
 

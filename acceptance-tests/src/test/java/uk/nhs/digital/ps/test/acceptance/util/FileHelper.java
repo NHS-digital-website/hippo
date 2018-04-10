@@ -1,5 +1,7 @@
 package uk.nhs.digital.ps.test.acceptance.util;
 
+import static java.nio.file.Files.readAllBytes;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import uk.nhs.digital.ps.test.acceptance.models.FileType;
@@ -9,8 +11,6 @@ import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
-import static java.nio.file.Files.readAllBytes;
 
 public class FileHelper {
 
@@ -24,16 +24,16 @@ public class FileHelper {
 
             return tempFile;
 
-        } catch (final IOException e) {
-            throw new UncheckedIOException(e);
+        } catch (final IOException exception) {
+            throw new UncheckedIOException(exception);
         }
     }
 
     public static byte[] readFileAsByteArray(final Path path) {
         try {
             return readAllBytes(path);
-        } catch (final IOException e) {
-            throw new UncheckedIOException(e);
+        } catch (final IOException exception) {
+            throw new UncheckedIOException(exception);
         }
     }
 

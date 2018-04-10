@@ -1,14 +1,14 @@
 package uk.nhs.digital.ps.test.acceptance.util;
 
+import static java.util.Collections.shuffle;
+import static java.util.stream.Collectors.toList;
+
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.RandomUtils;
 
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.IntStream;
-
-import static java.util.Collections.shuffle;
-import static java.util.stream.Collectors.toList;
 
 public class RandomHelper {
 
@@ -55,6 +55,7 @@ public class RandomHelper {
     public static int getRandomInt(int max) {
         return getRandomInt(0, max);
     }
+
     public static int getRandomInt(int min, int max) {
         return min + (int) (Math.random() * (1 + max - min));
     }

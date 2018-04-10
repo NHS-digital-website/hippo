@@ -28,7 +28,7 @@ import java.nio.file.Paths;
 @Configuration
 public class AcceptanceTestConfiguration {
 
-    private final static Logger log = getLogger(AcceptanceTestConfiguration.class);
+    private static final Logger log = getLogger(AcceptanceTestConfiguration.class);
 
     @Bean
     public LoginPage loginPage(final WebDriverProvider webDriverProvider, PageHelper helper) {
