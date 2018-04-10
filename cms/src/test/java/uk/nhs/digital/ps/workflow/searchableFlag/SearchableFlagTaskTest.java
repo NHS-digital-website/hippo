@@ -1,5 +1,6 @@
 package uk.nhs.digital.ps.workflow.searchableFlag;
 
+import static java.util.Arrays.asList;
 import static java.util.Collections.singletonList;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -34,7 +35,7 @@ public class SearchableFlagTaskTest {
     private Session session;
     private Node rootNode = null;
 
-    private final static String RPS_ROOT_FOLDER = "/content/documents/corporate-website/publication-system";
+    private static final String RPS_ROOT_FOLDER = "/content/documents/corporate-website/publication-system";
 
     @Before
     public void setUp() throws Exception {
@@ -62,7 +63,7 @@ public class SearchableFlagTaskTest {
 
     @Test
     @UseDataProvider("unpublishDocuments")
-    public void shouldUpdateDatasetOnDepublishTest(ArrayList<String> changed, ArrayList<String> unchanged) throws Exception {
+    public void shouldUpdateDatasetOnDepublishTest(List<String> changed, List<String> unchanged) throws Exception {
         // mock query results
         MockJcr.setQueryResult(session, getQueryResults(singletonList(
             RPS_ROOT_FOLDER + "/accessible-publication-with-datasets/dataset/dataset"
@@ -88,7 +89,7 @@ public class SearchableFlagTaskTest {
 
     @Test
     @UseDataProvider("datasetDocumentState")
-    public void shouldUpdateDocumentWithGivenStatusTest(final String state, ArrayList<String> changed, ArrayList<String> unchanged) throws Exception {
+    public void shouldUpdateDocumentWithGivenStatusTest(final String state, List<String> changed, List<String> unchanged) throws Exception {
 
         // process publication and datasets
         execute("/publication-with-datasets/dataset", state, false);
@@ -110,7 +111,7 @@ public class SearchableFlagTaskTest {
 
     @Test
     @UseDataProvider("datasetInSubfolder")
-    public void shouldUpdateDatasetFromSubfolder(final String state, ArrayList<String> changed, ArrayList<String> unchanged) throws Exception {
+    public void shouldUpdateDatasetFromSubfolder(final String state, List<String> changed, List<String> unchanged) throws Exception {
 
         // process datasets from within subfolder
         execute("/publication-with-datasets/subfolder/dataset", state, false);
@@ -146,38 +147,38 @@ public class SearchableFlagTaskTest {
         return new Object[][] {
             {
                 "draft",
-                new ArrayList() {{
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset[2]");
-                }},
-                new ArrayList() {{
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/content/content");
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/content/content[2]");
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/content/content[3]");
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset");
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset[3]");
+                asList(
+                    RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset[2]"
+                ),
+                asList(
+                    RPS_ROOT_FOLDER + "/publication-with-datasets/content/content",
+                    RPS_ROOT_FOLDER + "/publication-with-datasets/content/content[2]",
+                    RPS_ROOT_FOLDER + "/publication-with-datasets/content/content[3]",
+                    RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset",
+                    RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset[3]",
                     // unrelated dataset should not be changed
-                    add(RPS_ROOT_FOLDER + "/random-folder/dataset/dataset");
-                    add(RPS_ROOT_FOLDER + "/random-folder/dataset/dataset[2]");
-                    add(RPS_ROOT_FOLDER + "/random-folder/dataset/dataset[3]");
-                }}
+                    RPS_ROOT_FOLDER + "/random-folder/dataset/dataset",
+                    RPS_ROOT_FOLDER + "/random-folder/dataset/dataset[2]",
+                    RPS_ROOT_FOLDER + "/random-folder/dataset/dataset[3]"
+                )
             },
             {
                 "published",
-                new ArrayList() {{
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset");
-                }},
-                new ArrayList() {{
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/content/content");
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/content/content[2]");
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/content/content[3]");
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset[2]");
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset[3]");
+                asList(
+                    RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset"
+                ),
+                asList(
+                    RPS_ROOT_FOLDER + "/publication-with-datasets/content/content",
+                    RPS_ROOT_FOLDER + "/publication-with-datasets/content/content[2]",
+                    RPS_ROOT_FOLDER + "/publication-with-datasets/content/content[3]",
+                    RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset[2]",
+                    RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset[3]",
                     // unrelated dataset should not be changed
-                    add(RPS_ROOT_FOLDER + "/random-folder/dataset/dataset");
-                    add(RPS_ROOT_FOLDER + "/random-folder/dataset/dataset[2]");
-                    add(RPS_ROOT_FOLDER + "/random-folder/dataset/dataset[3]");
-                }}
-            },
+                    RPS_ROOT_FOLDER + "/random-folder/dataset/dataset",
+                    RPS_ROOT_FOLDER + "/random-folder/dataset/dataset[2]",
+                    RPS_ROOT_FOLDER + "/random-folder/dataset/dataset[3]"
+                )
+            }
         };
     }
 
@@ -185,19 +186,19 @@ public class SearchableFlagTaskTest {
     public static Object[][] unpublishDocuments() {
         return new Object[][] {
             {
-                new ArrayList() {{
-                    add(RPS_ROOT_FOLDER + "/accessible-publication-with-datasets/dataset/dataset");
-                }},
-                new ArrayList() {{
-                    add(RPS_ROOT_FOLDER + "/accessible-publication-with-datasets/content/content[2]");
-                    add(RPS_ROOT_FOLDER + "/accessible-publication-with-datasets/content/content[3]");
-                    add(RPS_ROOT_FOLDER + "/accessible-publication-with-datasets/dataset/dataset[2]");
-                    add(RPS_ROOT_FOLDER + "/accessible-publication-with-datasets/dataset/dataset[3]");
+                asList(
+                    RPS_ROOT_FOLDER + "/accessible-publication-with-datasets/dataset/dataset"
+                ),
+                asList(
+                    RPS_ROOT_FOLDER + "/accessible-publication-with-datasets/content/content[2]",
+                    RPS_ROOT_FOLDER + "/accessible-publication-with-datasets/content/content[3]",
+                    RPS_ROOT_FOLDER + "/accessible-publication-with-datasets/dataset/dataset[2]",
+                    RPS_ROOT_FOLDER + "/accessible-publication-with-datasets/dataset/dataset[3]",
                     // unrelated dataset should not be changed
-                    add(RPS_ROOT_FOLDER + "/random-folder/dataset/dataset");
-                    add(RPS_ROOT_FOLDER + "/random-folder/dataset/dataset[2]");
-                    add(RPS_ROOT_FOLDER + "/random-folder/dataset/dataset[3]");
-                }}
+                    RPS_ROOT_FOLDER + "/random-folder/dataset/dataset",
+                    RPS_ROOT_FOLDER + "/random-folder/dataset/dataset[2]",
+                    RPS_ROOT_FOLDER + "/random-folder/dataset/dataset[3]"
+                )
             }
         };
     }
@@ -207,26 +208,26 @@ public class SearchableFlagTaskTest {
         return new Object[][] {
             {
                 "draft",
-                new ArrayList<String>() {{
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/subfolder/dataset/dataset[2]");
-                }},
-                new ArrayList<String>() {{
+                asList(
+                    RPS_ROOT_FOLDER + "/publication-with-datasets/subfolder/dataset/dataset[2]"
+                ),
+                asList(
                     // publication unchanged
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/content/content");
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/content/content[2]");
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/content/content[3]");
+                    RPS_ROOT_FOLDER + "/publication-with-datasets/content/content",
+                    RPS_ROOT_FOLDER + "/publication-with-datasets/content/content[2]",
+                    RPS_ROOT_FOLDER + "/publication-with-datasets/content/content[3]",
                     // the second dataset attached to parent publication unchanged
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset");
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset[2]");
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset[3]");
+                    RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset",
+                    RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset[2]",
+                    RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset[3]",
                     // draft and live version unchanged
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/subfolder/dataset/dataset");
-                    add(RPS_ROOT_FOLDER + "/publication-with-datasets/subfolder/dataset/dataset[3]");
+                    RPS_ROOT_FOLDER + "/publication-with-datasets/subfolder/dataset/dataset",
+                    RPS_ROOT_FOLDER + "/publication-with-datasets/subfolder/dataset/dataset[3]",
                     // unrelated dataset should not be changed
-                    add(RPS_ROOT_FOLDER + "/random-folder/dataset/dataset");
-                    add(RPS_ROOT_FOLDER + "/random-folder/dataset/dataset[2]");
-                    add(RPS_ROOT_FOLDER + "/random-folder/dataset/dataset[3]");
-                }}
+                    RPS_ROOT_FOLDER + "/random-folder/dataset/dataset",
+                    RPS_ROOT_FOLDER + "/random-folder/dataset/dataset[2]",
+                    RPS_ROOT_FOLDER + "/random-folder/dataset/dataset[3]"
+                )
             }
         };
     }
@@ -234,7 +235,7 @@ public class SearchableFlagTaskTest {
     public List<Node> getQueryResults(List<String> paths) throws RepositoryException {
         List<Node> nodes = new ArrayList<>();
 
-        for (int i=0; i < paths.size(); i++) {
+        for (int i = 0; i < paths.size(); i++) {
             nodes.add(getNode(paths.get(i)));
         }
 

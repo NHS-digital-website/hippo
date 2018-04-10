@@ -1,5 +1,7 @@
 package uk.nhs.digital.ps.test.acceptance.webdriver;
 
+import static java.nio.file.Files.isDirectory;
+
 import org.openqa.selenium.chrome.ChromeDriverService;
 
 import java.io.File;
@@ -8,8 +10,6 @@ import java.io.UncheckedIOException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
-import static java.nio.file.Files.isDirectory;
 
 /**
  * Manages WebDriver service (the server component of WebDriver).
@@ -44,8 +44,8 @@ public class WebDriverServiceProvider {
 
         try {
             chromeDriverService.start();
-        } catch (final IOException e) {
-            throw new UncheckedIOException(e);
+        } catch (final IOException exception) {
+            throw new UncheckedIOException(exception);
         }
     }
 

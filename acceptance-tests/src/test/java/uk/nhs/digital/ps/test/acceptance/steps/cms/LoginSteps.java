@@ -57,13 +57,13 @@ public class LoginSteps extends AbstractSpringSteps {
     }
 
     @When("^I change my password to \"([^\"]*)\"$")
-    public void iChangeMyPasswordTo(String password) throws Throwable {
+    public void whenIChangeMyPasswordTo(String password) throws Throwable {
         dashboardPage.open();
         dashboardPage.changePasswordTo(password);
     }
 
     @Then("^I can see the password error messages$")
-    public void iCanSeeThePasswordErrorMessages() throws Throwable {
+    public void thenICanSeeThePasswordErrorMessages() throws Throwable {
         assertThat("Password error is displayed", dashboardPage.getPasswordErrorMessages(),
             hasItems(
                 equalTo("Password must be at least 12 characters long"),

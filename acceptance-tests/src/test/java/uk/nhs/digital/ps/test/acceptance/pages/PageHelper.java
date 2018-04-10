@@ -32,28 +32,28 @@ public class PageHelper {
         return firstOrNull(findElements(bySelector));
     }
 
-    public WebElement findChildElement(final WebElement parentElement, final By bySelector) {
-        return firstOrNull(findChildElements(parentElement, bySelector));
-    }
-
     public List<WebElement> findElements(By bySelector) {
         return findElements((by) -> getWebDriver().findElements(by), bySelector);
     }
 
-    public List<WebElement> findChildElements(final WebElement parentElement, final By bySelector) {
-        return findElements(parentElement::findElements, bySelector);
-    }
-
     private List<WebElement> findElements(final Function<By, List<WebElement>> findElements,
-                                          final By bySelector) {
+        final By bySelector) {
         try {
             return pollWithTimeout().until((WebDriver driver) -> {
                 List<WebElement> elements = findElements.apply(bySelector);
                 return isEmpty(elements) ? null : elements;
             });
-        } catch (TimeoutException e){
-            throw new RuntimeException("Failed to find element matching '" + bySelector + "'", e);
+        } catch (TimeoutException exception) {
+            throw new RuntimeException("Failed to find element matching '" + bySelector + "'", exception);
         }
+    }
+
+    public WebElement findChildElement(final WebElement parentElement, final By bySelector) {
+        return firstOrNull(findChildElements(parentElement, bySelector));
+    }
+
+    public List<WebElement> findChildElements(final WebElement parentElement, final By bySelector) {
+        return findElements(parentElement::findElements, bySelector);
     }
 
     public void waitUntilTrue(final Predicate predicate) {
@@ -61,7 +61,7 @@ public class PageHelper {
         pollWithTimeout().until(webDriver -> {
             try {
                 return predicate.executeWithPredicate();
-            } catch (final Exception e) {
+            } catch (final Exception exception) {
                 return false;
             }
         });
@@ -76,12 +76,12 @@ public class PageHelper {
                 try {
                     task.execute();
                     return true;
-                } catch (final Exception e) {
-                    lastException.set(e);
+                } catch (final Exception exception) {
+                    lastException.set(exception);
                     return false;
                 }
             });
-        } catch (final TimeoutException e) { // ignore TimeoutException
+        } catch (final TimeoutException exception) { // ignore TimeoutException
             throw new RuntimeException("Failed to execute task within timeout.", lastException.get());
         }
     }
@@ -89,8 +89,8 @@ public class PageHelper {
     public void waitUntilVisible(WebElement webElement) {
         try {
             pollWithTimeout().until((WebDriver innerDriver) -> webElement.isDisplayed());
-        } catch (TimeoutException e){
-            throw new RuntimeException("Timeout while waiting for element to become visible: '" + webElement + "'", e);
+        } catch (TimeoutException exception) {
+            throw new RuntimeException("Timeout while waiting for element to become visible: '" + webElement + "'", exception);
         }
     }
 

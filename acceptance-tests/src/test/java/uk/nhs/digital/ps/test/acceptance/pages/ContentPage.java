@@ -199,7 +199,7 @@ public class ContentPage extends AbstractCmsPage {
         findSaveAndClose().click();
     }
 
-    public void publish(){
+    public void publish() {
         findPublicationMenu().click();
         findPublish().click();
 
@@ -222,11 +222,11 @@ public class ContentPage extends AbstractCmsPage {
         helper.findElement(By.xpath("//input[@type='submit' and @value='OK']")).click();
     }
 
-    public void cancelModalDialog(){
+    public void cancelModalDialog() {
         clickButtonOnModalDialog("Cancel");
     }
 
-    public void copyDocument(){
+    public void copyDocument() {
         findDocumentMenu().click();
         findCopy().click();
 
@@ -282,10 +282,9 @@ public class ContentPage extends AbstractCmsPage {
     }
 
     public WebElement getFolderMenuItem(String menuOption, String... folders) {
-        return helper.findOptionalChildElement(getFolderMenu(folders), By.cssSelector(
-            "span[title='" +
-                menuOption +
-                "']"));
+        return helper.findOptionalChildElement(getFolderMenu(folders),
+            By.cssSelector("span[title='" + menuOption + "']")
+        );
     }
 
     private WebElement getFolderMenu(String[] folders) {
@@ -391,7 +390,7 @@ public class ContentPage extends AbstractCmsPage {
         ) != null;
     }
 
-    public boolean isDocumentSaved(){
+    public boolean isDocumentSaved() {
         // When a document is saved, a yellow status bar appears informing user document is either offline
         // or a previous version is live
         return helper.assertElementPresent(By.className("hippo-toolbar-status"));
@@ -409,17 +408,20 @@ public class ContentPage extends AbstractCmsPage {
     }
 
     public void discardUnsavedChanges(String documentName) {
-        WebElement closeButton = helper.findElement(
-            By.xpath("//div[contains(@class, 'hippo-tabs-documents')]//a[contains(@class, 'hippo-tabs-documents-tab') and @title='" + documentName + "']/following-sibling::a[contains(@class, 'hippo-tabs-documents-close')]"));
+        WebElement closeButton = helper.findElement(By.xpath(
+            "//div[contains(@class, 'hippo-tabs-documents')]"
+                + "//a[contains(@class, 'hippo-tabs-documents-tab') and @title='" + documentName + "']"
+                + "/following-sibling::a[contains(@class, 'hippo-tabs-documents-close')]"
+        ));
         closeButton.click();
         clickButtonOnModalDialog("Discard");
     }
 
-    private void clickDocument(String name){
+    private void clickDocument(String name) {
         helper.findElement(By.xpath("//span[@class='hippo-document' and @title='" + name + "']")).click();
     }
 
-    private WebElement findPublicationMenu(){
+    private WebElement findPublicationMenu() {
         return helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Publication']"));
     }
@@ -434,12 +436,12 @@ public class ContentPage extends AbstractCmsPage {
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Schedule publication...']"));
     }
 
-    private WebElement findDocumentMenu(){
+    private WebElement findDocumentMenu() {
         return helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='Document']"));
     }
 
-    private WebElement findViewMenu(){
+    private WebElement findViewMenu() {
         return helper.findElement(
             By.xpath(XpathSelectors.EDITOR_BODY + "//span[text()='View']"));
     }
@@ -471,13 +473,14 @@ public class ContentPage extends AbstractCmsPage {
     private void clickButtonOnModalDialog(String buttonText) {
         try {
             clickButtonOnModalDialogOnce(buttonText);
-        } catch (TimeoutException e) {
+        } catch (TimeoutException exception) {
             clickButtonOnModalDialogOnce(buttonText);
         }
     }
+
     private void clickButtonOnModalDialogOnce(String buttonText) {
         helper.findElement(
-            By.xpath("//div[contains(@class, 'wicket-modal')]//input[@value='"+ buttonText +"']"))
+            By.xpath("//div[contains(@class, 'wicket-modal')]//input[@value='" + buttonText + "']"))
             .click();
 
         helper.waitForElementUntil(ExpectedConditions.invisibilityOfElementLocated(

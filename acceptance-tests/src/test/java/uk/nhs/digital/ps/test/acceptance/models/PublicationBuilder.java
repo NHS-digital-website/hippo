@@ -63,6 +63,7 @@ public class PublicationBuilder {
     public PublicationBuilder withAttachments(final List<AttachmentBuilder> attachmentBuilders) {
         return cloneAndAmend(builder -> builder.attachmentBuilders = attachmentBuilders);
     }
+
     public PublicationBuilder withAttachments(final AttachmentBuilder... attachmentBuilders) {
         return cloneAndAmend(builder -> builder.attachmentBuilders = asList(attachmentBuilders));
     }

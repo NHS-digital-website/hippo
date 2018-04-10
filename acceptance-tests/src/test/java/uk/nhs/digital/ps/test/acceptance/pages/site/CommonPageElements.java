@@ -9,13 +9,15 @@ import java.util.Map;
 
 public class CommonPageElements implements PageElements {
 
-    private final static Map<String, By> pageElements = new HashMap<String, By>() {{
-        put("Search Box",
-            By.xpath("//input[@name='query']"));
-        put("Pagination page",
-            By.xpath("//li[contains(@class, " +
-            "'pagination__list__item pagination__list__item--current')]/span"));
-    }};
+    private static final Map<String, By> pageElements = new HashMap<String, By>() {
+        {
+            put("Search Box",
+                By.xpath("//input[@name='query']"));
+            put("Pagination page",
+                By.xpath(
+                    "//li[contains(@class, 'pagination__list__item pagination__list__item--current')]/span"));
+        }
+    };
 
     @Override
     public boolean contains(String elementName) {

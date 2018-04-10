@@ -11,12 +11,18 @@ import java.util.Map;
 
 public class ArchivePageElements implements PageElements {
 
-    private final static Map<String, By> pageElements = new HashMap<String, By>() {{
-        put("Archive Title",
-            By.xpath("//*[" + getDataUiPathXpath("title") + "]"));
-        put("Archive Summary",
-            By.xpath("//p[" + getDataUiPathXpath("summary") + "]"));
-    }};
+    private static final Map<String, By> pageElements = new HashMap<String, By>() {
+        {
+            put("Archive Title",
+                By.xpath("//*[" + getDataUiPathXpath("title") + "]"));
+            put("Archive Summary",
+                By.xpath("//p[" + getDataUiPathXpath("summary") + "]"));
+        }
+    };
+
+    private static String getDataUiPathXpath(String fieldName) {
+        return "@data-uipath='ps.archive." + fieldName + "'";
+    }
 
     @Override
     public boolean contains(String elementName) {
@@ -37,9 +43,5 @@ public class ArchivePageElements implements PageElements {
         }
 
         return elements.get(nth);
-    }
-
-    private static String getDataUiPathXpath(String fieldName) {
-        return "@data-uipath='ps.archive." + fieldName + "'";
     }
 }

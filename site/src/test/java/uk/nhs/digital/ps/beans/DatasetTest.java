@@ -1,5 +1,17 @@
 package uk.nhs.digital.ps.beans;
 
+import static java.util.Arrays.asList;
+import static java.util.Arrays.stream;
+import static java.util.stream.Collectors.toList;
+import static org.hamcrest.Matchers.instanceOf;
+import static org.hamcrest.Matchers.startsWith;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.MockitoAnnotations.initMocks;
+
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
@@ -8,7 +20,6 @@ import org.hippoecm.hst.content.beans.manager.ObjectConverter;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
-import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.mock.core.request.MockHstRequestContext;
@@ -25,23 +36,15 @@ import org.powermock.modules.junit4.PowerMockRunnerDelegate;
 import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
 import uk.nhs.digital.ps.test.util.ReflectionHelper;
 
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.util.*;
-
-import static java.util.Arrays.asList;
-import static java.util.Arrays.stream;
-import static java.util.stream.Collectors.toList;
-import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.MockitoAnnotations.initMocks;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import javax.jcr.Node;
+import javax.jcr.NodeIterator;
 
 
 @RunWith(PowerMockRunner.class)
@@ -123,17 +126,17 @@ public class DatasetTest {
             // then
             fail("No exception was thrown from getter " + forbiddenGetter);
 
-        } catch (final InvocationTargetException e) {
-            assertThat("Getter " + forbiddenGetter + " throws exception of correct type.", e.getCause(),
+        } catch (final InvocationTargetException exception) {
+            assertThat("Getter " + forbiddenGetter + " throws exception of correct type.", exception.getCause(),
                 instanceOf(DataRestrictionViolationException.class)
             );
-            assertThat("Getter " + forbiddenGetter + " throws exception with correct message.", e.getCause().getMessage(),
+            assertThat("Getter " + forbiddenGetter + " throws exception with correct message.", exception.getCause().getMessage(),
                 startsWith("Property is not available when parent publication is flagged as 'not publicly accessible':")
             );
-        } catch (final Exception e) {
-            System.out.println(e.getMessage());
-            throw new Error("Failed to test '" + forbiddenGetter + " because of an error;" +
-                " see stack trace below for details.", e
+        } catch (final Exception exception) {
+            System.out.println(exception.getMessage());
+            throw new Error("Failed to test '" + forbiddenGetter + " because of an error;"
+                + " see stack trace below for details.", exception
             );
         }
     }
@@ -156,11 +159,11 @@ public class DatasetTest {
 
             // then
             // pass
-        } catch (final Throwable e) {
-            e.printStackTrace(); // helps with debugging
+        } catch (final Throwable throwable) {
+            throwable.printStackTrace(); // helps with debugging
             throw new AssertionError(
-                "No exception was expected to be thrown from '" + permittedGetter + "' but one was emitted;" +
-                    " see stack trace below for details.", e
+                "No exception was expected to be thrown from '" + permittedGetter + "' but one was emitted;"
+                    + " see stack trace below for details.", throwable
             );
         }
     }

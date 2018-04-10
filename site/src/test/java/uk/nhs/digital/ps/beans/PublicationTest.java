@@ -182,17 +182,16 @@ public class PublicationTest {
             // then
             fail("No exception was thrown from getter " + forbiddenGetter);
 
-        } catch (final InvocationTargetException e) {
-            assertThat("Getter " + forbiddenGetter + " throws exception of correct type.", e.getCause(),
+        } catch (final InvocationTargetException exception) {
+            assertThat("Getter " + forbiddenGetter + " throws exception of correct type.", exception.getCause(),
                 instanceOf(DataRestrictionViolationException.class)
             );
-            assertThat("Getter " + forbiddenGetter + " throws exception with correct message.", e.getCause().getMessage(),
+            assertThat("Getter " + forbiddenGetter + " throws exception with correct message.", exception.getCause().getMessage(),
                 startsWith("Property is not available when publication is flagged as 'not publicly accessible':")
             );
-        } catch (final Exception e) {
-            throw new Error("Failed to test '" + forbiddenGetter + " because of an error;" +
-                " see stack trace below for details.", e
-            );
+        } catch (final Exception exception) {
+            throw new Error("Failed to test '" + forbiddenGetter + " because of an error;"
+                + " see stack trace below for details.", exception);
         }
     }
 
@@ -214,11 +213,11 @@ public class PublicationTest {
 
             // then
             // pass
-        } catch (final Throwable e) {
-            e.printStackTrace(); // helps with debugging
+        } catch (final Throwable throwable) {
+            throwable.printStackTrace(); // helps with debugging
             throw new AssertionError(
-                "No exception was expected to be thrown from '" + permittedGetter + "' but one was emitted;" +
-                    " see stack trace below for details.", e
+                "No exception was expected to be thrown from '" + permittedGetter + "' but one was emitted;"
+                    + " see stack trace below for details.", throwable
             );
         }
     }

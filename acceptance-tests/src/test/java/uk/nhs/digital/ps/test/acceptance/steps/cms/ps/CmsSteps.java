@@ -1,18 +1,27 @@
 package uk.nhs.digital.ps.test.acceptance.steps.cms.ps;
 
-import static java.time.temporal.ChronoField.*;
+import static java.time.temporal.ChronoField.DAY_OF_MONTH;
+import static java.time.temporal.ChronoField.DAY_OF_WEEK;
+import static java.time.temporal.ChronoField.MONTH_OF_YEAR;
 import static java.util.stream.Collectors.toList;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.anyOf;
+import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.empty;
+import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.startsWith;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.ps.test.acceptance.util.AssertionHelper.assertWithinTimeoutThat;
 import static uk.nhs.digital.ps.test.acceptance.util.RandomHelper.getRandomInt;
 
 import cucumber.api.DataTable;
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -23,7 +32,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.data.ExpectedTestDataProvider;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataFactory;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
-import uk.nhs.digital.ps.test.acceptance.models.*;
+import uk.nhs.digital.ps.test.acceptance.models.Attachment;
+import uk.nhs.digital.ps.test.acceptance.models.Dataset;
+import uk.nhs.digital.ps.test.acceptance.models.FileType;
+import uk.nhs.digital.ps.test.acceptance.models.Folder;
+import uk.nhs.digital.ps.test.acceptance.models.Publication;
+import uk.nhs.digital.ps.test.acceptance.models.PublicationArchive;
+import uk.nhs.digital.ps.test.acceptance.models.PublicationSeries;
+import uk.nhs.digital.ps.test.acceptance.models.Taxonomy;
 import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.SitePage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
@@ -40,7 +56,7 @@ import java.util.List;
 
 public class CmsSteps extends AbstractSpringSteps {
 
-    private final static Logger log = getLogger(CmsSteps.class);
+    private static final Logger log = getLogger(CmsSteps.class);
 
     private static final int DAYS_IN_WEEK = 7;
 
@@ -60,7 +76,7 @@ public class CmsSteps extends AbstractSpringSteps {
     private SitePage sitePage;
 
     @Given("^I have a publication opened for editing$")
-    public void iHaveAPublicationOpenForEditing() throws Throwable {
+    public void givenIHaveAPublicationOpenForEditing() throws Throwable {
         final Publication publication = TestDataFactory.createBareMinimumPublication().build();
         testDataRepo.setPublication(publication);
 
@@ -71,13 +87,13 @@ public class CmsSteps extends AbstractSpringSteps {
         assertTrue("Publication edit screen is displayed", contentPage.isDocumentEditScreenOpen());
     }
 
-    public void createPublicationInEditableState(final Publication publication) throws Throwable {
+    private void createPublicationInEditableState(final Publication publication) throws Throwable {
         loginSteps.loginAsCiEditor();
         contentPage.openContentTab();
         contentPage.newPublication(publication);
     }
 
-    public void createPublishedPublication(final Publication publication) throws Throwable {
+    private void createPublishedPublication(final Publication publication) throws Throwable {
         createPublicationInEditableState(publication);
         contentPage.populatePublication(publication);
         contentPage.saveAndCloseDocument();
@@ -116,8 +132,8 @@ public class CmsSteps extends AbstractSpringSteps {
 
     @When("^I populate and save the publication")
     public void whenIPopulateAndSaveThePublication() throws Throwable {
-        iPopulateThePublication();
-        iSaveTheDocument();
+        whenIPopulateThePublication();
+        whenISaveTheDocument();
     }
 
     @Then(("^it is saved"))
@@ -132,7 +148,7 @@ public class CmsSteps extends AbstractSpringSteps {
 
     // Scenario: Forbidden file type upload rejection ==================================================================
     @When("^I try to upload a file of one of the forbidden types:$")
-    public void iTryToUploadAFileOfOneOfTheForbiddenTypes(final DataTable forbiddenExtensions) throws Throwable {
+    public void whenITryToUploadAFileOfOneOfTheForbiddenTypes(final DataTable forbiddenExtensions) throws Throwable {
 
         final List<Attachment> forbiddenAttachments = forbiddenExtensions.asList(String.class).stream()
             .map(extension -> FileType.valueOf(extension.toUpperCase()))
@@ -143,7 +159,7 @@ public class CmsSteps extends AbstractSpringSteps {
     }
 
     @Then("^the upload is rejected with an error message$")
-    public void theUploadIsRejectedWithAnErrorMessage() throws Throwable {
+    public void thenTheUploadIsRejectedWithAnErrorMessage() throws Throwable {
 
         contentPage.getAttachmentsWidget().addUploadField();
 
@@ -157,7 +173,7 @@ public class CmsSteps extends AbstractSpringSteps {
             );
 
             assertWithinTimeoutThat("Error message is displayed",
-               () -> contentPage.getFirstErrorMessage(), startsWith(expectedErrorMessage));
+                () -> contentPage.getFirstErrorMessage(), startsWith(expectedErrorMessage));
         });
     }
 
@@ -166,7 +182,7 @@ public class CmsSteps extends AbstractSpringSteps {
     public void whenIPopulateTheTitleWithLongText(int lengthLimit) throws Throwable {
 
         StringBuilder sb = new StringBuilder();
-        for (int i=0; i < lengthLimit+1; i++) {
+        for (int i = 0; i < lengthLimit + 1; i++) {
             sb.append(i % 10);
         }
         String longString = sb.toString();
@@ -190,7 +206,7 @@ public class CmsSteps extends AbstractSpringSteps {
     }
 
     @When("^I save the (?:archive|dataset|publication|series)$")
-    public void iSaveTheDocument() throws Throwable {
+    public void whenISaveTheDocument() throws Throwable {
         // Always save and close as all the steps either want to test the save is
         // blocked with validation, or close the saved document and do something else
         contentPage.saveAndCloseDocument();
@@ -206,43 +222,43 @@ public class CmsSteps extends AbstractSpringSteps {
 
     // Scenario: Blank attachment field rejection =====================================================================
     @When("^I add an empty upload field$")
-    public void iAddAnEmptyUploadField() throws Throwable {
+    public void whenIAddAnEmptyUploadField() throws Throwable {
         contentPage.getAttachmentsWidget().addUploadField();
     }
 
     // Scenario: Blank Granularity field rejection =====================================================================
     @When("^I add an empty Granularity field$")
-    public void iAddAnEmptyGranularityField() throws Throwable {
+    public void whenIAddAnEmptyGranularityField() throws Throwable {
         contentPage.getGranularitySection().addGranularityField();
     }
 
     // Scenario: Blank Geographic Coverage field rejection =====================================================================
     @When("^I add an empty Geographic Coverage field$")
-    public void iAddAnEmptyGeographicCoverageField() throws Throwable {
+    public void whenIAddAnEmptyGeographicCoverageField() throws Throwable {
         contentPage.getGeographicCoverageSection().addGeographicCoverageField();
     }
 
     // Scenario: Blank related link rejection =========================================================================
     @When("^I add an empty related link field$")
-    public void iAddAnEmptyRelatedLinkField() throws Throwable {
+    public void whenIAddAnEmptyRelatedLinkField() throws Throwable {
         contentPage.getRelatedLinksSection().addRelatedLinkField();
     }
 
     // Scenario: Blank resource link rejection =========================================================================
     @When("^I add an empty resource link field$")
-    public void iAddAnEmptyResourceLinkField() {
+    public void whenIAddAnEmptyResourceLinkField() {
         contentPage.getResourceLinksSection().addResourceLinkField();
     }
 
     // Scenario: Blank Information Type field rejection =====================================================================
     @When("^I add an empty Information Type field$")
-    public void iAddAnEmptyInformationTypeField() throws Throwable {
+    public void whenIAddAnEmptyInformationTypeField() throws Throwable {
         contentPage.getInformationTypeSection().addInformationTypeField();
     }
 
     // Scenario: Details are hidden from the end users in a published upcoming publication ==============================
     @Given("^I have a published publication flagged as upcoming$")
-    public void iHaveAReleasedPublicationFlaggedAsUpcoming() throws Throwable {
+    public void givenIHaveAReleasedPublicationFlaggedAsUpcoming() throws Throwable {
         final Publication publication = ExpectedTestDataProvider.getPublishedUpcomingPublications().build().get(0);
         testDataRepo.setPublication(publication);
 
@@ -252,7 +268,7 @@ public class CmsSteps extends AbstractSpringSteps {
     }
 
     @When("^I view the publication$")
-    public void iViewThePublication() throws Throwable {
+    public void whenIViewThePublication() throws Throwable {
         publicationPage.open(testDataRepo.getCurrentPublication());
     }
 
@@ -285,7 +301,7 @@ public class CmsSteps extends AbstractSpringSteps {
     }
 
     @Given("^I have a published publication with nominal date falling before (-?\\d+) (days|weeks|years) from now$")
-    public void iHaveAPublishedPublicationWithNominalDateFallingBeforeWeeksFromNow(final int valueFromNow, final String unit)
+    public void givenIHaveAPublishedPublicationWithNominalDateFallingBeforeWeeksFromNow(final int valueFromNow, final String unit)
         throws Throwable {
 
         ChronoUnit chronoUnit = ChronoUnit.valueOf(unit.toUpperCase());
@@ -301,7 +317,7 @@ public class CmsSteps extends AbstractSpringSteps {
     }
 
     @Given("^I have a published publication with nominal date falling this (week|month|year)$")
-    public void iHaveAPublishedPublicationWithNominalDateFallingThis(String unit) throws Throwable {
+    public void givenIHaveAPublishedPublicationWithNominalDateFallingThis(String unit) throws Throwable {
         LocalDateTime date;
         if (unit.equals("week")) {
             // we want a day that is this week but not today or yesterday
@@ -339,7 +355,7 @@ public class CmsSteps extends AbstractSpringSteps {
     }
 
     @Given("^I have a published publication with nominal date falling after (\\d+) weeks from now$")
-    public void iHaveAPublishedPublicationWithNominalDateFallingAfterWeeksFromNow(final int weeksFromNow)
+    public void givenIHaveAPublishedPublicationWithNominalDateFallingAfterWeeksFromNow(final int weeksFromNow)
         throws Throwable {
 
         final Publication publicationWithNominalDateBeforeCutOff = TestDataFactory.createBareMinimumPublication()
@@ -365,7 +381,7 @@ public class CmsSteps extends AbstractSpringSteps {
             publicationPage.getNominalPublicationDate(), is(expectedDate));
     }
 
-    public void createSeriesInEditableState() throws Throwable {
+    private void createSeriesInEditableState() throws Throwable {
         loginSteps.loginAsCiEditor();
         contentPage.openContentTab();
 
@@ -375,12 +391,12 @@ public class CmsSteps extends AbstractSpringSteps {
     }
 
     @Given("^I have a series opened for editing$")
-    public void iHaveASeriesOpenedForEditing() throws Throwable {
+    public void givenIHaveASeriesOpenedForEditing() throws Throwable {
         createSeriesInEditableState();
         assertTrue("Series edit screen is displayed", contentPage.isDocumentEditScreenOpen());
     }
 
-    public void createArchiveInEditableState() throws Throwable {
+    private void createArchiveInEditableState() throws Throwable {
         loginSteps.loginAsCiEditor();
         contentPage.openContentTab();
 
@@ -390,7 +406,7 @@ public class CmsSteps extends AbstractSpringSteps {
     }
 
     @Given("^I have an archive opened for editing$")
-    public void iHaveAnArchiveOpenedForEditing() throws Throwable {
+    public void givenIHaveAnArchiveOpenedForEditing() throws Throwable {
         createArchiveInEditableState();
         assertTrue("Archive edit screen is displayed", contentPage.isDocumentEditScreenOpen());
     }
@@ -405,41 +421,41 @@ public class CmsSteps extends AbstractSpringSteps {
     }
 
     @When("^I create a new folder$")
-    public void iCreateANewFolder() throws Throwable {
+    public void whenICreateANewFolder() throws Throwable {
         Folder folder = TestDataFactory.createFolder();
         testDataRepo.setFolder(folder);
         contentPage.createFolder(folder);
     }
 
     @Given("^I have a dataset opened for editing$")
-    public void iHaveADatasetOpenedForEditing() throws Throwable {
+    public void givenIHaveADatasetOpenedForEditing() throws Throwable {
         createDatasetInEditableState();
         assertTrue("Dataset edit screen is displayed", contentPage.isDocumentEditScreenOpen());
     }
 
-    @And("^I populate and save the dataset$")
-    public void iPopulateAndSaveTheDataset() throws Throwable {
-        iPopulateTheDataset();
-        iSaveTheDocument();
+    @When("^I populate and save the dataset$")
+    public void whenIPopulateAndSaveTheDataset() throws Throwable {
+        givenIPopulateTheDataset();
+        whenISaveTheDocument();
     }
 
-    @And("^I populate the dataset$")
-    public void iPopulateTheDataset() throws Throwable {
+    @When("^I populate the dataset$")
+    public void givenIPopulateTheDataset() throws Throwable {
         contentPage.populateDataset(testDataRepo.getDataset());
     }
 
     @When("^I populate the publication$")
-    public void iPopulateThePublication() throws Throwable {
+    public void whenIPopulateThePublication() throws Throwable {
         contentPage.populatePublication(testDataRepo.getCurrentPublication());
     }
 
-    @And("^I populate the series$")
-    public void iPopulateTheSeries() throws Throwable {
+    @When("^I populate the series$")
+    public void whenIPopulateTheSeries() throws Throwable {
         contentPage.populateSeries(testDataRepo.getPublicationSeries());
     }
 
-    @And("^I populate the archive$")
-    public void iPopulateTheArchive() throws Throwable {
+    @When("^I populate the archive$")
+    public void whenIPopulateTheArchive() throws Throwable {
         contentPage.populateArchive(testDataRepo.getPublicationArchive());
     }
 
@@ -449,35 +465,35 @@ public class CmsSteps extends AbstractSpringSteps {
      * message is the same for different fields.
      */
     @When("^I clear the title$")
-    public void iClearTheTitle() throws Throwable {
+    public void whenIClearTheTitle() throws Throwable {
         contentPage.findTitleElement().clear();
     }
 
     @When("^I clear the summary$")
-    public void iClearTheSummary() throws Throwable {
+    public void whenIClearTheSummary() throws Throwable {
         contentPage.findSummaryElement().clear();
     }
 
     @When("^I clear the nominal date")
-    public void iClearTheNominalDate() throws Throwable {
+    public void whenIClearTheNominalDate() throws Throwable {
         contentPage.findNominalDateField().clear();
     }
 
     @When("^I click the \"([^\"]*)\" menu option on the \"([^\"]*)\" folder$")
-    public void iOpenTheMenuOnTheFolder(String menuOption, String folder) throws Throwable {
+    public void whenIOpenTheMenuOnTheFolder(String menuOption, String folder) throws Throwable {
         String[] folders = folder.split("/");
         contentPage.clickFolderMenuOption(menuOption, folders);
     }
 
-    @And("^I shouldn't have a \"([^\"]*)\" menu option on the \"([^\"]*)\" folder$")
-    public void iShouldntHaveAMenuOption(String menuOption, String folder) throws Throwable {
-        String[] folders = folder.split("/");
-        assertNull("No document type picker", contentPage.getFolderMenuItem(menuOption, folders));
+    @When("^I click the \"([^\"]*)\" menu option on the folder$")
+    public void whenIOpenTheMenuOnTheFolder(String menuOption) throws Throwable {
+        whenIOpenTheMenuOnTheFolder(menuOption, testDataRepo.getFolder().getPath());
     }
 
-    @When("^I click the \"([^\"]*)\" menu option on the folder$")
-    public void iOpenTheMenuOnTheFolder(String menuOption) throws Throwable {
-        iOpenTheMenuOnTheFolder(menuOption, testDataRepo.getFolder().getPath());
+    @Then("^I shouldn't have a \"([^\"]*)\" menu option on the \"([^\"]*)\" folder$")
+    public void thenIShouldntHaveAMenuOption(String menuOption, String folder) throws Throwable {
+        String[] folders = folder.split("/");
+        assertNull("No document type picker", contentPage.getFolderMenuItem(menuOption, folders));
     }
 
     @Then("^The \"([^\"]*)\" folder should have the menu options( not)? including:$")
@@ -500,7 +516,7 @@ public class CmsSteps extends AbstractSpringSteps {
     }
 
     @Then("^I should see the document options:$")
-    public void iShouldSeeTheDocumentOptions(DataTable options) throws Throwable {
+    public void thenIShouldSeeTheDocumentOptions(DataTable options) throws Throwable {
         List<String> expectedDocumentTypes = options.asList(String.class);
         List<String> actualOptions = contentPage.getDocumentTypeOptions();
 
@@ -508,7 +524,7 @@ public class CmsSteps extends AbstractSpringSteps {
     }
 
     @Then("^I should see no document options$")
-    public void iShouldSeeNoDocumentOptions() throws Throwable {
+    public void thenIShouldSeeNoDocumentOptions() throws Throwable {
         assertNull("No document picker is shown", contentPage.getDocumentTypeOptions());
     }
 
@@ -518,20 +534,20 @@ public class CmsSteps extends AbstractSpringSteps {
         contentPage.openContentTab();
     }
 
-    @And("^I should( not)? see the \"([^\"]*)\" folder$")
-    public void iShouldSeeTheFolder(String not, String folder) throws Throwable {
+    @Then("^I should( not)? see the \"([^\"]*)\" folder$")
+    public void thenIShouldSeeTheFolder(String not, String folder) throws Throwable {
         String[] folders = folder.split("/");
         boolean expectedPresent = isEmpty(not);
         assertThat("Folder presence is as expected", contentPage.navigateToFolder(folders) != null, is(expectedPresent));
     }
 
-    @And("^I schedule the publication for publishing on \"([^\"]*)\"")
-    public void iScheduleThePublicationForPublishingOn(String publishDate) throws Throwable {
+    @When("^I schedule the publication for publishing on \"([^\"]*)\"")
+    public void whenIScheduleThePublicationForPublishingOn(String publishDate) throws Throwable {
         contentPage.schedulePublication(publishDate);
     }
 
-    @And("^I cancel the modal dialog")
-    public void iCancelTheModalDialog() throws Throwable {
+    @When("^I cancel the modal dialog")
+    public void whenICancelTheModalDialog() throws Throwable {
         contentPage.cancelModalDialog();
     }
 
@@ -541,14 +557,14 @@ public class CmsSteps extends AbstractSpringSteps {
     }
 
     @Then("^I can copy the publication$")
-    public void iCanCopyThePublication() throws Throwable {
+    public void thenICanCopyThePublication() throws Throwable {
         String docName = testDataRepo.getCurrentPublication().getName();
         contentPage.navigateToDocument(docName);
         contentPage.copyDocument();
     }
 
     @When("^I preview the document$")
-    public void iCanPreviewTheDocument() throws Throwable {
+    public void whenICanPreviewTheDocument() throws Throwable {
         contentPage.previewDocument();
     }
 }

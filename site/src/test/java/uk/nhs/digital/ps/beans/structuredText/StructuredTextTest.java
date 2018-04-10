@@ -1,15 +1,18 @@
 package uk.nhs.digital.ps.beans.structuredText;
 
+import static java.util.Arrays.asList;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.util.*;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RunWith(DataProviderRunner.class)
 public class StructuredTextTest {
@@ -22,13 +25,12 @@ public class StructuredTextTest {
         final StructuredText actual = new StructuredText(input);
 
         // when
-        List<Element> actualElement = actual.getElements();
+        List<Element> actualElements = actual.getElements();
 
         // then
-        int i = 0;
-        for(Element element: actualElement) {
+        for (int i = 0; i < actualElements.size(); i++) {
             assertThat("Paragraph element matches",
-                element.toString(), is(expectedElements.get(i++).toString()));
+                expectedElements.get(i).toString(), is(expectedElements.get(i).toString()));
         }
     }
 
@@ -40,13 +42,14 @@ public class StructuredTextTest {
         final StructuredText actual = new StructuredText(input);
 
         // when
-        List<Element> actualElement = actual.getElements();
+        List<Element> actualElements = actual.getElements();
 
         // then
-        int i = 0;
-        for(Element element: actualElement) {
+        for (int i = 0; i < actualElements.size(); i++) {
             assertThat("Paragraph element matches",
-                element.getClass().getSimpleName(), is(expectedElements.get(i++).getClass().getSimpleName()));
+                expectedElements.get(i).getClass().getSimpleName(),
+                is(expectedElements.get(i).getClass().getSimpleName())
+            );
         }
     }
 
@@ -56,68 +59,68 @@ public class StructuredTextTest {
             {
                 "First paragraph lorem ipsum dolor.",
 
-                new ArrayList() {{
-                    add(new Paragraph("First paragraph lorem ipsum dolor."));
-                }}
+                asList(
+                    new Paragraph("First paragraph lorem ipsum dolor.")
+                )
             },
             {
-                "First paragraph lorem ipsum dolor.\n" +
-                "\n\n\n\n",
+                "First paragraph lorem ipsum dolor.\n"
+                    + "\n\n\n\n",
 
-                new ArrayList() {{
-                    add(new Paragraph("First paragraph lorem ipsum dolor."));
-                }}
+                asList(
+                    new Paragraph("First paragraph lorem ipsum dolor.")
+                )
             },
             {
-                "\n\n\n\n" +
-                "First paragraph lorem ipsum dolor." +
-                "\n\n\n\n",
+                "\n\n\n\n"
+                    + "First paragraph lorem ipsum dolor."
+                    + "\n\n\n\n",
 
-                new ArrayList() {{
-                    add(new Paragraph("First paragraph lorem ipsum dolor."));
-                }}
+                asList(
+                    new Paragraph("First paragraph lorem ipsum dolor.")
+                )
             },
             {
-                "\n\n  \n\n" +
-                "First paragraph lorem ipsum dolor." +
-                "\n\n    \n\n   \n\n\n  ",
+                "\n\n  \n\n"
+                    + "First paragraph lorem ipsum dolor."
+                    + "\n\n    \n\n   \n\n\n  ",
 
-                new ArrayList() {{
-                    add(new Paragraph("First paragraph lorem ipsum dolor."));
-                }}
+                asList(
+                    new Paragraph("First paragraph lorem ipsum dolor.")
+                )
             },
             {
-                "First paragraph lorem ipsum dolor.\n" +
-                "\n" +
-                "Second paragraph",
+                "First paragraph lorem ipsum dolor.\n"
+                    + "\n"
+                    + "Second paragraph",
 
-                new ArrayList() {{
-                    add(new Paragraph("First paragraph lorem ipsum dolor."));
-                    add(new Paragraph("Second paragraph"));
-                }}
+                asList(
+                    new Paragraph("First paragraph lorem ipsum dolor."),
+                    new Paragraph("Second paragraph")
+                )
             },
             {
-                "First paragraph lorem ipsum dolor.\n" +
-                "\n\n\n\n" +
-                "Second paragraph",
+                "First paragraph lorem ipsum dolor.\n"
+                    + "\n\n\n\n"
+                    + "Second paragraph",
 
-                new ArrayList() {{
-                    add(new Paragraph("First paragraph lorem ipsum dolor."));
-                    add(new Paragraph("Second paragraph"));
-                }}
+                asList(
+                    new Paragraph("First paragraph lorem ipsum dolor."),
+                    new Paragraph("Second paragraph")
+                )
             },
             {
-                "First paragraph.\n" +
-                "\n\n\n\n" +
-                "Second paragraph." +
-                "\n\n\n" +
-                "Third paragraph.",
+                "First paragraph.\n"
+                    + "\n\n\n\n"
+                    + "Second paragraph."
+                    + "\n\n\n"
+                    + "Third paragraph.",
 
-                new ArrayList() {{
-                    add(new Paragraph("First paragraph."));
-                    add(new Paragraph("Second paragraph."));
-                    add(new Paragraph("Third paragraph."));
-                }}
+                asList(
+                    new Paragraph("First paragraph."),
+                    new Paragraph("Second paragraph."),
+                    new Paragraph("Third paragraph.")
+                )
             },
         };
     }
@@ -126,42 +129,49 @@ public class StructuredTextTest {
     public static Object[][] paragraphsAndLists() {
         return new Object[][]{
             {
-                "First paragraph lorem ipsum dolor.\n" +
-                "\n" +
-                "* first list item\n" +
-                "* second list item",
-
-                new ArrayList() {{
-                    add(new Paragraph("First paragraph lorem ipsum dolor."));
-                    add(new BulletList("* first list item\n* second list item"));
-                }}
+                asOneString(
+                    "First paragraph lorem ipsum dolor.\n",
+                    "\n",
+                    "* first list item\n",
+                    "* second list item"
+                ),
+                asList(
+                    new Paragraph("First paragraph lorem ipsum dolor."),
+                    new BulletList("* first list item\n* second list item")
+                )
             },
             {
-                "First paragraph lorem ipsum dolor.\n" +
-                "\n" +
-                "* first list item\n" +
-                "* second list item\n" +
-                "\n",
-                "Second paragraph sit ament.\n",
-
-                new ArrayList() {{
-                    add(new Paragraph("First paragraph lorem ipsum dolor."));
-                    add(new BulletList("* first list item\n* second list item"));
-                    add(new Paragraph("Second paragraph sit ament."));
-                }}
+                asOneString(
+                    "First paragraph lorem ipsum dolor.\n",
+                    "\n",
+                    "* first list item\n",
+                    "* second list item\n",
+                    "\n",
+                    "Second paragraph sit ament.\n"
+                ),
+                asList(
+                    new Paragraph("First paragraph lorem ipsum dolor."),
+                    new BulletList("* first list item\n* second list item"),
+                    new Paragraph("Second paragraph sit ament.")
+                )
             },
             {
-                "\n\n  \n\n" +
-                "* first list item\n" +
-                "* second list item\n" +
-                "\n"+
-                "First paragraph lorem ipsum dolor.\n",
-
-                new ArrayList() {{
-                    add(new BulletList("* first list item\n* second list item"));
-                    add(new Paragraph("First paragraph lorem ipsum dolor."));
-                }}
+                asOneString(
+                    "\n\n  \n\n",
+                    "* first list item\n",
+                    "* second list item\n",
+                    "\n",
+                    "First paragraph lorem ipsum dolor.\n"
+                ),
+                asList(
+                    new BulletList("* first list item\n* second list item"),
+                    new Paragraph("First paragraph lorem ipsum dolor.")
+                )
             }
         };
+    }
+
+    private static String asOneString(final String... text) {
+        return Arrays.stream(text).collect(Collectors.joining(""));
     }
 }

@@ -1,15 +1,15 @@
 package uk.nhs.digital.ps.beans;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
 
-import java.time.*;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import java.time.LocalDate;
 
 public class RestrictableDateTest {
 
@@ -55,8 +55,8 @@ public class RestrictableDateTest {
         final RestrictableDate restrictableDate = RestrictableDate.restrictedDateFrom(localDate);
 
         expectedException.expect(DataRestrictionViolationException.class);
-        expectedException.expectMessage("Restricted date does not contain day of month component." +
-            " Consult 'isRestricted()' before requesting day of month value.");
+        expectedException.expectMessage("Restricted date does not contain day of month component."
+            + " Consult 'isRestricted()' before requesting day of month value.");
 
         // when
         restrictableDate.getDayOfMonth();

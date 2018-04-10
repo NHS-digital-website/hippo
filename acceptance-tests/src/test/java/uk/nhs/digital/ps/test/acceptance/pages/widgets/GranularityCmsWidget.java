@@ -12,13 +12,15 @@ import uk.nhs.digital.ps.test.acceptance.pages.XpathSelectors;
 public class GranularityCmsWidget {
 
     /**
-     * Targets 'parent' div that _contains_ an 'h3/span' child elements, where the <span> has text 'Granularity'
+     * Targets 'parent' div that _contains_ an 'h3/span' child elements, where the {@code <span>} has text 'Granularity'
      * this is so that further searches can be performed in context of the root element.
      */
     private static final String ROOT_ELEMENT_XPATH = XpathSelectors.EDITOR_BODY
         + "//span[text()='Granularity']/ancestor::div[contains(@class, 'hippo-editor-field')]";
 
-    /** Targets drop-down's {@code <select>} element. */
+    /**
+     * Targets drop-down's {@code <select>} element.
+     */
     private static final String DROPDOWN_XPATH = ROOT_ELEMENT_XPATH + "//select[contains(@class, 'dropdown-plugin')]";
 
     private final PageHelper helper;

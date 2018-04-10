@@ -97,7 +97,13 @@ public class TestContentUrls {
         // CI Hub/Landing
         add("SHMI landing", "/data-and-information/publications/ci-hub/summary-hospital-level-mortality-indicator-shmi");
         add("SHMI_publication_timetable.xlsx",
-            "/binaries/content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi/publicationsystem%3Acilandingasset/publicationsystem%3AAttachments/publicationsystem%3AattachmentResource");
+            "/binaries/content/documents/corporate-website/publication-system/ci-hub"
+                + "/summary-hospital-level-mortality-indicator-shmi"
+                + "/summary-hospital-level-mortality-indicator-shmi"
+                + "/publicationsystem%3Acilandingasset"
+                + "/publicationsystem%3AAttachments"
+                + "/publicationsystem%3AattachmentResource"
+        );
         add("ci hub root", "/data-and-information/publications/ci-hub");
 
         // attachments

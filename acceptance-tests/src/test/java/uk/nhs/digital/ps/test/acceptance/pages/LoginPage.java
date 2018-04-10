@@ -54,7 +54,7 @@ public class LoginPage extends AbstractCmsPage {
         return helper.findChildElement(hippoLoginFeedbackPanel, By.tagName("span")).getText();
     }
 
-    public boolean isLoggedIn(){
+    public boolean isLoggedIn() {
         return findLogoutButton() != null;
     }
 

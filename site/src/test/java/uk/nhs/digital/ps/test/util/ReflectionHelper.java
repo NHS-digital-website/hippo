@@ -18,7 +18,7 @@ public class ReflectionHelper {
         field.setAccessible(true);
         try {
             field.set(null, targetValue);
-        } catch (final IllegalAccessException e) {
+        } catch (final IllegalAccessException exception) {
             throw new RuntimeException("Failed to assign value " + targetValue + " to field " + field);
         }
     }

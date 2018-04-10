@@ -1,10 +1,10 @@
 package uk.nhs.digital.ps.test.acceptance.models;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static java.util.stream.Collectors.toList;
 import static uk.nhs.digital.ps.test.acceptance.models.PublicationState.PUBLISHED;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PublicationSeries {
 

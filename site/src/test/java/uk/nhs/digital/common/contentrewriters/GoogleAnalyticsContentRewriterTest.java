@@ -1,5 +1,9 @@
 package uk.nhs.digital.common.contentrewriters;
 
+import static org.mockito.BDDMockito.given;
+import static org.mockito.MockitoAnnotations.initMocks;
+import static uk.nhs.digital.common.contentrewriters.GoogleAnalyticsContentRewriter.getHtmlCleaner;
+
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.manager.ObjectConverter;
@@ -11,13 +15,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 
-import javax.jcr.Node;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static org.mockito.BDDMockito.given;
-import static org.mockito.MockitoAnnotations.initMocks;
-import static uk.nhs.digital.common.contentrewriters.GoogleAnalyticsContentRewriter.getHtmlCleaner;
+import javax.jcr.Node;
 
 public class GoogleAnalyticsContentRewriterTest {
 
@@ -31,7 +31,7 @@ public class GoogleAnalyticsContentRewriterTest {
 
 
     @Before
-    public void setUp() throws ObjectBeanManagerException{
+    public void setUp() throws ObjectBeanManagerException {
         initMocks(this);
 
         given(requestContext.getContentBeansTool()).willReturn(contentBeansTool);
@@ -41,7 +41,7 @@ public class GoogleAnalyticsContentRewriterTest {
     }
 
     @Test
-    public void rewriteTest(){
+    public void rewriteTest() {
 
         GoogleAnalyticsContentRewriter rewriter = new GoogleAnalyticsContentRewriter();
 
@@ -51,14 +51,15 @@ public class GoogleAnalyticsContentRewriterTest {
 
         TagNode rootNode = getHtmlCleaner().clean(result);
         TagNode[] links = rootNode.getElementsByName("a", true);
+
+        String regex = "logGoogleAnalyticsEvent";
+        Pattern pattern = Pattern.compile(regex);
+
         for (TagNode link : links) {
             String onClickEvent = link.getAttributeByName("onClick");
-            String regex = "logGoogleAnalyticsEvent";
-
-            Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(onClickEvent);
 
-            assert(matcher.find());
+            assert matcher.find();
         }
     }
 

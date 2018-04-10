@@ -1,20 +1,22 @@
 package resources.site.freemarker;
 
+import static org.apache.commons.io.FilenameUtils.getExtension;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.empty;
+import static org.hamcrest.core.Is.is;
+
 import org.junit.Test;
+
 import java.io.IOException;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.stream.Stream;
-import java.nio.file.*;
+import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.empty;
-import static org.apache.commons.io.FilenameUtils.getExtension;
-import static org.hamcrest.core.Is.is;
+import java.util.stream.Stream;
 
 /**
  * Test to check freemarker .ftl templates have correct output formatting and auto escaping set as the first line
@@ -26,9 +28,9 @@ import static org.hamcrest.core.Is.is;
  */
 public class FreemarkerFileTest {
 
-    private final static String FTL_FILES_DIRECTORY = System.getProperty("user.dir") + "/src/main/resources/site/freemarker";
-    private final static String DIRECTIVE_OUTPUT_FORMAT_HTML = "<#ftl output_format=\"HTML\"";
-    private final static String DIRECTIVE_OUTPUT_FORMAT_PLAIN_TEXT = "<#ftl output_format=\"plainText\"";
+    private static final String FTL_FILES_DIRECTORY = System.getProperty("user.dir") + "/src/main/resources/site/freemarker";
+    private static final String DIRECTIVE_OUTPUT_FORMAT_HTML = "<#ftl output_format=\"HTML\"";
+    private static final String DIRECTIVE_OUTPUT_FORMAT_PLAIN_TEXT = "<#ftl output_format=\"plainText\"";
 
     @Test
     public void checkOutputFormatDirectiveIncluded() {
@@ -36,7 +38,7 @@ public class FreemarkerFileTest {
         // given (files in freemarker directory)
 
         // when
-        final List<String> filesMissingOutputFormatDirective = CheckFtlFilesForMissingOutputFormatDirective(FTL_FILES_DIRECTORY);
+        final List<String> filesMissingOutputFormatDirective = checkFtlFilesForMissingOutputFormatDirective(FTL_FILES_DIRECTORY);
 
         // then
         assertThat("Output Format correctly set in all freemarker templates.",
@@ -44,14 +46,13 @@ public class FreemarkerFileTest {
             is(empty()));
     }
 
-    private List<String> CheckFtlFilesForMissingOutputFormatDirective(final String pathToCheck) {
+    private List<String> checkFtlFilesForMissingOutputFormatDirective(final String pathToCheck) {
 
         final List<String> filesMissingOutputFormatDirective = new ArrayList<>();
 
         try {
             // Check for files in this folder and all sub folders
-            Files.walkFileTree(Paths.get(pathToCheck), new SimpleFileVisitor<Path>()
-            {
+            Files.walkFileTree(Paths.get(pathToCheck), new SimpleFileVisitor<Path>() {
                 @Override
                 public FileVisitResult visitFile(Path file, BasicFileAttributes attrs)
                     throws IOException {
@@ -70,15 +71,15 @@ public class FreemarkerFileTest {
                                 .map(f -> file.getFileName())
                                 .forEach(element -> filesMissingOutputFormatDirective.add(element.toString()));
 
-                        } catch (final Exception e) {
-                            throw new RuntimeException(e);
+                        } catch (final Exception exception) {
+                            throw new RuntimeException(exception);
                         }
                     }
                     return FileVisitResult.CONTINUE;
                 }
             });
-        } catch (final Exception e) {
-            throw new RuntimeException("Failed to check ftl files in " + pathToCheck, e);
+        } catch (final Exception exception) {
+            throw new RuntimeException("Failed to check ftl files in " + pathToCheck, exception);
         }
 
         return filesMissingOutputFormatDirective;

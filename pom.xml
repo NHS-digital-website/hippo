@@ -412,6 +412,7 @@
                             <consoleOutput>false</consoleOutput>
                             <failsOnError>true</failsOnError>
                             <violationSeverity>warning</violationSeverity>
+                            <includeTestSourceDirectory>true</includeTestSourceDirectory>
                             <linkXRef>false</linkXRef>
                         </configuration>
                         <goals>

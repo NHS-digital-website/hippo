@@ -1,5 +1,19 @@
 package uk.nhs.digital.ps;
 
+import static java.text.MessageFormat.format;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.empty;
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.core.Is.is;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.ArgumentMatchers.isA;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.then;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.reset;
+import static org.mockito.MockitoAnnotations.initMocks;
+
 import org.apache.wicket.Page;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.protocol.http.WebApplication;
@@ -18,23 +32,12 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mock;
 
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Set;
+import java.util.UUID;
 import javax.jcr.Node;
 import javax.jcr.Property;
-import java.util.*;
-
-import static java.text.MessageFormat.format;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.empty;
-import static org.hamcrest.Matchers.hasSize;
-import static org.hamcrest.Matchers.notNullValue;
-import static org.hamcrest.core.Is.is;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.ArgumentMatchers.isA;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.BDDMockito.then;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.reset;
-import static org.mockito.MockitoAnnotations.initMocks;
 
 public class CoverageDatesValidatorTest {
 
@@ -93,7 +96,6 @@ public class CoverageDatesValidatorTest {
 
         // then
         // expectations as specified in 'given'
-
     }
 
     @Test
@@ -112,7 +114,6 @@ public class CoverageDatesValidatorTest {
         given(nominalDateProperty.getDate()).willReturn(generateHippoDateTodayAddDays(10));
         given(documentNode.getProperty(HIPPO_NOMINAL_DATE_PROPERTY_NAME)).willReturn(nominalDateProperty);
 
-
         given(documentNodeModel.getNode()).willReturn(documentNode);
 
         // when
@@ -126,7 +127,6 @@ public class CoverageDatesValidatorTest {
 
         assertThat("No violation has been reported.", actualValidationViolations, is(empty()));
     }
-
 
     @Test
     public void reportsError_whenEndDateLessThanStartDate() throws Exception {
@@ -145,7 +145,6 @@ public class CoverageDatesValidatorTest {
         final Property nominalDateProperty = mock(Property.class);
         given(nominalDateProperty.getDate()).willReturn(generateHippoDateEmpty());
         given(documentNode.getProperty(HIPPO_NOMINAL_DATE_PROPERTY_NAME)).willReturn(nominalDateProperty);
-
 
         given(documentNodeModel.getNode()).willReturn(documentNode);
 
@@ -189,7 +188,6 @@ public class CoverageDatesValidatorTest {
 
         given(documentNodeModel.getNode()).willReturn(documentNode);
 
-
         given(fieldValidator.newValueViolation(eq(documentNodeModel), isA(IModel.class)))
             .willReturn(expectedViolation);
 
@@ -227,7 +225,6 @@ public class CoverageDatesValidatorTest {
         final Property nominalDateProperty = mock(Property.class);
         given(nominalDateProperty.getDate()).willReturn(generateHippoDateEmpty());
         given(documentNode.getProperty(HIPPO_NOMINAL_DATE_PROPERTY_NAME)).willReturn(nominalDateProperty);
-
 
         given(documentNodeModel.getNode()).willReturn(documentNode);
 
@@ -268,7 +265,6 @@ public class CoverageDatesValidatorTest {
         final Property nominalDateProperty = mock(Property.class);
         given(nominalDateProperty.getDate()).willReturn(generateHippoDateTodayAddDays(2));
         given(documentNode.getProperty(HIPPO_NOMINAL_DATE_PROPERTY_NAME)).willReturn(nominalDateProperty);
-
 
         given(documentNodeModel.getNode()).willReturn(documentNode);
 

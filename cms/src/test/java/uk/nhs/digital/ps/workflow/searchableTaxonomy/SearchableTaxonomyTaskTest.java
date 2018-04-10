@@ -114,8 +114,8 @@ public class SearchableTaxonomyTaskTest {
             .map(value -> {
                 try {
                     return value.getString();
-                } catch (RepositoryException e) {
-                    throw new RuntimeException(e);
+                } catch (RepositoryException repositoryException) {
+                    throw new RuntimeException(repositoryException);
                 }
             }).collect(toList());
     }
@@ -135,11 +135,11 @@ public class SearchableTaxonomyTaskTest {
 
     @Test
     public void settingNewPropertyOnCorrectNodes() throws RepositoryException, WorkflowException {
-        String docName = "publishedDocument";
-        Node documentNode = rootNode.addNode(docName);
-        Node published = addSubDocument(documentNode, PUBLISHED, "");
-        Node unpublished = addSubDocument(documentNode, UNPUBLISHED, "[2]");
-        Node draft = addSubDocument(documentNode, DRAFT, "[3]");
+        final String docName = "publishedDocument";
+        final Node documentNode = rootNode.addNode(docName);
+        final Node published = addSubDocument(documentNode, PUBLISHED, "");
+        final Node unpublished = addSubDocument(documentNode, UNPUBLISHED, "[2]");
+        final Node draft = addSubDocument(documentNode, DRAFT, "[3]");
 
         performTask(documentNode);
 
@@ -174,12 +174,12 @@ public class SearchableTaxonomyTaskTest {
             return;
         }
 
-        for (int i=1; i<=3; i++) {
+        for (int i = 1; i <= 3; i++) {
             String childKey = parentKey + "_" + i;
             Node child = parent.addNode(childKey, TAXONOMY_CATEGORY_NODE_TYPE);
             child.setProperty(TAXONOMY_KEY_PROPERTY, childKey);
             child.addNode("unrelated", "unrelated:node");
-            createTaxonomyTree(child, childKey, depth+1);
+            createTaxonomyTree(child, childKey, depth + 1);
 
             Node info = child.addNode(TAXONOMY_CATEGORY_INFOS_PROPERTY).addNode("en");
             info.setProperty(TAXONOMY_NAME_PROPERTY, convertKeyToName(childKey));
