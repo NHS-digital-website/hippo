@@ -20,6 +20,12 @@ definitions:
       - jpg
       - png
       max.file.size: 3000M
+    /hippo:configuration/hippo:frontend/cms/cms-services/imageValidationService:
+      extensions.allowed:
+      - jpg
+      - jpeg
+      - gif
+      - png
     /hippo:configuration/hippo:frontend/cms/cms-services/localeProviderService:
       /en:
         country: gb
