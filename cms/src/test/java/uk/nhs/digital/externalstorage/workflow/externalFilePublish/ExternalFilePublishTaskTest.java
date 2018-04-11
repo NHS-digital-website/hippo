@@ -14,7 +14,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.onehippo.repository.documentworkflow.DocumentHandle;
 import uk.nhs.digital.externalstorage.ExternalStorageConstants;
-import uk.nhs.digital.externalstorage.s3.S3Connector;
+import uk.nhs.digital.externalstorage.s3.SchedulingS3Connector;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ import javax.jcr.Session;
 
 public class ExternalFilePublishTaskTest {
 
-    @Mock private S3Connector s3Connector;
+    @Mock private SchedulingS3Connector s3Connector;
     @Mock private WorkflowContext workflowContext;
 
     private ExternalFilePublishTask externalFilePublishTask;
