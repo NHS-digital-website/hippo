@@ -33,6 +33,9 @@
 [website:news] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:interval] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:section] > hippo:compound, hippostd:relaxed
   orderable
 

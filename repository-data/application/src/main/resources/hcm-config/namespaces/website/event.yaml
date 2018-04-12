@@ -64,46 +64,15 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /startdatetime:
+          /events:
             jcr:primaryType: frontend:plugin
-            caption: Date and time start
-            field: startdatetime
+            caption: Events
+            field: interval
             hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /enddatetime:
-            jcr:primaryType: frontend:plugin
-            caption: Date and time end
-            field: enddatetime
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /timeinfo:
-            jcr:primaryType: frontend:plugin
-            caption: Additional time info
-            field: timeinfo
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /relatedevents:
-            jcr:primaryType: frontend:plugin
-            caption: Related Events
-            field: relatedevents
-            hint: In case of similar or identical events taking place on a different
-              date in the future, you can use this link picker to make this visible
-              in the event detail page
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              nodetypes:
-              - website:event
           /location:
             jcr:primaryType: frontend:plugin
             caption: Location
@@ -209,13 +178,13 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: selection:BooleanRadioGroup
             jcr:primaryType: hipposysedit:field
-          /enddatetime:
+          /interval:
             hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:enddatetime
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:events
             hipposysedit:primary: false
-            hipposysedit:type: Date
+            hipposysedit:type: website:interval
             jcr:primaryType: hipposysedit:field
           /location:
             hipposysedit:mandatory: false
@@ -244,14 +213,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippo:mirror
             jcr:primaryType: hipposysedit:field
-          /relatedevents:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:relatedevents
-            hipposysedit:primary: false
-            hipposysedit:type: hippo:mirror
-            jcr:primaryType: hipposysedit:field
           /seosummary:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -268,14 +229,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
-          /startdatetime:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:startdatetime
-            hipposysedit:primary: false
-            hipposysedit:type: Date
-            jcr:primaryType: hipposysedit:field
           /summaryimage:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -285,14 +238,6 @@ definitions:
             hipposysedit:type: hippogallerypicker:imagelink
             hipposysedit:validators:
             - required
-            jcr:primaryType: hipposysedit:field
-          /timeinfo:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:timeinfo
-            hipposysedit:primary: false
-            hipposysedit:type: Text
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
@@ -328,6 +273,10 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /website:events:
+            jcr:primaryType: website:interval
+            website:enddatetime: 0001-01-01T12:00:00Z
+            website:startdatetime: 0001-01-01T12:00:00Z
           /website:summaryimage:
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             hippo:facets: []
@@ -348,13 +297,10 @@ definitions:
           jcr:primaryType: website:event
           website:booking: ''
           website:display: false
-          website:enddatetime: 0001-01-01T12:00:00Z
           website:location: ''
           website:maplocation: ''
           website:seosummary: ''
           website:shortsummary: ''
-          website:startdatetime: 0001-01-01T12:00:00Z
-          website:timeinfo: ''
           website:title: ''
           website:type: []
         jcr:primaryType: hipposysedit:prototypeset
