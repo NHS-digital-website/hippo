@@ -1,7 +1,6 @@
 ---
 ##
-# AWS Code Build spec for building AMI
-# Make sure to specify "ROLE" environment variable in your project.
+# AWS Code Build spec for building and deploying Hippo CMS
 #
 
 version: 0.1

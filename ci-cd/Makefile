@@ -7,7 +7,7 @@ HOME ?= $(shell printenv HOME)
 OD_ENV = $(shell bash ondemand-env-name $(ENV))
 PWD = $(shell pwd)
 RD_CONF = $(PWD)/rd.conf
-RELEASE_DATE = $(shell d=1; while (($$(date -v +$${d}d +%u) >= 6)); do ((++d)); done; date -v +$${d}d +%d/%m/%Y)
+RELEASE_DATE = $(shell d=1; while (($$(date --date +$${d}day +%u) >= 6)); do ((++d)); done; date --date +$${d}day +%Y-%m-%d)
 RELEASE_TIME_UTC = $(shell ((noon_utc=12-$$(date +%-H)+$$(TZ=UTC-24 date +%-H))); echo $${noon_utc}:05:00)
 TRAVIS_BUILD_CMD ?= test.site
 TRAVIS_EVENT_TYPE ?=
@@ -147,7 +147,7 @@ ondemand.deploy: vendor/rd
 #        make ondemand.schedule-deploy ENV=uat RD_CONF=my-rd.conf
 #
 #        3am (2am UTC) automated deploy on 28th Feb
-#        make ondemand.schedule-deploy ENV=uat RD_CONF=my-rd.conf RELEASE_DATE=28/02/2018 RELEASE_TIME_UTC=02:00:00
+#        make ondemand.schedule-deploy ENV=uat RD_CONF=my-rd.conf RELEASE_DATE=2018-02-28 RELEASE_TIME_UTC=02:00:00
 ondemand.schedule-deploy: vendor/rd
 	source $(RD_CONF) && vendor/rd run \
 		--at $(RELEASE_DATE)T$(RELEASE_TIME_UTC)Z\
