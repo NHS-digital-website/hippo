@@ -4,7 +4,7 @@
 <#assign component_list = components?keys/>
 <#assign component_children_list = components?values/>
 <#list component_list as component>
-<section class="article-section article-section--hub-component">
+<div class="article-section article-section--hub-component">
     <div class="grid-row">
         <div class="column column--two-thirds column--left">
             <div class="rich-text-content">
@@ -18,7 +18,13 @@
                 <#list componentChildPages as child>
                 <li>
                     <article class="cta">
-                        <h2 class="cta__title"><a href="<@hst.link hippobean=child/>">${child.title}</a></h2>
+                        <#if child.type?? && child.type == "external">
+                        <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, child.link) />
+                        <h2 class="cta__title"><a href="${child.link}" onClick="${onClickMethodCall}">${child.title}</a></h2>
+                        <#else>
+                        <h2 class="cta__title"><a href="<@hst.link hippobean=child />">${child.title}</a></h2>
+                        </#if>
+                        
                         <p class="cta__text">${child.shortsummary}</p>
                     </article>
                 </li>
@@ -27,7 +33,7 @@
             </#if>
         </div>
     </div>
-</section>
+</div>
 </#list>
 </#if>
 </#macro>
