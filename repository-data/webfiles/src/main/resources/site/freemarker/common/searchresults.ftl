@@ -2,6 +2,10 @@
 <#include "../include/imports.ftl">
 <#include "./macro/results.ftl">
 
+<#-- Add meta tags -->
+<#include "macro/metaTags.ftl">
+<@metaTags></@metaTags>
+
 <div data-uipath="ps.search-results" data-totalresults="${(pageable.total)!0}">
     <#if pageable?? && pageable.total gt 0>
         <div class="search-results-heading">

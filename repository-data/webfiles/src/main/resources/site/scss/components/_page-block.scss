@@ -8,12 +8,6 @@
   }
 }
 
-.page-block--main {
-  @include media(desktop) {
-    padding: 0 0 0 $default-spacing-unit * 0.5;
-  }
-}
-
 .page-block--sidebar {
   margin-bottom: $default-spacing-unit * 2.75;
 }

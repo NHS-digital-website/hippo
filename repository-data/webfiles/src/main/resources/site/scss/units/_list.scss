@@ -44,10 +44,15 @@ ol {
     display: inline-block;
     @include clearfix;
 
+    dt,
+    dd,
     li {
         display: inline-block;
         float: left;
         vertical-align: top;
+    }
+
+    li {
         margin-top: 0;
         margin-left: 20px;
         margin-left: 1rem;
@@ -66,7 +71,6 @@ ol {
     margin-top: round($gutter * 0.5);
 }
 
-.local-header,
 .page-section,
 .global-footer {
     dd {
