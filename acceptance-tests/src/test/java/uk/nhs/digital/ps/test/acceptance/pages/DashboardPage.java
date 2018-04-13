@@ -13,8 +13,10 @@ public class DashboardPage extends AbstractCmsPage {
 
     private final PageHelper helper;
 
-    public DashboardPage(final WebDriverProvider webDriverProvider, final PageHelper helper) {
-        super(webDriverProvider);
+    public DashboardPage(final WebDriverProvider webDriverProvider,
+                         final PageHelper helper,
+                         final String cmsUrl) {
+        super(webDriverProvider, cmsUrl);
         this.helper = helper;
     }
 

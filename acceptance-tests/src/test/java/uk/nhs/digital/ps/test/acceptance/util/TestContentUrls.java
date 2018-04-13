@@ -2,174 +2,203 @@ package uk.nhs.digital.ps.test.acceptance.util;
 
 import static org.openqa.selenium.net.Urls.urlEncode;
 
-import uk.nhs.digital.ps.test.acceptance.pages.site.AbstractSitePage;
-
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class TestContentUrls {
 
+    private static final AtomicReference<TestContentUrls> instance = new AtomicReference<>();
+
     private static final String S3_BUCKET_URL = "https://files.local.nhsd.io/";
 
-    private final Map<String, String> urlLookup = new HashMap();
+    private final Map<String, String> siteUrlLookup = new HashMap<>();
+    private final Map<String, String> cmsUrlLookup = new HashMap<>();
 
-    public TestContentUrls() {
-        setup();
+    private final String cmsUrl;
+    private final String siteUrl;
+
+    public TestContentUrls(final String cmsUrl, final String siteUUrl) {
+        this.cmsUrl = cmsUrl;
+        this.siteUrl = siteUUrl;
+        instance.set(this);
+        setupSiteUrls();
+        setupCmsUrls();
     }
 
-    public String lookupUrl(String pageName) {
-        String url = urlLookup.get(pageName.toLowerCase());
-        if (url == null) {
+    public static TestContentUrls instance() {
+        return instance.get();
+    }
+
+    public String lookupSiteUrl(String pageName) {
+        final String lowerCasedPageName = pageName.toLowerCase();
+
+        if (!siteUrlLookup.containsKey(lowerCasedPageName)) {
             throw new RuntimeException("Unknown pageName: " + pageName);
         }
 
+        String url = siteUrlLookup.get(lowerCasedPageName);
         if (!url.startsWith("http")) {
-            url = AbstractSitePage.URL + url;
-        }
+            url = siteUrl + url;
+        } // else: URL is direct/absolute and should be returned verbatim
 
         return url;
     }
 
-    private void setup() {
-        add("home", "/");
+    public String lookupCmsUrl(String pageName) {
+        final String lowerCasedPageName = pageName.toLowerCase();
 
-        add("search", "/search");
+        if (!cmsUrlLookup.containsKey(lowerCasedPageName)) {
+            throw new RuntimeException("Unknown pageName: " + pageName);
+        }
 
-        add("shmi", "/shmi");
+        return cmsUrl
+            + "/?1&path=/content/documents/corporate-website"
+            + cmsUrlLookup.get(lowerCasedPageName);
+    }
+
+    private void setupSiteUrls() {
+        addSiteUrl("home", "/");
+
+        addSiteUrl("search", "/search");
+
+        addSiteUrl("shmi", "/shmi");
 
         // data sets pages
-        add("publication with datasets",
+        addSiteUrl("publication with datasets",
             "/data-and-information/publications/acceptance-tests/publication-with-datasets");
-        add("publication with datasets dataset",
+        addSiteUrl("publication with datasets dataset",
             "/data-and-information/publications/acceptance-tests/publication-with-datasets/datasets-subfolder/publication-with-datasets-dataset");
-        add("series with publication with datasets",
+        addSiteUrl("series with publication with datasets",
             "/data-and-information/publications/acceptance-tests/series-with-publication-with-datasets");
 
         // folder
-        add("acceptence tests folder", "/data-and-information/publications/acceptance-tests");
+        addSiteUrl("acceptence tests folder", "/data-and-information/publications/acceptance-tests");
 
         // series page
-        add("valid publication series",
+        addSiteUrl("valid publication series",
             "/data-and-information/publications/valid-publication-series");
-        add("valid publication series direct",
+        addSiteUrl("valid publication series direct",
             "/data-and-information/publications/valid-publication-series/content");
-        add("valid publication series old url",
+        addSiteUrl("valid publication series old url",
             "/publications/valid-publication-series/content");
 
-        add("series without latest",
+        addSiteUrl("series without latest",
             "/data-and-information/publications/acceptance-tests/series-without-latest");
 
         // archive page
-        add("valid publication archive",
+        addSiteUrl("valid publication archive",
             "/data-and-information/publications/acceptance-tests/valid-publication-archive");
-        add("valid publication archive direct",
+        addSiteUrl("valid publication archive direct",
             "/data-and-information/publications/acceptance-tests/valid-publication-archive/content");
 
-        add("publication with rich content",
+        addSiteUrl("publication with rich content",
             "/data-and-information/publications/acceptance-tests/publication-rich");
 
         // unpublished dataset
-        add("upcoming publication dataset",
+        addSiteUrl("upcoming publication dataset",
             "/data-and-information/publications/acceptance-tests/upcoming-publication/upcoming-dataset");
 
         // dataset with no parent publication
-        add("dataset without publication",
+        addSiteUrl("dataset without publication",
             "/data-and-information/publications/acceptance-tests/dataset-without-publication/dataset-without-publication");
 
         // attachment tests
-        add("attachment test publication",
+        addSiteUrl("attachment test publication",
             "/data-and-information/publications/acceptance-tests/attachment-test");
-        add("attachment test dataset",
+        addSiteUrl("attachment test dataset",
             "/data-and-information/publications/acceptance-tests/attachment-test/dataset");
 
         // coverage date test
-        add("coverage date publication",
+        addSiteUrl("coverage date publication",
             "/data-and-information/publications/acceptance-tests/coveragedates-test/coverage-test");
 
         // bare minimum documents
-        add("bare minimum publication",
+        addSiteUrl("bare minimum publication",
             "/data-and-information/publications/acceptance-tests/bare-minimum-publication");
-        add("bare minimum dataset",
+        addSiteUrl("bare minimum dataset",
             "/data-and-information/publications/acceptance-tests/bare-minimum-publication/bare-minimum-dataset");
 
         // invalid urls
-        add("invalid root", "/invalid");
-        add("invalid document", "/data-and-information/publications/invalid");
-        add("invalid sub document", "/data-and-information/publications/acceptance-tests/invalid");
+        addSiteUrl("invalid root", "/invalid");
+        addSiteUrl("invalid document", "/data-and-information/publications/invalid");
+        addSiteUrl("invalid sub document", "/data-and-information/publications/acceptance-tests/invalid");
 
         // about pages
-        add("terms and conditions", "/about/terms-and-conditions");
+        addSiteUrl("terms and conditions", "/about/terms-and-conditions");
 
         // CI Hub/Landing
-        add("SHMI landing", "/data-and-information/publications/ci-hub/summary-hospital-level-mortality-indicator-shmi");
-        add("SHMI_publication_timetable.xlsx",
+        addSiteUrl("SHMI landing", "/data-and-information/publications/ci-hub/summary-hospital-level-mortality-indicator-shmi");
+        addSiteUrl("SHMI_publication_timetable.xlsx",
             S3_BUCKET_URL + "24/66E68E/SHMI_publication_timetable.xlsx");
-        add("ci hub root", "/data-and-information/publications/ci-hub");
+        addSiteUrl("ci hub root", "/data-and-information/publications/ci-hub");
 
         // attachments
-        add("attachment-text.pdf",
+        addSiteUrl("attachment-text.pdf",
             S3_BUCKET_URL + "C0/F03E64/attachment-text.pdf");
-        add("attachment.pdf",
+        addSiteUrl("attachment.pdf",
             S3_BUCKET_URL + "B4/CEEAE4/attachment.pdf");
 
-        add("dataset-attachment-text.pdf",
+        addSiteUrl("dataset-attachment-text.pdf",
             S3_BUCKET_URL + "42/F961C2/dataset-attachment-text.pdf");
-        add("dataset-attachment.pdf",
+        addSiteUrl("dataset-attachment.pdf",
             S3_BUCKET_URL + "2E/636380/dataset-attachment.pdf");
 
         // Ordered publication
-        add("ordered publication",
+        addSiteUrl("ordered publication",
             "/data-and-information/publications/acceptance-tests/ordered-publication");
 
         // Sectioned publication
-        add("sectioned publication",
+        addSiteUrl("sectioned publication",
             "/data-and-information/publications/acceptance-tests/sectioned-publication");
-        add("sectioned publication page robots",
+        addSiteUrl("sectioned publication page robots",
             getAttachmentUrl("sectioned-publication/first-page/first-page", "bodySections[2]", "image"));
-        add("sectioned publication page snowman",
+        addSiteUrl("sectioned publication page snowman",
             getAttachmentUrl("sectioned-publication/first-page/first-page", "bodySections[5]", "image"));
-        add("sectioned publication robots",
+        addSiteUrl("sectioned publication robots",
             getAttachmentUrl("sectioned-publication/content/content", "KeyFactImages", "image"));
-        add("sectioned publication snowman",
+        addSiteUrl("sectioned publication snowman",
             getAttachmentUrl("sectioned-publication/content/content", "KeyFactImages[2]", "image"));
 
         // Publication with National Statistic logo
-        add("national statistic publication",
+        addSiteUrl("national statistic publication",
             "/data-and-information/publications/lorem-ipsum-content/morbi-tempor-euismod-vehicula");
 
         // National Indicator Library
-        add("nihub", "/data-and-information/national-indicator-library/nihub");
-        add("sample-indicator", "/data-and-information/national-indicator-library/sample-indicator");
+        addSiteUrl("nihub", "/data-and-information/national-indicator-library/nihub");
+        addSiteUrl("sample-indicator", "/data-and-information/national-indicator-library/sample-indicator");
 
         // Legacy publication
-        add("legacy publication",
+        addSiteUrl("legacy publication",
             "/data-and-information/publications/acceptance-tests/legacy-series/legacy-publication");
-        add("legacy publication direct",
+        addSiteUrl("legacy publication direct",
             "/data-and-information/publications/acceptance-tests/legacy-series/legacy-publication/content");
 
-        add("service with rich content - parent",
+        addSiteUrl("service with rich content - parent",
             "/services/service-document-1/");
 
-        add("homeland",
+        addSiteUrl("homeland",
             "/homeland");
 
-        add("Data and information",
+        addSiteUrl("Data and information",
             "/data-and-information");
 
         // Geographic coverage publications
-        add("Geographic Coverage - Great Britain",
+        addSiteUrl("Geographic Coverage - Great Britain",
             "/data-and-information/publications/acceptance-tests/geographiccoverage-test/great-britain");
-        add("Geographic Coverage - United Kingdom",
+        addSiteUrl("Geographic Coverage - United Kingdom",
             "/data-and-information/publications/acceptance-tests/geographiccoverage-test/united-kingdom");
-        add("Geographic Coverage - British Isles",
+        addSiteUrl("Geographic Coverage - British Isles",
             "/data-and-information/publications/acceptance-tests/geographiccoverage-test/british-isles");
-        add("Geographic Coverage - Other combination",
+        addSiteUrl("Geographic Coverage - Other combination",
             "/data-and-information/publications/acceptance-tests/geographiccoverage-test/other-combination");
 
     }
 
-    private String getAttachmentUrl(String siteUrl, String attachmentTag) {
-        return getAttachmentUrl(siteUrl, attachmentTag, "attachmentResource");
+    private void setupCmsUrls() {
+        // has to correspond to values in YAML generated by GenerateTestDocsForS3ConcurrentTest.groovy
+        addCmsUrl("Legacy Publication X",
+            "/publication-system/acceptance-tests/concurrent-s3-access-test/legacy-publication-");
     }
 
     private String getAttachmentUrl(String siteUrl, String attachmentTag, String resourceTag) {
@@ -179,7 +208,11 @@ public class TestContentUrls {
             + urlEncode("publicationsystem:" + resourceTag);
     }
 
-    private void add(String pageName, String url) {
-        urlLookup.put(pageName.toLowerCase(), url);
+    private void addSiteUrl(String pageName, String url) {
+        siteUrlLookup.put(pageName.toLowerCase(), url);
+    }
+
+    private void addCmsUrl(String pageName, String url) {
+        cmsUrlLookup.put(pageName.toLowerCase(), url);
     }
 }

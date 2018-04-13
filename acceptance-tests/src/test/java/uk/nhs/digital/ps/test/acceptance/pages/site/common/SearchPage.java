@@ -16,8 +16,8 @@ public class SearchPage extends AbstractSitePage {
 
     private PageHelper helper;
 
-    public SearchPage(final WebDriverProvider webDriverProvider, PageHelper helper) {
-        super(webDriverProvider);
+    public SearchPage(final WebDriverProvider webDriverProvider, PageHelper helper, String siteUrl) {
+        super(webDriverProvider, siteUrl);
         this.helper = helper;
     }
 

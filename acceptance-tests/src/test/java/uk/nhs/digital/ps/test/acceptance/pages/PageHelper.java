@@ -32,18 +32,34 @@ public class PageHelper {
         return webDriverProvider.getWebDriver();
     }
 
-    public WebElement findElement(final By bySelector) {
-        return firstOrNull(findElements(bySelector));
+    public WebElement findElement(final WebDriver webDriver, final By selector) {
+        return firstOrNull(findElements(webDriver, selector));
     }
 
-    public List<WebElement> findElements(By bySelector) {
+    public WebElement findElement(final By selector) {
+        return findElement(getWebDriver(), selector);
+    }
+
+    public List<WebElement> findElements(final WebDriver webDriver, final By bySelector) {
+        return findElements(webDriver, webDriver::findElements, bySelector);
+    }
+
+    public List<WebElement> findElements(final By bySelector) {
         return findElements((by) -> getWebDriver().findElements(by), bySelector);
     }
 
     private List<WebElement> findElements(final Function<By, List<WebElement>> findElements,
-        final By bySelector) {
+                                          final By bySelector
+    ) {
+        return findElements(getWebDriver(), findElements, bySelector);
+    }
+
+    private List<WebElement> findElements(final WebDriver webDriver,
+                                          final Function<By, List<WebElement>> findElements,
+                                          final By bySelector
+    ) {
         try {
-            return pollWithTimeout().until((WebDriver driver) -> {
+            return pollWithTimeout(webDriver).until((WebDriver driver) -> {
                 List<WebElement> elements = findElements.apply(bySelector);
                 return isEmpty(elements) ? null : elements;
             });
@@ -63,6 +79,17 @@ public class PageHelper {
     public void waitUntilTrue(final Predicate predicate) {
 
         pollWithTimeout().until(webDriver -> {
+            try {
+                return predicate.executeWithPredicate();
+            } catch (final Exception exception) {
+                return false;
+            }
+        });
+    }
+
+    public void waitUntilTrue(final WebDriver webDriver, final Predicate predicate) {
+
+        pollWithTimeout(webDriver).until(driver -> {
             try {
                 return predicate.executeWithPredicate();
             } catch (final Exception exception) {
@@ -106,6 +133,12 @@ public class PageHelper {
             .until(ExpectedConditions.refreshed(condition));
     }
 
+    private FluentWait<WebDriver> pollWithTimeout(WebDriver webDriver) {
+        return new WebDriverWait(webDriver, TIME_OUT)
+            .ignoring(StaleElementReferenceException.class)
+            .pollingEvery(Duration.ofMillis(500));
+    }
+
     private FluentWait<WebDriver> pollWithTimeout() {
         return new WebDriverWait(getWebDriver(), TIME_OUT)
             .ignoring(StaleElementReferenceException.class)
@@ -121,8 +154,12 @@ public class PageHelper {
         return findOptionalElement(selector) != null;
     }
 
+    public WebElement findOptionalElement(WebDriver webDriver, By by) {
+        return firstOrNull(webDriver.findElements(by));
+    }
+
     public WebElement findOptionalElement(By by) {
-        return firstOrNull(getWebDriver().findElements(by));
+        return findOptionalElement(getWebDriver(), by);
     }
 
     public WebElement findOptionalChildElement(WebElement menu, By by) {

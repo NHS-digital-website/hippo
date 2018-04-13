@@ -90,6 +90,7 @@
         <externalstorage.aws.bucket></externalstorage.aws.bucket>
         <externalstorage.aws.region></externalstorage.aws.region>
         <externalstorage.aws.s3.endpoint></externalstorage.aws.s3.endpoint>
+        <tomcatDistributionUrl>https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.48/bin/apache-tomcat-8.0.48.tar.gz</tomcatDistributionUrl>
     </properties>
 
     <repositories>
@@ -354,6 +355,11 @@
                         </lifecycleMappingMetadata>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <groupId>org.codehaus.gmavenplus</groupId>
+                    <artifactId>gmavenplus-plugin</artifactId>
+                    <version>1.6</version>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -589,6 +595,9 @@
                                 </deployable>
                             </deployables>
                             <container>
+                                <zipUrlInstaller>
+                                    <url>${tomcatDistributionUrl}</url>
+                                </zipUrlInstaller>
                                 <systemProperties>
                                     <log4j.configurationFile>file://${project.basedir}/conf/log4j2-dev.xml</log4j.configurationFile>
                                     <!-- enables auto export and web files watch: -->

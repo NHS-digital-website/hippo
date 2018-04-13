@@ -4,6 +4,7 @@ import static java.util.stream.Collectors.toList;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,8 +27,10 @@ public class ContentPage extends AbstractCmsPage {
 
     private PageHelper helper;
 
-    public ContentPage(final WebDriverProvider webDriverProvider, final PageHelper helper) {
-        super(webDriverProvider);
+    public ContentPage(final WebDriverProvider webDriverProvider,
+                       final PageHelper helper,
+                       final String cmsUrl) {
+        super(webDriverProvider, cmsUrl);
         this.helper = helper;
     }
 
@@ -534,5 +537,16 @@ public class ContentPage extends AbstractCmsPage {
 
         // Confirm
         clickButtonOnModalDialog("OK");
+    }
+
+    public void openDocumentByUrlForPreview(final WebDriver webDriver,
+                                            final String url,
+                                            final String expectedTitle) {
+        webDriver.get(url);
+        webDriver.findElement(By.xpath("//span[text()='" + expectedTitle + "']"));
+    }
+
+    public WebElement findFileDownloadLink(final WebDriver webDriver, final String fileName) {
+        return webDriver.findElement(By.linkText(fileName));
     }
 }

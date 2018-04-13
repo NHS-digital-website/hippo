@@ -192,7 +192,7 @@ public class SiteSteps extends AbstractSpringSteps {
                 downloadElement, is(notNullValue()));
 
             String url = downloadElement.getAttribute("href");
-            assertEquals("I can find link with expected URL for file " + linkFileName, urlLookup.lookupUrl(linkFileName), url);
+            assertEquals("I can find link with expected URL for file " + linkFileName, urlLookup.lookupSiteUrl(linkFileName), url);
 
             if (acceptanceTestProperties.isHeadlessMode()) {
                 // At the moment of writing, there doesn't seem to be any easy way available to force Chromedriver

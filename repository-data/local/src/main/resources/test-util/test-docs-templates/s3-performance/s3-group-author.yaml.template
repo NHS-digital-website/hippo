@@ -1,0 +1,7 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/author:
+      hipposys:members:
+        operation: add
+        value: [{GROUP-MEMBERS}]

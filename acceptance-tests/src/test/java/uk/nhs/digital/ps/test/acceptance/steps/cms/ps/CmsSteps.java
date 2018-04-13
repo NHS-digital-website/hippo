@@ -3,8 +3,12 @@ package uk.nhs.digital.ps.test.acceptance.steps.cms.ps;
 import static java.time.temporal.ChronoField.DAY_OF_MONTH;
 import static java.time.temporal.ChronoField.DAY_OF_WEEK;
 import static java.time.temporal.ChronoField.MONTH_OF_YEAR;
+import static java.util.concurrent.TimeUnit.MINUTES;
+import static java.util.concurrent.TimeUnit.SECONDS;
 import static java.util.stream.Collectors.toList;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
+import static org.awaitility.Awaitility.await;
+import static org.awaitility.Awaitility.with;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.allOf;
@@ -25,13 +29,16 @@ import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.apache.commons.io.FileUtils;
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import uk.nhs.digital.ps.test.acceptance.config.AcceptanceTestProperties;
 import uk.nhs.digital.ps.test.acceptance.data.ExpectedTestDataProvider;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataFactory;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
+import uk.nhs.digital.ps.test.acceptance.data.WebDriversRepo;
 import uk.nhs.digital.ps.test.acceptance.models.Attachment;
 import uk.nhs.digital.ps.test.acceptance.models.Dataset;
 import uk.nhs.digital.ps.test.acceptance.models.FileType;
@@ -45,7 +52,9 @@ import uk.nhs.digital.ps.test.acceptance.pages.site.SitePage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
 import uk.nhs.digital.ps.test.acceptance.steps.AbstractSpringSteps;
 import uk.nhs.digital.ps.test.acceptance.steps.cms.LoginSteps;
+import uk.nhs.digital.ps.test.acceptance.util.TestContentUrls;
 
+import java.io.File;
 import java.text.MessageFormat;
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -53,6 +62,10 @@ import java.time.ZoneOffset;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class CmsSteps extends AbstractSpringSteps {
 
@@ -74,6 +87,15 @@ public class CmsSteps extends AbstractSpringSteps {
 
     @Autowired
     private SitePage sitePage;
+
+    @Autowired
+    private WebDriversRepo webDriversRepo;
+
+    @Autowired
+    private AcceptanceTestProperties acceptanceTestProperties;
+
+    @Autowired
+    private TestContentUrls testContentUrls;
 
     @Given("^I have a publication opened for editing$")
     public void givenIHaveAPublicationOpenForEditing() throws Throwable {
@@ -560,5 +582,104 @@ public class CmsSteps extends AbstractSpringSteps {
     @When("^I preview the document$")
     public void whenICanPreviewTheDocument() throws Throwable {
         contentPage.previewDocument();
+    }
+
+    // Performance tests with multiple concurrent users ============================================
+
+    @Given("^each user has a ([^\"]*) open for CMS preview$")
+    public void eachUserHasAPublicationOpenForCmsPreview(final String testDocumentReference) throws Throwable {
+
+        final ExecutorService executorService = Executors.newWorkStealingPool(2);
+
+        final AtomicInteger count = new AtomicInteger(1);
+        final AtomicInteger documentsOpenCount = new AtomicInteger(0);
+
+        webDriversRepo.getAll().forEach(webDriver -> {
+
+            final int index = count.getAndIncrement();
+
+            executorService.submit(() -> {
+
+                final String testDocumentUrl = testContentUrls.lookupCmsUrl(testDocumentReference) + index;
+                log.info("user-{} opens document {}", index, testDocumentUrl);
+
+                contentPage.openDocumentByUrlForPreview(
+                    webDriver, testDocumentUrl,
+                    testDocumentReference.replace("X", String.valueOf(index))
+                );
+
+                log.info("user-{} opened their document", index);
+
+                documentsOpenCount.incrementAndGet();
+            });
+        });
+
+        await().atMost(10, MINUTES).untilAtomic(documentsOpenCount, is(webDriversRepo.size()));
+
+        stopThreadPool(executorService);
+    }
+
+    @Then("^all users download file ([^\"]*) in parallel, initiated (\\d+) seconds apart$")
+    public void allUsersDownloadsFilesInParallel(final String fileName, final int intervalInSecs) throws Throwable {
+
+        final ScheduledExecutorService scheduledExecutorService =
+            Executors.newScheduledThreadPool(webDriversRepo.size());
+
+        final AtomicInteger count = new AtomicInteger(0);
+
+        webDriversRepo.getAll().forEach(webDriver -> {
+
+            final int index = count.incrementAndGet();
+
+            scheduledExecutorService.schedule(() -> {
+
+                contentPage.findFileDownloadLink(webDriver, fileName).click();
+
+                log.info("user-{} downloads file {}", index, fileName);
+
+            }, index * intervalInSecs, SECONDS);
+        });
+
+        waitForAllDownloadsToComplete(count);
+
+        log.info("All {} downloads completed.", count.get());
+
+        stopThreadPool(scheduledExecutorService);
+    }
+
+    private void waitForAllDownloadsToComplete(AtomicInteger count) {
+        with()
+            .pollDelay(1, SECONDS)
+            .pollInterval(1, SECONDS)
+            .await()
+            .atMost(20, MINUTES).until(() -> {
+                final File downloadsDir = acceptanceTestProperties.getDownloadDir().toFile();
+
+                if (!downloadsDir.exists()) {
+                    return false;
+                }
+
+                final int completedFilesFound = FileUtils.listFiles(
+                    downloadsDir,
+                    new String[]{"zip"},
+                    true
+                ).size();
+
+                final int inFlightFilesFound = FileUtils.listFiles(
+                    downloadsDir,
+                    new String[]{"crdownload"},
+                    true
+                ).size();
+
+                log.info("Downloads in progress/completed/requested: {} / {} / {}", inFlightFilesFound, completedFilesFound,
+                    count.get());
+
+                return completedFilesFound == count.get();
+            });
+    }
+
+    private void stopThreadPool(ExecutorService executorService) throws InterruptedException {
+        executorService.shutdown();
+        executorService.awaitTermination(5, MINUTES);
     }
 }

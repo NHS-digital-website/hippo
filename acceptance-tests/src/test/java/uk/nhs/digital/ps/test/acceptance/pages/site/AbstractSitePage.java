@@ -5,9 +5,7 @@ import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
 public abstract class AbstractSitePage extends AbstractPage {
 
-    public static final String URL = "http://localhost:8080";
-
-    public AbstractSitePage(WebDriverProvider webDriverProvider) {
-        super(webDriverProvider);
+    public AbstractSitePage(WebDriverProvider webDriverProvider, String siteUrl) {
+        super(webDriverProvider, siteUrl);
     }
 }

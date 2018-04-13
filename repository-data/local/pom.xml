@@ -16,6 +16,20 @@
     <description>NHS Digital Website Repository Data For Local</description>
     <artifactId>website-repository-data-local</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>1.19</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>2.4.12</version>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
+
     <build>
         <defaultGoal>install</defaultGoal>
         <plugins>
@@ -40,20 +54,32 @@
             <plugin>
                 <groupId>org.codehaus.gmavenplus</groupId>
                 <artifactId>gmavenplus-plugin</artifactId>
-                <version>1.6</version>
                 <executions>
                     <execution>
+                        <id>format-yaml</id>
                         <phase>verify</phase>
                         <goals>
                             <goal>execute</goal>
                         </goals>
+                        <configuration>
+                            <scripts>
+                                <script>file:///${project.basedir}/script/YamlFormatter.groovy</script>
+                            </scripts>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>generate-s3-perf-test-docs</id>
+                        <phase>none</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration>
+                            <scripts>
+                                <script>file:///${project.basedir}/src/test/groovy/GenerateTestDocsForTestingS3Concurrent.groovy</script>
+                            </scripts>
+                        </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <scripts>
-                        <script>file:///${project.basedir}/script/YamlFormatter.groovy</script>
-                    </scripts>
-                </configuration>
                 <dependencies>
                     <dependency>
                         <groupId>org.yaml</groupId>
@@ -70,19 +96,5 @@
             </plugin>
         </plugins>
     </build>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.yaml</groupId>
-            <artifactId>snakeyaml</artifactId>
-            <version>1.19</version>
-        </dependency>
-        <dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy-all</artifactId>
-            <version>2.4.12</version>
-            <scope>runtime</scope>
-        </dependency>
-    </dependencies>
 
 </project>

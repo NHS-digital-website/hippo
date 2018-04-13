@@ -89,6 +89,13 @@
             <artifactId>junit</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.awaitility</groupId>
+            <artifactId>awaitility</artifactId>
+            <version>3.1.0</version>
+            <scope>test</scope>
+        </dependency>
+
         <!--
         Dependencies required in Cargo deployment.
 
@@ -317,6 +324,9 @@
                                 </deployable>
                             </deployables>
                             <container>
+                                <zipUrlInstaller>
+                                    <url>${tomcatDistributionUrl}</url>
+                                </zipUrlInstaller>
                                 <systemProperties>
                                     <log4j.configurationFile>file://${website.basedir}/conf/log4j2-dev.xml</log4j.configurationFile>
                                     <!-- enables auto export and web files watch: -->

@@ -9,7 +9,7 @@ import uk.nhs.digital.ps.test.acceptance.util.TestContentUrls;
 
 public class ImageSection extends BodySection {
 
-    private static final TestContentUrls urlLookup = new TestContentUrls();
+    private final TestContentUrls testContentUrls;
 
     private final String imageName;
     private final String altText;
@@ -21,10 +21,11 @@ public class ImageSection extends BodySection {
         this.altText = altText;
         this.caption = caption;
         this.link = link;
+        testContentUrls = TestContentUrls.instance();
     }
 
     public String getSource() {
-        return urlLookup.lookupUrl(imageName);
+        return testContentUrls.lookupSiteUrl(imageName);
     }
 
     public String getAltText() {
