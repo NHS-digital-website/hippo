@@ -4,14 +4,19 @@ import static org.slf4j.LoggerFactory.getLogger;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import uk.nhs.digital.ps.test.acceptance.config.AcceptanceTestProperties;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
 import uk.nhs.digital.ps.test.acceptance.models.Dataset;
 import uk.nhs.digital.ps.test.acceptance.models.Publication;
 import uk.nhs.digital.ps.test.acceptance.models.PublicationArchive;
 import uk.nhs.digital.ps.test.acceptance.models.PublicationSeries;
 import uk.nhs.digital.ps.test.acceptance.pages.ContentPage;
+
+import java.io.IOException;
+import java.io.UncheckedIOException;
 
 public class TestDataSteps extends AbstractSpringSteps {
 
@@ -23,6 +28,9 @@ public class TestDataSteps extends AbstractSpringSteps {
     @Autowired
     private TestDataRepo testDataRepo;
 
+    @Autowired
+    private AcceptanceTestProperties acceptanceTestProperties;
+
     /**
      * Resets the test data repository before every scenario to prevent data leaking between scenarios, unless given
      * scenario is tagged with {@code @NeedsExistingTestData}.
@@ -31,6 +39,12 @@ public class TestDataSteps extends AbstractSpringSteps {
     public void clearTestData() {
         log.debug("Disposing of test data.");
         testDataRepo.clear();
+
+        try {
+            FileUtils.deleteDirectory(acceptanceTestProperties.getDownloadDir().toFile());
+        } catch (IOException ioe) {
+            throw new UncheckedIOException(ioe);
+        }
     }
 
     /**

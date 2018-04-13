@@ -4,13 +4,11 @@ import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
 public class AbstractCmsPage extends AbstractPage {
 
-    protected static final String URL = "http://localhost:8080/cms";
-
-    AbstractCmsPage(final WebDriverProvider webDriverProvider) {
-        super(webDriverProvider);
+    AbstractCmsPage(final WebDriverProvider webDriverProvider, String cmsUrl) {
+        super(webDriverProvider, cmsUrl);
     }
 
     public void openCms() {
-        getWebDriver().get(URL);
+        getWebDriver().get(getUrl());
     }
 }

@@ -10,12 +10,25 @@ import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 public abstract class AbstractPage {
 
     private final WebDriverProvider webDriverProvider;
+    private final String applicationUrl;
 
-    public AbstractPage(final WebDriverProvider webDriverProvider) {
+    public AbstractPage(final WebDriverProvider webDriverProvider, final String applicationUrl) {
         this.webDriverProvider = webDriverProvider;
+        this.applicationUrl = applicationUrl;
     }
 
     protected WebDriver getWebDriver() {
         return webDriverProvider.getWebDriver();
+    }
+
+    /**
+     * See {@linkplain WebDriverProvider#newWebDriver(String)} for details.
+     */
+    protected WebDriver getNewWebDriver(String userName) {
+        return webDriverProvider.newWebDriver(userName);
+    }
+
+    protected String getUrl() {
+        return applicationUrl;
     }
 }

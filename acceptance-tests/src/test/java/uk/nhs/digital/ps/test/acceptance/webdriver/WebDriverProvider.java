@@ -3,6 +3,7 @@ package uk.nhs.digital.ps.test.acceptance.webdriver;
 import static org.slf4j.LoggerFactory.getLogger;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
@@ -10,6 +11,7 @@ import org.slf4j.Logger;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Manages WebDriver (the client component of the WebDriver).
@@ -91,5 +93,41 @@ public class WebDriverProvider {
     public void dispose() {
         webDriver.quit();
         webDriver = null;
+    }
+
+    /**
+     * <p>
+     * Creates and initialises a new instance of WebDriver leaving it to the caller to manage its
+     * lifecycle.
+     * </p><p>
+     * Used in performance tests where there is a need to simulate concurrent users as each user
+     * requires their own WebDriver instance.
+     * </p><p>
+     * The returned instance is configured with:
+     * </p>
+     * <ul>
+     * <li>implicit wait of 5 minutes, which helps reducing amount of state-probing
+     * code in performance tests,</li>
+     * <li>download directory unique to the user, with name given by provided argument,
+     * named with the provided user name and located under test download directory
+     * configured via acceptance tests' config parameters.</li>
+     * </ul>
+     */
+    public WebDriver newWebDriver(String sessionSpecificDownloadDirectoryName) {
+
+        final ChromeOptions chromeOptions = new ChromeOptions();
+
+        final Map<String, Object> chromePrefs = new HashMap<>();
+        chromePrefs.put(
+            "download.default_directory",
+            downloadDirectory.toAbsolutePath().toString() + "/" + sessionSpecificDownloadDirectoryName
+        );
+        chromeOptions.setExperimentalOption("prefs", chromePrefs);
+
+        final ChromeDriver chromeDriver = new ChromeDriver(chromeOptions);
+
+        chromeDriver.manage().timeouts().implicitlyWait(5, TimeUnit.MINUTES);
+
+        return chromeDriver;
     }
 }

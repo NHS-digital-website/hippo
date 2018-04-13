@@ -19,7 +19,7 @@ public class S3ConnectorServiceRegistrationModuleParams<T> {
     // DOWNLOAD PARAMS
 
     static final S3ConnectorServiceRegistrationModuleParams<Integer> DOWNLOAD_MAX_CONC_COUNT = init(
-        "externalstorage.download.maxConcurrent", "maxConcurrentDownloadsCount", Integer::valueOf, 0
+        "externalstorage.download.maxConcurrentDownloads", "maxConcurrentDownloadsCount", Integer::valueOf, 0
     );
     static final S3ConnectorServiceRegistrationModuleParams<Long> DOWNLOAD_SHUTDOWN_TIMEOUT_IN_SECS = init(
         "externalstorage.download.shutdown.timeoutInSecs", "downloadShutdownTimeoutInSecs", Long::valueOf, 0L
@@ -28,7 +28,7 @@ public class S3ConnectorServiceRegistrationModuleParams<T> {
     // UPLOAD PARAMS
 
     static final S3ConnectorServiceRegistrationModuleParams<Integer> UPLOAD_MAX_CONC_COUNT = init(
-        "externalstorage.upload.maxConcurrent", "maxConcurrentUploadsCount", Integer::valueOf, 0
+        "externalstorage.upload.maxConcurrentUploads", "maxConcurrentUploadsCount", Integer::valueOf, 0
     );
     static final S3ConnectorServiceRegistrationModuleParams<Long> UPLOAD_SHUTDOWN_TIMEOUT_IN_SECS = init(
         "externalstorage.upload.shutdown.timeoutInSecs", "uploadShutdownTimeoutInSecs", Long::valueOf, 0L

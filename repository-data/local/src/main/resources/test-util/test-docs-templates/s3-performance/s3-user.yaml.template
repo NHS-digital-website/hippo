@@ -1,0 +1,9 @@
+      /user-{USER-NUMBER}:
+        hipposys:active: true
+        hipposys:firstname: user
+        hipposys:lastname: '{USER-NUMBER}'
+        # Password: TestPassword0
+        hipposys:password: $SHA-256$DUBCeXuAHq4=$tVqd2UVvPRfL3a7iKW7i8MPgWfUfhglhBNg8iJjoapE=
+        hipposys:passwordlastmodified: 2018-04-16T09:54:42.776Z
+        hipposys:securityprovider: internal
+        jcr:primaryType: hipposys:user

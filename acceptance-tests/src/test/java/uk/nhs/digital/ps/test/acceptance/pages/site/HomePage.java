@@ -1,17 +1,12 @@
 package uk.nhs.digital.ps.test.acceptance.pages.site;
 
 import org.openqa.selenium.By;
-import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
 public class HomePage extends AbstractSitePage {
 
-    private PageHelper helper;
-
-
-    public HomePage(WebDriverProvider webDriverProvider, final PageHelper helper) {
-        super(webDriverProvider);
-        this.helper = helper;
+    public HomePage(WebDriverProvider webDriverProvider, String siteUrl) {
+        super(webDriverProvider, siteUrl);
     }
 
     public String getPageTitle() {

@@ -1,24 +1,41 @@
 package uk.nhs.digital.ps.test.acceptance.steps.cms;
 
-import static org.hamcrest.CoreMatchers.*;
+import static java.util.concurrent.TimeUnit.MINUTES;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.hasItems;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
+import static org.slf4j.LoggerFactory.getLogger;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import uk.nhs.digital.ps.test.acceptance.data.WebDriversRepo;
 import uk.nhs.digital.ps.test.acceptance.pages.DashboardPage;
 import uk.nhs.digital.ps.test.acceptance.pages.LoginPage;
 import uk.nhs.digital.ps.test.acceptance.steps.AbstractSpringSteps;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.stream.IntStream;
+
 public class LoginSteps extends AbstractSpringSteps {
+
+    private static final Logger log = getLogger(LoginSteps.class);
 
     @Autowired
     private LoginPage loginPage;
 
     @Autowired
     private DashboardPage dashboardPage;
+
+    @Autowired
+    private WebDriversRepo webDriversRepo;
 
     @Given("^I am on login page$")
     public void givenIAmOnLoginPage() throws Throwable {
@@ -74,5 +91,36 @@ public class LoginSteps extends AbstractSpringSteps {
                 containsString("Password should contain at least one digit")
             )
         );
+    }
+
+    // Performance tests with multiple concurrent users ============================================
+
+    @Given("^(\\d+) '(.+-)' users are logged in$")
+    public void givenXUsersAreLoggedIntoTheSystem(final int concurrentUsersCount,
+                                                  final String userNamePrefix
+    ) throws Throwable {
+
+        final ExecutorService executorService = Executors.newWorkStealingPool(2);
+
+        final String userPassword = "TestPassword0";
+
+        IntStream.rangeClosed(1, concurrentUsersCount).forEach(i -> {
+
+            final String userName = userNamePrefix + i;
+
+            executorService.submit(() -> {
+
+                final WebDriver webDriver = loginPage.loginWithNewSession(userName, userPassword);
+
+                webDriversRepo.addWebDriver(webDriver);
+            });
+        });
+
+        stopThreadPool(executorService);
+    }
+
+    private void stopThreadPool(ExecutorService executorService) throws InterruptedException {
+        executorService.shutdown();
+        executorService.awaitTermination(5, MINUTES);
     }
 }

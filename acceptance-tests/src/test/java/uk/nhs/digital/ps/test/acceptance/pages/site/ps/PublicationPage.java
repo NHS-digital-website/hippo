@@ -22,14 +22,16 @@ public class PublicationPage extends AbstractSitePage {
     private PageHelper helper;
     private List<PageElements> pageElements;
 
-    public PublicationPage(WebDriverProvider webDriverProvider, final PageHelper helper) {
-        super(webDriverProvider);
+    public PublicationPage(final WebDriverProvider webDriverProvider,
+                           final PageHelper helper,
+                           final String siteUrl) {
+        super(webDriverProvider, siteUrl);
         this.helper = helper;
         this.pageElements = asList(new SeriesPageElements(), new PublicationPageElements());
     }
 
     public void open(final Publication publication) {
-        getWebDriver().get(URL + "/publications/acceptance-tests/" + publication.getPublicationUrlName());
+        getWebDriver().get(getUrl() + "/publications/acceptance-tests/" + publication.getPublicationUrlName());
     }
 
     public String getSummaryText() {

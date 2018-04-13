@@ -8,11 +8,19 @@ public class AcceptanceTestProperties {
     private final boolean headlessMode;
     private final Path downloadDir;
     private final Path tempDir;
+    private final String cmsUrl;
+    private final String siteUrl;
 
-    AcceptanceTestProperties(final boolean headlessMode, final Path downloadDir, final Path tempDir) {
+    AcceptanceTestProperties(final boolean headlessMode,
+                             final Path downloadDir,
+                             final Path tempDir,
+                             final String cmsUrl,
+                             final String siteUrl) {
         this.headlessMode = headlessMode;
         this.downloadDir = downloadDir;
         this.tempDir = tempDir;
+        this.cmsUrl = cmsUrl;
+        this.siteUrl = siteUrl;
     }
 
     /**
@@ -47,5 +55,19 @@ public class AcceptanceTestProperties {
             + ", downloadDir=" + downloadDir
             + ", tempDir=" + tempDir
             + '}';
+    }
+
+    /**
+     * @return URL of CMS application.
+     */
+    public String getCmsUrl() {
+        return cmsUrl;
+    }
+
+    /**
+     * @return URL of CMS application.
+     */
+    public String getSiteUrl() {
+        return siteUrl;
     }
 }

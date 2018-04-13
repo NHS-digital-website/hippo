@@ -10,6 +10,7 @@ PWD = $(shell pwd)
 SPLUNK_HEC ?= localhost
 SPLUNK_TOKEN ?=
 SPLUNK_URL ?=
+PROFILE_RUN ?= cargo.run
 
 export HIPPO_MAVEN_PASSWORD
 export HIPPO_MAVEN_USERNAME
@@ -41,11 +42,11 @@ serve: essentials/target/essentials.war
 # Clean and recompile only modules that we do customise.
 serve.noexport: essentials/target/essentials.war
 	mvn clean verify $(MVN_OPTS) -pl site,cms,repository-data/development,repository-data/local -am -DskipTests=true
-	mvn $(MVN_OPTS) -P cargo.run,without-autoexport
+	$(MAKE) run PROFILE_RUN=cargo.run,without-autoexport
 
 ## Start server using cargo.run
 run:
-	mvn $(MVN_OPTS) -P cargo.run \
+	mvn $(MVN_OPTS) -P $(PROFILE_RUN) \
 		-D splunk.token=$(SPLUNK_TOKEN) \
 		-D splunk.url=$(SPLUNK_URL) \
 		-D splunk.hec.name=$(SPLUNK_HEC) \
@@ -62,17 +63,40 @@ test.site-running:
 		-Pacceptance-test \
 		-Dcucumber.options="src/test/resources/features/site"
 
-## Run only acceptance tests taged with "WIP"
-# This target requires running site (for instance `make serve.noexport`)
+## Run only acceptance tests tagged with "WIP"
+# This target requires a running site instance (e.g. `make serve.noexport`)
 test.wip:
 	mvn verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
 		-Pacceptance-test \
 		-Dheadless=false \
 		-Dcucumber.options="src/test/resources/features --tags @WIP" \
 
+## Generate a number of test docs and users for S3 performance testing
+# Optional argument TEST_DOCS_COUNT=X specifies the number of Legacy Publication YAML files to
+# generate in local module, ready for bootstrapping; if the argument is not provided then the number
+# is by default 100.
+#
+# See 'test-s3-performance.md' for more details.
+prep.s3-perf-test-data:
+	mvn gplus:execute@generate-s3-perf-test-docs $(MVN_OPTS) \
+		-pl repository-data/local \
+		-DdocumentCount=$(TEST_DOCS_COUNT) \
+
+## Run S3 performance tests - only those tagged with "WIP"
+# This target requires a running site instance (e.g. `make serve.noexport`)
+# To target instances other than the default one running on localhost,
+# provide CMS_URL=<your-url-here> and/or SITE_URL=<your-site-url-here>
+test.s3-perf:
+	mvn verify $(MVN_OPTS) -f acceptance-tests/pom.xml \
+		-Pacceptance-test \
+		-Dheadless=false \
+		-Dcucumber.options="src/test/resources/s3-performance --tags @WIP" \
+		-DcmsUrl=$(CMS_URL) \
+		-DsiteUrl=$(SITE_URL) \
+
 ## Format YAML files, run after exporting to reduce changes
 format-yaml:
-	mvn gplus:execute $(MVN_OPTS) \
+	mvn gplus:execute@format-yaml $(MVN_OPTS) \
 		-pl repository-data/local
 
 ## Update maven dependency versions

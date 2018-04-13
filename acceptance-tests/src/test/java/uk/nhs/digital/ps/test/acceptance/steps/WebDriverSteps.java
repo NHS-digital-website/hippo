@@ -2,7 +2,9 @@ package uk.nhs.digital.ps.test.acceptance.steps;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
+import uk.nhs.digital.ps.test.acceptance.data.WebDriversRepo;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
 /**
@@ -14,6 +16,9 @@ public class WebDriverSteps extends AbstractSpringSteps {
     @Autowired
     private WebDriverProvider webDriverProvider;
 
+    @Autowired
+    private WebDriversRepo webDriversRepo;
+
     @Before
     public void initialise() {
         webDriverProvider.initialise();
@@ -23,5 +28,6 @@ public class WebDriverSteps extends AbstractSpringSteps {
     @After(order = 0)
     public void dispose() {
         webDriverProvider.dispose();
+        webDriversRepo.getAll().forEach(WebDriver::close);
     }
 }

@@ -1,0 +1,13 @@
+---
+/content/documents/corporate-website/publication-system/acceptance-tests/concurrent-s3-access-test:
+  hippo:name: Concurrent S3 Access Test
+  hippostd:foldertype:
+  - new-statistical-publications-and-clinical-indicators-folder
+  - new-statistical-publications-and-clinical-indicators-document
+  hippotranslation:id: 51e4e05d-a296-4513-ba64-766377116241
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

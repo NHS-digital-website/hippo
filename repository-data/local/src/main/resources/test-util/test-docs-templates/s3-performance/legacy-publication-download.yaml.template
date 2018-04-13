@@ -1,0 +1,189 @@
+---
+/content/documents/corporate-website/publication-system/acceptance-tests/concurrent-s3-access-test/legacy-publication-{DOCUMENT_INDEX}:
+  /legacy-publication-{DOCUMENT_INDEX}[1]:
+    /publicationsystem:Attachments-v3:
+      /publicationsystem:attachmentResource:
+        externalstorage:reference: s3-performance-test/file-1MB.zip
+        externalstorage:size: 1048576
+        externalstorage:url: https://files.local.nhsd.io/s3-performance-test/file-1MB.zip
+        hippo:filename: file-1MB.zip
+        jcr:data:
+          resource: /content/documents/corporate-website/publication-system/acceptance-tests/concurrent-s3-access-test/legacy-publication-{DOCUMENT_INDEX}/legacy-publication-{DOCUMENT_INDEX}[1]/Attachments-v3/attachmentResource/data.bin
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2018-04-13T20:41:05.692Z
+        jcr:mimeType: application/zip
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
+      publicationsystem:displayName: ''
+    /publicationsystem:KeyFacts:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    /publicationsystem:Summary:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    common:FacetType: publication
+    common:searchRank: 4
+    common:searchable: true
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-04-13T20:40:40.944Z
+    hippostdpubwf:lastModificationDate: 2018-04-13T20:40:40.945Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: b0747d74-8dbf-487a-8b1e-95d676c115f6
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:legacypublication
+    publicationsystem:AdministrativeSources: ''
+    publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+    publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+    publicationsystem:NominalDate: 2018-04-13T00:00:00Z
+    publicationsystem:PubliclyAccessible: false
+    publicationsystem:Title: Legacy Publication {DOCUMENT_INDEX}
+    publicationsystem:gossid: 0
+    publicationsystem:publicationid: ''
+  /legacy-publication-{DOCUMENT_INDEX}[2]:
+    /publicationsystem:Attachments-v3:
+      /publicationsystem:attachmentResource:
+        externalstorage:reference: s3-performance-test/file-1MB.zip
+        externalstorage:size: 1048576
+        externalstorage:url: https://files.local.nhsd.io/s3-performance-test/file-1MB.zip
+        hippo:filename: file-1MB.zip
+        jcr:data:
+          resource: /content/documents/corporate-website/publication-system/acceptance-tests/concurrent-s3-access-test/legacy-publication-{DOCUMENT_INDEX}/legacy-publication-{DOCUMENT_INDEX}[2]/Attachments-v3/attachmentResource/data.bin
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2018-04-13T20:41:05.692Z
+        jcr:mimeType: application/zip
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
+      publicationsystem:displayName: ''
+    /publicationsystem:Attachments-v3[2]:
+      /publicationsystem:attachmentResource:
+        externalstorage:reference: s3-performance-test/file-5MB.zip
+        externalstorage:size: 5242880
+        externalstorage:url: https://files.local.nhsd.io/s3-performance-test/file-5MB.zip
+        hippo:filename: file-5MB.zip
+        jcr:data:
+          resource: /content/documents/corporate-website/publication-system/acceptance-tests/concurrent-s3-access-test/legacy-publication-{DOCUMENT_INDEX}/legacy-publication-{DOCUMENT_INDEX}[2]/Attachments-v3/attachmentResource/data.bin
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2018-04-13T20:41:05.692Z
+        jcr:mimeType: application/zip
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
+      publicationsystem:displayName: ''
+    /publicationsystem:Attachments-v3[3]:
+      /publicationsystem:attachmentResource:
+        externalstorage:reference: s3-performance-test/file-10MB.zip
+        externalstorage:size: 10485760
+        externalstorage:url: https://files.local.nhsd.io/s3-performance-test/file-10MB.zip
+        hippo:filename: file-10MB.zip
+        jcr:data:
+          resource: /content/documents/corporate-website/publication-system/acceptance-tests/concurrent-s3-access-test/legacy-publication-{DOCUMENT_INDEX}/legacy-publication-{DOCUMENT_INDEX}[2]/Attachments-v3/attachmentResource/data.bin
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2018-04-13T20:41:05.692Z
+        jcr:mimeType: application/zip
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
+      publicationsystem:displayName: ''
+    /publicationsystem:Attachments-v3[4]:
+      /publicationsystem:attachmentResource:
+        externalstorage:reference: s3-performance-test/file-25MB.zip
+        externalstorage:size: 26214400
+        externalstorage:url: https://files.local.nhsd.io/s3-performance-test/file-25MB.zip
+        hippo:filename: file-25MB.zip
+        jcr:data:
+          resource: /content/documents/corporate-website/publication-system/acceptance-tests/concurrent-s3-access-test/legacy-publication-{DOCUMENT_INDEX}/legacy-publication-{DOCUMENT_INDEX}[2]/Attachments-v3/attachmentResource/data.bin
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2018-04-13T20:41:05.692Z
+        jcr:mimeType: application/zip
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
+      publicationsystem:displayName: ''
+    /publicationsystem:Attachments-v3[5]:
+      /publicationsystem:attachmentResource:
+        externalstorage:reference: s3-performance-test/file-50MB.zip
+        externalstorage:size: 52428800
+        externalstorage:url: https://files.local.nhsd.io/s3-performance-test/file-50MB.zip
+        hippo:filename: file-50MB.zip
+        jcr:data:
+          resource: /content/documents/corporate-website/publication-system/acceptance-tests/concurrent-s3-access-test/legacy-publication-{DOCUMENT_INDEX}/legacy-publication-{DOCUMENT_INDEX}[2]/Attachments-v3/attachmentResource/data.bin
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2018-04-13T20:41:05.692Z
+        jcr:mimeType: application/zip
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
+      publicationsystem:displayName: ''
+    /publicationsystem:Attachments-v3[6]:
+      /publicationsystem:attachmentResource:
+        externalstorage:reference: s3-performance-test/file-100MB.zip
+        externalstorage:size: 104857600
+        externalstorage:url: https://files.local.nhsd.io/s3-performance-test/file-100MB.zip
+        hippo:filename: file-100MB.zip
+        jcr:data:
+          resource: /content/documents/corporate-website/publication-system/acceptance-tests/concurrent-s3-access-test/legacy-publication-{DOCUMENT_INDEX}/legacy-publication-{DOCUMENT_INDEX}[2]/Attachments-v3/attachmentResource/data.bin
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2018-04-13T20:41:05.692Z
+        jcr:mimeType: application/zip
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
+      publicationsystem:displayName: ''
+    /publicationsystem:Attachments-v3[7]:
+      /publicationsystem:attachmentResource:
+        externalstorage:reference: s3-performance-test/file-500MB.zip
+        externalstorage:size: 524288000
+        externalstorage:url: https://files.local.nhsd.io/s3-performance-test/file-500MB.zip
+        hippo:filename: file-500MB.zip
+        jcr:data:
+          resource: /content/documents/corporate-website/publication-system/acceptance-tests/concurrent-s3-access-test/legacy-publication-{DOCUMENT_INDEX}/legacy-publication-{DOCUMENT_INDEX}[2]/Attachments-v3/attachmentResource/data.bin
+          type: binary
+        jcr:encoding: UTF-8
+        jcr:lastModified: 2018-04-13T20:41:05.692Z
+        jcr:mimeType: application/zip
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
+      publicationsystem:displayName: ''
+    /publicationsystem:KeyFacts:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    /publicationsystem:Summary:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    common:FacetType: publication
+    common:searchRank: 4
+    common:searchable: true
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-04-13T20:40:40.944Z
+    hippostdpubwf:lastModificationDate: 2018-04-13T20:41:13.824Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: b0747d74-8dbf-487a-8b1e-95d676c115f6
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: publicationsystem:legacypublication
+    publicationsystem:AdministrativeSources: ''
+    publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+    publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+    publicationsystem:NominalDate: 2018-04-13T00:00:00Z
+    publicationsystem:PubliclyAccessible: false
+    publicationsystem:Title: Legacy Publication {DOCUMENT_INDEX}
+    publicationsystem:gossid: 0
+    publicationsystem:publicationid: ''
+  hippo:name: Legacy Publication {DOCUMENT_INDEX}
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

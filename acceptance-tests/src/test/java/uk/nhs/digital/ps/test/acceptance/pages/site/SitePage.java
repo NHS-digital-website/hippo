@@ -21,11 +21,15 @@ public class SitePage extends AbstractSitePage {
     private TestContentUrls urlLookup;
     private List<PageElements> pagesElements;
 
-    public SitePage(WebDriverProvider webDriverProvider, final PageHelper helper) {
-        super(webDriverProvider);
+    public SitePage(final WebDriverProvider webDriverProvider,
+                    final PageHelper helper,
+                    final String siteUrl,
+                    final TestContentUrls testContentUrls) {
+        super(webDriverProvider, siteUrl);
+
         this.helper = helper;
-        this.urlLookup = new TestContentUrls();
         this.pagesElements = new ArrayList<>();
+        urlLookup = testContentUrls;
 
         // load pageElement
         pagesElements.add(new ArchivePageElements());
@@ -37,7 +41,7 @@ public class SitePage extends AbstractSitePage {
     }
 
     public void openByPageName(final String pageName) {
-        String lookupUrl = urlLookup.lookupUrl(pageName);
+        String lookupUrl = urlLookup.lookupSiteUrl(pageName);
         getWebDriver().get(lookupUrl);
     }
 
