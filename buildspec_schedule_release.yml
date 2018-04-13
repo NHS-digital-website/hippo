@@ -27,10 +27,8 @@ phases:
 
   build:
     commands:
-      - ssh-agent bash -c "
-        ssh-add $HOME/.ssh/nhs-ci_rsa && cd ci-cd &&
-        make git.update-environment-tag ENV=rc VERSION=uat"
-      - . $HOME/rd.password && cd ci-cd && make ondemand.schedule-deploy ENV=prd
+      - echo "oh no!"
+      - exit 1
 
 artifacts:
   files:
