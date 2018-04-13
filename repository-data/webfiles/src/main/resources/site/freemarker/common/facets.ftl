@@ -11,10 +11,10 @@
             <span class="filter-head__title">Filter by:</span>
             <a class="filter-head__reset button button--tiny" href="${searchLink}" title="Reset">Reset</a>
         </div>
-    
+
         <#list facets.folders as facet>
             <#if facet.folders?has_content>
-                
+
                 <#assign unselectedItems = [] />
                 <#assign selectedItems = [] />
                 <#list facet.folders as value>
@@ -63,7 +63,7 @@
                                 <#else>
                                     <@hst.link var="link" hippobean=value navigationStateful=true/>
                                     <li class="${listItemClassName}">
-                                        <a href="${link}" title="${valueName}" class="filter-link">${valueName} (${value.count})</a>
+                                        <a href="<#outputformat "plainText">${link}</#outputformat>" title="${valueName}" class="filter-link">${valueName} (${value.count})</a>
                                     </li>
                                 </#if>
                             </#list>
@@ -165,7 +165,7 @@
             } else {
                 showListItems(ulElement);
                 ulElement.dataset.state = 'full'
-                
+
                 vjsUtils.addClass($showToggleButton, 'is-hidden');
                 vjsUtils.removeClass($hideToggleButton, 'is-hidden');
             }
@@ -188,7 +188,7 @@
 
             for (var i = 0; i < listItems.length; i ++) {
                 var listItem = listItems[i];
-                
+
                 if (i >= ulElement.dataset.maxCount) {
                     if (display) {
                         vjsUtils.removeClass(listItem, 'is-hidden');
