@@ -22,7 +22,7 @@
                 <#-- END mandatory 'summary section' -->
 
                 <#-- [FTL-BEGIN] optional list of 'top tasks section' -->
-                <div class="article-section article-section--top-tasks">
+                <div class="article-section article-section--highlighted">
                     <div class="callout callout--attention">
                         <h2>Top Tasks</h2>
                         <p>Objectively engage turnkey interfaces without impactful architectures.</p>

@@ -54,7 +54,7 @@
 
                 <#-- [FTL-BEGIN] optional list of 'Top tasks' section -->
                 <#if document.toptasks?has_content>
-                <div class="article-section article-section--top-tasks">
+                <div class="article-section article-section--highlighted">
                     <div class="callout callout--attention">
                         <h2>Top Tasks</h2>
                         <div class="rich-text-content">

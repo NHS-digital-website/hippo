@@ -2,9 +2,5 @@
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:abstractpages/pubs_apppage:
-      /top:
-        hst:componentclassname: uk.nhs.digital.common.components.SearchBarComponent
-        hst:template: pubs_searchbar
-        jcr:primaryType: hst:component
       hst:template: pubs_app-layout
       jcr:primaryType: hst:component
