@@ -8,7 +8,7 @@ OD_ENV = $(shell bash ondemand-env-name $(ENV))
 PWD = $(shell pwd)
 RD_CONF = $(PWD)/rd.conf
 RELEASE_DATE = $(shell d=1; while (($$(date --date +$${d}day +%u) >= 6)); do ((++d)); done; date --date +$${d}day +%Y-%m-%d)
-RELEASE_TIME_UTC = $(shell ((noon_utc=12-$$(date +%-H)+$$(TZ=UTC-24 date +%-H))); echo $${noon_utc}:05:00)
+RELEASE_TIME_UTC = 11:05:00
 TRAVIS_BUILD_CMD ?= test.site
 TRAVIS_EVENT_TYPE ?=
 VENV ?= $(PWD)/.venv
