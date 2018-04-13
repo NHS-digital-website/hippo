@@ -2,7 +2,7 @@
 @import "../environment/tools/mixins/typography";
 
 .local-header {
-  background-color: $nhs-blue;
+  background-color: $col-primary;
   overflow: hidden;
   padding: 1.6em;
 
@@ -16,9 +16,9 @@
     }
   }
 
-  a {
+  /* a {
     @include link-reverse-polarity;
-  }
+  } */
 
   // the lobotomized owl
   // see: http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
@@ -30,10 +30,10 @@
 .local-header__return {
   @include link-reverse-polarity;
   background-color: $nhs-blue;
-  border: $baseline-grid-unit / 2 solid $blue-50;
+  border: $baseline-grid-unit * 0.5 solid $blue-50;
   display: inline-block;
   margin-bottom: $baseline-grid-unit * 4;
-  padding: $default-spacing-unit / 2 $default-spacing-unit;
+  padding: $default-spacing-unit * 0.5 $default-spacing-unit;
   text-decoration: none;
 
   &:hover {
@@ -67,7 +67,7 @@
     height: $baseline-grid-unit;
     left: 0;
     position: absolute;
-    top: -($baseline-grid-unit / 2);
+    top: -($baseline-grid-unit * 0.5);
     width: 130px;
   }
 }

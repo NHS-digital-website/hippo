@@ -16,10 +16,11 @@ $type-settings-map: (
     16: -3,
     18: -2,
     20: -1,
-    24: 0,
-    26: 1,
-    36: 2,
-    48: 3,
+    22: 0,
+    24: 1,
+    26: 2,
+    36: 3,
+    48: 4,
 );
 
 $type-settings: (
@@ -93,6 +94,23 @@ $type-settings: (
     ),
     0: (
         large: (
+            font-size: 22px,
+            line-height: 32px,
+        ),
+        medium: (
+            font-size: 19px,
+            line-height: 29px,
+        ),
+        small: (
+            font-size: 16px,
+            line-height: 26px,
+        ),
+        print: (
+            font-size: 14pt,
+        ),
+    ),
+    1: (
+        large: (
             font-size: 24px,
             line-height: 34px,
         ),
@@ -108,7 +126,7 @@ $type-settings: (
             font-size: 14pt,
         ),
     ),
-    1: (
+    2: (
         large: (
             font-size: 26px,
             line-height: 36px,
@@ -125,7 +143,7 @@ $type-settings: (
             font-size: 16pt,
         ),
     ),
-    2: (
+    3: (
         large: (
             font-size: 36px,
             line-height: 46px,
@@ -142,7 +160,7 @@ $type-settings: (
             font-size: 18pt,
         ),
     ),
-    3: (
+    4: (
         large: (
             font-size: 48px,
             line-height: 58px,

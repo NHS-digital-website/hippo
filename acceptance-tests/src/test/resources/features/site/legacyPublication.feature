@@ -2,6 +2,7 @@ Feature: As a site user I need to be able to find and display legacy publication
 
     Scenario: Find (legacy) publication
         Given I navigate to the "home" page
+        And I click on the accept cookie banner
         When I search for "legacy"
         And I click on link "Legacy Publications List"
         Then I should see page titled "Legacy Publications List"

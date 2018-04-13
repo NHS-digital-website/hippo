@@ -80,6 +80,9 @@ definitions:
       /pubs_app-layout:
         hst:renderpath: webfile:/freemarker/common/pubs_app-layout.ftl
         jcr:primaryType: hst:template
+      /pubs_app-layout-search-results:
+        hst:renderpath: webfile:/freemarker/common/pubs_app-layout-search-results.ftl
+        jcr:primaryType: hst:template
       /pubs_searchbar:
         hst:renderpath: webfile:/freemarker/common/pubs_searchbar.ftl
         jcr:primaryType: hst:template
