@@ -24,6 +24,7 @@
         "Service":  "uk.nhs.digital.website.beans.Service",
         "General":  "uk.nhs.digital.website.beans.General",
         "Hub":      "uk.nhs.digital.website.beans.Hub",
+        "Event":      "uk.nhs.digital.website.beans.Event",
         "List":     "uk.nhs.digital.website.beans.ComponentList",
         "Footer":   "Footer"
     }/>
