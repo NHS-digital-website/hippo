@@ -7,7 +7,6 @@
   </formats>
   <includeBaseDirectory>false</includeBaseDirectory>
   <componentDescriptors>
-    <componentDescriptor>conf-component.xml</componentDescriptor>
     <componentDescriptor>webapps-component.xml</componentDescriptor>
     <componentDescriptor>common-lib-component.xml</componentDescriptor>
     <componentDescriptor>shared-lib-component.xml</componentDescriptor>

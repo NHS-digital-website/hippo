@@ -1,42 +1,6 @@
 ---
 /content/documents/administration/website/general-type:
   /general-type:
-    /selection:listitem[10]:
-      jcr:primaryType: selection:listitem
-      selection:key: document-download-page
-      selection:label: Document download page
-    /selection:listitem[11]:
-      jcr:primaryType: selection:listitem
-      selection:key: event
-      selection:label: Event
-    /selection:listitem[12]:
-      jcr:primaryType: selection:listitem
-      selection:key: foi
-      selection:label: FOI
-    /selection:listitem[13]:
-      jcr:primaryType: selection:listitem
-      selection:key: guidance
-      selection:label: Guidance
-    /selection:listitem[14]:
-      jcr:primaryType: selection:listitem
-      selection:key: list
-      selection:label: List
-    /selection:listitem[15]:
-      jcr:primaryType: selection:listitem
-      selection:key: news-article
-      selection:label: News article
-    /selection:listitem[16]:
-      jcr:primaryType: selection:listitem
-      selection:key: person
-      selection:label: Person
-    /selection:listitem[17]:
-      jcr:primaryType: selection:listitem
-      selection:key: service
-      selection:label: Service
-    /selection:listitem[18]:
-      jcr:primaryType: selection:listitem
-      selection:key: tool
-      selection:label: Tool
     /selection:listitem[1]:
       jcr:primaryType: selection:listitem
       selection:key: board-meeting-minutes-agenda
@@ -73,6 +37,42 @@
       jcr:primaryType: selection:listitem
       selection:key: direction
       selection:label: Direction
+    /selection:listitem[10]:
+      jcr:primaryType: selection:listitem
+      selection:key: document-download-page
+      selection:label: Document download page
+    /selection:listitem[11]:
+      jcr:primaryType: selection:listitem
+      selection:key: event
+      selection:label: Event
+    /selection:listitem[12]:
+      jcr:primaryType: selection:listitem
+      selection:key: foi
+      selection:label: FOI
+    /selection:listitem[13]:
+      jcr:primaryType: selection:listitem
+      selection:key: guidance
+      selection:label: Guidance
+    /selection:listitem[14]:
+      jcr:primaryType: selection:listitem
+      selection:key: list
+      selection:label: List
+    /selection:listitem[15]:
+      jcr:primaryType: selection:listitem
+      selection:key: news-article
+      selection:label: News article
+    /selection:listitem[16]:
+      jcr:primaryType: selection:listitem
+      selection:key: person
+      selection:label: Person
+    /selection:listitem[17]:
+      jcr:primaryType: selection:listitem
+      selection:key: service
+      selection:label: Service
+    /selection:listitem[18]:
+      jcr:primaryType: selection:listitem
+      selection:key: tool
+      selection:label: Tool
     hippo:availability:
     - live
     - preview

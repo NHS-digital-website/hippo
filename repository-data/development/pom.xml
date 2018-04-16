@@ -37,29 +37,6 @@
                     </archive>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.codehaus.gmaven</groupId>
-                <artifactId>groovy-maven-plugin</artifactId>
-                <version>2.0</version>
-                <executions>
-                    <execution>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>execute</goal>
-                        </goals>
-                        <configuration>
-                            <source>${website.basedir}/repository-data/development/src/main/script/YamlFormatter.groovy</source>
-                        </configuration>
-                    </execution>
-                </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.yaml</groupId>
-                        <artifactId>snakeyaml</artifactId>
-                        <version>1.19</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
         </plugins>
     </build>
 

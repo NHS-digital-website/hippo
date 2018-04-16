@@ -20,34 +20,34 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
           /title:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Title
             field: title
+            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            hint: ''
+          /html:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /html:
             caption: Content
             field: html
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /type:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /type:
+              orientation: vertical
+              source: /content/documents/administration/website/section-type
             caption: Type
             field: type
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              orientation: vertical
-              source: /content/documents/administration/website/section-type
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:

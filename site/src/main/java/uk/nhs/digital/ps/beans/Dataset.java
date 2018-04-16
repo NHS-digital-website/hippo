@@ -3,12 +3,14 @@ package uk.nhs.digital.ps.beans;
 import static java.util.Arrays.asList;
 
 import org.hippoecm.hst.content.beans.Node;
-import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.ps.beans.structuredText.StructuredText;
 import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
 
-import java.util.*;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
 
 @HippoEssentialsGenerated(internalName = "publicationsystem:dataset")
 @Node(jcrType = "publicationsystem:dataset")
@@ -83,20 +85,7 @@ public class Dataset extends BaseDocument {
     }
 
     public Publication getParentPublication() {
-        Publication publicationBean = null;
-
-        HippoFolder folder = (HippoFolder) getParentBean();
-        while (!HippoBeanHelper.isRootFolder(folder)) {
-            publicationBean = Publication.getPublicationInFolder(folder, Publication.class);
-
-            if (publicationBean != null) {
-                break;
-            } else {
-                folder = (HippoFolder) folder.getParentBean();
-            }
-        }
-
-        return publicationBean;
+        return HippoBeanHelper.getParentPublication(this);
     }
 
     public List<List<String>> getTaxonomyList() {

@@ -30,12 +30,14 @@ definitions:
             wicket.id: ${cluster.id}.field
           /text:
             /cluster.options:
+              ckeditor.config.overlayed.json: '{ toolbarGroups: [ { name: ''basicstyles''
+                }, { name: ''list'' } ] }'
               jcr:primaryType: frontend:pluginconfig
             caption: Text
             field: text
             hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
@@ -54,7 +56,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: publicationsystem:text
             hipposysedit:primary: false
-            hipposysedit:type: Text
+            hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
@@ -70,9 +72,11 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /publicationsystem:text:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           jcr:primaryType: publicationsystem:textSection
           publicationsystem:heading: ''
-          publicationsystem:text: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable

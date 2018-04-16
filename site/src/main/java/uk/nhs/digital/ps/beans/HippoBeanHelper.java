@@ -2,6 +2,7 @@ package uk.nhs.digital.ps.beans;
 
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.site.HstServices;
@@ -9,11 +10,7 @@ import org.onehippo.taxonomy.api.Category;
 import org.onehippo.taxonomy.api.Taxonomy;
 import org.onehippo.taxonomy.api.TaxonomyManager;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 import javax.jcr.RepositoryException;
 
@@ -86,16 +83,30 @@ public class HippoBeanHelper {
                 // collect the ancestors
                 Map<String, String> map = ancestors.stream().distinct()
                     .collect(Collectors.toMap(category -> category.getKey(), category -> category.getInfo(Locale.UK).getName()));
-                
+
                 // add the current node
                 map.putIfAbsent(key,taxonomyTree.getCategoryByKey(key).getInfo(Locale.UK).getName());
-                   
+
                 // combine with master collection if haven't been collected already
                 map.forEach(keyNamePairs::putIfAbsent);
             }
         }
 
         return keyNamePairs;
-    }    
-    
+    }
+
+    public static Publication getParentPublication(HippoBean child) {
+        HippoFolder folder = (HippoFolder) child.getParentBean();
+
+        while (!HippoBeanHelper.isRootFolder(folder)) {
+            Publication publication = Publication.getPublicationInFolder(folder, Publication.class);
+            if (publication != null) {
+                return publication;
+            }
+
+            folder = (HippoFolder) folder.getParentBean();
+        }
+
+        return null;
+    }
 }

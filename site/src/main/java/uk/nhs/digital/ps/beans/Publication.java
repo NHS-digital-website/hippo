@@ -1,7 +1,6 @@
 package uk.nhs.digital.ps.beans;
 
 import org.hippoecm.hst.content.beans.Node;
-import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.ps.beans.structuredText.StructuredText;
 
@@ -25,8 +24,14 @@ public class Publication extends PublicationBase {
         return new StructuredText(getProperty(PublicationBase.PropertyKeys.KEY_FACTS, ""));
     }
 
-    @HippoEssentialsGenerated(internalName = PublicationBase.PropertyKeys.BODY_SECTIONS)
-    public List<HippoBean> getBodySections() {
-        return getChildBeansIfPermitted(PublicationBase.PropertyKeys.BODY_SECTIONS, null);
+    @HippoEssentialsGenerated(internalName = PublicationBase.PropertyKeys.KEY_FACT_IMAGES)
+    public List<ImageSection> getKeyFactImages() {
+        return getChildBeansIfPermitted(PropertyKeys.KEY_FACT_IMAGES, ImageSection.class);
+    }
+
+    public List<PublicationPage> getPages() {
+        assertPropertyPermitted(PublicationBase.PropertyKeys.PAGES);
+
+        return getParentBean().getChildBeans(PublicationPage.class);
     }
 }

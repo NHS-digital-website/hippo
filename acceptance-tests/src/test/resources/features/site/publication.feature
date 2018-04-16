@@ -113,8 +113,3 @@ Feature: Ensure publication page displays required fields.
         Then I should also see:
             | Publication Information Types | Experimental statistics       |
         And I should not see element with title "National statistics"
-
-    Scenario: Sectioned body
-        Given I have a sectioned publication
-        When I navigate to the "sectioned publication" page
-        Then I can see the sectioned publication body

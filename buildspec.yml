@@ -45,7 +45,6 @@ phases:
   build:
     commands:
       # Test
-      - cd ci-cd && make test.unit
       - cd ci-cd && make test.site
       # Tag
       - ssh-agent bash -c "

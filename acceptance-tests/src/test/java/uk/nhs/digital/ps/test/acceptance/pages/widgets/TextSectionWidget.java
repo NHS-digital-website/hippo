@@ -5,7 +5,7 @@ import static java.lang.String.format;
 import org.openqa.selenium.WebElement;
 
 public class TextSectionWidget extends SectionWidget {
-    public static final String UIPATH = "ps.publication.body.text-section";
+    public static final String UIPATH = "ps.publication.text-section";
 
     public TextSectionWidget(final WebElement rootElement) {
         super(rootElement);

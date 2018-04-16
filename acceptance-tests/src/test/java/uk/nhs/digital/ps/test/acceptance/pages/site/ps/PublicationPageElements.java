@@ -1,19 +1,6 @@
 package uk.nhs.digital.ps.test.acceptance.pages.site.ps;
 
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.ADMINISTRATIVE_SOURCES;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.BODY;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.DATA_SETS;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.DATE_RANGE;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.GEOGRAPHIC_COVERAGE;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.GRANULARITY;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.INFORMATION_TYPES;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.KEY_FACTS;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.NOMINAL_PUBLICATION_DATE;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.PUBLICATION_TITLE;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.RELATED_LINKS;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.RESOURCES;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.SUMMARY;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.UPCOMING_DISCLAIMER;
+import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.*;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -46,6 +33,8 @@ public class PublicationPageElements implements PageElements {
                 By.xpath("//*[" + getDataUiPathXpath("information-types") + "]"));
             put(KEY_FACTS,
                 By.xpath("//*[" + getDataUiPathXpath("key-facts") + "]"));
+            put(KEY_FACT_IMAGES,
+                By.xpath("//*[" + getDataUiPathXpath("key-fact-images") + "]"));
             put(RESOURCES,
                 By.xpath("//*[" + getDataUiPathXpath("resources") + "]"));
             put(DATA_SETS,
@@ -54,8 +43,12 @@ public class PublicationPageElements implements PageElements {
                 By.xpath("//*[" + getDataUiPathXpath("related-links") + "]"));
             put(ADMINISTRATIVE_SOURCES,
                 By.xpath("//*[" + getDataUiPathXpath("administrative-sources") + "]"));
-            put(BODY,
+            put(PAGE_BODY,
                 By.xpath("//*[" + getDataUiPathXpath("body") + "]"));
+            put(PAGES,
+                By.xpath("//*[" + getDataUiPathXpath("pages") + "]"));
+            put(PAGE_TITLE,
+                By.xpath("//*[" + getDataUiPathXpath("page-title") + "]"));
         }
     };
 
@@ -98,10 +91,13 @@ public class PublicationPageElements implements PageElements {
         String DATE_RANGE = "Publication Date Range";
         String INFORMATION_TYPES = "Publication Information Types";
         String KEY_FACTS = "Publication Key Facts";
+        String KEY_FACT_IMAGES = "Publication Key Fact Images";
         String RESOURCES = "Publication Resources";
         String DATA_SETS = "Publication Data Sets";
         String RELATED_LINKS = "Publication Related Links";
         String ADMINISTRATIVE_SOURCES = "Publication Administrative Sources";
-        String BODY = "Publication Body";
+        String PAGE_BODY = "Publication Page Body";
+        String PAGES = "Publication Pages";
+        String PAGE_TITLE = "Publication Page Title";
     }
 }

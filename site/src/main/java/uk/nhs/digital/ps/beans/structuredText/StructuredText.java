@@ -1,5 +1,7 @@
 package uk.nhs.digital.ps.beans.structuredText;
 
+import org.apache.cxf.common.util.CollectionUtils;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -7,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class StructuredText {
 
-    protected List<Element> elements = new ArrayList<>();
+    private List<Element> elements = new ArrayList<>();
 
     public StructuredText(String text) {
         elements = parse(text);
@@ -23,6 +25,10 @@ public class StructuredText {
             .map(element -> (Paragraph) element)
             .findFirst()
             .orElse(new Paragraph(""));
+    }
+
+    public boolean isEmpty() {
+        return CollectionUtils.isEmpty(elements);
     }
 
     private List<Element> parse(String text) {
