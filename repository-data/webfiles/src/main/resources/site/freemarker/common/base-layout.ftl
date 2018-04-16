@@ -66,20 +66,7 @@
     </header>
 
     <div class="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb__crumb">
-                <span class="label">You are here:</span>
-            </li>
-            <li class="breadcrumb__crumb">
-                <@hst.link var="homelink" path="/" />
-                <a href="${homelink}">Home</a>
-            </li>
-            <li class="separator">/</li>
-            <li class="breadcrumb__crumb">
-                <@hst.link var="cilink" path="/data-and-information#clinicalindicators" />
-                <a href="${cilink}">Clinical Indicators</a>
-            </li>
-        </ol>
+        <@hst.include ref="breadcrumb-ci-old-styling"/>
     </div>
 
     <@hst.include ref="top"/>

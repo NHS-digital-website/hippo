@@ -11,6 +11,12 @@ definitions:
       /breadcrumb:
         hst:renderpath: webfile:/freemarker/common/breadcrumb.ftl
         jcr:primaryType: hst:template
+      /breadcrumb-ci:
+        hst:renderpath: webfile:/freemarker/common/breadcrumb-ci.ftl
+        jcr:primaryType: hst:template
+      /breadcrumb-ci-old-styling:
+        hst:renderpath: webfile:/freemarker/common/breadcrumb-ci-old-styling.ftl
+        jcr:primaryType: hst:template
       /footer:
         hst:renderpath: webfile:/freemarker/common/base-footer.ftl
         jcr:primaryType: hst:template

@@ -34,4 +34,10 @@ public class CiLanding extends BaseDocument {
     public String getActionLinkRelPath() {
         return getProperty("publicationsystem:actionLinkRelPath");
     }
+
+    @HippoEssentialsGenerated(internalName = "publicationsystem:urlNameOfContentFolder")
+    public String getUrlNameOfContentFolder() {
+        return getProperty("publicationsystem:urlNameOfContentFolder");
+    }
+
 }

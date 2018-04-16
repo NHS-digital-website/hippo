@@ -7,9 +7,6 @@
 <#include "../common/macro/metaTags.ftl">
 <@metaTags></@metaTags>
 
-<#include "../common/macro/pubsBreadcrumb.ftl">
-<@pubsBreadcrumb "Publications"></@pubsBreadcrumb>
-
 <article class="article article--legacy-series">
     <#if series??>
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">

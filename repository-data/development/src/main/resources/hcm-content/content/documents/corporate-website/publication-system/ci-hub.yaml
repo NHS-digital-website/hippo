@@ -36,7 +36,6 @@
         publicationsystem:title: ''
       common:searchable: true
       hippo:availability: []
-      hippostd:holder: admin
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-23T14:54:36.279Z
@@ -51,6 +50,7 @@
       publicationsystem:actionLinkName: Browse CCG Outcomes
       publicationsystem:actionLinkRelPath: search/category/clinical-commissioning-groups-outcomes-framework/category/team/category/clinical-indicators?sort=relevance&area=data
       publicationsystem:title: CCG Outcomes - Indicator Set
+      publicationsystem:urlNameOfContentFolder: ccg-outcomes-indicator-set
     /ccg-outcomes[2]:
       /publicationsystem:cilandingasset:
         /publicationsystem:content:
@@ -102,6 +102,7 @@
       publicationsystem:actionLinkName: Browse CCG Outcomes
       publicationsystem:actionLinkRelPath: search/category/clinical-commissioning-groups-outcomes-framework/category/team/category/clinical-indicators?sort=relevance&area=data
       publicationsystem:title: CCG Outcomes - Indicator Set
+      publicationsystem:urlNameOfContentFolder: ccg-outcomes-indicator-set
     /ccg-outcomes[3]:
       /publicationsystem:cilandingasset:
         /publicationsystem:content:
@@ -153,6 +154,7 @@
       publicationsystem:actionLinkName: Browse CCG Outcomes
       publicationsystem:actionLinkRelPath: search/category/clinical-commissioning-groups-outcomes-framework/category/team/category/clinical-indicators?sort=relevance&area=data
       publicationsystem:title: CCG Outcomes - Indicator Set
+      publicationsystem:urlNameOfContentFolder: ccg-outcomes-indicator-set
     hippo:name: CCG Outcomes
     jcr:mixinTypes:
     - hippo:named
@@ -330,6 +332,7 @@
       publicationsystem:actionLinkName: Browse Compendium Indicators
       publicationsystem:actionLinkRelPath: search/category/compendium/category/team/category/clinical-indicators
       publicationsystem:title: Compendium of Population Health Indicators
+      publicationsystem:urlNameOfContentFolder: compendium-of-population-health-indicators
     /compendium-indicators[2]:
       /publicationsystem:cilandingasset:
         /publicationsystem:content:
@@ -502,6 +505,7 @@
       publicationsystem:actionLinkName: Browse Compendium Indicators
       publicationsystem:actionLinkRelPath: search/category/compendium/category/team/category/clinical-indicators
       publicationsystem:title: Compendium of Population Health Indicators
+      publicationsystem:urlNameOfContentFolder: compendium-of-population-health-indicators
     /compendium-indicators[3]:
       /publicationsystem:cilandingasset:
         /publicationsystem:content:
@@ -674,6 +678,7 @@
       publicationsystem:actionLinkName: Browse Compendium Indicators
       publicationsystem:actionLinkRelPath: search/category/compendium/category/team/category/clinical-indicators
       publicationsystem:title: Compendium of Population Health Indicators
+      publicationsystem:urlNameOfContentFolder: compendium-of-population-health-indicators
     hippo:name: Compendium Indicators
     jcr:mixinTypes:
     - hippo:named
@@ -732,6 +737,7 @@
       publicationsystem:actionLinkName: Browse NHS Outcomes
       publicationsystem:actionLinkRelPath: search/category/nhs-outcomes-framework/category/team/category/clinical-indicators
       publicationsystem:title: NHS Outcomes Framework
+      publicationsystem:urlNameOfContentFolder: nhs-outcomes-framework
     /nhs-outcomes-framework[2]:
       /publicationsystem:cilandingasset:
         /publicationsystem:content:
@@ -785,6 +791,7 @@
       publicationsystem:actionLinkName: Browse NHS Outcomes
       publicationsystem:actionLinkRelPath: search/category/nhs-outcomes-framework/category/team/category/clinical-indicators
       publicationsystem:title: NHS Outcomes Framework
+      publicationsystem:urlNameOfContentFolder: nhs-outcomes-framework
     /nhs-outcomes-framework[3]:
       /publicationsystem:cilandingasset:
         /publicationsystem:content:
@@ -838,6 +845,7 @@
       publicationsystem:actionLinkName: Browse NHS Outcomes
       publicationsystem:actionLinkRelPath: search/category/nhs-outcomes-framework/category/team/category/clinical-indicators
       publicationsystem:title: NHS Outcomes Framework
+      publicationsystem:urlNameOfContentFolder: nhs-outcomes-framework
     hippo:name: NHS Outcomes Framework
     jcr:mixinTypes:
     - hippo:named
@@ -1150,6 +1158,7 @@
       publicationsystem:actionLinkName: Browse Social Care
       publicationsystem:actionLinkRelPath: search/category/adult-social-outcomes-framework--ascof-/category/team/category/clinical-indicators
       publicationsystem:title: Social Care
+      publicationsystem:urlNameOfContentFolder: adult-social-care-outcomes-framework-ascof
     /social-care[2]:
       /publicationsystem:cilandingasset:
         /publicationsystem:content:
@@ -1209,6 +1218,7 @@
       publicationsystem:actionLinkName: Browse Social Care
       publicationsystem:actionLinkRelPath: search/category/adult-social-outcomes-framework--ascof-/category/team/category/clinical-indicators
       publicationsystem:title: Social Care
+      publicationsystem:urlNameOfContentFolder: adult-social-care-outcomes-framework-ascof
     /social-care[3]:
       /publicationsystem:cilandingasset:
         /publicationsystem:content:
@@ -1268,6 +1278,7 @@
       publicationsystem:actionLinkName: Browse Social Care
       publicationsystem:actionLinkRelPath: search/category/adult-social-outcomes-framework--ascof-/category/team/category/clinical-indicators
       publicationsystem:title: Social Care
+      publicationsystem:urlNameOfContentFolder: adult-social-care-outcomes-framework-ascof
     hippo:name: Social Care
     jcr:mixinTypes:
     - hippo:named
@@ -1353,6 +1364,7 @@
       publicationsystem:actionLinkName: Browse SHMI
       publicationsystem:actionLinkRelPath: search/category/summary-hospital-level-mortality-indicator--shmi-/category/team/category/clinical-indicators
       publicationsystem:title: Summary Hospital-level Mortality Indicator (SHMI)
+      publicationsystem:urlNameOfContentFolder: shmi
     /summary-hospital-level-mortality-indicator-shmi[2]:
       /publicationsystem:cilandingasset[1]:
         /publicationsystem:Attachments:
@@ -1433,6 +1445,7 @@
       publicationsystem:actionLinkName: Browse SHMI
       publicationsystem:actionLinkRelPath: search/category/summary-hospital-level-mortality-indicator--shmi-/category/team/category/clinical-indicators
       publicationsystem:title: Summary Hospital-level Mortality Indicator (SHMI)
+      publicationsystem:urlNameOfContentFolder: shmi
     /summary-hospital-level-mortality-indicator-shmi[3]:
       /publicationsystem:cilandingasset[1]:
         /publicationsystem:Attachments:
@@ -1513,6 +1526,7 @@
       publicationsystem:actionLinkName: Browse SHMI
       publicationsystem:actionLinkRelPath: search/category/summary-hospital-level-mortality-indicator--shmi-/category/team/category/clinical-indicators
       publicationsystem:title: Summary Hospital-level Mortality Indicator (SHMI)
+      publicationsystem:urlNameOfContentFolder: shmi
     hippo:name: Summary Hospital-level Mortality Indicator (SHMI)
     jcr:mixinTypes:
     - hippo:named

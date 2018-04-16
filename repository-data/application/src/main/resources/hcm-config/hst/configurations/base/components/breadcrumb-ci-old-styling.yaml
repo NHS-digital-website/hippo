@@ -1,0 +1,7 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/base/hst:components/breadcrumb-ci-old-styling:
+      hst:componentclassname: uk.nhs.digital.ps.components.CiBreadcrumbComponent
+      hst:template: breadcrumb-ci-old-styling
+      jcr:primaryType: hst:component

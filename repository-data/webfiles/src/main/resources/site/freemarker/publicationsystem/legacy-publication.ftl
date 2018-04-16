@@ -8,9 +8,6 @@
 <#include "../common/macro/metaTags.ftl">
 <@metaTags></@metaTags>
 
-<#include "../common/macro/pubsBreadcrumb.ftl">
-<@pubsBreadcrumb "Publications"></@pubsBreadcrumb>
-
 <#macro nationalStatsStamp>
     <#list legacyPublication.informationType as type>
         <#if type == "National statistics">

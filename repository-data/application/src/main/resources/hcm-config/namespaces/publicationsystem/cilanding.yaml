@@ -54,6 +54,16 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /urlNameOfContentFolder:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Url Name of content folder
+            field: urlNameOfContentFolder
+            hint: Specify the top level CI content folder where documents of this
+              type are stored.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -89,6 +99,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Text
             jcr:primaryType: hipposysedit:field
+          /urlNameOfContentFolder:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:urlNameOfContentFolder
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
           - publicationsystem:basedocument
@@ -119,6 +137,7 @@ definitions:
           publicationsystem:actionLinkName: ''
           publicationsystem:actionLinkRelPath: ''
           publicationsystem:title: ''
+          publicationsystem:urlNameOfContentFolder: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable

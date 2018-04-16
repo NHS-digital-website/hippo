@@ -164,6 +164,14 @@ public class TestContentUrls {
         addSiteUrl("national statistic publication",
             "/data-and-information/publications/lorem-ipsum-content/morbi-tempor-euismod-vehicula");
 
+        // Breadcrumbs
+        addSiteUrl("series-publication-with-datasets Dataset",
+            "/data-and-information/publications/acceptance-tests/series-with-publication-with-datasets/series-publication-with-datasets/series-publication-with-datasets-dataset");
+        addSiteUrl("series publication with datasets",
+            "/data-and-information/publications/acceptance-tests/series-with-publication-with-datasets/series-publication-with-datasets");
+        addSiteUrl("dataset under CI folder",
+            "/data-and-information/publications/clinical-indicators/ccg-outcomes-indicator-set/current/1.1-national-ccg-outcomes/ccg-dataset");
+
         // National Indicator Library
         addSiteUrl("nihub", "/data-and-information/national-indicator-library/nihub");
         addSiteUrl("sample-indicator", "/data-and-information/national-indicator-library/sample-indicator");

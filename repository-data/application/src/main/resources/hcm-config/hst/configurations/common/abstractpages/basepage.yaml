@@ -2,6 +2,9 @@
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:abstractpages/basepage:
+      /breadcrumb-ci-old-styling:
+        hst:referencecomponent: hst:components/breadcrumb-ci-old-styling
+        jcr:primaryType: hst:component
       /footer:
         hst:template: footer
         jcr:primaryType: hst:component

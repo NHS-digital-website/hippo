@@ -12,7 +12,7 @@
     <#-- Add site header with the search bar -->
     <@siteHeader true></@siteHeader>
 
-    <@hst.include ref="breadcrumb"/>
+    <@hst.include ref="breadcrumb-ci"/>
 
     <@hst.include ref="main" />
 
