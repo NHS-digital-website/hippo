@@ -2,5 +2,8 @@
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:abstractpages/pubs_apppage:
+      /breadcrumb-ci:
+        hst:referencecomponent: hst:components/breadcrumb-ci
+        jcr:primaryType: hst:component
       hst:template: pubs_app-layout
       jcr:primaryType: hst:component

@@ -4,7 +4,6 @@
 <#include "./macro/pageIndex.ftl">
 <#include "./macro/publicationHeader.ftl">
 <#include "./macro/sections/imageSection.ftl">
-<#include "../common/macro/pubsBreadcrumb.ftl">
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() />
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 <#-- @ftlvariable name="publication" type="uk.nhs.digital.ps.beans.Publication" -->
@@ -12,8 +11,6 @@
 <#-- Add meta tags -->
 <#include "../common/macro/metaTags.ftl">
 <@metaTags></@metaTags>
-
-<@pubsBreadcrumb "Publications"></@pubsBreadcrumb>
 
 <#macro restrictedContentOfUpcomingPublication>
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">

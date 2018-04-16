@@ -8,9 +8,6 @@
 <#include "../common/macro/metaTags.ftl">
 <@metaTags></@metaTags>
 
-<#include "../common/macro/pubsBreadcrumb.ftl">
-<@pubsBreadcrumb "Publications"></@pubsBreadcrumb>
-
 <#assign hasSubSections = document.subSections?has_content />
 <#assign foundSubsectionTitle = false />
 <#list document.subSections as section>
