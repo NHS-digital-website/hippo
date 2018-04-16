@@ -21,5 +21,5 @@ definitions:
         hst:suppresswastemessage: true
         hst:template: searchtabs
         jcr:primaryType: hst:component
-      hst:referencecomponent: hst:abstractpages/pubs_apppage
+      hst:referencecomponent: hst:abstractpages/pubs_apppage-search-results
       jcr:primaryType: hst:component

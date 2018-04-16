@@ -195,14 +195,15 @@ Feature: Basic search
 
     Scenario: No latest publication links for series without flag
         Given I navigate to the "search" page
+        And I click on the accept cookie banner
         When I click on the "Series / Collection" button
         Then I should not see element with title "Latest 2019"
-        And I click on the accept cookie banner
         When I click on the "Series without latest" link
         Then I can click on the "Latest 2019" link
 
     Scenario: Searchable taxonomy
         Given I navigate to the "search" page
+        And I click on the accept cookie banner
         When I search for "TaxonomySearchTerm"
         Then I should see 1 search result
         And I can click on link "taxonomy test"

@@ -109,10 +109,11 @@
         common:searchRank: 4
         common:searchable: true
         hippo:availability: []
+        hippostd:holder: admin
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2018-02-14T15:22:05.090Z
-        hippostdpubwf:lastModificationDate: 2018-03-08T11:32:06.142Z
+        hippostdpubwf:lastModificationDate: 2018-04-13T13:35:09.299Z
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 30db7b65-3f04-4287-93f4-b5ca2605dddb
         hippotranslation:locale: en
@@ -120,9 +121,18 @@
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: publicationsystem:legacypublication
-        publicationsystem:AdministrativeSources: ''
+        publicationsystem:AdministrativeSources: "Continually target emerging quality\
+          \ vectors vis-a-vis progressive communities. Monotonectally streamline collaborative\
+          \ data before global internal or \"organic\" sources. Energistically supply\
+          \ cutting-edge paradigms before functionalized infrastructures. Globally\
+          \ whiteboard magnetic quality vectors whereas turnkey leadership skills.\
+          \ Competently orchestrate cross-media synergy whereas user friendly core\
+          \ competencies.\r\n\r\nProgressively facilitate effective networks via worldwide\
+          \ e-commerce. Collaboratively leverage other's cross functional technology\
+          \ without scalable quality vectors. Rapidiously initiate diverse vortals\
+          \ before emerging ROI. Authoritatively create emerging users after performance."
         publicationsystem:CoverageEnd: 2017-11-30T00:00:00Z
-        publicationsystem:CoverageStart: 2017-09-30T23:00:00Z
+        publicationsystem:CoverageStart: 2017-09-30T00:00:00Z
         publicationsystem:GeographicCoverage:
         - England
         - Scotland
@@ -134,6 +144,8 @@
         publicationsystem:NominalDate: 2018-02-14T00:00:00Z
         publicationsystem:PubliclyAccessible: true
         publicationsystem:Title: Legacy Publication
+        publicationsystem:gossid: 0
+        publicationsystem:publicationid: ''
       /content[2]:
         /publicationsystem:KeyFacts:
           hippostd:content: |-
@@ -184,7 +196,7 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2018-02-14T15:22:05.090Z
-        hippostdpubwf:lastModificationDate: 2018-03-08T11:32:06.039Z
+        hippostdpubwf:lastModificationDate: 2018-04-13T13:34:58.834Z
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 30db7b65-3f04-4287-93f4-b5ca2605dddb
         hippotranslation:locale: en
@@ -193,9 +205,18 @@
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: publicationsystem:legacypublication
-        publicationsystem:AdministrativeSources: ''
+        publicationsystem:AdministrativeSources: "Continually target emerging quality\
+          \ vectors vis-a-vis progressive communities. Monotonectally streamline collaborative\
+          \ data before global internal or \"organic\" sources. Energistically supply\
+          \ cutting-edge paradigms before functionalized infrastructures. Globally\
+          \ whiteboard magnetic quality vectors whereas turnkey leadership skills.\
+          \ Competently orchestrate cross-media synergy whereas user friendly core\
+          \ competencies.\r\n\r\nProgressively facilitate effective networks via worldwide\
+          \ e-commerce. Collaboratively leverage other's cross functional technology\
+          \ without scalable quality vectors. Rapidiously initiate diverse vortals\
+          \ before emerging ROI. Authoritatively create emerging users after performance."
         publicationsystem:CoverageEnd: 2017-11-30T00:00:00Z
-        publicationsystem:CoverageStart: 2017-09-30T23:00:00Z
+        publicationsystem:CoverageStart: 2017-09-30T00:00:00Z
         publicationsystem:GeographicCoverage:
         - England
         - Scotland
@@ -207,6 +228,8 @@
         publicationsystem:NominalDate: 2018-02-14T00:00:00Z
         publicationsystem:PubliclyAccessible: true
         publicationsystem:Title: Legacy Publication
+        publicationsystem:gossid: 0
+        publicationsystem:publicationid: ''
       /content[3]:
         /publicationsystem:KeyFacts:
           hippostd:content: |-
@@ -257,18 +280,27 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2018-02-14T15:22:05.090Z
-        hippostdpubwf:lastModificationDate: 2018-03-08T11:32:06.039Z
+        hippostdpubwf:lastModificationDate: 2018-04-13T13:34:58.834Z
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2018-03-08T11:32:43.834Z
+        hippostdpubwf:publicationDate: 2018-04-13T13:35:00.288Z
         hippotranslation:id: 30db7b65-3f04-4287-93f4-b5ca2605dddb
         hippotranslation:locale: en
         jcr:mixinTypes:
         - hippotaxonomy:classifiable
         - mix:referenceable
         jcr:primaryType: publicationsystem:legacypublication
-        publicationsystem:AdministrativeSources: ''
+        publicationsystem:AdministrativeSources: "Continually target emerging quality\
+          \ vectors vis-a-vis progressive communities. Monotonectally streamline collaborative\
+          \ data before global internal or \"organic\" sources. Energistically supply\
+          \ cutting-edge paradigms before functionalized infrastructures. Globally\
+          \ whiteboard magnetic quality vectors whereas turnkey leadership skills.\
+          \ Competently orchestrate cross-media synergy whereas user friendly core\
+          \ competencies.\r\n\r\nProgressively facilitate effective networks via worldwide\
+          \ e-commerce. Collaboratively leverage other's cross functional technology\
+          \ without scalable quality vectors. Rapidiously initiate diverse vortals\
+          \ before emerging ROI. Authoritatively create emerging users after performance."
         publicationsystem:CoverageEnd: 2017-11-30T00:00:00Z
-        publicationsystem:CoverageStart: 2017-09-30T23:00:00Z
+        publicationsystem:CoverageStart: 2017-09-30T00:00:00Z
         publicationsystem:GeographicCoverage:
         - England
         - Scotland
@@ -280,6 +312,8 @@
         publicationsystem:NominalDate: 2018-02-14T00:00:00Z
         publicationsystem:PubliclyAccessible: true
         publicationsystem:Title: Legacy Publication
+        publicationsystem:gossid: 0
+        publicationsystem:publicationid: ''
       hippo:name: content
       jcr:mixinTypes:
       - hippo:named
