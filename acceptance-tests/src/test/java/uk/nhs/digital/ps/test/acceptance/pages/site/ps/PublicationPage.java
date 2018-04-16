@@ -2,18 +2,7 @@ package uk.nhs.digital.ps.test.acceptance.pages.site.ps;
 
 import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.toList;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.ADMINISTRATIVE_SOURCES;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.BODY;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.DATA_SETS;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.DATE_RANGE;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.GEOGRAPHIC_COVERAGE;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.GRANULARITY;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.INFORMATION_TYPES;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.KEY_FACTS;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.NOMINAL_PUBLICATION_DATE;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.RESOURCES;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.SUMMARY;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.UPCOMING_DISCLAIMER;
+import static uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements.FieldKeys.*;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -21,11 +10,7 @@ import uk.nhs.digital.ps.test.acceptance.models.Publication;
 import uk.nhs.digital.ps.test.acceptance.pages.PageHelper;
 import uk.nhs.digital.ps.test.acceptance.pages.site.AbstractSitePage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.PageElements;
-import uk.nhs.digital.ps.test.acceptance.pages.widgets.AttachmentWidget;
-import uk.nhs.digital.ps.test.acceptance.pages.widgets.ImageSectionWidget;
-import uk.nhs.digital.ps.test.acceptance.pages.widgets.RelatedLinkSectionWidget;
-import uk.nhs.digital.ps.test.acceptance.pages.widgets.SectionWidget;
-import uk.nhs.digital.ps.test.acceptance.pages.widgets.TextSectionWidget;
+import uk.nhs.digital.ps.test.acceptance.pages.widgets.*;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
 import java.util.Collection;
@@ -97,10 +82,12 @@ public class PublicationPage extends AbstractSitePage {
             DATE_RANGE,
             INFORMATION_TYPES,
             KEY_FACTS,
+            KEY_FACT_IMAGES,
             RESOURCES,
             DATA_SETS,
             ADMINISTRATIVE_SOURCES,
-            BODY
+            PAGE_BODY,
+            PAGES
         );
 
         return fieldsHiddenForUpcoming.stream()
@@ -118,12 +105,21 @@ public class PublicationPage extends AbstractSitePage {
             .orElse(null);
     }
 
-    public List<SectionWidget> getBodySections() {
-        WebElement body = findPageElement(BODY);
+    public List<SectionWidget> getPageBodySections() {
+        WebElement body = findPageElement(PAGE_BODY);
         return body == null ? Collections.emptyList() :
             body.findElements(By.xpath("./*"))
                 .stream()
                 .map(this::createSectionWidget)
+                .collect(toList());
+    }
+
+    public List<String> getPageTitles() {
+        WebElement pages = findPageElement(PAGES);
+        return pages == null ? Collections.emptyList() :
+            pages.findElements(By.xpath("./ul/li"))
+                .stream()
+                .map(WebElement::getText)
                 .collect(toList());
     }
 
@@ -139,5 +135,15 @@ public class PublicationPage extends AbstractSitePage {
             default:
                 throw new RuntimeException("Unknown uipath: " + uipath);
         }
+    }
+
+    public List<ImageSectionWidget> getKeyFactImages() {
+        return helper
+            .findChildElements(
+                findPageElement(KEY_FACT_IMAGES),
+                By.xpath("//*[@data-uipath='ps.publication.image-section']"))
+            .stream()
+            .map(ImageSectionWidget::new)
+            .collect(toList());
     }
 }

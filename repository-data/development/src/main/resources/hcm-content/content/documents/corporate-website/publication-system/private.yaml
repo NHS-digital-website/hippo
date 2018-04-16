@@ -1,0 +1,13 @@
+---
+/content/documents/corporate-website/publication-system/private:
+  hippo:name: Private
+  hippostd:foldertype:
+  - new-statistical-publications-and-clinical-indicators-folder
+  - new-statistical-publications-and-clinical-indicators-document
+  hippotranslation:id: bb53fab5-b22c-4416-a6f2-51161988c01a
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

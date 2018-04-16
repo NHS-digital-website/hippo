@@ -1,9 +1,9 @@
 package uk.nhs.digital.ps.test.acceptance.steps.site.ps;
 
+import static java.util.stream.Collectors.toList;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.Matchers.empty;
-import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.readFileAsByteArray;
@@ -17,10 +17,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import uk.nhs.digital.ps.test.acceptance.config.AcceptanceTestProperties;
 import uk.nhs.digital.ps.test.acceptance.data.ExpectedTestDataProvider;
 import uk.nhs.digital.ps.test.acceptance.data.TestDataRepo;
-import uk.nhs.digital.ps.test.acceptance.models.Attachment;
-import uk.nhs.digital.ps.test.acceptance.models.Publication;
-import uk.nhs.digital.ps.test.acceptance.models.PublicationBuilder;
+import uk.nhs.digital.ps.test.acceptance.models.*;
 import uk.nhs.digital.ps.test.acceptance.models.section.BodySection;
+import uk.nhs.digital.ps.test.acceptance.models.section.ImageSection;
 import uk.nhs.digital.ps.test.acceptance.pages.site.SitePage;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPage;
 import uk.nhs.digital.ps.test.acceptance.pages.widgets.AttachmentWidget;
@@ -31,7 +30,7 @@ import uk.nhs.digital.ps.test.acceptance.util.FileHelper;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 public class PublicationSteps extends AbstractSpringSteps {
 
@@ -56,22 +55,12 @@ public class PublicationSteps extends AbstractSpringSteps {
 
         publicationPage.open(publication);
 
-        assertThat("Publication title is as expected", sitePage.getDocumentTitle(),
-            is(publication.getTitle()));
+        thenICanSeeThePublicationHeader();
 
         assertThat("Publication summary is as expected", publicationPage.getSummaryText(),
             is(publication.getSummary()));
 
-        assertThat("Geographic coverage is as expected", publicationPage.getGeographicCoverage(),
-            is(publication.getGeographicCoverage().getDisplayValue()));
-
-        assertThat("Publication information type is as expected", publicationPage.getInformationType(),
-            is(publication.getInformationType().getDisplayName()));
-
-        assertThat("Granularity is as expected", publicationPage.getGranularity(),
-            is(publication.getGranularity().getDisplayValue()));
-
-        thenICanSeeTheSectionedPublicationBody();
+        thenICanSeeThePublicationPages();
 
         assertAttachmentsUpload(publication.getAttachments());
     }
@@ -138,19 +127,66 @@ public class PublicationSteps extends AbstractSpringSteps {
         testDataRepo.setPublication(sectionedPublication.build());
     }
 
-    @Then("^I can see the sectioned publication body$")
-    public void thenICanSeeTheSectionedPublicationBody() throws Throwable {
+    @Then("^I can see the publication pages$")
+    public void thenICanSeeThePublicationPages() throws Throwable {
         Publication publication = testDataRepo.getCurrentPublication();
 
-        List<Matcher<? super SectionWidget>> matchers = publication.getBodySections()
+        List<String> pageTitles = publication.getPages()
+            .stream()
+            .map(Page::getTitle)
+            .collect(toList());
+
+        pageTitles.add(0, "Overview");
+
+        if (pageTitles.isEmpty()) {
+            assertNull("No pages displayed", publicationPage.getPageTitles());
+        } else {
+            assertThat("Publication pages are as expected", publicationPage.getPageTitles(), contains(pageTitles.toArray()));
+        }
+    }
+
+    @Then("^I can see the first page body sections$")
+    public void thenICanSeeTheFirstPageBodySections() throws Throwable {
+        Publication publication = testDataRepo.getCurrentPublication();
+
+        List<Matcher<? super SectionWidget>> matchers = publication.getPages().get(0).getBodySections()
             .stream()
             .map(BodySection::getMatcher)
-            .collect(Collectors.toList());
+            .collect(toList());
 
         if (matchers.isEmpty()) {
-            assertThat("No body sections displayed", publicationPage.getBodySections(), empty());
+            assertThat("No body sections displayed", publicationPage.getPageBodySections(), empty());
         } else {
-            assertThat("Body sections are as expected", publicationPage.getBodySections(), contains(matchers));
+            assertThat("Body sections are as expected", publicationPage.getPageBodySections(), contains(matchers));
         }
+    }
+
+    @Then("^I can see the publication header$")
+    public void thenICanSeeThePublicationHeader() throws Throwable {
+        final Publication publication = testDataRepo.getCurrentPublication();
+
+        assertThat("Publication title is as expected", sitePage.getDocumentTitle(),
+            is(publication.getTitle()));
+
+        assertThat("Geographic coverage is as expected", publicationPage.getGeographicCoverage(),
+            is(Optional.ofNullable(publication.getGeographicCoverage()).map(GeographicCoverage::getDisplayValue).orElse(null)));
+
+        assertThat("Publication information type is as expected", publicationPage.getInformationType(),
+            is(Optional.ofNullable(publication.getInformationType()).map(InformationType::getDisplayName).orElse(null)));
+
+        assertThat("Granularity is as expected", publicationPage.getGranularity(),
+            is(Optional.ofNullable(publication.getGranularity()).map(Granularity::getDisplayValue).orElse(null)));
+    }
+
+    @Then("^I should see the key fact infographics$")
+    public void thenIShouldSeeTheKeyFactInfographics() throws Throwable {
+        final Publication publication = testDataRepo.getCurrentPublication();
+
+        List<Matcher<? super SectionWidget>> matchers = publication.getKeyFactImages()
+            .stream()
+            .map(ImageSection::getMatcher)
+            .collect(toList());
+
+        assertThat("Key fact images are as expected", publicationPage.getKeyFactImages(), contains(matchers));
     }
 }

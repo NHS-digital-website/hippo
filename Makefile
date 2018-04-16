@@ -72,9 +72,8 @@ test.wip:
 
 ## Format YAML files, run after exporting to reduce changes
 format-yaml:
-	mvn groovy:execute $(MVN_OPTS) \
-		-Dsource=repository-data/development/src/main/script/YamlFormatter.groovy \
-		-pl repository-data/development
+	mvn gplus:execute $(MVN_OPTS) \
+		-pl repository-data/local
 
 ## Update maven dependency versions
 update-dependencies:

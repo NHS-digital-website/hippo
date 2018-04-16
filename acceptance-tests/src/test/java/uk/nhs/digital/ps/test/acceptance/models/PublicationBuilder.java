@@ -4,7 +4,7 @@ import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.toList;
 
-import uk.nhs.digital.ps.test.acceptance.models.section.BodySection;
+import uk.nhs.digital.ps.test.acceptance.models.section.ImageSection;
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -23,7 +23,8 @@ public class PublicationBuilder {
     private boolean publiclyAccessible;
     private List<AttachmentBuilder> attachmentBuilders = new ArrayList<>();
     private Taxonomy taxonomy;
-    private List<BodySection> bodySections = emptyList();
+    private List<PublicationPageBuilder> pageBuilders = emptyList();
+    private List<ImageSection> keyFactImages = emptyList();
 
     private PublicationState state;
 
@@ -76,8 +77,12 @@ public class PublicationBuilder {
         return cloneAndAmend(builder -> builder.taxonomy = taxonomy);
     }
 
-    public PublicationBuilder withBodySections(final List<BodySection> bodySections) {
-        return cloneAndAmend(builder -> builder.bodySections = bodySections);
+    public PublicationBuilder withPublicationPages(final List<PublicationPageBuilder> pages) {
+        return cloneAndAmend(builder -> builder.pageBuilders = pages);
+    }
+
+    public PublicationBuilder withKeyFactImages(final List<ImageSection> images) {
+        return cloneAndAmend(builder -> builder.keyFactImages = images);
     }
 
     public PublicationBuilder withPubliclyAccessible(final boolean publiclyAccessible) {
@@ -134,8 +139,16 @@ public class PublicationBuilder {
         return state;
     }
 
-    public List<BodySection> getBodySections() {
-        return bodySections;
+    private List<PublicationPageBuilder> getPageBuilders() {
+        return pageBuilders;
+    }
+
+    public List<ImageSection> getKeyFactImages() {
+        return keyFactImages;
+    }
+
+    public List<Page> getPages() {
+        return pageBuilders.stream().map(PublicationPageBuilder::build).collect(toList());
     }
 
     public boolean isPubliclyAccessible() {
@@ -154,7 +167,8 @@ public class PublicationBuilder {
         publiclyAccessible = original.isPubliclyAccessible();
         taxonomy = original.getTaxonomy();
         attachmentBuilders = original.getAttachmentBuilders();
-        bodySections = original.getBodySections();
+        pageBuilders = original.getPageBuilders();
+        keyFactImages = original.getKeyFactImages();
 
         state = original.getState();
     }

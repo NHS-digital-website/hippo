@@ -2,7 +2,7 @@ package uk.nhs.digital.ps.test.acceptance.models;
 
 import static uk.nhs.digital.ps.test.acceptance.util.FormatHelper.formatInstant;
 
-import uk.nhs.digital.ps.test.acceptance.models.section.BodySection;
+import uk.nhs.digital.ps.test.acceptance.models.section.ImageSection;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -19,7 +19,8 @@ public class Publication {
     private Granularity granularity;
     private NominalPublicationDate nominalPublicationDate;
     private boolean publiclyAccessible;
-    private List<BodySection> bodySections;
+    private List<Page> pages;
+    private List<ImageSection> keyFactImages;
 
     private List<Attachment> attachments;
 
@@ -38,7 +39,8 @@ public class Publication {
         taxonomy = builder.getTaxonomy();
         attachments = builder.getAttachments();
         publiclyAccessible = builder.isPubliclyAccessible();
-        bodySections = builder.getBodySections();
+        pages = builder.getPages();
+        keyFactImages = builder.getKeyFactImages();
 
         state = builder.getState();
     }
@@ -79,8 +81,8 @@ public class Publication {
         return taxonomy;
     }
 
-    public List<BodySection> getBodySections() {
-        return bodySections;
+    public List<Page> getPages() {
+        return pages;
     }
 
     public String getPublicationUrlName() {
@@ -97,6 +99,10 @@ public class Publication {
 
     public String getSummaryTruncated() {
         return truncate(getSummary(), 100);
+    }
+
+    public List<ImageSection> getKeyFactImages() {
+        return keyFactImages;
     }
 
     public static class NominalPublicationDate implements Comparable<NominalPublicationDate> {

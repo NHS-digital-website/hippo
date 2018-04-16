@@ -5,7 +5,7 @@ import static java.lang.String.format;
 import org.openqa.selenium.WebElement;
 
 public class RelatedLinkSectionWidget extends SectionWidget {
-    public static final String UIPATH = "ps.publication.body.relatedlink-section";
+    public static final String UIPATH = "ps.publication.relatedlink-section";
 
     public RelatedLinkSectionWidget(final WebElement rootElement) {
         super(rootElement);

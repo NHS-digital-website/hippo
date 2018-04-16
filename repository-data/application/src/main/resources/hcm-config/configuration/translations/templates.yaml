@@ -20,6 +20,11 @@ definitions:
           jcr:name: Data set
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:imageSection:
+        /en:
+          jcr:name: Image
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /publicationsystem:legacypublication:
         /en:
           jcr:name: Legacy Publication
@@ -30,8 +35,23 @@ definitions:
           jcr:name: Publication
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:publicationPage:
+        /en:
+          jcr:name: Publication Page
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:relatedlink:
+        /en:
+          jcr:name: Link
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /publicationsystem:series:
         /en:
           jcr:name: Series / Collection
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:textSection:
+        /en:
+          jcr:name: Text
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles

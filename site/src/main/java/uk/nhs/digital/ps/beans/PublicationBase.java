@@ -207,6 +207,7 @@ public abstract class PublicationBase extends BaseDocument {
         String TAXONOMY = "hippotaxonomy:keys";
         String SUMMARY = "publicationsystem:Summary";
         String KEY_FACTS = "publicationsystem:KeyFacts";
+        String KEY_FACT_IMAGES = "publicationsystem:KeyFactImages";
         String INFORMATION_TYPE = "publicationsystem:InformationType";
         String NOMINAL_DATE = "publicationsystem:NominalDate";
         String COVERAGE_START = "publicationsystem:CoverageStart";
@@ -219,10 +220,10 @@ public abstract class PublicationBase extends BaseDocument {
         String RELATED_LINKS = "publicationsystem:RelatedLinks";
         String RESOURCE_LINKS = "publicationsystem:ResourceLinks";
         String ATTACHMENTS_V3 = "publicationsystem:Attachments-v3";
-        String BODY_SECTIONS = "publicationsystem:bodySections";
 
         String PARENT_BEAN = "PARENT_BEAN";
         String PARENT_SERIES = "PARENT_SERIES";
         String DATASETS = "DATASETS";
+        String PAGES = "PAGES";
     }
 }

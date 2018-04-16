@@ -124,10 +124,14 @@ public class TestContentUrls {
         // Sectioned publication
         add("sectioned publication",
             "/data-and-information/publications/acceptance-tests/sectioned-publication");
+        add("sectioned publication page robots",
+            getAttachmentUrl("sectioned-publication/first-page/first-page", "bodySections[2]", "image"));
+        add("sectioned publication page snowman",
+            getAttachmentUrl("sectioned-publication/first-page/first-page", "bodySections[5]", "image"));
         add("sectioned publication robots",
-            getAttachmentUrl("sectioned-publication/content/content", "bodySections[2]", "image"));
+            getAttachmentUrl("sectioned-publication/content/content", "KeyFactImages", "image"));
         add("sectioned publication snowman",
-            getAttachmentUrl("sectioned-publication/content/content", "bodySections[5]", "image"));
+            getAttachmentUrl("sectioned-publication/content/content", "KeyFactImages[2]", "image"));
 
         // Publication with National Statistic logo
         add("national statistic publication",

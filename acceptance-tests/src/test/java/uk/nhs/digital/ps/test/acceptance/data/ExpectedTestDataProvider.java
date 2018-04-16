@@ -1,16 +1,19 @@
 package uk.nhs.digital.ps.test.acceptance.data;
 
 import static java.util.Arrays.asList;
+import static uk.nhs.digital.ps.test.acceptance.models.GeographicCoverage.ENGLAND;
+import static uk.nhs.digital.ps.test.acceptance.models.Granularity.COUNTY;
+import static uk.nhs.digital.ps.test.acceptance.models.InformationType.EXPERIMENTAL_STATISTICS;
 import static uk.nhs.digital.ps.test.acceptance.models.InformationType.OFFICIAL_STATISTICS;
 import static uk.nhs.digital.ps.test.acceptance.models.PublicationBuilder.collectionOf;
 import static uk.nhs.digital.ps.test.acceptance.models.PublicationBuilder.newPublication;
+import static uk.nhs.digital.ps.test.acceptance.models.PublicationPageBuilder.newPublicationPage;
 import static uk.nhs.digital.ps.test.acceptance.models.PublicationSeriesBuilder.newPublicationSeries;
 import static uk.nhs.digital.ps.test.acceptance.models.PublicationState.CREATED;
 import static uk.nhs.digital.ps.test.acceptance.models.PublicationState.PUBLISHED;
 
-import uk.nhs.digital.ps.test.acceptance.models.InformationType;
-import uk.nhs.digital.ps.test.acceptance.models.PublicationBuilder;
-import uk.nhs.digital.ps.test.acceptance.models.PublicationSeriesBuilder;
+import uk.nhs.digital.ps.test.acceptance.models.*;
+import uk.nhs.digital.ps.test.acceptance.models.section.BodySection;
 import uk.nhs.digital.ps.test.acceptance.models.section.ImageSection;
 import uk.nhs.digital.ps.test.acceptance.models.section.RelatedLinkSection;
 import uk.nhs.digital.ps.test.acceptance.models.section.TextSection;
@@ -119,7 +122,7 @@ public class ExpectedTestDataProvider {
                 .withNominalDate(asInstant("2020-10-11T00:00:00Z"))
                 .inState(PUBLISHED)
                 .withPubliclyAccessible(true)
-            );
+        );
     }
 
     /**
@@ -146,9 +149,9 @@ public class ExpectedTestDataProvider {
     }
 
     public static PublicationBuilder getSectionedPublication() {
-        List bodySections = asList(
+        List<BodySection> bodySections = asList(
             new TextSection("Text section heading without body", null),
-            new ImageSection("sectioned publication robots",
+            new ImageSection("sectioned publication page robots",
                 "Robots",
                 "Image with link and caption",
                 "https://google.com/"),
@@ -167,19 +170,67 @@ public class ExpectedTestDataProvider {
                     + "Suscipit accumsan tempor ante natoque fermentum nisl, iaculis natoque molestie magna mattis"
                     + " porttitor ligula Consequat mattis facilisis amet montes consequat vel dis class quisque netus"
                     + " montes. Placerat nam bibendum libero consectetuer. Mattis aliquam. Consequat."),
-            new ImageSection("sectioned publication snowman",
+            new ImageSection("sectioned publication page snowman",
                 "Snowman",
                 null,
                 null),
             new RelatedLinkSection("BBC Homepage", "https://www.bbc.co.uk/"),
-            new RelatedLinkSection("Sky website", "http://www.sky.com/")
+            new RelatedLinkSection("Sky website", "http://www.sky.com/"),
+            new TextSection("Lower down heading", "Lorem ipsum diam felis ante nullam velit curabitur "
+                + "sociosqu convallis himenaeos aliquet ut, massa eros imperdiet etiam fusce curabitur vestibulum class"
+                + " ad litora platea phasellus sapien nec maecenas vivamus aliquam leo augue maecenas per, praesent et"
+                + " porttitor arcu ut luctus vulputate neque, risus cubilia odio mattis quisque volutpat rhoncus vestibulum"
+                + " turpis, elit tellus fringilla viverra auctor condimentum elit blandit nunc fusce sollicitudin cras"
+                + " lectus amet placerat fusce viverra, sagittis primis at faucibus varius orci proin consequat litora,"
+                + " et primis torquent donec consequat lobortis molestie dapibus lorem mattis integer quisque faucibus"
+                + " neque, ullamcorper platea enim per nostra, dolor id vitae quam."),
+            new TextSection("Lowest Heading on the first page", "Maecenas tincidunt at mi sit amet fringilla."
+                + " Nam ut tortor in mi rhoncus congue. Nunc eget varius ligula. Suspendisse et tincidunt libero. Sed"
+                + " maximus, mauris quis eleifend iaculis, leo odio feugiat ex, quis varius orci est in purus. In mollis"
+                + " justo eu pulvinar tincidunt. Quisque quam nisl, vulputate sed lectus at, mattis viverra magna. Nam"
+                + " tincidunt nec lorem id egestas. In nec nisi tristique, volutpat quam vel, ornare leo. Phasellus vel"
+                + " diam viverra, hendrerit eros vitae, vestibulum nisl. Nulla semper finibus leo a ullamcorper. Pellentesque"
+                + " id dui non nisl ullamcorper egestas. Pellentesque erat tellus, vehicula vel aliquam a, lacinia sed eros."
+                + " Praesent bibendum auctor dapibus. Phasellus scelerisque neque vitae aliquam varius. Nunc faucibus lorem eu"
+                + " condimentum mollis. Nam feugiat viverra odio quis scelerisque. Mauris euismod efficitur magna, non gravida"
+                + " tortor vestibulum quis. Nullam venenatis lacinia nulla ultricies varius. Aenean aliquam feugiat semper. Fusce"
+                + " hendrerit ultricies est vitae dignissim. Nunc elit leo, eleifend a auctor ac, ullamcorper a ligula. Maecenas"
+                + " sollicitudin dui ut aliquam ullamcorper. Suspendisse non odio nec nisl rhoncus euismod. Integer dapibus purus"
+                + " ut tellus interdum cursus. Fusce lacinia sodales accumsan. In mattis gravida velit vitae rutrum. Etiam at orci"
+                + " eget nisl sollicitudin iaculis. Aliquam tincidunt condimentum urna. In.")
+        );
+
+        List<PublicationPageBuilder> pages = asList(
+            newPublicationPage()
+                .withName("first page")
+                .withTitle("First Page For Sectioned Pub")
+                .withBodySections(bodySections),
+            newPublicationPage()
+                .withName("second page")
+                .withTitle("Second page title"),
+            newPublicationPage()
+                .withName("a third page")
+                .withTitle("Page 3 title")
         );
 
         return newPublication()
-            .withTitle("Sectioned publication")
+            .withTitle("Sectioned publication with pages")
             .withSummary("Summary for the sectioned publication")
             .withNominalDate(asInstant("2018-02-28T01:00:00.000+01:00"))
-            .withBodySections(bodySections);
+            .withPublicationPages(pages)
+            .withInformationType(EXPERIMENTAL_STATISTICS)
+            .withGeographicCoverage(ENGLAND)
+            .withGranularity(COUNTY)
+            .withKeyFactImages(asList(
+                new ImageSection("sectioned publication robots",
+                    "Robots",
+                    "Image with link and caption",
+                    "https://google.com/"),
+                new ImageSection("sectioned publication snowman",
+                    "Snowman",
+                    null,
+                    null)
+            ));
     }
 
     private static Instant asInstant(final String timestamp) {

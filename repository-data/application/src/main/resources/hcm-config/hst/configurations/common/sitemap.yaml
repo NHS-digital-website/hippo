@@ -98,6 +98,7 @@ definitions:
             - hippostd:folder
             - publicationsystem:legacypublication
             - publicationsystem:publication
+            - publicationsystem:publicationPage
             - publicationsystem:series
             hst:componentconfigurationmappingvalues:
             - hst:pages/archive
@@ -105,6 +106,7 @@ definitions:
             - hst:pages/folder
             - hst:pages/legacypublication
             - hst:pages/publication
+            - hst:pages/publicationPage
             - hst:pages/series
             hst:relativecontentpath: publication-system/${1}
             jcr:primaryType: hst:sitemapitem

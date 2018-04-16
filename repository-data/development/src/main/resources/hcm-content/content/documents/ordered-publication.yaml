@@ -74,80 +74,6 @@
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: hippo:handle
-  /1.10:
-    /1.10[1]:
-      common:FacetType: dataset
-      common:searchRank: 3
-      common:searchable: true
-      hippo:availability: []
-      hippostd:state: draft
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2018-02-19T14:15:09.556Z
-      hippostdpubwf:lastModificationDate: 2018-02-19T14:15:09.556Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 7e293eff-9178-43ec-a0b8-644502d98f67
-      hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      jcr:primaryType: publicationsystem:dataset
-      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
-      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
-      publicationsystem:NominalDate: 2018-02-19T00:00:00Z
-      publicationsystem:Summary: 1.10 Dataset
-      publicationsystem:Title: 1.10 Dataset
-    /1.10[2]:
-      common:FacetType: dataset
-      common:searchRank: 3
-      common:searchable: true
-      hippo:availability:
-      - preview
-      hippostd:state: unpublished
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2018-02-19T14:15:09.556Z
-      hippostdpubwf:lastModificationDate: 2018-02-19T14:15:26.551Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 7e293eff-9178-43ec-a0b8-644502d98f67
-      hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      - mix:versionable
-      jcr:primaryType: publicationsystem:dataset
-      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
-      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
-      publicationsystem:NominalDate: 2018-02-19T00:00:00Z
-      publicationsystem:Summary: 1.10 Dataset
-      publicationsystem:Title: 1.10 Dataset
-    /1.10[3]:
-      common:FacetType: dataset
-      common:searchRank: 3
-      common:searchable: true
-      hippo:availability:
-      - live
-      hippostd:state: published
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2018-02-19T14:15:09.556Z
-      hippostdpubwf:lastModificationDate: 2018-02-19T14:15:26.551Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-02-19T14:19:27.463Z
-      hippotranslation:id: 7e293eff-9178-43ec-a0b8-644502d98f67
-      hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      jcr:primaryType: publicationsystem:dataset
-      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
-      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
-      publicationsystem:NominalDate: 2018-02-19T00:00:00Z
-      publicationsystem:Summary: 1.10 Dataset
-      publicationsystem:Title: 1.10 Dataset
-    jcr:mixinTypes:
-    - mix:referenceable
-    jcr:primaryType: hippo:handle
   /1.9:
     /1.9[1]:
       common:FacetType: dataset
@@ -219,6 +145,80 @@
       publicationsystem:NominalDate: 2018-02-19T00:00:00Z
       publicationsystem:Summary: 1.9 Dataset
       publicationsystem:Title: 1.9 Dataset
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /1.10:
+    /1.10[1]:
+      common:FacetType: dataset
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-19T14:15:09.556Z
+      hippostdpubwf:lastModificationDate: 2018-02-19T14:15:09.556Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 7e293eff-9178-43ec-a0b8-644502d98f67
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-02-19T00:00:00Z
+      publicationsystem:Summary: 1.10 Dataset
+      publicationsystem:Title: 1.10 Dataset
+    /1.10[2]:
+      common:FacetType: dataset
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-19T14:15:09.556Z
+      hippostdpubwf:lastModificationDate: 2018-02-19T14:15:26.551Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 7e293eff-9178-43ec-a0b8-644502d98f67
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-02-19T00:00:00Z
+      publicationsystem:Summary: 1.10 Dataset
+      publicationsystem:Title: 1.10 Dataset
+    /1.10[3]:
+      common:FacetType: dataset
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-02-19T14:15:09.556Z
+      hippostdpubwf:lastModificationDate: 2018-02-19T14:15:26.551Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-02-19T14:19:27.463Z
+      hippotranslation:id: 7e293eff-9178-43ec-a0b8-644502d98f67
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-02-19T00:00:00Z
+      publicationsystem:Summary: 1.10 Dataset
+      publicationsystem:Title: 1.10 Dataset
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: hippo:handle

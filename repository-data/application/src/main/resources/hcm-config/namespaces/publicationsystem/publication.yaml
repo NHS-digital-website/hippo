@@ -172,6 +172,15 @@ definitions:
             wicket.css:
             - key-facts
             wicket.id: ${cluster.id}.left.item
+          /keyFactImages:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Key Fact Infographics
+            field: keyFactImages
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
           /attachments:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -213,17 +222,6 @@ definitions:
             wicket.css:
             - administrative-sources
             wicket.id: ${cluster.id}.left.item
-          /body:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Body
-            compoundList: publicationsystem:imageSection,publicationsystem:textSection,publicationsystem:relatedlink
-            contentPickerType: links
-            field: body
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.left.item
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -250,14 +248,6 @@ definitions:
             hipposysedit:path: publicationsystem:Attachments-v3
             hipposysedit:primary: false
             hipposysedit:type: publicationsystem:attachment
-            jcr:primaryType: hipposysedit:field
-          /body:
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: publicationsystem:bodySections
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators:
-            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /coverage_end:
             hipposysedit:mandatory: false
@@ -306,6 +296,14 @@ definitions:
             hipposysedit:type: StaticDropdown
             hipposysedit:validators:
             - publicationsystem-blank-information-type
+            jcr:primaryType: hipposysedit:field
+          /keyFactImages:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publicationsystem:KeyFactImages
+            hipposysedit:primary: false
+            hipposysedit:type: publicationsystem:imageSection
             jcr:primaryType: hipposysedit:field
           /key_facts:
             hipposysedit:mandatory: false
