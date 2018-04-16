@@ -70,23 +70,8 @@ public class Event extends BaseDocument {
         return getChildBeansByName("website:attachments", ExtAttachment.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "website:startdatetime")
-    public Calendar getStartdatetime() {
-        return getProperty("website:startdatetime");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:enddatetime")
-    public Calendar getEnddatetime() {
-        return getProperty("website:enddatetime");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:timeinfo")
-    public String getTimeinfo() {
-        return getProperty("website:timeinfo");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:relatedevents")
-    public List<HippoBean> getRelatedevents() {
-        return getLinkedBeans("website:relatedevents", HippoBean.class);
+    @HippoEssentialsGenerated(internalName = "website:events")
+    public List<Interval> getEvents() {
+        return getChildBeansByName("website:events", Interval.class);
     }
 }
