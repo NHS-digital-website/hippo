@@ -55,3 +55,23 @@ definitions:
           jcr:name: Text
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:componentlist:
+        /en:
+          jcr:name: Links list
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:general:
+        /en:
+          jcr:name: General
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:hub:
+        /en:
+          jcr:name: Hub
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:service:
+        /en:
+          jcr:name: Service
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles

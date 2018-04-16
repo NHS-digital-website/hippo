@@ -49,7 +49,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               size: '160'
-            caption: Seo Summary
+            caption: SEO Summary
             field: seosummary
             hint: ''
             jcr:primaryType: frontend:plugin
@@ -87,7 +87,7 @@ definitions:
           /items:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Items
+            caption: Links
             compoundList: website:externallink,website:internallink
             contentPickerType: links
             field: items
@@ -98,7 +98,7 @@ definitions:
           /gossid:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Goss article ID
+            caption: GOSS Article ID
             field: gossid
             hint: ''
             jcr:primaryType: frontend:plugin
