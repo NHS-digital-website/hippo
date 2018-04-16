@@ -48,6 +48,20 @@
   margin: 0;
 }
 
+.local-header__subtitle {
+    @include bold-font(26);
+    color: $white;
+    margin-top: $baseline-grid-unit;
+}
+
+.local-header__partof {
+    @include bold-font(26);
+    color: $white;
+    a:link, a:visited {
+        color: $white;
+    }
+}
+
 .local-header__intro {
   color: $white;
   margin-top: $baseline-grid-unit * 4;
@@ -70,4 +84,24 @@
     top: -($baseline-grid-unit * 0.5);
     width: 130px;
   }
+}
+
+.local-header__table {
+    color: $white;
+    td, th {
+        background-color: transparent;
+        border-top: 1px solid $blue-50;
+    }
+    tr:first-child td, tr:first-child th {
+        border-top: 0;
+    }
+}
+
+.local-header__national-statistics {
+    background-image: url("img/statistical-icon.png");
+    float: right;
+    height: 70px;
+    width: 70px;
+    background-size: 70px 70px;
+    margin: 0px 0px 10px 20px;
 }
