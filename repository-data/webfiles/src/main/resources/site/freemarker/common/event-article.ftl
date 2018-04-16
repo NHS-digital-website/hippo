@@ -25,28 +25,48 @@
                 </div>
 
                 <div class="article-section">
-                    <h2>Date and time</h2>
-                </div>
+                    <div>
+                        <#if document.events?size gt 0>
+                        <ul class="list list--reset">
+                        <#list document.events as event>
+                            <li>
+                                <h3>Event #${event?counter}</h3>
+                                <@fmt.formatDate value=event.startdatetime.time type="Date" pattern="yyyy-MM-dd" var="comparableStartDate"/>
+                                <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="yyyy-MM-dd" var="comparableEndDate"/>
 
-                <div class="article-section">
-                    <h2>Location</h2>
-                    <p>Location: ${document.location}
-                    <#if document.maplocation?has_content>
-                        <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, document.maplocation) />
-                        <a href="${document.maplocation}" onClick="${onClickMethodCall}">View Map</a>
-                    </#if>
-                    </p>
-                </div>
+                                <#if comparableStartDate == comparableEndDate>
+                                <span>Date:</span> <span><@fmt.formatDate value=event.startdatetime.time type="Date" pattern="EEEE d MMMM yyyy"/></span>
+                                <#else>
+                                <span>Date Range:</span> <span><@fmt.formatDate value=event.startdatetime.time type="Date" pattern="EEEE d MMMM yyyy"/> - <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="EEEE d MMMM yyyy"/></span>
+                                </#if>
+                                <br>
+                                <span>Time:</span> <span><@fmt.formatDate value=event.startdatetime.time type="Date" pattern="hh:mm a"/> to <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="hh:mm a"/></span>
+                                <hr>
+                            </li>
+                            </#list>
+                        </ul>
+                        </#if>
+                    </div>
 
-                <div class="article-section">
-                    <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, document.booking) />
-                    <a class="button" href="${document.booking}" onClick="${onClickMethodCall}">Book Now</a>
+                    <div>
+                        <p>Location: ${document.location}
+                        <#if document.maplocation?has_content>
+                            <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, document.maplocation) />
+                            <a href="${document.maplocation}" onClick="${onClickMethodCall}">View Map</a>
+                        </#if>
+                        </p>
+                    </div>
+
+                    <div>
+                        <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, document.booking) />
+                        <a class="button" href="${document.booking}" onClick="${onClickMethodCall}">Book Now</a>
+                    </div>
                 </div>
 
                 <#-- [FTL-BEGIN] 'Body' section -->
                 <div class="article-section article-section--reset-tops">
                     <div class="grid-row">
-                        <div class="column column--two-thirds column--reset">
+                        <div class="column column--reset">
                             <div class="rich-text-content">
                                 <#if document.body?has_content??>
                                 <@hst.html hippohtml=document.body contentRewriter=gaContentRewriter/>
