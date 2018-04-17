@@ -151,7 +151,7 @@ public class SiteSteps extends AbstractSpringSteps {
     public void thenIShouldNotSeeHeaders(DataTable headersTable) throws Throwable {
         List<String> headers = headersTable.asList(String.class);
         for (String header : headers) {
-            assertNull("Header should not be displayed", sitePage.findElementWithText(header));
+            assertNull("Header should not be displayed", sitePage.findOptionalElementWithText(header));
         }
     }
 
@@ -310,7 +310,7 @@ public class SiteSteps extends AbstractSpringSteps {
 
     @Then("^I should not see element with title \"([^\"]*)\"$")
     public void thenIShouldNotSeeElementTitled(String title) throws Throwable {
-        assertNull("Element is not on page", sitePage.findElementWithTitle(title));
+        assertNull("Element is not on page", sitePage.findOptionalElementWithTitle(title));
     }
 
     @Then("^I can see the full taxonomy in the faceted navigation$")
