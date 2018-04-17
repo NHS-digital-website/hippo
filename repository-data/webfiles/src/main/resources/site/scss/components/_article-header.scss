@@ -77,6 +77,8 @@
     @extend .list--inline;
     @extend .list--reset;
 
+    display: block;
+
     .article-header__detail-list-key {
         min-width: 220px;
 
