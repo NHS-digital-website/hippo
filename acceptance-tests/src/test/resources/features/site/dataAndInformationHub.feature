@@ -5,18 +5,15 @@ Feature: Data and Information hub page and sub sections
 
     Scenario: Data and information hub page
         Given I navigate to the "Data and information" page
-        When I click on the accept cookie banner
         Then I should see a page titled "Data and information"
 
     Scenario: CI landing pages - CCG Outcomes (and back link)
         Given I navigate to the "Data and information" page
-        When I click on the accept cookie banner
         And I click on link "Clinical Commissioning Group Outcomes Indicator Set"
         Then I should see page titled "CCG Outcomes - Indicator Set"
 
     Scenario: CI landing pages - CCG Outcomes (and back link)
         Given I navigate to the "Data and information" page
-        When I click on the accept cookie banner
         And I click on link "Clinical Commissioning Group Outcomes Indicator Set"
         Then I should see page titled "CCG Outcomes - Indicator Set"
         When I click on link "Browse CCG Outcomes"
@@ -26,7 +23,6 @@ Feature: Data and Information hub page and sub sections
 
     Scenario: CI landing pages - Compendium
         Given I navigate to the "Data and information" page
-        When I click on the accept cookie banner
         And I click on link "Compendium of Population Health Indicators"
         Then I should see page titled "Compendium of Population Health Indicators"
         When I click on link "Browse Compendium Indicators"
@@ -36,7 +32,6 @@ Feature: Data and Information hub page and sub sections
 
     Scenario: CI landing pages - Social Care
         Given I navigate to the "Data and information" page
-        When I click on the accept cookie banner
         And I click on link "Social Care"
         Then I should see page titled "Social Care"
         When I click on link "Browse Social Care"
@@ -46,7 +41,6 @@ Feature: Data and Information hub page and sub sections
 
     Scenario: CI landing pages - NHS Outcomes Framework
         Given I navigate to the "Data and information" page
-        When I click on the accept cookie banner
         And I click on link "NHS Outcomes Framework"
         Then I should see page titled "NHS Outcomes Framework"
         When I click on link "Browse NHS Outcomes"
@@ -56,7 +50,6 @@ Feature: Data and Information hub page and sub sections
 
     Scenario: CI landing pages - SHMI
         Given I navigate to the "Data and information" page
-        When I click on the accept cookie banner
         And I click on link "Summary Hospital-level Mortality Indicator (SHMI)"
         Then I should see page titled "Summary Hospital-level Mortality Indicator (SHMI)"
         When I click on link "Browse SHMI"

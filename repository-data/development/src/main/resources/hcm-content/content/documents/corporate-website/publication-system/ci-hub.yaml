@@ -33,12 +33,13 @@
             <p>CCG Outcomes Indicator Set on the NHS England website:</p>
           jcr:primaryType: hippostd:html
         jcr:primaryType: publicationsystem:cilandingasset
+        publicationsystem:title: ''
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-23T14:54:36.279Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T16:11:01.233Z
+      hippostdpubwf:lastModificationDate: 2018-04-17T14:25:24.197Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: be1317d6-5605-40f4-a2f3-1195643d6549
       hippotranslation:locale: en
@@ -47,7 +48,7 @@
       jcr:primaryType: publicationsystem:cilanding
       jcr:uuid: 2a907018-5360-4a02-99a0-9264b72d828f
       publicationsystem:actionLinkName: Browse CCG Outcomes
-      publicationsystem:actionLinkRelPath: search/category/clinical-commissioning-groups-outcomes-framework
+      publicationsystem:actionLinkRelPath: search/category/clinical-commissioning-groups-outcomes-framework/category/team/category/clinical-indicators
       publicationsystem:title: CCG Outcomes - Indicator Set
     /ccg-outcomes[2]:
       /publicationsystem:cilandingasset:
@@ -81,13 +82,14 @@
             <p>CCG Outcomes Indicator Set on the NHS England website:</p>
           jcr:primaryType: hippostd:html
         jcr:primaryType: publicationsystem:cilandingasset
+        publicationsystem:title: ''
       common:searchable: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-23T14:54:36.279Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T16:12:22.923Z
+      hippostdpubwf:lastModificationDate: 2018-04-17T14:20:36.535Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: be1317d6-5605-40f4-a2f3-1195643d6549
       hippotranslation:locale: en
@@ -97,7 +99,7 @@
       jcr:primaryType: publicationsystem:cilanding
       jcr:uuid: dc137559-ee4b-4351-98a4-83eb9629411e
       publicationsystem:actionLinkName: Browse CCG Outcomes
-      publicationsystem:actionLinkRelPath: search/category/clinical-commissioning-groups-outcomes-framework
+      publicationsystem:actionLinkRelPath: search/category/clinical-commissioning-groups-outcomes-framework/category/team/category/clinical-indicators
       publicationsystem:title: CCG Outcomes - Indicator Set
     /ccg-outcomes[3]:
       /publicationsystem:cilandingasset:
@@ -131,15 +133,16 @@
             <p>CCG Outcomes Indicator Set on the NHS England website:</p>
           jcr:primaryType: hippostd:html
         jcr:primaryType: publicationsystem:cilandingasset
+        publicationsystem:title: ''
       common:searchable: true
       hippo:availability:
       - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-23T14:54:36.279Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T16:12:22.923Z
+      hippostdpubwf:lastModificationDate: 2018-04-17T14:20:36.535Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-02-05T16:12:25.134Z
+      hippostdpubwf:publicationDate: 2018-04-17T14:20:39.125Z
       hippotranslation:id: be1317d6-5605-40f4-a2f3-1195643d6549
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -147,7 +150,7 @@
       jcr:primaryType: publicationsystem:cilanding
       jcr:uuid: db20367d-5087-4612-a52f-c27ddd1c8723
       publicationsystem:actionLinkName: Browse CCG Outcomes
-      publicationsystem:actionLinkRelPath: search/category/clinical-commissioning-groups-outcomes-framework
+      publicationsystem:actionLinkRelPath: search/category/clinical-commissioning-groups-outcomes-framework/category/team/category/clinical-indicators
       publicationsystem:title: CCG Outcomes - Indicator Set
     hippo:name: CCG Outcomes
     jcr:mixinTypes:
@@ -309,12 +312,13 @@
             <p>We are in the process of updating the NHS Digital website in line with our new responsibilities under the proposed Health Act which will lead to improved access and functionality for the user. We will keep users informed about how these changes will affect the Compendium and the Indicator Portal as developments occur.</p>
           jcr:primaryType: hippostd:html
         jcr:primaryType: publicationsystem:cilandingasset
+        publicationsystem:title: ''
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-23T20:44:47.257Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T16:27:23.550Z
+      hippostdpubwf:lastModificationDate: 2018-04-17T13:54:47.360Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 2a333557-f3dd-4e4b-92b3-e2c05d26e4d9
       hippotranslation:locale: en
@@ -323,7 +327,7 @@
       jcr:primaryType: publicationsystem:cilanding
       jcr:uuid: 00d71299-b0dc-41e8-98c8-417459f48330
       publicationsystem:actionLinkName: Browse Compendium Indicators
-      publicationsystem:actionLinkRelPath: search/category/compendium
+      publicationsystem:actionLinkRelPath: search/category/compendium/category/team/category/clinical-indicators
       publicationsystem:title: Compendium of Population Health Indicators
     /compendium-indicators[2]:
       /publicationsystem:cilandingasset:
@@ -478,13 +482,14 @@
             <p>We are in the process of updating the NHS Digital website in line with our new responsibilities under the proposed Health Act which will lead to improved access and functionality for the user. We will keep users informed about how these changes will affect the Compendium and the Indicator Portal as developments occur.</p>
           jcr:primaryType: hippostd:html
         jcr:primaryType: publicationsystem:cilandingasset
+        publicationsystem:title: ''
       common:searchable: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-23T20:44:47.257Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T16:28:19.380Z
+      hippostdpubwf:lastModificationDate: 2018-04-17T13:56:59.323Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 2a333557-f3dd-4e4b-92b3-e2c05d26e4d9
       hippotranslation:locale: en
@@ -494,7 +499,7 @@
       jcr:primaryType: publicationsystem:cilanding
       jcr:uuid: 0a61aa34-b893-40bf-aa4a-61fdc098729c
       publicationsystem:actionLinkName: Browse Compendium Indicators
-      publicationsystem:actionLinkRelPath: search/category/compendium
+      publicationsystem:actionLinkRelPath: search/category/compendium/category/team/category/clinical-indicators
       publicationsystem:title: Compendium of Population Health Indicators
     /compendium-indicators[3]:
       /publicationsystem:cilandingasset:
@@ -649,15 +654,16 @@
             <p>We are in the process of updating the NHS Digital website in line with our new responsibilities under the proposed Health Act which will lead to improved access and functionality for the user. We will keep users informed about how these changes will affect the Compendium and the Indicator Portal as developments occur.</p>
           jcr:primaryType: hippostd:html
         jcr:primaryType: publicationsystem:cilandingasset
+        publicationsystem:title: ''
       common:searchable: true
       hippo:availability:
       - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-23T20:44:47.257Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T16:28:19.380Z
+      hippostdpubwf:lastModificationDate: 2018-04-17T13:56:59.323Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-02-05T16:28:21.753Z
+      hippostdpubwf:publicationDate: 2018-04-17T13:57:08.730Z
       hippotranslation:id: 2a333557-f3dd-4e4b-92b3-e2c05d26e4d9
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -665,7 +671,7 @@
       jcr:primaryType: publicationsystem:cilanding
       jcr:uuid: cc541dbd-d831-43dd-ac16-bb060b6c4851
       publicationsystem:actionLinkName: Browse Compendium Indicators
-      publicationsystem:actionLinkRelPath: search/category/compendium
+      publicationsystem:actionLinkRelPath: search/category/compendium/category/team/category/clinical-indicators
       publicationsystem:title: Compendium of Population Health Indicators
     hippo:name: Compendium Indicators
     jcr:mixinTypes:
@@ -732,10 +738,11 @@
         publicationsystem:title: Patient Online Management Information (POMI)
       common:searchable: true
       hippo:availability: []
+      hippostd:holder: admin
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-23T20:43:17.900Z
-      hippostdpubwf:lastModificationDate: 2018-01-25T11:03:34.949Z
+      hippostdpubwf:lastModificationDate: 2018-04-17T13:54:54.047Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 1fd89de7-8dba-47ac-9565-dc86bfa2892b
       hippotranslation:locale: en
@@ -944,12 +951,13 @@
             <p><a href="https://indicators.hscic.gov.uk/download/Indicator%20Portal%20indicators.xls" target="_blank">Download the full list of indicators</a>&nbsp;contained within the Indicator Portal. Filter column B on the NHS Outcomes Framework indicators to see this work stream's list of indicators.</p>
           jcr:primaryType: hippostd:html
         jcr:primaryType: publicationsystem:cilandingasset
+        publicationsystem:title: ''
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-23T20:52:43.733Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T16:28:38.912Z
+      hippostdpubwf:lastModificationDate: 2018-04-17T13:55:02.127Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 889f3118-fcea-44d1-87a0-fb72c4cd1052
       hippotranslation:locale: en
@@ -958,7 +966,7 @@
       jcr:primaryType: publicationsystem:cilanding
       jcr:uuid: 55ee0230-2460-402f-8bb8-8cbe88b55023
       publicationsystem:actionLinkName: Browse NHS Outcomes
-      publicationsystem:actionLinkRelPath: search/category/nhs-outcomes-framework
+      publicationsystem:actionLinkRelPath: search/category/nhs-outcomes-framework/category/team/category/clinical-indicators
       publicationsystem:title: NHS Outcomes Framework
     /nhs-outcomes-framework[2]:
       /publicationsystem:cilandingasset:
@@ -994,13 +1002,14 @@
             <p><a href="https://indicators.hscic.gov.uk/download/Indicator%20Portal%20indicators.xls" target="_blank">Download the full list of indicators</a>&nbsp;contained within the Indicator Portal. Filter column B on the NHS Outcomes Framework indicators to see this work stream's list of indicators.</p>
           jcr:primaryType: hippostd:html
         jcr:primaryType: publicationsystem:cilandingasset
+        publicationsystem:title: ''
       common:searchable: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-23T20:52:43.733Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T16:28:43.535Z
+      hippostdpubwf:lastModificationDate: 2018-04-17T13:56:59.247Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 889f3118-fcea-44d1-87a0-fb72c4cd1052
       hippotranslation:locale: en
@@ -1010,7 +1019,7 @@
       jcr:primaryType: publicationsystem:cilanding
       jcr:uuid: 78d665f3-0a25-439a-b18b-1cc79416f6b0
       publicationsystem:actionLinkName: Browse NHS Outcomes
-      publicationsystem:actionLinkRelPath: search/category/nhs-outcomes-framework
+      publicationsystem:actionLinkRelPath: search/category/nhs-outcomes-framework/category/team/category/clinical-indicators
       publicationsystem:title: NHS Outcomes Framework
     /nhs-outcomes-framework[3]:
       /publicationsystem:cilandingasset:
@@ -1046,15 +1055,16 @@
             <p><a href="https://indicators.hscic.gov.uk/download/Indicator%20Portal%20indicators.xls" target="_blank">Download the full list of indicators</a>&nbsp;contained within the Indicator Portal. Filter column B on the NHS Outcomes Framework indicators to see this work stream's list of indicators.</p>
           jcr:primaryType: hippostd:html
         jcr:primaryType: publicationsystem:cilandingasset
+        publicationsystem:title: ''
       common:searchable: true
       hippo:availability:
       - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-23T20:52:43.733Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T16:28:43.535Z
+      hippostdpubwf:lastModificationDate: 2018-04-17T13:56:59.247Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-02-05T16:28:45.656Z
+      hippostdpubwf:publicationDate: 2018-04-17T13:57:08.595Z
       hippotranslation:id: 889f3118-fcea-44d1-87a0-fb72c4cd1052
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -1062,7 +1072,7 @@
       jcr:primaryType: publicationsystem:cilanding
       jcr:uuid: d4945d29-bc87-48d4-bff1-4081b3e10cb6
       publicationsystem:actionLinkName: Browse NHS Outcomes
-      publicationsystem:actionLinkRelPath: search/category/nhs-outcomes-framework
+      publicationsystem:actionLinkRelPath: search/category/nhs-outcomes-framework/category/team/category/clinical-indicators
       publicationsystem:title: NHS Outcomes Framework
     hippo:name: NHS Outcomes Framework
     jcr:mixinTypes:
@@ -1133,12 +1143,13 @@
             <a href="http://www.dh.gov.uk/en/Publicationsandstatistics/Publications/PublicationsPolicyAndGuidance/DH_117353" target="_blank">http://www.dh.gov.uk/en/Publicationsandstatistics/Publications/PublicationsPolicyAndGuidance/DH_117353</a></p>
           jcr:primaryType: hippostd:html
         jcr:primaryType: publicationsystem:cilandingasset
+        publicationsystem:title: ''
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-23T20:53:46.749Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T16:29:12.924Z
+      hippostdpubwf:lastModificationDate: 2018-04-17T13:55:08.004Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 5015f06a-b8c2-4299-8555-ab385dd3f0f3
       hippotranslation:locale: en
@@ -1211,13 +1222,14 @@
             <a href="http://www.dh.gov.uk/en/Publicationsandstatistics/Publications/PublicationsPolicyAndGuidance/DH_117353" target="_blank">http://www.dh.gov.uk/en/Publicationsandstatistics/Publications/PublicationsPolicyAndGuidance/DH_117353</a></p>
           jcr:primaryType: hippostd:html
         jcr:primaryType: publicationsystem:cilandingasset
+        publicationsystem:title: ''
       common:searchable: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-23T20:53:46.749Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T16:29:17.292Z
+      hippostdpubwf:lastModificationDate: 2018-04-17T13:56:59.149Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 5015f06a-b8c2-4299-8555-ab385dd3f0f3
       hippotranslation:locale: en
@@ -1291,15 +1303,16 @@
             <a href="http://www.dh.gov.uk/en/Publicationsandstatistics/Publications/PublicationsPolicyAndGuidance/DH_117353" target="_blank">http://www.dh.gov.uk/en/Publicationsandstatistics/Publications/PublicationsPolicyAndGuidance/DH_117353</a></p>
           jcr:primaryType: hippostd:html
         jcr:primaryType: publicationsystem:cilandingasset
+        publicationsystem:title: ''
       common:searchable: true
       hippo:availability:
       - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-23T20:53:46.749Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T16:29:17.292Z
+      hippostdpubwf:lastModificationDate: 2018-04-17T13:56:59.149Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-02-05T16:29:20.072Z
+      hippostdpubwf:publicationDate: 2018-04-17T13:57:08.489Z
       hippotranslation:id: 5015f06a-b8c2-4299-8555-ab385dd3f0f3
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -1356,12 +1369,13 @@
             <a href="http://www.content.digital.nhs.uk/catalogue/PUB30122" target="_blank">http://www.digital.nhs.uk/catalogue/PUB30122</a></p>
           jcr:primaryType: hippostd:html
         jcr:primaryType: publicationsystem:cilandingasset
+        publicationsystem:title: ''
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-23T20:51:55.391Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T16:29:29.993Z
+      hippostdpubwf:lastModificationDate: 2018-04-17T13:55:15.017Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 3306448a-ac36-4c04-b397-8ce288b28d68
       hippotranslation:locale: en
@@ -1370,7 +1384,7 @@
       jcr:primaryType: publicationsystem:cilanding
       jcr:uuid: d27bbef8-d67a-465b-8d6b-05d9bd665f7f
       publicationsystem:actionLinkName: Browse Social Care
-      publicationsystem:actionLinkRelPath: search/category/adult-social-outcomes-framework--ascof-
+      publicationsystem:actionLinkRelPath: search/category/adult-social-outcomes-framework--ascof-/category/team/category/clinical-indicators
       publicationsystem:title: Social Care
     /social-care[2]:
       /publicationsystem:cilandingasset:
@@ -1412,13 +1426,14 @@
             <a href="http://www.content.digital.nhs.uk/catalogue/PUB30122" target="_blank">http://www.digital.nhs.uk/catalogue/PUB30122</a></p>
           jcr:primaryType: hippostd:html
         jcr:primaryType: publicationsystem:cilandingasset
+        publicationsystem:title: ''
       common:searchable: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-23T20:51:55.391Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T16:29:33.449Z
+      hippostdpubwf:lastModificationDate: 2018-04-17T13:56:59.060Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 3306448a-ac36-4c04-b397-8ce288b28d68
       hippotranslation:locale: en
@@ -1428,7 +1443,7 @@
       jcr:primaryType: publicationsystem:cilanding
       jcr:uuid: da0dbcf9-ca8d-4d49-8af1-5f9b54ea0281
       publicationsystem:actionLinkName: Browse Social Care
-      publicationsystem:actionLinkRelPath: search/category/adult-social-outcomes-framework--ascof-
+      publicationsystem:actionLinkRelPath: search/category/adult-social-outcomes-framework--ascof-/category/team/category/clinical-indicators
       publicationsystem:title: Social Care
     /social-care[3]:
       /publicationsystem:cilandingasset:
@@ -1470,15 +1485,16 @@
             <a href="http://www.content.digital.nhs.uk/catalogue/PUB30122" target="_blank">http://www.digital.nhs.uk/catalogue/PUB30122</a></p>
           jcr:primaryType: hippostd:html
         jcr:primaryType: publicationsystem:cilandingasset
+        publicationsystem:title: ''
       common:searchable: true
       hippo:availability:
       - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-23T20:51:55.391Z
-      hippostdpubwf:lastModificationDate: 2018-02-05T16:29:33.449Z
+      hippostdpubwf:lastModificationDate: 2018-04-17T13:56:59.060Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-02-05T16:29:36.401Z
+      hippostdpubwf:publicationDate: 2018-04-17T13:57:08.863Z
       hippotranslation:id: 3306448a-ac36-4c04-b397-8ce288b28d68
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -1486,7 +1502,7 @@
       jcr:primaryType: publicationsystem:cilanding
       jcr:uuid: 04cd307c-8e7e-4faf-8458-71d456fd64b9
       publicationsystem:actionLinkName: Browse Social Care
-      publicationsystem:actionLinkRelPath: search/category/adult-social-outcomes-framework--ascof-
+      publicationsystem:actionLinkRelPath: search/category/adult-social-outcomes-framework--ascof-/category/team/category/clinical-indicators
       publicationsystem:title: Social Care
     hippo:name: Social Care
     jcr:mixinTypes:
@@ -1497,14 +1513,14 @@
   /summary-hospital-level-mortality-indicator-shmi:
     /summary-hospital-level-mortality-indicator-shmi[1]:
       /publicationsystem:cilandingasset[1]:
-        /publicationsystem:Attachments[1]:
+        /publicationsystem:Attachments:
           /publicationsystem:attachmentResource:
             hippo:filename: SHMI_publication_timetable.xlsx
             hippo:text:
-              resource: /content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi[1]/cilandingasset[1]/Attachments[1]/attachmentResource/text.bin
+              resource: /content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi[1]/cilandingasset[1]/Attachments/attachmentResource/text.bin
               type: binary
             jcr:data:
-              resource: /content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi[1]/cilandingasset[1]/Attachments[1]/attachmentResource/data.bin
+              resource: /content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi[1]/cilandingasset[1]/Attachments/attachmentResource/data.bin
               type: binary
             jcr:encoding: UTF-8
             jcr:lastModified: 2018-02-05T22:00:57.619Z
@@ -1518,7 +1534,7 @@
             standard and transparent methodology. It is produced and published quarterly
             as a National Statistic by NHS Digital.</p>
           jcr:primaryType: hippostd:html
-        /publicationsystem:relatedlink:
+        /publicationsystem:relatedlink[1]:
           jcr:primaryType: publicationsystem:relatedlink
           publicationsystem:linkText: National review of the Hospital Standardised
             Mortality Ratio
@@ -1559,7 +1575,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-23T20:53:22.404Z
-      hippostdpubwf:lastModificationDate: 2018-02-07T21:36:11.455Z
+      hippostdpubwf:lastModificationDate: 2018-04-17T13:55:23.035Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 5ee1c6c1-8692-4a15-a04a-bb721e0c7874
       hippotranslation:locale: en
@@ -1568,18 +1584,18 @@
       jcr:primaryType: publicationsystem:cilanding
       jcr:uuid: b1d1acfe-a84c-41ee-8b75-176cdbc00527
       publicationsystem:actionLinkName: Browse SHMI
-      publicationsystem:actionLinkRelPath: search/category/summary-hospital-level-mortality-indicator--shmi-
+      publicationsystem:actionLinkRelPath: search/category/summary-hospital-level-mortality-indicator--shmi-/category/team/category/clinical-indicators
       publicationsystem:title: Summary Hospital-level Mortality Indicator (SHMI)
     /summary-hospital-level-mortality-indicator-shmi[2]:
       /publicationsystem:cilandingasset[1]:
-        /publicationsystem:Attachments[1]:
+        /publicationsystem:Attachments:
           /publicationsystem:attachmentResource:
             hippo:filename: SHMI_publication_timetable.xlsx
             hippo:text:
-              resource: /content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi[2]/cilandingasset[1]/Attachments[1]/attachmentResource/text.bin
+              resource: /content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi[2]/cilandingasset[1]/Attachments/attachmentResource/text.bin
               type: binary
             jcr:data:
-              resource: /content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi[2]/cilandingasset[1]/Attachments[1]/attachmentResource/data.bin
+              resource: /content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi[2]/cilandingasset[1]/Attachments/attachmentResource/data.bin
               type: binary
             jcr:encoding: UTF-8
             jcr:lastModified: 2018-02-05T22:00:57.619Z
@@ -1593,7 +1609,7 @@
             standard and transparent methodology. It is produced and published quarterly
             as a National Statistic by NHS Digital.</p>
           jcr:primaryType: hippostd:html
-        /publicationsystem:relatedlink:
+        /publicationsystem:relatedlink[1]:
           jcr:primaryType: publicationsystem:relatedlink
           publicationsystem:linkText: National review of the Hospital Standardised
             Mortality Ratio
@@ -1635,7 +1651,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-23T20:53:22.404Z
-      hippostdpubwf:lastModificationDate: 2018-02-07T21:36:20.693Z
+      hippostdpubwf:lastModificationDate: 2018-04-17T13:55:44.130Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 5ee1c6c1-8692-4a15-a04a-bb721e0c7874
       hippotranslation:locale: en
@@ -1645,18 +1661,18 @@
       jcr:primaryType: publicationsystem:cilanding
       jcr:uuid: 5a58f566-3c35-43ee-a94b-61d27d0b7cbd
       publicationsystem:actionLinkName: Browse SHMI
-      publicationsystem:actionLinkRelPath: search/category/summary-hospital-level-mortality-indicator--shmi-
+      publicationsystem:actionLinkRelPath: search/category/summary-hospital-level-mortality-indicator--shmi-/category/team/category/clinical-indicators
       publicationsystem:title: Summary Hospital-level Mortality Indicator (SHMI)
     /summary-hospital-level-mortality-indicator-shmi[3]:
       /publicationsystem:cilandingasset[1]:
-        /publicationsystem:Attachments[1]:
+        /publicationsystem:Attachments:
           /publicationsystem:attachmentResource:
             hippo:filename: SHMI_publication_timetable.xlsx
             hippo:text:
-              resource: /content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi[3]/cilandingasset[1]/Attachments[1]/attachmentResource/text.bin
+              resource: /content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi[3]/cilandingasset[1]/Attachments/attachmentResource/text.bin
               type: binary
             jcr:data:
-              resource: /content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi[3]/cilandingasset[1]/Attachments[1]/attachmentResource/data.bin
+              resource: /content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi[3]/cilandingasset[1]/Attachments/attachmentResource/data.bin
               type: binary
             jcr:encoding: UTF-8
             jcr:lastModified: 2018-02-05T22:00:57.619Z
@@ -1670,7 +1686,7 @@
             standard and transparent methodology. It is produced and published quarterly
             as a National Statistic by NHS Digital.</p>
           jcr:primaryType: hippostd:html
-        /publicationsystem:relatedlink:
+        /publicationsystem:relatedlink[1]:
           jcr:primaryType: publicationsystem:relatedlink
           publicationsystem:linkText: National review of the Hospital Standardised
             Mortality Ratio
@@ -1712,9 +1728,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-23T20:53:22.404Z
-      hippostdpubwf:lastModificationDate: 2018-02-07T21:36:20.693Z
+      hippostdpubwf:lastModificationDate: 2018-04-17T13:55:44.130Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-02-07T21:36:23.446Z
+      hippostdpubwf:publicationDate: 2018-04-17T13:57:08.269Z
       hippotranslation:id: 5ee1c6c1-8692-4a15-a04a-bb721e0c7874
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -1722,7 +1738,7 @@
       jcr:primaryType: publicationsystem:cilanding
       jcr:uuid: a9156f18-a794-41bb-841c-9e357b31de01
       publicationsystem:actionLinkName: Browse SHMI
-      publicationsystem:actionLinkRelPath: search/category/summary-hospital-level-mortality-indicator--shmi-
+      publicationsystem:actionLinkRelPath: search/category/summary-hospital-level-mortality-indicator--shmi-/category/team/category/clinical-indicators
       publicationsystem:title: Summary Hospital-level Mortality Indicator (SHMI)
     hippo:name: Summary Hospital-level Mortality Indicator (SHMI)
     jcr:mixinTypes:
