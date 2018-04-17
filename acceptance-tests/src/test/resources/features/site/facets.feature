@@ -7,7 +7,6 @@ Feature: Faceted search
     Scenario: All expected facets are displayed
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"
-        And I click on the accept cookie banner
         Then I should see the list with title "DOCUMENT TYPE" containing:
             | Publication (2) |
             | Data set (1)    |
@@ -16,10 +15,6 @@ Feature: Faceted search
         And I should see the list with title "CATEGORY/TOPIC" containing:
             | Conditions (2)             |
             | Social care (2)            |
-            | Accidents and injuries (1) |
-            | Bowel cancer (1)           |
-            | Cancer (1)                 |
-            | Falls (1)                  |
         And I should see the list with title "INFORMATION TYPE" containing:
             | Experimental statistics (2) |
             | Audit (1)                   |
@@ -41,12 +36,10 @@ Feature: Faceted search
     Scenario: All expected NIL facets are displayed
         Given I navigate to the "home" page
         When I search for "NilTaxonomySearchTerm"
-        And I click on the accept cookie banner
         Then I should see the list with title "DOCUMENT TYPE" containing:
             | Methodology (3) |
         And I should see the list with title "CATEGORY/TOPIC" containing:
             | Acceptance Tests (3)             |
-            | NilTaxonomySearchTerm test (3)   |
         And I should see the list with title "GEOGRAPHICAL COVERAGE" containing:
             | England (3)  |
         And I should see the list with title "ASSURED" containing:
@@ -67,7 +60,6 @@ Feature: Faceted search
     Scenario: Months are shown when a year is selected
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"
-        And I click on the accept cookie banner
         And I click on the "2018" link
         Then I should see the list with title "MONTH" containing:
             | January (2) |
@@ -83,15 +75,12 @@ Feature: Faceted search
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"
         Then I should see 3 search results
-        And I click on the accept cookie banner
         When I click on the "Publication" link
         Then I should see 2 search results
         And I should see the list with title "DOCUMENT TYPE" containing:
             | Publication   |
         And I should see the list with title "CATEGORY/TOPIC" containing:
-            | Accidents and injuries (1) |
             | Conditions (1)             |
-            | Falls (1)                  |
             | Social care (1)            |
         When I click on the "Cancer networks" link
         Then I should see 1 search results
@@ -101,7 +90,6 @@ Feature: Faceted search
     Scenario: Sticky facets when searching for new queries
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"
-        And I click on the accept cookie banner
         And I click on the "Publication" link
         And I click on the "2018" link
         Then I should see 1 search results
@@ -115,7 +103,6 @@ Feature: Faceted search
     Scenario: Reset facets
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"
-        And I click on the accept cookie banner
         And I click on the "Social care" link
         And I click on the "England" link
         Then I should see 1 search results
@@ -129,21 +116,61 @@ Feature: Faceted search
     Scenario: Sort by maintains selected facets
         Given I navigate to the "home" page
         When I search for "zzFacets_Testzz"
-        And I click on the accept cookie banner
         And I click on the "Conditions" link
         And I click on the "Cancer networks" link
         And I click on the "Order by date" link
         Then I can see the search description matching "2 results containing 'zzFacets_Testzz', sorted by date."
         And I should see the list with title "CATEGORY/TOPIC" including:
-            | Conditions   |
+            | Conditions ... |
         And I should see the list with title "GEOGRAPHICAL GRANULARITY" including:
             | Cancer networks   |
 
     Scenario: Upcoming publications are returned
         Given I navigate to the "search" page
-        And I click on the accept cookie banner
         Then I should see the list with title "PUBLICATION STATUS" containing:
             | Published ( ... |
             | Upcoming (2) |
         When I click on the "Upcoming" button
         Then I can click on the "Upcoming Publication" link
+
+    Scenario: Facet Category tree drill down
+        Given I navigate to the "home" page
+        When I search for "zzFacets_Testzz"
+        Then I should see the list with title "CATEGORY/TOPIC" containing:
+            | Conditions (2)  |
+            | Social care (2) |
+        # Click social care which has no children
+        When I click on the "Social care" link
+        Then I should see the list with title "CATEGORY/TOPIC" containing:
+            | Conditions (2)  |
+            | Social care     |
+        And I should see 2 search results
+        # Click Conditions which has children
+        When I click on the "Conditions" link
+        Then I should see the list with title "CATEGORY/TOPIC" containing:
+            | Conditions ...             |
+            | Cancer (1)                 |
+            | Accidents and injuries (1) |
+            | Social care ...            |
+        And I should see 2 search results
+        # Cancer also has children
+        When I click on the "Cancer" link
+        Then I should see the list with title "CATEGORY/TOPIC" containing:
+            | Conditions ...    |
+            | Cancer ...        |
+            | Bowel cancer (1)  |
+            | Social care ...   |
+        And I should see 1 search results
+        When I click on the "Bowel cancer" link
+        Then I should see the list with title "CATEGORY/TOPIC" containing:
+            | Conditions ...   |
+            | Cancer ...       |
+            | Bowel cancer ... |
+            | Social care ...  |
+        And I should see 1 search results
+        # Clearing the top level condition should clear all the children
+        When I click on the "Conditions" link
+        Then I should see the list with title "CATEGORY/TOPIC" containing:
+            | Conditions (2)  |
+            | Social care ... |
+        And I should see 2 search results

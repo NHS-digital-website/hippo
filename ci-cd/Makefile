@@ -12,7 +12,7 @@ RELEASE_TIME_UTC = $(shell ((noon_utc=12-$$(date +%-H)+$$(TZ=UTC-24 date +%-H)))
 TRAVIS_BUILD_CMD ?= test.site
 TRAVIS_EVENT_TYPE ?=
 VENV ?= $(PWD)/.venv
-VERSION ?= $(shell git describe --tags --match "$(VERSION_BASE)*")
+VERSION ?= $(shell git describe --tags --match "$(VERSION_BASE)*" || echo $(VERSION_BASE).0)
 VERSION_BASE ?= $(shell cat "$(PWD)/../.version")
 
 PATH := $(VENV)/bin:$(PWD)/bin:$(PWD)/vendor:$(shell printenv PATH)

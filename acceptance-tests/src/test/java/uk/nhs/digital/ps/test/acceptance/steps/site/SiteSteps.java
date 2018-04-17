@@ -8,14 +8,10 @@ import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.*;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.startsWith;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 import static org.slf4j.LoggerFactory.getLogger;
 import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.waitUntilFileAppears;
 
@@ -23,6 +19,7 @@ import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.apache.commons.lang3.StringUtils;
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
 import org.openqa.selenium.By;
@@ -61,6 +58,9 @@ public class SiteSteps extends AbstractSpringSteps {
     @Given("^I navigate to (?:the )?\"([^\"]+)\" (?:.* )?page$")
     public void givenINavigateToPage(String pageName) throws Throwable {
         sitePage.openByPageName(pageName);
+
+        // Clear the cookie banner if it's up
+        sitePage.clickCookieAcceptButton();
     }
 
     /**
@@ -91,11 +91,6 @@ public class SiteSteps extends AbstractSpringSteps {
     @Then("^I (?:can )?see element with data-uipath \"([^\"]+)\"$")
     public void thenISeeElementWithUiPath(String uiPath) throws Throwable {
         assertNotNull("Can see element with data-uipath: " + uiPath, sitePage.findElementWithUiPath(uiPath));
-    }
-
-    @Then("^I click on the accept cookie banner")
-    public void thenIShouldSeeCookieBanner() throws Throwable {
-        sitePage.findPageElementById("cookieAcceptButton").click();
     }
 
     @Then("^I should see (?:.* )?page titled \"([^\"]+)\"$")
@@ -266,6 +261,7 @@ public class SiteSteps extends AbstractSpringSteps {
     private List<String> getElementTextList(WebElement element) {
         return element.findElements(By.tagName("li")).stream()
             .map(WebElement::getText)
+            .filter(StringUtils::isNotBlank)
             .collect(toList());
     }
 

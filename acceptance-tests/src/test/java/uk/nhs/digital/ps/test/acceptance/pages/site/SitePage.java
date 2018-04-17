@@ -94,8 +94,12 @@ public class SitePage extends AbstractSitePage {
         return null;
     }
 
-    public WebElement findPageElementById(String elementId) {
-        return helper.findElement(By.id(elementId));
+    public void clickCookieAcceptButton() {
+        WebElement cookieAcceptButton = helper.findOptionalElement(By.id("cookieAcceptButton"));
+        if (cookieAcceptButton != null
+            && cookieAcceptButton.isDisplayed()) {
+            cookieAcceptButton.click();
+        }
     }
 
     public WebElement findFooter() {

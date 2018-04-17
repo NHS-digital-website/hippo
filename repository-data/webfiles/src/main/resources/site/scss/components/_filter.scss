@@ -99,6 +99,10 @@
     ul {
         list-style: none;
         padding-left: 10px;
+
+        &.is-hidden {
+           display: none;
+        }
     }
 
     .filter-list__item {
@@ -106,13 +110,9 @@
         display: block;
 
         @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
-            display: inline-block;
             padding-right: 0;
         }
 
-        &.is-hidden {
-            display: none;
-        }
     }
 
     .filter-list__controller a {
@@ -124,19 +124,6 @@
     }
 }
 
-.filter-list__item--no-children {
-    .filter-link,  {
-        background-image: none;
-        padding-left: 8px;
-        padding-right: 8px;
-        background-color: $col-15;
-
-        &.filter-link--selected {
-            background-color: $col-septenary;
-            padding-right: 22px;
-        }
-    }
-}
 
 /* Expand link if over 10 items */
 .filter-vis-toggles {
@@ -155,19 +142,21 @@
 
 }
 
+
 /* Filter link */
 a.filter-link {
     display: inline-block;
     position: relative;
     color: $col-quinary;
-    padding: 5px 24px 5px 20px;
+    padding: 5px 10px 5px 20px;
     border: 1px solid transparent;
     text-decoration: none;
     border-radius: 3px;
-    background-position: 7px 9px;
+    background-color: $col-15;
+    background-position: 7px 12px;
     background-repeat: no-repeat;
     background-size: 8px;
-    background-image: image-url("icon-filter.png");
+    background-image: url("../images/icon-filter.png");
     line-height: 18px;
 
     @include core-font(14);
@@ -177,7 +166,7 @@ a.filter-link {
         color: $col-quinary;
         border: 1px solid $col-15;
         background-color: $col-septenary;
-        background-image: image-url("icon-filter-down.png");
+        background-image: url("../images/icon-filter-down.png");
 
         &:after {
             content: "x";
@@ -191,12 +180,27 @@ a.filter-link {
     }
 
     &.filter-link--active {
-        padding: 5px 30px 5px 8px;
+        padding: 5px 25px 5px 20px;
         box-shadow: 0 0 0 1px rgba($col-quinary, 0.2);
 
         &:after {
             right: 10px;
             margin-top: -12px;
+        }
+    }
+}
+
+.filter-list__item--no-children {
+    a.filter-link  {
+        background-image: none;
+        padding-left: 8px;
+        padding-right: 8px;
+
+        &.filter-link--selected,
+        &.filter-link--active {
+        background-image: none;
+            background-color: $col-septenary;
+            padding-right: 22px;
         }
     }
 }
