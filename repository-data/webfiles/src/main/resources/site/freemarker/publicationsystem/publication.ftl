@@ -30,7 +30,7 @@
 <#macro fullContentOfPubliclyAvailablePublication>
     <@publicationHeader publication=publication/>
 
-    <@pageIndex index=index/>
+    <!--<@pageIndex index=index/>-->
 
     <section class="document-content" aria-label="Document Content">
         <div>
