@@ -53,7 +53,7 @@
 
         <p><a href="https://digital.nhs.uk/data-and-information/find-data-and-publications/supplementary-information">Supplementary information</a>&nbsp;- statistics produced by request which are related to our publications or data</p>
 
-        <h2><strong>Clinical Indicators</strong></h2>
+        <h2 id="clinicalindicators"><strong>Clinical Indicators</strong></h2>
 
         <p>This is a collection of over a thousand datasets that we publish. The information is for clinical staff, commissioners, researchers, and others needing data and evidence to help with decision-making in health and care.</p>
 
@@ -82,10 +82,11 @@
       jcr:primaryType: hippostd:html
     common:searchable: true
     hippo:availability: []
+    hippostd:holder: admin
     hippostd:state: draft
     hippostdpubwf:createdBy: mashuk.reza
     hippostdpubwf:creationDate: 2018-04-04T10:23:22.513Z
-    hippostdpubwf:lastModificationDate: 2018-04-06T12:54:39.280Z
+    hippostdpubwf:lastModificationDate: 2018-04-18T16:38:18.217Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: c5d8012f-537a-46fd-b992-88a59f5d7dec
     hippotranslation:locale: en
@@ -157,7 +158,7 @@
 
         <p><a href="https://digital.nhs.uk/data-and-information/find-data-and-publications/supplementary-information">Supplementary information</a>&nbsp;- statistics produced by request which are related to our publications or data</p>
 
-        <h2><strong>Clinical Indicators</strong></h2>
+        <h2 id="clinicalindicators"><strong>Clinical Indicators</strong></h2>
 
         <p>This is a collection of over a thousand datasets that we publish. The information is for clinical staff, commissioners, researchers, and others needing data and evidence to help with decision-making in health and care.</p>
 
@@ -190,7 +191,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: mashuk.reza
     hippostdpubwf:creationDate: 2018-04-04T10:23:22.513Z
-    hippostdpubwf:lastModificationDate: 2018-04-06T12:54:39.238Z
+    hippostdpubwf:lastModificationDate: 2018-04-18T16:28:16.579Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: c5d8012f-537a-46fd-b992-88a59f5d7dec
     hippotranslation:locale: en
@@ -263,7 +264,7 @@
 
         <p><a href="https://digital.nhs.uk/data-and-information/find-data-and-publications/supplementary-information">Supplementary information</a>&nbsp;- statistics produced by request which are related to our publications or data</p>
 
-        <h2><strong>Clinical Indicators</strong></h2>
+        <h2 id="clinicalindicators"><strong>Clinical Indicators</strong></h2>
 
         <p>This is a collection of over a thousand datasets that we publish. The information is for clinical staff, commissioners, researchers, and others needing data and evidence to help with decision-making in health and care.</p>
 
@@ -296,9 +297,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: mashuk.reza
     hippostdpubwf:creationDate: 2018-04-04T10:23:22.513Z
-    hippostdpubwf:lastModificationDate: 2018-04-06T12:54:39.238Z
+    hippostdpubwf:lastModificationDate: 2018-04-18T16:28:16.579Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-04-06T12:54:42.044Z
+    hippostdpubwf:publicationDate: 2018-04-18T16:28:20.028Z
     hippotranslation:id: c5d8012f-537a-46fd-b992-88a59f5d7dec
     hippotranslation:locale: en
     jcr:mixinTypes:

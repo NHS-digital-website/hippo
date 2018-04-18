@@ -109,7 +109,6 @@
         common:searchRank: 4
         common:searchable: true
         hippo:availability: []
-        hippostd:holder: admin
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2018-02-14T15:22:05.090Z

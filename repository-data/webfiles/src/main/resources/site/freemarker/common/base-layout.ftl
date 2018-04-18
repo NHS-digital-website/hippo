@@ -71,12 +71,13 @@
                 <span class="label">You are here:</span>
             </li>
             <li class="breadcrumb__crumb">
-                <a href="https://digital.nhs.uk">Home</a>
+                <@hst.link var="homelink" path="/" />
+                <a href="${homelink}">Home</a>
             </li>
             <li class="separator">/</li>
             <li class="breadcrumb__crumb">
-                <@hst.link var="rootLink" path="/"/>
-                <a href="${rootLink}">Clinical Indicators</a>
+                <@hst.link var="cilink" path="/data-and-information#clinicalindicators" />
+                <a href="${cilink}">Clinical Indicators</a>
             </li>
         </ol>
     </div>
@@ -93,7 +94,7 @@
         </div><!--
         --><div class="layout__item layout-2-3">
           <@searchTabsComponent contentNames=hstResponseChildContentNames></@searchTabsComponent>
-                  
+
           <@hst.include ref="main"/>
         </div>
       </div>

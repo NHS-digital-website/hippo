@@ -61,7 +61,8 @@
                     <h3><@fmt.message key="headers.ci-landing-actions"/></h3>
                     <ul>
                         <@hst.link var="homelink" path="/" />
-                        <li><a href="${homelink}" title="Back to Clinical Indicators">Back to Clinical Indicators</a></li>
+                        <@hst.link var="cihome" path="/data-and-information#clinicalindicators" />
+                        <li><a href="${cihome}" title="Back to Clinical Indicators">Back to Clinical Indicators</a></li>
                         <#if document.actionLinkRelPath??>
                             <li><a href="${homelink}${document.actionLinkRelPath}" title="${document.actionLinkName}">${document.actionLinkName}</a></li>
                         </#if>

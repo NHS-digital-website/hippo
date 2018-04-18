@@ -2,4 +2,7 @@
 definitions:
   config:
     /hippo:configuration/hippo:frontend/login/login/loginPage:
+      selectable.timezones:
+      - Europe/London
+      show.timezones: true
       signin.form.autocomplete: false

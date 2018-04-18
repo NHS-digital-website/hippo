@@ -13,7 +13,7 @@
     <section class="document-content" aria-label="Document Content">
         <div class="layout layout--large">
             <div class="layout__item layout-3-3">
-                <h1>Page not found</h1>
+                <h1 data-uipath="document.title">Page not found</h1>
                 <p>The page you're looking for does not exist. But we did find some other content.</p>
                 <ul><#list publications as publication>
                     <li>

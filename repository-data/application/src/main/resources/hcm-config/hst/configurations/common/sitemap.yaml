@@ -104,6 +104,7 @@ definitions:
             - publicationsystem:publication
             - publicationsystem:publicationPage
             - publicationsystem:series
+            - publicationsystem:cilanding
             hst:componentconfigurationmappingvalues:
             - hst:pages/archive
             - hst:pages/dataset
@@ -112,15 +113,8 @@ definitions:
             - hst:pages/publication
             - hst:pages/publicationPage
             - hst:pages/series
+            - hst:pages/cilanding
             hst:relativecontentpath: publication-system/${1}
-            jcr:primaryType: hst:sitemapitem
-          /ci-hub:
-            /_any_:
-              hst:componentconfigurationid: hst:pages/cilanding
-              hst:relativecontentpath: publication-system/ci-hub/${1}
-              jcr:primaryType: hst:sitemapitem
-            hst:componentconfigurationid: hst:pages/404
-            hst:relativecontentpath: publication-system/ci-hub
             jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/404
           jcr:primaryType: hst:sitemapitem
