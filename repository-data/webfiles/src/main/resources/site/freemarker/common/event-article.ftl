@@ -28,7 +28,7 @@
                         <#assign validDate = (comparableStartDate?? && comparableEndDate??) />
 
                         <#if document.events?size gt 1 && validDate>
-                        <h4 class="tabbed-detail-title">Dates #${event?counter}</h4>
+                        <h4 class="tabbed-detail-title">Session ${event?counter}</h4>
                         </#if>   
 
                         <#if validDate>
