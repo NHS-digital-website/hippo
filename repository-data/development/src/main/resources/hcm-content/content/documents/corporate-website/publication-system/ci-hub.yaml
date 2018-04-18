@@ -36,10 +36,11 @@
         publicationsystem:title: ''
       common:searchable: true
       hippo:availability: []
+      hippostd:holder: admin
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-23T14:54:36.279Z
-      hippostdpubwf:lastModificationDate: 2018-04-17T14:25:24.197Z
+      hippostdpubwf:lastModificationDate: 2018-04-18T16:39:12.109Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: be1317d6-5605-40f4-a2f3-1195643d6549
       hippotranslation:locale: en
@@ -48,7 +49,7 @@
       jcr:primaryType: publicationsystem:cilanding
       jcr:uuid: 2a907018-5360-4a02-99a0-9264b72d828f
       publicationsystem:actionLinkName: Browse CCG Outcomes
-      publicationsystem:actionLinkRelPath: search/category/clinical-commissioning-groups-outcomes-framework/category/team/category/clinical-indicators
+      publicationsystem:actionLinkRelPath: search/category/clinical-commissioning-groups-outcomes-framework/category/team/category/clinical-indicators?sort=relevance&area=data
       publicationsystem:title: CCG Outcomes - Indicator Set
     /ccg-outcomes[2]:
       /publicationsystem:cilandingasset:
@@ -89,7 +90,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-23T14:54:36.279Z
-      hippostdpubwf:lastModificationDate: 2018-04-17T14:20:36.535Z
+      hippostdpubwf:lastModificationDate: 2018-04-18T16:38:45.711Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: be1317d6-5605-40f4-a2f3-1195643d6549
       hippotranslation:locale: en
@@ -99,7 +100,7 @@
       jcr:primaryType: publicationsystem:cilanding
       jcr:uuid: dc137559-ee4b-4351-98a4-83eb9629411e
       publicationsystem:actionLinkName: Browse CCG Outcomes
-      publicationsystem:actionLinkRelPath: search/category/clinical-commissioning-groups-outcomes-framework/category/team/category/clinical-indicators
+      publicationsystem:actionLinkRelPath: search/category/clinical-commissioning-groups-outcomes-framework/category/team/category/clinical-indicators?sort=relevance&area=data
       publicationsystem:title: CCG Outcomes - Indicator Set
     /ccg-outcomes[3]:
       /publicationsystem:cilandingasset:
@@ -140,9 +141,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-01-23T14:54:36.279Z
-      hippostdpubwf:lastModificationDate: 2018-04-17T14:20:36.535Z
+      hippostdpubwf:lastModificationDate: 2018-04-18T16:38:45.711Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-04-17T14:20:39.125Z
+      hippostdpubwf:publicationDate: 2018-04-18T16:38:48.071Z
       hippotranslation:id: be1317d6-5605-40f4-a2f3-1195643d6549
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -150,7 +151,7 @@
       jcr:primaryType: publicationsystem:cilanding
       jcr:uuid: db20367d-5087-4612-a52f-c27ddd1c8723
       publicationsystem:actionLinkName: Browse CCG Outcomes
-      publicationsystem:actionLinkRelPath: search/category/clinical-commissioning-groups-outcomes-framework/category/team/category/clinical-indicators
+      publicationsystem:actionLinkRelPath: search/category/clinical-commissioning-groups-outcomes-framework/category/team/category/clinical-indicators?sort=relevance&area=data
       publicationsystem:title: CCG Outcomes - Indicator Set
     hippo:name: CCG Outcomes
     jcr:mixinTypes:
@@ -679,243 +680,6 @@
     - mix:referenceable
     jcr:primaryType: hippo:handle
     jcr:uuid: 2877ffb8-5ea8-4a4f-b0d2-d6cec1506f24
-  /main-sections:
-    /main-sections[1]:
-      /publicationsystem:cihublink[1]:
-        /publicationsystem:pagelink:
-          hippo:docbase: a35c56f4-1a16-46d8-a76e-97afcff09afa
-          jcr:primaryType: hippo:mirror
-        jcr:primaryType: publicationsystem:cihublink
-        publicationsystem:summary: The CCG Outcomes Indicator Set (CCG OIS) is an
-          integral part of NHS England’s systematic approach to quality improvement.
-        publicationsystem:title: Clinical Commissioning Group Outcomes Indicator Set
-      /publicationsystem:cihublink[2]:
-        /publicationsystem:pagelink:
-          hippo:docbase: 2877ffb8-5ea8-4a4f-b0d2-d6cec1506f24
-          jcr:primaryType: hippo:mirror
-        jcr:primaryType: publicationsystem:cihublink
-        publicationsystem:summary: A wide-ranging collection of over 1,000 indicators
-          designed to provide a comprehensive overview of population health at a national,
-          regional and local level. These indicators were previously available on
-          the Clinical and Health Outcomes Knowledge Base website (also known as NCHOD).
-        publicationsystem:title: Compendium of Population Health Indicators
-      /publicationsystem:cihublink[3]:
-        /publicationsystem:pagelink:
-          hippo:docbase: a6ac8e34-e305-41a1-adc6-36027dc3dff2
-          jcr:primaryType: hippo:mirror
-        jcr:primaryType: publicationsystem:cihublink
-        publicationsystem:summary: The latest figures for the Adult Social Care Outcomes
-          Framework (ASCOF) for 2015-16 were released in October 2016. In total, there
-          are 22 measures which are designed to enable users to compare the effectiveness
-          of care delivered by councils responsible for adult social care services
-          in England.
-        publicationsystem:title: Social Care
-      /publicationsystem:cihublink[4]:
-        /publicationsystem:pagelink:
-          hippo:docbase: 08f3157a-b3c4-4496-a6e5-0855c43301bd
-          jcr:primaryType: hippo:mirror
-        jcr:primaryType: publicationsystem:cihublink
-        publicationsystem:summary: The CCG Outcomes Indicator Set (CCG OIS) is an
-          integral part of NHS England’s systematic approach to quality improvement.
-        publicationsystem:title: NHS Outcomes Framework
-      /publicationsystem:cihublink[5]:
-        /publicationsystem:pagelink:
-          hippo:docbase: 2b6ca5d1-61e4-4d01-a05e-d209d309c15c
-          jcr:primaryType: hippo:mirror
-        jcr:primaryType: publicationsystem:cihublink
-        publicationsystem:summary: A wide-ranging collection of over 1,000 indicators
-          designed to provide a comprehensive overview of population health at a national,
-          regional and local level. These indicators were previously available on
-          the Clinical and Health Outcomes Knowledge Base website (also known as NCHOD).
-        publicationsystem:title: Summary Hospital-level Mortality Indicator (SHMI)
-      /publicationsystem:cihublink[6]:
-        /publicationsystem:pagelink:
-          hippo:docbase: bf0cccd0-840b-4d7b-b71f-03b25454deba
-          jcr:primaryType: hippo:mirror
-        jcr:primaryType: publicationsystem:cihublink
-        publicationsystem:summary: 'NOTE: This will launch digital.nhs.uk/GP-data-hub
-          Inc copy..'
-        publicationsystem:title: Patient Online Management Information (POMI)
-      common:searchable: true
-      hippo:availability: []
-      hippostd:holder: admin
-      hippostd:state: draft
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2018-01-23T20:43:17.900Z
-      hippostdpubwf:lastModificationDate: 2018-04-17T13:54:54.047Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 1fd89de7-8dba-47ac-9565-dc86bfa2892b
-      hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:referenceable
-      jcr:primaryType: publicationsystem:cihub
-      jcr:uuid: 97d59a08-00e6-4086-980c-172d761017ee
-      publicationsystem:summary: "This is a collection of over a thousand datasets\
-        \ that we publish. The information is for clinical staff, commissioners, researchers,\
-        \ and others needing data and evidence to help with decision-making in health\
-        \ and care.\r\n\r\nA wide variety of subjects are covered, ranging from quality\
-        \ through to population health and the outcome of treatments."
-      publicationsystem:title: Clinical Indicators
-    /main-sections[2]:
-      /publicationsystem:cihublink[1]:
-        /publicationsystem:pagelink:
-          hippo:docbase: a35c56f4-1a16-46d8-a76e-97afcff09afa
-          jcr:primaryType: hippo:mirror
-        jcr:primaryType: publicationsystem:cihublink
-        publicationsystem:summary: The CCG Outcomes Indicator Set (CCG OIS) is an
-          integral part of NHS England’s systematic approach to quality improvement.
-        publicationsystem:title: Clinical Commissioning Group Outcomes Indicator Set
-      /publicationsystem:cihublink[2]:
-        /publicationsystem:pagelink:
-          hippo:docbase: 2877ffb8-5ea8-4a4f-b0d2-d6cec1506f24
-          jcr:primaryType: hippo:mirror
-        jcr:primaryType: publicationsystem:cihublink
-        publicationsystem:summary: A wide-ranging collection of over 1,000 indicators
-          designed to provide a comprehensive overview of population health at a national,
-          regional and local level. These indicators were previously available on
-          the Clinical and Health Outcomes Knowledge Base website (also known as NCHOD).
-        publicationsystem:title: Compendium of Population Health Indicators
-      /publicationsystem:cihublink[3]:
-        /publicationsystem:pagelink:
-          hippo:docbase: a6ac8e34-e305-41a1-adc6-36027dc3dff2
-          jcr:primaryType: hippo:mirror
-        jcr:primaryType: publicationsystem:cihublink
-        publicationsystem:summary: The latest figures for the Adult Social Care Outcomes
-          Framework (ASCOF) for 2015-16 were released in October 2016. In total, there
-          are 22 measures which are designed to enable users to compare the effectiveness
-          of care delivered by councils responsible for adult social care services
-          in England.
-        publicationsystem:title: Social Care
-      /publicationsystem:cihublink[4]:
-        /publicationsystem:pagelink:
-          hippo:docbase: 08f3157a-b3c4-4496-a6e5-0855c43301bd
-          jcr:primaryType: hippo:mirror
-        jcr:primaryType: publicationsystem:cihublink
-        publicationsystem:summary: The CCG Outcomes Indicator Set (CCG OIS) is an
-          integral part of NHS England’s systematic approach to quality improvement.
-        publicationsystem:title: NHS Outcomes Framework
-      /publicationsystem:cihublink[5]:
-        /publicationsystem:pagelink:
-          hippo:docbase: 2b6ca5d1-61e4-4d01-a05e-d209d309c15c
-          jcr:primaryType: hippo:mirror
-        jcr:primaryType: publicationsystem:cihublink
-        publicationsystem:summary: A wide-ranging collection of over 1,000 indicators
-          designed to provide a comprehensive overview of population health at a national,
-          regional and local level. These indicators were previously available on
-          the Clinical and Health Outcomes Knowledge Base website (also known as NCHOD).
-        publicationsystem:title: Summary Hospital-level Mortality Indicator (SHMI)
-      /publicationsystem:cihublink[6]:
-        /publicationsystem:pagelink:
-          hippo:docbase: bf0cccd0-840b-4d7b-b71f-03b25454deba
-          jcr:primaryType: hippo:mirror
-        jcr:primaryType: publicationsystem:cihublink
-        publicationsystem:summary: 'NOTE: This will launch digital.nhs.uk/GP-data-hub
-          Inc copy..'
-        publicationsystem:title: Patient Online Management Information (POMI)
-      common:searchable: true
-      hippo:availability:
-      - preview
-      hippostd:state: unpublished
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2018-01-23T20:43:17.900Z
-      hippostdpubwf:lastModificationDate: 2018-01-25T11:04:11.104Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 1fd89de7-8dba-47ac-9565-dc86bfa2892b
-      hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:referenceable
-      - mix:versionable
-      jcr:primaryType: publicationsystem:cihub
-      jcr:uuid: e6383c92-d5c8-40f7-8c42-2cd17f0e1224
-      publicationsystem:summary: "This is a collection of over a thousand datasets\
-        \ that we publish. The information is for clinical staff, commissioners, researchers,\
-        \ and others needing data and evidence to help with decision-making in health\
-        \ and care.\r\n\r\nA wide variety of subjects are covered, ranging from quality\
-        \ through to population health and the outcome of treatments."
-      publicationsystem:title: Clinical Indicators
-    /main-sections[3]:
-      /publicationsystem:cihublink[1]:
-        /publicationsystem:pagelink:
-          hippo:docbase: a35c56f4-1a16-46d8-a76e-97afcff09afa
-          jcr:primaryType: hippo:mirror
-        jcr:primaryType: publicationsystem:cihublink
-        publicationsystem:summary: The CCG Outcomes Indicator Set (CCG OIS) is an
-          integral part of NHS England’s systematic approach to quality improvement.
-        publicationsystem:title: Clinical Commissioning Group Outcomes Indicator Set
-      /publicationsystem:cihublink[2]:
-        /publicationsystem:pagelink:
-          hippo:docbase: 2877ffb8-5ea8-4a4f-b0d2-d6cec1506f24
-          jcr:primaryType: hippo:mirror
-        jcr:primaryType: publicationsystem:cihublink
-        publicationsystem:summary: A wide-ranging collection of over 1,000 indicators
-          designed to provide a comprehensive overview of population health at a national,
-          regional and local level. These indicators were previously available on
-          the Clinical and Health Outcomes Knowledge Base website (also known as NCHOD).
-        publicationsystem:title: Compendium of Population Health Indicators
-      /publicationsystem:cihublink[3]:
-        /publicationsystem:pagelink:
-          hippo:docbase: a6ac8e34-e305-41a1-adc6-36027dc3dff2
-          jcr:primaryType: hippo:mirror
-        jcr:primaryType: publicationsystem:cihublink
-        publicationsystem:summary: The latest figures for the Adult Social Care Outcomes
-          Framework (ASCOF) for 2015-16 were released in October 2016. In total, there
-          are 22 measures which are designed to enable users to compare the effectiveness
-          of care delivered by councils responsible for adult social care services
-          in England.
-        publicationsystem:title: Social Care
-      /publicationsystem:cihublink[4]:
-        /publicationsystem:pagelink:
-          hippo:docbase: 08f3157a-b3c4-4496-a6e5-0855c43301bd
-          jcr:primaryType: hippo:mirror
-        jcr:primaryType: publicationsystem:cihublink
-        publicationsystem:summary: The CCG Outcomes Indicator Set (CCG OIS) is an
-          integral part of NHS England’s systematic approach to quality improvement.
-        publicationsystem:title: NHS Outcomes Framework
-      /publicationsystem:cihublink[5]:
-        /publicationsystem:pagelink:
-          hippo:docbase: 2b6ca5d1-61e4-4d01-a05e-d209d309c15c
-          jcr:primaryType: hippo:mirror
-        jcr:primaryType: publicationsystem:cihublink
-        publicationsystem:summary: A wide-ranging collection of over 1,000 indicators
-          designed to provide a comprehensive overview of population health at a national,
-          regional and local level. These indicators were previously available on
-          the Clinical and Health Outcomes Knowledge Base website (also known as NCHOD).
-        publicationsystem:title: Summary Hospital-level Mortality Indicator (SHMI)
-      /publicationsystem:cihublink[6]:
-        /publicationsystem:pagelink:
-          hippo:docbase: bf0cccd0-840b-4d7b-b71f-03b25454deba
-          jcr:primaryType: hippo:mirror
-        jcr:primaryType: publicationsystem:cihublink
-        publicationsystem:summary: 'NOTE: This will launch digital.nhs.uk/GP-data-hub
-          Inc copy..'
-        publicationsystem:title: Patient Online Management Information (POMI)
-      common:searchable: true
-      hippo:availability:
-      - live
-      hippostd:state: published
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2018-01-23T20:43:17.900Z
-      hippostdpubwf:lastModificationDate: 2018-01-25T11:04:11.104Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-01-25T11:04:15.437Z
-      hippotranslation:id: 1fd89de7-8dba-47ac-9565-dc86bfa2892b
-      hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:referenceable
-      jcr:primaryType: publicationsystem:cihub
-      jcr:uuid: 06081220-19b1-4f3b-957b-a9d4365229fe
-      publicationsystem:summary: "This is a collection of over a thousand datasets\
-        \ that we publish. The information is for clinical staff, commissioners, researchers,\
-        \ and others needing data and evidence to help with decision-making in health\
-        \ and care.\r\n\r\nA wide variety of subjects are covered, ranging from quality\
-        \ through to population health and the outcome of treatments."
-      publicationsystem:title: Clinical Indicators
-    hippo:name: Main Sections
-    jcr:mixinTypes:
-    - hippo:named
-    - mix:referenceable
-    jcr:primaryType: hippo:handle
-    jcr:uuid: 1e0afe8d-4fb2-4528-83f7-98713d9215d4
   /nhs-outcomes-framework:
     /nhs-outcomes-framework[1]:
       /publicationsystem:cilandingasset:
