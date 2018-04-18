@@ -16,27 +16,21 @@ import java.util.stream.Stream;
 public class TaxonomyFacet {
     private static final Logger log = LoggerFactory.getLogger(TaxonomyFacet.class);
 
-    private final Taxonomy taxonomy;
-
     private final Category taxonomyCategory;
     private final HippoFolderBean facetBean;
 
     private List<TaxonomyFacet> children = new ArrayList<>();
 
     public TaxonomyFacet(Taxonomy taxonomy, String key, HippoFolderBean facetBean) {
-        this.taxonomy = taxonomy;
         this.taxonomyCategory = taxonomy.getCategoryByKey(key);
         this.facetBean = facetBean;
     }
 
     public String getValueName() {
-        String key = taxonomyCategory.getKey();
-        Category taxonomyCategory = taxonomy.getCategoryByKey(key);
-
         if (taxonomyCategory == null) {
-            log.error("No taxonomy for key: " + key);
+            log.error("No taxonomy for key: " + facetBean.getName());
 
-            return "Invalid Taxonomy: " + key;
+            return "Invalid Taxonomy: " + facetBean.getName();
         } else {
             return taxonomyCategory.getInfo(Locale.UK).getName();
         }
