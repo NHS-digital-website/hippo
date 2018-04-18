@@ -19,19 +19,20 @@
                     <hr class="hr hr--short hr--light">
 
                     <#if document.events?size gt 0>
-
                     <div class="tabbed-detail-list">
                         <#-- [FTL-BEGIN] List of date ranges -->
                         <#list document.events as event>
                         
-                        <#if document.events?size gt 1>
-                        <h4 class="tabbed-detail-title">Dates #${event?counter}</h4>
-                        </#if>
-
-                        <div class="tabbed-detail">
-                            <@fmt.formatDate value=event.startdatetime.time type="Date" pattern="yyyy-MM-dd" var="comparableStartDate"/>
+                        <@fmt.formatDate value=event.startdatetime.time type="Date" pattern="yyyy-MM-dd" var="comparableStartDate"/>
                             <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="yyyy-MM-dd" var="comparableEndDate"/>
-                            
+                        <#assign validDate = (comparableStartDate?? && comparableEndDate??) />
+
+                        <#if document.events?size gt 1 && validDate>
+                        <h4 class="tabbed-detail-title">Dates #${event?counter}</h4>
+                        </#if>   
+
+                        <#if validDate>
+                        <div class="tabbed-detail">                            
                             <#if comparableStartDate == comparableEndDate>
                             <dl class="tabbed-detail__wrapper">
                                 <dt class="tabbed-detail__key">Date:</dt>
@@ -57,6 +58,7 @@
                                 </dd>
                             </dl>
                         </div>
+                        </#if>
                         </#list>
                         <#-- [FTL-END] List of date ranges -->
 
