@@ -113,6 +113,9 @@
             padding-right: 0;
         }
 
+        &.is-hidden {
+           display: none;
+        }
     }
 
     .filter-list__controller a {

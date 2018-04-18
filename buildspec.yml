@@ -44,8 +44,6 @@ phases:
 
   build:
     commands:
-      # Test
-      - cd ci-cd && make test.site
       # Tag
       - ssh-agent bash -c "
         ssh-add $HOME/.ssh/nhs-ci_rsa && cd ci-cd &&
