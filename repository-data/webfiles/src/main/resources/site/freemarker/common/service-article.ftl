@@ -16,7 +16,7 @@
         </div>
 
         <div class="grid-row">
-            <div class="column column--one-third page-block page-block--sidebar page-block--sticky-top">
+            <div class="column column--one-third page-block page-block--sidebar sticky sticky--top">
                 <div class="article-section-nav">
                     <h2 class="article-section-nav__title">Page contents</h2>
                     <hr>
@@ -56,7 +56,7 @@
                 <#if document.toptasks?has_content>
                 <div class="article-section article-section--highlighted">
                     <div class="callout callout--attention">
-                        <h2>Top Tasks</h2>
+                        <h2>Top tasks</h2>
                         <div class="rich-text-content">
                             <#list document.toptasks as toptask>
                             <@hst.html hippohtml=toptask contentRewriter=gaContentRewriter/>

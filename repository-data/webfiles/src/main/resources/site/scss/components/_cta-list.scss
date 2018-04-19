@@ -22,9 +22,11 @@
     @include clearfix;
 
     .cta {
-        @include media($max-width: $min-desktop-width) {
-            margin-bottom: $vertical-gap;
-        }
+        margin-bottom: $vertical-gap;
+    }
+
+    .cta--detailed {
+        margin-bottom: 0;
     }
 }
 

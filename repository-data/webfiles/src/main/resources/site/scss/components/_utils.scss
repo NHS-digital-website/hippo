@@ -23,3 +23,15 @@
 .strong {
     font-weight: 600;
 }
+
+.sticky {
+    @include media($min-width: $min-desktop-width) {
+        position: -webkit-sticky;
+        position: sticky;
+        z-index: 1;
+
+        &.sticky--top {
+            top: 0;
+        }
+    }
+}

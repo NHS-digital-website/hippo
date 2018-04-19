@@ -12,8 +12,25 @@
   margin-bottom: $default-spacing-unit * 2.75;
 }
 
+@include media(desktop) {
+    .page-block--sidebar + .page-block--main {
+        padding-left: $gutter * 1.5;
+    }
+}
+
 .page-block--sticky-top {
   top: 0;
+
+  @include media(desktop) {
+    padding-right: round($default-spacing-unit * 1.5);
+    padding-left: 0;
+    position: sticky;
+    position: -webkit-sticky;
+  }
+}
+
+.page-block--sticky-bottom {
+  bottom: 0;
 
   @include media(desktop) {
     padding-right: round($default-spacing-unit * 1.5);
