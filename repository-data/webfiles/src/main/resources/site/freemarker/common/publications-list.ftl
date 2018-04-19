@@ -2,8 +2,6 @@
 <#include "../include/imports.ftl">
 <#setting date_format="dd MMMM yyyy">
 
-<#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
-
 <#-- @ftlvariable name="item" type="uk.nhs.digital.ps.beans.Publication" -->
 <#if pageable?? && pageable.items?has_content>
     <div class="content-box content-box--secondary content-box--visible-sections content-box--latest-publications">
@@ -34,7 +32,7 @@
                 </#list>
             </ol>
         </div>
-        
+
         <div class="grid-row">
             <div class="column">
                 <a href="search?sort=relevance&area=data" class="link">View the latest publications</a>

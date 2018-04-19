@@ -2,11 +2,8 @@
 <#include "../include/imports.ftl">
 <#include "./macro/structured-text.ftl">
 <@hst.setBundle basename="publicationsystem.headers,publicationsystem.labels"/>
-<#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
 
-<#assign dateFormat="dd MMM yyyy"/>
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() >
-<#assign formatCoverageDates="uk.nhs.digital.ps.directives.CoverageDatesFormatterDirective"?new() >
 
 <#if dataset??>
 
@@ -81,7 +78,7 @@
                     <dl class="media__body">
                         <dt><@fmt.message key="headers.next-publication-date"/></dt>
                         <dd data-uipath="ps.dataset.next-publication-date">
-                            ${dataset.nextPublicationDate.time?string[dateFormat]}
+                            <@formatDate date=dataset.nextPublicationDate.time/>
                         </dd>
                     </dl>
                 </div>

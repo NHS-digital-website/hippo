@@ -4,9 +4,9 @@ import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoDocument;
 import uk.nhs.digital.common.enums.Region;
+import uk.nhs.digital.ps.directives.DateFormatterDirective;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.List;
 
@@ -53,10 +53,9 @@ public abstract class BaseDocument extends HippoDocument {
      */
     protected RestrictableDate nominalPublicationDateCalendarToRestrictedDate(final Calendar calendar) {
 
-        final LocalDate nominalPublicationDate = LocalDateTime.ofInstant(
-            calendar.toInstant(),
-            calendar.getTimeZone().toZoneId()
-        ).toLocalDate();
+        final LocalDate nominalPublicationDate = calendar.toInstant()
+            .atZone(DateFormatterDirective.TIME_ZONE.toZoneId())
+            .toLocalDate();
 
         final LocalDate cutOffPoint = LocalDate.now().plusWeeks(WEEKS_TO_CUTOFF);
 

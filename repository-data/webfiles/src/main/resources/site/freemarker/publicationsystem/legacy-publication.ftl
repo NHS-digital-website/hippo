@@ -1,10 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <#include "./macro/structured-text.ftl">
-<#assign dateFormat="dd/MM/yyyy"/>
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() />
-<#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
-<#assign formatCoverageDates="uk.nhs.digital.ps.directives.CoverageDatesFormatterDirective"?new() />
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 
 <#-- Add meta tags -->
@@ -68,7 +65,7 @@
     <div class="local-header article-header article-header--detailed">
         <div class="grid-wrapper">
             <div class="article-header__inner">
-                
+
                 <@nationalStatsStamp/>
 
                 <span class="article-header__label"><@fmt.message key="labels.publication"/></span>

@@ -30,14 +30,14 @@
                 <ul class="footer__inner__sharelist">
                   <li class="footer__inner__sharelist__item">Follow us:</li>
                   <li class="footer__inner__sharelist__item">
-                    <a href="https://twitter.com/NHSDigital" title="" class="footer__inner__sharelist__item__link">
-                      <img src="https://digital.nhs.uk/media/297/Twitter-Icon/icon/Twitter_Logo_White_On_Blue" srcset="https://digital.nhs.uk/media/297/Twitter-Icon/icon@2x/Twitter_Logo_White_On_Blue 2x" alt="Twitter">
-                    </a>
+                      <a href="https://twitter.com/NHSDigital" title="" class="footer__inner__sharelist__item__link" target="_blank">
+                          <img src="<@hst.webfile  path="images/icon-twitter.png"/>" alt="Twitter logo" class="image-icon" width="30"/>
+                      </a>
                   </li>
                   <li class="footer__inner__sharelist__item">
-                    <a href="https://www.linkedin.com/company/nhs-digital" title="" class="footer__inner__sharelist__item__link">
-                      <img src="https://digital.nhs.uk/media/296/LinkedIn-Icon/icon/In-2C-128px-R" srcset="https://digital.nhs.uk/media/296/LinkedIn-Icon/icon@2x/In-2C-128px-R 2x" alt="Icon for LinkedIn">
-                    </a>
+                      <a href="https://www.linkedin.com/company/nhs-digital" title="" class="footer__inner__sharelist__item__link" target="_blank">
+                          <img src="<@hst.webfile  path="images/icon-linkedin.png"/>" alt="Linkedin logo" class="image-icon" width="30" />
+                      </a>
                   </li>
                 </ul>
             </div>
