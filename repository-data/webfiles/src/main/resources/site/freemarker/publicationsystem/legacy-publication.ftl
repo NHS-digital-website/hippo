@@ -156,7 +156,7 @@
 <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
     <div class="grid-row">
         <#if renderNav>
-        <div class="column column--one-third page-block page-block--sidebar page-block--sticky-top">
+        <div class="column column--one-third page-block page-block--sidebar sticky sticky--top">
             <div class="article-section-nav">
                 <h2 class="article-section-nav__title">Page contents</h2>
                 <hr>

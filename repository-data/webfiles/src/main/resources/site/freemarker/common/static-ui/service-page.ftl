@@ -9,7 +9,7 @@
         </div>
 
         <div class="grid-row">
-            <div class="column column--one-third page-block page-block--sidebar page-block--sticky-top">
+            <div class="column column--one-third page-block page-block--sidebar sticky sticky--top">
                 <#include "shared/section-nav.ftl" />
             </div>
 

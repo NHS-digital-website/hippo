@@ -80,7 +80,7 @@
         <#assign alphabetical_hash = group_blocks(flat_blocks(document.blocks true))/>
 
         <div class="grid-row">
-            <div class="column column--one-third page-block page-block--sidebar page-block--sticky-top">
+            <div class="column column--one-third page-block page-block--sidebar sticky sticky--top">
                 <#if alphabetical_hash??>
                 <@alphabeticalFilterNav alphabetical_hash></@alphabeticalFilterNav>
                 </#if>
