@@ -123,6 +123,24 @@
     }
 }
 
+.article-section--contact {
+    .rich-text-content {
+        padding-left: $gutter;
+        border-left: 3px solid $col-senary;
+
+        a {
+            color: $col-quaternary;
+            text-decoration: none;
+
+            @include bold-font(18);
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
 
 
 /* About us section */
