@@ -1,7 +1,5 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
-<#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
-<#assign formatCoverageDates="uk.nhs.digital.ps.directives.CoverageDatesFormatterDirective"?new() />
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() />
 <#assign interpHasContent=indicator.details.interpretationGuidelines.content?has_content>
 <#assign caveatsHasContent=indicator.details.caveats.content?has_content>
@@ -17,14 +15,14 @@
         <div class="layout">
             <div class="layout__item layout-1-2">
                 <p class="push-half--bottom" data-uipath="publishedBy"><strong><@fmt.message key="headers.publishedBy"/></strong>: ${indicator.publishedBy}</p>
-                <p class="push-half--bottom" data-uipath="assuranceDate"><strong><@fmt.message key="headers.assuranceDate"/></strong>: ${indicator.assuranceDate.time?string[dateFormat]}</p>
+                <p class="push-half--bottom" data-uipath="assuranceDate"><strong><@fmt.message key="headers.assuranceDate"/></strong>: <@formatDate date=indicator.assuranceDate.time/></p>
                 <p class="push-half--bottom" data-uipath="reportingPeriod"><strong><@fmt.message key="headers.reportingPeriod"/></strong>: ${indicator.topbar.reportingPeriod}</p>
                 <p class="push-half--bottom" data-uipath="basedOn"><strong><@fmt.message key="headers.basedOn"/></strong>: ${indicator.topbar.basedOn}</p>
             </div><!--
             --><div class="layout__item layout-1-2">
                 <p class="push-half--bottom" data-uipath="contactAuthor"><strong><@fmt.message key="headers.contactAuthor"/></strong>: <a href="mailto:${indicator.topbar.contactAuthor.contactAuthorEmail}"> ${indicator.topbar.contactAuthor.contactAuthorName}</a></p>
                 <p class="push-half--bottom" data-uipath="reportingLevel"><strong><@fmt.message key="headers.reportingLevel"/></strong>: ${indicator.reportingLevel}</p>
-                <p class="push-half--bottom" data-uipath="reviewDate"><strong><@fmt.message key="headers.reviewDate"/></strong>: ${indicator.topbar.reviewDate.time?string[dateFormat]}</p>
+                <p class="push-half--bottom" data-uipath="reviewDate"><strong><@fmt.message key="headers.reviewDate"/></strong>: <@formatDate date=indicator.topbar.reviewDate.time/></p>
                 <#if indicator.geographicCoverage?has_content>
                     <div class="flex__item">
                         <div class="media">

@@ -82,7 +82,6 @@
       jcr:primaryType: hippostd:html
     common:searchable: true
     hippo:availability: []
-    hippostd:holder: admin
     hippostd:state: draft
     hippostdpubwf:createdBy: mashuk.reza
     hippostdpubwf:creationDate: 2018-04-04T10:23:22.513Z

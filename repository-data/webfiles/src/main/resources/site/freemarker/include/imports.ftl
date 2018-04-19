@@ -1,12 +1,13 @@
 <#ftl output_format="HTML">
 <#include "../externalstorage/resource.ftl">
 
-<#assign dateFormat="dd/MM/yyyy"/>
-
 <#assign hst=JspTaglibs["http://www.hippoecm.org/jsp/hst/core"] >
 <#assign fmt=JspTaglibs["http://java.sun.com/jsp/jstl/fmt"] >
 
 <#assign truncate="uk.nhs.digital.ps.directives.TruncateFormatterDirective"?new() >
+<#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
+<#assign formatCoverageDates="uk.nhs.digital.ps.directives.CoverageDatesFormatterDirective"?new() >
+<#assign formatDate="uk.nhs.digital.ps.directives.DateFormatterDirective"?new() >
 
 <@hst.defineObjects />
 
@@ -33,7 +34,7 @@
             <#break>
         </#if>
     </#list>
-    
+
     <#return docType/>
 </#function>
 

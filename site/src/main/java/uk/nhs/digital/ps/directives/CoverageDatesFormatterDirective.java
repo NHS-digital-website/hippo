@@ -3,10 +3,11 @@ package uk.nhs.digital.ps.directives;
 import static java.text.MessageFormat.format;
 
 import freemarker.core.Environment;
-import freemarker.template.*;
+import freemarker.template.TemplateDirectiveBody;
+import freemarker.template.TemplateException;
+import freemarker.template.TemplateModel;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
@@ -20,7 +21,7 @@ import java.util.Map;
  * </pre>
  *
  */
-public class CoverageDatesFormatterDirective implements TemplateDirectiveModel {
+public class CoverageDatesFormatterDirective extends DateFormatterDirective {
 
     private static final String START_PARAM_NAME = "start";
     private static final String END_PARAM_NAME = "end";
@@ -44,23 +45,7 @@ public class CoverageDatesFormatterDirective implements TemplateDirectiveModel {
         if (start.equals(end)) {
             return format("{0} {1}", SNAPSHOT_WORDING ,formatDate(start));  // Snapshot date
         } else {
-            return format("{0} to {1}", formatDate(start), formatDate(end));            // Range date
-        }
-    }
-
-    private String formatDate(final Date dateToFormat) {
-        SimpleDateFormat requiredFormat = new SimpleDateFormat("dd MMM yyyy");
-        return requiredFormat.format(dateToFormat);
-    }
-
-    private Date getValueAsDate(final Map parameters, final String paramName) {
-        return ((SimpleDate)parameters.get(paramName)).getAsDate();
-    }
-
-    private void assertRequiredParameterPresent(final Map parameters, final Environment environment, String parameterName) throws TemplateException {
-        if (!parameters.containsKey(parameterName)) {
-            throw new TemplateException(format("Required parameter ''{0}'' was not provided to template {1}.",
-                parameterName, getClass().getName()), environment);
+            return format("{0} to {1}", formatDate(start), formatDate(end)); // Range date
         }
     }
 }

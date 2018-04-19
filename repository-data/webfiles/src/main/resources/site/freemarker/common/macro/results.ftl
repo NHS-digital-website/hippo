@@ -1,7 +1,5 @@
 <#ftl output_format="HTML">
 <@hst.setBundle basename="publicationsystem.labels,nationalindicatorlibrary.headers,nationalindicatorlibrary.labels,website.labels"/>
-<#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
-<#assign dateFormat="dd/MM/yyyy"/>
 
 <#macro searchResults items>
     <div class="cta-list">
@@ -44,7 +42,7 @@
             <div class="cta__stamped-header">
                 <div class="cta__stamped-header-col cta__stamped-header-col--left">
         </#if>
-        
+
         <div>
             <h3 class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publication"/></h3>
         </div>
@@ -96,7 +94,7 @@
             ${item.title}
         </a>
         <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.summary.firstParagraph size="300"/></p>
-        
+
         <#if item.latestPublication??>
         <p class="cta__text" data-uipath="ps.search-results.result.latest-publication">
             Latest publication:
@@ -149,8 +147,8 @@
                 <div class="cta__metas">
                     <span class="cta__meta" data-uipath="ps.search-results.result.assured-status"><@fmt.message key="labels.assured"/></span>
                     <span class="cta__meta" data-uipath="ps.search-results.result.publisher-and-date">
-                    <span class="strong"><@fmt.message key="headers.publishedBy"/>:</span> ${item.publishedBy}. 
-                    <span class="strong"><@fmt.message key="headers.assured"/>:</span> ${item.assuranceDate.time?string[dateFormat]}</span>
+                    <span class="strong"><@fmt.message key="headers.publishedBy"/>:</span> ${item.publishedBy}.
+                    <span class="strong"><@fmt.message key="headers.assured"/>:</span> <@formatDate date=item.assuranceDate.time/></span>
                 </div>
                 <div class="cta__badge">
                     <span data-uipath="ps.search-results.result.assured-indicator-icon" title="Assured Indicator" class="badge badge--assured"></span>
@@ -159,7 +157,7 @@
         <#else>
             <div class="cta__metas">
                 <span class="cta__meta" data-uipath="ps.search-results.result.assured-status"><@fmt.message key="labels.unassured"/></span>
-                <span class="cta__meta" data-uipath="ps.search-results.result.publisher-and-date"><span class="strong"><@fmt.message key="headers.publishedBy"/>:</span> ${item.publishedBy}. <@fmt.message key="headers.unassured"/>: ${item.assuranceDate.time?string[dateFormat]}</span>
+                <span class="cta__meta" data-uipath="ps.search-results.result.publisher-and-date"><span class="strong"><@fmt.message key="headers.publishedBy"/>:</span> ${item.publishedBy}. <@fmt.message key="headers.unassured"/>: <@formatDate date=item.assuranceDate.time/></span>
             </div>
         </#if>
     </div>
