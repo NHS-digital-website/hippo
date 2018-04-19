@@ -60,6 +60,33 @@
     }
 }
 
+.article__label {
+    color: $col-18;
+
+    @include bold-font(26);
+}
+
+.article__date {
+    margin-bottom: $gutter * 3;
+
+    @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+        margin-bottom: $gutter * 1.5;
+    }
+}
+
+.article__warning {
+    .callout {
+        padding: $gutter 20px;
+        margin-bottom: $gutter * 1.5;
+    }
+
+    @include media($max-width: $min-tablet-width, $ignore-for-ie: true) {
+        .callout {
+            padding: $gutter;
+        }
+    }
+}
+
 .debug {
     .article:not(.article--list) {
         .article-section:first-of-type {

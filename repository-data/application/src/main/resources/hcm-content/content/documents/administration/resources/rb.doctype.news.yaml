@@ -1,0 +1,74 @@
+---
+/content/documents/administration/resources/rb.doctype.news:
+  /rb.doctype.news[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-26T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2018-02-22T14:13:41.631Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    resourcebundle:id: rb.doctype.news
+    resourcebundle:keys:
+    - headers.related-documents
+    - texts.copyright-warning
+    resourcebundle:messages:
+    - Related documents
+    - NHS Digital must be quoted as the source of these figures. Regional data available
+      in this report.
+  /rb.doctype.news[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-26T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2018-02-22T14:13:30.365Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    resourcebundle:id: rb.doctype.news
+    resourcebundle:keys:
+    - headers.related-documents
+    - texts.copyright-warning
+    resourcebundle:messages:
+    - Related documents
+    - NHS Digital must be quoted as the source of these figures. Regional data available
+      in this report.
+  /rb.doctype.news[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-26T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2018-02-22T14:13:30.365Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2018-05-03T13:23:27.852Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    resourcebundle:id: rb.doctype.news
+    resourcebundle:keys:
+    - headers.related-documents
+    - texts.copyright-warning
+    resourcebundle:messages:
+    - Related documents
+    - NHS Digital must be quoted as the source of these figures. Regional data available
+      in this report.
+  hippo:name: News Resource Bundle
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
