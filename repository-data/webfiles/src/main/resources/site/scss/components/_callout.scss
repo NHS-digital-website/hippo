@@ -31,6 +31,10 @@
   border-width: $baseline-grid-unit 0;
 }
 
+.callout--muted {
+    border: none;
+}
+
 .callout--alert {
   background-color: $red-10;
   border-top: $baseline-grid-unit * 2 solid $red;
