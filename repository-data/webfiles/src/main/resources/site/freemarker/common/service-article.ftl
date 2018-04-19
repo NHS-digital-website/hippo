@@ -32,7 +32,7 @@
                             <#if childPages?has_content>
                             <li><a href="#section-child-pages">${childPagesSectionTitle}</a></li>
                             </#if>
-                            <#if document.contactdetails.content?has_content>
+                            <#if document.contactdetails?? && document.contactdetails.content?has_content>
                             <li><a href="#section-contact-details">Contact details</a></li>
                             </#if>
                         </ol>
@@ -83,7 +83,7 @@
                 <@articleSections document.sections></@articleSections>
 
                 <#-- [FTL-BEGIN] 'Contact details' section -->
-                <#if document.contactdetails.content?has_content>
+                <#if document.contactdetails?? && document.contactdetails.content?has_content>
                 <div class="article-section article-section--contact" id="section-contact-details">
                     <h2>Contact details</h2>
                     <div class="rich-text-content">
