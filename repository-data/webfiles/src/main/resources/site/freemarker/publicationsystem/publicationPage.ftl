@@ -4,17 +4,22 @@
 <#include "./macro/pageIndex.ftl">
 <#include "./macro/publicationHeader.ftl">
 <#include "./publication.ftl">
-<@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 
-<@publicationHeader publication=page.publication/>
+<article class="article">
+    <@publicationHeader publication=page.publication/>
 
-<@pageIndex index=index/>
+    <div class="grid-wrapper grid-wrapper--article article-section" aria-label="Document Content">
+        <div class="grid-row article-section">
+            <@pageIndex index=index/>
 
-<section class="document-content" aria-label="Document Content">
-    <div>
-        <h1 data-uipath="ps.publication.page-title" title="${page.title}">${page.title}</h1>
-        <#if page.bodySections?has_content>
-            <@sections sections=page.bodySections />
-        </#if>
+            <div class="column column--two-thirds page-block page-block--main">
+                <div class="article-section">
+                    <h1 data-uipath="ps.publication.page-title" title="${page.title}">${page.title}</h1>
+                    <#if page.bodySections?has_content>
+                        <@sections sections=page.bodySections />
+                    </#if>
+                </div>
+            </div>
+        </div>
     </div>
-</section>
+</article>

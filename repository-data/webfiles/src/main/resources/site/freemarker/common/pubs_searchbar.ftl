@@ -16,7 +16,7 @@
                 <input type="text" name="query" id="query" class="search-banner__input" placeholder="${ghostText}" value="${query!""}" aria-label="Search box">
             </div>
             <div>
-                <button class="search-banner__button" id="btnSearch" value="Search">${buttonLabel}</button>
+                <button class="search-banner__button" data-uipath="search.button" value="Search">${buttonLabel}</button>
             </div>
         </form>
     </div>

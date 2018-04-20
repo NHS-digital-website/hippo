@@ -10,7 +10,7 @@
             <span class="common-search__input">
                 <input type="text" class="common-search__input__field" id="query" name="query" aria-label="Search box" placeholder="${ghostText}" value="${query!""}">
             </span>
-            <input type="submit" class="common-search__submit" id="btnSearch" value="Search">
+            <input type="submit" class="common-search__submit" data-uipath="search.button" value="Search">
         </div>
     </form>
 </section>

@@ -25,7 +25,7 @@ Feature: Ensure publication page displays required fields.
             | Etiam Placerat Arcu Dataset       |
             | publication-with-datasets Dataset |
         And I should also see "Publication Resources" with:
-            | attachment.pdf; size: 42.2 kB     |
+            | attachment.pdf; [size: 42.2 kB]   |
             | Related resource link             |
 
     Scenario: Display Related Links list
@@ -90,8 +90,8 @@ Feature: Ensure publication page displays required fields.
         Given I navigate to "attachment test publication" page
         Then I should see publication page titled "Attachment Test Publication"
         And I should also see "Publication Resources" with:
-            | attachment.pdf; size: 7.2 kB       |
-            | Attachment with text; size: 7.2 kB |
+            | attachment.pdf; [size: 7.2 kB]       |
+            | Attachment with text; [size: 7.2 kB] |
         And I can download following files:
             | attachment.pdf       | attachment.pdf      |
             | Attachment with text | attachment-text.pdf |
@@ -113,11 +113,6 @@ Feature: Ensure publication page displays required fields.
         Then I should also see:
             | Publication Information Types | Experimental statistics       |
         And I should not see element with title "National statistics"
-
-    Scenario: Sectioned body
-        Given I have a sectioned publication
-        When I navigate to the "sectioned publication" page
-        Then I can see the sectioned publication body
 
     Scenario: Geographic Coverage displays appropriate label based on selections
         Given I navigate to the "Geographic Coverage - Great Britain" page
