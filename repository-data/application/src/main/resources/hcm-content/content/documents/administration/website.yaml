@@ -7,7 +7,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-02-02T13:13:41.756Z
-      hippostdpubwf:lastModificationDate: 2018-02-14T09:16:37.502Z
+      hippostdpubwf:lastModificationDate: 2018-04-20T08:38:33.915Z
       hippostdpubwf:lastModifiedBy: admin
       jcr:mixinTypes:
       - mix:referenceable
@@ -28,6 +28,7 @@
       - ''
       - ''
       - ''
+      - Prefix of the news item date label
       resourcebundle:id: homepage.website.labels
       resourcebundle:keys:
       - search-banner.text
@@ -45,10 +46,11 @@
       - about-us.text
       - about-us.upcomingEventsTitle
       - about-us.upcomingEventsButtonLabel
+      - about-us.newsDateLabel
       resourcebundle:messages:
         type: string
         value:
-        - NHSS Digital provides technology, information and services, which help the
+        - NHS Digital provides technology, information and services, which help the
           NHS deliver better care
         - Search for content on the website
         - What are you looking for today?
@@ -67,13 +69,14 @@
           and social care.
         - Upcoming events
         - View all events
+        - Date published
     /homepage-labels[2]:
       hippo:availability:
       - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-02-02T13:13:41.756Z
-      hippostdpubwf:lastModificationDate: 2018-02-14T09:17:03.179Z
+      hippostdpubwf:lastModificationDate: 2018-04-20T08:38:47.741Z
       hippostdpubwf:lastModifiedBy: admin
       jcr:mixinTypes:
       - mix:referenceable
@@ -95,6 +98,7 @@
       - ''
       - ''
       - ''
+      - Prefix of the news item date label
       resourcebundle:id: homepage.website.labels
       resourcebundle:keys:
       - search-banner.text
@@ -112,10 +116,11 @@
       - about-us.text
       - about-us.upcomingEventsTitle
       - about-us.upcomingEventsButtonLabel
+      - about-us.newsDateLabel
       resourcebundle:messages:
         type: string
         value:
-        - NHSS Digital provides technology, information and services, which help the
+        - NHS Digital provides technology, information and services, which help the
           NHS deliver better care
         - Search for content on the website
         - What are you looking for today?
@@ -134,15 +139,16 @@
           and social care.
         - Upcoming events
         - View all events
+        - Date published
     /homepage-labels[3]:
       hippo:availability:
       - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-02-02T13:13:41.756Z
-      hippostdpubwf:lastModificationDate: 2018-02-14T09:17:03.179Z
+      hippostdpubwf:lastModificationDate: 2018-04-20T08:38:47.741Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-02-14T09:17:04.690Z
+      hippostdpubwf:publicationDate: 2018-04-20T08:38:48.900Z
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: resourcebundle:resourcebundle
@@ -162,6 +168,7 @@
       - ''
       - ''
       - ''
+      - Prefix of the news item date label
       resourcebundle:id: homepage.website.labels
       resourcebundle:keys:
       - search-banner.text
@@ -179,10 +186,11 @@
       - about-us.text
       - about-us.upcomingEventsTitle
       - about-us.upcomingEventsButtonLabel
+      - about-us.newsDateLabel
       resourcebundle:messages:
         type: string
         value:
-        - NHSS Digital provides technology, information and services, which help the
+        - NHS Digital provides technology, information and services, which help the
           NHS deliver better care
         - Search for content on the website
         - What are you looking for today?
@@ -201,6 +209,7 @@
           and social care.
         - Upcoming events
         - View all events
+        - Date published
     hippo:name: Home Page Labels
     jcr:mixinTypes:
     - hippo:named

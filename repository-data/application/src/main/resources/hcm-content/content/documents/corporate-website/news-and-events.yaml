@@ -1,5 +1,221 @@
 ---
 /content/documents/corporate-website/news-and-events:
+  /nhs-digital-staff-shortlisted-for-women-in-it-awards:
+    /nhs-digital-staff-shortlisted-for-women-in-it-awards[1]:
+      /website:body:
+        hippostd:content: |-
+          <p>Compellingly administrate multidisciplinary quality vectors rather than customized functionalities. Assertively innovate frictionless opportunities without next-generation systems. Professionally reinvent alternative platforms rather than one-to-one communities. Appropriately initiate extensible methodologies rather than emerging web services. Energistically leverage other's holistic materials with proactive users.</p>
+
+          <p>Competently syndicate best-of-breed platforms with cross-platform human capital. Quickly strategize process-centric methodologies before intermandated paradigms. Authoritatively orchestrate enterprise e-business via enterprise users. Seamlessly supply extensive methods of empowerment vis-a-vis empowered leadership skills. Competently productize multifunctional opportunities before revolutionary meta-services.</p>
+
+          <p>Proactively aggregate e-business alignments through distributed "outside the box" thinking. Appropriately create cooperative experiences after competitive expertise. Assertively architect B2C results with progressive growth strategies. Interactively simplify B2C web-readiness vis-a-vis cross-platform markets. Competently underwhelm effective bandwidth through premium products.</p>
+
+          <p>Monotonectally myocardinate cross functional total linkage after adaptive materials. Efficiently iterate frictionless e-commerce with magnetic systems. Competently utilize corporate human capital with accurate synergy. Dynamically evisculate sustainable.</p>
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-04-20T08:36:38.384Z
+      hippostdpubwf:lastModificationDate: 2018-04-20T08:36:38.385Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 5d12cf4d-6d42-4fdd-8dfe-a74cab8000c2
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:news
+      website:display: true
+      website:publisheddatetime: 2018-04-01T08:37:00Z
+      website:seosummary: Authoritatively orchestrate enterprise e-business via enterprise
+        users
+      website:shortsummary: Authoritatively orchestrate enterprise e-business via
+        enterprise users
+      website:theme: ''
+      website:title: NHS Digital staff shortlisted for Women in IT Awards
+      website:type: press-releases
+    /nhs-digital-staff-shortlisted-for-women-in-it-awards[2]:
+      /website:body:
+        hippostd:content: |-
+          <p>Compellingly administrate multidisciplinary quality vectors rather than customized functionalities. Assertively innovate frictionless opportunities without next-generation systems. Professionally reinvent alternative platforms rather than one-to-one communities. Appropriately initiate extensible methodologies rather than emerging web services. Energistically leverage other's holistic materials with proactive users.</p>
+
+          <p>Competently syndicate best-of-breed platforms with cross-platform human capital. Quickly strategize process-centric methodologies before intermandated paradigms. Authoritatively orchestrate enterprise e-business via enterprise users. Seamlessly supply extensive methods of empowerment vis-a-vis empowered leadership skills. Competently productize multifunctional opportunities before revolutionary meta-services.</p>
+
+          <p>Proactively aggregate e-business alignments through distributed "outside the box" thinking. Appropriately create cooperative experiences after competitive expertise. Assertively architect B2C results with progressive growth strategies. Interactively simplify B2C web-readiness vis-a-vis cross-platform markets. Competently underwhelm effective bandwidth through premium products.</p>
+
+          <p>Monotonectally myocardinate cross functional total linkage after adaptive materials. Efficiently iterate frictionless e-commerce with magnetic systems. Competently utilize corporate human capital with accurate synergy. Dynamically evisculate sustainable.</p>
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-04-20T08:36:38.384Z
+      hippostdpubwf:lastModificationDate: 2018-04-20T08:37:27.369Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 5d12cf4d-6d42-4fdd-8dfe-a74cab8000c2
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:news
+      website:display: true
+      website:publisheddatetime: 2018-04-01T08:37:00Z
+      website:seosummary: Authoritatively orchestrate enterprise e-business via enterprise
+        users
+      website:shortsummary: Authoritatively orchestrate enterprise e-business via
+        enterprise users
+      website:theme: ''
+      website:title: NHS Digital staff shortlisted for Women in IT Awards
+      website:type: press-releases
+    /nhs-digital-staff-shortlisted-for-women-in-it-awards[3]:
+      /website:body:
+        hippostd:content: |-
+          <p>Compellingly administrate multidisciplinary quality vectors rather than customized functionalities. Assertively innovate frictionless opportunities without next-generation systems. Professionally reinvent alternative platforms rather than one-to-one communities. Appropriately initiate extensible methodologies rather than emerging web services. Energistically leverage other's holistic materials with proactive users.</p>
+
+          <p>Competently syndicate best-of-breed platforms with cross-platform human capital. Quickly strategize process-centric methodologies before intermandated paradigms. Authoritatively orchestrate enterprise e-business via enterprise users. Seamlessly supply extensive methods of empowerment vis-a-vis empowered leadership skills. Competently productize multifunctional opportunities before revolutionary meta-services.</p>
+
+          <p>Proactively aggregate e-business alignments through distributed "outside the box" thinking. Appropriately create cooperative experiences after competitive expertise. Assertively architect B2C results with progressive growth strategies. Interactively simplify B2C web-readiness vis-a-vis cross-platform markets. Competently underwhelm effective bandwidth through premium products.</p>
+
+          <p>Monotonectally myocardinate cross functional total linkage after adaptive materials. Efficiently iterate frictionless e-commerce with magnetic systems. Competently utilize corporate human capital with accurate synergy. Dynamically evisculate sustainable.</p>
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-04-20T08:36:38.384Z
+      hippostdpubwf:lastModificationDate: 2018-04-20T08:37:27.369Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-04-20T08:37:29.637Z
+      hippotranslation:id: 5d12cf4d-6d42-4fdd-8dfe-a74cab8000c2
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:news
+      website:display: true
+      website:publisheddatetime: 2018-04-01T08:37:00Z
+      website:seosummary: Authoritatively orchestrate enterprise e-business via enterprise
+        users
+      website:shortsummary: Authoritatively orchestrate enterprise e-business via
+        enterprise users
+      website:theme: ''
+      website:title: NHS Digital staff shortlisted for Women in IT Awards
+      website:type: press-releases
+    hippo:name: NHS Digital staff shortlisted for Women in IT Awards
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /nhs-digital-welcomes-introduction-of-cqcs-new-rating-system-for-digital-gp-tools:
+    /nhs-digital-welcomes-introduction-of-cqcs-new-rating-system-for-digital-gp-tools[1]:
+      /website:body:
+        hippostd:content: |-
+          <p>Seamlessly utilize 24/7 services rather than principle-centered platforms. Intrinsicly reconceptualize sustainable ROI for just in time intellectual capital. Uniquely utilize ethical process improvements for timely technology. Progressively impact timely potentialities through optimal e-commerce. Dramatically morph cross-unit models vis-a-vis impactful alignments.</p>
+
+          <p>Holisticly empower bricks-and-clicks architectures through highly efficient e-commerce. Holisticly evolve process-centric information after cooperative processes. Conveniently reintermediate fully tested growth strategies after premier testing procedures. Proactively exploit magnetic e-business through front-end interfaces. Dynamically evisculate adaptive markets rather than optimal alignments.</p>
+
+          <p>Dramatically fabricate installed base architectures rather than customer directed manufactured products. Conveniently brand bricks-and-clicks platforms via open-source collaboration and idea-sharing. Synergistically visualize reliable experiences before corporate convergence. Credibly envisioneer viral leadership vis-a-vis standardized platforms. Completely incentivize inexpensive metrics before interoperable leadership.</p>
+
+          <p>Assertively revolutionize economically sound growth strategies before cross-media models. Distinctively leverage existing an expanded array of paradigms for transparent materials. Credibly reconceptualize fully tested e-tailers.</p>
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-04-20T08:37:41.323Z
+      hippostdpubwf:lastModificationDate: 2018-04-20T08:37:41.323Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 5716c27f-ec15-4755-9cbf-61395c3b847f
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:news
+      website:display: true
+      website:publisheddatetime: 2018-04-20T08:37:00Z
+      website:seosummary: Seamlessly utilize 24/7 services rather than principle-centered
+        platforms
+      website:shortsummary: Seamlessly utilize 24/7 services rather than principle-centered
+        platforms
+      website:theme: ''
+      website:title: NHS Digital welcomes  introduction of CQC's new rating system
+        for digital GP tools
+      website:type: programme-updates
+    /nhs-digital-welcomes-introduction-of-cqcs-new-rating-system-for-digital-gp-tools[2]:
+      /website:body:
+        hippostd:content: |-
+          <p>Seamlessly utilize 24/7 services rather than principle-centered platforms. Intrinsicly reconceptualize sustainable ROI for just in time intellectual capital. Uniquely utilize ethical process improvements for timely technology. Progressively impact timely potentialities through optimal e-commerce. Dramatically morph cross-unit models vis-a-vis impactful alignments.</p>
+
+          <p>Holisticly empower bricks-and-clicks architectures through highly efficient e-commerce. Holisticly evolve process-centric information after cooperative processes. Conveniently reintermediate fully tested growth strategies after premier testing procedures. Proactively exploit magnetic e-business through front-end interfaces. Dynamically evisculate adaptive markets rather than optimal alignments.</p>
+
+          <p>Dramatically fabricate installed base architectures rather than customer directed manufactured products. Conveniently brand bricks-and-clicks platforms via open-source collaboration and idea-sharing. Synergistically visualize reliable experiences before corporate convergence. Credibly envisioneer viral leadership vis-a-vis standardized platforms. Completely incentivize inexpensive metrics before interoperable leadership.</p>
+
+          <p>Assertively revolutionize economically sound growth strategies before cross-media models. Distinctively leverage existing an expanded array of paradigms for transparent materials. Credibly reconceptualize fully tested e-tailers.</p>
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-04-20T08:37:41.323Z
+      hippostdpubwf:lastModificationDate: 2018-04-20T08:38:03.630Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 5716c27f-ec15-4755-9cbf-61395c3b847f
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:news
+      website:display: true
+      website:publisheddatetime: 2018-04-20T08:37:00Z
+      website:seosummary: Seamlessly utilize 24/7 services rather than principle-centered
+        platforms
+      website:shortsummary: Seamlessly utilize 24/7 services rather than principle-centered
+        platforms
+      website:theme: ''
+      website:title: NHS Digital welcomes  introduction of CQC's new rating system
+        for digital GP tools
+      website:type: programme-updates
+    /nhs-digital-welcomes-introduction-of-cqcs-new-rating-system-for-digital-gp-tools[3]:
+      /website:body:
+        hippostd:content: |-
+          <p>Seamlessly utilize 24/7 services rather than principle-centered platforms. Intrinsicly reconceptualize sustainable ROI for just in time intellectual capital. Uniquely utilize ethical process improvements for timely technology. Progressively impact timely potentialities through optimal e-commerce. Dramatically morph cross-unit models vis-a-vis impactful alignments.</p>
+
+          <p>Holisticly empower bricks-and-clicks architectures through highly efficient e-commerce. Holisticly evolve process-centric information after cooperative processes. Conveniently reintermediate fully tested growth strategies after premier testing procedures. Proactively exploit magnetic e-business through front-end interfaces. Dynamically evisculate adaptive markets rather than optimal alignments.</p>
+
+          <p>Dramatically fabricate installed base architectures rather than customer directed manufactured products. Conveniently brand bricks-and-clicks platforms via open-source collaboration and idea-sharing. Synergistically visualize reliable experiences before corporate convergence. Credibly envisioneer viral leadership vis-a-vis standardized platforms. Completely incentivize inexpensive metrics before interoperable leadership.</p>
+
+          <p>Assertively revolutionize economically sound growth strategies before cross-media models. Distinctively leverage existing an expanded array of paradigms for transparent materials. Credibly reconceptualize fully tested e-tailers.</p>
+        jcr:primaryType: hippostd:html
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-04-20T08:37:41.323Z
+      hippostdpubwf:lastModificationDate: 2018-04-20T08:38:03.630Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-04-20T08:38:04.890Z
+      hippotranslation:id: 5716c27f-ec15-4755-9cbf-61395c3b847f
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:news
+      website:display: true
+      website:publisheddatetime: 2018-04-20T08:37:00Z
+      website:seosummary: Seamlessly utilize 24/7 services rather than principle-centered
+        platforms
+      website:shortsummary: Seamlessly utilize 24/7 services rather than principle-centered
+        platforms
+      website:theme: ''
+      website:title: NHS Digital welcomes  introduction of CQC's new rating system
+        for digital GP tools
+      website:type: programme-updates
+    hippo:name: NHS Digital welcomes  introduction of CQC's new rating system for
+      digital GP tools
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
   hippo:name: News and events
   hippostd:foldertype:
   - new-translated-folder
