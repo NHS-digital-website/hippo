@@ -12,7 +12,7 @@
             <input type="text" name="query" id="query" class="search-strip__input" placeholder="${buttonLabel}" value="${query!""}" aria-label="${buttonLabel}">
         </div>
         <div class="search-strip__table-cell search-strip__table-cell--button">
-            <button class="search-strip__button" aria-label="${buttonLabel}">
+            <button data-uipath="search.button" class="search-strip__button" aria-label="${buttonLabel}">
                 <img src="<@hst.webfile path="/images/icon-search-white.png"/>" alt="Magnifying glass" />
             </button>
         </div>

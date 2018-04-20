@@ -46,7 +46,7 @@ public class SearchPage extends AbstractSitePage {
     }
 
     private WebElement findSearchButton() {
-        return helper.findElement(By.id("btnSearch"));
+        return helper.findElement(By.xpath("//*[@data-uipath='search.button']"));
     }
 
     public String getSortSelection() {

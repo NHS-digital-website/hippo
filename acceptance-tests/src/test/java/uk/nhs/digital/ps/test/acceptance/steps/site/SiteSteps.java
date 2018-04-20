@@ -75,6 +75,9 @@ public class SiteSteps extends AbstractSpringSteps {
             element, is(notNullValue()));
 
         sitePage.clickOnElement(element);
+
+        // Note: this is temporary while we have some pages that don't have the new cookie banner (old RPS style)
+        sitePage.clickCookieAcceptButton();
     }
 
     @Then("^I (?:can )?see \"([^\"]+)\" (?:link|button|image)$")

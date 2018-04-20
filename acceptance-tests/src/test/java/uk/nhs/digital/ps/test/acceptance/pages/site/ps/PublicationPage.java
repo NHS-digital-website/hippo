@@ -117,7 +117,7 @@ public class PublicationPage extends AbstractSitePage {
     public List<String> getPageTitles() {
         WebElement pages = findPageElement(PAGES);
         return pages == null ? Collections.emptyList() :
-            pages.findElements(By.xpath("./ul/li"))
+            pages.findElements(By.xpath(".//li"))
                 .stream()
                 .map(WebElement::getText)
                 .collect(toList());

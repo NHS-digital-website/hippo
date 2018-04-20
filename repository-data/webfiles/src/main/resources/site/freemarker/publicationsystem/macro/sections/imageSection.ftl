@@ -4,8 +4,7 @@
     <div data-uipath="ps.publication.image-section">
         <#if section.link?has_content><a href="${section.link}" data-uipath="ps.publication.image-section.link"></#if>
             <figure>
-                <img class="image-section"
-                     src="<@hst.link hippobean=section.image/>"
+                <img src="<@hst.link hippobean=section.image/>"
                      alt="${section.altText}"
                      data-uipath="ps.publication.image-section.image"/>
                 <#if section.caption?has_content>
