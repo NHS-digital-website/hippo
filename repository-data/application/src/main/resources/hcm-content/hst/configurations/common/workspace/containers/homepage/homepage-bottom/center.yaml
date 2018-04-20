@@ -1,0 +1,28 @@
+---
+/hst:hst/hst:configurations/common/hst:workspace/hst:containers/homepage/homepage-bottom/center/newslist:
+  hst:componentclassname: uk.nhs.digital.common.components.LatestNewsComponent
+  hst:iconpath: images/essentials/catalog-component-icons/news-list.png
+  hst:label: News List
+  hst:parameternames:
+  - path
+  - hideFutureItems
+  - documentDateField
+  - documentTypes
+  - sortOrder
+  - sortField
+  - pageSize
+  - showPagination
+  - includeSubtypes
+  hst:parametervalues:
+  - ''
+  - 'on'
+  - website:publisheddatetime
+  - website:news
+  - desc
+  - website:publisheddatetime
+  - '2'
+  - 'off'
+  - 'on'
+  hst:template: newslist-main-newslist
+  hst:xtype: hst.item
+  jcr:primaryType: hst:containeritemcomponent
