@@ -15,7 +15,7 @@ public class FacetComponent extends SearchComponent {
         TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent(TaxonomyManager.class.getName());
         Taxonomy taxonomy = taxonomyManager.getTaxonomies().getTaxonomy(HippoBeanHelper.getTaxonomyName());
         HippoFacetNavigationBean facetNavigationBean = getFacetNavigationBean(request);
-        TaxonomyFacetWrapper taxonomyWrapper = new TaxonomyFacetWrapper(taxonomy, facetNavigationBean);
+        TaxonomyFacetWrapper taxonomyWrapper = facetNavigationBean == null ? null : new TaxonomyFacetWrapper(taxonomy, facetNavigationBean);
 
         request.setAttribute("taxonomy", taxonomyWrapper);
         request.setAttribute("query", getQueryParameter(request));

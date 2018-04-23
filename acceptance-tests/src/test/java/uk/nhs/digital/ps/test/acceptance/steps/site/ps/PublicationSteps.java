@@ -54,6 +54,7 @@ public class PublicationSteps extends AbstractSpringSteps {
         final Publication publication = testDataRepo.getCurrentPublication();
 
         publicationPage.open(publication);
+        sitePage.clickCookieAcceptButton();
 
         thenICanSeeThePublicationHeader();
 
@@ -118,7 +119,7 @@ public class PublicationSteps extends AbstractSpringSteps {
 
         assertThat("Correct size of attachment " + attachment.getFullName() + " is displayed",
             attachmentWidget.getSizeText(),
-            is("size: " + FileHelper.toHumanFriendlyFileSize((long) attachment.getContent().length)));
+            is("[size: " + FileHelper.toHumanFriendlyFileSize((long) attachment.getContent().length) + "]"));
     }
 
     @Given("^I have a sectioned publication$")
@@ -136,11 +137,10 @@ public class PublicationSteps extends AbstractSpringSteps {
             .map(Page::getTitle)
             .collect(toList());
 
-        pageTitles.add(0, "Overview");
-
         if (pageTitles.isEmpty()) {
             assertNull("No pages displayed", publicationPage.getPageTitles());
         } else {
+            pageTitles.add(0, "Overview");
             assertThat("Publication pages are as expected", publicationPage.getPageTitles(), contains(pageTitles.toArray()));
         }
     }

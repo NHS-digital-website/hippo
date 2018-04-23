@@ -110,7 +110,8 @@ public class SearchComponent extends CommonComponent {
         String relativeContentPath = request.getRequestContext()
             .getResolvedSiteMapItem()
             .getRelativeContentPath();
-        if (relativeContentPath == null) {
+        if (relativeContentPath == null
+            || !relativeContentPath.startsWith("facet")) {
             return null;
         }
 

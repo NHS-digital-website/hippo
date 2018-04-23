@@ -7,6 +7,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
 import java.time.Duration;
@@ -15,6 +17,8 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Function;
 
 public class PageHelper {
+
+    private static Logger log = LoggerFactory.getLogger(PageHelper.class);
 
     private static final int TIME_OUT = 5;
 
@@ -134,7 +138,12 @@ public class PageHelper {
     }
 
     public void click(By by) {
-        executeWhenStable(() -> findElement(by).click());
+        try {
+            executeWhenStable(() -> findElement(by).click());
+        } catch (RuntimeException re) {
+            log.error("Failed to click an element, will try once more: " + re.toString());
+            executeWhenStable(() -> findElement(by).click());
+        }
     }
 
     public List<WebElement> findOptionalElements(By by) {

@@ -317,11 +317,19 @@ public class SiteSteps extends AbstractSpringSteps {
         Taxonomy taxonomy = testDataRepo.getCurrentPublication().getTaxonomy();
 
         List<String> expectedTaxonomy = asList(
-            taxonomy.getLevel1() + " (1)",
-            taxonomy.getLevel2() + " (1)",
+            taxonomy.getLevel1() + " ...",
+            taxonomy.getLevel2() + " ...",
             taxonomy.getLevel3() + " (1)"
         );
+
+        // Navigate through the tree
+        whenIClickOn(taxonomy.getLevel1());
+        whenIClickOn(taxonomy.getLevel2());
+
         listMatchesItems("containing in any order", expectedTaxonomy, sitePage.findElementWithTitle("CATEGORY/TOPIC"));
+
+        // Reset back to having none selected in the tree
+        whenIClickOn(taxonomy.getLevel1());
     }
 
     @Then("^I can click on the publication$")
