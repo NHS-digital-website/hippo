@@ -19,7 +19,7 @@ public class PublicationComponent extends EssentialsContentComponent {
     private static final String KEY_FACTS_ID = "Key Facts";
     private static final String ADMIN_SOURCES_ID = "Administrative Sources";
     private static final String DATASETS_ID = "Data Sets";
-    private static final String RESOURCES_ID = "Recources";
+    private static final String RESOURCES_ID = "Resources";
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {

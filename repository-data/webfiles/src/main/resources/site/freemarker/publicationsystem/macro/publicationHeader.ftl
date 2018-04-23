@@ -111,12 +111,14 @@
 </#macro>
 
 <#macro nationalStatsStamp publication>
-    <#list publication.informationType as type>
-        <#if type == "National statistics">
-            <div class="article-header__stamp" data-uipath="ps.publication.national-statistics" title="National statistics">
-                <img src="<@hst.webfile path="images/national-statistics-logo@2x.png"/>" data-uipath="ps.publication.national-statistics" title="National Statistics" class="image-icon image-icon--large" />
-            </div>
-            <#break>
-        </#if>
-    </#list>
+    <#if publication.informationType??>
+        <#list publication.informationType as type>
+            <#if type == "National statistics">
+                <div class="article-header__stamp" data-uipath="ps.publication.national-statistics" title="National statistics">
+                    <img src="<@hst.webfile path="images/national-statistics-logo@2x.png"/>" data-uipath="ps.publication.national-statistics" title="National Statistics" class="image-icon image-icon--large" />
+                </div>
+                <#break>
+            </#if>
+        </#list>
+    </#if>
 </#macro>

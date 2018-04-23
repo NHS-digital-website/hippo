@@ -36,7 +36,8 @@ public class TaxonomyFacetWrapper {
     private List<TaxonomyFacet> createTaxonomyFacets() {
 
         // get the taxonomy facets
-        List<HippoFolderBean> taxonomyFacets = facetBean.getFolders().stream()
+        List<HippoFolderBean> taxonomyFacets = facetBean.getFolders()
+            .stream()
             .filter((facet) -> facet.getName().equals(TAXONOMY_FACET_NAME))
             .findAny()
             .map(HippoFolderBean::getFolders)

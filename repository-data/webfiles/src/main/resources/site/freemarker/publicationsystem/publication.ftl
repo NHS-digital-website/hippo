@@ -57,7 +57,7 @@
     <@publicationHeader publication=publication/>
 
     <div class="grid-wrapper grid-wrapper--article <#if publication.pages?has_content>article-section</#if>" aria-label="Document Content">
-        <div class="grid-row article-section">
+        <div class="grid-row">
             <@pageIndex index=index/>
 
             <div class="column column--two-thirds page-block page-block--main">
