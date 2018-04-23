@@ -1,0 +1,17 @@
+---
+/content/documents/administration/website/events-type:
+  /events-type:
+    hippo:availability:
+    - live
+    - preview
+    hippotranslation:id: 4094c8e3-fad4-4fe3-9bc1-7f7a272b92e5
+    hippotranslation:locale: inherited - from query
+    jcr:mixinTypes:
+    - hippotranslation:translated
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: Events Type
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
