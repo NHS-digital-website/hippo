@@ -27,13 +27,13 @@ public class JcrQueryHelper {
         String queryTemplate = "SELECT * FROM [{0}] WHERE ISDESCENDANTNODE ([''{1}'']) AND [{2}] = ''{3}''";
 
         return executeSql2Query(node.getSession(), queryTemplate,
-            decendantPrimaryType, Text.escapePath(node.getPath()), HippoStdNodeType.HIPPOSTD_STATE, Text.escape(decendantVariant));
+            decendantPrimaryType, node.getPath(), HippoStdNodeType.HIPPOSTD_STATE, Text.escape(decendantVariant));
     }
 
     public static QueryResult findDescendantNodes(Node node, String decendantPrimaryType) throws RepositoryException {
         String queryTemplate = "SELECT * FROM [{0}] WHERE ISDESCENDANTNODE ([''{1}''])";
 
         return executeSql2Query(node.getSession(), queryTemplate,
-            decendantPrimaryType, Text.escapePath(node.getPath()));
+            decendantPrimaryType, node.getPath());
     }
 }
