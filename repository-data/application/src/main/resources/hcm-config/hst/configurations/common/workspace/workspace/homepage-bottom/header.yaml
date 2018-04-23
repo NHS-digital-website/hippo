@@ -6,5 +6,6 @@ definitions:
       .meta:residual-child-node-category: content
       hst:label: Bottom Header
       hst:lastmodified: 2018-02-05T20:39:14.327Z
+      hst:suppresswastemessage: true
       hst:xtype: HST.vBox
       jcr:primaryType: hst:containercomponent
