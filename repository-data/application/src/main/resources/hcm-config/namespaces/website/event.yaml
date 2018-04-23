@@ -16,94 +16,97 @@ definitions:
           - wicket.id
           - validator.id
           /root:
-            jcr:primaryType: frontend:plugin
             item: ${cluster.id}.field
+            jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
           /title:
-            jcr:primaryType: frontend:plugin
-            caption: Title
-            field: title
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /shortsummary:
+            caption: Title
+            field: title
             jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /shortsummary:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Short Summary
             field: shortsummary
             hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /seosummary:
             jcr:primaryType: frontend:plugin
-            caption: Seo Summary
-            field: seosummary
-            hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /seosummary:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               size: '160'
-          /summaryimage:
+            caption: Seo Summary
+            field: seosummary
+            hint: ''
             jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /summaryimage:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Summary image
             field: summaryimage
             hint: ''
+            jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /body:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /body:
-            jcr:primaryType: frontend:plugin
             caption: Body
             field: body
             hint: ''
+            jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /events:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /events:
-            jcr:primaryType: frontend:plugin
             caption: Events
             field: interval
             hint: ''
+            jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /location:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /location:
-            jcr:primaryType: frontend:plugin
             caption: Location
             field: location
             hint: ''
+            jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /maplocation:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /maplocation:
-            jcr:primaryType: frontend:plugin
             caption: Map location
             field: maplocation
             hint: Url location (e.g. Google Maps URL)
+            jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /booking:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /booking:
-            jcr:primaryType: frontend:plugin
             caption: Booking
             field: booking
             hint: URL
+            jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /type:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /type:
-            jcr:primaryType: frontend:plugin
+              source: /content/documents/administration/website/events-type
             caption: Type
             field: type
+            jcr:primaryType: frontend:plugin
             multiselect.type: checkboxes
             palette.alloworder: false
             palette.maxrows: '10'
@@ -111,36 +114,33 @@ definitions:
             selectlist.maxrows: '10'
             valuelist.provider: service.valuelist.default
             wicket.id: ${cluster.id}.field
+          /attachments:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/website/events-type
-          /attachments:
-            jcr:primaryType: frontend:plugin
             caption: Attachments
             field: attachment
             hint: ''
+            jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /relatedDocuments:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /relatedDocuments:
-            jcr:primaryType: frontend:plugin
             caption: Related Documents
             field: relatedDocuments
             hint: ''
+            jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /display:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /display:
-            jcr:primaryType: frontend:plugin
             caption: Display on events hub and homepage
             field: display
             hint: ''
+            jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:

@@ -16,27 +16,27 @@ definitions:
           - wicket.id
           - validator.id
           /root:
-            jcr:primaryType: frontend:plugin
             item: ${cluster.id}.field
+            jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
           /startdatetime:
-            jcr:primaryType: frontend:plugin
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Start date and time
             field: startdatetime
             hint: ''
+            jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /enddatetime:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /enddatetime:
-            jcr:primaryType: frontend:plugin
             caption: End date and time
             field: enddatetime
             hint: ''
+            jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
