@@ -26,6 +26,13 @@ definitions:
           hst:template: menu
           hst:xtype: HST.Item
           jcr:primaryType: hst:containeritemcomponent
+        /newslist:
+          hst:componentclassname: uk.nhs.digital.common.components.LatestNewsComponent
+          hst:iconpath: images/essentials/catalog-component-icons/news-list.png
+          hst:label: News List
+          hst:template: newslist-main-newslist
+          hst:xtype: hst.item
+          jcr:primaryType: hst:containeritemcomponent
         /search:
           hst:componentclassname: uk.nhs.digital.common.components.BaseComponent
           hst:iconpath: images/catalog/component-products-30x30.png
