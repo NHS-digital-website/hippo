@@ -148,9 +148,12 @@ ondemand.deploy: vendor/rd
 #
 #        3am (2am UTC) automated deploy on 28th Feb
 #        make ondemand.schedule-deploy ENV=uat RD_CONF=my-rd.conf RELEASE_DATE=2018-02-28 RELEASE_TIME_UTC=02:00:00
+#
+# Note that the rundeck server seems to have holland time (+0200) confused with UTC time so
+# you need the +0200 as the UTC timezone offset to actually specify the time in UTC
 ondemand.schedule-deploy: vendor/rd
 	source $(RD_CONF) && vendor/rd run \
-		--at "$(RELEASE_DATE)T$(RELEASE_TIME_UTC)Z"\
+		--at "$(RELEASE_DATE)T$(RELEASE_TIME_UTC)+0200"\
 		--project nhs \
 		--job "jobs/$(OD_ENV)/Deploy" \
 		-- \
@@ -206,8 +209,8 @@ clean:
 
 # Install Rundec CLI
 vendor/rd: vendor
-	cd vendor && curl -LO https://github.com/rundeck/rundeck-cli/releases/download/v1.0.22/rundeck-cli-1.0.22-all.jar
-	echo -e "#!/bin/bash \nDIR=\$$( cd \"\$$( dirname \"\$${BASH_SOURCE[0]}\" )\" && pwd ) \njava -jar \$${DIR}/rundeck-cli-1.0.22-all.jar \$$@" > vendor/rd
+	cd vendor && curl -LO https://github.com/rundeck/rundeck-cli/releases/download/v1.0.25/rundeck-cli-1.0.25-all.jar
+	echo -e "#!/bin/bash \nDIR=\$$( cd \"\$$( dirname \"\$${BASH_SOURCE[0]}\" )\" && pwd ) \njava -jar \$${DIR}/rundeck-cli-1.0.25-all.jar \$$@" > vendor/rd
 	chmod +x vendor/rd
 
 vendor:
