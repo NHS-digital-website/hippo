@@ -281,7 +281,9 @@ public class SearchComponent extends CommonComponent {
 
         switch (areaParam) {
             case NEWS:
+                /* [DW-271] Disabling temporarely the news document type
                 addNewsTypes(query);
+                */
                 break;
             case DATA:
                 addDataAndInfoTypes(query);
@@ -310,13 +312,14 @@ public class SearchComponent extends CommonComponent {
     }
 
     /**
+     * [DW-271] Disabling temporarely the news document type
      * Adding the news document type for the News documents.
-     */
+
     private void addNewsTypes(HstQueryBuilder query) {
         query.ofTypes(
             News.class
         );
-    }
+    }*/
 
     /**
      * Adding the Service document type
@@ -352,7 +355,9 @@ public class SearchComponent extends CommonComponent {
         addDataAndInfoTypes(query);
         addGeneralTypes(query);
         addHubTypes(query);
+        /* [DW-271] Disabling temporarely the news document type
         addNewsTypes(query);
+        */
         addServiceTypes(query);
     }
 
