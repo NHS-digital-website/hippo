@@ -32,6 +32,9 @@ definitions:
       /document-list:
         hst:renderpath: webfile:/freemarker/common/document-list.ftl
         jcr:primaryType: hst:template
+      /event-article:
+        hst:renderpath: webfile:/freemarker/common/event-article.ftl
+        jcr:primaryType: hst:template
       /facets:
         hst:renderpath: webfile:/freemarker/common/facets.ftl
         jcr:primaryType: hst:template
