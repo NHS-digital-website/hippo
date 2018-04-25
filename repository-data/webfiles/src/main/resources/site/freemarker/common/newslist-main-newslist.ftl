@@ -3,8 +3,6 @@
 
 <@hst.setBundle basename="homepage.website.labels"/>
 
-<#-- @ftlvariable name="item" type="uk.nhs.digital.website.beans.NewsDocument" -->
-<#-- @ftlvariable name="pageable" type="org.onehippo.cms7.essentials.components.paging.Pageable" -->
 <#if pageable?? && pageable.items?has_content>
 <div>
     <h3 class="list-title"><@fmt.message key="about-us.latestNewsTitle"/></h3>
@@ -35,10 +33,6 @@
     <div class="has-new-content-button">
         <@hst.manageContent templateQuery="new-news-document" rootPath="news" defaultPath="${currentYear}/${currentMonth}"/>
     </div>
-    
-    <#if cparam.showPagination>
-        <#include "../include/pagination.ftl">
-    </#if>
 </div>
     
 <#-- @ftlvariable name="editMode" type="java.lang.Boolean"-->
