@@ -159,10 +159,10 @@ Feature: Basic search
         When I can click on the "Systems and Services" link
         Then I can see the search description matching "\d+ results sorted by relevance\."
 
-    Scenario: Clicking on the 'News and Events' tab displays no results because we don't yet include them in the search component
-        Given I navigate to the "search" page
-        When I can click on the "News and Events" link
-        Then I can see the search description matching "No results for filters"
+    # Scenario: Clicking on the 'News and Events' tab displays no results because we don't yet include them in the search component
+    #     Given I navigate to the "search" page
+    #     When I can click on the "News and Events" link
+    #     Then I can see the search description matching "No results for filters"
 
     Scenario: Each document type label is correctly displayed in search results
         Given I navigate to the "home" page
