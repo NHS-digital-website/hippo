@@ -1,0 +1,49 @@
+---
+/content/documents/administration/website/rights:
+  /rights:
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: be-informed
+      selection:label: Be informed
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: get-access-to-it
+      selection:label: Get access to it
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: rectify-or-change-it
+      selection:label: Rectify or change it
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: erase-or-remove-it
+      selection:label: Erase or remove it
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: restrict-or-stop-processing-it
+      selection:label: Restrict or stop processing it
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: move- copy-or-transfer-it
+      selection:label: Move, copy or transfer it
+    /selection:listitem[7]:
+      jcr:primaryType: selection:listitem
+      selection:key: object-to-it-being-processed-or-used
+      selection:label: Object to it being processed or used
+    /selection:listitem[8]:
+      jcr:primaryType: selection:listitem
+      selection:key: know-if-a-decision-was-made-by-a-computer-rather-than-a-person
+      selection:label: Know if a decision was made by a computer rather than a person
+    hippo:availability:
+    - live
+    - preview
+    hippotranslation:id: b993c628-c17f-4a5e-81ad-3097cdb36770
+    hippotranslation:locale: inherited - from query
+    jcr:mixinTypes:
+    - hippotranslation:translated
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: Rights
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

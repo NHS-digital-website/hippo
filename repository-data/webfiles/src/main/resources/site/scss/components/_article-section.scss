@@ -44,6 +44,16 @@
     @include media(desktop) {
         padding-top: $default-spacing-unit * 2;
     }
+
+    .list--with-icons {
+        li {
+            margin-top: $gutter;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
 }
 
 .article-section--letter-group {

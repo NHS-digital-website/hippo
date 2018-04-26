@@ -1,0 +1,41 @@
+---
+/content/documents/administration/website/lawful-basis:
+  /lawful-basis:
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: consent
+      selection:label: Consent
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: contract
+      selection:label: Contract
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: legal-obligation
+      selection:label: Legal obligation
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: vital-interests
+      selection:label: Vital interests
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: public-task
+      selection:label: Public task
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: legitimate-interests
+      selection:label: Legitimate interests
+    hippo:availability:
+    - live
+    - preview
+    hippotranslation:id: 0a82bdc9-5e9f-47c2-89a7-e98ffecad72e
+    hippotranslation:locale: inherited - from query
+    jcr:mixinTypes:
+    - hippotranslation:translated
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: Lawful basis
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

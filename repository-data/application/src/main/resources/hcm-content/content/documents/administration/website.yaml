@@ -1,6 +1,193 @@
 ---
 /content/documents/administration/website:
   .meta:order-before: publication-system
+  /gdpr:
+    /gdpr[1]:
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-04-27T09:48:32.260Z
+      hippostdpubwf:lastModificationDate: 2018-04-27T12:47:52.496Z
+      hippostdpubwf:lastModifiedBy: admin
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: resourcebundle:resourcebundle
+      resourcebundle:descriptions:
+      - Label of 'Asset Reference Number'
+      - Label for 'Data controller'
+      - Label for 'How this information is used'
+      - Label for 'Who has access to this information'
+      - Label for 'Is this information transferred outside the UK'
+      - Label for 'How long is this information kept for?'
+      - Label for 'How do we collect this data?'
+      - Label for 'Your rights'
+      - Label for 'Withdrawing consent'
+      - Label for 'Decision by computers'
+      - Label for 'Legally, why can we use this information'
+      - Label for 'Is the information sensitive'
+      - Label for 'Where this data comes from'
+      - Label for 'Lawful basis'
+      - Title of the 'items section'
+      resourcebundle:id: website.gdpr
+      resourcebundle:keys:
+      - labels.asset-ref-number
+      - labels.data-controller
+      - labels.how-info-is-used
+      - labels.who-has-access
+      - labels.transferred-outside-uk
+      - labels.how-long-is-it-kept
+      - labels.how-long-we-collect
+      - labels.your-rights
+      - labels.withdrawing-consent
+      - labels.decision-by-computers
+      - labels.why-we-can-use-legally
+      - labels.sensitivity
+      - labels.data-source
+      - labels.lawful-basis
+      - labels.items-section-title
+      resourcebundle:messages:
+      - Asset Reference Number
+      - Data Controller
+      - How this information is used?
+      - Who has access to this information?
+      - Is this information transferred outside the UK?
+      - How long is this information kept for?
+      - How do we collect this data?
+      - Your rights regarding this data
+      - Withdrawing consent
+      - Decision by computers
+      - Legally, why can we use this information?
+      - Is the information sensitive?
+      - Where this data comes from
+      - Why do we collect this data?
+      - Related documents
+    /gdpr[2]:
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-04-27T09:48:32.260Z
+      hippostdpubwf:lastModificationDate: 2018-04-27T12:48:25.619Z
+      hippostdpubwf:lastModifiedBy: admin
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: resourcebundle:resourcebundle
+      resourcebundle:descriptions:
+      - Label of 'Asset Reference Number'
+      - Label for 'Data controller'
+      - Label for 'How this information is used'
+      - Label for 'Who has access to this information'
+      - Label for 'Is this information transferred outside the UK'
+      - Label for 'How long is this information kept for?'
+      - Label for 'How do we collect this data?'
+      - Label for 'Your rights'
+      - Label for 'Withdrawing consent'
+      - Label for 'Decision by computers'
+      - Label for 'Legally, why can we use this information'
+      - Label for 'Is the information sensitive'
+      - Label for 'Where this data comes from'
+      - Label for 'Lawful basis'
+      - Title of the 'items section'
+      resourcebundle:id: website.gdpr
+      resourcebundle:keys:
+      - labels.asset-ref-number
+      - labels.data-controller
+      - labels.how-info-is-used
+      - labels.who-has-access
+      - labels.transferred-outside-uk
+      - labels.how-long-is-it-kept
+      - labels.how-long-we-collect
+      - labels.your-rights
+      - labels.withdrawing-consent
+      - labels.decision-by-computers
+      - labels.why-we-can-use-legally
+      - labels.sensitivity
+      - labels.data-source
+      - labels.lawful-basis
+      - labels.items-section-title
+      resourcebundle:messages:
+      - Asset Reference Number
+      - Data Controller
+      - How this information is used?
+      - Who has access to this information?
+      - Is this information transferred outside the UK?
+      - How long is this information kept for?
+      - How do we collect this data?
+      - Your rights regarding this data
+      - Withdrawing consent
+      - Decision by computers
+      - Legally, why can we use this information?
+      - Is the information sensitive?
+      - Where this data comes from
+      - Why do we collect this data?
+      - Related documents
+    /gdpr[3]:
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-04-27T09:48:32.260Z
+      hippostdpubwf:lastModificationDate: 2018-04-27T12:48:25.619Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-04-27T12:48:26.931Z
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: resourcebundle:resourcebundle
+      resourcebundle:descriptions:
+      - Label of 'Asset Reference Number'
+      - Label for 'Data controller'
+      - Label for 'How this information is used'
+      - Label for 'Who has access to this information'
+      - Label for 'Is this information transferred outside the UK'
+      - Label for 'How long is this information kept for?'
+      - Label for 'How do we collect this data?'
+      - Label for 'Your rights'
+      - Label for 'Withdrawing consent'
+      - Label for 'Decision by computers'
+      - Label for 'Legally, why can we use this information'
+      - Label for 'Is the information sensitive'
+      - Label for 'Where this data comes from'
+      - Label for 'Lawful basis'
+      - Title of the 'items section'
+      resourcebundle:id: website.gdpr
+      resourcebundle:keys:
+      - labels.asset-ref-number
+      - labels.data-controller
+      - labels.how-info-is-used
+      - labels.who-has-access
+      - labels.transferred-outside-uk
+      - labels.how-long-is-it-kept
+      - labels.how-long-we-collect
+      - labels.your-rights
+      - labels.withdrawing-consent
+      - labels.decision-by-computers
+      - labels.why-we-can-use-legally
+      - labels.sensitivity
+      - labels.data-source
+      - labels.lawful-basis
+      - labels.items-section-title
+      resourcebundle:messages:
+      - Asset Reference Number
+      - Data Controller
+      - How this information is used?
+      - Who has access to this information?
+      - Is this information transferred outside the UK?
+      - How long is this information kept for?
+      - How do we collect this data?
+      - Your rights regarding this data
+      - Withdrawing consent
+      - Decision by computers
+      - Legally, why can we use this information?
+      - Is the information sensitive?
+      - Where this data comes from
+      - Why do we collect this data?
+      - Related documents
+    hippo:name: GDPR
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
   /homepage-labels:
     /homepage-labels[1]:
       hippo:availability: []
