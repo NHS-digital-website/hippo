@@ -17,7 +17,7 @@
                 
                 <#if item.publisheddatetime?? && item.publisheddatetime.time??>
                     <p class="cta__meta"><@fmt.message key="about-us.newsDateLabel"/>: 
-                        <@fmt.formatDate value=item.publisheddatetime.time type="Date" pattern="yyyy-MM-dd HH:mm:ss" var="publishedDateTime"/>
+                        <@fmt.formatDate value=item.publisheddatetime.time type="Date" pattern="yyyy-MM-dd HH:mm:ss" var="publishedDateTime" timeZone="Europe/London" />
                         <@fmt.formatDate value=item.publisheddatetime.time type="Date" pattern="d MMMM yyyy" var="publishedDateTimeForHumans"/>
                         <time datetime="${publishedDateTime}">${publishedDateTimeForHumans}</time>
                     </p>
