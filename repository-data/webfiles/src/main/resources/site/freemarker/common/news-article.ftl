@@ -20,8 +20,8 @@
                 </div>
 
                 <div class="article__date">
-                    <@fmt.formatDate value=document.publisheddatetime.time type="Date" pattern="d MMMM yyyy" var="publishedDateTimeString"/>
-                    <@fmt.formatDate value=document.publisheddatetime.time type="Date" pattern="yyyy-MM-dd HH:mm:ss" var="publishedDateTime"/>
+                    <@fmt.formatDate value=document.publisheddatetime.time type="Date" pattern="d MMMM yyyy" var="publishedDateTimeString" />
+                    <@fmt.formatDate value=document.publisheddatetime.time type="Date" pattern="yyyy-MM-dd HH:mm:ss" var="publishedDateTime" timeZone="Europe/London"/>
                     <time datetime="${publishedDateTime}">${publishedDateTimeString}</time>
                 </div>
 
@@ -56,7 +56,8 @@
                     <ul class="list">
                         <#list document.relateddocuments as relatedDocument>
                         <li>
-                            <a href="${relatedDocument.selfLink}" onClick="logGoogleAnalyticsEvent('document click','Event','${document.selfLink}');" title="${relatedDocument.title}">${relatedDocument.title}</a>
+                            <@hst.link hippobean=relatedDocument var="newslink"/>
+                            <a href="${newslink}" onClick="logGoogleAnalyticsEvent('document click','Event','${newslink}');" title="${relatedDocument.title}">${relatedDocument.title}</a>
                         </li>
                         </#list>
                     </ul>
