@@ -42,24 +42,34 @@ public class S3SdkConnector implements S3Connector {
         this.s3ObjectKeyGenerator = s3ObjectKeyGenerator;
     }
 
-    public boolean publishResource(String objectPath) {
+    @Override
+    public void publishResource(String objectPath) {
+        reportAction("Making S3 resource public: {}", objectPath);
+
         AccessControlList acl = s3.getObjectAcl(bucketName, objectPath);
         acl.grantPermission(GroupGrantee.AllUsers, Permission.Read);
         s3.setObjectAcl(bucketName, objectPath, acl);
 
-        return true;
+        reportAction("S3 resource is now public: {}", objectPath);
     }
 
-    public boolean unpublishResource(String objectPath) {
+    @Override
+    public void unpublishResource(String objectPath) {
+        reportAction("Making S3 resource not-public: {}", objectPath);
+
         AccessControlList acl = s3.getObjectAcl(bucketName, objectPath);
         acl.revokeAllPermissions(GroupGrantee.AllUsers);
         s3.setObjectAcl(bucketName, objectPath, acl);
 
-        return true;
+        reportAction("S3 Resource is no longer public: {}", objectPath);
     }
 
+    @Override
     public S3ObjectMetadata uploadFile(InputStream fileStream, String fileName, String contentType) {
         String objectKey = s3ObjectKeyGenerator.generateObjectKey(fileName);
+
+        reportAction("Uploading S3 resource {}", objectKey);
+
         ObjectMetadata metadata = new ObjectMetadata();
         metadata.setContentType(contentType);
 
@@ -87,7 +97,22 @@ public class S3SdkConnector implements S3Connector {
         // hence the need for a separate call to fetch actual metadata.
         ObjectMetadata resultMetadata = s3.getObjectMetadata(bucketName, objectKey);
 
+        reportAction("S3 resource uploaded {}", objectKey);
+
         return new S3ObjectMetadataImpl(resultMetadata, bucketName, objectKey);
+    }
+
+    @Override
+    public S3File downloadFile(String objectPath) {
+        reportAction("Downloading S3 resource {}", objectPath);
+
+        final S3FileProxy s3FileProxy = new S3FileProxy(s3.getObject(bucketName, objectPath));
+
+        // At this point no stream processing has happened yet, as the processing is up to the
+        // caller, so we can only report the metadata retrieval here.
+        reportAction("Retrieved S3 resource metatada {}", objectPath);
+
+        return s3FileProxy;
     }
 
     private List<PartETag> uploadParts(final InputStream fileStream,
@@ -126,12 +151,14 @@ public class S3SdkConnector implements S3Connector {
             }
         }
 
-        log.info("Uploaded {} bytes in {} parts for {}", processedBytesCount, currentPartNumber, objectKey);
+        reportAction("Uploaded {} bytes in {} parts for {}", processedBytesCount, currentPartNumber, objectKey);
 
         return partETags;
     }
 
-    public S3File downloadFile(String objectPath) {
-        return new S3FileProxy(s3.getObject(bucketName, objectPath));
+    private void reportAction(final String messageTemplate, final Object... args) {
+        // Keeping logs at debug level as they mostly duplicate those from
+        // the pooling proxy.
+        log.debug(messageTemplate, args);
     }
 }

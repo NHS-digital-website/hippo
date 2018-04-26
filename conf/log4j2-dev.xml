@@ -161,7 +161,7 @@
         </Logger>
 
         <!-- project logging -->
-        <Logger name="uk.nhs.digital.ps" level="debug" />
+        <Logger name="uk.nhs.digital" level="debug" />
 
         <Root level="warn">
             <AppenderRef ref="site"/>

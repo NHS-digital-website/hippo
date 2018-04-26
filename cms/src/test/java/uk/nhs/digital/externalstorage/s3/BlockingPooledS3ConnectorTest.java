@@ -1,6 +1,7 @@
 package uk.nhs.digital.externalstorage.s3;
 
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.sameInstance;
 import static org.junit.Assert.assertThat;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
@@ -18,17 +19,18 @@ import java.util.UUID;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class BlockingPooledS3ConnectorTest {
 
     @Mock private S3SdkConnector s3SdkConnector;
     @Mock private ExecutorService uploadExecutorService;
     @Mock private ExecutorService downloadExecutorService;
+    @Mock private S3TransfersReportingTracker logger;
     @Mock private Future future;
 
     @Captor private ArgumentCaptor<Callable<S3ObjectMetadata>> scheduledUploadTaskArgumentCaptor;
-    @Captor private ArgumentCaptor<Runnable> scheduledDownloadTaskArgumentCaptor;
+    @Captor private ArgumentCaptor<Callable<S3File>> scheduledDownloadTaskArgumentCaptor;
 
 
     private BlockingPooledS3Connector s3proxy;
@@ -43,38 +45,29 @@ public class BlockingPooledS3ConnectorTest {
         s3proxy = new BlockingPooledS3Connector(
             s3SdkConnector,
             downloadExecutorService,
-            uploadExecutorService
+            uploadExecutorService,
+            logger
         );
     }
 
     @Test
     public void delegatesPublishedResourceDirectlyToStandardConnector() throws Exception {
 
-        // given
-        final boolean expectedActionResult = randomBoolean();
-        given(s3SdkConnector.publishResource(expectedObjectPath)).willReturn(expectedActionResult);
-
         // when
-        final boolean actualActionResult = s3proxy.publishResource(expectedObjectPath);
+        s3proxy.publishResource(expectedObjectPath);
 
         // then
         then(s3SdkConnector).should().publishResource(expectedObjectPath);
-        assertThat("Reported result is as received from the delegate.", actualActionResult, is(expectedActionResult));
     }
 
     @Test
     public void delegatesUnPublishedResourceDirectlyToStandardConnector() throws Exception {
 
-        // given
-        final boolean expectedActionResult = randomBoolean();
-        given(s3SdkConnector.unpublishResource(expectedObjectPath)).willReturn(expectedActionResult);
-
         // when
-        final boolean actualActionResult = s3proxy.unpublishResource(expectedObjectPath);
+        s3proxy.unpublishResource(expectedObjectPath);
 
         // then
         then(s3SdkConnector).should().unpublishResource(expectedObjectPath);
-        assertThat("Reported result is as received from the delegate.", actualActionResult, is(expectedActionResult));
     }
 
     @Test
@@ -91,7 +84,7 @@ public class BlockingPooledS3ConnectorTest {
         final String expectedMimeType = newRandomString();
 
         // when
-        final S3ObjectMetadata actualS3ObjectMetadata = s3proxy.scheduleUpload(
+        final S3ObjectMetadata actualS3ObjectMetadata = s3proxy.upload(
             () -> expectedUploadInputStream,
             expectedFileName,
             expectedMimeType
@@ -112,24 +105,29 @@ public class BlockingPooledS3ConnectorTest {
 
         // given
         given(downloadExecutorService.submit(scheduledDownloadTaskArgumentCaptor.capture())).willReturn(future);
-        final AtomicBoolean isTaskExecuted = new AtomicBoolean(false);
+
+        final S3File expectedDownloadedFile = mock(S3File.class);
+        given(s3SdkConnector.downloadFile(expectedObjectPath)).willReturn(expectedDownloadedFile);
+        given(future.get()).willReturn(expectedDownloadedFile);
 
         // when
-        s3proxy.scheduleDownload(expectedObjectPath, s3File -> isTaskExecuted.set(true));
+        final AtomicReference<S3File> actualS3File = new AtomicReference<>();
+        s3proxy.download(
+            expectedObjectPath,
+            s3FileReceivedFromS3SdkConnector -> actualS3File.set(s3FileReceivedFromS3SdkConnector)
+        );
 
         // then
         then(future).should().get(); // ensures execution was delegated to provided ExecutorService
-        scheduledDownloadTaskArgumentCaptor.getValue().run(); // ensures that the scheduled Runnable actually gets called
+        scheduledDownloadTaskArgumentCaptor.getValue().call(); // ensures that the scheduled Callable actually gets called
 
         then(s3SdkConnector).should().downloadFile(expectedObjectPath);
-        assertThat("Download consumer task has been executed.", isTaskExecuted.get(), is(true));
+        assertThat("Download consumer task has been called for downloaded file.",
+            actualS3File.get(), is(sameInstance(expectedDownloadedFile)));
     }
 
     private static String newRandomString() {
         return UUID.randomUUID().toString();
     }
 
-    private static boolean randomBoolean() {
-        return Math.round(Math.random() * 10) % 2 == 0;
-    }
 }

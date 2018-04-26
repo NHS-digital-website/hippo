@@ -9,7 +9,7 @@ import org.onehippo.repository.documentworkflow.task.AbstractDocumentTask;
 import org.onehippo.repository.events.HippoWorkflowEvent;
 import uk.nhs.digital.JcrQueryHelper;
 import uk.nhs.digital.externalstorage.ExternalStorageConstants;
-import uk.nhs.digital.externalstorage.s3.SchedulingS3Connector;
+import uk.nhs.digital.externalstorage.s3.PooledS3Connector;
 import uk.nhs.digital.ps.PublicationSystemConstants;
 
 import java.rmi.RemoteException;
@@ -22,13 +22,13 @@ public abstract class AbstractExternalFileTask extends AbstractDocumentTask {
 
     protected String variantState;
 
-    private SchedulingS3Connector s3Connector;
+    private PooledS3Connector s3Connector;
 
     public AbstractExternalFileTask() {
         super();
     }
 
-    public void setS3Connector(SchedulingS3Connector s3Connector) {
+    public void setS3Connector(PooledS3Connector s3Connector) {
         this.s3Connector = s3Connector;
     }
 
@@ -68,7 +68,7 @@ public abstract class AbstractExternalFileTask extends AbstractDocumentTask {
         return res.getNodes();
     }
 
-    protected abstract void setResourcePermission(SchedulingS3Connector s3, final NodeIterator resourceNodes) throws RepositoryException, WorkflowException;
+    protected abstract void setResourcePermission(PooledS3Connector s3, final NodeIterator resourceNodes) throws RepositoryException, WorkflowException;
 
     public void logInCmsActivityStream(final String documentPath, final String message) {
         final HippoEventBus eventBus = HippoServiceRegistry.getService(HippoEventBus.class);

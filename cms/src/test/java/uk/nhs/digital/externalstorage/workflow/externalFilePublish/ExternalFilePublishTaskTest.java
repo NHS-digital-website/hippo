@@ -22,7 +22,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.onehippo.repository.documentworkflow.DocumentHandle;
 import uk.nhs.digital.externalstorage.ExternalStorageConstants;
-import uk.nhs.digital.externalstorage.s3.SchedulingS3Connector;
+import uk.nhs.digital.externalstorage.s3.PooledS3Connector;
 import uk.nhs.digital.ps.PublicationSystemConstants;
 
 import java.util.ArrayList;
@@ -37,7 +37,7 @@ import javax.jcr.Session;
 
 public class ExternalFilePublishTaskTest {
 
-    @Mock private SchedulingS3Connector s3Connector;
+    @Mock private PooledS3Connector s3Connector;
     @Mock private WorkflowContext workflowContext;
 
     private ExternalFilePublishTask externalFilePublishTask;
@@ -49,10 +49,6 @@ public class ExternalFilePublishTaskTest {
     @Before
     public void setUp() throws RepositoryException {
         initMocks(this);
-        given(s3Connector.publishResource(any(String.class)))
-            .willReturn(true);
-        given(s3Connector.unpublishResource(any(String.class)))
-            .willReturn(true);
 
         Repository repository = MockJcr.newRepository();
         session = repository.login();

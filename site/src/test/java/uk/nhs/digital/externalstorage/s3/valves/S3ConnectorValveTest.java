@@ -24,8 +24,8 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.Mock;
 import uk.nhs.digital.common.ServiceProvider;
+import uk.nhs.digital.externalstorage.s3.PooledS3Connector;
 import uk.nhs.digital.externalstorage.s3.S3File;
-import uk.nhs.digital.externalstorage.s3.SchedulingS3Connector;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -39,7 +39,7 @@ import javax.servlet.http.HttpServletResponse;
 public class S3ConnectorValveTest {
 
     @Mock private ServiceProvider serviceProvider;
-    @Mock private SchedulingS3Connector s3Connector;
+    @Mock private PooledS3Connector s3Connector;
     @Mock private HttpServletRequest request;
     @Mock private HttpServletResponse response;
     @Mock private HstRequestContext hstRequestContext;
@@ -85,7 +85,7 @@ public class S3ConnectorValveTest {
         given(s3File.getContent()).willReturn(s3InputStream);
         given(s3File.getLength()).willReturn(expectedFileLength);
 
-        given(serviceProvider.getService(SchedulingS3Connector.class)).willReturn(s3Connector);
+        given(serviceProvider.getService(PooledS3Connector.class)).willReturn(s3Connector);
 
         s3ConnectorValve = new S3ConnectorValve(serviceProvider);
     }
@@ -100,7 +100,7 @@ public class S3ConnectorValveTest {
         s3ConnectorValve.invoke(valveContext);
 
         // then
-        then(s3Connector).should().scheduleDownload(eq(s3ObjectPath), downloadTaskArgumentCaptor.capture());
+        then(s3Connector).should().download(eq(s3ObjectPath), downloadTaskArgumentCaptor.capture());
         downloadTaskArgumentCaptor.getValue().accept(s3File); // ensures that the download task actually gets called
 
         // verify response headers
@@ -129,7 +129,7 @@ public class S3ConnectorValveTest {
         s3ConnectorValve.invoke(valveContext);
 
         // then
-        then(s3Connector).should().scheduleDownload(eq(s3ObjectPath), downloadTaskArgumentCaptor.capture());
+        then(s3Connector).should().download(eq(s3ObjectPath), downloadTaskArgumentCaptor.capture());
         downloadTaskArgumentCaptor.getValue().accept(s3File); // ensures that the download task actually gets called
 
         verifyZeroInteractions(s3Connector);
@@ -142,7 +142,7 @@ public class S3ConnectorValveTest {
         // given
         final RuntimeException expectedConnecorException = new RuntimeException();
 
-        doThrow(expectedConnecorException).when(s3Connector).scheduleDownload(anyString(), any());
+        doThrow(expectedConnecorException).when(s3Connector).download(anyString(), any());
 
         try {
             // when
@@ -172,7 +172,7 @@ public class S3ConnectorValveTest {
             s3ConnectorValve.invoke(valveContext);
 
             // then
-            then(s3Connector).should().scheduleDownload(eq(s3ObjectPath), downloadTaskArgumentCaptor.capture());
+            then(s3Connector).should().download(eq(s3ObjectPath), downloadTaskArgumentCaptor.capture());
             downloadTaskArgumentCaptor.getValue().accept(s3File); // ensures that the download task actually gets called
 
             fail("Expected an exception but none was thrown");

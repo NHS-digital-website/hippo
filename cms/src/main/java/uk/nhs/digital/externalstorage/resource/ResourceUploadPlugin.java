@@ -1,6 +1,6 @@
 package uk.nhs.digital.externalstorage.resource;
 
-import static uk.nhs.digital.externalstorage.s3.SchedulingS3Connector.wrapCheckedException;
+import static uk.nhs.digital.externalstorage.s3.PooledS3Connector.wrapCheckedException;
 
 import org.apache.wicket.markup.html.form.upload.FileUpload;
 import org.hippoecm.frontend.behaviors.EventStoppingBehavior;
@@ -17,8 +17,8 @@ import org.onehippo.cms7.services.HippoServiceRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.externalstorage.ExternalStorageConstants;
+import uk.nhs.digital.externalstorage.s3.PooledS3Connector;
 import uk.nhs.digital.externalstorage.s3.S3ObjectMetadata;
-import uk.nhs.digital.externalstorage.s3.SchedulingS3Connector;
 
 import java.util.Calendar;
 import javax.jcr.Node;
@@ -65,13 +65,13 @@ public class ResourceUploadPlugin extends RenderPlugin {
      * @param upload the {@link FileUpload} containing the upload information
      */
     private void handleUpload(FileUpload upload) throws FileUploadViolationException {
-        final SchedulingS3Connector s3Connector = HippoServiceRegistry.getService(SchedulingS3Connector.class);
+        final PooledS3Connector s3Connector = HippoServiceRegistry.getService(PooledS3Connector.class);
 
         String fileName = upload.getClientFileName();
         String mimeType = upload.getContentType();
 
         try {
-            final S3ObjectMetadata s3ObjectMetadata = s3Connector.scheduleUpload(
+            final S3ObjectMetadata s3ObjectMetadata = s3Connector.upload(
                 wrapCheckedException(upload::getInputStream),
                 fileName,
                 mimeType

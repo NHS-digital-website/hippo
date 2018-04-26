@@ -9,7 +9,7 @@ import org.onehippo.cms7.services.HippoServiceRegistry
 import org.onehippo.repository.documentworkflow.DocumentHandle
 import org.onehippo.repository.update.BaseNodeUpdateVisitor
 import uk.nhs.digital.externalstorage.s3.S3ObjectMetadata
-import uk.nhs.digital.externalstorage.s3.SchedulingS3Connector
+import uk.nhs.digital.externalstorage.s3.PooledS3Connector
 
 import javax.jcr.Binary
 import javax.jcr.Node
@@ -38,7 +38,7 @@ class Migration20180425UploadResourcesToS3 extends BaseNodeUpdateVisitor {
     private static final String PROPERTY_MIME_TYPE = "jcr:mimeType";
     private static final String PROPERTY_FILE_NAME = "hippo:filename";
 
-    private SchedulingS3Connector s3Connector
+    private PooledS3Connector s3Connector
     private StreamComparer streamComparer
     private WorkflowManager workflowManager
     private Session session
@@ -49,7 +49,7 @@ class Migration20180425UploadResourcesToS3 extends BaseNodeUpdateVisitor {
     @Override
     void initialize(Session session) {
         this.session = session;
-        s3Connector = HippoServiceRegistry.getService(SchedulingS3Connector.class)
+        s3Connector = HippoServiceRegistry.getService(PooledS3Connector.class)
         streamComparer = new StreamComparer()
         workflowManager = ((HippoWorkspace) session.getWorkspace()).getWorkflowManager();
         modifiedDate = Calendar.getInstance() // want this to be the same for all variants so the doc doesn't look modified in the CMS
@@ -168,7 +168,7 @@ class Migration20180425UploadResourcesToS3 extends BaseNodeUpdateVisitor {
                 S3ObjectMetadata metadata = hashToS3Metadata.get(hashCode)
                 if (metadata == null) {
                     log.info("About to upload to s3. file: $fileName mime: $mimeType hash: $hashCode")
-                    metadata = s3Connector.scheduleUpload({ stream }, fileName, mimeType)
+                    metadata = s3Connector.upload({ stream }, fileName, mimeType)
                     log.info("Finished uploading to s3. url: ${metadata.url} hash: $hashCode")
 
                     hashToS3Metadata.put(hashCode, metadata)
