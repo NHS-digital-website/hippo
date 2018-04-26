@@ -4,9 +4,9 @@ import java.io.InputStream;
 
 public interface S3Connector {
 
-    boolean publishResource(String objectPath);
+    void publishResource(String objectPath);
 
-    boolean unpublishResource(String objectPath);
+    void unpublishResource(String objectPath);
 
     S3ObjectMetadata uploadFile(InputStream fileStream, String objectPath, String contentType);
 

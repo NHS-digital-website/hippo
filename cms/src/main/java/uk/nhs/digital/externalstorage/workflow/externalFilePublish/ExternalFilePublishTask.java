@@ -7,7 +7,7 @@ import org.hippoecm.repository.api.WorkflowException;
 import org.onehippo.repository.documentworkflow.DocumentHandle;
 import org.onehippo.repository.documentworkflow.DocumentVariant;
 import uk.nhs.digital.externalstorage.ExternalStorageConstants;
-import uk.nhs.digital.externalstorage.s3.SchedulingS3Connector;
+import uk.nhs.digital.externalstorage.s3.PooledS3Connector;
 import uk.nhs.digital.externalstorage.workflow.AbstractExternalFileTask;
 import uk.nhs.digital.ps.PublicationSystemConstants;
 
@@ -19,7 +19,7 @@ public class ExternalFilePublishTask extends AbstractExternalFileTask {
 
     private static final String DOCUMENTS_ROOT_FOLDER = "/content/documents";
 
-    protected void setResourcePermission(final SchedulingS3Connector s3Connector, final NodeIterator resourceNodes) throws RepositoryException, WorkflowException {
+    protected void setResourcePermission(final PooledS3Connector s3Connector, final NodeIterator resourceNodes) throws RepositoryException, WorkflowException {
         Node variantNode = getVariant().getNode(getWorkflowContext().getInternalWorkflowSession());
 
         if (isPublication(variantNode)) {
@@ -34,7 +34,7 @@ public class ExternalFilePublishTask extends AbstractExternalFileTask {
         }
     }
 
-    private void publishResources(SchedulingS3Connector s3Connector, NodeIterator resourceNodes, boolean shouldBePublic) throws RepositoryException {
+    private void publishResources(PooledS3Connector s3Connector, NodeIterator resourceNodes, boolean shouldBePublic) throws RepositoryException {
         for (Node node; resourceNodes.hasNext(); ) {
             node = resourceNodes.nextNode();
             if (node.hasProperty(ExternalStorageConstants.PROPERTY_EXTERNAL_STORAGE_REFERENCE)) {
@@ -51,7 +51,7 @@ public class ExternalFilePublishTask extends AbstractExternalFileTask {
         }
     }
 
-    private void setResourcePermissionOnPublication(SchedulingS3Connector s3Connector, NodeIterator resourceNodes) throws RepositoryException {
+    private void setResourcePermissionOnPublication(PooledS3Connector s3Connector, NodeIterator resourceNodes) throws RepositoryException {
         Node variantNode = getVariant().getNode(getWorkflowContext().getInternalWorkflowSession());
 
         publishResources(s3Connector, resourceNodes, isPublicationFinalised(variantNode));

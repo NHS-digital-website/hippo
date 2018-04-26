@@ -27,7 +27,7 @@ import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
 
-@ProvidesService(types = SchedulingS3Connector.class)
+@ProvidesService(types = PooledS3Connector.class)
 public class S3ConnectorServiceRegistrationModule extends AbstractReconfigurableDaemonModule {
 
     private static final Logger log = getLogger(S3ConnectorServiceRegistrationModule.class);
@@ -46,7 +46,7 @@ public class S3ConnectorServiceRegistrationModule extends AbstractReconfigurable
 
     private ExecutorService downloadExecutorService;
     private ExecutorService uploadExecutorService;
-    private SchedulingS3Connector schedulingS3Connector;
+    private PooledS3Connector pooledS3Connector;
 
     @Override
     protected void doConfigure(final Node moduleConfig) throws RepositoryException {
@@ -59,11 +59,15 @@ public class S3ConnectorServiceRegistrationModule extends AbstractReconfigurable
         synchronized (configurationLock) {
             readInConfiguration(moduleConfig);
 
+            reportNewConfiguration();
+
             validateConfiguration();
 
             unregisterServiceIfRegistered();
 
             registerService();
+
+            log.info("Updated configuration has been applied.");
         }
     }
 
@@ -121,16 +125,21 @@ public class S3ConnectorServiceRegistrationModule extends AbstractReconfigurable
         downloadExecutorService = Executors.newWorkStealingPool(downloadsMaxConcurrentCount);
         uploadExecutorService = Executors.newWorkStealingPool(uploadsMaxConcurrentCount);
 
-        schedulingS3Connector = new BlockingPooledS3Connector(s3Connector, downloadExecutorService, uploadExecutorService);
+        pooledS3Connector = new BlockingPooledS3Connector(
+            s3Connector,
+            downloadExecutorService,
+            uploadExecutorService,
+            new S3TransfersReportingTracker()
+        );
 
-        HippoServiceRegistry.registerService(schedulingS3Connector, SchedulingS3Connector.class);
+        HippoServiceRegistry.registerService(pooledS3Connector, PooledS3Connector.class);
     }
 
     private void unregisterServiceIfRegistered() {
 
-        if (HippoServiceRegistry.getService(SchedulingS3Connector.class) != null) {
+        if (HippoServiceRegistry.getService(PooledS3Connector.class) != null) {
 
-            HippoServiceRegistry.unregisterService(schedulingS3Connector, SchedulingS3Connector.class);
+            HippoServiceRegistry.unregisterService(pooledS3Connector, PooledS3Connector.class);
 
             // null checks protect against failed doInitialize/doConfigure
             Optional.ofNullable(downloadExecutorService).ifPresent(ExecutorService::shutdown);
@@ -200,5 +209,18 @@ public class S3ConnectorServiceRegistrationModule extends AbstractReconfigurable
 
     private String newRandomString() {
         return UUID.randomUUID().toString();
+    }
+
+    private void reportNewConfiguration() {
+        log.info("S3ConnectorServiceRegistrationModule{"
+            + "s3Bucket='" + s3Bucket + '\''
+            + ", s3Region='" + s3Region + '\''
+            + ", s3Endpoint='" + s3Endpoint + '\''
+            + ", downloadsMaxConcurrentCount=" + downloadsMaxConcurrentCount
+            + ", downloadsShutdownTimeoutInSecs=" + downloadsShutdownTimeoutInSecs
+            + ", uploadsMaxConcurrentCount=" + uploadsMaxConcurrentCount
+            + ", uploadsShutdownTimeoutInSecs=" + uploadsShutdownTimeoutInSecs
+            + '}'
+        );
     }
 }

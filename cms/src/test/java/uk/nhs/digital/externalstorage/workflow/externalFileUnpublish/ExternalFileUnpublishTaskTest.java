@@ -3,7 +3,6 @@ package uk.nhs.digital.externalstorage.workflow.externalFileUnpublish;
 import static org.hippoecm.repository.HippoStdNodeType.HIPPOSTD_STATE;
 import static org.hippoecm.repository.HippoStdNodeType.NT_FOLDER;
 import static org.hippoecm.repository.HippoStdNodeType.PUBLISHED;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
@@ -21,7 +20,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.onehippo.repository.documentworkflow.DocumentHandle;
 import uk.nhs.digital.externalstorage.ExternalStorageConstants;
-import uk.nhs.digital.externalstorage.s3.SchedulingS3Connector;
+import uk.nhs.digital.externalstorage.s3.PooledS3Connector;
 import uk.nhs.digital.ps.PublicationSystemConstants;
 
 import java.util.ArrayList;
@@ -36,7 +35,7 @@ import javax.jcr.Session;
 
 public class ExternalFileUnpublishTaskTest {
 
-    @Mock private SchedulingS3Connector s3Connector;
+    @Mock private PooledS3Connector s3Connector;
     @Mock private WorkflowContext workflowContext;
 
     private ExternalFileUnpublishTask externalFileUnpublishTask;
@@ -48,8 +47,6 @@ public class ExternalFileUnpublishTaskTest {
     @Before
     public void setUp() throws RepositoryException {
         initMocks(this);
-        given(s3Connector.unpublishResource(any(String.class)))
-            .willReturn(true);
 
         Repository repository = MockJcr.newRepository();
         session = repository.login();

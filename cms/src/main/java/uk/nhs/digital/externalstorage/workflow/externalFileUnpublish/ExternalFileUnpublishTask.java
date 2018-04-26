@@ -4,7 +4,7 @@ import static org.hippoecm.repository.HippoStdNodeType.PUBLISHED;
 import static uk.nhs.digital.ps.PublicationSystemConstants.INDEX_FILE_NAME;
 
 import uk.nhs.digital.externalstorage.ExternalStorageConstants;
-import uk.nhs.digital.externalstorage.s3.SchedulingS3Connector;
+import uk.nhs.digital.externalstorage.s3.PooledS3Connector;
 import uk.nhs.digital.externalstorage.workflow.AbstractExternalFileTask;
 import uk.nhs.digital.ps.PublicationSystemConstants;
 
@@ -14,7 +14,7 @@ import javax.jcr.RepositoryException;
 
 public class ExternalFileUnpublishTask extends AbstractExternalFileTask {
 
-    protected void setResourcePermission(final SchedulingS3Connector s3Connector, final NodeIterator resourceNodes) throws RepositoryException {
+    protected void setResourcePermission(final PooledS3Connector s3Connector, final NodeIterator resourceNodes) throws RepositoryException {
         Node variantNode = getVariant().getNode(getWorkflowContext().getInternalWorkflowSession());
 
         if (isPublication(variantNode)) {
@@ -26,7 +26,7 @@ public class ExternalFileUnpublishTask extends AbstractExternalFileTask {
         }
     }
 
-    private void unpublishPublicationResources(final SchedulingS3Connector s3Connector, NodeIterator resourceNodes) throws RepositoryException {
+    private void unpublishPublicationResources(final PooledS3Connector s3Connector, NodeIterator resourceNodes) throws RepositoryException {
         Node variantNode = getVariant().getNode(getWorkflowContext().getInternalWorkflowSession());
 
         unpublishResources(s3Connector, resourceNodes);
@@ -42,7 +42,7 @@ public class ExternalFileUnpublishTask extends AbstractExternalFileTask {
         }
     }
 
-    private void unpublishResources(final SchedulingS3Connector s3Connector, NodeIterator resourceNodes) throws RepositoryException {
+    private void unpublishResources(final PooledS3Connector s3Connector, NodeIterator resourceNodes) throws RepositoryException {
         for (Node node; resourceNodes.hasNext(); ) {
             node = resourceNodes.nextNode();
             if (node.hasProperty(ExternalStorageConstants.PROPERTY_EXTERNAL_STORAGE_REFERENCE)) {

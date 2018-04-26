@@ -5,7 +5,7 @@ import org.hippoecm.hst.container.valves.AbstractOrderableValve;
 import org.hippoecm.hst.core.container.ContainerException;
 import org.hippoecm.hst.core.container.ValveContext;
 import uk.nhs.digital.common.ServiceProvider;
-import uk.nhs.digital.externalstorage.s3.SchedulingS3Connector;
+import uk.nhs.digital.externalstorage.s3.PooledS3Connector;
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -24,11 +24,11 @@ public class S3ConnectorValve extends AbstractOrderableValve {
         // We're retrieving the service at the last possible moment to ensure that
         // we always use the latest instance of it as the service may ge re-registered
         // without restarting the application due to config changes in the Console.
-        final SchedulingS3Connector s3Connector = serviceProvider.getService(SchedulingS3Connector.class);
+        final PooledS3Connector s3Connector = serviceProvider.getService(PooledS3Connector.class);
 
         final String s3Reference = context.getServletRequest().getParameter("s3Reference");
 
-        s3Connector.scheduleDownload(s3Reference, s3File -> {
+        s3Connector.download(s3Reference, s3File -> {
 
             OutputStream responseOutputStream = null;
             InputStream s3InputStream = null;

@@ -21,14 +21,12 @@ import org.hippoecm.frontend.service.render.RenderPlugin;
 import org.onehippo.cms7.services.HippoServiceRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import uk.nhs.digital.externalstorage.ExternalStorageConstants;
+import uk.nhs.digital.externalstorage.s3.PooledS3Connector;
 import uk.nhs.digital.externalstorage.s3.S3File;
-import uk.nhs.digital.externalstorage.s3.SchedulingS3Connector;
 
 import java.io.IOException;
 import java.io.InputStream;
-
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 
@@ -114,8 +112,8 @@ public class ImageDisplayPlugin extends RenderPlugin<Node> {
             @Override
             public void respond(final Attributes attributes) {
 
-                final SchedulingS3Connector s3ConnectorService = HippoServiceRegistry.getService(SchedulingS3Connector.class);
-                s3ConnectorService.scheduleDownload(
+                final PooledS3Connector s3ConnectorService = HippoServiceRegistry.getService(PooledS3Connector.class);
+                s3ConnectorService.download(
                     metadata.getReference(),
                     s3File -> {
                         s3FileResourceStream.setS3File(s3File);
