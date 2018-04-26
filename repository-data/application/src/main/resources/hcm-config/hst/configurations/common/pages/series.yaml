@@ -6,5 +6,5 @@ definitions:
         hst:componentclassname: uk.nhs.digital.ps.components.SeriesComponent
         hst:template: series
         jcr:primaryType: hst:component
-      hst:referencecomponent: hst:abstractpages/basepage
+      hst:referencecomponent: hst:abstractpages/pubs_apppage
       jcr:primaryType: hst:component
