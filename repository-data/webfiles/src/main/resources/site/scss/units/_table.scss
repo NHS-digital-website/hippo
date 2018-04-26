@@ -76,3 +76,18 @@ table {
 .table--two-column th {
     width: 50%;
 }
+
+.table-emphasised {
+    th,
+    td {
+        &:first-child {
+            min-width: 240px;
+            @include bold-font(16);
+        }
+
+        &,
+        * {
+            @include core-font(16);
+        }
+    }
+}

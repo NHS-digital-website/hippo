@@ -1,0 +1,14 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <bean id="org.onehippo.forge.selection.hst.manager.ValueListManager"
+          class="org.onehippo.forge.selection.hst.manager.DefaultValueListManager">
+        <constructor-arg>
+            <map>
+                <!--<entry key="name" value="/absolute/repository/path"/>-->
+                <entry key="rights" value="/content/documents/administration/website/rights"/>
+                <entry key="lawfulbasis" value="/content/documents/administration/website/lawful-basis"/>
+            </map>
+        </constructor-arg>
+    </bean>
+</beans>

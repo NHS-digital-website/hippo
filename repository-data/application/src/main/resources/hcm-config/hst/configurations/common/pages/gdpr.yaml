@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/gdpr:
+      /main:
+        hst:componentclassname: uk.nhs.digital.common.components.GdprComponent
+        hst:template: gdpr-article
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/apppage
+      jcr:primaryType: hst:component

@@ -12,6 +12,7 @@ definitions:
           - website:componentlist
           - website:news
           - website:event
+          - website:gdprtransparency
           hst:componentconfigurationmappingvalues:
           - hst:pages/service
           - hst:pages/general
@@ -19,6 +20,7 @@ definitions:
           - hst:pages/componentlist
           - hst:pages/news
           - hst:pages/event
+          - hst:pages/gdpr
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404
@@ -29,6 +31,7 @@ definitions:
         - website:componentlist
         - website:news
         - website:event
+        - website:gdprtransparency
         hst:componentconfigurationmappingvalues:
         - hst:pages/service
         - hst:pages/general
@@ -36,6 +39,7 @@ definitions:
         - hst:pages/componentlist
         - hst:pages/news
         - hst:pages/event
+        - hst:pages/gdpr
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:

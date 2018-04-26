@@ -26,7 +26,8 @@
         "Hub":      "uk.nhs.digital.website.beans.Hub",
         "Event":      "uk.nhs.digital.website.beans.Event",
         "List":     "uk.nhs.digital.website.beans.ComponentList",
-        "Footer":   "Footer"
+        "Footer":   "Footer",
+        "GDPR Transparency":     "uk.nhs.digital.website.beans.Gdprtransparency"
     }/>
 
     <#list docTypes?keys as key>
