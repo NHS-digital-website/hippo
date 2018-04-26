@@ -65,11 +65,11 @@ definitions:
       /menu:
         hst:renderpath: webfile:/freemarker/common/menu.ftl
         jcr:primaryType: hst:template
-      /newslist-main-newslist:
-        hst:renderpath: webfile:/freemarker/common/newslist-main-newslist.ftl
-        jcr:primaryType: hst:template
       /news-article:
         hst:renderpath: webfile:/freemarker/common/news-article.ftl
+        jcr:primaryType: hst:template
+      /newslist-main-newslist:
+        hst:renderpath: webfile:/freemarker/common/newslist-main-newslist.ftl
         jcr:primaryType: hst:template
       /nihub:
         hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/nihub.ftl
