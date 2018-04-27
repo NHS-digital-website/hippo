@@ -3,6 +3,9 @@
 : /publication-with-datasets-dataset[1]:
     /publicationsystem:Files-v3:
       /publicationsystem:attachmentResource:
+        externalstorage:reference: 55/67B825/attachment.pdf
+        externalstorage:size: 42197
+        externalstorage:url: https://files.local.nhsd.io/55/67B825/attachment.pdf
         hippo:filename: attachment.pdf
         hippo:text:
           resource: /content/documents/corporate-website/publication-system/acceptance-tests/publication-with-datasets/datasets-subfolder/publication-with-datasets-dataset/publication-with-datasets-dataset[1]/Files-v3/attachmentResource/text.pdf
@@ -11,8 +14,10 @@
           resource: /content/documents/corporate-website/publication-system/acceptance-tests/publication-with-datasets/datasets-subfolder/publication-with-datasets-dataset/publication-with-datasets-dataset[1]/Files-v3/attachmentResource/data.pdf
           type: binary
         jcr:encoding: UTF-8
-        jcr:lastModified: 2018-01-08T15:55:50.052Z
+        jcr:lastModified: 2018-04-27T09:30:16.588Z
         jcr:mimeType: application/pdf
+        jcr:mixinTypes:
+        - hippostd:relaxed
         jcr:primaryType: publicationsystem:resource
       jcr:primaryType: publicationsystem:attachment
       publicationsystem:displayName: ''
@@ -67,6 +72,9 @@
   /publication-with-datasets-dataset[2]:
     /publicationsystem:Files-v3:
       /publicationsystem:attachmentResource:
+        externalstorage:reference: 55/67B825/attachment.pdf
+        externalstorage:size: 42197
+        externalstorage:url: https://files.local.nhsd.io/55/67B825/attachment.pdf
         hippo:filename: attachment.pdf
         hippo:text:
           resource: /content/documents/corporate-website/publication-system/acceptance-tests/publication-with-datasets/datasets-subfolder/publication-with-datasets-dataset/publication-with-datasets-dataset[2]/Files-v3/attachmentResource/text.pdf
@@ -75,8 +83,10 @@
           resource: /content/documents/corporate-website/publication-system/acceptance-tests/publication-with-datasets/datasets-subfolder/publication-with-datasets-dataset/publication-with-datasets-dataset[2]/Files-v3/attachmentResource/data.pdf
           type: binary
         jcr:encoding: UTF-8
-        jcr:lastModified: 2018-01-08T15:55:50.052Z
+        jcr:lastModified: 2018-04-27T09:30:16.588Z
         jcr:mimeType: application/pdf
+        jcr:mixinTypes:
+        - hippostd:relaxed
         jcr:primaryType: publicationsystem:resource
       jcr:primaryType: publicationsystem:attachment
       publicationsystem:displayName: ''
@@ -130,6 +140,9 @@
   /publication-with-datasets-dataset[3]:
     /publicationsystem:Files-v3:
       /publicationsystem:attachmentResource:
+        externalstorage:reference: 55/67B825/attachment.pdf
+        externalstorage:size: 42197
+        externalstorage:url: https://files.local.nhsd.io/55/67B825/attachment.pdf
         hippo:filename: attachment.pdf
         hippo:text:
           resource: /content/documents/corporate-website/publication-system/acceptance-tests/publication-with-datasets/datasets-subfolder/publication-with-datasets-dataset/publication-with-datasets-dataset[3]/Files-v3/attachmentResource/text.pdf
@@ -138,8 +151,10 @@
           resource: /content/documents/corporate-website/publication-system/acceptance-tests/publication-with-datasets/datasets-subfolder/publication-with-datasets-dataset/publication-with-datasets-dataset[3]/Files-v3/attachmentResource/data.pdf
           type: binary
         jcr:encoding: UTF-8
-        jcr:lastModified: 2018-01-08T15:55:50.052Z
+        jcr:lastModified: 2018-04-27T09:30:16.588Z
         jcr:mimeType: application/pdf
+        jcr:mixinTypes:
+        - hippostd:relaxed
         jcr:primaryType: publicationsystem:resource
       jcr:primaryType: publicationsystem:attachment
       publicationsystem:displayName: ''

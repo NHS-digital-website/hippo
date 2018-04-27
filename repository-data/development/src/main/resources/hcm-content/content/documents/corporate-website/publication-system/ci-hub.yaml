@@ -1279,6 +1279,9 @@
       /publicationsystem:cilandingasset[1]:
         /publicationsystem:Attachments:
           /publicationsystem:attachmentResource:
+            externalstorage:reference: 24/66E68E/SHMI_publication_timetable.xlsx
+            externalstorage:size: 34661
+            externalstorage:url: https://files.local.nhsd.io/24/66E68E/SHMI_publication_timetable.xlsx
             hippo:filename: SHMI_publication_timetable.xlsx
             hippo:text:
               resource: /content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi[1]/cilandingasset[1]/Attachments/attachmentResource/text.bin
@@ -1287,8 +1290,10 @@
               resource: /content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi[1]/cilandingasset[1]/Attachments/attachmentResource/data.bin
               type: binary
             jcr:encoding: UTF-8
-            jcr:lastModified: 2018-02-05T22:00:57.619Z
+            jcr:lastModified: 2018-04-27T12:04:25.991Z
             jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+            jcr:mixinTypes:
+            - hippostd:relaxed
             jcr:primaryType: publicationsystem:resource
           jcr:primaryType: publicationsystem:attachment
           publicationsystem:displayName: SHMI publication timetable
@@ -1354,6 +1359,9 @@
       /publicationsystem:cilandingasset[1]:
         /publicationsystem:Attachments:
           /publicationsystem:attachmentResource:
+            externalstorage:reference: 24/66E68E/SHMI_publication_timetable.xlsx
+            externalstorage:size: 34661
+            externalstorage:url: https://files.local.nhsd.io/24/66E68E/SHMI_publication_timetable.xlsx
             hippo:filename: SHMI_publication_timetable.xlsx
             hippo:text:
               resource: /content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi[2]/cilandingasset[1]/Attachments/attachmentResource/text.bin
@@ -1362,8 +1370,10 @@
               resource: /content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi[2]/cilandingasset[1]/Attachments/attachmentResource/data.bin
               type: binary
             jcr:encoding: UTF-8
-            jcr:lastModified: 2018-02-05T22:00:57.619Z
+            jcr:lastModified: 2018-04-27T12:04:25.991Z
             jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+            jcr:mixinTypes:
+            - hippostd:relaxed
             jcr:primaryType: publicationsystem:resource
           jcr:primaryType: publicationsystem:attachment
           publicationsystem:displayName: SHMI publication timetable
@@ -1431,6 +1441,9 @@
       /publicationsystem:cilandingasset[1]:
         /publicationsystem:Attachments:
           /publicationsystem:attachmentResource:
+            externalstorage:reference: 24/66E68E/SHMI_publication_timetable.xlsx
+            externalstorage:size: 34661
+            externalstorage:url: https://files.local.nhsd.io/24/66E68E/SHMI_publication_timetable.xlsx
             hippo:filename: SHMI_publication_timetable.xlsx
             hippo:text:
               resource: /content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi[3]/cilandingasset[1]/Attachments/attachmentResource/text.bin
@@ -1439,8 +1452,10 @@
               resource: /content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi[3]/cilandingasset[1]/Attachments/attachmentResource/data.bin
               type: binary
             jcr:encoding: UTF-8
-            jcr:lastModified: 2018-02-05T22:00:57.619Z
+            jcr:lastModified: 2018-04-27T12:04:25.991Z
             jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+            jcr:mixinTypes:
+            - hippostd:relaxed
             jcr:primaryType: publicationsystem:resource
           jcr:primaryType: publicationsystem:attachment
           publicationsystem:displayName: SHMI publication timetable

@@ -3,6 +3,9 @@
   /sample-indicator[1]:
     /nationalindicatorlibrary:attachments:
       /publicationsystem:attachmentResource:
+        externalstorage:reference: 81/0F0AE5/testattachment.pdf
+        externalstorage:size: 5249
+        externalstorage:url: https://files.local.nhsd.io/81/0F0AE5/testattachment.pdf
         hippo:filename: testattachment.pdf
         hippo:text:
           resource: /content/documents/corporate-website/national-indicator-library/sample-indicator/sample-indicator[1]/attachments/attachmentResource/text.pdf
@@ -11,8 +14,10 @@
           resource: /content/documents/corporate-website/national-indicator-library/sample-indicator/sample-indicator[1]/attachments/attachmentResource/data.pdf
           type: binary
         jcr:encoding: UTF-8
-        jcr:lastModified: 2018-03-12T15:26:40.972Z
+        jcr:lastModified: 2018-04-27T09:30:16.588Z
         jcr:mimeType: application/pdf
+        jcr:mixinTypes:
+        - hippostd:relaxed
         jcr:primaryType: publicationsystem:resource
       jcr:primaryType: publicationsystem:attachment
       publicationsystem:displayName: Test Attachment
@@ -143,6 +148,9 @@
   /sample-indicator[2]:
     /nationalindicatorlibrary:attachments:
       /publicationsystem:attachmentResource:
+        externalstorage:reference: 81/0F0AE5/testattachment.pdf
+        externalstorage:size: 5249
+        externalstorage:url: https://files.local.nhsd.io/81/0F0AE5/testattachment.pdf
         hippo:filename: testattachment.pdf
         hippo:text:
           resource: /content/documents/corporate-website/national-indicator-library/sample-indicator/sample-indicator[2]/attachments/attachmentResource/text.pdf
@@ -151,8 +159,10 @@
           resource: /content/documents/corporate-website/national-indicator-library/sample-indicator/sample-indicator[2]/attachments/attachmentResource/data.pdf
           type: binary
         jcr:encoding: UTF-8
-        jcr:lastModified: 2018-03-12T15:26:40.972Z
+        jcr:lastModified: 2018-04-27T09:30:16.588Z
         jcr:mimeType: application/pdf
+        jcr:mixinTypes:
+        - hippostd:relaxed
         jcr:primaryType: publicationsystem:resource
       jcr:primaryType: publicationsystem:attachment
       publicationsystem:displayName: Test Attachment
@@ -285,6 +295,9 @@
   /sample-indicator[3]:
     /nationalindicatorlibrary:attachments:
       /publicationsystem:attachmentResource:
+        externalstorage:reference: 81/0F0AE5/testattachment.pdf
+        externalstorage:size: 5249
+        externalstorage:url: https://files.local.nhsd.io/81/0F0AE5/testattachment.pdf
         hippo:filename: testattachment.pdf
         hippo:text:
           resource: /content/documents/corporate-website/national-indicator-library/sample-indicator/sample-indicator[3]/attachments/attachmentResource/text.pdf
@@ -293,8 +306,10 @@
           resource: /content/documents/corporate-website/national-indicator-library/sample-indicator/sample-indicator[3]/attachments/attachmentResource/data.pdf
           type: binary
         jcr:encoding: UTF-8
-        jcr:lastModified: 2018-03-12T15:26:40.972Z
+        jcr:lastModified: 2018-04-27T09:30:16.588Z
         jcr:mimeType: application/pdf
+        jcr:mixinTypes:
+        - hippostd:relaxed
         jcr:primaryType: publicationsystem:resource
       jcr:primaryType: publicationsystem:attachment
       publicationsystem:displayName: Test Attachment
