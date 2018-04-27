@@ -1,5 +1,469 @@
 ---
 /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test:
+  /changed-dataset:
+    /changed-dataset[1]:
+      /publicationsystem:Files-v3[1]:
+        /publicationsystem:attachmentResource:
+          externalstorage:reference: AB/2C0252/test document.csv
+          externalstorage:size: 14385601
+          externalstorage:url: https://files.local.nhsd.io/AB/2C0252/test document.csv
+          hippo:filename: test document.csv
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/changed-dataset/changed-dataset[1]/Files-v3[1]/attachmentResource/text.bin
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/changed-dataset/changed-dataset[1]/Files-v3[1]/attachmentResource/data.bin
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-04-27T09:30:16.588Z
+          jcr:mimeType: text/csv
+          jcr:mixinTypes:
+          - hippostd:relaxed
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:attachment
+        publicationsystem:displayName: Test Doc Changed
+      /publicationsystem:Files-v3[2]:
+        /publicationsystem:attachmentResource:
+          externalstorage:reference: DC/7C858D/snowman.png
+          externalstorage:size: 751098
+          externalstorage:url: https://files.local.nhsd.io/DC/7C858D/snowman.png
+          hippo:filename: snowman.png
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/changed-dataset/changed-dataset[1]/Files-v3[2]/attachmentResource/text.png
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/changed-dataset/changed-dataset[1]/Files-v3[2]/attachmentResource/data.png
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-04-27T09:30:16.588Z
+          jcr:mimeType: image/png
+          jcr:mixinTypes:
+          - hippostd:relaxed
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:attachment
+        publicationsystem:displayName: ''
+      common:FacetType: dataset
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-04-26T14:44:54.769Z
+      hippostdpubwf:lastModificationDate: 2018-04-26T15:05:58.824Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 105ad8a3-14c2-4fb3-923b-0ce5de9dde0c
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-04-25T23:00:00Z
+      publicationsystem:Summary: Unpublished
+      publicationsystem:Title: Unpublished
+    /changed-dataset[2]:
+      /publicationsystem:Files-v3[1]:
+        /publicationsystem:attachmentResource:
+          externalstorage:reference: FF/0E40DA/robot (1).jpeg
+          externalstorage:size: 45145
+          externalstorage:url: https://files.local.nhsd.io/FF/0E40DA/robot (1).jpeg
+          hippo:filename: robot (1).jpeg
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/changed-dataset/changed-dataset[2]/Files-v3[1]/attachmentResource/text.jpg
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/changed-dataset/changed-dataset[2]/Files-v3[1]/attachmentResource/data.jpg
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-04-27T09:30:16.588Z
+          jcr:mimeType: image/jpeg
+          jcr:mixinTypes:
+          - hippostd:relaxed
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:attachment
+        publicationsystem:displayName: ''
+      /publicationsystem:Files-v3[2]:
+        /publicationsystem:attachmentResource:
+          externalstorage:reference: DC/7C858D/snowman.png
+          externalstorage:size: 751098
+          externalstorage:url: https://files.local.nhsd.io/DC/7C858D/snowman.png
+          hippo:filename: snowman.png
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/changed-dataset/changed-dataset[2]/Files-v3[2]/attachmentResource/text.png
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/changed-dataset/changed-dataset[2]/Files-v3[2]/attachmentResource/data.png
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-04-27T09:30:16.588Z
+          jcr:mimeType: image/png
+          jcr:mixinTypes:
+          - hippostd:relaxed
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:attachment
+        publicationsystem:displayName: ''
+      common:FacetType: dataset
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-04-26T14:44:54.769Z
+      hippostdpubwf:lastModificationDate: 2018-04-26T14:45:56.316Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-04-26T15:02:06.903Z
+      hippotranslation:id: 105ad8a3-14c2-4fb3-923b-0ce5de9dde0c
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-04-25T23:00:00Z
+      publicationsystem:Summary: Unpublished
+      publicationsystem:Title: Unpublished
+    /changed-dataset[3]:
+      /publicationsystem:Files-v3[1]:
+        /publicationsystem:attachmentResource:
+          externalstorage:reference: AB/2C0252/test document.csv
+          externalstorage:size: 14385601
+          externalstorage:url: https://files.local.nhsd.io/AB/2C0252/test document.csv
+          hippo:filename: test document.csv
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/changed-dataset/changed-dataset[3]/Files-v3[1]/attachmentResource/text.bin
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/changed-dataset/changed-dataset[3]/Files-v3[1]/attachmentResource/data.bin
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-04-27T09:30:16.588Z
+          jcr:mimeType: text/csv
+          jcr:mixinTypes:
+          - hippostd:relaxed
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:attachment
+        publicationsystem:displayName: Test Doc Changed
+      /publicationsystem:Files-v3[2]:
+        /publicationsystem:attachmentResource:
+          externalstorage:reference: DC/7C858D/snowman.png
+          externalstorage:size: 751098
+          externalstorage:url: https://files.local.nhsd.io/DC/7C858D/snowman.png
+          hippo:filename: snowman.png
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/changed-dataset/changed-dataset[3]/Files-v3[2]/attachmentResource/text.png
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/changed-dataset/changed-dataset[3]/Files-v3[2]/attachmentResource/data.png
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-04-27T09:30:16.588Z
+          jcr:mimeType: image/png
+          jcr:mixinTypes:
+          - hippostd:relaxed
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:attachment
+        publicationsystem:displayName: ''
+      common:FacetType: dataset
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-04-26T14:44:54.769Z
+      hippostdpubwf:lastModificationDate: 2018-04-26T15:14:25.362Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 105ad8a3-14c2-4fb3-923b-0ce5de9dde0c
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-04-25T23:00:00Z
+      publicationsystem:Summary: Unpublished
+      publicationsystem:Title: Unpublished
+    hippo:name: changed dataset
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /offline-dataset:
+    /offline-dataset[1]:
+      /publicationsystem:Files-v3[1]:
+        /publicationsystem:attachmentResource:
+          externalstorage:reference: EE/E4218A/robot (1).jpeg
+          externalstorage:size: 45145
+          externalstorage:url: https://files.local.nhsd.io/EE/E4218A/robot (1).jpeg
+          hippo:filename: robot (1).jpeg
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/offline-dataset/offline-dataset[1]/Files-v3[1]/attachmentResource/text.jpg
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/offline-dataset/offline-dataset[1]/Files-v3[1]/attachmentResource/data.jpg
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-04-27T09:30:16.588Z
+          jcr:mimeType: image/jpeg
+          jcr:mixinTypes:
+          - hippostd:relaxed
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:attachment
+        publicationsystem:displayName: ''
+      /publicationsystem:Files-v3[2]:
+        /publicationsystem:attachmentResource:
+          externalstorage:reference: 92/BFF970/snowman.png
+          externalstorage:size: 751098
+          externalstorage:url: https://files.local.nhsd.io/92/BFF970/snowman.png
+          hippo:filename: snowman.png
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/offline-dataset/offline-dataset[1]/Files-v3[2]/attachmentResource/text.png
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/offline-dataset/offline-dataset[1]/Files-v3[2]/attachmentResource/data.png
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-04-27T09:30:16.588Z
+          jcr:mimeType: image/png
+          jcr:mixinTypes:
+          - hippostd:relaxed
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:attachment
+        publicationsystem:displayName: ''
+      common:FacetType: dataset
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-04-26T14:44:54.769Z
+      hippostdpubwf:lastModificationDate: 2018-04-26T14:45:56.316Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 60e8bf77-8d98-40ad-9435-b65cbde5cf09
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-04-25T23:00:00Z
+      publicationsystem:Summary: Unpublished
+      publicationsystem:Title: Unpublished
+    /offline-dataset[2]:
+      /publicationsystem:Files-v3[1]:
+        /publicationsystem:attachmentResource:
+          externalstorage:reference: EE/E4218A/robot (1).jpeg
+          externalstorage:size: 45145
+          externalstorage:url: https://files.local.nhsd.io/EE/E4218A/robot (1).jpeg
+          hippo:filename: robot (1).jpeg
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/offline-dataset/offline-dataset[2]/Files-v3[1]/attachmentResource/text.jpg
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/offline-dataset/offline-dataset[2]/Files-v3[1]/attachmentResource/data.jpg
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-04-27T09:30:16.588Z
+          jcr:mimeType: image/jpeg
+          jcr:mixinTypes:
+          - hippostd:relaxed
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:attachment
+        publicationsystem:displayName: ''
+      /publicationsystem:Files-v3[2]:
+        /publicationsystem:attachmentResource:
+          externalstorage:reference: 92/BFF970/snowman.png
+          externalstorage:size: 751098
+          externalstorage:url: https://files.local.nhsd.io/92/BFF970/snowman.png
+          hippo:filename: snowman.png
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/offline-dataset/offline-dataset[2]/Files-v3[2]/attachmentResource/text.png
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/offline-dataset/offline-dataset[2]/Files-v3[2]/attachmentResource/data.png
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-04-27T09:30:16.588Z
+          jcr:mimeType: image/png
+          jcr:mixinTypes:
+          - hippostd:relaxed
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:attachment
+        publicationsystem:displayName: ''
+      common:FacetType: dataset
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-04-26T14:44:54.769Z
+      hippostdpubwf:lastModificationDate: 2018-04-26T14:45:56.316Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-04-26T14:46:22.861Z
+      hippotranslation:id: 60e8bf77-8d98-40ad-9435-b65cbde5cf09
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-04-25T23:00:00Z
+      publicationsystem:Summary: Unpublished
+      publicationsystem:Title: Unpublished
+    hippo:name: offline dataset
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /unpublished-dataset:
+    /unpublished-dataset[1]:
+      /publicationsystem:Files-v3[1]:
+        /publicationsystem:attachmentResource:
+          externalstorage:reference: 53/1FF901/robot (1).jpeg
+          externalstorage:size: 45145
+          externalstorage:url: https://files.local.nhsd.io/53/1FF901/robot (1).jpeg
+          hippo:filename: robot (1).jpeg
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/unpublished-dataset/unpublished-dataset[1]/Files-v3[1]/attachmentResource/text.jpg
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/unpublished-dataset/unpublished-dataset[1]/Files-v3[1]/attachmentResource/data.jpg
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-04-27T09:30:16.588Z
+          jcr:mimeType: image/jpeg
+          jcr:mixinTypes:
+          - hippostd:relaxed
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:attachment
+        publicationsystem:displayName: ''
+      /publicationsystem:Files-v3[2]:
+        /publicationsystem:attachmentResource:
+          externalstorage:reference: 58/C4FA7B/snowman.png
+          externalstorage:size: 751098
+          externalstorage:url: https://files.local.nhsd.io/58/C4FA7B/snowman.png
+          hippo:filename: snowman.png
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/unpublished-dataset/unpublished-dataset[1]/Files-v3[2]/attachmentResource/text.png
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/unpublished-dataset/unpublished-dataset[1]/Files-v3[2]/attachmentResource/data.png
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-04-27T09:30:16.588Z
+          jcr:mimeType: image/png
+          jcr:mixinTypes:
+          - hippostd:relaxed
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:attachment
+        publicationsystem:displayName: ''
+      common:FacetType: dataset
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-04-26T14:44:54.769Z
+      hippostdpubwf:lastModificationDate: 2018-04-26T14:44:54.769Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 229c2899-229e-4d4e-89c1-731cac9148d8
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-04-25T23:00:00Z
+      publicationsystem:Summary: Unpublished
+      publicationsystem:Title: Unpublished
+    /unpublished-dataset[2]:
+      /publicationsystem:Files-v3[1]:
+        /publicationsystem:attachmentResource:
+          externalstorage:reference: 53/1FF901/robot (1).jpeg
+          externalstorage:size: 45145
+          externalstorage:url: https://files.local.nhsd.io/53/1FF901/robot (1).jpeg
+          hippo:filename: robot (1).jpeg
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/unpublished-dataset/unpublished-dataset[2]/Files-v3[1]/attachmentResource/text.jpg
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/unpublished-dataset/unpublished-dataset[2]/Files-v3[1]/attachmentResource/data.jpg
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-04-27T09:30:16.588Z
+          jcr:mimeType: image/jpeg
+          jcr:mixinTypes:
+          - hippostd:relaxed
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:attachment
+        publicationsystem:displayName: ''
+      /publicationsystem:Files-v3[2]:
+        /publicationsystem:attachmentResource:
+          externalstorage:reference: 58/C4FA7B/snowman.png
+          externalstorage:size: 751098
+          externalstorage:url: https://files.local.nhsd.io/58/C4FA7B/snowman.png
+          hippo:filename: snowman.png
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/unpublished-dataset/unpublished-dataset[2]/Files-v3[2]/attachmentResource/text.png
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/unpublished-dataset/unpublished-dataset[2]/Files-v3[2]/attachmentResource/data.png
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-04-27T09:30:16.588Z
+          jcr:mimeType: image/png
+          jcr:mixinTypes:
+          - hippostd:relaxed
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:attachment
+        publicationsystem:displayName: ''
+      common:FacetType: dataset
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-04-26T14:44:54.769Z
+      hippostdpubwf:lastModificationDate: 2018-04-26T14:45:56.316Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 229c2899-229e-4d4e-89c1-731cac9148d8
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:dataset
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:NextPublicationDate: 0001-01-01T12:00:00Z
+      publicationsystem:NominalDate: 2018-04-25T23:00:00Z
+      publicationsystem:Summary: Unpublished
+      publicationsystem:Title: Unpublished
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
   hippo:name: Attachment Test
   hippostd:foldertype:
   - new-statistical-publications-and-clinical-indicators-document

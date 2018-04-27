@@ -3,6 +3,9 @@
   /content[1]:
     /publicationsystem:Attachments-v3[1]:
       /publicationsystem:attachmentResource:
+        externalstorage:reference: C0/F03E64/attachment-text.pdf
+        externalstorage:size: 7228
+        externalstorage:url: https://files.local.nhsd.io/C0/F03E64/attachment-text.pdf
         hippo:filename: attachment-text.pdf
         hippo:text:
           resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/content/content[1]/Attachments-v3[1]/attachmentResource/text.pdf
@@ -11,13 +14,18 @@
           resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/content/content[1]/Attachments-v3[1]/attachmentResource/data.pdf
           type: binary
         jcr:encoding: UTF-8
-        jcr:lastModified: 2017-12-13T16:44:58.468Z
+        jcr:lastModified: 2018-04-27T12:07:29.725Z
         jcr:mimeType: application/pdf
+        jcr:mixinTypes:
+        - hippostd:relaxed
         jcr:primaryType: publicationsystem:resource
       jcr:primaryType: publicationsystem:attachment
       publicationsystem:displayName: Attachment with text
     /publicationsystem:Attachments-v3[2]:
       /publicationsystem:attachmentResource:
+        externalstorage:reference: B4/CEEAE4/attachment.pdf
+        externalstorage:size: 7228
+        externalstorage:url: https://files.local.nhsd.io/B4/CEEAE4/attachment.pdf
         hippo:filename: attachment.pdf
         hippo:text:
           resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/content/content[1]/Attachments-v3[2]/attachmentResource/text.pdf
@@ -26,8 +34,10 @@
           resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/content/content[1]/Attachments-v3[2]/attachmentResource/data.pdf
           type: binary
         jcr:encoding: UTF-8
-        jcr:lastModified: 2017-12-13T16:45:07Z
+        jcr:lastModified: 2018-04-27T12:07:29.725Z
         jcr:mimeType: application/pdf
+        jcr:mixinTypes:
+        - hippostd:relaxed
         jcr:primaryType: publicationsystem:resource
       jcr:primaryType: publicationsystem:attachment
       publicationsystem:displayName: ''
@@ -59,6 +69,9 @@
   /content[2]:
     /publicationsystem:Attachments-v3[1]:
       /publicationsystem:attachmentResource:
+        externalstorage:reference: C0/F03E64/attachment-text.pdf
+        externalstorage:size: 7228
+        externalstorage:url: https://files.local.nhsd.io/C0/F03E64/attachment-text.pdf
         hippo:filename: attachment-text.pdf
         hippo:text:
           resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/content/content[2]/Attachments-v3[1]/attachmentResource/text.pdf
@@ -67,13 +80,18 @@
           resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/content/content[2]/Attachments-v3[1]/attachmentResource/data.pdf
           type: binary
         jcr:encoding: UTF-8
-        jcr:lastModified: 2017-12-13T16:44:58.468Z
+        jcr:lastModified: 2018-04-27T12:07:29.725Z
         jcr:mimeType: application/pdf
+        jcr:mixinTypes:
+        - hippostd:relaxed
         jcr:primaryType: publicationsystem:resource
       jcr:primaryType: publicationsystem:attachment
       publicationsystem:displayName: Attachment with text
     /publicationsystem:Attachments-v3[2]:
       /publicationsystem:attachmentResource:
+        externalstorage:reference: B4/CEEAE4/attachment.pdf
+        externalstorage:size: 7228
+        externalstorage:url: https://files.local.nhsd.io/B4/CEEAE4/attachment.pdf
         hippo:filename: attachment.pdf
         hippo:text:
           resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/content/content[2]/Attachments-v3[2]/attachmentResource/text.pdf
@@ -82,8 +100,10 @@
           resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/content/content[2]/Attachments-v3[2]/attachmentResource/data.pdf
           type: binary
         jcr:encoding: UTF-8
-        jcr:lastModified: 2017-12-13T16:45:07Z
+        jcr:lastModified: 2018-04-27T12:07:29.725Z
         jcr:mimeType: application/pdf
+        jcr:mixinTypes:
+        - hippostd:relaxed
         jcr:primaryType: publicationsystem:resource
       jcr:primaryType: publicationsystem:attachment
       publicationsystem:displayName: ''
@@ -117,6 +137,9 @@
   /content[3]:
     /publicationsystem:Attachments-v3[1]:
       /publicationsystem:attachmentResource:
+        externalstorage:reference: C0/F03E64/attachment-text.pdf
+        externalstorage:size: 7228
+        externalstorage:url: https://files.local.nhsd.io/C0/F03E64/attachment-text.pdf
         hippo:filename: attachment-text.pdf
         hippo:text:
           resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/content/content[3]/Attachments-v3[1]/attachmentResource/text.pdf
@@ -125,13 +148,18 @@
           resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/content/content[3]/Attachments-v3[1]/attachmentResource/data.pdf
           type: binary
         jcr:encoding: UTF-8
-        jcr:lastModified: 2017-12-13T16:44:58.468Z
+        jcr:lastModified: 2018-04-27T12:07:29.725Z
         jcr:mimeType: application/pdf
+        jcr:mixinTypes:
+        - hippostd:relaxed
         jcr:primaryType: publicationsystem:resource
       jcr:primaryType: publicationsystem:attachment
       publicationsystem:displayName: Attachment with text
     /publicationsystem:Attachments-v3[2]:
       /publicationsystem:attachmentResource:
+        externalstorage:reference: B4/CEEAE4/attachment.pdf
+        externalstorage:size: 7228
+        externalstorage:url: https://files.local.nhsd.io/B4/CEEAE4/attachment.pdf
         hippo:filename: attachment.pdf
         hippo:text:
           resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/content/content[3]/Attachments-v3[2]/attachmentResource/text.pdf
@@ -140,8 +168,10 @@
           resource: /content/documents/corporate-website/publication-system/acceptance-tests/attachment-test/content/content[3]/Attachments-v3[2]/attachmentResource/data.pdf
           type: binary
         jcr:encoding: UTF-8
-        jcr:lastModified: 2017-12-13T16:45:07Z
+        jcr:lastModified: 2018-04-27T12:07:29.725Z
         jcr:mimeType: application/pdf
+        jcr:mixinTypes:
+        - hippostd:relaxed
         jcr:primaryType: publicationsystem:resource
       jcr:primaryType: publicationsystem:attachment
       publicationsystem:displayName: ''

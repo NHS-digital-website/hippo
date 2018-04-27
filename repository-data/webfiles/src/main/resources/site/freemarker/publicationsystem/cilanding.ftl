@@ -57,13 +57,13 @@
                 <div class="article-section article-section--highlighted" id="section-actions">
                     <div class="callout callout--attention">
                         <h2><@fmt.message key="headers.ci-landing-actions"/></h2>
-                        
+
                         <ul class="list">
                             <@hst.link var="homelink" path="/" />
                             <@hst.link var="cihome" path="/data-and-information#clinicalindicators" />
-                            
-                            <li><a href="${cihome}" title="Back to Clinical Indicators">Back to Clinical Indicators</a></li>
-                            
+
+                            <li><a href="${cihome}" title="Back to Data & Information">Back to Data & Information</a></li>
+
                             <#if document.actionLinkRelPath??>
                                 <li>
                                     <a href="${homelink}${document.actionLinkRelPath}" title="${document.actionLinkName}">${document.actionLinkName}</a>
@@ -94,7 +94,7 @@
 
                         <#assign hasAttachments = section.attachments?has_content />
                         <#assign hasRelatedLinks = section.relatedLinks?has_content />
-                        
+
                         <#if hasAttachments || hasRelatedLinks>
                             <h3>Resources</h3>
 
