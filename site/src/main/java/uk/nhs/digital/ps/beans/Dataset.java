@@ -3,6 +3,7 @@ package uk.nhs.digital.ps.beans;
 import static java.util.Arrays.asList;
 
 import org.hippoecm.hst.content.beans.Node;
+import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.ps.beans.structuredText.StructuredText;
 import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
@@ -61,8 +62,8 @@ public class Dataset extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.FILES_V3)
-    public List<Attachment> getFiles() {
-        return getChildBeansIfPermitted(PropertyKeys.FILES_V3, Attachment.class);
+    public List<HippoCompound> getFiles() {
+        return getAttachmentList(PropertyKeys.FILES_V3);
     }
 
     public List<RelatedLink> getResourceLinks() {

@@ -9,6 +9,8 @@ import java.util.Map;
 
 public class TestContentUrls {
 
+    private static final String S3_BUCKET_URL = "https://files.local.nhsd.io/";
+
     private final Map<String, String> urlLookup = new HashMap();
 
     public TestContentUrls() {
@@ -21,7 +23,11 @@ public class TestContentUrls {
             throw new RuntimeException("Unknown pageName: " + pageName);
         }
 
-        return AbstractSitePage.URL + url;
+        if (!url.startsWith("http")) {
+            url = AbstractSitePage.URL + url;
+        }
+
+        return url;
     }
 
     private void setup() {
@@ -97,25 +103,19 @@ public class TestContentUrls {
         // CI Hub/Landing
         add("SHMI landing", "/data-and-information/publications/ci-hub/summary-hospital-level-mortality-indicator-shmi");
         add("SHMI_publication_timetable.xlsx",
-            "/binaries/content/documents/corporate-website/publication-system/ci-hub"
-                + "/summary-hospital-level-mortality-indicator-shmi"
-                + "/summary-hospital-level-mortality-indicator-shmi"
-                + "/publicationsystem%3Acilandingasset"
-                + "/publicationsystem%3AAttachments"
-                + "/publicationsystem%3AattachmentResource"
-        );
+            S3_BUCKET_URL + "24/66E68E/SHMI_publication_timetable.xlsx");
         add("ci hub root", "/data-and-information/publications/ci-hub");
 
         // attachments
         add("attachment-text.pdf",
-            getAttachmentUrl("attachment-test/content/content", "Attachments-v3"));
+            S3_BUCKET_URL + "C0/F03E64/attachment-text.pdf");
         add("attachment.pdf",
-            getAttachmentUrl("attachment-test/content/content", "Attachments-v3[2]"));
+            S3_BUCKET_URL + "B4/CEEAE4/attachment.pdf");
 
         add("dataset-attachment-text.pdf",
-            getAttachmentUrl("attachment-test/dataset/dataset", "Files-v3"));
+            S3_BUCKET_URL + "42/F961C2/dataset-attachment-text.pdf");
         add("dataset-attachment.pdf",
-            getAttachmentUrl("attachment-test/dataset/dataset", "Files-v3[2]"));
+            S3_BUCKET_URL + "2E/636380/dataset-attachment.pdf");
 
         // Ordered publication
         add("ordered publication",

@@ -97,7 +97,9 @@
         <ul data-uipath="ps.dataset.resources">
             <#list dataset.files as attachment>
                 <li class="attachment">
-                    <a title="${attachment.text}" href="<@hst.link hippobean=attachment.resource/>" onClick="logGoogleAnalyticsEvent('Download attachment','Data set','${attachment.resource.filename}');">${attachment.text}</a>;
+                    <@externalstorageLink attachment.resource; url>
+                    <a title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Data set','${attachment.resource.filename}');">${attachment.text}</a>;
+                    </@externalstorageLink>
                     <span class="fileSize">[size: <@formatFileSize bytesCount=attachment.resource.length/>]</span>
                 </li>
             </#list>

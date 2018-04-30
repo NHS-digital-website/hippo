@@ -103,7 +103,9 @@
                                 <#if hasAttachments>
                                     <#list section.attachments as attachment>
                                         <li class="attachment">
-                                            <a href="<@hst.link hippobean=attachment.resource/>" onClick="logGoogleAnalyticsEvent('Download attachment','CI landing page','${document.title} - ${attachment.resource.filename}');" title="${attachment.text}">${attachment.text}</a>; <span>[size: <@formatFileSize bytesCount=attachment.resource.length/>]</span>
+                                            <@externalstorageLink attachment.resource; url>
+                                            <a href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','CI landing page','${document.title} - ${attachment.resource.filename}');" title="${attachment.text}">${attachment.text}</a>; <span>[size: <@formatFileSize bytesCount=attachment.resource.length/>]</span>
+                                            </@externalstorageLink>
                                         </li>
                                     </#list>
                                 </#if>

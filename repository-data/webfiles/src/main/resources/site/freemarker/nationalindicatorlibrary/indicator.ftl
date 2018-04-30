@@ -142,14 +142,14 @@
                                 </li>
                             </#if>
 
-                            <#if indicator.attachments?has_content>
-                                <#list indicator.attachments as attachment>
-                                    <li class="attachment">
-                                        <a title="${attachment.text}" href="<@hst.link hippobean=attachment.resource/>" onClick="logGoogleAnalyticsEvent('Download attachment','Indicator','${attachment.resource.filename}');">${attachment.text}</a>
-                                        <span class="fileSize">(<@formatFileSize bytesCount=attachment.resource.length/>)</span>
-                                    </li>
-                                </#list>
-                            </#if>
+                            <#list indicator.attachments as attachment>
+                                <li class="attachment">
+                                    <@externalstorageLink attachment.resource; url>
+                                    <a title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Indicator','${attachment.resource.filename}');">${attachment.text}</a>
+                                    </@externalstorageLink>
+                                    <span class="fileSize">(<@formatFileSize bytesCount=attachment.resource.length/>)</span>
+                                </li>
+                            </#list>
                         </ul>
             </section>
         </#if>

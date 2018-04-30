@@ -65,7 +65,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: publicationsystem:Attachments
             hipposysedit:primary: false
-            hipposysedit:type: publicationsystem:attachment
+            hipposysedit:type: publicationsystem:extattachment
             jcr:primaryType: hipposysedit:field
           /content:
             hipposysedit:mandatory: false

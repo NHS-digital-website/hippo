@@ -1,0 +1,15 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/Migration-20180427-ConvertAttachmentsToExternal:
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root/content/documents/corporate-website//*[(@jcr:primaryType='publicationsystem:attachment')]
+      hipposys:script:
+        resource: /configuration/update/Migration20180427ConvertAttachmentsToExternal.groovy
+        type: string
+      hipposys:throttle: 200
+      jcr:primaryType: hipposys:updaterinfo

@@ -23,10 +23,8 @@
         jcr:encoding: UTF-8
         jcr:lastModified: 2018-04-27T09:30:16.588Z
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
-        jcr:mixinTypes:
-        - hippostd:relaxed
-        jcr:primaryType: publicationsystem:resource
-      jcr:primaryType: publicationsystem:attachment
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
       publicationsystem:displayName: Summary Form
     /nationalindicatorlibrary:adviceContent:
       hippostd:content: |-
@@ -51,10 +49,8 @@
         jcr:encoding: UTF-8
         jcr:lastModified: 2018-04-27T09:30:16.588Z
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
-        jcr:mixinTypes:
-        - hippostd:relaxed
-        jcr:primaryType: publicationsystem:resource
-      jcr:primaryType: publicationsystem:attachment
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
       publicationsystem:displayName: Advice form
     /nationalindicatorlibrary:applyContent:
       hippostd:content: |-
@@ -96,10 +92,8 @@
         jcr:encoding: UTF-8
         jcr:lastModified: 2018-04-27T09:30:16.588Z
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
-        jcr:mixinTypes:
-        - hippostd:relaxed
-        jcr:primaryType: publicationsystem:resource
-      jcr:primaryType: publicationsystem:attachment
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
       publicationsystem:displayName: Application form
     /nationalindicatorlibrary:applyGuidanceForm:
       /publicationsystem:attachmentResource:
@@ -118,10 +112,8 @@
         jcr:encoding: UTF-8
         jcr:lastModified: 2018-04-27T09:30:16.588Z
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
-        jcr:mixinTypes:
-        - hippostd:relaxed
-        jcr:primaryType: publicationsystem:resource
-      jcr:primaryType: publicationsystem:attachment
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
       publicationsystem:displayName: Guidance form
     /nationalindicatorlibrary:jon:
       hippostd:content: <p>jon</p>
@@ -176,10 +168,8 @@
         jcr:encoding: UTF-8
         jcr:lastModified: 2018-04-27T09:30:16.588Z
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
-        jcr:mixinTypes:
-        - hippostd:relaxed
-        jcr:primaryType: publicationsystem:resource
-      jcr:primaryType: publicationsystem:attachment
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
       publicationsystem:displayName: Summary Form
     /nationalindicatorlibrary:adviceContent:
       hippostd:content: |-
@@ -204,10 +194,8 @@
         jcr:encoding: UTF-8
         jcr:lastModified: 2018-04-27T09:30:16.588Z
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
-        jcr:mixinTypes:
-        - hippostd:relaxed
-        jcr:primaryType: publicationsystem:resource
-      jcr:primaryType: publicationsystem:attachment
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
       publicationsystem:displayName: Advice form
     /nationalindicatorlibrary:applyContent:
       hippostd:content: |-
@@ -249,10 +237,8 @@
         jcr:encoding: UTF-8
         jcr:lastModified: 2018-04-27T09:30:16.588Z
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
-        jcr:mixinTypes:
-        - hippostd:relaxed
-        jcr:primaryType: publicationsystem:resource
-      jcr:primaryType: publicationsystem:attachment
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
       publicationsystem:displayName: Application form
     /nationalindicatorlibrary:applyGuidanceForm:
       /publicationsystem:attachmentResource:
@@ -271,10 +257,8 @@
         jcr:encoding: UTF-8
         jcr:lastModified: 2018-04-27T09:30:16.588Z
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
-        jcr:mixinTypes:
-        - hippostd:relaxed
-        jcr:primaryType: publicationsystem:resource
-      jcr:primaryType: publicationsystem:attachment
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
       publicationsystem:displayName: Guidance form
     /nationalindicatorlibrary:jon:
       hippostd:content: <p>jon</p>
@@ -331,10 +315,8 @@
         jcr:encoding: UTF-8
         jcr:lastModified: 2018-04-27T09:30:16.588Z
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
-        jcr:mixinTypes:
-        - hippostd:relaxed
-        jcr:primaryType: publicationsystem:resource
-      jcr:primaryType: publicationsystem:attachment
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
       publicationsystem:displayName: Summary Form
     /nationalindicatorlibrary:adviceContent:
       hippostd:content: |-
@@ -359,10 +341,8 @@
         jcr:encoding: UTF-8
         jcr:lastModified: 2018-04-27T09:30:16.588Z
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
-        jcr:mixinTypes:
-        - hippostd:relaxed
-        jcr:primaryType: publicationsystem:resource
-      jcr:primaryType: publicationsystem:attachment
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
       publicationsystem:displayName: Advice form
     /nationalindicatorlibrary:applyContent:
       hippostd:content: |-
@@ -404,10 +384,8 @@
         jcr:encoding: UTF-8
         jcr:lastModified: 2018-04-27T09:30:16.588Z
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
-        jcr:mixinTypes:
-        - hippostd:relaxed
-        jcr:primaryType: publicationsystem:resource
-      jcr:primaryType: publicationsystem:attachment
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
       publicationsystem:displayName: Application form
     /nationalindicatorlibrary:applyGuidanceForm:
       /publicationsystem:attachmentResource:
@@ -426,10 +404,8 @@
         jcr:encoding: UTF-8
         jcr:lastModified: 2018-04-27T09:30:16.588Z
         jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
-        jcr:mixinTypes:
-        - hippostd:relaxed
-        jcr:primaryType: publicationsystem:resource
-      jcr:primaryType: publicationsystem:attachment
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
       publicationsystem:displayName: Guidance form
     /nationalindicatorlibrary:jon:
       hippostd:content: <p>jon</p>
