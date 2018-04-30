@@ -16,10 +16,8 @@
         jcr:encoding: UTF-8
         jcr:lastModified: 2018-04-27T12:07:29.725Z
         jcr:mimeType: application/pdf
-        jcr:mixinTypes:
-        - hippostd:relaxed
-        jcr:primaryType: publicationsystem:resource
-      jcr:primaryType: publicationsystem:attachment
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
       publicationsystem:displayName: Attachment with text
     /publicationsystem:Attachments-v3[2]:
       /publicationsystem:attachmentResource:
@@ -36,10 +34,8 @@
         jcr:encoding: UTF-8
         jcr:lastModified: 2018-04-27T12:07:29.725Z
         jcr:mimeType: application/pdf
-        jcr:mixinTypes:
-        - hippostd:relaxed
-        jcr:primaryType: publicationsystem:resource
-      jcr:primaryType: publicationsystem:attachment
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
       publicationsystem:displayName: ''
     common:FacetType: publication
     common:searchRank: 4
@@ -82,10 +78,8 @@
         jcr:encoding: UTF-8
         jcr:lastModified: 2018-04-27T12:07:29.725Z
         jcr:mimeType: application/pdf
-        jcr:mixinTypes:
-        - hippostd:relaxed
-        jcr:primaryType: publicationsystem:resource
-      jcr:primaryType: publicationsystem:attachment
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
       publicationsystem:displayName: Attachment with text
     /publicationsystem:Attachments-v3[2]:
       /publicationsystem:attachmentResource:
@@ -102,10 +96,8 @@
         jcr:encoding: UTF-8
         jcr:lastModified: 2018-04-27T12:07:29.725Z
         jcr:mimeType: application/pdf
-        jcr:mixinTypes:
-        - hippostd:relaxed
-        jcr:primaryType: publicationsystem:resource
-      jcr:primaryType: publicationsystem:attachment
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
       publicationsystem:displayName: ''
     common:FacetType: publication
     common:searchRank: 4
@@ -150,10 +142,8 @@
         jcr:encoding: UTF-8
         jcr:lastModified: 2018-04-27T12:07:29.725Z
         jcr:mimeType: application/pdf
-        jcr:mixinTypes:
-        - hippostd:relaxed
-        jcr:primaryType: publicationsystem:resource
-      jcr:primaryType: publicationsystem:attachment
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
       publicationsystem:displayName: Attachment with text
     /publicationsystem:Attachments-v3[2]:
       /publicationsystem:attachmentResource:
@@ -170,10 +160,8 @@
         jcr:encoding: UTF-8
         jcr:lastModified: 2018-04-27T12:07:29.725Z
         jcr:mimeType: application/pdf
-        jcr:mixinTypes:
-        - hippostd:relaxed
-        jcr:primaryType: publicationsystem:resource
-      jcr:primaryType: publicationsystem:attachment
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
       publicationsystem:displayName: ''
     common:FacetType: publication
     common:searchRank: 4

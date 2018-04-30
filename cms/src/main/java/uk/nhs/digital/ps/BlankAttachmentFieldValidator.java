@@ -1,6 +1,7 @@
 package uk.nhs.digital.ps;
 
 import static java.text.MessageFormat.format;
+import static uk.nhs.digital.externalstorage.ExternalStorageConstants.NODE_TYPE_EXTERNAL_RESOURCE;
 
 import org.apache.wicket.model.IModel;
 import org.hippoecm.frontend.editor.validator.plugins.AbstractCmsValidator;
@@ -17,9 +18,8 @@ import javax.jcr.RepositoryException;
 
 public class BlankAttachmentFieldValidator extends AbstractCmsValidator {
 
-    private static final String HIPPO_RESOURCE_FIELD_TYPE_NAME = "publicationsystem:resource";
     private static final String HIPPO_FILENAME_PROPERTY_NAME = "hippo:filename";
-    private static final String DEFAULT_ATTACHMENT_NAME_WHEN_NO_FILE_UPLOADED = "publicationsystem:resource";
+    private static final String DEFAULT_ATTACHMENT_NAME_WHEN_NO_FILE_UPLOADED = "externalstorage:resource";
 
     @SuppressWarnings("WeakerAccess") // Hippo CMS requires the constructor to be public
     public BlankAttachmentFieldValidator(final IPluginContext context, final IPluginConfig config) {
@@ -31,10 +31,10 @@ public class BlankAttachmentFieldValidator extends AbstractCmsValidator {
 
         final String actualFieldTypeName = fieldValidator.getFieldType().getType();
 
-        if (!HIPPO_RESOURCE_FIELD_TYPE_NAME.equals(actualFieldTypeName)) {
+        if (!NODE_TYPE_EXTERNAL_RESOURCE.equals(actualFieldTypeName)) {
             throw new ValidationException(format(
                 "Cannot validate the attachment field. Expected field of type ''{0}'' but got ''{1}''.",
-                HIPPO_RESOURCE_FIELD_TYPE_NAME, actualFieldTypeName)
+                NODE_TYPE_EXTERNAL_RESOURCE, actualFieldTypeName)
             );
         }
     }

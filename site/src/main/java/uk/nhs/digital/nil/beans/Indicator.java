@@ -3,8 +3,8 @@ package uk.nhs.digital.nil.beans;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.cxf.common.util.CollectionUtils;
 import org.hippoecm.hst.content.beans.Node;
+import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
-import uk.nhs.digital.ps.beans.Attachment;
 import uk.nhs.digital.ps.beans.BaseDocument;
 import uk.nhs.digital.ps.beans.HippoBeanHelper;
 
@@ -27,8 +27,8 @@ public class Indicator extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.ATTACHMENTS)
-    public List<Attachment> getAttachments() {
-        return getChildBeansByName(PropertyKeys.ATTACHMENTS, Attachment.class);
+    public List<HippoCompound> getAttachments() {
+        return getAttachmentList(PropertyKeys.ATTACHMENTS);
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.TITLE)

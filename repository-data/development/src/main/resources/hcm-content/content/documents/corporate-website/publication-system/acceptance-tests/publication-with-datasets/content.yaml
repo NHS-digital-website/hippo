@@ -16,10 +16,8 @@
         jcr:encoding: UTF-8
         jcr:lastModified: 2018-04-27T09:30:16.588Z
         jcr:mimeType: application/pdf
-        jcr:mixinTypes:
-        - hippostd:relaxed
-        jcr:primaryType: publicationsystem:resource
-      jcr:primaryType: publicationsystem:attachment
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
       publicationsystem:displayName: ''
     /publicationsystem:RelatedLinks:
       jcr:primaryType: publicationsystem:relatedlink
@@ -104,10 +102,8 @@
         jcr:encoding: UTF-8
         jcr:lastModified: 2018-04-27T09:30:16.588Z
         jcr:mimeType: application/pdf
-        jcr:mixinTypes:
-        - hippostd:relaxed
-        jcr:primaryType: publicationsystem:resource
-      jcr:primaryType: publicationsystem:attachment
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
       publicationsystem:displayName: ''
     /publicationsystem:RelatedLinks:
       jcr:primaryType: publicationsystem:relatedlink
@@ -194,10 +190,8 @@
         jcr:encoding: UTF-8
         jcr:lastModified: 2018-04-27T09:30:16.588Z
         jcr:mimeType: application/pdf
-        jcr:mixinTypes:
-        - hippostd:relaxed
-        jcr:primaryType: publicationsystem:resource
-      jcr:primaryType: publicationsystem:attachment
+        jcr:primaryType: externalstorage:resource
+      jcr:primaryType: publicationsystem:extattachment
       publicationsystem:displayName: ''
     /publicationsystem:RelatedLinks:
       jcr:primaryType: publicationsystem:relatedlink

@@ -165,7 +165,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: nationalindicatorlibrary:attachments
             hipposysedit:primary: false
-            hipposysedit:type: publicationsystem:attachment
+            hipposysedit:type: publicationsystem:extattachment
             jcr:primaryType: hipposysedit:field
           /details:
             hipposysedit:mandatory: false

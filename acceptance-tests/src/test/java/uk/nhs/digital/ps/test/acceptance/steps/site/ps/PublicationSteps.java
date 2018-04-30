@@ -6,8 +6,6 @@ import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 import static org.slf4j.LoggerFactory.getLogger;
-import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.readFileAsByteArray;
-import static uk.nhs.digital.ps.test.acceptance.util.FileHelper.waitUntilFileAppears;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -27,8 +25,6 @@ import uk.nhs.digital.ps.test.acceptance.pages.widgets.SectionWidget;
 import uk.nhs.digital.ps.test.acceptance.steps.AbstractSpringSteps;
 import uk.nhs.digital.ps.test.acceptance.util.FileHelper;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
@@ -77,39 +73,7 @@ public class PublicationSteps extends AbstractSpringSteps {
                 publicationPage.findAttachmentElementByName(attachment.getFullName());
 
             assertDisplayedAttachmentDetails(attachment, attachmentWidget);
-
-            assertAttachmentDownload(attachment, attachmentWidget);
         });
-    }
-
-    private void assertAttachmentDownload(final Attachment attachment,
-                                          final AttachmentWidget attachmentWidget) {
-
-        if (acceptanceTestProperties.isHeadlessMode()) {
-            // At the moment of writing, there doesn't seem to be any easy way available to force Chromedriver
-            // to download files when operating in headless mode. It appears that some functionality has been
-            // added to DevTools but it's not obvious how to trigger that from Java so, for now at least,
-            // we'll only be testing file download when operating in a full, graphical mode.
-            //
-            // See bug report at https://bugs.chromium.org/p/chromium/issues/detail?id=696481 and other reports
-            // available online.
-
-            log.warn("Not testing file download due to running in a headless mode.");
-            return;
-        }
-
-        // Trigger file download by click the <a> tag.
-        attachmentWidget.clickHyperlink();
-
-        final Path downloadedFilePath = Paths.get(acceptanceTestProperties.getDownloadDir().toString(),
-            attachment.getFullName());
-
-        waitUntilFileAppears(downloadedFilePath);
-
-        assertThat("Downloaded file has the same content as the uploaded attachment "
-                + attachment.getFullName(),
-            readFileAsByteArray(downloadedFilePath), is(attachment.getContent())
-        );
     }
 
     private void assertDisplayedAttachmentDetails(final Attachment attachment, final AttachmentWidget

@@ -55,6 +55,8 @@ definitions:
             hipposysedit:path: publicationsystem:attachmentResource
             hipposysedit:primary: false
             hipposysedit:type: externalstorage:resource
+            hipposysedit:validators:
+            - publicationsystem-blank-attachment
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
@@ -74,7 +76,7 @@ definitions:
             externalstorage:reference: ''
             externalstorage:size: 0
             externalstorage:url: ''
-            hippo:filename: hippo:resource
+            hippo:filename: externalstorage:resource
             jcr:data:
               resource: /namespaces/publicationsystem/extattachment/prototypes/prototype/attachmentResource/data.bin
               type: binary

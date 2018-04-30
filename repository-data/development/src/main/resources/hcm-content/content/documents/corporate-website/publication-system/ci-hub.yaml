@@ -1292,10 +1292,8 @@
             jcr:encoding: UTF-8
             jcr:lastModified: 2018-04-27T12:04:25.991Z
             jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-            jcr:mixinTypes:
-            - hippostd:relaxed
-            jcr:primaryType: publicationsystem:resource
-          jcr:primaryType: publicationsystem:attachment
+            jcr:primaryType: externalstorage:resource
+          jcr:primaryType: publicationsystem:extattachment
           publicationsystem:displayName: SHMI publication timetable
         /publicationsystem:content:
           hippostd:content: <p>The Summary Hospital-level Mortality Indicator (SHMI)
@@ -1372,10 +1370,8 @@
             jcr:encoding: UTF-8
             jcr:lastModified: 2018-04-27T12:04:25.991Z
             jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-            jcr:mixinTypes:
-            - hippostd:relaxed
-            jcr:primaryType: publicationsystem:resource
-          jcr:primaryType: publicationsystem:attachment
+            jcr:primaryType: externalstorage:resource
+          jcr:primaryType: publicationsystem:extattachment
           publicationsystem:displayName: SHMI publication timetable
         /publicationsystem:content:
           hippostd:content: <p>The Summary Hospital-level Mortality Indicator (SHMI)
@@ -1454,10 +1450,8 @@
             jcr:encoding: UTF-8
             jcr:lastModified: 2018-04-27T12:04:25.991Z
             jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-            jcr:mixinTypes:
-            - hippostd:relaxed
-            jcr:primaryType: publicationsystem:resource
-          jcr:primaryType: publicationsystem:attachment
+            jcr:primaryType: externalstorage:resource
+          jcr:primaryType: publicationsystem:extattachment
           publicationsystem:displayName: SHMI publication timetable
         /publicationsystem:content:
           hippostd:content: <p>The Summary Hospital-level Mortality Indicator (SHMI)

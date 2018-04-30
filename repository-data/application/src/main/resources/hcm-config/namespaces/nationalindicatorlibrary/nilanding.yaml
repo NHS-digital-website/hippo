@@ -139,7 +139,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: nationalindicatorlibrary:addForm
             hipposysedit:primary: false
-            hipposysedit:type: publicationsystem:attachment
+            hipposysedit:type: publicationsystem:extattachment
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
@@ -170,7 +170,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: nationalindicatorlibrary:adviceForm
             hipposysedit:primary: false
-            hipposysedit:type: publicationsystem:attachment
+            hipposysedit:type: publicationsystem:extattachment
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
@@ -201,7 +201,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: nationalindicatorlibrary:applyForm
             hipposysedit:primary: false
-            hipposysedit:type: publicationsystem:attachment
+            hipposysedit:type: publicationsystem:extattachment
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
@@ -211,7 +211,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: nationalindicatorlibrary:applyGuidanceForm
             hipposysedit:primary: false
-            hipposysedit:type: publicationsystem:attachment
+            hipposysedit:type: publicationsystem:extattachment
             jcr:primaryType: hipposysedit:field
           /applyTitle:
             hipposysedit:mandatory: false

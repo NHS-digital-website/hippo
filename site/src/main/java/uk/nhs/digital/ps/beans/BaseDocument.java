@@ -2,11 +2,13 @@ package uk.nhs.digital.ps.beans;
 
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.content.beans.standard.HippoDocument;
 import uk.nhs.digital.common.enums.Region;
 import uk.nhs.digital.ps.directives.DateFormatterDirective;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -69,5 +71,21 @@ public abstract class BaseDocument extends HippoDocument {
     */
     protected String[] geographicCoverageValuesToRegionValue(final String[] cmsValues) {
         return Region.convertGeographicCoverageValues(cmsValues);
+    }
+
+    /**
+     * While we are converting attachments to s3, get both old and new versions
+     */
+    protected List<HippoCompound> getAttachmentList(String propertyName) {
+        List<HippoCompound> attachments = new ArrayList<>();
+        attachments.addAll(getChildBeansIfPermitted(propertyName, Attachment.class));
+        attachments.addAll(getChildBeansIfPermitted(propertyName, ExtAttachment.class));
+
+        return attachments;
+    }
+
+    protected HippoCompound getAttachment(String propertyName) {
+        List<HippoCompound> attachmentList = getAttachmentList(propertyName);
+        return attachmentList.size() > 0 ? attachmentList.get(0) : null;
     }
 }

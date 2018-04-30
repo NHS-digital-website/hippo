@@ -38,22 +38,22 @@ definitions:
           hipposys:value: /content
           jcr:primaryType: hipposys:facetrule
         jcr:primaryType: hipposys:domainrule
-      /document-types-attachment-node:
+      /document-types-external-storage:
         /path-by-uuid:
           hipposys:equals: true
           hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
-          hipposys:value: /hippo:namespaces/publicationsystem/attachment
+          hipposys:value: /hippo:namespaces/externalstorage
           jcr:primaryType: hipposys:facetrule
         jcr:primaryType: hipposys:domainrule
-      /document-types-resource-node:
+      /document-types-publication-system:
         /path-by-uuid:
           hipposys:equals: true
           hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
-          hipposys:value: /hippo:namespaces/publicationsystem/resource
+          hipposys:value: /hippo:namespaces/publicationsystem
           jcr:primaryType: hipposys:facetrule
         jcr:primaryType: hipposys:domainrule
       /documents-node:

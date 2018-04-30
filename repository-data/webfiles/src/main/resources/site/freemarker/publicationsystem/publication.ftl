@@ -110,7 +110,9 @@
                         <ul data-uipath="ps.publication.resources" class="list">
                         <#list publication.attachments as attachment>
                             <li class="attachment">
-                                <a title="${attachment.text}" href="<@hst.link hippobean=attachment.resource/>" onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${attachment.resource.filename}');">${attachment.text}</a>;
+                                <@externalstorageLink attachment.resource; url>
+                                <a title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${attachment.resource.filename}');">${attachment.text}</a>;
+                                </@externalstorageLink>
                                 <span class="fileSize">[size: <@formatFileSize bytesCount=attachment.resource.length/>]</span>
                             </li>
                         </#list>

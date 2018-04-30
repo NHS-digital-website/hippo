@@ -257,7 +257,7 @@ definitions:
             hipposysedit:ordered: true
             hipposysedit:path: publicationsystem:Attachments-v3
             hipposysedit:primary: false
-            hipposysedit:type: publicationsystem:attachment
+            hipposysedit:type: publicationsystem:extattachment
             jcr:primaryType: hipposysedit:field
           /coverage_end:
             hipposysedit:mandatory: false
