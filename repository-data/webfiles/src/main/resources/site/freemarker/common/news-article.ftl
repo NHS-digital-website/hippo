@@ -11,9 +11,11 @@
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--two-thirds page-block page-block--main">
+                <#if document.type?has_content>
                 <div class="article__label">
-                    <@fmt.message key="news-article.labels.type"/>
+                    ${newsTypeMap[document.type]}
                 </div>
+                </#if>
 
                 <div class="article-header article-header--secondary">
                     <h1 data-uipath="document.title">${document.title}</h1>
