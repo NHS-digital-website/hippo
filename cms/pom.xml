@@ -185,6 +185,15 @@
             <groupId>com.onehippo.cms7</groupId>
             <artifactId>hippo-addon-advanced-search-repository</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.onehippo.forge.folderctxmenus</groupId>
+            <artifactId>folderctxmenus-repository</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.onehippo.forge.folderctxmenus</groupId>
+            <artifactId>folderctxmenus-frontend</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <finalName>cms</finalName>
