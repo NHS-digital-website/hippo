@@ -90,7 +90,10 @@
         <externalstorage.aws.bucket></externalstorage.aws.bucket>
         <externalstorage.aws.region></externalstorage.aws.region>
         <externalstorage.aws.s3.endpoint></externalstorage.aws.s3.endpoint>
+
         <tomcatDistributionUrl>https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.48/bin/apache-tomcat-8.0.48.tar.gz</tomcatDistributionUrl>
+
+        <forge.folderctxmenus.version>3.0.1</forge.folderctxmenus.version>
     </properties>
 
     <repositories>
@@ -319,6 +322,18 @@
                 <groupId>org.onehippo.forge.content-exim</groupId>
                 <artifactId>content-exim-core</artifactId>
                 <version>2.1.4</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.onehippo.forge.folderctxmenus</groupId>
+                <artifactId>folderctxmenus-repository</artifactId>
+                <version>${forge.folderctxmenus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.onehippo.forge.folderctxmenus</groupId>
+                <artifactId>folderctxmenus-frontend</artifactId>
+                <version>${forge.folderctxmenus.version}</version>
             </dependency>
 
         </dependencies>
