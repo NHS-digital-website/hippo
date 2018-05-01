@@ -15,10 +15,13 @@ import javax.jcr.Binary
 import javax.jcr.Node
 import javax.jcr.RepositoryException
 import javax.jcr.Session
+import java.time.Instant
+import java.time.ZonedDateTime
 import java.util.concurrent.atomic.AtomicBoolean
 
+import static org.apache.jackrabbit.JcrConstants.JCR_LASTMODIFIED
 import static org.hippoecm.repository.HippoStdNodeType.*
-
+import static org.hippoecm.repository.HippoStdPubWfNodeType.HIPPOSTDPUBWF_PUBLICATION_DATE
 /**
  * Upload embeded resources to S3 and set the externalstorage properties on the nodes
  */
@@ -40,6 +43,7 @@ class Migration20180425UploadResourcesToS3 extends BaseNodeUpdateVisitor {
     private WorkflowManager workflowManager
     private Session session
     private Calendar modifiedDate
+    private Instant lastRunDate
     private log
 
     @Override
@@ -50,6 +54,12 @@ class Migration20180425UploadResourcesToS3 extends BaseNodeUpdateVisitor {
         workflowManager = ((HippoWorkspace) session.getWorkspace()).getWorkflowManager();
         modifiedDate = Calendar.getInstance() // want this to be the same for all variants so the doc doesn't look modified in the CMS
         log = super.log // make log accessible to our inner classes
+
+        // We need to rerun the script to pick up and files that have changed/been published since the initial run
+        // The format of the parameter map is:
+        // { lastRunDate : "2018-05-01T10:52:32.662Z" }
+        def param = parametersMap.get("lastRunDate")
+        lastRunDate = param == null ? null : ZonedDateTime.parse(param as String).toInstant()
     }
 
     boolean doUpdate(Node documentNode) {
@@ -97,8 +107,20 @@ class Migration20180425UploadResourcesToS3 extends BaseNodeUpdateVisitor {
             if (node.isNodeType(NODE_TYPE_OLD_ATTACHMENT)) {
                 Node resourceNode = node.getNode(NODE_NAME_RESOURCE)
 
-                if (resourceNode.hasProperty(PROPERTY_EXTERNAL_STORAGE_REFERENCE)) {
+                boolean isLiveVariant = variantNode.getProperty(HIPPOSTD_STATE).getString().equals(PUBLISHED) &&
+                    !variantNode.getProperty(HIPPOSTD_STATESUMMARY).getString().equals(STATE_NOT_PUBLISHED)
+
+                if (resourceNode.hasProperty(PROPERTY_EXTERNAL_STORAGE_REFERENCE)
+                    && !changedSinceLastRun(resourceNode, JCR_LASTMODIFIED)) {
                     log.info("node already migrated: " + resourceNode.getPath())
+
+                    // If we have been published since the last run we need to make our resources public as well
+                    if (isLiveVariant
+                        && changedSinceLastRun(variantNode, HIPPOSTDPUBWF_PUBLICATION_DATE)) {
+                        String reference = resourceNode.getProperty(PROPERTY_EXTERNAL_STORAGE_REFERENCE).getString()
+                        log.info("publishing recently published resource: " + reference)
+                        s3Connector.publishResource(reference)
+                    }
                 } else {
                     log.info("attempting to migrate node: " + resourceNode.getPath())
 
@@ -106,8 +128,7 @@ class Migration20180425UploadResourcesToS3 extends BaseNodeUpdateVisitor {
                     setResourceProperties(resourceNode, metadata)
 
                     // If we are on the published variant and it is live then publish the S3 resource
-                    if (variantNode.getProperty(HIPPOSTD_STATE).getString().equals(PUBLISHED) &&
-                        !variantNode.getProperty(HIPPOSTD_STATESUMMARY).getString().equals(STATE_NOT_PUBLISHED)) {
+                    if (isLiveVariant) {
                         log.info("publishing resource: " + metadata.reference)
                         s3Connector.publishResource(metadata.reference)
                     }
@@ -118,6 +139,10 @@ class Migration20180425UploadResourcesToS3 extends BaseNodeUpdateVisitor {
 
             new NodeIterable(node.getNodes())
                 .each { childNode -> convertNode(childNode, variantNode, processed) }
+        }
+
+        private boolean changedSinceLastRun(Node node, String property) {
+            return lastRunDate == null ? false : node.getProperty(property).getDate().toInstant().isAfter(lastRunDate)
         }
 
         private S3ObjectMetadata uploadToS3(Node node) {
