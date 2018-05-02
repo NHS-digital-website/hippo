@@ -4,7 +4,7 @@ public enum SearchArea {
     ALL,
     DATA,
     SERVICES,
-    NEWS;
+    NEWS_AND_EVENTS;
 
     @Override
     public String toString() {
