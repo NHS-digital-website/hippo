@@ -263,7 +263,7 @@ definitions:
             jcr:primaryType: hippostd:html
           /nationalindicatorlibrary:addForm:
             /publicationsystem:attachmentResource:
-              hippo:filename: publicationsystem:resource
+              hippo:filename: externalstorage:resource
               hippo:text:
                 resource: /namespaces/nationalindicatorlibrary/nilanding/prototypes/prototype/addForm/attachmentResource/text.bin
                 type: binary
@@ -273,15 +273,15 @@ definitions:
               jcr:encoding: UTF-8
               jcr:lastModified: 2008-03-26T11:03:00Z
               jcr:mimeType: application/vnd.hippo.blank
-              jcr:primaryType: publicationsystem:resource
-            jcr:primaryType: publicationsystem:attachment
+              jcr:primaryType: externalstorage:resource
+            jcr:primaryType: publicationsystem:extattachment
             publicationsystem:displayName: ''
           /nationalindicatorlibrary:adviceContent:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
           /nationalindicatorlibrary:adviceForm:
             /publicationsystem:attachmentResource:
-              hippo:filename: publicationsystem:resource
+              hippo:filename: externalstorage:resource
               hippo:text:
                 resource: /namespaces/nationalindicatorlibrary/nilanding/prototypes/prototype/adviceForm/attachmentResource/text.bin
                 type: binary
@@ -291,15 +291,15 @@ definitions:
               jcr:encoding: UTF-8
               jcr:lastModified: 2008-03-26T11:03:00Z
               jcr:mimeType: application/vnd.hippo.blank
-              jcr:primaryType: publicationsystem:resource
-            jcr:primaryType: publicationsystem:attachment
+              jcr:primaryType: externalstorage:resource
+            jcr:primaryType: publicationsystem:extattachment
             publicationsystem:displayName: ''
           /nationalindicatorlibrary:applyContent:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
           /nationalindicatorlibrary:applyForm:
             /publicationsystem:attachmentResource:
-              hippo:filename: publicationsystem:resource
+              hippo:filename: externalstorage:resource
               hippo:text:
                 resource: /namespaces/nationalindicatorlibrary/nilanding/prototypes/prototype/applyForm/attachmentResource/text.bin
                 type: binary
@@ -309,12 +309,12 @@ definitions:
               jcr:encoding: UTF-8
               jcr:lastModified: 2008-03-26T11:03:00Z
               jcr:mimeType: application/vnd.hippo.blank
-              jcr:primaryType: publicationsystem:resource
-            jcr:primaryType: publicationsystem:attachment
+              jcr:primaryType: externalstorage:resource
+            jcr:primaryType: publicationsystem:extattachment
             publicationsystem:displayName: ''
           /nationalindicatorlibrary:applyGuidanceForm:
             /publicationsystem:attachmentResource:
-              hippo:filename: publicationsystem:resource
+              hippo:filename: externalstorage:resource
               hippo:text:
                 resource: /namespaces/nationalindicatorlibrary/nilanding/prototypes/prototype/applyGuidanceForm/attachmentResource/text.bin
                 type: binary
@@ -324,8 +324,8 @@ definitions:
               jcr:encoding: UTF-8
               jcr:lastModified: 2008-03-26T11:03:00Z
               jcr:mimeType: application/vnd.hippo.blank
-              jcr:primaryType: publicationsystem:resource
-            jcr:primaryType: publicationsystem:attachment
+              jcr:primaryType: externalstorage:resource
+            jcr:primaryType: publicationsystem:extattachment
             publicationsystem:displayName: ''
           /nationalindicatorlibrary:mainContent:
             hippostd:content: ''
