@@ -53,7 +53,7 @@ public class SearchComponent extends CommonComponent {
     private static final String SORT_DEFAULT = SORT_RELEVANCE;
     private static final SearchArea AREA_DEFAULT = SearchArea.ALL;
 
-    private static final String FOLDER_NEWS = "news-and-events";
+    private static final String FOLDER_NEWS_AND_EVENTS = "news-and-events";
     private static final String FOLDER_PUBLICATIONS = "publication-system";
     private static final String FOLDER_SERVICES = "services";
     private static final String FOLDER_DATAANDINFORMATION = "data-and-information";
@@ -221,7 +221,7 @@ public class SearchComponent extends CommonComponent {
         SearchArea areaParam = getAreaOption(request);
 
         final HippoBean base = RequestContextProvider.get().getSiteContentBaseBean();
-        final HippoBean newsFolder = base.getBean(FOLDER_NEWS);
+        final HippoBean newsAndEventsFolder = base.getBean(FOLDER_NEWS_AND_EVENTS);
         final HippoBean publicationsFolder = base.getBean(FOLDER_PUBLICATIONS);
         final HippoBean servicesFolder = base.getBean(FOLDER_SERVICES);
         final HippoBean dataAndInformationFolder = base.getBean(FOLDER_DATAANDINFORMATION);
@@ -230,8 +230,8 @@ public class SearchComponent extends CommonComponent {
         List<HippoBean> scopeBeans = new ArrayList<HippoBean>();
 
         switch (areaParam) {
-            case NEWS:
-                scopeBeans.add(newsFolder);
+            case NEWS_AND_EVENTS:
+                scopeBeans.add(newsAndEventsFolder);
                 break;
             case DATA:
                 scopeBeans.add(publicationsFolder);
@@ -280,10 +280,8 @@ public class SearchComponent extends CommonComponent {
         SearchArea areaParam = getAreaOption(request);
 
         switch (areaParam) {
-            case NEWS:
-                /* [DW-271] Disabling temporarely the news document type
-                addNewsTypes(query);
-                */
+            case NEWS_AND_EVENTS:
+                addNewsAndEventsTypes(query);
                 break;
             case DATA:
                 addDataAndInfoTypes(query);
@@ -312,14 +310,14 @@ public class SearchComponent extends CommonComponent {
     }
 
     /**
-     * [DW-271] Disabling temporarely the news document type
-     * Adding the news document type for the News documents.
-
-    private void addNewsTypes(HstQueryBuilder query) {
+     * Adding the news and event document types for the News and Events documents.
+    */
+    private void addNewsAndEventsTypes(HstQueryBuilder query) {
         query.ofTypes(
-            News.class
+            News.class,
+            Event.class
         );
-    }*/
+    }
 
     /**
      * Adding the Service document type
@@ -355,9 +353,7 @@ public class SearchComponent extends CommonComponent {
         addDataAndInfoTypes(query);
         addGeneralTypes(query);
         addHubTypes(query);
-        /* [DW-271] Disabling temporarely the news document type
-        addNewsTypes(query);
-        */
+        addNewsAndEventsTypes(query);
         addServiceTypes(query);
     }
 
