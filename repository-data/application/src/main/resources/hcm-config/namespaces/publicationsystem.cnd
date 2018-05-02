@@ -48,7 +48,7 @@
 [publicationsystem:relatedlink] > hippo:compound, hippostd:relaxed
   orderable
 
-[publicationsystem:resource] > hippo:derived, hippo:resource
+[publicationsystem:resource] > hippo:derived, hippo:resource, hippostd:relaxed
 
 [publicationsystem:series] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
   orderable

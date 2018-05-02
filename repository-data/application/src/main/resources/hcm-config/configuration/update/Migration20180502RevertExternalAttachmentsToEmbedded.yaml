@@ -1,0 +1,17 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/Migration-20180502-RevertExternalAttachmentsToEmbedded.groovy:
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root/content/documents/corporate-website//*[(@jcr:primaryType='publicationsystem:publication')
+        or (@jcr:primaryType='publicationsystem:dataset') or (@jcr:primaryType='publicationsystem:cilandingasset')
+        or (@jcr:primaryType='nationalindicatorlibrary:nilanding') or (@jcr:primaryType='nationalindicatorlibrary:indicator')]//*[(@jcr:primaryType='publicationsystem:extattachment')]
+      hipposys:script:
+        resource: /configuration/update/Migration20180502RevertExternalAttachmentsToEmbedded.groovy
+        type: string
+      hipposys:throttle: 200
+      jcr:primaryType: hipposys:updaterinfo
