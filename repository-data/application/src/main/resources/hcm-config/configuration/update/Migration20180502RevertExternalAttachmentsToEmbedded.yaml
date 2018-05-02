@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:configuration/hippo:update/hippo:registry/Migration-20180502-RevertExternalAttachmentsToEmbedded.groovy:
+    /hippo:configuration/hippo:update/hippo:registry/Migration-20180502-RevertExternalAttachmentsToEmbedded:
       hipposys:batchsize: 10
       hipposys:description: ''
       hipposys:dryrun: false
