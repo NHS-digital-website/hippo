@@ -81,8 +81,13 @@ table {
     th,
     td {
         &:first-child {
-            min-width: 240px;
             @include bold-font(16);
+
+            min-width: 240px;
+
+            @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+                min-width: 0;
+            }
         }
 
         &,

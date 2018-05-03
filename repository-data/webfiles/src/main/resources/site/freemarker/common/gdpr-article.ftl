@@ -7,7 +7,7 @@
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
 
-<@hst.setBundle basename="website.gdpr"/>
+<@hst.setBundle basename="website.gdpr,rb.doctype.gdpr-transparency"/>
 
 <article class="article article--gdpr">
     <div class="grid-wrapper grid-wrapper--article">
@@ -83,15 +83,22 @@
                                 <tr>
                                     <td><@fmt.message key="labels.your-rights"/></td>
                                     <td>
-                                        <ul class="checklist">
+                                        <ul class="checklist checklist--condensed">
                                             <#list rights?keys as key>
+                                                <@fmt.message key="urls.${key}" var="url"/>
+                                                
                                                 <li class="checklist__item">
                                                     <#if document.rights?seq_contains(key)>
-                                                        <img src="<@hst.webfile path="images/icon-tick.png"/>" alt="Tick" class="checklist__icon checklist__icon--small" width="16"/>
+                                                        <img src="<@hst.webfile path="images/icon-tick.png"/>" alt="Tick" class="checklist__icon checklist__icon--small" width="24"/>
                                                     <#else>
-                                                        <img src="<@hst.webfile path="images/icon-cross.png"/>" alt="Tick" class="checklist__icon checklist__icon--small" width="16"/>
+                                                        <img src="<@hst.webfile path="images/icon-cross.png"/>" alt="Cross" class="checklist__icon checklist__icon--small" width="24"/>
                                                     </#if>
-                                                    <span class="checklist__label">${rights[key]}<span>
+
+                                                    <#if url?has_content>
+                                                        <a href="${url}" title="${rights[key]}"><span class="checklist__label">${rights[key]}</span></a>
+                                                    <#else>
+                                                        <span class="checklist__label">${rights[key]}<span>
+                                                    </#if>
                                                 </li>                                                
                                             </#list>
                                         </ul>
