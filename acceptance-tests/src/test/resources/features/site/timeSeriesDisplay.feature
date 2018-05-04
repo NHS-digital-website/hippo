@@ -47,11 +47,13 @@ Feature: Display of publications forming a series
         Then I should see headers:
             | Latest Version    |
             | Previous Versions |
+            | Upcoming          |
         When I navigate to the "series with publication with datasets" page
         Then I should see header:
             | Latest Version    |
         And I should not see header:
             | Previous Versions |
+            | Upcoming          |
 
     Scenario: No version headers for series publications without flag
         Given I navigate to the "series without latest" page
@@ -68,6 +70,11 @@ Feature: Display of publications forming a series
         And I should see the "Series Previous Publications" list containing:
             | Lorem Ipsum Dolor 2013 ... |
             | Lorem Ipsum Dolor 2012 ... |
+        And I should see the "Series Upcoming Publications" list containing:
+            | 2018 - Upcoming ... |
+            | 2019 - Upcoming ... |
+            | 2020 - Upcoming ... |
+            | 2021 - Upcoming ... |
 
     Scenario: Ordering of publications by title
         When I navigate to the "series without latest" page
@@ -75,3 +82,5 @@ Feature: Display of publications forming a series
             | A publication 2018 ... |
             | Latest 2019 ...        |
             | Publication 2017 ...   |
+        And I should see the "Series Upcoming Publications" list containing:
+            | 2020 Upcoming ... |

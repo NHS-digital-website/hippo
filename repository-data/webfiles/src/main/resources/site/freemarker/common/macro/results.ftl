@@ -28,7 +28,7 @@
 
 <#macro publication item>
     <#assign stampedPublication = false />
-    <#if item.publiclyAccessible && item.informationType?has_content>
+    <#if item.informationType?has_content>
         <#list item.informationType as type>
             <#if type == "National statistics">
                 <#assign stampedPublication = true />

@@ -41,6 +41,10 @@
                             <@publicationItem publication=publications?first/>
                         </ul>
 
+                        <#if upcomingPublications?has_content>
+                            <@upcomingPublicationList/>
+                        </#if>
+
                         <#if publications?size gt 1>
                             <h3 class="flush push--bottom"><@fmt.message key="headers.previous-versions"/></h3>
                             <ul class="list list--reset cta-list" data-uipath="ps.series.publications-list.previous">
@@ -55,6 +59,10 @@
                                 <@publicationItem publication=publication/>
                             </#list>
                         </ul>
+
+                        <#if upcomingPublications?has_content>
+                            <@upcomingPublicationList/>
+                        </#if>
                     </#if>
                 </div>
                 </#if>
@@ -75,4 +83,20 @@
         </#if>
     </article>
 </li>
+</#macro>
+
+<#macro upcomingPublicationList>
+    <h3 class="flush push--bottom"><@fmt.message key="headers.upcoming"/></h3>
+    <ul class="list list--reset cta-list" data-uipath="ps.series.publications-list.upcoming">
+        <!--Only next 4 upcoming publications-->
+        <#local count = (upcomingPublications?size < 4)?then(upcomingPublications?size, 4)/>
+        <#list upcomingPublications[0..count-1] as publication>
+        <li>
+            <article class="cta">
+                <a href="<@hst.link hippobean=publication.selfLinkBean/>" title="${publication.title}" class="cta__button">${publication.title}</a>
+                <p class="cta__text"><@formatRestrictableDate value=publication.nominalPublicationDate/></p>
+            </article>
+        </li>
+        </#list>
+    </ul>
 </#macro>

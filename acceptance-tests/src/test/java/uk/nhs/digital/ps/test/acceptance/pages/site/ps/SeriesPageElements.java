@@ -25,6 +25,8 @@ public class SeriesPageElements implements PageElements {
                 By.xpath("//*[" + getDataUiPathXpath("publications-list.latest") + "]"));
             put("Series Previous Publications",
                 By.xpath("//*[" + getDataUiPathXpath("publications-list.previous") + "]"));
+            put("Series Upcoming Publications",
+                By.xpath("//*[" + getDataUiPathXpath("publications-list.upcoming") + "]"));
             put("Series Publications",
                 By.xpath("//*[" + getDataUiPathXpath("publications-list") + "]"));
         }

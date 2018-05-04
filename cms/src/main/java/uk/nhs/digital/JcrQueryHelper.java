@@ -13,7 +13,7 @@ import javax.jcr.query.QueryResult;
 
 public class JcrQueryHelper {
 
-    private static QueryResult executeSql2Query(Session session, String sql2QueryTemplate, String... queryArgs) throws RepositoryException {
+    private static QueryResult executeSql2Query(Session session, String sql2QueryTemplate, Object... queryArgs) throws RepositoryException {
         String query = format(sql2QueryTemplate, queryArgs);
 
         return session

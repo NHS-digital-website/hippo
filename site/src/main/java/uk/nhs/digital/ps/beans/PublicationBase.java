@@ -25,7 +25,8 @@ public abstract class PublicationBase extends BaseDocument {
     private static final Collection<String> propertiesPermittedWhenUpcoming = asList(
         PropertyKeys.TITLE,
         PropertyKeys.NOMINAL_DATE,
-        PropertyKeys.PUBLICLY_ACCESSIBLE
+        PropertyKeys.PUBLICLY_ACCESSIBLE,
+        PropertyKeys.INFORMATION_TYPE
     );
 
     private RestrictableDate nominalPublicationDate;

@@ -123,13 +123,13 @@ Feature: Faceted search
         And I should see the list with title "CATEGORY/TOPIC" including:
             | Conditions ... |
         And I should see the list with title "GEOGRAPHICAL GRANULARITY" including:
-            | Cancer networks   |
+            | Cancer networks |
 
     Scenario: Upcoming publications are returned
         Given I navigate to the "search" page
         Then I should see the list with title "PUBLICATION STATUS" containing:
             | Published ( ... |
-            | Upcoming (2) |
+            | Upcoming ( ...  |
         When I click on the "Upcoming" button
         Then I can click on the "Upcoming Publication" link
 
