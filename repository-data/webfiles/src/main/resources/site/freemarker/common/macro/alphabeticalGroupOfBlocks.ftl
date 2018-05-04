@@ -11,12 +11,7 @@
     <#if blockGroups[letter]??>
     <#assign matchesFound++ />
 
-    <#assign sectionClassName = "article-section article-section--letter-group"/>
-    <#if matchesFound == blockGroups?size>
-        <#assign sectionClassName = "article-section article-section--letter-group"/>
-    </#if>
-
-    <div class="${sectionClassName}" id="section-${letter}">
+    <div class="article-section article-section--letter-group" id="section-${letter}">
         <div class="grid-row sticky sticky--top">
             <div class="column column--reset">
                 <div class="article-header article-header--tertiary">

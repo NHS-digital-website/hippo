@@ -1,0 +1,15 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/Gdpr_Transparency_Facet:
+      hipposys:batchsize: 100
+      hipposys:description: Adding a gdpr transparency facet containing all the transparency
+        documents
+      hipposys:dryrun: false
+      hipposys:parameters: '{ }'
+      hipposys:query: /jcr:root/content/documents/corporate-website/
+      hipposys:script:
+        resource: /configuration/update/gdpr-transparency-facet.groovy
+        type: string
+      hipposys:throttle: 10
+      jcr:primaryType: hipposys:updaterinfo

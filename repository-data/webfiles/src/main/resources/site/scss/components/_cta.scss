@@ -24,6 +24,12 @@
         @include bold-font(18);
     }
 
+    .cta__subtitle {
+        @include bold-font(16);
+
+        margin-bottom: $gutter;
+    }
+
     .cta__label {
         @include bold-font(14);
         margin-bottom: 0;
@@ -60,6 +66,51 @@
     .cta__title{
         @include bold-font(26);
         margin-bottom: round($gutter * 0.5);
+    }
+}
+
+.cta--gdpr-summary {
+    .cta__title {
+        margin-bottom: 0;
+    }
+
+    .cta__subtitle {
+        @include bold-font(16);
+
+        margin-top: round($gutter * 1.5);
+        margin-bottom: round($gutter * 0.25);
+    }
+    
+    .cta__meta {
+        @include core-font(16);
+    }
+
+    .cta-list {
+        margin-top: 0;
+    }
+
+    .checklist {
+        margin-top: round($gutter * 0.5);
+    }
+
+    @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+        .column {
+            width: 100%;
+            display: block;
+            float: none;
+        }
+
+        .column--rights {
+            display: none;
+        }
+
+        .cta__title {
+            margin-bottom: 0;
+        }
+
+        .cta__subtitle {
+            margin-bottom: 0;
+        }
     }
 }
 
@@ -147,6 +198,10 @@
             text-align: right;
         }
     }
+}
+
+.cta__meta--reset-bottom {
+    margin-bottom: 0;
 }
 
 .debug {

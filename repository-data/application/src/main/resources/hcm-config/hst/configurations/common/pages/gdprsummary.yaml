@@ -1,0 +1,16 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/gdprsummary:
+      /main:
+        hst:componentclassname: uk.nhs.digital.common.components.GdprSummaryComponent
+        hst:parameternames:
+        - facetrelativepath
+        - facetfoldername
+        hst:parametervalues:
+        - gdpr-transparency
+        - /Title Initial Letter
+        hst:template: gdpr-summary-article
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/apppage
+      jcr:primaryType: hst:component

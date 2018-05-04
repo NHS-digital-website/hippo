@@ -1,0 +1,98 @@
+---
+/content/documents/administration/resources/rb.doctype.gdpr-summary:
+  /rb.doctype.gdpr-summary[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-26T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2018-02-22T14:13:41.631Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - '"Contact details" section heading'
+    - '"Register of assets" section heading'
+    - '"Asset used by" subsection label'
+    - '"Lawful basis" subsection label'
+    - '"Your rights" subsection label'
+    resourcebundle:id: rb.doctype.gdpr-summary
+    resourcebundle:keys:
+    - headers.contact-details
+    - headers.register-of-assets
+    - labels.asset-used-by
+    - labels.lawful-basis
+    - labels.your-rights
+    resourcebundle:messages:
+    - Data Protection Officer
+    - Register of data assets
+    - Asset used by
+    - Lawful basis
+    - Your rights regarding this data
+  /rb.doctype.gdpr-summary[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-26T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2018-02-22T14:13:30.365Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - '"Contact details" section heading'
+    - '"Register of assets" section heading'
+    - '"Asset used by" subsection label'
+    - '"Lawful basis" subsection label'
+    - '"Your rights" subsection label'
+    resourcebundle:id: rb.doctype.gdpr-summary
+    resourcebundle:keys:
+    - headers.contact-details
+    - headers.register-of-assets
+    - labels.asset-used-by
+    - labels.lawful-basis
+    - labels.your-rights
+    resourcebundle:messages:
+    - Data Protection Officer
+    - Register of data assets
+    - Asset used by
+    - Lawful basis
+    - Your rights regarding this data
+  /rb.doctype.gdpr-summary[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-26T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2018-02-22T14:13:30.365Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2018-05-03T13:23:27.852Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - '"Contact details" section heading'
+    - '"Register of assets" section heading'
+    - '"Asset used by" subsection label'
+    - '"Lawful basis" subsection label'
+    - '"Your rights" subsection label'
+    resourcebundle:id: rb.doctype.gdpr-summary
+    resourcebundle:keys:
+    - headers.contact-details
+    - headers.register-of-assets
+    - labels.asset-used-by
+    - labels.lawful-basis
+    - labels.your-rights
+    resourcebundle:messages:
+    - Data Protection Officer
+    - Register of data assets
+    - Asset used by
+    - Lawful basis
+    - Your rights regarding this data
+  hippo:name: GDPR Summary Resource Bundle
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

@@ -1,0 +1,63 @@
+@import "../environment/settings/colours";
+@import "../environment/tools/mixins/typography";
+@import "../environment/settings/layout";
+@import "../environment/tools/mixins/addons";
+@import "../units/list";
+@import "image-icon";
+
+.checklist {
+    @extend .list;
+    @extend .list--reset;
+
+    .checklist__item {
+        line-height: 0;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        span {
+            margin-top: 0;
+        }
+    }
+}
+
+.checklist--small {
+    span {
+        padding-left: $gutter * 0.25;
+    }
+
+    .checklist__label {
+        @include core-font(14);
+    }
+}
+
+.checklist--condensed {
+    .checklist__item {
+        margin-top: $gutter * 0.25;
+    }
+}
+
+.checklist__item {
+    display: block;
+    vertical-align: top;
+}
+
+.checklist__icon {
+    @extend .image-icon;
+    vertical-align: top;
+}
+
+.checklist__icon--small {
+    @extend .image-icon--small;
+
+    margin-top: 2px;
+}
+
+.checklist__label {
+    @include core-font(16);
+
+    padding-left: $gutter * 0.5;
+    display: inline-block;
+    max-width: 85%;
+}

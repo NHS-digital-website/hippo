@@ -1,0 +1,18 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:derivatives/gdprtransparency-initial:
+      /hipposys:accessed:
+        /title:
+          hipposys:relPath: website:title
+          jcr:primaryType: hipposys:relativepropertyreference
+        jcr:primaryType: hipposys:propertyreferences
+      /hipposys:derived:
+        /titleInitialLetter:
+          hipposys:relPath: website:titleinitialletter
+          jcr:primaryType: hipposys:relativepropertyreference
+        jcr:primaryType: hipposys:propertyreferences
+      hipposys:classname: uk.nhs.digital.common.ExtractInitialLetterDerivedDataFunction
+      hipposys:nodetype: website:gdprtransparency
+      hipposys:serialver: 1
+      jcr:primaryType: hipposys:deriveddefinition
