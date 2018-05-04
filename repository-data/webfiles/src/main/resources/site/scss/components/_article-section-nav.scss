@@ -1,111 +1,112 @@
 /* Article section nav */
 .article-section-nav {
-  padding-bottom: $default-spacing-unit * 2;
-  border-bottom: 1px solid $grey-4;
+    padding-bottom: $default-spacing-unit * 2;
+    border-bottom: 1px solid $grey-4;
 
-  hr {
-    background-color: $col-quaternary;
-  }
-
-  @include media(wide) {
-    &:not(.article-section-nav--facets) {
-        max-width: 320px;
+    hr {
+        background-color: $col-quaternary;
     }
-  }
 
-  @include media(desktop) {
-    padding-bottom: 0;
-    border: none;
-  }
-  
-  .article-section-nav__title {
-    margin: $default-spacing-unit 0 $default-spacing-unit * 0.5;
-    @include bold-font(24);
+    @include media(wide) {
+        &:not(.article-section-nav--facets) {
+            max-width: 320px;
+        }
+    }
 
     @include media(desktop) {
-      line-height: 24px;
-    }
-  }
-
-  .article-section-nav__section {
-    margin-top: round($gutter * 1.5);
-
-    &:first-child {
-        margin-top: 0;
-    }
-  }
-  
-  .article-section-nav__list {
-    padding-top: $default-spacing-unit;
-    margin-left: 0;
-    list-style: disc;
-
-    @include bold-font(18);
-
-    li {
-      padding-left: 0;
-
-      &:not(:first-child) {
-        margin-top: 10px;
-      }
+        padding-bottom: 0;
+        border: none;
     }
 
-    a {
-      text-decoration: none;
-    }
-  }
+    .article-section-nav__title {
+        margin: $default-spacing-unit 0 $default-spacing-unit * 0.5;
+        @include bold-font(24);
 
-  .article-section-nav__menu {
-    margin-top: $gutter;
-    
-    @include bold-font(18);
-    @include clearfix;
-
-    li {
-        position: relative;
-        display: inline-block;
-        float: left;
-        width: 38px;
-        height: 38px;
-        line-height: 38px;
-        vertical-align: middle;
-        text-align: center;
-        margin: 0 3px 3px 0;
-        background-color: $col-primary;
-
-        a {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            left: 0;
-            color: $col-septenary;
-        }
-
-        &:hover,
-        &:focus {
-            a {
-                text-decoration: none;
-            }
-        }
-
-        &.is-disabled {
-            cursor: not-allowed;
-            pointer-events: none;
-            background-color: $col-senary;
-
-            a {
-                color: $col-quinary;
-                text-decoration: none;
-            }
+        @include media(desktop) {
+            line-height: 24px;
         }
     }
 
-    @include media($max-width: $min-desktop-width) {
-        margin-top: round($gutter * 0.5);
+    .article-section-nav__section {
+        margin-top: round($gutter * 1.5);
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    .article-section-nav__list {
+        padding-top: $default-spacing-unit;
+        margin-left: 0;
+        list-style: disc;
+
+        @include bold-font(18);
 
         li {
-            margin: 0 4px 4px 0;
+            padding-left: 0;
+
+            &:not(:first-child) {
+                margin-top: 10px;
+            }
+        }
+
+        a {
+            text-decoration: none;
         }
     }
-  }
+
+    .article-section-nav__menu {
+        @extend .list--reset;
+        @include bold-font(18);
+        @include clearfix;
+
+        margin-top: $gutter;
+
+        li {
+            position: relative;
+            display: inline-block;
+            float: left;
+            width: 38px;
+            height: 38px;
+            line-height: 38px;
+            vertical-align: middle;
+            text-align: center;
+            margin: 0 3px 3px 0;
+            background-color: $col-primary;
+
+            a {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                color: $col-septenary;
+            }
+
+            &:hover,
+            &:focus {
+                a {
+                    text-decoration: none;
+                }
+            }
+
+            &.is-disabled {
+                cursor: not-allowed;
+                pointer-events: none;
+                background-color: $col-senary;
+
+                a {
+                    color: $col-quinary;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        @include media($max-width: $min-desktop-width) {
+            margin-top: round($gutter * 0.5);
+
+            li {
+                margin: 0 4px 4px 0;
+            }
+        }
+    }
 }

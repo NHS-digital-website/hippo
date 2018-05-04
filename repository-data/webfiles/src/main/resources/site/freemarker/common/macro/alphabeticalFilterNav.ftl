@@ -8,7 +8,7 @@
     <h2 class="article-section-nav__title">Refine results</h2>
     <hr>
     <nav role="navigation">
-        <ol class="article-section-nav__menu list--reset">
+        <ol class="article-section-nav__menu">
         <#list lettersOfTheAlphabet as letter>
             <#if blockGroups[letter]??>
                 <li>

@@ -21,6 +21,9 @@
 [website:externallink] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:gdprsummary] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:gdprtransparency] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 

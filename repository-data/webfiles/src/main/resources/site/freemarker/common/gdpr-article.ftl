@@ -83,15 +83,15 @@
                                 <tr>
                                     <td><@fmt.message key="labels.your-rights"/></td>
                                     <td>
-                                        <ul class="list list--reset list--with-icons">
+                                        <ul class="checklist">
                                             <#list rights?keys as key>
-                                                <li>
+                                                <li class="checklist__item">
                                                     <#if document.rights?seq_contains(key)>
-                                                        <img src="<@hst.webfile path="images/icon-tick.png"/>" alt="Tick" class="image-icon" width="24"/>
+                                                        <img src="<@hst.webfile path="images/icon-tick.png"/>" alt="Tick" class="checklist__icon checklist__icon--small" width="16"/>
                                                     <#else>
-                                                        <img src="<@hst.webfile path="images/icon-cross.png"/>" alt="Tick" class="image-icon" width="24"/>
+                                                        <img src="<@hst.webfile path="images/icon-cross.png"/>" alt="Tick" class="checklist__icon checklist__icon--small" width="16"/>
                                                     </#if>
-                                                    <span>${rights[key]}<span>
+                                                    <span class="checklist__label">${rights[key]}<span>
                                                 </li>                                                
                                             </#list>
                                         </ul>

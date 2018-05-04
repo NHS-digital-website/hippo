@@ -50,6 +50,9 @@ definitions:
       /gdpr-article:
         hst:renderpath: webfile:/freemarker/common/gdpr-article.ftl
         jcr:primaryType: hst:template
+      /gdpr-summary-article:
+        hst:renderpath: webfile:/freemarker/common/gdpr-summary-article.ftl
+        jcr:primaryType: hst:template
       /general-article:
         hst:renderpath: webfile:/freemarker/common/general-article.ftl
         jcr:primaryType: hst:template
