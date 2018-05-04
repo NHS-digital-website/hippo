@@ -1,6 +1,7 @@
 package uk.nhs.digital.ps.components;
 
 import static org.apache.commons.collections.IteratorUtils.toList;
+import static org.springframework.util.CollectionUtils.isEmpty;
 import static uk.nhs.digital.ps.components.HippoComponentHelper.*;
 
 import org.hippoecm.hst.content.beans.query.HstQuery;
@@ -16,9 +17,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.ps.beans.LegacyPublication;
 import uk.nhs.digital.ps.beans.Publication;
+import uk.nhs.digital.ps.beans.PublicationBase;
 import uk.nhs.digital.ps.beans.Series;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class SeriesComponent extends EssentialsContentComponent {
 
@@ -54,13 +59,23 @@ public class SeriesComponent extends EssentialsContentComponent {
             query.addOrderByDescending("publicationsystem:NominalDate");
 
             final HstQueryResult hstQueryResult = query.execute();
-            List<Publication> publications = toList(hstQueryResult.getHippoBeans());
+            List<PublicationBase> allPublications = toList(hstQueryResult.getHippoBeans());
 
-            if (!seriesIndexDocument.getShowLatest()) {
-                publications.sort(DocumentTitleComparator.COMPARATOR);
+            Map<Boolean, List<PublicationBase>> publicationByStatus = allPublications.stream().collect(Collectors.groupingBy(PublicationBase::isPubliclyAccessible));
+            List<PublicationBase> livePublications = publicationByStatus.get(true);
+            List<PublicationBase> upcomingPublications = publicationByStatus.get(false);
+
+            // Want upcoming in reverse date order to the closest to now is first
+            if (!isEmpty(upcomingPublications)) {
+                Collections.reverse(upcomingPublications);
             }
 
-            request.setAttribute("publications", publications);
+            if (!seriesIndexDocument.getShowLatest() && !isEmpty(livePublications)) {
+                livePublications.sort(DocumentTitleComparator.COMPARATOR);
+            }
+
+            request.setAttribute("publications", livePublications);
+            request.setAttribute("upcomingPublications", upcomingPublications);
 
         } catch (QueryException queryException) {
             log.error("Failed to find publications for series " + seriesIndexDocument.getTitle(), queryException);

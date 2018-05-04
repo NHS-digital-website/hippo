@@ -382,6 +382,457 @@
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: hippo:handle
+  /2018---upcoming:
+    /2018---upcoming[1]:
+      common:FacetType: publication
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
+      hippostdpubwf:lastModificationDate: 2018-05-04T14:03:36.585Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: fb511bf0-dbba-47c7-95d2-cc8557fbc143
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType:
+      - National statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-05-03T23:00:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: 2018 - Upcoming Publication
+      publicationsystem:Title: 2018 - Upcoming
+    /2018---upcoming[2]:
+      common:FacetType: publication
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
+      hippostdpubwf:lastModificationDate: 2018-05-04T14:03:42.207Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: fb511bf0-dbba-47c7-95d2-cc8557fbc143
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType:
+      - National statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-05-03T23:00:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: 2018 - Upcoming Publication
+      publicationsystem:Title: 2018 - Upcoming
+    /2018---upcoming[3]:
+      common:FacetType: publication
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
+      hippostdpubwf:lastModificationDate: 2018-05-04T14:03:42.207Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-05-04T14:03:46.332Z
+      hippotranslation:id: fb511bf0-dbba-47c7-95d2-cc8557fbc143
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType:
+      - National statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2018-05-03T23:00:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: 2018 - Upcoming Publication
+      publicationsystem:Title: 2018 - Upcoming
+    hippo:name: 2018 - Upcoming
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /2019---upcoming:
+    /2019---upcoming[1]:
+      common:FacetType: publication
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
+      hippostdpubwf:lastModificationDate: 2018-05-04T12:07:14.410Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: d1cc1148-e701-4289-ac2a-70f2144de20f
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType:
+      - National statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2019-01-31T00:00:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: 2019 - Upcoming Publication
+      publicationsystem:Title: 2019 - Upcoming
+    /2019---upcoming[2]:
+      common:FacetType: publication
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
+      hippostdpubwf:lastModificationDate: 2018-05-04T12:07:04.625Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: d1cc1148-e701-4289-ac2a-70f2144de20f
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType:
+      - National statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2019-01-31T00:00:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: 2019 - Upcoming Publication
+      publicationsystem:Title: 2019 - Upcoming
+    /2019---upcoming[3]:
+      common:FacetType: publication
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
+      hippostdpubwf:lastModificationDate: 2018-05-04T12:07:14.410Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-05-04T12:07:16.674Z
+      hippotranslation:id: d1cc1148-e701-4289-ac2a-70f2144de20f
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType:
+      - National statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2019-01-31T00:00:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: 2019 - Upcoming Publication
+      publicationsystem:Title: 2019 - Upcoming
+    hippo:name: 2019 - Upcoming
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /2020---upcoming:
+    /2020---upcoming[1]:
+      common:FacetType: publication
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
+      hippostdpubwf:lastModificationDate: 2018-05-04T14:03:24.031Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 42bef2de-d12e-456f-b424-3521a3e90c50
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType:
+      - National statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2020-01-01T00:00:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: 2020 - Upcoming Publication
+      publicationsystem:Title: 2020 - Upcoming
+    /2020---upcoming[2]:
+      common:FacetType: publication
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
+      hippostdpubwf:lastModificationDate: 2018-05-04T14:02:37.368Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 42bef2de-d12e-456f-b424-3521a3e90c50
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType:
+      - National statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2020-01-01T00:00:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: 2020 - Upcoming Publication
+      publicationsystem:Title: 2020 - Upcoming
+    /2020---upcoming[3]:
+      common:FacetType: publication
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
+      hippostdpubwf:lastModificationDate: 2018-05-04T14:03:24.031Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-05-04T14:03:26.882Z
+      hippotranslation:id: 42bef2de-d12e-456f-b424-3521a3e90c50
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType:
+      - National statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2020-01-01T00:00:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: 2020 - Upcoming Publication
+      publicationsystem:Title: 2020 - Upcoming
+    hippo:name: 2020 - Upcoming
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /2021---upcoming:
+    /2021---upcoming[1]:
+      common:FacetType: publication
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
+      hippostdpubwf:lastModificationDate: 2018-05-04T14:03:15.750Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: cde73a8e-5e18-4658-8331-4f070f25d994
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType:
+      - National statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2021-01-01T00:00:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: 2021 - Upcoming Publication
+      publicationsystem:Title: 2021 - Upcoming
+    /2021---upcoming[2]:
+      common:FacetType: publication
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
+      hippostdpubwf:lastModificationDate: 2018-05-04T14:02:20.208Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: cde73a8e-5e18-4658-8331-4f070f25d994
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType:
+      - National statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2021-01-01T00:00:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: 2021 - Upcoming Publication
+      publicationsystem:Title: 2021 - Upcoming
+    /2021---upcoming[3]:
+      common:FacetType: publication
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
+      hippostdpubwf:lastModificationDate: 2018-05-04T14:03:15.750Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-05-04T14:03:19.463Z
+      hippotranslation:id: cde73a8e-5e18-4658-8331-4f070f25d994
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType:
+      - National statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2021-01-01T00:00:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: 2021 - Upcoming Publication
+      publicationsystem:Title: 2021 - Upcoming
+    hippo:name: 2021 - Upcoming
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /2022---upcoming:
+    /2022---upcoming[1]:
+      common:FacetType: publication
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
+      hippostdpubwf:lastModificationDate: 2018-05-04T14:04:21.729Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 06014343-8273-45f5-86cb-2ccba421cbb3
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:versionable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType:
+      - National statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2022-01-01T00:00:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: 2022 - Upcoming Publication
+      publicationsystem:Title: 2022 - Upcoming
+    /2022---upcoming[2]:
+      common:FacetType: publication
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
+      hippostdpubwf:lastModificationDate: 2018-05-04T14:04:06.678Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 06014343-8273-45f5-86cb-2ccba421cbb3
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType:
+      - National statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2022-01-01T00:00:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: 2022 - Upcoming Publication
+      publicationsystem:Title: 2022 - Upcoming
+    /2022---upcoming[3]:
+      common:FacetType: publication
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
+      hippostdpubwf:lastModificationDate: 2018-05-04T14:04:21.729Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-05-04T14:04:25.523Z
+      hippotranslation:id: 06014343-8273-45f5-86cb-2ccba421cbb3
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: publicationsystem:publication
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+      publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType:
+      - National statistics
+      publicationsystem:KeyFacts: ''
+      publicationsystem:NominalDate: 2022-01-01T00:00:00Z
+      publicationsystem:PubliclyAccessible: false
+      publicationsystem:Summary: 2022 - Upcoming Publication
+      publicationsystem:Title: 2022 - Upcoming
+    hippo:name: 2022 - Upcoming
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
   /content:
     /content[1]:
       common:FacetType: series
