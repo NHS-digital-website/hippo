@@ -4,9 +4,9 @@
 <#-- @ftlvariable name="menu" type="org.hippoecm.hst.core.sitemenu.HstSiteMenu" -->
 <#-- @ftlvariable name="editMode" type="java.lang.Boolean"-->
 <#if menu??>
-<div class="has-edit-button">
+<nav>
     <#if menu.siteMenuItems??>
-    <ul class="nav nav-pills">
+    <ol class="list list--reset list--inline">
         <#list menu.siteMenuItems as item>
         <#if !item.hstLink?? && !item.externalLink??>
         <#if item.selected || item.expanded>
@@ -27,8 +27,8 @@
         </#if>
         </#if>
         </#list>
-    </ul>
+    </ol>
     </#if>
     <@hst.cmseditmenu menu=menu/>
-</div>
+</nav>
 </#if>

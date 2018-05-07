@@ -5,5 +5,17 @@ definitions:
       /breadcrumb-ci:
         hst:referencecomponent: hst:components/breadcrumb-ci
         jcr:primaryType: hst:component
+      /top-menu:
+        hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
+        hst:parameternames:
+        - selectedMenu
+        - level
+        - menu
+        hst:parametervalues:
+        - 'on'
+        - '1'
+        - main
+        hst:template: base-top-menu
+        jcr:primaryType: hst:component
       hst:template: pubs_app-layout
       jcr:primaryType: hst:component

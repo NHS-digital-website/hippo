@@ -2,5 +2,17 @@
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:abstractpages/apppage-no-header-search:
+      /top-menu:
+        hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
+        hst:parameternames:
+        - selectedMenu
+        - level
+        - menu
+        hst:parametervalues:
+        - 'on'
+        - '1'
+        - main
+        hst:template: base-top-menu
+        jcr:primaryType: hst:component
       hst:template: app-layout-no-header-search
       jcr:primaryType: hst:component
