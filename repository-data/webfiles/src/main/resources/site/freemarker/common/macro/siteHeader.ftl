@@ -6,7 +6,7 @@
             <div class="column column--reset">
                 <div class="grid-wrapper grid-wrapper--collapse">
                     <div class="grid-row">
-                        
+
                         <div class="column column--18-75 column--reset">
                             <a href="<@hst.link siteMapItemRefId='root'/>"><img src="<@hst.webfile path="/images/nhs-logo.png"/>" alt="NHS Digital logo" class="site-header__logo"></a>
                         </div>
@@ -24,7 +24,7 @@
                                     <span class="main-nav__burger-line">&nbsp;</span>
                                 </button>
                             </div>
-                            
+
                             <div class="column column--81-25  column--reset">
                                 <div class="main-nav__menu">
                                     <div class="${wrapperClassName}">
@@ -33,15 +33,8 @@
                                         </#if>
                                     </div>
 
-                                    <nav>
-                                        <ol class="list list--reset list--inline">
-                                            <li><a href="/data-and-information">Data and information</a></li>
-                                            <li><a href="/services">Systems and services</a></li>
-                                            <li><a href="/news-and-events">News and events</a></li>
-                                            <li><a href="/about-nhs-digital">About NHS Digital</a></li>
-                                        </ol>
-                                    </nav>  
-                                </div>        
+                                    <@hst.include ref="top-menu"/>
+                                </div>
                             </div>
                         </div>
                     </div>

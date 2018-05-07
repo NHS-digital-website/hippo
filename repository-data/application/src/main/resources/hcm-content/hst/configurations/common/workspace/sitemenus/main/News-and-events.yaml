@@ -1,0 +1,6 @@
+---
+/hst:hst/hst:configurations/common/hst:workspace/hst:sitemenus/main/News and events:
+  .meta:order-before: About NHS Digital
+  hst:referencesitemapitem: news-and-events
+  hst:repobased: false
+  jcr:primaryType: hst:sitemenuitem

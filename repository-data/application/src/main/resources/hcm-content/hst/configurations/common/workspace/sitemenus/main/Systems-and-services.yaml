@@ -1,0 +1,6 @@
+---
+/hst:hst/hst:configurations/common/hst:workspace/hst:sitemenus/main/Systems and services:
+  .meta:order-before: News and events
+  hst:referencesitemapitem: services
+  hst:repobased: false
+  jcr:primaryType: hst:sitemenuitem
