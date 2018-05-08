@@ -14,6 +14,8 @@ PROFILE_RUN ?= cargo.run
 S3_BUCKET ?= files.local.nhsd.io
 S3_REGION ?= eu-west-1
 
+export AWS_ACCESS_KEY_ID=$(AWS_KEY)
+export AWS_SECRET_ACCESS_KEY=$(AWS_SECRET)
 export HIPPO_MAVEN_PASSWORD
 export HIPPO_MAVEN_USERNAME
 export HOME
@@ -52,8 +54,6 @@ run:
 		-D splunk.token=$(SPLUNK_TOKEN) \
 		-D splunk.url=$(SPLUNK_URL) \
 		-D splunk.hec.name=$(SPLUNK_HEC) \
-		-D aws.secretKey=$(AWS_SECRET) \
-		-D aws.accessKeyId=$(AWS_KEY) \
 		-D externalstorage.aws.bucket=$(S3_BUCKET) \
 		-D externalstorage.aws.region=$(S3_REGION)
 
