@@ -138,6 +138,13 @@ definitions:
           hst:refId: pagenotfound
           jcr:primaryType: hst:sitemapitem
         jcr:primaryType: hst:sitemapitem
+      /news-and-events:
+        /events:
+          hst:componentconfigurationid: hst:pages/latestevents
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/general
+        hst:relativecontentpath: news-and-events/content
+        jcr:primaryType: hst:sitemapitem
       /robots.txt:
         hst:componentconfigurationid: hst:pages/robotstxt
         hst:relativecontentpath: ../administration/robots

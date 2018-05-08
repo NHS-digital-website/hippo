@@ -5,8 +5,8 @@
     <hr>
     <nav role="navigation">
         <ol class="article-section-nav__menu">
-            <li><a href="#section-a">A</a></li>
-            <li><a href="#section-b">B</a></li>
+            <li><a href="#a">A</a></li>
+            <li><a href="#b">B</a></li>
             <li class="is-disabled"><a href="#">C</a></li>
             <li class="is-disabled"><a href="#">D</a></li>
             <li class="is-disabled"><a href="#">E</a></li>

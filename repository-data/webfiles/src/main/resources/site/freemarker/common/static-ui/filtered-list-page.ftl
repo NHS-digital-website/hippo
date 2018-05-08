@@ -1,6 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 <#include "../macro/articleSections.ftl">
+<#include "../macro/stickyGroupBlockHeader.ftl">
 
 <article class="article article--filtered-list">
     <div class="grid-wrapper grid-wrapper--article">
@@ -35,18 +36,8 @@
 
             <div class="column column--two-thirds page-block page-block--main">
                 <#-- [FTL-BEGIN] 'Article group' section -->
-                <div class="article-section article-section--letter-group" id="section-a">
-                    <div class="grid-row sticky-top">
-                        <div class="column column--reset">
-                            <div class="article-header article-header--tertiary">
-                                <div class="grid-row">
-                                    <div class="column column--reset">
-                                        <h2 class="article-header__title">A</h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="article-section article-section--letter-group">
+                    <@stickyGroupBlockHeader "A"></@stickyGroupBlockHeader>
 
                     <div class="grid-row">
                         <div class="column column--reset">
@@ -70,18 +61,8 @@
                 <#-- [FTL-END] 'Article group' section -->
 
                 <#-- [FTL-BEGIN] 'Article group' section -->
-                <div class="article-section article-section--letter-group" id="section-b">
-                    <div class="grid-row sticky-top">
-                        <div class="column column--reset">
-                            <div class="article-header article-header--tertiary">
-                                <div class="grid-row">
-                                    <div class="column column--reset">
-                                        <h2 class="article-header__title">B</h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="article-section article-section--letter-group">
+                    <@stickyGroupBlockHeader "B"></@stickyGroupBlockHeader>
 
                     <div class="grid-row">
                         <div class="column column--reset">

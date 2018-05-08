@@ -8,6 +8,7 @@
                 <!--<entry key="name" value="/absolute/repository/path"/>-->
                 <entry key="rights" value="/content/documents/administration/website/rights"/>
                 <entry key="lawfulbasis" value="/content/documents/administration/website/lawful-basis"/>
+                <entry key="eventstype" value="/content/documents/administration/website/events-type"/>
             </map>
         </constructor-arg>
     </bean>

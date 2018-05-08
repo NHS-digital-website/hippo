@@ -8,8 +8,13 @@
         <nav role="navigation">
             <ol class="article-section-nav__list">
             <#list links as link>
+                <#assign label = "Scroll to '${link.title}'" />
+                <#if link["aria-label"]??>
+                    <#assign label = link["aria-label"] />
+                </#if>
+            
                 <li>
-                    <a href="${link.url}" aria-label="Scroll to '${link.title}'" title="Scroll to '${link.title}'">${link.title}</a>
+                    <a href="${link.url}" aria-label=${label} title="${label}">${link.title}</a>
                 </li>
             </#list>
             </ol>

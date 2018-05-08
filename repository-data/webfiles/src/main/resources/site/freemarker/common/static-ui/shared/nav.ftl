@@ -19,7 +19,10 @@
                 <a href="/static-ui/list">List page</a>
             </li>
             <li>
-                <a href="/static-ui/filtered-list">Filtered list page</a>
+                <a href="/static-ui/filtered-list">Filtered list</a>
+            </li>
+            <li>
+                <a href="/static-ui/latest-events">Latest Events</a>
             </li>
             <li>
                 <a href="/static-ui/icons">Icons</a>

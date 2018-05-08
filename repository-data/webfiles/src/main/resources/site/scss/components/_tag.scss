@@ -1,0 +1,59 @@
+@import "../units/list";
+@import "../units/link";
+@import "../environment/settings/colours";
+
+/* Tag */
+.tag-list {
+    @extend .list;
+    @extend .list--reset;
+    @extend .list--inline;
+
+    line-height: 0;
+
+    .tag {
+        margin-left: round($gutter * 0.5);
+    }
+}
+
+.tag {
+    @include core-font(14);
+
+    position: relative;
+    display: inline-block;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: $col-quaternary;
+    background: $col-duodenary;
+}
+
+.tag-link {
+    @include bold-font(14);
+
+    position: relative;
+    display: inline-block;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background: $col-duodenary;
+
+    &:link {
+        color: $col-quaternary;
+    }
+
+    &:visited {
+        color: $col-quaternary;
+    }
+
+    &:hover {
+        color: $col-septenary;
+        background: $col-quaternary;
+    }
+
+    &:active {
+        color: $col-septenary;
+        background: $col-quaternary;
+    }
+
+    &:focus {
+        outline: 3px solid $focus-colour;
+    }
+}

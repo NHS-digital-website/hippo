@@ -24,8 +24,6 @@ a {
     &:focus {
         outline: 3px solid $focus-colour;
     }
-
-    @include no-tap-highlight;
 }
 
 .link--reverse-polarity {

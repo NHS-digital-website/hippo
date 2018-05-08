@@ -1,4 +1,5 @@
 <#ftl output_format="HTML">
+<#include "../../include/imports.ftl">
 
 <#assign lettersOfTheAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]/>
 
@@ -12,7 +13,7 @@
         <#list lettersOfTheAlphabet as letter>
             <#if blockGroups[letter]??>
                 <li>
-                    <a href="#section-${letter}" aria-label="Jump to articles starting with the letter '${letter}'">${letter}</a>
+                    <a href="#${slugify(letter)}" aria-label="Jump to articles starting with the letter '${letter}'">${letter}</a>
                 </li>
             <#else>
                 <li class="is-disabled">${letter}</li>

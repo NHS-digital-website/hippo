@@ -5,7 +5,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-05-03T13:23:27.852Z
-    hippostdpubwf:lastModificationDate: 2018-05-03T13:23:27.852Z
+    hippostdpubwf:lastModificationDate: 2018-05-29T13:50:57.300Z
     hippostdpubwf:lastModifiedBy: admin
     jcr:mixinTypes:
     - mix:referenceable
@@ -14,22 +14,32 @@
     - Component title
     - Date label (prefix)
     - Button label
+    - Title of the events hub page
+    - Text in the events hub header
+    - Header of the "Past events" section
     resourcebundle:id: rb.component.latest-events
     resourcebundle:keys:
     - headers.title
     - labels.date-label
     - labels.cta
+    - headers.hub-title
+    - texts.hub-intro
+    - headers.past-events
     resourcebundle:messages:
     - Upcoming Events
     - Date
     - View all events
+    - Events
+    - Welcome to our events area. Find out where you are likely to see us over the
+      coming months and read about all our events.
+    - Past events
   /rb.component.latest-events[2]:
     hippo:availability:
     - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-05-03T13:23:27.852Z
-    hippostdpubwf:lastModificationDate: 2018-05-03T13:23:27.852Z
+    hippostdpubwf:lastModificationDate: 2018-05-29T13:49:05.310Z
     hippostdpubwf:lastModifiedBy: admin
     jcr:mixinTypes:
     - mix:referenceable
@@ -39,24 +49,34 @@
     - Component title
     - Date label (prefix)
     - Button label
+    - Title of the events hub page
+    - Text in the events hub header
+    - Header of the "Past events" section
     resourcebundle:id: rb.component.latest-events
     resourcebundle:keys:
     - headers.title
     - labels.date-label
     - labels.cta
+    - headers.hub-title
+    - texts.hub-intro
+    - headers.past-events
     resourcebundle:messages:
     - Upcoming Events
     - Date
     - View all events
+    - Events
+    - Welcome to our events area. Find out where you are likely to see us over the
+      coming months and read about all our events.
+    - Past events
   /rb.component.latest-events[3]:
     hippo:availability:
     - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-05-03T13:23:27.852Z
-    hippostdpubwf:lastModificationDate: 2018-05-03T13:23:27.852Z
+    hippostdpubwf:lastModificationDate: 2018-05-29T13:49:05.310Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-05-03T13:23:27.852Z
+    hippostdpubwf:publicationDate: 2018-05-29T13:50:51.355Z
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: resourcebundle:resourcebundle
@@ -64,15 +84,25 @@
     - Component title
     - Date label (prefix)
     - Button label
+    - Title of the events hub page
+    - Text in the events hub header
+    - Header of the "Past events" section
     resourcebundle:id: rb.component.latest-events
     resourcebundle:keys:
     - headers.title
     - labels.date-label
     - labels.cta
+    - headers.hub-title
+    - texts.hub-intro
+    - headers.past-events
     resourcebundle:messages:
     - Upcoming Events
     - Date
     - View all events
+    - Events
+    - Welcome to our events area. Find out where you are likely to see us over the
+      coming months and read about all our events.
+    - Past events
   hippo:name: Latest Events Component Resource Bundle
   jcr:mixinTypes:
   - hippo:named
