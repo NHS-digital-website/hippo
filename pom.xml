@@ -83,10 +83,6 @@
         In production, start with a setting of "10" and adjust as necessary. -->
         <splunk.batch.size.count>1</splunk.batch.size.count>
 
-        <!-- AWS S3 access -->
-        <aws.accessKeyId></aws.accessKeyId>
-        <aws.secretKey></aws.secretKey>
-
         <externalstorage.aws.bucket></externalstorage.aws.bucket>
         <externalstorage.aws.region></externalstorage.aws.region>
         <externalstorage.aws.s3.endpoint></externalstorage.aws.s3.endpoint>
@@ -625,9 +621,6 @@
                                     <splunk.token>${splunk.token}</splunk.token>
                                     <splunk.url>${splunk.url}</splunk.url>
                                     <splunk.batch.size.count>${splunk.batch.size.count}</splunk.batch.size.count>
-
-                                    <aws.accessKeyId>${aws.accessKeyId}</aws.accessKeyId>
-                                    <aws.secretKey>${aws.secretKey}</aws.secretKey>
 
                                     <externalstorage.aws.bucket>${externalstorage.aws.bucket}</externalstorage.aws.bucket>
                                     <externalstorage.aws.region>${externalstorage.aws.region}</externalstorage.aws.region>
