@@ -2,6 +2,10 @@
 
 /* Breadcrumb */
 .breadcrumb {
+    @extend .list;
+    @extend .list--inline;
+    @extend .list--reset;
+
     position: relative;
     display: inline-block;
     width: 100%;
@@ -13,6 +17,21 @@
     li,
     a {
         @include core-font(16);
+    }
+
+    li {
+        margin-left: 10px;
+    }
+
+    @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+        li {
+            margin-left: 5px;
+        }
+
+        .breadcrumb__sep {
+            margin-right: 1px;
+            margin-top: -2px;
+        }
     }
 }
 
@@ -34,9 +53,10 @@
 }
 
 .breadcrumb__sep {
+    position: relative;
     height: round($gutter * 0.5);
     width: auto;
-    margin: 0;
+    margin: -1px 6px 0 0 ;
 }
 
 .breadcrumb__link--secondary {
