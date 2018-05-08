@@ -171,6 +171,8 @@ public class TestContentUrls {
             "/data-and-information/publications/acceptance-tests/series-with-publication-with-datasets/series-publication-with-datasets");
         addSiteUrl("dataset under CI folder",
             "/data-and-information/publications/clinical-indicators/ccg-outcomes-indicator-set/current/1.1-national-ccg-outcomes/ccg-dataset");
+        addSiteUrl("ccg archive publication",
+            "/data-and-information/publications/clinical-indicators/ccg-outcomes-indicator-set/archive/ccg-archive-document-1");
 
         // National Indicator Library
         addSiteUrl("nihub", "/data-and-information/national-indicator-library/nihub");

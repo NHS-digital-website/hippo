@@ -11,7 +11,7 @@
                     <ul class="breadcrumb" title="Navigation">
 
                         <li class="breadcrumb__crumb">
-                            <a href="<@hst.link siteMapItemRefId='root'/>" class="breadcrumb__link">NHS Digital</a>
+                            <a href="<@hst.link siteMapItemRefId='root'/>" class="breadcrumb__link" title="NHS Digital">NHS Digital</a>
                         </li>
 
                         <#if ciBreadcrumb.clinicalIndicator>
@@ -23,7 +23,7 @@
                         </#if>
 
                         <#list ciBreadcrumb.items as item>
-                            <li class="breadcrumb__crumb">
+                            <li class="breadcrumb__crumb" title="${item.title}">
                                 <img src="<@hst.webfile  path="images/icon-arrow.png"/>" alt="" class="breadcrumb__sep"/>
                                 <#if !item?is_last>
                                     <@hst.link var="link" link=item.link/>

@@ -10,6 +10,7 @@ import org.hippoecm.hst.content.beans.query.builder.Constraint;
 import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.request.HstRequestContext;
@@ -43,6 +44,10 @@ public class CiBreadcrumbProvider  {
     }
 
     public CiBreadcrumb getBreadcrumb() {
+
+        if (currentDocumentBean == null || currentDocumentBean instanceof HippoFolder) {
+            return null;
+        }
 
         loadCiLandingBean();
 
@@ -122,13 +127,13 @@ public class CiBreadcrumbProvider  {
     }
 
     private void addPublicationBreadcrumbItem(List<BreadcrumbItem> ciBreadcrumbItems) {
-        // Is publication part of series?
+        // Is publication part of archive/series?
         HippoBean publicationParent =  ((Publication) currentDocumentBean).getParentDocument();
         if (publicationParent != null) {
 
-            // Create Series navigation
-            Series series = (Series) publicationParent;
-            ciBreadcrumbItems.add(createBreadcrumbItem(ctx, series));
+            // Create Archive/Series navigation
+            BaseDocument seriesOrArchiveDocument = (BaseDocument) publicationParent;
+            ciBreadcrumbItems.add(createBreadcrumbItem(ctx, seriesOrArchiveDocument));
         }
     }
 
@@ -139,13 +144,13 @@ public class CiBreadcrumbProvider  {
 
             Publication publication = (Publication) datasetParent;
 
-            // Is publication part of series?
+            // Is publication part of archive/series?
             HippoBean publicationParent =  publication.getParentDocument();
             if (publicationParent != null) {
 
-                // Create Series navigation
-                Series series = (Series) publicationParent;
-                ciBreadcrumbItems.add(createBreadcrumbItem(ctx, series));
+                // Create Archive/Series navigation
+                BaseDocument seriesOrArchiveDocument = (BaseDocument) publicationParent;
+                ciBreadcrumbItems.add(createBreadcrumbItem(ctx, seriesOrArchiveDocument));
             }
 
             // Create Publication navigation

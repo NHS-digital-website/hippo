@@ -30,6 +30,14 @@ Feature: As a user navigating to clinical indicator content, I need logical brea
             | CCG publication               |
             | CCG dataset                   |
 
+    Scenario: Archive (within CI folder) breadcrumb
+        Given I navigate to the "ccg archive publication" page
+        Then I should see the list with title "Navigation" including:
+            | Data and information          |
+            | CCG Outcomes - Indicator Set  |
+            | CCG Archive                   |
+            | CCG Archive publication       |
+
     Scenario: CI landing page (i.e. SHMI landing) breadcrumb
         Given I navigate to the "SHMI landing" page
         Then I should see the list with title "Navigation" including:

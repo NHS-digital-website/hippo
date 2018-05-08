@@ -23,9 +23,9 @@
             <li class="separator">${ciBreadcrumb.separator}</li>
             <#if !item?is_last>
                 <@hst.link var="link" link=item.link/>
-                <li><a href="${link}" class="breadcrumb__link">${item.title}</a></li>
+                <li><a href="${link}" class="breadcrumb__link" title="${item.title}">${item.title}</a></li>
             <#else>
-                <li><span class="breadcrumb__link breadcrumb__link--secondary">${item.title}</span></li>
+                <li><span class="breadcrumb__link breadcrumb__link--secondary" title="${item.title}">${item.title}</span></li>
             </#if>
         </#list>
     </ul>
