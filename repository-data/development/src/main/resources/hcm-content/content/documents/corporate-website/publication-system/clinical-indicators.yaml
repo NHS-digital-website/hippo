@@ -2,6 +2,150 @@
 /content/documents/corporate-website/publication-system/clinical-indicators:
   /ccg-outcomes-indicator-set:
     /archive:
+      /ccg-archive-document-1:
+        /ccg-archive-document-1[1]:
+          common:FacetType: publication
+          common:searchRank: 4
+          common:searchable: true
+          hippo:availability: []
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2018-05-08T15:45:10.021Z
+          hippostdpubwf:lastModificationDate: 2018-05-08T15:45:10.021Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: bdc8dcbc-425f-4c9b-95cf-9b034df10cbb
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: publicationsystem:publication
+          publicationsystem:AdministrativeSources: ''
+          publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+          publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+          publicationsystem:GeographicCoverage: []
+          publicationsystem:KeyFacts: ''
+          publicationsystem:NominalDate: 2018-05-07T23:00:00Z
+          publicationsystem:PubliclyAccessible: true
+          publicationsystem:Summary: CCG Archive publication
+          publicationsystem:Title: CCG Archive publication
+        /ccg-archive-document-1[2]:
+          common:FacetType: publication
+          common:searchRank: 4
+          common:searchable: true
+          hippo:availability:
+          - preview
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2018-05-08T15:45:10.021Z
+          hippostdpubwf:lastModificationDate: 2018-05-08T15:45:30.591Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: bdc8dcbc-425f-4c9b-95cf-9b034df10cbb
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          - mix:versionable
+          jcr:primaryType: publicationsystem:publication
+          publicationsystem:AdministrativeSources: ''
+          publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+          publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+          publicationsystem:GeographicCoverage: []
+          publicationsystem:KeyFacts: ''
+          publicationsystem:NominalDate: 2018-05-07T23:00:00Z
+          publicationsystem:PubliclyAccessible: true
+          publicationsystem:Summary: CCG Archive publication
+          publicationsystem:Title: CCG Archive publication
+        /ccg-archive-document-1[3]:
+          common:FacetType: publication
+          common:searchRank: 4
+          common:searchable: true
+          hippo:availability:
+          - live
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2018-05-08T15:45:10.021Z
+          hippostdpubwf:lastModificationDate: 2018-05-08T15:45:30.591Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2018-05-08T15:45:32.951Z
+          hippotranslation:id: bdc8dcbc-425f-4c9b-95cf-9b034df10cbb
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - hippotaxonomy:classifiable
+          - mix:referenceable
+          jcr:primaryType: publicationsystem:publication
+          publicationsystem:AdministrativeSources: ''
+          publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
+          publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
+          publicationsystem:GeographicCoverage: []
+          publicationsystem:KeyFacts: ''
+          publicationsystem:NominalDate: 2018-05-07T23:00:00Z
+          publicationsystem:PubliclyAccessible: true
+          publicationsystem:Summary: CCG Archive publication
+          publicationsystem:Title: CCG Archive publication
+        hippo:name: CCG archive document 1
+        jcr:mixinTypes:
+        - hippo:named
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /content:
+        /content[1]:
+          common:FacetType: series
+          common:searchRank: 1
+          common:searchable: true
+          hippo:availability: []
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2018-05-08T15:44:05.488Z
+          hippostdpubwf:lastModificationDate: 2018-05-08T15:44:05.488Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: ed227b8b-f6b4-428a-87c4-9988ef203af2
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: publicationsystem:archive
+          publicationsystem:Summary: CCG Archive
+          publicationsystem:Title: CCG Archive
+        /content[2]:
+          common:FacetType: series
+          common:searchRank: 1
+          common:searchable: true
+          hippo:availability:
+          - preview
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2018-05-08T15:44:05.488Z
+          hippostdpubwf:lastModificationDate: 2018-05-08T15:44:37.445Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: ed227b8b-f6b4-428a-87c4-9988ef203af2
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          - mix:versionable
+          jcr:primaryType: publicationsystem:archive
+          publicationsystem:Summary: CCG Archive
+          publicationsystem:Title: CCG Archive
+        /content[3]:
+          common:FacetType: series
+          common:searchRank: 1
+          common:searchable: true
+          hippo:availability:
+          - live
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2018-05-08T15:44:05.488Z
+          hippostdpubwf:lastModificationDate: 2018-05-08T15:44:37.445Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2018-05-08T15:44:41.088Z
+          hippotranslation:id: ed227b8b-f6b4-428a-87c4-9988ef203af2
+          hippotranslation:locale: en
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: publicationsystem:archive
+          publicationsystem:Summary: CCG Archive
+          publicationsystem:Title: CCG Archive
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
       hippo:name: Archive
       hippostd:foldertype:
       - new-statistical-publications-and-clinical-indicators-folder
