@@ -46,14 +46,36 @@
 
         li {
             padding-left: 0;
+            margin-top: 10px;
 
-            &:not(:first-child) {
-                margin-top: 10px;
+            &:first-child {
+                margin-top: 0;
             }
         }
 
         a {
             text-decoration: none;
+        }
+    }
+
+    .article-section-nav__list--tag-links {
+        list-style: none;
+        padding-left: 0;
+
+        @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+            @include clearfix;
+            line-height: 0;
+
+            li {
+                display: inline-block;
+                float: left;
+                margin-left: 6px;
+                margin-top: 0;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
         }
     }
 
@@ -115,5 +137,9 @@
         &.article-section-nav__menu--push {
             padding-top: $gutter;
         }
+    }
+
+    & + .article-section-nav {
+        margin-top: $gutter * 2;
     }
 }

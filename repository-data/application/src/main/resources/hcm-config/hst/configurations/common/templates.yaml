@@ -32,6 +32,9 @@ definitions:
       /event-article:
         hst:renderpath: webfile:/freemarker/common/event-article.ftl
         jcr:primaryType: hst:template
+      /event-hub-article:
+        hst:renderpath: webfile:/freemarker/common/event-hub-article.ftl
+        jcr:primaryType: hst:template
       /eventlist-main-eventlist:
         hst:renderpath: webfile:/freemarker/common/eventlist-main-eventlist.ftl
         jcr:primaryType: hst:template
@@ -121,5 +124,8 @@ definitions:
         jcr:primaryType: hst:template
       /static-ui-general:
         hst:renderpath: webfile:/freemarker/common/static-ui/general-page.ftl
+        jcr:primaryType: hst:template
+      /static-ui-latest-events:
+        hst:renderpath: webfile:/freemarker/common/static-ui/latest-events-page.ftl
         jcr:primaryType: hst:template
       jcr:primaryType: hst:templates

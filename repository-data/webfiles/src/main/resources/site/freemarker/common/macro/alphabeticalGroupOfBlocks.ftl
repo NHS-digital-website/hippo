@@ -2,6 +2,7 @@
 <#include "../../include/imports.ftl">
 <#include "fileMetaAppendix.ftl">
 <#include "typeSpan.ftl">
+<#include "stickyGroupBlockHeader.ftl">
 
 <#assign lettersOfTheAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]/>
 
@@ -13,18 +14,8 @@
     <#if blockGroups[letter]??>
     <#assign matchesFound++ />
 
-    <div class="article-section article-section--letter-group" id="section-${letter}">
-        <div class="grid-row sticky sticky--top">
-            <div class="column column--reset">
-                <div class="article-header article-header--tertiary">
-                    <div class="grid-row">
-                        <div class="column column--reset">
-                            <h2 class="article-header__title">${letter}</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="article-section article-section--letter-group">
+        <@stickyGroupBlockHeader letter></@stickyGroupBlockHeader>
 
         <div class="grid-row">
             <div class="column column--reset">

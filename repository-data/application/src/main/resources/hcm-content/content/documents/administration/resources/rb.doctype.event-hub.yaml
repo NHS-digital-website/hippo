@@ -1,0 +1,110 @@
+---
+/content/documents/administration/resources/rb.doctype.event-hub:
+  /rb.doctype.event-hub[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-26T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2018-02-22T14:13:41.631Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Page title,
+    - Intro text in the page header
+    - Title of the 'past events' section
+    - ''
+    - Title of the contents menu
+    - Title of the filter nav
+    resourcebundle:id: rb.doctype.event-hub
+    resourcebundle:keys:
+    - headers.page-title
+    - texts.intro
+    - headers.past-events
+    - texts.past-events
+    - headers.contents-nav-title
+    - headers.filter-nav-title
+    resourcebundle:messages:
+    - Events
+    - Welcome to our events area. Find out where you are likely to see us over the
+      coming months and read about all our events.
+    - Past events
+    - View our events from previous years
+    - Page contents
+    - Filter by type
+  /rb.doctype.event-hub[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-26T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2018-02-22T14:13:30.365Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Page title
+    - Intro text in the page header
+    - Title of the 'past events' section
+    - ''
+    - Title of the contents menu
+    - Title of the filter nav
+    resourcebundle:id: rb.doctype.event-hub
+    resourcebundle:keys:
+    - headers.page-title
+    - texts.intro
+    - headers.past-events
+    - texts.past-events
+    - headers.contents-nav-title
+    - headers.filter-nav-title
+    resourcebundle:messages:
+    - Events
+    - Welcome to our events area. Find out where you are likely to see us over the
+      coming months and read about all our events.
+    - Past events
+    - View our events from previous years
+    - Page contents
+    - Filter by type
+  /rb.doctype.event-hub[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-26T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2018-02-22T14:13:30.365Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2018-05-03T13:23:27.852Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Page title,
+    - Intro text in the page header
+    - Title of the 'past events' section
+    - ''
+    - Title of the contents menu
+    - Title of the filter nav
+    resourcebundle:id: rb.doctype.event-hub
+    resourcebundle:keys:
+    - headers.page-title
+    - texts.intro
+    - headers.past-events
+    - texts.past-events
+    - headers.contents-nav-title
+    - headers.filter-nav-title
+    resourcebundle:messages:
+    - Events
+    - Welcome to our events area. Find out where you are likely to see us over the
+      coming months and read about all our events.
+    - Past events
+    - View our events from previous years
+    - Page contents
+    - Filter by type
+  hippo:name: Event Hub Resource Bundle
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

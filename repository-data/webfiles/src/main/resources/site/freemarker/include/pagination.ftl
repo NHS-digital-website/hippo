@@ -2,7 +2,7 @@
 <div class="pagination">
     <ul class="pagination-list">
         <#if pageable.totalPages gt 1>
-            <#list pageNumbers as pageNr>
+            <#list pageable.pageNumbersArray as pageNr>
                 <@hst.renderURL var="pageUrl">
                     <@hst.param name="page" value="${pageNr}"/>
                     <@hst.param name="pageSize" value="${pageable.pageSize}"/>

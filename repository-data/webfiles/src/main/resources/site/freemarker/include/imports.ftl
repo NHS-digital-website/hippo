@@ -124,7 +124,7 @@
         <#list events as event>
             <#-- Store the earliest start date values -->
             <#local startTimeStamp = event.startdatetime.time?long/>
-            <#if dateRangeData.minStartTimeStamp == 0 || dateRangeData.startTimeStamp lt dateRangeData.minStartTimeStamp>
+            <#if dateRangeData.minStartTimeStamp == 0 || startTimeStamp lt dateRangeData.minStartTimeStamp>
                 <#local dateRangeData = dateRangeData + { "minStartTime": event.startdatetime.time, "minStartTimeStamp": startTimeStamp } />
             </#if>
             <#-- Store the latest end date values -->

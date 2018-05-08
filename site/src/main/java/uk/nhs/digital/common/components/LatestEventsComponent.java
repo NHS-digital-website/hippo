@@ -3,6 +3,7 @@ package uk.nhs.digital.common.components;
 import com.google.common.base.*;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang3.math.*;
+import org.hippoecm.hst.container.*;
 import org.hippoecm.hst.content.beans.*;
 import org.hippoecm.hst.content.beans.manager.*;
 import org.hippoecm.hst.content.beans.query.*;
@@ -17,7 +18,10 @@ import org.hippoecm.repository.util.*;
 import org.onehippo.cms7.essentials.components.*;
 import org.onehippo.cms7.essentials.components.info.*;
 import org.onehippo.cms7.essentials.components.paging.*;
+import org.onehippo.forge.selection.hst.contentbean.*;
+import org.onehippo.forge.selection.hst.util.*;
 import org.slf4j.*;
+
 import uk.nhs.digital.common.components.info.*;
 
 import java.util.*;
@@ -33,12 +37,22 @@ public class LatestEventsComponent extends EssentialsEventsComponent {
     private static Logger log = LoggerFactory.getLogger(LatestEventsComponent.class);
 
     @Override
+    public void doBeforeRender(final HstRequest request, final HstResponse response) {
+        super.doBeforeRender(request, response);
+        //sending the eventstype values
+        final ValueList eventsTypeValueList =
+            SelectionUtil.getValueListByIdentifier("eventstype", RequestContextProvider.get());
+        if (eventsTypeValueList != null) {
+            request.setAttribute("eventstype", SelectionUtil.valueListAsMap(eventsTypeValueList));
+        }
+    }
+
+    @Override
     protected <T extends EssentialsListComponentInfo> Pageable<HippoBean> executeQuery(HstRequest request, T paramInfo, HstQuery query) throws QueryException {
         int pageSize = this.getPageSize(request, paramInfo);
         int page = this.getCurrentPage(request);
         query.setLimit(pageSize);
         query.setOffset((page - 1) * pageSize);
-        //this.applyOrdering(request, query, paramInfo);
         this.applyExcludeScopes(request, query, paramInfo);
         this.buildAndApplyFilters(request, query);
 
@@ -54,6 +68,7 @@ public class LatestEventsComponent extends EssentialsEventsComponent {
             QueryResult queryResult = jcrQuery.execute();
 
             ObjectConverter objectConverter = requestContext.getContentBeansTool().getObjectConverter();
+
             NodeIterator it = queryResult.getNodes();
             List parentNodes = new ArrayList();
             List<String> parentPath = new ArrayList();
@@ -90,36 +105,28 @@ public class LatestEventsComponent extends EssentialsEventsComponent {
         if (paramInfo.getHidePastEvents()) {
             final String dateField = paramInfo.getDocumentDateField();
             if (!Strings.isNullOrEmpty(dateField)) {
-                //filter list contaning dates contraints
+                //filter list containing dates contraints
                 try {
                     HstQueryBuilder hstQueryBuider = HstQueryBuilder.create(request.getRequestContext().getSiteContentBaseBean());
                     hstQueryBuider.ofTypes("website:interval");
                     HstQuery hstQuery = hstQueryBuider.build();
 
-                    final Filter upcomingEventsFilter = hstQuery.createFilter();
-                    upcomingEventsFilter.addGreaterOrEqualThan(dateField, Calendar.getInstance(), DateTools.Resolution.HOUR);
-                    Calendar today = Calendar.getInstance();
-                    //including the currently running events
-                    final Filter runningEventsFilter = hstQuery.createFilter();
-                    runningEventsFilter.addLessOrEqualThan(dateField, today, DateTools.Resolution.HOUR);
-                    runningEventsFilter.addGreaterOrEqualThan("website:enddatetime", today, DateTools.Resolution.HOUR);
-                    upcomingEventsFilter.addOrFilter(runningEventsFilter);
                     List<BaseFilter> filters = new ArrayList<>();
-                    filters.add(upcomingEventsFilter);
+                    //adding the interval date range constraint
+                    addIntervalConstraint(filters, hstQuery, dateField, request);
 
                     final Filter queryFilter = createQueryFilter(request, hstQuery);
                     if (queryFilter != null) {
                         filters.add(queryFilter);
                     }
-
+                    //appling the filters on the hstQuery object
                     applyAndFilters(hstQuery, filters);
-
                     hstQuery.addOrderByAscending(dateField);
-
+                    //removing existing filters the query, since it shouldn't include path, availability and query constraint
                     String intervalQueryString = hstQuery.getQueryAsString(true).replaceAll("\\(@hippo:paths='[^']*'\\)( and)?", "");
                     intervalQueryString = intervalQueryString.replaceAll("\\(@hippo:availability='[^']*'\\)( and)?", "");
                     intervalQueryString = intervalQueryString.replaceAll("not\\(@jcr:primaryType='nt:frozenNode'\\)( and)?", "");
-                    //removing the first slash
+                    //removing the first slash, since the string must be appended to an existing xpath query
                     return intervalQueryString.substring(1, intervalQueryString.length());
                 } catch (FilterException filterException) {
                     log.warn("Exceptions while adding event date range filter {} ", filterException);
@@ -148,9 +155,23 @@ public class LatestEventsComponent extends EssentialsEventsComponent {
     @Override
     protected int getPageSize(final HstRequest request, final EssentialsPageable paramInfo) {
         //getting the componentPageSize parameter value if defined in the component
-        String compononentPageSize = StringUtils.defaultIfEmpty(getComponentParameter("componentPageSize"), "");
+        String compononentPageSize = StringUtils.defaultIfEmpty(getComponentLocalParameter("defaultPageSize"), "");
         //if the componentPageSize hasn't been defined, then use the component param info
         return NumberUtils.isCreatable(compononentPageSize)
             ? Integer.parseInt(compononentPageSize) : super.getPageSize(request, paramInfo);
+    }
+
+    protected void addIntervalConstraint(final List filters, final HstQuery hstQuery, final String dateField, final HstRequest request) throws FilterException {
+        //in case of latest event component, the constraints will be the upcoming and currently running events
+        final Filter upcomingEventsFilter = hstQuery.createFilter();
+        upcomingEventsFilter.addGreaterOrEqualThan(dateField, Calendar.getInstance(), DateTools.Resolution.HOUR);
+        Calendar today = Calendar.getInstance();
+        //including the currently running events
+        final Filter runningEventsFilter = hstQuery.createFilter();
+        runningEventsFilter.addLessOrEqualThan(dateField, today, DateTools.Resolution.HOUR);
+        runningEventsFilter.addGreaterOrEqualThan("website:enddatetime", today, DateTools.Resolution.HOUR);
+        upcomingEventsFilter.addOrFilter(runningEventsFilter);
+        //adding the event to the filters list
+        filters.add(upcomingEventsFilter);
     }
 }

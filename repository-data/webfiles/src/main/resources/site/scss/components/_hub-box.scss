@@ -1,0 +1,41 @@
+/* Hub box */
+.hub-box-list {
+    .hub-box {
+        margin-bottom: $gutter * 2;
+    }
+}
+
+.hub-box {
+    display: block;
+    width: 100%;
+    border: 22px solid $col-duodenary;
+
+    .cta__text {
+        margin-top: $gutter;
+    }
+
+    .tag-list {
+        margin-top: $gutter;
+    }
+
+    @include media($max-width: $min-tablet-width, $ignore-for-ie: true) {
+        border-width: 12px;
+    }
+}
+
+.hub-box__contents {
+    margin-top: 0;
+    padding: 20px 20px 15px;
+}
+
+.hub-box__image {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    background: $col-tertiary;
+
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+

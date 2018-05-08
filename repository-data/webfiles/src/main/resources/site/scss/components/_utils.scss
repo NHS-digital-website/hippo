@@ -35,7 +35,8 @@
         z-index: 1;
 
         &.sticky--top {
-            top: 0;
+            top: -1px;
+            margin-top: 1px;
         }
     }
 }

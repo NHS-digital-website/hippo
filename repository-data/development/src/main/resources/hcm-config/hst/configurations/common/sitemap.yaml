@@ -26,6 +26,10 @@ definitions:
         hst:componentconfigurationid: hst:pages/static-ui-icons
         hst:relativecontentpath: static-ui/icons
         jcr:primaryType: hst:sitemapitem
+      /latest-events:
+        hst:componentconfigurationid: hst:pages/static-ui-latest-events
+        hst:relativecontentpath: static-ui/latest-events
+        jcr:primaryType: hst:sitemapitem
       /list:
         hst:componentconfigurationid: hst:pages/static-ui-list
         hst:relativecontentpath: static-ui/list
