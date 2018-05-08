@@ -55,11 +55,21 @@ ol {
     li {
         margin-top: 0;
         margin-left: 20px;
-        margin-left: 1rem;
 
         &:first-child {
             margin-left: 0;
         }
+    }
+}
+
+.list--pills {
+    position: relative;
+    margin-left: -4px;
+
+    li,
+    li:first-child {
+        margin-left: 4px;
+        margin-bottom: 4px;
     }
 }
 

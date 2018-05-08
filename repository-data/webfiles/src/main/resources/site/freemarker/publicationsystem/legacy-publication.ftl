@@ -182,7 +182,7 @@
                 <#assign summarySectionClassName = "article-section article-section--summary">
             </#if>
 
-            <div id="section-summary" class="${summarySectionClassName}" id="section-summary">
+            <div class="${summarySectionClassName}" id="section-summary">
                 <h2><@fmt.message key="headers.summary"/></h2>
                 <div class="rich-text-content">
                     <@hst.html hippohtml=legacyPublication.summary contentRewriter=gaContentRewriter/>

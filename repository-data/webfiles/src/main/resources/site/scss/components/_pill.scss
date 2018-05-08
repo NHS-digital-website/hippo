@@ -1,0 +1,20 @@
+/* Pill */
+.pill {
+    position: relative;
+    display: inline-block;
+
+    @include bold-font(14);
+
+    a {
+        display: inline-block;
+        border-radius: 5px;
+        text-decoration: none;
+        color: $col-quaternary;
+        padding: 5px 10px;
+        background-color: lighten($col-senary, 10%);
+
+        &:hover {
+            background-color: $col-senary;
+        }
+    }
+}
