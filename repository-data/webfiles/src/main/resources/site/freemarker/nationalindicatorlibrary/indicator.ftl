@@ -256,8 +256,9 @@
         }
 
         function setupMathjaxIfNeeded(){
-            if( isMathMLNativelySupported() )
-            return true;
+            if(isMathMLNativelySupported()) {
+                return true;
+            }
             
             var scriptMathJax = document.createElement("script");
             scriptMathJax.type = "text/javascript";
