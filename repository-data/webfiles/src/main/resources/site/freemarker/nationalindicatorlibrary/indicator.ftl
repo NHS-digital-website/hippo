@@ -28,10 +28,16 @@
                                 </dl>
                             </div>
 
-                            <div class="column column--one-half column--reset">
+                            <div class="column column--one-half column--reset">                                
                                 <dl class="detail-list" data-uipath="contactAuthor">
                                     <dt class="detail-list__key"><@fmt.message key="headers.contactAuthor" /></dt>
-                                    <dd class="detail-list__value"><a href="mailto:${indicator.topbar.contactAuthor.contactAuthorEmail}"> ${indicator.topbar.contactAuthor.contactAuthorName}</a></dd>
+                                    <dd class="detail-list__value">
+                                        <#if indicator.topbar.contactAuthor.contactAuthorEmail?has_content>
+                                            <a href="mailto:${indicator.topbar.contactAuthor.contactAuthorEmail}">${indicator.topbar.contactAuthor.contactAuthorName}</a>
+                                        <#else>
+                                            ${indicator.topbar.contactAuthor.contactAuthorName}
+                                        </#if>
+                                    </dd>
                                 </dl>
                             </div>
                         </div>
@@ -147,25 +153,27 @@
                 <details data-uipath="methodology" title="methodology">
                     <summary><span class="pointer" style="font-size:16px; text-decoration:underline;">How this indicator is calculated</span></summary></br>
                     <div class="panel panel--grey">
-                        <#if hasDataSourceContent>
-                        <h3><@fmt.message key="headers.dataSource"/></h3>
-                        <span data-uipath="data-source"><#outputformat "undefined">${indicator.details.methodology.dataSource.content}</#outputformat></span>
-                        </#if>
+                        <div class="panel__content">
+                            <#if hasDataSourceContent>
+                            <h3><@fmt.message key="headers.dataSource"/></h3>
+                            <span data-uipath="data-source"><#outputformat "undefined">${indicator.details.methodology.dataSource.content}</#outputformat></span>
+                            </#if>
 
-                        <#if hasNumeratorContent>
-                        <h3><@fmt.message key="headers.numerator"/></h3>
-                        <span data-uipath="numerator"><#outputformat "undefined">${indicator.details.methodology.numerator.content}</#outputformat></span>
-                        </#if>
+                            <#if hasNumeratorContent>
+                            <h3><@fmt.message key="headers.numerator"/></h3>
+                            <span data-uipath="numerator"><#outputformat "undefined">${indicator.details.methodology.numerator.content}</#outputformat></span>
+                            </#if>
 
-                        <#if hasDenominatorContent>
-                        <h3><@fmt.message key="headers.denominator"/></h3>
-                        <span data-uipath="denominator"><#outputformat "undefined">${indicator.details.methodology.denominator.content}</#outputformat></span>
-                        </#if>
+                            <#if hasDenominatorContent>
+                            <h3><@fmt.message key="headers.denominator"/></h3>
+                            <span data-uipath="denominator"><#outputformat "undefined">${indicator.details.methodology.denominator.content}</#outputformat></span>
+                            </#if>
 
-                        <#if hasCalculationContent>
-                        <h3><@fmt.message key="headers.calculation"/></h3>
-                        <span data-uipath="calculation"><#outputformat "undefined">${indicator.details.methodology.calculation.content}</#outputformat></span>
-                        </#if>
+                            <#if hasCalculationContent>
+                            <h3><@fmt.message key="headers.calculation"/></h3>
+                            <span data-uipath="calculation"><#outputformat "undefined">${indicator.details.methodology.calculation.content}</#outputformat></span>
+                            </#if>
+                        </div>
                     </div>
                 </details>
             </div>
@@ -197,7 +205,7 @@
             </div>
 
             <#if indicator.hasAttachments()>
-            <div data-uipath="resources" class="section-resources">
+            <div data-uipath="section-resources" class="article-section">
                 <h2><@fmt.message key="headers.resources"/></h2>
                 <ul data-uipath="nil.indicator.resources" class="list list--reset">
                     <#if indicator.details.qualityStatementUrl?has_content>
@@ -217,7 +225,7 @@
                         <@externalstorageLink attachment.resource; url>
                         <a title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Indicator','${attachment.resource.filename}');">${attachment.text}</a>
                         </@externalstorageLink>
-                        <span class="fileSize">(<@formatFileSize bytesCount=attachment.resource.length/>)</span>
+                        <span class="fileSize">[<@formatFileSize bytesCount=attachment.resource.length/>]</span>
                     </li>
                     </#list>
                 </ul>
@@ -228,22 +236,8 @@
 </article>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/1.1.6/waypoints.min.js"></script>
 
 <script>
-
-    $(function() {
-        var $container = $('.jumpto');
-        var $b = $('body');
-        $.waypoints.settings.scrollThrottle = 0;
-        $container.waypoint({
-            handler: function(e, d) {
-                $b.toggleClass('sticky', d === 'down');
-                e.preventDefault();
-            }
-        });
-    });
-
     function isMathMLNativelySupported(){
         var hasMathML = false;
         if (document.createElement) {
