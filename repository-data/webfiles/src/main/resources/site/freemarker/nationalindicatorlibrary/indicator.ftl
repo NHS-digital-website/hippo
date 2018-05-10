@@ -235,33 +235,50 @@
     </div>
 </article>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
 <script>
-    function isMathMLNativelySupported(){
-        var hasMathML = false;
-        if (document.createElement) {
-            var div = document.createElement("div");
-            div.style.position = "absolute"; div.style.top = div.style.left = 0;
-            div.style.visibility = "hidden"; div.style.width = div.style.height = "auto";
-            div.style.fontFamily = "serif"; div.style.lineheight = "normal";
-            div.innerHTML = "<math><mfrac><mi>xx</mi><mi>yy</mi></mfrac></math>";
-            $("body").append(div);
-            hasMathML = div.offsetHeight > div.offsetWidth;
+    (function(){
+        var oldBrowser = window.addEventListener ? false : true;
+        var vjsUtils = window.vanillaJSUtils;
+
+        function isMathMLNativelySupported(){
+            var hasMathML = false;
+            if (document.createElement) {
+                var div = document.createElement("div");
+                div.style.position = "absolute";
+                div.style.top = div.style.left = 0;
+                div.style.visibility = "hidden"; div.style.width = div.style.height = "auto";
+                div.style.fontFamily = "serif"; div.style.lineheight = "normal";
+                div.innerHTML = "<math><mfrac><mi>xx</mi><mi>yy</mi></mfrac></math>";
+                document.body.appendChild(div);
+                hasMathML = div.offsetHeight > div.offsetWidth;
+            }
+            return hasMathML;
         }
-        return hasMathML;
-    }
 
-    function setupMathjaxIfNeeded(){
-        if( isMathMLNativelySupported() )
+        function setupMathjaxIfNeeded(){
+            if( isMathMLNativelySupported() )
             return true;
-        var scriptMathJax = document.createElement("script");
-        scriptMathJax.type = "text/javascript";
-        scriptMathJax.src  = "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-        $("head").append(scriptMathJax);
-        return false;
-    }
+            
+            var scriptMathJax = document.createElement("script");
+            scriptMathJax.type = "text/javascript";
+            scriptMathJax.src  = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+            document.getElementsByTagName("head")[0].appendChild(scriptMathJax);
+            return false;
+        }
 
-    $( document ).ready( function(){setupMathjaxIfNeeded();} );
+        function init () {
+            if (!oldBrowser) {
+                document.addEventListener('DOMContentLoaded', setupMathjaxIfNeeded);
+            } else {
+                document.attachEvent("onreadystatechange", function() {
+                    if (document.readyState === "complete") {
+                        document.detachEvent("onreadystatechange", arguments.callee);
+                        setupMathjaxIfNeeded();
+                    }
+                });
+            }
+        }
 
+        init();
+    }());
 </script>
