@@ -9,7 +9,6 @@ import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
-import org.apache.commons.lang3.Validate;
 import org.onehippo.cms7.services.HippoServiceRegistry;
 import org.onehippo.repository.modules.AbstractReconfigurableDaemonModule;
 import org.onehippo.repository.modules.ProvidesService;
@@ -34,15 +33,7 @@ public class S3ConnectorServiceRegistrationModule extends AbstractReconfigurable
 
     private final Object configurationLock = new Object();
 
-    private String s3Bucket;
-    private String s3Region;
-    private String s3Endpoint;
-
-    private int downloadsMaxConcurrentCount;
-    private long downloadsShutdownTimeoutInSecs;
-
-    private int uploadsMaxConcurrentCount;
-    private long uploadsShutdownTimeoutInSecs;
+    private S3ConnectorServiceRegistrationModuleParams params;
 
     private ExecutorService downloadExecutorService;
     private ExecutorService uploadExecutorService;
@@ -82,48 +73,24 @@ public class S3ConnectorServiceRegistrationModule extends AbstractReconfigurable
         blockUntilTasksCompleteOrTimeout();
     }
 
-    private void readInConfiguration(final Node moduleConfig) throws RepositoryException {
-        s3Bucket = getValue(AWS_BUCKET, moduleConfig);
-        s3Region = getValue(AWS_REGION, moduleConfig);
-        s3Endpoint = getValue(AWS_S3_ENDPOINT, moduleConfig);
-
-        downloadsMaxConcurrentCount = getValue(DOWNLOAD_MAX_CONC_COUNT, moduleConfig);
-        downloadsShutdownTimeoutInSecs = getValue(DOWNLOAD_SHUTDOWN_TIMEOUT_IN_SECS, moduleConfig);
-
-        uploadsMaxConcurrentCount = getValue(UPLOAD_MAX_CONC_COUNT, moduleConfig);
-        uploadsShutdownTimeoutInSecs = getValue(UPLOAD_SHUTDOWN_TIMEOUT_IN_SECS, moduleConfig);
+    private void readInConfiguration(final Node moduleConfigNode) throws RepositoryException {
+        params = extractParameters(moduleConfigNode);
     }
 
     private void validateConfiguration() {
-
-        try {
-            Validate.notBlank(s3Bucket, "Required argument is missing: " + AWS_BUCKET.getJcrModulePropertyKey());
-            Validate.notBlank(s3Region, "Required argument is missing: " + AWS_REGION.getJcrModulePropertyKey());
-            // s3Endpoint is optional
-
-            Validate.inclusiveBetween(1L, (long)Integer.MAX_VALUE, downloadsMaxConcurrentCount,
-                "Required argument is missing or out of range: " + DOWNLOAD_MAX_CONC_COUNT.getJcrModulePropertyKey());
-            Validate.inclusiveBetween(1L, (long)Integer.MAX_VALUE, downloadsShutdownTimeoutInSecs,
-                "Required argument is missing or out of range: " + DOWNLOAD_SHUTDOWN_TIMEOUT_IN_SECS.getJcrModulePropertyKey());
-            Validate.inclusiveBetween(1L, (long)Integer.MAX_VALUE, uploadsMaxConcurrentCount,
-                "Required argument is missing or out of range: " + DOWNLOAD_MAX_CONC_COUNT.getJcrModulePropertyKey());
-            Validate.inclusiveBetween(1L, (long)Integer.MAX_VALUE, uploadsShutdownTimeoutInSecs,
-                "Required argument is missing or out of range: " + DOWNLOAD_SHUTDOWN_TIMEOUT_IN_SECS.getJcrModulePropertyKey());
-        } catch (Exception validationException) {
-            throw new IllegalArgumentException("Failed to configure " + getClass().getSimpleName(), validationException);
-        }
+        params.validate();
     }
 
     private void registerService() {
 
         final S3Connector s3Connector = new S3SdkConnector(
             getAmazonS3Client(),
-            s3Bucket,
+            params.getS3Bucket(),
             new S3ObjectKeyGenerator(this::newRandomString)
         );
 
-        downloadExecutorService = Executors.newWorkStealingPool(downloadsMaxConcurrentCount);
-        uploadExecutorService = Executors.newWorkStealingPool(uploadsMaxConcurrentCount);
+        downloadExecutorService = Executors.newWorkStealingPool((int)params.getDownloadsMaxConcurrentCount());
+        uploadExecutorService = Executors.newWorkStealingPool((int)params.getUploadsMaxConcurrentCount());
 
         pooledS3Connector = new BlockingPooledS3Connector(
             s3Connector,
@@ -159,8 +126,8 @@ public class S3ConnectorServiceRegistrationModule extends AbstractReconfigurable
      */
     private void blockUntilTasksCompleteOrTimeout() {
 
-        waitUntilDoneOrTimeout("download", downloadExecutorService, downloadsShutdownTimeoutInSecs);
-        waitUntilDoneOrTimeout("upload", uploadExecutorService, uploadsShutdownTimeoutInSecs);
+        waitUntilDoneOrTimeout("download", downloadExecutorService, params.getDownloadsShutdownTimeoutInSecs());
+        waitUntilDoneOrTimeout("upload", uploadExecutorService, params.getUploadsShutdownTimeoutInSecs());
     }
 
     private static void waitUntilDoneOrTimeout(final String s3Operation,
@@ -189,22 +156,13 @@ public class S3ConnectorServiceRegistrationModule extends AbstractReconfigurable
         AWSCredentialsProvider provider = new SystemPropertiesCredentialsProvider();
         AmazonS3ClientBuilder s3Builder = AmazonS3ClientBuilder.standard()
             .withCredentials(provider)
-            .withRegion(Regions.fromName(s3Region));
+            .withRegion(Regions.fromName(params.getS3Region()));
 
-        if (!s3Endpoint.isEmpty()) {
-            s3Builder.withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(s3Endpoint, s3Region));
+        if (!params.getS3Endpoint().isEmpty()) {
+            s3Builder.withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(params.getS3Endpoint(), params.getS3Region()));
         }
 
         return s3Builder.build();
-    }
-
-    private <T> T getValue(final S3ConnectorServiceRegistrationModuleParams<T> configProperty, final Node moduleConfig) throws RepositoryException {
-        String value = System.getProperty(configProperty.getSystemPropertyKey(), "");
-        if (value.isEmpty()) {
-            value = moduleConfig.getProperty(configProperty.getJcrModulePropertyKey()).getString();
-        }
-
-        return configProperty.fromString(value);
     }
 
     private String newRandomString() {
@@ -212,15 +170,6 @@ public class S3ConnectorServiceRegistrationModule extends AbstractReconfigurable
     }
 
     private void reportNewConfiguration() {
-        log.info("S3ConnectorServiceRegistrationModule{"
-            + "s3Bucket='" + s3Bucket + '\''
-            + ", s3Region='" + s3Region + '\''
-            + ", s3Endpoint='" + s3Endpoint + '\''
-            + ", downloadsMaxConcurrentCount=" + downloadsMaxConcurrentCount
-            + ", downloadsShutdownTimeoutInSecs=" + downloadsShutdownTimeoutInSecs
-            + ", uploadsMaxConcurrentCount=" + uploadsMaxConcurrentCount
-            + ", uploadsShutdownTimeoutInSecs=" + uploadsShutdownTimeoutInSecs
-            + '}'
-        );
+        log.info("{}", params);
     }
 }
