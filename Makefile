@@ -11,6 +11,8 @@ SPLUNK_HEC ?= localhost
 SPLUNK_TOKEN ?=
 SPLUNK_URL ?=
 PROFILE_RUN ?= cargo.run
+S3_BUCKET ?= files.local.nhsd.io
+S3_REGION ?= eu-west-1
 
 export HIPPO_MAVEN_PASSWORD
 export HIPPO_MAVEN_USERNAME
@@ -51,7 +53,10 @@ run:
 		-D splunk.url=$(SPLUNK_URL) \
 		-D splunk.hec.name=$(SPLUNK_HEC) \
 		-D aws.secretKey=$(AWS_SECRET) \
-		-D aws.accessKeyId=$(AWS_KEY)
+		-D aws.accessKeyId=$(AWS_KEY) \
+		-D externalstorage.aws.bucket=$(S3_BUCKET) \
+		-D externalstorage.aws.region=$(S3_REGION)
+
 
 # we don't have to recompile it every time.
 essentials/target/essentials.war:
