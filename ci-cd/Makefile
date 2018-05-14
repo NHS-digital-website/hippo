@@ -76,6 +76,7 @@ test.site:
 ## Run tests for cms only, without development data
 test.cms:
 	mvn clean verify $(MVN_OPTS) --quiet \
+		-Dheadless=false" \
 		-Dcucumber.options="src/test/resources/features/cms --tags @WIP" \
 		-Pacceptance-test-hippo,acceptance-test,acceptance-without-development-data
 
