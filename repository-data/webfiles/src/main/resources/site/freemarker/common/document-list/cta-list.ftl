@@ -2,7 +2,7 @@
 <#include "../../include/imports.ftl">
 
 <#if pageable?? && pageable.items?has_content>
-    <div class="cta-list cta-list--grid cta-list--data-and-information">
+    <div class="cta-list cta-list--grid cta-list--fitted-grid cta-list--data-and-information">
         <div class="grid-row">
           <#list pageable.items as item>
             <div class="column column--one-half ${item?counter?switch(1, "column--left", 2, "column--right")}">

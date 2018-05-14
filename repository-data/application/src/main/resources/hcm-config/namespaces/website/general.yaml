@@ -88,7 +88,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Links
-            compoundList: website:externallink,website:internallink
+            compoundList: website:assetlink,website:externallink,website:internallink
             contentPickerType: links
             field: items
             hint: ''
@@ -193,98 +193,14 @@ definitions:
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
-          - hippotranslation:translated
           - website:basedocument
-          - hippotaxonomy:classifiable
           - hippostd:relaxed
+          - hippotranslation:translated
+          - hippotaxonomy:classifiable
           hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
           jcr:mixinTypes:
           - mix:referenceable
           - hipposysedit:remodel
-          jcr:primaryType: hipposysedit:nodetype
-        /hipposysedit:nodetype[2]:
-          /component:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:component
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            jcr:primaryType: hipposysedit:field
-          /gossid:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:gossid
-            hipposysedit:primary: false
-            hipposysedit:type: Long
-            jcr:primaryType: hipposysedit:field
-          /items:
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:items
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators:
-            - contentblocks-validator
-            jcr:primaryType: hipposysedit:field
-          /sections:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:sections
-            hipposysedit:primary: false
-            hipposysedit:type: website:section
-            jcr:primaryType: hipposysedit:field
-          /seosummary:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:seosummary
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            jcr:primaryType: hipposysedit:field
-          /shortsummary:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:shortsummary
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            jcr:primaryType: hipposysedit:field
-          /summary:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:summary
-            hipposysedit:primary: false
-            hipposysedit:type: Text
-            jcr:primaryType: hipposysedit:field
-          /title:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:title
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators:
-            - non-empty
-            - required
-            jcr:primaryType: hipposysedit:field
-          /type:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:type
-            hipposysedit:primary: false
-            hipposysedit:type: DynamicDropdown
-            jcr:primaryType: hipposysedit:field
-          hipposysedit:node: true
-          hipposysedit:supertype:
-          - website:basedocument
-          - hippostd:relaxed
-          - hippotranslation:translated
-          jcr:mixinTypes:
-          - mix:referenceable
           jcr:primaryType: hipposysedit:nodetype
         jcr:mixinTypes:
         - mix:referenceable
@@ -299,8 +215,8 @@ definitions:
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
-          hippostdpubwf:creationDate: 2018-01-23T14:14:09.771Z
-          hippostdpubwf:lastModificationDate: 2018-01-23T14:14:09.771Z
+          hippostdpubwf:creationDate: 2018-05-22T10:46:55.362Z
+          hippostdpubwf:lastModificationDate: 2018-05-22T10:46:55.362Z
           hippostdpubwf:lastModifiedBy: ''
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale

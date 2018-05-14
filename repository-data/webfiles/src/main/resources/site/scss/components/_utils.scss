@@ -24,6 +24,10 @@
     font-weight: 600;
 }
 
+.regular {
+    font-weight: 400;
+}
+
 .sticky {
     @include media($min-width: $min-desktop-width) {
         position: -webkit-sticky;

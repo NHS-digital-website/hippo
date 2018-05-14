@@ -12,7 +12,7 @@
         </div>
 
         <div class="grid-row">
-            <ol class="list--reset cta-list cta-list--grid">
+            <ol class="list--reset cta-list cta-list--grid cta-list--fitted-grid">
                 <#list pageable.items as item>
                 <li class="column column--one-third ${item?counter?switch(1, "column--left", 2, "column--center", 3, "column--right")}">
                     <article class="cta">

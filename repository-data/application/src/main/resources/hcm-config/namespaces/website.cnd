@@ -5,6 +5,9 @@
 <'common'='http://digital.nhs.uk/jcr/common/nt/1.0'>
 <'hippotranslation'='http://www.onehippo.org/jcr/hippotranslation/nt/1.0'>
 
+[website:assetlink] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
   orderable
   - common:searchable (boolean) = 'true' autocreated

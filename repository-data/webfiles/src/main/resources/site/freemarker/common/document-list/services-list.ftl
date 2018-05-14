@@ -16,7 +16,7 @@
     <#if pageable?? && pageable.items?has_content>
     <div class="grid-row">
         <div class="column">
-            <div class="cta-list cta-list--grid">
+            <div class="cta-list cta-list--grid cta-list--fitted-grid">
                 <#list pageable.items as item>
                 <#if item?is_odd_item>
                 <div class="grid-row">

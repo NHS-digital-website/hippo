@@ -2,13 +2,11 @@
 <#include "../include/imports.ftl">
 <#include "macro/articleSections.ftl">
 <#include "macro/sectionNav.ftl">
+<#include "macro/furtherInformationSection.ftl">
 <#include "macro/metaTags.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
-
-<@hst.setBundle basename="site.website.labels"/>
-<@fmt.message key="child-pages-section.title" var="childPagesSectionTitle"/>
 
 <#assign hasSectionContent = document.sections?has_content />
 <#assign hasTopTasks = document.toptasks?has_content />
@@ -33,21 +31,17 @@
             </#if>
 
             <div class="column column--two-thirds page-block page-block--main">
-                <#-- [FTL-BEGIN] mandatory 'summary section' -->
                 <#if hasTopTasks>
                     <#assign summarySectionClassName = "article-section article-section--summary no-border">
                 <#else>
                     <#assign summarySectionClassName = "article-section article-section--summary">
                 </#if>
-                <#-- [FTL-END] mandatory 'Summary' section -->
 
                 <div id="${slugify('Summary')}" class="${summarySectionClassName}">
                     <h2>Summary</h2>
                     <p>${document.summary}</p>
                 </div>
-                <#-- [FTL-END] mandatory 'Summary' section -->
 
-                <#-- [FTL-BEGIN] optional list of 'Top tasks' section -->
                 <#if hasTopTasks>
                 <div class="article-section article-section--highlighted">
                     <div class="callout callout--attention">
@@ -60,9 +54,7 @@
                     </div>
                 </div>
                 </#if>
-                <#-- [FTL-END] optional list of 'Top tasks' section -->
 
-                <#-- [FTL-BEGIN] 'Introduction' section -->
                 <#if hasIntroductionContent>
                 <div class="article-section article-section--introduction">
                     <div class="rich-text-content">
@@ -70,11 +62,9 @@
                     </div>
                 </div>
                 </#if>
-                <#-- [FTL-END] 'Introduction' section -->
 
                 <@articleSections document.sections></@articleSections>
 
-                <#-- [FTL-BEGIN] 'Contact details' section -->
                 <#if hasContactDetailsContent>
                 <div class="article-section article-section--contact" id="${slugify('Contact details')}">
                     <h2>Contact details</h2>
@@ -83,32 +73,8 @@
                     </div>
                 </div>
                 </#if>
-                <#-- [FTL-END] 'Contact details' section -->
 
-                <#-- [FTL-BEGIN] 'Further information' section -->
-                <#if hasChildPages>
-                <div class="article-section article-section--child-pages" id="${slugify('Further information')}">
-                    <h2>Further information</h2>
-                    <ol class="list list--reset cta-list">
-                        <#list childPages as childPage>
-                            <li>
-                                <article class="cta">
-                                    <#if childPage.type?? && childPage.type == "external">
-                                    <#-- Assign the link property of the externallink compound -->
-                                    <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, childPage.link) />
-                                    <h2 class="cta__title"><a href="${childPage.link}" onClick="${onClickMethodCall}">${childPage.title}</a></h2>
-                                    <#elseif hst.isBeanType(childPage, 'org.hippoecm.hst.content.beans.standard.HippoBean')>
-                                    <#-- In case the childPage is not a compound but still a document in the cms, then create a link to it-->
-                                    <h2 class="cta__title"><a href="<@hst.link var=link hippobean=childPage />">${childPage.title}</a></h2>
-                                    </#if>
-                                    <p class="cta__text">${childPage.shortsummary}</p>
-                                </article>
-                            </li>
-                        </#list>
-                    </ol>
-                </div>
-                </#if>
-                <#-- [FTL-END] 'Further information' section -->
+                <@furtherInformationSection childPages></@furtherInformationSection>
             </div>
         </div>
     </div>
