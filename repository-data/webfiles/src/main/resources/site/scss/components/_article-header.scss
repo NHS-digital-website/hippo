@@ -58,9 +58,12 @@
     margin-bottom: $gutter;
 }
 
+
+
 .article-header__detail-lines {
     margin-top: $gutter;
 }
+
 .article-header__detail-line {
     border-top: 1px solid $col-septenary;
     border-top: 1px solid rgba($col-septenary, 0.5);
@@ -85,6 +88,8 @@
 
     .article-header__detail-list-value {
         margin: 0;
+        float: left;
+        max-width: 75%;
 
         @include core-font(16);
     }
