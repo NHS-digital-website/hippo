@@ -1,6 +1,7 @@
 package uk.nhs.digital.ps.test.acceptance.pages;
 
 import static java.util.stream.Collectors.toList;
+import static org.slf4j.LoggerFactory.getLogger;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
@@ -9,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.slf4j.Logger;
 import uk.nhs.digital.ps.test.acceptance.models.*;
 import uk.nhs.digital.ps.test.acceptance.pages.widgets.*;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
@@ -19,6 +21,8 @@ import java.util.stream.Stream;
 
 
 public class ContentPage extends AbstractCmsPage {
+
+    private static final Logger log = getLogger(ContentPage.class);
 
     private static final String PUBLICATION = "Publication";
     private static final String DATASET = "Data set";
@@ -401,7 +405,13 @@ public class ContentPage extends AbstractCmsPage {
     }
 
     public void navigateToDocument(String documentName) {
-        getWebDriver().get(getUrl() + "/?1&path=/content/documents/corporate-website/publication-system/acceptance-tests/" + documentName);
+        final String url = getUrl()
+            + "/?1&path=/content/documents/corporate-website/publication-system/acceptance-tests/"
+            + documentName;
+
+        log.info("Taking doc offline: {}", url);
+
+        getWebDriver().get(url);
     }
 
     public void discardUnsavedChanges(String documentName) {
