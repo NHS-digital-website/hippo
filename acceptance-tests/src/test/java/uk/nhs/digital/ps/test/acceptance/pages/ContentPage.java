@@ -401,8 +401,7 @@ public class ContentPage extends AbstractCmsPage {
     }
 
     public void navigateToDocument(String documentName) {
-        navigateToFolder("Corporate Website", "Publication System", "Acceptance Tests");
-        clickDocument(documentName);
+        getWebDriver().get(getUrl() + "/?1&path=/content/documents/corporate-website/publication-system/acceptance-tests/" + documentName);
     }
 
     public void discardUnsavedChanges(String documentName) {
