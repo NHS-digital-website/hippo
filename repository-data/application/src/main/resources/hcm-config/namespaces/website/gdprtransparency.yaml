@@ -177,13 +177,13 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /items:
+          /Links:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Links
-            compoundList: website:externallink,website:internallink
+            compoundList: website:assetlink,website:externallink,website:internallink
             contentPickerType: links
-            field: items
+            field: Links
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
@@ -191,6 +191,14 @@ definitions:
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
+          /Links:
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:Links
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
+            jcr:primaryType: hipposysedit:field
           /assetrefnumber:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -239,14 +247,6 @@ definitions:
             hipposysedit:validators:
             - non-empty
             - required
-            jcr:primaryType: hipposysedit:field
-          /items:
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:items
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators:
-            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /lawfulbasis:
             hipposysedit:mandatory: false

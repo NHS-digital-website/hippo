@@ -103,17 +103,6 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /items:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Links
-            compoundList: website:externallink,website:internallink
-            contentPickerType: links
-            field: items
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
           /gossid:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -122,6 +111,17 @@ definitions:
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /Links:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Links
+            compoundList: website:assetlink,website:externallink,website:internallink
+            contentPickerType: links
+            field: Links
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
           /classifiable:
             /cluster.options:
@@ -135,6 +135,14 @@ definitions:
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
+          /Links:
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:Links
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
+            jcr:primaryType: hipposysedit:field
           /component:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -170,14 +178,6 @@ definitions:
             hipposysedit:type: hippostd:html
             hipposysedit:validators:
             - optional
-            jcr:primaryType: hipposysedit:field
-          /items:
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:items
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators:
-            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /sections:
             hipposysedit:mandatory: false

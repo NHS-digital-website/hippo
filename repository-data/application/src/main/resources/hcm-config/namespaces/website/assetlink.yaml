@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/website/internallink:
+    /hippo:namespaces/website/assetlink:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -19,13 +19,24 @@ definitions:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /filename:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: File name
+            field: filename
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
           /link:
             /cluster.options:
-              base.path: /content/documents
+              base.path: /content/assets
+              base.uuid: ''
               jcr:primaryType: frontend:pluginconfig
+              last.visited.nodetypes: []
               nodetypes:
-              - website:basedocument
-            caption: Internal Link
+              - hippogallery:exampleAssetSet
+            caption: Asset Link
             field: link
             hint: ''
             jcr:primaryType: frontend:plugin
@@ -34,6 +45,17 @@ definitions:
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
+          /filename:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:filename
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
           /link:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -50,8 +72,8 @@ definitions:
           - hippostd:relaxed
           hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
           jcr:mixinTypes:
-          - hipposysedit:remodel
           - mix:referenceable
+          - hipposysedit:remodel
           jcr:primaryType: hipposysedit:nodetype
         jcr:mixinTypes:
         - mix:referenceable
@@ -61,7 +83,8 @@ definitions:
           /website:link:
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
+          jcr:primaryType: website:assetlink
+          website:filename: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable
