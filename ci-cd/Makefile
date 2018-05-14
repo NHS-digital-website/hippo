@@ -9,7 +9,7 @@ PWD = $(shell pwd)
 RD_CONF = $(PWD)/rd.conf
 RELEASE_DATE = $(shell d=1; while (($$(date --date +$${d}day +%u) >= 6)); do ((++d)); done; date --date +$${d}day +%Y-%m-%d)
 RELEASE_TIME_UTC = 11:05:00
-TRAVIS_BUILD_CMD ?= test.site
+TRAVIS_BUILD_CMD ?= test.cms
 TRAVIS_EVENT_TYPE ?=
 VENV ?= $(PWD)/.venv
 VERSION ?= $(shell git describe --tags --match "$(VERSION_BASE)*" || echo $(VERSION_BASE).0)
@@ -76,7 +76,7 @@ test.site:
 ## Run tests for cms only, without development data
 test.cms:
 	mvn clean verify $(MVN_OPTS) --quiet \
-		-Dcucumber.options="src/test/resources/features/cms" \
+		-Dcucumber.options="src/test/resources/features/cms --tags @WIP" \
 		-Pacceptance-test-hippo,acceptance-test,acceptance-without-development-data
 
 ## Run the tests that we want for travis builds

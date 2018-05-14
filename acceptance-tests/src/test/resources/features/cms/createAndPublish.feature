@@ -1,3 +1,4 @@
+@WIP
 Feature: As am author I need to create a new publication
     so that it is visible to end users
 
