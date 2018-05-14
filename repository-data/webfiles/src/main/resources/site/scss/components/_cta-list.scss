@@ -33,7 +33,6 @@
 // To make sure that the height of 2 CTAs match in a grid layout
 .cta-list--grid {
     .cta {
-        min-height: 132px;
         margin-bottom: $gutter * 2;
     }    
 
@@ -49,6 +48,12 @@
         .cta {
             min-height: 0;
         }
+    }
+}
+
+.cta-list--fitted-grid {
+    .cta {
+        min-height: 132px;
     }
 }
 

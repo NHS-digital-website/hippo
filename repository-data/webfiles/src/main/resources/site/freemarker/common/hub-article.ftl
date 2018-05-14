@@ -58,7 +58,7 @@
                 <#-- [FTL-END] 'Child pages' section -->
 
                 <#-- [FTL-BEGIN] 'Components' section -->
-                <#if document.componentlist??>
+                <#if document.componentlist?? && document.componentlist?has_content>
                 <div class="article-section">
                     <div class="grid-row">
                         <div class="column column--reset">

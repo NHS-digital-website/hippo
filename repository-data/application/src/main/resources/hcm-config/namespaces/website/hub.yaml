@@ -77,7 +77,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Links
-            compoundList: website:externallink,website:internallink
+            compoundList: website:assetlink,website:externallink,website:internallink
             contentPickerType: links
             field: items
             hint: ''
