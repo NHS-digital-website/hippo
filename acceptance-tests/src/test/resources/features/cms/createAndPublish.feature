@@ -1,4 +1,3 @@
-@WIP
 Feature: As am author I need to create a new publication
     so that it is visible to end users
 
@@ -8,6 +7,7 @@ Feature: As am author I need to create a new publication
         When I create a fully populated publication
         Then an edit screen is displayed which allows me to populate details of the publication
 
+    @WIP
     @DeleteAfter
     Scenario: Saving a publication
         Given I have a publication opened for editing
