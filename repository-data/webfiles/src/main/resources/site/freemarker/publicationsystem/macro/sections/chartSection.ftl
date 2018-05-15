@@ -6,23 +6,7 @@
 
 <script>
     $(function () {
-        var myChart = Highcharts.chart('container', {
-            chart: {
-                type: 'bar'
-            },
-            title: {
-                text: '${section.title}'
-            },
-            xAxis: {
-                categories: [<#list section.chart.categories as category>'${category}'<#sep>,</#list>]
-            },
-            yAxis: {
-                title: {
-                    text: 'TODO'
-                }
-            },
-            series: <#outputformat "plainText">${section.chart.series}</#outputformat>
-        });
+        var myChart = Highcharts.chart('container', <#outputformat "plainText">${section.chart}</#outputformat>);
     });
 </script>
 
