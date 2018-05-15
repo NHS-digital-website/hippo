@@ -1,6 +1,7 @@
 <#ftl output_format="HTML">
 <#include "textSection.ftl">
 <#include "imageSection.ftl">
+<#include "chartSection.ftl">
 <#include "related-linkSection.ftl">
 
 <#macro sections sections>
@@ -12,6 +13,8 @@
                 <@imageSection section=section />
             <#elseif section.sectionType == 'relatedLink'>
                 <@relatedLinkSection section=section />
+            <#elseif section.sectionType == 'chart'>
+                <@chartSection section=section />
             </#if>
         </#list>
     </div>
