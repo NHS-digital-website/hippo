@@ -15,6 +15,9 @@
 [publicationsystem:attachment] > hippo:compound, hippostd:relaxed
   orderable
 
+[publicationsystem:chartSection] > hippo:compound, hippostd:relaxed
+  orderable
+
 [publicationsystem:cihub] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
   orderable
 

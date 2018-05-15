@@ -18,11 +18,11 @@
                 text: 'Fruit Consumption'
             },
             xAxis: {
-                categories: ['Apples', 'Bananas', 'Oranges']
+                categories: ['Under 16', '16 to 24', '25 to 34']
             },
             yAxis: {
                 title: {
-                    text: 'Fruit eaten'
+                    text: 'Thousands'
                 }
             },
             series: [{

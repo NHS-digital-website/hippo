@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/publicationsystem/cihublink:
+    /hippo:namespaces/publicationsystem/chartSection:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -24,24 +24,15 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Title
             field: title
+            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /summary:
+          /dataFile:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Summary
-            field: summary
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /pagelink:
-            /cluster.options:
-              base.path: /content/documents/corporate-website/publication-system/ci-hub
-              jcr:primaryType: frontend:pluginconfig
-              nodetypes: []
-            caption: Landing page link
-            field: pagelink
+            caption: Data (Excel xlsx file)
+            field: dataFile
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
@@ -49,26 +40,13 @@ definitions:
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /pagelink:
+          /dataFile:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:pagelink
+            hipposysedit:path: publicationsystem:dataFile
             hipposysedit:primary: false
-            hipposysedit:type: hippo:mirror
-            hipposysedit:validators:
-            - required
-            jcr:primaryType: hipposysedit:field
-          /summary:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:summary
-            hipposysedit:primary: false
-            hipposysedit:type: Text
-            hipposysedit:validators:
-            - non-empty
-            - required
+            hipposysedit:type: publicationsystem:resource
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
@@ -90,22 +68,24 @@ definitions:
           - mix:referenceable
           - hipposysedit:remodel
           jcr:primaryType: hipposysedit:nodetype
-          jcr:uuid: 90a7ac4d-ab98-4843-b445-cd01aaec8de1
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: hippo:handle
-        jcr:uuid: 5231d738-842a-4b14-87e1-1612da756582
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          /publicationsystem:pagelink:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: publicationsystem:cihublink
-          publicationsystem:summary: ''
+          /publicationsystem:dataFile:
+            hippo:filename: publicationsystem:resource
+            jcr:data:
+              resource: data.bin
+              type: binary
+            jcr:encoding: UTF-8
+            jcr:lastModified: 2008-03-26T11:03:00Z
+            jcr:mimeType: application/vnd.hippo.blank
+            jcr:primaryType: publicationsystem:resource
+          jcr:primaryType: publicationsystem:chartSection
           publicationsystem:title: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable
       - mix:referenceable
       jcr:primaryType: hipposysedit:templatetype
-      jcr:uuid: 11bd57a5-839b-4985-855a-bdf57f9e5cdd
