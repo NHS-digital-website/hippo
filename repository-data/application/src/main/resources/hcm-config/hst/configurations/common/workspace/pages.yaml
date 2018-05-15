@@ -1,0 +1,6 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:workspace/hst:pages:
+      .meta:residual-child-node-category: content
+      jcr:primaryType: hst:pages

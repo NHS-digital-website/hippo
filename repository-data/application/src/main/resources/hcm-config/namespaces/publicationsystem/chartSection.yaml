@@ -47,6 +47,8 @@ definitions:
             hipposysedit:path: publicationsystem:dataFile
             hipposysedit:primary: false
             hipposysedit:type: publicationsystem:resource
+            hipposysedit:validators:
+            - resource-required
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
@@ -75,6 +77,9 @@ definitions:
         /hipposysedit:prototype:
           /publicationsystem:dataFile:
             hippo:filename: publicationsystem:resource
+            hippo:text:
+              resource: /namespaces/publicationsystem/chartSection/prototypes/prototype/dataFile/text.bin
+              type: binary
             jcr:data:
               resource: data.bin
               type: binary

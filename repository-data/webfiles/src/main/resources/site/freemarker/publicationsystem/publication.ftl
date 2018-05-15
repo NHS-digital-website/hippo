@@ -79,9 +79,6 @@
                                 </#list>
                             </div>
                         </#if>
-
-                        <#assign chart = '' />
-                        <@chartSection chart />
                     </div>
                 </#if>
 

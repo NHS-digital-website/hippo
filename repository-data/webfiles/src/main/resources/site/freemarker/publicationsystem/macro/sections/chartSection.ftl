@@ -1,10 +1,6 @@
 <#ftl output_format="HTML">
-<#include "../include/imports.ftl">
 
-<#macro chartSection chartSection>
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
+<#macro chartSection section>
 <div id="container" style="width:100%; height:400px;"></div>
 <div id="container1" style="width:100%; height:400px;"></div>
 
@@ -15,23 +11,17 @@
                 type: 'bar'
             },
             title: {
-                text: 'Fruit Consumption'
+                text: '${section.title}'
             },
             xAxis: {
-                categories: ['Under 16', '16 to 24', '25 to 34']
+                categories: [<#list section.chart.categories as category>'${category}'<#sep>,</#list>]
             },
             yAxis: {
                 title: {
-                    text: 'Thousands'
+                    text: 'TODO'
                 }
             },
-            series: [{
-                name: 'Jane',
-                data: [1, 0, 4]
-            }, {
-                name: 'John',
-                data: [5, 7, 3]
-            }]
+            series: <#outputformat "plainText">${section.chart.series}</#outputformat>
         });
     });
 </script>

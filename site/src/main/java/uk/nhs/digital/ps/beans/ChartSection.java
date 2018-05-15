@@ -4,6 +4,7 @@ import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.content.beans.standard.HippoResource;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import uk.nhs.digital.ps.chart.BarChart;
 
 @HippoEssentialsGenerated(internalName = "publicationsystem:chartSection")
 @Node(jcrType = "publicationsystem:chartSection")
@@ -21,5 +22,9 @@ public class ChartSection extends HippoCompound {
 
     public String getSectionType() {
         return "chart";
+    }
+
+    public BarChart getChart() {
+        return new BarChart(getDataFile());
     }
 }
