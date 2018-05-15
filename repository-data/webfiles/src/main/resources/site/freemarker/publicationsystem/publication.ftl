@@ -4,6 +4,7 @@
 <#include "./macro/pageIndex.ftl">
 <#include "./macro/publicationHeader.ftl">
 <#include "./macro/sections/imageSection.ftl">
+<#include "./macro/sections/chartSection.ftl">
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() />
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 <#-- @ftlvariable name="publication" type="uk.nhs.digital.ps.beans.Publication" -->
@@ -78,6 +79,9 @@
                                 </#list>
                             </div>
                         </#if>
+
+                        <#assign chart = '' />
+                        <@chartSection chart />
                     </div>
                 </#if>
 

@@ -25,6 +25,11 @@ definitions:
           jcr:name: Image
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:chartSection:
+        /en:
+          jcr:name: Chart
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /publicationsystem:legacypublication:
         /en:
           jcr:name: Legacy Publication
