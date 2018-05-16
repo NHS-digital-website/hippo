@@ -1,16 +1,17 @@
 <#ftl output_format="HTML">
 
 <#macro chartSection section>
-<div id="container" style="width:100%; height:400px;"></div>
-<div id="container1" style="width:100%; height:400px;"></div>
+<div id="${section.uniqueId}" style="width:100%; height:400px;"></div>
 
 <script>
     $(function () {
-        var myChart = Highcharts.chart('container', <#outputformat "plainText">${section.chart}</#outputformat>);
+        var myChart = Highcharts.chart('${section.uniqueId}', <#outputformat "plainText">${section.chart}</#outputformat>);
     });
 </script>
 
-<script>
+<!--<div id="container1" style="width:100%; height:400px;"></div>-->
+
+<!--<script>
         $(function() {
 
     Highcharts.setOptions({
@@ -468,5 +469,5 @@
   });
 });
 
-    </script>
+    </script>-->
 </#macro>

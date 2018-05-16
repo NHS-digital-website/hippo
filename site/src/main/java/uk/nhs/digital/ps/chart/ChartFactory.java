@@ -1,7 +1,5 @@
 package uk.nhs.digital.ps.chart;
 
-import static java.util.stream.Collectors.toList;
-
 import org.apache.jackrabbit.JcrConstants;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -9,32 +7,41 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.hippoecm.hst.content.beans.standard.HippoResource;
 import uk.nhs.digital.ps.chart.model.Series;
+import uk.nhs.digital.ps.chart.model.Point;
 
 import java.io.InputStream;
 import java.util.*;
 import javax.jcr.Binary;
 
-public class BarChartFactory {
+public class ChartFactory {
     private static final int CATEGORIES_INDEX = 0;
 
+    private ChartType type;
     private final String title;
     private final HippoResource dataFile;
 
-    private HashMap<Integer, Series> columns;
+    private List<String> categories;
+    private HashMap<Integer, Series> series;
 
-    public BarChartFactory(String title, HippoResource dataFile) {
+    public ChartFactory(ChartType type, String title, HippoResource dataFile) {
+        this.type = type;
         this.title = title;
         this.dataFile = dataFile;
     }
 
-    public BarChart build() {
+    public SeriesChart build() {
         try {
             parse();
         } catch (Exception ex) {
             throw new RuntimeException("Failed to parse chart data file: " + dataFile.getPath(), ex);
         }
 
-        return new BarChart(title, getCategories(), "TODO", getSeries());
+        String yAxisTitle = "TODO";
+        switch (type) {
+            case PIE: return new PieChart(title, getCategories(), yAxisTitle, getSeries());
+            case BAR: return new BarChart(title, getCategories(), yAxisTitle, getSeries());
+            default: throw new RuntimeException("Unknown Chart Type: " + type);
+        }
     }
 
     private void parse() throws Exception {
@@ -42,6 +49,9 @@ public class BarChartFactory {
         if (dataFile.isBlank()) {
             return;
         }
+
+        categories = new ArrayList<>();
+        series = new HashMap<>();
 
         Binary binary = dataFile.getNode().getProperty(JcrConstants.JCR_DATA).getBinary();
 
@@ -55,20 +65,24 @@ public class BarChartFactory {
         // Get the headers
         Iterator<Row> rowIterator = sheet.rowIterator();
         Row header = rowIterator.next();
-        columns = new HashMap<>();
-        header.cellIterator().forEachRemaining(cell ->
-            columns.put(cell.getColumnIndex(), new Series(cell.getStringCellValue())));
+        series = new HashMap<>();
+        for (int i = 1; i < header.getLastCellNum(); i++) {
+            Cell cell = header.getCell(i);
+            series.put(i, new Series(cell.getStringCellValue()));
+        }
 
         // Get the data
-        rowIterator.forEachRemaining(row ->
-            row.cellIterator().forEachRemaining(cell ->
-                columns.computeIfAbsent(cell.getColumnIndex(), key -> new Series(""))
-                    .add(convertCellValue(cell))));
-    }
+        rowIterator.forEachRemaining(row -> {
+            // First column is the series name (category)
+            String category = getStringValue(row.getCell(CATEGORIES_INDEX));
+            categories.add(category);
 
-    private Object convertCellValue(Cell cell) {
-        // If it is the categories, we want to provide the names as strings otherwise data must be numeric
-        return cell.getColumnIndex() == CATEGORIES_INDEX ? getStringValue(cell) : getDoubleValue(cell);
+            for (int i = 1; i < row.getLastCellNum(); i++) {
+                Cell cell = row.getCell(i);
+                series.computeIfAbsent(i, key -> new Series(""))
+                    .add(new Point(category, getDoubleValue(cell)));
+            }
+        });
     }
 
     private Double getDoubleValue(Cell cell) {
@@ -80,14 +94,11 @@ public class BarChartFactory {
     }
 
     private List<String> getCategories() {
-        return columns.get(CATEGORIES_INDEX).getData();
+        return categories;
     }
 
     private List<Series> getSeries() {
-        return columns.entrySet().stream()
-            .filter(entry -> entry.getKey() != CATEGORIES_INDEX)
-            .map(Map.Entry::getValue)
-            .collect(toList());
+        return new ArrayList<>(series.values());
     }
 
 }

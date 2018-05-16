@@ -1,9 +1,11 @@
 package uk.nhs.digital.ps.chart.model;
 
-public class Chart {
-    private String type;
+import uk.nhs.digital.ps.chart.ChartType;
 
-    public Chart(String type) {
-        this.type = type;
+public class Chart {
+    private final String type;
+
+    public Chart(ChartType type) {
+        this.type = type.getHighChartsType();
     }
 }
