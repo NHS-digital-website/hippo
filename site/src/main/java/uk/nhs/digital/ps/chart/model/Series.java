@@ -1,4 +1,4 @@
-package uk.nhs.digital.ps.chart;
+package uk.nhs.digital.ps.chart.model;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,5 +1,10 @@
 package uk.nhs.digital.ps.chart;
 
+import uk.nhs.digital.ps.chart.model.Categories;
+import uk.nhs.digital.ps.chart.model.Chart;
+import uk.nhs.digital.ps.chart.model.Series;
+import uk.nhs.digital.ps.chart.model.Titled;
+
 import java.util.List;
 
 public class BarChart extends Titled {

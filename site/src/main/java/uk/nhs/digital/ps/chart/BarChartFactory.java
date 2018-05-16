@@ -8,6 +8,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.hippoecm.hst.content.beans.standard.HippoResource;
+import uk.nhs.digital.ps.chart.model.Series;
 
 import java.io.InputStream;
 import java.util.*;

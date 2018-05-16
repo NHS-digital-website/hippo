@@ -1,4 +1,4 @@
-package uk.nhs.digital.ps.chart;
+package uk.nhs.digital.ps.chart.model;
 
 public class Titled {
     private final Title title;
