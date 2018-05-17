@@ -19,7 +19,7 @@ public class ExternalFilePublishTask extends AbstractExternalFileTask {
 
     private static final String DOCUMENTS_ROOT_FOLDER = "/content/documents";
 
-    protected void setResourcePermission(final PooledS3Connector s3Connector, final NodeIterator resourceNodes) throws RepositoryException, WorkflowException {
+    protected void processResourceNodes(final PooledS3Connector s3Connector, final NodeIterator resourceNodes) throws RepositoryException, WorkflowException {
         Node variantNode = getVariant().getNode(getWorkflowContext().getInternalWorkflowSession());
 
         if (isPublication(variantNode)) {

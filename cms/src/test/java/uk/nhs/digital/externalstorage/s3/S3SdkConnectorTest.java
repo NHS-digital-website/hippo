@@ -1,7 +1,9 @@
 package uk.nhs.digital.externalstorage.s3;
 
 import static java.util.Arrays.asList;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.lessThanOrEqualTo;
+import static org.hamcrest.Matchers.sameInstance;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
@@ -12,7 +14,19 @@ import static org.mockito.Mockito.times;
 import static org.mockito.MockitoAnnotations.initMocks;
 
 import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.model.*;
+import com.amazonaws.services.s3.model.AbortMultipartUploadRequest;
+import com.amazonaws.services.s3.model.AccessControlList;
+import com.amazonaws.services.s3.model.CompleteMultipartUploadRequest;
+import com.amazonaws.services.s3.model.GroupGrantee;
+import com.amazonaws.services.s3.model.InitiateMultipartUploadRequest;
+import com.amazonaws.services.s3.model.InitiateMultipartUploadResult;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.PartETag;
+import com.amazonaws.services.s3.model.Permission;
+import com.amazonaws.services.s3.model.S3Object;
+import com.amazonaws.services.s3.model.S3ObjectInputStream;
+import com.amazonaws.services.s3.model.UploadPartRequest;
+import com.amazonaws.services.s3.model.UploadPartResult;
 import org.apache.commons.io.IOUtils;
 import org.junit.Before;
 import org.junit.Test;
@@ -164,11 +178,9 @@ public class S3SdkConnectorTest {
 
         //   assert upload response metadata
         then(s3).should().getObjectMetadata(bucketName, objectKey);
-        assertThat("Upload response metadata reports correct file name", actualMetadata.getFileName(), is(fileName));
-        assertThat("Upload response metadata reports correct content type", actualMetadata.getMimeType(), is(contentType));
-        assertThat("Upload response metadata reports correct S3 reference", actualMetadata.getReference(), is(objectKey));
-        assertThat("Upload response metadata reports correct content size", actualMetadata.getSize(), is(contentLength));
-        assertThat("Upload response metadata reports correct S3 object URL", actualMetadata.getUrl(), is(s3ObjectUrl));
+        assertNewResourceMetadata(
+            contentType, s3ObjectUrl, contentLength, objectKey, fileName, actualMetadata
+        );
     }
 
     @Test
@@ -241,6 +253,58 @@ public class S3SdkConnectorTest {
         assertThat("Returned content length is as returned by S3.", actualS3File.getLength(),
             is(contentLength)
         );
+    }
+
+    @Test
+    public void copiesS3Resource() throws Exception {
+
+        // given
+        final String expectedTargetObjectKey = newRandomString() + "/" + fileName;
+        final String expectedTargetObjectUrl = "https://" + bucketName + "/" + expectedTargetObjectKey;
+        final String expectedContentType = newRandomString();
+        final long expectedContentLength = newRandomLong();
+
+        given(s3ObjectKeyGenerator.generateObjectKey(fileName)).willReturn(expectedTargetObjectKey);
+
+        final ObjectMetadata expectedObjectMetadata = mock(ObjectMetadata.class);
+        given(expectedObjectMetadata.getContentLength()).willReturn(expectedContentLength);
+        given(expectedObjectMetadata.getContentType()).willReturn(expectedContentType);
+
+        given(s3.getObjectMetadata(bucketName, expectedTargetObjectKey)).willReturn(expectedObjectMetadata);
+
+        // when
+        final S3ObjectMetadata actualTargetObjectMetadata = s3Connector.copyFile(objectKey, fileName);
+
+        // then
+        then(s3).should().copyObject(bucketName, objectKey, bucketName, expectedTargetObjectKey);
+
+        assertNewResourceMetadata(
+            expectedContentType,
+            expectedTargetObjectUrl,
+            expectedContentLength,
+            expectedTargetObjectKey,
+            fileName,
+            actualTargetObjectMetadata
+        );
+    }
+
+    private void assertNewResourceMetadata(final String expectedContentType,
+                                           final String expectedUrl,
+                                           final long expectedContentLength,
+                                           final String expectedObjectKey,
+                                           final String expectedFileName,
+                                           final S3ObjectMetadata actualMetadata
+    ) {
+        assertThat("Upload response metadata reports correct file name",
+            actualMetadata.getFileName(), is(expectedFileName));
+        assertThat("Upload response metadata reports correct content type",
+            actualMetadata.getMimeType(), is(expectedContentType));
+        assertThat("Upload response metadata reports correct S3 reference",
+            actualMetadata.getReference(), is(expectedObjectKey));
+        assertThat("Upload response metadata reports correct content size",
+            actualMetadata.getSize(), is(expectedContentLength));
+        assertThat("Upload response metadata reports correct S3 object URL",
+            actualMetadata.getUrl(), is(expectedUrl));
     }
 
     private String newRandomString() {

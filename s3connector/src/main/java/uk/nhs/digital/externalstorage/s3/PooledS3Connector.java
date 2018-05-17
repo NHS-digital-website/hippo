@@ -25,6 +25,14 @@ public interface PooledS3Connector {
     void unpublishResource(String objectPath);
 
     /**
+     * Instantly triggers copying of given S3 file by delegating the call directly to
+     * {@linkplain uk.nhs.digital.externalstorage.s3.S3SdkConnector#copyFile} method.
+     *
+     * @return Reference of the newly created copy.
+     */
+    S3ObjectMetadata copyFile(String sourceS3FileReference, String fileName);
+
+    /**
      * <p>
      * Schedules a download from S3 as a task to be executed as soon as one of the pooled threads becomes available,
      * leaving the processing of the download input stream to the callback given as an argument. Blocks the calling

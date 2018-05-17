@@ -65,6 +65,21 @@ public class S3SdkConnector implements S3Connector {
     }
 
     @Override
+    public S3ObjectMetadata copyFile(final String sourceObjectPath, final String fileName) {
+        reportAction("Copying S3 resource {}", sourceObjectPath);
+
+        final String targetObjectPath = s3ObjectKeyGenerator.generateObjectKey(fileName);
+
+        s3.copyObject(bucketName, sourceObjectPath, bucketName, targetObjectPath);
+
+        final ObjectMetadata targetObjectMetadata = s3.getObjectMetadata(bucketName, targetObjectPath);
+
+        reportAction("Copied S3 resource {} to {}", sourceObjectPath, targetObjectPath);
+
+        return new S3ObjectMetadataImpl(targetObjectMetadata, bucketName, targetObjectPath);
+    }
+
+    @Override
     public S3ObjectMetadata uploadFile(InputStream fileStream, String fileName, String contentType) {
         String objectKey = s3ObjectKeyGenerator.generateObjectKey(fileName);
 

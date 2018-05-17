@@ -8,6 +8,8 @@ public interface S3Connector {
 
     void unpublishResource(String objectPath);
 
+    S3ObjectMetadata copyFile(String sourceObjectPath, String fileName);
+
     S3ObjectMetadata uploadFile(InputStream fileStream, String objectPath, String contentType);
 
     /**

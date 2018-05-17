@@ -600,6 +600,8 @@
                 <!-- target-less transition to copy the document to the event payload provided parameters destination and name -->
                 <transition event="copy">
                     <hippo:copyDocument destinationExpr="_event.data?.destination" newNameExpr="_event.data?.name"/>
+
+                    <externalstorage:copyExternalFile destinationExpr="_event.data?.destination" newNameExpr="_event.data?.name"/>
                 </transition>
 
             </state>

@@ -14,7 +14,7 @@ import javax.jcr.RepositoryException;
 
 public class ExternalFileUnpublishTask extends AbstractExternalFileTask {
 
-    protected void setResourcePermission(final PooledS3Connector s3Connector, final NodeIterator resourceNodes) throws RepositoryException {
+    protected void processResourceNodes(final PooledS3Connector s3Connector, final NodeIterator resourceNodes) throws RepositoryException {
         Node variantNode = getVariant().getNode(getWorkflowContext().getInternalWorkflowSession());
 
         if (isPublication(variantNode)) {
