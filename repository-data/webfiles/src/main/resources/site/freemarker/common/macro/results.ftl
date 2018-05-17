@@ -1,5 +1,5 @@
 <#ftl output_format="HTML">
-<@hst.setBundle basename="publicationsystem.labels,nationalindicatorlibrary.headers,nationalindicatorlibrary.labels,website.labels"/>
+<@hst.setBundle basename="publicationsystem.labels,nationalindicatorlibrary.headers,nationalindicatorlibrary.labels,website.labels,homepage.website.labels"/>
 
 <#macro searchResults items>
     <div class="cta-list">
@@ -21,6 +21,10 @@
             <#elseif document.class.name == "uk.nhs.digital.website.beans.General" ||
                      document.class.name == "uk.nhs.digital.website.beans.Hub">
                 <@general item=document />
+            <#elseif document.class.name == "uk.nhs.digital.website.beans.Event">
+                <@event item=document />
+            <#elseif document.class.name == "uk.nhs.digital.website.beans.News">
+                <@news item=document />
             </#if>
         </#list>
     </div>
@@ -181,5 +185,57 @@
             ${item.title}
         </a>
         <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
+    </div>
+</#macro>
+
+<#macro event item>
+    <div class="cta cta--detailed" data-uipath="ps.search-results.result">
+        <div>
+            <h3 class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.event"/></h3>
+        </div>
+        <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
+            ${item.title}
+        </a>
+        <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
+
+        <#assign dateRangeData = getEventDateRangeData(item.events) />
+        <#if dateRangeData?size gt 0>
+            <#if dateRangeData.comparableStartDate == dateRangeData.comparableEndDate>
+            <p class="cta__meta">
+                <span class="strong"><@fmt.message key="labels.date-label"/>: </span>
+                <span><@fmt.formatDate value=dateRangeData.minStartTime type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" /></span>
+            </p>
+            <#else>
+            <p class="cta__meta">
+                <span class="strong"><@fmt.message key="labels.date-label"/>: </span>
+                <span>
+                    <@fmt.formatDate value=dateRangeData.minStartTime type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" /> - <@fmt.formatDate value=dateRangeData.maxEndTime type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
+                </span>
+            </p>
+            </#if>
+        </#if>
+    </div>
+</#macro>
+
+<#macro news item>
+    <div class="cta cta--detailed" data-uipath="ps.search-results.result">
+        <div>
+            <h3 class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.news"/></h3>
+        </div>
+        <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
+            ${item.title}
+        </a>
+        <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
+
+        <#if item.publisheddatetime?? && item.publisheddatetime.time??>
+            <div class="cta__metas cta__metas--spaced">
+                <p class="cta__meta">
+                    <span class="strong"><@fmt.message key="about-us.newsDateLabel"/>: </span>
+                    <@fmt.formatDate value=item.publisheddatetime.time type="Date" pattern="yyyy-MM-dd HH:mm:ss" var="publishedDateTime" timeZone="${getTimeZone()}" />
+                    <@fmt.formatDate value=item.publisheddatetime.time type="Date" pattern="d MMMM yyyy" var="publishedDateTimeForHumans" timeZone="${getTimeZone()}" />
+                    <time datetime="${publishedDateTime}">${publishedDateTimeForHumans}</time>
+                </p>
+            </div>
+        </#if>
     </div>
 </#macro>

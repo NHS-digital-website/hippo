@@ -15,40 +15,21 @@
                     <a href="<@hst.link hippobean=item/>" title="${item.title}">${item.title}</a>
                 </h2>
 
-                <#assign minStartTimeStamp = 0/>
-                <#assign maxEndTimeStamp = 0/>
-                <#-- Gather the earliest start date and the latest end date for each event -->
-                <#list item.events as event>
-                    <#-- Store the earliest start date values -->
-                    <#assign startTimeStamp = event.startdatetime.time?long/>
-                    <#if minStartTimeStamp == 0 || startTimeStamp lt minStartTimeStamp>
-                        <#assign minStartTime = event.startdatetime.time/>
-                        <#assign minStartTimeStamp = startTimeStamp/>
+                <#assign dateRangeData = getEventDateRangeData(item.events) />
+                <#if dateRangeData?size gt 0>
+                    <#if dateRangeData.comparableStartDate == dateRangeData.comparableEndDate>
+                    <p class="cta__meta">
+                        <span class="strong"><@fmt.message key="labels.date-label"/>: </span>
+                        <span><@fmt.formatDate value=dateRangeData.minStartTime type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" /></span>
+                    </p>
+                    <#else>
+                    <p class="cta__meta">
+                        <span class="strong"><@fmt.message key="labels.date-label"/>: </span>
+                        <span>
+                            <@fmt.formatDate value=dateRangeData.minStartTime type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" /> - <@fmt.formatDate value=dateRangeData.maxEndTime type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
+                        </span>
+                    </p>
                     </#if>
-
-                    <#-- Store the latest end date values -->
-                    <#assign endTimeStamp = event.enddatetime.time?long/>
-                    <#if maxEndTimeStamp == 0 || endTimeStamp gt maxEndTimeStamp>
-                        <#assign maxEndTime = event.enddatetime.time/>
-                        <#assign maxEndTimeStamp = endTimeStamp/>
-                    </#if>
-                </#list>
-
-                <@fmt.formatDate value=minStartTime type="Date" pattern="yyyy-MM-dd" pattern="yyyy-MM-dd" var="comparableStartDate" timeZone="Europe/London" />
-                <@fmt.formatDate value=maxEndTime type="Date" pattern="yyyy-MM-dd" var="comparableEndDate" timeZone="Europe/London" />
-
-                <#if comparableStartDate == comparableEndDate>
-                <p class="cta__meta">
-                    <span><@fmt.message key="labels.date-label"/>: </span>
-                    <span><@fmt.formatDate value=minStartTime type="Date" pattern="d MMMM yyyy" timeZone="Europe/London" /></span>
-                </p>
-                <#else>
-                <p class="cta__meta">
-                    <span><@fmt.message key="labels.date-label"/>: </span>
-                    <span>
-                        <@fmt.formatDate value=minStartTime type="Date" pattern="d MMMM yyyy" timeZone="Europe/London" /> - <@fmt.formatDate value=maxEndTime type="Date" pattern="d MMMM yyyy" timeZone="Europe/London" />
-                    </span>
-                </p>
                 </#if>
             </article>
         </li>

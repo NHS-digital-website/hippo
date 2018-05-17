@@ -13,7 +13,7 @@
             <div class="column column--two-thirds page-block page-block--main">
                 <#if document.type?has_content>
                 <div class="article__label">
-                    ${newsTypeMap[document.type]}
+                    <#-- ${newsTypeMap[document.type]} -->
                 </div>
                 </#if>
 
@@ -22,8 +22,8 @@
                 </div>
 
                 <div class="article__date">
-                    <@fmt.formatDate value=document.publisheddatetime.time type="Date" pattern="d MMMM yyyy" var="publishedDateTimeString" />
-                    <@fmt.formatDate value=document.publisheddatetime.time type="Date" pattern="yyyy-MM-dd HH:mm:ss" var="publishedDateTime" timeZone="Europe/London"/>
+                    <@fmt.formatDate value=document.publisheddatetime.time type="Date" pattern="d MMMM yyyy" var="publishedDateTimeString" timeZone="${getTimeZone()}" />
+                    <@fmt.formatDate value=document.publisheddatetime.time type="Date" pattern="yyyy-MM-dd HH:mm:ss" var="publishedDateTime" timeZone="${getTimeZone()}" />
                     <time datetime="${publishedDateTime}">${publishedDateTimeString}</time>
                 </div>
 
