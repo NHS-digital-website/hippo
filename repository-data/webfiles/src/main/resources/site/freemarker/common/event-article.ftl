@@ -8,7 +8,6 @@
 
 <@hst.setBundle basename="site.website.labels"/>
 <@fmt.message key="child-pages-section.title" var="childPagesSectionTitle"/>
-<#assign timeZone = "Europe/London" />
 
 <article class="article article--event">
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
@@ -23,8 +22,8 @@
                         <#-- [FTL-BEGIN] List of date ranges -->
                         <#list document.events as event>
                         
-                        <@fmt.formatDate value=event.startdatetime.time type="Date" pattern="yyyy-MM-dd" var="comparableStartDate"/>
-                        <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="yyyy-MM-dd" var="comparableEndDate"/>
+                        <@fmt.formatDate value=event.startdatetime.time type="Date" pattern="yyyy-MM-dd" var="comparableStartDate" timeZone="${getTimeZone()}" />
+                        <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="yyyy-MM-dd" var="comparableEndDate"  timeZone="${getTimeZone()}"/>
                         <#assign validDate = (comparableStartDate?? && comparableEndDate??) />
 
                         <#if document.events?size gt 1 && validDate>
@@ -37,14 +36,14 @@
                             <dl class="tabbed-detail__wrapper">
                                 <dt class="tabbed-detail__key">Date:</dt>
                                 <dd class="tabbed-detail__value" data-uipath="">
-                                    <span><@fmt.formatDate value=event.startdatetime.time type="Date" pattern="EEEE d MMMM yyyy" /></span>
+                                    <span><@fmt.formatDate value=event.startdatetime.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" /></span>
                                 </dd>
                             </dl>
                             <#else>
                             <dl class="tabbed-detail__wrapper">
-                                <dt class="tabbed-detail__key">Date Range:</dt>
+                                <dt class="tabbed-detail__key">Date:</dt>
                                 <dd class="tabbed-detail__value" data-uipath="">
-                                    <span><@fmt.formatDate value=event.startdatetime.time type="Date" pattern="EEEE d MMMM yyyy" /> - <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="EEEE d MMMM yyyy" /></span>
+                                    <span><@fmt.formatDate value=event.startdatetime.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" /> - <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" /></span>
                                 </dd>
                             </dl>
                             </#if>
@@ -54,7 +53,7 @@
                             <dl class="tabbed-detail__wrapper">
                                 <dt class="tabbed-detail__key">Time:</dt>
                                 <dd class="tabbed-detail__value" data-uipath="">
-                                    <span><@fmt.formatDate value=event.startdatetime.time type="Date" pattern="h:mm a" timeZone="${timeZone}"/> to <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="h:mm a" timeZone="${timeZone}"/></span>
+                                    <span><@fmt.formatDate value=event.startdatetime.time type="Date" pattern="h:mm a" timeZone="${getTimeZone()}" /> to <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="h:mm a" timeZone="${getTimeZone()}" /></span>
                                 </dd>
                             </dl>
                         </div>

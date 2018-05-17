@@ -109,3 +109,35 @@
         <h2 class="cta__title"><a href="<@hst.link hippobean=block />">${block.title}</a></h2>
         </#if>
 -->
+
+<#function getTimeZone>
+    <#return "Europe/London"/>
+</#function>
+
+<#-- Get earliest and latest date in a date range in events -->
+<#function getEventDateRangeData events = {}>
+    <#local dateRangeData = { "minStartTimeStamp": 0, "maxEndTimeStamp": 0 } />
+
+    <#if events??>
+        <#-- Gather the earliest start date and the latest end date for each event -->
+        <#list events as event>
+            <#-- Store the earliest start date values -->
+            <#local startTimeStamp = event.startdatetime.time?long/>
+            <#if dateRangeData.minStartTimeStamp == 0 || dateRangeData.startTimeStamp lt dateRangeData.minStartTimeStamp>
+                <#local dateRangeData = dateRangeData + { "minStartTime": event.startdatetime.time, "minStartTimeStamp": startTimeStamp } />
+            </#if>
+            <#-- Store the latest end date values -->
+            <#local endTimeStamp = event.enddatetime.time?long/>
+            <#if dateRangeData.maxEndTimeStamp == 0 || endTimeStamp gt dateRangeData.maxEndTimeStamp>
+                <#local dateRangeData = dateRangeData + { "maxEndTime": event.enddatetime.time, "maxEndTimeStamp": endTimeStamp } />
+            </#if>
+        </#list>
+
+        <@fmt.formatDate value=dateRangeData.minStartTime type="Date" pattern="yyyy-MM-dd" pattern="yyyy-MM-dd" var="comparableStartDate" timeZone="${getTimeZone()}" />
+        <@fmt.formatDate value=dateRangeData.maxEndTime type="Date" pattern="yyyy-MM-dd" var="comparableEndDate" timeZone="${getTimeZone()}" />
+
+        <#local dateRangeData = dateRangeData + { "comparableStartDate": comparableStartDate, "comparableEndDate": comparableEndDate } />
+    </#if>
+    
+    <#return dateRangeData />
+</#function>

@@ -175,6 +175,14 @@
             }
         }
     }
+
+    @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+        margin-top: $gutter * 2;
+    }
+}
+
+.cta__metas--spaced {
+    margin-top: $gutter;
 }
 
 // Stamped Publication CTAs

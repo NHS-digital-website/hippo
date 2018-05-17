@@ -16,9 +16,9 @@
                 </h2>
                 
                 <#if item.publisheddatetime?? && item.publisheddatetime.time??>
-                    <p class="cta__meta"><@fmt.message key="about-us.newsDateLabel"/>: 
-                        <@fmt.formatDate value=item.publisheddatetime.time type="Date" pattern="yyyy-MM-dd HH:mm:ss" var="publishedDateTime" timeZone="Europe/London" />
-                        <@fmt.formatDate value=item.publisheddatetime.time type="Date" pattern="d MMMM yyyy" var="publishedDateTimeForHumans"/>
+                    <p class="cta__meta"><span class="strong"><@fmt.message key="about-us.newsDateLabel"/>: </span>
+                        <@fmt.formatDate value=item.publisheddatetime.time type="Date" pattern="yyyy-MM-dd HH:mm:ss" var="publishedDateTime" timeZone="${getTimeZone()}" />
+                        <@fmt.formatDate value=item.publisheddatetime.time type="Date" pattern="d MMMM yyyy" var="publishedDateTimeForHumans" timeZone="${getTimeZone()}"/>
                         <time datetime="${publishedDateTime}">${publishedDateTimeForHumans}</time>
                     </p>
                 </#if>
