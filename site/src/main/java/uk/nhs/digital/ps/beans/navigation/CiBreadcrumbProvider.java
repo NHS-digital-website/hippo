@@ -16,8 +16,6 @@ import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.forge.breadcrumb.om.BreadcrumbItem;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import uk.nhs.digital.ps.beans.*;
 
 import java.util.*;
@@ -31,7 +29,6 @@ import java.util.*;
  */
 public class CiBreadcrumbProvider  {
 
-    private static final Logger log = LoggerFactory.getLogger(CiBreadcrumbProvider.class);
     private static final String SEPARATOR = "/";
     private CiLanding ciLandingBean = null;
     private boolean isClinicalIndicator = false;
@@ -70,9 +67,6 @@ public class CiBreadcrumbProvider  {
 
         // finally, add navigation for THIS document
         ciBreadcrumbItems.add(createBreadcrumbItem(ctx, currentDocumentBean));
-
-        log.debug("{} created {} breadcrumb items: {}", this.getClass().getName(), ciBreadcrumbItems.size(),
-            ciBreadcrumbItems.stream().map(BreadcrumbItem::getTitle).toArray());
 
         return new CiBreadcrumb(ciBreadcrumbItems, SEPARATOR, isClinicalIndicator);
     }
