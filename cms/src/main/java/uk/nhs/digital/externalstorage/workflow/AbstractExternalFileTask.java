@@ -49,7 +49,7 @@ public abstract class AbstractExternalFileTask extends AbstractDocumentTask {
 
         Node variantNode = getVariant().getNode(getWorkflowContext().getInternalWorkflowSession());
 
-        setResourcePermission(s3Connector, findResourceNodes(variantNode));
+        processResourceNodes(s3Connector, findResourceNodes(variantNode));
 
         return null;
     }
@@ -68,7 +68,7 @@ public abstract class AbstractExternalFileTask extends AbstractDocumentTask {
         return res.getNodes();
     }
 
-    protected abstract void setResourcePermission(PooledS3Connector s3, final NodeIterator resourceNodes) throws RepositoryException, WorkflowException;
+    protected abstract void processResourceNodes(PooledS3Connector s3, final NodeIterator resourceNodes) throws RepositoryException, WorkflowException;
 
     public void logInCmsActivityStream(final String documentPath, final String message) {
         final HippoEventBus eventBus = HippoServiceRegistry.getService(HippoEventBus.class);

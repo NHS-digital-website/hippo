@@ -2,6 +2,10 @@
 definitions:
   config:
     /hippo:configuration/hippo:modules/scxmlregistry/hippo:moduleconfig/hipposcxml:definitions/documentworkflow:
+      /copyExternalFile:
+        hipposcxml:classname: uk.nhs.digital.externalstorage.workflow.externalFileCopy.ExternalFileCopyAction
+        hipposcxml:namespace: http://digital.nhs.uk/externalstorage/scxml
+        jcr:primaryType: hipposcxml:action
       /populateSearchableFlag:
         hipposcxml:classname: uk.nhs.digital.ps.workflow.searchableFlag.SearchableFlagAction
         hipposcxml:namespace: http://digital.nhs.uk/repository/scxml

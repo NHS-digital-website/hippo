@@ -51,7 +51,7 @@ public class BlockingPooledS3ConnectorTest {
     }
 
     @Test
-    public void delegatesPublishedResourceDirectlyToStandardConnector() throws Exception {
+    public void delegatesPublishResourceDirectlyToStandardConnector() throws Exception {
 
         // when
         s3proxy.publishResource(expectedObjectPath);
@@ -61,13 +61,26 @@ public class BlockingPooledS3ConnectorTest {
     }
 
     @Test
-    public void delegatesUnPublishedResourceDirectlyToStandardConnector() throws Exception {
+    public void delegatesUnPublishResourceDirectlyToStandardConnector() throws Exception {
 
         // when
         s3proxy.unpublishResource(expectedObjectPath);
 
         // then
         then(s3SdkConnector).should().unpublishResource(expectedObjectPath);
+    }
+
+    @Test
+    public void delegatesCopyResourceDirectlyToStandardConnector() throws Exception {
+
+        // given
+        final String fileName = newRandomString();
+
+        // when
+        s3proxy.copyFile(expectedObjectPath, fileName);
+
+        // then
+        then(s3SdkConnector).should().copyFile(expectedObjectPath, fileName);
     }
 
     @Test

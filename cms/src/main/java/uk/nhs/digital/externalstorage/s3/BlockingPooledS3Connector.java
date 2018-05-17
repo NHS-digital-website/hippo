@@ -85,6 +85,25 @@ public class BlockingPooledS3Connector implements PooledS3Connector {
         logger.reportAction("S3 file is now private: {}", s3FileReference);
     }
 
+    @Override
+    public S3ObjectMetadata copyFile(final String sourceS3FileReference, final String fileName) {
+        logger.reportAction("Copying S3 file: {}", sourceS3FileReference);
+
+        S3ObjectMetadata targetS3FileReference;
+        try {
+            targetS3FileReference = s3Connector.copyFile(sourceS3FileReference, fileName);
+        } catch (final Exception ex) {
+            logger.reportError("Failed to copy S3 file: " + sourceS3FileReference, ex);
+            throw ex;
+        }
+
+        logger.reportAction(
+            "S3 file {} has now been copied to {}", sourceS3FileReference, targetS3FileReference
+        );
+
+        return targetS3FileReference;
+    }
+
     /**
      * See {@linkplain PooledS3Connector#upload}.
      */
