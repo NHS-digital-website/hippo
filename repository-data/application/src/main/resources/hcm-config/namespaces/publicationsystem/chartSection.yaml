@@ -19,6 +19,16 @@ definitions:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /type:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: Bar,Column,Line,Pie,Stacked Bar,Stacked Column
+            caption: Chart Type
+            field: type
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
           /title:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -37,13 +47,12 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /type:
+          /yTitle:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: bar,pie
-            caption: Chart Type
-            field: type
-            hint: ''
+            caption: Y Axis Title
+            field: yTitle
+            hint: Not applicable to all chart types
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
@@ -78,6 +87,17 @@ definitions:
             hipposysedit:path: publicationsystem:type
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
+          /yTitle:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:yTitle
+            hipposysedit:primary: false
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
@@ -107,6 +127,7 @@ definitions:
             jcr:primaryType: publicationsystem:resource
           jcr:primaryType: publicationsystem:chartSection
           publicationsystem:title: ''
+          publicationsystem:yTitle: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable

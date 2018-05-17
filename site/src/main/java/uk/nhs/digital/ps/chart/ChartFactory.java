@@ -1,11 +1,14 @@
 package uk.nhs.digital.ps.chart;
 
+import static java.util.Collections.singletonList;
+
 import org.apache.jackrabbit.JcrConstants;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.hippoecm.hst.content.beans.standard.HippoResource;
+import uk.nhs.digital.ps.beans.ChartSection;
 import uk.nhs.digital.ps.chart.model.Series;
 import uk.nhs.digital.ps.chart.model.Point;
 
@@ -16,17 +19,19 @@ import javax.jcr.Binary;
 public class ChartFactory {
     private static final int CATEGORIES_INDEX = 0;
 
-    private ChartType type;
+    private final ChartType type;
     private final String title;
+    private final String yTitle;
     private final HippoResource dataFile;
 
     private List<String> categories;
     private HashMap<Integer, Series> series;
 
-    public ChartFactory(ChartType type, String title, HippoResource dataFile) {
-        this.type = type;
-        this.title = title;
-        this.dataFile = dataFile;
+    public ChartFactory(ChartSection chartSection) {
+        this.type = ChartType.toChartType(chartSection.getType());
+        this.title = chartSection.getTitle();
+        this.yTitle = chartSection.getYTitle();
+        this.dataFile = chartSection.getDataFile();
     }
 
     public SeriesChart build() {
@@ -36,11 +41,18 @@ public class ChartFactory {
             throw new RuntimeException("Failed to parse chart data file: " + dataFile.getPath(), ex);
         }
 
-        String yAxisTitle = "TODO";
         switch (type) {
-            case PIE: return new PieChart(title, getCategories(), yAxisTitle, getSeries());
-            case BAR: return new BarChart(title, getCategories(), yAxisTitle, getSeries());
-            default: throw new RuntimeException("Unknown Chart Type: " + type);
+            case PIE:
+                // We only have one series in a pie chart so just get the first
+                return new SeriesChart(ChartType.PIE, title, singletonList(getSeries().get(0)), null, null);
+            case BAR:
+            case COLUMN:
+            case LINE:
+            case STACKED_BAR:
+            case STACKED_COLUMN:
+                return new SeriesChart(type, title, getSeries(), yTitle, getCategories());
+            default:
+                throw new RuntimeException("Unknown Chart Type: " + type);
         }
     }
 

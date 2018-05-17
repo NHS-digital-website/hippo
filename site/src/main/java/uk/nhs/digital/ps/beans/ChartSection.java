@@ -1,6 +1,7 @@
 package uk.nhs.digital.ps.beans;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,6 +16,7 @@ import uk.nhs.digital.ps.chart.SeriesChart;
 @HippoEssentialsGenerated(internalName = "publicationsystem:chartSection")
 @Node(jcrType = "publicationsystem:chartSection")
 public class ChartSection extends HippoCompound {
+    private static final ObjectMapper OBJECT_MAPPER = createObjectMapper();
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:dataFile")
     public HippoResource getDataFile() {
@@ -31,6 +33,11 @@ public class ChartSection extends HippoCompound {
         return getProperty("publicationsystem:type");
     }
 
+    @HippoEssentialsGenerated(internalName = "publicationsystem:yTitle")
+    public String getYTitle() {
+        return getProperty("publicationsystem:yTitle");
+    }
+
     /**
      * This is needed for the HTML element that contains the chart to have a unique ID
      */
@@ -43,15 +50,19 @@ public class ChartSection extends HippoCompound {
     }
 
     public String getChart() {
-        ChartType type = ChartType.valueOf(getType().toUpperCase());
-        SeriesChart chart = new ChartFactory(type, getTitle(), getDataFile()).build();
+        SeriesChart chart = new ChartFactory(this).build();
 
         try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-            return objectMapper.writeValueAsString(chart);
+            return OBJECT_MAPPER.writeValueAsString(chart);
         } catch (JsonProcessingException ex) {
             throw new RuntimeException(ex);
         }
+    }
+
+    private static ObjectMapper createObjectMapper() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        return objectMapper;
     }
 }
