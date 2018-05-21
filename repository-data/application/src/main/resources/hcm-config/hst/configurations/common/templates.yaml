@@ -17,9 +17,6 @@ definitions:
       /archive:
         hst:renderpath: webfile:/freemarker/publicationsystem/archive.ftl
         jcr:primaryType: hst:template
-      /cihub:
-        hst:renderpath: webfile:/freemarker/publicationsystem/cihub.ftl
-        jcr:primaryType: hst:template
       /cilanding:
         hst:renderpath: webfile:/freemarker/publicationsystem/cilanding.ftl
         jcr:primaryType: hst:template

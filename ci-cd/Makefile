@@ -1,11 +1,8 @@
+include ../vars.mk
 
 BUILD_DIR ?= ../../ps-build
 ENV ?= tst
-HIPPO_MAVEN_PASSWORD ?=
-HIPPO_MAVEN_USERNAME ?=
-HOME ?= $(shell printenv HOME)
 OD_ENV = $(shell bash ondemand-env-name $(ENV))
-PWD = $(shell pwd)
 RD_CONF = $(PWD)/rd.conf
 RELEASE_DATE = $(shell d=1; while (($$(date --date +$${d}day +%u) >= 6)); do ((++d)); done; date --date +$${d}day +%Y-%m-%d)
 RELEASE_TIME_UTC = 11:05:00
@@ -18,13 +15,10 @@ VERSION_BASE ?= $(shell cat "$(PWD)/../.version")
 PATH := $(VENV)/bin:$(PWD)/bin:$(PWD)/vendor:$(shell printenv PATH)
 SHELL := env PATH=$(PATH) /bin/bash
 
-export HIPPO_MAVEN_USERNAME
-export HIPPO_MAVEN_PASSWORD
-
 ifneq ($(HIPPO_MAVEN_USERNAME),)
-MVN_OPTS ?= --file ../pom.xml -Drevision=$(VERSION) --global-settings "$(PWD)/../.mvn.settings.xml"
+MVN_OPTS ?= --file ../pom.xml -Drevision=$(VERSION) ${MVN_VARS} --global-settings "$(PWD)/../.mvn.settings.xml"
 endif
-MVN_OPTS ?= --file ../pom.xml -Drevision=$(VERSION)
+MVN_OPTS ?= --file ../pom.xml -Drevision=$(VERSION) ${MVN_VARS}
 
 ifeq ($(TRAVIS_EVENT_TYPE),cron)
 TRAVIS_BUILD_CMD = test.e2e
@@ -78,6 +72,13 @@ test.cms:
 	mvn clean verify $(MVN_OPTS) --quiet \
 		-Dcucumber.options="src/test/resources/features/cms" \
 		-Pacceptance-test-hippo,acceptance-test,acceptance-without-development-data
+
+## Run only acceptance tests tagged with "WIP" without a running server
+# Useful for testing travis build only running some tests
+test.wip.standalone:
+	mvn clean verify $(MVN_OPTS) \
+		-Dcucumber.options="src/test/resources/features --tags @WIP" \
+		-Pacceptance-test-hippo,acceptance-test
 
 ## Run the tests that we want for travis builds
 # We only run site tests for pull requests as the CMS tests are unreliable

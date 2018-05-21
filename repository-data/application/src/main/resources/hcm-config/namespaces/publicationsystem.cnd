@@ -15,12 +15,6 @@
 [publicationsystem:attachment] > hippo:compound, hippostd:relaxed
   orderable
 
-[publicationsystem:cihub] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
-  orderable
-
-[publicationsystem:cihublink] > hippo:compound, hippostd:relaxed
-  orderable
-
 [publicationsystem:cilanding] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
   orderable
 

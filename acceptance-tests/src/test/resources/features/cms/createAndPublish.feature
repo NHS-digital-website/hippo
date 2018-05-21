@@ -48,9 +48,8 @@ Feature: As am author I need to create a new publication
         Given I am logged in as admin on the content page
         Then I shouldn't have a "Add new folder..." menu option on the "Corporate Website/Publication System/CI hub" folder
         When I click the "Add new CI hub document..." menu option on the "Corporate Website/Publication System/CI hub" folder
-        Then I should see the document options:
-            | cihub     |
-            | cilanding |
+        # No document options as you should automatically be creating a cilanding
+        Then I should see no document options
 
     Scenario: Restricted document type in about folders
         Given I am logged in as admin on the content page

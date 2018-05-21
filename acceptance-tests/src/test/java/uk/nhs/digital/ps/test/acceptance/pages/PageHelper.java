@@ -20,7 +20,7 @@ public class PageHelper {
 
     private static Logger log = LoggerFactory.getLogger(PageHelper.class);
 
-    private static final int TIME_OUT = 5;
+    private static final int TIME_OUT = 15;
 
     private final WebDriverProvider webDriverProvider;
 

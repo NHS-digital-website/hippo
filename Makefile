@@ -1,28 +1,12 @@
 include env.mk
+include vars.mk
 
-AWS_KEY ?=
-AWS_SECRET ?=
-HIPPO_MAVEN_PASSWORD ?=
-HIPPO_MAVEN_USERNAME ?=
-HOME ?= $(shell printenv HOME)
-MVN_OPTS ?=
-PWD = $(shell pwd)
-SPLUNK_HEC ?= localhost
-SPLUNK_TOKEN ?=
-SPLUNK_URL ?=
-PROFILE_RUN ?= cargo.run
-S3_BUCKET ?= files.local.nhsd.io
-S3_REGION ?= eu-west-1
-
-export AWS_ACCESS_KEY_ID=$(AWS_KEY)
-export AWS_SECRET_ACCESS_KEY=$(AWS_SECRET)
-export HIPPO_MAVEN_PASSWORD
-export HIPPO_MAVEN_USERNAME
 export HOME
 
 ifneq ($(HIPPO_MAVEN_USERNAME),)
-MVN_OPTS = --global-settings "$(PWD)/.mvn.settings.xml"
+MVN_OPTS ?= ${MVN_VARS} --global-settings "$(PWD)/.mvn.settings.xml"
 endif
+MVN_OPTS ?= ${MVN_VARS}
 
 ## Prints this help
 help:
@@ -50,12 +34,7 @@ serve.noexport: essentials/target/essentials.war
 
 ## Start server using cargo.run
 run:
-	mvn $(MVN_OPTS) -P $(PROFILE_RUN) \
-		-D splunk.token=$(SPLUNK_TOKEN) \
-		-D splunk.url=$(SPLUNK_URL) \
-		-D splunk.hec.name=$(SPLUNK_HEC) \
-		-D externalstorage.aws.bucket=$(S3_BUCKET) \
-		-D externalstorage.aws.region=$(S3_REGION)
+	mvn $(MVN_OPTS) -P $(PROFILE_RUN)
 
 
 # we don't have to recompile it every time.
