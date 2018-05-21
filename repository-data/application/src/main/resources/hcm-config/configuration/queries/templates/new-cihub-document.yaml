@@ -22,5 +22,4 @@ definitions:
       - $holder
       jcr:language: xpath
       jcr:primaryType: hippostd:templatequery
-      jcr:statement: /jcr:root/hippo:namespaces/publicationsystem/element(*, hipposysedit:templatetype)/hipposysedit:prototypes/hipposysedit:prototype[@jcr:primaryType='publicationsystem:cihub'
-        or @jcr:primaryType='publicationsystem:cilanding']
+      jcr:statement: /jcr:root/hippo:namespaces/publicationsystem/element(*, hipposysedit:templatetype)/hipposysedit:prototypes/hipposysedit:prototype[@jcr:primaryType='publicationsystem:cilanding']

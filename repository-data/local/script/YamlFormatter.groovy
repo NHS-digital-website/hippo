@@ -12,11 +12,10 @@ import static java.lang.Integer.parseInt
 class YamlFormatter extends Script {
 
     // Don't remove the UUID for corporate-website, it's referenced in the facet configuration
-    // Same for ci-hub and cihublink, since referenced for page links
+    // Same for ci-hub, since referenced for page links
     static final Set keepUuidFiles =
         ["corporate-website.yaml",
          "ci-hub.yaml",
-         "cihublink.yaml",
          "nihub.yaml",
          "nihublink.yaml",
          "acceptance-tests-images.yaml"]

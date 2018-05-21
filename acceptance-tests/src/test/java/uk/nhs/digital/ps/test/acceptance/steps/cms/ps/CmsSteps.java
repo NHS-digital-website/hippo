@@ -3,6 +3,7 @@ package uk.nhs.digital.ps.test.acceptance.steps.cms.ps;
 import static java.time.temporal.ChronoField.DAY_OF_MONTH;
 import static java.time.temporal.ChronoField.DAY_OF_WEEK;
 import static java.time.temporal.ChronoField.MONTH_OF_YEAR;
+import static java.util.Arrays.asList;
 import static java.util.concurrent.TimeUnit.MINUTES;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static java.util.stream.Collectors.toList;
@@ -517,7 +518,21 @@ public class CmsSteps extends AbstractSpringSteps {
         String[] folders = folder.split("/");
         List<String> actualOptions = contentPage.getFolderMenuOptions(folders);
 
-        List<Matcher> matchers = optionsData.asList(String.class).stream()
+        List<String> options = optionsData.asList(String.class);
+
+        // Hack to get around a bug with the folder context menu which is being considered by the DW team
+        // Convert this to 'not' any of our standard options
+        if (options.get(0).equals("No actions available")) {
+            options = asList(
+                "Add new document...",
+                "Add new folder...",
+                "Publish all in folder...",
+                "Edit allowed content..."
+            );
+            not = "not";
+        }
+
+        List<Matcher> matchers = options.stream()
             .map(Matchers::hasItem)
             .collect(toList());
 

@@ -334,6 +334,17 @@
                                     <send.usage.statistics.to.hippo>false</send.usage.statistics.to.hippo>
                                     <repo.autoexport.allowed>false</repo.autoexport.allowed>
                                     <repo.config>file://${website.basedir}/conf/repository.xml</repo.config>
+
+                                    <!-- Splunk forwarder config -->
+                                    <splunk.hec.name>${splunk.hec.name}</splunk.hec.name>
+                                    <splunk.token>${splunk.token}</splunk.token>
+                                    <splunk.url>${splunk.url}</splunk.url>
+                                    <splunk.batch.size.count>${splunk.batch.size.count}</splunk.batch.size.count>
+
+                                    <!-- AWS config -->
+                                    <externalstorage.aws.bucket>${externalstorage.aws.bucket}</externalstorage.aws.bucket>
+                                    <externalstorage.aws.region>${externalstorage.aws.region}</externalstorage.aws.region>
+                                    <externalstorage.aws.s3.endpoint>${externalstorage.aws.s3.endpoint}</externalstorage.aws.s3.endpoint>
                                 </systemProperties>
                                 <dependencies>
                                     <!-- Dependencies shared by all deployed apps. Have to be declared in project's
