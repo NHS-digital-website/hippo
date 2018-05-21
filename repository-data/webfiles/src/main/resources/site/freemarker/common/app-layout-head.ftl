@@ -53,6 +53,9 @@
 
     <#include "scripts/vanilla-js-utils.ftl"/>
 
+    <#-- Cookiebot loading -->
+    <#include "scripts/cookiebot-load.ftl"/>
+
     <#-- GA Tracking code -->
     <#include "scripts/google-analytics.ftl"/>
 

@@ -63,6 +63,7 @@
                                         <li><a href="/privacy-and-cookies" title="Privacy and cookies">Privacy and cookies</a></li>
                                         <li><a href="/terms-and-conditions" title="Terms and conditions">Terms and conditions</a></li>
                                         <li><a href="/accessibility" title="Accessibility help">Accessibility</a></li>
+                                        <li><a href="javascript: Cookiebot.renew()" title="Cookie consent">Cookie consent</a></li>
                                     </ul>
                                 </nav>
 

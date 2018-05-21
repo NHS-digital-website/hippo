@@ -103,15 +103,25 @@ public class SitePage extends AbstractSitePage {
         return null;
     }
 
+    public WebElement findFooter() {
+        return helper.findElement(By.id("footer"));
+    }
+
     public void clickCookieAcceptButton() {
-        WebElement cookieAcceptButton = helper.findOptionalElement(By.id("cookieAcceptButton"));
+        WebElement cookieAcceptButton = helper.findOptionalElement(By.id("CybotCookiebotDialogBodyButtonAccept"));
         if (cookieAcceptButton != null
             && cookieAcceptButton.isDisplayed()) {
             cookieAcceptButton.click();
+
+            waitForCookiebotDialogToBeGone();
         }
     }
 
-    public WebElement findFooter() {
-        return helper.findElement(By.id("footer"));
+    private void waitForCookiebotDialogToBeGone() {
+        helper.waitUntilTrue(() -> findCookiebotDialog() == null);
+    }
+
+    private WebElement findCookiebotDialog() {
+        return helper.findOptionalElement(By.xpath(".//*[@id='CybotCookiebotDialog' and contains(@style,'display: block')]"));
     }
 }
