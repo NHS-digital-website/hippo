@@ -18,8 +18,6 @@
 
     <#include "site-footer.ftl"/>
 
-    <#include "cookie-banner.ftl"/>
-
     <#include "scripts/live-engage-chat.ftl"/>
 
     <@hst.headContributions categoryIncludes="htmlBodyEnd, scripts" xhtml=true/>
