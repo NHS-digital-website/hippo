@@ -3,6 +3,7 @@
   /2002:
     /2002[1]:
       common:FacetType: publication
+      common:orderedSearchDate: 1012521600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -27,6 +28,7 @@
       publicationsystem:Title: Lorem Ipsum Dolor 2002
     /2002[2]:
       common:FacetType: publication
+      common:orderedSearchDate: 1012521600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -53,6 +55,7 @@
       publicationsystem:Title: Lorem Ipsum Dolor 2002
     /2002[3]:
       common:FacetType: publication
+      common:orderedSearchDate: 1012521600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -85,6 +88,7 @@
   /2003:
     /2003[1]:
       common:FacetType: publication
+      common:orderedSearchDate: 1044057600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -109,6 +113,7 @@
       publicationsystem:Title: Lorem Ipsum Dolor 2003
     /2003[2]:
       common:FacetType: publication
+      common:orderedSearchDate: 1044057600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -135,6 +140,7 @@
       publicationsystem:Title: Lorem Ipsum Dolor 2003
     /2003[3]:
       common:FacetType: publication
+      common:orderedSearchDate: 1044057600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -167,6 +173,7 @@
   /2004:
     /2004[1]:
       common:FacetType: publication
+      common:orderedSearchDate: 1075593600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -191,6 +198,7 @@
       publicationsystem:Title: Lorem Ipsum Dolor 2004
     /2004[2]:
       common:FacetType: publication
+      common:orderedSearchDate: 1075593600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -217,6 +225,7 @@
       publicationsystem:Title: Lorem Ipsum Dolor 2004
     /2004[3]:
       common:FacetType: publication
+      common:orderedSearchDate: 1075593600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:

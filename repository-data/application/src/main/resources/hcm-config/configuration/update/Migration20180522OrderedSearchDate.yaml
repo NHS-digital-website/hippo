@@ -1,0 +1,15 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/Migration-20180522-OrderedSearchDate:
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root/content/documents/corporate-website//*[@publicationsystem:NominalDate]
+      hipposys:script:
+        resource: /configuration/update/Migration20180522OrderedSearchDate.groovy
+        type: string
+      hipposys:throttle: 100
+      jcr:primaryType: hipposys:updaterinfo

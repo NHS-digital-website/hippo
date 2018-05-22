@@ -9,6 +9,7 @@
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
       common:FacetType: publication
+      common:orderedSearchDate: 1357776000000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -41,6 +42,7 @@
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
       common:FacetType: publication
+      common:orderedSearchDate: 1357776000000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -75,6 +77,7 @@
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
       common:FacetType: publication
+      common:orderedSearchDate: 1357776000000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -113,6 +116,7 @@
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
       common:FacetType: publication
+      common:orderedSearchDate: 1389312000000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -145,6 +149,7 @@
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
       common:FacetType: publication
+      common:orderedSearchDate: 1389312000000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -179,6 +184,7 @@
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
       common:FacetType: publication
+      common:orderedSearchDate: 1389312000000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -217,6 +223,7 @@
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
       common:FacetType: publication
+      common:orderedSearchDate: 1420848000000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -249,6 +256,7 @@
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
       common:FacetType: publication
+      common:orderedSearchDate: 1420848000000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -283,6 +291,7 @@
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
       common:FacetType: publication
+      common:orderedSearchDate: 1420848000000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -321,6 +330,7 @@
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
       common:FacetType: publication
+      common:orderedSearchDate: 1452384000000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -353,6 +363,7 @@
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
       common:FacetType: publication
+      common:orderedSearchDate: 1452384000000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -385,6 +396,7 @@
   /2018---upcoming:
     /2018---upcoming[1]:
       common:FacetType: publication
+      common:orderedSearchDate: -1525388400000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -412,6 +424,7 @@
       publicationsystem:Title: 2018 - Upcoming
     /2018---upcoming[2]:
       common:FacetType: publication
+      common:orderedSearchDate: -1525388400000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -441,6 +454,7 @@
       publicationsystem:Title: 2018 - Upcoming
     /2018---upcoming[3]:
       common:FacetType: publication
+      common:orderedSearchDate: -1525388400000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -476,6 +490,7 @@
   /2019---upcoming:
     /2019---upcoming[1]:
       common:FacetType: publication
+      common:orderedSearchDate: -1548892800000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -504,6 +519,7 @@
       publicationsystem:Title: 2019 - Upcoming
     /2019---upcoming[2]:
       common:FacetType: publication
+      common:orderedSearchDate: -1548892800000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -531,6 +547,7 @@
       publicationsystem:Title: 2019 - Upcoming
     /2019---upcoming[3]:
       common:FacetType: publication
+      common:orderedSearchDate: -1548892800000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -566,6 +583,7 @@
   /2020---upcoming:
     /2020---upcoming[1]:
       common:FacetType: publication
+      common:orderedSearchDate: -1577836800000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -594,6 +612,7 @@
       publicationsystem:Title: 2020 - Upcoming
     /2020---upcoming[2]:
       common:FacetType: publication
+      common:orderedSearchDate: -1577836800000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -621,6 +640,7 @@
       publicationsystem:Title: 2020 - Upcoming
     /2020---upcoming[3]:
       common:FacetType: publication
+      common:orderedSearchDate: -1577836800000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -656,6 +676,7 @@
   /2021---upcoming:
     /2021---upcoming[1]:
       common:FacetType: publication
+      common:orderedSearchDate: -1609459200000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -684,6 +705,7 @@
       publicationsystem:Title: 2021 - Upcoming
     /2021---upcoming[2]:
       common:FacetType: publication
+      common:orderedSearchDate: -1609459200000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -711,6 +733,7 @@
       publicationsystem:Title: 2021 - Upcoming
     /2021---upcoming[3]:
       common:FacetType: publication
+      common:orderedSearchDate: -1609459200000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -746,6 +769,7 @@
   /2022---upcoming:
     /2022---upcoming[1]:
       common:FacetType: publication
+      common:orderedSearchDate: -1640995200000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -774,6 +798,7 @@
       publicationsystem:Title: 2022 - Upcoming
     /2022---upcoming[2]:
       common:FacetType: publication
+      common:orderedSearchDate: -1640995200000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -801,6 +826,7 @@
       publicationsystem:Title: 2022 - Upcoming
     /2022---upcoming[3]:
       common:FacetType: publication
+      common:orderedSearchDate: -1640995200000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:

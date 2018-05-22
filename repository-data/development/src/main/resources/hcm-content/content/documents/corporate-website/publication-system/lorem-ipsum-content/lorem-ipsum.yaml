@@ -7,6 +7,7 @@
     - conditions
     common:SearchableTags:
     - Infectious diseases
+    common:orderedSearchDate: 1496275200000
     common:searchRank: 4
     common:searchable: true
     hippo:availability: []
@@ -45,6 +46,7 @@
     - conditions
     common:SearchableTags:
     - Infectious diseases
+    common:orderedSearchDate: 1496275200000
     common:searchRank: 4
     common:searchable: true
     hippo:availability:
@@ -85,6 +87,7 @@
     - conditions
     common:SearchableTags:
     - Infectious diseases
+    common:orderedSearchDate: 1496275200000
     common:searchRank: 4
     common:searchable: true
     hippo:availability:

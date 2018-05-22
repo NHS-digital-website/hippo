@@ -10,6 +10,7 @@
     common:SearchableTags:
     - Falls
     - Circulatory system diseases
+    common:orderedSearchDate: 1496275200000
     common:searchRank: 4
     common:searchable: true
     hippo:availability: []
@@ -56,6 +57,7 @@
     common:SearchableTags:
     - Falls
     - Circulatory system diseases
+    common:orderedSearchDate: 1496275200000
     common:searchRank: 4
     common:searchable: true
     hippo:availability:
@@ -104,6 +106,7 @@
     common:SearchableTags:
     - Falls
     - Circulatory system diseases
+    common:orderedSearchDate: 1496275200000
     common:searchRank: 4
     common:searchable: true
     hippo:availability:

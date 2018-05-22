@@ -16,6 +16,9 @@
       /publicationsystem:KeyFactImages[1]:
         /publicationsystem:image:
           hippo:filename: robot.jpeg
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/content/content[1]/KeyFactImages[1]/image/text.jpg
+            type: binary
           jcr:data:
             resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/content/content[1]/KeyFactImages[1]/image/data.jpg
             type: binary
@@ -45,6 +48,7 @@
         publicationsystem:caption: ''
         publicationsystem:link: ''
       common:FacetType: publication
+      common:orderedSearchDate: 1523318400000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -109,6 +113,7 @@
         publicationsystem:caption: ''
         publicationsystem:link: ''
       common:FacetType: publication
+      common:orderedSearchDate: 1523318400000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -175,6 +180,7 @@
         publicationsystem:caption: ''
         publicationsystem:link: ''
       common:FacetType: publication
+      common:orderedSearchDate: 1523318400000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -751,6 +757,7 @@
   /dataset:
     /dataset[1]:
       common:FacetType: dataset
+      common:orderedSearchDate: 1523318400000
       common:searchRank: 3
       common:searchable: true
       hippo:availability: []
@@ -773,6 +780,7 @@
       publicationsystem:Title: Dataset
     /dataset[2]:
       common:FacetType: dataset
+      common:orderedSearchDate: 1523318400000
       common:searchRank: 3
       common:searchable: true
       hippo:availability:
@@ -797,6 +805,7 @@
       publicationsystem:Title: Dataset
     /dataset[3]:
       common:FacetType: dataset
+      common:orderedSearchDate: 1523318400000
       common:searchRank: 3
       common:searchable: true
       hippo:availability:

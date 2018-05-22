@@ -125,6 +125,7 @@
   /content:
     /content[1]:
       common:FacetType: publication
+      common:orderedSearchDate: 1515369600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -149,6 +150,7 @@
       publicationsystem:Title: Search Weights Publication
     /content[2]:
       common:FacetType: publication
+      common:orderedSearchDate: 1515369600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -175,6 +177,7 @@
       publicationsystem:Title: Search Weights Publication
     /content[3]:
       common:FacetType: publication
+      common:orderedSearchDate: 1515369600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -205,6 +208,7 @@
   /dataset-summary:
     /dataset-summary[1]:
       common:FacetType: dataset
+      common:orderedSearchDate: 1520726400000
       common:searchRank: 3
       common:searchable: true
       hippo:availability:
@@ -228,6 +232,7 @@
       publicationsystem:Title: Search Test Dataset Summary Mar 18
     /dataset-summary[2]:
       common:FacetType: dataset
+      common:orderedSearchDate: 1520726400000
       common:searchRank: 3
       common:searchable: true
       hippo:availability:
@@ -252,6 +257,7 @@
       publicationsystem:Title: Search Test Dataset Summary Mar 18
     /dataset-summary[3]:
       common:FacetType: dataset
+      common:orderedSearchDate: 1520726400000
       common:searchRank: 3
       common:searchable: true
       hippo:availability: []
@@ -280,6 +286,7 @@
   /dataset-title:
     /dataset-title[1]:
       common:FacetType: dataset
+      common:orderedSearchDate: 1515369600000
       common:searchRank: 3
       common:searchable: true
       hippo:availability: []
@@ -302,6 +309,7 @@
       publicationsystem:Title: "Search Test Dataset Title Jan 18\r\nWeightSearchTerm"
     /dataset-title[2]:
       common:FacetType: dataset
+      common:orderedSearchDate: 1515369600000
       common:searchRank: 3
       common:searchable: true
       hippo:availability:
@@ -326,6 +334,7 @@
       publicationsystem:Title: "Search Test Dataset Title Jan 18\r\nWeightSearchTerm"
     /dataset-title[3]:
       common:FacetType: dataset
+      common:orderedSearchDate: 1515369600000
       common:searchRank: 3
       common:searchable: true
       hippo:availability:
@@ -356,6 +365,7 @@
   /publication-key-facts:
     /publication-key-facts[1]:
       common:FacetType: publication
+      common:orderedSearchDate: 1518480000000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -381,6 +391,7 @@
       publicationsystem:Title: Search Test Publication Key Facts Feb 18
     /publication-key-facts[2]:
       common:FacetType: publication
+      common:orderedSearchDate: 1518480000000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -405,6 +416,7 @@
       publicationsystem:Title: Search Test Publication Key Facts Feb 18
     /publication-key-facts[3]:
       common:FacetType: publication
+      common:orderedSearchDate: 1518480000000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -437,6 +449,7 @@
   /publication-summary:
     /publication-summary[1]:
       common:FacetType: publication
+      common:orderedSearchDate: 1523401200000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -462,6 +475,7 @@
       publicationsystem:Title: Search Test Publication Summary Apr 18
     /publication-summary[2]:
       common:FacetType: publication
+      common:orderedSearchDate: 1523401200000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -486,6 +500,7 @@
       publicationsystem:Title: Search Test Publication Summary Apr 18
     /publication-summary[3]:
       common:FacetType: publication
+      common:orderedSearchDate: 1523401200000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -518,6 +533,7 @@
   /publication-title:
     /publication-title[1]:
       common:FacetType: publication
+      common:orderedSearchDate: 1514678400000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -542,6 +558,7 @@
       publicationsystem:Title: "Search Test Publication Title Dec 17\r\nWeightSearchTerm"
     /publication-title[2]:
       common:FacetType: publication
+      common:orderedSearchDate: 1514678400000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -568,6 +585,7 @@
       publicationsystem:Title: "Search Test Publication Title Dec 17\r\nWeightSearchTerm"
     /publication-title[3]:
       common:FacetType: publication
+      common:orderedSearchDate: 1514678400000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:

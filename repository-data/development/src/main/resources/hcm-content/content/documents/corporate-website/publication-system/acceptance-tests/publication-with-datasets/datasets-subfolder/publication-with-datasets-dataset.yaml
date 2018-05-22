@@ -28,6 +28,7 @@
     - conditions
     common:SearchableTags:
     - Conditions
+    common:orderedSearchDate: 1507593600000
     common:searchRank: 3
     common:searchable: true
     hippo:availability:
@@ -95,6 +96,7 @@
     - conditions
     common:SearchableTags:
     - Conditions
+    common:orderedSearchDate: 1507593600000
     common:searchRank: 3
     common:searchable: true
     hippo:availability: []
@@ -161,6 +163,7 @@
     - conditions
     common:SearchableTags:
     - Conditions
+    common:orderedSearchDate: 1507593600000
     common:searchRank: 3
     common:searchable: true
     hippo:availability:

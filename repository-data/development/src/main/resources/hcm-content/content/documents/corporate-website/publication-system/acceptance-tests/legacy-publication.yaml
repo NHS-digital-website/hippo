@@ -106,6 +106,7 @@
             <p>Nulla non urna id arcu ullamcorper malesuada. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sodales fermentum nisi. Fusce dignissim orci sit amet imperdiet dapibus. Cras sed arcu nec lorem malesuada gravida.</p>
           jcr:primaryType: hippostd:html
         common:FacetType: publication
+        common:orderedSearchDate: 1518566400000
         common:searchRank: 4
         common:searchable: true
         hippo:availability: []
@@ -188,6 +189,7 @@
             <p>Nulla non urna id arcu ullamcorper malesuada. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sodales fermentum nisi. Fusce dignissim orci sit amet imperdiet dapibus. Cras sed arcu nec lorem malesuada gravida.</p>
           jcr:primaryType: hippostd:html
         common:FacetType: publication
+        common:orderedSearchDate: 1518566400000
         common:searchRank: 4
         common:searchable: true
         hippo:availability:
@@ -272,6 +274,7 @@
             <p>Nulla non urna id arcu ullamcorper malesuada. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sodales fermentum nisi. Fusce dignissim orci sit amet imperdiet dapibus. Cras sed arcu nec lorem malesuada gravida.</p>
           jcr:primaryType: hippostd:html
         common:FacetType: publication
+        common:orderedSearchDate: 1518566400000
         common:searchRank: 4
         common:searchable: true
         hippo:availability:

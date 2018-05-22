@@ -4,6 +4,7 @@
     /content:
       /content[1]:
         common:FacetType: publication
+        common:orderedSearchDate: 1514764800000
         common:searchRank: 4
         common:searchable: true
         hippo:availability: []
@@ -36,6 +37,7 @@
         publicationsystem:Title: Facets Other Publication
       /content[2]:
         common:FacetType: publication
+        common:orderedSearchDate: 1514764800000
         common:searchRank: 4
         common:searchable: true
         hippo:availability:
@@ -70,6 +72,7 @@
         publicationsystem:Title: Facets Other Publication
       /content[3]:
         common:FacetType: publication
+        common:orderedSearchDate: 1514764800000
         common:searchRank: 4
         common:searchable: true
         hippo:availability:
@@ -128,6 +131,7 @@
         common:SearchableTags:
         - Falls
         - Social care
+        common:orderedSearchDate: 1512086400000
         common:searchRank: 4
         common:searchable: true
         hippo:availability: []
@@ -171,6 +175,7 @@
         common:SearchableTags:
         - Falls
         - Social care
+        common:orderedSearchDate: 1512086400000
         common:searchRank: 4
         common:searchable: true
         hippo:availability:
@@ -216,6 +221,7 @@
         common:SearchableTags:
         - Falls
         - Social care
+        common:orderedSearchDate: 1512086400000
         common:searchRank: 4
         common:searchable: true
         hippo:availability:
@@ -265,6 +271,7 @@
         common:SearchableTags:
         - Bowel cancer
         - Social care
+        common:orderedSearchDate: 1516147200000
         common:searchRank: 3
         common:searchable: true
         hippo:availability: []
@@ -303,6 +310,7 @@
         common:SearchableTags:
         - Bowel cancer
         - Social care
+        common:orderedSearchDate: 1516147200000
         common:searchRank: 3
         common:searchable: true
         hippo:availability:
@@ -343,6 +351,7 @@
         common:SearchableTags:
         - Bowel cancer
         - Social care
+        common:orderedSearchDate: 1516147200000
         common:searchRank: 3
         common:searchable: true
         hippo:availability:

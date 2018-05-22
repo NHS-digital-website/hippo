@@ -10,6 +10,7 @@
       - SynonymTest Test
       - Other Synonym
       - SynonymSearchTerm
+      common:orderedSearchDate: 1519084800000
       common:searchRank: 3
       common:searchable: true
       hippo:availability: []
@@ -41,6 +42,7 @@
       - SynonymTest Test
       - Other Synonym
       - SynonymSearchTerm
+      common:orderedSearchDate: 1519084800000
       common:searchRank: 3
       common:searchable: true
       hippo:availability:
@@ -74,6 +76,7 @@
       - SynonymTest Test
       - Other Synonym
       - SynonymSearchTerm
+      common:orderedSearchDate: 1519084800000
       common:searchRank: 3
       common:searchable: true
       hippo:availability:
@@ -111,6 +114,7 @@
       - acceptance-tests
       common:SearchableTags:
       - TaxonomySearchTerm test
+      common:orderedSearchDate: 1519084800000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -142,6 +146,7 @@
       - acceptance-tests
       common:SearchableTags:
       - TaxonomySearchTerm test
+      common:orderedSearchDate: 1519084800000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -175,6 +180,7 @@
       - acceptance-tests
       common:SearchableTags:
       - TaxonomySearchTerm test
+      common:orderedSearchDate: 1519084800000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:

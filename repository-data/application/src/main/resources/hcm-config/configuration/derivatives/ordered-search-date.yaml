@@ -1,0 +1,21 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:derivatives/ordered-search-date:
+      /hipposys:accessed:
+        /date:
+          hipposys:relPath: publicationsystem:NominalDate
+          jcr:primaryType: hipposys:relativepropertyreference
+        /publiclyAccessible:
+          hipposys:relPath: publicationsystem:PubliclyAccessible
+          jcr:primaryType: hipposys:relativepropertyreference
+        jcr:primaryType: hipposys:propertyreferences
+      /hipposys:derived:
+        /orderedSearchDate:
+          hipposys:relPath: common:orderedSearchDate
+          jcr:primaryType: hipposys:relativepropertyreference
+        jcr:primaryType: hipposys:propertyreferences
+      hipposys:classname: uk.nhs.digital.common.OrderedSearchDateDerivedDataFunction
+      hipposys:nodetype: publicationsystem:basedocument
+      hipposys:serialver: 1
+      jcr:primaryType: hipposys:deriveddefinition

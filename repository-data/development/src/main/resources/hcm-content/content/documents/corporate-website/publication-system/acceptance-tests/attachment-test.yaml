@@ -39,6 +39,7 @@
         jcr:primaryType: publicationsystem:extattachment
         publicationsystem:displayName: ''
       common:FacetType: dataset
+      common:orderedSearchDate: 1524697200000
       common:searchRank: 3
       common:searchable: true
       hippo:availability:
@@ -99,6 +100,7 @@
         jcr:primaryType: publicationsystem:extattachment
         publicationsystem:displayName: ''
       common:FacetType: dataset
+      common:orderedSearchDate: 1524697200000
       common:searchRank: 3
       common:searchable: true
       hippo:availability:
@@ -160,6 +162,7 @@
         jcr:primaryType: publicationsystem:extattachment
         publicationsystem:displayName: ''
       common:FacetType: dataset
+      common:orderedSearchDate: 1524697200000
       common:searchRank: 3
       common:searchable: true
       hippo:availability: []
@@ -225,6 +228,7 @@
         jcr:primaryType: publicationsystem:extattachment
         publicationsystem:displayName: ''
       common:FacetType: dataset
+      common:orderedSearchDate: 1524697200000
       common:searchRank: 3
       common:searchable: true
       hippo:availability:
@@ -285,6 +289,7 @@
         jcr:primaryType: publicationsystem:extattachment
         publicationsystem:displayName: ''
       common:FacetType: dataset
+      common:orderedSearchDate: 1524697200000
       common:searchRank: 3
       common:searchable: true
       hippo:availability: []
@@ -351,6 +356,7 @@
         jcr:primaryType: publicationsystem:extattachment
         publicationsystem:displayName: ''
       common:FacetType: dataset
+      common:orderedSearchDate: 1524697200000
       common:searchRank: 3
       common:searchable: true
       hippo:availability: []
@@ -410,6 +416,7 @@
         jcr:primaryType: publicationsystem:extattachment
         publicationsystem:displayName: ''
       common:FacetType: dataset
+      common:orderedSearchDate: 1524697200000
       common:searchRank: 3
       common:searchable: true
       hippo:availability:

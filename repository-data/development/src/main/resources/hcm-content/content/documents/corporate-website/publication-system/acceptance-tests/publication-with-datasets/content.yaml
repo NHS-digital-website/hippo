@@ -32,6 +32,7 @@
     - people,-patients-and-geography
     common:SearchableTags:
     - People, patients and geography
+    common:orderedSearchDate: 1602374400000
     common:searchRank: 4
     common:searchable: true
     hippo:availability: []
@@ -118,6 +119,7 @@
     - people,-patients-and-geography
     common:SearchableTags:
     - People, patients and geography
+    common:orderedSearchDate: 1602374400000
     common:searchRank: 4
     common:searchable: true
     hippo:availability:
@@ -206,6 +208,7 @@
     - people,-patients-and-geography
     common:SearchableTags:
     - People, patients and geography
+    common:orderedSearchDate: 1602374400000
     common:searchRank: 4
     common:searchable: true
     hippo:availability:

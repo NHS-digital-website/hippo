@@ -2,6 +2,7 @@
 /content/documents/corporate-website/publication-system/acceptance-tests/publication-rich/content:
   /content[1]:
     common:FacetType: publication
+    common:orderedSearchDate: 1476057600000
     common:searchRank: 4
     common:searchable: true
     hippo:availability: []
@@ -69,6 +70,7 @@
     publicationsystem:Title: publication with rich content
   /content[2]:
     common:FacetType: publication
+    common:orderedSearchDate: 1476057600000
     common:searchRank: 4
     common:searchable: true
     hippo:availability:
@@ -138,6 +140,7 @@
     publicationsystem:Title: publication with rich content
   /content[3]:
     common:FacetType: publication
+    common:orderedSearchDate: 1476057600000
     common:searchRank: 4
     common:searchable: true
     hippo:availability:

@@ -3,6 +3,7 @@
   /dataset-without-publication:
     /dataset-without-publication[1]:
       common:FacetType: dataset
+      common:orderedSearchDate: 1517529600000
       common:searchRank: 3
       common:searchable: true
       hippo:availability: []
@@ -25,6 +26,7 @@
       publicationsystem:Title: Dataset without publication
     /dataset-without-publication[2]:
       common:FacetType: dataset
+      common:orderedSearchDate: 1517529600000
       common:searchRank: 3
       common:searchable: true
       hippo:availability:
@@ -49,6 +51,7 @@
       publicationsystem:Title: Dataset without publication
     /dataset-without-publication[3]:
       common:FacetType: dataset
+      common:orderedSearchDate: 1517529600000
       common:searchRank: 3
       common:searchable: true
       hippo:availability:

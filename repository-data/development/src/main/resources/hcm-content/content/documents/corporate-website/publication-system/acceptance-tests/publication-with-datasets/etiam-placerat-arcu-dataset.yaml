@@ -2,6 +2,7 @@
 ? /content/documents/corporate-website/publication-system/acceptance-tests/publication-with-datasets/etiam-placerat-arcu-dataset
 : /etiam-placerat-arcu-dataset[1]:
     common:FacetType: dataset
+    common:orderedSearchDate: 1507593600000
     common:searchRank: 3
     common:searchable: true
     hippo:availability: []
@@ -31,6 +32,7 @@
     publicationsystem:Title: Etiam Placerat Arcu Dataset
   /etiam-placerat-arcu-dataset[2]:
     common:FacetType: dataset
+    common:orderedSearchDate: 1507593600000
     common:searchRank: 3
     common:searchable: true
     hippo:availability:
@@ -62,6 +64,7 @@
     publicationsystem:Title: Etiam Placerat Arcu Dataset
   /etiam-placerat-arcu-dataset[3]:
     common:FacetType: dataset
+    common:orderedSearchDate: 1507593600000
     common:searchRank: 3
     common:searchable: true
     hippo:availability:

@@ -2,6 +2,7 @@
 /content/documents/corporate-website/publication-system/acceptance-tests/upcoming-publication/content:
   /content[1]:
     common:FacetType: publication
+    common:orderedSearchDate: -1507593600000
     common:searchRank: 4
     common:searchable: true
     hippo:availability: []
@@ -43,6 +44,7 @@
     publicationsystem:Title: Upcoming Publication
   /content[2]:
     common:FacetType: publication
+    common:orderedSearchDate: -1507593600000
     common:searchRank: 4
     common:searchable: true
     hippo:availability:
@@ -86,6 +88,7 @@
     publicationsystem:Title: Upcoming Publication
   /content[3]:
     common:FacetType: publication
+    common:orderedSearchDate: -1507593600000
     common:searchRank: 4
     common:searchable: true
     hippo:availability:

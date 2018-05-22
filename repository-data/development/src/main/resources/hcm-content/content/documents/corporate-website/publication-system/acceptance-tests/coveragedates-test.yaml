@@ -2,6 +2,7 @@
 /content/documents/corporate-website/publication-system/acceptance-tests/coveragedates-test:
   /coverage-test:
     /coverage-test[1]:
+      common:orderedSearchDate: 1517184000000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -25,6 +26,7 @@
       publicationsystem:Summary: Coverage dates Document
       publicationsystem:Title: Coverage dates Document
     /coverage-test[2]:
+      common:orderedSearchDate: 1517184000000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -50,6 +52,7 @@
       publicationsystem:Summary: Coverage dates Document
       publicationsystem:Title: Coverage dates Document
     /coverage-test[3]:
+      common:orderedSearchDate: 1517184000000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:

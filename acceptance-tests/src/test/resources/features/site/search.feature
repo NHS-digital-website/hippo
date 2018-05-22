@@ -99,6 +99,17 @@ Feature: Basic search
         When I can click on the "Order by relevance" link
         Then I should see the weight search test results ordered by relevance
 
+    Scenario: Upcoming publications are ordered correctly in increasing date order
+        Given I navigate to the "search" page
+        When I click on the "Upcoming" link
+        And I click on the "National statistics" link
+        Then I should see search results starting with:
+            | 2018 - Upcoming |
+            | 2019 - Upcoming |
+            | 2020 - Upcoming |
+            | 2021 - Upcoming |
+            | 2022 - Upcoming |
+
     Scenario: Search results description is shown correctly with and without search terms
         When I navigate to the "search" page
         Then I can see the search description matching "\d+ results sorted by relevance\."
