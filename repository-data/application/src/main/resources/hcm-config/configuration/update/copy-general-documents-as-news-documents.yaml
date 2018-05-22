@@ -1,0 +1,16 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/copy-general-documents-as-news-documents:
+      hipposys:batchsize: 100
+      hipposys:description: Copy general documents as news documents
+      hipposys:dryrun: false
+      hipposys:parameters: ' {"replacePathFrom": "/content/documents/corporate-website/general"
+        , "replacePathTo": "content/documents/corporate-website/general2" }'
+      hipposys:query: /jcr:root/content/documents/corporate-website/general//element(*,
+        website:general)[@hippostd:state = 'draft']
+      hipposys:script:
+        resource: /configuration/update/copy-general-documents-as-news-documents.groovy
+        type: string
+      hipposys:throttle: 10
+      jcr:primaryType: hipposys:updaterinfo
