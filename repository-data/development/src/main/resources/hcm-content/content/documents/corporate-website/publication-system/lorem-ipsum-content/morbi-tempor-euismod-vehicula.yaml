@@ -6,6 +6,7 @@
     - workforce
     common:SearchableTags:
     - Workforce
+    common:orderedSearchDate: 1496275200000
     common:searchRank: 4
     common:searchable: true
     hippo:availability: []
@@ -45,6 +46,7 @@
     - workforce
     common:SearchableTags:
     - Workforce
+    common:orderedSearchDate: 1496275200000
     common:searchRank: 4
     common:searchable: true
     hippo:availability:
@@ -86,6 +88,7 @@
     - workforce
     common:SearchableTags:
     - Workforce
+    common:orderedSearchDate: 1496275200000
     common:searchRank: 4
     common:searchable: true
     hippo:availability:

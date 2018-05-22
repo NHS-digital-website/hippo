@@ -3,6 +3,7 @@
   /bare-minimum-dataset:
     /bare-minimum-dataset[1]:
       common:FacetType: dataset
+      common:orderedSearchDate: 1515369600000
       common:searchRank: 3
       common:searchable: true
       hippo:availability: []
@@ -25,6 +26,7 @@
       publicationsystem:Title: Bare Minimum Dataset
     /bare-minimum-dataset[2]:
       common:FacetType: dataset
+      common:orderedSearchDate: 1515369600000
       common:searchRank: 3
       common:searchable: true
       hippo:availability:
@@ -49,6 +51,7 @@
       publicationsystem:Title: Bare Minimum Dataset
     /bare-minimum-dataset[3]:
       common:FacetType: dataset
+      common:orderedSearchDate: 1515369600000
       common:searchRank: 3
       common:searchable: true
       hippo:availability:
@@ -79,6 +82,7 @@
   /content:
     /content[1]:
       common:FacetType: publication
+      common:orderedSearchDate: 1515369600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -103,6 +107,7 @@
       publicationsystem:Title: Bare Minimum Publication
     /content[2]:
       common:FacetType: publication
+      common:orderedSearchDate: 1515369600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -129,6 +134,7 @@
       publicationsystem:Title: Bare Minimum Publication
     /content[3]:
       common:FacetType: publication
+      common:orderedSearchDate: 1515369600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:

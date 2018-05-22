@@ -11,6 +11,7 @@
       common:SearchableTags:
       - Circulatory system diseases
       - Major accidents
+      common:orderedSearchDate: 1531353600000
       common:searchRank: 3
       common:searchable: true
       hippo:availability: []
@@ -48,6 +49,7 @@
       common:SearchableTags:
       - Circulatory system diseases
       - Major accidents
+      common:orderedSearchDate: 1531353600000
       common:searchRank: 3
       common:searchable: true
       hippo:availability:
@@ -87,6 +89,7 @@
       common:SearchableTags:
       - Circulatory system diseases
       - Major accidents
+      common:orderedSearchDate: 1531353600000
       common:searchRank: 3
       common:searchable: true
       hippo:availability:
@@ -124,6 +127,7 @@
   /publication-fields-test:
     /publication-fields-test[1]:
       common:FacetType: publication
+      common:orderedSearchDate: 1515369600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -154,6 +158,7 @@
       publicationsystem:Title: Publication fields titleTestApricots
     /publication-fields-test[2]:
       common:FacetType: publication
+      common:orderedSearchDate: 1515369600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -186,6 +191,7 @@
       publicationsystem:Title: Publication fields titleTestApricots
     /publication-fields-test[3]:
       common:FacetType: publication
+      common:orderedSearchDate: 1515369600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:

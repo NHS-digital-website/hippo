@@ -8,6 +8,7 @@
     - accidents-and-injuries
     common:SearchableTags:
     - Falls
+    common:orderedSearchDate: 1496275200000
     common:searchRank: 4
     common:searchable: true
     hippo:availability: []
@@ -49,6 +50,7 @@
     - accidents-and-injuries
     common:SearchableTags:
     - Falls
+    common:orderedSearchDate: 1496275200000
     common:searchRank: 4
     common:searchable: true
     hippo:availability:
@@ -92,6 +94,7 @@
     - accidents-and-injuries
     common:SearchableTags:
     - Falls
+    common:orderedSearchDate: 1496275200000
     common:searchRank: 4
     common:searchable: true
     hippo:availability:

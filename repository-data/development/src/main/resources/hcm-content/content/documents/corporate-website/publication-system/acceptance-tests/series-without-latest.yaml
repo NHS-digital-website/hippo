@@ -3,6 +3,7 @@
   /2017:
     /2017[1]:
       common:FacetType: publication
+      common:orderedSearchDate: 1487721600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -27,6 +28,7 @@
       publicationsystem:Title: Publication 2017
     /2017[2]:
       common:FacetType: publication
+      common:orderedSearchDate: 1487721600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -53,6 +55,7 @@
       publicationsystem:Title: Publication 2017
     /2017[3]:
       common:FacetType: publication
+      common:orderedSearchDate: 1487721600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -83,6 +86,7 @@
   /2018:
     /2018[1]:
       common:FacetType: publication
+      common:orderedSearchDate: 1519257600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -107,6 +111,7 @@
       publicationsystem:Title: A publication 2018
     /2018[2]:
       common:FacetType: publication
+      common:orderedSearchDate: 1519257600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -133,6 +138,7 @@
       publicationsystem:Title: A publication 2018
     /2018[3]:
       common:FacetType: publication
+      common:orderedSearchDate: 1519257600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -163,6 +169,7 @@
   /2019:
     /2019[1]:
       common:FacetType: publication
+      common:orderedSearchDate: 1550793600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -187,6 +194,7 @@
       publicationsystem:Title: Latest 2019
     /2019[2]:
       common:FacetType: publication
+      common:orderedSearchDate: 1550793600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -213,6 +221,7 @@
       publicationsystem:Title: Latest 2019
     /2019[3]:
       common:FacetType: publication
+      common:orderedSearchDate: 1550793600000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -243,13 +252,14 @@
   /2020-upcoming:
     /2020-upcoming[1]:
       common:FacetType: publication
+      common:orderedSearchDate: -1577836800000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-05-04T15:02:02.672Z
-      hippostdpubwf:lastModificationDate: 2018-05-04T15:02:02.673Z
+      hippostdpubwf:lastModificationDate: 2018-05-22T15:48:54.490Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: d2d8c97d-a309-4941-a2e1-4c7207bfa4bf
       hippotranslation:locale: en
@@ -262,12 +272,13 @@
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:GeographicCoverage: []
       publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2018-05-03T23:00:00Z
+      publicationsystem:NominalDate: 2020-01-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
       publicationsystem:Summary: 2020 Upcoming
       publicationsystem:Title: 2020 Upcoming
     /2020-upcoming[2]:
       common:FacetType: publication
+      common:orderedSearchDate: -1577836800000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -275,7 +286,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-05-04T15:02:02.672Z
-      hippostdpubwf:lastModificationDate: 2018-05-04T15:02:37.837Z
+      hippostdpubwf:lastModificationDate: 2018-05-22T15:49:08.100Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: d2d8c97d-a309-4941-a2e1-4c7207bfa4bf
       hippotranslation:locale: en
@@ -289,12 +300,13 @@
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:GeographicCoverage: []
       publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2018-05-03T23:00:00Z
+      publicationsystem:NominalDate: 2020-01-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
       publicationsystem:Summary: 2020 Upcoming
       publicationsystem:Title: 2020 Upcoming
     /2020-upcoming[3]:
       common:FacetType: publication
+      common:orderedSearchDate: -1577836800000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -302,9 +314,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-05-04T15:02:02.672Z
-      hippostdpubwf:lastModificationDate: 2018-05-04T15:02:37.837Z
+      hippostdpubwf:lastModificationDate: 2018-05-22T15:49:08.100Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-05-04T15:03:05.109Z
+      hippostdpubwf:publicationDate: 2018-05-22T15:49:13.332Z
       hippotranslation:id: d2d8c97d-a309-4941-a2e1-4c7207bfa4bf
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -316,7 +328,7 @@
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:GeographicCoverage: []
       publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2018-05-03T23:00:00Z
+      publicationsystem:NominalDate: 2020-01-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
       publicationsystem:Summary: 2020 Upcoming
       publicationsystem:Title: 2020 Upcoming

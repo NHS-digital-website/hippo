@@ -12,6 +12,7 @@
     - Falls
     - Infectious diseases
     - Workforce
+    common:orderedSearchDate: 1496275200000
     common:searchRank: 4
     common:searchable: true
     hippo:availability: []
@@ -58,6 +59,7 @@
     - Falls
     - Infectious diseases
     - Workforce
+    common:orderedSearchDate: 1496275200000
     common:searchRank: 4
     common:searchable: true
     hippo:availability:
@@ -106,6 +108,7 @@
     - Falls
     - Infectious diseases
     - Workforce
+    common:orderedSearchDate: 1496275200000
     common:searchRank: 4
     common:searchable: true
     hippo:availability:

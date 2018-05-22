@@ -2,6 +2,7 @@
 ? /content/documents/corporate-website/publication-system/acceptance-tests/series-with-publication-with-datasets/series-publication-with-datasets/content
 : /content[1]:
     common:FacetType: publication
+    common:orderedSearchDate: 1507593600000
     common:searchRank: 4
     common:searchable: true
     hippo:availability: []
@@ -41,6 +42,7 @@
     publicationsystem:Title: series publication with datasets
   /content[2]:
     common:FacetType: publication
+    common:orderedSearchDate: 1507593600000
     common:searchRank: 4
     common:searchable: true
     hippo:availability:
@@ -82,6 +84,7 @@
     publicationsystem:Title: series publication with datasets
   /content[3]:
     common:FacetType: publication
+    common:orderedSearchDate: 1507593600000
     common:searchRank: 4
     common:searchable: true
     hippo:availability:

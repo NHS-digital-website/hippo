@@ -60,6 +60,7 @@ public class SearchComponent extends CommonComponent {
     private static final String FOLDER_NIL = "national-indicator-library";
 
     private static final String PROPERTY_SEARCH_RANK = "common:searchRank";
+    private static final String PROPERTY_ORDERED_SEARCH_DATE = "common:orderedSearchDate";
 
     private static final int PAGEABLE_SIZE = 5;
 
@@ -196,7 +197,7 @@ public class SearchComponent extends CommonComponent {
         switch (sortParam) {
             case SORT_DATE:
                 queryBuilder.orderByDescending(
-                    "publicationsystem:NominalDate",
+                    PROPERTY_ORDERED_SEARCH_DATE,
                     "nationalindicatorlibrary:assuranceDate",
                     PROPERTY_SEARCH_RANK,
                     HippoStdPubWfNodeType.HIPPOSTDPUBWF_LAST_MODIFIED_DATE);
@@ -205,7 +206,7 @@ public class SearchComponent extends CommonComponent {
                 // This is what we want for data and info - when we have tabs this will need to be made specific
                 queryBuilder.orderByDescending(
                     PROPERTY_SEARCH_RANK,
-                    "publicationsystem:NominalDate",
+                    PROPERTY_ORDERED_SEARCH_DATE,
                     "nationalindicatorlibrary:assuranceDate",
                     HippoStdPubWfNodeType.HIPPOSTDPUBWF_LAST_MODIFIED_DATE);
                 break;
@@ -248,7 +249,7 @@ public class SearchComponent extends CommonComponent {
                 scopeBeans.add(request.getRequestContext().getSiteContentBaseBean());
         }
 
-        return scopeBeans.toArray(new HippoBean[scopeBeans.size()]);
+        return scopeBeans.toArray(new HippoBean[0]);
     }
 
     private String getSortOption(HstRequest request) {
