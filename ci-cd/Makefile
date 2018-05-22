@@ -204,7 +204,7 @@ check.yaml:
 
 ## Notify the slack release channel of the commits in the upcoming release
 notify.slack:
-	curl -X POST --data-urlencode "payload={\"text\": \"Release to production tomorrow at 12:05 contains the following new changes:\n\n$(git log --format="* %s. [Author %an]" prd..rc)\"}" https://hooks.slack.com/services/${SLACK_HOOK_URL}
+	curl -X POST --data-urlencode "payload={\"text\": \"Release to production tomorrow at 12:05 contains the following new changes:\n\n$$(git log --format="* %s. [Author %an]" prd..rc)\"}" https://hooks.slack.com/services/${SLACK_HOOK_URL}
 
 ## Clean up
 clean:

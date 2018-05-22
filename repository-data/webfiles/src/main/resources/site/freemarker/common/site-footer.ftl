@@ -11,7 +11,7 @@
                         <div class="grid-row">
                             <div class="column column--one-half column--left">
                                 <nav class="site-footer__menu site-footer__menu--1">
-                                    <h3 class="list__header">About NHS Digital</h3>
+                                    <h2 class="list__header">About NHS Digital</h2>
                                     <ul class="list list--reset list--close">
                                         <li><a href="/about-nhs-digital">About us</a></li>
                                         <li><a href="/our-strategy">Our strategy</a></li>
@@ -25,7 +25,7 @@
 
                             <div class="column column--one-quarter">
                                 <nav class="site-footer__menu site-footer__menu--2">
-                                    <h3 class="list__header">Contact us</h3>
+                                    <h2 class="list__header">Contact us</h2>
                                     <div class="list">
                                         <div class="list__item">
                                             <span>Telephone:</span><br>

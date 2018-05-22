@@ -1,4 +1,5 @@
 @import "../environment/settings/colours";
+@import "../normalize/variables";
 @import "../environment/tools/mixins/typography";
 @import "../environment/settings/layout";
 @import "../environment/tools/mixins/_addons";
@@ -25,6 +26,15 @@ ol {
         &:first-child {
             margin-top: 0;
         }
+    }
+}
+
+.list-title {
+    @include bold-font($h3-font-size/1px);
+    margin-bottom: round($base-font-size * 0.75);
+
+    @include media(tablet) {
+        margin-bottom: $base-font-size;
     }
 }
 

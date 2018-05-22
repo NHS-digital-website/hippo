@@ -17,7 +17,10 @@
                 <#-- In case the childPage is not a compound but still a document in the cms, then create a link to it-->
                 <h2 class="cta__title"><a href="<@hst.link var=link hippobean=childPage />">${childPage.title}</a></h2>
                 </#if>
+                
+                <#if childPage.shortsummary?? && childPage.shortsummary?has_content>
                 <p class="cta__text">${childPage.shortsummary}</p>
+                </#if>
             </article>
         </div>
     <#if childPage?is_even_item || childPage?counter==childPages?size>
