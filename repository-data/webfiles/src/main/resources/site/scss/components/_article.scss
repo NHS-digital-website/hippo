@@ -1,11 +1,6 @@
 /* Article */
+.article--service,
 .article--general {
-    .article-section-nav {
-        padding-top: 10px;
-    }
-}
-
-.article--service {
     .article-section--summary {
         & > *:not(h2) {
             @include bold-font(18);

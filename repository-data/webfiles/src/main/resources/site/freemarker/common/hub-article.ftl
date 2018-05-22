@@ -43,7 +43,7 @@
                             <div class="cta-list cta-list--grid">
                                 <div class="grid-row">
                                     <div class="column column--reset">
-                                        <h3 class="list-title">${document.listtitle}</h3>
+                                        <h2 class="list-title">${document.listtitle}</h2>
                                     </div>
                                 </div>
 

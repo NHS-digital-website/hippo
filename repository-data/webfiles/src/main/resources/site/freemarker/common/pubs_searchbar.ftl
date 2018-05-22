@@ -11,7 +11,7 @@
 
 <section class="search-banner search-banner--short" aria-label="Search Bar">
     <div class="grid-wrapper grid-wrapper--collapse">
-        <form role="search" method="get" action="${searchLink}" class="search-banner__form">
+        <form role="search" method="get" action="${searchLink}" class="search-banner__form" id="search" title="search"  aria-label="search">
             <div>
                 <input type="text" name="query" id="query" class="search-banner__input" placeholder="${ghostText}" value="${query!""}" aria-label="Search box">
             </div>

@@ -11,6 +11,10 @@
 
 <article class="article article--general">
     <div class="grid-wrapper grid-wrapper--article">
+        <div class="local-header article-header">
+            <h1 class="local-header__title">${document.title}</h1>
+        </div>
+
         <div class="grid-row">
             <div class="column column--one-third page-block page-block--sidebar sticky sticky--top">
                 <div class="article-section-nav">
@@ -39,13 +43,14 @@
             </div>
 
             <div class="column column--two-thirds page-block page-block--main">
-                <div class="article-header article-header--secondary">
+                <#-- <div class="article-header article-header--secondary">
                     <h1 data-uipath="document.title">${document.title}</h1>
-                </div>
+                </div> -->
 
                 <#-- BEGIN optional 'summary section' -->
                 <#if document.summary?has_content>
                 <div id="section-summary" class="article-section article-section--summary article-section--reset-top">
+                    <h2>Summary</h2>
                     <p>${document.summary}</p>
                 </div>
                 </#if>

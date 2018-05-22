@@ -6,7 +6,7 @@
 <@fmt.message key="search-banner.buttonLabel" var="buttonLabel"/>
 <@fmt.message key="search-banner.title" var="searchTitle"/>
 
-<form role="search" method="get" action="${searchLink}" class="search-strip" aria-label="${searchTitle}">
+<form role="search" method="get" action="${searchLink}" class="search-strip" aria-label="${searchTitle}" id="search" title="search" aria-label="search">
     <div class="search-strip__contents">
         <div class="search-strip__table-cell">
             <input type="text" name="query" id="query" class="search-strip__input" placeholder="${buttonLabel}" value="${query!""}" aria-label="${buttonLabel}">
