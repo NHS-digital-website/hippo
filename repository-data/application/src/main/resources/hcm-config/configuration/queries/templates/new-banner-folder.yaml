@@ -1,0 +1,30 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:queries/hippo:templates/new-banner-folder:
+      /hippostd:templates:
+        /hippostd:folder:
+          hippostd:foldertype:
+          - new-banner-folder
+          - new-banner-document
+          hippotranslation:id: generated id
+          hippotranslation:locale: inherited locale
+          jcr:mixinTypes:
+          - hippotranslation:translated
+          - mix:referenceable
+          jcr:primaryType: hippostd:folder
+        jcr:primaryType: hippostd:templates
+      hippostd:icon: addfolder_ico
+      hippostd:modify:
+      - ./_name
+      - $name
+      - ./hippotranslation:id
+      - $uuid
+      - ./hippotranslation:locale
+      - $inherited
+      hipposys:classname: org.hippoecm.repository.impl.query.DirectPath
+      jcr:language: xpath
+      jcr:mixinTypes:
+      - hipposys:implementation
+      jcr:primaryType: hippostd:templatequery
+      jcr:statement: /jcr:root/hippo:configuration/hippo:queries/hippo:templates/new-banner-folder/hippostd:templates/node()
