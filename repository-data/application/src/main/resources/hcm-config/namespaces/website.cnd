@@ -12,6 +12,9 @@
   orderable
   - common:searchable (boolean) = 'true' autocreated
 
+[website:bannerdocument] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:calltoaction] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
