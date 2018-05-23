@@ -8,6 +8,12 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 @HippoEssentialsGenerated(internalName = "website:assetlink")
 @Node(jcrType = "website:assetlink")
 public class Assetlink extends HippoCompound {
+
+    // used to differentiate between different types of content blocks
+    public String getType() {
+        return "asset";
+    }
+
     @HippoEssentialsGenerated(internalName = "website:filename")
     public String getFilename() {
         return getProperty("website:filename");

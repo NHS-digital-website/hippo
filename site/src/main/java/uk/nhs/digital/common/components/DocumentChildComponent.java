@@ -40,7 +40,7 @@ public class DocumentChildComponent extends BaseGaContentComponent {
                         log.warn("Bean manager exception while converting linked node", beanManagerEx);
                     }
                 }
-            } else if (item instanceof Externallink) {
+            } else if (item instanceof Externallink || item instanceof Assetlink) {
                 relatedDocuments.add(item);
             }
         }
