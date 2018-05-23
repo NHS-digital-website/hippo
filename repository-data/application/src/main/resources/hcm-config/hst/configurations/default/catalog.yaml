@@ -1,0 +1,19 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/hst:default/hst:catalog/essentials-catalog:
+      /banner:
+        hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsDocumentComponent
+        hst:iconpath: images/essentials/catalog-component-icons/banner.png
+        hst:label: Banner
+        hst:template: essentials-banner
+        hst:xtype: hst.item
+        jcr:primaryType: hst:containeritemcomponent
+      /carousel:
+        hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsCarouselComponent
+        hst:iconpath: images/essentials/catalog-component-icons/carousel.png
+        hst:label: Carousel
+        hst:template: essentials-carousel
+        hst:xtype: hst.item
+        jcr:primaryType: hst:containeritemcomponent
+      jcr:primaryType: hst:containeritempackage

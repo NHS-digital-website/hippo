@@ -1,0 +1,69 @@
+/* Key message promo banner */
+.promo-banner {
+    a {
+        text-decoration: none;
+
+        &:hover {
+            .promo-banner__columns {
+                background-color: darken($col-primary, 5%);
+            }
+        }
+    }
+
+    .promo-banner__title {
+        @include bold-font(36);
+    }
+
+    .promo-banner__columns {
+        width: 100%;
+        display: table;
+        background-color: lighten($col-primary, 2%);
+
+        .promo-banner__column {
+            display: table-cell;
+            position: relative;
+            width: 50%;
+        }
+
+        .promo-banner__column + .promo-banner__column {
+            .promo-banner__contents {
+                max-width: 100%;
+            }
+        }
+
+        @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+            display: block;
+
+            .promo-banner__column {
+                display: block;
+                width: 100%;
+            }
+
+            .promo-banner__graphics {
+                position: relative;
+                height: 180px;
+                height: 40vw;
+            }
+        }
+    }
+
+    .promo-banner__graphics {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .promo-banner__contents {
+        padding: round($gutter * 2.5) $gutter * 2 $gutter * 2;
+        color: $col-septenary;
+
+        @include media($min-width: $min-desktop-width, $ignore-for-ie: true) {
+            max-width: 75%;
+        }
+    }
+}

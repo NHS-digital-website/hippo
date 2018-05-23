@@ -132,7 +132,7 @@
     width: 100%;
     padding: 0 $gutter;
 
-    @include media(wide) {
+    @include media(wide, $ignore-for-ie: true) {
         max-width: $wide-desktop-width;
     }
 }
