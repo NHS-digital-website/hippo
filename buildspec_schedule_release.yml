@@ -29,8 +29,10 @@ phases:
     commands:
       - ssh-agent bash -c "
         ssh-add $HOME/.ssh/nhs-ci_rsa && cd ci-cd &&
+        make git.update-environment-tag ENV=prd VERSION=rc &&
         make git.update-environment-tag ENV=rc VERSION=uat"
       - . $HOME/rd.password && cd ci-cd && make ondemand.schedule-deploy ENV=prd
+      - make notify.slack
 
 artifacts:
   files:
