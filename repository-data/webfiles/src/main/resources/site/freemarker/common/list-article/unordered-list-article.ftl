@@ -42,10 +42,10 @@
                                     <p class="cta__text">${block.link.shortsummary}</p>
                                     <#elseif block.getType() == "external">
                                     <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, block.link) />
-                                    <h2 class="cta__title"><a href="${block.link}" onClick="${onClickMethodCall}">${block.title}</a></h2>
+                                    <h2 class="cta__title"><a href="${block.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${block.title}</a></h2>
                                     <p class="cta__text">${block.shortsummary}</p>
                                     <#elseif block.getType() == "asset">
-                                    <a href="<@hst.link hippobean=block.link />" onClick="${onClickMethodCall}">${block.title}</a><@fileMetaAppendix block.link.asset.getLength()></@fileMetaAppendix>
+                                    <a href="<@hst.link hippobean=block.link />" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${block.title}</a><@fileMetaAppendix block.link.asset.getLength()></@fileMetaAppendix>
                                     </#if>
                                 </div>
                                 </#list>

@@ -70,12 +70,12 @@
                                 <div class="site-footer__menu site-footer__menu--5">
                                     <ul class="list list--inline list--reset">
                                         <li>
-                                            <a href="https://www.linkedin.com/company/nhs-digital" onClick="${getOnClickMethodCall('Footer', 'https://www.linkedin.com/company/nhs-digital')}">
+                                            <a href="https://www.linkedin.com/company/nhs-digital" onClick="${getOnClickMethodCall('Footer', 'https://www.linkedin.com/company/nhs-digital')}" onKeyUp="return vjsu.onKeyUp(event)">
                                                 <img src="<@hst.webfile  path="images/icon-linkedin.png"/>" alt="Linkedin logo" class="image-icon" /><span>LinkedIn</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://www.twitter.com/NHSDigital" onClick="${getOnClickMethodCall('Footer', 'https://www.twitter.com/NHSDigital')}">
+                                            <a href="https://www.twitter.com/NHSDigital" onClick="${getOnClickMethodCall('Footer', 'https://www.twitter.com/NHSDigital')}" onKeyUp="return vjsu.onKeyUp(event)">
                                                 <img src="<@hst.webfile  path="images/icon-twitter.png"/>" alt="Twitter logo" class="image-icon"/><span>Twitter</span>
                                             </a>
                                         </li>
