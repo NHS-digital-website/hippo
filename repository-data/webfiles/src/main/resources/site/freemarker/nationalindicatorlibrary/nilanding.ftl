@@ -11,7 +11,7 @@
             <h2>${document.adviceTitle}</h2>
             <#outputformat "undefined">${document.adviceContent.content}</#outputformat>
             <@externalstorageLink document.adviceForm.resource; url>
-            <a class="niFormBtn" title="${document.adviceForm.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download advice form','Indicator','${document.adviceForm.resource.filename}');"><@fmt.message key="headers.adviceForm"/></a>
+            <a class="niFormBtn" title="${document.adviceForm.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download advice form','Indicator','${document.adviceForm.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)"><@fmt.message key="headers.adviceForm"/></a>
             </@externalstorageLink>
             <span class="fileSize">(<@formatFileSize bytesCount=document.adviceForm.resource.length/>)</span>
         </section>
@@ -20,7 +20,7 @@
             <h2>${document.addTitle}</h2>
             <#outputformat "undefined">${document.addContent.content}</#outputformat>
             <@externalstorageLink document.addForm.resource; url>
-            <a class="niFormBtn" title="${document.addForm.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download indicator template form','Indicator','${document.addForm.resource.filename}');"><@fmt.message key="headers.addForm"/></a>
+            <a class="niFormBtn" title="${document.addForm.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download indicator template form','Indicator','${document.addForm.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)"><@fmt.message key="headers.addForm"/></a>
             </@externalstorageLink>
             <span class="fileSize">(<@formatFileSize bytesCount=document.addForm.resource.length/>)</span>
         </section>
@@ -29,12 +29,12 @@
             <h2>${document.applyTitle}</h2>
             <#outputformat "undefined">${document.applyContent.content}</#outputformat>
             <@externalstorageLink document.applyForm.resource; url>
-            <a class="niFormBtn" title="${document.applyForm.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download assurance application form','Indicator','${document.applyForm.resource.filename}');"><@fmt.message key="headers.applyForm"/></a>
+            <a class="niFormBtn" title="${document.applyForm.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download assurance application form','Indicator','${document.applyForm.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)"><@fmt.message key="headers.applyForm"/></a>
             </@externalstorageLink>
             <span class="fileSize">(<@formatFileSize bytesCount=document.applyForm.resource.length/>)</span>
             <br>
             <@externalstorageLink document.applyGuidanceForm.resource; url>
-            <a class="niFormBtn" title="${document.applyGuidanceForm.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download application guidance form','Indicator','${document.applyGuidanceForm.resource.filename}');"><@fmt.message key="headers.applyGuidanceForm"/></a>            </@externalstorageLink>
+            <a class="niFormBtn" title="${document.applyGuidanceForm.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download application guidance form','Indicator','${document.applyGuidanceForm.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)"><@fmt.message key="headers.applyGuidanceForm"/></a>            </@externalstorageLink>
             <span class="fileSize">(<@formatFileSize bytesCount=document.applyGuidanceForm.resource.length/>)</span>
         </section>
     </#if>

@@ -20,7 +20,7 @@
                     <article class="cta">
                         <#if child.type?? && child.type == "external">
                         <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, child.link) />
-                        <h2 class="cta__title"><a href="${child.link}" onClick="${onClickMethodCall}">${child.title}</a></h2>
+                        <h2 class="cta__title"><a href="${child.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${child.title}</a></h2>
                         <#else>
                         <h2 class="cta__title"><a href="<@hst.link hippobean=child />">${child.title}</a></h2>
                         </#if>

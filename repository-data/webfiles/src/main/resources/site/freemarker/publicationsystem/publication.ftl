@@ -107,14 +107,14 @@
                         <#list publication.attachments as attachment>
                             <li class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
                                 <@externalstorageLink attachment.resource; url>
-                                <a itemprop="contentUrl" title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${attachment.resource.filename}');"><span itemprop="name">${attachment.text}</span></a>;
+                                <a title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)" itemprop="contentUrl"><span itemprop="name">${attachment.text}</span></a>;
                                 </@externalstorageLink>
                                 <span class="fileSize">[size: <span itemprop="contentSize"><@formatFileSize bytesCount=attachment.resource.length/></span>]</span>
                             </li>
                         </#list>
                         <#list publication.resourceLinks as link>
                             <li>
-                                <a href="${link.linkUrl}" onClick="logGoogleAnalyticsEvent('Link click','Publication','${link.linkUrl}');" title="${link.linkText}">${link.linkText}</a>
+                                <a href="${link.linkUrl}" onClick="logGoogleAnalyticsEvent('Link click','Publication','${link.linkUrl}');" onKeyUp="return vjsu.onKeyUp(event)" title="${link.linkText}">${link.linkText}</a>
                             </li>
                         </#list>
                         </ul>
@@ -127,7 +127,7 @@
                         <ul data-uipath="ps.publication.related-links" class="list">
                             <#list publication.relatedLinks as link>
                                 <li>
-                                    <a href="${link.linkUrl}" onClick="logGoogleAnalyticsEvent('Link click','Publication','${link.linkUrl}');" title="${link.linkText}">${link.linkText}</a>
+                                    <a href="${link.linkUrl}" onClick="logGoogleAnalyticsEvent('Link click','Publication','${link.linkUrl}');" onKeyUp="return vjsu.onKeyUp(event)" title="${link.linkText}">${link.linkText}</a>
                                 </li>
                             </#list>
                         </ul>

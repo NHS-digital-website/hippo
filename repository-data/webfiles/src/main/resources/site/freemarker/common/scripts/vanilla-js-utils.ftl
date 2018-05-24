@@ -37,11 +37,30 @@
             return !!(el.className.indexOf(className) >= 0);
         }
 
+        function onKeyUp(event) {
+            var keyCode = event.keyCode || event.which;
+            var target = event.target || event.srcElement;
+            
+            if (event.preventDefault) {
+                event.preventDefault()
+            } else {
+                event.returnValue = false;
+            }
+
+            if (keyCode === 13 || keyCode === 32) {
+                target.click();
+            }
+        }
+
+
+
         // Expose the util functions on the global namespace
-        window.vanillaJSUtils = {
+        window.vanillaJSUtils = 
+        window.vjsu = {
             toggleClass: toggleClass,
             addClass: addClass,
-            removeClass: removeClass
+            removeClass: removeClass,
+            onKeyUp: onKeyUp
         };
     })()
 </script>

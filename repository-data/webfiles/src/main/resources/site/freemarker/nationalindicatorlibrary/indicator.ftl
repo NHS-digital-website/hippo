@@ -224,20 +224,20 @@
                     <ul data-uipath="nil.indicator.resources" class="list list--reset">
                         <#if indicator.details.qualityStatementUrl?has_content>
                         <li class="attachment">
-                            <a href="${indicator.details.qualityStatementUrl}" target="_blank" onClick="logGoogleAnalyticsEvent('View quality statement','Indicator','${indicator.details.iapCode}');"><@fmt.message key="headers.qualityStatement"/></a>
+                            <a href="${indicator.details.qualityStatementUrl}" target="_blank" onClick="logGoogleAnalyticsEvent('View quality statement','Indicator','${indicator.details.iapCode}');" onKeyUp="return vjsu.onKeyUp(event)"><@fmt.message key="headers.qualityStatement"/></a>
                         </li>
                         </#if>
 
                         <#if indicator.details.technicalSpecificationUrl?has_content>
                         <li class="attachment">
-                            <a href="${indicator.details.technicalSpecificationUrl}" target="_blank" onClick="logGoogleAnalyticsEvent('View technical specification','Indicator','${indicator.details.iapCode}');"><@fmt.message key="headers.technicalSpecification"/></a>
+                            <a href="${indicator.details.technicalSpecificationUrl}" target="_blank" onClick="logGoogleAnalyticsEvent('View technical specification','Indicator','${indicator.details.iapCode}');" onKeyUp="return vjsu.onKeyUp(event)"><@fmt.message key="headers.technicalSpecification"/></a>
                         </li>
                         </#if>
 
                         <#list indicator.attachments as attachment>
                         <li class="attachment">
                             <@externalstorageLink attachment.resource; url>
-                            <a title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Indicator','${attachment.resource.filename}');">${attachment.text}</a>
+                            <a title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Indicator','${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)">${attachment.text}</a>
                             </@externalstorageLink>
                             <span class="fileSize">[<@formatFileSize bytesCount=attachment.resource.length/>]</span>
                         </li>

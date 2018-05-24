@@ -245,14 +245,14 @@
                 <#list legacyPublication.getExtAttachments() as attachment>
                     <li class="attachment">
                         <@externalstorageLink attachment.resource; url>
-                        <a title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','LegacyPublication','${attachment.resource.filename}');">${attachment.text}</a>;
+                        <a title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','LegacyPublication','${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)">${attachment.text}</a>;
                         </@externalstorageLink>
                         <span class="fileSize">[size: <@formatFileSize bytesCount=attachment.resource.length/>]</span>
                     </li>
                 </#list>
                 <#list legacyPublication.resourceLinks as link>
                     <li>
-                        <a href="${link.linkUrl}" onClick="logGoogleAnalyticsEvent('Link click','LegacyPublication','${link.linkUrl}');" title="${link.linkText}">${link.linkText}</a>
+                        <a href="${link.linkUrl}" onClick="logGoogleAnalyticsEvent('Link click','LegacyPublication','${link.linkUrl}');" onKeyUp="return vjsu.onKeyUp(event)" title="${link.linkText}">${link.linkText}</a>
                     </li>
                 </#list>
                 <#list legacyPublication.datasets as dataset>
@@ -272,7 +272,7 @@
                 <ul data-uipath="ps.publication.related-links" class="list">
                     <#list legacyPublication.relatedLinks as link>
                     <li>
-                        <a href="${link.linkUrl}" onClick="logGoogleAnalyticsEvent('Link click','LegacyPublication','${link.linkUrl}');" title="${link.linkText}">${link.linkText}</a>
+                        <a href="${link.linkUrl}" onClick="logGoogleAnalyticsEvent('Link click','LegacyPublication','${link.linkUrl}');" onKeyUp="return vjsu.onKeyUp(event)" title="${link.linkText}">${link.linkText}</a>
                     </li>
                     </#list>
                 </ul>

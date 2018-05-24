@@ -100,14 +100,14 @@
             <#list dataset.files as attachment>
                 <li class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
                     <@externalstorageLink attachment.resource; url>
-                    <a itemprop="contentUrl" title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Data set','${attachment.resource.filename}');"><span itemprop="name">${attachment.text}</span></a>;
+                    <a itemprop="contentUrl" title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Data set','${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)"><span itemprop="name">${attachment.text}</span></a>;
                     </@externalstorageLink>
                     <span class="fileSize">[size: <span itemprop="contentSize"><@formatFileSize bytesCount=attachment.resource.length/></span>]</span>
                 </li>
             </#list>
             <#list dataset.resourceLinks as link>
                 <li>
-                    <a href="${link.linkUrl}" onClick="logGoogleAnalyticsEvent('Link click','Data set','${link.linkUrl}');">${link.linkText}</a>
+                    <a href="${link.linkUrl}" onClick="logGoogleAnalyticsEvent('Link click','Data set','${link.linkUrl}');" onKeyUp="return vjsu.onKeyUp(event)">${link.linkText}</a>
                 </li>
             </#list>
         </ul>

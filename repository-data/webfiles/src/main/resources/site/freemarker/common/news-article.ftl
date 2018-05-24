@@ -59,7 +59,7 @@
                         <#list document.relateddocuments as relatedDocument>
                         <li>
                             <@hst.link hippobean=relatedDocument var="newslink"/>
-                            <a href="${newslink}" onClick="logGoogleAnalyticsEvent('document click','Event','${newslink}');" title="${relatedDocument.title}">${relatedDocument.title}</a>
+                            <a href="${newslink}" onClick="logGoogleAnalyticsEvent('document click','Event','${newslink}');" onKeyUp="return vjsu.onKeyUp(event)" title="${relatedDocument.title}">${relatedDocument.title}</a>
                         </li>
                         </#list>
                     </ul>

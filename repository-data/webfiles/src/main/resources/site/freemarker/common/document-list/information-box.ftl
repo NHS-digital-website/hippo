@@ -26,7 +26,7 @@
         <div class="column column--one-third">
             <div class="content-box-image-wrapper">
                 <#if item.image?? && item.image.original??>
-                <img src="<@hst.link hippobean=item.image.original />" alt="Supporting image" class="content-box-image" />
+                <img src="<@hst.link hippobean=item.image.original />" alt="Supporting image" class="content-box-image"/>
                 </#if>
             </div>
         </div>
