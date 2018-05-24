@@ -63,4 +63,9 @@ public class Service extends BaseDocument {
     public Long getGossid() {
         return getProperty("website:gossid");
     }
+
+    @HippoEssentialsGenerated(internalName = "website:friendlyurls")
+    public Friendlyurls getFriendlyurls() {
+        return getBean("website:friendlyurls", Friendlyurls.class);
+    }
 }

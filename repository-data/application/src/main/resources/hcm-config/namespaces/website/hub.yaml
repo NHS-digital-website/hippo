@@ -120,6 +120,15 @@ definitions:
             mixin: hippotaxonomy:classifiable
             plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
             wicket.id: ${cluster.id}.field
+          /friendlyurls:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Friendly URLs
+            field: friendlyurls
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -146,6 +155,14 @@ definitions:
             hipposysedit:path: website:componentlist
             hipposysedit:primary: false
             hipposysedit:type: hippo:mirror
+            jcr:primaryType: hipposysedit:field
+          /friendlyurls:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:friendlyurls
+            hipposysedit:primary: false
+            hipposysedit:type: website:friendlyurls
             jcr:primaryType: hipposysedit:field
           /gossid:
             hipposysedit:mandatory: false
@@ -228,6 +245,10 @@ definitions:
           /website:component:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
           common:searchRank: 5
           common:searchable: true
           hippostd:holder: holder
