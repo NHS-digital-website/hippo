@@ -150,6 +150,15 @@ definitions:
             mixin: hippotaxonomy:classifiable
             plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
             wicket.id: ${cluster.id}.field
+          /friendlyurls:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Friendly URLs
+            field: friendlyurls
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -186,6 +195,14 @@ definitions:
             hipposysedit:path: website:display
             hipposysedit:primary: false
             hipposysedit:type: selection:BooleanRadioGroup
+            jcr:primaryType: hipposysedit:field
+          /friendlyurls:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:friendlyurls
+            hipposysedit:primary: false
+            hipposysedit:type: website:friendlyurls
             jcr:primaryType: hipposysedit:field
           /interval:
             hipposysedit:mandatory: false
@@ -285,6 +302,10 @@ definitions:
             jcr:primaryType: website:interval
             website:enddatetime: 0001-01-01T12:00:00Z
             website:startdatetime: 0001-01-01T12:00:00Z
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
           /website:summaryimage:
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             hippo:facets: []

@@ -1,0 +1,9 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/postpublication:
+      /hippo:moduleconfig:
+        jcr:primaryType: nt:unstructured
+        restServiceUrl: ''
+      hipposys:className: uk.nhs.digital.common.modules.PublicationPostProcessingModule
+      jcr:primaryType: hipposys:module
