@@ -11,6 +11,7 @@ TRAVIS_EVENT_TYPE ?=
 VENV ?= $(PWD)/.venv
 VERSION ?= $(shell git describe --tags --match "$(VERSION_BASE)*" || echo $(VERSION_BASE).0)
 VERSION_BASE ?= $(shell cat "$(PWD)/../.version")
+SLACK_HOOK_URL ?=
 
 PATH := $(VENV)/bin:$(PWD)/bin:$(PWD)/vendor:$(shell printenv PATH)
 SHELL := env PATH=$(PATH) /bin/bash
@@ -200,6 +201,10 @@ check.yaml:
 	else \
 		echo "No YAML changes."; \
 	fi
+
+## Notify the slack release channel of the commits in the upcoming release
+notify.slack:
+	curl -X POST --data-urlencode "payload={\"text\": \"Release to production tomorrow at 12:05 contains the following new changes:\n\n$(git log --format="* %s. [Author %an]" prd..rc)\"}" https://hooks.slack.com/services/${SLACK_HOOK_URL}
 
 ## Clean up
 clean:
