@@ -1,6 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <#include "macro/articleSections.ftl">
+<#include "macro/sectionNav.ftl">
 <#include "macro/metaTags.ftl">
 
 <#-- Add meta tags -->
@@ -9,6 +10,15 @@
 <@hst.setBundle basename="site.website.labels"/>
 <@fmt.message key="child-pages-section.title" var="childPagesSectionTitle"/>
 
+<#assign hasSectionContent = document.sections?has_content />
+<#assign hasTopTasks = document.toptasks?has_content />
+<#assign hasChildPages = childPages?has_content />
+<#assign hasIntroductionContent = document.introduction?? />
+<#assign hasContactDetailsContent = document.contactdetails?? && document.contactdetails.content?has_content?? />
+
+<#assign sectionTitlesFound = countSectionTitles(document.sections) />
+<#assign renderNav = (hasSectionContent && (sectionTitlesFound gte 2 || (sectionTitlesFound gte 1 && hasChildPages))) />
+
 <article class="article article--service">
     <div class="grid-wrapper grid-wrapper--article">
         <div class="local-header article-header">
@@ -16,47 +26,29 @@
         </div>
 
         <div class="grid-row">
+            <#if renderNav>
             <div class="column column--one-third page-block page-block--sidebar sticky sticky--top">
-                <div class="article-section-nav">
-                    <h2 class="article-section-nav__title">Page contents</h2>
-                    <hr>
-                    <nav role="navigation">
-                        <ol class="article-section-nav__list">
-                            <li><a href="#section-summary">Summary</a></li>
-                            <#if document.sections?has_content>
-                            <#list document.sections as section>
-                            <li><a href="#section-${section?index+1}">${section.title}</a></li>
-                            </#list>
-                            </#if>
-
-                            <#if childPages?has_content>
-                            <li><a href="#section-child-pages">${childPagesSectionTitle}</a></li>
-                            </#if>
-                            <#if document.contactdetails?? && document.contactdetails.content?has_content>
-                            <li><a href="#section-contact-details">Contact details</a></li>
-                            </#if>
-                        </ol>
-                    </nav>
-                </div>
+                <@sectionNav getSectionNavLinks({ "document": document, "childPages": childPages })></@sectionNav>
             </div>
+            </#if>
 
             <div class="column column--two-thirds page-block page-block--main">
                 <#-- [FTL-BEGIN] mandatory 'summary section' -->
-                <#if document.toptasks?has_content>
+                <#if hasTopTasks>
                     <#assign summarySectionClassName = "article-section article-section--summary no-border">
                 <#else>
                     <#assign summarySectionClassName = "article-section article-section--summary">
                 </#if>
                 <#-- [FTL-END] mandatory 'Summary' section -->
 
-                <div id="section-summary" class="${summarySectionClassName}">
+                <div id="${slugify('Summary')}" class="${summarySectionClassName}">
                     <h2>Summary</h2>
                     <p>${document.summary}</p>
                 </div>
                 <#-- [FTL-END] mandatory 'Summary' section -->
 
                 <#-- [FTL-BEGIN] optional list of 'Top tasks' section -->
-                <#if document.toptasks?has_content>
+                <#if hasTopTasks>
                 <div class="article-section article-section--highlighted">
                     <div class="callout callout--attention">
                         <h2>Top tasks</h2>
@@ -71,7 +63,7 @@
                 <#-- [FTL-END] optional list of 'Top tasks' section -->
 
                 <#-- [FTL-BEGIN] 'Introduction' section -->
-                <#if document.introduction??>
+                <#if hasIntroductionContent>
                 <div class="article-section article-section--introduction">
                     <div class="rich-text-content">
                         <@hst.html hippohtml=document.introduction contentRewriter=gaContentRewriter/>
@@ -83,8 +75,8 @@
                 <@articleSections document.sections></@articleSections>
 
                 <#-- [FTL-BEGIN] 'Contact details' section -->
-                <#if document.contactdetails?? && document.contactdetails.content?has_content>
-                <div class="article-section article-section--contact" id="section-contact-details">
+                <#if hasContactDetailsContent>
+                <div class="article-section article-section--contact" id="${slugify('Contact details')}">
                     <h2>Contact details</h2>
                     <div class="rich-text-content">
                         <@hst.html hippohtml=document.contactdetails contentRewriter=gaContentRewriter/>
@@ -94,8 +86,8 @@
                 <#-- [FTL-END] 'Contact details' section -->
 
                 <#-- [FTL-BEGIN] 'Further information' section -->
-                <#if childPages?has_content>
-                <div class="article-section article-section--child-pages article-section--last-one" id="section-child-pages">
+                <#if hasChildPages>
+                <div class="article-section article-section--child-pages" id="${slugify('Further information')}">
                     <h2>Further information</h2>
                     <ol class="list list--reset cta-list">
                         <#list childPages as childPage>

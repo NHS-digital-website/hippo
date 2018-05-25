@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
+<#include "../common/macro/sectionNav.ftl">
 
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() />
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
@@ -9,15 +10,26 @@
 <@metaTags></@metaTags>
 
 <#assign hasSubSections = document.subSections?has_content />
-<#assign foundSubsectionTitle = false />
-<#list document.subSections as section>
-    <#if section.title?has_content>
-    <#assign foundSubsectionTitle = true />
-    <#break>
-    </#if>
-</#list>
+<#assign foundSubsectionTitle = countSectionTitles(document.subSections) gte 1 />
 <#-- Only render the nav if there is at least 1 subsection with title -->
 <#assign renderNav = hasSubSections && foundSubsectionTitle />
+
+<@fmt.message key="headers.ci-landing-actions" var="actionsHeader" />
+<#assign resourcesHeader = "Resources" />
+
+<#function getSectionNavLinks>
+    <#assign links = [{ "url": "#" + slugify(actionsHeader), "title": actionsHeader }] />    
+    
+    <#if hasSubSections>
+        <#list document.subSections as section>
+            <#if section.title?has_content>
+                <#assign links += [{ "url": "#" + slugify(section.title), "title": section.title }] />
+            </#if>
+        </#list>
+    </#if>
+
+    <#return links />
+</#function>
 
 <article class="article article--service">
     <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
@@ -30,30 +42,15 @@
         <div class="grid-row">
             <#if renderNav>
             <div class="column column--one-third page-block page-block--sidebar sticky sticky--top">
-                <div class="article-section-nav">
-                    <h2 class="article-section-nav__title">Page contents</h2>
-                    <hr>
-                    <nav role="navigation">
-                        <ol class="article-section-nav__list">
-                            <li><a href="#section-actions"><@fmt.message key="headers.ci-landing-actions"/></a></li>
-                            <#if hasSubSections>
-                            <#list document.subSections as section>
-                            <#if section.title?has_content>
-                            <li><a href="#section-${section?index+1}">${section.title}</a></li>
-                            </#if>
-                            </#list>
-                            </#if>
-                        </ol>
-                    </nav>
-                </div>
+                <@sectionNav getSectionNavLinks()></@sectionNav>
             </div>
             </#if>
 
             <div class="column column--two-thirds page-block page-block--main">
                 <#-- [FTL-BEGIN] Actions sections -->
-                <div class="article-section article-section--highlighted" id="section-actions">
+                <div class="article-section article-section--highlighted" id="${slugify(actionsHeader)}">
                     <div class="callout callout--attention">
-                        <h2><@fmt.message key="headers.ci-landing-actions"/></h2>
+                        <h2>${actionsHeader}</h2>
 
                         <ul class="list">
                             <@hst.link var="homelink" path="/" />
@@ -76,7 +73,7 @@
                     <#-- [FTL-BEGIN] Optional Sub sections -->
                     <#list document.subSections as section>
                     <#assign hasTitle = section.title?has_content />
-                    <div id="section-${section?index+1}" class="article-section ${hasTitle?then("", "no-top-padding")}">
+                    <div id="${slugify(section.title)}" class="article-section ${hasTitle?then("", "no-top-padding")}">
                         <#-- Render title -->
                         <#if hasTitle>
                         <h2 data-uipath="ps.cilanding.section-title">${section.title}</h2>
@@ -93,7 +90,7 @@
                         <#assign hasRelatedLinks = section.relatedLinks?has_content />
 
                         <#if hasAttachments || hasRelatedLinks>
-                            <h3>Resources</h3>
+                            <h3>${resourcesHeader}</h3>
 
                             <div data-uipath="ps.cilanding.resources">
                                 <ul class="list">

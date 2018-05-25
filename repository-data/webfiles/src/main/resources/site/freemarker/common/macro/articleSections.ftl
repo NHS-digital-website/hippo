@@ -1,8 +1,10 @@
 <#ftl output_format="HTML">
+<#include "../../include/imports.ftl">
+
 <#macro articleSections sections>
 <#if sections?has_content>
 <#list sections as section>
-<div id="section-${section?index+1}" class="article-section">
+<div id="${slugify(section.title)}" class="article-section">
     <#if section.title?has_content>
     <h2>${section.title}</h2>
     </#if>

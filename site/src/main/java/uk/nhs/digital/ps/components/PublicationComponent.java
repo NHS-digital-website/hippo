@@ -16,10 +16,11 @@ import java.util.List;
 public class PublicationComponent extends EssentialsContentComponent {
 
     private static final String SUMMARY_ID = "Summary";
-    private static final String KEY_FACTS_ID = "Key Facts";
-    private static final String ADMIN_SOURCES_ID = "Administrative Sources";
-    private static final String DATASETS_ID = "Data Sets";
+    private static final String KEY_FACTS_ID = "Key facts";
+    private static final String ADMIN_SOURCES_ID = "Administrative sources";
+    private static final String DATASETS_ID = "Data sets";
     private static final String RESOURCES_ID = "Resources";
+    private static final String RELATED_LINKS_ID = "Related links";
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
@@ -53,6 +54,10 @@ public class PublicationComponent extends EssentialsContentComponent {
         if (isNotEmpty(publication.getAttachments())
             || isNotEmpty(publication.getResourceLinks())) {
             index.add(RESOURCES_ID);
+        }
+
+        if (isNotEmpty(publication.getRelatedLinks())) {
+            index.add(RELATED_LINKS_ID);
         }
 
         return index;

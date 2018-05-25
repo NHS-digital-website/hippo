@@ -8,6 +8,14 @@
     }
 }
 
+.article--chaptered-publication {
+    .column--right {
+        @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+            margin-top: $gutter;
+        }
+    }
+}
+
 .article--search-results {
     .article-section-nav {
         border-bottom: none;

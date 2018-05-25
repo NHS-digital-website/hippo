@@ -4,7 +4,7 @@
     <h2 class="article-section-nav__title">Refine results</h2>
     <hr>
     <nav role="navigation">
-        <ol class="article-section-nav__menu list--reset">
+        <ol class="article-section-nav__menu">
             <li><a href="#section-a">A</a></li>
             <li><a href="#section-b">B</a></li>
             <li class="is-disabled"><a href="#">C</a></li>

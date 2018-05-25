@@ -1,6 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <#include "macro/articleSections.ftl">
+<#include "macro/sectionNav.ftl">
 <#include "macro/metaTags.ftl">
 
 <#-- Add meta tags -->
@@ -9,6 +10,14 @@
 <@hst.setBundle basename="site.website.labels"/>
 <@fmt.message key="child-pages-section.title" var="childPagesSectionTitle"/>
 
+<#assign hasSummaryContent = document.summary?has_content />
+<#assign hasSectionContent = document.sections?has_content />
+<#assign hasChildPages = childPages?has_content />
+
+<#assign sectionTitlesFound = countSectionTitles(document.sections) />
+
+<#assign renderNav = (hasSummaryContent && (hasSectionContent && (sectionTitlesFound gte 1))) || (hasSectionContent && (sectionTitlesFound gt 1)) || (hasSectionContent && (sectionTitlesFound gte 1) && hasChildPages) />
+
 <article class="article article--general">
     <div class="grid-wrapper grid-wrapper--article">
         <div class="local-header article-header">
@@ -16,40 +25,16 @@
         </div>
 
         <div class="grid-row">
+            <#if renderNav>
             <div class="column column--one-third page-block page-block--sidebar sticky sticky--top">
-                <div class="article-section-nav">
-                    <h2 class="article-section-nav__title">Page contents</h2>
-                    <hr>
-                    <nav role="navigation">
-                        <ol class="article-section-nav__list">
-                            <#if document.summary?has_content>
-                            <li><a href="#section-summary">Summary</a></li>
-                            </#if>
-
-                            <#if document.sections?has_content>
-                            <#list document.sections as section>
-                            <#if section.title?has_content>
-                            <li><a href="#section-${section?index+1}">${section.title}</a></li>
-                            </#if>
-                            </#list>
-                            </#if>
-
-                            <#if childPages?has_content>
-                            <li><a href="#section-child-pages">${childPagesSectionTitle}</a></li>
-                            </#if>
-                        </ol>
-                    </nav>
-                </div>
+                <@sectionNav getSectionNavLinks({ "document": document, "childPages": childPages, "ignoreSummary": hasSummaryContent })></@sectionNav>
             </div>
+            </#if>
 
             <div class="column column--two-thirds page-block page-block--main">
-                <#-- <div class="article-header article-header--secondary">
-                    <h1 data-uipath="document.title">${document.title}</h1>
-                </div> -->
-
                 <#-- BEGIN optional 'summary section' -->
-                <#if document.summary?has_content>
-                <div id="section-summary" class="article-section article-section--summary article-section--reset-top">
+                <#if hasSummaryContent>
+                <div id="${slugify('Summary')}" class="article-section article-section--summary article-section--reset-top">
                     <h2>Summary</h2>
                     <p>${document.summary}</p>
                 </div>
@@ -57,14 +42,14 @@
                 <#-- END optional 'summary section' -->
 
                 <#-- BEGIN optional 'Sections' -->
-                <#if document.sections?has_content>
+                <#if hasSectionContent>
                 <@articleSections document.sections></@articleSections>
                 </#if>
                 <#-- END optional 'Sections' -->
 
                 <#-- BEGIN optional 'Further information section' -->
-                <#if childPages?has_content>
-                <div class="article-section article-section--child-pages article-section--last-one" id="section-child-pages">
+                <#if hasChildPages>
+                <div class="article-section article-section--child-pages" id="section-child-pages">
                     <h2>${childPagesSectionTitle}</h2>
                     <ol class="list list--reset cta-list">
                         <#list childPages as childPage>

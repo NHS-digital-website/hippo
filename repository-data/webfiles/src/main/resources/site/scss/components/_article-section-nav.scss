@@ -1,3 +1,5 @@
+@import "../units/list";
+
 /* Article section nav */
 .article-section-nav {
     padding-bottom: $default-spacing-unit * 2;
@@ -56,11 +58,12 @@
     }
 
     .article-section-nav__menu {
-        @extend .list--reset;
+        list-style: none;
+        margin-top: $gutter 0 0;
+        padding: $gutter 0 0;
+        
         @include bold-font(18);
         @include clearfix;
-
-        margin-top: $gutter;
 
         li {
             position: relative;

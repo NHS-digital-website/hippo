@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 
 <#-- [FTL-BEGIN] optional 'Further information section' -->
-<div class="article-section article-section--child-pages" id="section-child-pages">
+<div class="article-section article-section--child-pages" id="section-further-information">
     <h2>Further information</h2>
     <ol class="list list--reset cta-list">
         <li>
