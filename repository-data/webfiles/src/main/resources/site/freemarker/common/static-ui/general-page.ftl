@@ -1,11 +1,13 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
+<#include "../macro/sectionNav.ftl">
 
 <article class="article article--general">
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--one-third page-block page-block--sidebar sticky sticky--top">
-                <#include "shared/section-nav.ftl" />
+                <#assign links = [{ "url": "#section-summary", "title": "Summary" }, { "url": "#section-1", "title": "Section One" },{ "url": "#section-2", "title": "Section Two" },{ "url": "#section-3", "title": "Section Three" }] />
+                    <@sectionNav links></@sectionNav>
             </div>
 
             <div class="column column--two-thirds page-block page-block--main">

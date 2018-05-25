@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
+<#include "../common/macro/sectionNav.ftl">
 <#include "./macro/structured-text.ftl">
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() />
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
@@ -7,6 +8,57 @@
 <#-- Add meta tags -->
 <#include "../common/macro/metaTags.ftl">
 <@metaTags></@metaTags>
+
+<#assign hasSummary = legacyPublication.summary.content?has_content>
+<#assign hasAdministrativeSources = legacyPublication.administrativeSources?has_content>
+<#assign hasAttachments = legacyPublication.getExtAttachments()?size gt 0>
+<#assign hasKeyFacts = legacyPublication.keyFacts.content?has_content>
+<#assign hasResourceLinks = legacyPublication.resourceLinks?has_content>
+<#assign hasDataSets = legacyPublication.datasets?has_content>
+<#assign hasRelatedLinks = legacyPublication.relatedLinks?has_content>
+<#assign hasResources = hasAttachments || hasResourceLinks || hasDataSets>
+
+<#assign sectionCounter = 0 />
+<#function shouldRenderNav>
+    <#assign result = false />
+    
+    <#list [hasAdministrativeSources, hasAttachments, hasKeyFacts, hasResourceLinks, hasDataSets, hasRelatedLinks, hasResources] as section>
+        <#if section>
+            <#assign sectionCounter += 1 />
+        </#if>
+    </#list>
+    <#return (hasSummary && sectionCounter gte 1 || sectionCounter gt 1)?then(true, false) />
+</#function>
+
+<#assign renderNav = shouldRenderNav() />
+
+
+<#-- Define Article section headers, nav ids and titles -->
+<@fmt.message key="headers.summary" var="summaryHeader" />
+<@fmt.message key="headers.key-facts" var="keyFactsHeader" />
+<@fmt.message key="headers.administrative-sources" var="adminSourcesHeader" />
+<@fmt.message key="headers.resources" var="resourcesHeader" />
+<@fmt.message key="headers.related-links" var="relatedLinksHeader" />
+<#function getSectionNavLinks>
+    <#assign links = [] />
+    <#if hasSummary>
+        <#assign links = [{ "url": "#" + slugify(summaryHeader), "title": summaryHeader }] />
+    </#if>
+    <#if hasKeyFacts>
+        <#assign links += [{ "url": "#" + slugify(keyFactsHeader), "title": keyFactsHeader }] />
+    </#if>
+    <#if hasAdministrativeSources>
+        <#assign links += [{ "url": "#" + slugify(adminSourcesHeader), "title": adminSourcesHeader }] />
+    </#if>
+    <#if hasResources>
+        <#assign links += [{ "url": "#" + slugify(resourcesHeader), "title": resourcesHeader }] />
+    </#if>
+    <#if hasRelatedLinks>
+        <#assign links += [{ "url": "#" + slugify(relatedLinksHeader), "title": relatedLinksHeader }] />
+    </#if>
+    
+    <#return links />
+</#function>
 
 <#macro nationalStatsStamp>
     <#list legacyPublication.informationType as type>
@@ -137,41 +189,11 @@
     </div>
 </div>
 
-<#assign hasAdministrativeSources = legacyPublication.administrativeSources?has_content>
-<#assign hasAttachments = legacyPublication.getExtAttachments()?size gt 0>
-<#assign hasKeyFacts = legacyPublication.keyFacts.content?has_content>
-<#assign hasResourceLinks = legacyPublication.resourceLinks?has_content>
-<#assign hasDataSets = legacyPublication.datasets?has_content>
-<#assign hasRelatedLinks = legacyPublication.relatedLinks?has_content>
-<#assign hasResources = hasAttachments || hasResourceLinks || hasDataSets>
-
-<#assign renderNav = hasAdministrativeSources || hasResources || hasRelatedLinks || hasKeyFacts>
-
 <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
     <div class="grid-row">
         <#if renderNav>
         <div class="column column--one-third page-block page-block--sidebar sticky sticky--top">
-            <div class="article-section-nav">
-                <h2 class="article-section-nav__title">Page contents</h2>
-                <hr>
-                <nav role="navigation">
-                    <ol class="article-section-nav__list">
-                        <li><a href="#section-summary" title="<@fmt.message key="headers.summary"/>"><@fmt.message key="headers.summary"/></a></li>
-                        <#if hasKeyFacts>
-                        <li><a href="#section-key-facts" title="<@fmt.message key="headers.key-facts"/>"><@fmt.message key="headers.key-facts"/></a></li>
-                        </#if>
-                        <#if hasAdministrativeSources>
-                        <li><a href="#section-administrative-sources" title="<@fmt.message key="headers.administrative-sources"/>"><@fmt.message key="headers.administrative-sources"/></a></li>
-                        </#if>
-                        <#if hasResources>
-                        <li><a href="#section-resources" title="<@fmt.message key="headers.resources"/>"><@fmt.message key="headers.resources"/></a></li>
-                        </#if>
-                        <#if hasRelatedLinks>
-                        <li><a href="#section-related-links" title="<@fmt.message key="headers.related-links"/>"><@fmt.message key="headers.related-links"/></a></li>
-                        </#if>
-                    </ol>
-                </nav>
-            </div>
+            <@sectionNav getSectionNavLinks()></@sectionNav>
         </div>
         </#if>
 
@@ -182,19 +204,21 @@
                 <#assign summarySectionClassName = "article-section article-section--summary">
             </#if>
 
-            <div class="${summarySectionClassName}" id="section-summary">
-                <h2><@fmt.message key="headers.summary"/></h2>
+            <#if hasSummary>
+            <div class="${summarySectionClassName}" id="${slugify(summaryHeader)}">
+                <h2>${summaryHeader}</h2>
                 <div class="rich-text-content">
                     <@hst.html hippohtml=legacyPublication.summary contentRewriter=gaContentRewriter/>
                 </div>
             </div>
+            </#if>
             <#-- [FTL-END] mandatory 'Summary' section -->
 
             <#-- [FTL-BEGIN] optional list of 'Key facts' section -->
             <#if hasKeyFacts>
-            <div class="article-section article-section--highlighted" id="section-key-facts">
+            <div class="article-section article-section--highlighted" id="${slugify(keyFactsHeader)}">
                 <div class="callout callout--attention">
-                    <h2><@fmt.message key="headers.key-facts"/></h2>
+                    <h2>${keyFactsHeader}</h2>
                     <div class="rich-text-content">
                         <@hst.html hippohtml=legacyPublication.keyFacts contentRewriter=gaContentRewriter/>
                     </div>
@@ -205,8 +229,8 @@
 
             <#-- [FTL-BEGIN] 'Administrative sources' section -->
             <#if hasAdministrativeSources>
-            <div class="article-section" id="section-administrative-sources">
-                <h2><@fmt.message key="headers.administrative-sources"/></h2>
+            <div class="article-section" id="${slugify(adminSourcesHeader)}">
+                <h2>${adminSourcesHeader}</h2>
                 <p data-uipath="ps.publication.administrative-sources">
                     ${legacyPublication.administrativeSources}
                 </p>
@@ -216,8 +240,8 @@
 
             <#-- [FTL-BEGIN] Optional 'Attachments' section -->
             <#if hasResources>
-            <div class="article-section" id="section-resources">
-                <h2>Resources</h2>
+            <div class="article-section" id="${slugify(resourcesHeader)}">
+                <h2>${resourcesHeader}</h2>
                 <ul data-uipath="ps.publication.resources" class="list">
                 <#list legacyPublication.getExtAttachments() as attachment>
                     <li class="attachment">
@@ -244,8 +268,8 @@
 
             <#-- [FTL-BEGIN] Optional 'Related links' section -->
             <#if hasRelatedLinks>
-            <div class="article-section" id="section-related-links">
-                <h2><@fmt.message key="headers.related-links"/></h2>
+            <div class="article-section" id="${slugify(relatedLinksHeader)}">
+                <h2>${relatedLinksHeader}</h2>
                 <ul data-uipath="ps.publication.related-links" class="list">
                     <#list legacyPublication.relatedLinks as link>
                     <li>

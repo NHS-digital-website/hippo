@@ -141,3 +141,49 @@
     
     <#return dateRangeData />
 </#function>
+
+<#function slugify string>
+    <#return  string?lower_case?replace("\\W+", "-", "r") />
+</#function>
+
+<#-- Gather section nav links in a hash -->
+<#function getSectionNavLinks options>
+    <#assign links = [] />
+    <#if options??>
+        <#if options.ignoreSummary?? && !options.ignoreSummary>
+        <#else>
+            <#assign links = [{ "url": "#summary", "title": "Summary" }] />
+        </#if>
+
+        <#if options.document??>
+            <#if options.document.sections?has_content>
+                <#list options.document.sections as section>
+                    <#if section.title?has_content>
+                        <#assign links += [{ "url": "#" + slugify(section.title), "title": section.title }] />
+                    </#if>
+                </#list>
+            </#if>
+            <#if options.document.contactdetails?? && options.document.contactdetails.content?has_content>
+                <#assign links += [{ "url": "#" + slugify("Contact details"), "title": "Contact details" }] />
+            </#if>
+        </#if>
+        <#if options.childPages?? && options.childPages?has_content>
+            <#assign links += [{ "url": "#" + slugify("Further information"), "title": "Further information" }] />
+        </#if>
+    </#if>
+
+    <#return links />
+</#function>
+
+<#-- Count the sections with titles available -->
+<#function countSectionTitles sections>
+    <#local titlesFound = 0 />
+    <#if sections??>
+        <#list sections as section>
+            <#if section.title?has_content>
+                <#local titlesFound += 1 />
+            </#if>
+        </#list>
+    </#if>
+    <#return titlesFound />
+</#function>
