@@ -20,8 +20,34 @@
             },
             zoomType: 'xy'
         },
+        xAxis: {
+            title: {
+                style: {"color":"#000000","fontWeight":"bold"},
+            },
+            gridLineDashStyle: 'shortdash',
+            gridLineWidth: 1
+        },
+        yAxis: {
+            title: {
+                style: {"color":"#000000","fontWeight":"bold"},
+            },
+            gridLineDashStyle: 'shortdash',
+            gridLineWidth: 1
+        },
         credits: {
             enabled: false
         },
+        plotOptions: {
+            scatter: {
+                marker: {
+                    radius: 5,
+                }
+            },
+            line: {
+                marker: {
+                    enabled: false
+                }
+            }
+        }
     });
 </script>

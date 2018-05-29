@@ -183,6 +183,8 @@ public class ExpectedTestDataProvider {
                 + " neque, ullamcorper platea enim per nostra, dolor id vitae quam."),
             new ChartSection("Stacked Bar Chart"),
             new ChartSection("Pie Chart"),
+            new ChartSection("Scatter Plot"),
+            new ChartSection("Funnel Plot"),
             new TextSection("Lowest Heading on the first page", "Maecenas tincidunt at mi sit amet fringilla."
                 + " Nam ut tortor in mi rhoncus congue. Nunc eget varius ligula. Suspendisse et tincidunt libero. Sed"
                 + " maximus, mauris quis eleifend iaculis, leo odio feugiat ex, quis varius orci est in purus. In mollis"

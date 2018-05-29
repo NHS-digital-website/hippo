@@ -1,4 +1,4 @@
-package uk.nhs.digital.ps;
+package uk.nhs.digital.ps.chart;
 
 import static java.text.MessageFormat.format;
 import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_CHART_TITLE;
@@ -14,7 +14,8 @@ import org.hippoecm.frontend.validation.IFieldValidator;
 import org.hippoecm.frontend.validation.ValidationException;
 import org.hippoecm.frontend.validation.Violation;
 import org.onehippo.cms7.services.HippoServiceRegistry;
-import uk.nhs.digital.ps.chart.HighchartsInputParser;
+import uk.nhs.digital.ps.ChartConfig;
+import uk.nhs.digital.ps.chart.input.HighchartsInputParser;
 
 import java.util.HashSet;
 import java.util.Set;

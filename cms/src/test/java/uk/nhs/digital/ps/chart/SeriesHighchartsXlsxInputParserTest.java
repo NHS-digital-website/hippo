@@ -1,17 +1,26 @@
 package uk.nhs.digital.ps.chart;
 
+import static java.text.MessageFormat.format;
 import static java.util.stream.Collectors.toList;
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
+import com.tngtech.java.junit.dataprovider.DataProvider;
+import com.tngtech.java.junit.dataprovider.DataProviderRunner;
+import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import org.apache.jackrabbit.value.BinaryImpl;
 import org.hamcrest.Matcher;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
+import org.junit.runner.RunWith;
 import uk.nhs.digital.ps.ChartConfig;
+import uk.nhs.digital.ps.chart.input.SeriesHighchartsXlsxInputParser;
 import uk.nhs.digital.ps.chart.model.Point;
 import uk.nhs.digital.ps.chart.model.Series;
 
@@ -19,37 +28,88 @@ import java.io.FileInputStream;
 import java.util.List;
 import java.util.function.Function;
 import javax.jcr.Binary;
-import javax.jcr.RepositoryException;
 
-public class HighchartsXlsxInputParserTest {
+@RunWith(DataProviderRunner.class)
+public class SeriesHighchartsXlsxInputParserTest {
 
     private Binary binary;
+    private String chartTitle;
+    private String yAxisTitle;
 
-    private HighchartsXlsxInputParser chartParser;
+    @Rule
+    public ExpectedException expectedException = ExpectedException.none();
+
+    private SeriesHighchartsXlsxInputParser seriesHighchartsXlsxInputParser;
 
     @Before
     public void setUp() throws Exception {
-        binary = new BinaryImpl(new FileInputStream("src/test/resources/ChartTestData.xlsx"));
 
-        chartParser = new HighchartsXlsxInputParser();
+        binary = new BinaryImpl(new FileInputStream("src/test/resources/ChartTestData.xlsx"));
+        chartTitle = "a chart title";
+        yAxisTitle = "a y axis title";
+        seriesHighchartsXlsxInputParser = new SeriesHighchartsXlsxInputParser();
     }
 
     @Test
-    public void parseChartFile() {
-        String type = "Line";
-        String title = "a chart title";
-        String yTitle = "a y axis title";
+    @UseDataProvider("supportedChartTypes")
+    public void returnsTrueForSupportedChartTypes(ChartType supportedChartType) {
 
         // when
-        SeriesChart chart = chartParser.parse(new ChartConfig(type, title, yTitle, binary));
+        boolean actualSupportFlag = seriesHighchartsXlsxInputParser.supports(supportedChartType);
+
+        // then
+        assertThat("Series chart type is supported", actualSupportFlag, is(true));
+    }
+
+    @Test
+    @UseDataProvider("unsupportedChartTypes")
+    public void returnsFalseForUnsupportedChartTypes(ChartType unsupportedChartType) {
+
+        // when
+        boolean actualSupportFlag = seriesHighchartsXlsxInputParser.supports(unsupportedChartType);
+
+        // then
+        assertThat("Series chart type is not supported", actualSupportFlag, is(false));
+    }
+
+    @Test
+    public void reportsException_whenParseCalledForUnsupportedChartType() {
+
+        // given
+        String type = "Scatter_plot";
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage(format(
+            "Unsupported chart type: {0}",
+            ChartType.toChartType("Scatter_plot")
+        ));
+
+        // when
+        seriesHighchartsXlsxInputParser.parse(
+            new ChartConfig(type, chartTitle, yAxisTitle, binary)
+        );
+
+        // then
+        // expectations set in given
+    }
+
+    @Test
+    public void parseSeriesChartFile() {
+
+        //given
+        String type = "Line";
+
+        // when
+        SeriesChart chart = seriesHighchartsXlsxInputParser.parse(
+            new ChartConfig(type, chartTitle, yAxisTitle, binary)
+        );
 
         // then
         assertEquals("Chart type is set",
             ChartType.LINE.getHighChartsType(), chart.getChart().getType());
         assertEquals("Chart title is set",
-            title, chart.getTitle().getText());
+            chartTitle, chart.getTitle().getText());
         assertEquals("Chart y title is set",
-            yTitle, chart.getyAxis().getTitle().getText());
+            yAxisTitle, chart.getyAxis().getTitle().getText());
 
         assertNull("No plot options for line chart", chart.getPlotOptions());
 
@@ -76,9 +136,10 @@ public class HighchartsXlsxInputParserTest {
 
     @Test
     public void parseAsPieSetsCorrectOptions() {
+
         // when
-        SeriesChart chart = chartParser.parse(
-            new ChartConfig("Pie", "chart title", "y axis title", binary)
+        SeriesChart chart = seriesHighchartsXlsxInputParser.parse(
+            new ChartConfig("Pie", chartTitle, yAxisTitle, binary)
         );
 
         // then
@@ -106,9 +167,10 @@ public class HighchartsXlsxInputParserTest {
 
     @Test
     public void parseAsStackedChartSetsCorrectOptions() {
+
         // when
-        SeriesChart chart = chartParser.parse(
-            new ChartConfig("Stacked Bar", "chart title", "y axis title", binary)
+        SeriesChart chart = seriesHighchartsXlsxInputParser.parse(
+            new ChartConfig("Stacked Bar", chartTitle, yAxisTitle, binary)
         );
 
         // then
@@ -117,6 +179,26 @@ public class HighchartsXlsxInputParserTest {
 
         assertEquals("Stacked chart should have the option set for stacking",
             chart.getPlotOptions().getSeries().getStacking(), "normal");
+    }
+
+    @DataProvider
+    public static Object[][] supportedChartTypes() {
+        return new Object[][] {
+            {ChartType.LINE},
+            {ChartType.PIE},
+            {ChartType.STACKED_BAR},
+            {ChartType.BAR},
+            {ChartType.COLUMN},
+            {ChartType.STACKED_COLUMN}
+        };
+    }
+
+    @DataProvider
+    public static Object[][] unsupportedChartTypes() {
+        return new Object[][] {
+            {ChartType.SCATTER_PLOT},
+            {ChartType.FUNNEL_PLOT}
+        };
     }
 
     private <T> List<T> getValues(Series first, Function<Point, T> function) {

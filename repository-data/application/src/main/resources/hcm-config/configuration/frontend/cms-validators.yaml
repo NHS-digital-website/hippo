@@ -18,7 +18,7 @@ definitions:
       plugin.class: uk.nhs.digital.ps.BlankStaticDropdownSelectionFieldValidator
     /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-charts-datafile:
       jcr:primaryType: frontend:plugin
-      plugin.class: uk.nhs.digital.ps.HighchartsDataFileValidator
+      plugin.class: uk.nhs.digital.ps.chart.HighchartsDataFileValidator
     /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-coverage-dates:
       jcr:primaryType: frontend:plugin
       plugin.class: uk.nhs.digital.ps.CoverageDatesValidator
