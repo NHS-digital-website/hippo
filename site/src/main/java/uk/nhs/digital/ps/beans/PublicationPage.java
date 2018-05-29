@@ -8,7 +8,7 @@ import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "publicationsystem:publication")
 @Node(jcrType = "publicationsystem:publicationPage")
-public class PublicationPage extends BaseDocument {
+public class PublicationPage extends BaseDocument implements IndexPage {
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:Title")
     public String getTitle() {
@@ -22,5 +22,10 @@ public class PublicationPage extends BaseDocument {
 
     public Publication getPublication() {
         return HippoBeanHelper.getParentPublication(this);
+    }
+
+    @Override
+    public HippoBean getLinkedBean() {
+        return this;
     }
 }

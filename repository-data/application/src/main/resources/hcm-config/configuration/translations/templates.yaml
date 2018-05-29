@@ -15,6 +15,11 @@ definitions:
           jcr:name: Archive
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:chartSection:
+        /en:
+          jcr:name: Chart
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /publicationsystem:dataset:
         /en:
           jcr:name: Data set
