@@ -7,7 +7,7 @@ import org.apache.commons.scxml2.model.ModelException;
 import org.onehippo.cms7.services.HippoServiceRegistry;
 import org.onehippo.repository.documentworkflow.action.AbstractDocumentTaskAction;
 import uk.nhs.digital.common.util.json.JacksonJsonSerialiser;
-import uk.nhs.digital.ps.chart.HighchartsInputParser;
+import uk.nhs.digital.ps.chart.input.HighchartsInputParser;
 
 public class HighchartsInputConversionAction
     extends AbstractDocumentTaskAction<HighchartsInputConversionTask> {

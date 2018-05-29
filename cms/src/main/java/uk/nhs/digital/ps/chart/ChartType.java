@@ -6,7 +6,9 @@ public enum ChartType {
     COLUMN("column"),
     STACKED_BAR("bar", true),
     STACKED_COLUMN("column", true),
-    LINE("line");
+    LINE("line"),
+    SCATTER_PLOT("scatter"),
+    FUNNEL_PLOT("funnel");
 
     private final String highChartsType;
     private final boolean stacked;

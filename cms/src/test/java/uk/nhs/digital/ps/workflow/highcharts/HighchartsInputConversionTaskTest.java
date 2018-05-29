@@ -8,7 +8,11 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.mock;
 import static org.mockito.MockitoAnnotations.initMocks;
-import static uk.nhs.digital.ps.PublicationSystemConstants.*;
+import static uk.nhs.digital.ps.PublicationSystemConstants.NODE_TYPE_DATA_FILE;
+import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_CHART_CONFIG;
+import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_CHART_TITLE;
+import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_CHART_TYPE;
+import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_CHART_YTITLE;
 
 import org.apache.sling.testing.mock.jcr.MockJcr;
 import org.apache.sling.testing.mock.jcr.MockQueryResult;
@@ -19,8 +23,8 @@ import org.mockito.Mock;
 import org.onehippo.repository.documentworkflow.DocumentVariant;
 import uk.nhs.digital.common.util.json.JsonSerialiser;
 import uk.nhs.digital.ps.ChartConfig;
-import uk.nhs.digital.ps.chart.HighchartsInputParser;
 import uk.nhs.digital.ps.chart.SeriesChart;
+import uk.nhs.digital.ps.chart.input.HighchartsInputParser;
 
 import java.util.UUID;
 import javax.jcr.Binary;

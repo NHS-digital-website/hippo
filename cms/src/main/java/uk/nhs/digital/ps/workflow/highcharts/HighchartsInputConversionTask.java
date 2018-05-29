@@ -7,8 +7,8 @@ import org.onehippo.repository.documentworkflow.task.AbstractDocumentTask;
 import uk.nhs.digital.JcrQueryHelper;
 import uk.nhs.digital.common.util.json.JsonSerialiser;
 import uk.nhs.digital.ps.ChartConfig;
-import uk.nhs.digital.ps.chart.HighchartsInputParser;
 import uk.nhs.digital.ps.chart.SeriesChart;
+import uk.nhs.digital.ps.chart.input.HighchartsInputParser;
 
 import javax.jcr.Binary;
 import javax.jcr.Node;

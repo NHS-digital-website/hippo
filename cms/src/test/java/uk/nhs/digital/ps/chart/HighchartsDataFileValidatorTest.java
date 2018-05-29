@@ -34,7 +34,7 @@ import org.junit.rules.ExpectedException;
 import org.mockito.Mock;
 import org.onehippo.cms7.services.HippoServiceRegistry;
 import uk.nhs.digital.ps.ChartConfig;
-import uk.nhs.digital.ps.HighchartsDataFileValidator;
+import uk.nhs.digital.ps.chart.input.HighchartsInputParser;
 
 import java.util.Collections;
 import java.util.Set;
