@@ -5,11 +5,15 @@ import static org.hamcrest.Matchers.hasEntry;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
+import com.tngtech.java.junit.dataprovider.DataProvider;
+import com.tngtech.java.junit.dataprovider.DataProviderRunner;
+import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.apache.jackrabbit.value.BooleanValue;
 import org.apache.jackrabbit.value.DateValue;
 import org.apache.jackrabbit.value.LongValue;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -18,6 +22,7 @@ import java.util.stream.Collectors;
 import javax.jcr.RepositoryException;
 import javax.jcr.Value;
 
+@RunWith(DataProviderRunner.class)
 public class OrderedSearchDateDerivedDataFunctionTest {
 
     private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
@@ -65,24 +70,13 @@ public class OrderedSearchDateDerivedDataFunctionTest {
     }
 
     @Test
-    public void documentWithoutDateDoesNotGetComputedValue() throws Exception {
+    @UseDataProvider("publiclyAccessibleValues")
+    public void documentWithoutDateDoesNotGetComputedValue(Boolean publiclyAccessible) throws Exception {
         // given
-        Map<String, Value[]> inputMap = generateInputMap(null, true);
+        Map<String, Value[]> inputMap = generateInputMap(null, publiclyAccessible);
 
         // then
-        assertNull(function.compute(inputMap).get(ORDERED_SEARCH_DATE));
-
-        // given
-        inputMap = generateInputMap(null, false);
-
-        // then
-        assertNull(function.compute(inputMap).get(ORDERED_SEARCH_DATE));
-
-        // given
-        inputMap = generateInputMap(null, null);
-
-        // then
-        assertNull(function.compute(inputMap).get(ORDERED_SEARCH_DATE));
+        assertNull("With no date input you get no computed value", function.compute(inputMap).get(ORDERED_SEARCH_DATE));
     }
 
     @Test
@@ -122,8 +116,8 @@ public class OrderedSearchDateDerivedDataFunctionTest {
             ));
     }
 
-    private Map<String, Value[]> addInput(Map<String, Map<String, Value[]>> map, String date, Boolean publiclyAccessible) throws ParseException {
-        return map.put(date, generateInputMap(date, publiclyAccessible));
+    private void addInput(Map<String, Map<String, Value[]>> map, String date, Boolean publiclyAccessible) throws ParseException {
+        map.put(date, generateInputMap(date, publiclyAccessible));
     }
 
     private long computeValue(Map<String, Value[]> input) {
@@ -151,5 +145,14 @@ public class OrderedSearchDateDerivedDataFunctionTest {
         Calendar date = Calendar.getInstance();
         date.setTime(DATE_FORMAT.parse(dateStr));
         return date;
+    }
+
+    @DataProvider
+    public static Object[] publiclyAccessibleValues() {
+        return new Boolean[] {
+            true,
+            false,
+            null
+        };
     }
 }
