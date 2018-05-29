@@ -21,4 +21,8 @@ public abstract class SectionWidget {
         );
         return elements.size() == 1 ? elements.get(0) : null;
     }
+
+    protected WebElement getRootElement() {
+        return rootElement;
+    }
 }

@@ -4,6 +4,7 @@ import org.hippoecm.hst.content.beans.Node;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.ps.beans.structuredText.StructuredText;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "publicationsystem:publication")
@@ -33,5 +34,16 @@ public class Publication extends PublicationBase {
         assertPropertyPermitted(PublicationBase.PropertyKeys.PAGES);
 
         return getParentBean().getChildBeans(PublicationPage.class);
+    }
+
+    public List<IndexPage> getPageIndex() {
+        List<IndexPage> pages = new ArrayList<>(getPages());
+
+        if (!pages.isEmpty()) {
+            // Add the Publication itself as the first link
+            pages.add(0, new IndexPageImpl("Overview", this));
+        }
+
+        return pages;
     }
 }

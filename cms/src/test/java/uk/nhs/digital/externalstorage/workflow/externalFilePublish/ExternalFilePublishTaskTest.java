@@ -182,9 +182,6 @@ public class ExternalFilePublishTaskTest {
         return mockQuery -> {
             String jcrSafeNodePath = org.apache.jackrabbit.util.Text.escapePath(nodePath);
 
-            System.out.println(mockQuery.getStatement());
-            System.out.println("SELECT \\* FROM \\[externalstorage:resource].*ISDESCENDANTNODE \\(\\['" + jcrSafeNodePath + "']\\).*");
-
             if (mockQuery.getStatement().matches("SELECT \\* FROM \\[externalstorage:resource].*ISDESCENDANTNODE \\(\\['" + jcrSafeNodePath + "']\\).*")) {
                 return new MockQueryResult(getQueryResultsWithSingleExternalResource(externalReference));
             }
@@ -249,7 +246,6 @@ public class ExternalFilePublishTaskTest {
     }
 
     private List<Node> getQueryResultsWithSingleExternalResource(String reference) {
-        System.out.println(reference);
         List<Node> nodes = new ArrayList<>();
         Node resources;
 
