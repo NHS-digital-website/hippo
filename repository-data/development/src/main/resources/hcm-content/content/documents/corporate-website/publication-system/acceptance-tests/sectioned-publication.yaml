@@ -308,6 +308,55 @@
         jcr:primaryType: publicationsystem:textSection
         publicationsystem:heading: Lower down heading
       /publicationsystem:bodySections[9]:
+        /publicationsystem:dataFile:
+          hippo:filename: Admissions Test Data.xlsx
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[9]/dataFile/text.bin
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[9]/dataFile/data.bin
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-05-29T10:01:12.908Z
+          jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:chartSection
+        publicationsystem:chartConfig: '{"title":{"text":"Stacked Bar Chart"},"chart":{"type":"bar"},"series":[{"name":"Narrow
+          Measure","data":[{"name":"75+","y":43.0},{"name":"65 to 74","y":57.0},{"name":"55
+          to 64","y":65.0},{"name":"45 to 54","y":67.0},{"name":"35 to 44","y":44.0},{"name":"25
+          to 34","y":34.0},{"name":"16 to 24","y":23.0},{"name":"Under 16","y":6.0}]},{"name":"Wide
+          Measure","data":[{"name":"75+","y":86.0},{"name":"65 to 74","y":101.0},{"name":"55
+          to 64","y":113.0},{"name":"45 to 54","y":127.0},{"name":"35 to 44","y":73.0},{"name":"25
+          to 34","y":60.0},{"name":"16 to 24","y":41.0},{"name":"Under 16","y":10.0}]},{"name":"Combined","data":[{"name":"75+","y":129.0},{"name":"65
+          to 74","y":158.0},{"name":"55 to 64","y":178.0},{"name":"45 to 54","y":194.0},{"name":"35
+          to 44","y":117.0},{"name":"25 to 34","y":94.0},{"name":"16 to 24","y":64.0},{"name":"Under
+          16","y":16.0}]}],"plotOptions":{"series":{"stacking":"normal"}},"xaxis":{"categories":["75+","65
+          to 74","55 to 64","45 to 54","35 to 44","25 to 34","16 to 24","Under 16"]},"yaxis":{"title":{"text":"Thousands"}}}'
+        publicationsystem:title: Stacked Bar Chart
+        publicationsystem:type: Stacked Bar
+        publicationsystem:yTitle: Thousands
+      /publicationsystem:bodySections[10]:
+        /publicationsystem:dataFile:
+          hippo:filename: Admissions Test Data.xlsx
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[10]/dataFile/text.bin
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[10]/dataFile/data.bin
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-05-29T10:02:06.075Z
+          jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:chartSection
+        publicationsystem:chartConfig: '{"title":{"text":"Pie Chart"},"chart":{"type":"pie"},"series":[{"name":"Narrow
+          Measure","data":[{"name":"75+","y":43.0},{"name":"65 to 74","y":57.0},{"name":"55
+          to 64","y":65.0},{"name":"45 to 54","y":67.0},{"name":"35 to 44","y":44.0},{"name":"25
+          to 34","y":34.0},{"name":"16 to 24","y":23.0},{"name":"Under 16","y":6.0}]}],"xaxis":{},"yaxis":{"title":{}}}'
+        publicationsystem:title: Pie Chart
+        publicationsystem:type: Pie
+        publicationsystem:yTitle: ''
+      /publicationsystem:bodySections[11]:
         /publicationsystem:text:
           hippostd:content: <p>Maecenas tincidunt at mi sit amet fringilla. Nam ut
             tortor in mi rhoncus congue. Nunc eget varius ligula. Suspendisse et tincidunt
@@ -337,7 +386,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-04-09T12:26:14.588Z
-      hippostdpubwf:lastModificationDate: 2018-04-16T08:40:37.758Z
+      hippostdpubwf:lastModificationDate: 2018-05-29T10:00:12.679Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 8318b0a7-a10e-41b5-a5f7-978c530211a7
       hippotranslation:locale: en
@@ -438,6 +487,55 @@
         jcr:primaryType: publicationsystem:textSection
         publicationsystem:heading: Lower down heading
       /publicationsystem:bodySections[9]:
+        /publicationsystem:dataFile:
+          hippo:filename: Admissions Test Data.xlsx
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[9]/dataFile/text.bin
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[9]/dataFile/data.bin
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-05-29T10:01:12.908Z
+          jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:chartSection
+        publicationsystem:chartConfig: '{"title":{"text":"Stacked Bar Chart"},"chart":{"type":"bar"},"series":[{"name":"Narrow
+          Measure","data":[{"name":"75+","y":43.0},{"name":"65 to 74","y":57.0},{"name":"55
+          to 64","y":65.0},{"name":"45 to 54","y":67.0},{"name":"35 to 44","y":44.0},{"name":"25
+          to 34","y":34.0},{"name":"16 to 24","y":23.0},{"name":"Under 16","y":6.0}]},{"name":"Wide
+          Measure","data":[{"name":"75+","y":86.0},{"name":"65 to 74","y":101.0},{"name":"55
+          to 64","y":113.0},{"name":"45 to 54","y":127.0},{"name":"35 to 44","y":73.0},{"name":"25
+          to 34","y":60.0},{"name":"16 to 24","y":41.0},{"name":"Under 16","y":10.0}]},{"name":"Combined","data":[{"name":"75+","y":129.0},{"name":"65
+          to 74","y":158.0},{"name":"55 to 64","y":178.0},{"name":"45 to 54","y":194.0},{"name":"35
+          to 44","y":117.0},{"name":"25 to 34","y":94.0},{"name":"16 to 24","y":64.0},{"name":"Under
+          16","y":16.0}]}],"plotOptions":{"series":{"stacking":"normal"}},"xaxis":{"categories":["75+","65
+          to 74","55 to 64","45 to 54","35 to 44","25 to 34","16 to 24","Under 16"]},"yaxis":{"title":{"text":"Thousands"}}}'
+        publicationsystem:title: Stacked Bar Chart
+        publicationsystem:type: Stacked Bar
+        publicationsystem:yTitle: Thousands
+      /publicationsystem:bodySections[10]:
+        /publicationsystem:dataFile:
+          hippo:filename: Admissions Test Data.xlsx
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[10]/dataFile/text.bin
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[10]/dataFile/data.bin
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-05-29T10:02:06.075Z
+          jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:chartSection
+        publicationsystem:chartConfig: '{"title":{"text":"Pie Chart"},"chart":{"type":"pie"},"series":[{"name":"Narrow
+          Measure","data":[{"name":"75+","y":43.0},{"name":"65 to 74","y":57.0},{"name":"55
+          to 64","y":65.0},{"name":"45 to 54","y":67.0},{"name":"35 to 44","y":44.0},{"name":"25
+          to 34","y":34.0},{"name":"16 to 24","y":23.0},{"name":"Under 16","y":6.0}]}],"xaxis":{},"yaxis":{"title":{}}}'
+        publicationsystem:title: Pie Chart
+        publicationsystem:type: Pie
+        publicationsystem:yTitle: ''
+      /publicationsystem:bodySections[11]:
         /publicationsystem:text:
           hippostd:content: <p>Maecenas tincidunt at mi sit amet fringilla. Nam ut
             tortor in mi rhoncus congue. Nunc eget varius ligula. Suspendisse et tincidunt
@@ -468,7 +566,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-04-09T12:26:14.588Z
-      hippostdpubwf:lastModificationDate: 2018-04-16T08:40:44.754Z
+      hippostdpubwf:lastModificationDate: 2018-05-29T10:02:18.720Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 8318b0a7-a10e-41b5-a5f7-978c530211a7
       hippotranslation:locale: en
@@ -570,6 +668,55 @@
         jcr:primaryType: publicationsystem:textSection
         publicationsystem:heading: Lower down heading
       /publicationsystem:bodySections[9]:
+        /publicationsystem:dataFile:
+          hippo:filename: Admissions Test Data.xlsx
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[9]/dataFile/text.bin
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[9]/dataFile/data.bin
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-05-29T10:01:12.908Z
+          jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:chartSection
+        publicationsystem:chartConfig: '{"title":{"text":"Stacked Bar Chart"},"chart":{"type":"bar"},"series":[{"name":"Narrow
+          Measure","data":[{"name":"75+","y":43.0},{"name":"65 to 74","y":57.0},{"name":"55
+          to 64","y":65.0},{"name":"45 to 54","y":67.0},{"name":"35 to 44","y":44.0},{"name":"25
+          to 34","y":34.0},{"name":"16 to 24","y":23.0},{"name":"Under 16","y":6.0}]},{"name":"Wide
+          Measure","data":[{"name":"75+","y":86.0},{"name":"65 to 74","y":101.0},{"name":"55
+          to 64","y":113.0},{"name":"45 to 54","y":127.0},{"name":"35 to 44","y":73.0},{"name":"25
+          to 34","y":60.0},{"name":"16 to 24","y":41.0},{"name":"Under 16","y":10.0}]},{"name":"Combined","data":[{"name":"75+","y":129.0},{"name":"65
+          to 74","y":158.0},{"name":"55 to 64","y":178.0},{"name":"45 to 54","y":194.0},{"name":"35
+          to 44","y":117.0},{"name":"25 to 34","y":94.0},{"name":"16 to 24","y":64.0},{"name":"Under
+          16","y":16.0}]}],"plotOptions":{"series":{"stacking":"normal"}},"xaxis":{"categories":["75+","65
+          to 74","55 to 64","45 to 54","35 to 44","25 to 34","16 to 24","Under 16"]},"yaxis":{"title":{"text":"Thousands"}}}'
+        publicationsystem:title: Stacked Bar Chart
+        publicationsystem:type: Stacked Bar
+        publicationsystem:yTitle: Thousands
+      /publicationsystem:bodySections[10]:
+        /publicationsystem:dataFile:
+          hippo:filename: Admissions Test Data.xlsx
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[10]/dataFile/text.bin
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[10]/dataFile/data.bin
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-05-29T10:02:06.075Z
+          jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:chartSection
+        publicationsystem:chartConfig: '{"title":{"text":"Pie Chart"},"chart":{"type":"pie"},"series":[{"name":"Narrow
+          Measure","data":[{"name":"75+","y":43.0},{"name":"65 to 74","y":57.0},{"name":"55
+          to 64","y":65.0},{"name":"45 to 54","y":67.0},{"name":"35 to 44","y":44.0},{"name":"25
+          to 34","y":34.0},{"name":"16 to 24","y":23.0},{"name":"Under 16","y":6.0}]}],"xaxis":{},"yaxis":{"title":{}}}'
+        publicationsystem:title: Pie Chart
+        publicationsystem:type: Pie
+        publicationsystem:yTitle: ''
+      /publicationsystem:bodySections[11]:
         /publicationsystem:text:
           hippostd:content: <p>Maecenas tincidunt at mi sit amet fringilla. Nam ut
             tortor in mi rhoncus congue. Nunc eget varius ligula. Suspendisse et tincidunt
@@ -600,9 +747,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-04-09T12:26:14.588Z
-      hippostdpubwf:lastModificationDate: 2018-04-16T08:40:44.754Z
+      hippostdpubwf:lastModificationDate: 2018-05-29T10:02:18.720Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-04-16T08:41:28.345Z
+      hippostdpubwf:publicationDate: 2018-05-29T10:02:23.565Z
       hippotranslation:id: 8318b0a7-a10e-41b5-a5f7-978c530211a7
       hippotranslation:locale: en
       jcr:mixinTypes:

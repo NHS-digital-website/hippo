@@ -13,10 +13,7 @@ import static uk.nhs.digital.ps.test.acceptance.models.PublicationState.CREATED;
 import static uk.nhs.digital.ps.test.acceptance.models.PublicationState.PUBLISHED;
 
 import uk.nhs.digital.ps.test.acceptance.models.*;
-import uk.nhs.digital.ps.test.acceptance.models.section.BodySection;
-import uk.nhs.digital.ps.test.acceptance.models.section.ImageSection;
-import uk.nhs.digital.ps.test.acceptance.models.section.RelatedLinkSection;
-import uk.nhs.digital.ps.test.acceptance.models.section.TextSection;
+import uk.nhs.digital.ps.test.acceptance.models.section.*;
 
 import java.time.Instant;
 import java.time.format.DateTimeFormatter;
@@ -184,6 +181,8 @@ public class ExpectedTestDataProvider {
                 + " lectus amet placerat fusce viverra, sagittis primis at faucibus varius orci proin consequat litora,"
                 + " et primis torquent donec consequat lobortis molestie dapibus lorem mattis integer quisque faucibus"
                 + " neque, ullamcorper platea enim per nostra, dolor id vitae quam."),
+            new ChartSection("Stacked Bar Chart"),
+            new ChartSection("Pie Chart"),
             new TextSection("Lowest Heading on the first page", "Maecenas tincidunt at mi sit amet fringilla."
                 + " Nam ut tortor in mi rhoncus congue. Nunc eget varius ligula. Suspendisse et tincidunt libero. Sed"
                 + " maximus, mauris quis eleifend iaculis, leo odio feugiat ex, quis varius orci est in purus. In mollis"

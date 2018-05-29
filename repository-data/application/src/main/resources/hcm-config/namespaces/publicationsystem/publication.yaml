@@ -92,7 +92,6 @@ definitions:
           /Summary:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              rows: ''
             caption: Summary
             field: summary
             hint: ''

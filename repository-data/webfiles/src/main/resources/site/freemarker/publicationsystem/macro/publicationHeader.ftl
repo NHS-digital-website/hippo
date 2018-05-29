@@ -86,16 +86,15 @@
         </div>
     </div>
 
-    <#if !restricted && publication.pages?has_content>
+    <#if !restricted && publication.pageIndex?has_content>
         <div class="grid-wrapper grid-row" data-uipath="ps.publication.pages">
-            <#assign chunks=publication.pages?chunk(publication.pages?size/2)/>
+            <#assign chunks=publication.pageIndex?chunk((publication.pageIndex?size/2)?ceiling)/>
 
             <div class="column column--one-half column--left">
                 <ul class="list list--reset cta-list">
-                    <li><a href="<@hst.link hippobean=publication/>">Overview</a></li>
                     <#list chunks[0] as page>
                         <li itemprop="hasPart" itemscope itemtype="http://schema.org/WebPage">
-                            <a itemprop="url" href="<@hst.link hippobean=page/>" title="${page.title}"><span itemprop="name">${page.title}</span></a>
+                            <a itemprop="url" href="<@hst.link hippobean=page.linkedBean/>" title="${page.title}"><span itemprop="name">${page.title}</span></a>
                         </li>
                     </#list>
                 </ul>
@@ -104,16 +103,9 @@
                 <ul class="list list--reset ">
                     <#list chunks[1] as page>
                         <li itemprop="hasPart" itemscope itemtype="http://schema.org/WebPage">
-                            <a itemprop="url" href="<@hst.link hippobean=page/>" title="${page.title}"><span itemprop="name">${page.title}</span></a>
+                            <a itemprop="url" href="<@hst.link hippobean=page.linkedBean/>" title="${page.title}"><span itemprop="name">${page.title}</span></a>
                         </li>
                     </#list>
-                    <#if chunks?size == 3>
-                        <#list chunks[2] as page>
-                            <li itemprop="hasPart" itemscope itemtype="http://schema.org/WebPage">
-                                <a itemprop="url" href="<@hst.link hippobean=page/>" title="${page.title}"><span itemprop="name">${page.title}</span></a>
-                            </li>
-                        </#list>
-                    </#if>
                 </ul>
             </div>
         </div>

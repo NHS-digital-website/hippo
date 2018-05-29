@@ -109,7 +109,7 @@ public class PublicationPage extends AbstractSitePage {
     public List<SectionWidget> getPageBodySections() {
         WebElement body = findPageElement(PAGE_BODY);
         return body == null ? Collections.emptyList() :
-            body.findElements(By.xpath("./*"))
+            body.findElements(By.xpath("./div"))
                 .stream()
                 .map(this::createSectionWidget)
                 .collect(toList());
@@ -133,6 +133,8 @@ public class PublicationPage extends AbstractSitePage {
                 return new TextSectionWidget(webElement);
             case RelatedLinkSectionWidget.UIPATH:
                 return new RelatedLinkSectionWidget(webElement);
+            case ChartSectionWidget.UIPATH:
+                return new ChartSectionWidget(webElement);
             default:
                 throw new RuntimeException("Unknown uipath: " + uipath);
         }

@@ -15,6 +15,9 @@
 [publicationsystem:attachment] > hippo:compound, hippostd:relaxed
   orderable
 
+[publicationsystem:chartSection] > hippo:compound, hippostd:relaxed, hippo:derived
+  orderable
+
 [publicationsystem:cilanding] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
   orderable
 

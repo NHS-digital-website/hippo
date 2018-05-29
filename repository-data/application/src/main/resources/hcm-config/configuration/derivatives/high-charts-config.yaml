@@ -1,0 +1,27 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:derivatives/high-charts-config:
+      /hipposys:accessed:
+        /data:
+          hipposys:relPath: publicationsystem:dataFile/jcr:data
+          jcr:primaryType: hipposys:relativepropertyreference
+        /title:
+          hipposys:relPath: publicationsystem:title
+          jcr:primaryType: hipposys:relativepropertyreference
+        /type:
+          hipposys:relPath: publicationsystem:type
+          jcr:primaryType: hipposys:relativepropertyreference
+        /yTitle:
+          hipposys:relPath: publicationsystem:yTitle
+          jcr:primaryType: hipposys:relativepropertyreference
+        jcr:primaryType: hipposys:propertyreferences
+      /hipposys:derived:
+        /chartConfig:
+          hipposys:relPath: publicationsystem:chartConfig
+          jcr:primaryType: hipposys:relativepropertyreference
+        jcr:primaryType: hipposys:propertyreferences
+      hipposys:classname: uk.nhs.digital.ps.HighChartsConfigDerivedDataFunction
+      hipposys:nodetype: publicationsystem:chartSection
+      hipposys:serialver: 1
+      jcr:primaryType: hipposys:deriveddefinition
