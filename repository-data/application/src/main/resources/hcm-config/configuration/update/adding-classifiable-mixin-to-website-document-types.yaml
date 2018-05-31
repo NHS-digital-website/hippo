@@ -1,0 +1,18 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/Adding classifiable mixin to website document types:
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root/content/documents/corporate-website//*[(@jcr:primaryType='website:general')
+        or (@jcr:primaryType='website:service') or (@jcr:primaryType='website:hub')
+        or (@jcr:primaryType='website:componentlist') or (@jcr:primaryType='website:event')
+        or (@jcr:primaryType='website:news')]
+      hipposys:script:
+        resource: /configuration/update/adding-classifiable-mixin-to-website-document-types.groovy
+        type: string
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo
