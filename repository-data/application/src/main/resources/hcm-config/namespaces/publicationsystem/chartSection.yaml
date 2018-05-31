@@ -68,6 +68,7 @@ definitions:
             hipposysedit:type: publicationsystem:resource
             hipposysedit:validators:
             - resource-required
+            - publicationsystem-charts-datafile
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
