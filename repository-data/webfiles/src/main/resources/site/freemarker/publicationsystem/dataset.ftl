@@ -6,17 +6,18 @@
 <#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() >
 
 <#if dataset??>
-
+<div itemscope itemtype="http://schema.org/Dataset">
 <section class="document-header" aria-label="Document Header">
     <div class="document-header__inner">
         <h3 class="flush--bottom push-half--top"><@fmt.message key="labels.dataset"/></h3>
-        <h1 class="layout-5-6" data-uipath="document.title">${dataset.title}</h1>
-        <p class="flush--top">
+        <h1 class="layout-5-6" data-uipath="document.title" itemprop="name">${dataset.title}</h1>
+        <p class="flush--top" itemprop="isPartOf" itemscope itemtype="http://schema.org/PublicationIssue">
             This data set is part of
             <a class="label label--parent-document"
-                href="<@hst.link hippobean=dataset.parentPublication.selfLinkBean/>"
-                title="${dataset.parentPublication.title}"
-            >${dataset.parentPublication.title}</a>
+               href="<@hst.link hippobean=dataset.parentPublication.selfLinkBean/>"
+               title="${dataset.parentPublication.title}"
+               itemprop="url"
+            ><span itemprop="name">${dataset.parentPublication.title}</span></a>
         </p>
 
         <div class="flex push--top push--bottom">
@@ -28,6 +29,7 @@
                         <dd data-uipath="ps.dataset.date-range">
                             <#if dataset.coverageStart?? && dataset.coverageEnd??>
                                 <@formatCoverageDates start=dataset.coverageStart.time end=dataset.coverageEnd.time/>
+                                <meta itemprop="temporalCoverage" content="<@formatCoverageDates start=dataset.coverageStart.time end=dataset.coverageEnd.time schemaFormat=true/>" />
                             <#else>
                                 (Not specified)
                             </#if>
@@ -41,7 +43,7 @@
                     <div class="media__icon media__icon--granularity"></div>
                     <dl class="media__body">
                         <dt id="geographic-coverage"><@fmt.message key="headers.geographical-coverage"/></dt>
-                        <dd data-uipath="ps.dataset.geographic-coverage">
+                        <dd itemprop="spatialCoverage" data-uipath="ps.dataset.geographic-coverage">
                             <#list dataset.geographicCoverage as geographicCoverageItem>${geographicCoverageItem}<#sep>, </#list>
                         </dd>
                     </dl>
@@ -65,7 +67,7 @@
                     <div class="media__icon media__icon--calendar"></div>
                     <dl class="media__body">
                         <dt><@fmt.message key="headers.publication-date"/></dt>
-                        <dd data-uipath="ps.dataset.nominal-date">
+                        <dd data-uipath="ps.dataset.nominal-date" itemprop="datePublished">
                             <@formatRestrictableDate value=dataset.nominalDate/>
                         </dd>
                     </dl>
@@ -91,16 +93,16 @@
 <section class="document-content" aria-label="Document Content">
     <div>
         <h2><@fmt.message key="headers.summary"/></h2>
-        <@structuredText item=dataset.summary uipath="ps.dataset.summary" />
+        <div itemprop="description"><@structuredText item=dataset.summary uipath="ps.dataset.summary" /></div>
 
         <h2><@fmt.message key="headers.resources"/></h2>
         <ul data-uipath="ps.dataset.resources">
             <#list dataset.files as attachment>
-                <li class="attachment">
+                <li class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
                     <@externalstorageLink attachment.resource; url>
-                    <a title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Data set','${attachment.resource.filename}');">${attachment.text}</a>;
+                    <a itemprop="contentUrl" title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Data set','${attachment.resource.filename}');"><span itemprop="name">${attachment.text}</span></a>;
                     </@externalstorageLink>
-                    <span class="fileSize">[size: <@formatFileSize bytesCount=attachment.resource.length/>]</span>
+                    <span class="fileSize">[size: <span itemprop="contentSize"><@formatFileSize bytesCount=attachment.resource.length/></span>]</span>
                 </li>
             </#list>
             <#list dataset.resourceLinks as link>
@@ -111,6 +113,7 @@
         </ul>
     </div>
 </section>
+</div>
 
 <#else>
     <span>${error}</span>

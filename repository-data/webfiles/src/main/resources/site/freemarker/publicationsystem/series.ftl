@@ -7,14 +7,14 @@
 <#include "../common/macro/metaTags.ftl">
 <@metaTags></@metaTags>
 
-<article class="article article--legacy-series">
+<article class="article article--legacy-series" itemscope itemtype="http://schema.org/Series">
     <#if series??>
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
         <div class="local-header article-header article-header--detailed" aria-label="Series Title">
             <div class="grid-wrapper">
                 <div class="article-header__inner">
                     <span class="article-header__label"><@fmt.message key="labels.series"/></span>
-                    <h1 class="local-header__title" data-uipath="document.title">${series.title}</h1>
+                    <h1 class="local-header__title" data-uipath="document.title" itemprop="name">${series.title}</h1>
                     <#-- <hr class="hr hr--short hr--light"> -->
                 </div>
             </div>
@@ -27,7 +27,7 @@
                 <#-- [FTL-BEGIN] mandatory 'Summary' section -->
                 <div class="article-section article-section--summary" id="section-summary">
                     <h2><@fmt.message key="headers.summary"/></h2>
-                    <div class="rich-text-content">
+                    <div class="rich-text-content" itemprop="description">
                         <@structuredText item=series.summary uipath="ps.series.summary" />
                     </div>
                 </div>
@@ -75,9 +75,9 @@
 </article>
 
 <#macro publicationItem publication>
-<li>
+<li itemprop="hasPart" itemscope itemtype="http://schema.org/PublicationIssue">
     <article class="cta">
-        <a href="<@hst.link hippobean=publication.selfLinkBean/>" title="${publication.title}" class="cta__button">${publication.title}</a>
+        <a href="<@hst.link hippobean=publication.selfLinkBean/>" title="${publication.title}" class="cta__button" itemprop="url"><span itemprop="name">${publication.title}</span></a>
         <#if publication.class.name == "uk.nhs.digital.ps.beans.Publication">
             <p class="cta__text"><@truncate text=publication.summary.firstParagraph size="300"/></p>
         </#if>
@@ -91,9 +91,9 @@
         <!--Only next 4 upcoming publications-->
         <#local count = (upcomingPublications?size < 4)?then(upcomingPublications?size, 4)/>
         <#list upcomingPublications[0..count-1] as publication>
-        <li>
+        <li itemprop="hasPart" itemscope itemtype="http://schema.org/PublicationIssue">
             <article class="cta">
-                <a href="<@hst.link hippobean=publication.selfLinkBean/>" title="${publication.title}" class="cta__button">${publication.title}</a>
+                <a href="<@hst.link hippobean=publication.selfLinkBean/>" title="${publication.title}" class="cta__button" itemprop="url"><span itemprop="name">${publication.title}</span></a>
                 <p class="cta__text"><@formatRestrictableDate value=publication.nominalPublicationDate/></p>
             </article>
         </li>

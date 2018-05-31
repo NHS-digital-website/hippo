@@ -26,7 +26,8 @@ public abstract class PublicationBase extends BaseDocument {
         PropertyKeys.TITLE,
         PropertyKeys.NOMINAL_DATE,
         PropertyKeys.PUBLICLY_ACCESSIBLE,
-        PropertyKeys.INFORMATION_TYPE
+        PropertyKeys.INFORMATION_TYPE,
+        PropertyKeys.PARENT_SERIES
     );
 
     private RestrictableDate nominalPublicationDate;
