@@ -6,5 +6,5 @@ definitions:
         hst:componentclassname: uk.nhs.digital.common.components.PageNotFoundComponent
         hst:template: '404'
         jcr:primaryType: hst:component
-      hst:referencecomponent: hst:abstractpages/basepage
+      hst:referencecomponent: hst:abstractpages/apppage-no-header-search
       jcr:primaryType: hst:component
