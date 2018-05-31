@@ -71,11 +71,11 @@ Feature: As a consumer I need to be able to navigate to publication data sets
 
     Scenario: Hide dataset if publication is 'upcoming'
         Given I navigate to the "upcoming publication dataset" dataset page
-        Then I should see the "page not found" error page
+        Then I should see the "We can't seem to find the page you're looking for" error page
 
     Scenario: Hide dataset if it doesn't have a parent publication
         Given I navigate to the "dataset without publication" dataset page
-        Then I should see the "page not found" error page
+        Then I should see the "We can't seem to find the page you're looking for" error page
 
     Scenario: Display multiparagraph summary
         Given I navigate to "publication with datasets dataset" dataset page
