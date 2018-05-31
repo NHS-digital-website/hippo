@@ -9,7 +9,8 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>12.2.0</version>
+        <version>12.3.0</version>
+        <!-- Please have a look at the property section while upgrading -->
     </parent>
 
     <name>NHS Digital Website</name>
@@ -90,6 +91,9 @@
         <tomcatDistributionUrl>https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.48/bin/apache-tomcat-8.0.48.tar.gz</tomcatDistributionUrl>
 
         <forge.folderctxmenus.version>3.0.1</forge.folderctxmenus.version>
+        <essentials.version>4.3.0</essentials.version>
+        <!-- TO BE REMOVED WHEN UPGRADING FROM 12.3.0 -->
+        <hippo.jackrabbit.version>2.16.1-h2</hippo.jackrabbit.version>
     </properties>
 
     <repositories>
@@ -317,7 +321,7 @@
             <dependency>
                 <groupId>org.onehippo.forge.content-exim</groupId>
                 <artifactId>content-exim-core</artifactId>
-                <version>2.1.4</version>
+                <version>2.2.0</version>
             </dependency>
 
             <dependency>
@@ -465,6 +469,8 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- Disable this plugin after 12.3.0 upgrade -->
+            <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
@@ -482,16 +488,16 @@
                         <reactorModuleConvergence/>
                         <requireUpperBoundDeps/>
                         <requireJavaVersion>
-                            <!-- Any Java 8 version is allowed -->
+                             Any Java 8 version is allowed
                             <version>[1.8.0,1.8.1)</version>
                         </requireJavaVersion>
                         <requireMavenVersion>
-                            <!-- Any Maven 3 version is allowed -->
+                            Any Maven 3 version is allowed
                             <version>[3.0,4.0)</version>
                         </requireMavenVersion>
                     </rules>
                 </configuration>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
 

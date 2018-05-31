@@ -48,8 +48,8 @@ https://wiki.apache.org/jackrabbit/IndexingConfiguration
         <property isRegexp="true" nodeScopeIndex="false">.*:.*</property>
     </index-rule>
 
-    <index-rule nodeType="hippostd:html"
-                condition="@element(website:contactdetails, hippostd:html)/@jcr:primaryType='{http://www.onehippo.org/jcr/hippostd/nt/2.0}html'">
+    <!--<index-rule nodeType="hippostd:html"
+                condition="@element(website:contactdetails, hippostd:html)/@jcr:primaryType='html'">
     </index-rule>
 
     <index-rule nodeType="hippostd:html"
@@ -58,7 +58,7 @@ https://wiki.apache.org/jackrabbit/IndexingConfiguration
 
     <index-rule nodeType="hippostd:html"
                 condition="@element(website:introduction, hippostd:html)/@jcr:primaryType='{http://www.onehippo.org/jcr/hippostd/nt/2.0}html'">
-    </index-rule>
+    </index-rule>-->
 
     <index-rule nodeType="website:externallink">
     </index-rule>
