@@ -191,6 +191,9 @@
                         </if>
                     </if>
 
+                    <!-- convert uploaded spreadsheet file to Highcharts JSON -->
+                    <nhsdigital:convertHighchartsInput variant="draft"/>
+
                     <!-- trigger the creation of extra searchable taxonomy tags -->
                     <nhsdigital:populateSearchableTaxonomy variant="draft"/>
 

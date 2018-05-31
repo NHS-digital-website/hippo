@@ -6,6 +6,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import uk.nhs.digital.ps.ChartConfig;
 import uk.nhs.digital.ps.chart.model.Point;
 import uk.nhs.digital.ps.chart.model.Series;
 
@@ -13,16 +14,19 @@ import java.io.InputStream;
 import java.util.*;
 import javax.jcr.Binary;
 
-public class ChartParser {
+public class HighchartsXlsxInputParser implements HighchartsInputParser {
+
     private static final int CATEGORIES_INDEX = 0;
 
-    private static final ChartParser INSTANCE = new ChartParser();
+    @Override
+    public SeriesChart parse(final ChartConfig chartConfig) {
 
-    private ChartParser() {
-    }
+        final String type = chartConfig.getType();
+        final String title = chartConfig.getTitle();
+        final String yTitle = chartConfig.getYTitle();
+        final Binary data = chartConfig.getInputFileContent();
 
-    public SeriesChart parse(String type, String title, String yTitle, Binary data) {
-        ChartType chartType = ChartType.toChartType(type);
+        final ChartType chartType = ChartType.toChartType(type);
 
         ChartData chartData;
         try {
@@ -89,10 +93,6 @@ public class ChartParser {
 
     private static String getStringValue(Cell cell) {
         return cell.getCellType() == Cell.CELL_TYPE_STRING ? cell.getStringCellValue() : String.valueOf(cell.getNumericCellValue());
-    }
-
-    public static ChartParser getInstance() {
-        return INSTANCE;
     }
 
     private class ChartData {

@@ -11,6 +11,7 @@ import org.apache.jackrabbit.value.BinaryImpl;
 import org.hamcrest.Matcher;
 import org.junit.Before;
 import org.junit.Test;
+import uk.nhs.digital.ps.ChartConfig;
 import uk.nhs.digital.ps.chart.model.Point;
 import uk.nhs.digital.ps.chart.model.Series;
 
@@ -20,15 +21,17 @@ import java.util.function.Function;
 import javax.jcr.Binary;
 import javax.jcr.RepositoryException;
 
-public class ChartParserTest {
+public class HighchartsXlsxInputParserTest {
 
     private Binary binary;
 
-    private ChartParser chartParser = ChartParser.getInstance();
+    private HighchartsXlsxInputParser chartParser;
 
     @Before
     public void setUp() throws Exception {
         binary = new BinaryImpl(new FileInputStream("src/test/resources/ChartTestData.xlsx"));
+
+        chartParser = new HighchartsXlsxInputParser();
     }
 
     @Test
@@ -38,7 +41,7 @@ public class ChartParserTest {
         String yTitle = "a y axis title";
 
         // when
-        SeriesChart chart = chartParser.parse(type, title, yTitle, binary);
+        SeriesChart chart = chartParser.parse(new ChartConfig(type, title, yTitle, binary));
 
         // then
         assertEquals("Chart type is set",
@@ -74,7 +77,9 @@ public class ChartParserTest {
     @Test
     public void parseAsPieSetsCorrectOptions() {
         // when
-        SeriesChart chart = chartParser.parse("Pie", "chart title", "y axis title", binary);
+        SeriesChart chart = chartParser.parse(
+            new ChartConfig("Pie", "chart title", "y axis title", binary)
+        );
 
         // then
         assertEquals("Correct chart type is set",
@@ -100,9 +105,11 @@ public class ChartParserTest {
     }
 
     @Test
-    public void parseAsStackedChartSetsCorrectOptions() throws RepositoryException {
+    public void parseAsStackedChartSetsCorrectOptions() {
         // when
-        SeriesChart chart = chartParser.parse("Stacked Bar", "chart title", "y axis title", binary);
+        SeriesChart chart = chartParser.parse(
+            new ChartConfig("Stacked Bar", "chart title", "y axis title", binary)
+        );
 
         // then
         assertEquals("Correct chart type is set",
