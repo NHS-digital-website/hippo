@@ -1,0 +1,26 @@
+package uk.nhs.digital.ps.chart;
+
+import org.onehippo.cms7.services.HippoServiceRegistry;
+import org.onehippo.repository.modules.DaemonModule;
+import org.onehippo.repository.modules.ProvidesService;
+
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
+
+@ProvidesService(types = HighchartsInputParser.class)
+public class HighchartsModule implements DaemonModule {
+
+    private HighchartsInputParser chartParser;
+
+    @Override
+    public void initialize(final Session session) throws RepositoryException {
+        chartParser = new HighchartsXlsxInputParser();
+        HippoServiceRegistry.registerService(chartParser, HighchartsInputParser.class);
+    }
+
+    @Override
+    public void shutdown() {
+        HippoServiceRegistry.unregisterService(chartParser, HighchartsInputParser.class);
+        chartParser = null;
+    }
+}

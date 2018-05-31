@@ -6,6 +6,8 @@ definitions:
         attachment. Please remove it or upload a file.
       publicationsystem-blank-staticdropdown: '{0} has a ''''Choose One'''' placeholder
         without a value. Please remove the placeholder or select a value.'
+      publicationsystem-charts-datafile: Chart input data file is invalid. Please
+        remove chart component or upload a correctly formatted file.
       publicationsystem-coverage-dates#dates-after-nominal: Coverage dates must not
         be after publication date.
       publicationsystem-coverage-dates#end-before-start: Coverage End date must not

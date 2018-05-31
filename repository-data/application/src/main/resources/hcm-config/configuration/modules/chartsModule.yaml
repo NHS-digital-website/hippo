@@ -1,0 +1,7 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/HighchartsModule:
+      hipposys:className: uk.nhs.digital.ps.chart.HighchartsModule
+      hipposys:cmsonly: true
+      jcr:primaryType: hipposys:module
