@@ -13,37 +13,13 @@
 <@metaTags></@metaTags>
 
 <#macro restrictedContentOfUpcomingPublication>
-    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
-        <div class="local-header article-header article-header--detailed">
-            <div class="grid-wrapper">
-                <div class="article-header__inner">
+    <@publicationHeader publication=publication restricted=true/>
 
-                    <@nationalStatsStamp publication=publication/>
-
-                    <h1 class="local-header__title" data-uipath="document.title">${publication.title}</h1>
-
-                    <hr class="hr hr--short hr--light">
-
-                    <div class="article-header__detail-lines">
-                        <div class="article-header__detail-line">
-                            <dl class="article-header__detail-list">
-                                <dt class="article-header__detail-list-key"><@fmt.message key="headers.publication-date"/></dt>
-                                <dd class="article-header__detail-list-value" data-uipath="ps.publication.nominal-publication-date">
-                                    <@formatRestrictableDate value=publication.nominalPublicationDate/>
-                                </dd>
-                            </dl>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
-            <div class="grid-row">
-                <div class="column column--two-thirds page-block page-block--main">
-                    <div class="article-section">
-                        <p data-uipath="ps.publication.upcoming-disclaimer" class="strong">(Upcoming, not yet published)</p>
-                    </div>
+    <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
+        <div class="grid-row">
+            <div class="column column--two-thirds page-block page-block--main">
+                <div class="article-section">
+                    <p data-uipath="ps.publication.upcoming-disclaimer" class="strong" itemprop="description">(Upcoming, not yet published)</p>
                 </div>
             </div>
         </div>
@@ -59,13 +35,13 @@
 
 <#function getSectionNavLinks index>
     <#assign links = [] />
-    
+
     <#if index?has_content>
         <#list index as i>
             <#assign links += [{ "url": "#" + slugify(i), "title": i }] />
         </#list>
-    </#if>    
-    
+    </#if>
+
     <#return links />
 </#function>
 
@@ -83,7 +59,7 @@
             <div class="column column--two-thirds page-block page-block--main">
                 <div id="summary" class="article-section article-section--summary no-border">
                     <h2>${summaryHeader}</h2>
-                    <@structuredText item=publication.summary uipath="ps.publication.summary" />
+                    <span itemprop="description"><@structuredText item=publication.summary uipath="ps.publication.summary" /></span>
                 </div>
 
                 <#if publication.keyFacts.elements?has_content || publication.keyFactImages?has_content>
@@ -108,7 +84,7 @@
                 <#if publication.administrativeSources?has_content>
                     <div class="article-section" id="administrative-sources">
                         <h2>${administrativeResourcesHeader}</h2>
-                        <p data-uipath="ps.publication.administrative-sources">
+                        <p itemprop="isBasedOn" data-uipath="ps.publication.administrative-sources">
                             ${publication.administrativeSources}
                         </p>
                     </div>
@@ -119,7 +95,7 @@
                         <h2>${datasetsHeader}</h2>
                         <ul data-uipath="ps.publication.datasets">
                             <#list publication.datasets as dataset>
-                                <li><a href="<@hst.link hippobean=dataset.selfLinkBean/>" title="${dataset.title}">${dataset.title}</a></li>
+                                <li itemprop="hasPart" itemscope itemtype="http://schema.org/Dataset"><a itemprop="url" href="<@hst.link hippobean=dataset.selfLinkBean/>" title="${dataset.title}"><span itemprop="name">${dataset.title}</span></a></li>
                             </#list>
                         </ul>
                     </div>
@@ -130,11 +106,11 @@
                         <h2>${resourcesHeader}</h2>
                         <ul data-uipath="ps.publication.resources" class="list">
                         <#list publication.attachments as attachment>
-                            <li class="attachment">
+                            <li class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
                                 <@externalstorageLink attachment.resource; url>
-                                <a title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${attachment.resource.filename}');">${attachment.text}</a>;
+                                <a itemprop="contentUrl" title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${attachment.resource.filename}');"><span itemprop="name">${attachment.text}</span></a>;
                                 </@externalstorageLink>
-                                <span class="fileSize">[size: <@formatFileSize bytesCount=attachment.resource.length/>]</span>
+                                <span class="fileSize">[size: <span itemprop="contentSize"><@formatFileSize bytesCount=attachment.resource.length/></span>]</span>
                             </li>
                         </#list>
                         <#list publication.resourceLinks as link>
@@ -165,7 +141,7 @@
 
 <#-- ACTUAL TEMPLATE -->
 <#if publication?? >
-    <article class="article article--publication">
+    <article class="article article--publication" itemscope itemtype="http://schema.org/PublicationIssue">
         <#if publication.publiclyAccessible>
             <@fullContentOfPubliclyAvailablePublication/>
         <#else>

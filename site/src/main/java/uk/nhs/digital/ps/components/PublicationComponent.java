@@ -35,6 +35,11 @@ public class PublicationComponent extends EssentialsContentComponent {
     private List<String> getIndex(Publication publication) {
         List<String> index = new ArrayList<>();
 
+        // No contents for upcoming publications
+        if (!publication.isPubliclyAccessible()) {
+            return index;
+        }
+
         if (!publication.getSummary().isEmpty()) {
             index.add(SUMMARY_ID);
         }
