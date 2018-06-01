@@ -3,12 +3,12 @@
 <#include "./macro/structured-text.ftl">
 <@hst.setBundle basename="publicationsystem.headers,publicationsystem.labels"/>
 
-<#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() >
-
 <#if dataset??>
 <div itemscope itemtype="http://schema.org/Dataset">
 <section class="document-header" aria-label="Document Header">
     <div class="document-header__inner">
+        <meta itemprop="keywords" content="${dataset.fullTaxonomyList?join(",")}"/>
+
         <h3 class="flush--bottom push-half--top"><@fmt.message key="labels.dataset"/></h3>
         <h1 class="layout-5-6" data-uipath="document.title" itemprop="name">${dataset.title}</h1>
         <p class="flush--top" itemprop="isPartOf" itemscope itemtype="http://schema.org/PublicationIssue">

@@ -8,6 +8,7 @@
 <#assign formatRestrictableDate="uk.nhs.digital.ps.directives.RestrictableDateFormatterDirective"?new() />
 <#assign formatCoverageDates="uk.nhs.digital.ps.directives.CoverageDatesFormatterDirective"?new() >
 <#assign formatDate="uk.nhs.digital.ps.directives.DateFormatterDirective"?new() >
+<#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() />
 
 <@hst.defineObjects />
 
@@ -138,7 +139,7 @@
 
         <#local dateRangeData = dateRangeData + { "comparableStartDate": comparableStartDate, "comparableEndDate": comparableEndDate } />
     </#if>
-    
+
     <#return dateRangeData />
 </#function>
 

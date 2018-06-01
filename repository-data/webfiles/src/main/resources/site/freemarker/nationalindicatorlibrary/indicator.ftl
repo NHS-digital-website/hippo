@@ -7,7 +7,6 @@
 <#assign document = { "title": indicator.title } />
 <@metaTags></@metaTags>
 
-<#assign formatFileSize = "uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() />
 <#assign caveatsHasContent = indicator.details.caveats.content?has_content />
 <#assign interpHasContent = indicator.details.interpretationGuidelines.content?has_content />
 <#assign hasAttachments = indicator.hasAttachments() />
@@ -69,7 +68,7 @@
                                 </dl>
                             </div>
 
-                            <div class="column column--one-half column--reset">                                
+                            <div class="column column--one-half column--reset">
                                 <dl class="detail-list" data-uipath="contactAuthor">
                                     <dt class="detail-list__key"><@fmt.message key="headers.contactAuthor" /></dt>
                                     <dd class="detail-list__value">
@@ -215,7 +214,7 @@
                         <li>
                             <span class="pill" data-uipath="ps.document.taxonomy-${key}"><a title="Search for ${indicator.taxonomyList[key]}" href="${searchLink}/category/${key}/">${indicator.taxonomyList[key]}</a></span>
                         </li>
-                    </#list>    
+                    </#list>
                     </ul>
                 </div>
 
@@ -275,7 +274,7 @@
             if(isMathMLNativelySupported()) {
                 return true;
             }
-            
+
             var scriptMathJax = document.createElement("script");
             scriptMathJax.type = "text/javascript";
             scriptMathJax.src  = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML";

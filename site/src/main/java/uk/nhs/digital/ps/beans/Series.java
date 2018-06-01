@@ -12,6 +12,8 @@ import org.hippoecm.hst.core.component.HstComponentException;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.ps.beans.structuredText.StructuredText;
 
+import java.util.List;
+
 @HippoEssentialsGenerated(internalName = "publicationsystem:series")
 @Node(jcrType = "publicationsystem:series")
 public class Series extends BaseDocument {
@@ -33,6 +35,16 @@ public class Series extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "publicationsystem:ShowLatest")
     public boolean getShowLatest() {
         return getProperty("publicationsystem:ShowLatest", false);
+    }
+
+    @HippoEssentialsGenerated(internalName = "publicationsystem:attachments")
+    public List<ExtAttachment> getAttachments() {
+        return getChildBeansIfPermitted("publicationsystem:attachments", ExtAttachment.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "publicationsystem:resourceLinks")
+    public List<RelatedLink> getResourceLinks() {
+        return getChildBeansIfPermitted("publicationsystem:resourceLinks", RelatedLink.class);
     }
 
     public Publication getLatestPublication() throws HstComponentException, QueryException {

@@ -1,5 +1,8 @@
 package uk.nhs.digital.ps.beans;
 
+import static java.util.Collections.emptyList;
+import static org.apache.commons.lang3.ArrayUtils.isEmpty;
+
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
@@ -42,27 +45,19 @@ public class HippoBeanHelper {
         return taxonomyName;
     }
 
-    public static List<List<String>> getTaxonomyList(String[] keys) {
-        List<List<String>> taxonomyList = new ArrayList<>();
-
-        // For each taxonomy tag key, get the name and also include hierarchy context (ancestors)
-        if (keys != null) {
-            // Lookup Taxonomy Tree
-            TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent(TaxonomyManager.class.getName());
-            Taxonomy taxonomyTree = taxonomyManager.getTaxonomies().getTaxonomy(getTaxonomyName());
-
-            for (String key : keys) {
-                List<Category> ancestors = (List<Category>) taxonomyTree.getCategoryByKey(key).getAncestors();
-
-                List<String> list = ancestors.stream()
-                    .map(category -> category.getInfo(Locale.UK).getName())
-                    .collect(Collectors.toList());
-                list.add(taxonomyTree.getCategoryByKey(key).getInfo(Locale.UK).getName());
-                taxonomyList.add(list);
-            }
+    public static List<String> getFullTaxonomyList(HippoBean bean) {
+        String[] fullTaxonomy = bean.getProperty("common:FullTaxonomy");
+        if (isEmpty(fullTaxonomy)) {
+            return emptyList();
         }
 
-        return taxonomyList;
+        // Lookup Taxonomy Tree
+        TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent(TaxonomyManager.class.getName());
+        Taxonomy taxonomyTree = taxonomyManager.getTaxonomies().getTaxonomy(getTaxonomyName());
+
+        return Arrays.stream(fullTaxonomy)
+            .map(key -> taxonomyTree.getCategoryByKey(key).getInfo(Locale.UK).getName())
+            .collect(Collectors.toList());
     }
 
     /**
