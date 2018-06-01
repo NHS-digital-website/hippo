@@ -29,54 +29,62 @@
 
                     <hr class="hr hr--short hr--light">
 
-                    <div class="article-header__detail-lines">
-                        <div class="article-header__detail-line">
-                            <dl class="article-header__detail-list">
-                                <dt class="article-header__detail-list-key"><@fmt.message key="headers.publication-date"/></dt>
-                                <dd class="article-header__detail-list-value" data-uipath="ps.publication.nominal-publication-date" itemprop="datePublished">
-                                    <@formatRestrictableDate value=publication.nominalPublicationDate/>
-                                </dd>
-                            </dl>
+                    <div class="detail-list-grid">
+                        <div class="grid-row">
+                            <div class="column column--reset">
+                                <dl class="detail-list">
+                                    <dt class="detail-list__key"><@fmt.message key="headers.publication-date"/></dt>
+                                    <dd class="detail-list__value" data-uipath="ps.publication.nominal-publication-date" itemprop="datePublished">
+                                        <@formatRestrictableDate value=publication.nominalPublicationDate/>
+                                    </dd>
+                                </dl>
+                            </div>
                         </div>
 
                         <#if !restricted>
                             <meta itemprop="keywords" content="${publication.fullTaxonomyList?join(",")}"/>
 
                             <#if publication.geographicCoverage?has_content>
-                                <div class="article-header__detail-line">
-                                    <dl class="article-header__detail-list">
-                                        <dt class="article-header__detail-list-key" id="geographic-coverage"><@fmt.message key="headers.geographical-coverage"/></dt>
-                                        <dd class="article-header__detail-list-value" itemprop="spatialCoverage" data-uipath="ps.publication.geographic-coverage">
-                                            <#list publication.geographicCoverage as geographicCoverageItem>${geographicCoverageItem}<#sep>, </#list>
-                                        </dd>
-                                    </dl>
+                                <div class="grid-row">
+                                    <div class="column column--reset">
+                                        <dl class="detail-list">
+                                            <dt class="detail-list__key" id="geographic-coverage"><@fmt.message key="headers.geographical-coverage"/></dt>
+                                            <dd class="detail-list__value" itemprop="spatialCoverage" data-uipath="ps.publication.geographic-coverage">
+                                                <#list publication.geographicCoverage as geographicCoverageItem>${geographicCoverageItem}<#sep>, </#list>
+                                            </dd>
+                                        </dl>
+                                    </div>
                                 </div>
                             </#if>
 
                             <#if publication.granularity?has_content >
-                                <div class="article-header__detail-line">
-                                    <dl class="article-header__detail-list">
-                                        <dt class="article-header__detail-list-key"><@fmt.message key="headers.geographical-granularity"/></dt>
-                                        <dd class="article-header__detail-list-value" data-uipath="ps.publication.granularity">
-                                            <#list publication.granularity as granularityItem>${granularityItem}<#sep>, </#list>
-                                        </dd>
-                                    </dl>
+                                <div class="grid-row">
+                                    <div class="column column--reset">
+                                        <dl class="detail-list">
+                                            <dt class="detail-list__key"><@fmt.message key="headers.geographical-granularity"/></dt>
+                                            <dd class="detail-list__value" data-uipath="ps.publication.granularity">
+                                                <#list publication.granularity as granularityItem>${granularityItem}<#sep>, </#list>
+                                            </dd>
+                                        </dl>
+                                    </div>
                                 </div>
                             </#if>
 
                             <#if publication.coverageStart?? >
-                                <div class="article-header__detail-line">
-                                    <dl class="article-header__detail-list">
-                                        <dt class="article-header__detail-list-key"><@fmt.message key="headers.date-range"/></dt>
-                                        <dd class="article-header__detail-list-value" data-uipath="ps.publication.date-range">
-                                            <#if publication.coverageStart?? && publication.coverageEnd??>
-                                                <@formatCoverageDates start=publication.coverageStart.time end=publication.coverageEnd.time/>
-                                                <meta itemprop="temporalCoverage" content="<@formatCoverageDates start=publication.coverageStart.time end=publication.coverageEnd.time schemaFormat=true/>" />
-                                            <#else>
-                                                (Not specified)
-                                            </#if>
-                                        </dd>
-                                    </dl>
+                                <div class="grid-row">
+                                    <div class="column column--reset">
+                                        <dl class="detail-list">
+                                            <dt class="detail-list__key"><@fmt.message key="headers.date-range"/></dt>
+                                            <dd class="detail-list__value" data-uipath="ps.publication.date-range">
+                                                <#if publication.coverageStart?? && publication.coverageEnd??>
+                                                    <@formatCoverageDates start=publication.coverageStart.time end=publication.coverageEnd.time/>
+                                                    <meta itemprop="temporalCoverage" content="<@formatCoverageDates start=publication.coverageStart.time end=publication.coverageEnd.time schemaFormat=true/>" />
+                                                <#else>
+                                                    (Not specified)
+                                                </#if>
+                                            </dd>
+                                        </dl>
+                                    </div>
                                 </div>
                             </#if>
                         </#if>

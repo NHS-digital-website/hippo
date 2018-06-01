@@ -82,14 +82,16 @@
 
                 <hr class="hr hr--short hr--light">
 
-                <div class="article-header__detail-lines">
-                    <div class="article-header__detail-line">
-                        <dl class="article-header__detail-list">
-                            <dt class="article-header__detail-list-key"><@fmt.message key="headers.publication-date"/></dt>
-                            <dd class="article-header__detail-list-value" data-uipath="ps.publication.nominal-publication-date">
-                                <@formatRestrictableDate value=legacyPublication.nominalPublicationDate/>
-                            </dd>
-                        </dl>
+                <div class="detail-list-grid">
+                    <div class="grid-row">
+                        <div class="column column--reset">
+                            <dl class="detail-list">
+                                <dt class="detail-list__key"><@fmt.message key="headers.publication-date"/></dt>
+                                <dd class="detail-list__value" data-uipath="ps.publication.nominal-publication-date">
+                                    <@formatRestrictableDate value=legacyPublication.nominalPublicationDate/>
+                                </dd>
+                            </dl>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -136,50 +138,58 @@
 
                 <hr class="hr hr--short hr--light">
 
-                <div class="article-header__detail-lines">
-                    <div class="article-header__detail-line">
-                        <dl class="article-header__detail-list">
-                            <dt class="article-header__detail-list-key"><@fmt.message key="headers.publication-date"/></dt>
-                            <dd class="article-header__detail-list-value" data-uipath="ps.publication.nominal-publication-date">
-                                <@formatRestrictableDate value=legacyPublication.nominalPublicationDate/>
-                            </dd>
-                        </dl>
+                <div class="detail-list-grid">
+                    <div class="grid-row">
+                        <div class="column column--reset">
+                            <dl class="detail-list">
+                                <dt class="detail-list__key"><@fmt.message key="headers.publication-date"/></dt>
+                                <dd class="detail-list__value" data-uipath="ps.publication.nominal-publication-date">
+                                    <@formatRestrictableDate value=legacyPublication.nominalPublicationDate/>
+                                </dd>
+                            </dl>
+                        </div>
                     </div>
 
                     <#if legacyPublication.geographicCoverage?has_content>
-                    <div class="article-header__detail-line">
-                        <dl class="article-header__detail-list">
-                            <dt class="article-header__detail-list-key" id="geographic-coverage"><@fmt.message key="headers.geographical-coverage"/></dt>
-                            <dd class="article-header__detail-list-value" data-uipath="ps.publication.geographic-coverage">
-                                <#list legacyPublication.geographicCoverage as geographicCoverageItem>${geographicCoverageItem}<#sep>, </#list>
-                            </dd>
-                        </dl>
+                    <div class="grid-row">
+                        <div class="column column--reset">
+                            <dl class="detail-list">
+                                <dt class="detail-list__key" id="geographic-coverage"><@fmt.message key="headers.geographical-coverage"/></dt>
+                                <dd class="detail-list__value" data-uipath="ps.publication.geographic-coverage">
+                                    <#list legacyPublication.geographicCoverage as geographicCoverageItem>${geographicCoverageItem}<#sep>, </#list>
+                                </dd>
+                            </dl>
+                        </div>
                     </div>
                     </#if>
 
                     <#if legacyPublication.granularity?has_content >
-                    <div class="article-header__detail-line">
-                        <dl class="article-header__detail-list">
-                            <dt class="article-header__detail-list-key"><@fmt.message key="headers.geographical-granularity"/></dt>
-                            <dd class="article-header__detail-list-value" data-uipath="ps.publication.granularity">
-                                <#list legacyPublication.granularity as granularityItem>${granularityItem}<#sep>, </#list>
-                            </dd>
-                        </dl>
+                    <div class="grid-row">
+                        <div class="column column--reset">
+                            <dl class="detail-list">
+                                <dt class="detail-list__key"><@fmt.message key="headers.geographical-granularity"/></dt>
+                                <dd class="detail-list__value" data-uipath="ps.publication.granularity">
+                                    <#list legacyPublication.granularity as granularityItem>${granularityItem}<#sep>, </#list>
+                                </dd>
+                            </dl>
+                        </div>
                     </div>
                     </#if>
 
                     <#if legacyPublication.coverageStart?? >
-                    <div class="article-header__detail-line">
-                        <dl class="article-header__detail-list">
-                            <dt class="article-header__detail-list-key"><@fmt.message key="headers.date-range"/></dt>
-                            <dd class="article-header__detail-list-value" data-uipath="ps.publication.date-range">
-                                <#if legacyPublication.coverageStart?? && legacyPublication.coverageEnd??>
-                                    <@formatCoverageDates start=legacyPublication.coverageStart.time end=legacyPublication.coverageEnd.time/>
-                                <#else>
-                                    (Not specified)
-                                </#if>
-                            </dd>
-                        </dl>
+                    <div class="grid-row">
+                        <div class="column column--reset">
+                            <dl class="detail-list">
+                                <dt class="detail-list__key"><@fmt.message key="headers.date-range"/></dt>
+                                <dd class="detail-list__value" data-uipath="ps.publication.date-range">
+                                    <#if legacyPublication.coverageStart?? && legacyPublication.coverageEnd??>
+                                        <@formatCoverageDates start=legacyPublication.coverageStart.time end=legacyPublication.coverageEnd.time/>
+                                    <#else>
+                                        (Not specified)
+                                    </#if>
+                                </dd>
+                            </dl>
+                        </div>
                     </div>
                     </#if>
                 </div>
