@@ -861,6 +861,40 @@
     jcr:primaryType: hippo:handle
   /content:
     /content[1]:
+      /publicationsystem:attachments[1]:
+        /publicationsystem:attachmentResource:
+          externalstorage:reference: D9/5536B3/attachment-text.pdf
+          externalstorage:size: 7228
+          externalstorage:url: https://files.local.nhsd.io/D9/5536B3/attachment-text.pdf
+          hippo:filename: attachment-text.pdf
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/valid-publication-series/content/content[1]/attachments[1]/attachmentResource/data.pdf
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-01T11:07:43.670Z
+          jcr:mimeType: application/pdf
+          jcr:primaryType: externalstorage:resource
+        jcr:primaryType: publicationsystem:extattachment
+        publicationsystem:displayName: Attachment with text
+      /publicationsystem:attachments[2]:
+        /publicationsystem:attachmentResource:
+          externalstorage:reference: AF/9F1A6A/attachment.pdf
+          externalstorage:size: 7228
+          externalstorage:url: https://files.local.nhsd.io/AF/9F1A6A/attachment.pdf
+          hippo:filename: attachment.pdf
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/valid-publication-series/content/content[1]/attachments[2]/attachmentResource/data.pdf
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-01T11:07:56.481Z
+          jcr:mimeType: application/pdf
+          jcr:primaryType: externalstorage:resource
+        jcr:primaryType: publicationsystem:extattachment
+        publicationsystem:displayName: ''
+      /publicationsystem:resourceLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: Google Link
+        publicationsystem:linkUrl: https://google.co.uk
       common:FacetType: series
       common:searchRank: 5
       common:searchable: true
@@ -868,7 +902,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2017-10-16T13:58:50.358Z
-      hippostdpubwf:lastModificationDate: 2018-02-22T16:12:07.665Z
+      hippostdpubwf:lastModificationDate: 2018-06-01T10:58:36.532Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
@@ -883,6 +917,40 @@
         pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.
       publicationsystem:Title: Time Series Lorem Ipsum Dolor
     /content[2]:
+      /publicationsystem:attachments[1]:
+        /publicationsystem:attachmentResource:
+          externalstorage:reference: D9/5536B3/attachment-text.pdf
+          externalstorage:size: 7228
+          externalstorage:url: https://files.local.nhsd.io/D9/5536B3/attachment-text.pdf
+          hippo:filename: attachment-text.pdf
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/valid-publication-series/content/content[2]/attachments[1]/attachmentResource/data.pdf
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-01T11:07:43.670Z
+          jcr:mimeType: application/pdf
+          jcr:primaryType: externalstorage:resource
+        jcr:primaryType: publicationsystem:extattachment
+        publicationsystem:displayName: Attachment with text
+      /publicationsystem:attachments[2]:
+        /publicationsystem:attachmentResource:
+          externalstorage:reference: AF/9F1A6A/attachment.pdf
+          externalstorage:size: 7228
+          externalstorage:url: https://files.local.nhsd.io/AF/9F1A6A/attachment.pdf
+          hippo:filename: attachment.pdf
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/valid-publication-series/content/content[2]/attachments[2]/attachmentResource/data.pdf
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-01T11:07:56.481Z
+          jcr:mimeType: application/pdf
+          jcr:primaryType: externalstorage:resource
+        jcr:primaryType: publicationsystem:extattachment
+        publicationsystem:displayName: ''
+      /publicationsystem:resourceLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: Google Link
+        publicationsystem:linkUrl: https://google.co.uk
       common:FacetType: series
       common:searchRank: 5
       common:searchable: true
@@ -891,7 +959,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2017-10-16T13:58:50.358Z
-      hippostdpubwf:lastModificationDate: 2018-02-22T16:12:10.903Z
+      hippostdpubwf:lastModificationDate: 2018-06-01T11:08:48.377Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
@@ -907,6 +975,40 @@
         pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.
       publicationsystem:Title: Time Series Lorem Ipsum Dolor
     /content[3]:
+      /publicationsystem:attachments[1]:
+        /publicationsystem:attachmentResource:
+          externalstorage:reference: D9/5536B3/attachment-text.pdf
+          externalstorage:size: 7228
+          externalstorage:url: https://files.local.nhsd.io/D9/5536B3/attachment-text.pdf
+          hippo:filename: attachment-text.pdf
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/valid-publication-series/content/content[3]/attachments[1]/attachmentResource/data.pdf
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-01T11:07:43.670Z
+          jcr:mimeType: application/pdf
+          jcr:primaryType: externalstorage:resource
+        jcr:primaryType: publicationsystem:extattachment
+        publicationsystem:displayName: Attachment with text
+      /publicationsystem:attachments[2]:
+        /publicationsystem:attachmentResource:
+          externalstorage:reference: AF/9F1A6A/attachment.pdf
+          externalstorage:size: 7228
+          externalstorage:url: https://files.local.nhsd.io/AF/9F1A6A/attachment.pdf
+          hippo:filename: attachment.pdf
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/valid-publication-series/content/content[3]/attachments[2]/attachmentResource/data.pdf
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-01T11:07:56.481Z
+          jcr:mimeType: application/pdf
+          jcr:primaryType: externalstorage:resource
+        jcr:primaryType: publicationsystem:extattachment
+        publicationsystem:displayName: ''
+      /publicationsystem:resourceLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: Google Link
+        publicationsystem:linkUrl: https://google.co.uk
       common:FacetType: series
       common:searchRank: 5
       common:searchable: true
@@ -915,9 +1017,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2017-10-16T13:58:50.358Z
-      hippostdpubwf:lastModificationDate: 2018-02-22T16:12:10.903Z
+      hippostdpubwf:lastModificationDate: 2018-06-01T11:08:48.377Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-03-14T17:21:51.813Z
+      hippostdpubwf:publicationDate: 2018-06-01T11:08:56.592Z
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
       jcr:mixinTypes:

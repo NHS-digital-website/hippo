@@ -52,12 +52,6 @@ public abstract class PublicationBase extends BaseDocument {
         return this;
     }
 
-    public List<List<String>> getTaxonomyList() {
-        assertPropertyPermitted(PropertyKeys.TAXONOMY);
-
-        return HippoBeanHelper.getTaxonomyList(getKeys());
-    }
-
     public HippoBean getParentDocument() {
         assertPropertyPermitted(PropertyKeys.PARENT_SERIES);
 
@@ -113,6 +107,12 @@ public abstract class PublicationBase extends BaseDocument {
     @HippoEssentialsGenerated(internalName = PropertyKeys.INFORMATION_TYPE)
     public String[] getInformationType() {
         return getPropertyIfPermitted(PropertyKeys.INFORMATION_TYPE);
+    }
+
+    public List<String> getFullTaxonomyList() {
+        assertPropertyPermitted(Dataset.PropertyKeys.TAXONOMY);
+
+        return HippoBeanHelper.getFullTaxonomyList(this);
     }
 
     /**

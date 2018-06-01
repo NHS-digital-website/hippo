@@ -66,6 +66,27 @@
                     </#if>
                 </div>
                 </#if>
+
+                <#if series.attachments?has_content || series.resourceLinks?has_content>
+                    <div class="article-section" id="resources">
+                        <h2><@fmt.message key="headers.resources"/></h2>
+                        <ul data-uipath="ps.series.resources" class="list">
+                        <#list series.attachments as attachment>
+                            <li class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
+                                <@externalstorageLink attachment.resource; url>
+                                <a itemprop="contentUrl" title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Series','${attachment.resource.filename}');"><span itemprop="name">${attachment.text}</span></a>;
+                                </@externalstorageLink>
+                                <span class="fileSize">[size: <span itemprop="contentSize"><@formatFileSize bytesCount=attachment.resource.length/></span>]</span>
+                            </li>
+                        </#list>
+                        <#list series.resourceLinks as link>
+                            <li>
+                                <a href="${link.linkUrl}" onClick="logGoogleAnalyticsEvent('Link click','Series','${link.linkUrl}');" title="${link.linkText}">${link.linkText}</a>
+                            </li>
+                        </#list>
+                        </ul>
+                    </div>
+                </#if>
             </div>
         </div>
     </div>

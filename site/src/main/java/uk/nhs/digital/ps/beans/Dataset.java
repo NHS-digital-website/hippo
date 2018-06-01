@@ -89,10 +89,10 @@ public class Dataset extends BaseDocument {
         return HippoBeanHelper.getParentPublication(this);
     }
 
-    public List<List<String>> getTaxonomyList() {
+    public List<String> getFullTaxonomyList() {
         assertPropertyPermitted(PropertyKeys.TAXONOMY);
 
-        return HippoBeanHelper.getTaxonomyList(getKeys());
+        return HippoBeanHelper.getFullTaxonomyList(this);
     }
 
     @Override

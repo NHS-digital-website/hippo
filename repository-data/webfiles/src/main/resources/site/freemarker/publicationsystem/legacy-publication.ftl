@@ -2,7 +2,6 @@
 <#include "../include/imports.ftl">
 <#include "../common/macro/sectionNav.ftl">
 <#include "./macro/structured-text.ftl">
-<#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() />
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 
 <#-- Add meta tags -->
@@ -21,7 +20,7 @@
 <#assign sectionCounter = 0 />
 <#function shouldRenderNav>
     <#assign result = false />
-    
+
     <#list [hasAdministrativeSources, hasAttachments, hasKeyFacts, hasResourceLinks, hasDataSets, hasRelatedLinks, hasResources] as section>
         <#if section>
             <#assign sectionCounter += 1 />
@@ -56,7 +55,7 @@
     <#if hasRelatedLinks>
         <#assign links += [{ "url": "#" + slugify(relatedLinksHeader), "title": relatedLinksHeader }] />
     </#if>
-    
+
     <#return links />
 </#function>
 

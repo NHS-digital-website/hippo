@@ -84,3 +84,10 @@ Feature: Display of publications forming a series
             | Publication 2017 ...   |
         And I should see the "Series Upcoming Publications" list containing:
             | 2020 Upcoming ... |
+
+    Scenario: List attachments and Links added to the series
+        Given I navigate to the "valid publication series" page
+        Then I should see "Series Resources" with:
+            | Google Link                          |
+            | Attachment with text; [size: 7.2 kB] |
+            | attachment.pdf; [size: 7.2 kB]       |

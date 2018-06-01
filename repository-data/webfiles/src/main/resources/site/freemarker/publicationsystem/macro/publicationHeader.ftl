@@ -40,6 +40,8 @@
                         </div>
 
                         <#if !restricted>
+                            <meta itemprop="keywords" content="${publication.fullTaxonomyList?join(",")}"/>
+
                             <#if publication.geographicCoverage?has_content>
                                 <div class="article-header__detail-line">
                                     <dl class="article-header__detail-list">

@@ -2,7 +2,6 @@
 <#include "../include/imports.ftl">
 <#include "../common/macro/sectionNav.ftl">
 
-<#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() />
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 
 <#-- Add meta tags -->
@@ -18,8 +17,8 @@
 <#assign resourcesHeader = "Resources" />
 
 <#function getSectionNavLinks>
-    <#assign links = [{ "url": "#" + slugify(actionsHeader), "title": actionsHeader }] />    
-    
+    <#assign links = [{ "url": "#" + slugify(actionsHeader), "title": actionsHeader }] />
+
     <#if hasSubSections>
         <#list document.subSections as section>
             <#if section.title?has_content>

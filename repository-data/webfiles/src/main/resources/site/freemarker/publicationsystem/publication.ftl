@@ -4,7 +4,6 @@
 <#include "./macro/publicationHeader.ftl">
 <#include "./macro/sections/imageSection.ftl">
 <#include "../common/macro/sectionNav.ftl">
-<#assign formatFileSize="uk.nhs.digital.ps.directives.FileSizeFormatterDirective"?new() />
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 <#-- @ftlvariable name="publication" type="uk.nhs.digital.ps.beans.Publication" -->
 
