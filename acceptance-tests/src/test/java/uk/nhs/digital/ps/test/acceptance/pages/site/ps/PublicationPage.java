@@ -82,7 +82,6 @@ public class PublicationPage extends AbstractSitePage {
             GEOGRAPHIC_COVERAGE,
             GRANULARITY,
             DATE_RANGE,
-            INFORMATION_TYPES,
             KEY_FACTS,
             KEY_FACT_IMAGES,
             RESOURCES,
