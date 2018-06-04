@@ -10,9 +10,11 @@ import uk.nhs.digital.ps.test.acceptance.pages.widgets.SectionWidget;
 
 public class ChartSection extends BodySection {
     private final String title;
+    private final String dataFileName;
 
-    public ChartSection(String title) {
+    public ChartSection(String title, String dataFileName) {
         this.title = title;
+        this.dataFileName = dataFileName;
     }
 
     @Override
@@ -22,7 +24,8 @@ public class ChartSection extends BodySection {
             protected boolean matchesSafely(SectionWidget item, Description desc) {
                 ChartSectionWidget widget = (ChartSectionWidget) item;
                 return compare(getTitle(), widget.getTitle(), desc)
-                    && compare(notNullValue(), widget.getChartImage(), desc);
+                    && compare(notNullValue(), widget.getChartImage(), desc)
+                    && compare(getDataFileName(), widget.getDataFileName(), desc);
             }
 
             @Override
@@ -34,5 +37,9 @@ public class ChartSection extends BodySection {
 
     public String getTitle() {
         return title;
+    }
+
+    public String getDataFileName() {
+        return dataFileName;
     }
 }
