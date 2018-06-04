@@ -29,6 +29,12 @@ public class ChartSectionWidget extends SectionWidget {
         return findElement("highcharts-root");
     }
 
+    public String getDataFileName() {
+        return getRootElement().findElement(
+            By.xpath("//a[@data-uipath='ps.publication.chart-section.data-file']")
+        ).getText().trim();
+    }
+
     @Override
     protected WebElement findElement(String className) {
         List<WebElement> elements = getRootElement().findElements(By.className(className));

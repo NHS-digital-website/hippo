@@ -19,9 +19,11 @@
 </#function>
 
 <article class="article article--chaptered-publication" itemscope itemtype="http://schema.org/WebPage">
+    <#if page.publication??>
     <div itemprop="isPartOf" itemscope itemtype="http://schema.org/PublicationIssue">
         <@publicationHeader publication=page.publication />
     </div>
+    </#if>
 
     <div class="grid-wrapper grid-wrapper--article article-section" aria-label="Document Content">
         <div class="grid-row">

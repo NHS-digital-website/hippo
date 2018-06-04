@@ -28,6 +28,7 @@
     - ''
     - ''
     - ''
+    - ''
     resourcebundle:id: publicationsystem.headers
     resourcebundle:keys:
     - headers.summary
@@ -47,6 +48,7 @@
     - headers.latest-version
     - headers.datasets
     - headers.upcoming
+    - headers.download-chart-data
     resourcebundle:messages:
     - Summary
     - Key Facts
@@ -65,6 +67,7 @@
     - Latest Version
     - Data Sets
     - Upcoming
+    - Download the data for this chart
   /headers[2]:
     hippo:availability:
     - preview
@@ -95,6 +98,7 @@
     - ''
     - ''
     - ''
+    - ''
     resourcebundle:id: publicationsystem.headers
     resourcebundle:keys:
     - headers.summary
@@ -114,6 +118,7 @@
     - headers.latest-version
     - headers.datasets
     - headers.upcoming
+    - headers.download-chart-data
     resourcebundle:messages:
     - Summary
     - Key Facts
@@ -132,6 +137,7 @@
     - Latest Version
     - Data Sets
     - Upcoming
+    - Download the data for this chart
   /headers[3]:
     hippo:availability:
     - live
@@ -162,6 +168,7 @@
     - ''
     - ''
     - ''
+    - ''
     resourcebundle:id: publicationsystem.headers
     resourcebundle:keys:
     - headers.summary
@@ -181,6 +188,7 @@
     - headers.latest-version
     - headers.datasets
     - headers.upcoming
+    - headers.download-chart-data
     resourcebundle:messages:
     - Summary
     - Key Facts
@@ -199,6 +207,7 @@
     - Latest Version
     - Data Sets
     - Upcoming
+    - Download the data for this chart
   hippo:name: Headers
   jcr:mixinTypes:
   - hippo:named
