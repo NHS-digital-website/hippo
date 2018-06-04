@@ -7,7 +7,6 @@ import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
@@ -182,8 +181,8 @@ public abstract class PublicationBase extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.ATTACHMENTS_V3)
-    public List<HippoCompound> getAttachments() {
-        return getAttachmentList(PropertyKeys.ATTACHMENTS_V3);
+    public List<ExtAttachment> getAttachments() {
+        return getChildBeansIfPermitted(PropertyKeys.ATTACHMENTS_V3, ExtAttachment.class);
     }
 
     @Override

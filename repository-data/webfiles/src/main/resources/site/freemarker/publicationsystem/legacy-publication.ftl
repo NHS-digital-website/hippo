@@ -10,7 +10,7 @@
 
 <#assign hasSummary = legacyPublication.summary.content?has_content>
 <#assign hasAdministrativeSources = legacyPublication.administrativeSources?has_content>
-<#assign hasAttachments = legacyPublication.getExtAttachments()?size gt 0>
+<#assign hasAttachments = legacyPublication.getAttachments()?size gt 0>
 <#assign hasKeyFacts = legacyPublication.keyFacts.content?has_content>
 <#assign hasResourceLinks = legacyPublication.resourceLinks?has_content>
 <#assign hasDataSets = legacyPublication.datasets?has_content>
@@ -242,7 +242,7 @@
             <div class="article-section" id="${slugify(resourcesHeader)}">
                 <h2>${resourcesHeader}</h2>
                 <ul data-uipath="ps.publication.resources" class="list">
-                <#list legacyPublication.getExtAttachments() as attachment>
+                <#list legacyPublication.attachments as attachment>
                     <li class="attachment">
                         <@externalstorageLink attachment.resource; url>
                         <a title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','LegacyPublication','${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)">${attachment.text}</a>;

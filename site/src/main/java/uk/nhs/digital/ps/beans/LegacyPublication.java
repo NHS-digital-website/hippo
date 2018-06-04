@@ -24,11 +24,6 @@ public class LegacyPublication extends PublicationBase {
         return getHippoHtml(PropertyKeys.KEY_FACTS);
     }
 
-    @HippoEssentialsGenerated(internalName = PropertyKeys.ATTACHMENTS_V3)
-    public List<ExtAttachment> getExtAttachments() {
-        return getChildBeansIfPermitted(PropertyKeys.ATTACHMENTS_V3, ExtAttachment.class);
-    }
-
     @HippoEssentialsGenerated(internalName = "publicationsystem:publicationid")
     public Long getPublicationid() {
         return getProperty("publicationsystem:publicationid");
