@@ -1,0 +1,24 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-306-ChangesToSearchRank:
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: "{\r\n    \"website:service\" : 6, \"website:general\"\
+        \ : 3, \"website:news\" : 4, \"website:event\" : 4, \"website:hub\" : 5, \"\
+        website:gdprtransparency\" : 2, \"website:gdprsummary\" : 1, \"publicationsystem:dataset\"\
+        \ : 2, \"publicationsystem:legacypublication\" : 3, \"publicationsystem:publication\"\
+        \ : 3, \"nationalindicatorlibrary:indicator\" : 4,\r\n}"
+      hipposys:query: /jcr:root/content/documents/corporate-website//*[(@jcr:primaryType='website:service')
+        or (@jcr:primaryType='website:general') or (@jcr:primaryType='website:news')
+        or (@jcr:primaryType='website:event') or (@jcr:primaryType='website:hub')
+        or (@jcr:primaryType='webiste:gdprtransparency') or (@jcr:primaryType='website:gdprsummary')
+        or (@jcr:primaryType='publicationsystem:dataset') or (@jcr:primaryType='publicationsystem:legacypublication')
+        or (@jcr:primaryType='publicationsystem:publication') or (@jcr:primaryType='nationalindicatorlibrary:indicator')]
+      hipposys:script:
+        resource: /configuration/update/DW-306-ChangesToSearchRank.groovy
+        type: string
+      hipposys:throttle: 200
+      jcr:primaryType: hipposys:updaterinfo

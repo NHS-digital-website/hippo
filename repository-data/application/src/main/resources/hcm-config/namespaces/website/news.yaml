@@ -210,6 +210,7 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          common:searchRank: 4
           common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft

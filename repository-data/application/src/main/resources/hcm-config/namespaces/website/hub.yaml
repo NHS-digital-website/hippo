@@ -228,6 +228,7 @@ definitions:
           /website:component:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
+          common:searchRank: 5
           common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft

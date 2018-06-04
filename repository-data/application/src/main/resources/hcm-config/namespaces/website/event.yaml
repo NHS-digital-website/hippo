@@ -291,6 +291,7 @@ definitions:
             hippo:modes: []
             hippo:values: []
             jcr:primaryType: hippogallerypicker:imagelink
+          common:searchRank: 4
           common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft

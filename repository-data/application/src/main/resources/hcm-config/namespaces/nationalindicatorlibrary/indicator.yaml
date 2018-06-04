@@ -276,6 +276,7 @@ definitions:
             nationalindicatorlibrary:reportingPeriod: ''
             nationalindicatorlibrary:reviewDate: 0001-01-01T12:00:00Z
           common:FacetType: indicator
+          common:searchRank: 4
           common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft
