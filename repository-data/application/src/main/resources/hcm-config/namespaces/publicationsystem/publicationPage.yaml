@@ -38,6 +38,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
+            wicket.skin: skin/content-blocks.css
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
