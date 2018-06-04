@@ -1,5 +1,6 @@
 package uk.nhs.digital.ps;
 
+import org.apache.jackrabbit.value.BinaryValue;
 import org.hippoecm.repository.ext.DerivedDataFunction;
 
 import java.util.Map;
@@ -12,7 +13,7 @@ public class AttachmentTextEraserDerivedDataFunction extends DerivedDataFunction
     @Override
     public Map<String, Value[]> compute(Map<String, Value[]> parameters) {
         // erase any searchable content from "resource"
-        parameters.put("text", new Value[] {getValueFactory().createValue("")});
+        parameters.put("text", new Value[] {new BinaryValue("")});
 
         return parameters;
     }

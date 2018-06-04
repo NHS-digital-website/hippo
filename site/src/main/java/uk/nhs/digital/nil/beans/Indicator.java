@@ -3,9 +3,9 @@ package uk.nhs.digital.nil.beans;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.cxf.common.util.CollectionUtils;
 import org.hippoecm.hst.content.beans.Node;
-import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.ps.beans.BaseDocument;
+import uk.nhs.digital.ps.beans.ExtAttachment;
 import uk.nhs.digital.ps.beans.HippoBeanHelper;
 
 import java.util.Calendar;
@@ -27,8 +27,8 @@ public class Indicator extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.ATTACHMENTS)
-    public List<HippoCompound> getAttachments() {
-        return getAttachmentList(PropertyKeys.ATTACHMENTS);
+    public List<ExtAttachment> getAttachments() {
+        return getChildBeansIfPermitted(PropertyKeys.ATTACHMENTS, ExtAttachment.class);
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.TITLE)

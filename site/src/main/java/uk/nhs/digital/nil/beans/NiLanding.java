@@ -5,6 +5,7 @@ import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.ps.beans.BaseDocument;
+import uk.nhs.digital.ps.beans.ExtAttachment;
 
 @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:nilanding")
 @Node(jcrType = "nationalindicatorlibrary:nilanding")
@@ -31,7 +32,7 @@ public class NiLanding extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:adviceForm")
     public HippoCompound getAdviceForm() {
-        return getAttachment("nationalindicatorlibrary:adviceForm");
+        return getBean("nationalindicatorlibrary:adviceForm", ExtAttachment.class);
     }
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:addTitle")
@@ -46,7 +47,7 @@ public class NiLanding extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:addForm")
     public HippoCompound getAddForm() {
-        return getAttachment("nationalindicatorlibrary:addForm");
+        return getBean("nationalindicatorlibrary:addForm", ExtAttachment.class);
     }
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:applyTitle")
@@ -61,11 +62,11 @@ public class NiLanding extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:applyForm")
     public HippoCompound getApplyForm() {
-        return getAttachment("nationalindicatorlibrary:applyForm");
+        return getBean("nationalindicatorlibrary:applyForm", ExtAttachment.class);
     }
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:applyGuidanceForm")
     public HippoCompound getApplyGuidanceForm() {
-        return getAttachment("nationalindicatorlibrary:applyGuidanceForm");
+        return getBean("nationalindicatorlibrary:applyGuidanceForm", ExtAttachment.class);
     }
 }
