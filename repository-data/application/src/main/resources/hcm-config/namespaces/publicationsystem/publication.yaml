@@ -380,7 +380,7 @@ definitions:
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
           common:FacetType: publication
-          common:searchRank: 4
+          common:searchRank: 3
           common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft

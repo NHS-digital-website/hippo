@@ -148,7 +148,7 @@ definitions:
           /website:contactdetails:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
-          common:searchRank: 5
+          common:searchRank: 1
           common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft
