@@ -30,8 +30,12 @@ definitions:
             wicket.id: ${cluster.id}.field
           /text:
             /cluster.options:
-              ckeditor.config.overlayed.json: '{ toolbarGroups: [ { name: ''basicstyles''
-                }, { name: ''list'' } ] }'
+              ckeditor.config.appended.json: '{ removePlugins: ''tableresize,tableselection,tabletools,hippopicker,youtube,table,specialchar'',
+                mathJaxLib: ''https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML''
+                }'
+              ckeditor.config.overlayed.json: '{ extraPlugins: ''mathjax'', toolbarGroups:
+                [ { name: ''basicstyles'' }, { name: ''list'' }, { name: ''insert''
+                } ] }'
               jcr:primaryType: frontend:pluginconfig
             caption: Text
             field: text
