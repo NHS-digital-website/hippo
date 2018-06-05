@@ -25,6 +25,9 @@
                 <a href="/static-ui/latest-events">Latest Events</a>
             </li>
             <li>
+                <a href="/static-ui/news-hub">News hub</a>
+            </li>
+            <li>
                 <a href="/static-ui/icons">Icons</a>
             </li>
         </ul>

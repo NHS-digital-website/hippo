@@ -128,4 +128,7 @@ definitions:
       /static-ui-latest-events:
         hst:renderpath: webfile:/freemarker/common/static-ui/latest-events-page.ftl
         jcr:primaryType: hst:template
+      /static-ui-news-hub:
+        hst:renderpath: webfile:/freemarker/common/static-ui/news-hub-page.ftl
+        jcr:primaryType: hst:template
       jcr:primaryType: hst:templates

@@ -5,6 +5,16 @@
     }
 }
 
+.hub-box-list--muted {
+    .hub-box {
+        border: none;
+
+        .hub-box__contents {
+            padding: 20px 0 15px;
+        }
+    }
+}
+
 .hub-box {
     display: block;
     width: 100%;
