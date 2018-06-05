@@ -7,6 +7,9 @@
 <!-- This is a load of global setup for the highcharts config -->
 <#include "highChartsSetup.ftl">
 
+<!-- Set up equation support from mathjax -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_HTML"></script>
+
 <#macro sections sections>
     <div data-uipath="ps.publication.body">
         <#list sections as section>
