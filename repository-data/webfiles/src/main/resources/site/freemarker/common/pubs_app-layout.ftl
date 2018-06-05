@@ -14,7 +14,9 @@
 
     <@hst.include ref="breadcrumb-ci"/>
 
-    <@hst.include ref="main" />
+    <main role="main">
+        <@hst.include ref="main" />
+    </main>
 
     <#include "site-footer.ftl"/>
 
