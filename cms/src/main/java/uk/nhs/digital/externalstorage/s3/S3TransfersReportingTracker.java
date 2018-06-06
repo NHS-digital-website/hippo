@@ -185,18 +185,18 @@ public class S3TransfersReportingTracker {
     }
 
     /**
-     * Ensures synchronous access to both counts in multithreaded use;
+     * Ensures thread-safe access to both counts in a multi-threaded use;
      * be mindful of correct synchronisation of the public methods if changing.
      */
     private static class TransfersCounter {
 
         private final Logger log;
 
-        private int uploadsActiveCount = 0;
-        private int uploadsScheduledCount = 0;
+        private volatile int uploadsActiveCount = 0;
+        private volatile int uploadsScheduledCount = 0;
 
-        private int downloadsActiveCount = 0;
-        private int downloadsScheduledCount = 0;
+        private volatile int downloadsActiveCount = 0;
+        private volatile int downloadsScheduledCount = 0;
 
         private TransfersCounter(Logger log) {
             this.log = log;

@@ -5,8 +5,8 @@ definitions:
       /hippo:moduleconfig:
         downloadShutdownTimeoutInSecs: 30
         jcr:primaryType: hipposys:moduleconfig
-        maxConcurrentDownloadsCount: 50
-        maxConcurrentUploadsCount: 10
+        maxConcurrentDownloadsCount: 11
+        maxConcurrentUploadsCount: 5
         uploadShutdownTimeoutInSecs: 30
       hipposys:className: uk.nhs.digital.externalstorage.modules.S3ConnectorServiceRegistrationModule
       hipposys:cmsonly: true
