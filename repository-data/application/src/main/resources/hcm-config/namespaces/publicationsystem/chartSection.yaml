@@ -22,7 +22,8 @@ definitions:
           /type:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Bar,Column,Line,Pie,Stacked Bar,Stacked Column
+              selectable.options: Bar,Column,Line,Pie,Stacked Bar,Stacked Column,Scatter
+                Plot,Funnel Plot
             caption: Chart Type
             field: type
             hint: ''
@@ -52,7 +53,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Y Axis Title
             field: yTitle
-            hint: Not applicable to all chart types
+            hint: Not applicable to all chart types (i.e. Pie, Scatter)
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
