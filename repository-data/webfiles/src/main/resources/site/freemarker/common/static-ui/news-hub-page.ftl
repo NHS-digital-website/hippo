@@ -33,15 +33,15 @@
             </div>
 
             <div class="column column--two-thirds page-block page-block--main">
-                <div class="article-section article-section--letter-group no-border">
+                <div class="article-section article-section--letter-group">
                     <@stickyGroupBlockHeader "February"></@stickyGroupBlockHeader>
 
                     <div class="grid-row">
                         <div class="column column--reset">
                             <div class="cta-list hub-box-list hub-box-list--muted">
-                                <@hubBox {"title": "Systems integration to boost NHS communication", "date": "21 February 2018", "text": "NHS staff will be able to communicate with each other through better integrated systems, thanks to new plans announced by NHS Digital.", "tags": ["NHS Digital", "System & services"], "link": "#" } ></@hubBox>
+                                <@hubBox {"title": "Systems integration to boost NHS communication", "date": "21 February 2018", "text": "NHS staff will be able to communicate with each other through better integrated systems, thanks to new plans announced by NHS Digital.", "types": ["NHS Digital", "System & services"], "link": "#" } ></@hubBox>
 
-                                <@hubBox {"title": "NHS Digital apps and wearables team hosts Swedish delegation", "date": "16 February 2018", "text": "Representatives from Sweden's key health organisations visited NHS Digital this week to share knowledge and experience of the apps and digital healthcare landscape.", "tags": ["NHS Digital"], "link": "#" } ></@hubBox>
+                                <@hubBox {"title": "NHS Digital apps and wearables team hosts Swedish delegation", "date": "16 February 2018", "text": "Representatives from Sweden's key health organisations visited NHS Digital this week to share knowledge and experience of the apps and digital healthcare landscape.", "types": ["NHS Digital"], "link": "#" } ></@hubBox>
 
                                 <@hubBox {"title": "Adult social care workforce statistics released by NHS Digital today", "date": "7 February 2018", "text": "NHS Digital has today published the latest information on the number of adult social care staff who work for local authorities in England.", "link": "#" } ></@hubBox>
                             </div>
@@ -49,7 +49,7 @@
                     </div>
                 </div>
 
-                <div class="article-section article-section--letter-group no-border">
+                <div class="article-section article-section--letter-group">
                     <@stickyGroupBlockHeader "January"></@stickyGroupBlockHeader>
 
                     <div class="grid-row">

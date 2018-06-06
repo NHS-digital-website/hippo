@@ -5,9 +5,18 @@
     }
 }
 
+/* ROB - This is used for more list like rendering, could do with a better name */
 .hub-box-list--muted {
     .hub-box {
         border: none;
+        border-top: 1px solid $grey-4;
+
+        margin-top: 0;
+        margin-bottom: round($gutter * 0.5);
+
+        &:first-child {
+            border-top: none;
+        }
 
         .hub-box__contents {
             padding: 20px 0 15px;
