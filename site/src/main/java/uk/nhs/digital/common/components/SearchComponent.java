@@ -1,40 +1,29 @@
 package uk.nhs.digital.common.components;
 
-import static java.lang.Math.max;
-import static java.lang.Math.min;
-import static java.util.stream.Collectors.toList;
+import static java.lang.Math.*;
+import static java.util.stream.Collectors.*;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.*;
 
-import org.hippoecm.hst.container.RequestContextProvider;
-import org.hippoecm.hst.content.beans.query.HstQuery;
-import org.hippoecm.hst.content.beans.query.builder.Constraint;
-import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
-import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.content.beans.standard.HippoFacetNavigationBean;
-import org.hippoecm.hst.content.beans.standard.HippoResultSetBean;
-import org.hippoecm.hst.core.component.HstRequest;
-import org.hippoecm.hst.core.component.HstResponse;
-import org.hippoecm.hst.core.parameters.ParametersInfo;
-import org.hippoecm.hst.util.ContentBeanUtils;
-import org.hippoecm.hst.util.SearchInputParsingUtils;
-import org.hippoecm.repository.HippoStdPubWfNodeType;
-import org.onehippo.cms7.essentials.components.CommonComponent;
-import org.onehippo.cms7.essentials.components.info.EssentialsListComponentInfo;
-import org.onehippo.cms7.essentials.components.paging.Pageable;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import uk.nhs.digital.common.enums.SearchArea;
-import uk.nhs.digital.nil.beans.Indicator;
+import org.hippoecm.hst.container.*;
+import org.hippoecm.hst.content.beans.query.*;
+import org.hippoecm.hst.content.beans.query.builder.*;
+import org.hippoecm.hst.content.beans.standard.*;
+import org.hippoecm.hst.core.component.*;
+import org.hippoecm.hst.core.parameters.*;
+import org.hippoecm.hst.util.*;
+import org.hippoecm.repository.*;
+import org.onehippo.cms7.essentials.components.*;
+import org.onehippo.cms7.essentials.components.info.*;
+import org.onehippo.cms7.essentials.components.paging.*;
+import org.slf4j.*;
+import uk.nhs.digital.common.enums.*;
+import uk.nhs.digital.nil.beans.*;
 import uk.nhs.digital.ps.beans.*;
 import uk.nhs.digital.website.beans.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.IntStream;
+import java.util.*;
+import java.util.regex.*;
+import java.util.stream.*;
 
 /**
  * We are not extending "EssentialsSearchComponent" because we could not find a elegant way of using our own search
@@ -185,8 +174,14 @@ public class SearchComponent extends CommonComponent {
             String queryIncWildcards = parseAndApplyWildcards(queryParameter);
 
             searchStringConstraint = or(
+                //forcing specific fields first: this will boost the weight of a hit fot those specific property
                 constraint(".").contains(query),
-                constraint(".").contains(queryIncWildcards)
+                constraint(".").contains(queryIncWildcards),
+                constraint("website:title").contains(query),
+                constraint("website:summary").contains(query),
+                constraint("publicationsystem:title").contains(query),
+                constraint("publicationsystem:summary").contains(query),
+                constraint("nationalindicatorlibrary:title").contains(query)
             );
         }
 
@@ -206,6 +201,7 @@ public class SearchComponent extends CommonComponent {
                 // This is what we want for data and info - when we have tabs this will need to be made specific
                 queryBuilder.orderByDescending(
                     PROPERTY_SEARCH_RANK,
+                    "jcr:score",
                     PROPERTY_ORDERED_SEARCH_DATE,
                     "nationalindicatorlibrary:assuranceDate",
                     HippoStdPubWfNodeType.HIPPOSTDPUBWF_LAST_MODIFIED_DATE);
@@ -312,7 +308,7 @@ public class SearchComponent extends CommonComponent {
 
     /**
      * Adding the news and event document types for the News and Events documents.
-    */
+     */
     private void addNewsAndEventsTypes(HstQueryBuilder query) {
         query.ofTypes(
             News.class,
