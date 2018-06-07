@@ -28,7 +28,7 @@ public interface LatestEventsComponentInfo extends EssentialsEventsComponentInfo
     @Parameter(
         name = "documentTypes",
         required = true,
-        defaultValue = "website:interval"
+        defaultValue = "website:event"
         )
     @Override
     String getDocumentTypes();
