@@ -3,7 +3,7 @@
 <div class="article-section-nav">
     <h2 class="article-section-nav__title">Refine results</h2>
     <hr>
-    <nav role="navigation">
+    <nav role="navigation" class="article-section-nav__contents">
         <ol class="article-section-nav__menu">
             <li><a href="#a">A</a></li>
             <li><a href="#b">B</a></li>
