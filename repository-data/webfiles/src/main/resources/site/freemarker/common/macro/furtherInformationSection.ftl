@@ -1,15 +1,13 @@
 <#ftl output_format="HTML">
 <#include "fileMetaAppendix.ftl">
 <#include "typeSpan.ftl">
-
-<@hst.setBundle basename="site.website.labels"/>
-<@fmt.message key="child-pages-section.title" var="childPagesSectionTitle"/>
+<@hst.setBundle basename="rb.generic.headers"/>
 
 <#macro furtherInformationSection childPages>
     <#-- BEGIN optional 'Further information section' -->
     <#if childPages?has_content>
     <div class="article-section article-section--child-pages" id="further-information">
-        <h2>${childPagesSectionTitle}</h2>
+        <h2><@fmt.message key="headers.further-information" /></h2>
         <ol class="list list--reset cta-list">
             <#list childPages as childPage>
                 <li>

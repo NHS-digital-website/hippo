@@ -1,0 +1,62 @@
+---
+/content/documents/administration/resources/rb.generic.labels:
+  /rb.generic.labels[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModificationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Labels are used for input fields, buttons etc
+    resourcebundle:id: rb.generic.labels
+    resourcebundle:keys:
+    - labels.example
+    resourcebundle:messages:
+    - This is an example label
+  /rb.generic.labels[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModificationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Labels are used for input fields, buttons etc
+    resourcebundle:id: rb.generic.labels
+    resourcebundle:keys:
+    - labels.example
+    resourcebundle:messages:
+    - This is an example label
+  /rb.generic.labels[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModificationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2018-06-07T13:23:27.852Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Labels are used for input fields, buttons etc
+    resourcebundle:id: rb.generic.labels
+    resourcebundle:keys:
+    - labels.example
+    resourcebundle:messages:
+    - This is an example label
+  hippo:name: Labels
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

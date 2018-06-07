@@ -8,6 +8,8 @@
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
 
+<@hst.setBundle basename="rb.generic.headers"/>
+
 <#assign hasSummaryContent = document.summary?has_content />
 <#assign hasSectionContent = document.sections?has_content />
 <#assign hasChildPages = childPages?has_content />
@@ -32,7 +34,7 @@
             <div class="column column--two-thirds page-block page-block--main">
                 <#if hasSummaryContent>
                 <div id="${slugify('Summary')}" class="article-section article-section--summary article-section--reset-top">
-                    <h2>Summary</h2>
+                    <h2><@fmt.message key="headers.summary" /></h2>
                     <p>${document.summary}</p>
                 </div>
                 </#if>

@@ -17,7 +17,7 @@
 <#assign showCalculationDetails = hasDataSourceContent || hasNumeratorContent || hasDenominatorContent || hasCalculationContent />
 
 <#-- Define Article section headers, nav ids and titles -->
-<@hst.setBundle basename="nationalindicatorlibrary.headers"/>
+<@hst.setBundle basename="nationalindicatorlibrary.headers,nationalindicatorlibrary.labels"/>
 <@fmt.message key="headers.purpose" var="purposeHeader" />
 <@fmt.message key="headers.definition" var="definitionHeader" />
 <#assign methodologyHeader = "Methodology" />
@@ -54,7 +54,7 @@
                     <h1 class="local-header__title" data-uipath="document.title">${indicator.title}</h1>
 
                     <#if indicator.assuredStatus>
-                    <h2 class="article-header__subtitle" data-uipath="assuredStatus">Independently assured by Information Governance Board (IGB)</h2>
+                    <h2 class="article-header__subtitle" data-uipath="assuredStatus"><@fmt.message key="labels.assured" /></h2>
                     </#if>
 
                     <hr class="hr hr--short hr--light">

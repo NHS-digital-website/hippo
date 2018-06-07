@@ -7,7 +7,7 @@
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
 
-<@hst.setBundle basename="website.gdpr,rb.doctype.gdpr-transparency"/>
+<@hst.setBundle basename="website.gdpr,rb.doctype.gdpr-transparency,rb.generic.headers"/>
 
 <article class="article article--gdpr">
     <div class="grid-wrapper grid-wrapper--article">
@@ -26,7 +26,7 @@
                 <div id="section-summary" class="article-section article-section--summary article-section--reset-top">
                     <div class="grid-row">
                         <div class="column column--two-thirds column--reset">
-                            <h2>Summary</h2>
+                            <h2><@fmt.message key="headers.summary" /></h2>
                             <p>${document.summary}</p>
                         </div>
                     </div>

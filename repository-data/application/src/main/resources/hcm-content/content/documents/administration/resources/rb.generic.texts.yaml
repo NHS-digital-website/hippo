@@ -1,0 +1,62 @@
+---
+/content/documents/administration/resources/rb.generic.texts:
+  /rb.generic.texts[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModificationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Texts can be used to set the text of any element or entire section
+    resourcebundle:id: rb.generic.texts
+    resourcebundle:keys:
+    - texts.example
+    resourcebundle:messages:
+    - This is an example text
+  /rb.generic.texts[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModificationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Texts can be used to set the text of any element or entire section
+    resourcebundle:id: rb.generic.texts
+    resourcebundle:keys:
+    - texts.example
+    resourcebundle:messages:
+    - This is an example text
+  /rb.generic.texts[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModificationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2018-06-07T13:23:27.852Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Texts can be used to set the text of any element or entire section
+    resourcebundle:id: rb.generic.texts
+    resourcebundle:keys:
+    - texts.example
+    resourcebundle:messages:
+    - This is an example text
+  hippo:name: Texts
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

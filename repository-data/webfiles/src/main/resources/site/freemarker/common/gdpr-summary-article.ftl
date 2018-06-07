@@ -60,7 +60,7 @@
 
                 <#if hasContactDetails>
                 <#assign contactSectionClassName = hasContent?then("article-section article-section--contact", "article-section article-section--contact no-border") />
-                <div class="${contactSectionClassName}" id="section-contact-details">
+                <div class="${contactSectionClassName}" id="contact-details">
                     <h2><@fmt.message key="headers.contact-details" /></h2>
                     <div class="rich-text-content">
                         <@hst.html hippohtml=document.contactdetails contentRewriter=gaContentRewriter/>

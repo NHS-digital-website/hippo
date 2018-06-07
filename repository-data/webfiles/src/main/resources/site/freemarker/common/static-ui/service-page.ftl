@@ -26,7 +26,7 @@
                 <#-- [FTL-BEGIN] optional list of 'top tasks section' -->
                 <div class="article-section article-section--highlighted">
                     <div class="callout callout--attention">
-                        <h2>Top Tasks</h2>
+                        <h2>Top tasks</h2>
                         <p>Objectively engage turnkey interfaces without impactful architectures.</p>
                         <p>Energistically innovate an expanded array of intellectual capital after covalent ROI.</p>
                         <p>Dynamically disseminate dynamic innovation after real-time users.</p>
