@@ -1,0 +1,98 @@
+---
+/content/documents/administration/resources/rb.generic.headers:
+  /rb.generic.headers[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModificationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Summary section header
+    - Further information section header
+    - Top tasks section header
+    - Contact details section header
+    - Resources details section header
+    resourcebundle:id: rb.generic.headers
+    resourcebundle:keys:
+    - headers.summary
+    - headers.further-information
+    - headers.top-tasks
+    - headers.contact-details
+    - headers.resources
+    resourcebundle:messages:
+    - Summary
+    - Further information
+    - Top tasks
+    - Contact details
+    - Resources
+  /rb.generic.headers[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModificationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Summary section header
+    - Further information section header
+    - Top tasks section header
+    - Contact details section header
+    - Resources details section header
+    resourcebundle:id: rb.generic.headers
+    resourcebundle:keys:
+    - headers.summary
+    - headers.further-information
+    - headers.top-tasks
+    - headers.contact-details
+    - headers.resources
+    resourcebundle:messages:
+    - Summary
+    - Further information
+    - Top tasks
+    - Contact details
+    - Resources
+  /rb.generic.headers[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModificationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2018-06-07T13:23:27.852Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Summary section header
+    - Further information section header
+    - Top tasks section header
+    - Contact details section header
+    - Resources details section header
+    resourcebundle:id: rb.generic.headers
+    resourcebundle:keys:
+    - headers.summary
+    - headers.further-information
+    - headers.top-tasks
+    - headers.contact-details
+    - headers.resources
+    resourcebundle:messages:
+    - Summary
+    - Further information
+    - Top tasks
+    - Contact details
+    - Resources
+  hippo:name: Headers
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

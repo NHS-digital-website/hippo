@@ -149,11 +149,14 @@
 
 <#-- Gather section nav links in a hash -->
 <#function getSectionNavLinks options>
+    <@hst.setBundle basename="rb.generic.headers"/>
+    
     <#assign links = [] />
     <#if options??>
         <#if options.ignoreSummary?? && !options.ignoreSummary>
         <#else>
-            <#assign links = [{ "url": "#summary", "title": "Summary" }] />
+            <@fmt.message key="headers.summary" var="summaryHeader" />
+            <#assign links = [{ "url": "#summary", "title": summaryHeader }] />
         </#if>
 
         <#if options.document??>
@@ -165,11 +168,13 @@
                 </#list>
             </#if>
             <#if options.document.contactdetails?? && options.document.contactdetails.content?has_content>
-                <#assign links += [{ "url": "#" + slugify("Contact details"), "title": "Contact details" }] />
+                <@fmt.message key="headers.contact-details" var="contactDetailsHeader" />
+                <#assign links += [{ "url": "#contact-details", "title": contactDetailsHeader }] />
             </#if>
         </#if>
         <#if options.childPages?? && options.childPages?has_content>
-            <#assign links += [{ "url": "#" + slugify("Further information"), "title": "Further information" }] />
+            <@fmt.message key="headers.further-information" var="furtherInformationHeader" />
+            <#assign links += [{ "url": "#further-information", "title": furtherInformationHeader }] />
         </#if>
     </#if>
 

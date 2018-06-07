@@ -20,7 +20,7 @@
     - labels.unassured
     resourcebundle:messages:
     - Methodology
-    - Independently Assured by Information Governance Board (IGB)
+    - Independently assured by Information Governance Board (IGB)
     - Unassured
   /labels[2]:
     hippo:availability:
@@ -44,7 +44,7 @@
     - labels.unassured
     resourcebundle:messages:
     - Methodology
-    - Independently Assured by Information Governance Board (IGB)
+    - Independently assured by Information Governance Board (IGB)
     - Unassured
   /labels[3]:
     hippo:availability:
@@ -68,7 +68,7 @@
     - labels.unassured
     resourcebundle:messages:
     - Methodology
-    - Independently Assured by Information Governance Board (IGB)
+    - Independently assured by Information Governance Board (IGB)
     - Unassured
   hippo:name: Labels
   jcr:mixinTypes:

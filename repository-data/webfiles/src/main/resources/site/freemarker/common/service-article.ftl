@@ -8,6 +8,8 @@
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
 
+<@hst.setBundle basename="rb.generic.headers"/>
+
 <#assign hasSectionContent = document.sections?has_content />
 <#assign hasTopTasks = document.toptasks?has_content />
 <#assign hasChildPages = childPages?has_content />
@@ -38,14 +40,14 @@
                 </#if>
 
                 <div id="${slugify('Summary')}" class="${summarySectionClassName}">
-                    <h2>Summary</h2>
+                    <h2><@fmt.message key="headers.summary" /></h2>
                     <p>${document.summary}</p>
                 </div>
 
                 <#if hasTopTasks>
                 <div class="article-section article-section--highlighted">
                     <div class="callout callout--attention">
-                        <h2>Top tasks</h2>
+                        <h2><@fmt.message key="headers.top-tasks" /></h2>
                         <div class="rich-text-content">
                             <#list document.toptasks as toptask>
                             <@hst.html hippohtml=toptask contentRewriter=gaContentRewriter/>
@@ -67,7 +69,7 @@
 
                 <#if hasContactDetailsContent>
                 <div class="article-section article-section--contact" id="${slugify('Contact details')}">
-                    <h2>Contact details</h2>
+                    <h2><@fmt.message key="headers.contact-details" /></h2>
                     <div class="rich-text-content">
                         <@hst.html hippohtml=document.contactdetails contentRewriter=gaContentRewriter/>
                     </div>
