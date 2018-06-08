@@ -29,6 +29,7 @@
         jcr:primaryType: publicationsystem:imageSection
         publicationsystem:altText: Robots
         publicationsystem:caption: Image with link and caption
+        publicationsystem:imageSize: Full
         publicationsystem:link: https://google.com/
       /publicationsystem:KeyFactImages[2]:
         /publicationsystem:image:
@@ -46,16 +47,17 @@
         jcr:primaryType: publicationsystem:imageSection
         publicationsystem:altText: Snowman
         publicationsystem:caption: ''
+        publicationsystem:imageSize: Half
         publicationsystem:link: ''
       common:FacetType: publication
-      common:orderedSearchDate: 1523318400000
+      common:orderedSearchDate: 1523314800000
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-02-28T17:21:32.896Z
-      hippostdpubwf:lastModificationDate: 2018-04-16T11:49:51.060Z
+      hippostdpubwf:lastModificationDate: 2018-06-08T13:15:34.368Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 47902c02-c0ee-4a9c-8086-f4db758326f5
       hippotranslation:locale: en
@@ -73,7 +75,7 @@
       publicationsystem:InformationType:
       - Experimental statistics
       publicationsystem:KeyFacts: Some key facts for the sectioned publication
-      publicationsystem:NominalDate: 2018-04-10T00:00:00Z
+      publicationsystem:NominalDate: 2018-04-09T23:00:00Z
       publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: Summary for the sectioned publication
       publicationsystem:Title: Sectioned publication with pages
@@ -94,6 +96,7 @@
         jcr:primaryType: publicationsystem:imageSection
         publicationsystem:altText: Robots
         publicationsystem:caption: Image with link and caption
+        publicationsystem:imageSize: Full
         publicationsystem:link: https://google.com/
       /publicationsystem:KeyFactImages[2]:
         /publicationsystem:image:
@@ -111,9 +114,10 @@
         jcr:primaryType: publicationsystem:imageSection
         publicationsystem:altText: Snowman
         publicationsystem:caption: ''
+        publicationsystem:imageSize: Half
         publicationsystem:link: ''
       common:FacetType: publication
-      common:orderedSearchDate: 1523318400000
+      common:orderedSearchDate: 1523314800000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -121,7 +125,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-02-28T17:21:32.896Z
-      hippostdpubwf:lastModificationDate: 2018-04-16T11:51:12.019Z
+      hippostdpubwf:lastModificationDate: 2018-06-08T13:15:46.031Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 47902c02-c0ee-4a9c-8086-f4db758326f5
       hippotranslation:locale: en
@@ -140,7 +144,7 @@
       publicationsystem:InformationType:
       - Experimental statistics
       publicationsystem:KeyFacts: Some key facts for the sectioned publication
-      publicationsystem:NominalDate: 2018-04-10T00:00:00Z
+      publicationsystem:NominalDate: 2018-04-09T23:00:00Z
       publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: Summary for the sectioned publication
       publicationsystem:Title: Sectioned publication with pages
@@ -161,6 +165,7 @@
         jcr:primaryType: publicationsystem:imageSection
         publicationsystem:altText: Robots
         publicationsystem:caption: Image with link and caption
+        publicationsystem:imageSize: Full
         publicationsystem:link: https://google.com/
       /publicationsystem:KeyFactImages[2]:
         /publicationsystem:image:
@@ -178,9 +183,10 @@
         jcr:primaryType: publicationsystem:imageSection
         publicationsystem:altText: Snowman
         publicationsystem:caption: ''
+        publicationsystem:imageSize: Half
         publicationsystem:link: ''
       common:FacetType: publication
-      common:orderedSearchDate: 1523318400000
+      common:orderedSearchDate: 1523314800000
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -188,9 +194,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-02-28T17:21:32.896Z
-      hippostdpubwf:lastModificationDate: 2018-04-16T11:51:12.019Z
+      hippostdpubwf:lastModificationDate: 2018-06-08T13:15:46.031Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-04-16T11:51:16.373Z
+      hippostdpubwf:publicationDate: 2018-06-08T13:15:51.104Z
       hippotranslation:id: 47902c02-c0ee-4a9c-8086-f4db758326f5
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -207,7 +213,7 @@
       publicationsystem:InformationType:
       - Experimental statistics
       publicationsystem:KeyFacts: Some key facts for the sectioned publication
-      publicationsystem:NominalDate: 2018-04-10T00:00:00Z
+      publicationsystem:NominalDate: 2018-04-09T23:00:00Z
       publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: Summary for the sectioned publication
       publicationsystem:Title: Sectioned publication with pages
@@ -527,6 +533,96 @@
           jcr:primaryType: hippostd:html
         jcr:primaryType: publicationsystem:textSection
         publicationsystem:heading: Lowest Heading on the first page
+      /publicationsystem:bodySections[14]:
+        /publicationsystem:image:
+          hippo:filename: apple-gadget-iphone-48603.jpg
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[12]/image/text.jpg
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[12]/image/data.jpg
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-07T15:01:50.197Z
+          jcr:mimeType: image/jpeg
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:imageSection
+        publicationsystem:altText: Half image
+        publicationsystem:caption: ''
+        publicationsystem:imageSize: Half
+        publicationsystem:link: ''
+      /publicationsystem:bodySections[15]:
+        /publicationsystem:image:
+          hippo:filename: snowman.png
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[13]/image/text.png
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[13]/image/data.png
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-07T15:28:15.425Z
+          jcr:mimeType: image/png
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:imageSection
+        publicationsystem:altText: Full image
+        publicationsystem:caption: ''
+        publicationsystem:imageSize: Full
+        publicationsystem:link: ''
+      /publicationsystem:bodySections[16]:
+        /publicationsystem:image:
+          hippo:filename: business-charts-commerce-265087.jpg
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[14]/image/text.jpg
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[14]/image/data.jpg
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-07T15:02:36.471Z
+          jcr:mimeType: image/jpeg
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:imageSection
+        publicationsystem:altText: Half image
+        publicationsystem:caption: ''
+        publicationsystem:imageSize: Half
+        publicationsystem:link: ''
+      /publicationsystem:bodySections[17]:
+        /publicationsystem:image:
+          hippo:filename: blank-charts-computer-669616.jpg
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[15]/image/text.jpg
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[15]/image/data.jpg
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-07T15:03:59.620Z
+          jcr:mimeType: image/jpeg
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:imageSection
+        publicationsystem:altText: Half with caption and link
+        publicationsystem:caption: Google Link
+        publicationsystem:imageSize: Half
+        publicationsystem:link: https://google.com
+      /publicationsystem:bodySections[18]:
+        /publicationsystem:image:
+          hippo:filename: arms-care-check-905874.jpg
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[16]/image/text.jpg
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[16]/image/data.jpg
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-07T15:03:51.720Z
+          jcr:mimeType: image/jpeg
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:imageSection
+        publicationsystem:altText: Full image
+        publicationsystem:caption: ''
+        publicationsystem:imageSize: Full
+        publicationsystem:link: ''
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -852,6 +948,96 @@
           jcr:primaryType: hippostd:html
         jcr:primaryType: publicationsystem:textSection
         publicationsystem:heading: Lowest Heading on the first page
+      /publicationsystem:bodySections[14]:
+        /publicationsystem:image:
+          hippo:filename: apple-gadget-iphone-48603.jpg
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[12]/image/text.jpg
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[12]/image/data.jpg
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-07T15:01:50.197Z
+          jcr:mimeType: image/jpeg
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:imageSection
+        publicationsystem:altText: Half image
+        publicationsystem:caption: ''
+        publicationsystem:imageSize: Half
+        publicationsystem:link: ''
+      /publicationsystem:bodySections[15]:
+        /publicationsystem:image:
+          hippo:filename: robot (1).jpeg
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[13]/image/text.jpg
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[13]/image/data.jpg
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-07T15:04:44.504Z
+          jcr:mimeType: image/jpeg
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:imageSection
+        publicationsystem:altText: Full image
+        publicationsystem:caption: ''
+        publicationsystem:imageSize: Full
+        publicationsystem:link: ''
+      /publicationsystem:bodySections[16]:
+        /publicationsystem:image:
+          hippo:filename: business-charts-commerce-265087.jpg
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[14]/image/text.jpg
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[14]/image/data.jpg
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-07T15:02:36.471Z
+          jcr:mimeType: image/jpeg
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:imageSection
+        publicationsystem:altText: Half image
+        publicationsystem:caption: ''
+        publicationsystem:imageSize: Half
+        publicationsystem:link: ''
+      /publicationsystem:bodySections[17]:
+        /publicationsystem:image:
+          hippo:filename: blank-charts-computer-669616.jpg
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[15]/image/text.jpg
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[15]/image/data.jpg
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-07T15:03:59.620Z
+          jcr:mimeType: image/jpeg
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:imageSection
+        publicationsystem:altText: Half with caption and link
+        publicationsystem:caption: Google Link
+        publicationsystem:imageSize: Half
+        publicationsystem:link: https://google.com
+      /publicationsystem:bodySections[18]:
+        /publicationsystem:image:
+          hippo:filename: arms-care-check-905874.jpg
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[16]/image/text.jpg
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[16]/image/data.jpg
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-07T15:03:51.720Z
+          jcr:mimeType: image/jpeg
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:imageSection
+        publicationsystem:altText: Full image
+        publicationsystem:caption: ''
+        publicationsystem:imageSize: Full
+        publicationsystem:link: ''
       common:searchable: true
       hippo:availability:
       - preview
@@ -1179,6 +1365,96 @@
           jcr:primaryType: hippostd:html
         jcr:primaryType: publicationsystem:textSection
         publicationsystem:heading: Lowest Heading on the first page
+      /publicationsystem:bodySections[14]:
+        /publicationsystem:image:
+          hippo:filename: apple-gadget-iphone-48603.jpg
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[12]/image/text.jpg
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[12]/image/data.jpg
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-07T15:01:50.197Z
+          jcr:mimeType: image/jpeg
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:imageSection
+        publicationsystem:altText: Half image
+        publicationsystem:caption: ''
+        publicationsystem:imageSize: Half
+        publicationsystem:link: ''
+      /publicationsystem:bodySections[15]:
+        /publicationsystem:image:
+          hippo:filename: robot (1).jpeg
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[13]/image/text.jpg
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[13]/image/data.jpg
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-07T15:04:44.504Z
+          jcr:mimeType: image/jpeg
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:imageSection
+        publicationsystem:altText: Full image
+        publicationsystem:caption: ''
+        publicationsystem:imageSize: Full
+        publicationsystem:link: ''
+      /publicationsystem:bodySections[16]:
+        /publicationsystem:image:
+          hippo:filename: business-charts-commerce-265087.jpg
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[14]/image/text.jpg
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[14]/image/data.jpg
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-07T15:02:36.471Z
+          jcr:mimeType: image/jpeg
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:imageSection
+        publicationsystem:altText: Half image
+        publicationsystem:caption: ''
+        publicationsystem:imageSize: Half
+        publicationsystem:link: ''
+      /publicationsystem:bodySections[17]:
+        /publicationsystem:image:
+          hippo:filename: blank-charts-computer-669616.jpg
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[15]/image/text.jpg
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[15]/image/data.jpg
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-07T15:03:59.620Z
+          jcr:mimeType: image/jpeg
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:imageSection
+        publicationsystem:altText: Half with caption and link
+        publicationsystem:caption: Google Link
+        publicationsystem:imageSize: Half
+        publicationsystem:link: https://google.com
+      /publicationsystem:bodySections[18]:
+        /publicationsystem:image:
+          hippo:filename: arms-care-check-905874.jpg
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[16]/image/text.jpg
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[16]/image/data.jpg
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-07T15:03:51.720Z
+          jcr:mimeType: image/jpeg
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:imageSection
+        publicationsystem:altText: Full image
+        publicationsystem:caption: ''
+        publicationsystem:imageSize: Full
+        publicationsystem:link: ''
       common:searchable: true
       hippo:availability:
       - live
@@ -1212,7 +1488,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-04-09T12:30:41.734Z
-      hippostdpubwf:lastModificationDate: 2018-04-10T12:41:17.964Z
+      hippostdpubwf:lastModificationDate: 2018-06-07T15:00:34.872Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 0b8e65e1-6e68-4c6f-951f-ae65b87e057c
       hippotranslation:locale: en
@@ -1233,7 +1509,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-04-09T12:30:41.734Z
-      hippostdpubwf:lastModificationDate: 2018-04-10T12:41:38.412Z
+      hippostdpubwf:lastModificationDate: 2018-06-07T15:01:01.081Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 0b8e65e1-6e68-4c6f-951f-ae65b87e057c
       hippotranslation:locale: en
@@ -1255,9 +1531,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-04-09T12:30:41.734Z
-      hippostdpubwf:lastModificationDate: 2018-04-10T12:41:38.412Z
+      hippostdpubwf:lastModificationDate: 2018-06-07T15:01:01.081Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-04-10T12:41:46.256Z
+      hippostdpubwf:publicationDate: 2018-06-07T15:01:04.662Z
       hippotranslation:id: 0b8e65e1-6e68-4c6f-951f-ae65b87e057c
       hippotranslation:locale: en
       jcr:mixinTypes:

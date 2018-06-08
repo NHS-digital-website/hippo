@@ -2,7 +2,7 @@ package uk.nhs.digital.ps.test.acceptance.models;
 
 import static uk.nhs.digital.ps.test.acceptance.util.FormatHelper.formatInstant;
 
-import uk.nhs.digital.ps.test.acceptance.models.section.ImageSection;
+import uk.nhs.digital.ps.test.acceptance.models.section.BodySection;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -20,7 +20,7 @@ public class Publication {
     private NominalPublicationDate nominalPublicationDate;
     private boolean publiclyAccessible;
     private List<Page> pages;
-    private List<ImageSection> keyFactImages;
+    private List<BodySection> keyFactImages;
 
     private List<Attachment> attachments;
 
@@ -101,7 +101,7 @@ public class Publication {
         return truncate(getSummary(), 100);
     }
 
-    public List<ImageSection> getKeyFactImages() {
+    public List<BodySection> getKeyFactImages() {
         return keyFactImages;
     }
 

@@ -148,7 +148,7 @@ public class PublicationSteps extends AbstractSpringSteps {
 
         List<Matcher<? super SectionWidget>> matchers = publication.getKeyFactImages()
             .stream()
-            .map(ImageSection::getMatcher)
+            .map(BodySection::getMatcher)
             .collect(toList());
 
         assertThat("Key fact images are as expected", publicationPage.getKeyFactImages(), contains(matchers));

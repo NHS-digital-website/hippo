@@ -21,7 +21,7 @@ public abstract class BodySection {
         return compare(equalTo(expected), actual, desc);
     }
 
-    protected boolean compare(Matcher<Object> expected, Object actual, Description desc) {
+    protected boolean compare(Matcher<?> expected, Object actual, Description desc) {
         if (!expected.matches(actual)) {
             desc.appendText("field didn't match ");
             expected.describeTo(desc);

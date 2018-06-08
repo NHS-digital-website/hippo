@@ -22,6 +22,8 @@ public class PublicationComponent extends EssentialsContentComponent {
     private static final String RESOURCES_ID = "Resources";
     private static final String RELATED_LINKS_ID = "Related links";
 
+    private final PageSectionGrouper pageSectionGrouper = new PageSectionGrouper();
+
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
         super.doBeforeRender(request, response);
@@ -30,6 +32,7 @@ public class PublicationComponent extends EssentialsContentComponent {
 
         request.setAttribute("publication", publication);
         request.setAttribute("index", getIndex(publication));
+        request.setAttribute("keyFactImageSections", pageSectionGrouper.groupSections(publication.getKeyFactImages()));
     }
 
     private List<String> getIndex(Publication publication) {

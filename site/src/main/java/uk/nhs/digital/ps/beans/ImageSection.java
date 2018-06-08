@@ -1,5 +1,7 @@
 package uk.nhs.digital.ps.beans;
 
+import static org.apache.cxf.common.util.StringUtils.isEmpty;
+
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.content.beans.standard.HippoResource;
@@ -28,7 +30,23 @@ public class ImageSection extends HippoCompound {
         return getProperty("publicationsystem:caption");
     }
 
+    @HippoEssentialsGenerated(internalName = "publicationsystem:imageSize")
+    private String getImageSize() {
+        return getProperty("publicationsystem:imageSize");
+    }
+
+    public Size getSize() {
+        String imageSize = getImageSize();
+
+        return isEmpty(imageSize) ? null : Size.valueOf(imageSize.toUpperCase());
+    }
+
     public String getSectionType() {
         return "image";
+    }
+
+    public enum Size {
+        HALF,
+        FULL
     }
 }

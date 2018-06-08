@@ -13,6 +13,8 @@ import java.util.stream.Collectors;
 
 public class PublicationPageComponent extends EssentialsContentComponent {
 
+    private final PageSectionGrouper pageSectionGrouper = new PageSectionGrouper();
+
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
         super.doBeforeRender(request, response);
@@ -20,6 +22,7 @@ public class PublicationPageComponent extends EssentialsContentComponent {
 
         request.setAttribute("page", page);
         request.setAttribute("index", getIndex(page));
+        request.setAttribute("pageSections", pageSectionGrouper.groupSections(page.getBodySections()));
     }
 
     private List<String> getIndex(PublicationPage page) {

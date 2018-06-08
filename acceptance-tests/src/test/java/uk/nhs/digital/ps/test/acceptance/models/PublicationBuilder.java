@@ -4,7 +4,7 @@ import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.toList;
 
-import uk.nhs.digital.ps.test.acceptance.models.section.ImageSection;
+import uk.nhs.digital.ps.test.acceptance.models.section.BodySection;
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ public class PublicationBuilder {
     private List<AttachmentBuilder> attachmentBuilders = new ArrayList<>();
     private Taxonomy taxonomy;
     private List<PublicationPageBuilder> pageBuilders = emptyList();
-    private List<ImageSection> keyFactImages = emptyList();
+    private List<BodySection> keyFactImages = emptyList();
 
     private PublicationState state;
 
@@ -81,7 +81,7 @@ public class PublicationBuilder {
         return cloneAndAmend(builder -> builder.pageBuilders = pages);
     }
 
-    public PublicationBuilder withKeyFactImages(final List<ImageSection> images) {
+    public PublicationBuilder withKeyFactImages(final List<BodySection> images) {
         return cloneAndAmend(builder -> builder.keyFactImages = images);
     }
 
@@ -143,7 +143,7 @@ public class PublicationBuilder {
         return pageBuilders;
     }
 
-    public List<ImageSection> getKeyFactImages() {
+    public List<BodySection> getKeyFactImages() {
         return keyFactImages;
     }
 
