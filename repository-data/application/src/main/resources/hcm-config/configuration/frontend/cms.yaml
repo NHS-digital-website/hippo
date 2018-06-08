@@ -24,6 +24,9 @@ definitions:
       - jpeg
       - jpg
       - png
+      - docm
+      - xlsm
+      - pptm
       max.file.size: 3000M
     /hippo:configuration/hippo:frontend/cms/cms-services/imageValidationService:
       extensions.allowed:
