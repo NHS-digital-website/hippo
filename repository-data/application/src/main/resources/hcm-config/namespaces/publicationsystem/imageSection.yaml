@@ -28,6 +28,17 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /imageSize:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: Full,Half
+            caption: Size
+            field: imageSize
+            hint: Multiple sequential half width images will be displayed side by
+              side
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
           /altText:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -87,6 +98,17 @@ definitions:
             hipposysedit:validators:
             - resource-required
             jcr:primaryType: hipposysedit:field
+          /imageSize:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:imageSize
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
           /link:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -124,6 +146,7 @@ definitions:
           jcr:primaryType: publicationsystem:imageSection
           publicationsystem:altText: ''
           publicationsystem:caption: ''
+          publicationsystem:imageSize: Full
           publicationsystem:link: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:

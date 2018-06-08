@@ -164,6 +164,17 @@ public class TestContentUrls {
             getAttachmentUrl("sectioned-publication/first-page/first-page", "bodySections[2]", "image"));
         addSiteUrl("sectioned publication page snowman",
             getAttachmentUrl("sectioned-publication/first-page/first-page", "bodySections[5]", "image"));
+        addSiteUrl("sectioned publication page iphone",
+            getAttachmentUrl("sectioned-publication/first-page/first-page", "bodySections[14]", "image"));
+        addSiteUrl("sectioned publication page robots 2",
+            getAttachmentUrl("sectioned-publication/first-page/first-page", "bodySections[15]", "image"));
+        addSiteUrl("sectioned publication page business",
+            getAttachmentUrl("sectioned-publication/first-page/first-page", "bodySections[16]", "image"));
+        addSiteUrl("sectioned publication page computer",
+            getAttachmentUrl("sectioned-publication/first-page/first-page", "bodySections[17]", "image"));
+        addSiteUrl("sectioned publication page arms",
+            getAttachmentUrl("sectioned-publication/first-page/first-page", "bodySections[18]", "image"));
+
         addSiteUrl("sectioned publication robots",
             getAttachmentUrl("sectioned-publication/content/content", "KeyFactImages", "image"));
         addSiteUrl("sectioned publication snowman",

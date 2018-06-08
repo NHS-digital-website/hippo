@@ -168,9 +168,7 @@ public class ExpectedTestDataProvider {
                     + " porttitor ligula Consequat mattis facilisis amet montes consequat vel dis class quisque netus"
                     + " montes. Placerat nam bibendum libero consectetuer. Mattis aliquam. Consequat."),
             new ImageSection("sectioned publication page snowman",
-                "Snowman",
-                null,
-                null),
+                "Snowman"),
             new RelatedLinkSection("BBC Homepage", "https://www.bbc.co.uk/"),
             new RelatedLinkSection("Sky website", "http://www.sky.com/"),
             new TextSection("Lower down heading", "Lorem ipsum diam felis ante nullam velit curabitur "
@@ -198,7 +196,17 @@ public class ExpectedTestDataProvider {
                 + " hendrerit ultricies est vitae dignissim. Nunc elit leo, eleifend a auctor ac, ullamcorper a ligula. Maecenas"
                 + " sollicitudin dui ut aliquam ullamcorper. Suspendisse non odio nec nisl rhoncus euismod. Integer dapibus purus"
                 + " ut tellus interdum cursus. Fusce lacinia sodales accumsan. In mattis gravida velit vitae rutrum. Etiam at orci"
-                + " eget nisl sollicitudin iaculis. Aliquam tincidunt condimentum urna. In.")
+                + " eget nisl sollicitudin iaculis. Aliquam tincidunt condimentum urna. In."),
+            new ImagePairSection(
+                new ImageSection("sectioned publication page iphone", "Half image"),
+                null
+            ),
+            new ImageSection("sectioned publication page robots 2", "Full image"),
+            new ImagePairSection(
+                new ImageSection("sectioned publication page business", "Half image"),
+                new ImageSection("sectioned publication page computer", "Half with caption and link", "Google Link", "https://google.com/")
+            ),
+            new ImageSection("sectioned publication page arms", "Full image")
         );
 
         List<PublicationPageBuilder> pages = asList(
@@ -227,9 +235,10 @@ public class ExpectedTestDataProvider {
                     "Robots",
                     "Image with link and caption",
                     "https://google.com/"),
-                new ImageSection("sectioned publication snowman",
+                new ImagePairSection(new ImageSection("sectioned publication snowman",
                     "Snowman",
                     null,
+                    null),
                     null)
             ));
     }

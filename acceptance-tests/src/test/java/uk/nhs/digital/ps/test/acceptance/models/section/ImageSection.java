@@ -24,6 +24,10 @@ public class ImageSection extends BodySection {
         testContentUrls = TestContentUrls.instance();
     }
 
+    public ImageSection(String imageName, String altText) {
+        this(imageName, altText, null, null);
+    }
+
     public String getSource() {
         return testContentUrls.lookupSiteUrl(imageName);
     }

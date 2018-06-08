@@ -40,7 +40,9 @@
 
                 <div class="article-section no-border">
                     <#if page.bodySections?has_content>
-                        <@sections sections=page.bodySections />
+                        <div data-uipath="ps.publication.body">
+                            <@sections sections=pageSections />
+                        </div>
                     </#if>
                 </div>
             </div>

@@ -135,18 +135,19 @@ public class PublicationPage extends AbstractSitePage {
                 return new RelatedLinkSectionWidget(webElement);
             case ChartSectionWidget.UIPATH:
                 return new ChartSectionWidget(webElement);
+            case ImagePairSectionWidget.UIPATH:
+                return new ImagePairSectionWidget(webElement);
             default:
                 throw new RuntimeException("Unknown uipath: " + uipath);
         }
     }
 
-    public List<ImageSectionWidget> getKeyFactImages() {
-        return helper
-            .findChildElements(
-                findPageElement(KEY_FACT_IMAGES),
-                By.xpath("//*[@data-uipath='ps.publication.image-section']"))
-            .stream()
-            .map(ImageSectionWidget::new)
-            .collect(toList());
+    public List<SectionWidget> getKeyFactImages() {
+        WebElement element = findPageElement(KEY_FACT_IMAGES);
+        return element == null ? Collections.emptyList() :
+            element.findElements(By.xpath("./div"))
+                .stream()
+                .map(this::createSectionWidget)
+                .collect(toList());
     }
 }

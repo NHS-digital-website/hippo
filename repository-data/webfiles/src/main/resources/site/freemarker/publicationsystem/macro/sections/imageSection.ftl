@@ -6,7 +6,9 @@
             <figure>
                 <img src="<@hst.link hippobean=section.image/>"
                      alt="${section.altText}"
-                     data-uipath="ps.publication.image-section.image"/>
+                     data-uipath="ps.publication.image-section.image"
+                     <#if section.size??>style="width:100%;"</#if>
+                />
                 <#if section.caption?has_content>
                     <figcaption data-uipath="ps.publication.image-section.caption">
                         ${section.caption}

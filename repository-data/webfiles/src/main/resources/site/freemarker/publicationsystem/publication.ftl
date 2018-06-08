@@ -2,7 +2,7 @@
 <#include "../include/imports.ftl">
 <#include "./macro/structured-text.ftl">
 <#include "./macro/publicationHeader.ftl">
-<#include "./macro/sections/imageSection.ftl">
+<#include "./macro/sections/sections.ftl">
 <#include "../common/macro/sectionNav.ftl">
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 <#-- @ftlvariable name="publication" type="uk.nhs.digital.ps.beans.Publication" -->
@@ -61,7 +61,7 @@
                     <span itemprop="description"><@structuredText item=publication.summary uipath="ps.publication.summary" /></span>
                 </div>
 
-                <#if publication.keyFacts.elements?has_content || publication.keyFactImages?has_content>
+                <#if publication.keyFacts.elements?has_content || keyFactImageSections?has_content>
                     <div class="article-section article-section--highlighted" id="key-facts">
                         <div class="callout callout--attention">
                             <h2>${keyFactsHeader}</h2>
@@ -69,11 +69,9 @@
                                 <@structuredText item=publication.keyFacts uipath="ps.publication.key-facts" />
                             </#if>
 
-                            <#if publication.keyFactImages?has_content>
+                            <#if keyFactImageSections?has_content>
                                 <div data-uipath="ps.publication.key-fact-images">
-                                    <#list publication.keyFactImages as image>
-                                        <@imageSection image/>
-                                    </#list>
+                                    <@sections sections=keyFactImageSections />
                                 </div>
                             </#if>
                         </div>
