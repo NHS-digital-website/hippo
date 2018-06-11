@@ -2,8 +2,10 @@
 definitions:
   config:
     /hippo:configuration/hippo:translations/hippo:cms/validators/en:
-      publicationsystem-blank-attachment: There is an attachment field without an
-        attachment. Please remove it or upload a file.
+      publicationsystem-attachment#blank-attachment: There is an attachment field
+        without an attachment. Please remove it or upload a file.
+      publicationsystem-attachment#duplicate-name: There is an attachment field with
+        a duplicate display name. Please rename one of the fields.
       publicationsystem-blank-staticdropdown: '{0} has a ''''Choose One'''' placeholder
         without a value. Please remove the placeholder or select a value.'
       publicationsystem-charts-datafile: Chart input data file is invalid. Please
