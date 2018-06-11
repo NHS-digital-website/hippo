@@ -1,0 +1,32 @@
+/* Type span */
+.type-span {
+    display: none;
+    position: relative;
+    width: 0;
+    height: 0;
+    padding: 4px 6px;
+    font-size: 9px;
+    line-height: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.type-span--internal {
+    background-color: rgba(0, 255, 255, 0.1);
+}
+
+.type-span--external {
+    background-color: rgba(255, 255, 0, 0.1);
+}
+
+.type-span--asset {
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+.debug {
+    .type-span {
+        display: inline-block;
+        width: auto;
+        height: auto;
+    }
+}
