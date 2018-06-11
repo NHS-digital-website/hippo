@@ -140,7 +140,7 @@
             <dependency>
                 <groupId>org.onehippo.cms7</groupId>
                 <artifactId>hippo-essentials-plugin-sdk-api</artifactId>
-                <version>12.2.0</version>
+                <version>${essentials.version}</version>
             </dependency>
 
             <dependency>
@@ -208,14 +208,14 @@
             <dependency>
                 <groupId>org.powermock</groupId>
                 <artifactId>powermock-module-junit4</artifactId>
-                <version>1.7.3</version>
+                <version>1.7.4</version>
                 <scope>test</scope>
             </dependency>
 
             <dependency>
                 <groupId>org.powermock</groupId>
                 <artifactId>powermock-api-mockito2</artifactId>
-                <version>1.7.3</version>
+                <version>1.7.4</version>
                 <scope>test</scope>
             </dependency>
 
@@ -236,7 +236,7 @@
             <dependency>
                 <groupId>com.splunk.logging</groupId>
                 <artifactId>splunk-library-javalogging</artifactId>
-                <version>1.5.3</version>
+                <version>1.6.0</version>
             </dependency>
 
             <dependency>
@@ -254,10 +254,10 @@
             <dependency>
                 <groupId>com.amazonaws</groupId>
                 <artifactId>aws-java-sdk</artifactId>
-                <version>1.11.311</version>
+                <version>1.11.344</version>
             </dependency>
 
-            <!-- Although we don't explicitly use these dependencys, there are conflicts
+            <!-- Although we don't explicitly use these dependencies, there are conflicts
             with these libraries in our transitive dependencies so we explicitly declare them -->
             <dependency>
                 <groupId>xml-apis</groupId>
@@ -272,17 +272,17 @@
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-core</artifactId>
-                <version>2.8.9</version>
+                <version>2.9.5</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
-                <version>2.8.9</version>
+                <version>2.9.5</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-annotations</artifactId>
-                <version>2.8.9</version>
+                <version>2.9.5</version>
             </dependency>
             <dependency>
                 <groupId>com.google.code.findbugs</groupId>
@@ -313,6 +313,16 @@
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>24.1-jre</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>2.6</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tika</groupId>
+                <artifactId>tika-core</artifactId>
+                <version>1.18</version>
             </dependency>
 
             <!--
@@ -469,8 +479,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- Disable this plugin after 12.3.0 upgrade -->
-            <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
@@ -488,16 +496,16 @@
                         <reactorModuleConvergence/>
                         <requireUpperBoundDeps/>
                         <requireJavaVersion>
-                             Any Java 8 version is allowed
+                            <!-- Any Java 8 version is allowed -->
                             <version>[1.8.0,1.8.1)</version>
                         </requireJavaVersion>
                         <requireMavenVersion>
-                            Any Maven 3 version is allowed
+                            <!-- Any Maven 3 version is allowed -->
                             <version>[3.0,4.0)</version>
                         </requireMavenVersion>
                     </rules>
                 </configuration>
-            </plugin>-->
+            </plugin>
         </plugins>
     </build>
 
