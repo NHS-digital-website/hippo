@@ -18,8 +18,8 @@
 
     <properties>
         <cucumber.version>1.2.5</cucumber.version>
-        <spring.version>5.0.5.RELEASE</spring.version>
-        <selenium.version>3.11.0</selenium.version>
+        <spring.version>5.0.6.RELEASE</spring.version>
+        <selenium.version>3.12.0</selenium.version>
     </properties>
 
     <dependencies>
@@ -72,7 +72,6 @@
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.6</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>

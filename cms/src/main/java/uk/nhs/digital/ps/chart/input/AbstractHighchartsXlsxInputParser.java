@@ -4,6 +4,7 @@ import static java.util.stream.Collectors.collectingAndThen;
 import static java.util.stream.Collectors.toSet;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import uk.nhs.digital.ps.ChartConfig;
 import uk.nhs.digital.ps.chart.ChartType;
@@ -54,11 +55,11 @@ public abstract class AbstractHighchartsXlsxInputParser implements
         throws IOException, RepositoryException;
 
     Double getDoubleValue(Cell cell) {
-        return cell.getCellType() == Cell.CELL_TYPE_STRING ? Double.valueOf(cell.getStringCellValue()) : cell.getNumericCellValue();
+        return cell.getCellTypeEnum() == CellType.STRING ? Double.valueOf(cell.getStringCellValue()) : cell.getNumericCellValue();
     }
 
     String getStringValue(Cell cell) {
-        return cell.getCellType() == Cell.CELL_TYPE_STRING ? cell.getStringCellValue() : String.valueOf(cell.getNumericCellValue());
+        return cell.getCellTypeEnum() == CellType.STRING ? cell.getStringCellValue() : String.valueOf(cell.getNumericCellValue());
     }
 
     private void validateSupportFor(final ChartType chartType) {

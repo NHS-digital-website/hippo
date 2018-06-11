@@ -20,7 +20,7 @@
         <dependency>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
-            <version>1.19</version>
+            <version>1.21</version>
         </dependency>
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
@@ -84,7 +84,7 @@
                     <dependency>
                         <groupId>org.yaml</groupId>
                         <artifactId>snakeyaml</artifactId>
-                        <version>1.19</version>
+                        <version>1.21</version>
                     </dependency>
                     <dependency>
                         <groupId>org.codehaus.groovy</groupId>
