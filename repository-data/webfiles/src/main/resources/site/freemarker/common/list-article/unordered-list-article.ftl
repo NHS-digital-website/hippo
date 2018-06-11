@@ -1,6 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 <#include "../macro/fileMetaAppendix.ftl">
+<#include "../macro/typeSpan.ftl">
 
 <article class="article article--list">
     <div class="grid-wrapper grid-wrapper--article">
@@ -37,15 +38,19 @@
                             <div class="list list--reset cta-list cta-list--sections">
                                 <#list document.blocks as block>
                                 <div class="cta">  
-                                    <#if block.getType() == "internal">
-                                    <h2 class="cta__title"><a href="<@hst.link hippobean=block.link />">${block.link.title}</a></h2>
-                                    <p class="cta__text">${block.link.shortsummary}</p>
-                                    <#elseif block.getType() == "external">
-                                    <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, block.link) />
-                                    <h2 class="cta__title"><a href="${block.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${block.title}</a></h2>
-                                    <p class="cta__text">${block.shortsummary}</p>
-                                    <#elseif block.getType() == "asset">
-                                    <a href="<@hst.link hippobean=block.link />" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${block.title}</a><@fileMetaAppendix block.link.asset.getLength()></@fileMetaAppendix>
+                                    <#if block.getType??>
+                                        <@typeSpan block.getType() />
+                                        
+                                        <#if block.getType() == "internal">
+                                            <h2 class="cta__title"><a href="<@hst.link hippobean=block.link />">${block.link.title}</a></h2>
+                                            <p class="cta__text">${block.link.shortsummary}</p>
+                                        <#elseif block.getType() == "external">
+                                            <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, block.link) />
+                                            <h2 class="cta__title"><a href="${block.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${block.title}</a></h2>
+                                            <p class="cta__text">${block.shortsummary}</p>
+                                        <#elseif block.getType() == "asset">
+                                            <h2 class="cta__title"><a href="<@hst.link hippobean=block.link />" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${block.title}</a><@fileMetaAppendix block.link.asset.getLength()></@fileMetaAppendix></h2>
+                                        </#if>
                                     </#if>
                                 </div>
                                 </#list>

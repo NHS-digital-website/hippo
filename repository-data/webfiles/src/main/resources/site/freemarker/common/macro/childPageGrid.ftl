@@ -1,6 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 <#include "fileMetaAppendix.ftl">
+<#include "typeSpan.ftl">
 
 <#macro childPageGrid childPages>
 <#if childPages?has_content>
@@ -13,16 +14,18 @@
                 <#if childPage.type?? && (childPage.type == "external" || childPage.type == "asset")>
                     <#-- Assign the link property of the externallink compound -->
                     <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, childPage.link) />
+                    
+                    <@typeSpan childPage.type />
+
                     <#if childPage.type == "external">
-                        <span data-type="external" class="hidden"></span>
                         <h2 class="cta__title"><a href="${childPage.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${childPage.title}</a></h2>
                     <#elseif childPage.type == "asset">
-                        <span data-type="asset" class="hidden"></span>
                         <h2 class="cta__title"><a href="<@hst.link hippobean=childPage.link />" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${childPage.title}</a><@fileMetaAppendix childPage.link.asset.getLength()></@fileMetaAppendix></h2>
                     </#if>
                 <#elseif hst.isBeanType(childPage, 'org.hippoecm.hst.content.beans.standard.HippoBean')>
+                    <@typeSpan "internal" />
+
                     <#-- In case the childPage is not a compound but still a document in the cms, then create a link to it-->
-                    <span data-type="internal" class="hidden"></span>
                     <h2 class="cta__title"><a href="<@hst.link var=link hippobean=childPage />">${childPage.title}</a></h2>
                 </#if>
                 
