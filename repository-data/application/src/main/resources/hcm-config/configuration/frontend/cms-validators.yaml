@@ -1,9 +1,9 @@
 ---
 definitions:
   config:
-    /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-blank-attachment:
+    /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-attachment:
       jcr:primaryType: frontend:plugin
-      plugin.class: uk.nhs.digital.ps.BlankAttachmentFieldValidator
+      plugin.class: uk.nhs.digital.ps.AttachmentFieldValidator
     /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-blank-geographic-coverage:
       fieldDisplayName: Geographic Coverage
       jcr:primaryType: frontend:plugin

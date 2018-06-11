@@ -56,7 +56,7 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: externalstorage:resource
             hipposysedit:validators:
-            - publicationsystem-blank-attachment
+            - publicationsystem-attachment
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:

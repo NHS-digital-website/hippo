@@ -48,7 +48,7 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: publicationsystem:resource
             hipposysedit:validators:
-            - publicationsystem-blank-attachment
+            - publicationsystem-attachment
             jcr:primaryType: hipposysedit:field
           /displayName:
             hipposysedit:mandatory: false

@@ -33,12 +33,14 @@ import java.util.Collections;
 import java.util.Set;
 import java.util.UUID;
 import javax.jcr.Node;
+import javax.jcr.NodeIterator;
 import javax.jcr.Property;
 
-public class BlankAttachmentFieldValidatorTest {
+public class AttachmentFieldValidatorTest {
 
     private static final String HIPPO_FILENAME_PROPERTY_NAME = "hippo:filename";
     private static final String DEFAULT_ATTACHMENT_NAME_WHEN_NO_FILE_UPLOADED = "externalstorage:resource";
+    private static final String HIPPO_ATTACHMENT_DISPLAY_NAME_PROPERTY_NAME = "publicationsystem:displayName";
 
     @Rule public ExpectedException expectedException = ExpectedException.none();
 
@@ -46,11 +48,15 @@ public class BlankAttachmentFieldValidatorTest {
     @Mock private ITypeDescriptor typeDescriptor;
     @Mock private JcrNodeModel documentNodeModel;
     @Mock private JcrNodeModel attachmentNodeModel;
+    @Mock private JcrNodeModel externalStorageNodeModel;
     @Mock private IPluginConfig pluginConfig;
     @Mock private IPluginContext pluginContext;
     @Mock private IModel<String> violationMessageTranslationModel;
+    @Mock private NodeIterator nodeIterator;
+    @Mock private Node node;
+    @Mock private Property property;
 
-    private BlankAttachmentFieldValidator blankAttachmentFieldValidator;
+    private AttachmentFieldValidator attachmentFieldValidator;
 
     @Before
     public void setUp() throws Exception {
@@ -59,10 +65,17 @@ public class BlankAttachmentFieldValidatorTest {
 
         initialiseWicketApplication();
 
-        blankAttachmentFieldValidator = new BlankAttachmentFieldValidator(
+        attachmentFieldValidator = new AttachmentFieldValidator(
             pluginContext,
             pluginConfig
         );
+
+        given(externalStorageNodeModel.getParentModel()).willReturn(attachmentNodeModel);
+        given(attachmentNodeModel.getParentModel()).willReturn(documentNodeModel);
+        given(documentNodeModel.getNode()).willReturn(node);
+
+        given(externalStorageNodeModel.getNode()).willReturn(node);
+        given(node.getNodes()).willReturn(nodeIterator);
     }
 
     @Test
@@ -79,7 +92,7 @@ public class BlankAttachmentFieldValidatorTest {
                 NODE_TYPE_EXTERNAL_RESOURCE, bogusFieldTypeName));
 
         // when
-        blankAttachmentFieldValidator.preValidation(fieldValidator);
+        attachmentFieldValidator.preValidation(fieldValidator);
 
         // then
         // expectations as specified in 'given'
@@ -104,7 +117,7 @@ public class BlankAttachmentFieldValidatorTest {
 
         // when
         final Set<Violation> actualValidationViolations =
-            blankAttachmentFieldValidator.validate(fieldValidator, documentNodeModel, attachmentNodeModel);
+            attachmentFieldValidator.validate(fieldValidator, documentNodeModel, attachmentNodeModel);
 
         // then
         then(attachmentNode).should().getProperty(HIPPO_FILENAME_PROPERTY_NAME);
@@ -118,11 +131,97 @@ public class BlankAttachmentFieldValidatorTest {
     }
 
     @Test
+    public void reportsValidationViolation_forDuplicateDisplayName() throws Exception {
+
+        // given
+        final Violation expectedViolation = new Violation(Collections.emptySet(), violationMessageTranslationModel);
+
+        final String displayName = newRandomString();
+
+        final Node attachmentOneNode = generateMockAttachmentNode(displayName);
+        final Node attachmentTwoNode = generateMockAttachmentNode(displayName);
+        given(node.getProperty(HIPPO_FILENAME_PROPERTY_NAME)).willReturn(property);
+
+        given(nodeIterator.hasNext())
+            .willReturn(true)
+            .willReturn(true)
+            .willReturn(false);
+        given(nodeIterator.nextNode())
+            .willReturn(attachmentOneNode)
+            .willReturn(attachmentTwoNode);
+        given(node.getNodes()).willReturn(nodeIterator);
+
+        given(fieldValidator.newValueViolation(eq(externalStorageNodeModel), isA(IModel.class)))
+            .willReturn(expectedViolation);
+
+        // when
+        final Set<Violation> actualValidationViolations =
+            attachmentFieldValidator.validate(fieldValidator, documentNodeModel, externalStorageNodeModel);
+
+        // then
+        then(attachmentOneNode).should().getProperty(HIPPO_ATTACHMENT_DISPLAY_NAME_PROPERTY_NAME);
+        then(attachmentTwoNode).should().getProperty(HIPPO_ATTACHMENT_DISPLAY_NAME_PROPERTY_NAME);
+
+        assertThat("Exactly one violation has been reported.", actualValidationViolations, hasSize(1));
+
+        final Violation actualViolation = actualValidationViolations.iterator().next();
+        assertThat("Violation is not null", actualViolation, notNullValue());
+        assertThat("Correct violation has been reported.", actualViolation.getMessage(),
+            is(violationMessageTranslationModel));
+    }
+
+    @Test
+    public void reportsNoValidationViolation_forUniqueDisplayNames() throws Exception {
+
+        // given
+        final Node attachmentOneNode = generateMockAttachmentNode(newRandomString());
+        final Node attachmentTwoNode = generateMockAttachmentNode(newRandomString());
+        given(node.getProperty(HIPPO_FILENAME_PROPERTY_NAME)).willReturn(property);
+
+        given(nodeIterator.hasNext())
+            .willReturn(true)
+            .willReturn(true)
+            .willReturn(false);
+        given(nodeIterator.nextNode())
+            .willReturn(attachmentOneNode)
+            .willReturn(attachmentTwoNode);
+        given(node.getNodes()).willReturn(nodeIterator);
+
+        // when
+        final Set<Violation> actualValidationViolations =
+            attachmentFieldValidator.validate(fieldValidator, documentNodeModel, externalStorageNodeModel);
+
+        // then
+        then(attachmentOneNode).should().getProperty(HIPPO_ATTACHMENT_DISPLAY_NAME_PROPERTY_NAME);
+        then(attachmentTwoNode).should().getProperty(HIPPO_ATTACHMENT_DISPLAY_NAME_PROPERTY_NAME);
+
+        assertThat("No violation has been reported.", actualValidationViolations, is(empty()));
+    }
+
+    private Node generateMockAttachmentNode(String displayName) throws Exception {
+
+        final Node attachmentNode = mock(Node.class);
+
+        final Property attachmentFileNameProperty = mock(Property.class);
+        given(attachmentFileNameProperty.getString()).willReturn(displayName);
+
+        // Attachment filename
+        given(attachmentNode.getProperty(HIPPO_FILENAME_PROPERTY_NAME)).willReturn(attachmentFileNameProperty);
+
+        // Attachment display name
+        given(attachmentNode.getProperty(HIPPO_ATTACHMENT_DISPLAY_NAME_PROPERTY_NAME)).willReturn(attachmentFileNameProperty);
+
+        return attachmentNode;
+    }
+
+    @Test
     public void reportsNoValidationViolations_forPopulatedUploadField() throws Exception {
 
         // given
         final Node attachmentNode = mock(Node.class);
-        given(attachmentNodeModel.getNode()).willReturn(attachmentNode);
+
+        given(externalStorageNodeModel.getNode()).willReturn(attachmentNode);
+        given(externalStorageNodeModel.getNode().getNodes()).willReturn(nodeIterator);
 
         final Property attachmentFileNameProperty = mock(Property.class);
         final String validFileName = newRandomString();
@@ -132,7 +231,7 @@ public class BlankAttachmentFieldValidatorTest {
 
         // when
         final Set<Violation> actualValidationViolations =
-            blankAttachmentFieldValidator.validate(fieldValidator, documentNodeModel, attachmentNodeModel);
+            attachmentFieldValidator.validate(fieldValidator, documentNodeModel, externalStorageNodeModel);
 
         // then
         then(attachmentNode).should().getProperty(HIPPO_FILENAME_PROPERTY_NAME);
