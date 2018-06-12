@@ -132,7 +132,7 @@ public class ExpectedTestDataProvider {
                 .withTitle("Published Upcoming Publication")
                 .withSummary("Published Upcoming Publication Summary")
                 .withInformationType(InformationType.OFFICIAL_STATISTICS)
-                .withNominalDate(asInstant("2017-06-01T09:30:00.000+01:00"))
+                .withNominalDate(asInstant("2025-06-18T09:30:00.000+01:00"))
                 .inState(PUBLISHED)
                 .withPubliclyAccessible(false),
             newPublication()
@@ -140,7 +140,7 @@ public class ExpectedTestDataProvider {
                 .withTitle("Upcoming Publication")
                 .withSummary("Upcoming Publication Summary")
                 .withInformationType(InformationType.EXPERIMENTAL_STATISTICS)
-                .withNominalDate(asInstant("2017-10-10T01:00:00.000+01:00"))
+                .withNominalDate(asInstant("2025-06-18T01:00:00.000+01:00"))
                 .inState(PUBLISHED)
                 .withPubliclyAccessible(false));
     }

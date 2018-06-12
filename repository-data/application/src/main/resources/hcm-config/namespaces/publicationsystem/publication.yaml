@@ -321,6 +321,7 @@ definitions:
             hipposysedit:type: CalendarDate
             hipposysedit:validators:
             - required
+            - publicationsystem-publication-date
             jcr:primaryType: hipposysedit:field
           /publicly_accessible:
             hipposysedit:mandatory: false
