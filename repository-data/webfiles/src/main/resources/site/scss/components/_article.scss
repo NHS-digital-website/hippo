@@ -47,6 +47,12 @@
     }
 }
 
+.article--news-hub {
+    .article-section--letter-group {
+        margin: round($gutter * 0.5) 0 0;
+    }
+}
+
 // Remove bottom border from the last article section
 .article:not(.article--list) {
     .article-section:first-of-type {

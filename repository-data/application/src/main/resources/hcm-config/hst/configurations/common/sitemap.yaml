@@ -142,7 +142,10 @@ definitions:
         /events:
           hst:componentconfigurationid: hst:pages/latestevents
           jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/general
+        /news:
+          hst:componentconfigurationid: hst:pages/latestnews
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/hub
         hst:relativecontentpath: news-and-events/content
         jcr:primaryType: hst:sitemapitem
       /robots.txt:
