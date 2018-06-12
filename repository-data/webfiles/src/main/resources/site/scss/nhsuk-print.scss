@@ -5,6 +5,9 @@ $is-print: true;
 @import "./units/list";
 @import "./units/link";
 @import "./units/quote";
+@import "./components/site-header";
+@import "./components/checklist";
+@import "./components/breadcrumb";
 
 body {
   @include core-font(16);
@@ -14,7 +17,7 @@ body {
 }
 
 a {
-  color: $black !important;
+  color: $col-quaternary !important;
   font-weight: 700;
   text-decoration: none;
 
@@ -24,17 +27,6 @@ a {
 
   &:visited {
     word-wrap: break-word;
-  }
-
-  &[href^="/"]:after {
-    content: " (https://www.nhs.uk" attr(href) ")";
-    font-size: 90%;
-  }
-
-  &[href^="http://"]:after,
-  &[href^="https://"]:after {
-    content: " (" attr(href) ")";
-    font-size: 90%;
   }
 
   &[href^="javascript:"]:after,
@@ -60,7 +52,6 @@ select {
 hr {
   border: 1mm solid $grey-3;
   margin: .8cm 0;
-  width: 15%;
 }
 
 .global-header__link::after {
@@ -75,6 +66,12 @@ h5,
 h6 {
   margin: 1cm 0 .5cm;
   page-break-after: avoid;
+}
+
+h1 {
+    color: rgba($col-quaternary, 0.95);
+    font-size: 2em;
+    line-height: 2.4em;
 }
 
 p,
@@ -102,6 +99,48 @@ details {
 
 .callout--compact {
   display: inline-block;
+}
+
+.search-strip {
+    display: none;
+}
+
+.site-header__search-wrapper {
+    display: none;
+}
+
+.main-nav__burger {
+    display: none;
+}
+
+.article-header h1 {
+    margin-top: 0;
+    
+}
+
+.article-header__stamp {
+    img {
+        width: 0.75cm;
+        height: 0.75cm;
+    }
+}
+
+.article--filtered-list {
+    .page-block--sidebar {
+        display: none;
+    }
+}
+
+.site-header__logo {
+    width: 3cm;
+}
+
+hr {
+    max-width: 15cm;
+    margin: 0;
+    height: 1px;
+    border: none;
+    border-bottom: 1px solid $col-quaternary;
 }
 
 // hide the unnecessary page elements

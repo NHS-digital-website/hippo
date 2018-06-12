@@ -1,5 +1,6 @@
-/* Site header */
+@import "../environment/tools/mixins/static-button";
 
+/* Site header */
 .site-header {
     position: relative;
     border-bottom: 1px solid $col-primary;
