@@ -21,5 +21,7 @@ definitions:
         a corresponding Coverage Start date.
       publicationsystem-duplicate-staticdropdown: '{0} has a duplicate value. Please
         remove one of the duplicates or select a different value.'
+      publicationsystem-publication-date: Publication Date cannot be in the past or
+        more than {0} years in the future.
       publicationsystem-title: Title must be 250 characters or less
       valid-url: Link URL must start with http:// or https://

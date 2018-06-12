@@ -18,6 +18,10 @@ definitions:
       fieldDisplayName: Information Type
       jcr:primaryType: frontend:plugin
       plugin.class: uk.nhs.digital.ps.StaticDropdownSelectionFieldValidator
+    /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-publication-date:
+      jcr:primaryType: frontend:plugin
+      plugin.class: uk.nhs.digital.ps.PublicationDateValidator
+      validPeriodLengthInYears: 7
     /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-title:
       jcr:primaryType: frontend:plugin
       max_length: 250
