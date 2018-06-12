@@ -3,14 +3,14 @@
 
 <#macro hubBox options>
     <#if options??>
-        <article class="cta hub-box">
+        <article class="hub-box ${(options.light??)?then('hub-box--light', '')}">
             <#if options.background??>
             <div class="hub-box__image" style="background-image: url('${options.background}');"></div>
             </#if>
             
             <div class="hub-box__contents">
                 <#if options.title??>
-                    <h2 class="cta__title">
+                    <h2 class="hub-box__title">
                         <#if options.link??>
                         <a href="${options.link}">
                         </#if>
@@ -22,11 +22,11 @@
                 </#if>
 
                 <#if options.date??>
-                <span class="cta__meta">${options.date}</span>
+                <span class="hub-box__meta">${options.date}</span>
                 </#if>
 
                 <#if options.text??>
-                <p class="cta__text">${options.text}</p>
+                <p class="hub-box__text">${options.text}</p>
                 </#if>                
                 
                 <#if options.types??>

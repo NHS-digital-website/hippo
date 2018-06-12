@@ -134,7 +134,7 @@
             </#if>
         </#list>
 
-        <@fmt.formatDate value=dateRangeData.minStartTime type="Date" pattern="yyyy-MM-dd" pattern="yyyy-MM-dd" var="comparableStartDate" timeZone="${getTimeZone()}" />
+        <@fmt.formatDate value=dateRangeData.minStartTime type="Date" pattern="yyyy-MM-dd" var="comparableStartDate" timeZone="${getTimeZone()}" />
         <@fmt.formatDate value=dateRangeData.maxEndTime type="Date" pattern="yyyy-MM-dd" var="comparableEndDate" timeZone="${getTimeZone()}" />
 
         <#local dateRangeData = dateRangeData + { "comparableStartDate": comparableStartDate, "comparableEndDate": comparableEndDate } />
@@ -150,7 +150,7 @@
 <#-- Gather section nav links in a hash -->
 <#function getSectionNavLinks options>
     <@hst.setBundle basename="rb.generic.headers"/>
-    
+
     <#assign links = [] />
     <#if options??>
         <#if options.ignoreSummary?? && !options.ignoreSummary>
@@ -192,6 +192,11 @@
         </#list>
     </#if>
     <#return titlesFound />
+</#function>
+
+<#-- Months of the year -->
+<#function monthsOfTheYear>
+    <#return ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] />
 </#function>
 
 <#-- Return the canonical document URL -->
