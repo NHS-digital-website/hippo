@@ -15,19 +15,20 @@ import org.hippoecm.frontend.validation.IFieldValidator;
 import org.hippoecm.frontend.validation.ValidationException;
 import org.hippoecm.frontend.validation.Violation;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import javax.jcr.RepositoryException;
+import javax.jcr.Value;
 
-public class BlankStaticDropdownSelectionFieldValidator extends AbstractCmsValidator {
+public class StaticDropdownSelectionFieldValidator extends AbstractCmsValidator {
 
     private static final String SUPPORTED_FIELD_TYPE_NAME = "StaticDropdown";
     private static final String FIELD_DISPLAY_NAME_KEY = "fieldDisplayName";
-    private static final String VIOLATION_MESSAGE_TEMPLATE_KEY = "publicationsystem-blank-staticdropdown";
+    private static final String BLANK_VALUE_MESSAGE_TEMPLATE_KEY = "publicationsystem-blank-staticdropdown";
+    private static final String DUPLICATE_VALUE_MESSAGE_TEMPLATE_KEY = "publicationsystem-duplicate-staticdropdown";
     private static final String VALIDATORS_TRANSLATION_KEY = "hippo:cms.validators";
 
     @SuppressWarnings("WeakerAccess") // Hippo CMS requires the constructor to be public
-    public BlankStaticDropdownSelectionFieldValidator(final IPluginContext pluginContext, final IPluginConfig pluginConfig) {
+    public StaticDropdownSelectionFieldValidator(final IPluginContext pluginContext, final IPluginConfig pluginConfig) {
         super(pluginContext, pluginConfig);
     }
 
@@ -58,10 +59,24 @@ public class BlankStaticDropdownSelectionFieldValidator extends AbstractCmsValid
         final Set<Violation> violations = new HashSet<>();
 
         if (noValueSelectedInCurrentField(fieldModel)) {
-            violations.add(fieldValidator.newValueViolation(fieldModel, getViolationMessage()));
+            violations.add(fieldValidator.newValueViolation(fieldModel, getViolationMessage(getViolationMessageTemplate(BLANK_VALUE_MESSAGE_TEMPLATE_KEY))));
+        }
+
+        if (hasDuplicateValues((JcrPropertyValueModel) fieldModel)) {
+            violations.add(fieldValidator.newValueViolation(fieldModel, getViolationMessage(getViolationMessageTemplate(DUPLICATE_VALUE_MESSAGE_TEMPLATE_KEY))));
         }
 
         return violations;
+    }
+
+    private boolean hasDuplicateValues(JcrPropertyValueModel fieldModel) throws ValidationException {
+        try {
+            List<Value> values = Arrays.asList(fieldModel.getJcrPropertymodel().getProperty().getValues());
+
+            return values.stream().anyMatch(value -> Collections.frequency(values, value) > 1);
+        } catch (RepositoryException e) {
+            throw new ValidationException("Failed to validate duplicate property values.", e);
+        }
     }
 
     private boolean noValueSelectedInCurrentField(final IModel fieldModel) throws ValidationException {
@@ -79,33 +94,30 @@ public class BlankStaticDropdownSelectionFieldValidator extends AbstractCmsValid
         }
     }
 
-    private IModel<String> getViolationMessage() {
-
-        final IModel<String> violationMessageTemplate = getViolationMessageTemplate();
-
+    private IModel<String> getViolationMessage(IModel<String> messageTemplate) {
         return new IModel<String>() {
 
             @Override
             public void detach() {
-                violationMessageTemplate.detach();
+                messageTemplate.detach();
             }
 
             @Override
             public String getObject() {
-                return resolvePlaceholders(violationMessageTemplate.getObject());
+                return resolvePlaceholders(messageTemplate.getObject());
             }
 
             @Override
             public void setObject(final String object) {
-                violationMessageTemplate.setObject(object);
+                messageTemplate.setObject(object);
             }
         };
     }
 
-    private IModel<String> getViolationMessageTemplate() {
+    private IModel<String> getViolationMessageTemplate(String violationMessageTemplateKey) {
         return new ResourceBundleModel(
             VALIDATORS_TRANSLATION_KEY,
-            VIOLATION_MESSAGE_TEMPLATE_KEY,
+            violationMessageTemplateKey,
             Session.get().getLocale()
         );
     }
