@@ -19,5 +19,7 @@ definitions:
         to the same as Coverage Start.
       publicationsystem-coverage-dates#no-start-provided: Coverage End date requires
         a corresponding Coverage Start date.
+      publicationsystem-duplicate-staticdropdown: '{0} has a duplicate value. Please
+        remove one of the duplicates or select a different value.'
       publicationsystem-title: Title must be 250 characters or less
       valid-url: Link URL must start with http:// or https://

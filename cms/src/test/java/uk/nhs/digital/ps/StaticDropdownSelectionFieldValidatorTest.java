@@ -14,11 +14,13 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.reset;
 import static org.mockito.MockitoAnnotations.initMocks;
 
+import org.apache.jackrabbit.value.StringValue;
 import org.apache.wicket.Page;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.util.tester.WicketTester;
 import org.hippoecm.frontend.model.JcrNodeModel;
+import org.hippoecm.frontend.model.properties.JcrPropertyModel;
 import org.hippoecm.frontend.model.properties.JcrPropertyValueModel;
 import org.hippoecm.frontend.plugin.IPluginContext;
 import org.hippoecm.frontend.plugin.config.IPluginConfig;
@@ -27,18 +29,17 @@ import org.hippoecm.frontend.types.ITypeDescriptor;
 import org.hippoecm.frontend.validation.IFieldValidator;
 import org.hippoecm.frontend.validation.ValidationException;
 import org.hippoecm.frontend.validation.Violation;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mock;
 
 import java.util.Collections;
 import java.util.Set;
 import java.util.UUID;
+import javax.jcr.Property;
 import javax.jcr.Value;
 
-public class BlankStaticDropdownSelectionFieldValidatorTest {
+public class StaticDropdownSelectionFieldValidatorTest {
 
     private static final String SUPPORTED_FIELD_TYPE_NAME = "StaticDropdown";
     private static final String FIELD_DISPLAY_NAME_KEY = "fieldDisplayName";
@@ -54,8 +55,10 @@ public class BlankStaticDropdownSelectionFieldValidatorTest {
     @Mock private IPluginConfig pluginConfig;
     @Mock private IPluginContext pluginContext;
     @Mock private IModel<String> violationMessageTranslationModel;
+    @Mock private JcrPropertyModel jcrPropertyModel;
+    @Mock private Property property;
 
-    private BlankStaticDropdownSelectionFieldValidator blankStaticDropdownSelectionFieldValidator;
+    private StaticDropdownSelectionFieldValidator staticDropdownSelectionFieldValidator;
 
     @Before
     public void setUp() throws Exception {
@@ -65,7 +68,13 @@ public class BlankStaticDropdownSelectionFieldValidatorTest {
 
         initialiseWicketApplication();
 
-        blankStaticDropdownSelectionFieldValidator = new BlankStaticDropdownSelectionFieldValidator(
+        // initialize some default values
+        given(fieldModel.getJcrPropertymodel()).willReturn(jcrPropertyModel);
+        given(jcrPropertyModel.getProperty()).willReturn(property);
+        given(property.getValues()).willReturn(new Value[0]);
+        given(fieldModel.getValue()).willReturn(new StringValue("Some value"));
+
+        staticDropdownSelectionFieldValidator = new StaticDropdownSelectionFieldValidator(
             pluginContext,
             pluginConfig
         );
@@ -90,7 +99,7 @@ public class BlankStaticDropdownSelectionFieldValidatorTest {
         ));
 
         // when
-        blankStaticDropdownSelectionFieldValidator.preValidation(fieldValidator);
+        staticDropdownSelectionFieldValidator.preValidation(fieldValidator);
 
         // then
         // expectations as specified in 'given'
@@ -110,7 +119,7 @@ public class BlankStaticDropdownSelectionFieldValidatorTest {
         ));
 
         // when
-        blankStaticDropdownSelectionFieldValidator.preValidation(fieldValidator);
+        staticDropdownSelectionFieldValidator.preValidation(fieldValidator);
 
         // then
         // expectations as specified in 'given'
@@ -132,7 +141,7 @@ public class BlankStaticDropdownSelectionFieldValidatorTest {
 
         // when
         final Set<Violation> actualViolations =
-            blankStaticDropdownSelectionFieldValidator.validate(fieldValidator, documentNodeModel, fieldModel);
+            staticDropdownSelectionFieldValidator.validate(fieldValidator, documentNodeModel, fieldModel);
 
         // then
         then(valueObject).should().getString();
@@ -155,10 +164,49 @@ public class BlankStaticDropdownSelectionFieldValidatorTest {
 
         // when
         final Set<Violation> actualValidationViolations =
-            blankStaticDropdownSelectionFieldValidator.validate(fieldValidator, documentNodeModel, fieldModel);
+            staticDropdownSelectionFieldValidator.validate(fieldValidator, documentNodeModel, fieldModel);
 
         // then
         then(valueObject).should().getString();
+        assertThat("No violation has been reported.", actualValidationViolations, is(empty()));
+    }
+
+    @Test
+    public void reportsValidationViolation_forDuplicatedFieldValue() throws Exception {
+
+        // given
+        given(property.getValues())
+            .willReturn(new Value[]{ new StringValue("A value"), new StringValue("A value")});
+
+        final Violation expectedViolation = new Violation(Collections.emptySet(), violationMessageTranslationModel);
+
+        given(fieldValidator.newValueViolation(eq(fieldModel), isA(IModel.class)))
+            .willReturn(expectedViolation);
+
+        // when
+        final Set<Violation> actualViolations =
+            staticDropdownSelectionFieldValidator.validate(fieldValidator, documentNodeModel, fieldModel);
+
+        // then
+        assertThat("Exactly one violation has been reported.", actualViolations, hasSize(1));
+
+        final Violation actualViolation = actualViolations.iterator().next();
+        assertThat("Violation is not null", actualViolation, notNullValue());
+        Assert.assertSame("Correct violation has been reported.", actualViolation.getMessage(), violationMessageTranslationModel);
+    }
+
+    @Test
+    public void reportsNoValidationViolations_forDifferentFieldValues() throws Exception {
+
+        // given
+        given(property.getValues())
+            .willReturn(new Value[]{ new StringValue("A value"), new StringValue("A different value")});
+
+        // when
+        final Set<Violation> actualValidationViolations =
+            staticDropdownSelectionFieldValidator.validate(fieldValidator, documentNodeModel, fieldModel);
+
+        // then
         assertThat("No violation has been reported.", actualValidationViolations, is(empty()));
     }
 

@@ -284,7 +284,7 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             hipposysedit:validators:
-            - publicationsystem-blank-granularity
+            - publicationsystem-dropdown-granularity
             jcr:primaryType: hipposysedit:field
           /information_type:
             hipposysedit:mandatory: false
@@ -294,7 +294,7 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             hipposysedit:validators:
-            - publicationsystem-blank-information-type
+            - publicationsystem-dropdown-information-type
             jcr:primaryType: hipposysedit:field
           /keyFactImages:
             hipposysedit:mandatory: false
