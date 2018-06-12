@@ -1,0 +1,89 @@
+---
+/content/documents/administration/resources/rb.doctype.news-hub:
+  /rb.doctype.news-hub[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-26T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2018-02-22T14:13:41.631Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Page title
+    - Intro text in the page header
+    - Title of the filter nav
+    - Text to inform the user that there are no news yet
+    resourcebundle:id: rb.doctype.news-hub
+    resourcebundle:keys:
+    - headers.page-title
+    - texts.intro
+    - headers.filter-nav-title
+    - texts.no-news
+    resourcebundle:messages:
+    - News
+    - The latest news and events from NHS Digital.
+    - Filter by type
+    - There are no news to show, please check back later
+  /rb.doctype.news-hub[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-26T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2018-02-22T14:13:30.365Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Page title
+    - Intro text in the page header
+    - Title of the filter nav
+    - Text to inform the user that there are no news yet
+    resourcebundle:id: rb.doctype.news-hub
+    resourcebundle:keys:
+    - headers.page-title
+    - texts.intro
+    - headers.filter-nav-title
+    - texts.no-news
+    resourcebundle:messages:
+    - News
+    - The latest news and events from NHS Digital.
+    - Filter by type
+    - There are no news to show, please check back later
+  /rb.doctype.news-hub[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2017-10-26T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2018-02-22T14:13:30.365Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2018-05-03T13:23:27.852Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Page title
+    - Intro text in the page header
+    - Title of the filter nav
+    - Text to inform the user that there are no news yet
+    resourcebundle:id: rb.doctype.news-hub
+    resourcebundle:keys:
+    - headers.page-title
+    - texts.intro
+    - headers.filter-nav-title
+    - texts.no-news
+    resourcebundle:messages:
+    - News
+    - The latest news and events from NHS Digital.
+    - Filter by type
+    - There are no news to show, please check back later
+  hippo:name: News Hub Resource Bundle
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
