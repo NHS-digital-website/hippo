@@ -145,6 +145,12 @@ definitions:
         hst:componentconfigurationid: hst:pages/general
         hst:relativecontentpath: news-and-events/content
         jcr:primaryType: hst:sitemapitem
+        /news:
+          hst:componentconfigurationid: hst:pages/latestnews
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/hub
+        hst:relativecontentpath: news-and-events/content
+        jcr:primaryType: hst:sitemapitem
       /robots.txt:
         hst:componentconfigurationid: hst:pages/robotstxt
         hst:relativecontentpath: ../administration/robots
