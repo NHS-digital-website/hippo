@@ -1,5 +1,4 @@
 <#ftl output_format="HTML">
-<#include "./macro/sections/sections.ftl">
 <#include "./macro/publicationHeader.ftl">
 <#include "./publication.ftl">
 
