@@ -18,8 +18,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
-import uk.nhs.digital.ps.ChartConfig;
-import uk.nhs.digital.ps.chart.input.ScatterHighchartsXlsxParser;
+import uk.nhs.digital.ps.chart.input.ScatterHighchartsXlsxInputParser;
+import uk.nhs.digital.ps.chart.model.HighchartsModel;
 import uk.nhs.digital.ps.chart.model.Point;
 import uk.nhs.digital.ps.chart.model.Series;
 
@@ -40,7 +40,7 @@ public class ScatterHighchartsXlsxParserTest {
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
 
-    private ScatterHighchartsXlsxParser scatterHighchartsXlsxParser;
+    private ScatterHighchartsXlsxInputParser scatterHighchartsXlsxParser;
 
     @Before
     public void setUp() throws Exception {
@@ -50,7 +50,7 @@ public class ScatterHighchartsXlsxParserTest {
         chartTitle = "chart title";
         xTitleFromSheet = "888.0";
         yTitleFromSheet = "SHMI value";
-        scatterHighchartsXlsxParser = new ScatterHighchartsXlsxParser();
+        scatterHighchartsXlsxParser = new ScatterHighchartsXlsxInputParser();
     }
 
     @Test
@@ -88,7 +88,7 @@ public class ScatterHighchartsXlsxParserTest {
 
         // when
         scatterHighchartsXlsxParser.parse(
-            new ChartConfig(type, chartTitle, yTitleFromSheet, binaryScatterFunnel)
+            new HighchartsParameters(type, chartTitle, yTitleFromSheet, binaryScatterFunnel)
         );
 
         // then
@@ -105,7 +105,7 @@ public class ScatterHighchartsXlsxParserTest {
 
         // when
         scatterHighchartsXlsxParser.parse(
-            new ChartConfig(type, chartTitle, yTitleFromSheet, binaryScatter)
+            new HighchartsParameters(type, chartTitle, yTitleFromSheet, binaryScatter)
         );
 
         // then
@@ -119,8 +119,8 @@ public class ScatterHighchartsXlsxParserTest {
         final String type = "scatter_plot";
 
         // when
-        SeriesChart chart = scatterHighchartsXlsxParser.parse(
-            new ChartConfig(type, chartTitle, null, binaryScatterFunnel)
+        HighchartsModel chart = (HighchartsModel) scatterHighchartsXlsxParser.parse(
+            new HighchartsParameters(type, chartTitle, null, binaryScatterFunnel)
         );
 
         // then
@@ -169,8 +169,8 @@ public class ScatterHighchartsXlsxParserTest {
         final String type = "funnel_plot";
 
         // when
-        SeriesChart chart = scatterHighchartsXlsxParser.parse(
-            new ChartConfig(type, chartTitle, null, binaryScatterFunnel)
+        HighchartsModel chart = (HighchartsModel) scatterHighchartsXlsxParser.parse(
+            new HighchartsParameters(type, chartTitle, null, binaryScatterFunnel)
         );
 
         // then
@@ -225,7 +225,7 @@ public class ScatterHighchartsXlsxParserTest {
         assertThat(getValues(upper, Point::getY), contains(1.343, 1.247, 1.209, 1.188, 1.174, 1.164, 1.157, 1.152, 1.172, 1.144));
     }
 
-    private <T> List<T> getValues(Series first, Function<Point, T> function) {
+    private <T> List<T> getValues(Series<Point> first, Function<Point, T> function) {
         return first.getData().stream()
             .map(function)
             .collect(toList());

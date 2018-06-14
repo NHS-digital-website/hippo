@@ -10,11 +10,9 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
+import static org.mockito.Mockito.mock;
 import static org.mockito.MockitoAnnotations.initMocks;
-import static uk.nhs.digital.ps.PublicationSystemConstants.*;
 
-import org.apache.jackrabbit.value.BinaryImpl;
-import org.apache.sling.testing.mock.jcr.MockJcr;
 import org.apache.wicket.Page;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.protocol.http.WebApplication;
@@ -26,24 +24,18 @@ import org.hippoecm.frontend.types.ITypeDescriptor;
 import org.hippoecm.frontend.validation.IFieldValidator;
 import org.hippoecm.frontend.validation.ValidationException;
 import org.hippoecm.frontend.validation.Violation;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mock;
 import org.onehippo.cms7.services.HippoServiceRegistry;
-import uk.nhs.digital.ps.ChartConfig;
 import uk.nhs.digital.ps.chart.input.HighchartsInputParser;
+import uk.nhs.digital.ps.chart.input.HighchartsJcrNodeReader;
 
 import java.util.Collections;
 import java.util.Set;
 import java.util.UUID;
-import javax.jcr.Binary;
 import javax.jcr.Node;
-import javax.jcr.Repository;
 import javax.jcr.RepositoryException;
-import javax.jcr.Session;
 
 public class HighchartsDataFileValidatorTest {
 
@@ -51,8 +43,9 @@ public class HighchartsDataFileValidatorTest {
 
     private static final String TARGET_NODE_TYPE = "publicationsystem:resource";
 
-    @Mock
-    HighchartsInputParser highchartsInputParser;
+    @Mock private HighchartsInputParser highchartsInputParser;
+    @Mock private HighchartsJcrNodeReader highchartsJcrNodeReader;
+    @Mock private AbstractHighchartsParameters highchartsParameters;
 
     @Mock private IFieldValidator fieldValidator;
     @Mock private ITypeDescriptor typeDescriptor;
@@ -65,7 +58,7 @@ public class HighchartsDataFileValidatorTest {
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
 
-    HighchartsDataFileValidator highchartsDataFileValidator;
+    private HighchartsDataFileValidator highchartsDataFileValidator;
 
     @Before
     public void setUp() {
@@ -76,6 +69,7 @@ public class HighchartsDataFileValidatorTest {
         initialiseWicketApplication();
 
         HippoServiceRegistry.registerService(highchartsInputParser, HighchartsInputParser.class);
+        HippoServiceRegistry.registerService(highchartsJcrNodeReader, HighchartsJcrNodeReader.class);
 
         highchartsDataFileValidator = new HighchartsDataFileValidator(pluginContext, pluginConfig);
     }
@@ -83,6 +77,7 @@ public class HighchartsDataFileValidatorTest {
     @After
     public void tearDown() {
         HippoServiceRegistry.unregisterService(highchartsInputParser, HighchartsInputParser.class);
+        HippoServiceRegistry.unregisterService(highchartsJcrNodeReader, HighchartsJcrNodeReader.class);
     }
 
     @Test
@@ -111,20 +106,14 @@ public class HighchartsDataFileValidatorTest {
     public void reportsValidationViolation_forInvalidChartInputFile() throws Exception {
 
         // given
-        final Binary invalidChartInputFile = new BinaryImpl(new byte[]{0, 1, 0, 1, 0, 1, 0, 1});
-
-        final String chartType = "Bar";
-        final String chartTitle = "a title";
-        final String chartYTitle = "a y title";
-
-        setUpChartInputJcrContent(invalidChartInputFile, chartType, chartTitle, chartYTitle);
+        setUpChartInput();
 
         final Violation expectedViolation = new Violation(Collections.emptySet(), violationMessageTranslationModel);
 
         given(fieldValidator.newValueViolation(eq(uploadFieldModel), isA(IModel.class)))
             .willReturn(expectedViolation);
 
-        given(highchartsInputParser.parse(new ChartConfig(chartType, chartTitle, chartYTitle, invalidChartInputFile)))
+        given(highchartsInputParser.parse(highchartsParameters))
             .willThrow(new RuntimeException());
 
         // when
@@ -144,41 +133,26 @@ public class HighchartsDataFileValidatorTest {
     public void reportsNoValidationViolation_onFailedParsing() throws Exception {
 
         // given
-        final Binary validChartInputFile = new BinaryImpl(new byte[]{0, 1, 0, 1, 0, 1, 0, 1});
-
-        final String chartType = "Bar";
-        final String chartTitle = "a title";
-        final String chartYTitle = "a y title";
-
-        setUpChartInputJcrContent(validChartInputFile, chartType, chartTitle, chartYTitle);
+        setUpChartInput();
 
         // when
         final Set<Violation> actualValidationViolations =
             highchartsDataFileValidator.validate(fieldValidator, documentNodeModel, uploadFieldModel);
 
         // then
-        then(highchartsInputParser).should().parse(new ChartConfig(chartType, chartTitle, chartYTitle, validChartInputFile));
+        then(highchartsInputParser).should().parse(highchartsParameters);
 
         assertThat("No violation has been reported.", actualValidationViolations, is(empty()));
     }
 
-    private void setUpChartInputJcrContent(final Binary validChartInputFile,
-                                           final String chartType,
-                                           final String chartTitle,
-                                           final String chartYTitle
-    ) throws RepositoryException {
+    private void setUpChartInput() throws RepositoryException {
 
-        final Repository repository = MockJcr.newRepository();
-        final Session session = repository.login();
-        final Node chartSectionNode = session.getRootNode().addNode("publicationsystem:chartSection");
-        chartSectionNode.setProperty(PROPERTY_CHART_TYPE, chartType);
-        chartSectionNode.setProperty(PROPERTY_CHART_TITLE, chartTitle);
-        chartSectionNode.setProperty(PROPERTY_CHART_YTITLE, chartYTitle);
+        final Node chartSectionNode = mock(Node.class);
 
-        final Node dataFileNode = chartSectionNode.addNode(NODE_TYPE_DATA_FILE);
+        final Node dataFileNode = mock(Node.class);
         given(uploadFieldModel.getNode()).willReturn(dataFileNode);
-
-        dataFileNode.setProperty(PROPERTY_NAME_FILE_CONTENT, validChartInputFile);
+        given(dataFileNode.getParent()).willReturn(chartSectionNode);
+        given(highchartsJcrNodeReader.readParameters(chartSectionNode)).willReturn(highchartsParameters);
     }
 
     private void initialiseWicketApplication() {

@@ -22,7 +22,9 @@
         <#elseif section.sectionType == 'relatedLink'>
             <@relatedLinkSection section=section />
         <#elseif section.sectionType == 'chart'>
-            <@chartSection section=section />
+            <@chartSection section=section type='chart' size='400'/>
+        <#elseif section.sectionType == 'map'>
+            <@chartSection section=section type='mapChart' size='600'/>
         </#if>
     </#list>
 </#macro>

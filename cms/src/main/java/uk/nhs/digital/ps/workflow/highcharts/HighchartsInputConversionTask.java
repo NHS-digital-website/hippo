@@ -6,47 +6,55 @@ import org.onehippo.repository.documentworkflow.DocumentVariant;
 import org.onehippo.repository.documentworkflow.task.AbstractDocumentTask;
 import uk.nhs.digital.JcrQueryHelper;
 import uk.nhs.digital.common.util.json.JsonSerialiser;
-import uk.nhs.digital.ps.ChartConfig;
-import uk.nhs.digital.ps.chart.SeriesChart;
+import uk.nhs.digital.ps.chart.*;
 import uk.nhs.digital.ps.chart.input.HighchartsInputParser;
+import uk.nhs.digital.ps.chart.input.HighchartsJcrNodeReader;
+import uk.nhs.digital.ps.chart.model.AbstractHighchartsModel;
 
-import javax.jcr.Binary;
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
-import javax.jcr.RepositoryException;
+import java.util.Iterator;
+import javax.jcr.*;
 
 public class HighchartsInputConversionTask extends AbstractDocumentTask {
 
     private final JsonSerialiser jsonSerialiser;
     private final HighchartsInputParser parser;
+    private final HighchartsJcrNodeReader nodeReader;
 
     private DocumentVariant variant;
 
     HighchartsInputConversionTask(final JsonSerialiser jsonSerialiser,
-                                  final HighchartsInputParser parser) {
+                                  final HighchartsInputParser parser,
+                                  final HighchartsJcrNodeReader nodeReader) {
         this.jsonSerialiser = jsonSerialiser;
         this.parser = parser;
+        this.nodeReader = nodeReader;
     }
 
     @Override
     protected Object doExecute() throws RepositoryException {
 
-        final NodeIterator chartConfigNodes = findChartConfigNodes();
+        processNodes(NODE_TYPE_CHART);
 
-        while (chartConfigNodes.hasNext()) {
+        processNodes(NODE_TYPE_MAP);
 
-            final Node chartConfigNode = chartConfigNodes.nextNode();
+        return null;
+    }
 
-            final ChartConfig chartConfig = getChartConfig(chartConfigNode);
+    private void processNodes(String nodeType) throws RepositoryException {
+        final Iterator<Node> nodes = findNodes(nodeType);
 
-            final SeriesChart chart = parseChartInput(chartConfig);
+        while (nodes.hasNext()) {
+
+            final Node chartConfigNode = nodes.next();
+
+            final AbstractHighchartsParameters chartConfig = nodeReader.readParameters(chartConfigNode);
+
+            final AbstractHighchartsModel chart = parseChartInput(chartConfig);
 
             final String chartConfigJson = toJson(chart);
 
             chartConfigNode.setProperty(PROPERTY_CHART_CONFIG, chartConfigJson);
         }
-
-        return null;
     }
 
     public void setVariant(final DocumentVariant variant) {
@@ -57,23 +65,7 @@ public class HighchartsInputConversionTask extends AbstractDocumentTask {
         return variant;
     }
 
-    private ChartConfig getChartConfig(final Node chartConfigNode) throws RepositoryException {
-        final Node dataFileNode = chartConfigNode.getNode(NODE_TYPE_DATA_FILE);
-
-        // required fields
-        final Binary inputFile = dataFileNode.getProperty("jcr:data").getBinary();
-        final String chartType = chartConfigNode.getProperty(PROPERTY_CHART_TYPE)
-            .getString();
-        final String title = chartConfigNode.getProperty(PROPERTY_CHART_TITLE).getString();
-
-        // optional field
-        final String yTitle = chartConfigNode.getProperty(PROPERTY_CHART_YTITLE)
-            .getString();
-
-        return new ChartConfig(chartType, title, yTitle, inputFile);
-    }
-
-    private SeriesChart parseChartInput(final ChartConfig chartConfig) throws RepositoryException {
+    private AbstractHighchartsModel parseChartInput(final AbstractHighchartsParameters chartConfig) throws RepositoryException {
         try {
             return parser.parse(chartConfig);
         } catch (final Exception ex) {
@@ -81,7 +73,7 @@ public class HighchartsInputConversionTask extends AbstractDocumentTask {
         }
     }
 
-    private String toJson(final SeriesChart chart) throws RepositoryException {
+    private String toJson(final AbstractHighchartsModel chart) throws RepositoryException {
         try {
             return jsonSerialiser.toJson(chart);
         } catch (Exception ex) {
@@ -89,10 +81,10 @@ public class HighchartsInputConversionTask extends AbstractDocumentTask {
         }
     }
 
-    private NodeIterator findChartConfigNodes() throws RepositoryException {
+    private NodeIterator findNodes(String primaryType) throws RepositoryException {
         return JcrQueryHelper.findDescendantNodes(
             getVariant().getNode(getWorkflowContext().getInternalWorkflowSession()),
-            "publicationsystem:chartSection"
+            primaryType
         ).getNodes();
     }
 }

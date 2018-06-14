@@ -1,23 +1,21 @@
-package uk.nhs.digital.ps.chart;
+package uk.nhs.digital.ps.chart.model;
 
-import uk.nhs.digital.ps.chart.model.*;
+import uk.nhs.digital.ps.chart.ChartType;
 
 import java.util.List;
 
-public class SeriesChart extends Titled {
+public class HighchartsModel extends AbstractHighchartsModel {
     private final Chart chart;
-    private final List<Series> series;
     private final Axis xAxis;
     private final Axis yAxis;
     private final PlotOptions plotOptions;
 
-    public SeriesChart(ChartType type, String title, List<Series> series, String yAxisTitle, String xAxisTitle, List<String> categories) {
-        super(title);
+    public HighchartsModel(ChartType type, String title, List<Series> series, String yAxisTitle, String xAxisTitle, List<String> categories) {
+        super(title, series);
 
         this.chart = new Chart(type);
-        this.series = series;
         this.xAxis = new Axis(xAxisTitle, categories);
-        this.yAxis = new Axis(yAxisTitle, categories);
+        this.yAxis = new Axis(yAxisTitle, null);
         this.plotOptions = type.isStacked() ? new PlotOptions("normal") : null;
     }
 
@@ -31,10 +29,6 @@ public class SeriesChart extends Titled {
 
     public Chart getChart() {
         return chart;
-    }
-
-    public List<Series> getSeries() {
-        return series;
     }
 
     public PlotOptions getPlotOptions() {

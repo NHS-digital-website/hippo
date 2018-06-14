@@ -5,9 +5,9 @@ import uk.nhs.digital.ps.chart.ChartType;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Series {
+public class Series<T> {
     private final String name;
-    private final List<Point> data;
+    private final List<T> data;
     private Tooltip tooltip;
     private String type;
 
@@ -22,7 +22,7 @@ public class Series {
         this.tooltip = tooltip;
     }
 
-    public void add(Point value) {
+    public void add(T value) {
         data.add(value);
     }
 
@@ -30,7 +30,7 @@ public class Series {
         return name;
     }
 
-    public List<Point> getData() {
+    public List<T> getData() {
         return data;
     }
 

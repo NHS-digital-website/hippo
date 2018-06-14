@@ -6,9 +6,9 @@ import static java.util.stream.Collectors.toSet;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import uk.nhs.digital.ps.ChartConfig;
+import uk.nhs.digital.ps.chart.AbstractHighchartsParameters;
 import uk.nhs.digital.ps.chart.ChartType;
-import uk.nhs.digital.ps.chart.SeriesChart;
+import uk.nhs.digital.ps.chart.model.AbstractHighchartsModel;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,8 +18,7 @@ import java.util.stream.Stream;
 import javax.jcr.Binary;
 import javax.jcr.RepositoryException;
 
-public abstract class AbstractHighchartsXlsxInputParser implements
-    SpecialisedHighchartsInputParser {
+public abstract class AbstractHighchartsXlsxInputParser implements SpecialisedHighchartsInputParser {
 
     private final Set<ChartType> supportedChartTypes;
 
@@ -34,24 +33,20 @@ public abstract class AbstractHighchartsXlsxInputParser implements
     }
 
     @Override
-    public SeriesChart parse(final ChartConfig chartConfig) {
+    public AbstractHighchartsModel parse(final AbstractHighchartsParameters config) {
 
-        final ChartType chartType = ChartType.toChartType(chartConfig.getType());
+        final ChartType chartType = config.getChartType();
 
         validateSupportFor(chartType);
 
         try {
-            return newSeriesChart(chartType, chartConfig.getTitle(),
-                chartConfig.getYTitle(), chartConfig.getInputFileContent());
+            return parseXlsxChart(config);
         } catch (final Exception ex) {
             throw new RuntimeException("Failed to parse chart input.", ex);
         }
     }
 
-    protected abstract SeriesChart newSeriesChart(ChartType chartType,
-                                                  String chartTitle,
-                                                  String chartYTitle,
-                                                  Binary inputFileContent)
+    protected abstract AbstractHighchartsModel parseXlsxChart(AbstractHighchartsParameters chartConfig)
         throws IOException, RepositoryException;
 
     Double getDoubleValue(Cell cell) {
