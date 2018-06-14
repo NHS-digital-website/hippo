@@ -31,7 +31,7 @@ definitions:
           /imageSize:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Full,Half
+              selectable.options: Full,Half,Old
             caption: Size
             field: imageSize
             hint: Multiple sequential half width images will be displayed side by
