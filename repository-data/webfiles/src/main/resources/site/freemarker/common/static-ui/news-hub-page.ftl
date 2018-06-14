@@ -1,25 +1,33 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 
-<#include "../macro/sectionNav.ftl">
-<#include "../macro/tagNav.ftl">
-<#include "../macro/hubBox.ftl">
-<#include "../macro/stickyGroupBlockHeader.ftl">
+<#include "macro/sectionNav.ftl">
+<#include "macro/hubBox.ftl">
+<#include "macro/stickyGroupBlockHeader.ftl">
 
 <@hst.setBundle basename="rb.doctype.news-hub"/>
 
-<#assign monthNames = monthsOfTheYear() />
+<#assign monthNames = monthsOfTheYear()?reverse />
 
 <#--Group the news articles by earliest start month  -->
-<#assign eventGroupHash = {} />
+<#assign newsGroupHash = {} />
 <#list pageable.items as item>
-    <@fmt.formatDate value=item.publisheddatetime.time type="Date" pattern="MMMM" var="month" timeZone="${getTimeZone()}" />
-    <p>month: ${month}, ${pageable.items?size}</p>
-    <#-- <#if dateRangeData?size gt 0>
-        <@fmt.formatDate value=dateRangeData.minStartTime type="Date" pattern="MMMM" timeZone="${getTimeZone()}" var="key" />
-        <#assign eventGroupHash = eventGroupHash + {  key : (eventGroupHash[key]![]) + [ item ] } />
-    </#if> -->
+    <@fmt.formatDate value=item.publisheddatetime.time type="Date" pattern="MMMM" timeZone="${getTimeZone()}" var="key" />
+    <#assign newsGroupHash = newsGroupHash + {  key : (newsGroupHash[key]![]) + [ item ] } />
 </#list>
+
+<#-- Return the section navigation links for the months -->
+<#function getSectionNavLinks>
+    <#assign links = [] />
+    
+    <#list monthNames as month>
+        <#if newsGroupHash[month]??>
+            <#assign links += [{ "url": "#" + slugify(month), "title": month, "aria-label": "Jump to events starting in ${month}" }] />
+        </#if>
+    </#list>  
+    
+    <#return links />
+</#function>
 
 <article class="article article--news-hub">
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
@@ -43,28 +51,45 @@
     <div class="grid-wrapper grid-wrapper--article">
         <#if pageable?? && pageable.items?has_content>
             <div class="grid-row">
+                <#if newsGroupHash?has_content && newsGroupHash?size gt 1>
+                    <div class="column column--one-third page-block page-block--sidebar sticky sticky--top">
+                        <@sectionNav getSectionNavLinks()></@sectionNav>
+                    </div>
+                </#if>
+
                 <div class="column column--two-thirds page-block page-block--main">
-                    <#if eventGroupHash?has_content>
-                        <#list monthsOfTheYear as month>
-                            <#if eventGroupHash[month]??>
+                    <#if newsGroupHash?has_content>
+                        <#list monthNames as month>
+                            <#if newsGroupHash[month]??>
                                 <div class="article-section article-section--letter-group">
                                     <@stickyGroupBlockHeader month></@stickyGroupBlockHeader>
+
+                                    <div class="grid-row">
+                                        <div class="column column--reset">
+                                            <div class="hub-box-list">
+                                                <#list newsGroupHash[month] as item>
+                                                    <#assign newsData = { "title": item.title, "text": item.shortsummary, "light": true } />
+
+                                                    <@hst.link hippobean=item var="newsLink" />
+                                                    <@fmt.formatDate value=item.publisheddatetime.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" var="date" />
+                                                    
+                                                    <#assign newsData += { "link": newsLink, "date": date } />
+
+                                                    <@hubBox newsData></@hubBox>
+                                                </#list>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </#if>
                         </#list>
                     </#if>
 
-                    <#-- <div class="article-section article-section--letter-group">
-                        <@stickyGroupBlockHeader "February"></@stickyGroupBlockHeader>
-
-                        <div class="grid-row">
-                            <div class="column column--reset">
-                                <div class="hub-box-list">
-                                    <@hubBox {"title": "Systems integration to boost NHS communication", "date": "21 February 2018", "text": "NHS staff will be able to communicate with each other through better integrated systems, thanks to new plans announced by NHS Digital.", "types": ["NHS Digital", "System & services"], "link": "#", "light": true } ></@hubBox>
-                                </div>
-                            </div>
+                    <#if pageable.totalPages gt 1>
+                        <div class="article-section no-border">
+                            <#include "../include/pagination.ftl">
                         </div>
-                    </div> -->
+                    </#if>
                 </div>
             </div>
         <#else>
