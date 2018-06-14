@@ -1,10 +1,9 @@
----
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:pages/latestnews:
-      /main:
-        hst:componentclassname: uk.nhs.digital.common.components.LatestNewsComponent
-        hst:template: newslist-main-newslist
-        jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/apppage
       jcr:primaryType: hst:component
+      /main:
+        hst:componentclassname: uk.nhs.digital.common.components.LatestNewsComponent
+        hst:template: news-hub-article
+        jcr:primaryType: hst:component
