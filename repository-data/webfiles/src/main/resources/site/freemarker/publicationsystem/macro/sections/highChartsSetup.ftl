@@ -6,8 +6,15 @@
 <!--[if lt IE 9]>
 <script src="<@hst.webfile path="/js/highcharts/oldie.js"/>"></script>
 <![endif]-->
+
+<!--Allow exporting of chart images-->
 <script src="<@hst.webfile path="/js/highcharts/exporting.js"/>"></script>
 <script src="<@hst.webfile path="/js/highcharts/offline-exporting.js"/>"></script>
+
+<!--Supported maps-->
+<script src="<@hst.webfile path="/js/highcharts/maps/map.js"/>"></script>
+<script src="<@hst.webfile path="/js/highcharts/maps/mapdata/british-isles-all.js"/>"></script>
+<script src="<@hst.webfile path="/js/highcharts/maps/mapdata/british-isles.js"/>"></script>
 
 <script>
     Highcharts.setOptions({

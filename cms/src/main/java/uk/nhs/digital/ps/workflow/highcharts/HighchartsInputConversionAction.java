@@ -8,6 +8,7 @@ import org.onehippo.cms7.services.HippoServiceRegistry;
 import org.onehippo.repository.documentworkflow.action.AbstractDocumentTaskAction;
 import uk.nhs.digital.common.util.json.JacksonJsonSerialiser;
 import uk.nhs.digital.ps.chart.input.HighchartsInputParser;
+import uk.nhs.digital.ps.chart.input.HighchartsJcrNodeReader;
 
 public class HighchartsInputConversionAction
     extends AbstractDocumentTaskAction<HighchartsInputConversionTask> {
@@ -19,8 +20,8 @@ public class HighchartsInputConversionAction
 
         return new HighchartsInputConversionTask(
             newJsonSerialiser(),
-            HippoServiceRegistry.getService(HighchartsInputParser.class)
-        );
+            HippoServiceRegistry.getService(HighchartsInputParser.class),
+            HippoServiceRegistry.getService(HighchartsJcrNodeReader.class));
     }
 
     @Override

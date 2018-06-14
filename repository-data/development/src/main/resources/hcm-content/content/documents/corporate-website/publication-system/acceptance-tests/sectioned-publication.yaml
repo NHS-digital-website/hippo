@@ -244,6 +244,7 @@
         jcr:primaryType: publicationsystem:imageSection
         publicationsystem:altText: Robots
         publicationsystem:caption: Image with link and caption
+        publicationsystem:imageSize: Old
         publicationsystem:link: https://google.com
       /publicationsystem:bodySections[3]:
         /publicationsystem:text:
@@ -288,6 +289,7 @@
         jcr:primaryType: publicationsystem:imageSection
         publicationsystem:altText: Snowman
         publicationsystem:caption: ''
+        publicationsystem:imageSize: Old
         publicationsystem:link: ''
       /publicationsystem:bodySections[6]:
         jcr:primaryType: publicationsystem:relatedlink
@@ -327,7 +329,7 @@
           jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
           jcr:primaryType: publicationsystem:resource
         jcr:primaryType: publicationsystem:chartSection
-        publicationsystem:chartConfig: '{"title":{"text":"Stacked Bar Chart"},"chart":{"type":"bar"},"series":[{"name":"Narrow
+        publicationsystem:chartConfig: '{"title":{"text":"Stacked Bar Chart"},"series":[{"name":"Narrow
           Measure","data":[{"name":"75+","y":43.0},{"name":"65 to 74","y":57.0},{"name":"55
           to 64","y":65.0},{"name":"45 to 54","y":67.0},{"name":"35 to 44","y":44.0},{"name":"25
           to 34","y":34.0},{"name":"16 to 24","y":23.0},{"name":"Under 16","y":6.0}]},{"name":"Wide
@@ -336,8 +338,8 @@
           to 34","y":60.0},{"name":"16 to 24","y":41.0},{"name":"Under 16","y":10.0}]},{"name":"Combined","data":[{"name":"75+","y":129.0},{"name":"65
           to 74","y":158.0},{"name":"55 to 64","y":178.0},{"name":"45 to 54","y":194.0},{"name":"35
           to 44","y":117.0},{"name":"25 to 34","y":94.0},{"name":"16 to 24","y":64.0},{"name":"Under
-          16","y":16.0}]}],"xAxis":{"title":{},"categories":["75+","65 to 74","55
-          to 64","45 to 54","35 to 44","25 to 34","16 to 24","Under 16"]},"yAxis":{"title":{"text":"Thousands"}},"plotOptions":{"series":{"stacking":"normal"}}}'
+          16","y":16.0}]}],"chart":{"type":"bar"},"xAxis":{"title":{},"categories":["75+","65
+          to 74","55 to 64","45 to 54","35 to 44","25 to 34","16 to 24","Under 16"]},"yAxis":{"title":{"text":"Thousands"}},"plotOptions":{"series":{"stacking":"normal"}}}'
         publicationsystem:title: Stacked Bar Chart
         publicationsystem:type: Stacked Bar
         publicationsystem:yTitle: Thousands
@@ -355,10 +357,10 @@
           jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
           jcr:primaryType: publicationsystem:resource
         jcr:primaryType: publicationsystem:chartSection
-        publicationsystem:chartConfig: '{"title":{"text":"Pie Chart"},"chart":{"type":"pie"},"series":[{"name":"Narrow
+        publicationsystem:chartConfig: '{"title":{"text":"Pie Chart"},"series":[{"name":"Narrow
           Measure","data":[{"name":"75+","y":43.0},{"name":"65 to 74","y":57.0},{"name":"55
           to 64","y":65.0},{"name":"45 to 54","y":67.0},{"name":"35 to 44","y":44.0},{"name":"25
-          to 34","y":34.0},{"name":"16 to 24","y":23.0},{"name":"Under 16","y":6.0}]}],"xAxis":{},"yAxis":{}}'
+          to 34","y":34.0},{"name":"16 to 24","y":23.0},{"name":"Under 16","y":6.0}]}],"chart":{"type":"pie"},"xAxis":{"title":{}},"yAxis":{"title":{}}}'
         publicationsystem:title: Pie Chart
         publicationsystem:type: Pie
         publicationsystem:yTitle: ''
@@ -376,7 +378,7 @@
           jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
           jcr:primaryType: publicationsystem:resource
         jcr:primaryType: publicationsystem:chartSection
-        publicationsystem:chartConfig: '{"title":{"text":"Scatter Plot"},"chart":{"type":"scatter"},"series":[{"name":"Organisation","data":[{"name":"R1F
+        publicationsystem:chartConfig: '{"title":{"text":"Scatter Plot"},"series":[{"name":"Organisation","data":[{"name":"R1F
           - ISLE OF WIGHT NHS TRUST","x":878.0463,"y":1.0466},{"name":"R1H - BARTS
           HEALTH NHS TRUST","x":4207.1909,"y":0.8821},{"name":"R1K - LONDON NORTH
           WEST HEALTHCARE NHS TRUST","x":3090.0805,"y":0.8158},{"name":"RA2 - ROYAL
@@ -427,9 +429,8 @@
           - UNIVERSITY HOSPITAL SOUTHAMPTON NHS FOUNDATION TRUST","x":3013.9526,"y":0.9589},{"name":"RHQ
           - SHEFFIELD TEACHING HOSPITALS NHS FOUNDATION TRUST","x":3728.4898,"y":0.9846},{"name":"RHU
           - PORTSMOUTH HOSPITALS NHS TRUST","x":2867.5318,"y":1.1002}],"tooltip":{"pointFormat":"<br>{point.name}</br><br>SHMI
-          value: {point.y}</br><br>Expected number of deaths: {point.x}</br>","headerFormat":"<b>{series.name}:</b>"},"type":"scatter"}],"xAxis":{"title":{"text":"Expected
-          number of deaths"},"gridLineDashStyle":"shortdash","gridLineWidth":1},"yAxis":{"title":{"text":"SHMI
-          value"},"gridLineDashStyle":"shortdash","gridLineWidth":1}}'
+          value: {point.y}</br><br>Expected number of deaths: {point.x}</br>","headerFormat":"<b>{series.name}:</b>"},"type":"scatter"}],"chart":{"type":"scatter"},"xAxis":{"title":{"text":"Expected
+          number of deaths"}},"yAxis":{"title":{"text":"SHMI value"}}}'
         publicationsystem:title: Scatter Plot
         publicationsystem:type: Scatter Plot
         publicationsystem:yTitle: ''
@@ -447,7 +448,7 @@
           jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
           jcr:primaryType: publicationsystem:resource
         jcr:primaryType: publicationsystem:chartSection
-        publicationsystem:chartConfig: '{"title":{"text":"Funnel Plot"},"chart":{"type":"funnel"},"series":[{"name":"Organisation","data":[{"name":"R1F
+        publicationsystem:chartConfig: '{"title":{"text":"Funnel Plot"},"series":[{"name":"Organisation","data":[{"name":"R1F
           - ISLE OF WIGHT NHS TRUST","x":878.0463,"y":1.0466},{"name":"R1H - BARTS
           HEALTH NHS TRUST","x":4207.1909,"y":0.8821},{"name":"R1K - LONDON NORTH
           WEST HEALTHCARE NHS TRUST","x":3090.0805,"y":0.8158},{"name":"RA2 - ROYAL
@@ -502,9 +503,8 @@
           limit","data":[{"name":"","x":50.0,"y":0.744164314},{"name":"","x":100.0,"y":0.801606494},{"name":"","x":150.0,"y":0.826965863},{"name":"","x":200.0,"y":0.841709064},{"name":"","x":250.0,"y":0.851471937},{"name":"","x":300.0,"y":0.858458177},{"name":"","x":350.0,"y":0.863724172},{"name":"","x":400.0,"y":0.867845024},{"name":"","x":450.0,"y":0.871162599},{"name":"","x":500.0,"y":0.873893719},{"name":"","x":550.0,"y":0.876182934},{"name":"","x":600.0,"y":0.878130514},{"name":"","x":650.0,"y":0.879808299},{"name":"","x":700.0,"y":0.881269171},{"name":"","x":750.0,"y":0.882552948},{"name":"","x":800.0,"y":0.883690209},{"name":"","x":850.0,"y":0.884704836},{"name":"","x":900.0,"y":0.885615765},{"name":"","x":950.0,"y":0.886438203},{"name":"","x":1000.0,"y":0.887184509},{"name":"","x":1050.0,"y":0.887864836},{"name":"","x":1100.0,"y":0.888487599},{"name":"","x":1150.0,"y":0.889059837},{"name":"","x":1200.0,"y":0.889587481},{"name":"","x":1250.0,"y":0.890075566},{"name":"","x":1300.0,"y":0.890528395},{"name":"","x":1350.0,"y":0.890949666},{"name":"","x":1400.0,"y":0.891342577},{"name":"","x":1450.0,"y":0.891709906},{"name":"","x":1500.0,"y":0.892054079},{"name":"","x":1550.0,"y":0.892377224},{"name":"","x":1600.0,"y":0.892681216},{"name":"","x":1650.0,"y":0.892967712},{"name":"","x":1700.0,"y":0.893238183},{"name":"","x":1750.0,"y":0.89349394},{"name":"","x":1800.0,"y":0.893736154},{"name":"","x":1850.0,"y":0.893965876},{"name":"","x":1900.0,"y":0.894184048},{"name":"","x":1950.0,"y":0.894391523},{"name":"","x":2000.0,"y":0.894589069},{"name":"","x":2050.0,"y":0.894777383},{"name":"","x":2100.0,"y":0.894957098},{"name":"","x":2150.0,"y":0.895128792},{"name":"","x":2200.0,"y":0.895292991},{"name":"","x":2250.0,"y":0.895450174},{"name":"","x":2300.0,"y":0.895600784},{"name":"","x":2350.0,"y":0.895745224},{"name":"","x":2400.0,"y":0.895883866},{"name":"","x":2450.0,"y":0.896017054},{"name":"","x":2500.0,"y":0.896145102},{"name":"","x":2550.0,"y":0.896268304},{"name":"","x":2600.0,"y":0.896386929},{"name":"","x":2650.0,"y":0.896501228},{"name":"","x":2700.0,"y":0.896611434},{"name":"","x":2750.0,"y":0.896717763},{"name":"","x":2800.0,"y":0.896820416},{"name":"","x":2850.0,"y":0.89691958},{"name":"","x":2900.0,"y":0.897015432},{"name":"","x":2950.0,"y":0.897108133},{"name":"","x":3000.0,"y":0.897197837},{"name":"","x":3050.0,"y":0.897284688},{"name":"","x":3100.0,"y":0.897368819},{"name":"","x":3150.0,"y":0.897450356},{"name":"","x":3200.0,"y":0.897529418},{"name":"","x":3250.0,"y":0.897606115},{"name":"","x":3300.0,"y":0.897680552},{"name":"","x":3350.0,"y":0.897752827},{"name":"","x":3400.0,"y":0.897823034},{"name":"","x":3450.0,"y":0.897891261},{"name":"","x":3500.0,"y":0.897957589},{"name":"","x":3550.0,"y":0.898022097},{"name":"","x":3600.0,"y":0.898084858},{"name":"","x":3650.0,"y":0.898145944},{"name":"","x":3700.0,"y":0.89820542},{"name":"","x":3750.0,"y":0.898263349},{"name":"","x":3800.0,"y":0.89831979},{"name":"","x":3850.0,"y":0.898374801},{"name":"","x":3900.0,"y":0.898428435},{"name":"","x":3950.0,"y":0.898480742},{"name":"","x":4000.0,"y":0.898531773},{"name":"","x":4050.0,"y":0.898581572},{"name":"","x":4100.0,"y":0.898630184},{"name":"","x":4150.0,"y":0.898677651},{"name":"","x":4200.0,"y":0.898724013},{"name":"","x":4250.0,"y":0.898769308},{"name":"","x":4300.0,"y":0.898813573},{"name":"","x":4350.0,"y":0.898856842},{"name":"","x":4400.0,"y":0.898899148},{"name":"","x":4450.0,"y":0.898940524},{"name":"","x":4500.0,"y":0.898980999},{"name":"","x":4550.0,"y":0.899020603},{"name":"","x":4600.0,"y":0.899059364},{"name":"","x":4650.0,"y":0.899097308},{"name":"","x":4700.0,"y":0.89913446},{"name":"","x":4750.0,"y":0.899170846},{"name":"","x":4800.0,"y":0.899206489},{"name":"","x":4850.0,"y":0.899241411},{"name":"","x":4900.0,"y":0.899275635},{"name":"","x":4950.0,"y":0.89930918},{"name":"","x":5000.0,"y":0.899342066}],"tooltip":{"pointFormat":"<br>SHMI
           value: {point.y}</br><br>Expected number of deaths: {point.x}</br>","headerFormat":"<b>{series.name}:</b>"},"type":"line"},{"name":"Upper
           limit","data":[{"name":"","x":50.0,"y":1.343789242},{"name":"","x":100.0,"y":1.247494884},{"name":"","x":150.0,"y":1.209239758},{"name":"","x":200.0,"y":1.188058965},{"name":"","x":250.0,"y":1.174436827},{"name":"","x":300.0,"y":1.164879114},{"name":"","x":350.0,"y":1.157777022},{"name":"","x":400.0,"y":1.152279465},{"name":"","x":450.0,"y":1.147891337},{"name":"","x":500.0,"y":1.144303911},{"name":"","x":550.0,"y":1.141314172},{"name":"","x":600.0,"y":1.138782885},{"name":"","x":650.0,"y":1.136611237},{"name":"","x":700.0,"y":1.134727088},{"name":"","x":750.0,"y":1.133076494},{"name":"","x":800.0,"y":1.131618287},{"name":"","x":850.0,"y":1.130320485},{"name":"","x":900.0,"y":1.129157858},{"name":"","x":950.0,"y":1.128110225},{"name":"","x":1000.0,"y":1.127161249},{"name":"","x":1050.0,"y":1.126297562},{"name":"","x":1100.0,"y":1.125508111},{"name":"","x":1150.0,"y":1.124783685},{"name":"","x":1200.0,"y":1.124116539},{"name":"","x":1250.0,"y":1.123500114},{"name":"","x":1300.0,"y":1.12292882},{"name":"","x":1350.0,"y":1.122397861},{"name":"","x":1400.0,"y":1.1219031},{"name":"","x":1450.0,"y":1.121440945},{"name":"","x":1500.0,"y":1.12100827},{"name":"","x":1550.0,"y":1.120602334},{"name":"","x":1600.0,"y":1.1202207259999999},{"name":"","x":1650.0,"y":1.11986132},{"name":"","x":1700.0,"y":1.119522227},{"name":"","x":1750.0,"y":1.119201771},{"name":"","x":1800.0,"y":1.118898452},{"name":"","x":1850.0,"y":1.11861093},{"name":"","x":1900.0,"y":1.118338},{"name":"","x":1950.0,"y":1.118078576},{"name":"","x":2000.0,"y":1.117831678},{"name":"","x":2050.0,"y":1.117596421},{"name":"","x":2100.0,"y":1.117371997},{"name":"","x":2150.0,"y":1.117157675},{"name":"","x":2200.0,"y":1.116952786},{"name":"","x":2250.0,"y":1.116756721},{"name":"","x":2300.0,"y":1.11656892},{"name":"","x":2350.0,"y":1.116388872},{"name":"","x":2400.0,"y":1.116216105},{"name":"","x":2450.0,"y":1.116050187},{"name":"","x":2500.0,"y":1.115890716},{"name":"","x":2550.0,"y":1.115737325},{"name":"","x":2600.0,"y":1.115589672},{"name":"","x":2650.0,"y":1.11544744},{"name":"","x":2700.0,"y":1.115310337},{"name":"","x":2750.0,"y":1.115178088},{"name":"","x":2800.0,"y":1.115050441},{"name":"","x":2850.0,"y":1.11492716},{"name":"","x":2900.0,"y":1.114808023},{"name":"","x":2950.0,"y":1.114692826},{"name":"","x":3000.0,"y":1.114581376},{"name":"","x":3050.0,"y":1.114473492},{"name":"","x":3100.0,"y":1.114369007},{"name":"","x":3150.0,"y":1.114267762},{"name":"","x":3200.0,"y":1.114169609},{"name":"","x":3250.0,"y":1.114074407},{"name":"","x":3300.0,"y":1.113982026},{"name":"","x":3350.0,"y":1.113892343},{"name":"","x":3400.0,"y":1.11380524},{"name":"","x":3450.0,"y":1.113720607},{"name":"","x":3500.0,"y":1.113638342},{"name":"","x":3550.0,"y":1.113558345},{"name":"","x":3600.0,"y":1.113480525},{"name":"","x":3650.0,"y":1.113404794},{"name":"","x":3700.0,"y":1.113331069},{"name":"","x":3750.0,"y":1.11325927},{"name":"","x":3800.0,"y":1.113189324},{"name":"","x":3850.0,"y":1.113121159},{"name":"","x":3900.0,"y":1.113054709},{"name":"","x":3950.0,"y":1.112989909},{"name":"","x":4000.0,"y":1.112926699},{"name":"","x":4050.0,"y":1.112865021},{"name":"","x":4100.0,"y":1.11280482},{"name":"","x":4150.0,"y":1.112746043},{"name":"","x":4200.0,"y":1.11268864},{"name":"","x":4250.0,"y":1.112632564},{"name":"","x":4300.0,"y":1.112577769},{"name":"","x":4350.0,"y":1.112524213},{"name":"","x":4400.0,"y":1.112471852},{"name":"","x":4450.0,"y":1.112420648},{"name":"","x":4500.0,"y":1.112370563},{"name":"","x":4550.0,"y":1.11232156},{"name":"","x":4600.0,"y":1.112273606},{"name":"","x":4650.0,"y":1.112226665},{"name":"","x":4700.0,"y":1.112180707},{"name":"","x":4750.0,"y":1.112135702},{"name":"","x":4800.0,"y":1.112091619},{"name":"","x":4850.0,"y":1.11204843},{"name":"","x":4900.0,"y":1.11200611},{"name":"","x":4950.0,"y":1.111964631},{"name":"","x":5000.0,"y":1.111923969}],"tooltip":{"pointFormat":"<br>SHMI
-          value: {point.y}</br><br>Expected number of deaths: {point.x}</br>","headerFormat":"<b>{series.name}:</b>"},"type":"line"}],"xAxis":{"title":{"text":"Expected
-          number of deaths"},"gridLineDashStyle":"shortdash","gridLineWidth":1},"yAxis":{"title":{"text":"SHMI
-          value"},"gridLineDashStyle":"shortdash","gridLineWidth":1}}'
+          value: {point.y}</br><br>Expected number of deaths: {point.x}</br>","headerFormat":"<b>{series.name}:</b>"},"type":"line"}],"chart":{"type":"funnel"},"xAxis":{"title":{"text":"Expected
+          number of deaths"}},"yAxis":{"title":{"text":"SHMI value"}}}'
         publicationsystem:title: Funnel Plot
         publicationsystem:type: Funnel Plot
         publicationsystem:yTitle: ''
@@ -537,10 +537,10 @@
         /publicationsystem:image:
           hippo:filename: apple-gadget-iphone-48603.jpg
           hippo:text:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[12]/image/text.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[14]/image/text.jpg
             type: binary
           jcr:data:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[12]/image/data.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[14]/image/data.jpg
             type: binary
           jcr:encoding: UTF-8
           jcr:lastModified: 2018-06-07T15:01:50.197Z
@@ -553,16 +553,16 @@
         publicationsystem:link: ''
       /publicationsystem:bodySections[15]:
         /publicationsystem:image:
-          hippo:filename: snowman.png
+          hippo:filename: robot (1).jpeg
           hippo:text:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[13]/image/text.png
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[15]/image/text.jpg
             type: binary
           jcr:data:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[13]/image/data.png
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[15]/image/data.jpg
             type: binary
           jcr:encoding: UTF-8
-          jcr:lastModified: 2018-06-07T15:28:15.425Z
-          jcr:mimeType: image/png
+          jcr:lastModified: 2018-06-07T15:04:44.504Z
+          jcr:mimeType: image/jpeg
           jcr:primaryType: publicationsystem:resource
         jcr:primaryType: publicationsystem:imageSection
         publicationsystem:altText: Full image
@@ -573,10 +573,10 @@
         /publicationsystem:image:
           hippo:filename: business-charts-commerce-265087.jpg
           hippo:text:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[14]/image/text.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[16]/image/text.jpg
             type: binary
           jcr:data:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[14]/image/data.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[16]/image/data.jpg
             type: binary
           jcr:encoding: UTF-8
           jcr:lastModified: 2018-06-07T15:02:36.471Z
@@ -591,10 +591,10 @@
         /publicationsystem:image:
           hippo:filename: blank-charts-computer-669616.jpg
           hippo:text:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[15]/image/text.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[17]/image/text.jpg
             type: binary
           jcr:data:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[15]/image/data.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[17]/image/data.jpg
             type: binary
           jcr:encoding: UTF-8
           jcr:lastModified: 2018-06-07T15:03:59.620Z
@@ -609,10 +609,10 @@
         /publicationsystem:image:
           hippo:filename: arms-care-check-905874.jpg
           hippo:text:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[16]/image/text.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[18]/image/text.jpg
             type: binary
           jcr:data:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[16]/image/data.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[18]/image/data.jpg
             type: binary
           jcr:encoding: UTF-8
           jcr:lastModified: 2018-06-07T15:03:51.720Z
@@ -623,12 +623,48 @@
         publicationsystem:caption: ''
         publicationsystem:imageSize: Full
         publicationsystem:link: ''
+      /publicationsystem:bodySections[19]:
+        /publicationsystem:dataFile:
+          hippo:filename: British Counties Map Data.xlsx
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[19]/dataFile/text.bin
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[19]/dataFile/data.bin
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-14T20:50:27.470Z
+          jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:mapSection
+        publicationsystem:chartConfig: '{"title":{"text":"Counties"},"series":[{"name":"Example
+          Data","data":[["gb-ar",1.0],["gb-as",2.0],["gb-ay",3.0],["gb-ag",4.0],["gb-an",5.0],["gb-nd",6.0],["gb-ab",7.0],["gb-am",8.0],["gb-bl",9.0],["gb-by",10.0],["gb-bb",11.0],["gb-ba",12.0],["gb-7149",13.0],["gb-7135",14.0],["gb-bn",15.0],["gb-bd",16.0],["gb-bf",17.0],["gb-xb",18.0],["gb-2377",19.0],["gb-bw",20.0],["gb-7117",21.0],["gb-bg",22.0],["gb-7122",23.0],["gb-2389",24.0],["gb-7145",25.0],["gb-7131",26.0],["gb-be",27.0],["gb-bj",28.0],["gb-bh",29.0],["gb-bs",30.0],["gb-bz",31.0],["gb-bu",32.0],["gb-7123",33.0],["gb-cp",34.0],["gb-7130",35.0],["gb-cm",36.0],["gb-cn",37.0],["gb-ca",38.0],["ie-cw",39.0],["gb-ci",40.0],["gb-cf",41.0],["gb-cs",42.0],["ie-cn",43.0],["gb-2381",44.0],["gb-2301",45.0],["gb-2366",46.0],["gb-7150",47.0],["gb-6338",48.0],["gb-cc",49.0],["ie-ce",50.0],["gb-cl",51.0],["gb-cw",52.0],["gb-2347",53.0],["ie-491",54.0],["ie-ck",55.0],["gb-co",56.0],["gb-7142",57.0],["gb-cr",58.0],["gb-cy",59.0],["gb-cu",60.0],["gb-da",61.0],["gb-di",62.0],["gb-de",63.0],["gb-db",64.0],["gb-ld",65.0],["gb-do",66.0],["gb-7136",67.0],["ie-dl",68.0],["gb-ds",69.0],["gb-dw",70.0],["ie-7035",71.0],["gb-7138",72.0],["gb-dg",73.0],["ie-dn",74.0],["gb-du",75.0],["gb-dn",76.0],["gb-dh",77.0],["gb-eg",78.0],["gb-ea",79.0],["gb-ed",80.0],["gb-el",81.0],["gb-er",82.0],["gb-ey",83.0],["gb-es",84.0],["gb-eb",85.0],["gb-wi",86.0],["gb-ef",87.0],["gb-ex",88.0],["gb-fk",89.0],["gb-fe",90.0],["gb-fi",91.0],["ie-7034",92.0],["gb-fl",93.0],["ie-1510",94.0],["ie-gy",95.0],["gb-7116",96.0],["gb-gg",97.0],["gb-gc",98.0],["gb-gr",99.0],["gb-gd",100.0],["gb-hk",101.0],["gb-hl",102.0],["gb-7151",103.0],["gb-hf",104.0],["gb-ha",105.0],["gb-hy",106.0],["gb-hr",107.0],["gb-hp",108.0],["gb-hv",109.0],["gb-he",110.0],["gb-ht",111.0],["gb-hi",112.0],["gb-hd",113.0],["gb-hu",114.0],["gb-ic",115.0],["gb-3577",116.0],["gb-iw",117.0],["gb-7398",118.0],["gb-it",119.0],["gb-kc",120.0],["gb-ke",121.0],["ie-ky",122.0],["ie-ke",123.0],["ie-kk",124.0],["gb-kh",125.0],["gb-kt",126.0],["gb-3265",127.0],["gb-2364",128.0],["gb-lt",129.0],["gb-la",130.0],["ie-ls",131.0],["gb-lr",132.0],["gb-7132",133.0],["gb-lc",134.0],["gb-2393",135.0],["ie-lm",136.0],["gb-lw",137.0],["gb-lm",138.0],["ie-lk",139.0],["ie-1533",140.0],["gb-li",141.0],["gb-lb",142.0],["gb-7119",143.0],["ie-ld",144.0],["ie-lh",145.0],["gb-lu",146.0],["gb-mf",147.0],["gb-7128",148.0],["ie-mo",149.0],["ie-mh",150.0],["gb-mw",151.0],["gb-ms",152.0],["gb-mt",153.0],["gb-me",154.0],["gb-mb",155.0],["gb-ml",156.0],["gb-mk",157.0],["ie-mn",158.0],["gb-2318",159.0],["gb-mo",160.0],["gb-my",161.0],["gb-np",162.0],["gb-2367",163.0],["gb-nh",164.0],["gb-no",165.0],["gb-nm",166.0],["gb-nw",167.0],["gb-nf",168.0],["gb-2446",169.0],["gb-2354",170.0],["gb-ne",171.0],["gb-nn",172.0],["gb-nl",173.0],["gb-ns",174.0],["ie-ty",175.0],["gb-7113",176.0],["gb-ny",177.0],["gb-na",178.0],["gb-nb",179.0],["gb-ng",180.0],["gb-nt",181.0],["ie-oy",182.0],["gb-7125",183.0],["gb-om",184.0],["gb-3270",185.0],["gb-ox",186.0],["gb-pe",187.0],["gb-2458",188.0],["gb-pb",189.0],["gb-2420",190.0],["gb-2391",191.0],["gb-ps",192.0],["gb-po",193.0],["gb-2388",194.0],["gb-rb",195.0],["gb-rc",196.0],["gb-rf",197.0],["gb-rt",198.0],["gb-ru",199.0],["gb-7124",200.0],["ie-rn",201.0],["gb-3267",202.0],["gb-7146",203.0],["gb-rl",204.0],["gb-3266",205.0],["gb-7137",206.0],["gb-bo",207.0],["gb-7118",208.0],["gb-7134",209.0],["gb-3271",210.0],["gb-sp",211.0],["ie-so",212.0],["gb-7147",213.0],["gb-7141",214.0],["gb-sm",215.0],["gb-sa",216.0],["ie-1528",217.0],["gb-sj",218.0],["gb-sl",219.0],["ie-7033",220.0],["gb-7114",221.0],["gb-zh",222.0],["gb-ss",223.0],["gb-sq",224.0],["gb-st",225.0],["gb-zg",226.0],["gb-7127",227.0],["gb-zt",228.0],["gb-so",229.0],["gb-sb",230.0],["gb-sf",231.0],["gb-7115",232.0],["gb-sr",233.0],["gb-su",234.0],["gb-sw",235.0],["gb-sn",236.0],["gb-7126",237.0],["gb-tk",238.0],["gb-tr",239.0],["gb-tb",240.0],["gb-tf",241.0],["gb-th",242.0],["gb-7129",243.0],["gb-vg",244.0],["gb-7133",245.0],["gb-7140",246.0],["gb-wf",247.0],["gb-ww",248.0],["gb-wt",249.0],["gb-wr",250.0],["ie-2363",251.0],["ie-wd",252.0],["gb-7143",253.0],["gb-wd",254.0],["gb-wh",255.0],["gb-ws",256.0],["ie-wh",257.0],["gb-we",258.0],["ie-wx",259.0],["ie-ww",260.0],["gb-7121",261.0],["gb-wl",262.0],["gb-7144",263.0],["gb-7139",264.0],["gb-wc",265.0],["gb-wx",266.0],["gb-yk",267.0]]}],"chart":{"map":"custom/british-isles-all","zoomType":""},"colorAxis":{"min":0},"mapNavigation":{"enabled":true,"buttonOptions":{"verticalAlign":"bottom"}}}'
+        publicationsystem:mapSource: British Isles Counties
+        publicationsystem:title: Counties
+      /publicationsystem:bodySections[20]:
+        /publicationsystem:dataFile:
+          hippo:filename: British Isles Map Data.xlsx
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[20]/dataFile/text.bin
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[1]/bodySections[20]/dataFile/data.bin
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-14T20:50:36.024Z
+          jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:mapSection
+        publicationsystem:chartConfig: '{"title":{"text":"Countries"},"series":[{"name":"Example
+          Data","data":[["ie-irl",10.0],["gb-eng",20.0],["gb-wls",30.0],["gb-sct",40.0],["gb-imn",50.0],["gb-nir",60.0]]}],"chart":{"map":"custom/british-isles","zoomType":""},"colorAxis":{"min":0},"mapNavigation":{"enabled":true,"buttonOptions":{"verticalAlign":"bottom"}}}'
+        publicationsystem:mapSource: British Isles Countries
+        publicationsystem:title: Countries
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-04-09T12:26:14.588Z
-      hippostdpubwf:lastModificationDate: 2018-05-30T15:14:23.504Z
+      hippostdpubwf:lastModificationDate: 2018-06-14T20:49:49.175Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 8318b0a7-a10e-41b5-a5f7-978c530211a7
       hippotranslation:locale: en
@@ -659,6 +695,7 @@
         jcr:primaryType: publicationsystem:imageSection
         publicationsystem:altText: Robots
         publicationsystem:caption: Image with link and caption
+        publicationsystem:imageSize: Old
         publicationsystem:link: https://google.com
       /publicationsystem:bodySections[3]:
         /publicationsystem:text:
@@ -703,6 +740,7 @@
         jcr:primaryType: publicationsystem:imageSection
         publicationsystem:altText: Snowman
         publicationsystem:caption: ''
+        publicationsystem:imageSize: Old
         publicationsystem:link: ''
       /publicationsystem:bodySections[6]:
         jcr:primaryType: publicationsystem:relatedlink
@@ -742,7 +780,7 @@
           jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
           jcr:primaryType: publicationsystem:resource
         jcr:primaryType: publicationsystem:chartSection
-        publicationsystem:chartConfig: '{"title":{"text":"Stacked Bar Chart"},"chart":{"type":"bar"},"series":[{"name":"Narrow
+        publicationsystem:chartConfig: '{"title":{"text":"Stacked Bar Chart"},"series":[{"name":"Narrow
           Measure","data":[{"name":"75+","y":43.0},{"name":"65 to 74","y":57.0},{"name":"55
           to 64","y":65.0},{"name":"45 to 54","y":67.0},{"name":"35 to 44","y":44.0},{"name":"25
           to 34","y":34.0},{"name":"16 to 24","y":23.0},{"name":"Under 16","y":6.0}]},{"name":"Wide
@@ -751,8 +789,8 @@
           to 34","y":60.0},{"name":"16 to 24","y":41.0},{"name":"Under 16","y":10.0}]},{"name":"Combined","data":[{"name":"75+","y":129.0},{"name":"65
           to 74","y":158.0},{"name":"55 to 64","y":178.0},{"name":"45 to 54","y":194.0},{"name":"35
           to 44","y":117.0},{"name":"25 to 34","y":94.0},{"name":"16 to 24","y":64.0},{"name":"Under
-          16","y":16.0}]}],"xAxis":{"title":{},"categories":["75+","65 to 74","55
-          to 64","45 to 54","35 to 44","25 to 34","16 to 24","Under 16"]},"yAxis":{"title":{"text":"Thousands"}},"plotOptions":{"series":{"stacking":"normal"}}}'
+          16","y":16.0}]}],"chart":{"type":"bar"},"xAxis":{"title":{},"categories":["75+","65
+          to 74","55 to 64","45 to 54","35 to 44","25 to 34","16 to 24","Under 16"]},"yAxis":{"title":{"text":"Thousands"}},"plotOptions":{"series":{"stacking":"normal"}}}'
         publicationsystem:title: Stacked Bar Chart
         publicationsystem:type: Stacked Bar
         publicationsystem:yTitle: Thousands
@@ -770,10 +808,10 @@
           jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
           jcr:primaryType: publicationsystem:resource
         jcr:primaryType: publicationsystem:chartSection
-        publicationsystem:chartConfig: '{"title":{"text":"Pie Chart"},"chart":{"type":"pie"},"series":[{"name":"Narrow
+        publicationsystem:chartConfig: '{"title":{"text":"Pie Chart"},"series":[{"name":"Narrow
           Measure","data":[{"name":"75+","y":43.0},{"name":"65 to 74","y":57.0},{"name":"55
           to 64","y":65.0},{"name":"45 to 54","y":67.0},{"name":"35 to 44","y":44.0},{"name":"25
-          to 34","y":34.0},{"name":"16 to 24","y":23.0},{"name":"Under 16","y":6.0}]}],"xAxis":{},"yAxis":{}}'
+          to 34","y":34.0},{"name":"16 to 24","y":23.0},{"name":"Under 16","y":6.0}]}],"chart":{"type":"pie"},"xAxis":{"title":{}},"yAxis":{"title":{}}}'
         publicationsystem:title: Pie Chart
         publicationsystem:type: Pie
         publicationsystem:yTitle: ''
@@ -791,7 +829,7 @@
           jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
           jcr:primaryType: publicationsystem:resource
         jcr:primaryType: publicationsystem:chartSection
-        publicationsystem:chartConfig: '{"title":{"text":"Scatter Plot"},"chart":{"type":"scatter"},"series":[{"name":"Organisation","data":[{"name":"R1F
+        publicationsystem:chartConfig: '{"title":{"text":"Scatter Plot"},"series":[{"name":"Organisation","data":[{"name":"R1F
           - ISLE OF WIGHT NHS TRUST","x":878.0463,"y":1.0466},{"name":"R1H - BARTS
           HEALTH NHS TRUST","x":4207.1909,"y":0.8821},{"name":"R1K - LONDON NORTH
           WEST HEALTHCARE NHS TRUST","x":3090.0805,"y":0.8158},{"name":"RA2 - ROYAL
@@ -842,9 +880,8 @@
           - UNIVERSITY HOSPITAL SOUTHAMPTON NHS FOUNDATION TRUST","x":3013.9526,"y":0.9589},{"name":"RHQ
           - SHEFFIELD TEACHING HOSPITALS NHS FOUNDATION TRUST","x":3728.4898,"y":0.9846},{"name":"RHU
           - PORTSMOUTH HOSPITALS NHS TRUST","x":2867.5318,"y":1.1002}],"tooltip":{"pointFormat":"<br>{point.name}</br><br>SHMI
-          value: {point.y}</br><br>Expected number of deaths: {point.x}</br>","headerFormat":"<b>{series.name}:</b>"},"type":"scatter"}],"xAxis":{"title":{"text":"Expected
-          number of deaths"},"gridLineDashStyle":"shortdash","gridLineWidth":1},"yAxis":{"title":{"text":"SHMI
-          value"},"gridLineDashStyle":"shortdash","gridLineWidth":1}}'
+          value: {point.y}</br><br>Expected number of deaths: {point.x}</br>","headerFormat":"<b>{series.name}:</b>"},"type":"scatter"}],"chart":{"type":"scatter"},"xAxis":{"title":{"text":"Expected
+          number of deaths"}},"yAxis":{"title":{"text":"SHMI value"}}}'
         publicationsystem:title: Scatter Plot
         publicationsystem:type: Scatter Plot
         publicationsystem:yTitle: ''
@@ -862,7 +899,7 @@
           jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
           jcr:primaryType: publicationsystem:resource
         jcr:primaryType: publicationsystem:chartSection
-        publicationsystem:chartConfig: '{"title":{"text":"Funnel Plot"},"chart":{"type":"funnel"},"series":[{"name":"Organisation","data":[{"name":"R1F
+        publicationsystem:chartConfig: '{"title":{"text":"Funnel Plot"},"series":[{"name":"Organisation","data":[{"name":"R1F
           - ISLE OF WIGHT NHS TRUST","x":878.0463,"y":1.0466},{"name":"R1H - BARTS
           HEALTH NHS TRUST","x":4207.1909,"y":0.8821},{"name":"R1K - LONDON NORTH
           WEST HEALTHCARE NHS TRUST","x":3090.0805,"y":0.8158},{"name":"RA2 - ROYAL
@@ -917,9 +954,8 @@
           limit","data":[{"name":"","x":50.0,"y":0.744164314},{"name":"","x":100.0,"y":0.801606494},{"name":"","x":150.0,"y":0.826965863},{"name":"","x":200.0,"y":0.841709064},{"name":"","x":250.0,"y":0.851471937},{"name":"","x":300.0,"y":0.858458177},{"name":"","x":350.0,"y":0.863724172},{"name":"","x":400.0,"y":0.867845024},{"name":"","x":450.0,"y":0.871162599},{"name":"","x":500.0,"y":0.873893719},{"name":"","x":550.0,"y":0.876182934},{"name":"","x":600.0,"y":0.878130514},{"name":"","x":650.0,"y":0.879808299},{"name":"","x":700.0,"y":0.881269171},{"name":"","x":750.0,"y":0.882552948},{"name":"","x":800.0,"y":0.883690209},{"name":"","x":850.0,"y":0.884704836},{"name":"","x":900.0,"y":0.885615765},{"name":"","x":950.0,"y":0.886438203},{"name":"","x":1000.0,"y":0.887184509},{"name":"","x":1050.0,"y":0.887864836},{"name":"","x":1100.0,"y":0.888487599},{"name":"","x":1150.0,"y":0.889059837},{"name":"","x":1200.0,"y":0.889587481},{"name":"","x":1250.0,"y":0.890075566},{"name":"","x":1300.0,"y":0.890528395},{"name":"","x":1350.0,"y":0.890949666},{"name":"","x":1400.0,"y":0.891342577},{"name":"","x":1450.0,"y":0.891709906},{"name":"","x":1500.0,"y":0.892054079},{"name":"","x":1550.0,"y":0.892377224},{"name":"","x":1600.0,"y":0.892681216},{"name":"","x":1650.0,"y":0.892967712},{"name":"","x":1700.0,"y":0.893238183},{"name":"","x":1750.0,"y":0.89349394},{"name":"","x":1800.0,"y":0.893736154},{"name":"","x":1850.0,"y":0.893965876},{"name":"","x":1900.0,"y":0.894184048},{"name":"","x":1950.0,"y":0.894391523},{"name":"","x":2000.0,"y":0.894589069},{"name":"","x":2050.0,"y":0.894777383},{"name":"","x":2100.0,"y":0.894957098},{"name":"","x":2150.0,"y":0.895128792},{"name":"","x":2200.0,"y":0.895292991},{"name":"","x":2250.0,"y":0.895450174},{"name":"","x":2300.0,"y":0.895600784},{"name":"","x":2350.0,"y":0.895745224},{"name":"","x":2400.0,"y":0.895883866},{"name":"","x":2450.0,"y":0.896017054},{"name":"","x":2500.0,"y":0.896145102},{"name":"","x":2550.0,"y":0.896268304},{"name":"","x":2600.0,"y":0.896386929},{"name":"","x":2650.0,"y":0.896501228},{"name":"","x":2700.0,"y":0.896611434},{"name":"","x":2750.0,"y":0.896717763},{"name":"","x":2800.0,"y":0.896820416},{"name":"","x":2850.0,"y":0.89691958},{"name":"","x":2900.0,"y":0.897015432},{"name":"","x":2950.0,"y":0.897108133},{"name":"","x":3000.0,"y":0.897197837},{"name":"","x":3050.0,"y":0.897284688},{"name":"","x":3100.0,"y":0.897368819},{"name":"","x":3150.0,"y":0.897450356},{"name":"","x":3200.0,"y":0.897529418},{"name":"","x":3250.0,"y":0.897606115},{"name":"","x":3300.0,"y":0.897680552},{"name":"","x":3350.0,"y":0.897752827},{"name":"","x":3400.0,"y":0.897823034},{"name":"","x":3450.0,"y":0.897891261},{"name":"","x":3500.0,"y":0.897957589},{"name":"","x":3550.0,"y":0.898022097},{"name":"","x":3600.0,"y":0.898084858},{"name":"","x":3650.0,"y":0.898145944},{"name":"","x":3700.0,"y":0.89820542},{"name":"","x":3750.0,"y":0.898263349},{"name":"","x":3800.0,"y":0.89831979},{"name":"","x":3850.0,"y":0.898374801},{"name":"","x":3900.0,"y":0.898428435},{"name":"","x":3950.0,"y":0.898480742},{"name":"","x":4000.0,"y":0.898531773},{"name":"","x":4050.0,"y":0.898581572},{"name":"","x":4100.0,"y":0.898630184},{"name":"","x":4150.0,"y":0.898677651},{"name":"","x":4200.0,"y":0.898724013},{"name":"","x":4250.0,"y":0.898769308},{"name":"","x":4300.0,"y":0.898813573},{"name":"","x":4350.0,"y":0.898856842},{"name":"","x":4400.0,"y":0.898899148},{"name":"","x":4450.0,"y":0.898940524},{"name":"","x":4500.0,"y":0.898980999},{"name":"","x":4550.0,"y":0.899020603},{"name":"","x":4600.0,"y":0.899059364},{"name":"","x":4650.0,"y":0.899097308},{"name":"","x":4700.0,"y":0.89913446},{"name":"","x":4750.0,"y":0.899170846},{"name":"","x":4800.0,"y":0.899206489},{"name":"","x":4850.0,"y":0.899241411},{"name":"","x":4900.0,"y":0.899275635},{"name":"","x":4950.0,"y":0.89930918},{"name":"","x":5000.0,"y":0.899342066}],"tooltip":{"pointFormat":"<br>SHMI
           value: {point.y}</br><br>Expected number of deaths: {point.x}</br>","headerFormat":"<b>{series.name}:</b>"},"type":"line"},{"name":"Upper
           limit","data":[{"name":"","x":50.0,"y":1.343789242},{"name":"","x":100.0,"y":1.247494884},{"name":"","x":150.0,"y":1.209239758},{"name":"","x":200.0,"y":1.188058965},{"name":"","x":250.0,"y":1.174436827},{"name":"","x":300.0,"y":1.164879114},{"name":"","x":350.0,"y":1.157777022},{"name":"","x":400.0,"y":1.152279465},{"name":"","x":450.0,"y":1.147891337},{"name":"","x":500.0,"y":1.144303911},{"name":"","x":550.0,"y":1.141314172},{"name":"","x":600.0,"y":1.138782885},{"name":"","x":650.0,"y":1.136611237},{"name":"","x":700.0,"y":1.134727088},{"name":"","x":750.0,"y":1.133076494},{"name":"","x":800.0,"y":1.131618287},{"name":"","x":850.0,"y":1.130320485},{"name":"","x":900.0,"y":1.129157858},{"name":"","x":950.0,"y":1.128110225},{"name":"","x":1000.0,"y":1.127161249},{"name":"","x":1050.0,"y":1.126297562},{"name":"","x":1100.0,"y":1.125508111},{"name":"","x":1150.0,"y":1.124783685},{"name":"","x":1200.0,"y":1.124116539},{"name":"","x":1250.0,"y":1.123500114},{"name":"","x":1300.0,"y":1.12292882},{"name":"","x":1350.0,"y":1.122397861},{"name":"","x":1400.0,"y":1.1219031},{"name":"","x":1450.0,"y":1.121440945},{"name":"","x":1500.0,"y":1.12100827},{"name":"","x":1550.0,"y":1.120602334},{"name":"","x":1600.0,"y":1.1202207259999999},{"name":"","x":1650.0,"y":1.11986132},{"name":"","x":1700.0,"y":1.119522227},{"name":"","x":1750.0,"y":1.119201771},{"name":"","x":1800.0,"y":1.118898452},{"name":"","x":1850.0,"y":1.11861093},{"name":"","x":1900.0,"y":1.118338},{"name":"","x":1950.0,"y":1.118078576},{"name":"","x":2000.0,"y":1.117831678},{"name":"","x":2050.0,"y":1.117596421},{"name":"","x":2100.0,"y":1.117371997},{"name":"","x":2150.0,"y":1.117157675},{"name":"","x":2200.0,"y":1.116952786},{"name":"","x":2250.0,"y":1.116756721},{"name":"","x":2300.0,"y":1.11656892},{"name":"","x":2350.0,"y":1.116388872},{"name":"","x":2400.0,"y":1.116216105},{"name":"","x":2450.0,"y":1.116050187},{"name":"","x":2500.0,"y":1.115890716},{"name":"","x":2550.0,"y":1.115737325},{"name":"","x":2600.0,"y":1.115589672},{"name":"","x":2650.0,"y":1.11544744},{"name":"","x":2700.0,"y":1.115310337},{"name":"","x":2750.0,"y":1.115178088},{"name":"","x":2800.0,"y":1.115050441},{"name":"","x":2850.0,"y":1.11492716},{"name":"","x":2900.0,"y":1.114808023},{"name":"","x":2950.0,"y":1.114692826},{"name":"","x":3000.0,"y":1.114581376},{"name":"","x":3050.0,"y":1.114473492},{"name":"","x":3100.0,"y":1.114369007},{"name":"","x":3150.0,"y":1.114267762},{"name":"","x":3200.0,"y":1.114169609},{"name":"","x":3250.0,"y":1.114074407},{"name":"","x":3300.0,"y":1.113982026},{"name":"","x":3350.0,"y":1.113892343},{"name":"","x":3400.0,"y":1.11380524},{"name":"","x":3450.0,"y":1.113720607},{"name":"","x":3500.0,"y":1.113638342},{"name":"","x":3550.0,"y":1.113558345},{"name":"","x":3600.0,"y":1.113480525},{"name":"","x":3650.0,"y":1.113404794},{"name":"","x":3700.0,"y":1.113331069},{"name":"","x":3750.0,"y":1.11325927},{"name":"","x":3800.0,"y":1.113189324},{"name":"","x":3850.0,"y":1.113121159},{"name":"","x":3900.0,"y":1.113054709},{"name":"","x":3950.0,"y":1.112989909},{"name":"","x":4000.0,"y":1.112926699},{"name":"","x":4050.0,"y":1.112865021},{"name":"","x":4100.0,"y":1.11280482},{"name":"","x":4150.0,"y":1.112746043},{"name":"","x":4200.0,"y":1.11268864},{"name":"","x":4250.0,"y":1.112632564},{"name":"","x":4300.0,"y":1.112577769},{"name":"","x":4350.0,"y":1.112524213},{"name":"","x":4400.0,"y":1.112471852},{"name":"","x":4450.0,"y":1.112420648},{"name":"","x":4500.0,"y":1.112370563},{"name":"","x":4550.0,"y":1.11232156},{"name":"","x":4600.0,"y":1.112273606},{"name":"","x":4650.0,"y":1.112226665},{"name":"","x":4700.0,"y":1.112180707},{"name":"","x":4750.0,"y":1.112135702},{"name":"","x":4800.0,"y":1.112091619},{"name":"","x":4850.0,"y":1.11204843},{"name":"","x":4900.0,"y":1.11200611},{"name":"","x":4950.0,"y":1.111964631},{"name":"","x":5000.0,"y":1.111923969}],"tooltip":{"pointFormat":"<br>SHMI
-          value: {point.y}</br><br>Expected number of deaths: {point.x}</br>","headerFormat":"<b>{series.name}:</b>"},"type":"line"}],"xAxis":{"title":{"text":"Expected
-          number of deaths"},"gridLineDashStyle":"shortdash","gridLineWidth":1},"yAxis":{"title":{"text":"SHMI
-          value"},"gridLineDashStyle":"shortdash","gridLineWidth":1}}'
+          value: {point.y}</br><br>Expected number of deaths: {point.x}</br>","headerFormat":"<b>{series.name}:</b>"},"type":"line"}],"chart":{"type":"funnel"},"xAxis":{"title":{"text":"Expected
+          number of deaths"}},"yAxis":{"title":{"text":"SHMI value"}}}'
         publicationsystem:title: Funnel Plot
         publicationsystem:type: Funnel Plot
         publicationsystem:yTitle: ''
@@ -952,10 +988,10 @@
         /publicationsystem:image:
           hippo:filename: apple-gadget-iphone-48603.jpg
           hippo:text:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[12]/image/text.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[14]/image/text.jpg
             type: binary
           jcr:data:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[12]/image/data.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[14]/image/data.jpg
             type: binary
           jcr:encoding: UTF-8
           jcr:lastModified: 2018-06-07T15:01:50.197Z
@@ -970,10 +1006,10 @@
         /publicationsystem:image:
           hippo:filename: robot (1).jpeg
           hippo:text:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[13]/image/text.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[15]/image/text.jpg
             type: binary
           jcr:data:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[13]/image/data.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[15]/image/data.jpg
             type: binary
           jcr:encoding: UTF-8
           jcr:lastModified: 2018-06-07T15:04:44.504Z
@@ -988,10 +1024,10 @@
         /publicationsystem:image:
           hippo:filename: business-charts-commerce-265087.jpg
           hippo:text:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[14]/image/text.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[16]/image/text.jpg
             type: binary
           jcr:data:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[14]/image/data.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[16]/image/data.jpg
             type: binary
           jcr:encoding: UTF-8
           jcr:lastModified: 2018-06-07T15:02:36.471Z
@@ -1006,10 +1042,10 @@
         /publicationsystem:image:
           hippo:filename: blank-charts-computer-669616.jpg
           hippo:text:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[15]/image/text.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[17]/image/text.jpg
             type: binary
           jcr:data:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[15]/image/data.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[17]/image/data.jpg
             type: binary
           jcr:encoding: UTF-8
           jcr:lastModified: 2018-06-07T15:03:59.620Z
@@ -1024,10 +1060,10 @@
         /publicationsystem:image:
           hippo:filename: arms-care-check-905874.jpg
           hippo:text:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[16]/image/text.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[18]/image/text.jpg
             type: binary
           jcr:data:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[16]/image/data.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[18]/image/data.jpg
             type: binary
           jcr:encoding: UTF-8
           jcr:lastModified: 2018-06-07T15:03:51.720Z
@@ -1038,13 +1074,49 @@
         publicationsystem:caption: ''
         publicationsystem:imageSize: Full
         publicationsystem:link: ''
+      /publicationsystem:bodySections[19]:
+        /publicationsystem:dataFile:
+          hippo:filename: British Counties Map Data.xlsx
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[19]/dataFile/text.bin
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[19]/dataFile/data.bin
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-14T20:50:27.470Z
+          jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:mapSection
+        publicationsystem:chartConfig: '{"title":{"text":"Counties"},"series":[{"name":"Example
+          Data","data":[["gb-ar",1.0],["gb-as",2.0],["gb-ay",3.0],["gb-ag",4.0],["gb-an",5.0],["gb-nd",6.0],["gb-ab",7.0],["gb-am",8.0],["gb-bl",9.0],["gb-by",10.0],["gb-bb",11.0],["gb-ba",12.0],["gb-7149",13.0],["gb-7135",14.0],["gb-bn",15.0],["gb-bd",16.0],["gb-bf",17.0],["gb-xb",18.0],["gb-2377",19.0],["gb-bw",20.0],["gb-7117",21.0],["gb-bg",22.0],["gb-7122",23.0],["gb-2389",24.0],["gb-7145",25.0],["gb-7131",26.0],["gb-be",27.0],["gb-bj",28.0],["gb-bh",29.0],["gb-bs",30.0],["gb-bz",31.0],["gb-bu",32.0],["gb-7123",33.0],["gb-cp",34.0],["gb-7130",35.0],["gb-cm",36.0],["gb-cn",37.0],["gb-ca",38.0],["ie-cw",39.0],["gb-ci",40.0],["gb-cf",41.0],["gb-cs",42.0],["ie-cn",43.0],["gb-2381",44.0],["gb-2301",45.0],["gb-2366",46.0],["gb-7150",47.0],["gb-6338",48.0],["gb-cc",49.0],["ie-ce",50.0],["gb-cl",51.0],["gb-cw",52.0],["gb-2347",53.0],["ie-491",54.0],["ie-ck",55.0],["gb-co",56.0],["gb-7142",57.0],["gb-cr",58.0],["gb-cy",59.0],["gb-cu",60.0],["gb-da",61.0],["gb-di",62.0],["gb-de",63.0],["gb-db",64.0],["gb-ld",65.0],["gb-do",66.0],["gb-7136",67.0],["ie-dl",68.0],["gb-ds",69.0],["gb-dw",70.0],["ie-7035",71.0],["gb-7138",72.0],["gb-dg",73.0],["ie-dn",74.0],["gb-du",75.0],["gb-dn",76.0],["gb-dh",77.0],["gb-eg",78.0],["gb-ea",79.0],["gb-ed",80.0],["gb-el",81.0],["gb-er",82.0],["gb-ey",83.0],["gb-es",84.0],["gb-eb",85.0],["gb-wi",86.0],["gb-ef",87.0],["gb-ex",88.0],["gb-fk",89.0],["gb-fe",90.0],["gb-fi",91.0],["ie-7034",92.0],["gb-fl",93.0],["ie-1510",94.0],["ie-gy",95.0],["gb-7116",96.0],["gb-gg",97.0],["gb-gc",98.0],["gb-gr",99.0],["gb-gd",100.0],["gb-hk",101.0],["gb-hl",102.0],["gb-7151",103.0],["gb-hf",104.0],["gb-ha",105.0],["gb-hy",106.0],["gb-hr",107.0],["gb-hp",108.0],["gb-hv",109.0],["gb-he",110.0],["gb-ht",111.0],["gb-hi",112.0],["gb-hd",113.0],["gb-hu",114.0],["gb-ic",115.0],["gb-3577",116.0],["gb-iw",117.0],["gb-7398",118.0],["gb-it",119.0],["gb-kc",120.0],["gb-ke",121.0],["ie-ky",122.0],["ie-ke",123.0],["ie-kk",124.0],["gb-kh",125.0],["gb-kt",126.0],["gb-3265",127.0],["gb-2364",128.0],["gb-lt",129.0],["gb-la",130.0],["ie-ls",131.0],["gb-lr",132.0],["gb-7132",133.0],["gb-lc",134.0],["gb-2393",135.0],["ie-lm",136.0],["gb-lw",137.0],["gb-lm",138.0],["ie-lk",139.0],["ie-1533",140.0],["gb-li",141.0],["gb-lb",142.0],["gb-7119",143.0],["ie-ld",144.0],["ie-lh",145.0],["gb-lu",146.0],["gb-mf",147.0],["gb-7128",148.0],["ie-mo",149.0],["ie-mh",150.0],["gb-mw",151.0],["gb-ms",152.0],["gb-mt",153.0],["gb-me",154.0],["gb-mb",155.0],["gb-ml",156.0],["gb-mk",157.0],["ie-mn",158.0],["gb-2318",159.0],["gb-mo",160.0],["gb-my",161.0],["gb-np",162.0],["gb-2367",163.0],["gb-nh",164.0],["gb-no",165.0],["gb-nm",166.0],["gb-nw",167.0],["gb-nf",168.0],["gb-2446",169.0],["gb-2354",170.0],["gb-ne",171.0],["gb-nn",172.0],["gb-nl",173.0],["gb-ns",174.0],["ie-ty",175.0],["gb-7113",176.0],["gb-ny",177.0],["gb-na",178.0],["gb-nb",179.0],["gb-ng",180.0],["gb-nt",181.0],["ie-oy",182.0],["gb-7125",183.0],["gb-om",184.0],["gb-3270",185.0],["gb-ox",186.0],["gb-pe",187.0],["gb-2458",188.0],["gb-pb",189.0],["gb-2420",190.0],["gb-2391",191.0],["gb-ps",192.0],["gb-po",193.0],["gb-2388",194.0],["gb-rb",195.0],["gb-rc",196.0],["gb-rf",197.0],["gb-rt",198.0],["gb-ru",199.0],["gb-7124",200.0],["ie-rn",201.0],["gb-3267",202.0],["gb-7146",203.0],["gb-rl",204.0],["gb-3266",205.0],["gb-7137",206.0],["gb-bo",207.0],["gb-7118",208.0],["gb-7134",209.0],["gb-3271",210.0],["gb-sp",211.0],["ie-so",212.0],["gb-7147",213.0],["gb-7141",214.0],["gb-sm",215.0],["gb-sa",216.0],["ie-1528",217.0],["gb-sj",218.0],["gb-sl",219.0],["ie-7033",220.0],["gb-7114",221.0],["gb-zh",222.0],["gb-ss",223.0],["gb-sq",224.0],["gb-st",225.0],["gb-zg",226.0],["gb-7127",227.0],["gb-zt",228.0],["gb-so",229.0],["gb-sb",230.0],["gb-sf",231.0],["gb-7115",232.0],["gb-sr",233.0],["gb-su",234.0],["gb-sw",235.0],["gb-sn",236.0],["gb-7126",237.0],["gb-tk",238.0],["gb-tr",239.0],["gb-tb",240.0],["gb-tf",241.0],["gb-th",242.0],["gb-7129",243.0],["gb-vg",244.0],["gb-7133",245.0],["gb-7140",246.0],["gb-wf",247.0],["gb-ww",248.0],["gb-wt",249.0],["gb-wr",250.0],["ie-2363",251.0],["ie-wd",252.0],["gb-7143",253.0],["gb-wd",254.0],["gb-wh",255.0],["gb-ws",256.0],["ie-wh",257.0],["gb-we",258.0],["ie-wx",259.0],["ie-ww",260.0],["gb-7121",261.0],["gb-wl",262.0],["gb-7144",263.0],["gb-7139",264.0],["gb-wc",265.0],["gb-wx",266.0],["gb-yk",267.0]]}],"chart":{"map":"custom/british-isles-all","zoomType":""},"colorAxis":{"min":0},"mapNavigation":{"enabled":true,"buttonOptions":{"verticalAlign":"bottom"}}}'
+        publicationsystem:mapSource: British Isles Counties
+        publicationsystem:title: Counties
+      /publicationsystem:bodySections[20]:
+        /publicationsystem:dataFile:
+          hippo:filename: British Isles Map Data.xlsx
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[20]/dataFile/text.bin
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[2]/bodySections[20]/dataFile/data.bin
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-14T20:50:36.024Z
+          jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:mapSection
+        publicationsystem:chartConfig: '{"title":{"text":"Countries"},"series":[{"name":"Example
+          Data","data":[["ie-irl",10.0],["gb-eng",20.0],["gb-wls",30.0],["gb-sct",40.0],["gb-imn",50.0],["gb-nir",60.0]]}],"chart":{"map":"custom/british-isles","zoomType":""},"colorAxis":{"min":0},"mapNavigation":{"enabled":true,"buttonOptions":{"verticalAlign":"bottom"}}}'
+        publicationsystem:mapSource: British Isles Countries
+        publicationsystem:title: Countries
       common:searchable: true
       hippo:availability:
       - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-04-09T12:26:14.588Z
-      hippostdpubwf:lastModificationDate: 2018-05-30T15:14:53.724Z
+      hippostdpubwf:lastModificationDate: 2018-06-14T20:50:40.518Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 8318b0a7-a10e-41b5-a5f7-978c530211a7
       hippotranslation:locale: en
@@ -1076,6 +1148,7 @@
         jcr:primaryType: publicationsystem:imageSection
         publicationsystem:altText: Robots
         publicationsystem:caption: Image with link and caption
+        publicationsystem:imageSize: Old
         publicationsystem:link: https://google.com
       /publicationsystem:bodySections[3]:
         /publicationsystem:text:
@@ -1120,6 +1193,7 @@
         jcr:primaryType: publicationsystem:imageSection
         publicationsystem:altText: Snowman
         publicationsystem:caption: ''
+        publicationsystem:imageSize: Old
         publicationsystem:link: ''
       /publicationsystem:bodySections[6]:
         jcr:primaryType: publicationsystem:relatedlink
@@ -1159,7 +1233,7 @@
           jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
           jcr:primaryType: publicationsystem:resource
         jcr:primaryType: publicationsystem:chartSection
-        publicationsystem:chartConfig: '{"title":{"text":"Stacked Bar Chart"},"chart":{"type":"bar"},"series":[{"name":"Narrow
+        publicationsystem:chartConfig: '{"title":{"text":"Stacked Bar Chart"},"series":[{"name":"Narrow
           Measure","data":[{"name":"75+","y":43.0},{"name":"65 to 74","y":57.0},{"name":"55
           to 64","y":65.0},{"name":"45 to 54","y":67.0},{"name":"35 to 44","y":44.0},{"name":"25
           to 34","y":34.0},{"name":"16 to 24","y":23.0},{"name":"Under 16","y":6.0}]},{"name":"Wide
@@ -1168,8 +1242,8 @@
           to 34","y":60.0},{"name":"16 to 24","y":41.0},{"name":"Under 16","y":10.0}]},{"name":"Combined","data":[{"name":"75+","y":129.0},{"name":"65
           to 74","y":158.0},{"name":"55 to 64","y":178.0},{"name":"45 to 54","y":194.0},{"name":"35
           to 44","y":117.0},{"name":"25 to 34","y":94.0},{"name":"16 to 24","y":64.0},{"name":"Under
-          16","y":16.0}]}],"xAxis":{"title":{},"categories":["75+","65 to 74","55
-          to 64","45 to 54","35 to 44","25 to 34","16 to 24","Under 16"]},"yAxis":{"title":{"text":"Thousands"}},"plotOptions":{"series":{"stacking":"normal"}}}'
+          16","y":16.0}]}],"chart":{"type":"bar"},"xAxis":{"title":{},"categories":["75+","65
+          to 74","55 to 64","45 to 54","35 to 44","25 to 34","16 to 24","Under 16"]},"yAxis":{"title":{"text":"Thousands"}},"plotOptions":{"series":{"stacking":"normal"}}}'
         publicationsystem:title: Stacked Bar Chart
         publicationsystem:type: Stacked Bar
         publicationsystem:yTitle: Thousands
@@ -1187,10 +1261,10 @@
           jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
           jcr:primaryType: publicationsystem:resource
         jcr:primaryType: publicationsystem:chartSection
-        publicationsystem:chartConfig: '{"title":{"text":"Pie Chart"},"chart":{"type":"pie"},"series":[{"name":"Narrow
+        publicationsystem:chartConfig: '{"title":{"text":"Pie Chart"},"series":[{"name":"Narrow
           Measure","data":[{"name":"75+","y":43.0},{"name":"65 to 74","y":57.0},{"name":"55
           to 64","y":65.0},{"name":"45 to 54","y":67.0},{"name":"35 to 44","y":44.0},{"name":"25
-          to 34","y":34.0},{"name":"16 to 24","y":23.0},{"name":"Under 16","y":6.0}]}],"xAxis":{},"yAxis":{}}'
+          to 34","y":34.0},{"name":"16 to 24","y":23.0},{"name":"Under 16","y":6.0}]}],"chart":{"type":"pie"},"xAxis":{"title":{}},"yAxis":{"title":{}}}'
         publicationsystem:title: Pie Chart
         publicationsystem:type: Pie
         publicationsystem:yTitle: ''
@@ -1208,7 +1282,7 @@
           jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
           jcr:primaryType: publicationsystem:resource
         jcr:primaryType: publicationsystem:chartSection
-        publicationsystem:chartConfig: '{"title":{"text":"Scatter Plot"},"chart":{"type":"scatter"},"series":[{"name":"Organisation","data":[{"name":"R1F
+        publicationsystem:chartConfig: '{"title":{"text":"Scatter Plot"},"series":[{"name":"Organisation","data":[{"name":"R1F
           - ISLE OF WIGHT NHS TRUST","x":878.0463,"y":1.0466},{"name":"R1H - BARTS
           HEALTH NHS TRUST","x":4207.1909,"y":0.8821},{"name":"R1K - LONDON NORTH
           WEST HEALTHCARE NHS TRUST","x":3090.0805,"y":0.8158},{"name":"RA2 - ROYAL
@@ -1259,9 +1333,8 @@
           - UNIVERSITY HOSPITAL SOUTHAMPTON NHS FOUNDATION TRUST","x":3013.9526,"y":0.9589},{"name":"RHQ
           - SHEFFIELD TEACHING HOSPITALS NHS FOUNDATION TRUST","x":3728.4898,"y":0.9846},{"name":"RHU
           - PORTSMOUTH HOSPITALS NHS TRUST","x":2867.5318,"y":1.1002}],"tooltip":{"pointFormat":"<br>{point.name}</br><br>SHMI
-          value: {point.y}</br><br>Expected number of deaths: {point.x}</br>","headerFormat":"<b>{series.name}:</b>"},"type":"scatter"}],"xAxis":{"title":{"text":"Expected
-          number of deaths"},"gridLineDashStyle":"shortdash","gridLineWidth":1},"yAxis":{"title":{"text":"SHMI
-          value"},"gridLineDashStyle":"shortdash","gridLineWidth":1}}'
+          value: {point.y}</br><br>Expected number of deaths: {point.x}</br>","headerFormat":"<b>{series.name}:</b>"},"type":"scatter"}],"chart":{"type":"scatter"},"xAxis":{"title":{"text":"Expected
+          number of deaths"}},"yAxis":{"title":{"text":"SHMI value"}}}'
         publicationsystem:title: Scatter Plot
         publicationsystem:type: Scatter Plot
         publicationsystem:yTitle: ''
@@ -1279,7 +1352,7 @@
           jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
           jcr:primaryType: publicationsystem:resource
         jcr:primaryType: publicationsystem:chartSection
-        publicationsystem:chartConfig: '{"title":{"text":"Funnel Plot"},"chart":{"type":"funnel"},"series":[{"name":"Organisation","data":[{"name":"R1F
+        publicationsystem:chartConfig: '{"title":{"text":"Funnel Plot"},"series":[{"name":"Organisation","data":[{"name":"R1F
           - ISLE OF WIGHT NHS TRUST","x":878.0463,"y":1.0466},{"name":"R1H - BARTS
           HEALTH NHS TRUST","x":4207.1909,"y":0.8821},{"name":"R1K - LONDON NORTH
           WEST HEALTHCARE NHS TRUST","x":3090.0805,"y":0.8158},{"name":"RA2 - ROYAL
@@ -1334,9 +1407,8 @@
           limit","data":[{"name":"","x":50.0,"y":0.744164314},{"name":"","x":100.0,"y":0.801606494},{"name":"","x":150.0,"y":0.826965863},{"name":"","x":200.0,"y":0.841709064},{"name":"","x":250.0,"y":0.851471937},{"name":"","x":300.0,"y":0.858458177},{"name":"","x":350.0,"y":0.863724172},{"name":"","x":400.0,"y":0.867845024},{"name":"","x":450.0,"y":0.871162599},{"name":"","x":500.0,"y":0.873893719},{"name":"","x":550.0,"y":0.876182934},{"name":"","x":600.0,"y":0.878130514},{"name":"","x":650.0,"y":0.879808299},{"name":"","x":700.0,"y":0.881269171},{"name":"","x":750.0,"y":0.882552948},{"name":"","x":800.0,"y":0.883690209},{"name":"","x":850.0,"y":0.884704836},{"name":"","x":900.0,"y":0.885615765},{"name":"","x":950.0,"y":0.886438203},{"name":"","x":1000.0,"y":0.887184509},{"name":"","x":1050.0,"y":0.887864836},{"name":"","x":1100.0,"y":0.888487599},{"name":"","x":1150.0,"y":0.889059837},{"name":"","x":1200.0,"y":0.889587481},{"name":"","x":1250.0,"y":0.890075566},{"name":"","x":1300.0,"y":0.890528395},{"name":"","x":1350.0,"y":0.890949666},{"name":"","x":1400.0,"y":0.891342577},{"name":"","x":1450.0,"y":0.891709906},{"name":"","x":1500.0,"y":0.892054079},{"name":"","x":1550.0,"y":0.892377224},{"name":"","x":1600.0,"y":0.892681216},{"name":"","x":1650.0,"y":0.892967712},{"name":"","x":1700.0,"y":0.893238183},{"name":"","x":1750.0,"y":0.89349394},{"name":"","x":1800.0,"y":0.893736154},{"name":"","x":1850.0,"y":0.893965876},{"name":"","x":1900.0,"y":0.894184048},{"name":"","x":1950.0,"y":0.894391523},{"name":"","x":2000.0,"y":0.894589069},{"name":"","x":2050.0,"y":0.894777383},{"name":"","x":2100.0,"y":0.894957098},{"name":"","x":2150.0,"y":0.895128792},{"name":"","x":2200.0,"y":0.895292991},{"name":"","x":2250.0,"y":0.895450174},{"name":"","x":2300.0,"y":0.895600784},{"name":"","x":2350.0,"y":0.895745224},{"name":"","x":2400.0,"y":0.895883866},{"name":"","x":2450.0,"y":0.896017054},{"name":"","x":2500.0,"y":0.896145102},{"name":"","x":2550.0,"y":0.896268304},{"name":"","x":2600.0,"y":0.896386929},{"name":"","x":2650.0,"y":0.896501228},{"name":"","x":2700.0,"y":0.896611434},{"name":"","x":2750.0,"y":0.896717763},{"name":"","x":2800.0,"y":0.896820416},{"name":"","x":2850.0,"y":0.89691958},{"name":"","x":2900.0,"y":0.897015432},{"name":"","x":2950.0,"y":0.897108133},{"name":"","x":3000.0,"y":0.897197837},{"name":"","x":3050.0,"y":0.897284688},{"name":"","x":3100.0,"y":0.897368819},{"name":"","x":3150.0,"y":0.897450356},{"name":"","x":3200.0,"y":0.897529418},{"name":"","x":3250.0,"y":0.897606115},{"name":"","x":3300.0,"y":0.897680552},{"name":"","x":3350.0,"y":0.897752827},{"name":"","x":3400.0,"y":0.897823034},{"name":"","x":3450.0,"y":0.897891261},{"name":"","x":3500.0,"y":0.897957589},{"name":"","x":3550.0,"y":0.898022097},{"name":"","x":3600.0,"y":0.898084858},{"name":"","x":3650.0,"y":0.898145944},{"name":"","x":3700.0,"y":0.89820542},{"name":"","x":3750.0,"y":0.898263349},{"name":"","x":3800.0,"y":0.89831979},{"name":"","x":3850.0,"y":0.898374801},{"name":"","x":3900.0,"y":0.898428435},{"name":"","x":3950.0,"y":0.898480742},{"name":"","x":4000.0,"y":0.898531773},{"name":"","x":4050.0,"y":0.898581572},{"name":"","x":4100.0,"y":0.898630184},{"name":"","x":4150.0,"y":0.898677651},{"name":"","x":4200.0,"y":0.898724013},{"name":"","x":4250.0,"y":0.898769308},{"name":"","x":4300.0,"y":0.898813573},{"name":"","x":4350.0,"y":0.898856842},{"name":"","x":4400.0,"y":0.898899148},{"name":"","x":4450.0,"y":0.898940524},{"name":"","x":4500.0,"y":0.898980999},{"name":"","x":4550.0,"y":0.899020603},{"name":"","x":4600.0,"y":0.899059364},{"name":"","x":4650.0,"y":0.899097308},{"name":"","x":4700.0,"y":0.89913446},{"name":"","x":4750.0,"y":0.899170846},{"name":"","x":4800.0,"y":0.899206489},{"name":"","x":4850.0,"y":0.899241411},{"name":"","x":4900.0,"y":0.899275635},{"name":"","x":4950.0,"y":0.89930918},{"name":"","x":5000.0,"y":0.899342066}],"tooltip":{"pointFormat":"<br>SHMI
           value: {point.y}</br><br>Expected number of deaths: {point.x}</br>","headerFormat":"<b>{series.name}:</b>"},"type":"line"},{"name":"Upper
           limit","data":[{"name":"","x":50.0,"y":1.343789242},{"name":"","x":100.0,"y":1.247494884},{"name":"","x":150.0,"y":1.209239758},{"name":"","x":200.0,"y":1.188058965},{"name":"","x":250.0,"y":1.174436827},{"name":"","x":300.0,"y":1.164879114},{"name":"","x":350.0,"y":1.157777022},{"name":"","x":400.0,"y":1.152279465},{"name":"","x":450.0,"y":1.147891337},{"name":"","x":500.0,"y":1.144303911},{"name":"","x":550.0,"y":1.141314172},{"name":"","x":600.0,"y":1.138782885},{"name":"","x":650.0,"y":1.136611237},{"name":"","x":700.0,"y":1.134727088},{"name":"","x":750.0,"y":1.133076494},{"name":"","x":800.0,"y":1.131618287},{"name":"","x":850.0,"y":1.130320485},{"name":"","x":900.0,"y":1.129157858},{"name":"","x":950.0,"y":1.128110225},{"name":"","x":1000.0,"y":1.127161249},{"name":"","x":1050.0,"y":1.126297562},{"name":"","x":1100.0,"y":1.125508111},{"name":"","x":1150.0,"y":1.124783685},{"name":"","x":1200.0,"y":1.124116539},{"name":"","x":1250.0,"y":1.123500114},{"name":"","x":1300.0,"y":1.12292882},{"name":"","x":1350.0,"y":1.122397861},{"name":"","x":1400.0,"y":1.1219031},{"name":"","x":1450.0,"y":1.121440945},{"name":"","x":1500.0,"y":1.12100827},{"name":"","x":1550.0,"y":1.120602334},{"name":"","x":1600.0,"y":1.1202207259999999},{"name":"","x":1650.0,"y":1.11986132},{"name":"","x":1700.0,"y":1.119522227},{"name":"","x":1750.0,"y":1.119201771},{"name":"","x":1800.0,"y":1.118898452},{"name":"","x":1850.0,"y":1.11861093},{"name":"","x":1900.0,"y":1.118338},{"name":"","x":1950.0,"y":1.118078576},{"name":"","x":2000.0,"y":1.117831678},{"name":"","x":2050.0,"y":1.117596421},{"name":"","x":2100.0,"y":1.117371997},{"name":"","x":2150.0,"y":1.117157675},{"name":"","x":2200.0,"y":1.116952786},{"name":"","x":2250.0,"y":1.116756721},{"name":"","x":2300.0,"y":1.11656892},{"name":"","x":2350.0,"y":1.116388872},{"name":"","x":2400.0,"y":1.116216105},{"name":"","x":2450.0,"y":1.116050187},{"name":"","x":2500.0,"y":1.115890716},{"name":"","x":2550.0,"y":1.115737325},{"name":"","x":2600.0,"y":1.115589672},{"name":"","x":2650.0,"y":1.11544744},{"name":"","x":2700.0,"y":1.115310337},{"name":"","x":2750.0,"y":1.115178088},{"name":"","x":2800.0,"y":1.115050441},{"name":"","x":2850.0,"y":1.11492716},{"name":"","x":2900.0,"y":1.114808023},{"name":"","x":2950.0,"y":1.114692826},{"name":"","x":3000.0,"y":1.114581376},{"name":"","x":3050.0,"y":1.114473492},{"name":"","x":3100.0,"y":1.114369007},{"name":"","x":3150.0,"y":1.114267762},{"name":"","x":3200.0,"y":1.114169609},{"name":"","x":3250.0,"y":1.114074407},{"name":"","x":3300.0,"y":1.113982026},{"name":"","x":3350.0,"y":1.113892343},{"name":"","x":3400.0,"y":1.11380524},{"name":"","x":3450.0,"y":1.113720607},{"name":"","x":3500.0,"y":1.113638342},{"name":"","x":3550.0,"y":1.113558345},{"name":"","x":3600.0,"y":1.113480525},{"name":"","x":3650.0,"y":1.113404794},{"name":"","x":3700.0,"y":1.113331069},{"name":"","x":3750.0,"y":1.11325927},{"name":"","x":3800.0,"y":1.113189324},{"name":"","x":3850.0,"y":1.113121159},{"name":"","x":3900.0,"y":1.113054709},{"name":"","x":3950.0,"y":1.112989909},{"name":"","x":4000.0,"y":1.112926699},{"name":"","x":4050.0,"y":1.112865021},{"name":"","x":4100.0,"y":1.11280482},{"name":"","x":4150.0,"y":1.112746043},{"name":"","x":4200.0,"y":1.11268864},{"name":"","x":4250.0,"y":1.112632564},{"name":"","x":4300.0,"y":1.112577769},{"name":"","x":4350.0,"y":1.112524213},{"name":"","x":4400.0,"y":1.112471852},{"name":"","x":4450.0,"y":1.112420648},{"name":"","x":4500.0,"y":1.112370563},{"name":"","x":4550.0,"y":1.11232156},{"name":"","x":4600.0,"y":1.112273606},{"name":"","x":4650.0,"y":1.112226665},{"name":"","x":4700.0,"y":1.112180707},{"name":"","x":4750.0,"y":1.112135702},{"name":"","x":4800.0,"y":1.112091619},{"name":"","x":4850.0,"y":1.11204843},{"name":"","x":4900.0,"y":1.11200611},{"name":"","x":4950.0,"y":1.111964631},{"name":"","x":5000.0,"y":1.111923969}],"tooltip":{"pointFormat":"<br>SHMI
-          value: {point.y}</br><br>Expected number of deaths: {point.x}</br>","headerFormat":"<b>{series.name}:</b>"},"type":"line"}],"xAxis":{"title":{"text":"Expected
-          number of deaths"},"gridLineDashStyle":"shortdash","gridLineWidth":1},"yAxis":{"title":{"text":"SHMI
-          value"},"gridLineDashStyle":"shortdash","gridLineWidth":1}}'
+          value: {point.y}</br><br>Expected number of deaths: {point.x}</br>","headerFormat":"<b>{series.name}:</b>"},"type":"line"}],"chart":{"type":"funnel"},"xAxis":{"title":{"text":"Expected
+          number of deaths"}},"yAxis":{"title":{"text":"SHMI value"}}}'
         publicationsystem:title: Funnel Plot
         publicationsystem:type: Funnel Plot
         publicationsystem:yTitle: ''
@@ -1369,10 +1441,10 @@
         /publicationsystem:image:
           hippo:filename: apple-gadget-iphone-48603.jpg
           hippo:text:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[12]/image/text.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[14]/image/text.jpg
             type: binary
           jcr:data:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[12]/image/data.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[14]/image/data.jpg
             type: binary
           jcr:encoding: UTF-8
           jcr:lastModified: 2018-06-07T15:01:50.197Z
@@ -1387,10 +1459,10 @@
         /publicationsystem:image:
           hippo:filename: robot (1).jpeg
           hippo:text:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[13]/image/text.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[15]/image/text.jpg
             type: binary
           jcr:data:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[13]/image/data.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[15]/image/data.jpg
             type: binary
           jcr:encoding: UTF-8
           jcr:lastModified: 2018-06-07T15:04:44.504Z
@@ -1405,10 +1477,10 @@
         /publicationsystem:image:
           hippo:filename: business-charts-commerce-265087.jpg
           hippo:text:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[14]/image/text.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[16]/image/text.jpg
             type: binary
           jcr:data:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[14]/image/data.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[16]/image/data.jpg
             type: binary
           jcr:encoding: UTF-8
           jcr:lastModified: 2018-06-07T15:02:36.471Z
@@ -1423,10 +1495,10 @@
         /publicationsystem:image:
           hippo:filename: blank-charts-computer-669616.jpg
           hippo:text:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[15]/image/text.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[17]/image/text.jpg
             type: binary
           jcr:data:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[15]/image/data.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[17]/image/data.jpg
             type: binary
           jcr:encoding: UTF-8
           jcr:lastModified: 2018-06-07T15:03:59.620Z
@@ -1441,10 +1513,10 @@
         /publicationsystem:image:
           hippo:filename: arms-care-check-905874.jpg
           hippo:text:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[16]/image/text.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[18]/image/text.jpg
             type: binary
           jcr:data:
-            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[16]/image/data.jpg
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[18]/image/data.jpg
             type: binary
           jcr:encoding: UTF-8
           jcr:lastModified: 2018-06-07T15:03:51.720Z
@@ -1455,15 +1527,51 @@
         publicationsystem:caption: ''
         publicationsystem:imageSize: Full
         publicationsystem:link: ''
+      /publicationsystem:bodySections[19]:
+        /publicationsystem:dataFile:
+          hippo:filename: British Counties Map Data.xlsx
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[19]/dataFile/text.bin
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[19]/dataFile/data.bin
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-14T20:50:27.470Z
+          jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:mapSection
+        publicationsystem:chartConfig: '{"title":{"text":"Counties"},"series":[{"name":"Example
+          Data","data":[["gb-ar",1.0],["gb-as",2.0],["gb-ay",3.0],["gb-ag",4.0],["gb-an",5.0],["gb-nd",6.0],["gb-ab",7.0],["gb-am",8.0],["gb-bl",9.0],["gb-by",10.0],["gb-bb",11.0],["gb-ba",12.0],["gb-7149",13.0],["gb-7135",14.0],["gb-bn",15.0],["gb-bd",16.0],["gb-bf",17.0],["gb-xb",18.0],["gb-2377",19.0],["gb-bw",20.0],["gb-7117",21.0],["gb-bg",22.0],["gb-7122",23.0],["gb-2389",24.0],["gb-7145",25.0],["gb-7131",26.0],["gb-be",27.0],["gb-bj",28.0],["gb-bh",29.0],["gb-bs",30.0],["gb-bz",31.0],["gb-bu",32.0],["gb-7123",33.0],["gb-cp",34.0],["gb-7130",35.0],["gb-cm",36.0],["gb-cn",37.0],["gb-ca",38.0],["ie-cw",39.0],["gb-ci",40.0],["gb-cf",41.0],["gb-cs",42.0],["ie-cn",43.0],["gb-2381",44.0],["gb-2301",45.0],["gb-2366",46.0],["gb-7150",47.0],["gb-6338",48.0],["gb-cc",49.0],["ie-ce",50.0],["gb-cl",51.0],["gb-cw",52.0],["gb-2347",53.0],["ie-491",54.0],["ie-ck",55.0],["gb-co",56.0],["gb-7142",57.0],["gb-cr",58.0],["gb-cy",59.0],["gb-cu",60.0],["gb-da",61.0],["gb-di",62.0],["gb-de",63.0],["gb-db",64.0],["gb-ld",65.0],["gb-do",66.0],["gb-7136",67.0],["ie-dl",68.0],["gb-ds",69.0],["gb-dw",70.0],["ie-7035",71.0],["gb-7138",72.0],["gb-dg",73.0],["ie-dn",74.0],["gb-du",75.0],["gb-dn",76.0],["gb-dh",77.0],["gb-eg",78.0],["gb-ea",79.0],["gb-ed",80.0],["gb-el",81.0],["gb-er",82.0],["gb-ey",83.0],["gb-es",84.0],["gb-eb",85.0],["gb-wi",86.0],["gb-ef",87.0],["gb-ex",88.0],["gb-fk",89.0],["gb-fe",90.0],["gb-fi",91.0],["ie-7034",92.0],["gb-fl",93.0],["ie-1510",94.0],["ie-gy",95.0],["gb-7116",96.0],["gb-gg",97.0],["gb-gc",98.0],["gb-gr",99.0],["gb-gd",100.0],["gb-hk",101.0],["gb-hl",102.0],["gb-7151",103.0],["gb-hf",104.0],["gb-ha",105.0],["gb-hy",106.0],["gb-hr",107.0],["gb-hp",108.0],["gb-hv",109.0],["gb-he",110.0],["gb-ht",111.0],["gb-hi",112.0],["gb-hd",113.0],["gb-hu",114.0],["gb-ic",115.0],["gb-3577",116.0],["gb-iw",117.0],["gb-7398",118.0],["gb-it",119.0],["gb-kc",120.0],["gb-ke",121.0],["ie-ky",122.0],["ie-ke",123.0],["ie-kk",124.0],["gb-kh",125.0],["gb-kt",126.0],["gb-3265",127.0],["gb-2364",128.0],["gb-lt",129.0],["gb-la",130.0],["ie-ls",131.0],["gb-lr",132.0],["gb-7132",133.0],["gb-lc",134.0],["gb-2393",135.0],["ie-lm",136.0],["gb-lw",137.0],["gb-lm",138.0],["ie-lk",139.0],["ie-1533",140.0],["gb-li",141.0],["gb-lb",142.0],["gb-7119",143.0],["ie-ld",144.0],["ie-lh",145.0],["gb-lu",146.0],["gb-mf",147.0],["gb-7128",148.0],["ie-mo",149.0],["ie-mh",150.0],["gb-mw",151.0],["gb-ms",152.0],["gb-mt",153.0],["gb-me",154.0],["gb-mb",155.0],["gb-ml",156.0],["gb-mk",157.0],["ie-mn",158.0],["gb-2318",159.0],["gb-mo",160.0],["gb-my",161.0],["gb-np",162.0],["gb-2367",163.0],["gb-nh",164.0],["gb-no",165.0],["gb-nm",166.0],["gb-nw",167.0],["gb-nf",168.0],["gb-2446",169.0],["gb-2354",170.0],["gb-ne",171.0],["gb-nn",172.0],["gb-nl",173.0],["gb-ns",174.0],["ie-ty",175.0],["gb-7113",176.0],["gb-ny",177.0],["gb-na",178.0],["gb-nb",179.0],["gb-ng",180.0],["gb-nt",181.0],["ie-oy",182.0],["gb-7125",183.0],["gb-om",184.0],["gb-3270",185.0],["gb-ox",186.0],["gb-pe",187.0],["gb-2458",188.0],["gb-pb",189.0],["gb-2420",190.0],["gb-2391",191.0],["gb-ps",192.0],["gb-po",193.0],["gb-2388",194.0],["gb-rb",195.0],["gb-rc",196.0],["gb-rf",197.0],["gb-rt",198.0],["gb-ru",199.0],["gb-7124",200.0],["ie-rn",201.0],["gb-3267",202.0],["gb-7146",203.0],["gb-rl",204.0],["gb-3266",205.0],["gb-7137",206.0],["gb-bo",207.0],["gb-7118",208.0],["gb-7134",209.0],["gb-3271",210.0],["gb-sp",211.0],["ie-so",212.0],["gb-7147",213.0],["gb-7141",214.0],["gb-sm",215.0],["gb-sa",216.0],["ie-1528",217.0],["gb-sj",218.0],["gb-sl",219.0],["ie-7033",220.0],["gb-7114",221.0],["gb-zh",222.0],["gb-ss",223.0],["gb-sq",224.0],["gb-st",225.0],["gb-zg",226.0],["gb-7127",227.0],["gb-zt",228.0],["gb-so",229.0],["gb-sb",230.0],["gb-sf",231.0],["gb-7115",232.0],["gb-sr",233.0],["gb-su",234.0],["gb-sw",235.0],["gb-sn",236.0],["gb-7126",237.0],["gb-tk",238.0],["gb-tr",239.0],["gb-tb",240.0],["gb-tf",241.0],["gb-th",242.0],["gb-7129",243.0],["gb-vg",244.0],["gb-7133",245.0],["gb-7140",246.0],["gb-wf",247.0],["gb-ww",248.0],["gb-wt",249.0],["gb-wr",250.0],["ie-2363",251.0],["ie-wd",252.0],["gb-7143",253.0],["gb-wd",254.0],["gb-wh",255.0],["gb-ws",256.0],["ie-wh",257.0],["gb-we",258.0],["ie-wx",259.0],["ie-ww",260.0],["gb-7121",261.0],["gb-wl",262.0],["gb-7144",263.0],["gb-7139",264.0],["gb-wc",265.0],["gb-wx",266.0],["gb-yk",267.0]]}],"chart":{"map":"custom/british-isles-all","zoomType":""},"colorAxis":{"min":0},"mapNavigation":{"enabled":true,"buttonOptions":{"verticalAlign":"bottom"}}}'
+        publicationsystem:mapSource: British Isles Counties
+        publicationsystem:title: Counties
+      /publicationsystem:bodySections[20]:
+        /publicationsystem:dataFile:
+          hippo:filename: British Isles Map Data.xlsx
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[20]/dataFile/text.bin
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/acceptance-tests/sectioned-publication/first-page/first-page[3]/bodySections[20]/dataFile/data.bin
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-14T20:50:36.024Z
+          jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+          jcr:primaryType: publicationsystem:resource
+        jcr:primaryType: publicationsystem:mapSection
+        publicationsystem:chartConfig: '{"title":{"text":"Countries"},"series":[{"name":"Example
+          Data","data":[["ie-irl",10.0],["gb-eng",20.0],["gb-wls",30.0],["gb-sct",40.0],["gb-imn",50.0],["gb-nir",60.0]]}],"chart":{"map":"custom/british-isles","zoomType":""},"colorAxis":{"min":0},"mapNavigation":{"enabled":true,"buttonOptions":{"verticalAlign":"bottom"}}}'
+        publicationsystem:mapSource: British Isles Countries
+        publicationsystem:title: Countries
       common:searchable: true
       hippo:availability:
       - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-04-09T12:26:14.588Z
-      hippostdpubwf:lastModificationDate: 2018-05-30T15:14:53.724Z
+      hippostdpubwf:lastModificationDate: 2018-06-14T20:50:40.518Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-05-30T15:14:58.081Z
+      hippostdpubwf:publicationDate: 2018-06-14T21:02:41.575Z
       hippotranslation:id: 8318b0a7-a10e-41b5-a5f7-978c530211a7
       hippotranslation:locale: en
       jcr:mixinTypes:

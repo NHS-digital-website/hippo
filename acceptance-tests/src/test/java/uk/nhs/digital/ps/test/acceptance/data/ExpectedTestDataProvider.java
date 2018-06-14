@@ -206,7 +206,9 @@ public class ExpectedTestDataProvider {
                 new ImageSection("sectioned publication page business", "Half image"),
                 new ImageSection("sectioned publication page computer", "Half with caption and link", "Google Link", "https://google.com/")
             ),
-            new ImageSection("sectioned publication page arms", "Full image")
+            new ImageSection("sectioned publication page arms", "Full image"),
+            new ChartSection("Counties"),
+            new ChartSection("Countries")
         );
 
         List<PublicationPageBuilder> pages = asList(

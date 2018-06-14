@@ -22,6 +22,7 @@ definitions:
     /hippo:configuration/hippo:groups/webmaster:
       .meta:delete: true
     /hippo:configuration/hippo:modules/webfiles/hippo:moduleconfig:
+      maxFileLengthKb: 300
       watchedModules:
       - repository-data/webfiles
   namespace:

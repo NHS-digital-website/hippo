@@ -35,6 +35,11 @@ definitions:
           jcr:name: Legacy Publication
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:mapSection:
+        /en:
+          jcr:name: Map
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /publicationsystem:publication:
         /en:
           jcr:name: Publication

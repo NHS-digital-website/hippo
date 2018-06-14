@@ -7,37 +7,33 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import uk.nhs.digital.ps.chart.AbstractHighchartsParameters;
 import uk.nhs.digital.ps.chart.ChartType;
-import uk.nhs.digital.ps.chart.SeriesChart;
-import uk.nhs.digital.ps.chart.model.Point;
-import uk.nhs.digital.ps.chart.model.Series;
-import uk.nhs.digital.ps.chart.model.Tooltip;
+import uk.nhs.digital.ps.chart.model.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import javax.jcr.Binary;
 import javax.jcr.RepositoryException;
 
-public class ScatterHighchartsXlsxParser extends AbstractHighchartsXlsxInputParser {
+public class ScatterHighchartsXlsxInputParser extends AbstractHighchartsXlsxInputParser {
 
     private static final int SCATTER_SHEET_INDEX = 0;
     private static final int FUNNEL_SHEET_INDEX = 1;
     private static final String TOOLTIP_HEADER_FORMAT = "<b>{series.name}:</b>";
 
-    public ScatterHighchartsXlsxParser() {
+    public ScatterHighchartsXlsxInputParser() {
         super(SCATTER_PLOT, FUNNEL_PLOT);
     }
 
-    protected SeriesChart newSeriesChart(final ChartType chartType,
-                                         final String chartTitle,
-                                         final String chartYTitle,
-                                         final Binary inputFileContent
+    protected HighchartsModel parseXlsxChart(final AbstractHighchartsParameters parameters
     ) throws IOException, RepositoryException {
-        final ChartData chartData = new ChartData();
 
-        final XSSFWorkbook workbook = readXssfWorkbook(inputFileContent);
+        final ChartType chartType = parameters.getChartType();
+
+        final XSSFWorkbook workbook = readXssfWorkbook(parameters.getInputFileContent());
+        final ChartData chartData = new ChartData();
 
         // Funnel plot requires 2 sheets (1 for scatter, 1 for control limits). If not provided, halt processing
         if (chartType.equals(FUNNEL_PLOT) && workbook.getNumberOfSheets() != 2) {
@@ -62,7 +58,7 @@ public class ScatterHighchartsXlsxParser extends AbstractHighchartsXlsxInputPars
 
         final ArrayList<Series> seriesValues = new ArrayList<>(chartData.getSeries().values());
 
-        return new SeriesChart(chartType, chartTitle, seriesValues, chartData.getyAxisTitle(),
+        return new HighchartsModel(chartType, parameters.getTitle(), seriesValues, chartData.getyAxisTitle(),
             chartData.getxAxisTitle(), null);
     }
 

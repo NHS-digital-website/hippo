@@ -8,7 +8,8 @@ public enum ChartType {
     STACKED_COLUMN("column", true),
     LINE("line"),
     SCATTER_PLOT("scatter"),
-    FUNNEL_PLOT("funnel");
+    FUNNEL_PLOT("funnel"),
+    AREA_MAP(null);
 
     private final String highChartsType;
     private final boolean stacked;

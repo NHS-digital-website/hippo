@@ -1,18 +1,18 @@
 package uk.nhs.digital.ps.workflow.highcharts;
 
 import static java.util.Arrays.asList;
+import static java.util.Collections.singletonList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.fail;
+import static org.mockito.ArgumentMatchers.refEq;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.mock;
 import static org.mockito.MockitoAnnotations.initMocks;
-import static uk.nhs.digital.ps.PublicationSystemConstants.NODE_TYPE_DATA_FILE;
 import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_CHART_CONFIG;
-import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_CHART_TITLE;
-import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_CHART_TYPE;
-import static uk.nhs.digital.ps.PublicationSystemConstants.PROPERTY_CHART_YTITLE;
+import static uk.nhs.digital.ps.chart.ChartType.AREA_MAP;
+import static uk.nhs.digital.ps.chart.MapSource.BRITISH_ISLES_COUNTIES;
 
 import org.apache.sling.testing.mock.jcr.MockJcr;
 import org.apache.sling.testing.mock.jcr.MockQueryResult;
@@ -22,37 +22,41 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.onehippo.repository.documentworkflow.DocumentVariant;
 import uk.nhs.digital.common.util.json.JsonSerialiser;
-import uk.nhs.digital.ps.ChartConfig;
-import uk.nhs.digital.ps.chart.SeriesChart;
+import uk.nhs.digital.ps.chart.*;
 import uk.nhs.digital.ps.chart.input.HighchartsInputParser;
+import uk.nhs.digital.ps.chart.input.HighchartsJcrNodeReader;
+import uk.nhs.digital.ps.chart.model.HighchartsModel;
+import uk.nhs.digital.ps.chart.model.HighmapsModel;
 
+import java.util.List;
 import java.util.UUID;
-import javax.jcr.Binary;
-import javax.jcr.Node;
-import javax.jcr.Repository;
-import javax.jcr.RepositoryException;
-import javax.jcr.Session;
+import javax.jcr.*;
 
 public class HighchartsInputConversionTaskTest {
 
     @Mock private WorkflowContext workflowContext;
     @Mock private JsonSerialiser jsonSerialiser;
     @Mock private HighchartsInputParser highchartsInputParser;
+    @Mock private HighchartsJcrNodeReader highchartsJcrNodeReader;
     @Mock private DocumentVariant documentVariant;
 
-    private Repository repository;
     private Session workflowSession;
     private Node documentVariantNode;
 
-    private ChartConfig chartConfigA;
+    private HighchartsParameters chartConfigA;
     private String chartConfigJsonA;
-    private SeriesChart seriesChartA;
-    private Node chartConfigNodeA;
+    @Mock private HighchartsModel seriesChartA;
+    @Mock private Node chartConfigNodeA;
 
-    private ChartConfig chartConfigB;
+    private HighchartsParameters chartConfigB;
     private String chartConfigJsonB;
-    private SeriesChart seriesChartB;
-    private Node chartConfigNodeB;
+    @Mock private HighchartsModel seriesChartB;
+    @Mock private Node chartConfigNodeB;
+
+    private HighmapsParameters mapConfig;
+    private String mapConfigJson;
+    @Mock private HighmapsModel mapModel;
+    @Mock private Node mapConfigNode;
 
     private HighchartsInputConversionTask highchartsInputConversionTask;
 
@@ -60,8 +64,7 @@ public class HighchartsInputConversionTaskTest {
     public void setUp() throws Exception {
         initMocks(this);
 
-        repository = MockJcr.newRepository();
-        workflowSession = repository.login();
+        workflowSession = MockJcr.newSession();
 
         given(workflowContext.getInternalWorkflowSession()).willReturn(workflowSession);
 
@@ -72,8 +75,7 @@ public class HighchartsInputConversionTaskTest {
         given(documentVariant.getNode(workflowSession)).willReturn(documentVariantNode);
 
         highchartsInputConversionTask = new HighchartsInputConversionTask(
-            jsonSerialiser, highchartsInputParser
-        );
+            jsonSerialiser, highchartsInputParser, highchartsJcrNodeReader);
         highchartsInputConversionTask.setWorkflowContext(workflowContext);
         highchartsInputConversionTask.setVariant(documentVariant);
     }
@@ -88,19 +90,17 @@ public class HighchartsInputConversionTaskTest {
         highchartsInputConversionTask.doExecute();
 
         // then
-        then(highchartsInputParser).should().parse(chartConfigA);
-        then(jsonSerialiser).should().toJson(seriesChartA);
-        assertThat("Chart JSON config set on node A",
-            chartConfigNodeA.getProperty(PROPERTY_CHART_CONFIG).getString(),
-            is(chartConfigJsonA)
-        );
+        then(highchartsInputParser).should().parse(refEq(chartConfigA));
+        then(jsonSerialiser).should().toJson(refEq(seriesChartA));
+        then(chartConfigNodeA).should().setProperty(PROPERTY_CHART_CONFIG, chartConfigJsonA);
 
-        then(highchartsInputParser).should().parse(chartConfigB);
-        then(jsonSerialiser).should().toJson(seriesChartB);
-        assertThat("Chart JSON config set on node B",
-            chartConfigNodeB.getProperty(PROPERTY_CHART_CONFIG).getString(),
-            is(chartConfigJsonB)
-        );
+        then(highchartsInputParser).should().parse(refEq(chartConfigB));
+        then(jsonSerialiser).should().toJson(refEq(seriesChartB));
+        then(chartConfigNodeB).should().setProperty(PROPERTY_CHART_CONFIG, chartConfigJsonB);
+
+        then(highchartsInputParser).should().parse(refEq(mapConfig));
+        then(jsonSerialiser).should().toJson(refEq(mapModel));
+        then(mapConfigNode).should().setProperty(PROPERTY_CHART_CONFIG, mapConfigJson);
     }
 
     @Test
@@ -126,7 +126,7 @@ public class HighchartsInputConversionTaskTest {
         final RuntimeException expectedException = new RuntimeException(
             "parsing exception" + newRandomString()
         );
-        given(highchartsInputParser.parse(chartConfigA)).willThrow(expectedException);
+        given(highchartsInputParser.parse(refEq(chartConfigA))).willThrow(expectedException);
 
         // when/then
         assertExceptionReThrown(expectedException);
@@ -141,7 +141,7 @@ public class HighchartsInputConversionTaskTest {
         final RuntimeException expectedException = new RuntimeException(
             "json serialising exception" + newRandomString()
         );
-        given(jsonSerialiser.toJson(seriesChartA)).willThrow(expectedException);
+        given(jsonSerialiser.toJson(refEq(seriesChartA))).willThrow(expectedException);
 
         // when/then
         assertExceptionReThrown(expectedException);
@@ -191,65 +191,52 @@ public class HighchartsInputConversionTaskTest {
 
         chartConfigA = newChartConfig();
         chartConfigJsonA = newRandomString();
-        seriesChartA = mock(SeriesChart.class);
-        given(highchartsInputParser.parse(chartConfigA)).willReturn(seriesChartA);
+        given(highchartsInputParser.parse(refEq(chartConfigA))).willReturn(seriesChartA);
         given(jsonSerialiser.toJson(seriesChartA)).willReturn(chartConfigJsonA);
 
         // chart section B parameters
 
         chartConfigB = newChartConfig();
         chartConfigJsonB = newRandomString();
-        seriesChartB = mock(SeriesChart.class);
-        given(highchartsInputParser.parse(chartConfigB)).willReturn(seriesChartB);
+        given(highchartsInputParser.parse(refEq(chartConfigB))).willReturn(seriesChartB);
         given(jsonSerialiser.toJson(seriesChartB)).willReturn(chartConfigJsonB);
 
-        // nodes' creation
+        // map section parameters
 
-        chartConfigNodeA = addChartConfigNode(documentVariantNode, chartConfigA, "[A]");
-        documentVariantNode.addNode(
-            // non-chart section node to ensure query takes node types into account
-            // and ignores the irrelevant ones
-            "publicationsystem:bodySections", "publicationsystem:non-chart-section"
-        );
-        chartConfigNodeB = addChartConfigNode(documentVariantNode, chartConfigB, "[B]");
+        mapConfig = new HighmapsParameters(AREA_MAP.name(), BRITISH_ISLES_COUNTIES.name(), newRandomString(), mock(Binary.class));
+        mapConfigJson = newRandomString();
+        given(highchartsInputParser.parse(refEq(mapConfig))).willReturn(mapModel);
+        given(jsonSerialiser.toJson(mapModel)).willReturn(mapConfigJson);
+
+        // node parameter reading
+
+        given(highchartsJcrNodeReader.readParameters(chartConfigNodeA)).willReturn(chartConfigA);
+        given(highchartsJcrNodeReader.readParameters(chartConfigNodeB)).willReturn(chartConfigB);
+        given(highchartsJcrNodeReader.readParameters(mapConfigNode)).willReturn(mapConfig);
 
         // query for chart config nodes
 
+        addQueryResult("publicationsystem:chartSection", asList(chartConfigNodeA, chartConfigNodeB));
+        addQueryResult("publicationsystem:mapSection", singletonList(mapConfigNode));
+    }
+
+    private void addQueryResult(String primaryType, List<Node> result) throws RepositoryException {
         final String documentVariantNodePath = documentVariantNode.getPath();
         MockJcr.addQueryResultHandler(
             workflowSession,
             mockQuery -> mockQuery.getStatement().matches(
-                "SELECT \\* FROM \\[publicationsystem:chartSection].*ISDESCENDANTNODE \\(\\['"
+                "SELECT \\* FROM \\["
+                    + primaryType
+                    + "].*ISDESCENDANTNODE \\(\\['"
                     + documentVariantNodePath + "']\\).*"
             )
-                ? new MockQueryResult(asList(chartConfigNodeA, chartConfigNodeB))
+                ? new MockQueryResult(result)
                 : null
         );
     }
 
-    private Node addChartConfigNode(final Node documentVariantNode,
-                                    final ChartConfig chartConfig,
-                                    final String nodeNameSuffix
-    ) throws RepositoryException {
-
-        final Node chartConfigNode = documentVariantNode.addNode(
-            "publicationsystem:bodySections" + nodeNameSuffix, "publicationsystem:chartSection"
-        );
-
-        chartConfigNode.setProperty(PROPERTY_CHART_TITLE, chartConfig.getTitle());
-        chartConfigNode.setProperty(PROPERTY_CHART_TYPE, chartConfig.getType());
-        chartConfigNode.setProperty(PROPERTY_CHART_YTITLE, chartConfig.getYTitle());
-
-        final Node dataFileNode = chartConfigNode.addNode(
-            NODE_TYPE_DATA_FILE, "publicationsystem:resource"
-        );
-        dataFileNode.setProperty("jcr:data", chartConfig.getInputFileContent());
-
-        return chartConfigNode;
-    }
-
-    private ChartConfig newChartConfig() {
-        return new ChartConfig(newRandomString(), newRandomString(), newRandomString(), mock(Binary.class));
+    private HighchartsParameters newChartConfig() {
+        return new HighchartsParameters(ChartType.PIE.name(), newRandomString(), newRandomString(), mock(Binary.class));
     }
 
     private String newRandomString() {

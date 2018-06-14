@@ -19,8 +19,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
-import uk.nhs.digital.ps.ChartConfig;
 import uk.nhs.digital.ps.chart.input.SeriesHighchartsXlsxInputParser;
+import uk.nhs.digital.ps.chart.model.HighchartsModel;
 import uk.nhs.digital.ps.chart.model.Point;
 import uk.nhs.digital.ps.chart.model.Series;
 
@@ -85,7 +85,7 @@ public class SeriesHighchartsXlsxInputParserTest {
 
         // when
         seriesHighchartsXlsxInputParser.parse(
-            new ChartConfig(type, chartTitle, yAxisTitle, binary)
+            new HighchartsParameters(type, chartTitle, yAxisTitle, binary)
         );
 
         // then
@@ -99,8 +99,8 @@ public class SeriesHighchartsXlsxInputParserTest {
         String type = "Line";
 
         // when
-        SeriesChart chart = seriesHighchartsXlsxInputParser.parse(
-            new ChartConfig(type, chartTitle, yAxisTitle, binary)
+        HighchartsModel chart = (HighchartsModel) seriesHighchartsXlsxInputParser.parse(
+            new HighchartsParameters(type, chartTitle, yAxisTitle, binary)
         );
 
         // then
@@ -138,8 +138,8 @@ public class SeriesHighchartsXlsxInputParserTest {
     public void parseAsPieSetsCorrectOptions() {
 
         // when
-        SeriesChart chart = seriesHighchartsXlsxInputParser.parse(
-            new ChartConfig("Pie", chartTitle, yAxisTitle, binary)
+        HighchartsModel chart = (HighchartsModel) seriesHighchartsXlsxInputParser.parse(
+            new HighchartsParameters("Pie", chartTitle, yAxisTitle, binary)
         );
 
         // then
@@ -169,8 +169,8 @@ public class SeriesHighchartsXlsxInputParserTest {
     public void parseAsStackedChartSetsCorrectOptions() {
 
         // when
-        SeriesChart chart = seriesHighchartsXlsxInputParser.parse(
-            new ChartConfig("Stacked Bar", chartTitle, yAxisTitle, binary)
+        HighchartsModel chart = (HighchartsModel) seriesHighchartsXlsxInputParser.parse(
+            new HighchartsParameters("Stacked Bar", chartTitle, yAxisTitle, binary)
         );
 
         // then
@@ -201,7 +201,7 @@ public class SeriesHighchartsXlsxInputParserTest {
         };
     }
 
-    private <T> List<T> getValues(Series first, Function<Point, T> function) {
+    private <T> List<T> getValues(Series<Point> first, Function<Point, T> function) {
         return first.getData().stream()
             .map(function)
             .collect(toList());

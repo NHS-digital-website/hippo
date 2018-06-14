@@ -36,6 +36,9 @@
 [publicationsystem:legacypublication] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
   orderable
 
+[publicationsystem:mapSection] > hippo:compound, hippostd:relaxed
+  orderable
+
 [publicationsystem:publication] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
   orderable
 
