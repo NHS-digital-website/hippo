@@ -1,14 +1,13 @@
 <#ftl output_format="HTML">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="<@hst.webfile path="/js/jquery/jquery-2.1.3.min.js"/>"></script>
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="<@hst.webfile path="/js/highcharts/highcharts.js"/>"></script>
 <!--[if lt IE 9]>
-<script src="https://code.highcharts.com/modules/oldie.js"></script>
+<script src="<@hst.webfile path="/js/highcharts/oldie.js"/>"></script>
 <![endif]-->
-
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/offline-exporting.js"></script>
+<script src="<@hst.webfile path="/js/highcharts/exporting.js"/>"></script>
+<script src="<@hst.webfile path="/js/highcharts/offline-exporting.js"/>"></script>
 
 <script>
     Highcharts.setOptions({
