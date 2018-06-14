@@ -38,7 +38,10 @@ public class ImageSection extends HippoCompound {
     public Size getSize() {
         String imageSize = getImageSize();
 
-        return isEmpty(imageSize) ? null : Size.valueOf(imageSize.toUpperCase());
+        // Temporarily adding "old" option which won't try to resize the images
+        return isEmpty(imageSize) || imageSize.equalsIgnoreCase("old")
+            ? null
+            : Size.valueOf(imageSize.toUpperCase());
     }
 
     public String getSectionType() {
