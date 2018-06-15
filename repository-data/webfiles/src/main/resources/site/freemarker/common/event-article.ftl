@@ -9,7 +9,42 @@
 <@hst.setBundle basename="site.website.labels"/>
 <@fmt.message key="child-pages-section.title" var="childPagesSectionTitle"/>
 
+<#if document.summaryimage?? && document.summaryimage.original??>
+    <@hst.link hippobean=document.summaryimage.original fullyQualified=true var="summaryImage" />
+</#if>
+
+<#macro schemaMeta title startTimeData = '' endTimeData = ''>
+    <#-- [BEGIN] Schema microdata -->
+    <meta itemprop="name" content="${title}">
+    <link itemprop="url" href="${getDocumentUrl()}" rel="author" />
+    <meta itemprop="description" content="${document.seosummary}">
+    <meta itemprop="location" content="${document.location}">
+
+    <#if startTimeData?has_content && startTimeData?is_date>
+        <@fmt.formatDate value=startTimeData type="date" pattern="yyyy-MM-dd" var="startDate" timeZone="${getTimeZone()}" />
+        <@fmt.formatDate value=startTimeData type="time" pattern="HH:mm:ss" var="startDateTime" timeZone="${getTimeZone()}" />
+        <meta itemprop="startDate" content="${startDate}T${startDateTime}">
+    </#if>
+    
+    <#if endTimeData?has_content && endTimeData?is_date>
+        <@fmt.formatDate value=endTimeData type="date" pattern="yyyy-MM-dd" var="endDate" timeZone="${getTimeZone()}" />
+        <@fmt.formatDate value=endTimeData type="time" pattern="HH:mm:ss" var="endDateTime" timeZone="${getTimeZone()}" />
+        <meta itemprop="endDate" content="${endDate}T${endDateTime}">
+    </#if>
+    
+    <#if summaryImage??>
+        <meta itemprop="image" content="${summaryImage}">
+    </#if>
+    <#-- [END] Schema microdata -->
+</#macro>
+
+<#assign hasSessions = document.events?size gte 1 />
+
+<#if !hasSessions>
+<article class="article article--event" itemscope itemtype="http://schema.org/Event">
+<#else>
 <article class="article article--event">
+</#if>
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
         <div class="local-header article-header article-header--detailed">
             <div class="grid-wrapper">
@@ -19,47 +54,55 @@
                     <hr class="hr hr--short hr--light">
 
                     <div class="tabbed-detail-list">
-                        <#-- [FTL-BEGIN] List of date ranges -->
-                        <#list document.events as event>
-                        
-                        <@fmt.formatDate value=event.startdatetime.time type="Date" pattern="yyyy-MM-dd" var="comparableStartDate" timeZone="${getTimeZone()}" />
-                        <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="yyyy-MM-dd" var="comparableEndDate"  timeZone="${getTimeZone()}"/>
-                        <#assign validDate = (comparableStartDate?? && comparableEndDate??) />
+                        <#if hasSessions>
+                            <#-- [FTL-BEGIN] List of date ranges -->
+                            <#list document.events as event>
+                            
+                                <@fmt.formatDate value=event.startdatetime.time type="Date" pattern="yyyy-MM-dd" var="comparableStartDate" timeZone="${getTimeZone()}" />
+                                <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="yyyy-MM-dd" var="comparableEndDate"  timeZone="${getTimeZone()}"/>
+                                <#assign validDate = (comparableStartDate?? && comparableEndDate??) />
 
-                        <#if document.events?size gt 1 && validDate>
-                        <h4 class="tabbed-detail-title">Session ${event?counter}</h4>
-                        </#if>   
+                                <div itemscope itemtype="http://schema.org/Event" class="tabbed-detail-wrapper">
+                                    <#if document.events?size gt 1 && validDate>
+                                    <h4 class="tabbed-detail-title">Session ${event?counter}</h4>
+                                    </#if>   
 
-                        <#if validDate>
-                        <div class="tabbed-detail">                            
-                            <#if comparableStartDate == comparableEndDate>
-                            <dl class="tabbed-detail__wrapper">
-                                <dt class="tabbed-detail__key">Date:</dt>
-                                <dd class="tabbed-detail__value" data-uipath="">
-                                    <span><@fmt.formatDate value=event.startdatetime.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" /></span>
-                                </dd>
-                            </dl>
-                            <#else>
-                            <dl class="tabbed-detail__wrapper">
-                                <dt class="tabbed-detail__key">Date:</dt>
-                                <dd class="tabbed-detail__value" data-uipath="">
-                                    <span><@fmt.formatDate value=event.startdatetime.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" /> - <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" /></span>
-                                </dd>
-                            </dl>
-                            </#if>
-                        </div>
+                                    <#if validDate>
+                                        <div class="tabbed-detail">                            
+                                            <#if comparableStartDate == comparableEndDate>
+                                            <dl class="tabbed-detail__wrapper">
+                                                <dt class="tabbed-detail__key">Date:</dt>
+                                                <dd class="tabbed-detail__value" data-uipath="">
+                                                    <span><@fmt.formatDate value=event.startdatetime.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" /></span>
+                                                </dd>
+                                            </dl>
+                                            <#else>
+                                            <dl class="tabbed-detail__wrapper">
+                                                <dt class="tabbed-detail__key">Date:</dt>
+                                                <dd class="tabbed-detail__value" data-uipath="">
+                                                    <span><@fmt.formatDate value=event.startdatetime.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" /> - <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" /></span>
+                                                </dd>
+                                            </dl>
+                                            </#if>
+                                        </div>
 
-                        <div class="tabbed-detail">
-                            <dl class="tabbed-detail__wrapper">
-                                <dt class="tabbed-detail__key">Time:</dt>
-                                <dd class="tabbed-detail__value" data-uipath="">
-                                    <span><@fmt.formatDate value=event.startdatetime.time type="Date" pattern="h:mm a" timeZone="${getTimeZone()}" /> to <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="h:mm a" timeZone="${getTimeZone()}" /></span>
-                                </dd>
-                            </dl>
-                        </div>
+                                        <div class="tabbed-detail">
+                                            <dl class="tabbed-detail__wrapper">
+                                                <dt class="tabbed-detail__key">Time:</dt>
+                                                <dd class="tabbed-detail__value" data-uipath="">
+                                                    <span><@fmt.formatDate value=event.startdatetime.time type="Date" pattern="h:mm a" timeZone="${getTimeZone()}" /> to <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="h:mm a" timeZone="${getTimeZone()}" /></span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+
+                                        <@schemaMeta "${document.title}" event.startdatetime.time event.enddatetime.time />
+                                    </#if>
+                                </div>
+                            </#list>
+                            <#-- [FTL-END] List of date ranges -->
+                        <#else>
+                            <@schemaMeta "${document.title}" />
                         </#if>
-                        </#list>
-                        <#-- [FTL-END] List of date ranges -->
 
 
                         <#-- [FTL-BEGIN] Location -->

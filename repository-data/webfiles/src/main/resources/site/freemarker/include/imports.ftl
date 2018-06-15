@@ -193,3 +193,14 @@
     </#if>
     <#return titlesFound />
 </#function>
+
+<#-- Return the canonical document URL -->
+<#function getDocumentUrl>
+    <#if hstRequestContext?? && hstRequestContext.getContentBean()??>
+        <@hst.link hippobean=hstRequestContext.getContentBean() fullyQualified=true var="documentUrl" />
+    <#else>
+        <@hst.link fullyQualified=true var="documentUrl" />
+    </#if>
+    <#return documentUrl />
+</#function>
+

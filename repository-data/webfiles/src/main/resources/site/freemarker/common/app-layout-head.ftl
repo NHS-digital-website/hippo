@@ -13,11 +13,8 @@
     <meta property="og:locale" content="en_GB" />
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image" content="<@hst.webfile path="images/nhs-digital-logo-social.jpg" fullyQualified=true/>">
-    <#if hstRequestContext?? && hstRequestContext.getContentBean()??>
-        <meta property="og:url" content="<@hst.link hippobean=hstRequestContext.getContentBean() fullyQualified=true />">
-    <#else>
-        <meta property="og:url" content="<@hst.link fullyQualified=true />">
-    </#if>
+    <meta property="og:url" content="${getDocumentUrl()}">
+    
     <@hst.headContributions categoryExcludes="htmlBodyEnd, scripts" categoryIncludes="facebookMeta" xhtml=true/>
     
     <!-- Twitter meta tags -->
