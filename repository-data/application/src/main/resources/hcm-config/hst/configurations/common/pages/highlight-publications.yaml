@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/highlight-publications:
+      /main:
+        hst:componentclassname: uk.nhs.digital.ps.components.HighlightPublicationsComponent
+        hst:template: highlight-publications
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/pubs_apppage
+      jcr:primaryType: hst:component

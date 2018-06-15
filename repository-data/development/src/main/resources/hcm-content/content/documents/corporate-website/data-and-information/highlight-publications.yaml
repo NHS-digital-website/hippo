@@ -1,0 +1,212 @@
+---
+/content/documents/corporate-website/data-and-information/highlight-publications:
+  /highlight-publications[1]:
+    /publicationsystem:freedomOfInformation:
+      hippostd:content: <p>Some FOI text</p>
+      jcr:primaryType: hippostd:html
+    /publicationsystem:highlightSections:
+      /publicationsystem:publicationTiles[1]:
+        /publicationsystem:image:
+          hippo:filename: chart.png
+          jcr:data:
+            resource: /content/documents/corporate-website/data-and-information/highlight-publications/highlight-publications[1]/highlightSections/publicationTiles[1]/image/chart.png
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-07-03T14:22:08.403Z
+          jcr:mimeType: image/png
+          jcr:primaryType: hippo:resource
+        /publicationsystem:publicationLink:
+          hippo:docbase: 6e7ecded-4e7d-4f92-9f56-ed4dddbce287
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: publicationsystem:highlightTile
+        publicationsystem:summary: Test summary test for tile
+      /publicationsystem:publicationTiles[2]:
+        /publicationsystem:image:
+          hippo:filename: chart.png
+          jcr:data:
+            resource: /content/documents/corporate-website/data-and-information/highlight-publications/highlight-publications[1]/highlightSections/publicationTiles[2]/image/chart.png
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-07-03T15:22:35.913Z
+          jcr:mimeType: image/png
+          jcr:primaryType: hippo:resource
+        /publicationsystem:publicationLink:
+          hippo:docbase: 6e7ecded-4e7d-4f92-9f56-ed4dddbce287
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: publicationsystem:highlightTile
+        publicationsystem:summary: Another summary for the tile
+      /publicationsystem:publicationTiles[3]:
+        /publicationsystem:image:
+          hippo:filename: chart.png
+          jcr:data:
+            resource: /content/documents/corporate-website/data-and-information/highlight-publications/highlight-publications[1]/highlightSections/publicationTiles[3]/image/chart.png
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-07-03T15:29:22.309Z
+          jcr:mimeType: image/png
+          jcr:primaryType: hippo:resource
+        /publicationsystem:publicationLink:
+          hippo:docbase: 6e7ecded-4e7d-4f92-9f56-ed4dddbce287
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: publicationsystem:highlightTile
+        publicationsystem:summary: Hot off the press publication summary
+      jcr:primaryType: publicationsystem:highlightSection
+      publicationsystem:publishedDate: 2018-07-02T23:00:00Z
+    /publicationsystem:relatedAreas:
+      hippostd:content: <p>Some related Area text</p>
+      jcr:primaryType: hippostd:html
+    common:searchable: true
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-07-03T14:21:41.804Z
+    hippostdpubwf:lastModificationDate: 2018-07-03T15:29:13.954Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 06daff75-b76a-4a23-871a-31bf3eef410f
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:highlightPublications
+  /highlight-publications[2]:
+    /publicationsystem:freedomOfInformation:
+      hippostd:content: <p>Some FOI text</p>
+      jcr:primaryType: hippostd:html
+    /publicationsystem:highlightSections:
+      /publicationsystem:publicationTiles[1]:
+        /publicationsystem:image:
+          hippo:filename: chart.png
+          jcr:data:
+            resource: /content/documents/corporate-website/data-and-information/highlight-publications/highlight-publications[2]/highlightSections/publicationTiles[1]/image/chart.png
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-07-03T14:22:08.403Z
+          jcr:mimeType: image/png
+          jcr:primaryType: hippo:resource
+        /publicationsystem:publicationLink:
+          hippo:docbase: 6e7ecded-4e7d-4f92-9f56-ed4dddbce287
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: publicationsystem:highlightTile
+        publicationsystem:summary: Test summary test for tile
+      /publicationsystem:publicationTiles[2]:
+        /publicationsystem:image:
+          hippo:filename: chart.png
+          jcr:data:
+            resource: /content/documents/corporate-website/data-and-information/highlight-publications/highlight-publications[2]/highlightSections/publicationTiles[2]/image/chart.png
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-07-03T15:22:35.913Z
+          jcr:mimeType: image/png
+          jcr:primaryType: hippo:resource
+        /publicationsystem:publicationLink:
+          hippo:docbase: 6e7ecded-4e7d-4f92-9f56-ed4dddbce287
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: publicationsystem:highlightTile
+        publicationsystem:summary: Another summary for the tile
+      /publicationsystem:publicationTiles[3]:
+        /publicationsystem:image:
+          hippo:filename: chart.png
+          jcr:data:
+            resource: /content/documents/corporate-website/data-and-information/highlight-publications/highlight-publications[2]/highlightSections/publicationTiles[3]/image/chart.png
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-07-03T15:29:22.309Z
+          jcr:mimeType: image/png
+          jcr:primaryType: hippo:resource
+        /publicationsystem:publicationLink:
+          hippo:docbase: 6e7ecded-4e7d-4f92-9f56-ed4dddbce287
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: publicationsystem:highlightTile
+        publicationsystem:summary: Hot off the press publication summary
+      jcr:primaryType: publicationsystem:highlightSection
+      publicationsystem:publishedDate: 2018-07-02T23:00:00Z
+    /publicationsystem:relatedAreas:
+      hippostd:content: <p>Some related Area text</p>
+      jcr:primaryType: hippostd:html
+    common:searchable: true
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-07-03T14:21:41.804Z
+    hippostdpubwf:lastModificationDate: 2018-07-03T15:29:54.697Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 06daff75-b76a-4a23-871a-31bf3eef410f
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: publicationsystem:highlightPublications
+  /highlight-publications[3]:
+    /publicationsystem:freedomOfInformation:
+      hippostd:content: <p>Some FOI text</p>
+      jcr:primaryType: hippostd:html
+    /publicationsystem:highlightSections:
+      /publicationsystem:publicationTiles[1]:
+        /publicationsystem:image:
+          hippo:filename: chart.png
+          jcr:data:
+            resource: /content/documents/corporate-website/data-and-information/highlight-publications/highlight-publications[3]/highlightSections/publicationTiles[1]/image/chart.png
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-07-03T14:22:08.403Z
+          jcr:mimeType: image/png
+          jcr:primaryType: hippo:resource
+        /publicationsystem:publicationLink:
+          hippo:docbase: 6e7ecded-4e7d-4f92-9f56-ed4dddbce287
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: publicationsystem:highlightTile
+        publicationsystem:summary: Test summary test for tile
+      /publicationsystem:publicationTiles[2]:
+        /publicationsystem:image:
+          hippo:filename: chart.png
+          jcr:data:
+            resource: /content/documents/corporate-website/data-and-information/highlight-publications/highlight-publications[3]/highlightSections/publicationTiles[2]/image/chart.png
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-07-03T15:22:35.913Z
+          jcr:mimeType: image/png
+          jcr:primaryType: hippo:resource
+        /publicationsystem:publicationLink:
+          hippo:docbase: 6e7ecded-4e7d-4f92-9f56-ed4dddbce287
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: publicationsystem:highlightTile
+        publicationsystem:summary: Another summary for the tile
+      /publicationsystem:publicationTiles[3]:
+        /publicationsystem:image:
+          hippo:filename: chart.png
+          jcr:data:
+            resource: /content/documents/corporate-website/data-and-information/highlight-publications/highlight-publications[3]/highlightSections/publicationTiles[3]/image/chart.png
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-07-03T15:29:22.309Z
+          jcr:mimeType: image/png
+          jcr:primaryType: hippo:resource
+        /publicationsystem:publicationLink:
+          hippo:docbase: 6e7ecded-4e7d-4f92-9f56-ed4dddbce287
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: publicationsystem:highlightTile
+        publicationsystem:summary: Hot off the press publication summary
+      jcr:primaryType: publicationsystem:highlightSection
+      publicationsystem:publishedDate: 2018-07-02T23:00:00Z
+    /publicationsystem:relatedAreas:
+      hippostd:content: <p>Some related Area text</p>
+      jcr:primaryType: hippostd:html
+    common:searchable: true
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-07-03T14:21:41.804Z
+    hippostdpubwf:lastModificationDate: 2018-07-03T15:29:54.697Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2018-07-03T15:29:57.064Z
+    hippotranslation:id: 06daff75-b76a-4a23-871a-31bf3eef410f
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:highlightPublications
+  hippo:name: Highlight publications
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

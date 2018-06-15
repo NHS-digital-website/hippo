@@ -56,6 +56,9 @@ definitions:
       /general-article:
         hst:renderpath: webfile:/freemarker/common/general-article.ftl
         jcr:primaryType: hst:template
+      /highlight-publications:
+        hst:renderpath: webfile:/freemarker/publicationsystem/highlight-publications.ftl
+        jcr:primaryType: hst:template
       /homeland:
         hst:renderpath: webfile:/freemarker/common/homeland.ftl
         jcr:primaryType: hst:template

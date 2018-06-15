@@ -9,13 +9,16 @@
   orderable
   - common:searchable (boolean) = 'true' autocreated
 
+[publicationsystem:highlightPublications] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
+  orderable
+
 [publicationsystem:archive] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
   orderable
 
 [publicationsystem:attachment] > hippo:compound, hippostd:relaxed
   orderable
 
-[publicationsystem:chartSection] > hippo:compound, hippostd:relaxed, hippo:derived
+[publicationsystem:chartSection] > hippo:compound, hippo:derived, hippostd:relaxed
   orderable
 
 [publicationsystem:cilanding] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
@@ -28,6 +31,12 @@
   orderable
 
 [publicationsystem:extattachment] > hippo:compound, hippostd:relaxed
+  orderable
+
+[publicationsystem:highlightSection] > hippo:compound, hippostd:relaxed
+  orderable
+
+[publicationsystem:highlightTile] > hippo:compound, hippostd:relaxed
   orderable
 
 [publicationsystem:imageSection] > hippo:compound, hippostd:relaxed

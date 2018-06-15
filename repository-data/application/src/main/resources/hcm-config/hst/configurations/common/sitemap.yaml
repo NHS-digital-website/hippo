@@ -69,6 +69,10 @@ definitions:
           - hst:pages/componentlist
           hst:relativecontentpath: data-and-information/content
           jcr:primaryType: hst:sitemapitem
+        /highlight-publications:
+          hst:componentconfigurationid: hst:pages/highlight-publications
+          hst:relativecontentpath: data-and-information/highlight-publications
+          jcr:primaryType: hst:sitemapitem
         /national-indicator-library:
           /_any_:
             hst:componentconfigurationid: hst:pages/404
