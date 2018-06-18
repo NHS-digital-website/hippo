@@ -10,7 +10,7 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 public class Assetlink extends HippoCompound {
 
     // used to differentiate between different types of content blocks
-    public String getType() {
+    public String getLinkType() {
         return "asset";
     }
 
