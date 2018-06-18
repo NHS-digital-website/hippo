@@ -17,7 +17,7 @@
                 </li>
                 <li class="breadcrumb__crumb">
                     <img src="<@hst.webfile  path="images/icon-arrow.png"/>" alt="Right arrow icon" class="breadcrumb__sep"/>
-                    <span class="breadcrumb__link breadcrumb__link--secondary">${documentTitle}</span>
+                    <span class="breadcrumb__link breadcrumb__link--secondary" data-uipath="document.title">${documentTitle}</span>
                 </li>
             </ol>
         </div>

@@ -68,4 +68,4 @@ Feature: Data and Information hub page and sub sections
 
     Scenario: Root gives 404
         Given I navigate to the "ci hub root" page
-        Then I should see the "We can't seem to find the page you're looking for" error page
+        Then I should see page titled "Page not found"
