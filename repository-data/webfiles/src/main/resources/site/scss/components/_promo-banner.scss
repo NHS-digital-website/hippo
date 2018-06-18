@@ -15,14 +15,17 @@
     }
 
     .promo-banner__columns {
+        @include clearfix;
+
         width: 100%;
-        display: table;
         background-color: lighten($col-primary, 2%);
 
         .promo-banner__column {
-            display: table-cell;
+            display: inline-block;
             position: relative;
+            float: left;
             width: 50%;
+            height: 100%;
         }
 
         .promo-banner__column + .promo-banner__column {
@@ -48,14 +51,24 @@
     }
 
     .promo-banner__graphics {
-        position: absolute;
+        position: relative;
+        display: block;
         width: 100%;
         height: 100%;
+        min-height: 320px;
         top: 0;
         left: 0;
-        background-position: 50% 50%;
+        background-position: 100% 50%;
         background-repeat: no-repeat;
         background-size: cover;
+
+        @include media($min-width: $wide-desktop-width, $ignore-for-ie: true) {
+            min-height: 376px;
+        }
+
+        @include media($max-width: $wide-desktop-width - 1px, $ignore-for-ie: true) {
+            min-height: 320px;
+        }
     }
 
     .promo-banner__contents {

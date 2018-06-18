@@ -58,16 +58,10 @@
 }
 
 .content-box--services {
+    @extend .white-links;
+    
     color: $col-septenary;
     margin: 30px 0 40px;
-
-    a {
-        color: $col-septenary;
-
-        &:hover {
-            text-decoration: none;
-        }
-    }
 
     .cta-list {
         margin-bottom: 0;
