@@ -36,7 +36,7 @@
                     <h2>Error code 404</h2>
 
                     <p>If you typed in the web address, please check it is correct and try again.</p>
-                    <p>We recently moved to a new website.  Our old website and content is still available on the <a href="http://webarchive.nationalarchives.gov.uk/search/result/?q=NHS+Digital">National archives</a>.</p>
+                    <p>We recently moved to a new website. Our old website and content is still available on the <a href="http://webarchive.nationalarchives.gov.uk/search/result/?q=NHS+Digital">National archives</a>.</p>
                 </div>
 
                 <div class="article-section no-border">
@@ -46,10 +46,10 @@
                 </div>
 
                 <div class="article-section article-section--contact no-border">
-                    <p>If you still can’t find the information you want try contacting our <a href="mailto:ssd.genomics@nhs.net">helpdesk</a>.</p>
+                    <p>If you still can’t find the information you want, try contacting our <a href="mailto:enquiries@nhsdigital.nhs.uk">helpdesk</a>.</p>
                     <div class="rich-text-content">
-                        <p>Telephone:<br /><a href="tel:03003035035">0300 303 5035</a></p>
-                        <p>Email:<br /><a href="mailto:ssd.genomics@nhs.net">ssd.genomics@nhs.net</a></p>
+                        <p>Telephone:<br /><a href="tel:03003035678">0300 303 5678</a></p>
+                        <p>Email:<br /><a href="mailto:enquiries@nhsdigital.nhs.uk">enquiries@nhsdigital.nhs.uk</a></p>
                     </div>
                 </div>
             </div>
