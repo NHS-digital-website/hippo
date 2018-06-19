@@ -5,4 +5,7 @@
   - Title Initial Letter
   hippofacnav:facets:
   - website:titleinitialletter
+  hippofacnav:limit: 500
+  hippofacnav:sortby:
+  - website:title
   jcr:primaryType: hippofacnav:facetnavigation
