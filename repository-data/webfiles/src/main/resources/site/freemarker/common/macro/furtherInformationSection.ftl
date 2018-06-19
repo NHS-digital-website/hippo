@@ -12,7 +12,7 @@
             <#list childPages as childPage>
                 <li>
                     <article class="cta cta--hf">
-                        <#if childPage.linkType?? && (childPage.linkType == "external" || childPage.linkType == "asset")>
+                        <#if childPage.linkType??>
                             <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, childPage.link) />
 
                             <@typeSpan childPage.linkType />
