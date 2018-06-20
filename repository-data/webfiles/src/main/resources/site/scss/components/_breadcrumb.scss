@@ -45,6 +45,7 @@
 }
 
 .breadcrumb__link {
+    position: relative;
     text-decoration: none;
     color: $col-primary;
     
@@ -57,10 +58,16 @@
 }
 
 .breadcrumb__sep {
-    position: relative;
+    position: absolute;
     height: round($gutter * 0.5);
+    left: 0;
+    top: 9px;
     width: auto;
     margin: -1px 6px 0 0;
+
+    & + .breadcrumb__link {
+        padding-left: 14px;
+    }
 }
 
 .breadcrumb__link--secondary {

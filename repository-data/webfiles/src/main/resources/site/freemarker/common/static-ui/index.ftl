@@ -21,6 +21,8 @@
     <#include "../site-footer.ftl"/>
 
     <@hst.headContributions categoryIncludes="htmlBodyEnd, scripts" xhtml=true/>
+
+    <#include "../scripts/footer-scripts.ftl" />
 </body>
 
 </html>

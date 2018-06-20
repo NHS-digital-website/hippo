@@ -167,7 +167,6 @@
         }
 
         function expandLists() {
-            console.log('expandLists')
             for (var i = 0; i < $listTitleToggles.length; i ++) {
                 var $listTitleToggle = $listTitleToggles[i];
                 var $listTitleToggleParent = $listTitleToggle.parentNode;

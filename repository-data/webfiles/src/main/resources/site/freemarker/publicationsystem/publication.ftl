@@ -50,8 +50,10 @@
     <div class="grid-wrapper grid-wrapper--article <#if publication.pages?has_content>article-section</#if>" aria-label="Document Content">
         <div class="grid-row">
             <#if index?has_content && index?size gt 1>
-            <div class="column column--one-third page-block page-block--sidebar sticky sticky--top">
-                <@sectionNav getSectionNavLinks(index)></@sectionNav>
+            <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                <div id="sticky-nav">
+                    <@sectionNav getSectionNavLinks(index)></@sectionNav>
+                </div>
             </div>
             </#if>
 

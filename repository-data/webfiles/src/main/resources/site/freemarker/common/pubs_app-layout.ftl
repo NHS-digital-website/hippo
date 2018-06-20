@@ -20,7 +20,7 @@
 
     <#include "site-footer.ftl"/>
 
-    <#include "scripts/live-engage-chat.ftl"/>
+    <#include "scripts/footer-scripts.ftl" />
 
     <@hst.headContributions categoryIncludes="htmlBodyEnd, scripts" xhtml=true/>
 </body>

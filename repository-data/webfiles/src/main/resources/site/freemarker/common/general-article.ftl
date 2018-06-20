@@ -20,14 +20,21 @@
 
 <article class="article article--general">
     <div class="grid-wrapper grid-wrapper--article">
-        <div class="local-header article-header">
-            <h1 class="local-header__title">${document.title}</h1>
+        <div class="grid-row">
+            <div class="column column--reset">
+                <div class="local-header article-header">
+                    <h1 class="local-header__title">${document.title}</h1>
+                </div>
+            </div>
         </div>
+
 
         <div class="grid-row">
             <#if renderNav>
-            <div class="column column--one-third page-block page-block--sidebar sticky sticky--top">
-                <@sectionNav getSectionNavLinks({ "document": document, "childPages": childPages, "ignoreSummary": hasSummaryContent })></@sectionNav>
+            <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                <div id="sticky-nav">
+                    <@sectionNav getSectionNavLinks({ "document": document, "childPages": childPages, "ignoreSummary": hasSummaryContent })></@sectionNav>
+                </div>
             </div>
             </#if>
 

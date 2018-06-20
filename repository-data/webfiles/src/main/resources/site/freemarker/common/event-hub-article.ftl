@@ -76,10 +76,14 @@
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <#if eventGroupHash?has_content && eventGroupHash?size gt 1>
-                <div class="column column--one-third page-block page-block--sidebar sticky sticky--top">
-                    <@sectionNav getSectionNavLinks()></@sectionNav>
-
-                    <@tagNav getFilterNavLinks()></@tagNav>
+                <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                    <div id="sticky-nav">
+                        <@sectionNav getSectionNavLinks()></@sectionNav>
+                        
+                        <#if getFilterNavLinks()?size gt 0>
+                            <@tagNav getFilterNavLinks()></@tagNav>
+                        </#if>
+                    </div>
                 </div>
             </#if>
 

@@ -45,20 +45,7 @@
     <![endif]-->
     <link rel="stylesheet" href="<@hst.webfile path="/css/nhsuk-print.css"/>" media="print" type="text/css"/>
 
-    <#-- Add CSS class to mark JS enabled -->
-    <#include "scripts/js-enabled.ftl"/>
-
-    <#include "scripts/vanilla-js-utils.ftl"/>
-
-    <#-- Cookiebot loading -->
-    <#include "scripts/cookiebot-load.ftl"/>
-
-    <#-- GA Tracking code -->
-    <#include "scripts/google-analytics.ftl"/>
-
-    <!--[if IE]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <![endif]-->
+    <#include "scripts/header-scripts.ftl" />
 
     <@hst.headContributions categoryExcludes="htmlBodyEnd, scripts, genericMeta, facebookMeta, twitterMeta" xhtml=true/>
 </head>

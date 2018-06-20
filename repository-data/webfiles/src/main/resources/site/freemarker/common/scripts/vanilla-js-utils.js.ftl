@@ -62,5 +62,5 @@
             removeClass: removeClass,
             onKeyUp: onKeyUp
         };
-    })()
+    }())
 </script>
