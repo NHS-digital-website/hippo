@@ -26,9 +26,11 @@
 
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
-            <div class="column column--one-third page-block page-block--sidebar sticky sticky--top">
-                <#assign links = [{ "url": "#january", "title": "January" }, { "url": "#october", "title": "October" }, { "url": "#past-events", "title": "Past events" } ] />
-                <@sectionNav links></@sectionNav>
+            <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                <div id="sticky-nav">    
+                    <#assign links = [{ "url": "#january", "title": "January" }, { "url": "#october", "title": "October" }, { "url": "#past-events", "title": "Past events" } ] />
+                    <@sectionNav links></@sectionNav>
+                </div>
             </div>
 
             <div class="column column--two-thirds page-block page-block--main">

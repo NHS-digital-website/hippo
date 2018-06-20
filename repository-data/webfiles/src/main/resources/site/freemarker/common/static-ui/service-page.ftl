@@ -5,14 +5,20 @@
 
 <article class="article article--service">
     <div class="grid-wrapper grid-wrapper--article">
-        <div class="local-header article-header">
-            <h1 class="local-header__title">Service article</h1>
+        <div class="grid-row">
+            <div class="column column--reset">
+                <div class="local-header article-header">
+                    <h1 class="local-header__title">Service article</h1>
+                </div>
+            </div>
         </div>
 
         <div class="grid-row">
-            <div class="column column--one-third page-block page-block--sidebar sticky sticky--top">
-                <#assign links = [{ "url": "#section-summary", "title": "Summary" }, { "url": "#section-1", "title": "Section one" },{ "url": "#section-2", "title": "Section two" },{ "url": "#section-3", "title": "Section three" }, { "url": "#section-further-information", "title": "Further information" }] />
-                <@sectionNav links></@sectionNav>
+            <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                <div id="sticky-nav">
+                    <#assign links = [ {"title": "Link 1", "url": "#"}, {"title": "Link 2", "url": "#"}, {"title": "Link 3", "url": "#"}, {"title": "Link 4", "url": "#"}, {"title": "Link 5", "url": "#"} ] />
+                    <@sectionNav links />
+                </div>
             </div>
 
             <div class="column column--two-thirds page-block page-block--main">

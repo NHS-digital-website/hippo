@@ -27,9 +27,11 @@
 
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
-            <div class="column column--one-third page-block page-block--sidebar sticky sticky--top">
-                <#assign filterNavLinks = [{ "url": "#", "title": "NHS Digital (4)" }, { "url": "#", "title": "Programme (16)" }, { "url": "#", "title": "NHS Digital (32)" }, { "url": "#", "title": "System and services (22)" }, { "url": "#", "title": "2018 (25)" }, { "url": "#", "title": "2017 (150)" }, { "url": "#", "title": "2016 (123)" }, { "url": "#", "title": "2015 (85)" }]/>
-                <@tagNav filterNavLinks></@tagNav>
+            <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                <div id="sticky-nav">
+                    <#assign filterNavLinks = [{ "url": "#", "title": "NHS Digital (4)" }, { "url": "#", "title": "Programme (16)" }, { "url": "#", "title": "NHS Digital (32)" }, { "url": "#", "title": "System and services (22)" }, { "url": "#", "title": "2018 (25)" }, { "url": "#", "title": "2017 (150)" }, { "url": "#", "title": "2016 (123)" }, { "url": "#", "title": "2015 (85)" }]/>
+                    <@tagNav filterNavLinks></@tagNav>
+                </div>
             </div>
 
             <div class="column column--two-thirds page-block page-block--main">
