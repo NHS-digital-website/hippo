@@ -16,7 +16,7 @@
 
 <#assign sectionTitlesFound = countSectionTitles(document.sections) />
 
-<#assign renderNav = (hasSummaryContent && (hasSectionContent && (sectionTitlesFound gte 1))) || (hasSectionContent && (sectionTitlesFound gt 1)) || (hasSectionContent && (sectionTitlesFound gte 1) && hasChildPages) />
+<#assign renderNav = ((hasSummaryContent || hasChildPages) && sectionTitlesFound gte 1) || sectionTitlesFound gt 1 || (hasSummaryContent && hasChildPages) />
 
 <article class="article article--general">
     <div class="grid-wrapper grid-wrapper--article">
@@ -43,8 +43,9 @@
                 <@articleSections document.sections></@articleSections>
                 </#if>
 
-                
-                <@furtherInformationSection childPages></@furtherInformationSection>
+                <#if hasChildPages>
+                    <@furtherInformationSection childPages></@furtherInformationSection>
+                </#if>
             </div>
         </div>
     </div>

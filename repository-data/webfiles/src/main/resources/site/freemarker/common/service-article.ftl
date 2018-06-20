@@ -14,10 +14,10 @@
 <#assign hasTopTasks = document.toptasks?has_content />
 <#assign hasChildPages = childPages?has_content />
 <#assign hasIntroductionContent = document.introduction?? />
-<#assign hasContactDetailsContent = document.contactdetails?? && document.contactdetails.content?has_content?? />
+<#assign hasContactDetailsContent = document.contactdetails?? && document.contactdetails.content?has_content />
 
 <#assign sectionTitlesFound = countSectionTitles(document.sections) />
-<#assign renderNav = (hasSectionContent && (sectionTitlesFound gte 2 || (sectionTitlesFound gte 1 && hasChildPages))) />
+<#assign renderNav = (sectionTitlesFound gte 1 || hasChildPages) || sectionTitlesFound gt 1 || hasContactDetailsContent />
 
 <article class="article article--service">
     <div class="grid-wrapper grid-wrapper--article">
@@ -76,7 +76,9 @@
                 </div>
                 </#if>
 
-                <@furtherInformationSection childPages></@furtherInformationSection>
+                <#if hasChildPages>
+                    <@furtherInformationSection childPages></@furtherInformationSection>
+                </#if>
             </div>
         </div>
     </div>
