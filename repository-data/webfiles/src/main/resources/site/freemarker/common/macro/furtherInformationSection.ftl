@@ -12,21 +12,23 @@
             <#list childPages as childPage>
                 <li>
                     <article class="cta cta--hf">
-                        <#if childPage.linkType??>
+                        <#if childPage.type?? && (childPage.type == "external" || childPage.type == "asset")>
                             <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, childPage.link) />
-
-                            <@typeSpan childPage.linkType />
-
-                            <#if childPage.linkType == "external">
+                            
+                            <@typeSpan childPage.type />
+                            
+                            <#if childPage.type == "external">
+                                <#-- Assign the link property of the externallink compound -->
                                 <h2 class="cta__title"><a href="${childPage.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${childPage.title}</a></h2>
-                            <#elseif childPage.linkType == "asset">
+                            <#elseif childPage.type == "asset">
                                 <h2 class="cta__title">
                                     <a href="<@hst.link hippobean=childPage.link />" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${childPage.title}</a><@fileMetaAppendix childPage.link.asset.getLength()></@fileMetaAppendix>
                                 </h2>
                             </#if>
                         <#elseif hst.isBeanType(childPage, 'org.hippoecm.hst.content.beans.standard.HippoBean')>
                             <@typeSpan "internal" />
-
+                            
+                            <#-- In case the childPage is not a compound but still a document in the cms, then create a link to it-->
                             <h2 class="cta__title"><a href="<@hst.link var=link hippobean=childPage />">${childPage.title}</a></h2>
                         </#if>
 

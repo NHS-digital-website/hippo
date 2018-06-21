@@ -11,19 +11,19 @@
     </#if>
         <div class="column column--one-half ${block?is_odd_item?then("column--left", "column--right")}">
             <article class="cta">
-                <#if block.linkType??>
-                    <@typeSpan block.linkType />
+                <#if block.getType??>
+                    <@typeSpan block.getType() />
 
-                    <#if block.linkType == "asset" || block.linkType == "external">
+                    <#if block.getType() == "asset" || block.getType() == "external">
                         <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, block.link) />
 
-                        <#if block.linkType == "asset">
+                        <#if block.getType() == "asset">
                             <h2 class="cta__title"><a href="<@hst.link hippobean=block.link />">${block.title}</a><@fileMetaAppendix block.link.asset.getLength()></@fileMetaAppendix></h2>
-                        <#elseif block.linkType == "external">
+                        <#elseif block.getType() == "external">
                             <h2 class="cta__title"><a href="${block.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${block.title}</a></h2>
                             <p class="cta__text">${block.shortsummary}</p>
                         </#if>
-                    <#elseif block.linkType == "internal">
+                    <#elseif block.getType() == "internal">
                         <h2 class="cta__title"><a href="<@hst.link hippobean=block.link />">${block.link.title}</a></h2>
                         <p class="cta__text">${block.link.shortsummary}</p>
                     </#if>
