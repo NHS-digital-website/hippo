@@ -7,7 +7,7 @@
 
 <#include "app-layout-head.ftl">
 
-<body class="debug">
+<body class="debugs">
     <#-- Add site header with the search bar -->
     <@siteHeader true></@siteHeader>
 
