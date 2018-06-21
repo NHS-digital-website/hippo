@@ -22,14 +22,14 @@
                 <div class="list list--reset cta-list cta-list--sections">
                     <#list blockGroups[letter] as block>
                     <div class="cta">
-                        <#if block.linkType??>
+                        <#if block.type?? && (block.type == "external" || block.type == "asset")>
                             <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, block.link) />
                             
-                            <@typeSpan block.linkType />
+                            <@typeSpan block.type />
                             
-                            <#if block.linkType == "external">
+                            <#if block.type == "external">
                                 <h2 class="cta__title"><a href="${block.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${block.title}</a></h2>
-                            <#elseif block.linkType == "asset">
+                            <#elseif block.type == "asset">
                                 <h2 class="cta__title"><a href="<@hst.link hippobean=block.link />" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${block.title}</a><@fileMetaAppendix block.link.asset.getLength()></@fileMetaAppendix></h2>
                             </#if>
                         <#else>

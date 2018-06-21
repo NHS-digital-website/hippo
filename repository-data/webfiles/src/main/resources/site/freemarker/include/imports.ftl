@@ -71,9 +71,9 @@
 <#function flat_blocks blocks order>
     <#local flattened_blocks = [] />
     <#list blocks as block>
-        <#if block.linkType == "internal">
+        <#if block.getType() == "internal">
             <#local flattened_blocks = flattened_blocks + [ block.link ] />
-        <#elseif block.linkType == "external" || block.linkType == "asset">
+        <#elseif block.getType() == "external" || block.getType() == "asset">
             <#local flattened_blocks = flattened_blocks + [ block ] />
         </#if>
     </#list>
@@ -104,7 +104,7 @@
 1) when using the flat_blocks function, use the 'anchor' value as second parameter
 2) when printng the block field and using the 'flattened_list', remember that the type variable is only defined for the externallink
 
-        <#if block.linkType?? && block.linkType == "external">
+        <#if block.type?? && block.type == "external">
         <h2 class="cta__title"><a href="${block.link}">${block.title}</a></h2>
         <#else>
         <h2 class="cta__title"><a href="<@hst.link hippobean=block />">${block.title}</a></h2>
