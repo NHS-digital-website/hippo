@@ -28,7 +28,7 @@
 .callout--warning {
   background-color: $yellow-10;
   border: solid $yellow-50;
-  border-width: $baseline-grid-unit 0;
+  border-width: $baseline-grid-unit * 2 0;
 }
 
 .callout--muted {
@@ -37,12 +37,12 @@
 
 .callout--alert {
   background-color: $red-10;
-  border-top: $baseline-grid-unit * 2 solid $red;
+  border-top: $baseline-grid-unit * 2 solid $col-nonary;
 }
 
 .callout--severe {
-  background-color: $red;
-  color: $white;
+  background-color: $col-nonary;
+  color: $col-septenary;
 
   a {
     @include link-reverse-polarity;
@@ -50,7 +50,7 @@
 }
 
 .callout--error {
-  border: $baseline-grid-unit solid $red;
+  border: $baseline-grid-unit * 2 solid $col-nonary;
 }
 
 .callout--compact {

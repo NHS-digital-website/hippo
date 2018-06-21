@@ -1,0 +1,62 @@
+---
+/content/documents/administration/resources/rb.doctype.form:
+  /rb.doctype.form[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-07-05T13:16:00.466Z
+    hippostdpubwf:lastModificationDate: 2018-07-05T13:16:00.466Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Error message
+    resourcebundle:id: rb.doctype.form
+    resourcebundle:keys:
+    - texts.errors-found
+    resourcebundle:messages:
+    - We found some errors in the details you provided. Please check below for details.
+  /rb.doctype.form[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-07-05T13:16:00.466Z
+    hippostdpubwf:lastModificationDate: 2018-07-05T13:16:00.466Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Error message
+    resourcebundle:id: rb.doctype.form
+    resourcebundle:keys:
+    - texts.errors-found
+    resourcebundle:messages:
+    - We found some errors in the details you provided. Please check below for details.
+  /rb.doctype.form[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-07-05T13:16:00.466Z
+    hippostdpubwf:lastModificationDate: 2018-07-05T13:16:00.466Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2018-07-05T13:16:00.466Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Error message
+    resourcebundle:id: rb.doctype.form
+    resourcebundle:keys:
+    - texts.errors-found
+    resourcebundle:messages:
+    - We found some errors in the details you provided. Please check below for details.
+  hippo:name: Form Resource Bundle
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

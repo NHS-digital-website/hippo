@@ -9,16 +9,20 @@
     @include button($grey-4);
 }
 
+.button--tertiary {
+    @include button($col-denary);
+}
+
+.button--quaternary {
+    @include button($col-quaternary);
+}
+
 .button--cancel {
     @include button($red);
 }
 
 .button--warning {
     @include button($col-octonary, $col-16);
-}
-
-.button--tertiary {
-    @include button($col-denary);
 }
 
 .button--small {

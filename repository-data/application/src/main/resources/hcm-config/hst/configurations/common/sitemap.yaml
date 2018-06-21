@@ -138,6 +138,13 @@ definitions:
           hst:refId: pagenotfound
           jcr:primaryType: hst:sitemapitem
         jcr:primaryType: hst:sitemapitem
+      /forms:
+        /_any_:
+          hst:componentconfigurationid: hst:pages/form-mail
+          hst:relativecontentpath: ${parent}/${1}
+          jcr:primaryType: hst:sitemapitem
+        hst:relativecontentpath: forms
+        jcr:primaryType: hst:sitemapitem
       /news-and-events:
         /events:
           hst:componentconfigurationid: hst:pages/latestevents

@@ -112,7 +112,7 @@
 -->
 
 <#function getTimeZone>
-    <#return "Europe/London"/>
+    <#return "Europe/London" />
 </#function>
 
 <#-- Get earliest and latest date in a date range in events -->

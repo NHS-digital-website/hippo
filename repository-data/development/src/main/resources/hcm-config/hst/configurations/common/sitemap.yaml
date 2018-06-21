@@ -6,6 +6,10 @@ definitions:
         hst:componentconfigurationid: hst:pages/static-ui-home
         hst:relativecontentpath: static-ui/${1}
         jcr:primaryType: hst:sitemapitem
+      /eform:
+        hst:componentconfigurationid: hst:pages/static-ui-eform
+        hst:relativecontentpath: static-ui/eform
+        jcr:primaryType: hst:sitemapitem
       /filtered-list:
         hst:componentconfigurationid: hst:pages/static-ui-filtered-list
         hst:relativecontentpath: static-ui/filtered-list

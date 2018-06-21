@@ -28,6 +28,9 @@
                 <a href="/static-ui/news-hub">News hub</a>
             </li>
             <li>
+                <a href="/static-ui/eform">Form</a>
+            </li>
+            <li>
                 <a href="/static-ui/icons">Icons</a>
             </li>
         </ul>

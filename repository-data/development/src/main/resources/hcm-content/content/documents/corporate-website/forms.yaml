@@ -1,0 +1,1171 @@
+---
+/content/documents/corporate-website/forms:
+  .meta:order-before: gdpr-transparency
+  /multi-step-quiz:
+    /multi-step-quiz[1]:
+      /page0:
+        /field1:
+          /field0:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:fieldid: idabc475ac351bbd87
+            eforms:fieldname: name
+            eforms:hint: Please tell us your name
+            eforms:label: What's your name?
+            eforms:length: 40
+            eforms:mandatory: true
+            eforms:validationruleclass: ''
+            eforms:validationruleid: string.alphanumeric
+            eforms:validationrulelabel: Alphanumeric
+            eforms:validcasesensitive: 'false'
+            eforms:validexpression: ^[A-Za-z\d]+$
+            jcr:primaryType: eforms:textfield
+          eforms:conditional: false
+          eforms:conditionnegate: false
+          eforms:fieldnameprefix: group_prefix
+          eforms:groupname: Personal questions
+          eforms:label: group_label
+          eforms:mandatory: false
+          eforms:oneline: true
+          eforms:validationhelper: true
+          jcr:primaryType: eforms:embeddedfieldgroup
+        eforms:conditional: false
+        eforms:conditionnegate: false
+        eforms:label: Question 1 of 3
+        jcr:primaryType: eforms:page
+      /page1:
+        /field2:
+          /field0:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:displayvalues:
+            - 0 - 10 years
+            - 11 - 20 years
+            - 21 - 30 years
+            - 31 - 40 years
+            - 41 - 50 years
+            - Older than that
+            eforms:expandhint: false
+            eforms:fieldid: id8d08869092c74542
+            eforms:fieldname: age
+            eforms:hint: Please select your age group
+            eforms:initialdisplaystring: ''
+            eforms:initialoption: value
+            eforms:initialvalue: '0_10'
+            eforms:label: How old are you?
+            eforms:mandatory: true
+            eforms:values:
+            - '0_10'
+            - '11_20'
+            - '21_30'
+            - '31_40'
+            - '41_50'
+            - older_than_that
+            jcr:primaryType: eforms:dropdown
+          eforms:conditional: false
+          eforms:conditionnegate: false
+          eforms:fieldnameprefix: very_personal_questions
+          eforms:groupname: Very personal questions
+          eforms:label: group_label
+          eforms:mandatory: false
+          eforms:oneline: false
+          eforms:validationhelper: true
+          jcr:primaryType: eforms:embeddedfieldgroup
+        eforms:conditional: false
+        eforms:conditionnegate: false
+        eforms:label: Question 2 of 3
+        jcr:primaryType: eforms:page
+      /page2:
+        /field1[1]:
+          /field0:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:expandhint: false
+            eforms:fieldid: id9a3d0035f09f72ea
+            eforms:fieldname: how_much
+            eforms:hint: Please tell us how much you care about Love Island, we really
+              need to know, it's important.
+            eforms:label: Love Island
+            eforms:mandatory: false
+            eforms:options:
+            - '0'
+            - '1'
+            - '2'
+            - '3'
+            - '4'
+            - '5'
+            - '10'
+            eforms:queries:
+            - How much do you care about Love Island?
+            jcr:primaryType: eforms:likert
+          eforms:conditional: false
+          eforms:conditionnegate: false
+          eforms:fieldnameprefix: most_personal_questions_ever
+          eforms:groupname: The most personal questions ever
+          eforms:label: group_label
+          eforms:mandatory: false
+          eforms:oneline: false
+          eforms:validationhelper: true
+          jcr:primaryType: eforms:embeddedfieldgroup
+        /field1[2]:
+          eforms:antispamtype: HONEYPOT
+          eforms:conditional: false
+          eforms:conditionnegate: false
+          eforms:expandhint: false
+          eforms:fieldid: idbf7f5df30e6fd627
+          eforms:fieldname: honey
+          eforms:hint: hint
+          eforms:label: Honey
+          eforms:mandatory: false
+          eforms:validcasesensitive: 'false'
+          eforms:validexpression: ''
+          jcr:primaryType: eforms:antispamfield
+        eforms:conditional: false
+        eforms:conditionnegate: false
+        eforms:label: Question 3 of 3
+        jcr:primaryType: eforms:page
+      eforms:action: mail
+      eforms:actionurl: http://test.com/action.do
+      eforms:afterprocesssuccesstext: "Thank you for submitting this form to the Burden\
+        \ Collection service.\r\nA member of staff will be in touch shortly."
+      eforms:buttonlabel: Submit
+      eforms:formintro: Competently revolutionize accurate systems rather than magnetic
+        human capital. Phosfluorescently exploit superior users and orthogonal e-services.
+        Intrinsicly strategize viral opportunities after frictionless imperatives.
+        Appropriately repurpose backward-compatible bandwidth through cutting-edge
+        opportunities. Globally synthesize distributed schemas before leading-edge
+        platforms.
+      eforms:formname: Multi step quiz
+      eforms:nextbuttonlabel: Next Question
+      eforms:notificationemail: test@example.com
+      eforms:previousbuttonlabel: Previous Question
+      eforms:validationhelper: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-07-06T14:26:37.466Z
+      hippostdpubwf:lastModificationDate: 2018-07-06T17:37:49.876Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 89882c46-dbb5-411c-a53e-9e831eca0cf9
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotranslation:translated
+      - mix:referenceable
+      jcr:primaryType: eforms:form
+    /multi-step-quiz[2]:
+      /page0:
+        /field1:
+          /field0:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:fieldid: idabc475ac351bbd87
+            eforms:fieldname: name
+            eforms:hint: Please tell us your name
+            eforms:label: What's your name?
+            eforms:length: 40
+            eforms:mandatory: true
+            eforms:validationruleclass: ''
+            eforms:validationruleid: string.alphanumeric
+            eforms:validationrulelabel: Alphanumeric
+            eforms:validcasesensitive: 'false'
+            eforms:validexpression: ^[A-Za-z\d]+$
+            jcr:primaryType: eforms:textfield
+          eforms:conditional: false
+          eforms:conditionnegate: false
+          eforms:fieldnameprefix: group_prefix
+          eforms:groupname: Personal questions
+          eforms:label: group_label
+          eforms:mandatory: false
+          eforms:oneline: true
+          eforms:validationhelper: true
+          jcr:primaryType: eforms:embeddedfieldgroup
+        eforms:conditional: false
+        eforms:conditionnegate: false
+        eforms:label: Question 1 of 3
+        jcr:primaryType: eforms:page
+      /page1:
+        /field2:
+          /field0:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:displayvalues:
+            - 0 - 10 years
+            - 11 - 20 years
+            - 21 - 30 years
+            - 31 - 40 years
+            - 41 - 50 years
+            - Older than that
+            eforms:expandhint: false
+            eforms:fieldid: id8d08869092c74542
+            eforms:fieldname: age
+            eforms:hint: Please select your age group
+            eforms:initialdisplaystring: ''
+            eforms:initialoption: value
+            eforms:initialvalue: '0_10'
+            eforms:label: How old are you?
+            eforms:mandatory: true
+            eforms:values:
+            - '0_10'
+            - '11_20'
+            - '21_30'
+            - '31_40'
+            - '41_50'
+            - older_than_that
+            jcr:primaryType: eforms:dropdown
+          eforms:conditional: false
+          eforms:conditionnegate: false
+          eforms:fieldnameprefix: very_personal_questions
+          eforms:groupname: Very personal questions
+          eforms:label: group_label
+          eforms:mandatory: false
+          eforms:oneline: false
+          eforms:validationhelper: true
+          jcr:primaryType: eforms:embeddedfieldgroup
+        eforms:conditional: false
+        eforms:conditionnegate: false
+        eforms:label: Question 2 of 3
+        jcr:primaryType: eforms:page
+      /page2:
+        /field1[1]:
+          /field0:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:expandhint: false
+            eforms:fieldid: id9a3d0035f09f72ea
+            eforms:fieldname: how_much
+            eforms:hint: Please tell us how much you care about Love Island, we really
+              need to know, it's important.
+            eforms:label: Love Island
+            eforms:mandatory: false
+            eforms:options:
+            - '0'
+            - '1'
+            - '2'
+            - '3'
+            - '4'
+            - '5'
+            - '10'
+            eforms:queries:
+            - How much do you care about Love Island?
+            jcr:primaryType: eforms:likert
+          eforms:conditional: false
+          eforms:conditionnegate: false
+          eforms:fieldnameprefix: most_personal_questions_ever
+          eforms:groupname: The most personal questions ever
+          eforms:label: group_label
+          eforms:mandatory: false
+          eforms:oneline: false
+          eforms:validationhelper: true
+          jcr:primaryType: eforms:embeddedfieldgroup
+        /field1[2]:
+          eforms:antispamtype: HONEYPOT
+          eforms:conditional: false
+          eforms:conditionnegate: false
+          eforms:expandhint: false
+          eforms:fieldid: idbf7f5df30e6fd627
+          eforms:fieldname: honey
+          eforms:hint: hint
+          eforms:label: Honey
+          eforms:mandatory: false
+          eforms:validcasesensitive: 'false'
+          eforms:validexpression: ''
+          jcr:primaryType: eforms:antispamfield
+        eforms:conditional: false
+        eforms:conditionnegate: false
+        eforms:label: Question 3 of 3
+        jcr:primaryType: eforms:page
+      eforms:action: mail
+      eforms:actionurl: http://test.com/action.do
+      eforms:afterprocesssuccesstext: "Thank you for submitting this form to the Burden\
+        \ Collection service.\r\nA member of staff will be in touch shortly."
+      eforms:buttonlabel: Submit
+      eforms:formintro: Competently revolutionize accurate systems rather than magnetic
+        human capital. Phosfluorescently exploit superior users and orthogonal e-services.
+        Intrinsicly strategize viral opportunities after frictionless imperatives.
+        Appropriately repurpose backward-compatible bandwidth through cutting-edge
+        opportunities. Globally synthesize distributed schemas before leading-edge
+        platforms.
+      eforms:formname: Multi step quiz
+      eforms:nextbuttonlabel: Next Question
+      eforms:notificationemail: test@example.com
+      eforms:previousbuttonlabel: Previous Question
+      eforms:validationhelper: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-07-06T14:26:37.466Z
+      hippostdpubwf:lastModificationDate: 2018-07-06T17:38:05.555Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 89882c46-dbb5-411c-a53e-9e831eca0cf9
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotranslation:translated
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: eforms:form
+    /multi-step-quiz[3]:
+      /page0:
+        /field1:
+          /field0:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:fieldid: idabc475ac351bbd87
+            eforms:fieldname: name
+            eforms:hint: Please tell us your name
+            eforms:label: What's your name?
+            eforms:length: 40
+            eforms:mandatory: true
+            eforms:validationruleclass: ''
+            eforms:validationruleid: string.alphanumeric
+            eforms:validationrulelabel: Alphanumeric
+            eforms:validcasesensitive: 'false'
+            eforms:validexpression: ^[A-Za-z\d]+$
+            jcr:primaryType: eforms:textfield
+          eforms:conditional: false
+          eforms:conditionnegate: false
+          eforms:fieldnameprefix: group_prefix
+          eforms:groupname: Personal questions
+          eforms:label: group_label
+          eforms:mandatory: false
+          eforms:oneline: true
+          eforms:validationhelper: true
+          jcr:primaryType: eforms:embeddedfieldgroup
+        eforms:conditional: false
+        eforms:conditionnegate: false
+        eforms:label: Question 1 of 3
+        jcr:primaryType: eforms:page
+      /page1:
+        /field2:
+          /field0:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:displayvalues:
+            - 0 - 10 years
+            - 11 - 20 years
+            - 21 - 30 years
+            - 31 - 40 years
+            - 41 - 50 years
+            - Older than that
+            eforms:expandhint: false
+            eforms:fieldid: id8d08869092c74542
+            eforms:fieldname: age
+            eforms:hint: Please select your age group
+            eforms:initialdisplaystring: ''
+            eforms:initialoption: value
+            eforms:initialvalue: '0_10'
+            eforms:label: How old are you?
+            eforms:mandatory: true
+            eforms:values:
+            - '0_10'
+            - '11_20'
+            - '21_30'
+            - '31_40'
+            - '41_50'
+            - older_than_that
+            jcr:primaryType: eforms:dropdown
+          eforms:conditional: false
+          eforms:conditionnegate: false
+          eforms:fieldnameprefix: very_personal_questions
+          eforms:groupname: Very personal questions
+          eforms:label: group_label
+          eforms:mandatory: false
+          eforms:oneline: false
+          eforms:validationhelper: true
+          jcr:primaryType: eforms:embeddedfieldgroup
+        eforms:conditional: false
+        eforms:conditionnegate: false
+        eforms:label: Question 2 of 3
+        jcr:primaryType: eforms:page
+      /page2:
+        /field1[1]:
+          /field0:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:expandhint: false
+            eforms:fieldid: id9a3d0035f09f72ea
+            eforms:fieldname: how_much
+            eforms:hint: Please tell us how much you care about Love Island, we really
+              need to know, it's important.
+            eforms:label: Love Island
+            eforms:mandatory: false
+            eforms:options:
+            - '0'
+            - '1'
+            - '2'
+            - '3'
+            - '4'
+            - '5'
+            - '10'
+            eforms:queries:
+            - How much do you care about Love Island?
+            jcr:primaryType: eforms:likert
+          eforms:conditional: false
+          eforms:conditionnegate: false
+          eforms:fieldnameprefix: most_personal_questions_ever
+          eforms:groupname: The most personal questions ever
+          eforms:label: group_label
+          eforms:mandatory: false
+          eforms:oneline: false
+          eforms:validationhelper: true
+          jcr:primaryType: eforms:embeddedfieldgroup
+        /field1[2]:
+          eforms:antispamtype: HONEYPOT
+          eforms:conditional: false
+          eforms:conditionnegate: false
+          eforms:expandhint: false
+          eforms:fieldid: idbf7f5df30e6fd627
+          eforms:fieldname: honey
+          eforms:hint: hint
+          eforms:label: Honey
+          eforms:mandatory: false
+          eforms:validcasesensitive: 'false'
+          eforms:validexpression: ''
+          jcr:primaryType: eforms:antispamfield
+        eforms:conditional: false
+        eforms:conditionnegate: false
+        eforms:label: Question 3 of 3
+        jcr:primaryType: eforms:page
+      eforms:action: mail
+      eforms:actionurl: http://test.com/action.do
+      eforms:afterprocesssuccesstext: "Thank you for submitting this form to the Burden\
+        \ Collection service.\r\nA member of staff will be in touch shortly."
+      eforms:buttonlabel: Submit
+      eforms:formintro: Competently revolutionize accurate systems rather than magnetic
+        human capital. Phosfluorescently exploit superior users and orthogonal e-services.
+        Intrinsicly strategize viral opportunities after frictionless imperatives.
+        Appropriately repurpose backward-compatible bandwidth through cutting-edge
+        opportunities. Globally synthesize distributed schemas before leading-edge
+        platforms.
+      eforms:formname: Multi step quiz
+      eforms:nextbuttonlabel: Next Question
+      eforms:notificationemail: test@example.com
+      eforms:previousbuttonlabel: Previous Question
+      eforms:validationhelper: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-07-06T14:26:37.466Z
+      hippostdpubwf:lastModificationDate: 2018-07-06T17:38:05.555Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-07-06T17:38:06.913Z
+      hippotranslation:id: 89882c46-dbb5-411c-a53e-9e831eca0cf9
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotranslation:translated
+      - mix:referenceable
+      jcr:primaryType: eforms:form
+    hippo:name: Multi step quiz
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /test-form:
+    /test-form[1]:
+      /page0:
+        /fieldgroup0:
+          /field1:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:fieldid: id8141a1f5261cf990
+            eforms:fieldname: last-name
+            eforms:hint: What's your last name please?
+            eforms:label: Last name
+            eforms:length: 40
+            eforms:mandatory: true
+            eforms:validcasesensitive: 'false'
+            eforms:validexpression: ''
+            jcr:primaryType: eforms:textfield
+          /field2:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:fieldid: id85344b7f0bdf92c4
+            eforms:fieldname: email
+            eforms:hint: What's your email address please?
+            eforms:label: Email address
+            eforms:length: 40
+            eforms:mandatory: false
+            eforms:validationruleclass: com.onehippo.cms7.eforms.hst.validation.rules.EmailAddressRule
+            eforms:validationruleid: email
+            eforms:validationrulelabel: E-mail Address
+            eforms:validcasesensitive: 'false'
+            eforms:validexpression: ''
+            jcr:primaryType: eforms:textfield
+          /field3:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:displayvalues:
+            - United Kingdom
+            - Portugal
+            - Hungary
+            - Germany
+            - New Zealand
+            - Australia
+            eforms:expandhint: false
+            eforms:fieldid: idb94bad5d8b5174bc
+            eforms:fieldname: country-of-birth
+            eforms:hint: In what country were you born please?
+            eforms:initialdisplaystring: ''
+            eforms:initialoption: value
+            eforms:initialvalue: united-kingdom
+            eforms:label: Country of birth
+            eforms:mandatory: false
+            eforms:values:
+            - united-kingdom
+            - portugal
+            - hungary
+            - germany
+            - new-zealand
+            - australia
+            jcr:primaryType: eforms:dropdown
+          /field4:
+            eforms:cols: 40
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:expandhint: false
+            eforms:fieldid: id93526ea46532d200
+            eforms:fieldname: message
+            eforms:hint: Please tell us what you think
+            eforms:label: Message
+            eforms:mandatory: false
+            eforms:rows: 10
+            eforms:validcasesensitive: 'false'
+            eforms:validexpression: ''
+            jcr:primaryType: eforms:textarea
+          /field5:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:dateformat: dd/MM/yyyy
+            eforms:fieldid: ida242b6abcf83fe60
+            eforms:fieldname: dob
+            eforms:hint: What's your date of birth please?
+            eforms:label: Date of birth
+            eforms:mandatory: true
+            jcr:primaryType: eforms:datefield
+          /field6:
+            eforms:allowother: false
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:displayvalues:
+            - Google
+            - Home page
+            - Clicking like crazy
+            - I don't remember
+            eforms:expandhint: false
+            eforms:fieldid: ida719c38e6f604095
+            eforms:fieldname: how
+            eforms:hint: Please tell us how you ended up on this page.
+            eforms:label: How did you end up on this page?
+            eforms:length: 40
+            eforms:mandatory: false
+            eforms:validcasesensitive: 'false'
+            eforms:validexpression: ''
+            eforms:values:
+            - google
+            - homepage
+            - clicking-like-crazy
+            - dont-remember
+            jcr:primaryType: eforms:radiogroup
+          /field7:
+            eforms:allowother: true
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:displayvalues:
+            - Hungarian
+            - Indian
+            - Italian
+            - Spanish
+            - British
+            eforms:expandhint: false
+            eforms:fieldid: ida26909eb852c4148
+            eforms:fieldname: cousine
+            eforms:hint: What type of cousine do you like the most?
+            eforms:label: Favourite cousine
+            eforms:length: 40
+            eforms:mandatory: false
+            eforms:validcasesensitive: 'false'
+            eforms:validexpression: ''
+            eforms:values:
+            - hungarian
+            - indian
+            - italian
+            - spanish
+            - british
+            jcr:primaryType: eforms:checkboxes
+          /field8[1]:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:expandhint: false
+            eforms:fieldid: id96f9cf548532add1
+            eforms:fieldname: first-name
+            eforms:hint: What's your first name please?
+            eforms:label: First name
+            eforms:length: 40
+            eforms:mandatory: true
+            eforms:validcasesensitive: 'false'
+            eforms:validexpression: ''
+            jcr:primaryType: eforms:textfield
+          /field8[2]:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:expandhint: false
+            eforms:fieldid: id8b4f60d3b277b63a
+            eforms:fieldname: photos
+            eforms:fileextensions: jpg, jpeg, gif, png
+            eforms:hint: Attach your photos please.
+            eforms:label: Photos
+            eforms:length: 40
+            eforms:mandatory: false
+            eforms:maxuploadsize: 1
+            eforms:validcasesensitive: 'false'
+            eforms:validexpression: ''
+            jcr:primaryType: eforms:fileupload
+          /field9:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:expandhint: false
+            eforms:fieldid: id97b1c1fed7b77797
+            eforms:fieldname: happiness-meter
+            eforms:hint: "Tell us how happy you are with the following aspects of\
+              \ your existence \r\n\r\n(0 = \"I hate it\", 10 = \"I love it\")"
+            eforms:label: Happiness meter
+            eforms:mandatory: false
+            eforms:options:
+            - '0'
+            - '1'
+            - '2'
+            - '3'
+            - '4'
+            - '5'
+            - '6'
+            - '7'
+            - '8'
+            - '9'
+            - '10'
+            eforms:queries:
+            - Travelling to work
+            - Reading the documentation
+            - Eating lunch
+            - Writing new code
+            - Bugfixing old code
+            jcr:primaryType: eforms:likert
+          eforms:conditional: false
+          eforms:conditionnegate: false
+          eforms:fieldnameprefix: group_prefix
+          eforms:groupname: Tell us a little bit about you
+          eforms:label: group_label
+          eforms:mandatory: false
+          eforms:oneline: false
+          eforms:validationhelper: true
+          jcr:primaryType: eforms:embeddedfieldgroup
+        eforms:conditional: false
+        eforms:conditionnegate: false
+        eforms:label: Page 1
+        jcr:primaryType: eforms:page
+      eforms:action: mail
+      eforms:actionurl: http://test.com/action.do
+      eforms:afterprocesssuccessmode: text
+      eforms:afterprocesssuccesstext: "Thank you for submitting this form to the Burden\
+        \ Collection service.\r\nA member of staff will be in touch shortly."
+      eforms:afterprocesssuccessurl: /thank-you
+      eforms:buttonlabel: Submit feedback
+      eforms:formintro: Conveniently evolve interdependent data with user-centric
+        testing procedures. Globally mesh innovative growth strategies without customer
+        directed infrastructures. Progressively unleash professional e-tailers rather
+        than resource maximizing deliverables.
+      eforms:formname: Was this page helpful?
+      eforms:mailformdata: 'false'
+      eforms:notificationemail: test@example.com
+      eforms:notificationreplytoemailfields: ''
+      eforms:validationhelper: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-07-04T10:52:06.108Z
+      hippostdpubwf:lastModificationDate: 2018-07-06T13:27:14.101Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: c04e0d7f-b654-4d89-abf1-3e9d62f28962
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotranslation:translated
+      - mix:versionable
+      jcr:primaryType: eforms:form
+    /test-form[2]:
+      /page0:
+        /fieldgroup0:
+          /field1:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:fieldid: id8141a1f5261cf990
+            eforms:fieldname: last-name
+            eforms:hint: What's your last name please?
+            eforms:label: Last name
+            eforms:length: 40
+            eforms:mandatory: true
+            eforms:validcasesensitive: 'false'
+            eforms:validexpression: ''
+            jcr:primaryType: eforms:textfield
+          /field2:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:fieldid: id85344b7f0bdf92c4
+            eforms:fieldname: email
+            eforms:hint: What's your email address please?
+            eforms:label: Email address
+            eforms:length: 40
+            eforms:mandatory: false
+            eforms:validationruleclass: com.onehippo.cms7.eforms.hst.validation.rules.EmailAddressRule
+            eforms:validationruleid: email
+            eforms:validationrulelabel: E-mail Address
+            eforms:validcasesensitive: 'false'
+            eforms:validexpression: ''
+            jcr:primaryType: eforms:textfield
+          /field3:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:displayvalues:
+            - United Kingdom
+            - Portugal
+            - Hungary
+            - Germany
+            - New Zealand
+            - Australia
+            eforms:expandhint: false
+            eforms:fieldid: idb94bad5d8b5174bc
+            eforms:fieldname: country-of-birth
+            eforms:hint: In what country were you born please?
+            eforms:initialdisplaystring: ''
+            eforms:initialoption: value
+            eforms:initialvalue: united-kingdom
+            eforms:label: Country of birth
+            eforms:mandatory: false
+            eforms:values:
+            - united-kingdom
+            - portugal
+            - hungary
+            - germany
+            - new-zealand
+            - australia
+            jcr:primaryType: eforms:dropdown
+          /field4:
+            eforms:cols: 40
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:expandhint: false
+            eforms:fieldid: id93526ea46532d200
+            eforms:fieldname: message
+            eforms:hint: Please tell us what you think
+            eforms:label: Message
+            eforms:mandatory: false
+            eforms:rows: 10
+            eforms:validcasesensitive: 'false'
+            eforms:validexpression: ''
+            jcr:primaryType: eforms:textarea
+          /field5:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:dateformat: dd/MM/yyyy
+            eforms:fieldid: ida242b6abcf83fe60
+            eforms:fieldname: dob
+            eforms:hint: What's your date of birth please?
+            eforms:label: Date of birth
+            eforms:mandatory: true
+            jcr:primaryType: eforms:datefield
+          /field6:
+            eforms:allowother: false
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:displayvalues:
+            - Google
+            - Home page
+            - Clicking like crazy
+            - I don't remember
+            eforms:expandhint: false
+            eforms:fieldid: ida719c38e6f604095
+            eforms:fieldname: how
+            eforms:hint: Please tell us how you ended up on this page.
+            eforms:label: How did you end up on this page?
+            eforms:length: 40
+            eforms:mandatory: false
+            eforms:validcasesensitive: 'false'
+            eforms:validexpression: ''
+            eforms:values:
+            - google
+            - homepage
+            - clicking-like-crazy
+            - dont-remember
+            jcr:primaryType: eforms:radiogroup
+          /field7:
+            eforms:allowother: true
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:displayvalues:
+            - Hungarian
+            - Indian
+            - Italian
+            - Spanish
+            - British
+            eforms:expandhint: false
+            eforms:fieldid: ida26909eb852c4148
+            eforms:fieldname: cousine
+            eforms:hint: What type of cousine do you like the most?
+            eforms:label: Favourite cousine
+            eforms:length: 40
+            eforms:mandatory: false
+            eforms:validcasesensitive: 'false'
+            eforms:validexpression: ''
+            eforms:values:
+            - hungarian
+            - indian
+            - italian
+            - spanish
+            - british
+            jcr:primaryType: eforms:checkboxes
+          /field8[1]:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:expandhint: false
+            eforms:fieldid: id96f9cf548532add1
+            eforms:fieldname: first-name
+            eforms:hint: What's your first name please?
+            eforms:label: First name
+            eforms:length: 40
+            eforms:mandatory: true
+            eforms:validcasesensitive: 'false'
+            eforms:validexpression: ''
+            jcr:primaryType: eforms:textfield
+          /field8[2]:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:expandhint: false
+            eforms:fieldid: id8b4f60d3b277b63a
+            eforms:fieldname: photos
+            eforms:fileextensions: jpg, jpeg, gif, png
+            eforms:hint: Attach your photos please.
+            eforms:label: Photos
+            eforms:length: 40
+            eforms:mandatory: false
+            eforms:maxuploadsize: 1
+            eforms:validcasesensitive: 'false'
+            eforms:validexpression: ''
+            jcr:primaryType: eforms:fileupload
+          /field9:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:expandhint: false
+            eforms:fieldid: id97b1c1fed7b77797
+            eforms:fieldname: happiness-meter
+            eforms:hint: "Tell us how happy you are with the following aspects of\
+              \ your existence \r\n\r\n(0 = \"I hate it\", 10 = \"I love it\")"
+            eforms:label: Happiness meter
+            eforms:mandatory: false
+            eforms:options:
+            - '0'
+            - '1'
+            - '2'
+            - '3'
+            - '4'
+            - '5'
+            - '6'
+            - '7'
+            - '8'
+            - '9'
+            - '10'
+            eforms:queries:
+            - Travelling to work
+            - Reading the documentation
+            - Eating lunch
+            - Writing new code
+            - Bugfixing old code
+            jcr:primaryType: eforms:likert
+          eforms:conditional: false
+          eforms:conditionnegate: false
+          eforms:fieldnameprefix: group_prefix
+          eforms:groupname: Tell us a little bit about you
+          eforms:label: group_label
+          eforms:mandatory: false
+          eforms:oneline: false
+          eforms:validationhelper: true
+          jcr:primaryType: eforms:embeddedfieldgroup
+        eforms:conditional: false
+        eforms:conditionnegate: false
+        eforms:label: Page 1
+        jcr:primaryType: eforms:page
+      eforms:action: mail
+      eforms:actionurl: http://test.com/action.do
+      eforms:afterprocesssuccessmode: text
+      eforms:afterprocesssuccesstext: "Thank you for submitting this form to the Burden\
+        \ Collection service.\r\nA member of staff will be in touch shortly."
+      eforms:afterprocesssuccessurl: /thank-you
+      eforms:buttonlabel: Submit feedback
+      eforms:formintro: Conveniently evolve interdependent data with user-centric
+        testing procedures. Globally mesh innovative growth strategies without customer
+        directed infrastructures. Progressively unleash professional e-tailers rather
+        than resource maximizing deliverables.
+      eforms:formname: Was this page helpful?
+      eforms:mailformdata: 'false'
+      eforms:notificationemail: test@example.com
+      eforms:notificationreplytoemailfields: ''
+      eforms:validationhelper: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-07-04T10:52:06.108Z
+      hippostdpubwf:lastModificationDate: 2018-07-06T13:27:14.101Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-07-06T13:27:15.526Z
+      hippotranslation:id: c04e0d7f-b654-4d89-abf1-3e9d62f28962
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotranslation:translated
+      - mix:referenceable
+      jcr:primaryType: eforms:form
+    /test-form[3]:
+      /page0:
+        /fieldgroup0:
+          /field1:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:fieldid: id8141a1f5261cf990
+            eforms:fieldname: last-name
+            eforms:hint: What's your last name please?
+            eforms:label: Last name
+            eforms:length: 40
+            eforms:mandatory: true
+            eforms:validcasesensitive: 'false'
+            eforms:validexpression: ''
+            jcr:primaryType: eforms:textfield
+          /field2:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:fieldid: id85344b7f0bdf92c4
+            eforms:fieldname: email
+            eforms:hint: What's your email address please?
+            eforms:label: Email address
+            eforms:length: 40
+            eforms:mandatory: false
+            eforms:validationruleclass: com.onehippo.cms7.eforms.hst.validation.rules.EmailAddressRule
+            eforms:validationruleid: email
+            eforms:validationrulelabel: E-mail Address
+            eforms:validcasesensitive: 'false'
+            eforms:validexpression: ''
+            jcr:primaryType: eforms:textfield
+          /field3:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:displayvalues:
+            - United Kingdom
+            - Portugal
+            - Hungary
+            - Germany
+            - New Zealand
+            - Australia
+            eforms:expandhint: false
+            eforms:fieldid: idb94bad5d8b5174bc
+            eforms:fieldname: country-of-birth
+            eforms:hint: In what country were you born please?
+            eforms:initialdisplaystring: ''
+            eforms:initialoption: value
+            eforms:initialvalue: united-kingdom
+            eforms:label: Country of birth
+            eforms:mandatory: false
+            eforms:values:
+            - united-kingdom
+            - portugal
+            - hungary
+            - germany
+            - new-zealand
+            - australia
+            jcr:primaryType: eforms:dropdown
+          /field4:
+            eforms:cols: 40
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:expandhint: false
+            eforms:fieldid: id93526ea46532d200
+            eforms:fieldname: message
+            eforms:hint: Please tell us what you think
+            eforms:label: Message
+            eforms:mandatory: false
+            eforms:rows: 10
+            eforms:validcasesensitive: 'false'
+            eforms:validexpression: ''
+            jcr:primaryType: eforms:textarea
+          /field5:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:dateformat: dd/MM/yyyy
+            eforms:fieldid: ida242b6abcf83fe60
+            eforms:fieldname: dob
+            eforms:hint: What's your date of birth please?
+            eforms:label: Date of birth
+            eforms:mandatory: true
+            jcr:primaryType: eforms:datefield
+          /field6:
+            eforms:allowother: false
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:displayvalues:
+            - Google
+            - Home page
+            - Clicking like crazy
+            - I don't remember
+            eforms:expandhint: false
+            eforms:fieldid: ida719c38e6f604095
+            eforms:fieldname: how
+            eforms:hint: Please tell us how you ended up on this page.
+            eforms:label: How did you end up on this page?
+            eforms:length: 40
+            eforms:mandatory: false
+            eforms:validcasesensitive: 'false'
+            eforms:validexpression: ''
+            eforms:values:
+            - google
+            - homepage
+            - clicking-like-crazy
+            - dont-remember
+            jcr:primaryType: eforms:radiogroup
+          /field7:
+            eforms:allowother: true
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:displayvalues:
+            - Hungarian
+            - Indian
+            - Italian
+            - Spanish
+            - British
+            eforms:expandhint: false
+            eforms:fieldid: ida26909eb852c4148
+            eforms:fieldname: cousine
+            eforms:hint: What type of cousine do you like the most?
+            eforms:label: Favourite cousine
+            eforms:length: 40
+            eforms:mandatory: false
+            eforms:validcasesensitive: 'false'
+            eforms:validexpression: ''
+            eforms:values:
+            - hungarian
+            - indian
+            - italian
+            - spanish
+            - british
+            jcr:primaryType: eforms:checkboxes
+          /field8[1]:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:expandhint: false
+            eforms:fieldid: id96f9cf548532add1
+            eforms:fieldname: first-name
+            eforms:hint: What's your first name please?
+            eforms:label: First name
+            eforms:length: 40
+            eforms:mandatory: true
+            eforms:validcasesensitive: 'false'
+            eforms:validexpression: ''
+            jcr:primaryType: eforms:textfield
+          /field8[2]:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:expandhint: false
+            eforms:fieldid: id8b4f60d3b277b63a
+            eforms:fieldname: photos
+            eforms:fileextensions: jpg, jpeg, gif, png
+            eforms:hint: Attach your photos please.
+            eforms:label: Photos
+            eforms:length: 40
+            eforms:mandatory: false
+            eforms:maxuploadsize: 1
+            eforms:validcasesensitive: 'false'
+            eforms:validexpression: ''
+            jcr:primaryType: eforms:fileupload
+          /field9:
+            eforms:conditional: false
+            eforms:conditionnegate: false
+            eforms:expandhint: false
+            eforms:fieldid: id97b1c1fed7b77797
+            eforms:fieldname: happiness-meter
+            eforms:hint: "Tell us how happy you are with the following aspects of\
+              \ your existence \r\n\r\n(0 = \"I hate it\", 10 = \"I love it\")"
+            eforms:label: Happiness meter
+            eforms:mandatory: false
+            eforms:options:
+            - '0'
+            - '1'
+            - '2'
+            - '3'
+            - '4'
+            - '5'
+            - '6'
+            - '7'
+            - '8'
+            - '9'
+            - '10'
+            eforms:queries:
+            - Travelling to work
+            - Reading the documentation
+            - Eating lunch
+            - Writing new code
+            - Bugfixing old code
+            jcr:primaryType: eforms:likert
+          eforms:conditional: false
+          eforms:conditionnegate: false
+          eforms:fieldnameprefix: group_prefix
+          eforms:groupname: Tell us a little bit about you
+          eforms:label: group_label
+          eforms:mandatory: false
+          eforms:oneline: false
+          eforms:validationhelper: true
+          jcr:primaryType: eforms:embeddedfieldgroup
+        eforms:conditional: false
+        eforms:conditionnegate: false
+        eforms:label: Page 1
+        jcr:primaryType: eforms:page
+      eforms:action: mail
+      eforms:actionurl: http://test.com/action.do
+      eforms:afterprocesssuccessmode: text
+      eforms:afterprocesssuccesstext: "Thank you for submitting this form to the Burden\
+        \ Collection service.\r\nA member of staff will be in touch shortly."
+      eforms:afterprocesssuccessurl: /thank-you
+      eforms:buttonlabel: Submit feedback
+      eforms:formintro: Conveniently evolve interdependent data with user-centric
+        testing procedures. Globally mesh innovative growth strategies without customer
+        directed infrastructures. Progressively unleash professional e-tailers rather
+        than resource maximizing deliverables.
+      eforms:formname: Was this page helpful?
+      eforms:mailformdata: 'false'
+      eforms:notificationemail: test@example.com
+      eforms:notificationreplytoemailfields: ''
+      eforms:validationhelper: true
+      hippo:availability: []
+      hippostd:holder: admin
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-07-04T10:52:06.108Z
+      hippostdpubwf:lastModificationDate: 2018-07-06T13:30:16.951Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: c04e0d7f-b654-4d89-abf1-3e9d62f28962
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotranslation:translated
+      - mix:referenceable
+      jcr:primaryType: eforms:form
+    hippo:name: Test Form
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Forms
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: 196aa322-cfe1-40da-a43d-bbfaa31fbe1c
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder
