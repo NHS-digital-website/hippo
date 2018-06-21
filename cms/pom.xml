@@ -206,6 +206,16 @@
             <groupId>org.onehippo.forge.folderctxmenus</groupId>
             <artifactId>folderctxmenus-frontend</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-eforms-repository</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-eforms-cms</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <finalName>cms</finalName>
