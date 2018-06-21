@@ -208,9 +208,19 @@
         </dependency>
 
         <dependency>
-      <groupId>org.onehippo.cms7</groupId>
-      <artifactId>hippo-plugin-sitemap-content</artifactId>
-    </dependency>
+            <groupId>org.onehippo.cms7</groupId>
+            <artifactId>hippo-plugin-sitemap-content</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-eforms-repository</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-eforms-cms</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <finalName>cms</finalName>

@@ -32,6 +32,12 @@ definitions:
       /document-list:
         hst:renderpath: webfile:/freemarker/common/document-list.ftl
         jcr:primaryType: hst:template
+      /eforms-default:
+        hst:renderpath: webfile:/freemarker/common/eforms/eforms-default.ftl
+        jcr:primaryType: hst:template
+      /eforms-validation-default:
+        hst:renderpath: webfile:/freemarker/common/eforms/eforms-validation-default.ftl
+        jcr:primaryType: hst:template
       /event-article:
         hst:renderpath: webfile:/freemarker/common/event-article.ftl
         jcr:primaryType: hst:template
@@ -127,6 +133,9 @@ definitions:
         jcr:primaryType: hst:template
       /service-article:
         hst:renderpath: webfile:/freemarker/common/service-article.ftl
+        jcr:primaryType: hst:template
+      /static-ui-eform:
+        hst:renderpath: webfile:/freemarker/common/static-ui/eform-page.ftl
         jcr:primaryType: hst:template
       /static-ui-general:
         hst:renderpath: webfile:/freemarker/common/static-ui/general-page.ftl

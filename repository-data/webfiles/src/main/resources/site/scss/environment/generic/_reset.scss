@@ -33,8 +33,6 @@ hr {
 
 html {
     color: $text-colour;
-    font-family: $nhs-font-stack;
-    line-height: $base-line-height;
 
     @include font-smoothing;
     @include core-font(18);
@@ -50,12 +48,45 @@ iframe {
     outline: none;
 }
 
-input {
+input,
+select {
+    &,
+    &:focus {
+        @include no-tap-highlight;
+        outline: none;
+    }
+}
+
+input[type='text'],
+input[type='password'],
+input[type='search'],
+input[type='email'],
+input[type='url'],
+input[type='tel'],
+input[type='date'],
+input[type='month'],
+input[type='week'],
+input[type='time'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='color'] {
     -webkit-border-radius: 0;
     -webkit-appearance: none;
 }
 
-input::placeholder {
+input[type='text']::placeholder,
+input[type='password']::placeholder,
+input[type='search']::placeholder,
+input[type='email']::placeholder,
+input[type='url']::placeholder,
+input[type='tel']::placeholder,
+input[type='date']::placeholder,
+input[type='month']::placeholder,
+input[type='week']::placeholder,
+input[type='time']::placeholder,
+input[type='datetime']::placeholder,
+input[type='datetime-local']::placeholder,
+input[type='color']::placeholder {
     color: $col-quaternary;
     opacity: 0.5;
     text-shadow: none;
@@ -70,6 +101,10 @@ input:-webkit-autofill:active {
     color: #000 !important;
     -webkit-box-shadow: 0 0 0 1000px #fff inset;
     -webkit-text-fill-color: #000;
+}
+
+textarea {
+    resize: none;
 }
 
 /* Responsive base font sizes on units */

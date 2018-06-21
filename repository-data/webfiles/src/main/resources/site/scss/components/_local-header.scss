@@ -27,6 +27,15 @@
   }
 }
 
+.local-header--secondary {
+    padding: 1.6em 0;
+    background: transparent;
+
+    .local-header__title {
+        color: $col-quaternary;
+    }
+}
+
 .local-header__return {
   @include link-reverse-polarity;
   background-color: $nhs-blue;

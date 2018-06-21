@@ -1,0 +1,5 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/eforms/hippo:moduleconfig/eforms:validationrules/string.alphanumeric:
+      eforms:validationruleexpr: ^[A-Za-z\d\s]+$
