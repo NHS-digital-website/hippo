@@ -61,7 +61,9 @@
                         <div class="grid-row">
                             <div class="column column--one-quarter column--reset">
                                 <h3 class="cta__subtitle"><@fmt.message key="labels.lawful-basis"/></h3>
-                                <div class="cta__meta">${lawfulbasis[gdprDocument.lawfulbasis]}</div>
+                                <#if gdprDocument.lawfulbasis?has_content>
+                                    <div class="cta__meta">${lawfulbasis[gdprDocument.lawfulbasis]}</div>
+                                </#if>
                             </div>
 
                             <#if hasBlocks>
@@ -71,7 +73,7 @@
                                     <#list gdprDocument.blocks as block>
                                     <li>
                                         <article class="cta">
-                                            <#if block.getType() == "internal">
+                                            <#if block.linkType == "internal">
                                                 <h2 class="cta__meta cta__meta--reset-bottom"><a href="<@hst.link hippobean=block.link />">${block.link.title}</a></h2>
                                             <#else>
                                                 <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, block.link) />
