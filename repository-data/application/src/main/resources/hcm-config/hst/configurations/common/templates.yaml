@@ -29,6 +29,12 @@ definitions:
       /document-list:
         hst:renderpath: webfile:/freemarker/common/document-list.ftl
         jcr:primaryType: hst:template
+      /eforms-default:
+        hst:renderpath: webfile:/freemarker/common/eforms/eforms-default.ftl
+        jcr:primaryType: hst:template
+      /eforms-validation-default:
+        hst:renderpath: webfile:/freemarker/common/eforms/eforms-validation-default.ftl
+        jcr:primaryType: hst:template
       /event-article:
         hst:renderpath: webfile:/freemarker/common/event-article.ftl
         jcr:primaryType: hst:template

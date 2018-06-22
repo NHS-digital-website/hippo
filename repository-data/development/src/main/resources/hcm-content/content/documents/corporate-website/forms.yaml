@@ -1,0 +1,137 @@
+---
+/content/documents/corporate-website/forms:
+  /example:
+    /example[1]:
+      /page0:
+        /field0:
+          eforms:conditional: false
+          eforms:conditionnegate: false
+          eforms:expandhint: false
+          eforms:fieldid: id8a3252feaba76991
+          eforms:fieldname: name
+          eforms:hint: Your name
+          eforms:label: Name
+          eforms:length: 40
+          eforms:mandatory: false
+          eforms:validcasesensitive: 'false'
+          eforms:validexpression: ''
+          jcr:primaryType: eforms:textfield
+        eforms:conditional: false
+        eforms:conditionnegate: false
+        eforms:label: Page 1
+        jcr:primaryType: eforms:page
+      eforms:action: mail
+      eforms:actionurl: http://test.com/action.do
+      eforms:buttonlabel: Submit
+      eforms:formname: Form 1
+      eforms:mailformdata: 'true'
+      eforms:notificationemail: test@example.com
+      eforms:validationhelper: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-06-22T09:12:20.663Z
+      hippostdpubwf:lastModificationDate: 2018-06-22T12:04:01.397Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: d88c44b5-e36a-43bf-a620-d4c126970c90
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotranslation:translated
+      - mix:referenceable
+      jcr:primaryType: eforms:form
+    /example[2]:
+      /page0:
+        /field0:
+          eforms:conditional: false
+          eforms:conditionnegate: false
+          eforms:expandhint: false
+          eforms:fieldid: id8a3252feaba76991
+          eforms:fieldname: name
+          eforms:hint: Your name
+          eforms:label: Name
+          eforms:length: 40
+          eforms:mandatory: false
+          eforms:validcasesensitive: 'false'
+          eforms:validexpression: ''
+          jcr:primaryType: eforms:textfield
+        eforms:conditional: false
+        eforms:conditionnegate: false
+        eforms:label: Page 1
+        jcr:primaryType: eforms:page
+      eforms:action: mail
+      eforms:actionurl: http://test.com/action.do
+      eforms:buttonlabel: Submit
+      eforms:formname: Form 1
+      eforms:mailformdata: 'true'
+      eforms:notificationemail: test@example.com
+      eforms:validationhelper: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-06-22T09:12:20.663Z
+      hippostdpubwf:lastModificationDate: 2018-06-22T12:04:04.297Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: d88c44b5-e36a-43bf-a620-d4c126970c90
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotranslation:translated
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: eforms:form
+    /example[3]:
+      /page0:
+        /field0:
+          eforms:conditional: false
+          eforms:conditionnegate: false
+          eforms:expandhint: false
+          eforms:fieldid: id8a3252feaba76991
+          eforms:fieldname: name
+          eforms:hint: Your name
+          eforms:label: Name
+          eforms:length: 40
+          eforms:mandatory: false
+          eforms:validcasesensitive: 'false'
+          eforms:validexpression: ''
+          jcr:primaryType: eforms:textfield
+        eforms:conditional: false
+        eforms:conditionnegate: false
+        eforms:label: Page 1
+        jcr:primaryType: eforms:page
+      eforms:action: mail
+      eforms:actionurl: http://test.com/action.do
+      eforms:buttonlabel: Submit
+      eforms:formname: Form 1
+      eforms:mailformdata: 'true'
+      eforms:notificationemail: test@example.com
+      eforms:validationhelper: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-06-22T09:12:20.663Z
+      hippostdpubwf:lastModificationDate: 2018-06-22T12:04:04.297Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-06-22T12:04:06.225Z
+      hippotranslation:id: d88c44b5-e36a-43bf-a620-d4c126970c90
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotranslation:translated
+      - mix:referenceable
+      jcr:primaryType: eforms:form
+    hippo:name: Example
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Forms
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: 196aa322-cfe1-40da-a43d-bbfaa31fbe1c
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

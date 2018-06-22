@@ -1,0 +1,17 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/form-mail:
+      /main:
+        hst:componentclassname: com.onehippo.cms7.eforms.hst.components.EmailEformComponent
+        hst:parameternames:
+        - eforms-from-email
+        - eforms-from-name
+        hst:parametervalues:
+        - noreply@nhs.uk
+        - NHS Mail
+        hst:resourcetemplate: eforms-validation-default
+        hst:template: eforms-default
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/apppage
+      jcr:primaryType: hst:component
