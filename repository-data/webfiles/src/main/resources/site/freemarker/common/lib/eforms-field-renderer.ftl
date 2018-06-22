@@ -1,5 +1,4 @@
-<#ftl output_format="HTML">
-<#ftl encoding="UTF-8">
+<#ftl output_format="HTML" encoding="UTF-8">
 <#--
   Copyright 2015-2016 Hippo B.V. (http://www.onehippo.com)
 -->
@@ -13,66 +12,66 @@
     <#if field.type == "simpletextfield">
 
     <div class="eforms-text" name="${field.formRelativeUniqueName}">
-        <div class="${field.styleClass!}">${field.label!?html}</div>
-        <span class="eforms-hint">${field.hint!?html}</span>
+        <div class="${field.styleClass!}">${field.label!}</div>
+        <span class="eforms-hint">${field.hint!}</span>
     </div>
 
     <#elseif field.type == "textfield">
 
     <div class="eforms-field">
-        <label>${field.label!?html}<span class="eforms-req">${field.requiredMarker!?html}</span></label>
+        <label>${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
         <input type="text" name="${field.formRelativeUniqueName}" class="${field.styleClass!}" value="${field.value!}"
              <#if (field.length > 0)>size="${field.length}"</#if> <#if (field.maxLength > 0)>maxlength="${field.maxLength}"</#if> />
-        <span class="eforms-hint">${field.hint!?html}</span>
+        <span class="eforms-hint">${field.hint!}</span>
     </div>
 
     <#elseif field.type == "passwordfield">
 
     <div class="eforms-field">
-        <label>${field.label!?html}<span class="eforms-req">${field.requiredMarker!?html}</span></label>
+        <label>${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
         <input type="password" name="${field.formRelativeUniqueName}" class="${field.styleClass!}"
              <#if (field.length > 0)>size="${field.length}"</#if> <#if (field.maxLength > 0)>maxlength="${field.maxLength}"</#if> />
-        <span class="eforms-hint">${field.hint!?html}</span>
+        <span class="eforms-hint">${field.hint!}</span>
     </div>
 
     <#elseif field.type == "textarea">
 
     <div class="eforms-field">
-        <label>${field.label!?html}<span class="eforms-req">${field.requiredMarker!?html}</span></label>
+        <label>${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
         <textarea name="${field.formRelativeUniqueName}" class="${field.styleClass!}"
                   cols="${field.cols}" rows="${field.rows}"
                 <#if (field.minLength > 0)>minlength="${field.minLength}"</#if> <#if (field.maxLength > 0)>maxlength="${field.maxLength}"</#if>>${field.value!}</textarea>
-        <span class="eforms-hint">${field.hint!?html}</span>
+        <span class="eforms-hint">${field.hint!}</span>
     </div>
 
     <#elseif field.type == "dropdown">
 
     <div class="eforms-field">
-        <label>${field.label!?html}<span class="eforms-req">${field.requiredMarker!?html}</span></label>
+        <label>${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
         <select name="${field.formRelativeUniqueName}" class="${field.styleClass!}">
         <#list field.options as option>
-            <option value="${option.value!?html}" <#if option.selected>selected="selected"</#if>>${option.text!?html}</option>
+            <option value="${option.value!}" <#if option.selected>selected="selected"</#if>>${option.text!}</option>
         </#list>
         </select>
-        <span class="eforms-hint">${field.hint!?html}</span>
+        <span class="eforms-hint">${field.hint!}</span>
     </div>
 
     <#elseif field.type == "fileuploadfield">
 
     <div class="eforms-field">
-        <label>${field.label!?html}<span class="eforms-req">${field.requiredMarker!?html}</span></label>
+        <label>${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
         <input type="file" name="${field.formRelativeUniqueName}" class="${field.styleClass!}"
                data-validate="fileSizeAndExtension" data-max-size="${field.maxUploadSize}"
                data-allowed-extensions="<#if field.fileExtensions?? && (field.fileExtensions?size > 0)>${field.fileExtensions?join(",")}</#if>" />
-        <span class="eforms-hint">${field.hint!?html}</span>
+        <span class="eforms-hint">${field.hint!}</span>
     </div>
 
     <#elseif field.type == "datefield">
 
     <div class="eforms-field">
-        <label>${field.label!?html}<span class="eforms-req">${field.requiredMarker!?html}</span></label>
+        <label>${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
         <input type="text" name="${field.formRelativeUniqueName}" class="date ${field.styleClass!}" value="${field.value!}" />
-        <span class="eforms-hint">${field.hint!?html}</span>
+        <span class="eforms-hint">${field.hint!}</span>
     </div>
     <script>
         $(document).ready(function() {
@@ -93,18 +92,18 @@
     <#elseif field.type == "radiogroup">
 
     <div class="eforms-field">
-        <label>${field.label!?html}<span class="eforms-req">${field.requiredMarker!?html}</span></label>
+        <label>${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
         <ul class="radiogroup">
         <#list field.fields as radio>
           <li>
-              <input type="radio" name="${field.formRelativeUniqueName}" class="${radio.styleClass!}" value="${radio.value!?html}"
+              <input type="radio" name="${field.formRelativeUniqueName}" class="${radio.styleClass!}" value="${radio.value!}"
                    <#if radio.checked>checked="true"</#if> />
-              ${radio.label!?html}
+              ${radio.label!}
           </li>
         </#list>
         <#if field.allowOther>
           <li>
-              <input type="radio" name="${field.formRelativeUniqueName}" class="${field.styleClass!}" value="${field.renderOtherValue!?html}"
+              <input type="radio" name="${field.formRelativeUniqueName}" class="${field.styleClass!}" value="${field.renderOtherValue!}"
               <#if field.otherValue>checked="true"</#if> />
               Other:
               <span>
@@ -114,18 +113,18 @@
           </li>
         </#if>
         </ul>
-        <span class="eforms-hint">${field.hint!?html}</span>
+        <span class="eforms-hint">${field.hint!}</span>
     </div>
 
     <#elseif field.type == "checkboxgroup">
 
     <div class="eforms-field">
-        <label>${field.label!?html}<span class="eforms-req">${field.requiredMarker!?html}</span></label>
+        <label>${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
       <#list field.fields as checkbox>
         <p>
-            <input type="checkbox" name="${checkbox.formRelativeUniqueName}" class="${checkbox.styleClass!}" value="${checkbox.value!?html}"
+            <input type="checkbox" name="${checkbox.formRelativeUniqueName}" class="${checkbox.styleClass!}" value="${checkbox.value!}"
                  <#if checkbox.checked>checked="true"</#if> />
-            ${checkbox.label!?html}
+            ${checkbox.label!}
         </p>
       </#list>
       <#if field.allowOther>
@@ -137,26 +136,26 @@
                  <#if (field.length > 0)>size="${field.length}"</#if> <#if (field.maxLength > 0)>maxlength="${field.maxLength}"</#if> />
         </span>
       </#if>
-        <span class="eforms-hint">${field.hint!?html}</span>
+        <span class="eforms-hint">${field.hint!}</span>
     </div>
 
     <#elseif field.type == "likert">
 
     <div class="eforms-field">
         <input type="hidden" name="${field.formRelativeUniqueName}"/>
-        <label>${field.label!?html}<span class="eforms-req">${field.requiredMarker!?html}</span></label>
+        <label>${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
         <table class="eforms-likert-table">
             <tr>
                 <td>&nbsp;</td>
           <#list field.options as option>
             <td>
-                ${option!?html}
+                ${option!}
             </td>
           </#list>
             </tr>
         <#list field.optionsKeyValuePairs as pair>
           <tr>
-              <td>${pair.key.label!?html}</td>
+              <td>${pair.key.label!}</td>
             <#list pair.value as radio>
               <td>
                   <input type="radio" name="${radio.formRelativeUniqueName}" class="${radio.styleClass!}" value="${radio.value!}"
@@ -166,7 +165,7 @@
           </tr>
         </#list>
         </table>
-        <span class="eforms-hint">${field.hint!?html}</span>
+        <span class="eforms-hint">${field.hint!}</span>
     </div>
 
     <#elseif field.type == "antispam">
@@ -179,7 +178,7 @@
         <#if field.honeyPot>
 
       <div class="${cssClass}" <#if !field.extraCssClass?has_content>style="display:none"</#if>>
-          <label>${field.label?html}<span class="eforms-req">${field.requiredMarker?html}</span></label>
+          <label>${field.label}<span class="eforms-req">${field.requiredMarker}</span></label>
           <input type="text" name="${field.formRelativeUniqueName}" class="${field.styleClass}" value="${field.value!}"/>
       </div>
 

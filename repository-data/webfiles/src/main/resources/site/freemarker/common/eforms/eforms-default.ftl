@@ -1,5 +1,4 @@
-<#ftl output_format="HTML">
-<#ftl encoding="UTF-8">
+<#ftl output_format="HTML" encoding="UTF-8">
 <#--
   Copyright 2015-2016 Hippo B.V. (http://www.onehippo.com)
 -->
