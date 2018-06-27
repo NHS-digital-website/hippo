@@ -1,0 +1,16 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-304-split-redirects-rules-into-separate:
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: '{}'
+      hipposys:query: /jcr:root/content/urlrewriter/rules/content//*[@jcr:primaryType
+        = 'hippo:handle']
+      hipposys:script:
+        resource: /configuration/update/DW-304-split-redirects-rules-into-separate.groovy
+        type: string
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo
