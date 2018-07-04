@@ -1,8 +1,6 @@
 package uk.nhs.digital.ps;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.onehippo.cms7.targeting.frontend.plugin.CharacteristicPlugin;
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
@@ -15,7 +13,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.wicketstuff.js.ext.util.ExtClass;
 
-import com.onehippo.cms7.targeting.frontend.plugin.CharacteristicPlugin;
+import java.util.ArrayList;
+import java.util.List;
 
 @ExtClass("Example.DocumentTypeCharacteristicPlugin")
 public class DocumentTypeCharacteristicPlugin extends CharacteristicPlugin {

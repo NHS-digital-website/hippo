@@ -55,6 +55,7 @@
                 <groupId>org.codehaus.gmavenplus</groupId>
                 <artifactId>gmavenplus-plugin</artifactId>
                 <executions>
+				<!--
                     <execution>
                         <id>format-yaml</id>
                         <phase>verify</phase>
@@ -67,6 +68,7 @@
                             </scripts>
                         </configuration>
                     </execution>
+				-->
                     <execution>
                         <id>generate-s3-perf-test-docs</id>
                         <phase>none</phase>
