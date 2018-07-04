@@ -1,0 +1,4 @@
+/targeting:targeting/targeting:characteristics/pageviews/baconipsumconsumer-1530716649754:
+  jcr:primaryType: targeting:targetgroup
+  targeting:name: Bacon ipsum consumer
+  targeting:propertynames: ['http://localhost:8080/data-and-information/publications/lorem-ipsum-content/bacon-ipsum']

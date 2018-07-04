@@ -1,13 +1,10 @@
----
 /content/documents/corporate-website/publication-system/search-test-loremipsumdolor:
+  .meta:order-before: ci-hub
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: 08e24965-fa92-4e7c-81ca-6e5f245fa461
   hippo:name: Search Test LoremIpsumDolor
-  hippostd:foldertype:
-  - new-statistical-publications-and-clinical-indicators-document
-  - new-statistical-publications-and-clinical-indicators-folder
+  hippostd:foldertype: [new-statistical-publications-and-clinical-indicators-document,
+    new-statistical-publications-and-clinical-indicators-folder]
   hippotranslation:id: 00000000-0000-0000-0000-000000000000
   hippotranslation:locale: en
-  jcr:mixinTypes:
-  - hippo:named
-  - hippotranslation:translated
-  - mix:versionable
-  jcr:primaryType: hippostd:folder

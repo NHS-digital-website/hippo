@@ -1,0 +1,6 @@
+definitions:
+  config:
+    /targeting:targeting/targeting:characteristics/documenttype:
+      jcr:primaryType: targeting:characteristic
+      targeting:collector: documenttypes
+      targeting:scorerClassName: com.onehippo.cms7.targeting.scoring.VectorScorer

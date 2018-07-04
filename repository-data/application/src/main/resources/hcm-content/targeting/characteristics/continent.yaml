@@ -1,0 +1,4 @@
+/targeting:targeting/targeting:characteristics/continent/websiteusercontinent-1530715823600:
+  jcr:primaryType: targeting:targetgroup
+  targeting:name: Website user continent
+  targeting:propertynames: [EU, NA]

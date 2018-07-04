@@ -231,11 +231,15 @@
                     <include>**/*.properties</include>
                     <include>**/*.html</include>
                     <include>**/*.yml</include>
+                    <include>**/*.js</include>
                 </includes>
             </resource>
             <resource>
                 <filtering>true</filtering>
                 <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
             </resource>
         </resources>
         <plugins>

@@ -1,0 +1,20 @@
+/targeting:targeting/targeting:personas/delboytrotter-1530715883992:
+  jcr:primaryType: targeting:persona
+  targeting:alterego: delboytrotter-1530715883992-alterego
+  targeting:avatar: image-1530715884259
+  targeting:description: ''
+  targeting:name: Delboy Trotter
+  targeting:quote: ''
+  targeting:segmentDescription: ''
+  targeting:segmentName: Northern hemisphere
+  /targeting:expression:
+    jcr:primaryType: targeting:rule
+    targeting:targetgroup: continent/websiteusercontinent-1530715823600
+  /targeting:avatar:
+    jcr:primaryType: hippo:resource
+    hippo:filename: PROD-David-Jason-as-Derek-Del-Boy-Trotter.jpg
+    jcr:data:
+      type: binary
+      resource: /targeting/personas/delboytrotter-1530715883992/avatar/PROD-David-Jason-as-Derek-Del-Boy-Trotter.jpg
+    jcr:lastModified: 2018-07-04T14:51:24.259Z
+    jcr:mimeType: image/jpeg

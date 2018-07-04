@@ -1,0 +1,4 @@
+/targeting:targeting/targeting:characteristics/pageviews/nhsmailservice-1530714507969:
+  jcr:primaryType: targeting:targetgroup
+  targeting:name: NHSMail service
+  targeting:propertynames: ['http://localhost:8080/services/service-document-1']

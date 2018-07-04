@@ -1,0 +1,5 @@
+definitions:
+  config:
+    /targeting:targeting/targeting:collectors/documenttypes:
+      jcr:primaryType: targeting:collector
+      targeting:className: com.onehippo.cms7.targeting.collectors.DocumentTypesCollector

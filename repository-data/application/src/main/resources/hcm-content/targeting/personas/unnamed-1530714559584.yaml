@@ -1,0 +1,20 @@
+/targeting:targeting/targeting:personas/unnamed-1530714559584:
+  jcr:primaryType: targeting:persona
+  targeting:alterego: unnamed-1530714559584-alterego
+  targeting:avatar: image-1530714576000
+  targeting:description: ''
+  targeting:name: ''
+  targeting:quote: ''
+  targeting:segmentDescription: ''
+  targeting:segmentName: NHSMail user
+  /targeting:avatar:
+    jcr:primaryType: hippo:resource
+    hippo:filename: doogielarge.png
+    jcr:data:
+      type: binary
+      resource: /targeting/personas/unnamed-1530714559584/avatar/doogielarge.png
+    jcr:lastModified: 2018-07-04T14:29:36Z
+    jcr:mimeType: image/png
+  /targeting:expression:
+    jcr:primaryType: targeting:rule
+    targeting:targetgroup: pageviews/nhsmailservice-1530714507969

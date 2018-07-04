@@ -1,13 +1,21 @@
----
 /content/documents/corporate-website/publication-system/valid-publication-series:
+  .meta:order-before: ci-hub
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: 713b7d72-d0dc-477f-ab99-21b1fc208d11
+  hippo:name: valid publication series
+  hippostd:foldertype: [new-statistical-publications-and-clinical-indicators-document,
+    new-statistical-publications-and-clinical-indicators-folder]
+  hippotranslation:id: 00000000-0000-0000-0000-000000000000
+  hippotranslation:locale: en
   /2012:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: be50346f-cf51-4c36-b1e8-cb981b9474b2
     /2012[1]:
-      /publicationsystem:RelatedLinks:
-        jcr:primaryType: publicationsystem:relatedlink
-        publicationsystem:linkText: ''
-        publicationsystem:linkUrl: ''
-        publicationsystem:link_text: ''
-        publicationsystem:link_url: ''
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: c52ab516-55de-41d8-a501-d4da874880ae
       common:FacetType: publication
       common:orderedSearchDate: 1357776000000
       common:searchRank: 4
@@ -20,33 +28,30 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:InformationType:
-      - Official statistics
+      publicationsystem:InformationType: [Official statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2013-01-10T00:00:00Z
       publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: A published publication
       publicationsystem:Title: Lorem Ipsum Dolor 2012
-    /2012[2]:
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
         publicationsystem:linkText: ''
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+    /2012[2]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+      jcr:uuid: b4262991-91e6-46d8-8d4b-1a9df5323c12
       common:FacetType: publication
       common:orderedSearchDate: 1357776000000
       common:searchRank: 4
       common:searchable: true
-      hippo:availability:
-      - preview
+      hippo:availability: [preview]
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2017-10-16T14:03:16.644Z
@@ -54,34 +59,30 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      - mix:versionable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:InformationType:
-      - Official statistics
+      publicationsystem:InformationType: [Official statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2013-01-10T00:00:00Z
       publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: A published publication
       publicationsystem:Title: Lorem Ipsum Dolor 2012
-    /2012[3]:
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
         publicationsystem:linkText: ''
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+    /2012[3]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: 256db6a3-d89a-48ec-9813-3a85eea53adb
       common:FacetType: publication
       common:orderedSearchDate: 1357776000000
       common:searchRank: 4
       common:searchable: true
-      hippo:availability:
-      - live
+      hippo:availability: [live]
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2017-10-16T14:03:16.644Z
@@ -90,31 +91,29 @@
       hippostdpubwf:publicationDate: 2017-10-16T14:03:59.870Z
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:InformationType:
-      - Official statistics
+      publicationsystem:InformationType: [Official statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2013-01-10T00:00:00Z
       publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: A published publication
       publicationsystem:Title: Lorem Ipsum Dolor 2012
-    jcr:mixinTypes:
-    - mix:referenceable
-    jcr:primaryType: hippo:handle
-  /2013:
-    /2013[1]:
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
         publicationsystem:linkText: ''
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+  /2013:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: d5caf29f-ad75-46d6-9a2a-37b497811846
+    /2013[1]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: df93f54f-b07b-437d-9fe1-4e7ad66bfd15
       common:FacetType: publication
       common:orderedSearchDate: 1389312000000
       common:searchRank: 4
@@ -127,33 +126,30 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:InformationType:
-      - Official statistics
+      publicationsystem:InformationType: [Official statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2014-01-10T00:00:00Z
       publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: A published publication 2013.
       publicationsystem:Title: Lorem Ipsum Dolor 2013
-    /2013[2]:
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
         publicationsystem:linkText: ''
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+    /2013[2]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+      jcr:uuid: a13948af-3e73-4722-9a06-e34ceef75769
       common:FacetType: publication
       common:orderedSearchDate: 1389312000000
       common:searchRank: 4
       common:searchable: true
-      hippo:availability:
-      - preview
+      hippo:availability: [preview]
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2017-10-16T14:04:13.132Z
@@ -161,34 +157,30 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      - mix:versionable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:InformationType:
-      - Official statistics
+      publicationsystem:InformationType: [Official statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2014-01-10T00:00:00Z
       publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: A published publication 2013.
       publicationsystem:Title: Lorem Ipsum Dolor 2013
-    /2013[3]:
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
         publicationsystem:linkText: ''
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+    /2013[3]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: 2939661f-e6e1-47aa-8d80-3170a84bb9e2
       common:FacetType: publication
       common:orderedSearchDate: 1389312000000
       common:searchRank: 4
       common:searchable: true
-      hippo:availability:
-      - live
+      hippo:availability: [live]
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2017-10-16T14:04:13.132Z
@@ -197,31 +189,29 @@
       hippostdpubwf:publicationDate: 2017-10-16T14:05:18.987Z
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:InformationType:
-      - Official statistics
+      publicationsystem:InformationType: [Official statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2014-01-10T00:00:00Z
       publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: A published publication 2013.
       publicationsystem:Title: Lorem Ipsum Dolor 2013
-    jcr:mixinTypes:
-    - mix:referenceable
-    jcr:primaryType: hippo:handle
-  /2014:
-    /2014[1]:
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
         publicationsystem:linkText: ''
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+  /2014:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 105c5d9f-a107-4836-8094-74a4a761e6a7
+    /2014[1]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: 71f42fa0-ff4f-47ef-a510-bd4321d61069
       common:FacetType: publication
       common:orderedSearchDate: 1420848000000
       common:searchRank: 4
@@ -234,33 +224,30 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:InformationType:
-      - Official statistics
+      publicationsystem:InformationType: [Official statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2015-01-10T00:00:00Z
       publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: Published 2014 stats.
       publicationsystem:Title: Lorem Ipsum Dolor 2014
-    /2014[2]:
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
         publicationsystem:linkText: ''
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+    /2014[2]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+      jcr:uuid: a39ab821-ecaf-4834-9ebd-a647bf04a242
       common:FacetType: publication
       common:orderedSearchDate: 1420848000000
       common:searchRank: 4
       common:searchable: true
-      hippo:availability:
-      - preview
+      hippo:availability: [preview]
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2017-10-16T14:05:34.800Z
@@ -268,34 +255,30 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      - mix:versionable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:InformationType:
-      - Official statistics
+      publicationsystem:InformationType: [Official statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2015-01-10T00:00:00Z
       publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: Published 2014 stats.
       publicationsystem:Title: Lorem Ipsum Dolor 2014
-    /2014[3]:
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
         publicationsystem:linkText: ''
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+    /2014[3]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: 30bdbda6-7c78-4a71-914a-5b0a1aa8cd4e
       common:FacetType: publication
       common:orderedSearchDate: 1420848000000
       common:searchRank: 4
       common:searchable: true
-      hippo:availability:
-      - live
+      hippo:availability: [live]
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2017-10-16T14:05:34.800Z
@@ -304,31 +287,29 @@
       hippostdpubwf:publicationDate: 2017-10-16T14:07:01.115Z
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:InformationType:
-      - Official statistics
+      publicationsystem:InformationType: [Official statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2015-01-10T00:00:00Z
       publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: Published 2014 stats.
       publicationsystem:Title: Lorem Ipsum Dolor 2014
-    jcr:mixinTypes:
-    - mix:referenceable
-    jcr:primaryType: hippo:handle
-  /2015:
-    /2015[1]:
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
         publicationsystem:linkText: ''
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+  /2015:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 4b0c7a41-7189-4cde-a183-e20c1cc1ba08
+    /2015[1]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: 97b1d255-80f6-4261-b7e3-a8c142ccab33
       common:FacetType: publication
       common:orderedSearchDate: 1452384000000
       common:searchRank: 4
@@ -341,33 +322,30 @@
       hippostdpubwf:lastModifiedBy: author
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:InformationType:
-      - Official statistics
+      publicationsystem:InformationType: [Official statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2016-01-10T00:00:00Z
       publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: Unreleased 2015 stats.
       publicationsystem:Title: Lorem Ipsum Dolor 2015
-    /2015[2]:
       /publicationsystem:RelatedLinks:
         jcr:primaryType: publicationsystem:relatedlink
         publicationsystem:linkText: ''
         publicationsystem:linkUrl: ''
         publicationsystem:link_text: ''
         publicationsystem:link_url: ''
+    /2015[2]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+      jcr:uuid: e2d83f90-bda2-4f72-a667-4339a2fa827e
       common:FacetType: publication
       common:orderedSearchDate: 1452384000000
       common:searchRank: 4
       common:searchable: true
-      hippo:availability:
-      - preview
+      hippo:availability: [preview]
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2017-10-16T14:07:17.576Z
@@ -375,26 +353,30 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      - mix:versionable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
-      publicationsystem:InformationType:
-      - Official statistics
+      publicationsystem:InformationType: [Official statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2016-01-10T00:00:00Z
       publicationsystem:PubliclyAccessible: true
       publicationsystem:Summary: Unreleased 2015 stats.
       publicationsystem:Title: Lorem Ipsum Dolor 2015
-    jcr:mixinTypes:
-    - mix:referenceable
-    jcr:primaryType: hippo:handle
+      /publicationsystem:RelatedLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ''
+        publicationsystem:linkUrl: ''
+        publicationsystem:link_text: ''
+        publicationsystem:link_url: ''
   /2018---upcoming:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: 03d9103b-14c8-4853-867b-88f4c8dc0dac
+    hippo:name: 2018 - Upcoming
     /2018---upcoming[1]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: e3ac0b80-2070-4a69-8b6f-1434c376f881
       common:FacetType: publication
       common:orderedSearchDate: -1525388400000
       common:searchRank: 4
@@ -407,28 +389,25 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: fb511bf0-dbba-47c7-95d2-cc8557fbc143
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:GeographicCoverage: []
-      publicationsystem:InformationType:
-      - National statistics
+      publicationsystem:InformationType: [National statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2018-05-03T23:00:00Z
       publicationsystem:PubliclyAccessible: false
       publicationsystem:Summary: 2018 - Upcoming Publication
       publicationsystem:Title: 2018 - Upcoming
     /2018---upcoming[2]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+      jcr:uuid: 1cf704f8-c2eb-4298-b3b0-9e7741ea3746
       common:FacetType: publication
       common:orderedSearchDate: -1525388400000
       common:searchRank: 4
       common:searchable: true
-      hippo:availability:
-      - preview
+      hippo:availability: [preview]
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
@@ -436,29 +415,25 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: fb511bf0-dbba-47c7-95d2-cc8557fbc143
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      - mix:versionable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:GeographicCoverage: []
-      publicationsystem:InformationType:
-      - National statistics
+      publicationsystem:InformationType: [National statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2018-05-03T23:00:00Z
       publicationsystem:PubliclyAccessible: false
       publicationsystem:Summary: 2018 - Upcoming Publication
       publicationsystem:Title: 2018 - Upcoming
     /2018---upcoming[3]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: 0adab722-056c-4715-a2c0-beef84936de0
       common:FacetType: publication
       common:orderedSearchDate: -1525388400000
       common:searchRank: 4
       common:searchable: true
-      hippo:availability:
-      - live
+      hippo:availability: [live]
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
@@ -467,34 +442,30 @@
       hippostdpubwf:publicationDate: 2018-05-04T14:03:46.332Z
       hippotranslation:id: fb511bf0-dbba-47c7-95d2-cc8557fbc143
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:GeographicCoverage: []
-      publicationsystem:InformationType:
-      - National statistics
+      publicationsystem:InformationType: [National statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2018-05-03T23:00:00Z
       publicationsystem:PubliclyAccessible: false
       publicationsystem:Summary: 2018 - Upcoming Publication
       publicationsystem:Title: 2018 - Upcoming
-    hippo:name: 2018 - Upcoming
-    jcr:mixinTypes:
-    - hippo:named
-    - mix:referenceable
-    jcr:primaryType: hippo:handle
   /2019---upcoming:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: e87bf484-149d-4730-8ba0-67c45d370e18
+    hippo:name: 2019 - Upcoming
     /2019---upcoming[1]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
+      jcr:uuid: 93d00877-8647-454a-b4f5-df847e10eb45
       common:FacetType: publication
       common:orderedSearchDate: -1548892800000
       common:searchRank: 4
       common:searchable: true
-      hippo:availability:
-      - preview
+      hippo:availability: [preview]
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
@@ -502,22 +473,20 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: d1cc1148-e701-4289-ac2a-70f2144de20f
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:versionable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:GeographicCoverage: []
-      publicationsystem:InformationType:
-      - National statistics
+      publicationsystem:InformationType: [National statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2019-01-31T00:00:00Z
       publicationsystem:PubliclyAccessible: false
       publicationsystem:Summary: 2019 - Upcoming Publication
       publicationsystem:Title: 2019 - Upcoming
     /2019---upcoming[2]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: 8cdec7be-7c50-41bd-b4f0-9bd6a3411f37
       common:FacetType: publication
       common:orderedSearchDate: -1548892800000
       common:searchRank: 4
@@ -530,28 +499,25 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: d1cc1148-e701-4289-ac2a-70f2144de20f
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:GeographicCoverage: []
-      publicationsystem:InformationType:
-      - National statistics
+      publicationsystem:InformationType: [National statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2019-01-31T00:00:00Z
       publicationsystem:PubliclyAccessible: false
       publicationsystem:Summary: 2019 - Upcoming Publication
       publicationsystem:Title: 2019 - Upcoming
     /2019---upcoming[3]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: a6c687f4-bcb9-4858-b22e-a9b1eb399bb3
       common:FacetType: publication
       common:orderedSearchDate: -1548892800000
       common:searchRank: 4
       common:searchable: true
-      hippo:availability:
-      - live
+      hippo:availability: [live]
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
@@ -560,34 +526,30 @@
       hippostdpubwf:publicationDate: 2018-05-04T12:07:16.674Z
       hippotranslation:id: d1cc1148-e701-4289-ac2a-70f2144de20f
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:GeographicCoverage: []
-      publicationsystem:InformationType:
-      - National statistics
+      publicationsystem:InformationType: [National statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2019-01-31T00:00:00Z
       publicationsystem:PubliclyAccessible: false
       publicationsystem:Summary: 2019 - Upcoming Publication
       publicationsystem:Title: 2019 - Upcoming
-    hippo:name: 2019 - Upcoming
-    jcr:mixinTypes:
-    - hippo:named
-    - mix:referenceable
-    jcr:primaryType: hippo:handle
   /2020---upcoming:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: e722431c-0b5d-4246-956d-f118d9bca0cf
+    hippo:name: 2020 - Upcoming
     /2020---upcoming[1]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
+      jcr:uuid: b2f9c402-9c78-47a9-8313-051ee63ae9e8
       common:FacetType: publication
       common:orderedSearchDate: -1577836800000
       common:searchRank: 4
       common:searchable: true
-      hippo:availability:
-      - preview
+      hippo:availability: [preview]
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
@@ -595,22 +557,20 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 42bef2de-d12e-456f-b424-3521a3e90c50
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:versionable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:GeographicCoverage: []
-      publicationsystem:InformationType:
-      - National statistics
+      publicationsystem:InformationType: [National statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2020-01-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
       publicationsystem:Summary: 2020 - Upcoming Publication
       publicationsystem:Title: 2020 - Upcoming
     /2020---upcoming[2]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: cc6a3779-060a-4013-b1bf-8c1855e1c50c
       common:FacetType: publication
       common:orderedSearchDate: -1577836800000
       common:searchRank: 4
@@ -623,28 +583,25 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 42bef2de-d12e-456f-b424-3521a3e90c50
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:GeographicCoverage: []
-      publicationsystem:InformationType:
-      - National statistics
+      publicationsystem:InformationType: [National statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2020-01-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
       publicationsystem:Summary: 2020 - Upcoming Publication
       publicationsystem:Title: 2020 - Upcoming
     /2020---upcoming[3]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: daf1f0ec-8e6e-41ec-9257-3dc77e16df26
       common:FacetType: publication
       common:orderedSearchDate: -1577836800000
       common:searchRank: 4
       common:searchable: true
-      hippo:availability:
-      - live
+      hippo:availability: [live]
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
@@ -653,34 +610,30 @@
       hippostdpubwf:publicationDate: 2018-05-04T14:03:26.882Z
       hippotranslation:id: 42bef2de-d12e-456f-b424-3521a3e90c50
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:GeographicCoverage: []
-      publicationsystem:InformationType:
-      - National statistics
+      publicationsystem:InformationType: [National statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2020-01-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
       publicationsystem:Summary: 2020 - Upcoming Publication
       publicationsystem:Title: 2020 - Upcoming
-    hippo:name: 2020 - Upcoming
-    jcr:mixinTypes:
-    - hippo:named
-    - mix:referenceable
-    jcr:primaryType: hippo:handle
   /2021---upcoming:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: d5cdd923-3962-4a9b-be10-a807b339a653
+    hippo:name: 2021 - Upcoming
     /2021---upcoming[1]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
+      jcr:uuid: 23cea28a-6371-4d3e-b091-69415a31dc5d
       common:FacetType: publication
       common:orderedSearchDate: -1609459200000
       common:searchRank: 4
       common:searchable: true
-      hippo:availability:
-      - preview
+      hippo:availability: [preview]
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
@@ -688,22 +641,20 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: cde73a8e-5e18-4658-8331-4f070f25d994
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:versionable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:GeographicCoverage: []
-      publicationsystem:InformationType:
-      - National statistics
+      publicationsystem:InformationType: [National statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2021-01-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
       publicationsystem:Summary: 2021 - Upcoming Publication
       publicationsystem:Title: 2021 - Upcoming
     /2021---upcoming[2]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: 78ceef28-65dc-44d2-927d-f57d34cc33a9
       common:FacetType: publication
       common:orderedSearchDate: -1609459200000
       common:searchRank: 4
@@ -716,28 +667,25 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: cde73a8e-5e18-4658-8331-4f070f25d994
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:GeographicCoverage: []
-      publicationsystem:InformationType:
-      - National statistics
+      publicationsystem:InformationType: [National statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2021-01-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
       publicationsystem:Summary: 2021 - Upcoming Publication
       publicationsystem:Title: 2021 - Upcoming
     /2021---upcoming[3]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: 498bba6a-dbfc-455a-96d2-ede6ac37f97f
       common:FacetType: publication
       common:orderedSearchDate: -1609459200000
       common:searchRank: 4
       common:searchable: true
-      hippo:availability:
-      - live
+      hippo:availability: [live]
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
@@ -746,34 +694,30 @@
       hippostdpubwf:publicationDate: 2018-05-04T14:03:19.463Z
       hippotranslation:id: cde73a8e-5e18-4658-8331-4f070f25d994
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:GeographicCoverage: []
-      publicationsystem:InformationType:
-      - National statistics
+      publicationsystem:InformationType: [National statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2021-01-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
       publicationsystem:Summary: 2021 - Upcoming Publication
       publicationsystem:Title: 2021 - Upcoming
-    hippo:name: 2021 - Upcoming
-    jcr:mixinTypes:
-    - hippo:named
-    - mix:referenceable
-    jcr:primaryType: hippo:handle
   /2022---upcoming:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: 21bf0147-1522-4edc-b86a-e95a75ef430d
+    hippo:name: 2022 - Upcoming
     /2022---upcoming[1]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
+      jcr:uuid: 56cdc8c2-7881-4b50-a615-8d07514ca03a
       common:FacetType: publication
       common:orderedSearchDate: -1640995200000
       common:searchRank: 4
       common:searchable: true
-      hippo:availability:
-      - preview
+      hippo:availability: [preview]
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
@@ -781,22 +725,20 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 06014343-8273-45f5-86cb-2ccba421cbb3
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:versionable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:GeographicCoverage: []
-      publicationsystem:InformationType:
-      - National statistics
+      publicationsystem:InformationType: [National statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2022-01-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
       publicationsystem:Summary: 2022 - Upcoming Publication
       publicationsystem:Title: 2022 - Upcoming
     /2022---upcoming[2]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: 24c9edcc-ce1b-4b06-a7ec-337c354c6a54
       common:FacetType: publication
       common:orderedSearchDate: -1640995200000
       common:searchRank: 4
@@ -809,28 +751,25 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 06014343-8273-45f5-86cb-2ccba421cbb3
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:GeographicCoverage: []
-      publicationsystem:InformationType:
-      - National statistics
+      publicationsystem:InformationType: [National statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2022-01-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
       publicationsystem:Summary: 2022 - Upcoming Publication
       publicationsystem:Title: 2022 - Upcoming
     /2022---upcoming[3]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: 38259ce6-1644-4b51-866b-40a86096fa48
       common:FacetType: publication
       common:orderedSearchDate: -1640995200000
       common:searchRank: 4
       common:searchable: true
-      hippo:availability:
-      - live
+      hippo:availability: [live]
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-05-04T11:05:28.011Z
@@ -839,62 +778,25 @@
       hippostdpubwf:publicationDate: 2018-05-04T14:04:25.523Z
       hippotranslation:id: 06014343-8273-45f5-86cb-2ccba421cbb3
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippotaxonomy:classifiable
-      - mix:referenceable
-      jcr:primaryType: publicationsystem:publication
       publicationsystem:AdministrativeSources: ''
       publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:GeographicCoverage: []
-      publicationsystem:InformationType:
-      - National statistics
+      publicationsystem:InformationType: [National statistics]
       publicationsystem:KeyFacts: ''
       publicationsystem:NominalDate: 2022-01-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
       publicationsystem:Summary: 2022 - Upcoming Publication
       publicationsystem:Title: 2022 - Upcoming
-    hippo:name: 2022 - Upcoming
-    jcr:mixinTypes:
-    - hippo:named
-    - mix:referenceable
-    jcr:primaryType: hippo:handle
   /content:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: 78b61988-79f2-45fc-9a52-f53c1d486458
+    hippo:name: Time Series Index
     /content[1]:
-      /publicationsystem:attachments[1]:
-        /publicationsystem:attachmentResource:
-          externalstorage:reference: D9/5536B3/attachment-text.pdf
-          externalstorage:size: 7228
-          externalstorage:url: https://files.local.nhsd.io/D9/5536B3/attachment-text.pdf
-          hippo:filename: attachment-text.pdf
-          jcr:data:
-            resource: /content/documents/corporate-website/publication-system/valid-publication-series/content/content[1]/attachments[1]/attachmentResource/data.pdf
-            type: binary
-          jcr:encoding: UTF-8
-          jcr:lastModified: 2018-06-01T11:07:43.670Z
-          jcr:mimeType: application/pdf
-          jcr:primaryType: externalstorage:resource
-        jcr:primaryType: publicationsystem:extattachment
-        publicationsystem:displayName: Attachment with text
-      /publicationsystem:attachments[2]:
-        /publicationsystem:attachmentResource:
-          externalstorage:reference: AF/9F1A6A/attachment.pdf
-          externalstorage:size: 7228
-          externalstorage:url: https://files.local.nhsd.io/AF/9F1A6A/attachment.pdf
-          hippo:filename: attachment.pdf
-          jcr:data:
-            resource: /content/documents/corporate-website/publication-system/valid-publication-series/content/content[1]/attachments[2]/attachmentResource/data.pdf
-            type: binary
-          jcr:encoding: UTF-8
-          jcr:lastModified: 2018-06-01T11:07:56.481Z
-          jcr:mimeType: application/pdf
-          jcr:primaryType: externalstorage:resource
-        jcr:primaryType: publicationsystem:extattachment
-        publicationsystem:displayName: ''
-      /publicationsystem:resourceLinks:
-        jcr:primaryType: publicationsystem:relatedlink
-        publicationsystem:linkText: Google Link
-        publicationsystem:linkUrl: https://google.co.uk
+      jcr:primaryType: publicationsystem:series
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: a998861f-58b5-4653-9102-25c60014b43a
       common:FacetType: series
       common:searchRank: 5
       common:searchable: true
@@ -906,9 +808,6 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:referenceable
-      jcr:primaryType: publicationsystem:series
       publicationsystem:ShowLatest: true
       publicationsystem:Summary: Integer suscipit pulvinar lacus non porta. Aenean
         ut tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget, aliquam
@@ -916,46 +815,48 @@
         tempor nec odio non aliquam. Suspendisse in ex sit amet lectus vehicula varius
         pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.
       publicationsystem:Title: Time Series Lorem Ipsum Dolor
-    /content[2]:
       /publicationsystem:attachments[1]:
+        jcr:primaryType: publicationsystem:extattachment
+        publicationsystem:displayName: Attachment with text
         /publicationsystem:attachmentResource:
+          jcr:primaryType: externalstorage:resource
           externalstorage:reference: D9/5536B3/attachment-text.pdf
           externalstorage:size: 7228
           externalstorage:url: https://files.local.nhsd.io/D9/5536B3/attachment-text.pdf
           hippo:filename: attachment-text.pdf
           jcr:data:
-            resource: /content/documents/corporate-website/publication-system/valid-publication-series/content/content[2]/attachments[1]/attachmentResource/data.pdf
             type: binary
+            resource: /content/documents/corporate-website/publication-system/valid-publication-series/content/content[1]/attachments[1]/attachmentResource/data.pdf
           jcr:encoding: UTF-8
           jcr:lastModified: 2018-06-01T11:07:43.670Z
           jcr:mimeType: application/pdf
-          jcr:primaryType: externalstorage:resource
-        jcr:primaryType: publicationsystem:extattachment
-        publicationsystem:displayName: Attachment with text
       /publicationsystem:attachments[2]:
+        jcr:primaryType: publicationsystem:extattachment
+        publicationsystem:displayName: ''
         /publicationsystem:attachmentResource:
+          jcr:primaryType: externalstorage:resource
           externalstorage:reference: AF/9F1A6A/attachment.pdf
           externalstorage:size: 7228
           externalstorage:url: https://files.local.nhsd.io/AF/9F1A6A/attachment.pdf
           hippo:filename: attachment.pdf
           jcr:data:
-            resource: /content/documents/corporate-website/publication-system/valid-publication-series/content/content[2]/attachments[2]/attachmentResource/data.pdf
             type: binary
+            resource: /content/documents/corporate-website/publication-system/valid-publication-series/content/content[1]/attachments[2]/attachmentResource/data.pdf
           jcr:encoding: UTF-8
           jcr:lastModified: 2018-06-01T11:07:56.481Z
           jcr:mimeType: application/pdf
-          jcr:primaryType: externalstorage:resource
-        jcr:primaryType: publicationsystem:extattachment
-        publicationsystem:displayName: ''
       /publicationsystem:resourceLinks:
         jcr:primaryType: publicationsystem:relatedlink
         publicationsystem:linkText: Google Link
         publicationsystem:linkUrl: https://google.co.uk
+    /content[2]:
+      jcr:primaryType: publicationsystem:series
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 4d8e4351-0ce9-4aa6-8818-0b2f63138f59
       common:FacetType: series
       common:searchRank: 5
       common:searchable: true
-      hippo:availability:
-      - preview
+      hippo:availability: [preview]
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2017-10-16T13:58:50.358Z
@@ -963,10 +864,6 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:referenceable
-      - mix:versionable
-      jcr:primaryType: publicationsystem:series
       publicationsystem:ShowLatest: true
       publicationsystem:Summary: Integer suscipit pulvinar lacus non porta. Aenean
         ut tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget, aliquam
@@ -974,46 +871,48 @@
         tempor nec odio non aliquam. Suspendisse in ex sit amet lectus vehicula varius
         pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.
       publicationsystem:Title: Time Series Lorem Ipsum Dolor
-    /content[3]:
       /publicationsystem:attachments[1]:
+        jcr:primaryType: publicationsystem:extattachment
+        publicationsystem:displayName: Attachment with text
         /publicationsystem:attachmentResource:
+          jcr:primaryType: externalstorage:resource
           externalstorage:reference: D9/5536B3/attachment-text.pdf
           externalstorage:size: 7228
           externalstorage:url: https://files.local.nhsd.io/D9/5536B3/attachment-text.pdf
           hippo:filename: attachment-text.pdf
           jcr:data:
-            resource: /content/documents/corporate-website/publication-system/valid-publication-series/content/content[3]/attachments[1]/attachmentResource/data.pdf
             type: binary
+            resource: /content/documents/corporate-website/publication-system/valid-publication-series/content/content[2]/attachments[1]/attachmentResource/data.pdf
           jcr:encoding: UTF-8
           jcr:lastModified: 2018-06-01T11:07:43.670Z
           jcr:mimeType: application/pdf
-          jcr:primaryType: externalstorage:resource
-        jcr:primaryType: publicationsystem:extattachment
-        publicationsystem:displayName: Attachment with text
       /publicationsystem:attachments[2]:
+        jcr:primaryType: publicationsystem:extattachment
+        publicationsystem:displayName: ''
         /publicationsystem:attachmentResource:
+          jcr:primaryType: externalstorage:resource
           externalstorage:reference: AF/9F1A6A/attachment.pdf
           externalstorage:size: 7228
           externalstorage:url: https://files.local.nhsd.io/AF/9F1A6A/attachment.pdf
           hippo:filename: attachment.pdf
           jcr:data:
-            resource: /content/documents/corporate-website/publication-system/valid-publication-series/content/content[3]/attachments[2]/attachmentResource/data.pdf
             type: binary
+            resource: /content/documents/corporate-website/publication-system/valid-publication-series/content/content[2]/attachments[2]/attachmentResource/data.pdf
           jcr:encoding: UTF-8
           jcr:lastModified: 2018-06-01T11:07:56.481Z
           jcr:mimeType: application/pdf
-          jcr:primaryType: externalstorage:resource
-        jcr:primaryType: publicationsystem:extattachment
-        publicationsystem:displayName: ''
       /publicationsystem:resourceLinks:
         jcr:primaryType: publicationsystem:relatedlink
         publicationsystem:linkText: Google Link
         publicationsystem:linkUrl: https://google.co.uk
+    /content[3]:
+      jcr:primaryType: publicationsystem:series
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 231d1f7a-3f49-4e83-9425-68c604652ccb
       common:FacetType: series
       common:searchRank: 5
       common:searchable: true
-      hippo:availability:
-      - live
+      hippo:availability: [live]
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2017-10-16T13:58:50.358Z
@@ -1022,9 +921,6 @@
       hippostdpubwf:publicationDate: 2018-06-01T11:08:56.592Z
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:referenceable
-      jcr:primaryType: publicationsystem:series
       publicationsystem:ShowLatest: true
       publicationsystem:Summary: Integer suscipit pulvinar lacus non porta. Aenean
         ut tempus ex. Proin eget tortor sollicitudin, pellentesque dolor eget, aliquam
@@ -1032,19 +928,37 @@
         tempor nec odio non aliquam. Suspendisse in ex sit amet lectus vehicula varius
         pharetra eget elit. Quisque at iaculis arcu, eget ornare arcu.
       publicationsystem:Title: Time Series Lorem Ipsum Dolor
-    hippo:name: Time Series Index
-    jcr:mixinTypes:
-    - hippo:named
-    - mix:referenceable
-    jcr:primaryType: hippo:handle
-  hippo:name: valid publication series
-  hippostd:foldertype:
-  - new-statistical-publications-and-clinical-indicators-document
-  - new-statistical-publications-and-clinical-indicators-folder
-  hippotranslation:id: 00000000-0000-0000-0000-000000000000
-  hippotranslation:locale: en
-  jcr:mixinTypes:
-  - hippo:named
-  - hippotranslation:translated
-  - mix:versionable
-  jcr:primaryType: hippostd:folder
+      /publicationsystem:attachments[1]:
+        jcr:primaryType: publicationsystem:extattachment
+        publicationsystem:displayName: Attachment with text
+        /publicationsystem:attachmentResource:
+          jcr:primaryType: externalstorage:resource
+          externalstorage:reference: D9/5536B3/attachment-text.pdf
+          externalstorage:size: 7228
+          externalstorage:url: https://files.local.nhsd.io/D9/5536B3/attachment-text.pdf
+          hippo:filename: attachment-text.pdf
+          jcr:data:
+            type: binary
+            resource: /content/documents/corporate-website/publication-system/valid-publication-series/content/content[3]/attachments[1]/attachmentResource/data.pdf
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-01T11:07:43.670Z
+          jcr:mimeType: application/pdf
+      /publicationsystem:attachments[2]:
+        jcr:primaryType: publicationsystem:extattachment
+        publicationsystem:displayName: ''
+        /publicationsystem:attachmentResource:
+          jcr:primaryType: externalstorage:resource
+          externalstorage:reference: AF/9F1A6A/attachment.pdf
+          externalstorage:size: 7228
+          externalstorage:url: https://files.local.nhsd.io/AF/9F1A6A/attachment.pdf
+          hippo:filename: attachment.pdf
+          jcr:data:
+            type: binary
+            resource: /content/documents/corporate-website/publication-system/valid-publication-series/content/content[3]/attachments[2]/attachmentResource/data.pdf
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-06-01T11:07:56.481Z
+          jcr:mimeType: application/pdf
+      /publicationsystem:resourceLinks:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: Google Link
+        publicationsystem:linkUrl: https://google.co.uk

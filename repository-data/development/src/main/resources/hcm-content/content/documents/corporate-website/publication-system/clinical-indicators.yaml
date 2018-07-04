@@ -1,9 +1,40 @@
----
 /content/documents/corporate-website/publication-system/clinical-indicators:
+  .meta:order-before: ci-hub
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: b91533c4-7a69-4d8a-bfa8-da35bc7ce48d
+  hippo:name: Clinical Indicators
+  hippostd:foldertype: [new-statistical-publications-and-clinical-indicators-folder,
+    new-statistical-publications-and-clinical-indicators-document]
+  hippotranslation:id: 175b91bb-53aa-44ab-9dbe-b5289a63b6cb
+  hippotranslation:locale: en
   /ccg-outcomes-indicator-set:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: b4b0bccc-fa54-43c1-abeb-3533dc7a78c5
+    hippo:name: CCG Outcomes Indicator Set
+    hippostd:foldertype: [new-statistical-publications-and-clinical-indicators-folder,
+      new-statistical-publications-and-clinical-indicators-document]
+    hippotranslation:id: 817da31c-beef-40d7-a949-b053cda0b115
+    hippotranslation:locale: en
     /archive:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 7768f32b-5126-451c-895d-d6ad2397d436
+      hippo:name: Archive
+      hippostd:foldertype: [new-statistical-publications-and-clinical-indicators-folder,
+        new-statistical-publications-and-clinical-indicators-document]
+      hippotranslation:id: a1e0168e-2532-4116-a443-f146502b4dbf
+      hippotranslation:locale: en
       /ccg-archive-document-1:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:uuid: 355a315e-bb5e-45f0-b564-f2b87e7e8301
+        hippo:name: CCG archive document 1
         /ccg-archive-document-1[1]:
+          jcr:primaryType: publicationsystem:publication
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: 55de5b96-422b-4037-9988-8e627e15ce9d
           common:FacetType: publication
           common:orderedSearchDate: 1525734000000
           common:searchRank: 4
@@ -16,10 +47,6 @@
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: bdc8dcbc-425f-4c9b-95cf-9b034df10cbb
           hippotranslation:locale: en
-          jcr:mixinTypes:
-          - hippotaxonomy:classifiable
-          - mix:referenceable
-          jcr:primaryType: publicationsystem:publication
           publicationsystem:AdministrativeSources: ''
           publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
           publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
@@ -30,12 +57,14 @@
           publicationsystem:Summary: CCG Archive publication
           publicationsystem:Title: CCG Archive publication
         /ccg-archive-document-1[2]:
+          jcr:primaryType: publicationsystem:publication
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+          jcr:uuid: d268f023-2463-4fac-9029-5a293798c57a
           common:FacetType: publication
           common:orderedSearchDate: 1525734000000
           common:searchRank: 4
           common:searchable: true
-          hippo:availability:
-          - preview
+          hippo:availability: [preview]
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2018-05-08T15:45:10.021Z
@@ -43,11 +72,6 @@
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: bdc8dcbc-425f-4c9b-95cf-9b034df10cbb
           hippotranslation:locale: en
-          jcr:mixinTypes:
-          - hippotaxonomy:classifiable
-          - mix:referenceable
-          - mix:versionable
-          jcr:primaryType: publicationsystem:publication
           publicationsystem:AdministrativeSources: ''
           publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
           publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
@@ -58,12 +82,14 @@
           publicationsystem:Summary: CCG Archive publication
           publicationsystem:Title: CCG Archive publication
         /ccg-archive-document-1[3]:
+          jcr:primaryType: publicationsystem:publication
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: 6f804c6c-2275-4eda-8f45-d1888daea1e1
           common:FacetType: publication
           common:orderedSearchDate: 1525734000000
           common:searchRank: 4
           common:searchable: true
-          hippo:availability:
-          - live
+          hippo:availability: [live]
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2018-05-08T15:45:10.021Z
@@ -72,10 +98,6 @@
           hippostdpubwf:publicationDate: 2018-05-08T15:45:32.951Z
           hippotranslation:id: bdc8dcbc-425f-4c9b-95cf-9b034df10cbb
           hippotranslation:locale: en
-          jcr:mixinTypes:
-          - hippotaxonomy:classifiable
-          - mix:referenceable
-          jcr:primaryType: publicationsystem:publication
           publicationsystem:AdministrativeSources: ''
           publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
           publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
@@ -85,13 +107,14 @@
           publicationsystem:PubliclyAccessible: true
           publicationsystem:Summary: CCG Archive publication
           publicationsystem:Title: CCG Archive publication
-        hippo:name: CCG archive document 1
-        jcr:mixinTypes:
-        - hippo:named
-        - mix:referenceable
-        jcr:primaryType: hippo:handle
       /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: e5ed8f9c-c666-47fc-9ad0-feede7adbe18
         /content[1]:
+          jcr:primaryType: publicationsystem:archive
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: f8653c88-7b15-4b31-96f1-93053043b8fc
           common:FacetType: series
           common:searchRank: 1
           common:searchable: true
@@ -103,17 +126,16 @@
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: ed227b8b-f6b4-428a-87c4-9988ef203af2
           hippotranslation:locale: en
-          jcr:mixinTypes:
-          - mix:referenceable
-          jcr:primaryType: publicationsystem:archive
           publicationsystem:Summary: CCG Archive
           publicationsystem:Title: CCG Archive
         /content[2]:
+          jcr:primaryType: publicationsystem:archive
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: 2514a582-6356-4648-a055-614363f73e7f
           common:FacetType: series
           common:searchRank: 1
           common:searchable: true
-          hippo:availability:
-          - preview
+          hippo:availability: [preview]
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2018-05-08T15:44:05.488Z
@@ -121,18 +143,16 @@
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: ed227b8b-f6b4-428a-87c4-9988ef203af2
           hippotranslation:locale: en
-          jcr:mixinTypes:
-          - mix:referenceable
-          - mix:versionable
-          jcr:primaryType: publicationsystem:archive
           publicationsystem:Summary: CCG Archive
           publicationsystem:Title: CCG Archive
         /content[3]:
+          jcr:primaryType: publicationsystem:archive
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: ef02cdcf-26cd-4640-922d-7c7e014bd2b1
           common:FacetType: series
           common:searchRank: 1
           common:searchable: true
-          hippo:availability:
-          - live
+          hippo:availability: [live]
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2018-05-08T15:44:05.488Z
@@ -141,29 +161,35 @@
           hippostdpubwf:publicationDate: 2018-05-08T15:44:41.088Z
           hippotranslation:id: ed227b8b-f6b4-428a-87c4-9988ef203af2
           hippotranslation:locale: en
-          jcr:mixinTypes:
-          - mix:referenceable
-          jcr:primaryType: publicationsystem:archive
           publicationsystem:Summary: CCG Archive
           publicationsystem:Title: CCG Archive
-        jcr:mixinTypes:
-        - mix:referenceable
-        jcr:primaryType: hippo:handle
-      hippo:name: Archive
-      hippostd:foldertype:
-      - new-statistical-publications-and-clinical-indicators-folder
-      - new-statistical-publications-and-clinical-indicators-document
-      hippotranslation:id: a1e0168e-2532-4116-a443-f146502b4dbf
-      hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippo:named
-      - hippotranslation:translated
-      - mix:versionable
-      jcr:primaryType: hippostd:folder
     /current:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 319384b3-f2c9-43be-bdb8-cac521b75c3b
+      hippo:name: Current
+      hippostd:foldertype: [new-statistical-publications-and-clinical-indicators-folder,
+        new-statistical-publications-and-clinical-indicators-document]
+      hippotranslation:id: bed26eb6-4051-4c54-9eac-057b2b5fceea
+      hippotranslation:locale: en
       /1.1-national-ccg-outcomes:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 75f9ee12-650a-4881-901c-36670f21c3c3
+        hippo:name: 1.1 national ccg outcomes
+        hippostd:foldertype: [new-statistical-publications-and-clinical-indicators-folder,
+          new-statistical-publications-and-clinical-indicators-document]
+        hippotranslation:id: 4bf51c4c-7526-41bb-9de7-cdfaf940ef99
+        hippotranslation:locale: en
         /ccg-dataset:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 6077f97c-d3b3-433f-9a3f-99f65381d8af
+          hippo:name: CCG dataset
           /ccg-dataset[1]:
+            jcr:primaryType: publicationsystem:dataset
+            jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+            jcr:uuid: f62bfbca-baa3-4c88-8cbc-b520e7648020
             common:FacetType: dataset
             common:orderedSearchDate: 1522710000000
             common:searchRank: 3
@@ -176,10 +202,6 @@
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: b5384c78-18af-42e1-95b1-1a6f5c5a6cd3
             hippotranslation:locale: en
-            jcr:mixinTypes:
-            - hippotaxonomy:classifiable
-            - mix:referenceable
-            jcr:primaryType: publicationsystem:dataset
             publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
             publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
             publicationsystem:GeographicCoverage: []
@@ -188,12 +210,14 @@
             publicationsystem:Summary: Test CCG dataset document
             publicationsystem:Title: CCG dataset
           /ccg-dataset[2]:
+            jcr:primaryType: publicationsystem:dataset
+            jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+            jcr:uuid: 0950915c-19af-4bb6-9ffa-6e47c5f0ba9d
             common:FacetType: dataset
             common:orderedSearchDate: 1522710000000
             common:searchRank: 3
             common:searchable: true
-            hippo:availability:
-            - preview
+            hippo:availability: [preview]
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2018-04-20T19:44:52.537Z
@@ -201,11 +225,6 @@
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: b5384c78-18af-42e1-95b1-1a6f5c5a6cd3
             hippotranslation:locale: en
-            jcr:mixinTypes:
-            - hippotaxonomy:classifiable
-            - mix:referenceable
-            - mix:versionable
-            jcr:primaryType: publicationsystem:dataset
             publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
             publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
             publicationsystem:GeographicCoverage: []
@@ -214,12 +233,14 @@
             publicationsystem:Summary: Test CCG dataset document
             publicationsystem:Title: CCG dataset
           /ccg-dataset[3]:
+            jcr:primaryType: publicationsystem:dataset
+            jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+            jcr:uuid: 15b99733-2b6d-4df2-91f3-27ca2986c3bc
             common:FacetType: dataset
             common:orderedSearchDate: 1522710000000
             common:searchRank: 3
             common:searchable: true
-            hippo:availability:
-            - live
+            hippo:availability: [live]
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2018-04-20T19:44:52.537Z
@@ -228,10 +249,6 @@
             hippostdpubwf:publicationDate: 2018-04-25T15:12:57.619Z
             hippotranslation:id: b5384c78-18af-42e1-95b1-1a6f5c5a6cd3
             hippotranslation:locale: en
-            jcr:mixinTypes:
-            - hippotaxonomy:classifiable
-            - mix:referenceable
-            jcr:primaryType: publicationsystem:dataset
             publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
             publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
             publicationsystem:GeographicCoverage: []
@@ -239,13 +256,15 @@
             publicationsystem:NominalDate: 2018-04-02T23:00:00Z
             publicationsystem:Summary: Test CCG dataset document
             publicationsystem:Title: CCG dataset
-          hippo:name: CCG dataset
-          jcr:mixinTypes:
-          - hippo:named
-          - mix:referenceable
-          jcr:primaryType: hippo:handle
         /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 817f350f-35b1-4f0a-bc65-4a9588ca89a8
+          hippo:name: content
           /content[1]:
+            jcr:primaryType: publicationsystem:publication
+            jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+            jcr:uuid: 907d7393-a7f8-48f7-8cd5-1adfd8259fe4
             common:FacetType: publication
             common:orderedSearchDate: 1524178800000
             common:searchRank: 4
@@ -258,28 +277,25 @@
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: f9588f77-95f3-49a4-8595-4c9b6de92db1
             hippotranslation:locale: en
-            jcr:mixinTypes:
-            - hippotaxonomy:classifiable
-            - mix:referenceable
-            jcr:primaryType: publicationsystem:publication
             publicationsystem:AdministrativeSources: ''
             publicationsystem:CoverageEnd: 2018-04-19T23:00:00Z
             publicationsystem:CoverageStart: 2018-04-19T23:00:00Z
             publicationsystem:GeographicCoverage: []
-            publicationsystem:InformationType:
-            - Experimental statistics
+            publicationsystem:InformationType: [Experimental statistics]
             publicationsystem:KeyFacts: some keyfacts here
             publicationsystem:NominalDate: 2018-04-19T23:00:00Z
             publicationsystem:PubliclyAccessible: true
             publicationsystem:Summary: Test CCG publication document
             publicationsystem:Title: CCG publication
           /content[2]:
+            jcr:primaryType: publicationsystem:publication
+            jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+            jcr:uuid: 4630a19b-489c-466c-a049-7ed0ddc8f6b9
             common:FacetType: publication
             common:orderedSearchDate: 1524178800000
             common:searchRank: 4
             common:searchable: true
-            hippo:availability:
-            - preview
+            hippo:availability: [preview]
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2018-04-20T19:41:28.048Z
@@ -287,29 +303,25 @@
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: f9588f77-95f3-49a4-8595-4c9b6de92db1
             hippotranslation:locale: en
-            jcr:mixinTypes:
-            - hippotaxonomy:classifiable
-            - mix:referenceable
-            - mix:versionable
-            jcr:primaryType: publicationsystem:publication
             publicationsystem:AdministrativeSources: ''
             publicationsystem:CoverageEnd: 2018-04-19T23:00:00Z
             publicationsystem:CoverageStart: 2018-04-19T23:00:00Z
             publicationsystem:GeographicCoverage: []
-            publicationsystem:InformationType:
-            - Experimental statistics
+            publicationsystem:InformationType: [Experimental statistics]
             publicationsystem:KeyFacts: some keyfacts here
             publicationsystem:NominalDate: 2018-04-19T23:00:00Z
             publicationsystem:PubliclyAccessible: true
             publicationsystem:Summary: Test CCG publication document
             publicationsystem:Title: CCG publication
           /content[3]:
+            jcr:primaryType: publicationsystem:publication
+            jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+            jcr:uuid: cae4578d-2ce8-47b6-b45a-522f48075622
             common:FacetType: publication
             common:orderedSearchDate: 1524178800000
             common:searchRank: 4
             common:searchable: true
-            hippo:availability:
-            - live
+            hippo:availability: [live]
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2018-04-20T19:41:28.048Z
@@ -318,39 +330,24 @@
             hippostdpubwf:publicationDate: 2018-04-25T15:13:23.358Z
             hippotranslation:id: f9588f77-95f3-49a4-8595-4c9b6de92db1
             hippotranslation:locale: en
-            jcr:mixinTypes:
-            - hippotaxonomy:classifiable
-            - mix:referenceable
-            jcr:primaryType: publicationsystem:publication
             publicationsystem:AdministrativeSources: ''
             publicationsystem:CoverageEnd: 2018-04-19T23:00:00Z
             publicationsystem:CoverageStart: 2018-04-19T23:00:00Z
             publicationsystem:GeographicCoverage: []
-            publicationsystem:InformationType:
-            - Experimental statistics
+            publicationsystem:InformationType: [Experimental statistics]
             publicationsystem:KeyFacts: some keyfacts here
             publicationsystem:NominalDate: 2018-04-19T23:00:00Z
             publicationsystem:PubliclyAccessible: true
             publicationsystem:Summary: Test CCG publication document
             publicationsystem:Title: CCG publication
-          hippo:name: content
-          jcr:mixinTypes:
-          - hippo:named
-          - mix:referenceable
-          jcr:primaryType: hippo:handle
-        hippo:name: 1.1 national ccg outcomes
-        hippostd:foldertype:
-        - new-statistical-publications-and-clinical-indicators-folder
-        - new-statistical-publications-and-clinical-indicators-document
-        hippotranslation:id: 4bf51c4c-7526-41bb-9de7-cdfaf940ef99
-        hippotranslation:locale: en
-        jcr:mixinTypes:
-        - hippo:named
-        - hippotranslation:translated
-        - mix:versionable
-        jcr:primaryType: hippostd:folder
       /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 9f4d0df0-65fd-4714-a7e0-3ad05fb5dbaf
         /content[1]:
+          jcr:primaryType: publicationsystem:series
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: f8cfcdd3-e94a-4b99-971e-82ae084d79c1
           common:FacetType: series
           common:searchRank: 5
           common:searchable: true
@@ -362,18 +359,17 @@
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: cf7ba720-4134-4dd4-9496-e4e92b77b48a
           hippotranslation:locale: en
-          jcr:mixinTypes:
-          - mix:referenceable
-          jcr:primaryType: publicationsystem:series
           publicationsystem:ShowLatest: false
           publicationsystem:Summary: Test CCG series document
           publicationsystem:Title: CCG series
         /content[2]:
+          jcr:primaryType: publicationsystem:series
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: 4375358b-078e-40af-9e02-7a3de33c79a4
           common:FacetType: series
           common:searchRank: 5
           common:searchable: true
-          hippo:availability:
-          - preview
+          hippo:availability: [preview]
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2018-04-20T19:33:17.786Z
@@ -381,19 +377,17 @@
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: cf7ba720-4134-4dd4-9496-e4e92b77b48a
           hippotranslation:locale: en
-          jcr:mixinTypes:
-          - mix:referenceable
-          - mix:versionable
-          jcr:primaryType: publicationsystem:series
           publicationsystem:ShowLatest: false
           publicationsystem:Summary: Test CCG series document
           publicationsystem:Title: CCG series
         /content[3]:
+          jcr:primaryType: publicationsystem:series
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 34e1365d-27ef-4943-afac-741cfab3f0c8
           common:FacetType: series
           common:searchRank: 5
           common:searchable: true
-          hippo:availability:
-          - live
+          hippo:availability: [live]
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2018-04-20T19:33:17.786Z
@@ -402,45 +396,6 @@
           hippostdpubwf:publicationDate: 2018-04-25T15:08:11.130Z
           hippotranslation:id: cf7ba720-4134-4dd4-9496-e4e92b77b48a
           hippotranslation:locale: en
-          jcr:mixinTypes:
-          - mix:referenceable
-          jcr:primaryType: publicationsystem:series
           publicationsystem:ShowLatest: false
           publicationsystem:Summary: Test CCG series document
           publicationsystem:Title: CCG series
-        jcr:mixinTypes:
-        - mix:referenceable
-        jcr:primaryType: hippo:handle
-      hippo:name: Current
-      hippostd:foldertype:
-      - new-statistical-publications-and-clinical-indicators-folder
-      - new-statistical-publications-and-clinical-indicators-document
-      hippotranslation:id: bed26eb6-4051-4c54-9eac-057b2b5fceea
-      hippotranslation:locale: en
-      jcr:mixinTypes:
-      - hippo:named
-      - hippotranslation:translated
-      - mix:versionable
-      jcr:primaryType: hippostd:folder
-    hippo:name: CCG Outcomes Indicator Set
-    hippostd:foldertype:
-    - new-statistical-publications-and-clinical-indicators-folder
-    - new-statistical-publications-and-clinical-indicators-document
-    hippotranslation:id: 817da31c-beef-40d7-a949-b053cda0b115
-    hippotranslation:locale: en
-    jcr:mixinTypes:
-    - hippo:named
-    - hippotranslation:translated
-    - mix:versionable
-    jcr:primaryType: hippostd:folder
-  hippo:name: Clinical Indicators
-  hippostd:foldertype:
-  - new-statistical-publications-and-clinical-indicators-folder
-  - new-statistical-publications-and-clinical-indicators-document
-  hippotranslation:id: 175b91bb-53aa-44ab-9dbe-b5289a63b6cb
-  hippotranslation:locale: en
-  jcr:mixinTypes:
-  - hippo:named
-  - hippotranslation:translated
-  - mix:versionable
-  jcr:primaryType: hippostd:folder

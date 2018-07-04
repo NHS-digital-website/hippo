@@ -1,0 +1,3 @@
+/targeting:targeting/targeting:alteregos/delboytrotter-1530715883992-alterego:
+  jcr:primaryType: targeting:alterego
+  targeting:targetingdata: '{"targetingData":{}}'

@@ -1,13 +1,121 @@
----
 /content/documents/corporate-website/publication-system/lorem-ipsum-content:
+  .meta:order-before: ci-hub
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: 14d5e767-91f1-45de-bdef-c585deb8a98d
   hippo:name: Lorem Ipsum Content
-  hippostd:foldertype:
-  - new-statistical-publications-and-clinical-indicators-document
-  - new-statistical-publications-and-clinical-indicators-folder
+  hippostd:foldertype: [new-statistical-publications-and-clinical-indicators-document,
+    new-statistical-publications-and-clinical-indicators-folder]
   hippotranslation:id: 00000000-0000-0000-0000-000000000000
   hippotranslation:locale: en
-  jcr:mixinTypes:
-  - hippo:named
-  - hippotranslation:translated
-  - mix:versionable
-  jcr:primaryType: hippostd:folder
+  /bacon-ipsum:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: 8af1e827-d726-4b67-958f-8142367c3c99
+    hippo:name: bacon ipsum
+    /bacon-ipsum[1]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
+      jcr:uuid: 1de12cc0-ae96-4134-ae5f-6b3fa22355a2
+      common:FacetType: publication
+      common:FullTaxonomy: [infectious-diseases, conditions]
+      common:SearchableTags: [Infectious diseases]
+      common:orderedSearchDate: 1496271600000
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T14:00:00Z
+      hippostdpubwf:lastModificationDate: 2018-07-04T15:03:40.891Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotaxonomy:keys: [infectious-diseases]
+      hippotranslation:id: c26a878b-19b3-4fd1-b663-ece6d1fac86f
+      hippotranslation:locale: en
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 2017-03-31T23:00:00Z
+      publicationsystem:CoverageStart: 2017-01-01T00:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType: [Official statistics]
+      publicationsystem:KeyFacts: Bacon ipsum
+      publicationsystem:NominalDate: 2017-05-31T23:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: "Bacon ipsum\r\nMaecenas laoreet ullamcorper aliquam.\
+        \ Sed ac nunc pellentesque, lobortis orci eu, placerat lorem. Nulla est mauris,\
+        \ vehicula nec ornare a, lacinia vel odio. Sed et accumsan mi, quis finibus\
+        \ orci. Integer eget tortor mauris. Cras fermentum sodales urna, ac vulputate\
+        \ odio lobortis eget. Etiam id erat blandit, feugiat orci non, pharetra est.\
+        \ Sed interdum a leo facilisis aliquam. Curabitur justo nisi, mattis vel neque\
+        \ placerat, imperdiet ultrices tortor."
+      publicationsystem:Title: Bacon ipsum dolor sit amet.
+    /bacon-ipsum[2]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: f2b8c4f1-5694-41df-8bbf-1868e478e6a2
+      common:FacetType: publication
+      common:FullTaxonomy: [infectious-diseases, conditions]
+      common:SearchableTags: [Infectious diseases]
+      common:orderedSearchDate: 1496271600000
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T14:00:00Z
+      hippostdpubwf:lastModificationDate: 2018-07-04T15:03:17.060Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotaxonomy:keys: [infectious-diseases]
+      hippotranslation:id: c26a878b-19b3-4fd1-b663-ece6d1fac86f
+      hippotranslation:locale: en
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 2017-03-31T23:00:00Z
+      publicationsystem:CoverageStart: 2017-01-01T00:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType: [Official statistics]
+      publicationsystem:KeyFacts: Bacon ipsum
+      publicationsystem:NominalDate: 2017-05-31T23:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: "Bacon ipsum\r\nMaecenas laoreet ullamcorper aliquam.\
+        \ Sed ac nunc pellentesque, lobortis orci eu, placerat lorem. Nulla est mauris,\
+        \ vehicula nec ornare a, lacinia vel odio. Sed et accumsan mi, quis finibus\
+        \ orci. Integer eget tortor mauris. Cras fermentum sodales urna, ac vulputate\
+        \ odio lobortis eget. Etiam id erat blandit, feugiat orci non, pharetra est.\
+        \ Sed interdum a leo facilisis aliquam. Curabitur justo nisi, mattis vel neque\
+        \ placerat, imperdiet ultrices tortor."
+      publicationsystem:Title: Bacon ipsum dolor sit amet.
+    /bacon-ipsum[3]:
+      jcr:primaryType: publicationsystem:publication
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: dc264e73-e792-4e81-b0e8-0b7d2a1f2e88
+      common:FacetType: publication
+      common:FullTaxonomy: [infectious-diseases, conditions]
+      common:SearchableTags: [Infectious diseases]
+      common:orderedSearchDate: 1496271600000
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2017-10-16T14:00:00Z
+      hippostdpubwf:lastModificationDate: 2018-07-04T15:03:40.891Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-07-04T15:03:44.421Z
+      hippotaxonomy:keys: [infectious-diseases]
+      hippotranslation:id: c26a878b-19b3-4fd1-b663-ece6d1fac86f
+      hippotranslation:locale: en
+      publicationsystem:AdministrativeSources: ''
+      publicationsystem:CoverageEnd: 2017-03-31T23:00:00Z
+      publicationsystem:CoverageStart: 2017-01-01T00:00:00Z
+      publicationsystem:GeographicCoverage: []
+      publicationsystem:InformationType: [Official statistics]
+      publicationsystem:KeyFacts: Bacon ipsum
+      publicationsystem:NominalDate: 2017-05-31T23:00:00Z
+      publicationsystem:PubliclyAccessible: true
+      publicationsystem:Summary: "Bacon ipsum\r\nMaecenas laoreet ullamcorper aliquam.\
+        \ Sed ac nunc pellentesque, lobortis orci eu, placerat lorem. Nulla est mauris,\
+        \ vehicula nec ornare a, lacinia vel odio. Sed et accumsan mi, quis finibus\
+        \ orci. Integer eget tortor mauris. Cras fermentum sodales urna, ac vulputate\
+        \ odio lobortis eget. Etiam id erat blandit, feugiat orci non, pharetra est.\
+        \ Sed interdum a leo facilisis aliquam. Curabitur justo nisi, mattis vel neque\
+        \ placerat, imperdiet ultrices tortor."
+      publicationsystem:Title: Bacon ipsum dolor sit amet.

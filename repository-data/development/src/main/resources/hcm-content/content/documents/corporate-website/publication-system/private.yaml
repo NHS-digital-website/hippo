@@ -1,13 +1,10 @@
----
 /content/documents/corporate-website/publication-system/private:
+  .meta:order-before: ci-hub
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: 4c1a41a1-bd18-4df8-94d9-b3f90aff9a9a
   hippo:name: Private
-  hippostd:foldertype:
-  - new-statistical-publications-and-clinical-indicators-folder
-  - new-statistical-publications-and-clinical-indicators-document
+  hippostd:foldertype: [new-statistical-publications-and-clinical-indicators-folder,
+    new-statistical-publications-and-clinical-indicators-document]
   hippotranslation:id: bb53fab5-b22c-4416-a6f2-51161988c01a
   hippotranslation:locale: en
-  jcr:mixinTypes:
-  - hippo:named
-  - hippotranslation:translated
-  - mix:versionable
-  jcr:primaryType: hippostd:folder
