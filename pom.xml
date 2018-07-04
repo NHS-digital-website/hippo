@@ -506,9 +506,11 @@
                         <reactorModuleConvergence/>
                         <requireUpperBoundDeps/>
                         <requireJavaVersion>
+						    <!-- Any Java 8 version is allowed -->
                             <version>[1.8.0,1.8.1)</version>
                         </requireJavaVersion>
                         <requireMavenVersion>
+						    <!-- Any Maven 3 version is allowed -->
                             <version>[3.0,4.0)</version>
                         </requireMavenVersion>
                     </rules>
