@@ -79,9 +79,9 @@ public class Gdprtransparency extends BaseDocument {
         return getProperty("website:computerdecision");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:whocanaccess")
-    public String getWhocanaccess() {
-        return getProperty("website:whocanaccess");
+    @HippoEssentialsGenerated(internalName = "website:whocanaccessinfo")
+    public HippoHtml getWhocanaccessinfo() {
+        return getHippoHtml("website:whocanaccessinfo");
     }
 
     @HippoEssentialsGenerated(internalName = "website:withdrawconsent")
