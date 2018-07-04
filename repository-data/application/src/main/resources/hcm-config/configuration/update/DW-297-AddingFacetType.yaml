@@ -1,0 +1,35 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-297-AddingFacetType:
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: "{\r\n    \"website:gdprtransparency\" :  \"gdprtransparency\"\
+        , \"website:gdprsummary\" : \"gdprsummary\" \r\n}"
+      hipposys:query: /jcr:root/content/documents/corporate-website//*[(@jcr:primaryType='website:gdprtransparency')
+        or (@jcr:primaryType='website:gdprsummary')]
+      hipposys:script: "package org.hippoecm.frontend.plugins.cms.admin.updater\r\n\
+        \r\nimport org.hippoecm.repository.util.JcrUtils\r\nimport org.onehippo.repository.update.BaseNodeUpdateVisitor\r\
+        \n\r\nimport javax.jcr.Node\r\n\r\n/**\r\n * This script is adding the facet\
+        \ type property to existing docs in order to appear\r\n * in the search filter\r\
+        \n */\r\nclass AddingFacetType extends BaseNodeUpdateVisitor {\r\n\r\n   \
+        \ private static final String PROPERTY_FACET_TYPE = \"common:FacetType\"\r\
+        \n\r\n    boolean doUpdate(Node node) {\r\n        try {\r\n            log.info(\"\
+        attempting to migrate node: \" + node.getPath())\r\n\r\n            String\
+        \ value = parametersMap.get(node.getPrimaryNodeType().getName()) as String\r\
+        \n\r\n            JcrUtils.ensureIsCheckedOut(node)\r\n            node.setProperty(PROPERTY_FACET_TYPE,\
+        \ value)\r\n\r\n            return true\r\n        } catch (e) {\r\n     \
+        \       log.error(\"Failed to process record.\", e)\r\n        }\r\n\r\n \
+        \       return false\r\n    }\r\n\r\n    boolean undoUpdate(Node node) {\r\
+        \n        try {\r\n            log.info(\"attempting to undo migration for\
+        \ node: \" + node.getPath())\r\n\r\n            JcrUtils.ensureIsCheckedOut(node)\r\
+        \n            if (node.hasProperty(PROPERTY_FACET_TYPE)) {\r\n           \
+        \     node.getProperty(PROPERTY_FACET_TYPE).remove()\r\n                log.info(\"\
+        removed property \" + PROPERTY_FACET_TYPE)\r\n            }\r\n\r\n      \
+        \      return true\r\n        } catch (e) {\r\n            log.error(\"Failed\
+        \ to (undo) process record.\", e)\r\n        }\r\n\r\n        return false\r\
+        \n    }\r\n}"
+      hipposys:throttle: 200
+      jcr:primaryType: hipposys:updaterinfo

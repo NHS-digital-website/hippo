@@ -343,6 +343,13 @@ public class SearchComponent extends CommonComponent {
         );
     }
 
+    private void addGdprTypes(HstQueryBuilder query) {
+        query.ofTypes(
+            Gdprsummary.class,
+            Gdprtransparency.class
+        );
+    }
+
     /**
      * Adding all the document types supported by the SearchComponent
      */
@@ -352,6 +359,7 @@ public class SearchComponent extends CommonComponent {
         addHubTypes(query);
         addNewsAndEventsTypes(query);
         addServiceTypes(query);
+        addGdprTypes(query);
     }
 
 }
