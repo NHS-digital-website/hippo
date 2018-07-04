@@ -48,9 +48,9 @@
           <ul>
            <li>A high percentage of patients with stroke admitted to an acute stroke unit within 4 hours of arrival to hospital is desirable.</li>
            <li>This indicator acknowledges that for a small percentage of patients direct admission to a stroke unit is not appropriate.</li>
-           <li>It differentiates between those who go to an acceptable other location (i.e. people transferred to intensive care are excluded from the indicator) compared to a â€˜non acceptableâ€™ location (e.g. generic admissions unit).</li>
+           <li>It differentiates between those who go to an acceptable other location (i.e. people transferred to intensive care are excluded from the indicator) compared to a ‘non acceptable’ location (e.g. generic admissions unit).</li>
            <li>This indicator requires careful interpretation and should not be viewed in isolation, but instead be considered alongside information from other indicators and alternative sources, such as CCG OIS 3.9 (People who have had an acute stroke who spend 90% or more of their stay on a stroke unit) and the CCG level SSNAP stroke unit key indicators.</li>
-           <li>When evaluated together, these will help to provide a holistic view of CCG outcomes and provide a more complete overview of the impact of the CCGsâ€™ processes on outcomes.</li>
+           <li>When evaluated together, these will help to provide a holistic view of CCG outcomes and provide a more complete overview of the impact of the CCGs’ processes on outcomes.</li>
           </ul>
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:methodology:
@@ -63,7 +63,7 @@
           hippostd:content: ''
           jcr:primaryType: hippostd:html
         /nationalindicatorlibrary:dataSource:
-          hippostd:content: <p>Royal College of Physiciansâ€™ Sentinel Stroke National
+          hippostd:content: <p>Royal College of Physicians’ Sentinel Stroke National
             Audit Programme (RCP SSNAP)</p>
           jcr:primaryType: hippostd:html
         /nationalindicatorlibrary:denominator:
@@ -107,7 +107,7 @@
         nationalindicatorlibrary:contactAuthorEmail: hugo@email.com
         nationalindicatorlibrary:contactAuthorName: Hugo
       jcr:primaryType: nationalindicatorlibrary:topbar
-      nationalindicatorlibrary:basedOn: Royal College of Physiciansâ€™ Sentinel Stroke
+      nationalindicatorlibrary:basedOn: Royal College of Physicians’ Sentinel Stroke
         National Audit Programme (SSNAP)
       nationalindicatorlibrary:publishedBy: Publisher
       nationalindicatorlibrary:reportingPeriod: Annually
@@ -191,9 +191,9 @@
           <ul>
            <li>A high percentage of patients with stroke admitted to an acute stroke unit within 4 hours of arrival to hospital is desirable.</li>
            <li>This indicator acknowledges that for a small percentage of patients direct admission to a stroke unit is not appropriate.</li>
-           <li>It differentiates between those who go to an acceptable other location (i.e. people transferred to intensive care are excluded from the indicator) compared to a â€˜non acceptableâ€™ location (e.g. generic admissions unit).</li>
+           <li>It differentiates between those who go to an acceptable other location (i.e. people transferred to intensive care are excluded from the indicator) compared to a ‘non acceptable’ location (e.g. generic admissions unit).</li>
            <li>This indicator requires careful interpretation and should not be viewed in isolation, but instead be considered alongside information from other indicators and alternative sources, such as CCG OIS 3.9 (People who have had an acute stroke who spend 90% or more of their stay on a stroke unit) and the CCG level SSNAP stroke unit key indicators.</li>
-           <li>When evaluated together, these will help to provide a holistic view of CCG outcomes and provide a more complete overview of the impact of the CCGsâ€™ processes on outcomes.</li>
+           <li>When evaluated together, these will help to provide a holistic view of CCG outcomes and provide a more complete overview of the impact of the CCGs’ processes on outcomes.</li>
           </ul>
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:methodology:
@@ -206,7 +206,7 @@
           hippostd:content: ''
           jcr:primaryType: hippostd:html
         /nationalindicatorlibrary:dataSource:
-          hippostd:content: <p>Royal College of Physiciansâ€™ Sentinel Stroke National
+          hippostd:content: <p>Royal College of Physicians’ Sentinel Stroke National
             Audit Programme (RCP SSNAP)</p>
           jcr:primaryType: hippostd:html
         /nationalindicatorlibrary:denominator:
@@ -250,7 +250,7 @@
         nationalindicatorlibrary:contactAuthorEmail: hugo@email.com
         nationalindicatorlibrary:contactAuthorName: Hugo
       jcr:primaryType: nationalindicatorlibrary:topbar
-      nationalindicatorlibrary:basedOn: Royal College of Physiciansâ€™ Sentinel Stroke
+      nationalindicatorlibrary:basedOn: Royal College of Physicians’ Sentinel Stroke
         National Audit Programme (SSNAP)
       nationalindicatorlibrary:publishedBy: Publisher
       nationalindicatorlibrary:reportingPeriod: Annually
@@ -336,9 +336,9 @@
           <ul>
            <li>A high percentage of patients with stroke admitted to an acute stroke unit within 4 hours of arrival to hospital is desirable.</li>
            <li>This indicator acknowledges that for a small percentage of patients direct admission to a stroke unit is not appropriate.</li>
-           <li>It differentiates between those who go to an acceptable other location (i.e. people transferred to intensive care are excluded from the indicator) compared to a â€˜non acceptableâ€™ location (e.g. generic admissions unit).</li>
+           <li>It differentiates between those who go to an acceptable other location (i.e. people transferred to intensive care are excluded from the indicator) compared to a ‘non acceptable’ location (e.g. generic admissions unit).</li>
            <li>This indicator requires careful interpretation and should not be viewed in isolation, but instead be considered alongside information from other indicators and alternative sources, such as CCG OIS 3.9 (People who have had an acute stroke who spend 90% or more of their stay on a stroke unit) and the CCG level SSNAP stroke unit key indicators.</li>
-           <li>When evaluated together, these will help to provide a holistic view of CCG outcomes and provide a more complete overview of the impact of the CCGsâ€™ processes on outcomes.</li>
+           <li>When evaluated together, these will help to provide a holistic view of CCG outcomes and provide a more complete overview of the impact of the CCGs’ processes on outcomes.</li>
           </ul>
         jcr:primaryType: hippostd:html
       /nationalindicatorlibrary:methodology:
@@ -351,7 +351,7 @@
           hippostd:content: ''
           jcr:primaryType: hippostd:html
         /nationalindicatorlibrary:dataSource:
-          hippostd:content: <p>Royal College of Physiciansâ€™ Sentinel Stroke National
+          hippostd:content: <p>Royal College of Physicians’ Sentinel Stroke National
             Audit Programme (RCP SSNAP)</p>
           jcr:primaryType: hippostd:html
         /nationalindicatorlibrary:denominator:
@@ -395,7 +395,7 @@
         nationalindicatorlibrary:contactAuthorEmail: hugo@email.com
         nationalindicatorlibrary:contactAuthorName: Hugo
       jcr:primaryType: nationalindicatorlibrary:topbar
-      nationalindicatorlibrary:basedOn: Royal College of Physiciansâ€™ Sentinel Stroke
+      nationalindicatorlibrary:basedOn: Royal College of Physicians’ Sentinel Stroke
         National Audit Programme (SSNAP)
       nationalindicatorlibrary:publishedBy: Publisher
       nationalindicatorlibrary:reportingPeriod: Annually

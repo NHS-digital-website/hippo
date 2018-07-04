@@ -99,6 +99,20 @@
             <artifactId>splunk-library-javalogging</artifactId>
         </dependency>
 
+        <!--
+        Relevance Module
+        -->
+        <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-targeting-dependencies-cms</artifactId>
+            <type>pom</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-targeting-bundle-collectors</artifactId>
+        </dependency>
+
         <!-- TEST DEPENDENCIES -->
 
         <dependency>
