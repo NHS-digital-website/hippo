@@ -43,7 +43,7 @@
                                     <td><@fmt.message key="labels.data-controller"/></td>
                                     <td>${document.datacontroller}</td>
                                 </tr>
-                                
+
                                 <tr>
                                     <td><@fmt.message key="labels.how-info-is-used"/></td>
                                     <td>${document.howuseinformation}</td>
@@ -54,13 +54,15 @@
                                     <td>${document.sensitivity?then("Yes", "No")}</td>
                                 </tr>
 
-                                <#if document.whocanaccess?has_content>
+                                <#if document.whocanaccessinfo?? && document.whocanaccessinfo.content?has_content>
                                 <tr>
                                     <td><@fmt.message key="labels.who-has-access"/></td>
-                                    <td>${document.whocanaccess}</td>
+                                    <td>
+                                        <@hst.html hippohtml=document.whocanaccessinfo contentRewriter=gaContentRewriter/>
+                                    </td>
                                 </tr>
                                 </#if>
-                                
+
                                 <tr>
                                     <td><@fmt.message key="labels.transferred-outside-uk"/></td>
                                     <td>${document.outsideuk}</td>
@@ -72,21 +74,21 @@
                                     <td>${document.timeretained}</td>
                                 </tr>
                                 </#if>
-                                
+
                                 <#if document.lawfulbasis?has_content>
                                 <tr>
                                     <td><@fmt.message key="labels.lawful-basis"/></td>
                                     <td>${lawfulbasis[document.lawfulbasis]}</td>
                                 </tr>
                                 </#if>
-                                
+
                                 <tr>
                                     <td><@fmt.message key="labels.your-rights"/></td>
                                     <td>
                                         <ul class="checklist checklist--condensed">
                                             <#list rights?keys as key>
                                                 <@fmt.message key="urls.${key}" var="url"/>
-                                                
+
                                                 <li class="checklist__item">
                                                     <#if document.rights?seq_contains(key)>
                                                         <img src="<@hst.webfile path="images/icon-tick.png"/>" alt="Tick" class="checklist__icon checklist__icon--small" width="24"/>
@@ -99,7 +101,7 @@
                                                     <#else>
                                                         <span class="checklist__label">${rights[key]}<span>
                                                     </#if>
-                                                </li>                                                
+                                                </li>
                                             </#list>
                                         </ul>
                                     </td>
@@ -138,7 +140,7 @@
                         </table>
                     </div>
                 </div>
-                
+
                 <#-- [FTL-BEGIN] 'Links' section -->
                 <#if document.blocks?? && document.blocks?size!=0>
                 <div class="article-section">

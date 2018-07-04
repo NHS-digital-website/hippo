@@ -168,14 +168,14 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /whocanaccess:
+          /whocanaccessinfo:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Who can access
-            field: whocanaccess
+            field: whocanaccessinfo
             hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
           /items:
             /cluster.options:
@@ -353,13 +353,13 @@ definitions:
             - non-empty
             - required
             jcr:primaryType: hipposysedit:field
-          /whocanaccess:
+          /whocanaccessinfo:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:whocanaccess
+            hipposysedit:path: website:whocanaccessinfo
             hipposysedit:primary: false
-            hipposysedit:type: String
+            hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
           /withdrawconsent:
             hipposysedit:mandatory: false
@@ -389,6 +389,9 @@ definitions:
             website:alternativeurls: []
             website:destination: ''
           /website:legallywhy:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:whocanaccessinfo:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
           /website:withdrawconsent:
@@ -424,7 +427,6 @@ definitions:
           website:summary: ''
           website:timeretained: ''
           website:title: ''
-          website:whocanaccess: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable
