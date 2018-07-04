@@ -1,0 +1,4 @@
+---
+action-lists:
+- 1.2:
+    /content/documents/administration/publication-system/facet-labels: reload
