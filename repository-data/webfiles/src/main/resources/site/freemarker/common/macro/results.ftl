@@ -25,6 +25,8 @@
                 <@event item=document />
             <#elseif document.class.name == "uk.nhs.digital.website.beans.News">
                 <@news item=document />
+            <#elseif document.class.name == "uk.nhs.digital.website.beans.Gdprtransparency">
+                <@gdpr item=document />
             </#if>
         </#list>
     </div>
@@ -237,5 +239,17 @@
                 </p>
             </div>
         </#if>
+    </div>
+</#macro>
+
+<#macro gdpr item>
+    <div class="cta cta--detailed" data-uipath="ps.search-results.result">
+        <div>
+            <h3 class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.gdpr"/></h3>
+        </div>
+        <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
+            ${item.title}
+        </a>
+        <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
     </div>
 </#macro>
