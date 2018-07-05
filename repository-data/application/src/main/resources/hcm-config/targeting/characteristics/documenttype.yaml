@@ -1,7 +1,10 @@
----
 definitions:
   config:
     /targeting:targeting/targeting:characteristics/documenttype:
       jcr:primaryType: targeting:characteristic
       targeting:collector: documenttypes
       targeting:scorerClassName: com.onehippo.cms7.targeting.scoring.VectorScorer
+      /statspublication-1530803808476:
+        jcr:primaryType: targeting:targetgroup
+        targeting:name: Stats Publication
+        targeting:propertynames: ['website:service', 'publicationsystem:publication']

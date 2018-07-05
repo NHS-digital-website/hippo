@@ -1,13 +1,199 @@
----
 /content/documents/corporate-website/banners:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: 1cb3dfd4-c6d7-4122-8d7c-4f4e2e0eb20a
   hippo:name: Banners
-  hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  hippostd:foldertype: [new-translated-folder, new-document]
   hippotranslation:id: 8c8f82ad-0d84-4954-9a9b-afefdb94b00c
   hippotranslation:locale: en
-  jcr:mixinTypes:
-  - hippo:named
-  - hippotranslation:translated
-  - mix:versionable
-  jcr:primaryType: hippostd:folder
+  /nhs-70-banner:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: ec931d29-397c-4190-8bdc-d1084db0034e
+    /nhs-70-banner[1]:
+      jcr:primaryType: website:bannerdocument
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 898a9ec8-5b5e-4e92-93cd-b6029d5a38f1
+      common:searchable: true
+      hippo:availability: []
+      hippo:related___pathreference: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-07-05T15:47:14.462Z
+      hippostdpubwf:lastModificationDate: 2018-07-05T15:47:14.462Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 20c9755b-967c-46a2-ad9f-d5ab1e8281e3
+      hippotranslation:locale: en
+      website:title: 'NHS70: Celebrating 70 years of the NHS'
+      /website:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>The National Health Service is 70 years old today, 5 July 2018!&nbsp;It’s the perfect opportunity to celebrate the achievements of one of the nation’s most loved institutions</p>
+
+          <p><a href="https://www.nhs70.nhs.uk/">Find out more</a></p>
+      /website:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: 7886f4c0-d639-41b9-8c4c-99b716559d8e
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /website:link:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /nhs-70-banner[2]:
+      jcr:primaryType: website:bannerdocument
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 3b9ec33a-e2bc-437b-bf49-1f57811993e0
+      common:searchable: true
+      hippo:availability: [preview]
+      hippo:related___pathreference: []
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-07-05T15:47:14.462Z
+      hippostdpubwf:lastModificationDate: 2018-07-05T15:50:32.745Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 20c9755b-967c-46a2-ad9f-d5ab1e8281e3
+      hippotranslation:locale: en
+      website:title: 'NHS70: Celebrating 70 years of the NHS'
+      /website:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>The National Health Service is 70 years old today, 5 July 2018!&nbsp;It’s the perfect opportunity to celebrate the achievements of one of the nation’s most loved institutions</p>
+
+          <p><a href="https://www.nhs70.nhs.uk/">Find out more</a></p>
+      /website:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: 7886f4c0-d639-41b9-8c4c-99b716559d8e
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /website:link:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /nhs-70-banner[3]:
+      jcr:primaryType: website:bannerdocument
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 0a5e18bc-893c-482f-a117-031da6a859c0
+      common:searchable: true
+      hippo:availability: [live]
+      hippo:related___pathreference: []
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-07-05T15:47:14.462Z
+      hippostdpubwf:lastModificationDate: 2018-07-05T15:50:32.745Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-07-05T15:50:36.247Z
+      hippotranslation:id: 20c9755b-967c-46a2-ad9f-d5ab1e8281e3
+      hippotranslation:locale: en
+      website:title: 'NHS70: Celebrating 70 years of the NHS'
+      /website:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>The National Health Service is 70 years old today, 5 July 2018!&nbsp;It’s the perfect opportunity to celebrate the achievements of one of the nation’s most loved institutions</p>
+
+          <p><a href="https://www.nhs70.nhs.uk/">Find out more</a></p>
+      /website:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: 7886f4c0-d639-41b9-8c4c-99b716559d8e
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /website:link:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+  /nhsmail:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: c0d2b1b4-a760-47ef-b354-8e409066863b
+    hippo:name: NHSMail
+    /nhsmail[1]:
+      jcr:primaryType: website:bannerdocument
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: d269e26a-821b-4754-bfb4-a4ec2f755a6b
+      common:searchable: true
+      hippo:availability: [preview]
+      hippo:related___pathreference: []
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-07-05T15:47:14.462Z
+      hippostdpubwf:lastModificationDate: 2018-07-05T15:53:51.347Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: d5f33d05-f18b-4bb8-937a-7b148922a5c8
+      hippotranslation:locale: en
+      website:title: NHsmail Banner Lorem Ipsum
+      /website:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>NHSMail&nbsp;Lorem Ipsum blah blah</p>
+
+          <p><a href="https://www.nhs.net">Log into NHSMail portal</a></p>
+      /website:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: 3b7954c4-1cba-4e27-9406-1d7b4e1e7591
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /website:link:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /nhsmail[2]:
+      jcr:primaryType: website:bannerdocument
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 367dc668-ffde-4eea-bcef-61197e8ba3c0
+      common:searchable: true
+      hippo:availability: []
+      hippo:related___pathreference: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-07-05T15:47:14.462Z
+      hippostdpubwf:lastModificationDate: 2018-07-05T15:52:52.920Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: d5f33d05-f18b-4bb8-937a-7b148922a5c8
+      hippotranslation:locale: en
+      website:title: NHsmail Banner Lorem Ipsum
+      /website:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>NHSMail&nbsp;Lorem Ipsum blah blah</p>
+
+          <p><a href="https://www.nhs.net">Log into NHSMail portal</a></p>
+      /website:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: 3b7954c4-1cba-4e27-9406-1d7b4e1e7591
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /website:link:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /nhsmail[3]:
+      jcr:primaryType: website:bannerdocument
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 2458f837-c8ba-497d-b7c9-3ae9ca915a37
+      common:searchable: true
+      hippo:availability: [live]
+      hippo:related___pathreference: []
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-07-05T15:47:14.462Z
+      hippostdpubwf:lastModificationDate: 2018-07-05T15:53:51.347Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-07-05T15:53:53.663Z
+      hippotranslation:id: d5f33d05-f18b-4bb8-937a-7b148922a5c8
+      hippotranslation:locale: en
+      website:title: NHsmail Banner Lorem Ipsum
+      /website:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>NHSMail&nbsp;Lorem Ipsum blah blah</p>
+
+          <p><a href="https://www.nhs.net">Log into NHSMail portal</a></p>
+      /website:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: 3b7954c4-1cba-4e27-9406-1d7b4e1e7591
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /website:link:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe

@@ -1,8 +1,8 @@
----
 /hst:hst/hst:configurations/common/hst:workspace/hst:containers/homepage/homepage-top/search:
+  .meta:order-before: banner
+  jcr:primaryType: hst:containeritemcomponent
   hst:componentclassname: uk.nhs.digital.common.components.BaseComponent
   hst:iconpath: images/catalog/component-products-30x30.png
   hst:label: Search
   hst:template: searchbanner
   hst:xtype: HST.Item
-  jcr:primaryType: hst:containeritemcomponent

@@ -1,13 +1,108 @@
----
 /content/documents/corporate-website/news-and-events:
+  .meta:order-before: publication-system
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: 27d58aaf-23eb-4ace-b6c1-99307f2f4c3e
   hippo:name: News and events
-  hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  hippostd:foldertype: [new-translated-folder, new-document]
   hippotranslation:id: c0c0facf-0411-44eb-97bf-21e45e7b0baa
   hippotranslation:locale: en
-  jcr:mixinTypes:
-  - hippo:named
-  - hippotranslation:translated
-  - mix:versionable
-  jcr:primaryType: hippostd:folder
+  /lorem-ipsum-news-test:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: bd20c1d7-73fe-4bba-9060-3a23f1861737
+    hippo:name: lorem ipsum news test
+    /lorem-ipsum-news-test[1]:
+      jcr:primaryType: website:news
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: c01267ed-73df-484a-ab47-09fdea8271fd
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-07-05T09:04:35.281Z
+      hippostdpubwf:lastModificationDate: 2018-07-05T09:07:30.931Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: cc722b4a-0c46-4480-8085-c50f624a06a1
+      hippotranslation:locale: en
+      website:display: true
+      website:publisheddatetime: 2018-07-05T09:05:00Z
+      website:seosummary: Lorem ipsum new tests
+      website:shortsummary: Lorem ipsum new tests
+      website:theme: ''
+      website:title: Lorem ipsum news tests
+      website:type: press-releases
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:body:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>Lorem ipsum news test dolor sit amet, consectetur adipiscing elit. Sed dapibus eu diam eget elementum. Sed tempor tempus sem ac mattis. Cras iaculis ornare magna. Donec vehicula maximus tellus, nec feugiat augue. Integer fermentum pulvinar nunc, in tempus sem vestibulum non. Nullam vitae blandit sapien. Etiam massa orci, rhoncus non consequat at, volutpat at turpis. Fusce ut cursus ex, vel vestibulum dolor. In vel eros non erat pharetra blandit vitae ac magna. Fusce ut congue metus, a feugiat ex. Mauris vitae lectus purus. Vestibulum sem arcu, efficitur a scelerisque sit amet, volutpat pretium est. Mauris ac metus sed ligula faucibus luctus. Etiam dictum diam nibh, at dapibus tortor suscipit eget. Quisque convallis justo vel augue pretium, in ornare est iaculis. Donec quis nisl tincidunt tortor molestie pharetra in id urna.</p>
+
+          <p>Vestibulum arcu sem, mattis vel orci vel, consectetur malesuada purus. Pellentesque malesuada nisi nulla, quis sollicitudin lacus ornare id. Morbi pulvinar, erat id posuere tempus, ante lectus ultricies lorem, sit amet gravida diam augue ac enim. Nullam a nulla ac nisl sollicitudin consequat non tincidunt nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi ornare a massa eu lacinia. Nam mattis, quam eget dapibus fringilla, nulla nulla malesuada purus, quis porta leo massa quis lorem. Proin vitae ipsum enim. Nam blandit libero porta, vehicula ipsum sed, sollicitudin lectus. Duis non augue mauris.</p>
+    /lorem-ipsum-news-test[2]:
+      jcr:primaryType: website:news
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+      jcr:uuid: d157873c-55e2-4977-84b3-0e81871af134
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-07-05T09:04:35.281Z
+      hippostdpubwf:lastModificationDate: 2018-07-05T09:07:43.380Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: cc722b4a-0c46-4480-8085-c50f624a06a1
+      hippotranslation:locale: en
+      website:display: true
+      website:publisheddatetime: 2018-07-05T09:05:00Z
+      website:seosummary: Lorem ipsum new tests
+      website:shortsummary: Lorem ipsum new tests
+      website:theme: ''
+      website:title: Lorem ipsum news tests
+      website:type: press-releases
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:body:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>Lorem ipsum news test dolor sit amet, consectetur adipiscing elit. Sed dapibus eu diam eget elementum. Sed tempor tempus sem ac mattis. Cras iaculis ornare magna. Donec vehicula maximus tellus, nec feugiat augue. Integer fermentum pulvinar nunc, in tempus sem vestibulum non. Nullam vitae blandit sapien. Etiam massa orci, rhoncus non consequat at, volutpat at turpis. Fusce ut cursus ex, vel vestibulum dolor. In vel eros non erat pharetra blandit vitae ac magna. Fusce ut congue metus, a feugiat ex. Mauris vitae lectus purus. Vestibulum sem arcu, efficitur a scelerisque sit amet, volutpat pretium est. Mauris ac metus sed ligula faucibus luctus. Etiam dictum diam nibh, at dapibus tortor suscipit eget. Quisque convallis justo vel augue pretium, in ornare est iaculis. Donec quis nisl tincidunt tortor molestie pharetra in id urna.</p>
+
+          <p>Vestibulum arcu sem, mattis vel orci vel, consectetur malesuada purus. Pellentesque malesuada nisi nulla, quis sollicitudin lacus ornare id. Morbi pulvinar, erat id posuere tempus, ante lectus ultricies lorem, sit amet gravida diam augue ac enim. Nullam a nulla ac nisl sollicitudin consequat non tincidunt nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi ornare a massa eu lacinia. Nam mattis, quam eget dapibus fringilla, nulla nulla malesuada purus, quis porta leo massa quis lorem. Proin vitae ipsum enim. Nam blandit libero porta, vehicula ipsum sed, sollicitudin lectus. Duis non augue mauris.</p>
+    /lorem-ipsum-news-test[3]:
+      jcr:primaryType: website:news
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: 619eea43-afc8-4d0d-b8d7-ae2200843a50
+      common:searchRank: 4
+      common:searchable: true
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-07-05T09:04:35.281Z
+      hippostdpubwf:lastModificationDate: 2018-07-05T09:07:43.380Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-07-05T09:07:45.581Z
+      hippotranslation:id: cc722b4a-0c46-4480-8085-c50f624a06a1
+      hippotranslation:locale: en
+      website:display: true
+      website:publisheddatetime: 2018-07-05T09:05:00Z
+      website:seosummary: Lorem ipsum new tests
+      website:shortsummary: Lorem ipsum new tests
+      website:theme: ''
+      website:title: Lorem ipsum news tests
+      website:type: press-releases
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:body:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>Lorem ipsum news test dolor sit amet, consectetur adipiscing elit. Sed dapibus eu diam eget elementum. Sed tempor tempus sem ac mattis. Cras iaculis ornare magna. Donec vehicula maximus tellus, nec feugiat augue. Integer fermentum pulvinar nunc, in tempus sem vestibulum non. Nullam vitae blandit sapien. Etiam massa orci, rhoncus non consequat at, volutpat at turpis. Fusce ut cursus ex, vel vestibulum dolor. In vel eros non erat pharetra blandit vitae ac magna. Fusce ut congue metus, a feugiat ex. Mauris vitae lectus purus. Vestibulum sem arcu, efficitur a scelerisque sit amet, volutpat pretium est. Mauris ac metus sed ligula faucibus luctus. Etiam dictum diam nibh, at dapibus tortor suscipit eget. Quisque convallis justo vel augue pretium, in ornare est iaculis. Donec quis nisl tincidunt tortor molestie pharetra in id urna.</p>
+
+          <p>Vestibulum arcu sem, mattis vel orci vel, consectetur malesuada purus. Pellentesque malesuada nisi nulla, quis sollicitudin lacus ornare id. Morbi pulvinar, erat id posuere tempus, ante lectus ultricies lorem, sit amet gravida diam augue ac enim. Nullam a nulla ac nisl sollicitudin consequat non tincidunt nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi ornare a massa eu lacinia. Nam mattis, quam eget dapibus fringilla, nulla nulla malesuada purus, quis porta leo massa quis lorem. Proin vitae ipsum enim. Nam blandit libero porta, vehicula ipsum sed, sollicitudin lectus. Duis non augue mauris.</p>

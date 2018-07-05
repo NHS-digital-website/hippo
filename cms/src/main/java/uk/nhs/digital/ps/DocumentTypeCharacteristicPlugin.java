@@ -46,10 +46,14 @@ public class DocumentTypeCharacteristicPlugin extends CharacteristicPlugin {
         super.onRenderProperties(properties);
 
         List<JSONObject> documentTypes = new ArrayList<JSONObject>();
-        documentTypes.add(createDocumentType("News",
-            "myhippoproject:newsdocument"));
-        documentTypes.add(createDocumentType("Simple Content",
-            "myhippoproject:contentdocument"));
+        documentTypes.add(createDocumentType("Hub page",
+            "website:hub"));
+        documentTypes.add(createDocumentType("Services page",
+            "website:hub"));
+        documentTypes.add(createDocumentType("Dataset",
+            "website:service"));
+        documentTypes.add(createDocumentType("Stats Publication",
+            "publicationsystem:publication"));
         properties.put("documentTypes", documentTypes);
     }
 

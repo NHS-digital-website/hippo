@@ -1,0 +1,28 @@
+/content/gallery/publicationsystem/nhsmail.jpg:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 3b7954c4-1cba-4e27-9406-1d7b4e1e7591
+  hippo:name: nhsmail.JPG
+  /nhsmail.jpg:
+    jcr:primaryType: hippogallery:imageset
+    hippo:availability: [live, preview]
+    hippogallery:filename: nhsmail.JPG
+    /hippogallery:thumbnail:
+      jcr:primaryType: hippogallery:image
+      hippo:filename: nhsmail.JPG
+      hippogallery:height: 25
+      hippogallery:width: 60
+      jcr:data:
+        type: binary
+        resource: /content/gallery/publicationsystem/nhsmail.jpg/nhsmail_thumbnail.JPG
+      jcr:lastModified: 2018-07-05T15:52:42.009Z
+      jcr:mimeType: image/jpeg
+    /hippogallery:original:
+      jcr:primaryType: hippogallery:image
+      hippogallery:height: 123
+      hippogallery:width: 289
+      jcr:data:
+        type: binary
+        resource: /content/gallery/publicationsystem/nhsmail.jpg/nhsmail_original.JPG
+      jcr:lastModified: 2018-07-05T15:52:42.009Z
+      jcr:mimeType: image/jpeg

@@ -1,0 +1,20 @@
+/targeting:targeting/targeting:personas/sarahstatspub-1530804064185:
+  jcr:primaryType: targeting:persona
+  targeting:alterego: sarahstatspub-1530804064185-alterego
+  targeting:avatar: image-1530804064476
+  targeting:description: ''
+  targeting:name: Sarah Statspub
+  targeting:quote: 2+2=4
+  targeting:segmentDescription: ''
+  targeting:segmentName: Stats Pub Consumer
+  /targeting:expression:
+    jcr:primaryType: targeting:rule
+    targeting:targetgroup: documenttype/statspublication-1530803808476
+  /targeting:avatar:
+    jcr:primaryType: hippo:resource
+    hippo:filename: scientist_stats_pub.PNG
+    jcr:data:
+      type: binary
+      resource: /targeting/personas/sarahstatspub-1530804064185/avatar/scientist_stats_pub.PNG
+    jcr:lastModified: 2018-07-05T15:21:04.476Z
+    jcr:mimeType: image/png

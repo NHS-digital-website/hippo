@@ -1,0 +1,4 @@
+/targeting:targeting/targeting:characteristics/pageviews/validpublicationseries-1530781291090:
+  jcr:primaryType: targeting:targetgroup
+  targeting:name: valid-publication-series
+  targeting:propertynames: ['http://localhost:8080/data-and-information/publications/valid-publication-series']

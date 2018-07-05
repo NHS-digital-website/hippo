@@ -1,0 +1,4 @@
+definitions:
+  config:
+    /targeting:targeting/targeting:characteristics/documenttypes:
+      .meta:delete: true

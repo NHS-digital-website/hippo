@@ -1,0 +1,27 @@
+/content/gallery/publicationsystem/nhs_70_banner.jpg:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['mix:referenceable']
+  jcr:uuid: 7886f4c0-d639-41b9-8c4c-99b716559d8e
+  /nhs_70_banner.jpg:
+    jcr:primaryType: hippogallery:imageset
+    hippo:availability: [live, preview]
+    hippogallery:filename: nhs_70_banner.jpg
+    /hippogallery:thumbnail:
+      jcr:primaryType: hippogallery:image
+      hippo:filename: nhs_70_banner.jpg
+      hippogallery:height: 33
+      hippogallery:width: 60
+      jcr:data:
+        type: binary
+        resource: /content/gallery/publicationsystem/nhs_70_banner.jpg/nhs_70_banner_thumbnail.jpg
+      jcr:lastModified: 2018-07-05T15:50:09.440Z
+      jcr:mimeType: image/jpeg
+    /hippogallery:original:
+      jcr:primaryType: hippogallery:image
+      hippogallery:height: 245
+      hippogallery:width: 436
+      jcr:data:
+        type: binary
+        resource: /content/gallery/publicationsystem/nhs_70_banner.jpg/nhs_70_banner_original.jpg
+      jcr:lastModified: 2018-07-05T15:50:09.440Z
+      jcr:mimeType: image/jpeg

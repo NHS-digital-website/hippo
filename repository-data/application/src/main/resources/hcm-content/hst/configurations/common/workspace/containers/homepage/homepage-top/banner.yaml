@@ -1,0 +1,14 @@
+/hst:hst/hst:configurations/common/hst:workspace/hst:containers/homepage/homepage-top/banner:
+  jcr:primaryType: hst:containeritemcomponent
+  hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsDocumentComponent
+  hst:iconpath: images/essentials/catalog-component-icons/banner.png
+  hst:label: Banner
+  hst:parameternameprefixes: [unnamed-1530714559584@1530806062, unnamed-1530714559584@1530806062,
+    unnamed-1530714559584@1530806062, '', '', '']
+  hst:parameternames: [com.onehippo.cms7.targeting.TargetingParameterUtil.hide, document,
+    org.hippoecm.hst.core.component.template, com.onehippo.cms7.targeting.TargetingParameterUtil.hide,
+    document, org.hippoecm.hst.core.component.template]
+  hst:parametervalues: ['off', banners/nhsmail, 'webfile:/freemarker/hstdefault/essentials-banner.ftl',
+    'off', banners/nhs-70-banner, 'webfile:/freemarker/hstdefault/essentials-banner.ftl']
+  hst:template: essentials-banner
+  hst:xtype: hst.item
