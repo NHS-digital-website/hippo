@@ -3,15 +3,18 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:pages/form-mail:
       /main:
-        hst:componentclassname: com.onehippo.cms7.eforms.hst.components.EmailEformComponent
+        hst:componentclassname: com.onehippo.cms7.eforms.hst.components.AfterProcessComponent
         hst:parameternames:
         - eforms-from-email
         - eforms-from-name
         - behaviors
+        - eforms-mailsession
         hst:parametervalues:
         - noreply@nhs.uk
         - NHS Mail
-        - com.onehippo.cms7.eforms.hst.behaviors.FormIntroBehavior
+        - com.onehippo.cms7.eforms.hst.behaviors.MailFormDataBehavior, com.onehippo.cms7.eforms.hst.behaviors.FormIntroBehavior,
+          com.onehippo.cms7.eforms.hst.behaviors.AfterProcessBehavior
+        - mail/Session
         hst:resourcetemplate: eforms-validation-default
         hst:template: eforms-default
         jcr:primaryType: hst:component
