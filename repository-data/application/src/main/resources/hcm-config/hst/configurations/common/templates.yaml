@@ -98,6 +98,9 @@ definitions:
       /nilanding:
         hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/nilanding.ftl
         jcr:primaryType: hst:template
+      /past-event-hub-article:
+        hst:renderpath: webfile:/freemarker/common/past-event-hub-article.ftl
+        jcr:primaryType: hst:template
       /publication:
         hst:renderpath: webfile:/freemarker/publicationsystem/publication.ftl
         jcr:primaryType: hst:template

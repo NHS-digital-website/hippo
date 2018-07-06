@@ -160,6 +160,9 @@ definitions:
         /news:
           hst:componentconfigurationid: hst:pages/latestnews
           jcr:primaryType: hst:sitemapitem
+        /pastevents:
+          hst:componentconfigurationid: hst:pages/pastevents
+          jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/hub
         hst:relativecontentpath: news-and-events/content
         jcr:primaryType: hst:sitemapitem
