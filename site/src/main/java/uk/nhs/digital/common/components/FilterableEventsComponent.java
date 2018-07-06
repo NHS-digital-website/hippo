@@ -13,11 +13,11 @@ import uk.nhs.digital.common.components.info.*;
 import java.util.*;
 
 @ParametersInfo(
-    type = LatestEventsComponentInfo.class
+    type = EventsComponentInfo.class
 )
-public class FilterableLatestEventsComponent extends LatestEventsComponent {
+public class FilterableEventsComponent extends EventsComponent {
 
-    private static Logger log = LoggerFactory.getLogger(FilterableLatestEventsComponent.class);
+    private static Logger log = LoggerFactory.getLogger(FilterableEventsComponent.class);
 
     @Override
     protected void contributeAndFilters(final List<BaseFilter> filters, final HstRequest request, final HstQuery query) {

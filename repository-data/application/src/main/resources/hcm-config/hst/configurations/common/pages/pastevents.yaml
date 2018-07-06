@@ -1,14 +1,16 @@
 ---
 definitions:
   config:
-    /hst:hst/hst:configurations/common/hst:pages/latestevents:
+    /hst:hst/hst:configurations/common/hst:pages/pastevents:
       /main:
         hst:componentclassname: uk.nhs.digital.common.components.FilterableEventsComponent
         hst:parameternames:
         - defaultPageSize
+        - hidePastEvents
         hst:parametervalues:
         - '100'
-        hst:template: event-hub-article
+        - 'off'
+        hst:template: past-event-hub-article
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/apppage
       jcr:primaryType: hst:component

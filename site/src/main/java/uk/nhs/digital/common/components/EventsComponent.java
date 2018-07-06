@@ -30,11 +30,11 @@ import javax.jcr.Node;
 import javax.jcr.query.*;
 
 @ParametersInfo(
-    type = LatestEventsComponentInfo.class
+    type = EventsComponentInfo.class
 )
-public class LatestEventsComponent extends EssentialsEventsComponent {
+public class EventsComponent extends EssentialsEventsComponent {
 
-    private static Logger log = LoggerFactory.getLogger(LatestEventsComponent.class);
+    private static Logger log = LoggerFactory.getLogger(EventsComponent.class);
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
@@ -102,39 +102,47 @@ public class LatestEventsComponent extends EssentialsEventsComponent {
      */
     protected String addIntervalFilter(final HstRequest request) {
         final EssentialsEventsComponentInfo paramInfo = getComponentParametersInfo(request);
-        if (paramInfo.getHidePastEvents()) {
-            final String dateField = paramInfo.getDocumentDateField();
-            if (!Strings.isNullOrEmpty(dateField)) {
-                //filter list containing dates contraints
-                try {
-                    HstQueryBuilder hstQueryBuider = HstQueryBuilder.create(request.getRequestContext().getSiteContentBaseBean());
-                    hstQueryBuider.ofTypes("website:interval");
-                    HstQuery hstQuery = hstQueryBuider.build();
 
-                    List<BaseFilter> filters = new ArrayList<>();
-                    //adding the interval date range constraint
-                    addIntervalConstraint(filters, hstQuery, dateField, request);
+        final String dateField = paramInfo.getDocumentDateField();
+        if (!Strings.isNullOrEmpty(dateField)) {
+            //filter list containing dates contraints
+            try {
+                HstQueryBuilder hstQueryBuider = HstQueryBuilder.create(request.getRequestContext().getSiteContentBaseBean());
+                hstQueryBuider.ofTypes("website:interval");
+                HstQuery hstQuery = hstQueryBuider.build();
 
-                    final Filter queryFilter = createQueryFilter(request, hstQuery);
-                    if (queryFilter != null) {
-                        filters.add(queryFilter);
-                    }
-                    //appling the filters on the hstQuery object
-                    applyAndFilters(hstQuery, filters);
-                    hstQuery.addOrderByAscending(dateField);
-                    //removing existing filters the query, since it shouldn't include path, availability and query constraint
-                    String intervalQueryString = hstQuery.getQueryAsString(true).replaceAll("\\(@hippo:paths='[^']*'\\)( and)?", "");
-                    intervalQueryString = intervalQueryString.replaceAll("\\(@hippo:availability='[^']*'\\)( and)?", "");
-                    intervalQueryString = intervalQueryString.replaceAll("not\\(@jcr:primaryType='nt:frozenNode'\\)( and)?", "");
-                    //removing the first slash, since the string must be appended to an existing xpath query
-                    return intervalQueryString.substring(1, intervalQueryString.length());
-                } catch (FilterException filterException) {
-                    log.warn("Exceptions while adding event date range filter {} ", filterException);
-                } catch (QueryException queryException) {
-                    log.warn("Exceptions while getting the string representation of the query {} ", queryException);
+                List<BaseFilter> filters = new ArrayList<>();
+                //adding the interval date range constraint
+                addIntervalConstraint(filters, hstQuery, dateField, request);
+
+                final Filter queryFilter = createQueryFilter(request, hstQuery);
+                if (queryFilter != null) {
+                    filters.add(queryFilter);
                 }
+                //appling the filters on the hstQuery object
+                applyAndFilters(hstQuery, filters);
+
+                // Apply sort
+                if (paramInfo.getHidePastEvents()) {
+                    hstQuery.addOrderByAscending(dateField);
+                } else {
+                    // past events sorted descending order by date, most recent first
+                    hstQuery.addOrderByDescending(dateField);
+                }
+
+                //removing existing filters the query, since it shouldn't include path, availability and query constraint
+                String intervalQueryString = hstQuery.getQueryAsString(true).replaceAll("\\(@hippo:paths='[^']*'\\)( and)?", "");
+                intervalQueryString = intervalQueryString.replaceAll("\\(@hippo:availability='[^']*'\\)( and)?", "");
+                intervalQueryString = intervalQueryString.replaceAll("not\\(@jcr:primaryType='nt:frozenNode'\\)( and)?", "");
+                //removing the first slash, since the string must be appended to an existing xpath query
+                return intervalQueryString.substring(1, intervalQueryString.length());
+            } catch (FilterException filterException) {
+                log.warn("Exceptions while adding event date range filter {} ", filterException);
+            } catch (QueryException queryException) {
+                log.warn("Exceptions while getting the string representation of the query {} ", queryException);
             }
         }
+
         return "";
     }
 
@@ -162,16 +170,26 @@ public class LatestEventsComponent extends EssentialsEventsComponent {
     }
 
     protected void addIntervalConstraint(final List filters, final HstQuery hstQuery, final String dateField, final HstRequest request) throws FilterException {
-        //in case of latest event component, the constraints will be the upcoming and currently running events
-        final Filter upcomingEventsFilter = hstQuery.createFilter();
-        upcomingEventsFilter.addGreaterOrEqualThan(dateField, Calendar.getInstance(), DateTools.Resolution.HOUR);
-        Calendar today = Calendar.getInstance();
-        //including the currently running events
-        final Filter runningEventsFilter = hstQuery.createFilter();
-        runningEventsFilter.addLessOrEqualThan(dateField, today, DateTools.Resolution.HOUR);
-        runningEventsFilter.addGreaterOrEqualThan("website:enddatetime", today, DateTools.Resolution.HOUR);
-        upcomingEventsFilter.addOrFilter(runningEventsFilter);
-        //adding the event to the filters list
-        filters.add(upcomingEventsFilter);
+
+        final EssentialsEventsComponentInfo paramInfo = getComponentParametersInfo(request);
+        final Filter eventsFilter = hstQuery.createFilter();
+
+        if (paramInfo.getHidePastEvents()) {
+            //in case of latest event component, the constraints will be the upcoming and currently running events
+            eventsFilter.addGreaterOrEqualThan(dateField, Calendar.getInstance(), DateTools.Resolution.HOUR);
+            Calendar today = Calendar.getInstance();
+            //including the currently running events
+            final Filter runningEventsFilter = hstQuery.createFilter();
+            runningEventsFilter.addLessOrEqualThan(dateField, today, DateTools.Resolution.HOUR);
+            runningEventsFilter.addGreaterOrEqualThan("website:enddatetime", today, DateTools.Resolution.HOUR);
+            eventsFilter.addOrFilter(runningEventsFilter);
+            //adding the event to the filters list
+            filters.add(eventsFilter);
+        } else {
+            //in case of past event component, the constraints will be the past events
+            eventsFilter.addLessOrEqualThan(dateField, Calendar.getInstance(), DateTools.Resolution.HOUR);
+            //adding the event to the filters list
+            filters.add(eventsFilter);
+        }
     }
 }
