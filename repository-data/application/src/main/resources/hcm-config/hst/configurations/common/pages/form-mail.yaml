@@ -7,9 +7,11 @@ definitions:
         hst:parameternames:
         - eforms-from-email
         - eforms-from-name
+        - behaviors
         hst:parametervalues:
         - noreply@nhs.uk
         - NHS Mail
+        - com.onehippo.cms7.eforms.hst.behaviors.FormIntroBehavior
         hst:resourcetemplate: eforms-validation-default
         hst:template: eforms-default
         jcr:primaryType: hst:component

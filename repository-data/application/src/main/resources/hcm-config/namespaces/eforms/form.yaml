@@ -1,7 +1,14 @@
 ---
 definitions:
   config:
+    /hippo:namespaces/eforms/form/editor:templates/_default_/introductionform:
+      jcr:primaryType: frontend:plugin
+      mode: ${mode}
+      plugin.class: com.onehippo.cms7.eforms.cms.extensions.FormIntroductionPlugin
+      wicket.id: ${cluster.id}.extensions.item
+      wicket.model: ${wicket.model}
     /hippo:namespaces/eforms/form/editor:templates/_default_/mailform:
+      .meta:order-before: introductionform
       jcr:primaryType: frontend:plugin
       mode: ${mode}
       plugin.class: com.onehippo.cms7.eforms.cms.extensions.MailFormDataPlugin
