@@ -1,7 +1,11 @@
 package uk.nhs.digital.common.contentrewriters;
 
+import static java.util.Arrays.asList;
+
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.*;
 import org.hippoecm.hst.configuration.hosting.*;
+import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.*;
 import org.hippoecm.hst.content.beans.manager.*;
 import org.hippoecm.hst.content.beans.standard.*;
@@ -9,7 +13,10 @@ import org.hippoecm.hst.content.rewriter.impl.*;
 import org.hippoecm.hst.core.request.*;
 import org.htmlcleaner.*;
 import org.slf4j.*;
+import uk.nhs.digital.website.beans.Section;
 
+import java.util.List;
+import java.util.Optional;
 import javax.jcr.*;
 import javax.jcr.Node;
 
@@ -17,6 +24,12 @@ public class GoogleAnalyticsContentRewriter extends SimpleContentRewriter {
 
     private static final Logger log =
         LoggerFactory.getLogger(GoogleAnalyticsContentRewriter.class);
+
+    private static final String GA_ACTION_FILE_DOWNLOAD = "Download attachment";
+    private static final String GA_ACTION_LINK_CLICK = "Link click";
+    private static final List<String> DOWNLOAD_EXTENSIONS = asList(
+        "DOC", "DOCX", "XLS", "XLSX", "PDF", "CSV", "ZIP", "TXT", "RAR", "PPT",
+        "PPTX", "JPEG", "JPG", "PNG", "DOCM", "XLSM", "PPTM", "WAV", "MP4");
 
     private static boolean htmlCleanerInitialized;
     private static HtmlCleaner cleaner;
@@ -53,9 +66,29 @@ public class GoogleAnalyticsContentRewriter extends SimpleContentRewriter {
         // rewrite of links
         for (TagNode link : links) {
             String documentPath = link.getAttributeByName("href");
-            if (documentPath != null && isExternal(documentPath)) {
+
+            if (documentPath != null) {
+
+                // Migrated (legacy) content documentPath is different format to new attachments, so resolve if needed
+                documentPath = resolveLegacyAttachmentPath(documentPath);
+
+                final HippoBean contentBean = requestContext.getContentBean();
+                String gaAction = "";
+
+                // What type of link is it (attachment, external link, internal link)?
+                if (isFileAttachment(documentPath)) {
+                    // documentPath only contains the attachment name, so add the
+                    // document it sits within to give context
+                    gaAction = GA_ACTION_FILE_DOWNLOAD;
+                    documentPath = contentBean.getDisplayName() + " => " + documentPath;
+                } else if (isExternal(documentPath)) {
+                    gaAction = GA_ACTION_LINK_CLICK;
+                } else {
+                    // internal link - no tracking required
+                    continue;
+                }
+
                 //fetching content bean type
-                HippoBean contentBean = requestContext.getContentBean();
                 String contentBeanTypeName = "";
                 if (contentBean instanceof HippoFolder) {
                     //corner case to handle in case of publication documents
@@ -77,7 +110,9 @@ public class GoogleAnalyticsContentRewriter extends SimpleContentRewriter {
                 String onClickEvent = link.getAttributeByName("onClick");
                 //preparing new onclick event to fire
                 String gaEvent =
-                    "logGoogleAnalyticsEvent('Link click','" + contentBeanTypeName + "','" + documentPath + "');";
+                    "logGoogleAnalyticsEvent('" + gaAction + "',"
+                        + "'" + contentBeanTypeName + "',"
+                        + "'" + documentPath + "');";
                 //check id the onClick attribute exists
                 if (StringUtils.isEmpty(onClickEvent)) {
                     link.addAttribute("onClick", gaEvent);
@@ -108,6 +143,58 @@ public class GoogleAnalyticsContentRewriter extends SimpleContentRewriter {
         }
 
         return null;
+    }
+
+    private boolean isFileAttachment(final String url) {
+        String extension = FilenameUtils.getExtension(url);
+        return DOWNLOAD_EXTENSIONS.contains(extension.toUpperCase());
+    }
+
+    private String resolveLegacyAttachmentPath(String documentPath) {
+
+        // Attachments imported through the migration have Names starting with LinkRef... i.e. LinkRef1366-1
+        // or DefaultLinkRef i.e. DefaultLinkRef35337-1, instead of the actual attachment.extension when a new
+        // attachment is added now.  Therefore any LinkRef...need to be converted to the actual attachment.extension
+        if (documentPath.contains("LinkRef")) {
+
+            HippoBean contentBean = RequestContextProvider.get().getContentBean();
+
+            // Any direct HTML child nodes of the current contentBean?
+            documentPath = resolveHippoHtmlInternalLink(documentPath, contentBean);
+
+            // Website sections can have HTML child nodes
+            for (HippoCompound section : contentBean
+                .getChildBeansByName("website:sections", HippoCompound.class)) {
+
+                if (section instanceof Section) {
+                    documentPath = resolveHippoHtmlInternalLink(documentPath, section);
+                }
+            }
+        }
+        return documentPath;
+    }
+
+
+    private String resolveHippoHtmlInternalLink(String nodeName, final HippoBean bean) {
+
+        for (HippoHtml htmlItem : bean.getChildBeans(HippoHtml.class)) {
+
+            Optional docbase = htmlItem.getChildBeansByName(nodeName, HippoBean.class)
+                .stream()
+                .map(internallink -> internallink.getProperty("hippo:docbase"))
+                .findFirst();
+
+            if (docbase.isPresent()) {
+                try {
+                    nodeName = RequestContextProvider.get().getSession()
+                        .getNodeByIdentifier((String) docbase.get())
+                        .getName();
+                } catch (RepositoryException repositoryEx) {
+                    log.warn("Repository exception while fetching child nodes", repositoryEx);
+                }
+            }
+        }
+        return nodeName;
     }
 
 }
