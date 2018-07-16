@@ -1,12 +1,8 @@
----
 /content/documents/corporate-website/about:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: d788ba56-0aaa-48da-866a-733ef095b3ce
   hippo:name: About
-  hippostd:foldertype:
-  - new-about-document
+  hippostd:foldertype: [new-about-document]
   hippotranslation:id: 00000000-0000-0000-0000-000000000000
   hippotranslation:locale: en
-  jcr:mixinTypes:
-  - hippo:named
-  - hippotranslation:translated
-  - mix:versionable
-  jcr:primaryType: hippostd:folder

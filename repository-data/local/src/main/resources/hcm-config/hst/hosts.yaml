@@ -1,21 +1,21 @@
----
 definitions:
   config:
     /hst:hst/hst:hosts:
+      hst:defaultcontextpath: ''
+      hst:diagnosticsenabled: true
+      hst:scheme: http
+      hst:diagnosticsforips: [127.0.0.1]
       /localhost:
+        hst:cmslocation: http://localhost:8080/cms
+        hst:defaultport: 8080
+        jcr:primaryType: hst:virtualhostgroup
         /localhost:
+          jcr:primaryType: hst:virtualhost
           /hst:root:
             hst:contextpath: ''
             hst:homepage: root
             hst:mountpoint: /hst:hst/hst:sites/common
             jcr:primaryType: hst:mount
-          jcr:primaryType: hst:virtualhost
-        hst:cmslocation: http://localhost:8080/cms
-        hst:defaultport: 8080
-        jcr:primaryType: hst:virtualhostgroup
-      hst:defaultcontextpath: ''
-      hst:diagnosticsenabled: false
-      hst:scheme: http
     /hst:hst/hst:hosts/dev:
       hst:cmslocation: http://cms-dev.nhsd.io:8080/cms
       hst:defaultport: 8080

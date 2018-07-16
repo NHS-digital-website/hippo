@@ -1,39 +1,15 @@
----
 definitions:
   config:
     /hippo:configuration/hippo:frontend/cms:
       frontend:privileges: jcr:read
     /hippo:configuration/hippo:frontend/cms/cms-advanced-search/genericFilters:
-      document.type.namespaces:
-      - website
-      - nationalindicatorlibrary
-      - publicationsystem
+      document.type.namespaces: [website, nationalindicatorlibrary, publicationsystem]
     /hippo:configuration/hippo:frontend/cms/cms-services/assetValidationService:
-      extensions.allowed:
-      - doc
-      - docx
-      - xls
-      - xlsx
-      - pdf
-      - csv
-      - zip
-      - txt
-      - rar
-      - ppt
-      - pptx
-      - jpeg
-      - jpg
-      - png
-      - docm
-      - xlsm
-      - pptm
+      extensions.allowed: [doc, docx, xls, xlsx, pdf, csv, zip, txt, rar, ppt, pptx,
+        jpeg, jpg, png, docm, xlsm, pptm]
       max.file.size: 3000M
     /hippo:configuration/hippo:frontend/cms/cms-services/imageValidationService:
-      extensions.allowed:
-      - jpg
-      - jpeg
-      - gif
-      - png
+      extensions.allowed: [jpg, jpeg, gif, png]
     /hippo:configuration/hippo:frontend/cms/cms-services/localeProviderService:
       /en:
         country: gb
@@ -49,11 +25,12 @@ definitions:
       jcr:primaryType: frontend:plugin
       plugin.class: uk.nhs.digital.ps.DocumentTypeCharacteristicPlugin
     /hippo:configuration/hippo:frontend/cms/hippo-targeting/collector-geo:
-      locations:
-      - Amsterdam | NL | 52.350006 | 4.9167023
-      - Cambridge | US | 42.3741 | -71.1072
-      - Leeds | UK | 53.800755 | -1.5490
+      locations: [Amsterdam | NL | 52.350006 | 4.9167023, Cambridge | US | 42.3741
+          | -71.1072, Leeds | UK | 53.800755 | -1.5490]
     /hippo:configuration/hippo:frontend/cms/hippo-targeting/experience-optimizer-perspective:
-      google.api.key: <insert google api key here via console to allow Google maps
-        API to work>
+      google.api.key: <insert Google api key here>
       targeting.rest.url: /_targeting
+    /hippo:configuration/hippo:frontend/cms/hippo-targeting/characteristic-documenttypes:
+      type.prefix.includes: ['website:', 'publicationsystem:']
+    /hippo:configuration/hippo:frontend/cms/hippo-targeting/collector-documenttypes:
+      type.prefix.includes: ['website:', 'publicationsystem:']
