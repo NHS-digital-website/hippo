@@ -12,7 +12,6 @@ definitions:
         /localhost:
           jcr:primaryType: hst:virtualhost
           /hst:root:
-            hst:contextpath: ''
             hst:homepage: root
             hst:mountpoint: /hst:hst/hst:sites/common
             jcr:primaryType: hst:mount
