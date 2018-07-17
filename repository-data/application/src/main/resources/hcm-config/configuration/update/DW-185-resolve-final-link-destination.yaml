@@ -7,9 +7,9 @@ definitions:
       hipposys:dryrun: false
       hipposys:loglevel: DEBUG
       hipposys:parameters: '{}'
-      hipposys:query: /jcr:root/content/documents/corporate-website//*[@jcr:primaryType='website:gdprtransparency']//..
+      hipposys:query: /jcr:root/content/documents/corporate-website//*[@jcr:primaryType='hippostd:html']
       hipposys:script:
         resource: /configuration/update/DW-185-resolve-final-link-destination.groovy
         type: string
-      hipposys:throttle: 500
+      hipposys:throttle: 300
       jcr:primaryType: hipposys:updaterinfo
