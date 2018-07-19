@@ -10,9 +10,10 @@
 <section class="search-banner" aria-label="Search form">
     <div class="grid-wrapper grid-wrapper--collapse">
         <h1 class="search-banner__headline">${searchBannerText}</h1>
-        <form role="search" method="get" action="${searchLink}" class="search-banner__form" id="search" title="search"  aria-label="search">
+        <form role="search" method="get" action="${searchLink}" class="search-banner__form" id="search" aria-label="${searchTitle}">
             <div>
-                <input type="text" name="query" id="query" class="search-banner__input" placeholder="${placeholderText}" value="${query!""}" aria-label="${searchTitle}">
+                <input type="text" name="query" id="query" class="search-banner__input" placeholder="${placeholderText}" value="${query!""}" aria-label="${buttonLabel}">
+                <label for="query" class="visually-hidden">${buttonLabel}</label>
             </div>
             <div>
                 <button class="search-banner__button" data-uipath="search.button">${buttonLabel}</button>

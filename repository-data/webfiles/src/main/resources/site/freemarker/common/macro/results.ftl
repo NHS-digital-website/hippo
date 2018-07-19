@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="cta__stamped-header-col cta__stamped-header-col--right">
-                    <img src="<@hst.webfile  path="images/national-statistics-logo@2x.png"/>" data-uipath="ps.search-results.result.national-statistics" title="National Statistics" class="image-icon image-icon--large" />
+                    <img src="<@hst.webfile  path="images/national-statistics-logo@2x.png"/>" data-uipath="ps.search-results.result.national-statistics" alt="National Statistics" title="National Statistics" class="image-icon image-icon--large" />
                 </div>
             </div>
         </#if>

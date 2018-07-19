@@ -70,10 +70,10 @@
                                 </#list>
 
                                 <#if facetItems?size &gt; facetMaxCount >
-                                    <div class="filter-vis-toggles">
+                                    <li class="filter-vis-toggles">
                                         <a href="#" class="filter-vis-toggle filter-vis-toggle--show">Show all (${facetItems?size})</a>
                                         <a href="#" class=" filter-vis-toggle filter-vis-toggle--hide is-hidden">Show less (${facetMaxCount})</a>
-                                    </div>
+                                    </li>
                                 </#if>
                             </#if>
                         </ul>
