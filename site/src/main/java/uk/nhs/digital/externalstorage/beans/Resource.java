@@ -18,7 +18,7 @@ public class Resource extends HippoDocument {
         return getProperty(PropertyKeys.FILENAME);
     }
 
-    public Long getMimeType() {
+    public String getMimeType() {
         return getProperty(PropertyKeys.MIME_TYPE);
     }
 
