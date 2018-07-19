@@ -209,3 +209,42 @@
     <#return documentUrl />
 </#function>
 
+<#function getFormatByMimeType mimeType>
+    <#local mimeTypes = {
+        "image/jpeg": "jpg",
+        "image/png": "png",
+        "image/pdf": "pdf",
+        "application/pdf": "pdf",
+        "text/csv": "csv",
+        "text/plain": "txt",
+        "application/x-rar-compressed": "rar",
+        "application/zip": "zip",
+        
+        "application/vnd.ms-powerpoint": "ppt",
+        "application/vnd.ms-powerpoint.presentation.macroenabled.12": "ppt",
+        "application/vnd.ms-powerpoint.addin.macroEnabled.12": "ppt",
+        "application/vnd.ms-powerpoint.presentation.macroEnabled.12": "ppt",
+        "application/vnd.ms-powerpoint.template.macroEnabled.12": "ppt",
+        "application/vnd.ms-powerpoint.slideshow.macroEnabled.12": "ppt",
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation": "ppt",
+        "application/vnd.openxmlformats-officedocument.presentationml.template": "ppt",
+        "application/vnd.openxmlformats-officedocument.presentationml.slideshow": "ppt",
+
+        "application/vnd.ms-excel": "xls",
+        "application/x-tika-msoffice": "xls",
+        "application/vnd.ms-excel.sheet.macroEnabled.12": "xls",
+        "application/vnd.ms-excel.addin.macroEnabled.12": "xls",
+        "application/vnd.ms-excel.template.macroEnabled.12": "xls",
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": "xls",
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.template": "xls",
+        
+        "application/msword": "doc",
+        "application/vnd.ms-word.document.macroenabled.12": "doc",
+        "application/vnd.ms-word.template.macroEnabled.12": "doc",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": "doc",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.template": "doc"
+    }/>
+
+    <#return (mimeTypes[mimeType]??)?then(mimeTypes[mimeType], "") />
+</#function>
+

@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
+<#include "../common/macro/fileMetaAppendix.ftl">
 <#include "./macro/structured-text.ftl">
 <@hst.setBundle basename="publicationsystem.headers,publicationsystem.labels"/>
 
@@ -74,9 +75,9 @@
                         <#list series.attachments as attachment>
                             <li class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
                                 <@externalstorageLink attachment.resource; url>
-                                <a itemprop="contentUrl" title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Series','${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)"><span itemprop="name">${attachment.text}</span></a>;
+                                <a itemprop="contentUrl" title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Series','${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)"><span itemprop="name">${attachment.text}</span></a>
                                 </@externalstorageLink>
-                                <span class="fileSize">[size: <span itemprop="contentSize"><@formatFileSize bytesCount=attachment.resource.length/></span>]</span>
+                                <@fileMetaAppendix attachment.resource.length, attachment.resource.mimeType></@fileMetaAppendix>
                             </li>
                         </#list>
                         <#list series.resourceLinks as link>
