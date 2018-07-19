@@ -60,7 +60,7 @@
             <div class="column column--two-thirds page-block page-block--main">
                 <div id="summary" class="article-section article-section--summary no-border">
                     <h2>${summaryHeader}</h2>
-                    <span itemprop="description"><@structuredText item=publication.summary uipath="ps.publication.summary" /></span>
+                    <div itemprop="description"><@structuredText item=publication.summary uipath="ps.publication.summary" /></div>
                 </div>
 
                 <#if publication.keyFacts.elements?has_content || keyFactImageSections?has_content>

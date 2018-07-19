@@ -16,6 +16,9 @@
                href="${url}"
                onClick="logGoogleAnalyticsEvent(
                    'Download chart data','Publication','${dataFile.filename}'
+               );" 
+               onKeyUp="logGoogleAnalyticsEvent(
+                   'Download chart data','Publication','${dataFile.filename}'
                );">
                 <span itemprop="name">${downloadDataFileHeader}</span>
             </a>

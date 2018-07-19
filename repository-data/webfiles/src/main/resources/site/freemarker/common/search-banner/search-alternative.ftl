@@ -12,9 +12,10 @@
       <section class="" aria-label="Search form">
           <div class="article-wrapper article-wrapper--collapse">
               <p class="search-banner__headline">${searchBannerText}</p>
-              <form role="search" method="get" action="${searchLink}" class="search-banner__form">
+              <form role="search" method="get" action="${searchLink}" class="search-banner__form" aria-label="${searchTitle}">
                   <div>
-                      <input type="text" name="query" id="query" class="search-banner__input" placeholder="${placeholderText}" value="${query!""}" title="${searchTitle}">
+                      <input type="text" name="query" id="query" class="search-banner__input" placeholder="${placeholderText}" value="${query!""}">
+                      <label for="query" class="visually-hidden">${buttonText}</label>
                   </div>
                   <div>
                       <button class="button button--tertiary search-banner__button">${buttonText}</button>

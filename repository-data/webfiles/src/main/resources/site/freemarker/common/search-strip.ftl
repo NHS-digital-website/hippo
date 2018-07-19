@@ -6,10 +6,11 @@
 <@fmt.message key="search-banner.buttonLabel" var="buttonLabel"/>
 <@fmt.message key="search-banner.title" var="searchTitle"/>
 
-<form role="search" method="get" action="${searchLink}" class="search-strip" aria-label="${searchTitle}" id="search" title="search">
+<form role="search" method="get" action="${searchLink}" class="search-strip" aria-label="${searchTitle}" id="search">
     <div class="search-strip__contents">
         <div class="search-strip__table-cell">
             <input type="text" name="query" id="query" class="search-strip__input" placeholder="${buttonLabel}" value="${query!""}" aria-label="${buttonLabel}">
+            <label for="query" class="visually-hidden">${buttonLabel}</label>
         </div>
         <div class="search-strip__table-cell search-strip__table-cell--button">
             <button data-uipath="search.button" class="search-strip__button" aria-label="${buttonLabel}">

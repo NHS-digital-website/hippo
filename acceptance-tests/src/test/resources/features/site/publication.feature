@@ -108,7 +108,7 @@ Feature: Ensure publication page displays required fields.
         Given I navigate to the "national statistic publication" page
         Then I should also see:
             | Publication Information Types | National statistics           |
-        And I can see "National statistics" image
+        And I can see "National Statistics" image
         When I navigate to "publication with rich content" page
         Then I should also see:
             | Publication Information Types | Experimental statistics       |
