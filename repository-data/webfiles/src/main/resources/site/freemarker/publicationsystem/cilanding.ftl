@@ -1,6 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <#include "../common/macro/sectionNav.ftl">
+<#include "../common/macro/fileMetaAppendix.ftl">
 
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 
@@ -99,7 +100,8 @@
                                     <#list section.attachments as attachment>
                                         <li class="attachment">
                                             <@externalstorageLink attachment.resource; url>
-                                            <a href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','CI landing page','${document.title} - ${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)" title="${attachment.text}">${attachment.text}</a>; <span>[size: <@formatFileSize bytesCount=attachment.resource.length/>]</span>
+                                            <a href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','CI landing page','${document.title} - ${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)" title="${attachment.text}">${attachment.text}</a>
+                                            <@fileMetaAppendix attachment.resource.length, attachment.resource.mimeType></@fileMetaAppendix>
                                             </@externalstorageLink>
                                         </li>
                                     </#list>

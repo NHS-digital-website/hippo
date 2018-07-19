@@ -1,6 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <#include "../common/macro/sectionNav.ftl">
+<#include "../common/macro/fileMetaAppendix.ftl">
 
 <#-- Add meta tags -->
 <#include "../common/macro/metaTags.ftl">
@@ -241,7 +242,7 @@
                             <@externalstorageLink attachment.resource; url>
                             <a title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Indicator','${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)">${attachment.text}</a>
                             </@externalstorageLink>
-                            <span class="fileSize">[<@formatFileSize bytesCount=attachment.resource.length/>]</span>
+                            <@fileMetaAppendix attachment.resource.length, attachment.resource.mimeType></@fileMetaAppendix>
                         </li>
                         </#list>
                     </ul>

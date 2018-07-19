@@ -4,6 +4,7 @@
 <#include "./macro/publicationHeader.ftl">
 <#include "./macro/sections/sections.ftl">
 <#include "../common/macro/sectionNav.ftl">
+<#include "../common/macro/fileMetaAppendix.ftl">
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 <#-- @ftlvariable name="publication" type="uk.nhs.digital.ps.beans.Publication" -->
 
@@ -107,9 +108,9 @@
                         <#list publication.attachments as attachment>
                             <li class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
                                 <@externalstorageLink attachment.resource; url>
-                                <a title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)" itemprop="contentUrl"><span itemprop="name">${attachment.text}</span></a>;
+                                <a title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)" itemprop="contentUrl"><span itemprop="name">${attachment.text}</span></a>
                                 </@externalstorageLink>
-                                <span class="fileSize">[size: <span itemprop="contentSize"><@formatFileSize bytesCount=attachment.resource.length/></span>]</span>
+                                <@fileMetaAppendix attachment.resource.length, attachment.resource.mimeType></@fileMetaAppendix>
                             </li>
                         </#list>
                         <#list publication.resourceLinks as link>
