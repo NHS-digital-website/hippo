@@ -1,0 +1,14 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/publishedworkchapter:
+      /main:
+        hst:componentclassname: uk.nhs.digital.common.components.PublishedWorkLinkedBeansComponent
+        hst:parameternames:
+        - linkPath
+        hst:parametervalues:
+        - website:links/@hippo:docbase
+        hst:template: published-work-chapter-article
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/apppage
+      jcr:primaryType: hst:component

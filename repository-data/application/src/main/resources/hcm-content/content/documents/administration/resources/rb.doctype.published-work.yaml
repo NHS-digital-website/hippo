@@ -1,0 +1,188 @@
+---
+/content/documents/administration/resources/rb.doctype.published-work:
+  /rb.doctype.published-work[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-07-23T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2018-07-23T15:49:40.466Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Summary section header
+    - Overview section header
+    - Side navigation header
+    - Publication chapters section header
+    - About this publication section header
+    - Publication date label
+    - Geographic coverage label
+    - Geographic granularity label
+    - Date range label
+    - Skip to content label
+    - ISBN label
+    - ISNN label
+    - Resources label
+    - Published Work label
+    - Published Work Chapter label
+    resourcebundle:id: rb.doctype.published-work
+    resourcebundle:keys:
+    - headers.summary
+    - headers.overview
+    - headers.page-contents
+    - headers.publication-chapters
+    - headers.about-this-publication
+    - labels.publication-date
+    - labels.geographic-coverage
+    - labels.geographic-granularity
+    - labels.date-range
+    - labels.skip-to-content
+    - labels.isbn
+    - labels.issn
+    - labels.resources
+    - labels.publishedwork
+    - labels.publishedworkchapter
+    resourcebundle:messages:
+    - Summary
+    - Overview
+    - Page contents
+    - Publication chapters
+    - About this publication
+    - Publication date
+    - Geographic coverage
+    - Geographic granularity
+    - Date range
+    - Skip to content
+    - ISBN
+    - ISSN
+    - Resources
+    - Published Work
+    - Published Work Chapter
+  /rb.doctype.published-work[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-07-23T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2018-07-23T15:49:40.466Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Summary section header
+    - Overview section header
+    - Side navigation header
+    - Publication chapters section header
+    - About this publication section header
+    - Publication date label
+    - Geographic coverage label
+    - Geographic granularity label
+    - Date range label
+    - Skip to content label
+    - ISBN label
+    - ISNN label
+    - Resources label
+    - Published Work label
+    - Published Work Chapter label
+    resourcebundle:id: rb.doctype.published-work
+    resourcebundle:keys:
+    - headers.summary
+    - headers.overview
+    - headers.page-contents
+    - headers.publication-chapters
+    - headers.about-this-publication
+    - labels.publication-date
+    - labels.geographic-coverage
+    - labels.geographic-granularity
+    - labels.date-range
+    - labels.skip-to-content
+    - labels.isbn
+    - labels.issn
+    - labels.resources
+    - labels.publishedwork
+    - labels.publishedworkchapter
+    resourcebundle:messages:
+    - Summary
+    - Overview
+    - Page contents
+    - Publication chapters
+    - About this publication
+    - Publication date
+    - Geographic coverage
+    - Geographic granularity
+    - Date range
+    - Skip to content
+    - ISBN
+    - ISSN
+    - Resources
+    - Published Work
+    - Published Work Chapter
+  /rb.doctype.published-work[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-07-23T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2018-07-23T15:49:40.466Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2018-07-23T15:49:40.466Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Summary section header
+    - Overview section header
+    - Side navigation header
+    - Publication chapters section header
+    - About this publication section header
+    - Publication date label
+    - Geographic coverage label
+    - Geographic granularity label
+    - Date range label
+    - Skip to content label
+    - ISBN label
+    - ISNN label
+    - Resources label
+    - Published Work label
+    - Published Work Chapter label
+    resourcebundle:id: rb.doctype.published-work
+    resourcebundle:keys:
+    - headers.summary
+    - headers.overview
+    - headers.page-contents
+    - headers.publication-chapters
+    - headers.about-this-publication
+    - labels.publication-date
+    - labels.geographic-coverage
+    - labels.geographic-granularity
+    - labels.date-range
+    - labels.skip-to-content
+    - labels.isbn
+    - labels.issn
+    - labels.resources
+    - labels.publishedwork
+    - labels.publishedworkchapter
+    resourcebundle:messages:
+    - Summary
+    - Overview
+    - Page contents
+    - Publication chapters
+    - About this publication
+    - Publication date
+    - Geographic coverage
+    - Geographic granularity
+    - Date range
+    - Skip to content
+    - ISBN
+    - ISSN
+    - Resources
+    - Published Work
+    - Published Work Chapter
+  hippo:name: Published Work Resource Bundle
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

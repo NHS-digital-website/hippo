@@ -1,5 +1,5 @@
 <#ftl output_format="HTML">
-<@hst.setBundle basename="publicationsystem.labels,nationalindicatorlibrary.headers,nationalindicatorlibrary.labels,website.labels,homepage.website.labels"/>
+<@hst.setBundle basename="publicationsystem.labels,nationalindicatorlibrary.headers,nationalindicatorlibrary.labels,website.labels,homepage.website.labels,rb.doctype.published-work"/>
 
 <#macro searchResults items>
     <div class="cta-list">
@@ -27,6 +27,10 @@
                 <@news item=document />
             <#elseif document.class.name == "uk.nhs.digital.website.beans.Gdprtransparency">
                 <@gdpr item=document />
+            <#elseif document.class.name == "uk.nhs.digital.website.beans.Publishedwork">
+                <@publishedwork item=document />
+            <#elseif document.class.name == "uk.nhs.digital.website.beans.Publishedworkchapter">
+                <@publishedworkchapter item=document />
             </#if>
         </#list>
     </div>
@@ -252,4 +256,29 @@
         </a>
         <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
     </div>
+</#macro>
+
+<#macro publishedwork item>
+<div class="cta cta--detailed" data-uipath="ps.search-results.result">
+    <div>
+        <h3 class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publishedwork"/></h3>
+    </div>
+    <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
+        ${item.title}
+    </a>
+    <span class="cta__meta" data-uipath="ps.search-results.result.date"><@formatDate date=item.publicationDate.time/></span>
+    <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
+</div>
+</#macro>
+
+<#macro publishedworkchapter item>
+<div class="cta cta--detailed" data-uipath="ps.search-results.result">
+    <div>
+        <h3 class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publishedworkchapter"/></h3>
+    </div>
+    <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
+        ${item.title}
+    </a>
+    <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
+</div>
 </#macro>

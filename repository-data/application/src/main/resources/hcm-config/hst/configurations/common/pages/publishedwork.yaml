@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/publishedwork:
+      /main:
+        hst:componentclassname: uk.nhs.digital.common.components.BaseGaContentComponent
+        hst:template: published-work-article
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/apppage
+      jcr:primaryType: hst:component

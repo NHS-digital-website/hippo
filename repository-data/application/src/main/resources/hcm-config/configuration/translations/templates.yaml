@@ -80,6 +80,16 @@ definitions:
           jcr:name: Hub
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:publishedwork:
+        /en:
+          jcr:name: Published Work
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:publishedworkchapter:
+        /en:
+          jcr:name: Published Work Chapter
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:service:
         /en:
           jcr:name: Service

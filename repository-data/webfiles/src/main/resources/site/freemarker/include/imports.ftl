@@ -176,6 +176,9 @@
             <@fmt.message key="headers.further-information" var="furtherInformationHeader" />
             <#assign links += [{ "url": "#further-information", "title": furtherInformationHeader }] />
         </#if>
+        <#if options.links??>
+            <#assign links += options.links />
+        </#if>
     </#if>
 
     <#return links />
@@ -219,7 +222,7 @@
         "text/plain": "txt",
         "application/x-rar-compressed": "rar",
         "application/zip": "zip",
-        
+
         "application/vnd.ms-powerpoint": "ppt",
         "application/vnd.ms-powerpoint.presentation.macroenabled.12": "ppt",
         "application/vnd.ms-powerpoint.addin.macroEnabled.12": "ppt",
@@ -237,7 +240,7 @@
         "application/vnd.ms-excel.template.macroEnabled.12": "xls",
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": "xls",
         "application/vnd.openxmlformats-officedocument.spreadsheetml.template": "xls",
-        
+
         "application/msword": "doc",
         "application/vnd.ms-word.document.macroenabled.12": "doc",
         "application/vnd.ms-word.template.macroEnabled.12": "doc",
@@ -246,5 +249,27 @@
     }/>
 
     <#return (mimeTypes[mimeType]??)?then(mimeTypes[mimeType], "") />
+</#function>
+
+<#-- Split a hash into 2 hashes -->
+<#function splitHash hash>
+    <#local minRows = 3 />
+    <#local rowCount = (hash?size / 2)?ceiling/>
+
+    <#local leftHash = [] />
+    <#local rightHash = [] />
+    <#if rowCount < minRows>
+        <#local leftHash = hash />
+    <#else>
+        <#list hash as hashItem>
+            <#if hashItem?counter <= rowCount>
+                <#local leftHash += [hashItem] />
+            <#else>
+                <#local rightHash += [hashItem] />
+            </#if>
+        </#list>
+    </#if>
+
+    <#return { "left": leftHash, "right": rightHash } />
 </#function>
 
