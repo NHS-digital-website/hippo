@@ -69,9 +69,9 @@ class ResolveFinalLinkDestination extends BaseNodeUpdateVisitor {
 
                 // TODO need to establish if external link to internal resource
 
-                if (originalLink != null && isCandidateLinkToRewrite(originalLink)) {
+                if (originalLink != null && isPossibleRewriteLink(originalLink)) {
 
-                    log.warn("NODE " + node.getPath() + ". LINK==" + originalLink)
+                    //log.warn("NODE " + node.getPath() + ". LINK==" + originalLink)
 
                     try {
                         def finalLink = helper.resolveFinalDestination(originalLink)
@@ -81,7 +81,6 @@ class ResolveFinalLinkDestination extends BaseNodeUpdateVisitor {
                             html = html.replace(originalLink, finalLink)
                             log.warn(originalLink + " ================> " + finalLink)
                         }
-
                     } catch (Exception exception) {
                         log.error("Link failed in path: [" + node.getPath() + "] - Link: " + originalLink)
                         log.error("ERROR: " + exception.getMessage())
@@ -90,8 +89,6 @@ class ResolveFinalLinkDestination extends BaseNodeUpdateVisitor {
             }
 
             if (updateRequired) {
-                return false // just testing for now
-
                 //node.setProperty(PROPERTY_HIPPO_HTML, html)
                 //return true
             }
@@ -100,10 +97,13 @@ class ResolveFinalLinkDestination extends BaseNodeUpdateVisitor {
         return false
     }
 
-    boolean isCandidateLinkToRewrite(String link) {
-        return !link.toLowerCase().startsWith("mailto:") &&
-            !link.toLowerCase().startsWith("file:") &&
-            !link.toLowerCase().contains("linkref")
+    boolean isPossibleRewriteLink(String link) {
+
+        // Not interested in external links such as bbc.co.uk.
+        // Only interested in those which may hit an internal Hippo redirect rule
+
+        return link.toLowerCase().contains("digital.nhs.uk") ||
+            link.toLowerCase().contains("hscic.gov.uk")
     }
 
     boolean undoUpdate(Node node) {

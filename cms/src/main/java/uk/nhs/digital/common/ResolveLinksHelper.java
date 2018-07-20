@@ -1,6 +1,7 @@
 package uk.nhs.digital.common;
 
 import org.apache.http.HttpHost;
+import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.protocol.HttpClientContext;
 import org.apache.http.client.utils.URIUtils;
@@ -35,5 +36,22 @@ public class ResolveLinksHelper {
             httpclient.close();
         }
         return finalDestination;
+    }
+
+    public int getInitialHttpStatusCode(String link) throws IOException {
+
+        int statusCode;
+        try (CloseableHttpClient httpclient = HttpClients.custom()
+            .disableRedirectHandling()
+            .build()) {
+
+            HttpClientContext context = HttpClientContext.create();
+            HttpGet httpGet = new HttpGet(link);
+            CloseableHttpResponse response = httpclient.execute(httpGet, context);
+            statusCode = response.getStatusLine().getStatusCode();
+        }
+
+        return statusCode;
+
     }
 }
