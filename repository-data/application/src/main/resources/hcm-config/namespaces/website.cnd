@@ -55,6 +55,9 @@
 [website:publishedwork] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
   orderable
 
+[website:publishedworkchapter] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:section] > hippo:compound, hippostd:relaxed
   orderable
 
