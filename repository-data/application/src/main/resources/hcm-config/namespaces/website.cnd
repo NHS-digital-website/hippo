@@ -4,6 +4,7 @@
 <'hippostdpubwf'='http://www.onehippo.org/jcr/hippostdpubwf/nt/1.0'>
 <'common'='http://digital.nhs.uk/jcr/common/nt/1.0'>
 <'hippotranslation'='http://www.onehippo.org/jcr/hippotranslation/nt/1.0'>
+<'hippotaxonomy'='http://www.hippoecm.org/hippotaxonomy/nt/1.2'>
 
 [website:assetlink] > hippo:compound, hippostd:relaxed
   orderable
@@ -49,6 +50,12 @@
   orderable
 
 [website:news] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:publishedwork] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:publishedworkchapter] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
   orderable
 
 [website:section] > hippo:compound, hippostd:relaxed

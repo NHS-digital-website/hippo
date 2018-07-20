@@ -22,6 +22,7 @@ public class AttachmentFieldValidator extends AbstractCmsValidator {
 
     private static final String HIPPO_FILENAME_PROPERTY_NAME = "hippo:filename";
     private static final String DEFAULT_ATTACHMENT_NAME_WHEN_NO_FILE_UPLOADED = "externalstorage:resource";
+    private static final String HIPPO_ATTACHMENT_PRIMARY_NODE_TYPE = "publicationsystem:extattachment";
     private static final String HIPPO_ATTACHMENT_DISPLAY_NAME_PROPERTY_NAME = "publicationsystem:displayName";
 
     @SuppressWarnings("WeakerAccess") // Hippo CMS requires the constructor to be public
@@ -89,18 +90,22 @@ public class AttachmentFieldValidator extends AbstractCmsValidator {
 
             while (iterator.hasNext()) {
                 final Node node = iterator.nextNode();
-                final String displayName = node.getProperty(HIPPO_ATTACHMENT_DISPLAY_NAME_PROPERTY_NAME)
-                                        .getString()
-                                        .toLowerCase();
 
-                if (displayName.isEmpty()) {
-                    continue;
-                }
+                // Only want attachments nodes
+                if (node.getPrimaryNodeType().getName().equals(HIPPO_ATTACHMENT_PRIMARY_NODE_TYPE)) {
+                    final String displayName = node.getProperty(HIPPO_ATTACHMENT_DISPLAY_NAME_PROPERTY_NAME)
+                        .getString()
+                        .toLowerCase();
 
-                if (!documentAttachmentNames.contains(displayName)) {
-                    documentAttachmentNames.add(displayName);
-                } else {
-                    return true;
+                    if (displayName.isEmpty()) {
+                        continue;
+                    }
+
+                    if (!documentAttachmentNames.contains(displayName)) {
+                        documentAttachmentNames.add(displayName);
+                    } else {
+                        return true;
+                    }
                 }
             }
 

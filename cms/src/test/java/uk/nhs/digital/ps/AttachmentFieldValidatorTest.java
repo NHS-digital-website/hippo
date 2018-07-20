@@ -35,11 +35,13 @@ import java.util.UUID;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.Property;
+import javax.jcr.nodetype.NodeType;
 
 public class AttachmentFieldValidatorTest {
 
     private static final String HIPPO_FILENAME_PROPERTY_NAME = "hippo:filename";
     private static final String DEFAULT_ATTACHMENT_NAME_WHEN_NO_FILE_UPLOADED = "externalstorage:resource";
+    private static final String HIPPO_ATTACHMENT_PRIMARY_NODE_TYPE = "publicationsystem:extattachment";
     private static final String HIPPO_ATTACHMENT_DISPLAY_NAME_PROPERTY_NAME = "publicationsystem:displayName";
 
     @Rule public ExpectedException expectedException = ExpectedException.none();
@@ -201,6 +203,7 @@ public class AttachmentFieldValidatorTest {
     private Node generateMockAttachmentNode(String displayName) throws Exception {
 
         final Node attachmentNode = mock(Node.class);
+        final NodeType nodeType = mock(NodeType.class);
 
         final Property attachmentFileNameProperty = mock(Property.class);
         given(attachmentFileNameProperty.getString()).willReturn(displayName);
@@ -210,6 +213,10 @@ public class AttachmentFieldValidatorTest {
 
         // Attachment display name
         given(attachmentNode.getProperty(HIPPO_ATTACHMENT_DISPLAY_NAME_PROPERTY_NAME)).willReturn(attachmentFileNameProperty);
+
+        // Attachment type and name
+        given(attachmentNode.getPrimaryNodeType()).willReturn(nodeType);
+        given(nodeType.getName()).willReturn(HIPPO_ATTACHMENT_PRIMARY_NODE_TYPE);
 
         return attachmentNode;
     }
