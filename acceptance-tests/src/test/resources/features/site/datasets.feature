@@ -44,7 +44,7 @@ Feature: As a consumer I need to be able to navigate to publication data sets
         Given I navigate to the "publication with datasets Dataset" data set page
         Then I should also see "Dataset Resources" with:
             | Google Resource Link            |
-            | attachment.pdf; [size: 42.2 kB] |
+            | attachment.pdf [pdf, size: 42.2 kB] |
 
     Scenario: Find data set in publication resources
         Given I navigate to "publication with datasets" publication page
@@ -88,8 +88,8 @@ Feature: As a consumer I need to be able to navigate to publication data sets
         Given I navigate to "attachment test dataset" page
         Then I should see publication page titled "Attachment Test Dataset"
         And I should also see "Dataset Resources" with:
-            | dataset-attachment.pdf; [size: 7.2 kB] |
-            | Attachment with text; [size: 7.2 kB]   |
+            | dataset-attachment.pdf [pdf, size: 7.2 kB] |
+            | Attachment with text [pdf, size: 7.2 kB]   |
         And I can download following files:
             | dataset-attachment.pdf | dataset-attachment.pdf      |
             | Attachment with text   | dataset-attachment-text.pdf |
