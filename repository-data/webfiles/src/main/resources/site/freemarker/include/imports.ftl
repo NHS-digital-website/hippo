@@ -176,6 +176,9 @@
             <@fmt.message key="headers.further-information" var="furtherInformationHeader" />
             <#assign links += [{ "url": "#further-information", "title": furtherInformationHeader }] />
         </#if>
+        <#if options.links??>
+            <#assign links += options.links />
+        </#if>
     </#if>
 
     <#return links />

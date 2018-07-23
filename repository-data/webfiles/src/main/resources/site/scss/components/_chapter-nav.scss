@@ -1,0 +1,21 @@
+/* Chapter nav */
+.chapter-nav {
+    position: relative;
+    padding: $gutter * 3 0;
+    margin: -40px 0 $gutter * 3;
+    border-bottom: 1px solid $col-senary;
+
+    .chapter-nav__skip {
+        margin-bottom: round($gutter * 1.5);
+    }
+
+    .chapter-nav__title {
+        margin-bottom: $gutter * 2;
+    }
+
+    @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+        .column--right {
+            margin-top: $gutter;
+        }
+    }
+}

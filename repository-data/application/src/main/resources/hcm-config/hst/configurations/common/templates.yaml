@@ -101,6 +101,9 @@ definitions:
       /publications-list:
         hst:renderpath: webfile:/freemarker/common/publications-list.ftl
         jcr:primaryType: hst:template
+      /published-work-article:
+        hst:renderpath: webfile:/freemarker/common/published-work-article.ftl
+        jcr:primaryType: hst:template
       /pubs_app-layout:
         hst:renderpath: webfile:/freemarker/common/pubs_app-layout.ftl
         jcr:primaryType: hst:template
