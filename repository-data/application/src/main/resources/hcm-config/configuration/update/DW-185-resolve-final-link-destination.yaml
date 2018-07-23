@@ -1,0 +1,16 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-185-resolve-final-link-destination:
+      hipposys:batchsize: 3
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: '{}'
+      hipposys:query: /jcr:root/content/documents/corporate-website//*[(@jcr:primaryType='publicationsystem:relatedlink')
+        or (@jcr:primaryType='hippostd:html')]
+      hipposys:script:
+        resource: /configuration/update/DW-185-resolve-final-link-destination.groovy
+        type: string
+      hipposys:throttle: 1000
+      jcr:primaryType: hipposys:updaterinfo

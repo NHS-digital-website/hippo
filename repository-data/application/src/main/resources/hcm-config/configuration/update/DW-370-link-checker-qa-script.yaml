@@ -1,0 +1,17 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-370-link-checker-qa-script:
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: '{}'
+      hipposys:query: /jcr:root/content/documents/corporate-website//*[(@hippo:availability='live')
+        and not(@jcr:primaryType='nt:frozenNode')]//*[(@jcr:primaryType='publicationsystem:relatedlink')
+        or (@jcr:primaryType='hippostd:html')]
+      hipposys:script:
+        resource: /configuration/update/DW-370-link-checker-qa-script.groovy
+        type: string
+      hipposys:throttle: 300
+      jcr:primaryType: hipposys:updaterinfo
