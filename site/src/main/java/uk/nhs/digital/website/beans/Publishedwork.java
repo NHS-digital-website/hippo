@@ -26,34 +26,14 @@ public class Publishedwork extends BaseDocument {
         return getProperty("website:coverageStart");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:publicationDate")
-    public Calendar getPublicationDate() {
-        return getProperty("website:publicationDate");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:geographicCoverage")
-    public String[] getGeographicCoverage() {
-        return getProperty("website:geographicCoverage");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:geographicGranularity")
-    public String[] getGeographicGranularity() {
-        return getProperty("website:geographicGranularity");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:isbn")
-    public String getIsbn() {
-        return getProperty("website:isbn");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:issn")
-    public String getIssn() {
-        return getProperty("website:issn");
-    }
-
     @HippoEssentialsGenerated(internalName = "website:seosummary")
     public String getSeosummary() {
         return getProperty("website:seosummary");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:publicationDate")
+    public Calendar getPublicationDate() {
+        return getProperty("website:publicationDate");
     }
 
     @HippoEssentialsGenerated(internalName = "website:shortsummary")
@@ -61,9 +41,19 @@ public class Publishedwork extends BaseDocument {
         return getProperty("website:shortsummary");
     }
 
+    @HippoEssentialsGenerated(internalName = "website:geographicCoverage")
+    public String[] getGeographicCoverage() {
+        return getProperty("website:geographicCoverage");
+    }
+
     @HippoEssentialsGenerated(internalName = "website:summary")
     public String getSummary() {
         return getProperty("website:summary");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:geographicGranularity")
+    public String[] getGeographicGranularity() {
+        return getProperty("website:geographicGranularity");
     }
 
     @HippoEssentialsGenerated(internalName = "website:title")
@@ -71,9 +61,19 @@ public class Publishedwork extends BaseDocument {
         return getProperty("website:title");
     }
 
+    @HippoEssentialsGenerated(internalName = "website:isbn")
+    public String getIsbn() {
+        return getProperty("website:isbn");
+    }
+
     @HippoEssentialsGenerated(internalName = "hippotaxonomy:keys")
     public String[] getKeys() {
         return getProperty("hippotaxonomy:keys");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:issn")
+    public String getIssn() {
+        return getProperty("website:issn");
     }
 
     @HippoEssentialsGenerated(internalName = "website:friendlyurls")

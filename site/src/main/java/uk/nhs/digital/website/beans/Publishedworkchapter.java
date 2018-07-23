@@ -1,10 +1,9 @@
 package uk.nhs.digital.website.beans;
 
-import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
-import uk.nhs.digital.website.beans.Friendlyurls;
+import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+
 import java.util.List;
-import uk.nhs.digital.website.beans.Section;
 
 @HippoEssentialsGenerated(internalName = "website:publishedworkchapter")
 @Node(jcrType = "website:publishedworkchapter")
