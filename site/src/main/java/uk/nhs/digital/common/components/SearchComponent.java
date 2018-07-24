@@ -344,6 +344,15 @@ public class SearchComponent extends CommonComponent {
     }
 
     /**
+     * Adding the Publishedwork document type
+     */
+    private void addPublishedWorkflowChapter(HstQueryBuilder query) {
+        query.ofTypes(
+            Publishedworkchapter.class
+        );
+    }
+
+    /**
      * Adding all the document types supported by the SearchComponent
      */
     private void addAllTypes(HstQueryBuilder query) {
@@ -352,6 +361,7 @@ public class SearchComponent extends CommonComponent {
         addHubTypes(query);
         addNewsAndEventsTypes(query);
         addServiceTypes(query);
+        addPublishedWorkflowChapter(query);
     }
 
 }
