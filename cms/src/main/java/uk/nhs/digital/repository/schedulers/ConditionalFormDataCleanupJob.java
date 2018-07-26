@@ -81,6 +81,9 @@ public class ConditionalFormDataCleanupJob implements RepositoryJob {
                         });
                         //fetching the eforms_process_done
                         FormField formField = emp.get("eforms_process_done");
+                        if (formField == null) {
+                            continue outer;
+                        }
                         List<String> valueList = formField.getValueList();
                         if (valueList.isEmpty() || valueList.stream().allMatch(t -> t.toLowerCase().equals("false"))) {
                             //in case the valueList is empty or the one of the values is false, something went wrong with the one of the form data behavior

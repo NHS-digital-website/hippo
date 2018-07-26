@@ -1141,7 +1141,6 @@
       eforms:notificationreplytoemailfields: ''
       eforms:validationhelper: true
       hippo:availability: []
-      hippostd:holder: admin
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-07-04T10:52:06.108Z
