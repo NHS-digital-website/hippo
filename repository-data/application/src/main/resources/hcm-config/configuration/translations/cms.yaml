@@ -25,3 +25,4 @@ definitions:
         more than {0} years in the future.
       publicationsystem-title: Title must be 250 characters or less
       valid-url: Link URL must start with http:// or https://
+      website-blank-multi-string: Field cannot be blank

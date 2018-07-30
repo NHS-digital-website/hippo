@@ -30,3 +30,6 @@ definitions:
       jcr:primaryType: frontend:plugin
       plugin.class: org.hippoecm.frontend.editor.validator.plugins.RegExCmsValidator
       regex_pattern: ^https?://.*
+    /hippo:configuration/hippo:frontend/cms/cms-validators/website-blank-multi-string:
+      jcr:primaryType: frontend:plugin
+      plugin.class: uk.nhs.digital.common.BlankMultiStringFieldValidator
