@@ -83,7 +83,7 @@ public class PublicationSteps extends AbstractSpringSteps {
 
         assertThat("Correct size of attachment " + attachment.getFullName() + " is displayed",
             attachmentWidget.getSizeText(),
-            is("[size: " + FileHelper.toHumanFriendlyFileSize((long) attachment.getContent().length) + "]"));
+            is("size: " + FileHelper.toHumanFriendlyFileSize((long) attachment.getContent().length)));
     }
 
     @Given("^I have a sectioned publication$")
