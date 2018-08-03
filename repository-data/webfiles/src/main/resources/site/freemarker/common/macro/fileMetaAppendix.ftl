@@ -9,5 +9,5 @@
         <#local format = fileFormat + ", " />
         </#if>
     </#if>
-    <span class="regular">[${format}size: <@formatFileSize bytesCount=size/>]</span>
+    <span class="regular">[${format}<span class="fileSize">size: <@formatFileSize bytesCount=size/></span>]</span>
 </#macro>
