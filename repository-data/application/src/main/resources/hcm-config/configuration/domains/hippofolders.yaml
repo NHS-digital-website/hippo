@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/hippofolders/hippostd-folder/exclude-enterprise-forms-folder:
+      hipposys:equals: false
+      hipposys:facet: jcr:path
+      hipposys:filter: false
+      hipposys:type: Reference
+      hipposys:value: /content/documents/corporate-website/forms
+      jcr:primaryType: hipposys:facetrule

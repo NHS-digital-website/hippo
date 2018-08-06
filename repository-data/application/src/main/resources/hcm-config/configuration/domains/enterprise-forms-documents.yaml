@@ -1,0 +1,33 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/enterprise-forms-documents:
+      /editor:
+        hipposys:groups:
+        - editor
+        hipposys:role: editor
+        jcr:primaryType: hipposys:authrole
+      /hippo-document:
+        /hide-prototypes:
+          hipposys:equals: false
+          hipposys:facet: nodename
+          hipposys:filter: false
+          hipposys:type: Name
+          hipposys:value: hipposysedit:prototype
+          jcr:primaryType: hipposys:facetrule
+        /include-enterprise-forms-folder:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/corporate-website/forms
+          jcr:primaryType: hipposys:facetrule
+        /nodetype-hippo-document:
+          hipposys:equals: true
+          hipposys:facet: nodetype
+          hipposys:filter: false
+          hipposys:type: Name
+          hipposys:value: hippo:document
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      jcr:primaryType: hipposys:domain

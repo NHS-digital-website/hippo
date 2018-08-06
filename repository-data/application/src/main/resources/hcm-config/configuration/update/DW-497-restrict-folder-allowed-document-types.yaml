@@ -1,0 +1,14 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-497-restrict-folder-allowed-document-types:
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:parameters: ''
+      hipposys:path: /content/documents/corporate-website
+      hipposys:script:
+        resource: /configuration/update/DW-497-restrict-folder-allowed-document-types.groovy
+        type: string
+      hipposys:throttle: 200
+      jcr:primaryType: hipposys:updaterinfo

@@ -4,6 +4,9 @@ definitions:
     /hippo:configuration/hippo:translations/hippo:templates/en:
       new-about-document: new about document
       new-cihub-document: new CI hub document
+      new-digital-website-document: new document
+      new-digital-website-folder: new folder
+      new-enterprise-forms-document: new enterprise form document
       new-national-indicator-library-document: new indicator
       new-national-indicator-library-folder: new folder
       new-statistical-publications-and-clinical-indicators-document: new document

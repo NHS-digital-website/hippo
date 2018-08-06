@@ -1,0 +1,30 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:queries/hippo:templates/new-digital-website-document:
+      hippostd:icon: adddocument_ico
+      hippostd:modify:
+      - ./_name
+      - $name
+      - ./hippotranslation:locale
+      - $inherited
+      - ./hippotranslation:id
+      - $uuid
+      - ./hippostdpubwf:createdBy
+      - $holder
+      - ./hippostdpubwf:creationDate
+      - $now
+      - ./hippostdpubwf:lastModifiedBy
+      - $holder
+      - ./hippostdpubwf:lastModificationDate
+      - $now
+      - ./hippostd:holder
+      - $holder
+      jcr:language: xpath
+      jcr:primaryType: hippostd:templatequery
+      jcr:statement: /jcr:root/hippo:namespaces/website/element(*, hipposysedit:templatetype)/hipposysedit:prototypes/hipposysedit:prototype[@jcr:primaryType='website:bannerdocument'
+        or @jcr:primaryType='website:calltoaction' or @jcr:primaryType='website:componentlist'
+        or @jcr:primaryType='website:event' or @jcr:primaryType='website:gdprsummary'
+        or @jcr:primaryType='website:gdprtransparency' or @jcr:primaryType='website:general'
+        or @jcr:primaryType='website:hub' or @jcr:primaryType='website:news' or @jcr:primaryType='website:service'
+        or @jcr:primaryType='website:publishedwork' or @jcr:primaryType='website:publishedworkchapter']
