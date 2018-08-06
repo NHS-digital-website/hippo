@@ -10,6 +10,9 @@
 <#if document?? && document.title??>
     <#assign pageTitle = document.title + ' - ' + siteTitle />
 </#if>
+<#if overridePageTitle?? >
+    <#assign pageTitle = overridePageTitle + ' - ' + siteTitle />
+</#if>
 <#if document?? && document.seosummary??>
     <#assign pageSEOSummary = document.seosummary />
 </#if>
