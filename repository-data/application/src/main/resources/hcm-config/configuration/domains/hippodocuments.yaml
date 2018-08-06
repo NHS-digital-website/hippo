@@ -1,6 +1,13 @@
 ---
 definitions:
   config:
+    /hippo:configuration/hippo:domains/hippodocuments/hippo-document/exclude-enterprise-forms-folder:
+      hipposys:equals: false
+      hipposys:facet: jcr:path
+      hipposys:filter: false
+      hipposys:type: Reference
+      hipposys:value: /content/documents/corporate-website/forms
+      jcr:primaryType: hipposys:facetrule
     /hippo:configuration/hippo:domains/hippodocuments/hippo-document/exclude-password-blacklist:
       hipposys:equals: false
       hipposys:facet: jcr:path

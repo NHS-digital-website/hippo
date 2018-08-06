@@ -1,6 +1,5 @@
 ---
 /content/documents/corporate-website/forms:
-  .meta:order-before: gdpr-transparency
   /multi-step-quiz:
     /multi-step-quiz[1]:
       /page0:
@@ -1157,14 +1156,3 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
-  hippo:name: Forms
-  hippostd:foldertype:
-  - new-translated-folder
-  - new-document
-  hippotranslation:id: 196aa322-cfe1-40da-a43d-bbfaa31fbe1c
-  hippotranslation:locale: en
-  jcr:mixinTypes:
-  - hippo:named
-  - hippotranslation:translated
-  - mix:versionable
-  jcr:primaryType: hippostd:folder
