@@ -7,6 +7,11 @@
 
 <@hst.setBundle basename="rb.doctype.news-hub"/>
 
+<#assign overridePageTitle><@fmt.message key="headers.page-title" /></#assign>
+<#-- Add meta tags -->
+<#include "macro/metaTags.ftl">
+<@metaTags></@metaTags>
+
 <#assign monthNames = monthsOfTheYear()?reverse />
 
 <#--Group the news articles by earliest start month  -->

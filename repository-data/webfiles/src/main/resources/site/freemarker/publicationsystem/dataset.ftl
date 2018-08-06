@@ -4,6 +4,10 @@
 <#include "../common/macro/fileMetaAppendix.ftl">
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 
+<#-- Add meta tags -->
+<#include "../common/macro/metaTags.ftl">
+<@metaTags></@metaTags>
+
 <article class="article article--dataset">
 <#if dataset??>
 

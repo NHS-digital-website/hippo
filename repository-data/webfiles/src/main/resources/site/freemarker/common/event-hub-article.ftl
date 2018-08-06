@@ -8,6 +8,10 @@
 <@hst.setBundle basename="rb.component.latest-events"/>
 <@fmt.message key="headers.past-events" var="pastEventsHeader" />
 
+<#assign overridePageTitle><@fmt.message key="headers.hub-title" /></#assign>
+<#-- Add meta tags -->
+<#include "macro/metaTags.ftl">
+<@metaTags></@metaTags>
 
 <#assign monthsOfTheYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] />
 
