@@ -31,6 +31,8 @@
                 <@publishedwork item=document />
             <#elseif document.class.name == "uk.nhs.digital.website.beans.Publishedworkchapter">
                 <@publishedworkchapter item=document />
+            <#elseif document.class.name == "uk.nhs.digital.website.beans.ComponentList">
+                <@componentlist item=document />
             </#if>
         </#list>
     </div>
@@ -54,7 +56,7 @@
         </#if>
 
         <div>
-            <h3 class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publication"/></h3>
+            <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publication"/></span>
         </div>
 
         <a class="cta__title cta__button" href="<@hst.link hippobean=item.selfLinkBean/>" title="${item.title}" data-uipath="ps.search-results.result.title">
@@ -86,7 +88,7 @@
 <#macro legacypublication item>
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <div>
-            <h3 class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publication"/></h3>
+            <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publication"/></span>
         </div>
         <a class="cta__title cta__button" href="<@hst.link hippobean=item.selfLinkBean/>" title="${item.title}" data-uipath="ps.search-results.result.title">
             ${item.title}
@@ -98,7 +100,7 @@
 <#macro series item>
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <div>
-            <h3 class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.series"/></h3>
+            <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.series"/></span>
         </div>
         <a class="cta__title cta__button" href="<@hst.link hippobean=item.selfLinkBean/>" title="${item.title}" data-uipath="ps.search-results.result.title">
             ${item.title}
@@ -119,7 +121,7 @@
 <#macro archive item>
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <div>
-            <h3 class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.archive"/></h3>
+            <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.archive"/></span>
         </div>
         <a class="cta__title cta__button" href="<@hst.link hippobean=item.selfLinkBean/>" title="${item.title}" data-uipath="ps.search-results.result.title">
             ${item.title}
@@ -131,7 +133,7 @@
 <#macro dataset item>
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <div>
-            <h3 class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.dataset"/></h3>
+            <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.dataset"/></span>
         </div>
         <a class="cta__title cta__button" href="<@hst.link hippobean=item.selfLinkBean/>" title="${item.title}" data-uipath="ps.search-results.result.title">
             ${item.title}
@@ -144,7 +146,7 @@
 <#macro indicator item>
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <div>
-            <h3 class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.indicator"/></h3>
+            <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.indicator"/></span>
         </div>
         <a class="cta__title cta__button" href="<@hst.link hippobean=item.selfLinkBean/>" title="${item.title}" data-uipath="ps.search-results.result.title">
                 ${item.title}
@@ -176,7 +178,7 @@
 <#macro service item>
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <div>
-            <h3 class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.service"/></h3>
+            <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.service"/></span>
         </div>
         <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
             ${item.title}
@@ -197,7 +199,7 @@
 <#macro event item>
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <div>
-            <h3 class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.event"/></h3>
+            <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.event"/></span>
         </div>
         <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
             ${item.title}
@@ -226,7 +228,7 @@
 <#macro news item>
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <div>
-            <h3 class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.news"/></h3>
+            <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.news"/></span>
         </div>
         <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
             ${item.title}
@@ -249,7 +251,7 @@
 <#macro gdpr item>
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <div>
-            <h3 class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.gdpr"/></h3>
+            <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.gdpr"/></span>
         </div>
         <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
             ${item.title}
@@ -261,7 +263,7 @@
 <#macro publishedwork item>
 <div class="cta cta--detailed" data-uipath="ps.search-results.result">
     <div>
-        <h3 class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publishedwork"/></h3>
+        <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publishedwork"/></span>
     </div>
     <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
         ${item.title}
@@ -274,11 +276,23 @@
 <#macro publishedworkchapter item>
 <div class="cta cta--detailed" data-uipath="ps.search-results.result">
     <div>
-        <h3 class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publishedworkchapter"/></h3>
+        <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publishedworkchapter"/></span>
     </div>
     <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
         ${item.title}
     </a>
     <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
+</div>
+</#macro>
+
+<#macro componentlist item>
+
+<div class="cta cta--detailed" data-uipath="ps.search-results.result">
+    <div class="cta cta--detailed" data-uipath="ps.search-results.result">
+        <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
+            ${item.title}
+        </a>
+        <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
+    </div>
 </div>
 </#macro>
