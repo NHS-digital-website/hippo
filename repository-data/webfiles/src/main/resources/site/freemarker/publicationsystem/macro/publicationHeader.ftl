@@ -95,7 +95,7 @@
     </div>
 
     <#if !restricted && publication.pageIndex?has_content>
-        <div class="grid-wrapper grid-row" data-uipath="ps.publication.pages">
+        <div class="grid-wrapper grid-row grid-wrapper--article" data-uipath="ps.publication.pages">
             <#assign chunks=publication.pageIndex?chunk((publication.pageIndex?size/2)?ceiling)/>
 
             <div class="column column--one-half column--left">

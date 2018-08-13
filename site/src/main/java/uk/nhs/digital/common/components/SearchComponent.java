@@ -369,6 +369,15 @@ public class SearchComponent extends CommonComponent {
     }
 
     /**
+     * Adding the Link List (ComponentList) document type
+     */
+    private void addComponentList(HstQueryBuilder query) {
+        query.ofTypes(
+            ComponentList.class
+        );
+    }
+
+    /**
      * Adding all the document types supported by the SearchComponent
      */
     private void addAllTypes(HstQueryBuilder query) {
@@ -380,6 +389,7 @@ public class SearchComponent extends CommonComponent {
         addGdprTypes(query);
         addPublishedWork(query);
         addPublishedWorkChapter(query);
+        addComponentList(query);
     }
 
 }

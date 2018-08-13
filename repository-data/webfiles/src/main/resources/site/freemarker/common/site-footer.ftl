@@ -71,7 +71,7 @@
                                     <ul class="list list--inline list--reset">
                                         <li>
                                             <a href="https://www.linkedin.com/company/nhs-digital" onClick="${getOnClickMethodCall('Footer', 'https://www.linkedin.com/company/nhs-digital')}" onKeyUp="return vjsu.onKeyUp(event)">
-                                                <img src="<@hst.webfile  path="images/icon-linkedin.png"/>" alt="Linkedin logo" class="image-icon" /><span>LinkedIn</span>
+                                                <img src="<@hst.webfile  path="images/icon-linkedin.png"/>" alt="LinkedIn logo" class="image-icon" /><span>LinkedIn</span>
                                             </a>
                                         </li>
                                         <li>

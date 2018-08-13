@@ -12,7 +12,7 @@
     <#if gdprDocumentGroups[letter]??>
     <#assign matchesFound++ />
 
-    <div class="article-section article-section--letter-group" id="section-${letter}">
+    <div class="article-section article-section--letter-group" id="${slugify(letter)}">
         <div class="grid-row sticky sticky--top">
             <div class="column column--reset">
                 <div class="article-header article-header--tertiary">

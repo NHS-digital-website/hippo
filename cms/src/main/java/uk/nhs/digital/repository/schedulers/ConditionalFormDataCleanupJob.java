@@ -30,7 +30,7 @@ public class ConditionalFormDataCleanupJob implements RepositoryJob {
 
     @Override
     public void execute(final RepositoryJobExecutionContext context) throws RepositoryException {
-        log.info("Running form data cleanup job");
+        log.warn("Running form data cleanup job");
         final Session session = context.createSystemSession();
         try {
             long minutesToLive = Long.parseLong(context.getAttribute(CONFIG_MINUTES_TO_LIVE));
@@ -81,6 +81,9 @@ public class ConditionalFormDataCleanupJob implements RepositoryJob {
                         });
                         //fetching the eforms_process_done
                         FormField formField = emp.get("eforms_process_done");
+                        if (formField == null) {
+                            continue outer;
+                        }
                         List<String> valueList = formField.getValueList();
                         if (valueList.isEmpty() || valueList.stream().allMatch(t -> t.toLowerCase().equals("false"))) {
                             //in case the valueList is empty or the one of the values is false, something went wrong with the one of the form data behavior
@@ -92,7 +95,7 @@ public class ConditionalFormDataCleanupJob implements RepositoryJob {
                     }
                 }
 
-                log.debug("Removing form data item at {}", node.getPath());
+                log.warn("Form data cleanup item: {}", node.getPath());
                 remove(node, 2);
                 if (count++ % batchSize == 0) {
                     session.save();

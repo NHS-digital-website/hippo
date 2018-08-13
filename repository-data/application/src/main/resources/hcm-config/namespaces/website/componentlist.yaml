@@ -211,6 +211,7 @@ definitions:
             jcr:primaryType: website:friendlyurls
             website:alternativeurls: []
             website:destination: ''
+          common:searchRank: 3
           common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft

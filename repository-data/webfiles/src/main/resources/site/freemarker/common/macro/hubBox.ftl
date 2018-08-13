@@ -34,8 +34,8 @@
                 <#list options.types as type>
                     <li class="tag">${type}</li>
                 </#list>
-                </#if>
                 </ul>
+                </#if>
             </div>
         </article>
     </#if>

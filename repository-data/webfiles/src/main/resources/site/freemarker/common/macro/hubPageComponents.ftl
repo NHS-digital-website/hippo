@@ -10,7 +10,7 @@
 <div class="article-section article-section--hub-component">
     <div class="grid-row">
         <div class="column column--two-thirds column--left">
-            <div class="rich-text-content">
+            <div class="rich-text-content" id="${slugify(component.title)}">
                 <@hst.html hippohtml=component.component contentRewriter=gaContentRewriter/>
             </div>
 
