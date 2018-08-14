@@ -114,7 +114,8 @@
                                                 <#assign dateRangeData = getEventDateRangeData(item.events) />
                                                 <#if dateRangeData?size gt 0>
                                                     <#if dateRangeData.comparableStartDate == dateRangeData.comparableEndDate>
-                                                        <@fmt.formatDate value=dateRangeData.minStartTime type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" var="eventDate" />
+                                                        <@fmt.formatDate value=dateRangeData.minStartTime type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" var="eventFullDate" />
+                                                        <#assign eventDate = eventFullDate>
                                                     <#else>
                                                         <@fmt.formatDate value=dateRangeData.minStartTime type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" var="eventStartDate" />
                                                         <@fmt.formatDate value=dateRangeData.maxEndTime type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" var="eventEndDate" />
