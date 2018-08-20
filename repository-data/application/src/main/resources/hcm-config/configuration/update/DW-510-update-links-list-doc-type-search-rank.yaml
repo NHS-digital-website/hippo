@@ -1,0 +1,14 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-510-update-links-list-doc-type-search-rank:
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root/content/documents/corporate-website//*[@jcr:primaryType='website:componentlist']//..
+      hipposys:script:
+        resource: /configuration/update/DW-510-update-links-list-doc-type-search-rank.groovy
+        type: string
+      hipposys:throttle: 200
+      jcr:primaryType: hipposys:updaterinfo

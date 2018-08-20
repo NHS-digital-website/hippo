@@ -1,0 +1,14 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-489-gdpr-results-too-high-in-search-results:
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:parameters: ''
+      hipposys:query: /jcr:root/content/documents/corporate-website//*[@jcr:primaryType='website:gdprtransparency']//..
+      hipposys:script:
+        resource: /configuration/update/DW-489-gdpr-results-too-high-in-search-results.groovy
+        type: string
+      hipposys:throttle: 200
+      jcr:primaryType: hipposys:updaterinfo
