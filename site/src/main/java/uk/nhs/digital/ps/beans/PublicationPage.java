@@ -24,6 +24,10 @@ public class PublicationPage extends BaseDocument implements IndexPage {
         return HippoBeanHelper.getParentPublication(this);
     }
 
+    public String getSeosummary() {
+        return getPublication().getSeosummary();
+    }
+
     @Override
     public HippoBean getLinkedBean() {
         return this;
