@@ -13,7 +13,7 @@
 <#if overridePageTitle?? >
     <#assign pageTitle = overridePageTitle + ' - ' + siteTitle />
 </#if>
-<#if document?? && document.seosummary??>
+<#if document?? && document.seosummary?? && document.seosummary?has_content>
     <#assign pageSEOSummary = document.seosummary />
 </#if>
 

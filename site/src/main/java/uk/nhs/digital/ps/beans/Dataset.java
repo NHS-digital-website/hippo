@@ -88,6 +88,10 @@ public class Dataset extends BaseDocument {
         return HippoBeanHelper.getParentPublication(this);
     }
 
+    public String getSeosummary() {
+        return getParentPublication().getSeosummary();
+    }
+
     public List<String> getFullTaxonomyList() {
         assertPropertyPermitted(PropertyKeys.TAXONOMY);
 

@@ -56,6 +56,11 @@ public class Indicator extends BaseDocument {
         return geographicCoverageValuesToRegionValue(getProperty(PropertyKeys.GEOGRAPHIC_COVERAGE));
     }
 
+    @HippoEssentialsGenerated(internalName = PropertyKeys.SEO_SUMMARY)
+    public String getSeosummary() {
+        return getPropertyIfPermitted(PropertyKeys.SEO_SUMMARY);
+    }
+
     @HippoEssentialsGenerated(internalName = PropertyKeys.TAXONOMY)
     public String[] getKeys() {
         return getProperty(PropertyKeys.TAXONOMY);
@@ -87,6 +92,7 @@ public class Indicator extends BaseDocument {
         String PUBLISHEDBY = "nationalindicatorlibrary:publishedBy";
         String REPORTINGLEVEL = "nationalindicatorlibrary:reportingLevel";
         String GEOGRAPHIC_COVERAGE = "publicationsystem:GeographicCoverage";
+        String SEO_SUMMARY = "publicationsystem:seosummary";
         String ASSURANCE_DATE = "nationalindicatorlibrary:assuranceDate";
     }
 }

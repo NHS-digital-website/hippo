@@ -42,6 +42,17 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /seosummary:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '320'
+            caption: SEO Summary
+            field: seosummary
+            hint: Improve rank in Google. Include key information about what this
+              edition of the publication shows.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
           /topbar:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -197,6 +208,14 @@ definitions:
             - non-empty
             - required
             jcr:primaryType: hipposysedit:field
+          /seosummary:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:seosummary
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -296,6 +315,7 @@ definitions:
           nationalindicatorlibrary:reportingLevel: ''
           nationalindicatorlibrary:title: ''
           publicationsystem:GeographicCoverage: []
+          publicationsystem:seosummary: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable

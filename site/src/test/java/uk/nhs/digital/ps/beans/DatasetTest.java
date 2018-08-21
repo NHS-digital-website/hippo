@@ -200,7 +200,8 @@ public class DatasetTest {
             "getNominalDate",
             "getParentPublication",
             "isPubliclyAccessible",
-            "getSelfLinkBean"
+            "getSelfLinkBean",
+            "getSeosummary"
         );
 
         return allPublicGetters().stream()

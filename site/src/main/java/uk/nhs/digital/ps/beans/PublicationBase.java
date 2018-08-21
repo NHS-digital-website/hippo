@@ -167,6 +167,11 @@ public abstract class PublicationBase extends BaseDocument {
         return getPropertyIfPermitted(PropertyKeys.TITLE);
     }
 
+    @HippoEssentialsGenerated(internalName = PropertyKeys.SEO_SUMMARY)
+    public String getSeosummary() {
+        return getPropertyIfPermitted(PropertyKeys.SEO_SUMMARY);
+    }
+
     public boolean isPubliclyAccessible() {
         return getPropertyIfPermitted(PropertyKeys.PUBLICLY_ACCESSIBLE);
     }
@@ -208,6 +213,7 @@ public abstract class PublicationBase extends BaseDocument {
     interface PropertyKeys {
         String TAXONOMY = "hippotaxonomy:keys";
         String SUMMARY = "publicationsystem:Summary";
+        String SEO_SUMMARY = "publicationsystem:seosummary";
         String KEY_FACTS = "publicationsystem:KeyFacts";
         String KEY_FACT_IMAGES = "publicationsystem:KeyFactImages";
         String INFORMATION_TYPE = "publicationsystem:InformationType";
