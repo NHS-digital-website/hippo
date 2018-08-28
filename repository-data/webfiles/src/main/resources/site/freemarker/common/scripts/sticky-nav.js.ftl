@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 
-<script type="text/javascript">
-    (function() {        
+<script>
+    (function() {
         var vjsUtils = window.vanillaJSUtils;
         var oldBrowser = window.addEventListener ? false : true;
         var $stickyNav = document.querySelectorAll('#sticky-nav')[0];
@@ -23,7 +23,7 @@
             OVERFLOW: 'OVERFLOW'
         };
         var mode = MODES.SMALL;
-        
+
         var BREAKPOINTS = {
             DESKTOP_MIN: 924
         };
@@ -35,7 +35,7 @@
             NATURAL_SCROLL: 'NATURAL SCROLL'
         };
         var position = POSITIONS.NATURAL_SCROLL;
-        
+
         function init() {
             if (!oldBrowser) {
                 window.addEventListener('resize', handleResize, { passive: true });
@@ -50,8 +50,8 @@
         }
 
         function updateNav(scrollY) {
-            mode = windowHeight > wrapperHeight ? MODES.CONTAIN : MODES.OVERFLOW;            
-            
+            mode = windowHeight > wrapperHeight ? MODES.CONTAIN : MODES.OVERFLOW;
+
             // Screnario 1 - Naturally scroll with the content until the top of the nav reaches the top of window
             $stickyNav.style.position = 'relative';
             posY = 0;
@@ -68,8 +68,8 @@
                         posY = mainHeight - wrapperHeight;
                     }
                 } else if (scrollY >= wrapperOffsetY) {
-                    // Stick to top once reached the window top until 
-                    
+                    // Stick to top once reached the window top until
+
                     $stickyNav.style.position = 'fixed';
                     posY = -1 * wrapperOffsetY;
                     position = POSITIONS.STICKY_WINDOW_TOP;
@@ -110,7 +110,7 @@
         }
 
         function handleResize() {
-            windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;    
+            windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
             navOffsetY = typeof $navTitle !== 'undefined' ? $navTitle.offsetTop : 0;
             wrapperHeight = $stickyNav.offsetHeight;
             mainHeight = $mainSection.offsetHeight;
@@ -153,6 +153,46 @@
                 updateNav(0);
             }
         }
+
+        // Change Active menu item on page scroll
+        // Cache selectors
+        var lastId,
+            stickyNav = $("#sticky-nav"),
+            stickyNavHeight = stickyNav.outerHeight(),
+            // All list items
+            menuItems = stickyNav.find('a[href^="#"]'),
+
+            // Anchors corresponding to menu items
+            scrollItems = menuItems.map(function(){
+                var item = $($(this).attr("href"));
+                if (item.length) { return item;}
+            });
+
+        // Bind to scroll
+        $(window).scroll(function(){
+
+            // Get container scroll position
+            var fromTop = $(this).scrollTop()+stickyNavHeight;
+
+            // Get id of current scroll item
+            var cur = scrollItems.map(function(){
+                if ($(this).offset().top < fromTop)
+                    return this;
+            });
+
+            // get id of the current element
+            cur = cur[cur.length-1];
+            var id = cur && cur.length ? cur[0].id : "";
+
+            if (lastId !== id) {
+                lastId = id;
+
+                // Set/remove active class
+                menuItems
+                    .parent().removeClass("active")
+                    .end().filter("[href='#" + id + "']").parent().addClass("active");
+            }
+        });
 
         init();
     }());
