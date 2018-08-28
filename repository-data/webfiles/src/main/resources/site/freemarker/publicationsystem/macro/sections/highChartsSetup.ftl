@@ -1,7 +1,5 @@
 <#ftl output_format="HTML">
 
-<script src="<@hst.webfile path="/js/jquery/jquery-2.1.3.min.js"/>"></script>
-
 <script src="<@hst.webfile path="/js/highcharts/highcharts.js"/>"></script>
 <!--[if lt IE 9]>
 <script src="<@hst.webfile path="/js/highcharts/oldie.js"/>"></script>

@@ -1,5 +1,11 @@
 @import "../units/list";
 
+/* Sticky nav */
+#sticky-nav li.active a {
+    font-weight: bold;
+    font-size: 20px;
+}
+
 /* Article section nav */
 .article-section-nav-wrapper {
     position: relative;
