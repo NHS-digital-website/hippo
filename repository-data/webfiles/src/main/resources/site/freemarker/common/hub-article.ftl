@@ -41,11 +41,13 @@
                     <div class="grid-row">
                         <div class="column column--reset">
                             <div class="cta-list cta-list--grid">
+                                <#if document.listtitle?? && document.listtitle?has_content>
                                 <div class="grid-row">
                                     <div class="column column--reset">
                                         <h2 class="list-title">${document.listtitle}</h2>
                                     </div>
                                 </div>
+                                </#if>
 
                                 <#-- [FTL-BEGIN] 'Child page' grid -->
                                 <@childPageGrid childPages></@childPageGrid>

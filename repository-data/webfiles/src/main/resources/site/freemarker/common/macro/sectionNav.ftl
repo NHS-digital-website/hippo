@@ -5,7 +5,7 @@
     <div class="article-section-nav">
         <h2 class="article-section-nav__title">${title}</h2>
         <#if links??>
-            <nav role="navigation">
+            <nav>
                 <ol class="article-section-nav__list">
                 <#list links as link>
                     <#assign label = "Scroll to '${link.title}'" />

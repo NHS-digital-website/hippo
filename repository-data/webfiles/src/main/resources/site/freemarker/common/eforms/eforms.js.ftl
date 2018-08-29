@@ -1,6 +1,6 @@
 <#ftl output_format="HTML" encoding="UTF-8">
 
-<script type="text/javascript">
+<script>
 $(document).ready(function() {
 
     // Cache DOM elements

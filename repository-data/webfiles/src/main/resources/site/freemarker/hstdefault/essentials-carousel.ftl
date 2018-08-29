@@ -55,7 +55,7 @@
           used.
         -->
         <#if editMode>
-          <script type="text/javascript">
+          <script>
             if (window.jQuery && window.jQuery.fn.carousel) {
               jQuery('#${componentId}').carousel();
             }
@@ -91,11 +91,11 @@
     </@hst.headContribution>
 
     <@hst.headContribution category="htmlBodyEnd">
-        <script type="text/javascript" src="<@hst.webfile path="/js/jquery-2.1.0.min.js"/>"></script>
+        <script src="<@hst.webfile path="/js/jquery-2.1.0.min.js"/>"></script>
     </@hst.headContribution>
 
     <@hst.headContribution category="htmlBodyEnd">
-        <script type="text/javascript" src="<@hst.webfile path="/js/bootstrap.min.js"/>"></script>
+        <script src="<@hst.webfile path="/js/bootstrap.min.js"/>"></script>
     </@hst.headContribution>
 
 <#elseif editMode>

@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 
-<footer role="contentinfo" class="site-footer white-links" id="footer">
+<footer class="site-footer white-links" id="footer">
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
         <div class="grid-row">
             <div class="column column--reset">

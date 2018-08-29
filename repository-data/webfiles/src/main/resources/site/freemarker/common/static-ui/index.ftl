@@ -14,7 +14,7 @@
 
     <#include "shared/breadcrumb.ftl"/>
 
-    <main role="main">
+    <main>
         <@hst.include ref="main"/>
     </main>
 

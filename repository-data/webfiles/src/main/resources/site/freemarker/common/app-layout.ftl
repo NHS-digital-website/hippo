@@ -13,7 +13,7 @@
 
     <@hst.include ref="breadcrumb"/>
 
-    <main role="main">
+    <main>
         <@hst.include ref="main"/>
     </main>
 

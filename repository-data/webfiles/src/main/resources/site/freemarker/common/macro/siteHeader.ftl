@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 <#macro siteHeader enableSearch>
-<header class="site-header" role="banner" id="header">
+<header class="site-header" id="header">
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
         <div class="grid-row">
             <div class="column column--reset">
