@@ -16,7 +16,7 @@
 <#macro schemaMeta title startTimeData = '' endTimeData = ''>
     <#-- [BEGIN] Schema microdata -->
     <meta itemprop="name" content="${title}">
-    <link itemprop="url" href="${getDocumentUrl()}" rel="author" />
+    <link itemprop="url" href="${getDocumentUrl()}" />
     <meta itemprop="description" content="${document.seosummary}">
     <meta itemprop="location" content="${document.location}">
 

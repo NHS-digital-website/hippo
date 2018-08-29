@@ -12,7 +12,7 @@
 
     <#-- No breadcrumbs here -->
 
-    <main role="main">
+    <main>
         <@hst.include ref="main"/>
     </main>
 

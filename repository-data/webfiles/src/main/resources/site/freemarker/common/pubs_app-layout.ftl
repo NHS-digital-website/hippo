@@ -14,7 +14,7 @@
 
     <@hst.include ref="breadcrumb-ci"/>
 
-    <main role="main">
+    <main>
         <@hst.include ref="main" />
     </main>
 

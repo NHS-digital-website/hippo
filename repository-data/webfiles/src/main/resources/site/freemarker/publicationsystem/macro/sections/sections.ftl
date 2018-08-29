@@ -9,7 +9,7 @@
 <#include "highChartsSetup.ftl">
 
 <!-- Set up equation support from mathjax -->
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_HTML"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_HTML"></script>
 
 <#macro sections sections>
     <#list sections as section>

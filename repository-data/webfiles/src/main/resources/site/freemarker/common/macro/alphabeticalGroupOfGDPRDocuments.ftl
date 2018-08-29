@@ -51,7 +51,7 @@
                                             <#else>
                                                 <img src="<@hst.webfile path="images/icon-cross.png"/>" alt="Tick" class="checklist__icon checklist__icon--small" width="16"/>
                                             </#if>
-                                            <span class="checklist__label">${rights[key]}<span>
+                                            <span class="checklist__label">${rights[key]}</span>
                                         </li>                                                
                                     </#list>
                                 </ul>
