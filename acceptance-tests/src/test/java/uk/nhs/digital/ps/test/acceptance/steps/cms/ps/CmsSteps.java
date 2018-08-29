@@ -196,7 +196,7 @@ public class CmsSteps extends AbstractSpringSteps {
             );
 
             assertWithinTimeoutThat("Error message is displayed",
-                () -> contentPage.getFirstErrorMessage(), startsWith(expectedErrorMessage));
+                () -> contentPage.getFirstInfoMessage(), startsWith(expectedErrorMessage));
         });
     }
 

@@ -501,8 +501,17 @@ public class ContentPage extends AbstractCmsPage {
         return errorElements.stream().map(WebElement::getText).collect(toList());
     }
 
+    public List<String> getInfoMessages() {
+        List<WebElement> errorElements = helper.findElements(By.xpath("//span[contains(@class, 'feedbackPanelINFO')]"));
+        return errorElements.stream().map(WebElement::getText).collect(toList());
+    }
+
     public String getFirstErrorMessage() {
         return getErrorMessages().get(0);
+    }
+
+    public String getFirstInfoMessage() {
+        return getInfoMessages().get(0);
     }
 
     public void populateDataset(Dataset dataset) {

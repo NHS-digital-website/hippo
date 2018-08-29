@@ -14,6 +14,6 @@ import org.onehippo.cms7.essentials.components.info.*;
     })
 public interface WrappedListPickerComponentInfo extends EssentialsListPickerComponentInfo {
     @Parameter(name = "wrappingDocument", displayName = "Wrapping document", required = false)
-    @JcrPath(isRelative = true, pickerConfiguration = CMS_PICKERS_DOCUMENTS, pickerSelectableNodeTypes = {HIPPO_DOCUMENT}, pickerInitialPath = DEFAULT_PICKER_PATH)
+    @JcrPath(isRelative = true, pickerSelectableNodeTypes = {HIPPO_DOCUMENT})
     String getWrappingDocument();
 }

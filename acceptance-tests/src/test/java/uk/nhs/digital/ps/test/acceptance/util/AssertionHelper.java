@@ -12,7 +12,7 @@ import java.util.function.Supplier;
 
 public abstract class AssertionHelper {
 
-    private static final int TIMEOUT_IN_SECS = 5;
+    private static final int TIMEOUT_IN_SECS = 10;
     private static final int POLL_DELAY_IN_MILLIS = 100;
 
     /**
