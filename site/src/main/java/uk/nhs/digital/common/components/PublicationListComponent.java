@@ -19,7 +19,7 @@ public class PublicationListComponent extends EssentialsListComponent {
     private static Logger log = LoggerFactory.getLogger(PublicationListComponent.class);
 
     @Override
-    protected void contributeAndFilters(final List<BaseFilter> filters, final HstRequest request, final HstQuery query) {
+    protected void contributeAndFilters(final List<BaseFilter> filters, final HstRequest request, final HstQuery query) throws FilterException {
         super.contributeAndFilters(filters, request, query);
 
         Filter filter = query.createFilter();
