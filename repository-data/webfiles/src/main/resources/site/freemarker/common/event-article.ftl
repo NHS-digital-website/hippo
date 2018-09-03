@@ -64,7 +64,7 @@
 
                                 <div itemscope itemtype="http://schema.org/Event" class="tabbed-detail-wrapper">
                                     <#if document.events?size gt 1 && validDate>
-                                    <h4 class="tabbed-detail-title">Session ${event?counter}</h4>
+                                    <span class="tabbed-detail-title list-title">Session ${event?counter}</span>
                                     </#if>   
 
                                     <#if validDate>
