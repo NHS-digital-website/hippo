@@ -25,6 +25,8 @@ public class GoogleAnalyticsContentRewriter extends SimpleContentRewriter {
     private static final Logger log =
         LoggerFactory.getLogger(GoogleAnalyticsContentRewriter.class);
 
+    private static final String EVENT_ON_CLICK = "onClick";
+    private static final String EVENT_ON_KEY_UP = "onKeyUp";
     private static final String GA_ACTION_FILE_DOWNLOAD = "Download attachment";
     private static final String GA_ACTION_LINK_CLICK = "Link click";
     private static final List<String> DOWNLOAD_EXTENSIONS = asList(
@@ -107,7 +109,7 @@ public class GoogleAnalyticsContentRewriter extends SimpleContentRewriter {
                     contentBeanTypeName = contentBean.getClass().getSimpleName();
                 }
                 //add onClick behaviour
-                String onClickEvent = link.getAttributeByName("onClick");
+                String onClickEvent = link.getAttributeByName(EVENT_ON_CLICK);
                 //preparing new onclick event to fire
                 String gaEvent =
                     "logGoogleAnalyticsEvent('" + gaAction + "',"
@@ -115,13 +117,26 @@ public class GoogleAnalyticsContentRewriter extends SimpleContentRewriter {
                         + "'" + documentPath + "');";
                 //check id the onClick attribute exists
                 if (StringUtils.isEmpty(onClickEvent)) {
-                    link.addAttribute("onClick", gaEvent);
+                    link.addAttribute(EVENT_ON_CLICK, gaEvent);
                 } else {
                     //in case the onClick attribute is already used, append the gaEvent
                     onClickEvent += ";" + gaEvent;
-                    link.removeAttribute("onClick");
-                    link.addAttribute("onClick", onClickEvent);
+                    link.removeAttribute(EVENT_ON_CLICK);
+                    link.addAttribute(EVENT_ON_CLICK, onClickEvent);
                 }
+
+                String onKeyUpAttribute = link.getAttributeByName(EVENT_ON_KEY_UP);
+                String onKeyUpEvent = "return vjsu.onKeyUp(event)";
+
+                if (StringUtils.isEmpty(onKeyUpAttribute)) {
+                    link.addAttribute(EVENT_ON_KEY_UP, onKeyUpEvent);
+                } else {
+                    //in case the onKeyUpEvent attribute is already used, append
+                    onKeyUpAttribute += ";" + onKeyUpEvent;
+                    link.removeAttribute(EVENT_ON_KEY_UP);
+                    link.addAttribute(EVENT_ON_KEY_UP, onKeyUpAttribute);
+                }
+
             }
         }
 

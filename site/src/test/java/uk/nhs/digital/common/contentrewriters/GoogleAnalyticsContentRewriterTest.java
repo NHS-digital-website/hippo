@@ -1,5 +1,7 @@
 package uk.nhs.digital.common.contentrewriters;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static uk.nhs.digital.common.contentrewriters.GoogleAnalyticsContentRewriter.getHtmlCleaner;
@@ -60,6 +62,10 @@ public class GoogleAnalyticsContentRewriterTest {
             Matcher matcher = pattern.matcher(onClickEvent);
 
             assert matcher.find();
+
+            // Correct onKeyUp attribute set
+            String onKeyUpEvent = link.getAttributeByName("onKeyUp");
+            assertThat("onKeyUp event correct", onKeyUpEvent, is("return vjsu.onKeyUp(event)"));
         }
     }
 
