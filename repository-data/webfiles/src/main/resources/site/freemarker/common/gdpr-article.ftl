@@ -99,7 +99,7 @@
                                                     <#if url?has_content>
                                                         <a href="${url}" title="${rights[key]}"><span class="checklist__label">${rights[key]}</span></a>
                                                     <#else>
-                                                        <span class="checklist__label">${rights[key]}<span>
+                                                        <span class="checklist__label">${rights[key]}</span>
                                                     </#if>
                                                 </li>
                                             </#list>
