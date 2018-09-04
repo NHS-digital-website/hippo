@@ -1,0 +1,25 @@
+/* Emphasis box */
+.emphasis-box {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 7px;
+    border-radius: 3px;
+}
+.emphasis-box-warning {
+    border-left-color: #af1224;
+    background-color: #af1224;
+    color: #ffffff;
+}
+.emphasis-box-important {
+    border-left-color: #fecb59;
+    background-color: #fff1cc;
+}
+.emphasis-box-note {
+    border-left-color: #a2acb3;
+    background-color: #edeff1;
+}
+.emphasis-box-emphasis {
+    border-left-color: #4c90ce;
+    background-color: #d4e4f3;
+}

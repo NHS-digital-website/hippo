@@ -6,6 +6,9 @@
 <'hippotranslation'='http://www.onehippo.org/jcr/hippotranslation/nt/1.0'>
 <'hippotaxonomy'='http://www.hippoecm.org/hippotaxonomy/nt/1.2'>
 
+[website:emphasisBox] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:assetlink] > hippo:compound, hippostd:relaxed
   orderable
 

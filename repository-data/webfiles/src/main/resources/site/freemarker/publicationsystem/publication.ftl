@@ -2,7 +2,7 @@
 <#include "../include/imports.ftl">
 <#include "./macro/structured-text.ftl">
 <#include "./macro/publicationHeader.ftl">
-<#include "./macro/sections/sections.ftl">
+<#include "../common/macro/sections/sections.ftl">
 <#include "../common/macro/sectionNav.ftl">
 <#include "../common/macro/fileMetaAppendix.ftl">
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>

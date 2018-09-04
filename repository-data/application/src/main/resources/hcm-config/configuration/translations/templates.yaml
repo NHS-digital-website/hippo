@@ -73,6 +73,11 @@ definitions:
           jcr:name: Links list
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:emphasisBox:
+        /en:
+          jcr:name: Emphasis Box
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:general:
         /en:
           jcr:name: General

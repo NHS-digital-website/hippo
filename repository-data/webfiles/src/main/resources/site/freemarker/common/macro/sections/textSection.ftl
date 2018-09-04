@@ -1,5 +1,4 @@
 <#ftl output_format="HTML">
-<#include "../../../include/imports.ftl">
 
 <#macro textSection section>
     <div data-uipath="ps.publication.text-section">

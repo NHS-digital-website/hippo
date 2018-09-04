@@ -1,13 +1,13 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
-<#include "macro/articleSections.ftl">
+<#include "../common/macro/sections/sections.ftl">
 <#include "macro/sectionNav.ftl">
 <#include "macro/metaTags.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
 
-<@hst.setBundle basename="rb.doctype.published-work"/>
+<@hst.setBundle basename="rb.doctype.published-work,publicationsystem.headers"/>
 <#assign hasSummaryContent = document.summary?has_content />
 <#assign hasSectionContent = document.sections?has_content />
 <#assign hasPublicationDate = document.publicationDate?? />
@@ -179,7 +179,7 @@
                     <@sectionNav getSectionNavLinks({ "document": document, "links": links}), pageContentsHeader></@sectionNav>
 
                     <#-- Restore the bundle -->
-                    <@hst.setBundle basename="rb.doctype.published-work"/>
+                    <@hst.setBundle basename="rb.doctype.published-work,publicationsystem.headers"/>
                 </div>
             </div>
             </#if>
@@ -202,7 +202,7 @@
             </#if>
 
             <#if hasSectionContent>
-            <@articleSections document.sections></@articleSections>
+            <@sections document.sections></@sections>
             </#if>
 
             <#if hasAboutThisSection>

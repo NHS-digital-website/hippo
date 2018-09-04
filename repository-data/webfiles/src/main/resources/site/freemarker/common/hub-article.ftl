@@ -1,6 +1,5 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
-<#include "macro/narrowArticleSections.ftl">
 <#include "macro/childPageGrid.ftl">
 <#include "macro/hubPageComponents.ftl">
 <#include "macro/metaTags.ftl">

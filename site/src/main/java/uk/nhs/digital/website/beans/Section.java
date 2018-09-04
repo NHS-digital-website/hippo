@@ -27,4 +27,8 @@ public class Section extends HippoCompound {
     public HippoHtml getHtml() {
         return getHippoHtml("website:html");
     }
+
+    public String getSectionType() {
+        return "website-section";
+    }
 }
