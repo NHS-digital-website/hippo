@@ -100,8 +100,8 @@ public class Publishedwork extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = "website:sections")
-    public List<Section> getSections() {
-        return getChildBeansByName("website:sections", Section.class);
+    public List<HippoBean> getSections() {
+        return getChildBeansByName("website:sections");
     }
 
     @HippoEssentialsGenerated(internalName = "website:resources")

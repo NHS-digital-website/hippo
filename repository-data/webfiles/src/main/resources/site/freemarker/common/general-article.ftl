@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
-<#include "macro/articleSections.ftl">
+<#include "macro/sections/sections.ftl">
 <#include "macro/sectionNav.ftl">
 <#include "macro/furtherInformationSection.ftl">
 <#include "macro/metaTags.ftl">
@@ -8,7 +8,7 @@
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
 
-<@hst.setBundle basename="rb.generic.headers"/>
+<@hst.setBundle basename="rb.generic.headers,publicationsystem.headers"/>
 
 <#assign hasSummaryContent = document.summary?has_content />
 <#assign hasSectionContent = document.sections?has_content />
@@ -35,6 +35,8 @@
                 <div id="sticky-nav">
                     <@sectionNav getSectionNavLinks({ "document": document, "childPages": childPages, "ignoreSummary": hasSummaryContent })></@sectionNav>
                 </div>
+                <#-- Restore the bundle -->
+                <@hst.setBundle basename="rb.generic.headers,publicationsystem.headers"/>
             </div>
             </#if>
 
@@ -47,7 +49,7 @@
                 </#if>
 
                 <#if hasSectionContent>
-                <@articleSections document.sections></@articleSections>
+                <@sections document.sections></@sections>
                 </#if>
 
                 <#if hasChildPages>

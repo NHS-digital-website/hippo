@@ -1,6 +1,5 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
-<#include "../macro/articleSections.ftl">
 <#include "../macro/sectionNav.ftl">
 
 <article class="article article--service">

@@ -160,11 +160,14 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Sections
+            compoundList: website:section,publicationsystem:chartSection,publicationsystem:mapSection,website:emphasisBox
+            contentPickerType: links
             field: sections
             hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
+            wicket.skin: skin/content-blocks.css
           /isbn:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -324,12 +327,13 @@ definitions:
             hipposysedit:type: publicationsystem:extattachment
             jcr:primaryType: hipposysedit:field
           /sections:
-            hipposysedit:mandatory: false
             hipposysedit:multiple: true
             hipposysedit:ordered: true
             hipposysedit:path: website:sections
             hipposysedit:primary: false
-            hipposysedit:type: website:section
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /seosummary:
             hipposysedit:mandatory: false

@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
-<#include "macro/articleSections.ftl">
+<#include "macro/sections/sections.ftl">
 <#include "macro/sectionNav.ftl">
 <#include "macro/furtherInformationSection.ftl">
 <#include "macro/metaTags.ftl">
@@ -8,7 +8,7 @@
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
 
-<@hst.setBundle basename="rb.generic.headers"/>
+<@hst.setBundle basename="rb.generic.headers,publicationsystem.headers"/>
 
 <#assign hasSectionContent = document.sections?has_content />
 <#assign hasTopTasks = document.toptasks?has_content />
@@ -35,6 +35,8 @@
                 <div id="sticky-nav">
                     <@sectionNav getSectionNavLinks({ "document": document, "childPages": childPages })></@sectionNav>
                 </div>
+                <#-- Restore the bundle -->
+                <@hst.setBundle basename="rb.generic.headers,publicationsystem.headers"/>
             </div>
             </#if>
 
@@ -71,7 +73,9 @@
                 </div>
                 </#if>
 
-                <@articleSections document.sections></@articleSections>
+                <#if hasSectionContent>
+                <@sections document.sections></@sections>
+                </#if>
 
                 <#if hasContactDetailsContent>
                 <div class="article-section article-section--contact" id="${slugify('Contact details')}">

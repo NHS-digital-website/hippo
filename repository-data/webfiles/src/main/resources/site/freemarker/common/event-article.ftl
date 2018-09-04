@@ -1,6 +1,5 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
-<#include "macro/articleSections.ftl">
 
 <#-- Add meta tags -->
 <#include "macro/metaTags.ftl">
