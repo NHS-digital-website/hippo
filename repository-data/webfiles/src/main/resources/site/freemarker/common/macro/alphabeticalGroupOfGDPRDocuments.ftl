@@ -47,9 +47,9 @@
                                     <#list rights?keys as key>
                                         <li class="checklist__item">
                                             <#if gdprDocument.rights?seq_contains(key)>
-                                                <img src="<@hst.webfile path="images/icon-tick.png"/>" alt="Tick" class="checklist__icon checklist__icon--small" width="16"/>
+                                                <img src="<@hst.webfile path="images/icon-tick.png"/>" alt="Tick" class="checklist__icon checklist__icon--small" />
                                             <#else>
-                                                <img src="<@hst.webfile path="images/icon-cross.png"/>" alt="Tick" class="checklist__icon checklist__icon--small" width="16"/>
+                                                <img src="<@hst.webfile path="images/icon-cross.png"/>" alt="Tick" class="checklist__icon checklist__icon--small" />
                                             </#if>
                                             <span class="checklist__label">${rights[key]}</span>
                                         </li>                                                

@@ -91,9 +91,9 @@
 
                                                 <li class="checklist__item">
                                                     <#if document.rights?seq_contains(key)>
-                                                        <img src="<@hst.webfile path="images/icon-tick.png"/>" alt="Tick" class="checklist__icon checklist__icon--small" width="24"/>
+                                                        <img src="<@hst.webfile path="images/icon-tick.png"/>" alt="Tick" class="checklist__icon checklist__icon--small" />
                                                     <#else>
-                                                        <img src="<@hst.webfile path="images/icon-cross.png"/>" alt="Cross" class="checklist__icon checklist__icon--small" width="24"/>
+                                                        <img src="<@hst.webfile path="images/icon-cross.png"/>" alt="Cross" class="checklist__icon checklist__icon--small" />
                                                     </#if>
 
                                                     <#if url?has_content>

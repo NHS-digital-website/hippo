@@ -15,7 +15,7 @@
         <div class="document-content columns" style="text-align:center">
             <#list document.popularTopicLinks as link>
                 <div class="layout__item">
-                    <h3 class="popular-topic-link"><a href="${link.linkUrl}" target="_blank" >${link.linkText}</a></h3>
+                    <h3 class="popular-topic-link"><a href="${link.linkUrl}">${link.linkText}</a></h3>
                 </div>
             </#list>
         </div>

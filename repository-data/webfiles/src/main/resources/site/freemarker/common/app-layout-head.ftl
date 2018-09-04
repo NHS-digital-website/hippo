@@ -28,7 +28,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="<@hst.webfile path="icons/favicon-32x32.png"/>">
     <link rel="icon" type="image/png" sizes="16x16" href="<@hst.webfile path="icons/favicon-16x16.png"/>">
     <link rel="manifest" href="<@hst.webfile path="icons/manifest.json"/>">
-    <link rel="mask-icon" href="<@hst.webfile path="icons/safari-pinned-tab.svg"/>" color="#666666">
+    <link rel="mask-icon" href="<@hst.webfile path="icons/safari-pinned-tab.svg"/>">
     <meta name="theme-color" content="#ffffff">
 
     <!--[if gt IE 8]><!-->
