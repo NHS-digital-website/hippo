@@ -72,7 +72,7 @@ $(document).ready(function() {
                         checked.each(function(index) {
                             values[index] = $(this).val();
                         });
-                        params[fieldName] = values;
+                        params[fieldName] = "" + values + "";
                     } else {
                         params[fieldName] = '';
                     }
@@ -293,7 +293,7 @@ $(document).ready(function() {
 
     function validateUserInput(params, successCallback, errorCallback) {
         hideErrors();
-        
+
         $.ajax({
             type: 'POST',
             url: ajaxValidationUrl,
