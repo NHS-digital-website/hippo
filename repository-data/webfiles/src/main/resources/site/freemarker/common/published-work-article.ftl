@@ -226,6 +226,7 @@
                     </#if>
                 </div>
             </div>
+            </#if>
 
             <#if hasResources>
                 <div class="article-section" id="resources">
@@ -242,7 +243,7 @@
                     </ul>
                 </div>
             </#if>
-            </#if>
+
             </div>
         </div>
     </div>
