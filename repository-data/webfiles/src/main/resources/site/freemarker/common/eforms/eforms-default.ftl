@@ -4,7 +4,9 @@
 <#include "../macro/metaTags.ftl">
 
 <#-- Add meta tags -->
-<#assign document = { "title": form.title } />
+<#if form.title??>
+    <#assign document = { "title": form.title } />
+</#if>
 <@metaTags></@metaTags>
 
 <@hst.setBundle basename="rb.doctype.form"/>
