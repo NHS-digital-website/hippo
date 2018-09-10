@@ -61,12 +61,12 @@ $(document).ready(function() {
             var fieldType = field.attr('type');
             var fieldName = field.attr('name');
             var checked = [];
-            var checkedSelector = '.eforms-page.conditionally-visible:visible .eforms-field *:input[name="' + fieldName + '"]:checked';
+            var checkedSelector = '*:input[name="' + fieldName + '"]:checked';
 
             if (fieldType == 'checkbox') {
                 if (!params[fieldName]) {
                     checked = $(checkedSelector);
-                    
+
                     if (checked.length > 0) {
                         var values = [];
                         checked.each(function(index) {
@@ -248,12 +248,11 @@ $(document).ready(function() {
         hideErrors();
     });
 
-    // Handle previous button click
+    // Handle next button click
     $nextButton.click(function() {
         $nextButton.blur();
 
         var curPage = $('.eforms-page.conditionally-visible:visible');
-
         // ajax based validation
         // validate all fields on current page before going to the next
         var params = {};
@@ -349,23 +348,23 @@ $(document).ready(function() {
             $errorWarning.show();
 
             for (var r in errors) {
-                var $input = $form.find('[name="' + r + '"]');
+                var input = $form.find('[name="' + r + '"]');
+                var isMultiField = (input.attr('type') == 'checkbox' || input.attr('type') == 'radio');
 
-                if ($input.length > 0) {
-                    var $eformsField = $input.parent();
+                if (input.length > 0) {
+                    var eformsField = input.parent();
                     
-                    if ($input.length > 1) {
-                        $input = $form.find('[name="' + r + '"]');
-                        $eformsField = $input.parent().parent().parent().parent();
+                    if (isMultiField) {
+                        eformsField = input.parent().parent().parent().parent();
                     }
 
-                    var $errorField = $eformsField.find('.eforms-field__error-message');
+                    var errorField = eformsField.find('.eforms-field__error-message');
 
-                    $eformsField.addClass('eforms-field--invalid');
-                    $errorField.html(errors[r].localizedMessage);
-                    $errorField.removeClass('visually-hidden');
+                    eformsField.addClass('eforms-field--invalid');
+                    errorField.html(errors[r].localizedMessage);
+                    errorField.removeClass('visually-hidden');
 
-                    if ($input.length > 1) {
+                    if (isMultiField) {
                         continue;
                     }
                 }
@@ -416,6 +415,12 @@ $(document).ready(function() {
         params['currentPage'] = curPage.attr('id').replace(/^page/, '');
 
         validateUserInput(params, function() {
+            if (curPage.attr('id') != 'page0') {
+                // Collate input from all pages since above params just includes last page
+                params = {};
+                var allFields = $('.eforms-field *:input');
+                addFormFieldsToParameters(allFields, params);
+            }
             submitForm(params);
         });
     });

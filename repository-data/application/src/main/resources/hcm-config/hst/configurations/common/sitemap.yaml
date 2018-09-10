@@ -151,6 +151,15 @@ definitions:
           hst:componentconfigurationid: hst:pages/form-mail
           hst:relativecontentpath: ${parent}/${1}
           jcr:primaryType: hst:sitemapitem
+        /_index_:
+          hst:componentconfigurationid: hst:pages/404
+          hst:componentconfigurationmappingnames:
+          - website:hub
+          hst:componentconfigurationmappingvalues:
+          - hst:pages/hub
+          hst:relativecontentpath: ${parent}/forms
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/hub
         hst:relativecontentpath: forms
         jcr:primaryType: hst:sitemapitem
       /news-and-events:
