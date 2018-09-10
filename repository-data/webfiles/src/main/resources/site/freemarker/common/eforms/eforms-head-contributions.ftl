@@ -10,10 +10,6 @@
     <link rel="stylesheet" href="<@hst.webfile path="/css/eforms.css"/>" type="text/css" />
 </@hst.headContribution>
 
-<@hst.headContribution keyHint="jquery">
-    <script src="<@hst.webfile path="/js/eforms/jquery-1.12.4.min.js"/>"></script>
-</@hst.headContribution>
-
 <@hst.headContribution keyHint="jquery-datepicker">
     <script src="<@hst.webfile path="/js/eforms/jquery-ui-1.12.1.custom.min.js"/>"></script>
 </@hst.headContribution>
