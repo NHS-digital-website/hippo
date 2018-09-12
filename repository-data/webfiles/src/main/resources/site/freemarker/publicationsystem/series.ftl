@@ -99,7 +99,7 @@
 <#macro publicationItem publication>
 <li itemprop="hasPart" itemscope itemtype="http://schema.org/PublicationIssue">
     <article class="cta">
-        <a href="<@hst.link hippobean=publication.selfLinkBean/>" title="${publication.title}" class="cta__button" itemprop="url"><h5 itemprop="name">${publication.title}</h5></a>
+        <a href="<@hst.link hippobean=publication.selfLinkBean/>" title="${publication.title}" class="cta__button" itemprop="url"><h4 itemprop="name">${publication.title}</h5></a>
         <#if publication.class.name == "uk.nhs.digital.ps.beans.Publication">
             <p class="cta__text"><@truncate text=publication.summary.firstParagraph size="300"/></p>
         </#if>
@@ -115,7 +115,7 @@
         <#list upcomingPublications[0..count-1] as publication>
         <li itemprop="hasPart" itemscope itemtype="http://schema.org/PublicationIssue">
             <article class="cta">
-                <a href="<@hst.link hippobean=publication.selfLinkBean/>" title="${publication.title}" class="cta__button" itemprop="url"><h5 itemprop="name">${publication.title}</h5></a>
+                <a href="<@hst.link hippobean=publication.selfLinkBean/>" title="${publication.title}" class="cta__button" itemprop="url"><h4 itemprop="name">${publication.title}</h5></a>
                 <p class="cta__text"><@formatRestrictableDate value=publication.nominalPublicationDate/></p>
             </article>
         </li>
