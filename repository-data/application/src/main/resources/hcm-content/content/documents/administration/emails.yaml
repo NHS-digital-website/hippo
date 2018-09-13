@@ -13,13 +13,16 @@
     resourcebundle:descriptions:
     - website enquiries
     - website feedback
+    - website enquiries title
     resourcebundle:id: emails
     resourcebundle:keys:
     - email.enquiries
     - email.feedback
+    - email.enquiries.title
     resourcebundle:messages:
     - enquiries@nhsdigital.nhs.uk
     - feedback@nhsdigital.nhs.uk
+    - Get in touch with our contact centre
   /emails[2]:
     hippo:availability:
     - preview
@@ -35,13 +38,16 @@
     resourcebundle:descriptions:
     - website enquiries
     - website feedback
+    - website enquiries title
     resourcebundle:id: emails
     resourcebundle:keys:
     - email.enquiries
     - email.feedback
+    - email.enquiries.title
     resourcebundle:messages:
     - enquiries@nhsdigital.nhs.uk
     - feedback@nhsdigital.nhs.uk
+    - Get in touch with our contact centre
   /emails[3]:
     hippo:availability:
     - live
@@ -57,13 +63,16 @@
     resourcebundle:descriptions:
     - website enquiries
     - website feedback
+    - website enquiries title
     resourcebundle:id: emails
     resourcebundle:keys:
     - email.enquiries
     - email.feedback
+    - email.enquiries.title
     resourcebundle:messages:
     - enquiries@nhsdigital.nhs.uk
     - feedback@nhsdigital.nhs.uk
+    - Get in touch with our contact centre
   hippo:name: emails
   jcr:mixinTypes:
   - hippo:named
