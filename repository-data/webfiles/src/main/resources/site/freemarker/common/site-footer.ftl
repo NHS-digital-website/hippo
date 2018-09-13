@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
+<@hst.setBundle basename="emails"/>
 
 <footer class="site-footer white-links" id="footer">
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
@@ -29,12 +30,12 @@
                                     <div class="list">
                                         <div class="list__item">
                                             <span>Telephone:</span><br>
-                                            <a href="tel:004403003035678">0300 303 5678</a>
+                                            <a href="tel:004403003035678" title="Contact us by telephone">0300 303 5678</a>
                                         </div>
 
                                         <div class="list__item">
                                             <span>Email:</span><br>
-                                            <a href="mailto:enquiries@nhsdigital.nhs.uk">enquiries@nhsdigital.nhs.uk</a>
+                                            <a href="mailto:<@fmt.message key="email.enquiries"/>" title="<@fmt.message key="email.enquiries.title" />"><@fmt.message key="email.enquiries"/></a>
                                         </div>
                                     </div>
                                 </nav>
