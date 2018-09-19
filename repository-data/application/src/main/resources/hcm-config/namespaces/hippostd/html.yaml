@@ -1,0 +1,5 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/hippostd/html/editor:templates/_default_:
+      ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true}'
