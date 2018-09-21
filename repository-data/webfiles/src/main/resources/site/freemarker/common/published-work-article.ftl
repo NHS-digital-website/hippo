@@ -69,7 +69,6 @@
                         <div class="grid-row">
                             <div class="column column--reset">
                                 <@publicationDate />
-                                </dl>
                             </div>
                         </div>
 

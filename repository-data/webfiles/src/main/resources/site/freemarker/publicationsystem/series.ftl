@@ -55,6 +55,7 @@
                             </ul>
                         </#if>
                     <#else>
+                        <h3 class="flush push--bottom"><@fmt.message key="headers.versions"/></h3>
                         <ul class="list list--reset cta-list" data-uipath="ps.series.publications-list">
                             <#list publications as publication>
                                 <@publicationItem publication=publication/>
