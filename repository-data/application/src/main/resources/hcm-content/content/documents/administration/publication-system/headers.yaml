@@ -29,6 +29,7 @@
     - ''
     - ''
     - ''
+    - ''
     resourcebundle:id: publicationsystem.headers
     resourcebundle:keys:
     - headers.summary
@@ -46,6 +47,7 @@
     - headers.ci-landing-resources
     - headers.previous-versions
     - headers.latest-version
+    - headers.versions
     - headers.datasets
     - headers.upcoming
     - headers.download-chart-data
@@ -65,6 +67,7 @@
     - Resources
     - Previous Versions
     - Latest Version
+    - Versions
     - Data Sets
     - Upcoming
     - Download the data for this chart
@@ -99,6 +102,7 @@
     - ''
     - ''
     - ''
+    - ''
     resourcebundle:id: publicationsystem.headers
     resourcebundle:keys:
     - headers.summary
@@ -116,6 +120,7 @@
     - headers.ci-landing-resources
     - headers.previous-versions
     - headers.latest-version
+    - headers.versions
     - headers.datasets
     - headers.upcoming
     - headers.download-chart-data
@@ -135,6 +140,7 @@
     - Resources
     - Previous Versions
     - Latest Version
+    - Versions
     - Data Sets
     - Upcoming
     - Download the data for this chart
@@ -169,6 +175,7 @@
     - ''
     - ''
     - ''
+    - ''
     resourcebundle:id: publicationsystem.headers
     resourcebundle:keys:
     - headers.summary
@@ -186,6 +193,7 @@
     - headers.ci-landing-resources
     - headers.previous-versions
     - headers.latest-version
+    - headers.versions
     - headers.datasets
     - headers.upcoming
     - headers.download-chart-data
@@ -205,6 +213,7 @@
     - Resources
     - Previous Versions
     - Latest Version
+    - Versions
     - Data Sets
     - Upcoming
     - Download the data for this chart
