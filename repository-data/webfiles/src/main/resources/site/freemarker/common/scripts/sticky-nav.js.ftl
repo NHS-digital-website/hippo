@@ -158,7 +158,6 @@
         // Cache selectors
         var lastId,
             stickyNav = $("#sticky-nav"),
-            stickyNavHeight = stickyNav.outerHeight(),
             // All list items
             menuItems = stickyNav.find('a[href^="#"]'),
 
@@ -172,7 +171,7 @@
         $(window).scroll(function(){
 
             // Get container scroll position
-            var fromTop = $(this).scrollTop()+stickyNavHeight;
+            var fromTop = $(this).scrollTop()+10;
 
             // Get id of current scroll item
             var cur = scrollItems.map(function(){
