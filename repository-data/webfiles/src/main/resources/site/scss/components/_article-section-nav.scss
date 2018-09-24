@@ -1,9 +1,16 @@
 @import "../units/list";
 
 /* Sticky nav */
+#sticky-nav li.active {
+  border-left: 5px solid #ffb81c;
+  border-left-width: 7px;
+  padding-left: 10px;
+}
+
 #sticky-nav li.active a {
+    color: #425563;
+    text-decoration:none;
     font-weight: bold;
-    font-size: 20px;
 }
 
 /* Article section nav */
@@ -59,7 +66,7 @@
 
     .article-section-nav__list {
         margin-left: 0;
-        list-style: disc;
+        list-style: none;
 
         @include bold-font(18);
 
@@ -73,7 +80,7 @@
         }
 
         a {
-            text-decoration: none;
+            text-decoration: underline;
         }
     }
 
