@@ -48,6 +48,17 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /numberedList:
+            /cluster.options:
+              falseLabel: 'No'
+              jcr:primaryType: frontend:pluginconfig
+              trueLabel: 'Yes'
+            caption: Numbered list
+            field: numberedList
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -60,6 +71,14 @@ definitions:
             hipposysedit:type: hippostd:html
             hipposysedit:validators:
             - required
+            jcr:primaryType: hipposysedit:field
+          /numberedList:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:numberedList
+            hipposysedit:primary: false
+            hipposysedit:type: selection:BooleanRadioGroup
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
@@ -95,6 +114,7 @@ definitions:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
+          website:numberedList: false
           website:title: ''
           website:type: ''
         jcr:primaryType: hipposysedit:prototypeset

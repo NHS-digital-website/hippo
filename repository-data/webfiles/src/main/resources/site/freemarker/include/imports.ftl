@@ -163,7 +163,11 @@
             <#if options.document.sections?has_content>
                 <#list options.document.sections as section>
                     <#if section.title?has_content>
-                        <#assign links += [{ "url": "#" + slugify(section.title), "title": section.title }] />
+                        <#assign isNumberedList = false />
+                        <#if section.isNumberedList??>
+                            <#assign isNumberedList = section.isNumberedList />
+                        </#if>
+                        <#assign links += [{ "url": "#" + slugify(section.title), "title": section.title, "isNumberedList": isNumberedList?c }] />
                     </#if>
                 </#list>
             </#if>
