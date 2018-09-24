@@ -18,6 +18,11 @@ public class Section extends HippoCompound {
         return getProperty("website:type");
     }
 
+    @HippoEssentialsGenerated(internalName = "website:numberedList")
+    public boolean getIsNumberedList() {
+        return getProperty("website:numberedList");
+    }
+
     @HippoEssentialsGenerated(internalName = "website:html")
     public HippoHtml getHtml() {
         return getHippoHtml("website:html");
