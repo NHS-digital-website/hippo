@@ -78,6 +78,11 @@ definitions:
           jcr:name: General
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:generalnonsearch:
+        /en:
+          jcr:name: General non searchable
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:hub:
         /en:
           jcr:name: Hub
