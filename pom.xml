@@ -544,6 +544,14 @@
                 <!--Already defined in hippo-cms-project POM. Override here for project, if necessary-->
                 <!--<repo.bootstrap>true</repo.bootstrap>-->
             </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.onehippo.cms7</groupId>
+                    <artifactId>hippo-addon-crisp-api</artifactId>
+                    <version>${hippo.addon-crisp.version}</version>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
             <build>
                 <plugins>
                     <plugin>
@@ -638,11 +646,19 @@
                                     <externalstorage.aws.region>${externalstorage.aws.region}</externalstorage.aws.region>
                                     <externalstorage.aws.s3.endpoint>${externalstorage.aws.s3.endpoint}</externalstorage.aws.s3.endpoint>
                                 </systemProperties>
+                                <dependencies>
+                                    <dependency>
+                                        <groupId>org.onehippo.cms7</groupId>
+                                        <artifactId>hippo-addon-crisp-api</artifactId>
+                                        <classpath>shared</classpath>
+                                    </dependency>
+                                </dependencies>
                             </container>
                         </configuration>
                     </plugin>
                 </plugins>
             </build>
+
         </profile>
 
         <profile>
@@ -696,6 +712,11 @@
                     <artifactId>log4j-core</artifactId>
                     <scope>provided</scope>
                 </dependency>
+                <dependency>
+                    <groupId>org.onehippo.cms7</groupId>
+                    <artifactId>hippo-addon-crisp-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
             </dependencies>
             <build>
                 <defaultGoal>validate</defaultGoal>
@@ -742,6 +763,11 @@
                 <dependency>
                     <groupId>org.apache.logging.log4j</groupId>
                     <artifactId>log4j-core</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.onehippo.cms7</groupId>
+                    <artifactId>hippo-addon-crisp-api</artifactId>
                     <scope>provided</scope>
                 </dependency>
             </dependencies>
@@ -802,6 +828,11 @@
                 <dependency>
                     <groupId>org.apache.logging.log4j</groupId>
                     <artifactId>log4j-core</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.onehippo.cms7</groupId>
+                    <artifactId>hippo-addon-crisp-api</artifactId>
                     <scope>provided</scope>
                 </dependency>
             </dependencies>
