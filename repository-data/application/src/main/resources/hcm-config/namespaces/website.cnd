@@ -40,6 +40,9 @@
 [website:general] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:generalnonsearch] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:hub] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 

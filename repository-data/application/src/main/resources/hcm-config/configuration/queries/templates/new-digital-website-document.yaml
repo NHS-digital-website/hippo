@@ -27,4 +27,5 @@ definitions:
         or @jcr:primaryType='website:event' or @jcr:primaryType='website:gdprsummary'
         or @jcr:primaryType='website:gdprtransparency' or @jcr:primaryType='website:general'
         or @jcr:primaryType='website:hub' or @jcr:primaryType='website:news' or @jcr:primaryType='website:service'
-        or @jcr:primaryType='website:publishedwork' or @jcr:primaryType='website:publishedworkchapter']
+        or @jcr:primaryType='website:publishedwork' or @jcr:primaryType='website:publishedworkchapter'
+        or @jcr:primaryType='website:generalnonsearch']
