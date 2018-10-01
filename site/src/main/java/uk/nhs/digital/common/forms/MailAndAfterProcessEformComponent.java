@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.*;
+import javax.servlet.http.HttpServletResponse;
 
 public class MailAndAfterProcessEformComponent extends EformComponent {
 
@@ -34,9 +35,14 @@ public class MailAndAfterProcessEformComponent extends EformComponent {
         return true;
     }
 
+    @Override
     public void onValidationError(HstRequest request, HstResponse response, Form form, FormMap map,
                                   Map<String, ErrorMessage> errors) {
         log.info("Form contains errors");
+        // Called on second pass (RENDER_PHASE)
+        if ("RENDER_PHASE".equals(request.getLifecyclePhase()) && map.getFormMap().get("eforms_process_done") == null) {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+        }
     }
 
     @Override
@@ -44,5 +50,6 @@ public class MailAndAfterProcessEformComponent extends EformComponent {
         super.addConfiguredBehaviors(request);
         addBehavior(new MailFormDataBehavior());
         addBehavior(new AfterProcessBehavior());
+        addBehavior(new ReCaptchaValidationPlugin());
     }
 }

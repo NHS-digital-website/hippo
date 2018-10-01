@@ -21,3 +21,7 @@
 <@hst.headContribution keyHint="formJsValidationHippo">
     <script src="<@hst.webfile path="/js/eforms/jquery-hippo-validate.js"/>"></script>
 </@hst.headContribution>
+<@hst.headContribution keyHint="formJsReCaptcha">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+</@hst.headContribution>
+
