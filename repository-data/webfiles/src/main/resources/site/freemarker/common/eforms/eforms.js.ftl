@@ -36,6 +36,7 @@ $(document).ready(function() {
 
         if (curIndex < allPages.length - 1) {
           $nextButton.show();
+          $('.recaptcha').hide();
           $('.eforms-buttons input[type="submit"]').each(function() {
             $(this).hide();
           });
@@ -44,12 +45,14 @@ $(document).ready(function() {
           $('.eforms-buttons input[type="submit"]').each(function() {
             $(this).show();
           });
+
+          // Show ReCaptcha
+          displayRecaptcha();
         }
 
         $('#pagesTab li').hide();
         $('#pagesTab li.conditionally-visible').show();
     };
-
 
     <#--
     Function used to create parameters object containing form fields name/value pairs.
@@ -224,6 +227,7 @@ $(document).ready(function() {
     // Handle previous button click
     $previousButton.click(function() {
         $previousButton.blur();
+        hideRecaptcha();
 
         var curPage = $('.eforms-page.conditionally-visible:visible');
         var prevPage = curPage.prevAll('.eforms-page.conditionally-visible:first');
@@ -285,6 +289,9 @@ $(document).ready(function() {
                 $('.eforms-buttons input[type="submit"]').each(function() {
                     $(this).show();
                 });
+                // Show ReCaptcha
+                displayRecaptcha();
+                grecaptcha.reset();
             }
         });
         return;
@@ -331,6 +338,12 @@ $(document).ready(function() {
             },
             error: function(response) {
                 // do something with the response
+                $(window).scrollTop($errorWarning.offset().top);
+                $errorWarning.show();
+                $form.removeClass('disabled');
+
+                grecaptcha.reset();
+                displayRecaptcha();
             }
         });
     }
@@ -389,14 +402,33 @@ $(document).ready(function() {
     /* Reset the form */
     function reset() {
         $formEl.reset();
+        grecaptcha.reset();
     }
+
+    function enableSubmit() {
+        $submitButton.prop('disabled', false);
+    }
+
+    function displayRecaptcha() {
+        $('.recaptcha').show();
+        $submitButton.prop('disabled', true);
+    }
+
+    function hideRecaptcha() {
+        $('.recaptcha').hide();
+        $submitButton.prop('disabled', false);
+    }
+
+    // directly assign into the global space
+    window.enableSubmit = enableSubmit;
+    window.hideRecaptcha = hideRecaptcha;
+    window.displayRecaptcha = displayRecaptcha;
 
     /* Handle the form submit click */
     $submitButton.click(function(event) {
         userHitSubmit = true;
 
         event.preventDefault();
-        
         $submitButton.blur();
 
         var curPage = $('.eforms-page.conditionally-visible:visible');
@@ -421,6 +453,7 @@ $(document).ready(function() {
                 var allFields = $('.eforms-field *:input');
                 addFormFieldsToParameters(allFields, params);
             }
+            params['gRecaptchaResponse'] = $("#g-recaptcha-response").val();
             submitForm(params);
         });
     });
