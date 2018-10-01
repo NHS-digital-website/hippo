@@ -225,14 +225,12 @@
         <dependency>
             <groupId>org.onehippo.cms7</groupId>
             <artifactId>hippo-addon-crisp-repository</artifactId>
-            <version>${hippo.addon-crisp.version}</version>
         </dependency>
 
         <!-- NOTE: hippo-addon-crisp-api JAR module must be 'provided' scope as it's provided by the container! -->
         <dependency>
             <groupId>org.onehippo.cms7</groupId>
             <artifactId>hippo-addon-crisp-api</artifactId>
-            <version>${hippo.addon-crisp.version}</version>
             <scope>provided</scope>
         </dependency>
 
