@@ -1,0 +1,17 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/iframe:
+      attributes:
+      - align
+      - allowfullscreen
+      - class
+      - height
+      - id
+      - longdesc
+      - name
+      - scrolling
+      - src
+      - style
+      - title
+      - width
