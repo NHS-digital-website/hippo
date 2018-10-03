@@ -1,0 +1,14 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-557-remove-migration-broken-link:
+      hipposys:batchsize: 20
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:parameters: ''
+      hipposys:query: //element(*, publicationsystem:relatedlink)[@publicationsystem:linkUrl='http://www.hscic.gov.uk/article/1165/Search-catalogue?q=title:']
+      hipposys:script:
+        resource: /configuration/update/DW-557-remove-migration-broken-link.groovy
+        type: string
+      hipposys:throttle: 200
+      jcr:primaryType: hipposys:updaterinfo
