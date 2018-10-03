@@ -16,6 +16,7 @@ definitions:
           - website:gdprsummary
           - website:publishedwork
           - website:publishedworkchapter
+          - website:generalnonsearch
           hst:componentconfigurationmappingvalues:
           - hst:pages/service
           - hst:pages/general
@@ -27,6 +28,7 @@ definitions:
           - hst:pages/gdprsummary
           - hst:pages/publishedwork
           - hst:pages/publishedworkchapter
+          - hst:pages/general
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404

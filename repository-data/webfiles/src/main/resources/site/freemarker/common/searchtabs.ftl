@@ -8,7 +8,7 @@
     <ul class="tabs-nav" role="tablist">
         <#list tabs as tab>
             <li class="tabs-nav__item ${(area=='${tab}')?string("tabs-nav__item--active", "")}">
-                <a tabindex="${tab?index}" href="${tabLink}${tab}" class="tabs-link" title="<@fmt.message key="searchtab.${tab}"/>" role="tab"><@fmt.message key="searchtab.${tab}"/></a>
+                <a tabindex="${tab?index}" href="${tabLink}${tab}" class="tabs-link" title="<@fmt.message key="searchtab.${tab}" /> results" role="tab"><@fmt.message key="searchtab.${tab}"/></a>
             </li>
         </#list>
     </ul>
