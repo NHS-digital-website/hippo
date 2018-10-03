@@ -75,7 +75,7 @@
                     <#-- [FTL-BEGIN] Optional Sub sections -->
                     <#list document.subSections as section>
                     <#assign hasTitle = section.title?has_content />
-                    <div ${hasTitle?then(id="${slugify(section.title)}", "")} class="article-section ${hasTitle?then("", "no-top-padding")}">
+                    <div ${hasTitle?then('id=${slugify(section.title)}', "")} class="article-section ${hasTitle?then("", "no-top-padding")}">
                         <#-- Render title -->
                         <#if hasTitle>
                         <h2 data-uipath="ps.cilanding.section-title">${section.title}</h2>
