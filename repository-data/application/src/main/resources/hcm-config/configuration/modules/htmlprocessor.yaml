@@ -1,6 +1,18 @@
 ---
 definitions:
   config:
+    /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext:
+      omitComments: true
+    /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/address:
+      .meta:delete: true
+    /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/b:
+      .meta:delete: true
+    /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/h1:
+      .meta:delete: true
+    /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/h5:
+      .meta:delete: true
+    /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/h6:
+      .meta:delete: true
     /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/iframe:
       attributes:
       - align
@@ -14,4 +26,16 @@ definitions:
       - src
       - style
       - title
+      - width
+    /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/pre:
+      .meta:delete: true
+    /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/s:
+      .meta:delete: true
+    /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/table:
+      attributes:
+      - align
+      - class
+      - dir
+      - id
+      - style
       - width

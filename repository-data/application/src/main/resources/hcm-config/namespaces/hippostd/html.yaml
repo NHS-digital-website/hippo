@@ -2,4 +2,8 @@
 definitions:
   config:
     /hippo:namespaces/hippostd/html/editor:templates/_default_:
-      ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins: ''iframe''}'
+      ckeditor.config.appended.json: '{toolbarGroups: [{ name: ''document''}], extraPlugins:
+        ''balloonpanel,a11ychecker'', allowedContent: ''h2 h3 h4 em strong ul thead
+        tbody td tr th caption ol li sub sup iframe img a[*];p{text-align};table[class,id,dir]{*}'',
+        disallowedContent: ''iframe[frameborder]''}}'
+      ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins: ''iframe,wordcount''}'
