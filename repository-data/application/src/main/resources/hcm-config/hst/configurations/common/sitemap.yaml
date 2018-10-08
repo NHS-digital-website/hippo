@@ -179,6 +179,14 @@ definitions:
         hst:componentconfigurationid: hst:pages/hub
         hst:relativecontentpath: news-and-events/content
         jcr:primaryType: hst:sitemapitem
+      /ods:
+        /_any_:
+          hst:componentconfigurationid: hst:pages/ods-detail
+          hst:relativecontentpath: ${parent}/${1}
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/ods-search
+        hst:relativecontentpath: ods
+        jcr:primaryType: hst:sitemapitem
       /robots.txt:
         hst:componentconfigurationid: hst:pages/robotstxt
         hst:relativecontentpath: ../administration/robots

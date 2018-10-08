@@ -14,6 +14,9 @@ definitions:
       /app-layout-no-header-search:
         hst:renderpath: webfile:/freemarker/common/app-layout-no-header-search.ftl
         jcr:primaryType: hst:template
+      /app-layout-ods-search-results:
+        hst:renderpath: webfile:/freemarker/common/app-layout-ods-search-results.ftl
+        jcr:primaryType: hst:template
       /archive:
         hst:renderpath: webfile:/freemarker/publicationsystem/archive.ftl
         jcr:primaryType: hst:template
@@ -97,6 +100,15 @@ definitions:
         jcr:primaryType: hst:template
       /nilanding:
         hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/nilanding.ftl
+        jcr:primaryType: hst:template
+      /ods-detail:
+        hst:renderpath: webfile:/freemarker/common/ods-detail.ftl
+        jcr:primaryType: hst:template
+      /ods-results:
+        hst:renderpath: webfile:/freemarker/common/ods-results.ftl
+        jcr:primaryType: hst:template
+      /ods-searchbar:
+        hst:renderpath: webfile:/freemarker/common/ods-searchbar.ftl
         jcr:primaryType: hst:template
       /past-event-hub-article:
         hst:renderpath: webfile:/freemarker/common/past-event-hub-article.ftl

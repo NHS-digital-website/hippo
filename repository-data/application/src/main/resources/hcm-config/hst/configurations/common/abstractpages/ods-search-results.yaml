@@ -1,0 +1,22 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:abstractpages/ods-search-results:
+      /top:
+        hst:componentclassname: uk.nhs.digital.common.components.OdsSearchComponent
+        hst:template: ods-searchbar
+        jcr:primaryType: hst:component
+      /top-menu:
+        hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
+        hst:parameternames:
+        - selectedMenu
+        - level
+        - menu
+        hst:parametervalues:
+        - 'on'
+        - '1'
+        - main
+        hst:template: base-top-menu
+        jcr:primaryType: hst:component
+      hst:template: app-layout-ods-search-results
+      jcr:primaryType: hst:component
