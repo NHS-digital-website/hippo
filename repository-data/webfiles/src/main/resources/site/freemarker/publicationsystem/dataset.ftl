@@ -141,7 +141,7 @@
                         <h2><@fmt.message key="headers.resources"/></h2>
                         <ul data-uipath="ps.dataset.resources" class="list">
                             <#list dataset.files as attachment>
-                                <li class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
+                                <li class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/DataDownload">
                                     <@externalstorageLink attachment.resource; url>
                                     <a itemprop="contentUrl" title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Data set','${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)"><span itemprop="name">${attachment.text}</span></a>
                                     </@externalstorageLink>
