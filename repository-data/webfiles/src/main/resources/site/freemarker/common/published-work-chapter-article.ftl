@@ -67,8 +67,8 @@
                         <div class="column column--one-half column--left">
                             <ul class="list list--reset cta-list">
                             <#list splitChapters.left as chapter>
-                                <li itemprop="hasPart" itemscope itemtype="http://schema.org/WebPage">
-                                    <a itemprop="url" href="${chapter.link}" title="${chapter.title}"><span itemprop="name">${chapter.title}</span></a>
+                                <li>
+                                    <a href="${chapter.link}" title="${chapter.title}">${chapter.title}</a>
                                 </li>
                             </#list>
                             </ul>
@@ -78,8 +78,8 @@
                             <div class="column column--one-half column--right">
                             <ul class="list list--reset cta-list">
                             <#list splitChapters.right as chapter>
-                                <li itemprop="hasPart" itemscope itemtype="http://schema.org/WebPage">
-                                    <a itemprop="url" href="${chapter.link}" title="${chapter.title}"><span itemprop="name">${chapter.title}</span></a>
+                                <li>
+                                    <a href="${chapter.link}" title="${chapter.title}">${chapter.title}</a>
                                 </li>
                             </#list>
                             </ul>
@@ -119,6 +119,6 @@
     </div>
 
     <#-- <#if hasChapters>
-        <a itemprop="url" href="<@hst.link var=link hippobean=chapter />" title="${chapter.title}"><span itemprop="name">${chapter.title}</span></a>
+        <a href="<@hst.link var=link hippobean=chapter />" title="${chapter.title}">${chapter.title}</a>
     </#if> -->
 </article>
