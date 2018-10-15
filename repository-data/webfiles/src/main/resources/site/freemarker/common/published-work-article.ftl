@@ -142,8 +142,8 @@
                     <div class="column column--one-half column--left">
                         <ul class="list list--reset cta-list">
                         <#list splitChapters.left as childPage>
-                            <li itemprop="hasPart" itemscope itemtype="http://schema.org/WebPage">
-                                <a itemprop="url" href="<@hst.link var=link hippobean=childPage />" title="${childPage.title}"><span itemprop="name">${childPage.title}</span></a>
+                            <li>
+                                <a href="<@hst.link var=link hippobean=childPage />" title="${childPage.title}">${childPage.title}</a>
                             </li>
                         </#list>
                         </ul>
@@ -153,8 +153,8 @@
                         <div class="column column--one-half column--right">
                         <ul class="list list--reset cta-list">
                         <#list splitChapters.right as childPage>
-                            <li itemprop="hasPart" itemscope itemtype="http://schema.org/WebPage">
-                                <a itemprop="url" href="<@hst.link var=link hippobean=childPage />" title="${childPage.title}"><span itemprop="name">${childPage.title}</span></a>
+                            <li>
+                                <a href="<@hst.link var=link hippobean=childPage />" title="${childPage.title}">${childPage.title}</a>
                             </li>
                         </#list>
                         </ul>

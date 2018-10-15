@@ -15,6 +15,7 @@ import org.htmlcleaner.*;
 import org.slf4j.*;
 import uk.nhs.digital.website.beans.Section;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import javax.jcr.*;
@@ -139,6 +140,11 @@ public class GoogleAnalyticsContentRewriter extends SimpleContentRewriter {
 
             }
         }
+
+        // Remove any content added by CKeditor to iFrame tag (temp)
+        TagNode[] iframes = rootNode.getElementsByName("iframe", true);
+        Arrays.stream(iframes)
+            .forEach(TagNode::removeAllChildren);
 
         // everything is rewritten. Now write the "body" element
         // as result
