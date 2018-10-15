@@ -24,32 +24,32 @@
     <#assign fieldClassName = hasError?then("eforms-field eforms-field--invalid", "eforms-field") />
 
     <#if field.type == "simpletextfield">
-         <div class="eforms-text" name="${field.formRelativeUniqueName}">
+         <div class="eforms-text">
             <#if field.label?has_content>
-            <div class="eforms-label ${field.styleClass!}">${field.label!}</div>
+            <div class="eforms-label ${field.styleClass!}" id="${field.formRelativeUniqueName}">${field.label!}</div>
             </#if>
             <p>${field.hint!}</p>
         </div>
     <#elseif field.type == "textfield">
         <div class="${fieldClassName}">
-            <label class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
-            <input type="text" name="${field.formRelativeUniqueName}" class="${field.styleClass!}" autocomplete="nope" value="${field.value!}"
+            <label for="${field.formRelativeUniqueName}" class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
+            <input type="text" name="${field.formRelativeUniqueName}" id="${field.formRelativeUniqueName}" class="${field.styleClass!}" autocomplete="off" value="${field.value!}"
             <#if (field.length > 0)>size="${field.length}"</#if> <#if (field.minLength > 0)>minlength="${removeCommas(field.minLength)}"</#if> <#if (field.maxLength > 0)>maxlength="${removeCommas(field.maxLength)}"</#if> />
             <@renderError errorMessage = error />
             <span class="eforms-hint">${field.hint!}</span>
         </div>
     <#elseif field.type == "passwordfield">
         <div class="${fieldClassName}">
-            <label class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
-            <input type="password" name="${field.formRelativeUniqueName}" autocomplete="nope" class="${field.styleClass!}"
+            <label for="${field.formRelativeUniqueName}" class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
+            <input type="password" name="${field.formRelativeUniqueName}" id="${field.formRelativeUniqueName}" autocomplete="off" class="${field.styleClass!}"
             <#if (field.length > 0)>size="${field.length}"</#if> <#if (field.minLength > 0)>minlength="${removeCommas(field.minLength)}"</#if> <#if (field.maxLength > 0)>maxlength="${removeCommas(field.maxLength)}"</#if> />
             <@renderError errorMessage = error />
             <span class="eforms-hint">${field.hint!}</span>
         </div>
     <#elseif field.type == "textarea">
         <div class="${fieldClassName}">
-            <label class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
-            <textarea name="${field.formRelativeUniqueName}" autocomplete="nope" class="${field.styleClass!}"
+            <label for="${field.formRelativeUniqueName}" class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
+            <textarea name="${field.formRelativeUniqueName}" id="${field.formRelativeUniqueName}" autocomplete="off" class="${field.styleClass!}"
             cols="${field.cols}" rows="${field.rows}"
             <#if (field.minLength > 0)>minlength="${removeCommas(field.minLength)}"</#if> <#if (field.maxLength > 0)>maxlength="${removeCommas(field.maxLength)}"</#if>>${field.value!}</textarea>
             <@renderError errorMessage = error />
@@ -57,8 +57,8 @@
         </div>
     <#elseif field.type == "dropdown">
         <div class="${fieldClassName}">
-            <label class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
-            <select name="${field.formRelativeUniqueName}" class="${field.styleClass!}">
+            <label for="${field.formRelativeUniqueName}" class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
+            <select name="${field.formRelativeUniqueName}" id="${field.formRelativeUniqueName}" class="${field.styleClass!}">
                 <#list field.options as option>
                 <option value="${option.value!}" <#if option.selected>selected="selected"</#if>>${option.text!}</option>
                 </#list>
@@ -68,8 +68,8 @@
         </div>
     <#elseif field.type == "fileuploadfield">
         <div class="${fieldClassName}">
-            <label class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
-            <input type="file" name="${field.formRelativeUniqueName}" class="${field.styleClass!}"
+            <label for="${field.formRelativeUniqueName}" class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
+            <input type="file" name="${field.formRelativeUniqueName}" id="${field.formRelativeUniqueName}" class="${field.styleClass!}"
             data-validate="fileSizeAndExtension" data-max-size="${field.maxUploadSize}"
             data-allowed-extensions="<#if field.fileExtensions?? && (field.fileExtensions?size > 0)>${field.fileExtensions?join(",")}</#if>" />
             <@renderError errorMessage = error />
@@ -82,8 +82,8 @@
             <@fmt.formatDate value=field.getInitialValue()?datetime type="Date" pattern="${field.dateFormat}" var="value" timeZone="${getTimeZone()}" />
             </#if>
 
-            <label class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
-            <input type="text" name="${field.formRelativeUniqueName}" class="date ${field.styleClass!}" value="${value!}" autocomplete="nope" />
+            <label for="${field.formRelativeUniqueName}" class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>
+            <input type="text" name="${field.formRelativeUniqueName}" id="${field.formRelativeUniqueName}" class="date ${field.styleClass!}" value="${value!}" autocomplete="off" />
             <@renderError errorMessage = error />
             <span class="eforms-hint">${field.hint!}</span>
         </div>
@@ -108,18 +108,19 @@
             <ul class="radiogroup">
                 <#list field.fields as radio>
                 <li>
-                    <label>
-                        <input type="radio" name="${field.formRelativeUniqueName}" class="${radio.styleClass!}" value="${radio.value!}" <#if radio.checked>checked="true"</#if> />
+                    <label for="${slugify(field.formRelativeUniqueName)}-${slugify(radio.value!)}">
+                        <input type="radio" name="${field.formRelativeUniqueName}" id="${slugify(field.formRelativeUniqueName)}-${slugify(radio.value!)}" class="${radio.styleClass!}" value="${radio.value!}" <#if radio.checked>checked="true"</#if> />
                         ${radio.label!}
                     </label>
                 </li>
                 </#list>
                 <#if field.allowOther>
                 <li>
-                    <label>
-                        <input type="radio" name="${field.formRelativeUniqueName}" class="${field.styleClass!}" value="${field.renderOtherValue!}" <#if field.otherValue>checked="true"</#if> /> Other:
+                    <label for="${slugify(field.formRelativeUniqueName)}-${slugify(field.renderOtherValue!)}">
+                        <input type="radio" name="${field.formRelativeUniqueName}" id="${slugify(field.formRelativeUniqueName)}-${slugify(field.renderOtherValue!)}" class="${field.styleClass!}" value="${field.renderOtherValue!}" <#if field.otherValue>checked="true"</#if> /> Other:
                     </label>
-                    <input type="text" value="<#if field.otherValue>${field.value!}</#if>" name="${field.otherFieldName!}" autocomplete="nope" class="textfield-other" <#if (field.length > 0)>size="${field.length}"</#if> <#if (field.minLength > 0)>minlength="${removeCommas(field.minLength)}"</#if> <#if (field.maxLength > 0)>maxlength="${removeCommas(field.maxLength)}"</#if> />
+                    <input type="text" value="<#if field.otherValue>${field.value!}</#if>" name="${field.otherFieldName!}" id="${slugify(field.formRelativeUniqueName)}-${slugify(field.otherFieldName!)}" autocomplete="off" class="textfield-other" <#if (field.length > 0)>size="${field.length}"</#if> <#if (field.minLength > 0)>minlength="${removeCommas(field.minLength)}"</#if> <#if (field.maxLength > 0)>maxlength="${removeCommas(field.maxLength)}"</#if> />
+                    <label for="${slugify(field.formRelativeUniqueName)}-${slugify(field.otherFieldName!)}" class="visually-hidden">Other:</label>
                 </li>
                 </#if>
             </ul>
@@ -132,20 +133,21 @@
             <ul class="checkboxgroup">
                 <#list field.fields as checkbox>
                 <li>
-                    <label>
-                        <input type="checkbox" name="${checkbox.formRelativeUniqueName}" class="${checkbox.styleClass!}" value="${checkbox.value!}"
+                    <label for="${slugify(checkbox.formRelativeUniqueName)}-${slugify(checkbox.value)}">
+                        <input type="checkbox" name="${checkbox.formRelativeUniqueName}" id="${slugify(checkbox.formRelativeUniqueName)}-${slugify(checkbox.value)}" class="${checkbox.styleClass!}" value="${checkbox.value!}"
                         <#if checkbox.checked>checked="true"</#if> />${checkbox.label!}
                     </label>
                 </li>
                 </#list>
                 <#if field.allowOther>
                 <li>
-                    <label>
-                        <input type="checkbox" name="${field.formRelativeUniqueName}" class="${field.styleClass!}" value="${field.renderOtherValue!}"
+                    <label for="${slugify(field.formRelativeUniqueName)}-${slugify(field.renderOtherValue!)}" >
+                        <input type="checkbox" name="${field.formRelativeUniqueName}" id="${slugify(field.formRelativeUniqueName)}-${slugify(field.renderOtherValue!)}" class="${field.styleClass!}" value="${field.renderOtherValue!}"
                         <#if field.otherValue>checked="true"</#if> />Other:
                     </label>
-                    <input type="text" value="<#if field.otherValue>${field.value!}</#if>" name="${field.otherFieldName!}" autocomplete="nope" class="textfield-other"
+                    <input type="text" value="<#if field.otherValue>${field.value!}</#if>" name="${field.otherFieldName!}" id="${slugify(field.formRelativeUniqueName)}-${slugify(field.otherFieldName!)}" autocomplete="off" class="textfield-other"
                     <#if (field.length > 0)>size="${field.length}"</#if> <#if (field.minLength > 0)>minlength="${removeCommas(field.minLength)}"</#if> <#if (field.maxLength > 0)>maxlength="${removeCommas(field.maxLength)}"</#if> />
+                    <label for="${slugify(field.formRelativeUniqueName)}-${slugify(field.otherFieldName!)}" class="visually-hidden">Other:</label>
                 </li>
                 </#if>
             </ul>
@@ -170,8 +172,9 @@
                     <td>${pair.key.label!}</td>
                     <#list pair.value as radio>
                     <td>
-                        <input type="radio" name="${radio.formRelativeUniqueName}" class="${radio.styleClass!}" value="${radio.value!}"
+                        <input type="radio" name="${radio.formRelativeUniqueName}" id="${slugify(radio.formRelativeUniqueName)}-${slugify(radio.value)}" class="${radio.styleClass!}" value="${radio.value!}"
                         <#if radio.checked>checked="true"</#if> />
+                        <label for="${slugify(radio.formRelativeUniqueName)}-${slugify(radio.value)}" class="visually-hidden">${radio.value!}</label>
                     </td>
                     </#list>
                 </tr>
@@ -180,31 +183,6 @@
             <@renderError errorMessage = error />
             <span class="eforms-hint">${field.hint!}</span>
         </div>
-    <#elseif field.type == "antispam">
 
-    <#assign cssClass="eforms-field">
-    <#if field.extraCssClass?has_content>
-    <#assign cssClass="eforms-field ${field.extraCssClass}">
-    </#if>
-
-    <#if field.honeyPot>
-    <div class="${cssClass}" <#if !field.extraCssClass?has_content>style="display:none"</#if>>
-        <label class="eforms-label">${field.label}<span class="eforms-req">${field.requiredMarker}</span></label>
-        <input type="text" name="${field.formRelativeUniqueName}" class="${field.styleClass}" value="${field.value!}"/>
-    </div>
-    <#elseif field.slider>
-    <div class="${cssClass}">
-        <div id="slider"></div>
-        <input type="hidden" id="sliderInput" name="${field.formRelativeUniqueName}" value=""/>
-        <div id="notSlided" style="display:block">
-            <p>Slide to be able to submit</p>
-        </div>
-        <div id="slided" style="display:none">
-            <p>You may submit the form</p>
-        </div>
-    </div>
-    <#else>
-    ${field.antiSpamType}
-    </#if>
     </#if>
 </#macro>
