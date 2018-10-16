@@ -162,6 +162,7 @@
 
         <!-- project logging -->
         <Logger name="uk.nhs.digital" level="debug" />
+        <Logger name="com.onehippo.cms7.targeting" level="warn"/>
 
         <Root level="warn">
             <AppenderRef ref="site"/>

@@ -1,0 +1,5 @@
+---
+definitions:
+  config:
+    /targeting:targeting/targeting:datastores/targeting:targetingdata:
+      maxAgeDays: 60

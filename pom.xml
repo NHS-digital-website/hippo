@@ -347,6 +347,12 @@
                 <version>1.19.1</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>2.8.0</version>
+            </dependency>
+
             <!--
                 Import Export
             -->
@@ -567,6 +573,15 @@
             <properties>
                 <!--Already defined in hippo-cms-project POM. Override here for project, if necessary-->
                 <!--<repo.bootstrap>true</repo.bootstrap>-->
+                <es.tcpPort>9300</es.tcpPort>
+                <es.path>${project.build.directory}/storage</es.path>
+                <es.skip.start>false</es.skip.start>
+                <targeting.truncate>true</targeting.truncate>
+                <es.httpPort>9200</es.httpPort>
+                <targeting.bootstrap>false</targeting.bootstrap>
+                <sql.driver>org.h2.Driver</sql.driver>
+                <sql.url>jdbc:h2:${repo.path}/targeting/targeting;AUTO_SERVER=TRUE</sql.url>
+                <sql.username>sa</sql.username>
             </properties>
             <dependencies>
                 <dependency>
@@ -677,6 +692,36 @@
                                     </dependency>
                                 </dependencies>
                             </container>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>com.github.alexcojocaru</groupId>
+                        <artifactId>elasticsearch-maven-plugin</artifactId>
+                        <version>${maven.plugin.elasticsearch.version}</version>
+                        <executions>
+                            <execution>
+                                <id>start-elasticsearch</id>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>runforked</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>stop-elasticsearch</id>
+                                <phase>post-integration-test</phase>
+                                <goals>
+                                    <goal>stop</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <clusterName>esDevCluster</clusterName>
+                            <httpPort>${es.httpPort}</httpPort>
+                            <transportPort>${es.tcpPort}</transportPort>
+                            <version>${maven.plugin.elasticsearch.configuration.version}</version>
+                            <keepExistingData>true</keepExistingData>
+                            <timeout>60</timeout>
+                            <skip>${es.skip.start}</skip>
                         </configuration>
                     </plugin>
                 </plugins>
