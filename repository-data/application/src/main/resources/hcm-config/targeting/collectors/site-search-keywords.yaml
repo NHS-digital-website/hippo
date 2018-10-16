@@ -1,0 +1,6 @@
+---
+definitions:
+  config:
+    /targeting:targeting/targeting:collectors/site-search-keywords:
+      jcr:primaryType: targeting:collector
+      targeting:className: com.onehippo.cms7.targeting.collectors.SiteSearchKeywordsCollector

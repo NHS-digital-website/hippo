@@ -234,6 +234,17 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-targeting-dependencies-cms</artifactId>
+            <type>pom</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-targeting-bundle-collectors</artifactId>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>cms</finalName>

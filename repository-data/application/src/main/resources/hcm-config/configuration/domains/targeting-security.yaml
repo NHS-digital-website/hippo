@@ -1,0 +1,8 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/targeting-security/editor:
+      hipposys:groups:
+      - editor
+      hipposys:role: editor
+      jcr:primaryType: hipposys:authrole

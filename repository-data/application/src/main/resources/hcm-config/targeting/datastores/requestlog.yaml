@@ -1,0 +1,5 @@
+---
+definitions:
+  config:
+    /targeting:targeting/targeting:datastores/targeting:requestlog:
+      maxAgeDays: 35
