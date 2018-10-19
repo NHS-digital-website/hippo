@@ -193,6 +193,11 @@
             }
         });
 
+        $('.article-section-nav__list a').click(function() {
+            var match = jQuery(this).attr('href').match(/#\S+/);
+            logGoogleAnalyticsEvent('Link click','Section Nav',location.pathname + match[0]);
+        });
+
         init();
     }());
 </script>
