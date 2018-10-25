@@ -11,7 +11,7 @@ definitions:
             /hst:root:
               hst:mountpoint: /hst:hst/hst:sites/common
               hst:responseheaders:
-              - 'Strict-Transport-Security : max-age=86400'
+              - 'Strict-Transport-Security : max-age=31536000'
               jcr:primaryType: hst:mount
             jcr:primaryType: hst:virtualhost
           jcr:primaryType: hst:virtualhost
