@@ -224,6 +224,37 @@ public class TestContentUrls {
         addSiteUrl("Geographic Coverage - Other combination",
             "/data-and-information/publications/acceptance-tests/geographiccoverage-test/other-combination");
 
+        // General page
+        addSiteUrl("General test document",
+            "/website-acceptance-tests/general-test-document");
+
+        // Service page
+        addSiteUrl("Service test document",
+            "/website-acceptance-tests/service-test-document");
+
+        // Hub page
+        addSiteUrl("Hub test document",
+            "/website-acceptance-tests/hub-test-document");
+
+        // Published work page
+        addSiteUrl("Published Work test document",
+            "/website-acceptance-tests/published-work-test-document");
+
+        // Published work chapter page
+        addSiteUrl("Published Work Chapter test document",
+            "/website-acceptance-tests/published-work-chapter-test-document");
+
+        // Links list page
+        addSiteUrl("Links list test document",
+            "/website-acceptance-tests/links-list-test-document");
+
+        // GDPR Summary page
+        addSiteUrl("GDPR Summary test document",
+            "/website-acceptance-tests/gdpr-summary-test-document");
+
+        // GDPR Transparency page
+        addSiteUrl("GDPR Transparency test document",
+            "/website-acceptance-tests/gdpr-transparency-test-document");
     }
 
     private void setupCmsUrls() {

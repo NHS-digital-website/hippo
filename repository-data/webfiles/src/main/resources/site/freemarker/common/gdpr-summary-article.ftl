@@ -8,7 +8,7 @@
 <@metaTags></@metaTags>
 
 <@hst.setBundle basename="rb.doctype.gdpr-summary"/>
-<#assign hasSummaryContent = document.summary?has_content />
+<#assign hasSummaryContent = document.summary?? && document.summary?has_content />
 <#assign hasBodyContent = document.body.content?? && document.body.content?has_content />
 <#assign hasContent = hasBodyContent || hasSummaryContent />
 <#assign hasContactDetails = document.contactdetails?? && document.contactdetails.content?has_content />
@@ -32,7 +32,7 @@
         <div class="grid-row">
             <div class="column column--two-thirds column--reset">
                 <div class="article-header article-header--secondary">
-                    <h1>${document.title}</h1>
+                    <h1 data-uipath="document.title">${document.title}</h1>
                 </div>
             </div>
         </div>
@@ -46,11 +46,11 @@
                         <div class="column column--reset">
                             <div class="rich-text-content">
                                 <#if hasSummaryContent>
-                                <p>${document.summary}</p>
+                                    <div data-uipath="website.gdprsummary.summary"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></div>
                                 </#if>
 
                                 <#if hasBodyContent>
-                                <@hst.html hippohtml=document.body contentRewriter=gaContentRewriter/>
+                                    <@hst.html hippohtml=document.body contentRewriter=gaContentRewriter/>
                                 </#if>
                             </div>
                         </div>

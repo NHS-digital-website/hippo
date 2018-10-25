@@ -19,6 +19,14 @@
       /website:componentlist:
         hippo:docbase: bbcc03b7-f4a5-46fc-82d2-18a3f634cca2
         jcr:primaryType: hippo:mirror
+      /website:summary:
+        hippostd:content: "<p>Assertively empower wireless communities with client-centric\
+          \ platforms. Monotonectally formulate clicks-and-mortar convergence for\
+          \ long-term high-impact methodologies. Assertively deploy strategic benefits\
+          \ for equity invested technology. Enthusiastically embrace progressive paradigms\
+          \ and orthogonal infrastructures.\r\n\r\nUniquely predominate functional\
+          \ processes and one-to-one catalysts.</p>"
+        jcr:primaryType: hippostd:html
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
@@ -37,12 +45,6 @@
         high-impact methodologies.
       website:shortsummary: Seamlessly transform competitive experiences whereas enterprise
         core competencies
-      website:summary: "Assertively empower wireless communities with client-centric\
-        \ platforms. Monotonectally formulate clicks-and-mortar convergence for long-term\
-        \ high-impact methodologies. Assertively deploy strategic benefits for equity\
-        \ invested technology. Enthusiastically embrace progressive paradigms and\
-        \ orthogonal infrastructures.\r\n\r\nUniquely predominate functional processes\
-        \ and one-to-one catalysts."
       website:title: Seamlessly transform competitive experiences whereas enterprise
         core competencies
     /content[2]:
@@ -63,6 +65,14 @@
       /website:componentlist:
         hippo:docbase: bbcc03b7-f4a5-46fc-82d2-18a3f634cca2
         jcr:primaryType: hippo:mirror
+      /website:summary:
+        hippostd:content: "<p>Assertively empower wireless communities with client-centric\
+          \ platforms. Monotonectally formulate clicks-and-mortar convergence for\
+          \ long-term high-impact methodologies. Assertively deploy strategic benefits\
+          \ for equity invested technology. Enthusiastically embrace progressive paradigms\
+          \ and orthogonal infrastructures.\r\n\r\nUniquely predominate functional\
+          \ processes and one-to-one catalysts.</p>"
+        jcr:primaryType: hippostd:html
       common:searchable: true
       hippo:availability:
       - preview
@@ -83,12 +93,6 @@
         high-impact methodologies.
       website:shortsummary: Seamlessly transform competitive experiences whereas enterprise
         core competencies
-      website:summary: "Assertively empower wireless communities with client-centric\
-        \ platforms. Monotonectally formulate clicks-and-mortar convergence for long-term\
-        \ high-impact methodologies. Assertively deploy strategic benefits for equity\
-        \ invested technology. Enthusiastically embrace progressive paradigms and\
-        \ orthogonal infrastructures.\r\n\r\nUniquely predominate functional processes\
-        \ and one-to-one catalysts."
       website:title: Seamlessly transform competitive experiences whereas enterprise
         core competencies
     /content[3]:
@@ -109,6 +113,14 @@
       /website:componentlist:
         hippo:docbase: bbcc03b7-f4a5-46fc-82d2-18a3f634cca2
         jcr:primaryType: hippo:mirror
+      /website:summary:
+        hippostd:content: "<p>Assertively empower wireless communities with client-centric\
+          \ platforms. Monotonectally formulate clicks-and-mortar convergence for\
+          \ long-term high-impact methodologies. Assertively deploy strategic benefits\
+          \ for equity invested technology. Enthusiastically embrace progressive paradigms\
+          \ and orthogonal infrastructures.\r\n\r\nUniquely predominate functional\
+          \ processes and one-to-one catalysts.</p>"
+        jcr:primaryType: hippostd:html
       common:searchable: true
       hippo:availability:
       - live
@@ -129,12 +141,6 @@
         high-impact methodologies.
       website:shortsummary: Seamlessly transform competitive experiences whereas enterprise
         core competencies
-      website:summary: "Assertively empower wireless communities with client-centric\
-        \ platforms. Monotonectally formulate clicks-and-mortar convergence for long-term\
-        \ high-impact methodologies. Assertively deploy strategic benefits for equity\
-        \ invested technology. Enthusiastically embrace progressive paradigms and\
-        \ orthogonal infrastructures.\r\n\r\nUniquely predominate functional processes\
-        \ and one-to-one catalysts."
       website:title: Seamlessly transform competitive experiences whereas enterprise
         core competencies
     hippo:name: Hub Document
@@ -153,6 +159,15 @@
 
             <p>Appropriately mesh cutting-edge deliverables after user-centric products. Distinctively.</p>
           jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: "<p>Distinctively synergize customer directed collaboration\
+            \ and idea-sharing without standardized benefits. Conveniently promote\
+            \ dynamic e-markets for 24/7 schemas. Competently orchestrate real-time\
+            \ models through diverse convergence. Appropriately reinvent technically\
+            \ sound relationships via fully researched meta-services. Completely pontificate\
+            \ high standards in initiatives for low-risk high-yield web-readiness.\r\
+            \n\r\nCredibly initiate.</p>"
+          jcr:primaryType: hippostd:html
         common:searchable: true
         hippo:availability: []
         hippostd:state: draft
@@ -169,13 +184,6 @@
           and idea-sharing without standardized
         website:shortsummary: Distinctively synergize customer directed collaboration
           and idea-sharing without standardized
-        website:summary: "Distinctively synergize customer directed collaboration\
-          \ and idea-sharing without standardized benefits. Conveniently promote dynamic\
-          \ e-markets for 24/7 schemas. Competently orchestrate real-time models through\
-          \ diverse convergence. Appropriately reinvent technically sound relationships\
-          \ via fully researched meta-services. Completely pontificate high standards\
-          \ in initiatives for low-risk high-yield web-readiness.\r\n\r\nCredibly\
-          \ initiate."
         website:title: 'General Document #1'
       /content[2]:
         /website:component:
@@ -185,6 +193,15 @@
             <p>Convergence without enabled solutions. Dynamically drive cutting-edge e-services with installed base meta-services. Progressively strategize dynamic information via orthogonal experiences. Collaboratively revolutionize client-focused applications with plug-and-play services. Professionally evolve intuitive leadership through granular best practices.</p>
 
             <p>Appropriately mesh cutting-edge deliverables after user-centric products. Distinctively.</p>
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: "<p>Distinctively synergize customer directed collaboration\
+            \ and idea-sharing without standardized benefits. Conveniently promote\
+            \ dynamic e-markets for 24/7 schemas. Competently orchestrate real-time\
+            \ models through diverse convergence. Appropriately reinvent technically\
+            \ sound relationships via fully researched meta-services. Completely pontificate\
+            \ high standards in initiatives for low-risk high-yield web-readiness.\r\
+            \n\r\nCredibly initiate.</p>"
           jcr:primaryType: hippostd:html
         common:searchable: true
         hippo:availability:
@@ -204,13 +221,6 @@
           and idea-sharing without standardized
         website:shortsummary: Distinctively synergize customer directed collaboration
           and idea-sharing without standardized
-        website:summary: "Distinctively synergize customer directed collaboration\
-          \ and idea-sharing without standardized benefits. Conveniently promote dynamic\
-          \ e-markets for 24/7 schemas. Competently orchestrate real-time models through\
-          \ diverse convergence. Appropriately reinvent technically sound relationships\
-          \ via fully researched meta-services. Completely pontificate high standards\
-          \ in initiatives for low-risk high-yield web-readiness.\r\n\r\nCredibly\
-          \ initiate."
         website:title: 'General Document #1'
       /content[3]:
         /website:component:
@@ -220,6 +230,15 @@
             <p>Convergence without enabled solutions. Dynamically drive cutting-edge e-services with installed base meta-services. Progressively strategize dynamic information via orthogonal experiences. Collaboratively revolutionize client-focused applications with plug-and-play services. Professionally evolve intuitive leadership through granular best practices.</p>
 
             <p>Appropriately mesh cutting-edge deliverables after user-centric products. Distinctively.</p>
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: "<p>Distinctively synergize customer directed collaboration\
+            \ and idea-sharing without standardized benefits. Conveniently promote\
+            \ dynamic e-markets for 24/7 schemas. Competently orchestrate real-time\
+            \ models through diverse convergence. Appropriately reinvent technically\
+            \ sound relationships via fully researched meta-services. Completely pontificate\
+            \ high standards in initiatives for low-risk high-yield web-readiness.\r\
+            \n\r\nCredibly initiate.</p>"
           jcr:primaryType: hippostd:html
         common:searchable: true
         hippo:availability:
@@ -239,13 +258,6 @@
           and idea-sharing without standardized
         website:shortsummary: Distinctively synergize customer directed collaboration
           and idea-sharing without standardized
-        website:summary: "Distinctively synergize customer directed collaboration\
-          \ and idea-sharing without standardized benefits. Conveniently promote dynamic\
-          \ e-markets for 24/7 schemas. Competently orchestrate real-time models through\
-          \ diverse convergence. Appropriately reinvent technically sound relationships\
-          \ via fully researched meta-services. Completely pontificate high standards\
-          \ in initiatives for low-risk high-yield web-readiness.\r\n\r\nCredibly\
-          \ initiate."
         website:title: 'General Document #1'
       hippo:name: 'General Document #1'
       jcr:mixinTypes:
@@ -282,6 +294,7 @@
               <p>Holisticly conceptualize client-based.</p>
             jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
+          website:numberedList: false
           website:title: Section One
           website:type: ''
         /website:sections[2]:
@@ -307,6 +320,14 @@
           jcr:primaryType: website:section
           website:title: Section Three
           website:type: ''
+        /website:summary:
+          hippostd:content: <p>Continually grow cross functional web-readiness vis-a-vis
+            cross-unit channels. Quickly leverage other's high standards in leadership
+            skills for cross-platform e-markets. Authoritatively network competitive
+            methodologies whereas cross functional value. Credibly brand an expanded
+            array of technologies before enterprise technology. Enthusiastically provide
+            access to timely e-tailers with effective.</p>
+          jcr:primaryType: hippostd:html
         common:searchable: true
         hippo:availability: []
         hippostd:state: draft
@@ -324,12 +345,6 @@
           skills for cross-platform e-markets
         website:shortsummary: Continually grow cross functional web-readiness vis-a-vis
           cross-unit channels
-        website:summary: Continually grow cross functional web-readiness vis-a-vis
-          cross-unit channels. Quickly leverage other's high standards in leadership
-          skills for cross-platform e-markets. Authoritatively network competitive
-          methodologies whereas cross functional value. Credibly brand an expanded
-          array of technologies before enterprise technology. Enthusiastically provide
-          access to timely e-tailers with effective.
         website:title: 'General Document #2'
       /content[2]:
         /website:component:
@@ -348,6 +363,7 @@
               <p>Holisticly conceptualize client-based.</p>
             jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
+          website:numberedList: false
           website:title: Section One
           website:type: ''
         /website:sections[2]:
@@ -373,6 +389,14 @@
           jcr:primaryType: website:section
           website:title: Section Three
           website:type: ''
+        /website:summary:
+          hippostd:content: <p>Continually grow cross functional web-readiness vis-a-vis
+            cross-unit channels. Quickly leverage other's high standards in leadership
+            skills for cross-platform e-markets. Authoritatively network competitive
+            methodologies whereas cross functional value. Credibly brand an expanded
+            array of technologies before enterprise technology. Enthusiastically provide
+            access to timely e-tailers with effective.</p>
+          jcr:primaryType: hippostd:html
         common:searchable: true
         hippo:availability:
         - preview
@@ -392,12 +416,6 @@
           skills for cross-platform e-markets
         website:shortsummary: Continually grow cross functional web-readiness vis-a-vis
           cross-unit channels
-        website:summary: Continually grow cross functional web-readiness vis-a-vis
-          cross-unit channels. Quickly leverage other's high standards in leadership
-          skills for cross-platform e-markets. Authoritatively network competitive
-          methodologies whereas cross functional value. Credibly brand an expanded
-          array of technologies before enterprise technology. Enthusiastically provide
-          access to timely e-tailers with effective.
         website:title: 'General Document #2'
       /content[3]:
         /website:component:
@@ -416,6 +434,7 @@
               <p>Holisticly conceptualize client-based.</p>
             jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
+          website:numberedList: false
           website:title: Section One
           website:type: ''
         /website:sections[2]:
@@ -441,6 +460,14 @@
           jcr:primaryType: website:section
           website:title: Section Three
           website:type: ''
+        /website:summary:
+          hippostd:content: <p>Continually grow cross functional web-readiness vis-a-vis
+            cross-unit channels. Quickly leverage other's high standards in leadership
+            skills for cross-platform e-markets. Authoritatively network competitive
+            methodologies whereas cross functional value. Credibly brand an expanded
+            array of technologies before enterprise technology. Enthusiastically provide
+            access to timely e-tailers with effective.</p>
+          jcr:primaryType: hippostd:html
         common:searchable: true
         hippo:availability:
         - live
@@ -460,12 +487,6 @@
           skills for cross-platform e-markets
         website:shortsummary: Continually grow cross functional web-readiness vis-a-vis
           cross-unit channels
-        website:summary: Continually grow cross functional web-readiness vis-a-vis
-          cross-unit channels. Quickly leverage other's high standards in leadership
-          skills for cross-platform e-markets. Authoritatively network competitive
-          methodologies whereas cross functional value. Credibly brand an expanded
-          array of technologies before enterprise technology. Enthusiastically provide
-          access to timely e-tailers with effective.
         website:title: 'General Document #2'
       hippo:name: 'General Document #2'
       jcr:mixinTypes:

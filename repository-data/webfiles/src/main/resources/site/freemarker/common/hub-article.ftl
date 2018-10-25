@@ -14,7 +14,7 @@
                 <div class="article-header article-header--secondary">
                     <div class="grid-row">
                         <div class="column column--two-thirds column--reset">
-                            <h1 data-uipath="document.title">${document.title}</h1>
+                            <h1 data-uipath="document.title" data-uipath="document.title">${document.title}</h1>
                         </div>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
                     <div class="grid-row">
                         <div class="column column--two-thirds column--reset">
                             <div class="rich-text-content">
-                                <p>${document.summary}</p>
+                                <div data-uipath="website.hub.summary"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></div>
                                 <#if document.body?has_content??>
                                 <@hst.html hippohtml=document.body contentRewriter=gaContentRewriter/>
                                 </#if>

@@ -1,0 +1,1053 @@
+---
+/content/documents/corporate-website/website-acceptance-tests:
+  /gdpr-summary-test-document:
+    /gdpr-summary-test-document[1]:
+      /website:body:
+        hippostd:content: <p>GDPR summary body content to follow...</p>
+        jcr:primaryType: hippostd:html
+      /website:contactdetails:
+        hippostd:content: <p>Contact this organisation for GDPR summary information</p>
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:summary:
+        hippostd:content: |-
+          <p>GDPR Summary Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      common:FacetType: gdprsummary
+      common:searchRank: 1
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T12:44:22.116Z
+      hippostdpubwf:lastModificationDate: 2018-10-26T12:44:22.117Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 73e9f645-9491-40b5-9d64-09666058ea52
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:gdprsummary
+      website:seosummary: Some useful summary for the GDPR summary for purpose of
+        SEO
+      website:shortsummary: Browse our GDPR summary page
+      website:title: GDPR Summary AcceptanceTestDocument
+    /gdpr-summary-test-document[2]:
+      /website:body:
+        hippostd:content: <p>GDPR summary body content to follow...</p>
+        jcr:primaryType: hippostd:html
+      /website:contactdetails:
+        hippostd:content: <p>Contact this organisation for GDPR summary information</p>
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:summary:
+        hippostd:content: |-
+          <p>GDPR Summary Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      common:FacetType: gdprsummary
+      common:searchRank: 1
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T12:44:22.116Z
+      hippostdpubwf:lastModificationDate: 2018-10-26T12:49:04.565Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 73e9f645-9491-40b5-9d64-09666058ea52
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:gdprsummary
+      website:seosummary: Some useful summary for the GDPR summary for purpose of
+        SEO
+      website:shortsummary: Browse our GDPR summary page
+      website:title: GDPR Summary AcceptanceTestDocument
+    /gdpr-summary-test-document[3]:
+      /website:body:
+        hippostd:content: <p>GDPR summary body content to follow...</p>
+        jcr:primaryType: hippostd:html
+      /website:contactdetails:
+        hippostd:content: <p>Contact this organisation for GDPR summary information</p>
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:summary:
+        hippostd:content: |-
+          <p>GDPR Summary Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      common:FacetType: gdprsummary
+      common:searchRank: 1
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T12:44:22.116Z
+      hippostdpubwf:lastModificationDate: 2018-10-26T12:49:04.565Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-10-26T12:49:06.865Z
+      hippotranslation:id: 73e9f645-9491-40b5-9d64-09666058ea52
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:gdprsummary
+      website:seosummary: Some useful summary for the GDPR summary for purpose of
+        SEO
+      website:shortsummary: Browse our GDPR summary page
+      website:title: GDPR Summary AcceptanceTestDocument
+    hippo:name: GDPR Summary test document
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /gdpr-transparency-test-document:
+    /gdpr-transparency-test-document[1]:
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:legallywhy:
+        hippostd:content: <p>Legally why field content to follow..</p>
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: |-
+          <p>GDPR Transparency Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      /website:whocanaccessinfo:
+        hippostd:content: <p>Whi can access field content to go here.</p>
+        jcr:primaryType: hippostd:html
+      /website:withdrawconsent:
+        hippostd:content: <p>To discuss your rights on withdrawing consent or opting
+          out of the data you can&nbsp;<a href="mailto:enquiries@nhsdigital.nhs.uk">email
+          our customer service centre</a>&nbsp;or call us on 0300 303 5678.</p>
+        jcr:primaryType: hippostd:html
+      common:FacetType: gdprtransparency
+      common:searchRank: 2
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T12:51:33.331Z
+      hippostdpubwf:lastModificationDate: 2018-10-26T12:51:33.331Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 32ad26b6-90b2-47ad-a1db-614b0275f3bf
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:gdprtransparency
+      website:assetrefnumber: IA111222333444555
+      website:computerdecision: Computer says yes
+      website:datacontroller: NHS Digital
+      website:datasource: Datasource is good
+      website:howuseinformation: Audit purposes
+      website:lawfulbasis: legal-obligation
+      website:outsideuk: This data is not transferred out of the UK
+      website:rights:
+      - be-informed
+      - get-access-to-it
+      - erase-or-remove-it
+      - restrict-or-stop-processing-it
+      website:sensitivity: false
+      website:seosummary: Some useful summary for the GDPR transparency for purpose
+        of SEO
+      website:shortsummary: Browse our GDPR transparency page
+      website:timeretained: 1 week
+      website:title: GDPR Transparency AcceptanceTestDocument
+      website:titleinitialletter: G
+    /gdpr-transparency-test-document[2]:
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:legallywhy:
+        hippostd:content: <p>Legally why field content to follow..</p>
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: |-
+          <p>GDPR Transparency Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      /website:whocanaccessinfo:
+        hippostd:content: <p>Whi can access field content to go here.</p>
+        jcr:primaryType: hippostd:html
+      /website:withdrawconsent:
+        hippostd:content: <p>To discuss your rights on withdrawing consent or opting
+          out of the data you can&nbsp;<a href="mailto:enquiries@nhsdigital.nhs.uk">email
+          our customer service centre</a>&nbsp;or call us on 0300 303 5678.</p>
+        jcr:primaryType: hippostd:html
+      common:FacetType: gdprtransparency
+      common:searchRank: 2
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T12:51:33.331Z
+      hippostdpubwf:lastModificationDate: 2018-10-26T12:56:22.719Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 32ad26b6-90b2-47ad-a1db-614b0275f3bf
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:gdprtransparency
+      website:assetrefnumber: IA111222333444555
+      website:computerdecision: Computer says yes
+      website:datacontroller: NHS Digital
+      website:datasource: Datasource is good
+      website:howuseinformation: Audit purposes
+      website:lawfulbasis: legal-obligation
+      website:outsideuk: This data is not transferred out of the UK
+      website:rights:
+      - be-informed
+      - get-access-to-it
+      - erase-or-remove-it
+      - restrict-or-stop-processing-it
+      website:sensitivity: false
+      website:seosummary: Some useful summary for the GDPR transparency for purpose
+        of SEO
+      website:shortsummary: Browse our GDPR transparency page
+      website:timeretained: 1 week
+      website:title: GDPR Transparency AcceptanceTestDocument
+      website:titleinitialletter: G
+    /gdpr-transparency-test-document[3]:
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:legallywhy:
+        hippostd:content: <p>Legally why field content to follow..</p>
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: |-
+          <p>GDPR Transparency Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      /website:whocanaccessinfo:
+        hippostd:content: <p>Whi can access field content to go here.</p>
+        jcr:primaryType: hippostd:html
+      /website:withdrawconsent:
+        hippostd:content: <p>To discuss your rights on withdrawing consent or opting
+          out of the data you can&nbsp;<a href="mailto:enquiries@nhsdigital.nhs.uk">email
+          our customer service centre</a>&nbsp;or call us on 0300 303 5678.</p>
+        jcr:primaryType: hippostd:html
+      common:FacetType: gdprtransparency
+      common:searchRank: 2
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T12:51:33.331Z
+      hippostdpubwf:lastModificationDate: 2018-10-26T12:56:22.719Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-10-26T12:56:25.639Z
+      hippotranslation:id: 32ad26b6-90b2-47ad-a1db-614b0275f3bf
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:gdprtransparency
+      website:assetrefnumber: IA111222333444555
+      website:computerdecision: Computer says yes
+      website:datacontroller: NHS Digital
+      website:datasource: Datasource is good
+      website:howuseinformation: Audit purposes
+      website:lawfulbasis: legal-obligation
+      website:outsideuk: This data is not transferred out of the UK
+      website:rights:
+      - be-informed
+      - get-access-to-it
+      - erase-or-remove-it
+      - restrict-or-stop-processing-it
+      website:sensitivity: false
+      website:seosummary: Some useful summary for the GDPR transparency for purpose
+        of SEO
+      website:shortsummary: Browse our GDPR transparency page
+      website:timeretained: 1 week
+      website:title: GDPR Transparency AcceptanceTestDocument
+      website:titleinitialletter: G
+    hippo:name: GDPR Transparency test document
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /general-test-document:
+    /general-test-document[1]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:items:
+        jcr:primaryType: website:externallink
+        website:link: https://www.bbc.co.uk
+        website:shortsummary: some summary text
+        website:title: General external link
+      /website:sections:
+        /website:html:
+          hippostd:content: <p>General Section One lorem content</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Section One
+        website:type: ''
+      /website:summary:
+        hippostd:content: |-
+          <p>General Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph</p>
+
+          <p>A <a href="https://bbc.co.uk" title="BBC website">link</a> to external site.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T08:47:16.366Z
+      hippostdpubwf:lastModificationDate: 2018-10-26T10:47:05.260Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 6684c917-2061-438a-949a-ac0ffe6b10a1
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:general
+      website:gossid: 0
+      website:seosummary: SEO is good.  Some nice summary to help with Google rankings.
+      website:shortsummary: General short summary to go here
+      website:title: General AcceptanceTestDocument
+      website:type: guidance
+    /general-test-document[2]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:items:
+        jcr:primaryType: website:externallink
+        website:link: https://www.bbc.co.uk
+        website:shortsummary: some summary text
+        website:title: General external link
+      /website:sections:
+        /website:html:
+          hippostd:content: <p>General Section One lorem content</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Section One
+        website:type: ''
+      /website:summary:
+        hippostd:content: |-
+          <p>General Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph</p>
+
+          <p>A <a href="https://bbc.co.uk" title="BBC website">link</a> to external site.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T08:47:16.366Z
+      hippostdpubwf:lastModificationDate: 2018-10-26T10:47:10.488Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 6684c917-2061-438a-949a-ac0ffe6b10a1
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:general
+      website:gossid: 0
+      website:seosummary: SEO is good.  Some nice summary to help with Google rankings.
+      website:shortsummary: General short summary to go here
+      website:title: General AcceptanceTestDocument
+      website:type: guidance
+    /general-test-document[3]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:items:
+        jcr:primaryType: website:externallink
+        website:link: https://www.bbc.co.uk
+        website:shortsummary: some summary text
+        website:title: General external link
+      /website:sections:
+        /website:html:
+          hippostd:content: <p>General Section One lorem content</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Section One
+        website:type: ''
+      /website:summary:
+        hippostd:content: |-
+          <p>General Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph</p>
+
+          <p>A <a href="https://bbc.co.uk" title="BBC website">link</a> to external site.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T08:47:16.366Z
+      hippostdpubwf:lastModificationDate: 2018-10-26T10:47:10.488Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-10-26T10:47:13.005Z
+      hippotranslation:id: 6684c917-2061-438a-949a-ac0ffe6b10a1
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:general
+      website:gossid: 0
+      website:seosummary: SEO is good.  Some nice summary to help with Google rankings.
+      website:shortsummary: General short summary to go here
+      website:title: General AcceptanceTestDocument
+      website:type: guidance
+    hippo:name: General test document
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /hub-test-document:
+    /hub-test-document[1]:
+      /website:body:
+        hippostd:content: <p>Body hub text to be added here.</p>
+        jcr:primaryType: hippostd:html
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:summary:
+        hippostd:content: |-
+          <p>Hub Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T10:59:10.984Z
+      hippostdpubwf:lastModificationDate: 2018-10-26T10:59:10.984Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: dda3e13d-c145-4e74-9b49-ddd9d31d0b11
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:hub
+      website:gossid: 0
+      website:listtitle: ''
+      website:seosummary: Some useful summary for the hub for purpose of SEO
+      website:shortsummary: Browse our hub page
+      website:title: Hub AcceptanceTestDocument
+    /hub-test-document[2]:
+      /website:body:
+        hippostd:content: <p>Body hub text to be added here.</p>
+        jcr:primaryType: hippostd:html
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:summary:
+        hippostd:content: |-
+          <p>Hub Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T10:59:10.984Z
+      hippostdpubwf:lastModificationDate: 2018-10-26T11:01:14.606Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: dda3e13d-c145-4e74-9b49-ddd9d31d0b11
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:hub
+      website:gossid: 0
+      website:listtitle: ''
+      website:seosummary: Some useful summary for the hub for purpose of SEO
+      website:shortsummary: Browse our hub page
+      website:title: Hub AcceptanceTestDocument
+    /hub-test-document[3]:
+      /website:body:
+        hippostd:content: <p>Body hub text to be added here.</p>
+        jcr:primaryType: hippostd:html
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:summary:
+        hippostd:content: |-
+          <p>Hub Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T10:59:10.984Z
+      hippostdpubwf:lastModificationDate: 2018-10-26T11:01:14.606Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-10-26T11:01:16.559Z
+      hippotranslation:id: dda3e13d-c145-4e74-9b49-ddd9d31d0b11
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:hub
+      website:gossid: 0
+      website:listtitle: ''
+      website:seosummary: Some useful summary for the hub for purpose of SEO
+      website:shortsummary: Browse our hub page
+      website:title: Hub AcceptanceTestDocument
+    hippo:name: Hub test document
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /links-list-test-document:
+    /links-list-test-document[1]:
+      /website:body:
+        hippostd:content: <p>Body text content for links list doc type</p>
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:summary:
+        hippostd:content: |-
+          <p>Links list Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T12:16:22.196Z
+      hippostdpubwf:lastModificationDate: 2018-10-26T12:16:22.196Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 98ea555c-914c-4177-b832-a3cf7c136ff5
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:componentlist
+      website:anchor: false
+      website:gossid: 0
+      website:seosummary: Some useful summary for the links list for purpose of SEO
+      website:shortsummary: Browse our links list page
+      website:title: Links list AcceptanceTestDocument
+    /links-list-test-document[2]:
+      /website:body:
+        hippostd:content: <p>Body text content for links list doc type</p>
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:summary:
+        hippostd:content: |-
+          <p>Links list Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T12:16:22.196Z
+      hippostdpubwf:lastModificationDate: 2018-10-26T12:18:10.857Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 98ea555c-914c-4177-b832-a3cf7c136ff5
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:componentlist
+      website:anchor: false
+      website:gossid: 0
+      website:seosummary: Some useful summary for the links list for purpose of SEO
+      website:shortsummary: Browse our links list page
+      website:title: Links list AcceptanceTestDocument
+    /links-list-test-document[3]:
+      /website:body:
+        hippostd:content: <p>Body text content for links list doc type</p>
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:summary:
+        hippostd:content: |-
+          <p>Links list Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T12:16:22.196Z
+      hippostdpubwf:lastModificationDate: 2018-10-26T12:18:10.857Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-10-26T12:18:14.294Z
+      hippotranslation:id: 98ea555c-914c-4177-b832-a3cf7c136ff5
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:componentlist
+      website:anchor: false
+      website:gossid: 0
+      website:seosummary: Some useful summary for the links list for purpose of SEO
+      website:shortsummary: Browse our links list page
+      website:title: Links list AcceptanceTestDocument
+    hippo:name: Links list test document
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /published-work-chapter-test-document:
+    /published-work-chapter-test-document[1]:
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:sections:
+        /website:html:
+          hippostd:content: <p>Section content for published work chapter</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Some section content
+        website:type: ''
+      /website:summary:
+        hippostd:content: |-
+          <p>Published Work Chapter Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T11:29:43.735Z
+      hippostdpubwf:lastModificationDate: 2018-10-26T11:29:43.735Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 46ae66c4-3afc-4eb6-9f01-64b623870a97
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:publishedworkchapter
+      website:seosummary: Some useful summary for the published work chapter for purpose
+        of SEO
+      website:shortsummary: Browse our published work chapter page
+      website:title: Published Work Chapter AcceptanceTestDocument
+    /published-work-chapter-test-document[2]:
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:sections:
+        /website:html:
+          hippostd:content: <p>Section content for published work chapter</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Some section content
+        website:type: ''
+      /website:summary:
+        hippostd:content: |-
+          <p>Published Work Chapter Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T11:29:43.735Z
+      hippostdpubwf:lastModificationDate: 2018-10-26T11:31:01.832Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 46ae66c4-3afc-4eb6-9f01-64b623870a97
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:publishedworkchapter
+      website:seosummary: Some useful summary for the published work chapter for purpose
+        of SEO
+      website:shortsummary: Browse our published work chapter page
+      website:title: Published Work Chapter AcceptanceTestDocument
+    /published-work-chapter-test-document[3]:
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:sections:
+        /website:html:
+          hippostd:content: <p>Section content for published work chapter</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Some section content
+        website:type: ''
+      /website:summary:
+        hippostd:content: |-
+          <p>Published Work Chapter Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T11:29:43.735Z
+      hippostdpubwf:lastModificationDate: 2018-10-26T11:31:01.832Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-10-26T11:31:05.502Z
+      hippotranslation:id: 46ae66c4-3afc-4eb6-9f01-64b623870a97
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:publishedworkchapter
+      website:seosummary: Some useful summary for the published work chapter for purpose
+        of SEO
+      website:shortsummary: Browse our published work chapter page
+      website:title: Published Work Chapter AcceptanceTestDocument
+    hippo:name: Published Work Chapter test document
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /published-work-test-document:
+    /published-work-test-document[1]:
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:highlightsContent:
+        hippostd:content: <p>Highlight of the week content to go here.</p>
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: |-
+          <p>Published Work&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 6
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T11:18:03.117Z
+      hippostdpubwf:lastModificationDate: 2018-10-26T11:31:07.922Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: b3f8add4-396d-427f-970c-9fd09f07096a
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:publishedwork
+      website:InformationType: []
+      website:coverageEnd: 0001-01-01T12:00:00Z
+      website:coverageStart: 0001-01-01T12:00:00Z
+      website:geographicCoverage:
+      - England
+      - Scotland
+      - Wales
+      - Northern Ireland
+      - Republic of Ireland
+      website:geographicGranularity: []
+      website:highlightsTitle: Highlights
+      website:isbn: '764814624551'
+      website:issn: '235364644'
+      website:publicationDate: 2018-10-26T11:19:00Z
+      website:seosummary: Some useful summary for the published work for purpose of
+        SEO
+      website:shortsummary: Browse our published work page
+      website:title: Published Work AcceptanceTestDocument
+    /published-work-test-document[2]:
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:highlightsContent:
+        hippostd:content: <p>Highlight of the week content to go here.</p>
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: |-
+          <p>Published Work&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 6
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T11:18:03.117Z
+      hippostdpubwf:lastModificationDate: 2018-10-26T11:20:38.071Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: b3f8add4-396d-427f-970c-9fd09f07096a
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:publishedwork
+      website:InformationType: []
+      website:coverageEnd: 0001-01-01T12:00:00Z
+      website:coverageStart: 0001-01-01T12:00:00Z
+      website:geographicCoverage:
+      - England
+      - Scotland
+      - Wales
+      - Northern Ireland
+      - Republic of Ireland
+      website:geographicGranularity: []
+      website:highlightsTitle: Highlights
+      website:isbn: '764814624551'
+      website:issn: '235364644'
+      website:publicationDate: 2018-10-26T11:19:00Z
+      website:seosummary: Some useful summary for the published work for purpose of
+        SEO
+      website:shortsummary: Browse our published work page
+      website:title: Published Work AcceptanceTestDocument
+    /published-work-test-document[3]:
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:highlightsContent:
+        hippostd:content: <p>Highlight of the week content to go here.</p>
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: |-
+          <p>Published Work&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 6
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T11:18:03.117Z
+      hippostdpubwf:lastModificationDate: 2018-10-26T11:20:38.071Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-10-26T11:20:40.873Z
+      hippotranslation:id: b3f8add4-396d-427f-970c-9fd09f07096a
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:publishedwork
+      website:InformationType: []
+      website:coverageEnd: 0001-01-01T12:00:00Z
+      website:coverageStart: 0001-01-01T12:00:00Z
+      website:geographicCoverage:
+      - England
+      - Scotland
+      - Wales
+      - Northern Ireland
+      - Republic of Ireland
+      website:geographicGranularity: []
+      website:highlightsTitle: Highlights
+      website:isbn: '764814624551'
+      website:issn: '235364644'
+      website:publicationDate: 2018-10-26T11:19:00Z
+      website:seosummary: Some useful summary for the published work for purpose of
+        SEO
+      website:shortsummary: Browse our published work page
+      website:title: Published Work AcceptanceTestDocument
+    hippo:name: Published Work test document
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /service-test-document:
+    /service-test-document[1]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:summary:
+        hippostd:content: |-
+          <p>Service Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 6
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T10:44:43.332Z
+      hippostdpubwf:lastModificationDate: 2018-10-26T10:45:56.593Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 9b469793-4ca4-4223-99c6-28d3f4ac2160
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:service
+      website:gossid: 0
+      website:seosummary: Some useful summary for the service for purpose of SEO
+      website:shortsummary: Browse our service page
+      website:title: Service AcceptanceTestDocument
+    /service-test-document[2]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:summary:
+        hippostd:content: |-
+          <p>Service Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 6
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T10:44:43.332Z
+      hippostdpubwf:lastModificationDate: 2018-10-26T10:46:01.284Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 9b469793-4ca4-4223-99c6-28d3f4ac2160
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:service
+      website:gossid: 0
+      website:seosummary: Some useful summary for the service for purpose of SEO
+      website:shortsummary: Browse our service page
+      website:title: Service AcceptanceTestDocument
+    /service-test-document[3]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:summary:
+        hippostd:content: |-
+          <p>Service Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 6
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T10:44:43.332Z
+      hippostdpubwf:lastModificationDate: 2018-10-26T10:46:01.284Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-10-26T10:46:04.415Z
+      hippotranslation:id: 9b469793-4ca4-4223-99c6-28d3f4ac2160
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:service
+      website:gossid: 0
+      website:seosummary: Some useful summary for the service for purpose of SEO
+      website:shortsummary: Browse our service page
+      website:title: Service AcceptanceTestDocument
+    hippo:name: Service test document
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Website Acceptance Tests
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: 11d17c80-e9dd-4217-8fa6-4c4139f5ee79
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

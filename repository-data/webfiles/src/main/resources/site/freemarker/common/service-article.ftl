@@ -24,7 +24,7 @@
         <div class="grid-row">
             <div class="column column--reset">
                 <div class="local-header article-header">
-                    <h1 class="local-header__title">${document.title}</h1>
+                    <h1 class="local-header__title" data-uipath="document.title">${document.title}</h1>
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@
 
                 <div id="${slugify('Summary')}" class="${summarySectionClassName}">
                     <h2><@fmt.message key="headers.summary" /></h2>
-                    <p>${document.summary}</p>
+                    <div data-uipath="website.service.summary" class="article-section--summary"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></div>
                 </div>
 
                 <#if hasTopTasks>

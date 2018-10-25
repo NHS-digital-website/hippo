@@ -9,7 +9,7 @@
 
 <@hst.setBundle basename="rb.doctype.published-work,rb.generic.headers,publicationsystem.headers"/>
 
-<#assign hasSummaryContent = document.summary?has_content />
+<#assign hasSummaryContent = document.summary?? && document.summary?has_content />
 <#assign hasSectionContent = document.sections?has_content />
 <#assign hasChapters = linkeddocuments?? && linkeddocuments.hippoBeans?has_content />
 <#assign sectionTitlesFound = countSectionTitles(document.sections) />
@@ -37,7 +37,7 @@
             <div class="grid-wrapper">
                 <div class="article-header__inner">
                     <span>${documents[0].title}</span>
-                    <h1 class="local-header__title">${document.title}</h1>
+                    <h1 class="local-header__title" data-uipath="document.title">${document.title}</h1>
 
                     <hr class="hr hr--short hr--light">
                 </div>
@@ -107,7 +107,7 @@
                 <#if hasSummaryContent>
                 <div id="${slugify('Summary')}" class="article-section article-section--summary article-section--reset-top">
                     <h2><@fmt.message key="headers.summary" /></h2>
-                    <p>${document.summary}</p>
+                    <div data-uipath="website.publishedworkchapter.summary"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></div>
                 </div>
                 </#if>
 

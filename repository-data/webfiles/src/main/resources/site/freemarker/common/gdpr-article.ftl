@@ -26,7 +26,7 @@
                     <div class="grid-row">
                         <div class="column column--two-thirds column--reset">
                             <h2><@fmt.message key="headers.summary" /></h2>
-                            <p>${document.summary}</p>
+                            <div data-uipath="website.gdprtransparency.summary"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></div>
                         </div>
                     </div>
                 </div>

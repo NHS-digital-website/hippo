@@ -10,7 +10,7 @@
 
 <@hst.setBundle basename="rb.generic.headers,publicationsystem.headers"/>
 
-<#assign hasSummaryContent = document.summary?has_content />
+<#assign hasSummaryContent = document.summary?? && document.summary?has_content />
 <#assign hasSectionContent = document.sections?has_content />
 <#assign hasChildPages = childPages?has_content />
 
@@ -23,7 +23,7 @@
         <div class="grid-row">
             <div class="column column--reset">
                 <div class="local-header article-header">
-                    <h1 class="local-header__title">${document.title}</h1>
+                    <h1 class="local-header__title" data-uipath="document.title">${document.title}</h1>
                 </div>
             </div>
         </div>
@@ -44,12 +44,12 @@
                 <#if hasSummaryContent>
                 <div id="${slugify('Summary')}" class="article-section article-section--summary article-section--reset-top">
                     <h2><@fmt.message key="headers.summary" /></h2>
-                    <p>${document.summary}</p>
+                    <div data-uipath="website.general.summary" class="article-section--summary"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></div>
                 </div>
                 </#if>
 
                 <#if hasSectionContent>
-                <@sections document.sections></@sections>
+                    <@sections document.sections></@sections>
                 </#if>
 
                 <#if hasChildPages>

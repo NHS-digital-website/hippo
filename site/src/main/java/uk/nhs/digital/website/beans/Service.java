@@ -8,26 +8,7 @@ import java.util.*;
 
 @HippoEssentialsGenerated(internalName = "website:service")
 @Node(jcrType = "website:service")
-public class Service extends BaseDocument {
-    @HippoEssentialsGenerated(internalName = "website:title")
-    public String getTitle() {
-        return getProperty("website:title");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:summary")
-    public String getSummary() {
-        return getProperty("website:summary");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:shortsummary")
-    public String getShortsummary() {
-        return getProperty("website:shortsummary");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:seosummary")
-    public String getSeosummary() {
-        return getProperty("website:seosummary");
-    }
+public class Service extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:toptasks")
     public List<HippoHtml> getToptasks() {

@@ -12,4 +12,9 @@ public class Gdprsummary extends CommonFieldsBean {
     public HippoHtml getContactdetails() {
         return getHippoHtml("website:contactdetails");
     }
+
+    @HippoEssentialsGenerated(internalName = "website:body")
+    public HippoHtml getBody() {
+        return getHippoHtml("website:body");
+    }
 }

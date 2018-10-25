@@ -13,7 +13,8 @@ import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "website:publishedwork")
 @Node(jcrType = "website:publishedwork")
-public class Publishedwork extends BaseDocument {
+public class Publishedwork extends CommonFieldsBean {
+
     @HippoEssentialsGenerated(internalName = "website:InformationType")
     public String[] getInformationType() {
         return getProperty("website:InformationType");
@@ -29,19 +30,9 @@ public class Publishedwork extends BaseDocument {
         return getProperty("website:coverageStart");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:seosummary")
-    public String getSeosummary() {
-        return getProperty("website:seosummary");
-    }
-
     @HippoEssentialsGenerated(internalName = "website:publicationDate")
     public Calendar getPublicationDate() {
         return getProperty("website:publicationDate");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:shortsummary")
-    public String getShortsummary() {
-        return getProperty("website:shortsummary");
     }
 
     @HippoEssentialsGenerated(internalName = "website:geographicCoverage")
@@ -49,19 +40,9 @@ public class Publishedwork extends BaseDocument {
         return Region.convertGeographicCoverageValues(getProperty("website:geographicCoverage"));
     }
 
-    @HippoEssentialsGenerated(internalName = "website:summary")
-    public String getSummary() {
-        return getProperty("website:summary");
-    }
-
     @HippoEssentialsGenerated(internalName = "website:geographicGranularity")
     public String[] getGeographicGranularity() {
         return getProperty("website:geographicGranularity");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:title")
-    public String getTitle() {
-        return getProperty("website:title");
     }
 
     @HippoEssentialsGenerated(internalName = "website:highlightsTitle")

@@ -29,12 +29,15 @@ definitions:
             wicket.id: ${cluster.id}.field
           /summary:
             /cluster.options:
+              ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
+                items: [''Link'',''PickInternalLink'',''Source''] }] }'
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount''}'
               jcr:primaryType: frontend:pluginconfig
             caption: Summary
             field: summary
             hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
           /shortsummary:
             /cluster.options:
@@ -357,7 +360,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: website:summary
             hipposysedit:primary: false
-            hipposysedit:type: Text
+            hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
@@ -393,6 +396,9 @@ definitions:
           /website:highlightsContent:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
+          /website:summary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           common:searchRank: 6
           common:searchable: true
           hippostd:holder: holder
@@ -417,7 +423,6 @@ definitions:
           website:publicationDate: 0001-01-01T12:00:00Z
           website:seosummary: ''
           website:shortsummary: ''
-          website:summary: ''
           website:title: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:

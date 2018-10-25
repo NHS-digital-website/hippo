@@ -8,26 +8,7 @@ import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "website:publishedworkchapter")
 @Node(jcrType = "website:publishedworkchapter")
-public class Publishedworkchapter extends BaseDocument {
-    @HippoEssentialsGenerated(internalName = "website:seosummary")
-    public String getSeosummary() {
-        return getProperty("website:seosummary");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:shortsummary")
-    public String getShortsummary() {
-        return getProperty("website:shortsummary");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:summary")
-    public String getSummary() {
-        return getProperty("website:summary");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:title")
-    public String getTitle() {
-        return getProperty("website:title");
-    }
+public class Publishedworkchapter extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "hippotaxonomy:keys")
     public String[] getKeys() {
