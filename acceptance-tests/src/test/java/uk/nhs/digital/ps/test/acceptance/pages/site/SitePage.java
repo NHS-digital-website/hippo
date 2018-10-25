@@ -9,6 +9,7 @@ import uk.nhs.digital.ps.test.acceptance.pages.site.ps.ArchivePageElements;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.DatasetPageElements;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.PublicationPageElements;
 import uk.nhs.digital.ps.test.acceptance.pages.site.ps.SeriesPageElements;
+import uk.nhs.digital.ps.test.acceptance.pages.site.website.*;
 import uk.nhs.digital.ps.test.acceptance.util.TestContentUrls;
 import uk.nhs.digital.ps.test.acceptance.webdriver.WebDriverProvider;
 
@@ -38,6 +39,12 @@ public class SitePage extends AbstractSitePage {
         pagesElements.add(new SeriesPageElements());
         pagesElements.add(new DatasetPageElements());
         pagesElements.add(new IndicatorPageElements());
+        pagesElements.add(new GeneralPageElements());
+        pagesElements.add(new ServicePageElements());
+        pagesElements.add(new HubPageElements());
+        pagesElements.add(new PublishedWorkPageElements());
+        pagesElements.add(new LinksListPageElements());
+        pagesElements.add(new GdprPageElements());
     }
 
     public void openByPageName(final String pageName) {

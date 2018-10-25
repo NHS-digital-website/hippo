@@ -19,8 +19,8 @@ public class CommonFieldsBean extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = "website:summary")
-    public String getSummary() {
-        return getProperty("website:summary");
+    public HippoHtml getSummary() {
+        return getHippoHtml("website:summary");
     }
 
     @HippoEssentialsGenerated(internalName = "website:title")
@@ -28,8 +28,5 @@ public class CommonFieldsBean extends BaseDocument {
         return getProperty("website:title");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:body")
-    public HippoHtml getBody() {
-        return getHippoHtml("website:body");
-    }
+
 }

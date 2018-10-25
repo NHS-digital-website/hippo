@@ -1,6 +1,7 @@
 package uk.nhs.digital.website.beans;
 
 import org.hippoecm.hst.content.beans.*;
+import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.*;
 
 import java.util.*;
@@ -21,5 +22,10 @@ public class ComponentList extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:gossid")
     public Long getGossid() {
         return getProperty("website:gossid");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:body")
+    public HippoHtml getBody() {
+        return getHippoHtml("website:body");
     }
 }

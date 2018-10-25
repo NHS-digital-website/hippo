@@ -8,7 +8,7 @@
 <@metaTags></@metaTags>
 
 <@hst.setBundle basename="rb.doctype.published-work,publicationsystem.headers"/>
-<#assign hasSummaryContent = document.summary?has_content />
+<#assign hasSummaryContent = document.summary?? && document.summary?has_content />
 <#assign hasSectionContent = document.sections?has_content />
 <#assign hasPublicationDate = document.publicationDate?? />
 <#assign hasGeographicCoverage = document.geographicCoverage?has_content />
@@ -52,7 +52,7 @@
 
                     <@nationalStatsStamp />
 
-                    <h1 class="local-header__title">${document.title}</h1>
+                    <h1 class="local-header__title" data-uipath="document.title">${document.title}</h1>
 
                     <#-- TODO - Chapter title to be added  -->
                     <#-- <p class="article-header__subtitle">(Hardcoded) Chapter title</p> -->
@@ -188,7 +188,7 @@
                 <#if hasSummaryContent>
                 <div id="${slugify('Summary')}" class="article-section article-section--summary article-section--reset-top">
                     <h2><@fmt.message key="headers.summary" /></h2>
-                    <p>${document.summary}</p>
+                    <div data-uipath="website.publishedwork.summary"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></div>
                 </div>
                 </#if>
 
