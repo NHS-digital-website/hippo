@@ -3,7 +3,7 @@ definitions:
   config:
     /hippo:namespaces/hippostd/html/editor:templates/_default_:
       ckeditor.config.appended.json: '{toolbarGroups: [{ name: ''document''}], extraPlugins:
-        ''balloonpanel,a11ychecker'', allowedContent: ''h2 h3 h4 em strong ul thead
-        tbody td tr th caption ol li sub sup img a[*];p{text-align};table[class,id,dir]{*};iframe[id,class,style,title,height,name,src,width,allowfullscreen,sandbox,srcdoc]{*}'',
+        ''balloonpanel,a11ychecker'', allowedContent: ''h2 h3 h4 em strong ul div
+        thead tbody td tr th caption ol li sub sup img a[*](*);p{text-align};table[class,id,dir]{*};iframe[id,class,style,title,height,name,src,width,allowfullscreen,sandbox,srcdoc]{*}'',
         disallowedContent: ''iframe[frameborder]''}}'
       ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins: ''wordcount''}'
