@@ -52,7 +52,7 @@ public class TruncateFormatterDirective implements TemplateDirectiveModel {
     }
 
     private String getValueAsString(final Map parameters, final String paramName) {
-        return parameters.get(paramName).toString();
+        return parameters.get(paramName).toString().replace("&", "&amp;");
     }
 
     private void assertRequiredParameterPresent(final Map parameters, final Environment environment, String parameterName) throws TemplateException {

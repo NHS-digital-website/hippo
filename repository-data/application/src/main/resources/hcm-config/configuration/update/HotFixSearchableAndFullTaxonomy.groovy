@@ -12,7 +12,8 @@ import javax.jcr.Session
 class HotFixSearchableAndFullTaxonomy extends BaseNodeUpdateVisitor {
     def allowedTypes = [
         "publicationsystem:publication",
-        "publicationsystem:dataset"
+        "publicationsystem:dataset",
+        "publicationsystem:legacypublication"
     ]
 
     SearchableTaxonomyTaskCopy task

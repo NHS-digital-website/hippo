@@ -8,7 +8,7 @@ definitions:
       hipposys:dryrun: false
       hipposys:parameters: ''
       hipposys:query: /jcr:root/content/documents/corporate-website/publication-system//*[@jcr:primaryType='publicationsystem:publication'
-        or @jcr:primaryType='publicationsystem:dataset']/..
+        or @jcr:primaryType='publicationsystem:dataset' or @jcr:primaryType='publicationsystem:legacypublication']/..
       hipposys:script:
         resource: /configuration/update/HotFixSearchableAndFullTaxonomy.groovy
         type: string
