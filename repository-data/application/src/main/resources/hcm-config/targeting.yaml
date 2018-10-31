@@ -2,4 +2,5 @@
 definitions:
   config:
     /targeting:targeting:
+      targeting:cookiesHttpOnly: true
       targeting:disabled: true
