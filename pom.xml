@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>12.5.0</version>
+        <version>12.6.0-2</version>
         <!-- Please have a look at the property section while upgrading -->
     </parent>
 
@@ -258,25 +258,25 @@
             <dependency>
                 <groupId>com.splunk.logging</groupId>
                 <artifactId>splunk-library-javalogging</artifactId>
-                <version>1.6.0</version>
+                <version>1.6.2</version>
             </dependency>
 
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
-                <version>3.8</version>
+                <version>3.8.1</version>
             </dependency>
 
             <dependency>
                 <groupId>org.apache.sling</groupId>
                 <artifactId>org.apache.sling.testing.jcr-mock</artifactId>
-                <version>1.4.0</version>
+                <version>1.4.2</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>com.amazonaws</groupId>
                 <artifactId>aws-java-sdk</artifactId>
-                <version>1.11.402</version>
+                <version>1.11.455</version>
             </dependency>
 
             <!-- Although we don't explicitly use these dependencies, there are conflicts
@@ -294,17 +294,17 @@
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-core</artifactId>
-                <version>2.9.6</version>
+                <version>2.9.7</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
-                <version>2.9.6</version>
+                <version>2.9.7</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-annotations</artifactId>
-                <version>2.9.6</version>
+                <version>2.9.7</version>
             </dependency>
             <dependency>
                 <groupId>com.google.code.findbugs</groupId>
@@ -350,7 +350,12 @@
             <dependency>
                 <groupId>com.google.code.gson</groupId>
                 <artifactId>gson</artifactId>
-                <version>2.8.0</version>
+                <version>2.8.5</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>4.2</version>
             </dependency>
 
             <!--
@@ -359,7 +364,7 @@
             <dependency>
                 <groupId>org.onehippo.forge.content-exim</groupId>
                 <artifactId>content-exim-core</artifactId>
-                <version>2.2.0</version>
+                <version>2.3.0</version>
             </dependency>
 
             <dependency>
