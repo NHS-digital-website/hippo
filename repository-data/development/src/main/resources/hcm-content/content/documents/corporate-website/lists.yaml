@@ -249,8 +249,8 @@
     jcr:primaryType: hippo:handle
   hippo:name: Lists
   hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  - new-digital-website-folder
+  - new-digital-website-document
   hippotranslation:id: 0f0b53a6-a699-4f30-8385-291842d36059
   hippotranslation:locale: en
   jcr:mixinTypes:

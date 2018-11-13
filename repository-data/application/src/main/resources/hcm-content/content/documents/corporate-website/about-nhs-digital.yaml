@@ -2,8 +2,8 @@
 /content/documents/corporate-website/about-nhs-digital:
   hippo:name: About NHS Digital
   hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  - new-digital-website-folder
+  - new-digital-website-document
   hippotranslation:id: ee3b00dc-d3ed-413b-99df-7b2aef2fb7b9
   hippotranslation:locale: en
   jcr:mixinTypes:

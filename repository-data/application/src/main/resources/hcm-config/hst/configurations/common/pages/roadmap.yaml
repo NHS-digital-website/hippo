@@ -1,0 +1,14 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/roadmap:
+      /main:
+        hst:componentclassname: uk.nhs.digital.common.components.RoadmapLinkedBeansComponent
+        hst:parameternames:
+        - linkPath
+        hst:parametervalues:
+        - website:roadmaplink/@hippo:docbase
+        hst:template: roadmap
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/apppage
+      jcr:primaryType: hst:component

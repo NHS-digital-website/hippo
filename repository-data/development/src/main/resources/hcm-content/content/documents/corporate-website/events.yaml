@@ -266,8 +266,8 @@
     jcr:primaryType: hippo:handle
   hippo:name: Events
   hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  - new-digital-website-folder
+  - new-digital-website-document
   hippotranslation:id: a1dea5b3-6c67-4482-9e21-f11a5cacdd36
   hippotranslation:locale: en
   jcr:mixinTypes:

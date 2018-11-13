@@ -671,8 +671,8 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
-  /published-work-chapter-test-document:
-    /published-work-chapter-test-document[1]:
+  /published-work-chapter-1:
+    /published-work-chapter-1[1]:
       /website:friendlyurls:
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
@@ -697,7 +697,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-10-26T11:29:43.735Z
-      hippostdpubwf:lastModificationDate: 2018-10-26T11:29:43.735Z
+      hippostdpubwf:lastModificationDate: 2018-11-19T11:30:44.857Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 46ae66c4-3afc-4eb6-9f01-64b623870a97
       hippotranslation:locale: en
@@ -707,8 +707,8 @@
       website:seosummary: Some useful summary for the published work chapter for purpose
         of SEO
       website:shortsummary: Browse our published work chapter page
-      website:title: Published Work Chapter AcceptanceTestDocument
-    /published-work-chapter-test-document[2]:
+      website:title: Published Work Chapter 1
+    /published-work-chapter-1[2]:
       /website:friendlyurls:
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
@@ -734,7 +734,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-10-26T11:29:43.735Z
-      hippostdpubwf:lastModificationDate: 2018-10-26T11:31:01.832Z
+      hippostdpubwf:lastModificationDate: 2018-11-19T11:30:48.302Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 46ae66c4-3afc-4eb6-9f01-64b623870a97
       hippotranslation:locale: en
@@ -745,8 +745,8 @@
       website:seosummary: Some useful summary for the published work chapter for purpose
         of SEO
       website:shortsummary: Browse our published work chapter page
-      website:title: Published Work Chapter AcceptanceTestDocument
-    /published-work-chapter-test-document[3]:
+      website:title: Published Work Chapter 1
+    /published-work-chapter-1[3]:
       /website:friendlyurls:
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
@@ -772,9 +772,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-10-26T11:29:43.735Z
-      hippostdpubwf:lastModificationDate: 2018-10-26T11:31:01.832Z
+      hippostdpubwf:lastModificationDate: 2018-11-19T11:30:48.302Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-10-26T11:31:05.502Z
+      hippostdpubwf:publicationDate: 2018-11-19T11:30:50.093Z
       hippotranslation:id: 46ae66c4-3afc-4eb6-9f01-64b623870a97
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -783,8 +783,113 @@
       website:seosummary: Some useful summary for the published work chapter for purpose
         of SEO
       website:shortsummary: Browse our published work chapter page
-      website:title: Published Work Chapter AcceptanceTestDocument
-    hippo:name: Published Work Chapter test document
+      website:title: Published Work Chapter 1
+    hippo:name: Published Work Chapter 1
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  /published-work-chapter-2:
+    /published-work-chapter-2[1]:
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:sections:
+        /website:html:
+          hippostd:content: <p>Section content for published work chapter isdfiodsfiosdjfsd</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Some section content here
+        website:type: ''
+      /website:summary:
+        hippostd:content: <p>sdklfj sdifjdsfjifo jdsfjidsfd sf</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T11:29:43.735Z
+      hippostdpubwf:lastModificationDate: 2018-11-19T11:28:44.772Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 23fa4227-ff65-47ee-9889-0fe105fd4a48
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:versionable
+      jcr:primaryType: website:publishedworkchapter
+      website:seosummary: SEO pls
+      website:shortsummary: some short summary
+      website:title: Published Work Chapter 2
+    /published-work-chapter-2[2]:
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:sections:
+        /website:html:
+          hippostd:content: <p>Section content for published work chapter isdfiodsfiosdjfsd</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Some section content here
+        website:type: ''
+      /website:summary:
+        hippostd:content: <p>sdklfj sdifjdsfjifo jdsfjidsfd sf</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T11:29:43.735Z
+      hippostdpubwf:lastModificationDate: 2018-11-19T11:28:18.192Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 23fa4227-ff65-47ee-9889-0fe105fd4a48
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:publishedworkchapter
+      website:seosummary: SEO pls
+      website:shortsummary: some short summary
+      website:title: Published Work Chapter 2
+    /published-work-chapter-2[3]:
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:sections:
+        /website:html:
+          hippostd:content: <p>Section content for published work chapter isdfiodsfiosdjfsd</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Some section content here
+        website:type: ''
+      /website:summary:
+        hippostd:content: <p>sdklfj sdifjdsfjifo jdsfjidsfd sf</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 5
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2018-10-26T11:29:43.735Z
+      hippostdpubwf:lastModificationDate: 2018-11-19T11:28:44.772Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-11-19T11:28:47.458Z
+      hippotranslation:id: 23fa4227-ff65-47ee-9889-0fe105fd4a48
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:publishedworkchapter
+      website:seosummary: SEO pls
+      website:shortsummary: some short summary
+      website:title: Published Work Chapter 2
+    hippo:name: Published Work Chapter 2
     jcr:mixinTypes:
     - hippo:named
     - mix:referenceable
@@ -798,6 +903,12 @@
       /website:highlightsContent:
         hippostd:content: <p>Highlight of the week content to go here.</p>
         jcr:primaryType: hippostd:html
+      /website:links[1]:
+        hippo:docbase: b30f245a-1838-4c93-ad3a-9de0c3c601f3
+        jcr:primaryType: hippo:mirror
+      /website:links[2]:
+        hippo:docbase: b923a747-7295-4191-b031-060f1b806f0e
+        jcr:primaryType: hippo:mirror
       /website:summary:
         hippostd:content: |-
           <p>Published Work&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -810,7 +921,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-10-26T11:18:03.117Z
-      hippostdpubwf:lastModificationDate: 2018-10-26T11:31:07.922Z
+      hippostdpubwf:lastModificationDate: 2018-11-23T12:30:05.097Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: b3f8add4-396d-427f-970c-9fd09f07096a
       hippotranslation:locale: en
@@ -843,6 +954,12 @@
       /website:highlightsContent:
         hippostd:content: <p>Highlight of the week content to go here.</p>
         jcr:primaryType: hippostd:html
+      /website:links[1]:
+        hippo:docbase: b30f245a-1838-4c93-ad3a-9de0c3c601f3
+        jcr:primaryType: hippo:mirror
+      /website:links[2]:
+        hippo:docbase: b923a747-7295-4191-b031-060f1b806f0e
+        jcr:primaryType: hippo:mirror
       /website:summary:
         hippostd:content: |-
           <p>Published Work&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -856,7 +973,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-10-26T11:18:03.117Z
-      hippostdpubwf:lastModificationDate: 2018-10-26T11:20:38.071Z
+      hippostdpubwf:lastModificationDate: 2018-11-23T12:30:26.275Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: b3f8add4-396d-427f-970c-9fd09f07096a
       hippotranslation:locale: en
@@ -890,6 +1007,12 @@
       /website:highlightsContent:
         hippostd:content: <p>Highlight of the week content to go here.</p>
         jcr:primaryType: hippostd:html
+      /website:links[1]:
+        hippo:docbase: b30f245a-1838-4c93-ad3a-9de0c3c601f3
+        jcr:primaryType: hippo:mirror
+      /website:links[2]:
+        hippo:docbase: b923a747-7295-4191-b031-060f1b806f0e
+        jcr:primaryType: hippo:mirror
       /website:summary:
         hippostd:content: |-
           <p>Published Work&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -903,9 +1026,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-10-26T11:18:03.117Z
-      hippostdpubwf:lastModificationDate: 2018-10-26T11:20:38.071Z
+      hippostdpubwf:lastModificationDate: 2018-11-23T12:30:26.275Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-10-26T11:20:40.873Z
+      hippostdpubwf:publicationDate: 2018-11-23T12:30:29.323Z
       hippotranslation:id: b3f8add4-396d-427f-970c-9fd09f07096a
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -934,6 +1057,1169 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
+  /roadmap-test-document:
+    /content:
+      /content[1]:
+        /website:linkedservices:
+          hippo:docbase: e1e25811-95b7-42bd-94fa-207f2c5c2028
+          jcr:primaryType: hippo:mirror
+        /website:summary:
+          hippostd:content: |-
+            <p>some roadmap summary content to go here</p>
+
+            <p>&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-11-19T10:54:51.791Z
+        hippostdpubwf:lastModificationDate: 2018-11-22T15:34:56.169Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: cc33382c-9432-4770-96a2-04e2aa0336db
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:roadmap
+        website:granularity: Quarterly
+        website:seosummary: Objectively revolutionize premium e-services with cross-unit
+          portals. Dynamically myocardinate equity invested e-business and parallel
+          intellectual capital.
+        website:shortsummary: some short summary to go here please for the sake of
+          content on the website. Have a nice day.
+        website:title: GP IT futures Roadmap
+      /content[2]:
+        /website:linkedservices:
+          hippo:docbase: e1e25811-95b7-42bd-94fa-207f2c5c2028
+          jcr:primaryType: hippo:mirror
+        /website:summary:
+          hippostd:content: |-
+            <p>some roadmap summary content to go here</p>
+
+            <p>&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-11-19T10:54:51.791Z
+        hippostdpubwf:lastModificationDate: 2018-11-22T15:35:01.258Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: cc33382c-9432-4770-96a2-04e2aa0336db
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        - mix:versionable
+        jcr:primaryType: website:roadmap
+        website:granularity: Quarterly
+        website:seosummary: Objectively revolutionize premium e-services with cross-unit
+          portals. Dynamically myocardinate equity invested e-business and parallel
+          intellectual capital.
+        website:shortsummary: some short summary to go here please for the sake of
+          content on the website. Have a nice day.
+        website:title: GP IT futures Roadmap
+      /content[3]:
+        /website:linkedservices:
+          hippo:docbase: e1e25811-95b7-42bd-94fa-207f2c5c2028
+          jcr:primaryType: hippo:mirror
+        /website:summary:
+          hippostd:content: |-
+            <p>some roadmap summary content to go here</p>
+
+            <p>&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-11-19T10:54:51.791Z
+        hippostdpubwf:lastModificationDate: 2018-11-22T15:35:01.258Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2018-11-23T12:34:39.802Z
+        hippotranslation:id: cc33382c-9432-4770-96a2-04e2aa0336db
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:roadmap
+        website:granularity: Quarterly
+        website:seosummary: Objectively revolutionize premium e-services with cross-unit
+          portals. Dynamically myocardinate equity invested e-business and parallel
+          intellectual capital.
+        website:shortsummary: some short summary to go here please for the sake of
+          content on the website. Have a nice day.
+        website:title: GP IT futures Roadmap
+      hippo:name: content
+      jcr:mixinTypes:
+      - hippo:named
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    /roadmap-item-1:
+      /roadmap-item-1[1]:
+        /website:effectivedate:
+          jcr:primaryType: website:effectivedate
+          website:enddate: 2018-07-30T23:00:00Z
+          website:startdate: 2018-05-19T23:00:00Z
+          website:status: confirmed
+        /website:impactedservice:
+          /website:link:
+            hippo:docbase: 472c6ebf-ef23-4281-bf08-a41ca3cb8d8f
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[1]:
+          /website:link:
+            hippo:docbase: 472c6ebf-ef23-4281-bf08-a41ca3cb8d8f
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[2]:
+          jcr:primaryType: website:externallink
+          website:link: https://www.bbc.co.uk
+          website:shortsummary: ldkfndsfndslk fskd fdsk fdnf
+          website:title: BBC
+        /website:roadmaplink:
+          hippo:docbase: 7b7820d3-ba5b-47bf-9a20-46368f54fe82
+          jcr:primaryType: hippo:mirror
+        /website:sections:
+          /website:html:
+            hippostd:content: |-
+              <p>hello&nbsp;world was here.</p>
+
+              <p>&nbsp;</p>
+
+              <p>Another paragrapah here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Seciton One
+          website:type: ''
+        /website:standards:
+          jcr:primaryType: website:standards
+          website:body: Governing Body stats
+          website:name: Name of that standard
+          website:referencenumber: REF123.14.09
+          website:weblink: https://www.bbc.co.uk
+        /website:summary:
+          hippostd:content: <p>lorem ipsum summary content for roadmap item</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-11-19T10:56:05.901Z
+        hippostdpubwf:lastModificationDate: 2018-11-26T16:52:29.867Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 028db9b9-6c44-45fc-bf63-763dd167aef7
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:roadmapitem
+        website:markers:
+        - context-specific-stds
+        - new-capability
+        - research-only
+        website:seosummary: Short SEO summary to go here.
+        website:shortsummary: Browse SHMI
+        website:title: Roadmap Item 1
+      /roadmap-item-1[2]:
+        /website:effectivedate:
+          jcr:primaryType: website:effectivedate
+          website:enddate: 2018-07-30T23:00:00Z
+          website:startdate: 2018-05-19T23:00:00Z
+          website:status: confirmed
+        /website:impactedservice:
+          /website:link:
+            hippo:docbase: 472c6ebf-ef23-4281-bf08-a41ca3cb8d8f
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[1]:
+          /website:link:
+            hippo:docbase: 472c6ebf-ef23-4281-bf08-a41ca3cb8d8f
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[2]:
+          jcr:primaryType: website:externallink
+          website:link: https://www.bbc.co.uk
+          website:shortsummary: ldkfndsfndslk fskd fdsk fdnf
+          website:title: BBC
+        /website:roadmaplink:
+          hippo:docbase: 7b7820d3-ba5b-47bf-9a20-46368f54fe82
+          jcr:primaryType: hippo:mirror
+        /website:sections:
+          /website:html:
+            hippostd:content: |-
+              <p>hello&nbsp;world was here.</p>
+
+              <p>&nbsp;</p>
+
+              <p>Another paragrapah here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Seciton One
+          website:type: ''
+        /website:standards:
+          jcr:primaryType: website:standards
+          website:body: Governing Body stats
+          website:name: Name of that standard
+          website:referencenumber: REF123.14.09
+          website:weblink: https://www.bbc.co.uk
+        /website:summary:
+          hippostd:content: <p>lorem ipsum summary content for roadmap item</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-11-19T10:56:05.901Z
+        hippostdpubwf:lastModificationDate: 2018-11-26T16:52:37.365Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 028db9b9-6c44-45fc-bf63-763dd167aef7
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        - mix:versionable
+        jcr:primaryType: website:roadmapitem
+        website:markers:
+        - context-specific-stds
+        - new-capability
+        - research-only
+        website:seosummary: Short SEO summary to go here.
+        website:shortsummary: Browse SHMI
+        website:title: Roadmap Item 1
+      /roadmap-item-1[3]:
+        /website:effectivedate:
+          jcr:primaryType: website:effectivedate
+          website:enddate: 2018-07-30T23:00:00Z
+          website:startdate: 2018-05-19T23:00:00Z
+          website:status: confirmed
+        /website:impactedservice:
+          /website:link:
+            hippo:docbase: 472c6ebf-ef23-4281-bf08-a41ca3cb8d8f
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[1]:
+          /website:link:
+            hippo:docbase: 472c6ebf-ef23-4281-bf08-a41ca3cb8d8f
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[2]:
+          jcr:primaryType: website:externallink
+          website:link: https://www.bbc.co.uk
+          website:shortsummary: ldkfndsfndslk fskd fdsk fdnf
+          website:title: BBC
+        /website:roadmaplink:
+          hippo:docbase: 7b7820d3-ba5b-47bf-9a20-46368f54fe82
+          jcr:primaryType: hippo:mirror
+        /website:sections:
+          /website:html:
+            hippostd:content: |-
+              <p>hello&nbsp;world was here.</p>
+
+              <p>&nbsp;</p>
+
+              <p>Another paragrapah here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Seciton One
+          website:type: ''
+        /website:standards:
+          jcr:primaryType: website:standards
+          website:body: Governing Body stats
+          website:name: Name of that standard
+          website:referencenumber: REF123.14.09
+          website:weblink: https://www.bbc.co.uk
+        /website:summary:
+          hippostd:content: <p>lorem ipsum summary content for roadmap item</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-11-19T10:56:05.901Z
+        hippostdpubwf:lastModificationDate: 2018-11-26T16:52:37.365Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2018-11-26T16:52:40.659Z
+        hippotranslation:id: 028db9b9-6c44-45fc-bf63-763dd167aef7
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:roadmapitem
+        website:markers:
+        - context-specific-stds
+        - new-capability
+        - research-only
+        website:seosummary: Short SEO summary to go here.
+        website:shortsummary: Browse SHMI
+        website:title: Roadmap Item 1
+      hippo:name: Roadmap item 1
+      jcr:mixinTypes:
+      - hippo:named
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    /roadmap-item-2:
+      /roadmap-item-2[1]:
+        /website:effectivedate:
+          jcr:primaryType: website:effectivedate
+          website:enddate: 2018-11-19T00:00:00Z
+          website:startdate: 2018-08-09T23:00:00Z
+          website:status: proposed
+        /website:impactedservice:
+          /website:link:
+            hippo:docbase: 96c3cc0d-a943-4848-9694-50c95f32665f
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[1]:
+          /website:link:
+            hippo:docbase: 59e67638-8410-4f22-8a78-37fe8ca5dd4b
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[2]:
+          jcr:primaryType: website:externallink
+          website:link: https://www.sky.co.uk
+          website:shortsummary: home here fskd fdsk fdnf
+          website:title: SKY
+        /website:roadmaplink:
+          hippo:docbase: 7b7820d3-ba5b-47bf-9a20-46368f54fe82
+          jcr:primaryType: hippo:mirror
+        /website:sections:
+          /website:html:
+            hippostd:content: |-
+              <p>Some other hello&nbsp;world was here.</p>
+
+              <p>&nbsp;</p>
+
+              <p>Another paragrapah here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Seciton One
+          website:type: ''
+        /website:standards:
+          jcr:primaryType: website:standards
+          website:body: DevCorp
+          website:name: Name standard
+          website:referencenumber: REF345.2553
+          website:weblink: https://www.sky.co.uk
+        /website:summary:
+          hippostd:content: <p>Roadmap item 2 summary - lorem ipsum summary content
+            for roadmap item</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-11-19T10:56:05.901Z
+        hippostdpubwf:lastModificationDate: 2018-11-19T17:36:46.180Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: e905369a-5ad6-40bb-b724-a5b63f556c30
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:versionable
+        jcr:primaryType: website:roadmapitem
+        website:markers:
+        - business-capability
+        - new-capability
+        - research-only
+        website:seosummary: Short SEO summary to go here.
+        website:shortsummary: Browse SHMI
+        website:title: Roadmap Item 2
+      /roadmap-item-2[2]:
+        /website:effectivedate:
+          jcr:primaryType: website:effectivedate
+          website:enddate: 2018-11-19T00:00:00Z
+          website:startdate: 2018-08-09T23:00:00Z
+          website:status: proposed
+        /website:impactedservice:
+          /website:link:
+            hippo:docbase: 96c3cc0d-a943-4848-9694-50c95f32665f
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[1]:
+          /website:link:
+            hippo:docbase: 59e67638-8410-4f22-8a78-37fe8ca5dd4b
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[2]:
+          jcr:primaryType: website:externallink
+          website:link: https://www.sky.co.uk
+          website:shortsummary: home here fskd fdsk fdnf
+          website:title: SKY
+        /website:roadmaplink:
+          hippo:docbase: 7b7820d3-ba5b-47bf-9a20-46368f54fe82
+          jcr:primaryType: hippo:mirror
+        /website:sections:
+          /website:html:
+            hippostd:content: |-
+              <p>Some other hello&nbsp;world was here.</p>
+
+              <p>&nbsp;</p>
+
+              <p>Another paragrapah here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Seciton One
+          website:type: ''
+        /website:standards:
+          jcr:primaryType: website:standards
+          website:body: DevCorp
+          website:name: Name standard
+          website:referencenumber: REF345.2553
+          website:weblink: https://www.sky.co.uk
+        /website:summary:
+          hippostd:content: <p>Roadmap item 2 summary - lorem ipsum summary content
+            for roadmap item</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-11-19T10:56:05.901Z
+        hippostdpubwf:lastModificationDate: 2018-11-20T15:01:31.596Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: e905369a-5ad6-40bb-b724-a5b63f556c30
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:roadmapitem
+        website:markers:
+        - business-capability
+        - new-capability
+        - research-only
+        website:seosummary: Short SEO summary to go here.
+        website:shortsummary: Browse SHMI
+        website:title: Roadmap Item 2
+      /roadmap-item-2[3]:
+        /website:effectivedate:
+          jcr:primaryType: website:effectivedate
+          website:enddate: 2018-11-19T00:00:00Z
+          website:startdate: 2018-08-09T23:00:00Z
+          website:status: proposed
+        /website:impactedservice:
+          /website:link:
+            hippo:docbase: 96c3cc0d-a943-4848-9694-50c95f32665f
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[1]:
+          /website:link:
+            hippo:docbase: 59e67638-8410-4f22-8a78-37fe8ca5dd4b
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[2]:
+          jcr:primaryType: website:externallink
+          website:link: https://www.sky.co.uk
+          website:shortsummary: home here fskd fdsk fdnf
+          website:title: SKY
+        /website:roadmaplink:
+          hippo:docbase: 7b7820d3-ba5b-47bf-9a20-46368f54fe82
+          jcr:primaryType: hippo:mirror
+        /website:sections:
+          /website:html:
+            hippostd:content: |-
+              <p>Some other hello&nbsp;world was here.</p>
+
+              <p>&nbsp;</p>
+
+              <p>Another paragrapah here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Seciton One
+          website:type: ''
+        /website:standards:
+          jcr:primaryType: website:standards
+          website:body: DevCorp
+          website:name: Name standard
+          website:referencenumber: REF345.2553
+          website:weblink: https://www.sky.co.uk
+        /website:summary:
+          hippostd:content: <p>Roadmap item 2 summary - lorem ipsum summary content
+            for roadmap item</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-11-19T10:56:05.901Z
+        hippostdpubwf:lastModificationDate: 2018-11-19T17:36:46.180Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2018-11-23T12:33:49.620Z
+        hippotranslation:id: e905369a-5ad6-40bb-b724-a5b63f556c30
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:roadmapitem
+        website:markers:
+        - business-capability
+        - new-capability
+        - research-only
+        website:seosummary: Short SEO summary to go here.
+        website:shortsummary: Browse SHMI
+        website:title: Roadmap Item 2
+      hippo:name: Roadmap item 2
+      jcr:mixinTypes:
+      - hippo:named
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    /roadmap-item-3:
+      /roadmap-item-3[1]:
+        /website:effectivedate:
+          jcr:primaryType: website:effectivedate
+          website:enddate: 2018-11-29T00:00:00Z
+          website:startdate: 2018-08-20T23:00:00Z
+          website:status: proposed
+        /website:impactedservice:
+          /website:link:
+            hippo:docbase: 96c3cc0d-a943-4848-9694-50c95f32665f
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[1]:
+          /website:link:
+            hippo:docbase: 59e67638-8410-4f22-8a78-37fe8ca5dd4b
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[2]:
+          jcr:primaryType: website:externallink
+          website:link: https://www.sky.co.uk
+          website:shortsummary: home here fskd fdsk fdnf
+          website:title: SKY
+        /website:roadmaplink:
+          hippo:docbase: 7b7820d3-ba5b-47bf-9a20-46368f54fe82
+          jcr:primaryType: hippo:mirror
+        /website:sections:
+          /website:html:
+            hippostd:content: |-
+              <p>Some other hello&nbsp;world was here.</p>
+
+              <p>&nbsp;</p>
+
+              <p>Another paragrapah here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Seciton One
+          website:type: ''
+        /website:standards:
+          jcr:primaryType: website:standards
+          website:body: DevCorp
+          website:name: Name standard
+          website:referencenumber: REF345.2553
+          website:weblink: https://www.sky.co.uk
+        /website:summary:
+          hippostd:content: <p>Roadmap item 3&nbsp;summary - lorem ipsum summary content
+            for roadmap item fdg fdg fdgfdg&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-11-19T10:56:05.901Z
+        hippostdpubwf:lastModificationDate: 2018-11-20T15:02:15.316Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: fd04f7fb-44fe-4375-87cd-f3cb8b47d70a
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:versionable
+        jcr:primaryType: website:roadmapitem
+        website:markers:
+        - business-capability
+        - research-only
+        - overarching-tech-stds
+        website:seosummary: Short SEO summary to go here.
+        website:shortsummary: Browse SHMI
+        website:title: Roadmap Item 3
+      /roadmap-item-3[2]:
+        /website:effectivedate:
+          jcr:primaryType: website:effectivedate
+          website:enddate: 2018-11-29T00:00:00Z
+          website:startdate: 2018-08-20T23:00:00Z
+          website:status: proposed
+        /website:impactedservice:
+          /website:link:
+            hippo:docbase: 96c3cc0d-a943-4848-9694-50c95f32665f
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[1]:
+          /website:link:
+            hippo:docbase: 59e67638-8410-4f22-8a78-37fe8ca5dd4b
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[2]:
+          jcr:primaryType: website:externallink
+          website:link: https://www.sky.co.uk
+          website:shortsummary: home here fskd fdsk fdnf
+          website:title: SKY
+        /website:roadmaplink:
+          hippo:docbase: 7b7820d3-ba5b-47bf-9a20-46368f54fe82
+          jcr:primaryType: hippo:mirror
+        /website:sections:
+          /website:html:
+            hippostd:content: |-
+              <p>Some other hello&nbsp;world was here.</p>
+
+              <p>&nbsp;</p>
+
+              <p>Another paragrapah here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Seciton One
+          website:type: ''
+        /website:standards:
+          jcr:primaryType: website:standards
+          website:body: DevCorp
+          website:name: Name standard
+          website:referencenumber: REF345.2553
+          website:weblink: https://www.sky.co.uk
+        /website:summary:
+          hippostd:content: <p>Roadmap item 3&nbsp;summary - lorem ipsum summary content
+            for roadmap item fdg fdg fdgfdg&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-11-19T10:56:05.901Z
+        hippostdpubwf:lastModificationDate: 2018-11-20T15:01:47.173Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: fd04f7fb-44fe-4375-87cd-f3cb8b47d70a
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:roadmapitem
+        website:markers:
+        - business-capability
+        - research-only
+        - overarching-tech-stds
+        website:seosummary: Short SEO summary to go here.
+        website:shortsummary: Browse SHMI
+        website:title: Roadmap Item 3
+      /roadmap-item-3[3]:
+        /website:effectivedate:
+          jcr:primaryType: website:effectivedate
+          website:enddate: 2018-11-29T00:00:00Z
+          website:startdate: 2018-08-20T23:00:00Z
+          website:status: proposed
+        /website:impactedservice:
+          /website:link:
+            hippo:docbase: 96c3cc0d-a943-4848-9694-50c95f32665f
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[1]:
+          /website:link:
+            hippo:docbase: 59e67638-8410-4f22-8a78-37fe8ca5dd4b
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[2]:
+          jcr:primaryType: website:externallink
+          website:link: https://www.sky.co.uk
+          website:shortsummary: home here fskd fdsk fdnf
+          website:title: SKY
+        /website:roadmaplink:
+          hippo:docbase: 7b7820d3-ba5b-47bf-9a20-46368f54fe82
+          jcr:primaryType: hippo:mirror
+        /website:sections:
+          /website:html:
+            hippostd:content: |-
+              <p>Some other hello&nbsp;world was here.</p>
+
+              <p>&nbsp;</p>
+
+              <p>Another paragrapah here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Seciton One
+          website:type: ''
+        /website:standards:
+          jcr:primaryType: website:standards
+          website:body: DevCorp
+          website:name: Name standard
+          website:referencenumber: REF345.2553
+          website:weblink: https://www.sky.co.uk
+        /website:summary:
+          hippostd:content: <p>Roadmap item 3&nbsp;summary - lorem ipsum summary content
+            for roadmap item fdg fdg fdgfdg&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-11-19T10:56:05.901Z
+        hippostdpubwf:lastModificationDate: 2018-11-20T15:02:15.316Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2018-11-23T12:33:49.878Z
+        hippotranslation:id: fd04f7fb-44fe-4375-87cd-f3cb8b47d70a
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:roadmapitem
+        website:markers:
+        - business-capability
+        - research-only
+        - overarching-tech-stds
+        website:seosummary: Short SEO summary to go here.
+        website:shortsummary: Browse SHMI
+        website:title: Roadmap Item 3
+      hippo:name: Roadmap item 3
+      jcr:mixinTypes:
+      - hippo:named
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    /roadmap-item-4:
+      /roadmap-item-4[1]:
+        /website:effectivedate:
+          jcr:primaryType: website:effectivedate
+          website:enddate: 2019-05-14T23:00:00Z
+          website:startdate: 2019-04-15T23:00:00Z
+          website:status: estimated
+        /website:impactedservice:
+          /website:link:
+            hippo:docbase: 96c3cc0d-a943-4848-9694-50c95f32665f
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[1]:
+          /website:link:
+            hippo:docbase: 59e67638-8410-4f22-8a78-37fe8ca5dd4b
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[2]:
+          jcr:primaryType: website:externallink
+          website:link: https://www.sky.co.uk
+          website:shortsummary: home here fskd fdsk fdnf
+          website:title: SKY
+        /website:roadmaplink:
+          hippo:docbase: 7b7820d3-ba5b-47bf-9a20-46368f54fe82
+          jcr:primaryType: hippo:mirror
+        /website:sections:
+          /website:html:
+            hippostd:content: |-
+              <p>Some other hello&nbsp;world was here.</p>
+
+              <p>&nbsp;</p>
+
+              <p>Another paragrapah here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Seciton One
+          website:type: ''
+        /website:standards:
+          jcr:primaryType: website:standards
+          website:body: DevCorp
+          website:name: Name standard
+          website:referencenumber: REF345.2553
+          website:weblink: https://www.sky.co.uk
+        /website:summary:
+          hippostd:content: <p>Roadmap item 4&nbsp;summary - lorem ipsum summary content
+            for roadmap item fdg fdg fdgfdg&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-11-19T10:56:05.901Z
+        hippostdpubwf:lastModificationDate: 2018-11-20T15:44:44.906Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: f7990fec-1d81-4f29-bf5e-64d410d87fd1
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:versionable
+        jcr:primaryType: website:roadmapitem
+        website:markers:
+        - business-capability
+        - research-only
+        - overarching-tech-stds
+        website:seosummary: Short SEO summary to go here.
+        website:shortsummary: Browse SHMI
+        website:title: Roadmap Item 4
+      /roadmap-item-4[2]:
+        /website:effectivedate:
+          jcr:primaryType: website:effectivedate
+          website:enddate: 2019-05-14T23:00:00Z
+          website:startdate: 2019-04-15T23:00:00Z
+          website:status: estimated
+        /website:impactedservice:
+          /website:link:
+            hippo:docbase: 96c3cc0d-a943-4848-9694-50c95f32665f
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[1]:
+          /website:link:
+            hippo:docbase: 59e67638-8410-4f22-8a78-37fe8ca5dd4b
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[2]:
+          jcr:primaryType: website:externallink
+          website:link: https://www.sky.co.uk
+          website:shortsummary: home here fskd fdsk fdnf
+          website:title: SKY
+        /website:roadmaplink:
+          hippo:docbase: 7b7820d3-ba5b-47bf-9a20-46368f54fe82
+          jcr:primaryType: hippo:mirror
+        /website:sections:
+          /website:html:
+            hippostd:content: |-
+              <p>Some other hello&nbsp;world was here.</p>
+
+              <p>&nbsp;</p>
+
+              <p>Another paragrapah here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Seciton One
+          website:type: ''
+        /website:standards:
+          jcr:primaryType: website:standards
+          website:body: DevCorp
+          website:name: Name standard
+          website:referencenumber: REF345.2553
+          website:weblink: https://www.sky.co.uk
+        /website:summary:
+          hippostd:content: <p>Roadmap item 4&nbsp;summary - lorem ipsum summary content
+            for roadmap item fdg fdg fdgfdg&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-11-19T10:56:05.901Z
+        hippostdpubwf:lastModificationDate: 2018-11-20T15:44:34.903Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: f7990fec-1d81-4f29-bf5e-64d410d87fd1
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:roadmapitem
+        website:markers:
+        - business-capability
+        - research-only
+        - overarching-tech-stds
+        website:seosummary: Short SEO summary to go here.
+        website:shortsummary: Browse SHMI
+        website:title: Roadmap Item 4
+      /roadmap-item-4[3]:
+        /website:effectivedate:
+          jcr:primaryType: website:effectivedate
+          website:enddate: 2019-05-14T23:00:00Z
+          website:startdate: 2019-04-15T23:00:00Z
+          website:status: estimated
+        /website:impactedservice:
+          /website:link:
+            hippo:docbase: 96c3cc0d-a943-4848-9694-50c95f32665f
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[1]:
+          /website:link:
+            hippo:docbase: 59e67638-8410-4f22-8a78-37fe8ca5dd4b
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[2]:
+          jcr:primaryType: website:externallink
+          website:link: https://www.sky.co.uk
+          website:shortsummary: home here fskd fdsk fdnf
+          website:title: SKY
+        /website:roadmaplink:
+          hippo:docbase: 7b7820d3-ba5b-47bf-9a20-46368f54fe82
+          jcr:primaryType: hippo:mirror
+        /website:sections:
+          /website:html:
+            hippostd:content: |-
+              <p>Some other hello&nbsp;world was here.</p>
+
+              <p>&nbsp;</p>
+
+              <p>Another paragrapah here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Seciton One
+          website:type: ''
+        /website:standards:
+          jcr:primaryType: website:standards
+          website:body: DevCorp
+          website:name: Name standard
+          website:referencenumber: REF345.2553
+          website:weblink: https://www.sky.co.uk
+        /website:summary:
+          hippostd:content: <p>Roadmap item 4&nbsp;summary - lorem ipsum summary content
+            for roadmap item fdg fdg fdgfdg&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-11-19T10:56:05.901Z
+        hippostdpubwf:lastModificationDate: 2018-11-20T15:44:44.906Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2018-11-23T12:33:50.089Z
+        hippotranslation:id: f7990fec-1d81-4f29-bf5e-64d410d87fd1
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:roadmapitem
+        website:markers:
+        - business-capability
+        - research-only
+        - overarching-tech-stds
+        website:seosummary: Short SEO summary to go here.
+        website:shortsummary: Browse SHMI
+        website:title: Roadmap Item 4
+      hippo:name: Roadmap item 4
+      jcr:mixinTypes:
+      - hippo:named
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    /roadmap-item-5:
+      /roadmap-item-5[1]:
+        /website:effectivedate:
+          jcr:primaryType: website:effectivedate
+          website:enddate: 2018-12-21T00:00:00Z
+          website:startdate: 2018-11-22T00:00:00Z
+          website:status: planned
+        /website:impactedservice:
+          /website:link:
+            hippo:docbase: 96c3cc0d-a943-4848-9694-50c95f32665f
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[1]:
+          /website:link:
+            hippo:docbase: 59e67638-8410-4f22-8a78-37fe8ca5dd4b
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[2]:
+          jcr:primaryType: website:externallink
+          website:link: https://www.sky.co.uk
+          website:shortsummary: home here fskd fdsk fdnf
+          website:title: SKY
+        /website:roadmaplink:
+          hippo:docbase: 7b7820d3-ba5b-47bf-9a20-46368f54fe82
+          jcr:primaryType: hippo:mirror
+        /website:sections:
+          /website:html:
+            hippostd:content: |-
+              <p>Some other hello&nbsp;world was here.</p>
+
+              <p>&nbsp;</p>
+
+              <p>Another paragrapah here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Seciton One
+          website:type: ''
+        /website:standards:
+          jcr:primaryType: website:standards
+          website:body: Harrings Cort
+          website:name: Name that standard
+          website:referencenumber: ABC12324.3433
+          website:weblink: https://www.asda.co.uk
+        /website:summary:
+          hippostd:content: <p>Roadmap item 5&nbsp;summary - lorem ipsum summary content
+            for roadmap item fdg fdg fdgfdg&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-11-19T10:56:05.901Z
+        hippostdpubwf:lastModificationDate: 2018-11-22T13:57:21.162Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: df01172c-ca89-4017-8bf3-8a93577b3292
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:versionable
+        jcr:primaryType: website:roadmapitem
+        website:markers:
+        - business-capability
+        - research-only
+        - overarching-tech-stds
+        website:seosummary: Short SEO summary to go here.
+        website:shortsummary: Browse SHMI and some other short summary content to
+          go here
+        website:title: Roadmap Item 5
+      /roadmap-item-5[2]:
+        /website:effectivedate:
+          jcr:primaryType: website:effectivedate
+          website:enddate: 2018-12-21T00:00:00Z
+          website:startdate: 2018-11-22T00:00:00Z
+          website:status: planned
+        /website:impactedservice:
+          /website:link:
+            hippo:docbase: 96c3cc0d-a943-4848-9694-50c95f32665f
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[1]:
+          /website:link:
+            hippo:docbase: 59e67638-8410-4f22-8a78-37fe8ca5dd4b
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[2]:
+          jcr:primaryType: website:externallink
+          website:link: https://www.sky.co.uk
+          website:shortsummary: home here fskd fdsk fdnf
+          website:title: SKY
+        /website:roadmaplink:
+          hippo:docbase: 7b7820d3-ba5b-47bf-9a20-46368f54fe82
+          jcr:primaryType: hippo:mirror
+        /website:sections:
+          /website:html:
+            hippostd:content: |-
+              <p>Some other hello&nbsp;world was here.</p>
+
+              <p>&nbsp;</p>
+
+              <p>Another paragrapah here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Seciton One
+          website:type: ''
+        /website:standards:
+          jcr:primaryType: website:standards
+          website:body: Harrings Cort
+          website:name: Name that standard
+          website:referencenumber: ABC12324.3433
+          website:weblink: https://www.asda.co.uk
+        /website:summary:
+          hippostd:content: <p>Roadmap item 5&nbsp;summary - lorem ipsum summary content
+            for roadmap item fdg fdg fdgfdg&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-11-19T10:56:05.901Z
+        hippostdpubwf:lastModificationDate: 2018-11-22T14:40:59.049Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: df01172c-ca89-4017-8bf3-8a93577b3292
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:roadmapitem
+        website:markers:
+        - business-capability
+        - research-only
+        - overarching-tech-stds
+        website:seosummary: Short SEO summary to go here.
+        website:shortsummary: Browse SHMI and some other short summary content to
+          go here
+        website:title: Roadmap Item 5
+      /roadmap-item-5[3]:
+        /website:effectivedate:
+          jcr:primaryType: website:effectivedate
+          website:enddate: 2018-12-21T00:00:00Z
+          website:startdate: 2018-11-22T00:00:00Z
+          website:status: planned
+        /website:impactedservice:
+          /website:link:
+            hippo:docbase: 96c3cc0d-a943-4848-9694-50c95f32665f
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[1]:
+          /website:link:
+            hippo:docbase: 59e67638-8410-4f22-8a78-37fe8ca5dd4b
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:internallink
+        /website:items[2]:
+          jcr:primaryType: website:externallink
+          website:link: https://www.sky.co.uk
+          website:shortsummary: home here fskd fdsk fdnf
+          website:title: SKY
+        /website:roadmaplink:
+          hippo:docbase: 7b7820d3-ba5b-47bf-9a20-46368f54fe82
+          jcr:primaryType: hippo:mirror
+        /website:sections:
+          /website:html:
+            hippostd:content: |-
+              <p>Some other hello&nbsp;world was here.</p>
+
+              <p>&nbsp;</p>
+
+              <p>Another paragrapah here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Seciton One
+          website:type: ''
+        /website:standards:
+          jcr:primaryType: website:standards
+          website:body: Harrings Cort
+          website:name: Name that standard
+          website:referencenumber: ABC12324.3433
+          website:weblink: https://www.asda.co.uk
+        /website:summary:
+          hippostd:content: <p>Roadmap item 5&nbsp;summary - lorem ipsum summary content
+            for roadmap item fdg fdg fdgfdg&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-11-19T10:56:05.901Z
+        hippostdpubwf:lastModificationDate: 2018-11-22T13:57:21.162Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2018-11-23T12:33:49.754Z
+        hippotranslation:id: df01172c-ca89-4017-8bf3-8a93577b3292
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:roadmapitem
+        website:markers:
+        - business-capability
+        - research-only
+        - overarching-tech-stds
+        website:seosummary: Short SEO summary to go here.
+        website:shortsummary: Browse SHMI and some other short summary content to
+          go here
+        website:title: Roadmap Item 5
+      hippo:name: Roadmap item 5
+      jcr:mixinTypes:
+      - hippo:named
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    hippo:name: Roadmap test document
+    hippostd:foldertype:
+    - new-digital-website-folder
+    - new-digital-website-document
+    hippotranslation:id: 5a01a6e8-47f0-47f7-8544-d7cef68e8bd0
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippo:named
+    - hippotranslation:translated
+    - mix:versionable
+    jcr:primaryType: hippostd:folder
   /service-test-document:
     /service-test-document[1]:
       /website:component:
@@ -1042,8 +2328,8 @@
     jcr:primaryType: hippo:handle
   hippo:name: Website Acceptance Tests
   hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  - new-digital-website-folder
+  - new-digital-website-document
   hippotranslation:id: 11d17c80-e9dd-4217-8fa6-4c4139f5ee79
   hippotranslation:locale: en
   jcr:mixinTypes:

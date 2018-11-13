@@ -351,20 +351,22 @@ public class SearchComponent extends CommonComponent {
     }
 
     /**
-     * Adding the Publishedwork document type
+     * Adding the Publishedwork and publishedwork chapter document type
      */
-    private void addPublishedWork(HstQueryBuilder query) {
+    private void addPublishedWorkTypes(HstQueryBuilder query) {
         query.ofTypes(
-            Publishedwork.class
+            Publishedwork.class,
+            Publishedworkchapter.class
         );
     }
 
     /**
-     * Adding the PublishedworkChapter document type
+     * Adding the Roadmap document type
      */
-    private void addPublishedWorkChapter(HstQueryBuilder query) {
+    private void addRoadmapTypes(HstQueryBuilder query) {
         query.ofTypes(
-            Publishedworkchapter.class
+            Roadmap.class,
+            RoadmapItem.class
         );
     }
 
@@ -387,8 +389,8 @@ public class SearchComponent extends CommonComponent {
         addNewsAndEventsTypes(query);
         addServiceTypes(query);
         addGdprTypes(query);
-        addPublishedWork(query);
-        addPublishedWorkChapter(query);
+        addPublishedWorkTypes(query);
+        addRoadmapTypes(query);
         addComponentList(query);
     }
 

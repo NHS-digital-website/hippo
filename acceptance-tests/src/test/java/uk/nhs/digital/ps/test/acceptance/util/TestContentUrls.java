@@ -242,7 +242,7 @@ public class TestContentUrls {
 
         // Published work chapter page
         addSiteUrl("Published Work Chapter test document",
-            "/website-acceptance-tests/published-work-chapter-test-document");
+            "/website-acceptance-tests/published-work-chapter-1");
 
         // Links list page
         addSiteUrl("Links list test document",

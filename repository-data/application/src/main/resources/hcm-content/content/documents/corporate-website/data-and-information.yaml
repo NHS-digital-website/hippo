@@ -3,8 +3,8 @@
   .meta:order-before: about-nhs-digital
   hippo:name: Data and information
   hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  - new-digital-website-folder
+  - new-digital-website-document
   hippotranslation:id: 282180e3-fe3d-4a9a-8d18-835072f67556
   hippotranslation:locale: en
   jcr:mixinTypes:

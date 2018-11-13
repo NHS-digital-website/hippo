@@ -183,8 +183,8 @@
     jcr:primaryType: hippo:handle
   hippo:name: News
   hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  - new-digital-website-folder
+  - new-digital-website-document
   hippotranslation:id: cdb1126c-fab2-4306-a838-766f610ae3aa
   hippotranslation:locale: en
   jcr:mixinTypes:

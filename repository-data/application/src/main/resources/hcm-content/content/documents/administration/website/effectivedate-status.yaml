@@ -1,0 +1,33 @@
+---
+/content/documents/administration/website/effectivedatestatus:
+  /effectivedatestatus:
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: proposed
+      selection:label: Proposed
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: estimated
+      selection:label: Estimated
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: planned
+      selection:label: Planned
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: confirmed
+      selection:label: Confirmed
+    hippo:availability:
+    - live
+    - preview
+    hippotranslation:id: 0a82bdc9-5e9f-47c2-89a7-e98ffecad34f
+    hippotranslation:locale: inherited - from query
+    jcr:mixinTypes:
+    - hippotranslation:translated
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: Effective Date
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

@@ -33,6 +33,10 @@
                 <@publishedworkchapter item=document />
             <#elseif document.class.name == "uk.nhs.digital.website.beans.ComponentList">
                 <@componentlist item=document />
+            <#elseif document.class.name == "uk.nhs.digital.website.beans.Roadmap">
+                <@roadmap item=document />
+            <#elseif document.class.name == "uk.nhs.digital.website.beans.RoadmapItem">
+                <@roadmapitem item=document />
             </#if>
         </#list>
     </div>
@@ -294,5 +298,30 @@
         </a>
         <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
     </div>
+</div>
+</#macro>
+
+<#macro roadmap item>
+<div class="cta cta--detailed" data-uipath="ps.search-results.result">
+    <div>
+        <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.roadmap"/></span>
+    </div>
+    <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
+        ${item.title}
+    </a>
+    <span class="cta__meta" data-uipath="ps.search-results.result.date"><@formatDate date=item.publicationDate.time/></span>
+    <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
+</div>
+</#macro>
+
+<#macro roadmapitem item>
+<div class="cta cta--detailed" data-uipath="ps.search-results.result">
+    <div>
+        <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.roadmapitem"/></span>
+    </div>
+    <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
+        ${item.title}
+    </a>
+    <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
 </div>
 </#macro>

@@ -1,0 +1,21 @@
+/* Roadmap Item box list */
+.roadmapitem-box {
+  display: block;
+  width: 40%;
+  float:left;
+  margin-right:50px;
+  border: 22px solid #F4F5F7;
+  @media (max-width: $wide-desktop-width) {
+    & {
+      width: 100%; }
+  }}
+  .roadmapitem-box .hub-box__contents {
+    margin-top: 0;
+    padding: 20px 20px 15px; }
+  .roadmapitem-box .hub-box__text {
+    margin-top: 16px; }
+  .roadmapitem-box .tag-list {
+    margin-top: 16px; }
+  @media (max-width: 641px) {
+    .hub-box {
+      border-width: 12px; } }

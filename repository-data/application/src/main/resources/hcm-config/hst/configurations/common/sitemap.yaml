@@ -17,6 +17,8 @@ definitions:
           - website:publishedwork
           - website:publishedworkchapter
           - website:generalnonsearch
+          - website:roadmap
+          - website:roadmapitem
           hst:componentconfigurationmappingvalues:
           - hst:pages/service
           - hst:pages/general
@@ -29,6 +31,8 @@ definitions:
           - hst:pages/publishedwork
           - hst:pages/publishedworkchapter
           - hst:pages/general
+          - hst:pages/roadmap
+          - hst:pages/roadmapitem
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404
@@ -44,6 +48,8 @@ definitions:
         - website:publishedwork
         - website:publishedworkchapter
         - website:generalnonsearch
+        - website:roadmap
+        - website:roadmapitem
         hst:componentconfigurationmappingvalues:
         - hst:pages/service
         - hst:pages/general
@@ -56,6 +62,8 @@ definitions:
         - hst:pages/publishedwork
         - hst:pages/publishedworkchapter
         - hst:pages/general
+        - hst:pages/roadmap
+        - hst:pages/roadmapitem
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:

@@ -16,8 +16,12 @@
     resourcebundle:id: website.labels
     resourcebundle:keys:
     - labels.service
+    - labels.roadmap
+    - labels.roadmapitem
     resourcebundle:messages:
     - Service
+    - Roadmap
+    - Roadmap Item
   /labels[2]:
     hippo:availability: []
     hippostd:state: draft
@@ -33,8 +37,12 @@
     resourcebundle:id: website.labels
     resourcebundle:keys:
     - labels.service
+    - labels.roadmap
+    - labels.roadmapitem
     resourcebundle:messages:
     - Service
+    - Roadmap
+    - Roadmap Item
   /labels[3]:
     hippo:availability:
     - live
@@ -52,8 +60,12 @@
     resourcebundle:id: website.labels
     resourcebundle:keys:
     - labels.service
+    - labels.roadmap
+    - labels.roadmapitem
     resourcebundle:messages:
     - Service
+    - Roadmap
+    - Roadmap Item
   hippo:name: Labels
   jcr:mixinTypes:
   - hippo:named

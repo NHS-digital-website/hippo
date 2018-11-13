@@ -1,0 +1,41 @@
+---
+/content/documents/administration/website/roadmapcategories:
+  /roadmapcategories:
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: interop-stds
+      selection:label: Interop Stds
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: context-specific-stds
+      selection:label: Context-specific Stds
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: business-capability
+      selection:label: Business Capability
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: new-capability
+      selection:label: New Capability
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: research-only
+      selection:label: Research Only
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: overarching-tech-stds
+      selection:label: Overarching Tech Stds
+    hippo:availability:
+    - live
+    - preview
+    hippotranslation:id: 0a82bdc9-5e9f-47c2-89a7-e98ffecad34e
+    hippotranslation:locale: inherited - from query
+    jcr:mixinTypes:
+    - hippotranslation:translated
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: Roadmap Categories
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

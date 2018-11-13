@@ -700,8 +700,8 @@
         jcr:primaryType: hippo:handle
       hippo:name: 'Service Grandchild Document #1'
       hippostd:foldertype:
-      - new-translated-folder
-      - new-document
+      - new-digital-website-folder
+      - new-digital-website-document
       hippotranslation:id: 408990e8-b2a7-4547-ab9c-9f8a6002d58e
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -711,8 +711,8 @@
       jcr:primaryType: hippostd:folder
     hippo:name: 'Service Child Document #1'
     hippostd:foldertype:
-    - new-translated-folder
-    - new-document
+    - new-digital-website-folder
+    - new-digital-website-document
     hippotranslation:id: 3513a3fd-81df-4462-9440-a6da0380ae29
     hippotranslation:locale: en
     jcr:mixinTypes:
@@ -919,8 +919,8 @@
       jcr:primaryType: hippo:handle
     hippo:name: 'Service Child Document #2'
     hippostd:foldertype:
-    - new-translated-folder
-    - new-document
+    - new-digital-website-folder
+    - new-digital-website-document
     hippotranslation:id: ecfc54ee-197e-4039-8984-5951477fdb7b
     hippotranslation:locale: en
     jcr:mixinTypes:
@@ -1160,8 +1160,8 @@
       jcr:primaryType: hippo:handle
     hippo:name: 'Service Child Document #3'
     hippostd:foldertype:
-    - new-translated-folder
-    - new-document
+    - new-digital-website-folder
+    - new-digital-website-document
     hippotranslation:id: a4d82e95-8c2c-4a83-8691-404adc8778eb
     hippotranslation:locale: en
     jcr:mixinTypes:
@@ -1356,8 +1356,8 @@
       jcr:primaryType: hippo:handle
     hippo:name: 'Service Child Document #4'
     hippostd:foldertype:
-    - new-translated-folder
-    - new-document
+    - new-digital-website-folder
+    - new-digital-website-document
     hippotranslation:id: 12a4c8ec-5ccc-4f86-b16b-512fdc129e4f
     hippotranslation:locale: en
     jcr:mixinTypes:
@@ -1600,8 +1600,8 @@
       jcr:primaryType: hippo:handle
     hippo:name: 'Service Child Document #5'
     hippostd:foldertype:
-    - new-translated-folder
-    - new-document
+    - new-digital-website-folder
+    - new-digital-website-document
     hippotranslation:id: b74a8732-e4e7-4e69-8906-92d4eb3c4ee4
     hippotranslation:locale: en
     jcr:mixinTypes:
@@ -1611,8 +1611,8 @@
     jcr:primaryType: hippostd:folder
   hippo:name: 'Service Document #1'
   hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  - new-digital-website-folder
+  - new-digital-website-document
   hippotranslation:id: 3b3d7b71-d032-4dd9-a1d9-0942f8c207aa
   hippotranslation:locale: en
   jcr:mixinTypes:

@@ -139,6 +139,25 @@ https://wiki.apache.org/jackrabbit/IndexingConfiguration
         <property isRegexp="true" nodeScopeIndex="false">.*:.*</property>
     </index-rule>
 
+    <index-rule nodeType="website:roadmap">
+        <property>website:title</property>
+        <property>website:summary</property>
+        <property>website:shortsummary</property>
+        <property>website:seosummary</property>
+        <property isRegexp="true" nodeScopeIndex="false">.*:.*</property>
+    </index-rule>
+
+    <index-rule nodeType="website:roadmapitem">
+        <property>website:title</property>
+        <property>website:summary</property>
+        <property>website:shortsummary</property>
+        <property>website:seosummary</property>
+        <property>website:markers</property>
+        <property>website:sections</property>
+        <property>website:standards</property>
+        <property isRegexp="true" nodeScopeIndex="false">.*:.*</property>
+    </index-rule>
+
     <!-- hippo aggregates -->
     <aggregates>
         <nodetype>hippostd:html</nodetype>
