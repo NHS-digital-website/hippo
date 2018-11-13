@@ -407,8 +407,8 @@
       jcr:primaryType: hippo:handle
     hippo:name: 'General Child Document #1'
     hippostd:foldertype:
-    - new-translated-folder
-    - new-document
+    - new-digital-website-folder
+    - new-digital-website-document
     hippotranslation:id: 1f19e34f-86c3-469c-a736-253288e9b8d1
     hippotranslation:locale: en
     jcr:mixinTypes:
@@ -621,8 +621,8 @@
       jcr:primaryType: hippo:handle
     hippo:name: 'General Child Document #2'
     hippostd:foldertype:
-    - new-translated-folder
-    - new-document
+    - new-digital-website-folder
+    - new-digital-website-document
     hippotranslation:id: 978f3f80-0d91-461b-837d-c5e278582f2d
     hippotranslation:locale: en
     jcr:mixinTypes:
@@ -632,8 +632,8 @@
     jcr:primaryType: hippostd:folder
   hippo:name: 'General Document #1'
   hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  - new-digital-website-folder
+  - new-digital-website-document
   hippotranslation:id: cb64dcbb-6553-4913-b3cb-f765c6b9454b
   hippotranslation:locale: en
   jcr:mixinTypes:

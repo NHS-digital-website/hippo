@@ -9,7 +9,12 @@
                 <ol class="article-section-nav__list article-section-nav__list--tag-links">
                 <#list links as link>
                     <li>
-                        <a href="${link.url}" aria-label="Show '${link.title}' types only" title="Show '${link.title}' types only" class="tag-link">${link.title}</a>
+                        <#if selectedTypes?seq_contains(link.key)>
+                            <#assign linkout = "&type=" + selectedTypes?join("&type=") />
+                            <a href="${getDocumentUrl()}${linkout?replace("&type="+link.key, "")?replace("&", "?", "f")}" aria-label="Show '${link.title}' types only" title="Show '${link.title}' types only" class="tag-link selected">${link.title}</a>
+                        <#else>
+                            <a href="?type=${selectedTypes?join("&type=", "", "&type=")}${link.key}" aria-label="Show '${link.title}' types only" title="Show '${link.title}' types only" class="tag-link">${link.title}</a>
+                        </#if>
                     </li>
                 </#list>
                 </ol>

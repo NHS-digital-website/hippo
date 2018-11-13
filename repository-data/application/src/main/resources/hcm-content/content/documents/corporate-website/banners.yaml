@@ -2,8 +2,8 @@
 /content/documents/corporate-website/banners:
   hippo:name: Banners
   hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  - new-digital-website-folder
+  - new-digital-website-document
   hippotranslation:id: 8c8f82ad-0d84-4954-9a9b-afefdb94b00c
   hippotranslation:locale: en
   jcr:mixinTypes:

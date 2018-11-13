@@ -285,8 +285,8 @@
     jcr:primaryType: hippo:handle
   hippo:name: CTA
   hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  - new-digital-website-folder
+  - new-digital-website-document
   hippotranslation:id: ae678c18-3fd8-459f-adda-cf75932cbfcb
   hippotranslation:locale: en
   jcr:mixinTypes:

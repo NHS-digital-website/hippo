@@ -1,0 +1,106 @@
+---
+/content/documents/administration/resources/rb.doctype.roadmap:
+  /rb.doctype.roadmap[1]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-07-23T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2018-11-26T12:08:40.340Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Summary section header
+    - Effective date header
+    - Effective date status header
+    - Standards section header
+    - Impacted Services section header
+    - Resources section header
+    resourcebundle:id: rb.doctype.roadmap
+    resourcebundle:keys:
+    - headers.summary
+    - headers.effective-date
+    - headers.effective-status
+    - headers.standards
+    - headers.impacted-services
+    - headers.resources
+    resourcebundle:messages:
+    - Summary
+    - Effective date
+    - Effective date status
+    - Standards
+    - Impacted services
+    - Resources
+  /rb.doctype.roadmap[2]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-07-23T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2018-11-26T12:05:16.742Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Summary section header
+    - Effective date header
+    - Effective date status header
+    - Standards section header
+    - Impacted Services section header
+    - Resources section header
+    resourcebundle:id: rb.doctype.roadmap
+    resourcebundle:keys:
+    - headers.summary
+    - headers.effective-date
+    - headers.effective-status
+    - headers.standards
+    - headers.impacted-services
+    - headers.resources
+    resourcebundle:messages:
+    - Summary
+    - Effective date
+    - Effective date status
+    - Standards
+    - Impacted services
+    - Resources
+  /rb.doctype.roadmap[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-07-23T15:49:40.466Z
+    hippostdpubwf:lastModificationDate: 2018-11-26T12:08:40.340Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2018-11-26T12:08:43.301Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - Summary section header
+    - Effective date header
+    - Effective date status header
+    - Standards section header
+    - Impacted Services section header
+    - Resources section header
+    resourcebundle:id: rb.doctype.roadmap
+    resourcebundle:keys:
+    - headers.summary
+    - headers.effective-date
+    - headers.effective-status
+    - headers.standards
+    - headers.impacted-services
+    - headers.resources
+    resourcebundle:messages:
+    - Summary
+    - Effective date
+    - Effective date status
+    - Standards
+    - Impacted services
+    - Resources
+  hippo:name: Roadmap Resource Bundle
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

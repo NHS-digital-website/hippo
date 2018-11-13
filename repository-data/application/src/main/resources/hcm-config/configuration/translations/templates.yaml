@@ -78,6 +78,11 @@ definitions:
           jcr:name: Links list
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:effectivedate:
+        /en:
+          jcr:name: Effective date
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:emphasisBox:
         /en:
           jcr:name: Emphasis Box
@@ -106,6 +111,16 @@ definitions:
       /website:publishedworkchapter:
         /en:
           jcr:name: Published Work Chapter
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:roadmap:
+        /en:
+          jcr:name: Roadmap
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:roadmapitem:
+        /en:
+          jcr:name: Roadmap Item
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:service:

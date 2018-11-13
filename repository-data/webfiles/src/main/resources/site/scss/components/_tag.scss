@@ -43,6 +43,7 @@
         color: $col-quaternary;
     }
 
+    &.selected,
     &:hover {
         color: $col-septenary;
         background: $col-quaternary;

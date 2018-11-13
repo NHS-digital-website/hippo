@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/roadmapitem:
+      /main:
+        hst:componentclassname: uk.nhs.digital.common.components.RoadmapItemsComponent
+        hst:template: roadmapitem
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/apppage
+      jcr:primaryType: hst:component
