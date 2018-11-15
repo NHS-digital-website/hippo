@@ -103,7 +103,7 @@
         <div class="grid-row">
             <div class="column column--two-thirds page-block page-block--main">
                 <div class="article-section">
-                    <p data-uipath="ps.publication.upcoming-disclaimer" class="strong">(Upcoming, not yet published)</p>
+                    <p data-uipath="ps.publication.upcoming-disclaimer" class="strong" itemprop="description">(Upcoming, not yet published)</p>
                 </div>
             </div>
         </div>
@@ -120,13 +120,13 @@
                 <@nationalStatsStamp/>
 
                 <span class="article-header__label"><@fmt.message key="labels.publication"/></span>
-                <h1 class="local-header__title" data-uipath="document.title">${legacyPublication.title}</h1>
+                <h1 class="local-header__title" data-uipath="document.title" itemprop="name">${legacyPublication.title}</h1>
                 <#if legacyPublication.parentDocument??>
-                    <p class="article-header__subtitle">
+                    <p class="article-header__subtitle" itemprop="isPartOf" itemscope itemtype="http://schema.org/Series">
                         This is part of
-                        <a href="<@hst.link hippobean=legacyPublication.parentDocument.selfLinkBean/>"
+                        <a itemprop="url" href="<@hst.link hippobean=legacyPublication.parentDocument.selfLinkBean/>"
                             title="${legacyPublication.parentDocument.title}">
-                            ${legacyPublication.parentDocument.title}
+                            <span itemprop="name">${legacyPublication.parentDocument.title}</span>
                         </a>
                     </p>
                 </#if>
@@ -144,7 +144,7 @@
                         <div class="column column--reset">
                             <dl class="detail-list">
                                 <dt class="detail-list__key"><@fmt.message key="headers.publication-date"/></dt>
-                                <dd class="detail-list__value" data-uipath="ps.publication.nominal-publication-date">
+                                <dd class="detail-list__value" data-uipath="ps.publication.nominal-publication-date" itemprop="datePublished">
                                     <@formatRestrictableDate value=legacyPublication.nominalPublicationDate/>
                                 </dd>
                             </dl>
@@ -156,7 +156,7 @@
                         <div class="column column--reset">
                             <dl class="detail-list">
                                 <dt class="detail-list__key" id="geographic-coverage"><@fmt.message key="headers.geographical-coverage"/></dt>
-                                <dd class="detail-list__value" data-uipath="ps.publication.geographic-coverage">
+                                <dd class="detail-list__value" itemprop="spatialCoverage" data-uipath="ps.publication.geographic-coverage">
                                     <#list legacyPublication.geographicCoverage as geographicCoverageItem>${geographicCoverageItem}<#sep>, </#list>
                                 </dd>
                             </dl>
@@ -184,7 +184,8 @@
                                 <dt class="detail-list__key"><@fmt.message key="headers.date-range"/></dt>
                                 <dd class="detail-list__value" data-uipath="ps.publication.date-range">
                                     <#if legacyPublication.coverageStart?? && legacyPublication.coverageEnd??>
-                                        <@formatCoverageDates start=legacyPublication.coverageStart.time end=legacyPublication.coverageEnd.time/>
+                                        <@formatCoverageDates start=legacyPublication.coverageStart.time end=legacyPublication.coverageEnd.time />
+                                        <meta itemprop="temporalCoverage" content="<@formatCoverageDates start=legacyPublication.coverageStart.time end=legacyPublication.coverageEnd.time schemaFormat=true/>" />
                                     <#else>
                                         (Not specified)
                                     </#if>
@@ -220,7 +221,7 @@
             <div class="${summarySectionClassName}" id="${slugify(summaryHeader)}">
                 <h2>${summaryHeader}</h2>
                 <div class="rich-text-content">
-                    <@hst.html hippohtml=legacyPublication.summary contentRewriter=gaContentRewriter/>
+                    <div itemprop="description"><@hst.html hippohtml=legacyPublication.summary contentRewriter=gaContentRewriter/></div>
                 </div>
             </div>
             </#if>
@@ -243,7 +244,7 @@
             <#if hasAdministrativeSources>
             <div class="article-section" id="${slugify(adminSourcesHeader)}">
                 <h2>${adminSourcesHeader}</h2>
-                <p data-uipath="ps.publication.administrative-sources">
+                <p itemprop="isBasedOn" data-uipath="ps.publication.administrative-sources">
                     ${legacyPublication.administrativeSources}
                 </p>
             </div>
@@ -256,9 +257,9 @@
                 <h2>${resourcesHeader}</h2>
                 <ul data-uipath="ps.publication.resources" class="list">
                 <#list legacyPublication.attachments as attachment>
-                    <li class="attachment">
+                    <li class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
                         <@externalstorageLink attachment.resource; url>
-                        <a title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','LegacyPublication','${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)">${attachment.text}</a>
+                        <a title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','LegacyPublication','${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)" itemprop="contentUrl"><span itemprop="name">${attachment.text}</span></a>
                         </@externalstorageLink>
                         <@fileMetaAppendix attachment.resource.length, attachment.resource.mimeType></@fileMetaAppendix>
                     </li>
@@ -269,8 +270,8 @@
                     </li>
                 </#list>
                 <#list legacyPublication.datasets as dataset>
-                    <li>
-                        <a href="<@hst.link hippobean=dataset.selfLinkBean/>" title="${dataset.title}">${dataset.title}</a>
+                    <li itemprop="hasPart" itemscope itemtype="http://schema.org/Dataset">
+                        <a itemprop="url" href="<@hst.link hippobean=dataset.selfLinkBean/>" title="${dataset.title}"><span itemprop="name">${dataset.title}</span></a>
                     </li>
                 </#list>
                 </ul>
@@ -299,7 +300,7 @@
 
 <#-- ACTUAL TEMPLATE -->
 <#if legacyPublication?? >
-<article class="article article--legacy-publication">
+<article class="article article--legacy-publication" itemscope itemtype="http://schema.org/PublicationIssue">
     <#if legacyPublication.publiclyAccessible>
         <@fullContentOfPubliclyAvailablePublication/>
     <#else>
