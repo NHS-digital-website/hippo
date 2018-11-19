@@ -163,6 +163,8 @@
         <!-- project logging -->
         <Logger name="uk.nhs.digital" level="debug" />
         <Logger name="com.onehippo.cms7.targeting" level="warn"/>
+        <Logger name="com.onehippo.cms7.hst.configuration.branch" level="warn"/>
+        <Logger name="com.onehippo.cms7.services.wpm.project" level="warn"/>
 
         <Root level="warn">
             <AppenderRef ref="site"/>

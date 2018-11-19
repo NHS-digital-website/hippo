@@ -20,6 +20,7 @@
                 <include>org.apache.logging.log4j:log4j-api</include>
                 <include>org.apache.logging.log4j:log4j-core</include>
                 <include>org.onehippo.cms7:hippo-addon-crisp-api</include>
+                <include>com.onehippo.cms7:hippo-enterprise-services</include>
             </includes>
         </dependencySet>
     </dependencySets>

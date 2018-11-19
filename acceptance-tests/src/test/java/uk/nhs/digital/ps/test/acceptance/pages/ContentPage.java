@@ -37,11 +37,11 @@ public class ContentPage extends AbstractCmsPage {
     /* used as step assertion */
     public boolean openContentTab() {
         helper.findElement(
-            By.xpath(XpathSelectors.TABBED_PANEL + "//li[contains(@class, 'tab2')]")).click();
+            By.xpath(XpathSelectors.TABBED_PANEL + "//li[contains(@class, 'tab3')]")).click();
 
         return helper.waitForElementUntil(
             ExpectedConditions.attributeContains(
-                By.xpath(XpathSelectors.TABBED_PANEL + "//li[contains(@class, 'tab2')]"), "class", "selected"));
+                By.xpath(XpathSelectors.TABBED_PANEL + "//li[contains(@class, 'tab3')]"), "class", "selected"));
     }
 
     public boolean newPublication(final Publication publication) {
