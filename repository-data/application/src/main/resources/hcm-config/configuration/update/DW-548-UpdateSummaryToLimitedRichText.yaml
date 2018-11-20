@@ -11,7 +11,7 @@ definitions:
         or (@jcr:primaryType='website:service') or (@jcr:primaryType='website:publishedwork')
         or (@jcr:primaryType='website:publishedworkchapter') or (@jcr:primaryType='website:hub')
         or (@jcr:primaryType='website:gdprsummary') or (@jcr:primaryType='website:gdprtransparency')
-        or (@jcr:primaryType='website:componentlist')]//..
+        or (@jcr:primaryType='website:componentlist') or (@jcr:primaryType='website:generalnonsearch')]//..
       hipposys:script:
         resource: /configuration/update/DW-548-UpdateSummaryToLimitedRichText.groovy
         type: string
