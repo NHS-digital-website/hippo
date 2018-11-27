@@ -14,7 +14,7 @@
                 <div class="article-header article-header--secondary">
                     <div class="grid-row">
                         <div class="column column--two-thirds column--reset">
-                            <h1 data-uipath="document.title" data-uipath="document.title">${document.title}</h1>
+                            <h1 data-uipath="document.title">${document.title}</h1>
                         </div>
                     </div>
                 </div>
