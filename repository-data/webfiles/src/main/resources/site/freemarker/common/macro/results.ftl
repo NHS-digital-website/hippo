@@ -1,5 +1,5 @@
 <#ftl output_format="HTML">
-<@hst.setBundle basename="publicationsystem.labels,nationalindicatorlibrary.headers,nationalindicatorlibrary.labels,website.labels,homepage.website.labels,rb.doctype.published-work"/>
+<@hst.setBundle basename="publicationsystem.labels,nationalindicatorlibrary.headers,nationalindicatorlibrary.labels,website.labels,homepage.website.labels,rb.doctype.published-work,rb.doctype.cyberalerts"/>
 
 <#macro searchResults items>
     <div class="cta-list">
@@ -40,6 +40,8 @@
                 <@roadmapitem item=document />
             <#elseif document.class.name == "uk.nhs.digital.website.beans.GlossaryList">
                 <@glossarylist item=document />
+            <#elseif document.class.name == "uk.nhs.digital.website.beans.CyberAlert">
+                <@cyberalert item=document />
             </#if>
         </#list>
     </div>
@@ -337,6 +339,18 @@
 <div class="cta cta--detailed" data-uipath="ps.search-results.result">
     <div>
         <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.glossarylist"/></span>
+    </div>
+    <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
+        ${item.title}
+    </a>
+    <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
+</div>
+</#macro>
+
+<#macro cyberalert item>
+<div class="cta cta--detailed" data-uipath="ps.search-results.result">
+    <div>
+        <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.cyberalert"/></span>
     </div>
     <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
         ${item.title}

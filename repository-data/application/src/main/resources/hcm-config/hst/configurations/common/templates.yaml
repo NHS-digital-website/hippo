@@ -32,6 +32,12 @@ definitions:
       /cta-list:
         hst:renderpath: webfile:/freemarker/common/cta-list.ftl
         jcr:primaryType: hst:template
+      /cyber-alert:
+        hst:renderpath: webfile:/freemarker/common/cyber-alert-article.ftl
+        jcr:primaryType: hst:template
+      /cyber-alert-hub:
+        hst:renderpath: webfile:/freemarker/common/cyber-alert-hub.ftl
+        jcr:primaryType: hst:template
       /dataset:
         hst:renderpath: webfile:/freemarker/publicationsystem/dataset.ftl
         jcr:primaryType: hst:template

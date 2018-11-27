@@ -78,6 +78,8 @@ definitions:
         hipposys:groups:
         - national-indicator-library-author
         - national-indicator-library-editor
+        - cyber-alerts-author
+        - cyber-alerts-editor
         - user-admin
         - statistical-publications-and-clinical-indicators-author
         - statistical-publications-and-clinical-indicators-editor

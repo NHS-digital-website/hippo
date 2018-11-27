@@ -1,5 +1,768 @@
 ---
 /content/documents/corporate-website/website-acceptance-tests:
+  /cyber-alert:
+    /cyber-alert-test-document-1:
+      /cyber-alert-test-document-1[1]:
+        /website:cybercveidentifiers[1]:
+          /website:cvetext:
+            hippostd:content: |-
+              <p>Some CVE body text to go there please.</p>
+
+              <p>When you are ready.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:cybercveidentifier
+          website:cveidentifier: CVE-2018-UGVBA
+          website:cvestatus: Master
+        /website:cybercveidentifiers[2]:
+          /website:cvetext:
+            hippostd:content: <p>And yet another CVE body text</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:cybercveidentifier
+          website:cveidentifier: CVE-2018-ABCDE
+          website:cvestatus: Root
+        /website:indicatorscompromise:
+          hippostd:content: <p>Various pop ups appear asking for details</p>
+          jcr:primaryType: hippostd:html
+        /website:remediationintro:
+          hippostd:content: <p>Do not open email</p>
+          jcr:primaryType: hippostd:html
+        /website:remediationsteps[1]:
+          /website:step:
+            hippostd:content: <p>Step one would be dont open the email</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:remediationstep
+          website:link: https://www.bbc.co.uk
+          website:type: Guidance
+        /website:remediationsteps[2]:
+          /website:step:
+            hippostd:content: <p>Step two would be delete the email</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:remediationstep
+          website:type: Action
+        /website:section[1]:
+          /website:html:
+            hippostd:content: |-
+              <p>Some threat detail content here...</p>
+
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Section one
+          website:type: ''
+        /website:section[2]:
+          /website:body:
+            hippostd:content: <p>Some body content here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:emphasisBox
+          website:emphasisType: Important
+          website:heading: Important warning about some email
+        /website:summary:
+          hippostd:content: |-
+            <p>Cyber Alert Trojan Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+            <p>New paragraph here.</p>
+          jcr:primaryType: hippostd:html
+        /website:threataffects[1]:
+          /website:platformaffected:
+            hippo:docbase: 55851dde-b6c7-4a8d-a3ee-5cebef21770e
+            jcr:primaryType: hippo:mirror
+          /website:platformtext:
+            hippostd:content: <p>Some detail on threat affects windows and Linux (MacOS
+              ok)</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:threataffect
+          website:versionsaffected:
+          - v1.0.1
+          - v1.0.2
+        /website:threataffects[2]:
+          /website:platformaffected:
+            hippo:docbase: eaa38c7a-bd4d-447f-8a6a-b082d03636b6
+            jcr:primaryType: hippo:mirror
+          /website:platformtext:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:threataffect
+          website:versionsaffected:
+          - 1.24.5353
+        /website:threatupdates:
+          /website:content:
+            hippostd:content: <p>blah content update here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:threatupdate
+          website:date: 2018-12-10T12:13:00Z
+          website:title: Update is this is not good
+        common:FullTaxonomy:
+        - maternal,-infant-and-child-health
+        - dental-health
+        - conditions
+        common:SearchableTags:
+        - Dental health
+        - Maternal, infant and child health
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-12-10T12:02:42.176Z
+        hippostdpubwf:lastModificationDate: 2018-12-19T14:57:37.489Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotaxonomy:keys:
+        - dental-health
+        - maternal,-infant-and-child-health
+        hippotranslation:id: ae111c32-cd84-4253-a43b-2be77bff7d52
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:cyberalert
+        publicationsystem:NominalDate: 2018-10-30T00:00:00Z
+        website:category:
+        - Trojan
+        - Worm
+        website:ncsclink: https://ncsc.gov.uk
+        website:publicallyaccessible: true
+        website:seosummary: ''
+        website:severity: High
+        website:shortsummary: Some short summary here for the Cyber Alert
+        website:sourceofthreatupdates:
+        - https://www.gov.uk
+        website:threatid: ID12345
+        website:threattype: Vulnerability
+        website:threatvector:
+        - Email spam
+        - Vulnerability
+        website:title: Cyber Alert AcceptanceTestDocument 1
+      /cyber-alert-test-document-1[2]:
+        /website:cybercveidentifiers[1]:
+          /website:cvetext:
+            hippostd:content: |-
+              <p>Some CVE body text to go there please.</p>
+
+              <p>When you are ready.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:cybercveidentifier
+          website:cveidentifier: CVE-2018-UGVBA
+          website:cvestatus: Master
+        /website:cybercveidentifiers[2]:
+          /website:cvetext:
+            hippostd:content: <p>And yet another CVE body text</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:cybercveidentifier
+          website:cveidentifier: CVE-2018-ABCDE
+          website:cvestatus: Root
+        /website:indicatorscompromise:
+          hippostd:content: <p>Various pop ups appear asking for details</p>
+          jcr:primaryType: hippostd:html
+        /website:remediationintro:
+          hippostd:content: <p>Do not open email</p>
+          jcr:primaryType: hippostd:html
+        /website:remediationsteps[1]:
+          /website:step:
+            hippostd:content: <p>Step one would be dont open the email</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:remediationstep
+          website:link: https://www.bbc.co.uk
+          website:type: Guidance
+        /website:remediationsteps[2]:
+          /website:step:
+            hippostd:content: <p>Step two would be delete the email</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:remediationstep
+          website:type: Action
+        /website:section[1]:
+          /website:html:
+            hippostd:content: |-
+              <p>Some threat detail content here...</p>
+
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Section one
+          website:type: ''
+        /website:section[2]:
+          /website:body:
+            hippostd:content: <p>Some body content here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:emphasisBox
+          website:emphasisType: Important
+          website:heading: Important warning about some email
+        /website:summary:
+          hippostd:content: |-
+            <p>Cyber Alert Trojan Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+            <p>New paragraph here.</p>
+          jcr:primaryType: hippostd:html
+        /website:threataffects[1]:
+          /website:platformaffected:
+            hippo:docbase: 55851dde-b6c7-4a8d-a3ee-5cebef21770e
+            jcr:primaryType: hippo:mirror
+          /website:platformtext:
+            hippostd:content: <p>Some detail on threat affects windows and Linux (MacOS
+              ok)</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:threataffect
+          website:versionsaffected:
+          - v1.0.1
+          - v1.0.2
+        /website:threataffects[2]:
+          /website:platformaffected:
+            hippo:docbase: eaa38c7a-bd4d-447f-8a6a-b082d03636b6
+            jcr:primaryType: hippo:mirror
+          /website:platformtext:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:threataffect
+          website:versionsaffected:
+          - 1.24.5353
+        /website:threatupdates:
+          /website:content:
+            hippostd:content: <p>blah content update here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:threatupdate
+          website:date: 2018-12-10T12:13:00Z
+          website:title: Update is this is not good
+        common:FullTaxonomy:
+        - maternal,-infant-and-child-health
+        - dental-health
+        - conditions
+        common:SearchableTags:
+        - Dental health
+        - Maternal, infant and child health
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-12-10T12:02:42.176Z
+        hippostdpubwf:lastModificationDate: 2018-12-19T14:57:57.188Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotaxonomy:keys:
+        - dental-health
+        - maternal,-infant-and-child-health
+        hippotranslation:id: ae111c32-cd84-4253-a43b-2be77bff7d52
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        - mix:versionable
+        jcr:primaryType: website:cyberalert
+        publicationsystem:NominalDate: 2018-10-30T00:00:00Z
+        website:category:
+        - Trojan
+        - Worm
+        website:ncsclink: https://ncsc.gov.uk
+        website:publicallyaccessible: true
+        website:seosummary: ''
+        website:severity: High
+        website:shortsummary: Some short summary here for the Cyber Alert
+        website:sourceofthreatupdates:
+        - https://www.gov.uk
+        website:threatid: ID12345
+        website:threattype: Vulnerability
+        website:threatvector:
+        - Email spam
+        - Vulnerability
+        website:title: Cyber Alert AcceptanceTestDocument 1
+      /cyber-alert-test-document-1[3]:
+        /website:cybercveidentifiers[1]:
+          /website:cvetext:
+            hippostd:content: |-
+              <p>Some CVE body text to go there please.</p>
+
+              <p>When you are ready.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:cybercveidentifier
+          website:cveidentifier: CVE-2018-UGVBA
+          website:cvestatus: Master
+        /website:cybercveidentifiers[2]:
+          /website:cvetext:
+            hippostd:content: <p>And yet another CVE body text</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:cybercveidentifier
+          website:cveidentifier: CVE-2018-ABCDE
+          website:cvestatus: Root
+        /website:indicatorscompromise:
+          hippostd:content: <p>Various pop ups appear asking for details</p>
+          jcr:primaryType: hippostd:html
+        /website:remediationintro:
+          hippostd:content: <p>Do not open email</p>
+          jcr:primaryType: hippostd:html
+        /website:remediationsteps[1]:
+          /website:step:
+            hippostd:content: <p>Step one would be dont open the email</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:remediationstep
+          website:link: https://www.bbc.co.uk
+          website:type: Guidance
+        /website:remediationsteps[2]:
+          /website:step:
+            hippostd:content: <p>Step two would be delete the email</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:remediationstep
+          website:type: Action
+        /website:section[1]:
+          /website:html:
+            hippostd:content: |-
+              <p>Some threat detail content here...</p>
+
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Section one
+          website:type: ''
+        /website:section[2]:
+          /website:body:
+            hippostd:content: <p>Some body content here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:emphasisBox
+          website:emphasisType: Important
+          website:heading: Important warning about some email
+        /website:summary:
+          hippostd:content: |-
+            <p>Cyber Alert Trojan Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+            <p>New paragraph here.</p>
+          jcr:primaryType: hippostd:html
+        /website:threataffects[1]:
+          /website:platformaffected:
+            hippo:docbase: 55851dde-b6c7-4a8d-a3ee-5cebef21770e
+            jcr:primaryType: hippo:mirror
+          /website:platformtext:
+            hippostd:content: <p>Some detail on threat affects windows and Linux (MacOS
+              ok)</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:threataffect
+          website:versionsaffected:
+          - v1.0.1
+          - v1.0.2
+        /website:threataffects[2]:
+          /website:platformaffected:
+            hippo:docbase: eaa38c7a-bd4d-447f-8a6a-b082d03636b6
+            jcr:primaryType: hippo:mirror
+          /website:platformtext:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:threataffect
+          website:versionsaffected:
+          - 1.24.5353
+        /website:threatupdates:
+          /website:content:
+            hippostd:content: <p>blah content update here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:threatupdate
+          website:date: 2018-12-10T12:13:00Z
+          website:title: Update is this is not good
+        common:FullTaxonomy:
+        - maternal,-infant-and-child-health
+        - dental-health
+        - conditions
+        common:SearchableTags:
+        - Dental health
+        - Maternal, infant and child health
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-12-10T12:02:42.176Z
+        hippostdpubwf:lastModificationDate: 2018-12-19T14:57:57.188Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2018-12-19T14:57:59.878Z
+        hippotaxonomy:keys:
+        - dental-health
+        - maternal,-infant-and-child-health
+        hippotranslation:id: ae111c32-cd84-4253-a43b-2be77bff7d52
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:cyberalert
+        publicationsystem:NominalDate: 2018-10-30T00:00:00Z
+        website:category:
+        - Trojan
+        - Worm
+        website:ncsclink: https://ncsc.gov.uk
+        website:publicallyaccessible: true
+        website:seosummary: ''
+        website:severity: High
+        website:shortsummary: Some short summary here for the Cyber Alert
+        website:sourceofthreatupdates:
+        - https://www.gov.uk
+        website:threatid: ID12345
+        website:threattype: Vulnerability
+        website:threatvector:
+        - Email spam
+        - Vulnerability
+        website:title: Cyber Alert AcceptanceTestDocument 1
+      hippo:name: Cyber alert test document 1
+      jcr:mixinTypes:
+      - hippo:named
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    /cyber-alert-test-document-2:
+      /cyber-alert-test-document-2[1]:
+        /website:cybercveidentifiers:
+          /website:cvetext:
+            hippostd:content: <p>Bodytext for CVE</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:cybercveidentifier
+          website:cveidentifier: CVE-2018-JO75A
+          website:cvestatus: Master
+        /website:indicatorscompromise:
+          hippostd:content: <p>Various pop ups appear asking for details</p>
+          jcr:primaryType: hippostd:html
+        /website:remediationintro:
+          hippostd:content: <p>Do not open email</p>
+          jcr:primaryType: hippostd:html
+        /website:remediationsteps[1]:
+          /website:step:
+            hippostd:content: <p>Step one would be dont open the email</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:remediationstep
+          website:link: https://www.bbc.co.uk
+          website:type: Guidance
+        /website:remediationsteps[2]:
+          /website:step:
+            hippostd:content: <p>Step two would be delete the email</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:remediationstep
+          website:link: https://www.bbc.co.uk
+        /website:section[1]:
+          /website:html:
+            hippostd:content: |-
+              <p>Some threat detail content here...</p>
+
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Section one
+          website:type: ''
+        /website:section[2]:
+          /website:body:
+            hippostd:content: <p>Some body content here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:emphasisBox
+          website:emphasisType: Important
+          website:heading: Important warning about some email
+        /website:summary:
+          hippostd:content: |-
+            <p>Cyber Alert Trojan Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+            <p>New paragraph here.</p>
+          jcr:primaryType: hippostd:html
+        /website:threataffects:
+          /website:platformaffected:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
+          /website:platformtext:
+            hippostd:content: <p>Some detail on threat affects windows and Linux (MacOS
+              ok)</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:threataffect
+          website:versionsaffected:
+          - v2.0.0
+        /website:threatupdates:
+          /website:content:
+            hippostd:content: <p>blah content update here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:threatupdate
+          website:date: 2018-12-10T12:13:00Z
+          website:title: Update is this is not good
+        common:FullTaxonomy:
+        - falls
+        - respiratory-system-diseases-and-disorders
+        - conditions
+        - accidents-and-injuries
+        common:SearchableTags:
+        - Falls
+        - Respiratory system diseases and disorders
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-12-10T12:02:42.176Z
+        hippostdpubwf:lastModificationDate: 2018-12-17T13:24:24.182Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotaxonomy:keys:
+        - respiratory-system-diseases-and-disorders
+        - falls
+        hippotranslation:id: c1e764b9-18fd-4c1b-8895-eb213215c031
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:versionable
+        jcr:primaryType: website:cyberalert
+        publicationsystem:NominalDate: 2018-09-18T23:00:00Z
+        website:category:
+        - Ransomware
+        website:ncsclink: https://ncsc.gov.uk
+        website:publicallyaccessible: true
+        website:seosummary: ''
+        website:severity: Medium
+        website:shortsummary: Some short summary here for the Cyber Alert take 2
+        website:sourceofthreatupdates:
+        - https://www.gov.uk
+        website:threatid: ID54321
+        website:threattype: Malware
+        website:threatvector:
+        - Vulnerability
+        - Download
+        - Hacking tool
+        - Physical
+        - Macro
+        website:title: Cyber Alert AcceptanceTestDocument 2
+      /cyber-alert-test-document-2[2]:
+        /website:cybercveidentifiers:
+          /website:cvetext:
+            hippostd:content: <p>Bodytext for CVE</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:cybercveidentifier
+          website:cveidentifier: CVE-2018-JO75A
+          website:cvestatus: Master
+        /website:indicatorscompromise:
+          hippostd:content: <p>Various pop ups appear asking for details</p>
+          jcr:primaryType: hippostd:html
+        /website:remediationintro:
+          hippostd:content: <p>Do not open email</p>
+          jcr:primaryType: hippostd:html
+        /website:remediationsteps[1]:
+          /website:step:
+            hippostd:content: <p>Step one would be dont open the email</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:remediationstep
+          website:link: https://www.bbc.co.uk
+          website:type: Guidance
+        /website:remediationsteps[2]:
+          /website:step:
+            hippostd:content: <p>Step two would be delete the email</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:remediationstep
+          website:link: https://www.bbc.co.uk
+        /website:section[1]:
+          /website:html:
+            hippostd:content: |-
+              <p>Some threat detail content here...</p>
+
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Section one
+          website:type: ''
+        /website:section[2]:
+          /website:body:
+            hippostd:content: <p>Some body content here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:emphasisBox
+          website:emphasisType: Important
+          website:heading: Important warning about some email
+        /website:summary:
+          hippostd:content: |-
+            <p>Cyber Alert Trojan Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+            <p>New paragraph here.</p>
+          jcr:primaryType: hippostd:html
+        /website:threataffects:
+          /website:platformaffected:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
+          /website:platformtext:
+            hippostd:content: <p>Some detail on threat affects windows and Linux (MacOS
+              ok)</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:threataffect
+          website:versionsaffected:
+          - v2.0.0
+        /website:threatupdates:
+          /website:content:
+            hippostd:content: <p>blah content update here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:threatupdate
+          website:date: 2018-12-10T12:13:00Z
+          website:title: Update is this is not good
+        common:FullTaxonomy:
+        - falls
+        - respiratory-system-diseases-and-disorders
+        - conditions
+        - accidents-and-injuries
+        common:SearchableTags:
+        - Falls
+        - Respiratory system diseases and disorders
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-12-10T12:02:42.176Z
+        hippostdpubwf:lastModificationDate: 2018-12-17T13:23:54.826Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotaxonomy:keys:
+        - respiratory-system-diseases-and-disorders
+        - falls
+        hippotranslation:id: c1e764b9-18fd-4c1b-8895-eb213215c031
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:cyberalert
+        publicationsystem:NominalDate: 2018-09-18T23:00:00Z
+        website:category:
+        - Ransomware
+        website:ncsclink: https://ncsc.gov.uk
+        website:publicallyaccessible: true
+        website:seosummary: ''
+        website:severity: Medium
+        website:shortsummary: Some short summary here for the Cyber Alert take 2
+        website:sourceofthreatupdates:
+        - https://www.gov.uk
+        website:threatid: ID54321
+        website:threattype: Malware
+        website:threatvector:
+        - Vulnerability
+        - Download
+        - Hacking tool
+        - Physical
+        - Macro
+        website:title: Cyber Alert AcceptanceTestDocument 2
+      /cyber-alert-test-document-2[3]:
+        /website:cybercveidentifiers:
+          /website:cvetext:
+            hippostd:content: <p>Bodytext for CVE</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:cybercveidentifier
+          website:cveidentifier: CVE-2018-JO75A
+          website:cvestatus: Master
+        /website:indicatorscompromise:
+          hippostd:content: <p>Various pop ups appear asking for details</p>
+          jcr:primaryType: hippostd:html
+        /website:remediationintro:
+          hippostd:content: <p>Do not open email</p>
+          jcr:primaryType: hippostd:html
+        /website:remediationsteps[1]:
+          /website:step:
+            hippostd:content: <p>Step one would be dont open the email</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:remediationstep
+          website:link: https://www.bbc.co.uk
+          website:type: Guidance
+        /website:remediationsteps[2]:
+          /website:step:
+            hippostd:content: <p>Step two would be delete the email</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:remediationstep
+          website:link: https://www.bbc.co.uk
+        /website:section[1]:
+          /website:html:
+            hippostd:content: |-
+              <p>Some threat detail content here...</p>
+
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:numberedList: false
+          website:title: Section one
+          website:type: ''
+        /website:section[2]:
+          /website:body:
+            hippostd:content: <p>Some body content here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:emphasisBox
+          website:emphasisType: Important
+          website:heading: Important warning about some email
+        /website:summary:
+          hippostd:content: |-
+            <p>Cyber Alert Trojan Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+            <p>New paragraph here.</p>
+          jcr:primaryType: hippostd:html
+        /website:threataffects:
+          /website:platformaffected:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
+          /website:platformtext:
+            hippostd:content: <p>Some detail on threat affects windows and Linux (MacOS
+              ok)</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:threataffect
+          website:versionsaffected:
+          - v2.0.0
+        /website:threatupdates:
+          /website:content:
+            hippostd:content: <p>blah content update here.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:threatupdate
+          website:date: 2018-12-10T12:13:00Z
+          website:title: Update is this is not good
+        common:FullTaxonomy:
+        - falls
+        - respiratory-system-diseases-and-disorders
+        - conditions
+        - accidents-and-injuries
+        common:SearchableTags:
+        - Falls
+        - Respiratory system diseases and disorders
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2018-12-10T12:02:42.176Z
+        hippostdpubwf:lastModificationDate: 2018-12-17T13:24:24.182Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2018-12-17T13:24:27.831Z
+        hippotaxonomy:keys:
+        - respiratory-system-diseases-and-disorders
+        - falls
+        hippotranslation:id: c1e764b9-18fd-4c1b-8895-eb213215c031
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:cyberalert
+        publicationsystem:NominalDate: 2018-09-18T23:00:00Z
+        website:category:
+        - Ransomware
+        website:ncsclink: https://ncsc.gov.uk
+        website:publicallyaccessible: true
+        website:seosummary: ''
+        website:severity: Medium
+        website:shortsummary: Some short summary here for the Cyber Alert take 2
+        website:sourceofthreatupdates:
+        - https://www.gov.uk
+        website:threatid: ID54321
+        website:threattype: Malware
+        website:threatvector:
+        - Vulnerability
+        - Download
+        - Hacking tool
+        - Physical
+        - Macro
+        website:title: Cyber Alert AcceptanceTestDocument 2
+      hippo:name: Cyber alert test document 2
+      jcr:mixinTypes:
+      - hippo:named
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    hippo:name: Cyber alert
+    hippostd:foldertype:
+    - new-translated-folder
+    - new-document
+    hippotranslation:id: 45b39f96-9648-4041-9e7d-076ad3dfe5c3
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippo:named
+    - hippotranslation:translated
+    - mix:versionable
+    jcr:primaryType: hippostd:folder
   /gdpr-summary-test-document:
     /gdpr-summary-test-document[1]:
       /website:body:

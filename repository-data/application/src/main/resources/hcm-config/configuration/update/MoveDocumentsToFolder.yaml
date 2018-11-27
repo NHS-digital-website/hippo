@@ -1,0 +1,29 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/MoveDocumentsToFolder:
+      hipposys:batchsize: 1
+      hipposys:description: "Moves documents identified by the 'query' config settings\
+        \ to a folder pointed to by 'targetFolderPath' parameter.\r\n\r\nIMPORTANT:\
+        \ * Ensure that the query targets nodes of type 'hippo:handle' as, in its\
+        \ current version the script, does not validate them (it's likely that it'll\
+        \ equally well handle 'hippostd:folder' nodes but this hasn't been tesed).\
+        \ * The script does not support a 'Dry run' as it relies on 'Workflow.move'\
+        \ method to relocate documents and this results in a session being committed,\
+        \ effectively invalidating the dry run. If you do want to do a dry run, comment\
+        \ out the call to 'Workflow.move'. * The script does not implement 'undoUpdate'\
+        \ method (note that clicking 'Undo' feeds the method with nodes identified\
+        \ by the original query - in this case, the query will not find anything as\
+        \ the nodes it returned previously will have already been moved by this script).\
+        \ Having said that, it logs the new paths mapped to the original locations\
+        \ (parent folders) of the moved documents to help identify what needs to be\
+        \ moved back and where to."
+      hipposys:dryrun: false
+      hipposys:parameters: "{\r\n  \"fileInJson\": true,\r\n  \"sourceBaseFolderPath\"\
+        : \"file:/tmp/migrator/exim-import/\"\r\n}"
+      hipposys:query: /jcr:root/content/documents/corporate-website/about-nhs-digital/our-work/keeping-patient-data-safe/gdpr/gdpr-import/*[(@jcr:primaryType='hippo:handle')]
+      hipposys:script:
+        resource: /configuration/update/EximImport.groovy
+        type: string
+      hipposys:throttle: 2000
+      jcr:primaryType: hipposys:updaterinfo

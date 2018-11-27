@@ -390,6 +390,15 @@ public class SearchComponent extends CommonComponent {
     }
 
     /**
+     * Add Cyber alerts document type
+     */
+    private void addCyberAlert(HstQueryBuilder query) {
+        query.ofTypes(
+            CyberAlert.class
+        );
+    }
+
+    /**
      * Adding all the document types supported by the SearchComponent
      */
     private void addAllTypes(HstQueryBuilder query) {
@@ -403,6 +412,7 @@ public class SearchComponent extends CommonComponent {
         addRoadmapTypes(query);
         addComponentList(query);
         addGlossaryList(query);
+        addCyberAlert(query);
     }
 
 }

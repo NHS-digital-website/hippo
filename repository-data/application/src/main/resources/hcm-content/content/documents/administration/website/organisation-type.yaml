@@ -1,0 +1,29 @@
+---
+/content/documents/administration/website/organisation-type:
+  /organisation-type:
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: supplier
+      selection:label: Supplier
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: vendor-reseller
+      selection:label: Vendor / Reseller
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: nhs-organisation
+      selection:label: NHS Organisation
+    hippo:availability:
+    - live
+    - preview
+    hippotranslation:id: 82d87097-eecf-4ee5-a742-aba6f90ee337
+    hippotranslation:locale: inherited - from query
+    jcr:mixinTypes:
+    - hippotranslation:translated
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: Organisation Type
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

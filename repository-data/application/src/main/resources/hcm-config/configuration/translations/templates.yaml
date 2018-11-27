@@ -4,11 +4,17 @@ definitions:
     /hippo:configuration/hippo:translations/hippo:templates/en:
       new-about-document: new about document
       new-cihub-document: new CI hub document
+      new-cyber-alerts-document: new cyber alert document
+      new-cyber-alerts-folder: new folder
       new-digital-website-document: new document
       new-digital-website-folder: new folder
       new-enterprise-forms-document: new enterprise form document
       new-national-indicator-library-document: new indicator
       new-national-indicator-library-folder: new folder
+      new-organisation-document: new organisation document
+      new-organisation-folder: new folder
+      new-platform-document: new platform document
+      new-platform-folder: new folder
       new-statistical-publications-and-clinical-indicators-document: new document
       new-statistical-publications-and-clinical-indicators-folder: new folder
       new-translated-folder: new folder
@@ -126,6 +132,16 @@ definitions:
       /website:ctabutton:
         /en:
           jcr:name: CTA
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:cyberacknowledgement:
+        /en:
+          jcr:name: Cyber alert acknowledgement
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:cyberalert:
+        /en:
+          jcr:name: Cyber alert
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:cycleparking:
@@ -248,6 +264,16 @@ definitions:
           jcr:name: Opening Hours
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:organisation:
+        /en:
+          jcr:name: Organisation
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:organisationcode:
+        /en:
+          jcr:name: Organisation code
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:otherrole:
         /en:
           jcr:name: Other role
@@ -271,6 +297,16 @@ definitions:
       /website:personimage:
         /en:
           jcr:name: Person image
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:platform:
+        /en:
+          jcr:name: Platform
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:platformversion:
+        /en:
+          jcr:name: Platform version
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:postnominal:
@@ -308,6 +344,11 @@ definitions:
           jcr:name: Release info
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:remediationstep:
+        /en:
+          jcr:name: Remediation step
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:responsibility:
         /en:
           jcr:name: Responsibility
@@ -328,6 +369,11 @@ definitions:
           jcr:name: Role
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:section:
+        /en:
+          jcr:name: Section
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:service:
         /en:
           jcr:name: Service
@@ -336,6 +382,16 @@ definitions:
       /website:socialmedia:
         /en:
           jcr:name: Social media
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:threataffect:
+        /en:
+          jcr:name: Threat affect
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:threatupdate:
+        /en:
+          jcr:name: Threat update
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:transportroutes:

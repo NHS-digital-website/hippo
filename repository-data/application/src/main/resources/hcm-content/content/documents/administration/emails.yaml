@@ -14,15 +14,21 @@
     - website enquiries
     - website feedback
     - website enquiries title
+    - website cyber attack
+    - website report cyber attack title
     resourcebundle:id: emails
     resourcebundle:keys:
     - email.enquiries
     - email.feedback
     - email.enquiries.title
+    - email.cyberattack
+    - email.cyberattack.title
     resourcebundle:messages:
     - enquiries@nhsdigital.nhs.uk
     - feedback@nhsdigital.nhs.uk
     - Get in touch with our contact centre
+    - carecert@nhsdigital.nhs.net
+    - Report a cyber attack
   /emails[2]:
     hippo:availability:
     - preview
@@ -39,15 +45,21 @@
     - website enquiries
     - website feedback
     - website enquiries title
+    - website cyber attack
+    - website report cyber attack title
     resourcebundle:id: emails
     resourcebundle:keys:
     - email.enquiries
     - email.feedback
     - email.enquiries.title
+    - email.cyberattack
+    - email.cyberattack.title
     resourcebundle:messages:
     - enquiries@nhsdigital.nhs.uk
     - feedback@nhsdigital.nhs.uk
     - Get in touch with our contact centre
+    - carecert@nhsdigital.nhs.net
+    - Report a cyber attack
   /emails[3]:
     hippo:availability:
     - live
@@ -64,15 +76,21 @@
     - website enquiries
     - website feedback
     - website enquiries title
+    - website cyber attack
+    - website report cyber attack title
     resourcebundle:id: emails
     resourcebundle:keys:
     - email.enquiries
     - email.feedback
     - email.enquiries.title
+    - email.cyberattack
+    - email.cyberattack.title
     resourcebundle:messages:
     - enquiries@nhsdigital.nhs.uk
     - feedback@nhsdigital.nhs.uk
     - Get in touch with our contact centre
+    - carecert@nhsdigital.nhs.net
+    - Report a cyber attack
   hippo:name: emails
   jcr:mixinTypes:
   - hippo:named

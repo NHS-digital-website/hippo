@@ -5,6 +5,14 @@ definitions:
       /localhost:
         /localhost:
           /hst:root:
+            /api:
+              .meta:residual-child-node-category: content
+              hst:alias: api
+              hst:ismapped: false
+              hst:namedpipeline: RestApiPipeline
+              hst:types:
+              - rest
+              jcr:primaryType: hst:mount
             hst:contextpath: ''
             hst:homepage: root
             hst:mountpoint: /hst:hst/hst:sites/common
