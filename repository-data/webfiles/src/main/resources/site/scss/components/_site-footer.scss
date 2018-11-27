@@ -6,6 +6,10 @@
 
     .list {
         @include core-font(16);
+
+        .last-item {
+            margin-top:20px
+        }
     }
 }
 
