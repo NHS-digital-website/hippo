@@ -12,6 +12,9 @@
 [website:expander] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:address] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:assetlink] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -56,6 +59,15 @@
   orderable
 
 [website:download] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:cyberalert] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:cyberacknowledgement] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:cybercveidentifier] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:quote] > hippo:compound, hippostd:relaxed
@@ -142,13 +154,22 @@
 [website:postnominal] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:organisation] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:organisationcode] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:platform] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:platformversion] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:publishedwork] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
   orderable
 
 [website:location] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
-  orderable
-
-[website:address] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:publictransportstation] > hippo:compound, hippostd:relaxed
@@ -179,6 +200,9 @@
   orderable
 
 [website:publishedworkchapter] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:remediationstep] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:qualification] > hippo:compound, hippostd:relaxed
@@ -221,4 +245,10 @@
   orderable
 
 [website:visualinternallink] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:threataffect] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:threatupdate] > hippo:compound, hippostd:relaxed
   orderable

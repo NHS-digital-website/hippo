@@ -110,7 +110,7 @@
                     <@sectionNav getSectionNavLinks()></@sectionNav>
 
                     <#assign affix = "&year=" + selectedYear />
-                    <@tagNav getFilterNavLinks() affix></@tagNav>
+                    <@tagNav getFilterNavLinks() affix "Filter by type" "type" selectedTypes></@tagNav>
                 </div>
             </div>
 

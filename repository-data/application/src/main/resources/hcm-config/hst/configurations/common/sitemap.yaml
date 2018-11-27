@@ -24,6 +24,7 @@ definitions:
           - website:apimaster
           - website:person
           - website:location
+          - website:cyberalert
           hst:componentconfigurationmappingvalues:
           - hst:pages/service
           - hst:pages/general
@@ -43,6 +44,7 @@ definitions:
           - hst:pages/apimaster
           - hst:pages/person
           - hst:pages/location
+          - hst:pages/cyberalert
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404
@@ -65,6 +67,7 @@ definitions:
         - website:apimaster
         - website:person
         - website:location
+        - website:cyberalert
         hst:componentconfigurationmappingvalues:
         - hst:pages/service
         - hst:pages/general
@@ -84,6 +87,7 @@ definitions:
         - hst:pages/apimaster
         - hst:pages/person
         - hst:pages/location
+        - hst:pages/cyberalert
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:
@@ -93,6 +97,10 @@ definitions:
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/about
         hst:relativecontentpath: about
+        jcr:primaryType: hst:sitemapitem
+      /cyber-alerts:
+        hst:componentconfigurationid: hst:pages/cyberalerthub
+        hst:relativecontentpath: cyber-alerts
         jcr:primaryType: hst:sitemapitem
       /data-and-information:
         /_index_:

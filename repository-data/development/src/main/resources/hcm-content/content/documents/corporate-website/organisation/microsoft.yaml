@@ -1,0 +1,161 @@
+---
+/content/documents/corporate-website/organisation/microsoft:
+  /microsoft[1]:
+    /website:address:
+      jcr:primaryType: website:address
+      website:area: ''
+      website:buildinglocation: ''
+      website:buildingnamenumber: MS building
+      website:country: UK
+      website:county: South Yorkshire
+      website:location: ''
+      website:postalCode: S134RF
+      website:street: MS Way
+      website:towncity: London
+    /website:organisationcodes:
+      jcr:primaryType: website:organisationcode
+      website:code: MSID245
+      website:type: gs1
+      website:url: someurl.com
+    /website:summary:
+      hippostd:content: <p>MS summary here.</p>
+      jcr:primaryType: hippostd:html
+    common:searchRank: 3
+    common:searchable: true
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2019-01-10T13:54:06.596Z
+    hippostdpubwf:lastModificationDate: 2019-01-10T14:07:18.703Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: df40bee3-4571-49be-87b9-02d52a7cf2d4
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    jcr:primaryType: website:organisation
+    website:abbreviation:
+    - MS
+    website:email:
+    - email@microsoft.com
+    website:organisationType:
+    - supplier
+    - nhs-organisation
+    website:seosummary: Some seo summary for Org
+    website:shortsummary: Some short summary for Org
+    website:synonyms:
+    - InternetExplorer
+    website:telephone:
+    - '02081234567'
+    website:title: Microsoft
+    website:url:
+    - https://www.microsoft.com
+  /microsoft[2]:
+    /website:address:
+      jcr:primaryType: website:address
+      website:area: ''
+      website:buildinglocation: ''
+      website:buildingnamenumber: MS building
+      website:country: UK
+      website:county: South Yorkshire
+      website:location: ''
+      website:postalCode: S134RF
+      website:street: MS Way
+      website:towncity: London
+    /website:organisationcodes:
+      jcr:primaryType: website:organisationcode
+      website:code: MSID245
+      website:type: gs1
+      website:url: someurl.com
+    /website:summary:
+      hippostd:content: <p>MS summary here.</p>
+      jcr:primaryType: hippostd:html
+    common:searchRank: 3
+    common:searchable: true
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2019-01-10T13:54:06.596Z
+    hippostdpubwf:lastModificationDate: 2019-01-10T14:08:10.543Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: df40bee3-4571-49be-87b9-02d52a7cf2d4
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: website:organisation
+    website:abbreviation:
+    - MS
+    website:email:
+    - email@microsoft.com
+    website:organisationType:
+    - supplier
+    - nhs-organisation
+    website:seosummary: Some seo summary for Org
+    website:shortsummary: Some short summary for Org
+    website:synonyms:
+    - InternetExplorer
+    website:telephone:
+    - '02081234567'
+    website:title: Microsoft
+    website:url:
+    - https://www.microsoft.com
+  /microsoft[3]:
+    /website:address:
+      jcr:primaryType: website:address
+      website:area: ''
+      website:buildinglocation: ''
+      website:buildingnamenumber: MS building
+      website:country: UK
+      website:county: South Yorkshire
+      website:location: ''
+      website:postalCode: S134RF
+      website:street: MS Way
+      website:towncity: London
+    /website:organisationcodes:
+      jcr:primaryType: website:organisationcode
+      website:code: MSID245
+      website:type: gs1
+      website:url: someurl.com
+    /website:summary:
+      hippostd:content: <p>MS summary here.</p>
+      jcr:primaryType: hippostd:html
+    common:searchRank: 3
+    common:searchable: true
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2019-01-10T13:54:06.596Z
+    hippostdpubwf:lastModificationDate: 2019-01-10T14:08:10.543Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2019-01-10T14:08:12.468Z
+    hippotranslation:id: df40bee3-4571-49be-87b9-02d52a7cf2d4
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    jcr:primaryType: website:organisation
+    website:abbreviation:
+    - MS
+    website:email:
+    - email@microsoft.com
+    website:organisationType:
+    - supplier
+    - nhs-organisation
+    website:seosummary: Some seo summary for Org
+    website:shortsummary: Some short summary for Org
+    website:synonyms:
+    - InternetExplorer
+    website:telephone:
+    - '02081234567'
+    website:title: Microsoft
+    website:url:
+    - https://www.microsoft.com
+  hippo:name: Microsoft
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

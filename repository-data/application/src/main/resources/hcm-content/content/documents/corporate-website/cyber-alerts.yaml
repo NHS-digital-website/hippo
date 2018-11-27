@@ -1,0 +1,13 @@
+---
+/content/documents/corporate-website/cyber-alerts:
+  hippo:name: Cyber alerts
+  hippostd:foldertype:
+  - new-cyber-alerts-folder
+  - new-cyber-alerts-document
+  hippotranslation:id: b882e700-3c83-411d-8ecf-c987151ce955
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

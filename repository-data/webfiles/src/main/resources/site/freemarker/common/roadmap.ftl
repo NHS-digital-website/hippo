@@ -138,7 +138,7 @@
                     <@sectionNav getSectionNavLinks()></@sectionNav>
 
                     <#if getFilterNavLinks()?size gt 0>
-                        <@tagNav getFilterNavLinks()></@tagNav>
+                        <@tagNav getFilterNavLinks() "" "Filter by type" "type" selectedTypes></@tagNav>
                     </#if>
                 </div>
             </div>
