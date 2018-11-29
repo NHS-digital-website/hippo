@@ -68,6 +68,11 @@ definitions:
           jcr:name: Text
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:bannerdocument:
+        /en:
+          jcr:name: Banner
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:componentlist:
         /en:
           jcr:name: Links list
