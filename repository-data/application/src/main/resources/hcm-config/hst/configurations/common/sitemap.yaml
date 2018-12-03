@@ -112,11 +112,13 @@ definitions:
               - publicationsystem:legacypublication
               - publicationsystem:publication
               - publicationsystem:series
+              - website:general
               hst:componentconfigurationmappingvalues:
               - hst:pages/archive
               - hst:pages/legacypublication
               - hst:pages/publication
               - hst:pages/series
+              - hst:pages/general
               hst:relativecontentpath: ${parent}/content
               jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/404
@@ -129,6 +131,7 @@ definitions:
             - publicationsystem:publicationPage
             - publicationsystem:series
             - publicationsystem:cilanding
+            - website:general
             hst:componentconfigurationmappingvalues:
             - hst:pages/archive
             - hst:pages/dataset
@@ -138,6 +141,7 @@ definitions:
             - hst:pages/publicationPage
             - hst:pages/series
             - hst:pages/cilanding
+            - hst:pages/general
             hst:relativecontentpath: publication-system/${1}
             jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/404
