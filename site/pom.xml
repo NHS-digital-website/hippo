@@ -182,12 +182,6 @@
 
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-enterprise-site-toolkit-dependencies-server</artifactId>
-            <type>pom</type>
-        </dependency>
-
-        <dependency>
-            <groupId>com.onehippo.cms7</groupId>
             <artifactId>hippo-addon-targeting-dependencies-site</artifactId>
             <type>pom</type>
         </dependency>
@@ -195,7 +189,7 @@
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
             <artifactId>hippo-maxmind-geolite2</artifactId>
-            <version>20161123</version>
+            <version>20181106</version>
             <scope>runtime</scope>
         </dependency>
 
