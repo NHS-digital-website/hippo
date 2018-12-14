@@ -6,7 +6,7 @@
 <'hippotranslation'='http://www.onehippo.org/jcr/hippotranslation/nt/1.0'>
 <'hippotaxonomy'='http://www.hippoecm.org/hippotaxonomy/nt/1.2'>
 
-[website:emphasisBox] > hippo:compound, hippostd:relaxed
+[website:address] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:assetlink] > hippo:compound, hippostd:relaxed
@@ -23,6 +23,12 @@
   orderable
 
 [website:componentlist] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:cyberalert] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:emphasisBox] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:event] > hippostd:relaxed, hippotranslation:translated, website:basedocument
