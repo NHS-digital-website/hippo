@@ -233,13 +233,13 @@ public class SiteSteps extends AbstractSpringSteps {
         assertNotNull("Footer is present", sitePage.findFooter());
 
         assertNotNull("Can find terms and conditions link",
-            sitePage.findElementWithTitle("Terms and conditions"));
+            sitePage.findElementWithText("Terms and conditions"));
 
-        assertNotNull("Can find accessibility help link",
-            sitePage.findElementWithTitle("Accessibility help"));
+        assertNotNull("Can find accessibility link",
+            sitePage.findElementWithText("Accessibility"));
 
         assertNotNull("Can find privacy and cookies link",
-            sitePage.findElementWithTitle("Privacy and cookies"));
+            sitePage.findElementWithText("Privacy and cookies"));
     }
 
     /**

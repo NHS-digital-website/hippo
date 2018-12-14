@@ -17,9 +17,9 @@
                     <@hst.link var="termslink" path="/about/terms-and-conditions"/>
                     <@hst.link var="accessibilitylink" path="/about/accessibility-help"/>
                     <@hst.link var="privacylink" path="/about/privacy-and-cookies"/>
-                    <li class="footer__inner__list__item" title="Terms and conditions"><a href="${termslink}" class="footer__inner__list__item__link">Terms and conditions</a></li><!--
-                    --><li class="footer__inner__list__item" title="Privacy and cookies"><a href="${privacylink}" class="footer__inner__list__item__link">Privacy and cookies</a></li><!--
-                    --><li class="footer__inner__list__item" title="Accessibility help"><a href="${accessibilitylink}" class="footer__inner__list__item__link">Accessibility help</a></li>
+                    <li class="footer__inner__list__item"><a href="${termslink}" class="footer__inner__list__item__link">Terms and conditions</a></li><!--
+                    --><li class="footer__inner__list__item"><a href="${privacylink}" class="footer__inner__list__item__link">Privacy and cookies</a></li><!--
+                    --><li class="footer__inner__list__item"><a href="${accessibilitylink}" class="footer__inner__list__item__link">Accessibility</a></li>
                 </ul>
                 <p class="flush">
                     © 2018 NHS Digital
