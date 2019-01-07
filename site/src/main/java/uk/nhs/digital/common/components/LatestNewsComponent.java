@@ -24,6 +24,7 @@ public class LatestNewsComponent extends EssentialsNewsComponent {
     @Override
     protected void contributeAndFilters(final List<BaseFilter> filters, final HstRequest request, final HstQuery query) {
         super.contributeAndFilters(filters, request, query);
+        query.addOrderByDescending("website:publisheddatetime");
         //filtering on 'Display on news hub and homepage' property, if it has been selected
         try {
             Filter filter = query.createFilter();

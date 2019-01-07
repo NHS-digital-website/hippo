@@ -56,41 +56,29 @@
     <div class="grid-wrapper grid-wrapper--article">
         <#if pageable?? && pageable.items?has_content>
             <div class="grid-row">
-                <#if newsGroupHash?has_content && newsGroupHash?size gt 1>
-                    <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
-                        <div id="sticky-nav">
-                            <@sectionNav getSectionNavLinks()></@sectionNav>
-                        </div>
-                    </div>
-                </#if>
 
                 <div class="column column--two-thirds page-block page-block--main">
-                    <#if newsGroupHash?has_content>
-                        <#list monthNames as month>
-                            <#if newsGroupHash[month]??>
-                                <div class="article-section article-section--letter-group">
-                                    <@stickyGroupBlockHeader month></@stickyGroupBlockHeader>
 
-                                    <div class="grid-row">
-                                        <div class="column column--reset">
-                                            <div class="hub-box-list">
-                                                <#list newsGroupHash[month] as item>
-                                                    <#assign newsData = { "title": item.title, "text": item.shortsummary, "light": true } />
+                    <div class="article-section article-section--letter-group">
 
-                                                    <@hst.link hippobean=item var="newsLink" />
-                                                    <@fmt.formatDate value=item.publisheddatetime.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" var="date" />
-                                                    
-                                                    <#assign newsData += { "link": newsLink, "date": date } />
+                        <div class="grid-row">
+                            <div class="column column--reset">
+                                <div class="hub-box-list">
+                                    <#list pageable.items as item>
+                                        <#assign newsData = { "title": item.title, "text": item.shortsummary, "light": true } />
 
-                                                    <@hubBox newsData></@hubBox>
-                                                </#list>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        <@hst.link hippobean=item var="newsLink" />
+                                        <@fmt.formatDate value=item.publisheddatetime.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" var="date" />
+
+                                        <#assign newsData += { "link": newsLink, "date": date } />
+
+                                        <@hubBox newsData></@hubBox>
+                                    </#list>
                                 </div>
-                            </#if>
-                        </#list>
-                    </#if>
+                            </div>
+                        </div>
+                    </div>
+
 
                     <#if pageable.totalPages gt 1>
                         <div class="article-section no-border">
