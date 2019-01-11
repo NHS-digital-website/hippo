@@ -49,7 +49,7 @@
     <header class="top-header">
       <div class="top-header__col1">
         <a href="https://digital.nhs.uk/home">
-            <img alt="NHS Digital" width="110" src="<@hst.webfile path="/images/nhs-logo.png"/>">
+            <img alt="NHS Digital" width="110" src="<@hst.webfile path="/images/nhs-digital-logo.svg"/>">
         </a>
       </div><!--
       --><div class="top-header__col2">

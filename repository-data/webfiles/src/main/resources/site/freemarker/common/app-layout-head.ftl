@@ -12,7 +12,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image" content="<@hst.webfile path="images/nhs-digital-logo-social.jpg" fullyQualified=true/>">
+    <meta property="og:image" content="<@hst.webfile path="images/nhs-digital-logo-social.png" fullyQualified=true/>">
     <meta property="og:url" content="${getDocumentUrl()}">
     
     <@hst.headContributions categoryExcludes="htmlBodyEnd, scripts" categoryIncludes="facebookMeta" xhtml=true/>
@@ -20,7 +20,7 @@
     <!-- Twitter meta tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@NHSDigital">
-    <meta name="twitter:image" content="<@hst.webfile path="images/nhs-digital-logo-social.jpg" fullyQualified=true/>">
+    <meta name="twitter:image" content="<@hst.webfile path="images/nhs-digital-logo-social.png" fullyQualified=true/>">
     <@hst.headContributions categoryExcludes="htmlBodyEnd, scripts" categoryIncludes="twitterMeta" xhtml=true/>
     
     <!--[if IE]><link rel="shortcut icon" href="<@hst.webfile path="icons/favicon.ico"/>"><![endif]-->

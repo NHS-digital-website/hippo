@@ -8,7 +8,7 @@
                     <div class="grid-row">
 
                         <div class="column column--18-75 column--reset">
-                            <a href="<@hst.link siteMapItemRefId='root'/>"><img src="<@hst.webfile path="/images/nhs-logo.png"/>" alt="NHS Digital logo" class="site-header__logo"></a>
+                            <a href="<@hst.link siteMapItemRefId='root'/>"><img src="<@hst.webfile path="/images/nhs-digital-logo.svg"/>" alt="NHS Digital logo" class="site-header__logo"></a>
                         </div>
 
                         <#assign wrapperClassName = "site-header__search-wrapper site-header__search-wrapper--collapse" />
