@@ -52,7 +52,7 @@
 
     <#list typeGroupHash?keys as key>
         <#assign typeCount = typeGroupHash[key]?size />
-        <#assign links += [{ "url": "?type=" + key, "title": eventstype[key] + " (${typeCount})" }] />
+        <#assign links += [{ "key" : key, "title": eventstype[key] + " (${typeCount})" }] />
     </#list>
 
     <#return links />
@@ -79,17 +79,15 @@
 
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
-            <#if eventGroupHash?has_content && eventGroupHash?size gt 1>
-                <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
-                    <div id="sticky-nav">
-                        <@sectionNav getSectionNavLinks()></@sectionNav>
-                        
-                        <#if getFilterNavLinks()?size gt 0>
-                            <@tagNav getFilterNavLinks()></@tagNav>
-                        </#if>
-                    </div>
+            <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                <div id="sticky-nav">
+                    <@sectionNav getSectionNavLinks()></@sectionNav>
+
+                    <#if getFilterNavLinks()?size gt 0>
+                        <@tagNav getFilterNavLinks()></@tagNav>
+                    </#if>
                 </div>
-            </#if>
+            </div>
 
             <div class="column column--two-thirds page-block page-block--main">
                 <#if eventGroupHash?has_content>

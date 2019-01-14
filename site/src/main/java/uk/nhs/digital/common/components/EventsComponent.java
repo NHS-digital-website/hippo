@@ -45,6 +45,9 @@ public class EventsComponent extends EssentialsEventsComponent {
         if (eventsTypeValueList != null) {
             request.setAttribute("eventstype", SelectionUtil.valueListAsMap(eventsTypeValueList));
         }
+
+        String[] selectedTypes = getPublicRequestParameters(request, "type");
+        request.setAttribute("selectedTypes", Arrays.asList(selectedTypes));
     }
 
     @Override
