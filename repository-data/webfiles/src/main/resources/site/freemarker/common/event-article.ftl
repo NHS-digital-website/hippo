@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
+<#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Event" -->
 <#include "../include/imports.ftl">
-
 <#-- Add meta tags -->
 <#include "macro/metaTags.ftl">
 <@metaTags></@metaTags>
@@ -124,7 +124,6 @@
                             </dl>
                         </div>
                         <#-- [FTL-END] Location -->
-
                     </div>
                 </div>
             </div>
@@ -154,6 +153,37 @@
                     </div>
                 </div>
                 <#-- [FTL-END] 'Body' section -->
+
+                <#if document.extAttachments?has_content>
+                    <div class="article-section" id="resources">
+                        <h2>Resources</h2>
+                        <ul class="list">
+                            <#list document.extAttachments as attachment>
+                                <li class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
+                                    <@externalstorageLink attachment.resource; url>
+                                        <a title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)" itemprop="contentUrl"><span itemprop="name">${attachment.text}</span></a>;
+                                    </@externalstorageLink>
+                                    <span class="fileSize">[size: <span itemprop="contentSize"><@formatFileSize bytesCount=attachment.resource.length/></span>]</span>
+                                </li>
+                            </#list>
+                        </ul>
+                    </div>
+                </#if>
+
+
+                <#if document.relatedDocuments?has_content>
+                    <div class="article-section" id="section-related-links">
+                        <h2>Related Links</h2>
+                        <ul class="list">
+                            <#list document.relatedDocuments as relatedDocument>
+                                <li>
+                                    <@hst.link hippobean=relatedDocument var="newslink"/>
+                                    <a href="${newslink}" onClick="logGoogleAnalyticsEvent('document click','Event','${newslink}');" onKeyUp="return vjsu.onKeyUp(event)" title="${relatedDocument.title}">${relatedDocument.title}</a>
+                                </li>
+                            </#list>
+                        </ul>
+                    </div>
+                </#if>
 
             </div>
         </div>
