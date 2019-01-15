@@ -8,10 +8,6 @@
 <@hst.setBundle basename="site.website.labels"/>
 <@fmt.message key="child-pages-section.title" var="childPagesSectionTitle"/>
 
-<#if document.summaryimage?? && document.summaryimage.original??>
-    <@hst.link hippobean=document.summaryimage.original fullyQualified=true var="summaryImage" />
-</#if>
-
 <#macro schemaMeta title startTimeData = '' endTimeData = ''>
     <#-- [BEGIN] Schema microdata -->
     <meta itemprop="name" content="${title}">
@@ -133,10 +129,18 @@
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--two-thirds page-block page-block--main">
+
                 <#if document.booking?has_content>
                 <div class="article-section">
                     <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, document.booking) />
                     <a class="button" href="${document.booking}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">Book Now</a>
+                </div>
+                </#if>
+
+                <#if document.summaryimage?? && document.summaryimage.original??>
+                <div class="article-section no-border no-top-margin">
+                    <@hst.link hippobean=document.summaryimage.original fullyQualified=true var="summaryImage" />
+                    <img src="${summaryImage}" alt="${document.title}" />
                 </div>
                 </#if>
 
