@@ -9,6 +9,11 @@ import java.util.*;
 @HippoEssentialsGenerated(internalName = "website:news")
 @Node(jcrType = "website:news")
 public class News extends BaseDocument {
+    @HippoEssentialsGenerated(internalName = "website:creditbanner")
+    public String getCreditBanner() {
+        return getProperty("website:creditbanner");
+    }
+
     @HippoEssentialsGenerated(internalName = "website:publisheddatetime")
     public Calendar getPublisheddatetime() {
         return getProperty("website:publisheddatetime");

@@ -1,0 +1,27 @@
+---
+/content/documents/administration/website/news-banner-type:
+  /news-banner-type:
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: credit-information
+      selection:label: NHS Digital must be credited as the source of this information.
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: credit-figures
+      selection:label: NHS Digital must be credited as the source of these figures.
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: credit-local-figures
+      selection:label: NHS Digital must be credited as the source of these figures.  Regional
+        data is available in this report.
+    hippo:availability:
+    - live
+    - preview
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: News Banner Type
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

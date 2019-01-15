@@ -1,4 +1,5 @@
 <#ftl output_format="HTML">
+<#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.News" -->
 <#include "../include/imports.ftl">
 <#include "macro/metaTags.ftl">
 
@@ -27,15 +28,17 @@
                     <time datetime="${publishedDateTime}">${publishedDateTimeString}</time>
                 </div>
 
-                <div class="article__warning">
+                <#if document.creditBanner?has_content>
+                <div class="article__warning" role="alert">
                     <div class="callout callout--warning callout--muted">
                         <div class="grid-row">
-                            <div class="column column--two-thirds column--reset">
-                                <@fmt.message key="texts.copyright-warning"/>
+                            <div class="column column--reset">
+                                ${creditbanner[document.creditBanner]}
                             </div>
                         </div>
                     </div>
                 </div>
+                </#if>
 
                 <#-- [FTL-BEGIN] 'Body' section -->
                 <div class="article-section article-section--reset-top">
