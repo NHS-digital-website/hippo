@@ -245,6 +245,11 @@
             <artifactId>hippo-addon-targeting-bundle-collectors</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-lucene-export</artifactId>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>cms</finalName>
