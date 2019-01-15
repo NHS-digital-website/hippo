@@ -1,0 +1,15 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-393-AddsCreditBannerDefaultToNews:
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: '{}'
+      hipposys:query: /jcr:root/content/documents/corporate-website//*[@jcr:primaryType='website:news']//..
+      hipposys:script:
+        resource: /configuration/update/DW-393-AddsCreditBannerDefaultToNews.groovy
+        type: string
+      hipposys:throttle: 500
+      jcr:primaryType: hipposys:updaterinfo
