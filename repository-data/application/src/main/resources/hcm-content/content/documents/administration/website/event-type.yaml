@@ -1,6 +1,34 @@
 ---
 /content/documents/administration/website/events-type:
   /events-type:
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: digital-health
+      selection:label: Digital health
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: pharmacy
+      selection:label: Pharmacy
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: healthcare-profession
+      selection:label: Healthcare professionals
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: social-care
+      selection:label: Social care
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: cyber-security
+      selection:label: Cyber security
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: local-government
+      selection:label: Local government
+    /selection:listitem[7]:
+      jcr:primaryType: selection:listitem
+      selection:key: technology-suppliers
+      selection:label: Technology suppliers
     hippo:availability:
     - live
     - preview

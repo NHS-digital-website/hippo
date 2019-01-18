@@ -1,0 +1,138 @@
+---
+/content/documents/corporate-website/about-nhs-digital/content:
+  /content[1]:
+    /website:body:
+      hippostd:content: |-
+        <h2>Our mission</h2>
+
+        <p>Our mission is to harness the power of information and technology to improve health and care.</p>
+
+        <p><iframe src="https://www.youtube.com/embed/PRVd30lUeAw" width="560" height="315"></iframe></p>
+      jcr:primaryType: hippostd:html
+    /website:component:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    /website:friendlyurls:
+      jcr:primaryType: website:friendlyurls
+      website:alternativeurls: []
+    /website:summary:
+      hippostd:content: <p>We're the national information and technology partner to
+        the health and social care system. We're using digital technology to transform
+        the NHS and social care</p>
+      jcr:primaryType: hippostd:html
+    common:searchRank: 5
+    common:searchable: true
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: system
+    hippostdpubwf:creationDate: 2018-04-11T15:56:07.745Z
+    hippostdpubwf:lastModificationDate: 2018-12-07T11:02:44.191Z
+    hippostdpubwf:lastModifiedBy: mashuk.reza
+    hippotranslation:id: 45649177-75ca-4b6a-8e10-71893f838eb6
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:versionable
+    jcr:primaryType: website:hub
+    website:gossid: 7797
+    website:listtitle: ''
+    website:seosummary: We're the national information and technology partner to the
+      health and social care system. We're using digital technology to transform the
+      NHS and social care.
+    website:shortsummary: We're the national information and technology partner to
+      the health and social care system. We're using digital technology to transform
+      the NHS and social care.
+    website:title: About NHS Digital
+  /content[2]:
+    /website:body:
+      hippostd:content: |-
+        <h2>Our mission</h2>
+
+        <p>Our mission is to harness the power of information and technology to improve health and care.</p>
+
+        <p><iframe src="https://www.youtube.com/embed/PRVd30lUeAw" width="560" height="315"></iframe></p>
+      jcr:primaryType: hippostd:html
+    /website:component:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    /website:friendlyurls:
+      jcr:primaryType: website:friendlyurls
+      website:alternativeurls: []
+    /website:summary:
+      hippostd:content: <p>We're the national information and technology partner to
+        the health and social care system. We're using digital technology to transform
+        the NHS and social care</p>
+      jcr:primaryType: hippostd:html
+    common:searchRank: 5
+    common:searchable: true
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: system
+    hippostdpubwf:creationDate: 2018-04-11T15:56:07.745Z
+    hippostdpubwf:lastModificationDate: 2019-01-18T21:11:08.386Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 45649177-75ca-4b6a-8e10-71893f838eb6
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:versionable
+    jcr:primaryType: website:hub
+    website:gossid: 7797
+    website:listtitle: ''
+    website:seosummary: We're the national information and technology partner to the
+      health and social care system. We're using digital technology to transform the
+      NHS and social care.
+    website:shortsummary: We're the national information and technology partner to
+      the health and social care system. We're using digital technology to transform
+      the NHS and social care.
+    website:title: About NHS Digital
+  /content[3]:
+    /website:body:
+      hippostd:content: |-
+        <h2>Our mission</h2>
+
+        <p>Our mission is to harness the power of information and technology to improve health and care.</p>
+
+        <p><iframe src="https://www.youtube.com/embed/PRVd30lUeAw" width="560" height="315"></iframe></p>
+      jcr:primaryType: hippostd:html
+    /website:component:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    /website:friendlyurls:
+      jcr:primaryType: website:friendlyurls
+      website:alternativeurls: []
+    /website:summary:
+      hippostd:content: <p>We're the national information and technology partner to
+        the health and social care system. We're using digital technology to transform
+        the NHS and social care</p>
+      jcr:primaryType: hippostd:html
+    common:searchRank: 5
+    common:searchable: true
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: system
+    hippostdpubwf:creationDate: 2018-04-11T15:56:07.745Z
+    hippostdpubwf:lastModificationDate: 2019-01-18T21:11:08.386Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2019-01-18T21:11:12.972Z
+    hippotranslation:id: 45649177-75ca-4b6a-8e10-71893f838eb6
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: website:hub
+    website:gossid: 7797
+    website:listtitle: ''
+    website:seosummary: We're the national information and technology partner to the
+      health and social care system. We're using digital technology to transform the
+      NHS and social care.
+    website:shortsummary: We're the national information and technology partner to
+      the health and social care system. We're using digital technology to transform
+      the NHS and social care.
+    website:title: About NHS Digital
+  hippo:name: About NHS Digital
+  hippo:versionHistory: 67d9c02f-07c8-4db8-bc3f-9a5aeb9ae67a
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

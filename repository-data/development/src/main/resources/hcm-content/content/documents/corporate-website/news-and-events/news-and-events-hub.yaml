@@ -1,0 +1,172 @@
+---
+/content/documents/corporate-website/news-and-events/content:
+  /content[1]:
+    /website:body:
+      hippostd:content: <p><a href="http://web.ict.hscic.gov.uk/hscicgovuk-amnje/pages/d5e13a135012e811811e70106faab5f1.html?_cldee=ZHVuY2FuLmdyYWhhbTFAbmhzLm5ldA%3d%3d&amp;recipientid=contact-e5501875861ee211a4a100505689005b-3ea691f1a44b4b65a4cdd48b15b990e5&amp;esid=3551f0f0-67ee-e811-a9db-000d3a2bb91c">Subscribe
+        to our bulletins</a></p>
+      jcr:primaryType: hippostd:html
+    /website:component:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    /website:componentlist:
+      hippo:docbase: fdab4064-8a43-4e9c-b193-f24a93c452d4
+      jcr:primaryType: hippo:mirror
+    /website:friendlyurls:
+      jcr:primaryType: website:friendlyurls
+      website:alternativeurls: []
+    /website:items[1]:
+      /website:link:
+        hippo:docbase: 9e62c402-f9e5-4081-a4c7-911cdc222333
+        jcr:primaryType: hippo:mirror
+      jcr:primaryType: website:internallink
+    /website:items[2]:
+      /website:link:
+        hippo:docbase: 8e62c402-f9e5-4081-a4c7-911cdc826295
+        jcr:primaryType: hippo:mirror
+      jcr:primaryType: website:internallink
+    /website:items[3]:
+      jcr:primaryType: website:externallink
+      website:link: https://nhs-digital.citizenspace.com/
+      website:shortsummary: NHS Digital runs regular consultation on our work.
+      website:title: Consultations
+    /website:summary:
+      hippostd:content: <p>Find out about the latest news and events from NHS Digital.</p>
+      jcr:primaryType: hippostd:html
+    common:searchRank: 5
+    common:searchable: true
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: system
+    hippostdpubwf:creationDate: 2018-04-11T15:59:04.796Z
+    hippostdpubwf:lastModificationDate: 2019-01-18T18:56:39.207Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 1c72d0dc-8fb4-4f8b-bbae-2b08fe3264e5
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:versionable
+    jcr:primaryType: website:hub
+    jcr:uuid: 0601d31c-7229-4e97-a91f-da7968a84fc6
+    website:gossid: 327
+    website:listtitle: ''
+    website:seosummary: See all the latest news from NHS Digital and find out about
+      our upcoming events, including meetings, conferences, seminars, workshops and
+      more. You can also find out about the campaigns we are running.
+    website:shortsummary: Find out about the latest news and events from NHS Digital.
+    website:title: News and events
+  /content[2]:
+    /website:body:
+      hippostd:content: <p><a href="http://web.ict.hscic.gov.uk/hscicgovuk-amnje/pages/d5e13a135012e811811e70106faab5f1.html?_cldee=ZHVuY2FuLmdyYWhhbTFAbmhzLm5ldA%3d%3d&amp;recipientid=contact-e5501875861ee211a4a100505689005b-3ea691f1a44b4b65a4cdd48b15b990e5&amp;esid=3551f0f0-67ee-e811-a9db-000d3a2bb91c">Subscribe
+        to our bulletins</a></p>
+      jcr:primaryType: hippostd:html
+    /website:component:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    /website:componentlist:
+      hippo:docbase: fdab4064-8a43-4e9c-b193-f24a93c452d4
+      jcr:primaryType: hippo:mirror
+    /website:friendlyurls:
+      jcr:primaryType: website:friendlyurls
+      website:alternativeurls: []
+    /website:items[1]:
+      /website:link:
+        hippo:docbase: 9e62c402-f9e5-4081-a4c7-911cdc222333
+        jcr:primaryType: hippo:mirror
+      jcr:primaryType: website:internallink
+    /website:items[2]:
+      /website:link:
+        hippo:docbase: 8e62c402-f9e5-4081-a4c7-911cdc826295
+        jcr:primaryType: hippo:mirror
+      jcr:primaryType: website:internallink
+    /website:items[3]:
+      jcr:primaryType: website:externallink
+      website:link: https://nhs-digital.citizenspace.com/
+      website:shortsummary: NHS Digital runs regular consultation on our work.
+      website:title: Consultations
+    /website:summary:
+      hippostd:content: <p>Find out about the latest news and events from NHS Digital.</p>
+      jcr:primaryType: hippostd:html
+    common:searchRank: 5
+    common:searchable: true
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: system
+    hippostdpubwf:creationDate: 2018-04-11T15:59:04.796Z
+    hippostdpubwf:lastModificationDate: 2019-01-18T18:57:25.446Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 1c72d0dc-8fb4-4f8b-bbae-2b08fe3264e5
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:versionable
+    jcr:primaryType: website:hub
+    jcr:uuid: 52cb2c57-78a1-4fec-975e-13afecd70e66
+    website:gossid: 327
+    website:listtitle: ''
+    website:seosummary: See all the latest news from NHS Digital and find out about
+      our upcoming events, including meetings, conferences, seminars, workshops and
+      more. You can also find out about the campaigns we are running.
+    website:shortsummary: Find out about the latest news and events from NHS Digital.
+    website:title: News and events
+  /content[3]:
+    /website:body:
+      hippostd:content: <p><a href="http://web.ict.hscic.gov.uk/hscicgovuk-amnje/pages/d5e13a135012e811811e70106faab5f1.html?_cldee=ZHVuY2FuLmdyYWhhbTFAbmhzLm5ldA%3d%3d&amp;recipientid=contact-e5501875861ee211a4a100505689005b-3ea691f1a44b4b65a4cdd48b15b990e5&amp;esid=3551f0f0-67ee-e811-a9db-000d3a2bb91c">Subscribe
+        to our bulletins</a></p>
+      jcr:primaryType: hippostd:html
+    /website:component:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    /website:componentlist:
+      hippo:docbase: fdab4064-8a43-4e9c-b193-f24a93c452d4
+      jcr:primaryType: hippo:mirror
+    /website:friendlyurls:
+      jcr:primaryType: website:friendlyurls
+      website:alternativeurls: []
+    /website:items[1]:
+      /website:link:
+        hippo:docbase: 9e62c402-f9e5-4081-a4c7-911cdc222333
+        jcr:primaryType: hippo:mirror
+      jcr:primaryType: website:internallink
+    /website:items[2]:
+      /website:link:
+        hippo:docbase: 8e62c402-f9e5-4081-a4c7-911cdc826295
+        jcr:primaryType: hippo:mirror
+      jcr:primaryType: website:internallink
+    /website:items[3]:
+      jcr:primaryType: website:externallink
+      website:link: https://nhs-digital.citizenspace.com/
+      website:shortsummary: NHS Digital runs regular consultation on our work.
+      website:title: Consultations
+    /website:summary:
+      hippostd:content: <p>Find out about the latest news and events from NHS Digital.</p>
+      jcr:primaryType: hippostd:html
+    common:searchRank: 5
+    common:searchable: true
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: system
+    hippostdpubwf:creationDate: 2018-04-11T15:59:04.796Z
+    hippostdpubwf:lastModificationDate: 2019-01-18T18:57:25.446Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2019-01-18T18:57:30.271Z
+    hippotranslation:id: 1c72d0dc-8fb4-4f8b-bbae-2b08fe3264e5
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: website:hub
+    jcr:uuid: bc65740b-8774-4510-896f-f09c00f3ac1d
+    website:gossid: 327
+    website:listtitle: ''
+    website:seosummary: See all the latest news from NHS Digital and find out about
+      our upcoming events, including meetings, conferences, seminars, workshops and
+      more. You can also find out about the campaigns we are running.
+    website:shortsummary: Find out about the latest news and events from NHS Digital.
+    website:title: News and events
+  hippo:name: News and events
+  hippo:versionHistory: 8262bb1c-6878-4b83-8145-d7b05da5ed63
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
+  jcr:uuid: 9e62c402-f9e5-4081-a4c7-911cdc826295
