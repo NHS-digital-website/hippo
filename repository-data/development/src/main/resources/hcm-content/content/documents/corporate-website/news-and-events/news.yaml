@@ -1,0 +1,110 @@
+---
+/content/documents/corporate-website/news-and-events/news:
+  /news[1]:
+    /website:component:
+      hippostd:content: '<p>NOTE TO EDITORS: This is a proxy page, with hard wired
+        controls.&nbsp; &nbsp;Editing this page will not alter the display of news
+        pages.</p>'
+      jcr:primaryType: hippostd:html
+    /website:friendlyurls:
+      jcr:primaryType: website:friendlyurls
+      website:alternativeurls: []
+      website:destination: ''
+    /website:summary:
+      hippostd:content: <p>See all the latest news from NHS Digital</p>
+      jcr:primaryType: hippostd:html
+    common:searchRank: 3
+    common:searchable: true
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: owain.davies1
+    hippostdpubwf:creationDate: 2018-07-09T11:22:20.528Z
+    hippostdpubwf:lastModificationDate: 2018-07-09T11:46:07.512Z
+    hippostdpubwf:lastModifiedBy: julie.closs
+    hippotranslation:id: 4ec7368e-a70d-4db5-8ab3-5f96f9416077
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    jcr:primaryType: website:general
+    website:gossid: 0
+    website:seosummary: All the latest news from NHS Digital,  the national information
+      and technology partner to the health and care system
+    website:shortsummary: See all the latest news from NHS Digital
+    website:title: Latest news
+    website:type: ''
+  /news[2]:
+    /website:component:
+      hippostd:content: '<p>NOTE TO EDITORS: This is a proxy page, with hard wired
+        controls.&nbsp; &nbsp;Editing this page will not alter the display of news
+        pages.</p>'
+      jcr:primaryType: hippostd:html
+    /website:friendlyurls:
+      jcr:primaryType: website:friendlyurls
+      website:alternativeurls: []
+      website:destination: ''
+    /website:summary:
+      hippostd:content: <p>See all the latest news from NHS Digital</p>
+      jcr:primaryType: hippostd:html
+    common:searchRank: 3
+    common:searchable: true
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: owain.davies1
+    hippostdpubwf:creationDate: 2018-07-09T11:22:20.528Z
+    hippostdpubwf:lastModificationDate: 2018-07-09T11:25:11.993Z
+    hippostdpubwf:lastModifiedBy: owain.davies1
+    hippotranslation:id: 4ec7368e-a70d-4db5-8ab3-5f96f9416077
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:versionable
+    jcr:primaryType: website:general
+    website:gossid: 0
+    website:seosummary: All the latest news from NHS Digital,  the national information
+      and technology partner to the health and care system
+    website:shortsummary: See all the latest news from NHS Digital
+    website:title: Latest news
+    website:type: ''
+  /news[3]:
+    /website:component:
+      hippostd:content: '<p>NOTE TO EDITORS: This is a proxy page, with hard wired
+        controls.&nbsp; &nbsp;Editing this page will not alter the display of news
+        pages.</p>'
+      jcr:primaryType: hippostd:html
+    /website:friendlyurls:
+      jcr:primaryType: website:friendlyurls
+      website:alternativeurls: []
+      website:destination: ''
+    /website:summary:
+      hippostd:content: <p>See all the latest news from NHS Digital</p>
+      jcr:primaryType: hippostd:html
+    common:searchRank: 3
+    common:searchable: true
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: owain.davies1
+    hippostdpubwf:creationDate: 2018-07-09T11:22:20.528Z
+    hippostdpubwf:lastModificationDate: 2018-07-09T11:25:11.993Z
+    hippostdpubwf:lastModifiedBy: owain.davies1
+    hippostdpubwf:publicationDate: 2018-09-07T10:36:55.382Z
+    hippotranslation:id: 4ec7368e-a70d-4db5-8ab3-5f96f9416077
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    jcr:primaryType: website:general
+    website:gossid: 0
+    website:seosummary: All the latest news from NHS Digital,  the national information
+      and technology partner to the health and care system
+    website:shortsummary: See all the latest news from NHS Digital
+    website:title: Latest news
+    website:type: ''
+  hippo:name: News
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
+  jcr:uuid: 9e62c402-f9e5-4081-a4c7-911cdc222333

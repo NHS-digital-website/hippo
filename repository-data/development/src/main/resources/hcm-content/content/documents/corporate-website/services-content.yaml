@@ -1,0 +1,186 @@
+---
+/content/documents/corporate-website/services/content:
+  /content[1]:
+    /website:body:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    /website:friendlyurls:
+      jcr:primaryType: website:friendlyurls
+      website:alternativeurls: []
+    /website:items[1]:
+      jcr:primaryType: website:externallink
+      website:link: https://digital.nhs.uk/data-and-information/publications/ci-hub/social-care
+      website:shortsummary: The Adult Social Care Outcomes Framework (ASCOF) measures
+        how well care and support services achieve the outcomes that matter most to
+        people. The measures are grouped into four domains which are typically reviewed
+        in terms of movement over time. Data is provided at council, regional and
+        national level.
+      website:title: Adult Social Care Outcomes Framework (ASCOF)
+    /website:items[2]:
+      jcr:primaryType: website:externallink
+      website:link: http://www.nhs.uk
+      website:shortsummary: The NHS website provides comprehensive health information
+        with thousands of articles, videos and tools to help the public make the best
+        choices for their health and lifestyle.
+      website:title: NHS UK
+    /website:items[3]:
+      jcr:primaryType: website:externallink
+      website:link: https://digital.nhs.uk/services/demographics
+      website:shortsummary: The Personal Demographics Service (PDS) is the national
+        electronic database of NHS patient details such as name, address, date of
+        birth and NHS Number
+      website:title: Personal Demographics Service
+    /website:summary:
+      hippostd:content: <p>We deliver systems and services to the NHS and the wider
+        health and social care sector which help providers deliver better care.    Our
+        information, data, and IT systems help health professionals, commissioners,
+        analysts and managers give the best outcomes for patients.</p>
+      jcr:primaryType: hippostd:html
+    common:searchRank: 3
+    common:searchable: true
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: system
+    hippostdpubwf:creationDate: 2018-04-11T16:01:36.089Z
+    hippostdpubwf:lastModificationDate: 2019-01-18T21:11:57.034Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: cd977825-fc40-4d2e-bcf0-708322796e00
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:versionable
+    jcr:primaryType: website:componentlist
+    website:anchor: true
+    website:gossid: 203
+    website:seosummary: NHS Digital deliver systems and services to the NHS and the
+      wider health and social care sector which help providers deliver better care.    Our
+      information, data, and IT systems help health professionals, commissioners,
+      analysts and managers give the best outcomes for patients.
+    website:shortsummary: Our information, data, and IT systems help health professionals,
+      commissioners, analysts and managers give the best outcomes for patients.
+    website:title: Systems and services
+  /content[2]:
+    /website:body:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    /website:friendlyurls:
+      jcr:primaryType: website:friendlyurls
+      website:alternativeurls: []
+    /website:items[1]:
+      jcr:primaryType: website:externallink
+      website:link: https://digital.nhs.uk/data-and-information/publications/ci-hub/social-care
+      website:shortsummary: The Adult Social Care Outcomes Framework (ASCOF) measures
+        how well care and support services achieve the outcomes that matter most to
+        people. The measures are grouped into four domains which are typically reviewed
+        in terms of movement over time. Data is provided at council, regional and
+        national level.
+      website:title: Adult Social Care Outcomes Framework (ASCOF)
+    /website:items[2]:
+      jcr:primaryType: website:externallink
+      website:link: http://www.nhs.uk
+      website:shortsummary: The NHS website provides comprehensive health information
+        with thousands of articles, videos and tools to help the public make the best
+        choices for their health and lifestyle.
+      website:title: NHS UK
+    /website:items[3]:
+      jcr:primaryType: website:externallink
+      website:link: https://digital.nhs.uk/services/demographics
+      website:shortsummary: The Personal Demographics Service (PDS) is the national
+        electronic database of NHS patient details such as name, address, date of
+        birth and NHS Number
+      website:title: Personal Demographics Service
+    /website:summary:
+      hippostd:content: <p>We deliver systems and services to the NHS and the wider
+        health and social care sector which help providers deliver better care.    Our
+        information, data, and IT systems help health professionals, commissioners,
+        analysts and managers give the best outcomes for patients.</p>
+      jcr:primaryType: hippostd:html
+    common:searchRank: 3
+    common:searchable: true
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: system
+    hippostdpubwf:creationDate: 2018-04-11T16:01:36.089Z
+    hippostdpubwf:lastModificationDate: 2019-01-18T21:11:57.034Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2019-01-18T21:12:01.241Z
+    hippotranslation:id: cd977825-fc40-4d2e-bcf0-708322796e00
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: website:componentlist
+    website:anchor: true
+    website:gossid: 203
+    website:seosummary: NHS Digital deliver systems and services to the NHS and the
+      wider health and social care sector which help providers deliver better care.    Our
+      information, data, and IT systems help health professionals, commissioners,
+      analysts and managers give the best outcomes for patients.
+    website:shortsummary: Our information, data, and IT systems help health professionals,
+      commissioners, analysts and managers give the best outcomes for patients.
+    website:title: Systems and services
+  /content[3]:
+    /website:body:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    /website:friendlyurls:
+      jcr:primaryType: website:friendlyurls
+      website:alternativeurls: []
+    /website:items[1]:
+      jcr:primaryType: website:externallink
+      website:link: https://digital.nhs.uk/data-and-information/publications/ci-hub/social-care
+      website:shortsummary: The Adult Social Care Outcomes Framework (ASCOF) measures
+        how well care and support services achieve the outcomes that matter most to
+        people. The measures are grouped into four domains which are typically reviewed
+        in terms of movement over time. Data is provided at council, regional and
+        national level.
+      website:title: Adult Social Care Outcomes Framework (ASCOF)
+    /website:items[2]:
+      jcr:primaryType: website:externallink
+      website:link: http://www.nhs.uk
+      website:shortsummary: The NHS website provides comprehensive health information
+        with thousands of articles, videos and tools to help the public make the best
+        choices for their health and lifestyle.
+      website:title: NHS UK
+    /website:items[3]:
+      jcr:primaryType: website:externallink
+      website:link: https://digital.nhs.uk/services/demographics
+      website:shortsummary: The Personal Demographics Service (PDS) is the national
+        electronic database of NHS patient details such as name, address, date of
+        birth and NHS Number
+      website:title: Personal Demographics Service
+    /website:summary:
+      hippostd:content: <p>We deliver systems and services to the NHS and the wider
+        health and social care sector which help providers deliver better care.    Our
+        information, data, and IT systems help health professionals, commissioners,
+        analysts and managers give the best outcomes for patients.</p>
+      jcr:primaryType: hippostd:html
+    common:searchRank: 3
+    common:searchable: true
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: system
+    hippostdpubwf:creationDate: 2018-04-11T16:01:36.089Z
+    hippostdpubwf:lastModificationDate: 2019-01-18T21:11:32.778Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: cd977825-fc40-4d2e-bcf0-708322796e00
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: website:componentlist
+    website:anchor: true
+    website:gossid: 203
+    website:seosummary: NHS Digital deliver systems and services to the NHS and the
+      wider health and social care sector which help providers deliver better care.    Our
+      information, data, and IT systems help health professionals, commissioners,
+      analysts and managers give the best outcomes for patients.
+    website:shortsummary: Our information, data, and IT systems help health professionals,
+      commissioners, analysts and managers give the best outcomes for patients.
+    website:title: Systems and services
+  hippo:name: Systems and services
+  hippo:versionHistory: 1cd785af-e70d-48a4-b663-697f6928bf85
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
