@@ -3,6 +3,7 @@
 <#include "../include/imports.ftl">
 <#include "macro/searchTabsComponent.ftl">
 <@hst.setBundle basename="emails, feature-toggles"/>
+<#include "macro/component/skipLink.ftl">
 
 <html lang="en">
   <head>
@@ -39,7 +40,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="<@hst.webfile path="icons/favicon-16x16.png"/>">
   </head>
   <body>
-
+  <@skipLink />
     <div class="beta-banner">
         <div class="beta-banner__inner">
             You are trying the new Beta Clinical Indicator pages. Please send any feedback to <a href="mailto:<@fmt.message key="email.feedback"/>"><@fmt.message key="email.feedback"/></a>.

@@ -6,6 +6,14 @@ definitions:
         hst:componentconfigurationid: hst:pages/static-ui-home
         hst:relativecontentpath: static-ui/${1}
         jcr:primaryType: hst:sitemapitem
+      /component:
+        /skip-link:
+          hst:componentconfigurationid: hst:pages/static-ui-component-skip-link
+          hst:relativecontentpath: component/skip-link
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/static-ui-component
+        hst:relativecontentpath: static-ui/component
+        jcr:primaryType: hst:sitemapitem
       /eform:
         hst:componentconfigurationid: hst:pages/static-ui-eform
         hst:relativecontentpath: static-ui/eform

@@ -33,6 +33,9 @@
             <li>
                 <a href="/static-ui/icons">Icons</a>
             </li>
+            <li>
+                <a href="/static-ui/component">Component</a>
+            </li>
         </ul>
     </div>
 </nav>

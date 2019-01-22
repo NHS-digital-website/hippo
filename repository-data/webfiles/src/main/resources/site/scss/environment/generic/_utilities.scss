@@ -1,7 +1,7 @@
 @import "../settings/colours";
 
 .util-visuallyhidden {
-  @include visuallyhidden;
+  @include visually-hidden;
 }
 
 .util-nofocus:focus {

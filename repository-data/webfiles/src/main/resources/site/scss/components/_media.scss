@@ -13,6 +13,6 @@
   padding: $default-spacing-unit;
 
   .is-collapsed .gallery__item--collage & {
-    @include visuallyhidden;
+    @include visually-hidden;
   }
 }
