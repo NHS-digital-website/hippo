@@ -35,34 +35,29 @@ phases:
       # Rundeck credentials
       - aws s3 cp s3://config.mgt.nhsd.io/codebuild/hippo_build/rd.password $HOME/rd.password
 
-      # Add static.hosting.onehippo.com and github.com as known host
+      # BRC credentials
+      - aws s3 cp s3://config.mgt.nhsd.io/codebuild/hippo_build/brc.username $HOME/rd.username
+      - aws s3 cp s3://config.mgt.nhsd.io/codebuild/hippo_build/brc.password $HOME/rd.password
+
+      # Add static.hosting.onehippo.com and github.com, and BloomReach Cloud as known host
       - touch $HOME/.ssh/known_hosts
       - ssh-keygen -R static.hosting.onehippo.com
       - ssh-keyscan static.hosting.onehippo.com >> $HOME/.ssh/known_hosts
       - ssh-keygen -R github.com
       - ssh-keyscan github.com >> $HOME/.ssh/known_hosts
+      - ssh-keygen -R missioncontrol-nhsdigitaltrail.onehippo.io
+      - ssh-keyscan missioncontrol-nhsdigitaltrail.onehippo.io >> $HOME/.ssh/known_hosts
 
   build:
     commands:
-      # Tag
-      - ssh-agent bash -c "
-        ssh-add $HOME/.ssh/nhs-ci_rsa && cd ci-cd &&
-        make version.bumpup"
       # Build
       - cd ci-cd && make clean build
-      # Set git commit status
-      - cd ci-cd && make github.status.success
       # Upload tgz files to various destinations
-      - ssh-agent bash -c "
-        ssh-add $HOME/.ssh/nhs-ci_rsa &&
-        cd ci-cd && make ondemand.upload"
-      # Deploy to Test Environment
-      - . $HOME/rd.password && cd ci-cd && make ondemand.deploy
-      # Push tag back to github
-      - ssh-agent bash -c "
-        ssh-add $HOME/.ssh/nhs-ci_rsa && cd ci-cd &&
-        make git.update-environment-tag &&
-        git push --tags"
+      #- ssh-agent bash -c "
+      #  ssh-add $HOME/.ssh/nhs-ci_rsa &&
+      #  cd ci-cd && make ondemand.upload"
+      # Deploy to DEV Environment
+      #- . $HOME/rd.password && cd ci-cd && make ondemand.deploy
 
 artifacts:
   files:
