@@ -1,33 +1,48 @@
 package uk.nhs.digital.common.components;
 
-import com.google.common.base.*;
+import com.google.common.base.Strings;
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang3.math.*;
-import org.hippoecm.hst.container.*;
-import org.hippoecm.hst.content.beans.*;
-import org.hippoecm.hst.content.beans.manager.*;
-import org.hippoecm.hst.content.beans.query.*;
-import org.hippoecm.hst.content.beans.query.builder.*;
-import org.hippoecm.hst.content.beans.query.exceptions.*;
-import org.hippoecm.hst.content.beans.query.filter.*;
-import org.hippoecm.hst.content.beans.standard.*;
-import org.hippoecm.hst.core.component.*;
-import org.hippoecm.hst.core.parameters.*;
-import org.hippoecm.hst.core.request.*;
-import org.hippoecm.repository.util.*;
-import org.onehippo.cms7.essentials.components.*;
-import org.onehippo.cms7.essentials.components.info.*;
-import org.onehippo.cms7.essentials.components.paging.*;
-import org.onehippo.forge.selection.hst.contentbean.*;
-import org.onehippo.forge.selection.hst.util.*;
-import org.slf4j.*;
-
-import uk.nhs.digital.common.components.info.*;
+import org.apache.commons.lang3.math.NumberUtils;
+import org.hippoecm.hst.container.RequestContextProvider;
+import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
+import org.hippoecm.hst.content.beans.manager.ObjectConverter;
+import org.hippoecm.hst.content.beans.query.HstQuery;
+import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
+import org.hippoecm.hst.content.beans.query.exceptions.FilterException;
+import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
+import org.hippoecm.hst.content.beans.query.filter.BaseFilter;
+import org.hippoecm.hst.content.beans.query.filter.Filter;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
+import org.hippoecm.hst.core.component.HstRequest;
+import org.hippoecm.hst.core.component.HstResponse;
+import org.hippoecm.hst.core.parameters.ParametersInfo;
+import org.hippoecm.hst.core.request.HstRequestContext;
+import org.hippoecm.repository.util.DateTools;
+import org.onehippo.cms7.essentials.components.EssentialsEventsComponent;
+import org.onehippo.cms7.essentials.components.info.EssentialsEventsComponentInfo;
+import org.onehippo.cms7.essentials.components.info.EssentialsListComponentInfo;
+import org.onehippo.cms7.essentials.components.info.EssentialsPageable;
+import org.onehippo.cms7.essentials.components.paging.Pageable;
+import org.onehippo.forge.selection.hst.contentbean.ValueList;
+import org.onehippo.forge.selection.hst.util.SelectionUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import uk.nhs.digital.common.components.info.EventsComponentInfo;
+import uk.nhs.digital.website.beans.Event;
 
 import java.util.*;
-import javax.jcr.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+
 import javax.jcr.Node;
-import javax.jcr.query.*;
+import javax.jcr.NodeIterator;
+import javax.jcr.RepositoryException;
+import javax.jcr.query.Query;
+import javax.jcr.query.QueryManager;
+import javax.jcr.query.QueryResult;
+
 
 @ParametersInfo(
     type = EventsComponentInfo.class
@@ -37,8 +52,9 @@ public class EventsComponent extends EssentialsEventsComponent {
     private static Logger log = LoggerFactory.getLogger(EventsComponent.class);
 
     @Override
-    public void doBeforeRender(final HstRequest request, final HstResponse response) {
+    public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
+
         //sending the eventstype values
         final ValueList eventsTypeValueList =
             SelectionUtil.getValueListByIdentifier("eventstype", RequestContextProvider.get());
@@ -48,51 +64,68 @@ public class EventsComponent extends EssentialsEventsComponent {
 
         String[] selectedTypes = getPublicRequestParameters(request, "type");
         request.setAttribute("selectedTypes", Arrays.asList(selectedTypes));
+        request.setAttribute("selectedYear", findYearOrDefault(getSelectedYear(request) , Calendar.getInstance().get(Calendar.YEAR)));
+        request.setAttribute("years", years());
+    }
+
+    private Map<String, Long> years() {
+        try {
+            return StreamSupport.stream(Spliterators.spliteratorUnknownSize(yearsQuery(), Spliterator.ORDERED), true)
+                .filter(e -> ((Event) e).getDisplay())
+                .flatMap(e -> ((Event) e).getEvents().parallelStream())
+                .map(e -> String.valueOf(e.getStartdatetime().get(Calendar.YEAR)))
+                .collect(Collectors.groupingBy(
+                    Function.identity(), Collectors.counting()
+                ));
+        } catch (QueryException e) {
+            e.printStackTrace();
+        }
+        return new HashMap<>();
+    }
+
+    private HippoBeanIterator yearsQuery() throws QueryException {
+        return HstQueryBuilder.create(RequestContextProvider.get().getSiteContentBaseBean())
+            .ofTypes(Event.class)
+            .build()
+            .execute()
+            .getHippoBeans();
     }
 
     @Override
-    protected <T extends EssentialsListComponentInfo> Pageable<HippoBean> executeQuery(HstRequest request, T paramInfo, HstQuery query) throws QueryException {
-        int pageSize = this.getPageSize(request, paramInfo);
-        int page = this.getCurrentPage(request);
-        query.setLimit(pageSize);
-        query.setOffset((page - 1) * pageSize);
-        this.applyExcludeScopes(request, query, paramInfo);
-        this.buildAndApplyFilters(request, query);
+    protected void contributeAndFilters(final List<BaseFilter> filters, final HstRequest request, final HstQuery query) {
 
+        // filter's documents such that the website:display is set to true
         try {
-            // the query coming from the component is manually extended since it needs to consider intervals
-            String eventQueryString = query.getQueryAsString(true);
-            // appending the query containing filters the on the interval compound
-            String queryString = eventQueryString + addIntervalFilter(request);
+            Filter filter = query.createFilter();
+            filter.addEqualTo("website:display", true);
+            filters.add(filter);
+        } catch (FilterException var7) {
+            log.error("An exception occurred while trying to create a query filter showing document with display field on : {}", var7);
+        }
 
-            HstRequestContext requestContext = request.getRequestContext();
-            QueryManager jcrQueryManager = requestContext.getSession().getWorkspace().getQueryManager();
-            Query jcrQuery = jcrQueryManager.createQuery(queryString, "xpath");
-            QueryResult queryResult = jcrQuery.execute();
-
-            ObjectConverter objectConverter = requestContext.getContentBeansTool().getObjectConverter();
-
-            NodeIterator it = queryResult.getNodes();
-            List parentNodes = new ArrayList();
-            List<String> parentPath = new ArrayList();
-            //the result of the query contains the interval compound, but the actual result should contain events.
-            //For this reason this component needs to fetch the parent node
-            while (it.hasNext() && parentPath.size() < pageSize) {
-                Node interval = it.nextNode();
-                Node eventNode = interval.getParent();
-                if (eventNode.getPrimaryNodeType().isNodeType("website:event")
-                    && !parentPath.contains(eventNode.getPath())) {
-                    parentPath.add(eventNode.getPath());
-                    parentNodes.add(objectConverter.getObject(eventNode));
+        //fetching the selected types from the request
+        String[] selectedTypes = getSelectedTypes(request);
+        if (selectedTypes.length > 0) {
+            final Filter filter = query.createFilter();
+            for (String type : selectedTypes) {
+                try {
+                    filter.addEqualTo("@website:type", type);
+                } catch (FilterException filterException) {
+                    log.warn("Errors while adding event type filter {}", filterException);
                 }
             }
-
-            return this.getPageableFactory().createPageable(parentNodes, page, pageSize);
-        } catch (RepositoryException repositoryEx) {
-            throw new QueryException(repositoryEx.getMessage());
-        } catch (ObjectBeanManagerException converterEx) {
-            throw new QueryException(converterEx.getMessage());
+            filters.add(filter);
         }
+    }
+
+    /**
+     * Fetch the values of type parameters from the URL query string
+     *
+     * @param request containing the type parameters
+     * @return array of type parameters if at least one exists, otherwise empty
+     */
+    protected String[] getSelectedTypes(HstRequest request) {
+        return getPublicRequestParameters(request, "type");
     }
 
     /**
@@ -149,17 +182,78 @@ public class EventsComponent extends EssentialsEventsComponent {
         return "";
     }
 
+    protected void addIntervalConstraint(final List filters, final HstQuery hstQuery, final String dateField, final HstRequest request) throws FilterException {
+        Calendar calendar = Calendar.getInstance();
+        int year = Integer.valueOf(findYearOrDefault(getSelectedYear(request) , calendar.get(Calendar.YEAR)));
+        final Filter filter = hstQuery.createFilter();
+        calendar.set(Calendar.YEAR, year);
+        filter.addBetween(dateField, calendar, calendar, DateTools.Resolution.YEAR);
+        filters.add(filter);
+    }
+
+    private String findYearOrDefault(String target, int fallback) {
+        if (isYear(target)) {
+            return target;
+        }
+        return String.valueOf(fallback);
+    }
+
+    private boolean isYear(String candidate) {
+        return candidate != null && candidate.matches("20[1-9][0-9]");
+    }
+
     /**
-     * This method adds the website:display constraint in order to consider documents having that property set to true
+     * Fetch the value of year parameter from the URL query string
+     *
+     * @param request containing the year parameter
+     * @return the value of the first year parameter if exists, otherwise empty
      */
+    protected String getSelectedYear(HstRequest request) {
+        return getPublicRequestParameter(request, "year");
+    }
+
     @Override
-    protected void contributeAndFilters(final List<BaseFilter> filters, final HstRequest request, final HstQuery query) {
+    protected <T extends EssentialsListComponentInfo> Pageable<HippoBean> executeQuery(HstRequest request, T paramInfo, HstQuery query) throws QueryException {
+        int pageSize = this.getPageSize(request, paramInfo);
+        int page = this.getCurrentPage(request);
+        query.setLimit(pageSize);
+        query.setOffset((page - 1) * pageSize);
+        this.applyExcludeScopes(request, query, paramInfo);
+        this.buildAndApplyFilters(request, query);
+
         try {
-            Filter filter = query.createFilter();
-            filter.addEqualTo("website:display", true);
-            filters.add(filter);
-        } catch (FilterException var7) {
-            log.error("An exception occurred while trying to create a query filter showing document with display field on : {}", var7);
+            // the query coming from the component is manually extended since it needs to consider intervals
+            String eventQueryString = query.getQueryAsString(true);
+            // appending the query containing filters the on the interval compound
+            String queryString = eventQueryString + addIntervalFilter(request);
+
+            HstRequestContext requestContext = request.getRequestContext();
+            QueryManager jcrQueryManager = requestContext.getSession().getWorkspace().getQueryManager();
+            Query jcrQuery = jcrQueryManager.createQuery(queryString, "xpath");
+            QueryResult queryResult = jcrQuery.execute();
+
+            ObjectConverter objectConverter = requestContext.getContentBeansTool().getObjectConverter();
+
+            NodeIterator it = queryResult.getNodes();
+            List parentNodes = new ArrayList();
+            List<String> parentPath = new ArrayList();
+            //the result of the query contains the interval compound, but the actual result should contain events.
+            //For this reason this component needs to fetch the parent node
+            while (it.hasNext() && parentPath.size() < pageSize) {
+                Node interval = it.nextNode();
+                Node eventNode = interval.getParent();
+                if (eventNode.getPrimaryNodeType().isNodeType("website:event")
+                    && !parentPath.contains(eventNode.getPath())) {
+                    parentPath.add(eventNode.getPath());
+                    parentNodes.add(objectConverter.getObject(eventNode));
+                }
+            }
+
+            return this.getPageableFactory().createPageable(parentNodes, page, pageSize);
+        } catch (RepositoryException repositoryEx) {
+            throw new QueryException(repositoryEx.getMessage());
+        } catch (ObjectBeanManagerException converterEx) {
+            throw new QueryException(converterEx.getMessage());
         }
     }
 
@@ -170,29 +264,5 @@ public class EventsComponent extends EssentialsEventsComponent {
         //if the componentPageSize hasn't been defined, then use the component param info
         return NumberUtils.isCreatable(compononentPageSize)
             ? Integer.parseInt(compononentPageSize) : super.getPageSize(request, paramInfo);
-    }
-
-    protected void addIntervalConstraint(final List filters, final HstQuery hstQuery, final String dateField, final HstRequest request) throws FilterException {
-
-        final EssentialsEventsComponentInfo paramInfo = getComponentParametersInfo(request);
-        final Filter eventsFilter = hstQuery.createFilter();
-
-        if (paramInfo.getHidePastEvents()) {
-            //in case of latest event component, the constraints will be the upcoming and currently running events
-            eventsFilter.addGreaterOrEqualThan(dateField, Calendar.getInstance(), DateTools.Resolution.HOUR);
-            Calendar today = Calendar.getInstance();
-            //including the currently running events
-            final Filter runningEventsFilter = hstQuery.createFilter();
-            runningEventsFilter.addLessOrEqualThan(dateField, today, DateTools.Resolution.HOUR);
-            runningEventsFilter.addGreaterOrEqualThan("website:enddatetime", today, DateTools.Resolution.HOUR);
-            eventsFilter.addOrFilter(runningEventsFilter);
-            //adding the event to the filters list
-            filters.add(eventsFilter);
-        } else {
-            //in case of past event component, the constraints will be the past events
-            eventsFilter.addLessOrEqualThan(dateField, Calendar.getInstance(), DateTools.Resolution.HOUR);
-            //adding the event to the filters list
-            filters.add(eventsFilter);
-        }
     }
 }

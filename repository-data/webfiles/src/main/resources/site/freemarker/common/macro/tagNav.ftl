@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 
-<#macro tagNav links title="Filter by type">
+<#macro tagNav links affix="" title="Filter by type">
 <div class="article-section-nav-wrapper">
     <div class="article-section-nav">
         <h2 class="article-section-nav__title">${title}</h2>
@@ -10,10 +10,10 @@
                 <#list links as link>
                     <li>
                         <#if selectedTypes?seq_contains(link.key)>
-                            <#assign linkout = "&type=" + selectedTypes?join("&type=") />
+                            <#assign linkout = "&type=" + selectedTypes?join("&type=") + affix />
                             <a href="${getDocumentUrl()}${linkout?replace("&type="+link.key, "")?replace("&", "?", "f")}" aria-label="Show '${link.title}' types only" title="Show '${link.title}' types only" class="tag-link selected">${link.title}</a>
                         <#else>
-                            <a href="?type=${selectedTypes?join("&type=", "", "&type=")}${link.key}" aria-label="Show '${link.title}' types only" title="Show '${link.title}' types only" class="tag-link">${link.title}</a>
+                            <a href="?type=${selectedTypes?join("&type=", "", "&type=")}${link.key + affix}" aria-label="Show '${link.title}' types only" title="Show '${link.title}' types only" class="tag-link">${link.title}</a>
                         </#if>
                     </li>
                 </#list>
