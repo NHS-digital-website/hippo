@@ -3,7 +3,7 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:pages/latestevents:
       /main:
-        hst:componentclassname: uk.nhs.digital.common.components.FilterableEventsComponent
+        hst:componentclassname: uk.nhs.digital.common.components.EventsComponent
         hst:parameternames:
         - defaultPageSize
         hst:parametervalues:
