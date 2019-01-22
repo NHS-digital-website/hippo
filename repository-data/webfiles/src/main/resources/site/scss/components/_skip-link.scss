@@ -1,0 +1,18 @@
+// Skip link
+// Implemented based on GOV.UK Design System
+// https://design-system.service.gov.uk/components/skip-link/
+
+.nhsd-skip-link {
+    @include visually-hidden-focussable;
+    display: block;
+    padding: $default-spacing-unit / 2 $default-spacing-unit;
+    &:focus {
+        outline: 3px solid $focus-colour;
+        outline-offset: 0;
+        color: $black;
+        background-color: $focus-colour;
+    }
+    &:hover {
+        color: $black;
+    }
+}

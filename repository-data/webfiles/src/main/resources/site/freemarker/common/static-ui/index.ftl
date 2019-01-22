@@ -1,20 +1,22 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 <#include "../macro/siteHeader.ftl">
+<#include "../macro/component/skipLink.ftl">
 
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 
 <#include "../app-layout-head.ftl">
 
-<body class="debugs static-ui">    
+<body class="debugs static-ui">
+    <@skipLink />
     <#include "shared/nav.ftl"/>
     
     <@siteHeader true></@siteHeader>
 
     <#include "shared/breadcrumb.ftl"/>
 
-    <main>
+    <main id="main-content">
         <@hst.include ref="main"/>
     </main>
 

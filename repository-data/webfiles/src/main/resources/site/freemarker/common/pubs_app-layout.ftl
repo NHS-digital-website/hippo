@@ -2,6 +2,7 @@
 <#include "../include/imports.ftl">
 <#include "macro/searchTabsComponent.ftl">
 <#include "macro/siteHeader.ftl">
+<#include "macro/component/skipLink.ftl">
 
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -9,12 +10,13 @@
 <#include "app-layout-head.ftl">
 
 <body class="debugs">
+    <@skipLink />
     <#-- Add site header with the search bar -->
     <@siteHeader true></@siteHeader>
 
     <@hst.include ref="breadcrumb-ci"/>
 
-    <main>
+    <main id="main-content">
         <@hst.include ref="main" />
     </main>
 

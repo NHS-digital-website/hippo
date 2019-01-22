@@ -23,6 +23,9 @@ definitions:
       /cilanding:
         hst:renderpath: webfile:/freemarker/publicationsystem/cilanding.ftl
         jcr:primaryType: hst:template
+      /component-layout:
+        hst:renderpath: webfile:/freemarker/common/component-layout.ftl
+        jcr:primaryType: hst:template
       /cta-list:
         hst:renderpath: webfile:/freemarker/common/cta-list.ftl
         jcr:primaryType: hst:template
@@ -148,6 +151,12 @@ definitions:
         jcr:primaryType: hst:template
       /service-article:
         hst:renderpath: webfile:/freemarker/common/service-article.ftl
+        jcr:primaryType: hst:template
+      /static-ui-component:
+        hst:renderpath: webfile:/freemarker/common/static-ui/component/index.ftl
+        jcr:primaryType: hst:template
+      /static-ui-component-skip-link:
+        hst:renderpath: webfile:/freemarker/common/static-ui/component/skip-link.ftl
         jcr:primaryType: hst:template
       /static-ui-eform:
         hst:renderpath: webfile:/freemarker/common/static-ui/eform-page.ftl
