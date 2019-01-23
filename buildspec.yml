@@ -36,8 +36,8 @@ phases:
       - aws s3 cp s3://config.mgt.nhsd.io/codebuild/hippo_build/rd.password $HOME/rd.password
 
       # BRC credentials
-      - aws s3 cp s3://config.mgt.nhsd.io/codebuild/hippo_build/brc.username $HOME/rd.username
-      - aws s3 cp s3://config.mgt.nhsd.io/codebuild/hippo_build/brc.password $HOME/rd.password
+      - aws s3 cp s3://config.mgt.nhsd.io/codebuild/hippo_build/brc.username $HOME/brc.username
+      - aws s3 cp s3://config.mgt.nhsd.io/codebuild/hippo_build/brc.password $HOME/brc.password
 
       # Add static.hosting.onehippo.com and github.com, and BloomReach Cloud as known host
       - touch $HOME/.ssh/known_hosts
