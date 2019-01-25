@@ -65,6 +65,7 @@
                                     <#if validDate>
                                         <div class="tabbed-detail">                            
                                             <#if comparableStartDate == comparableEndDate>
+
                                             <dl class="tabbed-detail__wrapper">
                                                 <dt class="tabbed-detail__key">Date:</dt>
                                                 <dd class="tabbed-detail__value" data-uipath="">
@@ -130,11 +131,23 @@
         <div class="grid-row">
             <div class="column column--two-thirds page-block page-block--main">
 
+                <#if hasSessions>
+                    <#list document.events as event>
+                        <#assign hasFutureEvent = false>
+                        <#if event.enddatetime.time?date gt .now?date>
+                            <#assign hasFutureEvent = true>
+                        </#if>
+                    </#list>
+                </#if>
+
                 <#if document.booking?has_content>
-                <div class="article-section">
-                    <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, document.booking) />
-                    <a class="button" href="${document.booking}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">Book Now</a>
-                </div>
+                    <#if hasFutureEvent>
+                        ${event.startdatetime.time}
+                        <div class="article-section">
+                            <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, document.booking) />
+                            <a class="button" href="${document.booking}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">Book Now</a>
+                        </div>
+                    </#if>
                 </#if>
 
                 <#if document.summaryimage?? && document.summaryimage.original??>
