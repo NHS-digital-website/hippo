@@ -3,6 +3,7 @@ package org.hippoecm.hst.cmsrest.services;
 import org.hippoecm.hst.configuration.hosting.*;
 import org.hippoecm.hst.container.*;
 import org.hippoecm.hst.core.linking.*;
+import org.hippoecm.hst.restapi.content.DocumentsResource;
 import org.slf4j.*;
 
 /**

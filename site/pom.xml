@@ -161,13 +161,6 @@
             <type>pom</type>
         </dependency>
 
-        <dependency>
-            <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-maxmind-geolite2</artifactId>
-            <version>20181106</version>
-            <scope>runtime</scope>
-        </dependency>
-
     </dependencies>
     <build>
         <resources>

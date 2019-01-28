@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>13.0.0-1</version>
+        <version>13.0.0</version>
         <!-- Please have a look at the property section while upgrading -->
     </parent>
 
@@ -334,7 +334,7 @@
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>25.0-jre</version>
+                <version>27.0-jre</version>
             </dependency>
             <dependency>
                 <groupId>commons-io</groupId>
@@ -356,6 +356,17 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-collections4</artifactId>
                 <version>4.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.woodstox</groupId>
+                <artifactId>woodstox-core</artifactId>
+                <version>5.1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.woodstox</groupId>
+                <artifactId>stax2-api</artifactId>
+                <version>4.1</version>
             </dependency>
 
             <!--
@@ -594,6 +605,11 @@
                     <artifactId>hippo-addon-crisp-api</artifactId>
                     <scope>provided</scope>
                 </dependency>
+                <dependency>
+                    <groupId>com.onehippo.cms7</groupId>
+                    <artifactId>hippo-addon-targeting-shared-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
             </dependencies>
             <build>
                 <plugins>
@@ -693,6 +709,11 @@
                                     <dependency>
                                         <groupId>org.onehippo.cms7</groupId>
                                         <artifactId>hippo-addon-crisp-api</artifactId>
+                                        <classpath>shared</classpath>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>com.onehippo.cms7</groupId>
+                                        <artifactId>hippo-addon-targeting-shared-api</artifactId>
                                         <classpath>shared</classpath>
                                     </dependency>
                                 </dependencies>
