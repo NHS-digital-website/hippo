@@ -32,35 +32,8 @@
             <artifactId>serializer</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.onehippo.cms7.hst.dependencies</groupId>
-            <artifactId>hst-server-dependencies</artifactId>
-            <type>pom</type>
-        </dependency>
-        <dependency>
-            <groupId>org.onehippo.cms7.hst.dependencies</groupId>
-            <artifactId>hst-spring-dependencies</artifactId>
-            <type>pom</type>
-        </dependency>
-        <dependency>
-            <groupId>org.onehippo.cms7.hst.dependencies</groupId>
-            <artifactId>hst-client-dependencies</artifactId>
-            <type>pom</type>
-        </dependency>
-        <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.onehippo.cms7.hst.client-modules</groupId>
-            <artifactId>hst-cms-rest</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.onehippo.cms7.hst.client-modules</groupId>
-            <artifactId>hst-page-composer</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.onehippo.cms7.hst.components</groupId>
-            <artifactId>hst-security</artifactId>
         </dependency>
         <dependency>
             <groupId>org.onehippo.cms7</groupId>
@@ -68,11 +41,13 @@
         </dependency>
         <dependency>
             <groupId>org.onehippo.cms7</groupId>
-            <artifactId>hippo-essentials-plugin-sdk-api</artifactId>
+            <artifactId>hippo-package-site-dependencies</artifactId>
+            <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>org.onehippo.cms7</groupId>
-            <artifactId>hippo-essentials-components-hst</artifactId>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-enterprise-package-site-dependencies</artifactId>
+            <type>pom</type>
         </dependency>
         <dependency>
             <groupId>org.easymock</groupId>
@@ -182,7 +157,7 @@
 
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-targeting-dependencies-site</artifactId>
+            <artifactId>hippo-addon-targeting-site-dependencies</artifactId>
             <type>pom</type>
         </dependency>
 

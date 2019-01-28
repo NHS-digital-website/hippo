@@ -117,6 +117,11 @@
     </init-param>
   </filter>
 
+  <filter>
+     <filter-name>PingFilter</filter-name>
+     <filter-class>org.hippoecm.hst.container.PingFilter</filter-class>
+  </filter>
+
   <filter-mapping>
     <filter-name>CharacterEncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
@@ -139,6 +144,12 @@
     <url-pattern>/*</url-pattern>
     <dispatcher>REQUEST</dispatcher>
     <dispatcher>FORWARD</dispatcher>
+  </filter-mapping>
+
+  <filter-mapping>
+     <filter-name>PingFilter</filter-name>
+     <url-pattern>/ping/*</url-pattern>
+     <dispatcher>REQUEST</dispatcher>
   </filter-mapping>
 
   <!-- HstContextLoaderListener configuring/initializing/destroying HST Container -->
