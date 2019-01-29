@@ -4,6 +4,7 @@
 <#include "macro/sectionNav.ftl">
 <#include "macro/furtherInformationSection.ftl">
 <#include "macro/metaTags.ftl">
+<#include "macro/component/lastModified.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -55,6 +56,10 @@
                 <#if hasChildPages>
                     <@furtherInformationSection childPages></@furtherInformationSection>
                 </#if>
+
+                <div class="article-section muted">
+                    <@lastModified document.lastModified false></@lastModified>
+                </div>
             </div>
         </div>
     </div>

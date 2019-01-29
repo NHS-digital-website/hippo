@@ -1,7 +1,11 @@
 <#ftl output_format="HTML">
+
+<#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.ComponentList" -->
+
 <#include "../../include/imports.ftl">
 <#include "../macro/alphabeticalFilterNav.ftl">
 <#include "../macro/alphabeticalGroupOfBlocks.ftl">
+<#include "../macro/component/lastModified.ftl">
 
 <article class="article article--filtered-list">
     <div class="grid-wrapper grid-wrapper--article">
@@ -42,6 +46,9 @@
 
             <div class="column column--two-thirds page-block page-block--main">
                 <@alphabeticalGroupOfBlocks alphabetical_hash></@alphabeticalGroupOfBlocks>
+                <div class="article-section muted">
+                    <@lastModified document.lastModified false></@lastModified>
+                </div>
             </div>
         </div>
         </#if>
