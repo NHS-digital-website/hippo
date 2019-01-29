@@ -1,6 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <#include "../common/macro/sections/sections.ftl">
+<#include "../common/macro/component/lastModified.ftl">
 <#include "macro/sectionNav.ftl">
 <#include "macro/metaTags.ftl">
 
@@ -114,6 +115,10 @@
                 <#if hasSectionContent>
                 <@sections document.sections></@sections>
                 </#if>
+
+                <div class="article-section muted">
+                    <@lastModified document.lastModified false></@lastModified>
+                </div>
             </div>
         </div>
     </div>

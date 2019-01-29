@@ -1,9 +1,13 @@
 <#ftl output_format="HTML">
+
+<#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Service" -->
+
 <#include "../include/imports.ftl">
 <#include "macro/sections/sections.ftl">
 <#include "macro/sectionNav.ftl">
 <#include "macro/furtherInformationSection.ftl">
 <#include "macro/metaTags.ftl">
+<#include "macro/component/lastModified.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -89,6 +93,8 @@
                 <#if hasChildPages>
                     <@furtherInformationSection childPages></@furtherInformationSection>
                 </#if>
+
+                <@lastModified document.lastModified></@lastModified>
             </div>
         </div>
     </div>

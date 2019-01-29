@@ -8,6 +8,7 @@ import uk.nhs.digital.ps.directives.DateFormatterDirective;
 
 import java.time.LocalDate;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Node(jcrType = "publicationsystem:basedocument")
@@ -69,5 +70,9 @@ public abstract class BaseDocument extends HippoDocument {
     */
     protected String[] geographicCoverageValuesToRegionValue(final String[] cmsValues) {
         return Region.convertGeographicCoverageValues(cmsValues);
+    }
+
+    public Date getLastModified() {
+        return ((Calendar) getProperty("hippostdpubwf:lastModificationDate")).getTime();
     }
 }

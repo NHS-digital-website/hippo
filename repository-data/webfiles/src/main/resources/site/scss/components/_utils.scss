@@ -32,6 +32,10 @@
     font-weight: 300;
 }
 
+.muted {
+    color: lighten( $grey-1, 30% );
+}
+
 .sticky {
     @include media($min-width: $min-desktop-width) {
         position: -webkit-sticky;

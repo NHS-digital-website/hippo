@@ -1,6 +1,10 @@
 <#ftl output_format="HTML">
+
+<#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Publishedwork" -->
+
 <#include "../include/imports.ftl">
 <#include "../common/macro/sections/sections.ftl">
+<#include "../common/macro/component/lastModified.ftl">
 <#include "macro/sectionNav.ftl">
 <#include "macro/metaTags.ftl">
 
@@ -242,7 +246,9 @@
                     </ul>
                 </div>
             </#if>
-
+                <div class="article-section muted no-border no-top-padding no-top-margin">
+                    <@lastModified document.lastModified false></@lastModified>
+                </div>
             </div>
         </div>
     </div>

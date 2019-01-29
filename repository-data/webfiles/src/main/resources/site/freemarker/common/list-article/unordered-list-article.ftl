@@ -1,7 +1,11 @@
 <#ftl output_format="HTML">
+
+<#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.ComponentList" -->
+
 <#include "../../include/imports.ftl">
 <#include "../macro/fileMetaAppendix.ftl">
 <#include "../macro/typeSpan.ftl">
+<#include "../macro/component/lastModified.ftl">
 
 <article class="article article--list">
     <div class="grid-wrapper grid-wrapper--article">
@@ -31,7 +35,7 @@
                 <#-- [FTL-END] 'Summary and optional Body' sections -->
 
                 <#-- [FTL-BEGIN] 'List' sections -->
-                <#if document.blocks??>
+                <#if document.blocks?has_content >
                 <div class="article-section article-section--list">
                     <div class="grid-row">
                         <div class="column column--two-thirds column--reset">
@@ -60,6 +64,9 @@
                 </div>
                 </#if>
                 <#-- [FTL-END] 'List' sections -->
+                <div class="article-section muted">
+                    <@lastModified document.lastModified false></@lastModified>
+                </div>
             </div>
         </div>
     </div>

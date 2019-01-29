@@ -1,7 +1,11 @@
 <#ftl output_format="HTML">
+
+<#-- @ftlvariable name="legacyPublication" type="uk.nhs.digital.ps.beans.LegacyPublication" -->
+
 <#include "../include/imports.ftl">
 <#include "../common/macro/sectionNav.ftl">
 <#include "../common/macro/fileMetaAppendix.ftl">
+<#include "../common/macro/component/lastModified.ftl">
 <#include "./macro/structured-text.ftl">
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 
@@ -293,6 +297,9 @@
             </div>
             </#if>
             <#-- [FTL-END] Optional 'Related links' section -->
+
+            <@lastModified legacyPublication.lastModified></@lastModified>
+
         </div>
     </div>
 </div>
