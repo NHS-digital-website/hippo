@@ -10,7 +10,7 @@
                 <div class="site-footer__section site-footer__section--top">
                     <div class="grid-wrapper grid-wrapper--collapse">
                         <div class="grid-row">
-                            <div class="column column--one-half column--left">
+                            <div class="column column--three-quarters column--left">
                                 <nav class="site-footer__menu site-footer__menu--1">
                                     <h2 class="list__header">About NHS Digital</h2>
                                     <ul class="list list--reset list--close">
@@ -24,26 +24,10 @@
                                 </nav>
                             </div>
 
-                            <div class="column column--one-quarter">
-                                <nav class="site-footer__menu site-footer__menu--2">
-                                    <h2 class="list__header">Contact us</h2>
-                                    <div class="list">
-                                        <div class="list__item">
-                                            <span>Telephone:</span><br>
-                                            <a href="tel:004403003035678" title="Contact us by telephone">0300 303 5678</a>
-                                        </div>
-
-                                        <div class="list__item">
-                                            <span>Email:</span><br>
-                                            <a href="mailto:<@fmt.message key="email.enquiries"/>" title="<@fmt.message key="email.enquiries.title" />"><@fmt.message key="email.enquiries"/></a>
-                                        </div>
-                                    </div>
-                                </nav>
-                            </div>
-
                             <div class="column column--one-quarter column--right">
                                 <nav class="site-footer__menu site-footer__menu--3">
                                     <ul class="list list--reset list--close">
+                                        <li><a href="/about-nhs-digital/contact-us">Contact us</a></li>
                                         <li><a href="/press-office">Press office</a></li>
                                         <li><a href="/freedom-of-information">Freedom of information</a></li>
                                         <li><a href="/careers">Careers</a></li>
