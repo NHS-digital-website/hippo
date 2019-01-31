@@ -64,7 +64,7 @@
     <#list legacyPublication.informationType as type>
         <#if type == "National statistics">
             <div class="article-header__stamp">
-                <img src="<@hst.webfile path="images/national-statistics-logo@2x.png"/>" data-uipath="ps.publication.national-statistics" alt="National Statistics" title="National Statistics" class="image-icon image-icon--large" />
+                <img src="<@hst.webfile path="images/national-statistics-logo.svg"/>" data-uipath="ps.publication.national-statistics" alt="National Statistics" title="National Statistics" class="image-icon image-icon--large" />
             </div>
             <#break>
         </#if>
