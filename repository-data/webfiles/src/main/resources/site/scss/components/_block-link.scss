@@ -1,0 +1,47 @@
+
+.block-link {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: $grey-5;
+    border-left: 5px solid $grey-3;
+    padding: $default-spacing-unit;
+
+    &:link {
+        color: $link-colour;
+        text-decoration: none;
+        color: $grey-1;
+    }
+
+    &:hover {
+        background-color: $blue-10;
+        border-left-color: $bright-blue;
+    }
+
+    &:focus {
+        border-left-color: $bright-blue;
+    }
+
+    &__title {
+        text-decoration: underline;
+        color: $link-colour;
+    }
+
+    &__meta {
+        display: block;
+        margin: 0;
+    }
+
+    &__header {
+        flex-shrink: 0;
+    }
+
+    &__body {
+        flex-grow: 1;
+        margin: 0;
+    }
+
+    .icon {
+        margin-right: $default-spacing-unit;
+        margin-bottom: $default-spacing-unit;
+    }
+}

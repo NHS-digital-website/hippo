@@ -7,6 +7,14 @@ definitions:
         hst:relativecontentpath: static-ui/${1}
         jcr:primaryType: hst:sitemapitem
       /component:
+        /block-link:
+          hst:componentconfigurationid: hst:pages/static-ui-component-block-link
+          hst:relativecontentpath: component/block-link
+          jcr:primaryType: hst:sitemapitem
+        /icon:
+          hst:componentconfigurationid: hst:pages/static-ui-component-icon
+          hst:relativecontentpath: component/icon
+          jcr:primaryType: hst:sitemapitem
         /skip-link:
           hst:componentconfigurationid: hst:pages/static-ui-component-skip-link
           hst:relativecontentpath: component/skip-link
