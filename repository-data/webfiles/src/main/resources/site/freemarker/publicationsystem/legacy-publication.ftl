@@ -7,6 +7,7 @@
 <#include "../common/macro/fileMetaAppendix.ftl">
 <#include "../common/macro/component/lastModified.ftl">
 <#include "./macro/structured-text.ftl">
+<#include "../common/macro/fileIcon.ftl">
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 
 <#-- Add meta tags -->
@@ -259,15 +260,38 @@
             <#if hasResources>
             <div class="article-section" id="${slugify(resourcesHeader)}">
                 <h2>${resourcesHeader}</h2>
-                <ul data-uipath="ps.publication.resources" class="list">
+                <#-- [FTL-BEGIN] 'Attachments' list -->
+                <#if hasAttachments>
+                <ul data-uipath="ps.publication.resources" class="list list--reset">
+                </#if>
                 <#list legacyPublication.attachments as attachment>
                     <li class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
                         <@externalstorageLink attachment.resource; url>
-                        <a title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','LegacyPublication','${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)" itemprop="contentUrl"><span itemprop="name">${attachment.text}</span></a>
+                            <a title="${attachment.text}"
+                               href="${url}"
+                               class="block-link"
+                               onClick="logGoogleAnalyticsEvent('Download attachment','LegacyPublication','${attachment.resource.filename}');"
+                               onKeyUp="return vjsu.onKeyUp(event)"
+                               itemprop="contentUrl">
+                                <div class="block-link__header">
+                                    <@fileIcon attachment.resource.mimeType></@fileIcon>
+                                </div>
+                                <div class="block-link__body">
+                                    <span class="block-link__title" itemprop="name">${attachment.text}</span>
+                                    <@fileMetaAppendix attachment.resource.length, attachment.resource.mimeType></@fileMetaAppendix>
+                                </div>
+                            </a>
                         </@externalstorageLink>
-                        <@fileMetaAppendix attachment.resource.length, attachment.resource.mimeType></@fileMetaAppendix>
                     </li>
                 </#list>
+                <#if hasAttachments>
+                </ul>
+                </#if>
+                <#-- [FTL-END] 'Attachments' list -->
+                <#-- [FTL-BEGIN] 'Resource links and data sets' list -->
+                <#if hasDataSets || hasResourceLinks>
+                    <ul data-uipath="ps.publication.resources" class="list">
+                </#if>
                 <#list legacyPublication.resourceLinks as link>
                     <li>
                         <a href="${link.linkUrl}" onClick="logGoogleAnalyticsEvent('Link click','LegacyPublication','${link.linkUrl}');" onKeyUp="return vjsu.onKeyUp(event)" title="${link.linkText}">${link.linkText}</a>
@@ -278,7 +302,10 @@
                         <a itemprop="url" href="<@hst.link hippobean=dataset.selfLinkBean/>" title="${dataset.title}"><span itemprop="name">${dataset.title}</span></a>
                     </li>
                 </#list>
+                <#if hasDataSets || hasResourceLinks>
                 </ul>
+                </#if>
+                <#-- [FTL-END] 'Resource links and data sets' list -->
             </div>
             </#if>
             <#-- [FTL-END] Optional 'Attachments' section -->

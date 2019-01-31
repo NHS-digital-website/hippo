@@ -152,6 +152,12 @@ definitions:
       /static-ui-component:
         hst:renderpath: webfile:/freemarker/common/static-ui/component/index.ftl
         jcr:primaryType: hst:template
+      /static-ui-component-block-link:
+        hst:renderpath: webfile:/freemarker/common/static-ui/component/block-link.ftl
+        jcr:primaryType: hst:template
+      /static-ui-component-icon:
+        hst:renderpath: webfile:/freemarker/common/static-ui/component/icon.ftl
+        jcr:primaryType: hst:template
       /static-ui-component-skip-link:
         hst:renderpath: webfile:/freemarker/common/static-ui/component/skip-link.ftl
         jcr:primaryType: hst:template

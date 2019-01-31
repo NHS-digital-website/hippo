@@ -11,6 +11,7 @@
     <@skipLink />
     <#include "static-ui/shared/nav.ftl"/>
     <main id="main-content" role="main">
+        <#include "static-ui/shared/back.ftl"/>
         <@hst.include ref="main"/>
     </main>
 

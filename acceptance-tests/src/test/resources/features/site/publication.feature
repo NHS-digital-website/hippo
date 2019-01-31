@@ -24,8 +24,9 @@ Feature: Ensure publication page displays required fields.
         And I should also see "Publication Data Sets" with:
             | Etiam Placerat Arcu Dataset       |
             | publication-with-datasets Dataset |
-        And I should also see "Publication Resources" with:
-            | attachment.pdf [pdf, size: 42.2 kB]   |
+        And I should also see "Publication Resources Attachments" with:
+            | attachment.pdf\n[pdf, size: 42.2 kB]   |
+        And I should also see "Publication Resources Links" with:
             | Related resource link             |
 
     Scenario: Display Related Links list
@@ -89,9 +90,9 @@ Feature: Ensure publication page displays required fields.
     Scenario: Show attachments with and without display names
         Given I navigate to "attachment test publication" page
         Then I should see publication page titled "Attachment Test Publication"
-        And I should also see "Publication Resources" with:
-            | attachment.pdf [pdf, size: 7.2 kB]       |
-            | Attachment with text [pdf, size: 7.2 kB] |
+        And I should also see "Publication Resources Attachments" with:
+            | attachment.pdf\n[pdf, size: 7.2 kB]       |
+            | Attachment with text\n[pdf, size: 7.2 kB] |
         And I can download following files:
             | attachment.pdf       | attachment.pdf      |
             | Attachment with text | attachment-text.pdf |
