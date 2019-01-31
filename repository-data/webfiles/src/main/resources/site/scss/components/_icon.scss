@@ -3,88 +3,76 @@
 // Example
 // <span class="icon icon--pdf"></span>
 
+$icon-width: 13px;
+$icon-height: 16px;
+
 .icon {
-    position: relative;
     display: inline-block;
-    margin: 0 10px 0 4px;
-    top: 2px;
-    width: 13px;
-    height: 16px;
-    line-height: 100%;
-    overflow: hidden;
+    vertical-align: middle;
+    width: $icon-width;
+    height: $icon-height;
+    line-height: 1;
     background-repeat: no-repeat;
     background-position: 0 0;
-    background-image: url("../images/file-icon_generic.png");
+    background-image: url("../images/icon/generic_36x44.svg");
     background-size: 13px 16px;
+
+    &--2x {
+        width: $icon-width * 2;
+        height: $icon-height * 2;
+        background-size: $icon-width * 2 $icon-height * 2;
+    }
+    &--3x {
+        width: $icon-width * 3;
+        height: $icon-height * 3;
+        background-size: $icon-width * 3 $icon-height * 3;
+    }
 }
 
+.icon-size{
+    &::after {
+        content: "(#{$icon-width} x #{$icon-height})";
+        display: inline-block;
+        margin-left: 5px;
+        font-weight: bold;
+    }
+    &--2x::after {
+        content: "(#{$icon-width * 2} x #{$icon-height * 2})";
+    }
+    &--3x::after {
+        content: "(#{$icon-width * 3} x #{$icon-height * 3})";
+    }
+}
+
+
 .icon--pdf {
-    background-image: url("../images/file-icon_pdf.png");
+    background-image: url("../images/icon/pdf_36x44.svg");
 }
 
 .icon--word {
-    background-image: url("../images/file-icon_word.png");
+    background-image: url("../images/icon/wrd_36x44.svg");
 }
 
 .icon--ppt {
-    background-image: url("../images/file-icon_ppt.png");
+    background-image: url("../images/icon/ppt_36x44.svg");
 }
 
 .icon--zip {
-    background-image: url("../images/file-icon_zip.png");
+    background-image: url("../images/icon/zip_36x44.svg");
 }
 
 .icon--video {
-    background-image: url("../images/file-icon_vid.png");
+    background-image: url("../images/icon/mov_36x44.svg");
 }
 
 .icon--spreadsheet {
-    background-image: url("../images/file-icon_xls.png");
+    background-image: url("../images/icon/xls_36x44.svg");
 }
 
 .icon--csv {
-    background-image: url("../images/file-icon_csv.png");
+    background-image: url("../images/icon/CSV_36x44.svg");
 }
 
 .icon--text {
-    background-image: url("../images/file-icon_txt.png");
-}
-
-@include retina-background {
-    .icon {
-        background-image: url("../images/file-icon_generic@2x.png");
-        background-size: 13px 16px;
-    }
-
-    .icon--pdf {
-        background-image: url("../images/file-icon_pdf@2x.png");
-    }
-
-    .icon--word {
-        background-image: url("../images/file-icon_word@2x.png");
-    }
-
-    .icon--ppt {
-        background-image: url("../images/file-icon_ppt@2x.png");
-    }
-
-    .icon--zip {
-        background-image: url("../images/file-icon_zip@2x.png");
-    }
-
-    .icon--video {
-        background-image: url("../images/file-icon_vid@2x.png");
-    }
-
-    .icon--spreadsheet {
-        background-image: url("../images/file-icon_xls@2x.png");
-    }
-
-    .icon--csv {
-        background-image: url("../images/file-icon_csv@2x.png");
-    }
-
-    .icon--text {
-        background-image: url("../images/file-icon_txt@2x.png");
-    }
+    background-image: url("../images/icon/txt_36x44.svg");
 }

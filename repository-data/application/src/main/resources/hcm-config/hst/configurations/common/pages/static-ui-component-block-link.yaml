@@ -1,0 +1,9 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/static-ui-component-block-link:
+      jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/componentpage
+      /main:
+        jcr:primaryType: hst:component
+        hst:componentclassname: ''
+        hst:template: static-ui-component-block-link

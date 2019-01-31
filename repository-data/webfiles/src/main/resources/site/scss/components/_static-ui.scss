@@ -1,11 +1,13 @@
 /* Static UI */
 .static-ui-menu {
-    padding: 0.5rem 0;
+    top: 0;
+    z-index: 1;
+    padding: 0.5rem;
     background: black;
 
     .list {
         @include core-font(16);
-        padding: 0 $gutter;
+        padding: 0;
         
         a {
             color: white;
@@ -13,6 +15,22 @@
 
         li {
             margin-top: 0;
+        }
+    }
+
+    @include media($min-width: $min-desktop-width) {
+        position: -webkit-sticky;
+        position: sticky;
+
+        li {
+            display: inline;
+            margin: 0 5px;
+            &:first-child {
+                margin-left: 0;
+            }
+            &:last-child {
+                margin-right: 0;
+            }
         }
     }
 }
