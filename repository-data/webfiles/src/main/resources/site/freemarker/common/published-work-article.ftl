@@ -230,13 +230,27 @@
             <#if hasResources>
                 <div class="article-section" id="resources">
                     <h2><@fmt.message key="labels.resources"/></h2>
-                    <ul class="list">
+                    <ul class="list list--reset">
                     <#list document.resources as attachment>
                         <li class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
                             <@externalstorageLink attachment.resource; url>
-                            <a title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)" itemprop="contentUrl"><span itemprop="name">${attachment.text}</span></a>;
+                            <a title="${attachment.text}"
+                               href="${url}"
+                               class="block-link"
+                               onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${attachment.resource.filename}');"
+                               onKeyUp="return vjsu.onKeyUp(event)"
+                               itemprop="contentUrl">
+                                <div class="block-link__header">
+                                    <span class="icon icon--spreadsheet icon--2x"></span>
+                                </div>
+                                <div class="block-link__body">
+                                    <span class="block-link__title" itemprop="name">${attachment.text}</span>
+
+                                    <span class="block-link__meta fileSize">[size: <span itemprop="contentSize"><@formatFileSize bytesCount=attachment.resource.length/></span>]</span>
+                                </div>
+                            </a>
                             </@externalstorageLink>
-                            <span class="fileSize">[size: <span itemprop="contentSize"><@formatFileSize bytesCount=attachment.resource.length/></span>]</span>
+
                         </li>
                     </#list>
                     </ul>

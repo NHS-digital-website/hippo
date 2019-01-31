@@ -10,6 +10,6 @@
         <#local format = fileFormat + ", " />
         </#if>
     </#if>
-    <span class="regular">[${format}<span class="fileSize">size: <span itemprop="contentSize"><@formatFileSize bytesCount=size/></span></span>]</span>
+    <span class="block-link__meta regular">[${format}<span class="fileSize">size: <span itemprop="contentSize"><@formatFileSize bytesCount=size/></span></span>]</span>
 
 </#macro>

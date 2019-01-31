@@ -1,21 +1,18 @@
+---
 /content/documents/corporate-website/data-and-information:
   .meta:order-before: about-nhs-digital
-  jcr:primaryType: hippostd:folder
-  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
-  jcr:uuid: 21705bd4-8824-4d82-a68c-e5e6539a4230
-  hippo:name: Data and information
-  hippostd:foldertype: [new-digital-website-folder, new-digital-website-document]
-  hippotranslation:id: 282180e3-fe3d-4a9a-8d18-835072f67556
-  hippotranslation:locale: en
   /test:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: d1dd18f0-3ebb-483e-9553-ae02dbda6198
-    hippo:versionHistory: 70cc6e11-e921-4dd1-9922-477c8a8cf9e3
     /test[1]:
-      jcr:primaryType: website:publishedwork
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 6f965473-cedf-4099-acea-ce8106fbe129
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:highlightsContent:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
       common:searchRank: 6
       common:searchable: true
       hippo:availability: []
@@ -26,6 +23,9 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 009d2a57-7e5a-4735-9b94-5fcd3382a28b
       hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:publishedwork
       website:InformationType: []
       website:coverageEnd: 0001-01-01T12:00:00Z
       website:coverageStart: 0001-01-01T12:00:00Z
@@ -38,23 +38,21 @@
       website:seosummary: ''
       website:shortsummary: ''
       website:title: Test page resources
+    /test[2]:
       /website:friendlyurls:
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
       /website:highlightsContent:
-        jcr:primaryType: hippostd:html
         hippostd:content: ''
+        jcr:primaryType: hippostd:html
       /website:summary:
-        jcr:primaryType: hippostd:html
         hippostd:content: ''
-    /test[2]:
-      jcr:primaryType: website:publishedwork
-      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-      jcr:uuid: 5054dd27-b410-45e7-92ae-995030dfc4cf
+        jcr:primaryType: hippostd:html
       common:searchRank: 6
       common:searchable: true
-      hippo:availability: [preview]
+      hippo:availability:
+      - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2019-01-31T14:58:51.323Z
@@ -62,6 +60,10 @@
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 009d2a57-7e5a-4735-9b94-5fcd3382a28b
       hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:publishedwork
       website:InformationType: []
       website:coverageEnd: 0001-01-01T12:00:00Z
       website:coverageStart: 0001-01-01T12:00:00Z
@@ -74,23 +76,21 @@
       website:seosummary: ''
       website:shortsummary: ''
       website:title: Test page resources
+    /test[3]:
       /website:friendlyurls:
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
       /website:highlightsContent:
-        jcr:primaryType: hippostd:html
         hippostd:content: ''
+        jcr:primaryType: hippostd:html
       /website:summary:
-        jcr:primaryType: hippostd:html
         hippostd:content: ''
-    /test[3]:
-      jcr:primaryType: website:publishedwork
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: d0348104-573c-4a4c-ad8e-1f93e335663f
+        jcr:primaryType: hippostd:html
       common:searchRank: 6
       common:searchable: true
-      hippo:availability: [live]
+      hippo:availability:
+      - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2019-01-31T14:58:51.323Z
@@ -99,6 +99,9 @@
       hippostdpubwf:publicationDate: 2019-01-31T15:04:34.535Z
       hippotranslation:id: 009d2a57-7e5a-4735-9b94-5fcd3382a28b
       hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:publishedwork
       website:InformationType: []
       website:coverageEnd: 0001-01-01T12:00:00Z
       website:coverageStart: 0001-01-01T12:00:00Z
@@ -111,13 +114,19 @@
       website:seosummary: ''
       website:shortsummary: ''
       website:title: Test page resources
-      /website:friendlyurls:
-        jcr:primaryType: website:friendlyurls
-        website:alternativeurls: []
-        website:destination: ''
-      /website:highlightsContent:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
-      /website:summary:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
+    hippo:versionHistory: 70cc6e11-e921-4dd1-9922-477c8a8cf9e3
+    jcr:mixinTypes:
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Data and information
+  hippostd:foldertype:
+  - new-digital-website-folder
+  - new-digital-website-document
+  hippotranslation:id: 282180e3-fe3d-4a9a-8d18-835072f67556
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

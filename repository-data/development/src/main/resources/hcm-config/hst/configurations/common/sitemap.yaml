@@ -1,29 +1,27 @@
+---
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:sitemap/static-ui:
-      hst:componentconfigurationid: hst:pages/static-ui-home
-      hst:relativecontentpath: static-ui
-      jcr:primaryType: hst:sitemapitem
       /_any_:
         hst:componentconfigurationid: hst:pages/static-ui-home
         hst:relativecontentpath: static-ui/${1}
         jcr:primaryType: hst:sitemapitem
       /component:
-        hst:componentconfigurationid: hst:pages/static-ui-component
-        hst:relativecontentpath: static-ui/component
-        jcr:primaryType: hst:sitemapitem
+        /block-link:
+          hst:componentconfigurationid: hst:pages/static-ui-component-block-link
+          hst:relativecontentpath: component/block-link
+          jcr:primaryType: hst:sitemapitem
+        /icon:
+          hst:componentconfigurationid: hst:pages/static-ui-component-icon
+          hst:relativecontentpath: component/icon
+          jcr:primaryType: hst:sitemapitem
         /skip-link:
           hst:componentconfigurationid: hst:pages/static-ui-component-skip-link
           hst:relativecontentpath: component/skip-link
           jcr:primaryType: hst:sitemapitem
-        /icon:
-          jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationid: hst:pages/static-ui-component-icon
-          hst:relativecontentpath: component/icon
-        /block-link:
-          jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationid: hst:pages/static-ui-component-block-link
-          hst:relativecontentpath: component/block-link
+        hst:componentconfigurationid: hst:pages/static-ui-component
+        hst:relativecontentpath: static-ui/component
+        jcr:primaryType: hst:sitemapitem
       /eform:
         hst:componentconfigurationid: hst:pages/static-ui-eform
         hst:relativecontentpath: static-ui/eform
@@ -64,3 +62,6 @@ definitions:
         hst:componentconfigurationid: hst:pages/static-ui-service
         hst:relativecontentpath: static-ui/service
         jcr:primaryType: hst:sitemapitem
+      hst:componentconfigurationid: hst:pages/static-ui-home
+      hst:relativecontentpath: static-ui
+      jcr:primaryType: hst:sitemapitem

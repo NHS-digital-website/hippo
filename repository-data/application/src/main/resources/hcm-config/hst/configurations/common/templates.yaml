@@ -1,7 +1,7 @@
+---
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:templates:
-      jcr:primaryType: hst:templates
       /404:
         hst:renderpath: webfile:/freemarker/common/404.ftl
         jcr:primaryType: hst:template
@@ -155,6 +155,12 @@ definitions:
       /static-ui-component:
         hst:renderpath: webfile:/freemarker/common/static-ui/component/index.ftl
         jcr:primaryType: hst:template
+      /static-ui-component-block-link:
+        hst:renderpath: webfile:/freemarker/common/static-ui/component/block-link.ftl
+        jcr:primaryType: hst:template
+      /static-ui-component-icon:
+        hst:renderpath: webfile:/freemarker/common/static-ui/component/icon.ftl
+        jcr:primaryType: hst:template
       /static-ui-component-skip-link:
         hst:renderpath: webfile:/freemarker/common/static-ui/component/skip-link.ftl
         jcr:primaryType: hst:template
@@ -170,9 +176,4 @@ definitions:
       /static-ui-news-hub:
         hst:renderpath: webfile:/freemarker/common/static-ui/news-hub-page.ftl
         jcr:primaryType: hst:template
-      /static-ui-component-icon:
-        jcr:primaryType: hst:template
-        hst:renderpath: webfile:/freemarker/common/static-ui/component/icon.ftl
-      /static-ui-component-block-link:
-        jcr:primaryType: hst:template
-        hst:renderpath: webfile:/freemarker/common/static-ui/component/block-link.ftl
+      jcr:primaryType: hst:templates
