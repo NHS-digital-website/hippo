@@ -1,8 +1,15 @@
 <#ftl output_format="HTML">
+
+<#-- @ftlvariable name="series" type="java.util.List<nhs.digital.ps.beans.Series>" -->
+<#-- @ftlvariable name="publications" type="java.util.List<uk.nhs.digital.ps.beans.PublicationBase>" -->
+<#-- @ftlvariable name="upcomingPublications" type="java.util.List<uk.nhs.digital.ps.beans.PublicationBase>" -->
+
 <#include "../include/imports.ftl">
 <#include "../common/macro/fileMetaAppendix.ftl">
 <#include "./macro/structured-text.ftl">
+
 <@hst.setBundle basename="publicationsystem.headers,publicationsystem.labels"/>
+
 
 <#-- Add meta tags -->
 <#include "../common/macro/metaTags.ftl">
@@ -34,7 +41,7 @@
                 </div>
                 <#-- [FTL-END] mandatory 'Summary' section -->
 
-                <#if publications?has_content>
+                <#if publications?has_content || upcomingPublications?has_content>
                 <div class="article-section">
                     <#if series.showLatest>
                         <h3 class="flush push--bottom"><@fmt.message key="headers.latest-version"/></h3>
