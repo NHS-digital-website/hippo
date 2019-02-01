@@ -1,4 +1,7 @@
 <#ftl output_format="HTML">
+
+<#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.General" -->
+
 <#include "../include/imports.ftl">
 <#include "macro/sections/sections.ftl">
 <#include "macro/sectionNav.ftl">
@@ -11,12 +14,10 @@
 
 <@hst.setBundle basename="rb.generic.headers,publicationsystem.headers"/>
 
-<#assign hasSummaryContent = document.summary?? && document.summary?has_content />
+<#assign hasSummaryContent = document.summary.content?has_content />
 <#assign hasSectionContent = document.sections?has_content />
 <#assign hasChildPages = childPages?has_content />
-
 <#assign sectionTitlesFound = countSectionTitles(document.sections) />
-
 <#assign renderNav = ((hasSummaryContent || hasChildPages) && sectionTitlesFound gte 1) || sectionTitlesFound gt 1 || (hasSummaryContent && hasChildPages) />
 
 <article class="article article--general">
@@ -28,7 +29,6 @@
                 </div>
             </div>
         </div>
-
 
         <div class="grid-row">
             <#if renderNav>
