@@ -1,0 +1,26 @@
+---
+/content/gallery/dinosaur-svgrepo-com.svg/dinosaur-svgrepo-com.svg:
+  /hippogallery:original:
+    hippogallery:height: 0
+    hippogallery:width: 0
+    jcr:data:
+      resource: /content/gallery/dinosaur-svgrepo-com.svg/dinosaur-svgrepo-com.svg/original/data.bin
+      type: binary
+    jcr:lastModified: 2019-02-14T16:14:05.117Z
+    jcr:mimeType: image/svg+xml
+    jcr:primaryType: hippogallery:image
+  /hippogallery:thumbnail:
+    hippo:filename: dinosaur-svgrepo-com.svg
+    hippogallery:height: 60
+    hippogallery:width: 60
+    jcr:data:
+      resource: /content/gallery/dinosaur-svgrepo-com.svg/dinosaur-svgrepo-com.svg/thumbnail/data.bin
+      type: binary
+    jcr:lastModified: 2019-02-14T16:14:05.117Z
+    jcr:mimeType: image/svg+xml
+    jcr:primaryType: hippogallery:image
+  hippo:availability:
+  - live
+  - preview
+  hippogallery:filename: dinosaur-svgrepo-com.svg
+  jcr:primaryType: hippogallery:imageset

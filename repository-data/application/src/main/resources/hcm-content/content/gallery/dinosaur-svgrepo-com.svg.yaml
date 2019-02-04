@@ -1,0 +1,5 @@
+---
+/content/gallery/dinosaur-svgrepo-com.svg:
+  jcr:mixinTypes:
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
