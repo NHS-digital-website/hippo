@@ -91,3 +91,17 @@ Feature: As a user I want the CMS content to be restricted so I'm not able to do
         Then I can copy the publication
         When I am logged in as ci-author on the content page
         Then I can copy the publication
+
+    Scenario: Stats pubs users have appropriate permissions to the images folder
+        When I am logged in as ci-editor on the content page
+        And I navigate to the images dropdown
+        Then The "Icons" folder should have the menu options including:
+            | Add image...      |
+            | Add new folder... |
+            | Rename folder...  |
+            | Delete folder...  |
+        When I am logged in as ci-author on the content page
+        And I navigate to the images dropdown
+        Then The "Icons" folder should have the menu options including:
+            | Move folder...    |
+            | Copy folder...    |

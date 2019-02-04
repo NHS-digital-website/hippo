@@ -29,18 +29,7 @@
     </ol>
 
     <a href="/news-and-events/latest-news" class="button"><@fmt.message key="about-us.latestNewsButtonLabel"/></a>
-  
-    <div class="has-new-content-button">
-        <@hst.manageContent templateQuery="new-news-document" rootPath="news" defaultPath="${currentYear}/${currentMonth}"/>
-    </div>
+
 </div>
-    
-<#-- @ftlvariable name="editMode" type="java.lang.Boolean"-->
-<#elseif editMode>
-<div>
-    <img src="<@hst.link path='/images/essentials/catalog-component-icons/news-list.png'/>"> Click to edit News List
-    <div class="has-new-content-button">
-        <@hst.manageContent templateQuery="new-news-document" rootPath="news" defaultPath="${currentYear}/${currentMonth}"/>
-    </div>
-</div>
+
 </#if>

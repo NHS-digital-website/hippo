@@ -1,0 +1,29 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/images-read:
+      /icons-folder-node:
+        /path-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/gallery/website/icons
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      /readonly:
+        hipposys:groups:
+        - statistical-publications-and-clinical-indicators-author
+        - statistical-publications-and-clinical-indicators-editor
+        hipposys:role: readonly
+        jcr:primaryType: hipposys:authrole
+      /website-folder-node:
+        /path-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/gallery/website
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      jcr:primaryType: hipposys:domain

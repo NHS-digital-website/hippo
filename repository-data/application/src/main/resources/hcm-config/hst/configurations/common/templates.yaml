@@ -170,6 +170,9 @@ definitions:
       /static-ui-component-icon:
         hst:renderpath: webfile:/freemarker/common/static-ui/component/icon.ftl
         jcr:primaryType: hst:template
+      /static-ui-component-infographic:
+        hst:renderpath: webfile:/freemarker/common/static-ui/component/infographic.ftl
+        jcr:primaryType: hst:template
       /static-ui-component-skip-link:
         hst:renderpath: webfile:/freemarker/common/static-ui/component/skip-link.ftl
         jcr:primaryType: hst:template
