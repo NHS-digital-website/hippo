@@ -215,7 +215,10 @@ public abstract class PublicationBase extends BaseDocument {
         String SUMMARY = "publicationsystem:Summary";
         String SEO_SUMMARY = "publicationsystem:seosummary";
         String KEY_FACTS = "publicationsystem:KeyFacts";
+        String KEY_FACTS_HEAD = "publicationsystem:KeyFactsHead";
+        String KEY_FACTS_TAIL = "publicationsystem:KeyFactsTail";
         String KEY_FACT_IMAGES = "publicationsystem:KeyFactImages";
+        String KEY_FACT_INFOGRAPHICS = "publicationsystem:keyFactInfographics";
         String INFORMATION_TYPE = "publicationsystem:InformationType";
         String NOMINAL_DATE = "publicationsystem:NominalDate";
         String COVERAGE_START = "publicationsystem:CoverageStart";

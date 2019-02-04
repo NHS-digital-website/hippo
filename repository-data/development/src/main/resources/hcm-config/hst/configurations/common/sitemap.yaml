@@ -15,6 +15,10 @@ definitions:
           hst:componentconfigurationid: hst:pages/static-ui-component-icon
           hst:relativecontentpath: component/icon
           jcr:primaryType: hst:sitemapitem
+        /infographic:
+          hst:componentconfigurationid: hst:pages/static-ui-component-infographic
+          hst:relativecontentpath: component/infographic
+          jcr:primaryType: hst:sitemapitem
         /skip-link:
           hst:componentconfigurationid: hst:pages/static-ui-component-skip-link
           hst:relativecontentpath: component/skip-link

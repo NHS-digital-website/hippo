@@ -58,6 +58,8 @@ public class PublicationTest {
     private static final String RELATED_LINKS_PROPERTY_KEY = "publicationsystem:RelatedLinks";
     private static final String RESOURCE_LINKS_PROPERTY_KEY = "publicationsystem:ResourceLinks";
     private static final String KEY_FACT_IMAGES_KEY = "publicationsystem:KeyFactImages";
+    private static final String KEY_FACT_INFOGRAPHIC_KEY = "website:infographic";
+    private static final String KEY_FACT_INFOGRAPHICS = "publicationsystem:keyFactInfographics";
 
     @Mock private JCRValueProvider valueProvider;
     @Mock private Node node;
@@ -95,6 +97,8 @@ public class PublicationTest {
         given(node.getNodes(RELATED_LINKS_PROPERTY_KEY)).willReturn(nodeIterator);
         given(node.getNodes(RESOURCE_LINKS_PROPERTY_KEY)).willReturn(nodeIterator);
         given(node.getNodes(KEY_FACT_IMAGES_KEY)).willReturn(nodeIterator);
+        given(node.getNodes(KEY_FACT_INFOGRAPHIC_KEY)).willReturn(nodeIterator);
+        given(node.getNodes(KEY_FACT_INFOGRAPHICS)).willReturn(nodeIterator);
 
         given(objectConverter.getObject(folderNode)).willReturn(folder);
         given(folderNode.getNodes()).willReturn(nodeIterator);
