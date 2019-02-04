@@ -1,5 +1,6 @@
 ---
 /content/gallery/publicationsystem:
+  .meta:order-before: dinosaur-svgrepo-com.svg
   hippo:name: NHS Digital Publication System
   hippostd:foldertype:
   - new-image-folder

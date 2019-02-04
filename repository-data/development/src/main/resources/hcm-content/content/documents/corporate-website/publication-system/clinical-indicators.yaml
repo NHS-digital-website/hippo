@@ -4,15 +4,90 @@
     /archive:
       /ccg-archive-document-1:
         /ccg-archive-document-1[1]:
+          /publicationsystem:Attachments-v3:
+            /publicationsystem:attachmentResource:
+              externalstorage:reference: 8F/FFF61B/Screenshot 2019-02-14 at 09.58.58.png
+              externalstorage:size: 23592
+              externalstorage:url: https://files.local.nhsd.io/8F/FFF61B/Screenshot
+                2019-02-14 at 09.58.58.png
+              hippo:filename: Screenshot 2019-02-14 at 09.58.58.png
+              jcr:data:
+                resource: /content/documents/corporate-website/publication-system/clinical-indicators/ccg-outcomes-indicator-set/archive/ccg-archive-document-1/ccg-archive-document-1[1]/Attachments-v3/attachmentResource/data.png
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2019-02-15T10:35:45.927Z
+              jcr:mimeType: image/png
+              jcr:primaryType: externalstorage:resource
+            jcr:primaryType: publicationsystem:extattachment
+            publicationsystem:displayName: Key facts attachement?
+          /publicationsystem:KeyFactsHead:
+            hippostd:content: <p>What is this?</p>
+            jcr:primaryType: hippostd:html
+          /publicationsystem:KeyFactsTail:
+            hippostd:content: <p>Key facts tail section, what is this?</p>
+            jcr:primaryType: hippostd:html
+          /publicationsystem:ResourceLinks:
+            jcr:primaryType: publicationsystem:relatedlink
+            publicationsystem:linkText: Link resource
+            publicationsystem:linkUrl: http://ffdfdfdff.com
+          /publicationsystem:keyFactInfographics[1]:
+            /website:explanatoryLine:
+              hippostd:content: <p>Wipsum</p>
+              jcr:primaryType: hippostd:html
+            /website:icon:
+              hippo:docbase: b57a03ef-301e-4c7f-9ee0-ca376158d8fb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+              jcr:primaryType: hippogallerypicker:imagelink
+            /website:qualifyingInformation:
+              hippostd:content: <p>Lipsum</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:infographic
+            website:colour: Blue
+            website:headline: 484,700
+          /publicationsystem:keyFactInfographics[2]:
+            /website:explanatoryLine:
+              hippostd:content: <p>Lipsum</p>
+              jcr:primaryType: hippostd:html
+            /website:icon:
+              hippo:docbase: b57a03ef-301e-4c7f-9ee0-ca376158d8fb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+              jcr:primaryType: hippogallerypicker:imagelink
+            /website:qualifyingInformation:
+              hippostd:content: <p>Wipsum</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:infographic
+            website:colour: ' Light blue'
+            website:headline: 484,700
+          /publicationsystem:keyFactInfographics[3]:
+            /website:explanatoryLine:
+              hippostd:content: <p>Chipsum</p>
+              jcr:primaryType: hippostd:html
+            /website:icon:
+              hippo:docbase: b57a03ef-301e-4c7f-9ee0-ca376158d8fb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+              jcr:primaryType: hippogallerypicker:imagelink
+            /website:qualifyingInformation:
+              hippostd:content: <p>Pipsum</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:infographic
+            website:colour: ' White'
+            website:headline: 345,999
           common:FacetType: publication
           common:orderedSearchDate: 1525734000000
           common:searchRank: 4
           common:searchable: true
           hippo:availability: []
+          hippostd:holder: admin
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2018-05-08T15:45:10.021Z
-          hippostdpubwf:lastModificationDate: 2018-05-08T15:45:10.021Z
+          hippostdpubwf:lastModificationDate: 2019-02-15T14:14:45.400Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: bdc8dcbc-425f-4c9b-95cf-9b034df10cbb
           hippotranslation:locale: en
@@ -20,7 +95,7 @@
           - hippotaxonomy:classifiable
           - mix:referenceable
           jcr:primaryType: publicationsystem:publication
-          publicationsystem:AdministrativeSources: ''
+          publicationsystem:AdministrativeSources: Admin sources
           publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
           publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
           publicationsystem:GeographicCoverage: []
@@ -28,8 +103,83 @@
           publicationsystem:NominalDate: 2018-05-07T23:00:00Z
           publicationsystem:PubliclyAccessible: true
           publicationsystem:Summary: CCG Archive publication
-          publicationsystem:Title: CCG Archive publication
+          publicationsystem:Title: CCG Archive publications
+          publicationsystem:seosummary: ''
         /ccg-archive-document-1[2]:
+          /publicationsystem:Attachments-v3:
+            /publicationsystem:attachmentResource:
+              externalstorage:reference: 8F/FFF61B/Screenshot 2019-02-14 at 09.58.58.png
+              externalstorage:size: 23592
+              externalstorage:url: https://files.local.nhsd.io/8F/FFF61B/Screenshot
+                2019-02-14 at 09.58.58.png
+              hippo:filename: Screenshot 2019-02-14 at 09.58.58.png
+              jcr:data:
+                resource: /content/documents/corporate-website/publication-system/clinical-indicators/ccg-outcomes-indicator-set/archive/ccg-archive-document-1/ccg-archive-document-1[2]/Attachments-v3/attachmentResource/data.png
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2019-02-15T10:35:45.927Z
+              jcr:mimeType: image/png
+              jcr:primaryType: externalstorage:resource
+            jcr:primaryType: publicationsystem:extattachment
+            publicationsystem:displayName: Key facts attachement?
+          /publicationsystem:KeyFactsHead:
+            hippostd:content: <p>What is this?</p>
+            jcr:primaryType: hippostd:html
+          /publicationsystem:KeyFactsTail:
+            hippostd:content: <p>Key facts tail section, what is this?</p>
+            jcr:primaryType: hippostd:html
+          /publicationsystem:ResourceLinks:
+            jcr:primaryType: publicationsystem:relatedlink
+            publicationsystem:linkText: Link resource
+            publicationsystem:linkUrl: http://ffdfdfdff.com
+          /publicationsystem:keyFactInfographics[1]:
+            /website:explanatoryLine:
+              hippostd:content: <p>Wipsum</p>
+              jcr:primaryType: hippostd:html
+            /website:icon:
+              hippo:docbase: b57a03ef-301e-4c7f-9ee0-ca376158d8fb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+              jcr:primaryType: hippogallerypicker:imagelink
+            /website:qualifyingInformation:
+              hippostd:content: <p>Lipsum</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:infographic
+            website:colour: Blue
+            website:headline: 484,700
+          /publicationsystem:keyFactInfographics[2]:
+            /website:explanatoryLine:
+              hippostd:content: <p>Lipsum</p>
+              jcr:primaryType: hippostd:html
+            /website:icon:
+              hippo:docbase: b57a03ef-301e-4c7f-9ee0-ca376158d8fb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+              jcr:primaryType: hippogallerypicker:imagelink
+            /website:qualifyingInformation:
+              hippostd:content: <p>Wipsum</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:infographic
+            website:colour: ' Light blue'
+            website:headline: 484,700
+          /publicationsystem:keyFactInfographics[3]:
+            /website:explanatoryLine:
+              hippostd:content: <p>Chipsum</p>
+              jcr:primaryType: hippostd:html
+            /website:icon:
+              hippo:docbase: b57a03ef-301e-4c7f-9ee0-ca376158d8fb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+              jcr:primaryType: hippogallerypicker:imagelink
+            /website:qualifyingInformation:
+              hippostd:content: <p>Pipsum</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:infographic
+            website:colour: ' White'
+            website:headline: 345,999
           common:FacetType: publication
           common:orderedSearchDate: 1525734000000
           common:searchRank: 4
@@ -39,7 +189,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2018-05-08T15:45:10.021Z
-          hippostdpubwf:lastModificationDate: 2018-05-08T15:45:30.591Z
+          hippostdpubwf:lastModificationDate: 2019-02-15T13:36:14.968Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: bdc8dcbc-425f-4c9b-95cf-9b034df10cbb
           hippotranslation:locale: en
@@ -48,7 +198,7 @@
           - mix:referenceable
           - mix:versionable
           jcr:primaryType: publicationsystem:publication
-          publicationsystem:AdministrativeSources: ''
+          publicationsystem:AdministrativeSources: Admin sources
           publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
           publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
           publicationsystem:GeographicCoverage: []
@@ -56,8 +206,83 @@
           publicationsystem:NominalDate: 2018-05-07T23:00:00Z
           publicationsystem:PubliclyAccessible: true
           publicationsystem:Summary: CCG Archive publication
-          publicationsystem:Title: CCG Archive publication
+          publicationsystem:Title: CCG Archive publications
+          publicationsystem:seosummary: ''
         /ccg-archive-document-1[3]:
+          /publicationsystem:Attachments-v3:
+            /publicationsystem:attachmentResource:
+              externalstorage:reference: 8F/FFF61B/Screenshot 2019-02-14 at 09.58.58.png
+              externalstorage:size: 23592
+              externalstorage:url: https://files.local.nhsd.io/8F/FFF61B/Screenshot
+                2019-02-14 at 09.58.58.png
+              hippo:filename: Screenshot 2019-02-14 at 09.58.58.png
+              jcr:data:
+                resource: /content/documents/corporate-website/publication-system/clinical-indicators/ccg-outcomes-indicator-set/archive/ccg-archive-document-1/ccg-archive-document-1[3]/Attachments-v3/attachmentResource/data.png
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2019-02-15T10:35:45.927Z
+              jcr:mimeType: image/png
+              jcr:primaryType: externalstorage:resource
+            jcr:primaryType: publicationsystem:extattachment
+            publicationsystem:displayName: Key facts attachement?
+          /publicationsystem:KeyFactsHead:
+            hippostd:content: <p>What is this?</p>
+            jcr:primaryType: hippostd:html
+          /publicationsystem:KeyFactsTail:
+            hippostd:content: <p>Key facts tail section, what is this?</p>
+            jcr:primaryType: hippostd:html
+          /publicationsystem:ResourceLinks:
+            jcr:primaryType: publicationsystem:relatedlink
+            publicationsystem:linkText: Link resource
+            publicationsystem:linkUrl: http://ffdfdfdff.com
+          /publicationsystem:keyFactInfographics[1]:
+            /website:explanatoryLine:
+              hippostd:content: <p>Wipsum</p>
+              jcr:primaryType: hippostd:html
+            /website:icon:
+              hippo:docbase: b57a03ef-301e-4c7f-9ee0-ca376158d8fb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+              jcr:primaryType: hippogallerypicker:imagelink
+            /website:qualifyingInformation:
+              hippostd:content: <p>Lipsum</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:infographic
+            website:colour: Blue
+            website:headline: 484,700
+          /publicationsystem:keyFactInfographics[2]:
+            /website:explanatoryLine:
+              hippostd:content: <p>Lipsum</p>
+              jcr:primaryType: hippostd:html
+            /website:icon:
+              hippo:docbase: b57a03ef-301e-4c7f-9ee0-ca376158d8fb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+              jcr:primaryType: hippogallerypicker:imagelink
+            /website:qualifyingInformation:
+              hippostd:content: <p>Wipsum</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:infographic
+            website:colour: ' Light blue'
+            website:headline: 484,700
+          /publicationsystem:keyFactInfographics[3]:
+            /website:explanatoryLine:
+              hippostd:content: <p>Chipsum</p>
+              jcr:primaryType: hippostd:html
+            /website:icon:
+              hippo:docbase: b57a03ef-301e-4c7f-9ee0-ca376158d8fb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+              jcr:primaryType: hippogallerypicker:imagelink
+            /website:qualifyingInformation:
+              hippostd:content: <p>Pipsum</p>
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:infographic
+            website:colour: ' White'
+            website:headline: 345,999
           common:FacetType: publication
           common:orderedSearchDate: 1525734000000
           common:searchRank: 4
@@ -67,16 +292,16 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2018-05-08T15:45:10.021Z
-          hippostdpubwf:lastModificationDate: 2018-05-08T15:45:30.591Z
+          hippostdpubwf:lastModificationDate: 2019-02-15T13:36:14.968Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2018-05-08T15:45:32.951Z
+          hippostdpubwf:publicationDate: 2019-02-15T13:36:17.693Z
           hippotranslation:id: bdc8dcbc-425f-4c9b-95cf-9b034df10cbb
           hippotranslation:locale: en
           jcr:mixinTypes:
           - hippotaxonomy:classifiable
           - mix:referenceable
           jcr:primaryType: publicationsystem:publication
-          publicationsystem:AdministrativeSources: ''
+          publicationsystem:AdministrativeSources: Admin sources
           publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
           publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
           publicationsystem:GeographicCoverage: []
@@ -84,10 +309,13 @@
           publicationsystem:NominalDate: 2018-05-07T23:00:00Z
           publicationsystem:PubliclyAccessible: true
           publicationsystem:Summary: CCG Archive publication
-          publicationsystem:Title: CCG Archive publication
+          publicationsystem:Title: CCG Archive publications
+          publicationsystem:seosummary: ''
         hippo:name: CCG archive document 1
+        hippo:versionHistory: 2e436b2c-4000-4db1-b6c7-ed18ec3b9d29
         jcr:mixinTypes:
         - hippo:named
+        - hippo:versionInfo
         - mix:referenceable
         jcr:primaryType: hippo:handle
       /content:
@@ -99,7 +327,7 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2018-05-08T15:44:05.488Z
-          hippostdpubwf:lastModificationDate: 2018-05-08T15:44:05.488Z
+          hippostdpubwf:lastModificationDate: 2019-02-15T10:33:04.996Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: ed227b8b-f6b4-428a-87c4-9988ef203af2
           hippotranslation:locale: en
@@ -246,6 +474,12 @@
           jcr:primaryType: hippo:handle
         /content:
           /content[1]:
+            /publicationsystem:KeyFactsHead:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /publicationsystem:KeyFactsTail:
+              hippostd:content: <p>Key facts tail?</p>
+              jcr:primaryType: hippostd:html
             common:FacetType: publication
             common:orderedSearchDate: 1524178800000
             common:searchRank: 4
@@ -254,7 +488,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2018-04-20T19:41:28.048Z
-            hippostdpubwf:lastModificationDate: 2018-04-25T15:13:03.419Z
+            hippostdpubwf:lastModificationDate: 2019-02-15T10:33:42.995Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: f9588f77-95f3-49a4-8595-4c9b6de92db1
             hippotranslation:locale: en
@@ -273,7 +507,14 @@
             publicationsystem:PubliclyAccessible: true
             publicationsystem:Summary: Test CCG publication document
             publicationsystem:Title: CCG publication
+            publicationsystem:seosummary: ''
           /content[2]:
+            /publicationsystem:KeyFactsHead:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /publicationsystem:KeyFactsTail:
+              hippostd:content: <p>Key facts tail?</p>
+              jcr:primaryType: hippostd:html
             common:FacetType: publication
             common:orderedSearchDate: 1524178800000
             common:searchRank: 4
@@ -283,7 +524,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2018-04-20T19:41:28.048Z
-            hippostdpubwf:lastModificationDate: 2018-04-25T15:13:20.978Z
+            hippostdpubwf:lastModificationDate: 2019-02-15T10:34:03.740Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: f9588f77-95f3-49a4-8595-4c9b6de92db1
             hippotranslation:locale: en
@@ -303,7 +544,14 @@
             publicationsystem:PubliclyAccessible: true
             publicationsystem:Summary: Test CCG publication document
             publicationsystem:Title: CCG publication
+            publicationsystem:seosummary: ''
           /content[3]:
+            /publicationsystem:KeyFactsHead:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /publicationsystem:KeyFactsTail:
+              hippostd:content: <p>Key facts tail?</p>
+              jcr:primaryType: hippostd:html
             common:FacetType: publication
             common:orderedSearchDate: 1524178800000
             common:searchRank: 4
@@ -313,9 +561,9 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2018-04-20T19:41:28.048Z
-            hippostdpubwf:lastModificationDate: 2018-04-25T15:13:20.978Z
+            hippostdpubwf:lastModificationDate: 2019-02-15T10:34:03.740Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2018-04-25T15:13:23.358Z
+            hippostdpubwf:publicationDate: 2019-02-15T10:34:05.910Z
             hippotranslation:id: f9588f77-95f3-49a4-8595-4c9b6de92db1
             hippotranslation:locale: en
             jcr:mixinTypes:
@@ -333,9 +581,12 @@
             publicationsystem:PubliclyAccessible: true
             publicationsystem:Summary: Test CCG publication document
             publicationsystem:Title: CCG publication
+            publicationsystem:seosummary: ''
           hippo:name: content
+          hippo:versionHistory: 3d032971-1b84-485b-97b2-9f270284a833
           jcr:mixinTypes:
           - hippo:named
+          - hippo:versionInfo
           - mix:referenceable
           jcr:primaryType: hippo:handle
         hippo:name: 1.1 national ccg outcomes
