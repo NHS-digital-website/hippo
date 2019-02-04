@@ -565,6 +565,12 @@ public class CmsSteps extends AbstractSpringSteps {
         contentPage.openContentTab();
     }
 
+    @When("^I navigate to the images dropdown")
+    public void whenINavigateToTheImagesDropdown() throws Throwable {
+        contentPage.openContentTab();
+        contentPage.openImagesDropdown();
+    }
+
     @Then("^I should( not)? see the \"([^\"]*)\" folder$")
     public void thenIShouldSeeTheFolder(String not, String folder) throws Throwable {
         String[] folders = folder.split("/");

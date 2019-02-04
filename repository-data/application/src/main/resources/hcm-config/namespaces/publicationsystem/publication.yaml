@@ -173,22 +173,34 @@ definitions:
             wicket.css:
             - granularity
             wicket.id: ${cluster.id}.right.item
-          /KeyFacts:
+          /KeyFactsHead:
             /cluster.options:
+              ckeditor.config.appended.json: '{toolbar: [{ name: ''linktoolbar'',
+                items: [''Link'',''PickInternalLink''] }] }'
+              ckeditor.config.overlayed.json: '{}'
               jcr:primaryType: frontend:pluginconfig
-            caption: Key Facts
-            field: key_facts
-            hint: ''
+            caption: Key Facts (Head Section)
+            field: keyFactsHead
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.css:
-            - key-facts
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
-          /keyFactImages:
+          /keyFactInfographics:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Key Fact Infographics
-            field: keyFactImages
+            field: keyFactInfographics
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /KeyFactsTail:
+            /cluster.options:
+              ckeditor.config.appended.json: '{toolbar: [{ name: ''linktoolbar'',
+                items: [''Link'',''PickInternalLink''] }] }'
+              ckeditor.config.overlayed.json: '{}'
+              jcr:primaryType: frontend:pluginconfig
+            caption: Key Facts (Tail Section)
+            field: html
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
@@ -233,6 +245,26 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.css:
             - administrative-sources
+            wicket.id: ${cluster.id}.left.item
+          /KeyFacts:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Legacy Key Facts (deprecated)
+            field: key_facts
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.css:
+            - key-facts
+            wicket.id: ${cluster.id}.left.item
+          /keyFactImages:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Legacy Key Fact Infographics (deprecated)
+            field: keyFactImages
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
@@ -297,6 +329,14 @@ definitions:
             hipposysedit:validators:
             - publicationsystem-dropdown-granularity
             jcr:primaryType: hipposysedit:field
+          /html:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:KeyFactsTail
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
           /information_type:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
@@ -314,6 +354,22 @@ definitions:
             hipposysedit:path: publicationsystem:KeyFactImages
             hipposysedit:primary: false
             hipposysedit:type: publicationsystem:imageSection
+            jcr:primaryType: hipposysedit:field
+          /keyFactInfographics:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publicationsystem:keyFactInfographics
+            hipposysedit:primary: false
+            hipposysedit:type: website:infographic
+            jcr:primaryType: hipposysedit:field
+          /keyFactsHead:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:KeyFactsHead
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
           /key_facts:
             hipposysedit:mandatory: false
@@ -399,6 +455,12 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /publicationsystem:KeyFactsHead:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /publicationsystem:KeyFactsTail:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           common:FacetType: publication
           common:searchRank: 3
           common:searchable: true

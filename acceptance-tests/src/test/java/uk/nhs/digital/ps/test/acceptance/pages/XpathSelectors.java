@@ -7,6 +7,12 @@ public class XpathSelectors  {
      */
     public static final String TABBED_PANEL = "//div[contains(@class, 'tabbed-panel-layout-left')]";
 
+
+    /**
+     * This is the content page, menu categories: Documents, Images, Assets, Forms, Taxonomies ...
+     */
+    public static final String CONTENT_CATEGORY = "//div[contains(@class, 'selectric-section-selection-dropdown')]";
+
     /**
      * This is the navigation pane with documents
      */
