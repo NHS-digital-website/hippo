@@ -14,7 +14,7 @@
     <#if blockGroups[letter]??>
     <#assign matchesFound++ />
 
-    <div class="article-section article-section--letter-group">
+    <div class="article-section article-section--letter-group" id="${slugify(letter)}">
         <@stickyGroupBlockHeader letter></@stickyGroupBlockHeader>
 
         <div class="grid-row">

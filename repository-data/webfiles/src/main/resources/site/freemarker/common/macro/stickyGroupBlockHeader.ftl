@@ -2,7 +2,7 @@
 <#include "../../include/imports.ftl">
 
 <#macro stickyGroupBlockHeader title = "Title">
-    <div class="grid-row sticky sticky--top" id="${slugify(title)}">
+    <div class="grid-row sticky sticky--top" data-name="${slugify(title)}">
         <div class="column column--reset">
             <div class="article-header article-header--tertiary">
                 <div class="grid-row">

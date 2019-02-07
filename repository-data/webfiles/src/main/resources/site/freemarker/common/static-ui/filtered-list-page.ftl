@@ -35,7 +35,7 @@
 
             <div class="column column--two-thirds page-block page-block--main">
                 <#-- [FTL-BEGIN] 'Article group' section -->
-                <div class="article-section article-section--letter-group">
+                <div class="article-section article-section--letter-group" id="${slugify('A')}">
                     <@stickyGroupBlockHeader "A"></@stickyGroupBlockHeader>
 
                     <div class="grid-row">
@@ -60,7 +60,7 @@
                 <#-- [FTL-END] 'Article group' section -->
 
                 <#-- [FTL-BEGIN] 'Article group' section -->
-                <div class="article-section article-section--letter-group">
+                <div class="article-section article-section--letter-group" id="${slugify('B')}">
                     <@stickyGroupBlockHeader "B"></@stickyGroupBlockHeader>
 
                     <div class="grid-row">
