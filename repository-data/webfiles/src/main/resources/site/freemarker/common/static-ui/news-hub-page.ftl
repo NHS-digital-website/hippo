@@ -35,8 +35,8 @@
             </div>
 
             <div class="column column--two-thirds page-block page-block--main">
-                <div class="article-section article-section--letter-group">
-                    <@stickyGroupBlockHeader "February"></@stickyGroupBlockHeader>
+                <div class="article-section article-section--letter-group" id="February">
+                    <@stickyGroupBlockHeader></@stickyGroupBlockHeader>
 
                     <div class="grid-row">
                         <div class="column column--reset">
@@ -51,8 +51,8 @@
                     </div>
                 </div>
 
-                <div class="article-section article-section--letter-group">
-                    <@stickyGroupBlockHeader "January"></@stickyGroupBlockHeader>
+                <div class="article-section article-section--letter-group" id="January">
+                    <@stickyGroupBlockHeader></@stickyGroupBlockHeader>
 
                     <div class="grid-row">
                         <div class="column column--reset">

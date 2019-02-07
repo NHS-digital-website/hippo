@@ -118,7 +118,7 @@
                 <#if eventGroupHash?has_content>
                     <#list monthsOfTheYear as month>
                         <#if eventGroupHash[month]??>
-                            <div class="article-section article-section--letter-group no-border">
+                            <div class="article-section article-section--letter-group no-border" id="${slugify(month)}">
                                 <@stickyGroupBlockHeader month></@stickyGroupBlockHeader>
 
                                 <div class="grid-row">

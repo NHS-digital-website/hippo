@@ -34,7 +34,7 @@
             </div>
 
             <div class="column column--two-thirds page-block page-block--main">
-                <div class="article-section article-section--letter-group no-border">
+                <div class="article-section article-section--letter-group no-border" id="${slugify('January')}">
                     <@stickyGroupBlockHeader "January"></@stickyGroupBlockHeader>
 
                     <div class="grid-row">
@@ -47,7 +47,7 @@
                     </div>
                 </div>
 
-                <div class="article-section article-section--letter-group no-border">
+                <div class="article-section article-section--letter-group no-border" id="${slugify('October')}">
                     <@stickyGroupBlockHeader "October"></@stickyGroupBlockHeader>
 
                     <div class="grid-row">
@@ -61,7 +61,7 @@
                     </div>
                 </div>
 
-                <div class="article-section article-section--letter-group no-border">
+                <div class="article-section article-section--letter-group no-border" id="${slugify('Past events')}">
                     <@stickyGroupBlockHeader "Past events"></@stickyGroupBlockHeader>
 
                     <div class="grid-row">
