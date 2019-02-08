@@ -64,8 +64,7 @@ definitions:
             /cluster.options:
               base.path: /content/documents
               jcr:primaryType: frontend:pluginconfig
-              nodetypes:
-              - website:basedocument
+              nodetypes: []
             caption: Linked Services
             field: linkedservices
             hint: ''

@@ -151,8 +151,7 @@ definitions:
             /cluster.options:
               base.path: /content/documents
               jcr:primaryType: frontend:pluginconfig
-              nodetypes:
-              - website:basedocument
+              nodetypes: []
             caption: Links
             field: links
             hint: ''
