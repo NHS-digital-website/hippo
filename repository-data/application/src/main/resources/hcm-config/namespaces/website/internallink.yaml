@@ -23,8 +23,7 @@ definitions:
             /cluster.options:
               base.path: /content/documents
               jcr:primaryType: frontend:pluginconfig
-              nodetypes:
-              - website:basedocument
+              nodetypes: []
             caption: Internal Link
             field: link
             hint: ''
