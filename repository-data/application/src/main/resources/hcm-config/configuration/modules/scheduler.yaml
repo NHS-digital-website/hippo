@@ -1,19 +1,14 @@
----
 definitions:
   config:
     /hippo:configuration/hippo:modules/scheduler/hippo:moduleconfig/system/FormDataCleanup:
-      hipposched:attributeValues:
-      - '100'
-      - '120'
-      - /formdata/permanent/
+      hipposched:attributeValues: ['100', '120', /formdata/permanent/]
       hipposched:repositoryJobClass: uk.nhs.digital.repository.schedulers.ConditionalFormDataCleanupJob
     /hippo:configuration/hippo:modules/scheduler/hippo:moduleconfig/system/FormDataCleanup/hipposched:triggers/bi-hourly:
       hipposched:cronExpression: 0 0/30 * * * ?
       hipposched:enabled: true
-      hipposched:nextFireTime: 2018-07-03T12:30:00Z
-      jcr:mixinTypes:
-      - hippo:lockable
-      - mix:lockable
+      hipposched:nextFireTime: 2019-02-08T16:30:00Z
+      jcr:mixinTypes: ['hippo:lockable', 'mix:lockable']
       jcr:primaryType: hipposched:crontrigger
+      jcr:uuid: 23f35060-26d8-4f87-b58e-2ce4b2b55261
     /hippo:configuration/hippo:modules/scheduler/hippo:moduleconfig/system/FormDataCleanup/hipposched:triggers/nightly:
       .meta:delete: true

@@ -1,13 +1,475 @@
----
 /content/documents/corporate-website/publication-system:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: 1fdaf9a4-a62b-4e1b-b745-1165cb3dcb7b
   hippo:name: Publication System
-  hippostd:foldertype:
-  - new-statistical-publications-and-clinical-indicators-document
-  - new-statistical-publications-and-clinical-indicators-folder
+  hippostd:foldertype: [new-statistical-publications-and-clinical-indicators-document,
+    new-statistical-publications-and-clinical-indicators-folder]
   hippotranslation:id: 00000000-0000-0000-0000-000000000000
   hippotranslation:locale: en
-  jcr:mixinTypes:
-  - hippo:named
-  - hippotranslation:translated
-  - mix:versionable
-  jcr:primaryType: hippostd:folder
+  /miscellaneous:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 42634b45-edb8-480d-8249-9928f1a0da67
+    hippo:name: Miscellaneous
+    hippo:versionHistory: c2ead243-eb83-4490-a8f0-f0684cbf9a02
+    /miscellaneous[1]:
+      jcr:primaryType: website:general
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: acab15c6-6bb8-408a-b4da-bdf4de4e5991
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2018-04-11T17:29:58.265Z
+      hippostdpubwf:lastModificationDate: 2019-02-08T13:55:38.502Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 15c54718-9f18-46f3-9971-f9d442c21084
+      hippotranslation:locale: en
+      website:gossid: 825
+      website:seosummary: ''
+      website:shortsummary: ''
+      website:title: Miscellaneous
+      website:type: service
+      /website:component:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+      /website:sections:
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: ''
+        website:type: ''
+        /website:html:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p><a href="odsstandards.pdf">Download our Standards Repository document</a>&nbsp;for technical&nbsp;information about the standards used within our data downloads. Each zipped file contains the relevant file description.</p>
+
+            <table style="width:100%">
+             <caption>Table caption</caption>
+             <thead>
+              <tr>
+               <th scope="col"><strong>File contents</strong></th>
+               <th scope="col"><strong>File</strong></th>
+               <th scope="col"><strong>Date uploaded</strong></th>
+               <th scope="col"><strong>Quarterly/Monthly</strong></th>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td>Optical Headquarters</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/eopthq.zip">eopthq</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Optical sites</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/eoptsite.zip">eoptsite</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>General Dental Practices</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/egdpprac.zip">egdpprac</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>General Dental Practitioners</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/egdp.zip">egdp</a></td>
+               <td>25 Nov 2016</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>General Dental Practice membership</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/egdppracmem.zip">egdppracmem</a></td>
+               <td>25 Nov 2016</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Treatment Centres</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/etreat.zip">etreat</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Hospices</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/ehospice.zip">ehospice</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Pathology Laboratories</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/eplab.zip">eplab</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Education Establishments</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/educate.zip">educate</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Archived Closed Organisations</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/earchive.zip">earchive</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Successor Organisations</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/succ.zip">succ</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Archived&nbsp;Successor Organisations</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/succarc.zip">succarc</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>English Hospital Consultants</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/econcur.zip">econcur</a></td>
+               <td>14 December 2018</td>
+               <td>Monthly</td>
+              </tr>
+              <tr>
+               <td>English Dental Consultants</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/edconcur.zip">edconcur</a></td>
+               <td>14 December 2018</td>
+               <td>Monthly</td>
+              </tr>
+              <tr>
+               <td>Welsh&nbsp;Hospital Consultants</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/wconcur.zip">wconcur</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Default codes</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/default.zip">default</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+             </tbody>
+            </table>
+          /odsstandards.pdf:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 199c87c9-709d-4727-a7ff-14d4b457915f
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /website:summary:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p></p>
+    /miscellaneous[2]:
+      jcr:primaryType: website:general
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: ab4521db-8df4-4706-a18b-918a13492098
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2018-04-11T17:29:58.265Z
+      hippostdpubwf:lastModificationDate: 2019-02-08T15:10:52.846Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 15c54718-9f18-46f3-9971-f9d442c21084
+      hippotranslation:locale: en
+      website:gossid: 825
+      website:seosummary: ''
+      website:shortsummary: ''
+      website:title: Miscellaneous
+      website:type: service
+      /website:component:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+      /website:sections:
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: ''
+        website:type: ''
+        /website:html:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p><a href="odsstandards.pdf">Download our Standards Repository document</a>&nbsp;for technical&nbsp;information about the standards used within our data downloads. Each zipped file contains the relevant file description.</p>
+
+            <table style="width:100%">
+             <caption>Table caption</caption>
+             <thead>
+              <tr>
+               <th scope="col"><strong>File contents</strong></th>
+               <th scope="col"><strong>File</strong></th>
+               <th scope="col"><strong>Date uploaded</strong></th>
+               <th scope="col"><strong>Quarterly/Monthly</strong></th>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td>Optical Headquarters</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/eopthq.zip">eopthq</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Optical sites</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/eoptsite.zip">eoptsite</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>General Dental Practices</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/egdpprac.zip">egdpprac</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>General Dental Practitioners</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/egdp.zip">egdp</a></td>
+               <td>25 Nov 2016</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>General Dental Practice membership</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/egdppracmem.zip">egdppracmem</a></td>
+               <td>25 Nov 2016</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Treatment Centres</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/etreat.zip">etreat</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Hospices</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/ehospice.zip">ehospice</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Pathology Laboratories</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/eplab.zip">eplab</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Education Establishments</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/educate.zip">educate</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Archived Closed Organisations</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/earchive.zip">earchive</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Successor Organisations</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/succ.zip">succ</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Archived&nbsp;Successor Organisations</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/succarc.zip">succarc</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>English Hospital Consultants</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/econcur.zip">econcur</a></td>
+               <td>14 December 2018</td>
+               <td>Monthly</td>
+              </tr>
+              <tr>
+               <td>English Dental Consultants</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/edconcur.zip">edconcur</a></td>
+               <td>14 December 2018</td>
+               <td>Monthly</td>
+              </tr>
+              <tr>
+               <td>Welsh&nbsp;Hospital Consultants</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/wconcur.zip">wconcur</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Default codes</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/default.zip">default</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+             </tbody>
+            </table>
+          /odsstandards.pdf:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 199c87c9-709d-4727-a7ff-14d4b457915f
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /website:summary:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p></p>
+    /miscellaneous[3]:
+      jcr:primaryType: website:general
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 5557ce70-92e8-4e53-a892-95547c95fa1f
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2018-04-11T17:29:58.265Z
+      hippostdpubwf:lastModificationDate: 2019-02-08T15:10:52.846Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2019-02-08T15:10:56.386Z
+      hippotranslation:id: 15c54718-9f18-46f3-9971-f9d442c21084
+      hippotranslation:locale: en
+      website:gossid: 825
+      website:seosummary: ''
+      website:shortsummary: ''
+      website:title: Miscellaneous
+      website:type: service
+      /website:component:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+      /website:sections:
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: ''
+        website:type: ''
+        /website:html:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p><a href="odsstandards.pdf">Download our Standards Repository document</a>&nbsp;for technical&nbsp;information about the standards used within our data downloads. Each zipped file contains the relevant file description.</p>
+
+            <table style="width:100%">
+             <caption>Table caption</caption>
+             <thead>
+              <tr>
+               <th scope="col"><strong>File contents</strong></th>
+               <th scope="col"><strong>File</strong></th>
+               <th scope="col"><strong>Date uploaded</strong></th>
+               <th scope="col"><strong>Quarterly/Monthly</strong></th>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td>Optical Headquarters</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/eopthq.zip">eopthq</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Optical sites</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/eoptsite.zip">eoptsite</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>General Dental Practices</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/egdpprac.zip">egdpprac</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>General Dental Practitioners</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/egdp.zip">egdp</a></td>
+               <td>25 Nov 2016</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>General Dental Practice membership</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/egdppracmem.zip">egdppracmem</a></td>
+               <td>25 Nov 2016</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Treatment Centres</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/etreat.zip">etreat</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Hospices</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/ehospice.zip">ehospice</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Pathology Laboratories</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/eplab.zip">eplab</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Education Establishments</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/educate.zip">educate</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Archived Closed Organisations</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/earchive.zip">earchive</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Successor Organisations</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/succ.zip">succ</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Archived&nbsp;Successor Organisations</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/succarc.zip">succarc</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>English Hospital Consultants</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/econcur.zip">econcur</a></td>
+               <td>14 December 2018</td>
+               <td>Monthly</td>
+              </tr>
+              <tr>
+               <td>English Dental Consultants</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/edconcur.zip">edconcur</a></td>
+               <td>14 December 2018</td>
+               <td>Monthly</td>
+              </tr>
+              <tr>
+               <td>Welsh&nbsp;Hospital Consultants</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/wconcur.zip">wconcur</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+              <tr>
+               <td>Default codes</td>
+               <td><a href="https://files.digital.nhs.uk/assets/ods/current/default.zip">default</a></td>
+               <td>30 November 2018</td>
+               <td>Quarterly</td>
+              </tr>
+             </tbody>
+            </table>
+          /odsstandards.pdf:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 199c87c9-709d-4727-a7ff-14d4b457915f
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /website:summary:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p></p>

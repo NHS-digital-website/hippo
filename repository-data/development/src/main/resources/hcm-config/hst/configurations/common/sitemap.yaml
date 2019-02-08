@@ -19,6 +19,10 @@ definitions:
           hst:componentconfigurationid: hst:pages/static-ui-component-skip-link
           hst:relativecontentpath: component/skip-link
           jcr:primaryType: hst:sitemapitem
+        /table:
+          hst:componentconfigurationid: hst:pages/static-ui-component-table
+          hst:relativecontentpath: component/table
+          jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/static-ui-component
         hst:relativecontentpath: static-ui/component
         jcr:primaryType: hst:sitemapitem
