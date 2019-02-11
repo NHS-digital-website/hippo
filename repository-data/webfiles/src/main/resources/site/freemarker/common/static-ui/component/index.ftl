@@ -27,3 +27,11 @@
         <p class="hub-box__text">Use the skip link component to help keyboard-only users skip to the main content on a page.</p>
     </div>
 </article>
+
+<article class="hub-box hub-box--light">
+    <div class="hub-box__contents">
+        <h2 class="hub-box__title"><a href="/static-ui/component/table">Table</a></h2>
+        <span class="hub-box__meta">Created February 2019</span>
+        <p class="hub-box__text">Tabular data.</p>
+    </div>
+</article>
