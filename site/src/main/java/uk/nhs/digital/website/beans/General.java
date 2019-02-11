@@ -1,8 +1,9 @@
 package uk.nhs.digital.website.beans;
 
-import org.hippoecm.hst.content.beans.*;
-import org.hippoecm.hst.content.beans.standard.*;
-import org.onehippo.cms7.essentials.dashboard.annotations.*;
+import org.hippoecm.hst.content.beans.Node;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoHtml;
+import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
 import java.util.*;
 
@@ -33,4 +34,15 @@ public class General extends CommonFieldsBean {
     public Long getGossid() {
         return getProperty("website:gossid");
     }
+
+    @HippoEssentialsGenerated(internalName = "website:htmlCode")
+    public String getHtmlCode() {
+        return getProperty("website:htmlCode");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:metadata")
+    public String[] getMetadata() {
+        return getProperty("website:metadata");
+    }
+
 }
