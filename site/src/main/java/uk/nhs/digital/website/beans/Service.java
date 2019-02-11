@@ -1,15 +1,15 @@
 package uk.nhs.digital.website.beans;
 
-import org.hippoecm.hst.content.beans.*;
-import org.hippoecm.hst.content.beans.standard.*;
-import org.onehippo.cms7.essentials.dashboard.annotations.*;
+import org.hippoecm.hst.content.beans.Node;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoHtml;
+import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
 import java.util.*;
 
 @HippoEssentialsGenerated(internalName = "website:service")
 @Node(jcrType = "website:service")
 public class Service extends CommonFieldsBean {
-
     @HippoEssentialsGenerated(internalName = "website:toptasks")
     public List<HippoHtml> getToptasks() {
         return getChildBeansByName("website:toptasks", HippoHtml.class);
@@ -49,4 +49,15 @@ public class Service extends CommonFieldsBean {
     public Friendlyurls getFriendlyurls() {
         return getBean("website:friendlyurls", Friendlyurls.class);
     }
+
+    @HippoEssentialsGenerated(internalName = "website:htmlCode")
+    public String getHtmlCode() {
+        return getProperty("website:htmlCode");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:metadata")
+    public String[] getMetadata() {
+        return getProperty("website:metadata");
+    }
+
 }

@@ -147,6 +147,27 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /htmlCode:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Raw HTML - web team only
+            field: htmlCode
+            hint: This should only be used or edited by the web team.  Misuse of this
+              field could break the website, and could lead to disciplinary action.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /metadata:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Metadata - web team only
+            field: string
+            hint: "This should only be used or edited by the web team.  Misuse of\
+              \ this field could break the website, and could lead to disciplinary\
+              \ action.\r\n\r\nEach metadata element must be in the XHTML form."
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -184,6 +205,16 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Long
             jcr:primaryType: hipposysedit:field
+          /htmlCode:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: true
+            hipposysedit:path: website:htmlCode
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
           /introduction:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -201,6 +232,14 @@ definitions:
             hipposysedit:type: hippo:compound
             hipposysedit:validators:
             - contentblocks-validator
+            jcr:primaryType: hipposysedit:field
+          /metadata:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:metadata
+            hipposysedit:primary: false
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           /sections:
             hipposysedit:multiple: true
@@ -296,6 +335,7 @@ definitions:
           - hippotaxonomy:classifiable
           jcr:primaryType: website:service
           website:gossid: 0
+          website:metadata: []
           website:seosummary: ''
           website:shortsummary: ''
           website:title: ''

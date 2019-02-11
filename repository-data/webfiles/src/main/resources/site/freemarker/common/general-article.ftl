@@ -12,6 +12,12 @@
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
 
+<#list document.metadata as md>
+    <@hst.headContribution category="metadata">
+        ${md?no_esc}
+    </@hst.headContribution>
+</#list>
+
 <@hst.setBundle basename="rb.generic.headers,publicationsystem.headers"/>
 
 <#assign hasSummaryContent = document.summary.content?has_content />
@@ -64,3 +70,5 @@
         </div>
     </div>
 </article>
+
+${document.htmlCode?no_esc}
