@@ -7,6 +7,8 @@
 <#include "../common/macro/component/lastModified.ftl">
 <#include "macro/sectionNav.ftl">
 <#include "macro/metaTags.ftl">
+<#include "../common/macro/fileMetaAppendix.ftl">
+<#include "../common/macro/fileIcon.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -234,20 +236,32 @@
                 <#if hasResources>
                     <div class="article-section" id="resources">
                         <h2><@fmt.message key="labels.resources"/></h2>
-                        <ul class="list">
+                        <ul class="list list--reset">
                             <#list document.resources as attachment>
                                 <li class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
                                     <@externalstorageLink attachment.resource; url>
-                                        <a title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)" itemprop="contentUrl"><span itemprop="name">${attachment.text}</span></a>;
+                                        <a title="${attachment.text}"
+                                           href="${url}"
+                                           class="block-link"
+                                           onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${attachment.resource.filename}');"
+                                           onKeyUp="return vjsu.onKeyUp(event)"
+                                           itemprop="contentUrl">
+                                            <div class="block-link__header">
+                                                <@fileIcon attachment.resource.mimeType></@fileIcon>
+                                            </div>
+                                            <div class="block-link__body">
+                                                <span class="block-link__title" itemprop="name">${attachment.text}</span>
+                                                <@fileMetaAppendix attachment.resource.length, attachment.resource.mimeType></@fileMetaAppendix>
+                                            </div>
+                                        </a>
                                     </@externalstorageLink>
-                                    <span class="fileSize">[size: <span itemprop="contentSize"><@formatFileSize bytesCount=attachment.resource.length/></span>]</span>
                                 </li>
                             </#list>
                         </ul>
                     </div>
                 </#if>
-                <div class="article-section muted no-border no-top-padding no-top-margin">
-                    <@lastModified document.lastModified false></@lastModified>
+                <div class="article-section muted">
+                    <p><@lastModified document.lastModified false></@lastModified></p>
                 </div>
             </div>
         </div>
