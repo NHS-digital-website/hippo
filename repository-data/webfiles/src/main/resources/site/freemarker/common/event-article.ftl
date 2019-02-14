@@ -4,6 +4,8 @@
 <#-- Add meta tags -->
 <#include "macro/metaTags.ftl">
 <@metaTags></@metaTags>
+<#include "../common/macro/fileMetaAppendix.ftl">
+<#include "../common/macro/fileIcon.ftl">
 
 <@hst.setBundle basename="site.website.labels"/>
 <@fmt.message key="child-pages-section.title" var="childPagesSectionTitle"/>
@@ -174,13 +176,26 @@
                 <#if document.extAttachments?has_content>
                     <div class="article-section" id="resources">
                         <h2>Resources</h2>
-                        <ul class="list">
+                        <ul class="list list--reset">
                             <#list document.extAttachments as attachment>
                                 <li class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
                                     <@externalstorageLink attachment.resource; url>
-                                        <a title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)" itemprop="contentUrl"><span itemprop="name">${attachment.text}</span></a>;
+                                        <a title="${attachment.text}"
+                                           href="${url}"
+                                           class="block-link"
+                                           onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${attachment.resource.filename}');"
+                                           onKeyUp="return vjsu.onKeyUp(event)"
+                                           itemprop="contentUrl">
+                                            <div class="block-link__header">
+                                                <@fileIcon attachment.resource.mimeType></@fileIcon>
+                                            </div>
+                                            <div class="block-link__body">
+                                                <span class="block-link__title" itemprop="name">${attachment.text}</span>
+                                                <@fileMetaAppendix attachment.resource.length, attachment.resource.mimeType></@fileMetaAppendix>
+                                            </div>
+
+                                        </a>
                                     </@externalstorageLink>
-                                    <span class="fileSize">[size: <span itemprop="contentSize"><@formatFileSize bytesCount=attachment.resource.length/></span>]</span>
                                 </li>
                             </#list>
                         </ul>
