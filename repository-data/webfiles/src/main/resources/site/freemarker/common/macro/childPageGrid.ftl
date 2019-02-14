@@ -2,6 +2,7 @@
 <#include "../../include/imports.ftl">
 <#include "fileMetaAppendix.ftl">
 <#include "typeSpan.ftl">
+<#include "fileIcon.ftl">
 
 <#macro childPageGrid childPages>
 <#if childPages?has_content>
@@ -20,7 +21,18 @@
                     <#if childPage.linkType == "external">
                         <h2 class="cta__title"><a href="${childPage.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${childPage.title}</a></h2>
                     <#elseif childPage.linkType == "asset">
-                        <h2 class="cta__title"><a href="<@hst.link hippobean=childPage.link />" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${childPage.title}</a><@fileMetaAppendix childPage.link.asset.getLength()></@fileMetaAppendix></h2>
+                        <a href="<@hst.link hippobean=childPage.link />"
+                           class="block-link"
+                           onClick="${onClickMethodCall}"
+                           onKeyUp="return vjsu.onKeyUp(event)">
+                            <div class="block-link__header">
+                                <@fileIcon childPage.link.asset.mimeType></@fileIcon>
+                            </div>
+                            <div class="block-link__body">
+                                <span class="block-link__title">${childPage.title}</span>
+                                <@fileMetaAppendix childPage.link.asset.getLength()></@fileMetaAppendix>
+                            </div>
+                        </a>
                     </#if>
                 <#elseif hst.isBeanType(childPage, 'org.hippoecm.hst.content.beans.standard.HippoBean')>
                     <@typeSpan "internal" />

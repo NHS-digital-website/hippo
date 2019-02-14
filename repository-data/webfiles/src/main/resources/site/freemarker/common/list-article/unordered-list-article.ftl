@@ -6,6 +6,7 @@
 <#include "../macro/fileMetaAppendix.ftl">
 <#include "../macro/typeSpan.ftl">
 <#include "../macro/component/lastModified.ftl">
+<#include "../macro/fileIcon.ftl">
 
 <article class="article article--list">
     <div class="grid-wrapper grid-wrapper--article">
@@ -39,9 +40,9 @@
                 <div class="article-section article-section--list">
                     <div class="grid-row">
                         <div class="column column--two-thirds column--reset">
-                            <div class="list list--reset cta-list cta-list--sections">
+                            <ul class="list list--reset cta-list cta-list--sections">
                                 <#list document.blocks as block>
-                                <div class="cta">  
+                                <li class="cta">
                                     <#if block.linkType??>
                                         <@typeSpan block.linkType />
                                         
@@ -53,12 +54,23 @@
                                             <h2 class="cta__title"><a href="${block.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${block.title}</a></h2>
                                             <p class="cta__text">${block.shortsummary}</p>
                                         <#elseif block.linkType == "asset">
-                                            <h2 class="cta__title"><a href="<@hst.link hippobean=block.link />" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${block.title}</a><@fileMetaAppendix block.link.asset.getLength()></@fileMetaAppendix></h2>
+                                            <a href="<@hst.link hippobean=block.link />"
+                                               class="block-link"
+                                               onClick="${onClickMethodCall}"
+                                               onKeyUp="return vjsu.onKeyUp(event)">
+                                                <div class="block-link__header">
+                                                    <@fileIcon block.link.asset.mimeType></@fileIcon>
+                                                </div>
+                                                <div class="block-link__body">
+                                                    <span class="block-link__title">${block.title}</span>
+                                                    <@fileMetaAppendix block.link.asset.getLength()></@fileMetaAppendix>
+                                                </div>
+                                            </a>
                                         </#if>
                                     </#if>
-                                </div>
+                                </li>
                                 </#list>
-                            </div>
+                            </ul>
                         </div>
                     </div>
                 </div>

@@ -1,12 +1,18 @@
 <#ftl output_format="HTML">
+
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Event" -->
+<#-- @ftlvariable name="event" type="uk.nhs.digital.website.beans.Interval" -->
+
 <#include "../include/imports.ftl">
-<#-- Add meta tags -->
 <#include "macro/metaTags.ftl">
-<@metaTags></@metaTags>
+<#include "../common/macro/fileMetaAppendix.ftl">
+<#include "../common/macro/fileIcon.ftl">
 
 <@hst.setBundle basename="site.website.labels"/>
 <@fmt.message key="child-pages-section.title" var="childPagesSectionTitle"/>
+
+
+<@metaTags></@metaTags>
 
 <#macro schemaMeta title startTimeData = '' endTimeData = ''>
     <#-- [BEGIN] Schema microdata -->
@@ -91,7 +97,7 @@
                                             </dl>
                                         </div>
 
-                                        <@schemaMeta "${document.title}" event.startdatetime.time event.enddatetime.time />
+                                        <@schemaMeta "${document.title}" event.startdatetime.time?date event.enddatetime.time?date_if_unknown />
                                     </#if>
                                 </div>
                             </#list>
@@ -137,17 +143,16 @@
                         <#if event.enddatetime.time?date gt .now?date>
                             <#assign hasFutureEvent = true>
                         </#if>
+                        <#if document.booking?has_content>
+                            <#if hasFutureEvent>
+                                ${event.startdatetime.time?date}
+                                <div class="article-section">
+                                    <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, document.booking) />
+                                    <a class="button" href="${document.booking}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">Book Now</a>
+                                </div>
+                            </#if>
+                        </#if>
                     </#list>
-                </#if>
-
-                <#if document.booking?has_content>
-                    <#if hasFutureEvent>
-                        ${event.startdatetime.time}
-                        <div class="article-section">
-                            <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, document.booking) />
-                            <a class="button" href="${document.booking}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">Book Now</a>
-                        </div>
-                    </#if>
                 </#if>
 
                 <#if document.summaryimage?? && document.summaryimage.original??>
@@ -174,13 +179,26 @@
                 <#if document.extAttachments?has_content>
                     <div class="article-section" id="resources">
                         <h2>Resources</h2>
-                        <ul class="list">
+                        <ul class="list list--reset">
                             <#list document.extAttachments as attachment>
                                 <li class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
                                     <@externalstorageLink attachment.resource; url>
-                                        <a title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)" itemprop="contentUrl"><span itemprop="name">${attachment.text}</span></a>;
+                                        <a title="${attachment.text}"
+                                           href="${url}"
+                                           class="block-link"
+                                           onClick="logGoogleAnalyticsEvent('Download attachment','Publication','${attachment.resource.filename}');"
+                                           onKeyUp="return vjsu.onKeyUp(event)"
+                                           itemprop="contentUrl">
+                                            <div class="block-link__header">
+                                                <@fileIcon attachment.resource.mimeType></@fileIcon>
+                                            </div>
+                                            <div class="block-link__body">
+                                                <span class="block-link__title" itemprop="name">${attachment.text}</span>
+                                                <@fileMetaAppendix attachment.resource.length, attachment.resource.mimeType></@fileMetaAppendix>
+                                            </div>
+
+                                        </a>
                                     </@externalstorageLink>
-                                    <span class="fileSize">[size: <span itemprop="contentSize"><@formatFileSize bytesCount=attachment.resource.length/></span>]</span>
                                 </li>
                             </#list>
                         </ul>
