@@ -12,7 +12,7 @@
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
 
-<#list document.metadata as md>
+<#list document.rawMetadata as md>
     <@hst.headContribution category="metadata">
         ${md?no_esc}
     </@hst.headContribution>
