@@ -157,11 +157,11 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /metadata:
+          /rawMetadata:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Metadata - web team only
-            field: string
+            field: rawMetadata
             hint: "This should only be used or edited by the web team.  Misuse of\
               \ this field could break the website, and could lead to disciplinary\
               \ action.\r\n\r\nEach metadata element must be in the XHTML form."
@@ -238,6 +238,14 @@ definitions:
             hipposysedit:multiple: true
             hipposysedit:ordered: true
             hipposysedit:path: website:metadata
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /rawMetadata:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:rawMetadata
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
@@ -336,6 +344,8 @@ definitions:
           jcr:primaryType: website:service
           website:gossid: 0
           website:metadata: []
+          website:rawMetadata:
+          - ''
           website:seosummary: ''
           website:shortsummary: ''
           website:title: ''

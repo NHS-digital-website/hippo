@@ -55,9 +55,9 @@ public class Service extends CommonFieldsBean {
         return getProperty("website:htmlCode");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:metadata")
-    public String[] getMetadata() {
-        return getProperty("website:metadata");
+    @HippoEssentialsGenerated(internalName = "website:rawMetadata")
+    public String[] getRawMetadata() {
+        return getProperty("website:rawMetadata");
     }
 
 }
