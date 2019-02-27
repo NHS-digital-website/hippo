@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Configuration>
 
+  <!--
+    NOTE: The log4j2 config in the distribution package is not used, and therefore
+    any updates to this file on the servers must be requested to infra through
+    a BloomReach JIRA ticket
+  -->
+
   <Appenders>
 
     <!-- hippo-cms.log -->
@@ -79,6 +85,8 @@
     <Logger name="org.apache.jackrabbit.core.query.lucene.MultiIndex" level="info"/>
     <Logger name="org.apache.jackrabbit.core.query.lucene.SearchIndex" level="info"/>
     <Logger name="org.apache.jackrabbit.core.query.lucene.ConsistencyCheck" level="info"/>
+
+    <Logger name="org.onehippo.cms7.hst.toolkit.addon.formdata.FormDataCleanupJob" level="info"/>
 
     <!-- project logging -->
     <Logger name="uk.nhs.digital.ps" level="info"/>

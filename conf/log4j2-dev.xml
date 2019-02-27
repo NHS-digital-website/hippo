@@ -160,6 +160,8 @@
             <AppenderRef ref="messages"/>
         </Logger>
 
+        <Logger name="org.onehippo.cms7.hst.toolkit.addon.formdata.FormDataCleanupJob" level="debug"/>
+
         <!-- project logging -->
         <Logger name="uk.nhs.digital" level="debug" />
         <Logger name="com.onehippo.cms7.targeting" level="warn"/>
