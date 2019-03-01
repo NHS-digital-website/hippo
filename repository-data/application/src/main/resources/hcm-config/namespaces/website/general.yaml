@@ -148,6 +148,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /pageicon:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Page icon (optional)
+            field: pageicon
+            hint: Only to be used under web team guidance
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -200,6 +209,14 @@ definitions:
             hipposysedit:path: website:metadata
             hipposysedit:primary: false
             hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /pageicon:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:pageicon
+            hipposysedit:primary: false
+            hipposysedit:type: hippogallerypicker:imagelink
             jcr:primaryType: hipposysedit:field
           /sections:
             hipposysedit:multiple: true
@@ -275,6 +292,12 @@ definitions:
             jcr:primaryType: website:friendlyurls
             website:alternativeurls: []
             website:destination: ''
+          /website:pageicon:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
           /website:summary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html

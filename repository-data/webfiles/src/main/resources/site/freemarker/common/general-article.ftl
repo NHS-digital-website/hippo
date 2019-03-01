@@ -23,6 +23,8 @@
 <#assign hasSummaryContent = document.summary.content?has_content />
 <#assign hasSectionContent = document.sections?has_content />
 <#assign hasChildPages = childPages?has_content />
+<#assign hasHtmlCode = document.htmlCode?has_content />
+<#assign hasPageIcon = document.pageIcon?has_content />
 <#assign sectionTitlesFound = countSectionTitles(document.sections) />
 <#assign renderNav = ((hasSummaryContent || hasChildPages) && sectionTitlesFound gte 1) || sectionTitlesFound gt 1 || (hasSummaryContent && hasChildPages) />
 
@@ -71,4 +73,6 @@
     </div>
 </article>
 
-${document.htmlCode?no_esc}
+<#if hasHtmlCode>
+    ${document.htmlCode?no_esc}
+</#if>
