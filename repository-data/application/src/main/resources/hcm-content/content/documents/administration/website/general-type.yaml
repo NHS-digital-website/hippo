@@ -71,6 +71,10 @@
       selection:label: Service
     /selection:listitem[18]:
       jcr:primaryType: selection:listitem
+      selection:key: style-guide
+      selection:label: Style guide
+    /selection:listitem[19]:
+      jcr:primaryType: selection:listitem
       selection:key: tool
       selection:label: Tool
     hippo:availability:

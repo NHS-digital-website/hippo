@@ -18,10 +18,12 @@
     - labels.service
     - labels.roadmap
     - labels.roadmapitem
+    - labels.glossarylist
     resourcebundle:messages:
     - Service
     - Roadmap
     - Roadmap Item
+    - Glossary list
   /labels[2]:
     hippo:availability: []
     hippostd:state: draft
@@ -39,10 +41,12 @@
     - labels.service
     - labels.roadmap
     - labels.roadmapitem
+    - labels.glossarylist
     resourcebundle:messages:
     - Service
     - Roadmap
     - Roadmap Item
+    - Glossary list
   /labels[3]:
     hippo:availability:
     - live
@@ -62,10 +66,12 @@
     - labels.service
     - labels.roadmap
     - labels.roadmapitem
+    - labels.glossarylist
     resourcebundle:messages:
     - Service
     - Roadmap
     - Roadmap Item
+    - Glossary list
   hippo:name: Labels
   jcr:mixinTypes:
   - hippo:named

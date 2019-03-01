@@ -380,6 +380,15 @@ public class SearchComponent extends CommonComponent {
     }
 
     /**
+     * Adding the GlossaryList document type
+     */
+    private void addGlossaryList(HstQueryBuilder query) {
+        query.ofTypes(
+            GlossaryList.class
+        );
+    }
+
+    /**
      * Adding all the document types supported by the SearchComponent
      */
     private void addAllTypes(HstQueryBuilder query) {
@@ -392,6 +401,7 @@ public class SearchComponent extends CommonComponent {
         addPublishedWorkTypes(query);
         addRoadmapTypes(query);
         addComponentList(query);
+        addGlossaryList(query);
     }
 
 }

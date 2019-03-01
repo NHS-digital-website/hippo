@@ -1,0 +1,5 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:frontend/settings:
+      send.usage.statistics.to.hippo: false

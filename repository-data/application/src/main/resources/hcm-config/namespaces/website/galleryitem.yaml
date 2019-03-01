@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/website/emphasisBox:
+    /hippo:namespaces/website/galleryitem:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -33,88 +33,63 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
             wicket.id: ${cluster.id}.right
-          /emphasisType:
+          /title:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Warning,Important,Emphasis,Note
-            caption: Type
-            field: emphasisType
-            hint: ''
+            caption: Title
+            field: title
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.css:
-            - emphasis-type
-            wicket.id: ${cluster.id}.right.item
-          /heading:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Heading
-            field: heading
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.css:
-            - heading
-            wicket.id: ${cluster.id}.left.item
-          /body:
-            /cluster.options:
-              ckeditor.config.appended.json: '{toolbarGroups: [{ name: ''document''}],
-                extraPlugins: ''balloonpanel,a11ychecker'', allowedContent: ''h2 h3
-                h4 em strong ul div thead tbody td tr th caption ol li sub sup img
-                a[*](*);p{text-align};table[class,id,dir]{*};iframe[id,class,style,title,height,name,src,width,allowfullscreen,sandbox,srcdoc]{*}'',
-                disallowedContent: ''iframe[frameborder]'', mathJaxLib: ''https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML''}}'
-              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:
-                ''wordcount,mathjax''}'
-              jcr:primaryType: frontend:pluginconfig
-            caption: Body
-            field: body
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.css:
-            - body
             wicket.id: ${cluster.id}.left.item
           /image:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Icon image
+            caption: Image
             field: image
-            hint: SVG format only
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.css:
-            - image
             wicket.id: ${cluster.id}.right.item
+          /imagewarning:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '20'
+            caption: Image warning
+            field: imagewarning
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+          /description:
+            /cluster.options:
+              ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',  items:
+                [''Link'',''PickInternalLink'',''Source''] }] }'
+              jcr:primaryType: frontend:pluginconfig
+            caption: Description
+            field: description
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /relatedfiles:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Related files
+            compoundList: website:assetlink
+            contentPickerType: links
+            field: relatedfiles
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.left.item
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /body:
+          /description:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:body
+            hipposysedit:path: website:description
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
-            hipposysedit:validators:
-            - required
-            jcr:primaryType: hipposysedit:field
-          /emphasisType:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:emphasisType
-            hipposysedit:primary: false
-            hipposysedit:type: StaticDropdown
-            hipposysedit:validators:
-            - non-empty
-            - required
-            jcr:primaryType: hipposysedit:field
-          /heading:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:heading
-            hipposysedit:primary: false
-            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           /image:
             hipposysedit:mandatory: false
@@ -123,6 +98,33 @@ definitions:
             hipposysedit:path: website:image
             hipposysedit:primary: false
             hipposysedit:type: hippogallerypicker:imagelink
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /imagewarning:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:imagewarning
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /relatedfiles:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: website:relatedfiles
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
+            jcr:primaryType: hipposysedit:field
+          /title:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:title
+            hipposysedit:primary: false
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
@@ -138,7 +140,7 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          /website:body:
+          /website:description:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
           /website:image:
@@ -147,9 +149,9 @@ definitions:
             hippo:modes: []
             hippo:values: []
             jcr:primaryType: hippogallerypicker:imagelink
-          jcr:primaryType: website:emphasisBox
-          website:emphasisType: Emphasis
-          website:heading: ''
+          jcr:primaryType: website:galleryitem
+          website:imagewarning: ''
+          website:title: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable

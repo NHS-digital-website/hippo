@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/website/externallink:
+    /hippo:namespaces/website/gallerysection:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -19,68 +19,78 @@ definitions:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-          /title:
+          /heading:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Title
-            field: title
+            caption: Heading
+            field: heading
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /shortsummary:
+          /headinglevel:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Summary
-            field: shortsummary
-            hint: ''
+              selectable.options: Main heading,Sub heading
+            caption: Heading level
+            field: headinglevel
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /link:
+          /description:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: External Link
-            field: link
+            caption: Description
+            field: description
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /galleryitems:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Gallery Items
+            compoundList: website:galleryitem
+            contentPickerType: links
+            field: galleryitems
             hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /link:
+          /description:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:link
+            hipposysedit:path: website:description
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
+          /galleryitems:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: website:galleryitems
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
+            jcr:primaryType: hipposysedit:field
+          /heading:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:heading
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators:
-            - non-empty
-            - required
-            - valid-url
             jcr:primaryType: hipposysedit:field
-          /shortsummary:
+          /headinglevel:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:shortsummary
+            hipposysedit:path: website:headinglevel
             hipposysedit:primary: false
-            hipposysedit:type: Text
-            hipposysedit:validators:
-            - non-empty
-            - required
-            jcr:primaryType: hipposysedit:field
-          /title:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:title
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators:
-            - non-empty
-            - required
+            hipposysedit:type: StaticDropdown
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
@@ -96,10 +106,24 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          jcr:primaryType: website:externallink
-          website:link: ''
-          website:shortsummary: ''
-          website:title: ''
+          /website:description:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:galleryitems:
+            /website:description:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:image:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+              jcr:primaryType: hippogallerypicker:imagelink
+            jcr:primaryType: website:galleryitem
+            website:imagewarning: ''
+            website:title: ''
+          jcr:primaryType: website:gallerysection
+          website:heading: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable

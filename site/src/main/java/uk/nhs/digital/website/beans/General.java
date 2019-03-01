@@ -2,6 +2,7 @@ package uk.nhs.digital.website.beans;
 
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
@@ -43,6 +44,11 @@ public class General extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:metadata")
     public String[] getMetadata() {
         return getProperty("website:metadata");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:pageicon")
+    public HippoGalleryImageSet getPageIcon()  {
+        return getLinkedBean("website:pageicon", HippoGalleryImageSet.class);
     }
 
 }

@@ -19,6 +19,7 @@ definitions:
           - website:generalnonsearch
           - website:roadmap
           - website:roadmapitem
+          - website:glossarylist
           hst:componentconfigurationmappingvalues:
           - hst:pages/service
           - hst:pages/general
@@ -33,6 +34,7 @@ definitions:
           - hst:pages/general
           - hst:pages/roadmap
           - hst:pages/roadmapitem
+          - hst:pages/glossarylist
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404
@@ -50,6 +52,7 @@ definitions:
         - website:generalnonsearch
         - website:roadmap
         - website:roadmapitem
+        - website:glossarylist
         hst:componentconfigurationmappingvalues:
         - hst:pages/service
         - hst:pages/general
@@ -64,6 +67,7 @@ definitions:
         - hst:pages/general
         - hst:pages/roadmap
         - hst:pages/roadmapitem
+        - hst:pages/glossarylist
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:

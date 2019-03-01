@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/website/publishedworkchapter:
+    /hippo:namespaces/website/glossarylist:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -22,8 +22,10 @@ definitions:
           /title:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              maxlength: '120'
             caption: Title
             field: title
+            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
@@ -58,18 +60,26 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /sections:
+          /indexpage:
+            /cluster.options:
+              falseLabel: 'No'
+              jcr:primaryType: frontend:pluginconfig
+              trueLabel: 'Yes'
+            caption: Index this page as a reference glossary
+            field: indexpage
+            hint: Select 'yes' if this is a list of defined glossary terms which people
+              might look up
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /glossaryitems:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Sections
-            compoundList: website:section,publicationsystem:chartSection,publicationsystem:mapSection,website:emphasisBox,website:iconlist,website:gallerysection
-            contentPickerType: links
-            field: sections
-            hint: ''
+            caption: Glossary Items
+            field: glossaryitems
             jcr:primaryType: frontend:plugin
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-            wicket.skin: skin/content-blocks.css
           /classifiable:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -79,34 +89,24 @@ definitions:
             mixin: hippotaxonomy:classifiable
             plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
             wicket.id: ${cluster.id}.field
-          /friendlyurls:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Friendly URLs
-            field: friendlyurls
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /friendlyurls:
+          /glossaryitems:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: website:glossaryitems
+            hipposysedit:primary: false
+            hipposysedit:type: website:glossaryitem
+            jcr:primaryType: hipposysedit:field
+          /indexpage:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:friendlyurls
+            hipposysedit:path: website:indexpage
             hipposysedit:primary: false
-            hipposysedit:type: website:friendlyurls
-            jcr:primaryType: hipposysedit:field
-          /sections:
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:sections
-            hipposysedit:primary: false
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators:
-            - contentblocks-validator
+            hipposysedit:type: selection:BooleanRadioGroup
             jcr:primaryType: hipposysedit:field
           /seosummary:
             hipposysedit:mandatory: false
@@ -151,22 +151,18 @@ definitions:
           - hippotaxonomy:classifiable
           hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
           jcr:mixinTypes:
-          - mix:referenceable
           - hipposysedit:remodel
+          - mix:referenceable
           jcr:primaryType: hipposysedit:nodetype
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          /website:friendlyurls:
-            jcr:primaryType: website:friendlyurls
-            website:alternativeurls: []
-            website:destination: ''
           /website:summary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
-          common:searchRank: 5
+          common:searchRank: 3
           common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft
@@ -178,7 +174,8 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes:
           - mix:referenceable
-          jcr:primaryType: website:publishedworkchapter
+          jcr:primaryType: website:glossarylist
+          website:indexpage: false
           website:seosummary: ''
           website:shortsummary: ''
           website:title: ''

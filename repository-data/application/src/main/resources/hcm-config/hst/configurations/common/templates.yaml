@@ -68,6 +68,9 @@ definitions:
       /general-article:
         hst:renderpath: webfile:/freemarker/common/general-article.ftl
         jcr:primaryType: hst:template
+      /glossary-list:
+        hst:renderpath: webfile:/freemarker/common/glossary-list.ftl
+        jcr:primaryType: hst:template
       /homeland:
         hst:renderpath: webfile:/freemarker/common/homeland.ftl
         jcr:primaryType: hst:template

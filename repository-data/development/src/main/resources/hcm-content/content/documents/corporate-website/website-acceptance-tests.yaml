@@ -304,7 +304,13 @@
         website:link: https://www.bbc.co.uk
         website:shortsummary: some summary text
         website:title: General external link
-      /website:sections:
+      /website:pageicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:sections[1]:
         /website:html:
           hippostd:content: <p>General Section One lorem content</p>
           jcr:primaryType: hippostd:html
@@ -312,6 +318,22 @@
         website:numberedList: false
         website:title: Section One
         website:type: ''
+      /website:sections[2]:
+        /website:body:
+          hippostd:content: |-
+            <h3>Some important note in&nbsp;the content</h3>
+
+            <p>add some content here.</p>
+          jcr:primaryType: hippostd:html
+        /website:image:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        jcr:primaryType: website:emphasisBox
+        website:emphasisType: Emphasis
+        website:heading: Important note heading
       /website:summary:
         hippostd:content: |-
           <p>General Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -326,7 +348,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-10-26T08:47:16.366Z
-      hippostdpubwf:lastModificationDate: 2018-10-26T10:47:05.260Z
+      hippostdpubwf:lastModificationDate: 2019-03-12T12:09:53.465Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 6684c917-2061-438a-949a-ac0ffe6b10a1
       hippotranslation:locale: en
@@ -352,7 +374,13 @@
         website:link: https://www.bbc.co.uk
         website:shortsummary: some summary text
         website:title: General external link
-      /website:sections:
+      /website:pageicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:sections[1]:
         /website:html:
           hippostd:content: <p>General Section One lorem content</p>
           jcr:primaryType: hippostd:html
@@ -360,6 +388,22 @@
         website:numberedList: false
         website:title: Section One
         website:type: ''
+      /website:sections[2]:
+        /website:body:
+          hippostd:content: |-
+            <h3>Some important note in&nbsp;the content</h3>
+
+            <p>add some content here.</p>
+          jcr:primaryType: hippostd:html
+        /website:image:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        jcr:primaryType: website:emphasisBox
+        website:emphasisType: Emphasis
+        website:heading: Important note heading
       /website:summary:
         hippostd:content: |-
           <p>General Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -375,7 +419,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-10-26T08:47:16.366Z
-      hippostdpubwf:lastModificationDate: 2018-10-26T10:47:10.488Z
+      hippostdpubwf:lastModificationDate: 2019-03-12T12:07:58.549Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 6684c917-2061-438a-949a-ac0ffe6b10a1
       hippotranslation:locale: en
@@ -402,7 +446,13 @@
         website:link: https://www.bbc.co.uk
         website:shortsummary: some summary text
         website:title: General external link
-      /website:sections:
+      /website:pageicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:sections[1]:
         /website:html:
           hippostd:content: <p>General Section One lorem content</p>
           jcr:primaryType: hippostd:html
@@ -410,6 +460,22 @@
         website:numberedList: false
         website:title: Section One
         website:type: ''
+      /website:sections[2]:
+        /website:body:
+          hippostd:content: |-
+            <h3>Some important note in&nbsp;the content</h3>
+
+            <p>add some content here.</p>
+          jcr:primaryType: hippostd:html
+        /website:image:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        jcr:primaryType: website:emphasisBox
+        website:emphasisType: Emphasis
+        website:heading: Important note heading
       /website:summary:
         hippostd:content: |-
           <p>General Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -425,9 +491,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-10-26T08:47:16.366Z
-      hippostdpubwf:lastModificationDate: 2018-10-26T10:47:10.488Z
+      hippostdpubwf:lastModificationDate: 2019-03-12T12:07:58.549Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-10-26T10:47:13.005Z
+      hippostdpubwf:publicationDate: 2019-03-12T12:08:03.548Z
       hippotranslation:id: 6684c917-2061-438a-949a-ac0ffe6b10a1
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -440,8 +506,10 @@
       website:title: General AcceptanceTestDocument
       website:type: guidance
     hippo:name: General test document
+    hippo:versionHistory: cbe60b6b-5d01-4fc0-94ff-dbc5d7b1121a
     jcr:mixinTypes:
     - hippo:named
+    - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
   /hub-test-document:
