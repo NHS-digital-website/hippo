@@ -40,6 +40,7 @@ public class SitePage extends AbstractSitePage {
         pagesElements.add(new DatasetPageElements());
         pagesElements.add(new IndicatorPageElements());
         pagesElements.add(new GeneralPageElements());
+        pagesElements.add(new ContentBlockElements());
         pagesElements.add(new ServicePageElements());
         pagesElements.add(new HubPageElements());
         pagesElements.add(new PublishedWorkPageElements());

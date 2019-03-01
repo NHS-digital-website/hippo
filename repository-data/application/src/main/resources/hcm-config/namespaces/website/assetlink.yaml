@@ -36,6 +36,7 @@ definitions:
               last.visited.nodetypes: []
               nodetypes:
               - hippogallery:exampleAssetSet
+              - hippogallery:imageset
             caption: Asset Link
             field: link
             hint: ''

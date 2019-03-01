@@ -3,14 +3,14 @@
 <#macro websiteSection section isPreviousSectionEmphasisBox numberedListCount>
     <#if section.title?has_content>
         <div id="${slugify(section.title)}" class="article-section <#if isPreviousSectionEmphasisBox>article-section--highlighted</#if>">
-            <h2><#if section.isNumberedList>${numberedListCount}. </#if>${section.title}</h2>
-            <div class="rich-text-content">
+            <h2 data-uipath="website.contentblock.section.title"><#if section.isNumberedList>${numberedListCount}. </#if>${section.title}</h2>
+            <div data-uipath="website.contentblock.section.content" class="rich-text-content">
                 <@hst.html hippohtml=section.html contentRewriter=gaContentRewriter/>
             </div>
         </div>
     <#else>
         <div class="article-section">
-            <div class="rich-text-content">
+            <div data-uipath="website.contentblock.section.content" class="rich-text-content">
                 <@hst.html hippohtml=section.html contentRewriter=gaContentRewriter/>
             </div>
         </div>

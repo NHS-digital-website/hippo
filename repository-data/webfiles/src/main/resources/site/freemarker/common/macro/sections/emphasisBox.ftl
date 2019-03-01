@@ -18,10 +18,10 @@
     </#if>
     <div class="emphasis-box emphasis-box-${slugify(section.emphasisType)}"${ariaAttribute}>
         <#if section.heading?has_content>
-            <h3 id="${slugify(slug)}">${section.heading}</h3>
+            <h3 data-uipath="website.contentblock.emphasis.heading" id="${slugify(slug)}">${section.heading}</h3>
         </#if>
         <#if section.body.content?has_content>
-            <div><@hst.html hippohtml=section.body contentRewriter=gaContentRewriter /></div>
+            <div data-uipath="website.contentblock.emphasis.content"><@hst.html hippohtml=section.body contentRewriter=gaContentRewriter /></div>
         </#if>
     </div>
 

@@ -34,7 +34,16 @@
 [website:externallink] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:externallinkbase] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:friendlyurls] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:galleryitem] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:gallerysection] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:gdprsummary] > hippostd:relaxed, hippotranslation:translated, website:basedocument
@@ -49,7 +58,19 @@
 [website:generalnonsearch] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:glossaryitem] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:glossarylist] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:hub] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:iconlist] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:iconlistitem] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:internallink] > hippo:compound, hippostd:relaxed

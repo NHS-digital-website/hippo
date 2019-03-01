@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/website/externallink:
+    /hippo:namespaces/website/externallinkbase:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -19,23 +19,6 @@ definitions:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-          /title:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Title
-            field: title
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /shortsummary:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Summary
-            field: shortsummary
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
           /link:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -60,28 +43,6 @@ definitions:
             - required
             - valid-url
             jcr:primaryType: hipposysedit:field
-          /shortsummary:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:shortsummary
-            hipposysedit:primary: false
-            hipposysedit:type: Text
-            hipposysedit:validators:
-            - non-empty
-            - required
-            jcr:primaryType: hipposysedit:field
-          /title:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:title
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators:
-            - non-empty
-            - required
-            jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
           - hippo:compound
@@ -96,10 +57,8 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          jcr:primaryType: website:externallink
+          jcr:primaryType: website:externallinkbase
           website:link: ''
-          website:shortsummary: ''
-          website:title: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable

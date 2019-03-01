@@ -68,6 +68,11 @@ definitions:
           jcr:name: Text
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:assetlink:
+        /en:
+          jcr:name: Related file
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:bannerdocument:
         /en:
           jcr:name: Banner
@@ -88,6 +93,21 @@ definitions:
           jcr:name: Emphasis Box
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:externallinkbase:
+        /en:
+          jcr:name: External link
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:galleryitem:
+        /en:
+          jcr:name: Gallery Item
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:gallerysection:
+        /en:
+          jcr:name: Gallery Section
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:general:
         /en:
           jcr:name: General
@@ -98,9 +118,29 @@ definitions:
           jcr:name: General non searchable
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:glossaryitem:
+        /en:
+          jcr:name: Glossary item
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:glossarylist:
+        /en:
+          jcr:name: Glossary list
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:hub:
         /en:
           jcr:name: Hub
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:iconlist:
+        /en:
+          jcr:name: Icon list
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:iconlistitem:
+        /en:
+          jcr:name: Icon list item
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:publishedwork:
