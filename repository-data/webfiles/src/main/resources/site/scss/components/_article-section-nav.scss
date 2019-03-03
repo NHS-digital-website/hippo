@@ -1,16 +1,12 @@
 @import "../units/list";
 
 /* Sticky nav */
-#sticky-nav li.active {
-  border-left: 5px solid #ffb81c;
-  border-left-width: 7px;
+#sticky-nav a.active {
+  border-left: 7px solid #ffb81c;
   padding-left: 10px;
-}
-
-#sticky-nav li.active a {
-    color: #425563;
-    text-decoration:none;
-    font-weight: bold;
+  color: #425563;
+  text-decoration:none;
+  font-weight: bold;
 }
 
 /* Article section nav */
@@ -72,14 +68,17 @@
 
         li {
             padding-left: 0;
-            margin-top: 10px;
 
             &:first-child {
-                margin-top: 0;
+                a {
+                    margin-top: 0;
+                }
             }
         }
 
         a {
+            margin-top: 10px;
+            display: inline-block;
             text-decoration: underline;
         }
 
