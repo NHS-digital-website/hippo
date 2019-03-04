@@ -1,3 +1,5 @@
+<#ftl output_format="HTML">
+
 <script src="https://cdn.jsdelivr.net/npm/sticky-sidebar@3.3.1/dist/sticky-sidebar.min.js"></script>
 <script src="https://cdn.rawgit.com/makotot/scrollspy/master/build/scrollspy.js"></script>
 
