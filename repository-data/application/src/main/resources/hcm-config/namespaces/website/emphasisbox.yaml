@@ -16,9 +16,23 @@ definitions:
           - wicket.id
           - validator.id
           /root:
-            item: ${cluster.id}.field
+            extension.left: ${cluster.id}.left
+            extension.right: ${cluster.id}.right
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.layout.TwoColumn
+            wicket.extensions:
+            - extension.left
+            - extension.right
+          /left:
+            item: ${cluster.id}.left.item
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+            wicket.id: ${cluster.id}.left
+          /right:
+            item: ${cluster.id}.right.item
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+            wicket.id: ${cluster.id}.right
           /emphasisType:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -28,7 +42,9 @@ definitions:
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
+            wicket.css:
+            - emphasis-type
+            wicket.id: ${cluster.id}.right.item
           /heading:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -36,7 +52,9 @@ definitions:
             field: heading
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
+            wicket.css:
+            - heading
+            wicket.id: ${cluster.id}.left.item
           /body:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -45,7 +63,20 @@ definitions:
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
+            wicket.css:
+            - body
+            wicket.id: ${cluster.id}.left.item
+          /image:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Icon image
+            field: image
+            hint: SVG format only
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.css:
+            - image
+            wicket.id: ${cluster.id}.right.item
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -78,6 +109,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
+          /image:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:image
+            hipposysedit:primary: false
+            hipposysedit:type: hippogallerypicker:imagelink
+            jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
           - hippo:compound
@@ -95,6 +134,12 @@ definitions:
           /website:body:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
           jcr:primaryType: website:emphasisBox
           website:emphasisType: Emphasis
           website:heading: ''
