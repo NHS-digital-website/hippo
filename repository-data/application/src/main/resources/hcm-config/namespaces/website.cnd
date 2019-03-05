@@ -52,6 +52,12 @@
 [website:hub] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:iconlist] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:iconlistitem] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:internallink] > hippo:compound, hippostd:relaxed
   orderable
 

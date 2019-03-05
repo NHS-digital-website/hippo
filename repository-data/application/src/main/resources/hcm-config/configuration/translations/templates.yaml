@@ -128,3 +128,13 @@ definitions:
           jcr:name: Service
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:iconlistitem:
+        /en:
+          jcr:name: Icon list item
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:iconlist:
+        /en:
+          jcr:name: Icon list
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
