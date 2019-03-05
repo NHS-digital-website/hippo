@@ -6,6 +6,7 @@
 <#include "chartSection.ftl">
 <#include "related-linkSection.ftl">
 <#include "emphasisBox.ftl">
+<#include "iconList.ftl">
 
 <!-- This is a load of global setup for the highcharts config -->
 <#include "highChartsSetup.ftl">
@@ -41,7 +42,7 @@
             <#assign isPreviousEmphasisBox = true />
             <@emphasisBox section=section />
         <#elseif section.sectionType == 'iconList'>
-            <@iconlist section=section />
+            <@iconList section=section />
 
         </#if>
     </#list>
