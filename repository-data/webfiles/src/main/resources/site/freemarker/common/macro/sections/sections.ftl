@@ -40,6 +40,9 @@
             <#-- set flag to alter styling (no top line between emphasis boxes) -->
             <#assign isPreviousEmphasisBox = true />
             <@emphasisBox section=section />
+        <#elseif section.sectionType == 'iconList'>
+            <@iconlist section=section />
+
         </#if>
     </#list>
 </#macro>
