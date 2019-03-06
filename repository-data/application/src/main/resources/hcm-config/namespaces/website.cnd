@@ -37,6 +37,12 @@
 [website:friendlyurls] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:galleryimage] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:gallerysection] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:gdprsummary] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 

@@ -6,6 +6,7 @@
 <#include "chartSection.ftl">
 <#include "related-linkSection.ftl">
 <#include "emphasisBox.ftl">
+<#include "gallerySection.ftl">
 
 <!-- This is a load of global setup for the highcharts config -->
 <#include "highChartsSetup.ftl">
@@ -40,6 +41,8 @@
             <#-- set flag to alter styling (no top line between emphasis boxes) -->
             <#assign isPreviousEmphasisBox = true />
             <@emphasisBox section=section />
+        <#elseif section.sectionType == 'gallerySection'>
+            <@gallerySection section=section/>
         </#if>
     </#list>
 </#macro>

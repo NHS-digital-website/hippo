@@ -88,6 +88,16 @@ definitions:
           jcr:name: Emphasis Box
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:galleryimage:
+        /en:
+          jcr:name: Gallery image
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:gallerysection:
+        /en:
+          jcr:name: Gallery section
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:general:
         /en:
           jcr:name: General
