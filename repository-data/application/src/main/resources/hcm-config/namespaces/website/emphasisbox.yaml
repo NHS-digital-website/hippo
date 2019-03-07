@@ -39,6 +39,13 @@ definitions:
             wicket.id: ${cluster.id}.field
           /body:
             /cluster.options:
+              ckeditor.config.appended.json: '{toolbarGroups: [{ name: ''document''}],
+                extraPlugins: ''balloonpanel,a11ychecker'', allowedContent: ''h2 h3
+                h4 em strong ul div thead tbody td tr th caption ol li sub sup img
+                a[*](*);p{text-align};table[class,id,dir]{*};iframe[id,class,style,title,height,name,src,width,allowfullscreen,sandbox,srcdoc]{*}'',
+                disallowedContent: ''iframe[frameborder]'', mathJaxLib: ''https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML''}}'
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:
+                ''wordcount,mathjax''}'
               jcr:primaryType: frontend:pluginconfig
             caption: Body
             field: body
