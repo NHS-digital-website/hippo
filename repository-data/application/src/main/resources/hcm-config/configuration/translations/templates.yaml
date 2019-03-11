@@ -168,3 +168,23 @@ definitions:
           jcr:name: Service
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:visualassetlink:
+        /en:
+          jcr:name: Asset icon link
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:visualexternallink:
+        /en:
+          jcr:name: External icon link
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:visualhub:
+        /en:
+          jcr:name: Visual hub
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:visualinternallink:
+        /en:
+          jcr:name: Internal icon link
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles

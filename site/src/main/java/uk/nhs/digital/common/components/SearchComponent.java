@@ -335,11 +335,12 @@ public class SearchComponent extends CommonComponent {
     }
 
     /**
-     * Adding the Hub document type
+     * Adding the Hub and Visual Hub document type
      */
     private void addHubTypes(HstQueryBuilder query) {
         query.ofTypes(
-            Hub.class
+            Hub.class,
+            VisualHub.class
         );
     }
 

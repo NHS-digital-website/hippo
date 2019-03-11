@@ -255,6 +255,10 @@ public class TestContentUrls {
         // GDPR Transparency page
         addSiteUrl("GDPR Transparency test document",
             "/website-acceptance-tests/gdpr-transparency-test-document");
+
+        // Visual Hub page
+        addSiteUrl("Visual Hub test document",
+            "/website-acceptance-tests/visual-hub-test-document");
     }
 
     private void setupCmsUrls() {
