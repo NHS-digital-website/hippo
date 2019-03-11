@@ -2394,6 +2394,174 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
+  /visual-hub-test-document:
+    /visual-hub-test-document[1]:
+      /website:additionalinformation:
+        hippostd:content: |-
+          <p>Additional info for visual&nbsp;hub text to be added here.</p>
+
+          <h3>Some other paragarph in h3</h3>
+        jcr:primaryType: hippostd:html
+      /website:icon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:links:
+        /website:icon:
+          hippo:docbase: 2b83ba60-f25b-47a7-9148-c2a98a98f837
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        jcr:primaryType: website:visualexternallink
+        website:link: https://www.somexternalsite.co.uk
+        website:shortsummary: summary info for external link
+        website:title: Some external link title
+      /website:summary:
+        hippostd:content: |-
+          <p>Visual Hub Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2019-03-11T15:35:12.077Z
+      hippostdpubwf:lastModificationDate: 2019-03-11T15:42:15.330Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 4f631826-b876-4b40-bab6-c8dfbdf64e70
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:visualhub
+      website:seosummary: Some useful summary for the visualhub for purpose of SEO
+      website:shortsummary: Browse our VisualHub page
+      website:title: VisualHub AcceptanceTestDocument
+    /visual-hub-test-document[2]:
+      /website:additionalinformation:
+        hippostd:content: |-
+          <p>Additional info for visual&nbsp;hub text to be added here.</p>
+
+          <h3>Some other paragarph in h3</h3>
+        jcr:primaryType: hippostd:html
+      /website:icon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:links:
+        /website:icon:
+          hippo:docbase: 2b83ba60-f25b-47a7-9148-c2a98a98f837
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        jcr:primaryType: website:visualexternallink
+        website:link: https://www.somexternalsite.co.uk
+        website:shortsummary: summary info for external link
+        website:title: Some external link title
+      /website:summary:
+        hippostd:content: |-
+          <p>Visual Hub Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2019-03-11T15:35:12.077Z
+      hippostdpubwf:lastModificationDate: 2019-03-11T15:43:12.481Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 4f631826-b876-4b40-bab6-c8dfbdf64e70
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:visualhub
+      website:seosummary: Some useful summary for the visualhub for purpose of SEO
+      website:shortsummary: Browse our VisualHub page
+      website:title: VisualHub AcceptanceTestDocument
+    /visual-hub-test-document[3]:
+      /website:additionalinformation:
+        hippostd:content: |-
+          <p>Additional info for visual&nbsp;hub text to be added here.</p>
+
+          <h3>Some other paragarph in h3</h3>
+        jcr:primaryType: hippostd:html
+      /website:icon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:image:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:links:
+        /website:icon:
+          hippo:docbase: 2b83ba60-f25b-47a7-9148-c2a98a98f837
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        jcr:primaryType: website:visualexternallink
+        website:link: https://www.somexternalsite.co.uk
+        website:shortsummary: summary info for external link
+        website:title: Some external link title
+      /website:summary:
+        hippostd:content: |-
+          <p>Visual Hub Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2019-03-11T15:35:12.077Z
+      hippostdpubwf:lastModificationDate: 2019-03-11T15:43:12.481Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2019-03-11T15:43:14.520Z
+      hippotranslation:id: 4f631826-b876-4b40-bab6-c8dfbdf64e70
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:visualhub
+      website:seosummary: Some useful summary for the visualhub for purpose of SEO
+      website:shortsummary: Browse our VisualHub page
+      website:title: VisualHub AcceptanceTestDocument
+    hippo:name: Visual Hub test document
+    hippo:versionHistory: 08bc7e81-5d7c-4120-ba9b-8d3370e9c08f
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
   hippo:name: Website Acceptance Tests
   hippostd:foldertype:
   - new-digital-website-folder

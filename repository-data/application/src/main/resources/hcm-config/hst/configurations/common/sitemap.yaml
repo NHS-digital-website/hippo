@@ -20,6 +20,7 @@ definitions:
           - website:roadmap
           - website:roadmapitem
           - website:glossarylist
+          - website:visualhub
           hst:componentconfigurationmappingvalues:
           - hst:pages/service
           - hst:pages/general
@@ -35,6 +36,7 @@ definitions:
           - hst:pages/roadmap
           - hst:pages/roadmapitem
           - hst:pages/glossarylist
+          - hst:pages/visualhub
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404
@@ -53,6 +55,7 @@ definitions:
         - website:roadmap
         - website:roadmapitem
         - website:glossarylist
+        - website:visualhub
         hst:componentconfigurationmappingvalues:
         - hst:pages/service
         - hst:pages/general
@@ -68,6 +71,7 @@ definitions:
         - hst:pages/roadmap
         - hst:pages/roadmapitem
         - hst:pages/glossarylist
+        - hst:pages/visualhub
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:

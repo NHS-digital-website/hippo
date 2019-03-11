@@ -19,7 +19,8 @@
             <#elseif document.class.name == "uk.nhs.digital.website.beans.Service">
                 <@service item=document />
             <#elseif document.class.name == "uk.nhs.digital.website.beans.General" ||
-                     document.class.name == "uk.nhs.digital.website.beans.Hub">
+                     document.class.name == "uk.nhs.digital.website.beans.Hub" ||
+                     document.class.name == "uk.nhs.digital.website.beans.VisualHub">
                 <@general item=document />
             <#elseif document.class.name == "uk.nhs.digital.website.beans.Event">
                 <@event item=document />

@@ -103,3 +103,15 @@
 [website:standards] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:visualassetlink] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:visualexternallink] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:visualhub] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:visualinternallink] > hippo:compound, hippostd:relaxed
+  orderable
+
