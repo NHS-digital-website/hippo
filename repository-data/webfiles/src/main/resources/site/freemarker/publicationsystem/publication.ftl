@@ -86,7 +86,7 @@
                             <#if hasNewKeyfacts>
 
                                 <#-- New version of key facts head section -->
-                                ${publication.keyFactsHead.content}
+                                <@hst.html hippohtml=publication.keyFactsHead contentRewriter=gaContentRewriter/>
 
                                 <#-- see ${publication.keyFactInfographics} - its a loop of Infographic.java -->
 
@@ -103,7 +103,7 @@
 
                                 <#-- New version of key facts tail section -->
                                 <#-- see ${publication.keyFactsTail}  -->
-                                ${publication.keyFactsTail.content}
+                                <@hst.html hippohtml=publication.keyFactsTail contentRewriter=gaContentRewriter/>
 
                             <#elseif hasOldKeyfacts>
 
