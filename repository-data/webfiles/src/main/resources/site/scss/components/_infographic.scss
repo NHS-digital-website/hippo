@@ -4,39 +4,29 @@
     background-color: $white;
     margin-bottom: $default-spacing-unit;
 
+    display: -ms-flex;
+    display: flex;
+    -ms-flex-pack: center;
+    align-items: center;
+
     * {
         margin: 0;
     }
 
-    &__body {
-        display: -ms-flex;
-        display: flex;
-        -ms-flex-pack: center;
-        align-items: center;
-    }
-
-    &__img {
+    &__icon {
         display: none;
         width: 100px;
+
         @media (min-width: $min-tablet-width) {
             display: block;
+            margin-right: 1rem;
         }
     }
-
-    @media (min-width: $min-tablet-width) {
-        &__footer {
-            margin-left: 100px;
-        }
-    }
-
-    //&__heading {
-    //
-    //}
 
     &__title {
         font-weight: bold;
         margin: 0;
-        font-size: $h1-font-size;
+        font-size: $h2-font-size;
         line-height: 1;
         margin-bottom: $default-spacing-unit;
 
@@ -48,8 +38,17 @@
         }
     }
 
-    svg {
-        fill: currentColor;
+    &__explanatory {
+        margin-bottom: $default-spacing-unit;
+        p {
+            font-size: $h4-font-size;
+            font-weight: bold;
+        }
+    }
+
+    svg, path {
+        fill: currentColor !important;
+        color: inherit !important;
     }
 
     &--light-blue,
@@ -61,8 +60,9 @@
     &---blue{
         background-color: $nhs-blue;
         color: $white;
-        svg {
-            fill: $yellow;
+
+        svg, path {
+            fill: $yellow !important;
         }
     }
 
