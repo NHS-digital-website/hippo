@@ -13,8 +13,8 @@
         </div>
         <div class="infographic__body">
             <h4 class="infographic__title">${headline}</h4>
-            <div class="infographic__footer">${explanatory}</div>
-            <div class="infographic__explanatory">${qualifying}</div>
+            <div class="infographic__explanatory">${explanatory}</div>
+            <div class="infographic__footer">${qualifying}</div>
         </div>
     </div>
 </#macro>
