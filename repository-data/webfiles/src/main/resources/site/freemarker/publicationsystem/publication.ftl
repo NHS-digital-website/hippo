@@ -41,7 +41,9 @@
 <@fmt.message key="headers.resources" var="resourcesHeader" />
 
 <#assign hasOldKeyfacts = publication.keyFacts.elements?has_content || keyFactImageSections?has_content />
-<#assign hasNewKeyfacts = publication.keyFactsHead?? || publication.keyFactsTail?? || publication.keyFactInfographics??  />
+<#assign hasNewKeyfacts = (publication.keyFactsHead?? && publication.keyFactsHead?has_content)
+                            || (publication.keyFactsTail?? && publication.keyFactsTail?has_content)
+                            || (publication.keyFactInfographics?? && publication.keyFactInfographics?has_content)  />
 
 <#function getSectionNavLinks index>
     <#assign links = [] />
