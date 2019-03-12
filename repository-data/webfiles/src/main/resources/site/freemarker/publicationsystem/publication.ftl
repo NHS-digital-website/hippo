@@ -94,7 +94,7 @@
                                     <@hst.link hippobean=graphic.icon var="imagePath" />
                                     <@infoGraphic
                                         color="${graphic.colour}"
-                                        image="${imagePath}"
+                                        image="${imagePath!''}"
                                         imageAlt="Image for infographic ${graphic.headline}"
                                         headline="${graphic.headline}"
                                         explanatory="${graphic.explanatoryLine.content?no_esc}"
