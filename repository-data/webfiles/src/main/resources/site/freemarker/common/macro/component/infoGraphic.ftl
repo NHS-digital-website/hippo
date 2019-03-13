@@ -5,7 +5,7 @@
     <div class="infographic infographic--${slugify(color)}">
         <#if image != "">
             <div class="infographic__icon">
-                <img src="${image}" alt="${imageAlt}" width="100" height="100" class="infographic__img" />
+                <img src="${image}" alt="${imageAlt}" width="100" height="100" class="svg infographic__img" />
             </div>
         </#if>
         <div class="infographic__body">

@@ -8,7 +8,7 @@
 
     // init plugin
     inlineSVG.init({
-        svgSelector: '.infographic__img',
+        svgSelector: 'img.svg',
         initClass: 'js-inlinesvg'
     });
 </script>
