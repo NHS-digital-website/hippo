@@ -21,7 +21,7 @@
     <div class="emphasis-box emphasis-box-${slugify(section.emphasisType)}"${ariaAttribute}>
         <!-- if section.image !== '' -->
             <div class="emphasis-box__image">
-                <img src="http://simpleicon.com/wp-content/uploads/map-7.svg" class="svg" />
+                <img src="http://simpleicon.com/wp-content/uploads/map-7.svg" alt="" class="svg" />
             </div>
         <!-- #/if -->
 
