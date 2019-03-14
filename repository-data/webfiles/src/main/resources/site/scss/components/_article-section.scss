@@ -28,6 +28,10 @@
         }
     }
 
+    dt {
+        margin-top: 0;
+    }
+
     h3:not(:first-of-type) {
         margin-top: $gutter * 2;
     }
