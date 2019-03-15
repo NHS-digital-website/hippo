@@ -17,9 +17,9 @@ public class IconList extends HippoCompound {
         return getProperty("website:title");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:iconlist")
-    public List<HippoBean> getIconList() {
-        return getChildBeansByName("website:iconlist");
+    @HippoEssentialsGenerated(internalName = "website:iconlistitems")
+    public List<HippoBean> getIconListItems() {
+        return getChildBeansByName("website:iconlistitems");
     }
 
     public String getSectionType() {

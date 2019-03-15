@@ -81,9 +81,6 @@ definitions:
             hipposysedit:path: website:heading
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators:
-            - non-empty
-            - required
             jcr:primaryType: hipposysedit:field
           /image:
             hipposysedit:mandatory: false
