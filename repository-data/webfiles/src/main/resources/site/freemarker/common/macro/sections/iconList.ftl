@@ -1,26 +1,29 @@
 <#ftl output_format="HTML">
 
 <#macro iconList section>
-
-<#-- TODO
-    CREATE FRONTEND DISPLAY.
-    SYNTAX FOR ACCESSING THE OBJECT PROPERTIES BELOW
--->
-
-
     <#if section.title?has_content>
         <h3>${section.title}</h3>
     </#if>
 
-    <#list section.iconList as iconListItem>
-        HEADING : ${iconListItem.heading}
+    <dl class="iconList">
+        <#list section.iconListItems as iconListItem>
 
-        DESCRIPTION : <div><@hst.html hippohtml=iconListItem.description contentRewriter=gaContentRewriter /></div>
+            <!-- iconListItem -->
+            <div class="iconList__item">
+                <div class="iconList__icon">
+                    <@hst.link hippobean=iconListItem.image.original fullyQualified=true var="iconImage" />
+                    <img aria-hidden="true" src="${iconImage}" alt="" />
+                </div>
 
-        ICON:   <@hst.link hippobean=iconListItem.image.original fullyQualified=true var="iconImage" />
-                <img src="${iconImage}" />
+                <div class="iconList__content">
+                    <dt class="iconList__title" data-uipath="website.contentblock.iconlist.heading">${iconListItem.heading}</dt>
 
-    </#list>
+                    <dd class="iconList__body" data-uipath="website.contentblock.iconlist.description">
+                        <@hst.html hippohtml=iconListItem.description contentRewriter=gaContentRewriter />
+                    </dd>
+                </div>
+            </div>
 
-
+        </#list>
+    </dl>
 </#macro>

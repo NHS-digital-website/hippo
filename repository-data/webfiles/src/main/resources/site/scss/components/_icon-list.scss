@@ -1,0 +1,22 @@
+.iconList {
+    &__item {
+        display: flex;
+
+        &:not(:last-child) {
+            margin-bottom: $baseline-grid-unit * 6;
+        }
+    }
+
+    &__icon {
+        margin-right: 1.5rem;
+        width: 100px;
+        flex: none;
+    }
+
+    &__title {
+        font-size: $h5-font-size;
+        font-weight: 600;
+        line-height: 1;
+        margin-bottom: 0.75rem;
+    }
+}

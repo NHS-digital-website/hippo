@@ -42,13 +42,11 @@
             <#-- set flag to alter styling (no top line between emphasis boxes) -->
             <#assign isPreviousEmphasisBox = true />
             <@emphasisBox section=section />
-
-        <#-- TODO: enable once frontend tickets complete
         <#elseif section.sectionType == 'iconList'>
             <@iconList section=section />
         <#elseif section.sectionType == 'gallerySection'>
             <@gallerySection section=section/>
-        -->
+
         </#if>
     </#list>
 </#macro>
