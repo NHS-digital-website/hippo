@@ -4,7 +4,8 @@
 
 <#include "../include/imports.ftl">
 <#include "macro/metaTags.ftl">
-<#include "marco/stickyGroupBlockHeader.ftl">
+<#include "macro/stickyGroupBlockHeader.ftl">
+<#include "macro/alphabeticalFilterNav.ftl">
 <#include "macro/component/lastModified.ftl">
 
 <#-- Add meta tags -->
@@ -13,7 +14,6 @@
 <@hst.setBundle basename="rb.generic.headers,publicationsystem.headers"/>
 
 <#assign hasSummaryContent = document.summary.content?has_content />
-<#assign lettersOfTheAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]/>
 
 <article class="article article--general">
     <div class="grid-wrapper grid-wrapper--article">
@@ -35,7 +35,7 @@
             </div>
         </div>
         
-        <#assign alphabetical_hash = group_blocks(flat_blocks(document.glossaryItems true))/>
+        <#assign alphabetical_hash = group_blocks(document.glossaryItems)/>
 
         <div class="grid-row">
             <div class="column column--one-third page-block page-block--sidebar">
@@ -48,27 +48,26 @@
                 <div class="article-section">
                     <dl>
                         <#list lettersOfTheAlphabet as letter>
-                            <@stickyGroupBlockHeader letter></@stickyGroupBlockHeader>
 
                             <#list document.glossaryItems as glossaryitem>
-                                <#if glossaryitem.heading?substring(0, 1) == letter>
-                                    <#assign hasBlocks = glossaryitem.blocks?? && glossaryitem.blocks?size!=0 />
+                                <#if glossaryitem.title?substring(0, 1) == letter>
+                                    <div class="article-section article-section--letter-group no-border" id="${slugify(letter)}">
+                                        <@stickyGroupBlockHeader letter></@stickyGroupBlockHeader>
+                                        <dt>
+                                            <#if glossaryitem.link??>
+                                                <#if glossaryitem.link.linkType == "external">
+                                                    <a href="${glossaryitem.link.link}">${glossaryitem.title}</a>
 
-                                    <#if hasBlocks>
-                                        <#list glossaryitem.blocks as block>
-                                            <dt>
-                                                <#if block.linkType == "external">
-                                                    <a href="${block.link}">${glossaryitem.heading}</a>
-                                                <#elseif block.linkType == "internal">
-                                                    <a href="<@hst.link hippobean=block.link />">${glossaryitem.heading}</a>
+                                                <#elseif glossaryitem.link.linkType == "internal">
+                                                    <a href="<@hst.link hippobean=glossaryitem.link.link />">${glossaryitem.title}</a>
                                                 </#if>
-                                            </dt>
-                                        </#list>
-                                    <#else>
-                                        <dt>${glossaryitem.heading}</a></dt>
-                                    </#if>
+                                            <#else>
+                                                ${glossaryitem.title}
+                                            </#if>
+                                        </dt>
 
-                                    <dd><@hst.html hippohtml=glossaryitem.definition contentRewriter=gaContentRewriter/></dd>
+                                        <dd><@hst.html hippohtml=glossaryitem.definition contentRewriter=gaContentRewriter/></dd>
+                                    </div>
                                 </#if>
                             </#list>
                         </#list>
