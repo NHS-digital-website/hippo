@@ -30,7 +30,8 @@ definitions:
           /definition:
             /cluster.options:
               ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
-                items: [''Link'',''PickInternalLink'',''Source''] }] }'
+                items: [''Link'',''PickInternalLink'',''BulletedList'',''NumberedList'',''Table'',''SpecialChar'',''PickImage'',''Source'']
+                }] }'
               ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount''}'
               jcr:primaryType: frontend:pluginconfig
             caption: Definition
