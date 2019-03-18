@@ -1,24 +1,26 @@
 <#ftl output_format="HTML">
 
 <#macro emphasisBox section>
-    <#assign slug = "emphasis-" + section.emphasisType + "-" + section?keep_after('@') />
+    <#assign slug = 'emphasis-' + section.emphasisType + '-' + section?keep_after('@') />
 
     <#if section.heading?has_content>
-        <#assign ariaAttribute = " aria-labelledby=" + slugify(slug) />
+        <#assign ariaAttribute = 'aria-labelledby' />
+        <#assign ariaValue = slugify(slug) />
     <#else>
-        <#assign ariaAttribute = " aria-label=" + section.heading + "" />
+        <#assign ariaAttribute = 'aria-label' />
+        <#assign ariaValue = section.heading />
         <#if section.emphasisType == 'Warning'>
-            <#assign ariaAttribute = ' aria-label=Warning' />
+            <#assign ariaValue = 'Warning' />
         <#elseif section.emphasisType == 'Important'>
-            <#assign ariaAttribute = ' aria-label=Important information' />
+            <#assign ariaValue = 'Important Information' />
         <#elseif section.emphasisType == 'Emphasis'>
-            <#assign ariaAttribute = ' aria-label=Highlighted information' />
+            <#assign ariaValue = 'Highlighted Information' />
         <#elseif section.emphasisType == 'Note'>
-            <#assign ariaAttribute = ' aria-label=Information' />
+            <#assign ariaValue = 'Information' />
         </#if>
     </#if>
 
-    <div class="emphasis-box emphasis-box-${slugify(section.emphasisType)}"${ariaAttribute}>
+    <div class="emphasis-box emphasis-box-${slugify(section.emphasisType)}" ${ariaAttribute}="${ariaValue}">
         <#if section.image??>
             <div class="emphasis-box__image">
                 <img src="<@hst.link hippobean=section.image />" alt="" class="svg" />
