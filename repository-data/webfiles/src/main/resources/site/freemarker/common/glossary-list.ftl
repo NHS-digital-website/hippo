@@ -37,7 +37,7 @@
         
         <#assign alphabetical_hash = group_blocks(document.glossaryItems)/>
 
-        <div class="grid-row">
+        <div class="grid-row article-section--padded">
             <div class="column column--one-third page-block page-block--sidebar">
                 <div id="sticky-nav">
                     <@alphabeticalFilterNav alphabetical_hash></@alphabeticalFilterNav>
@@ -54,16 +54,17 @@
                                     <div class="article-section article-section--letter-group no-border" id="${slugify(letter)}">
                                         <@stickyGroupBlockHeader letter></@stickyGroupBlockHeader>
                                         <dt>
-                                            <#if glossaryitem.link??>
-                                                <#if glossaryitem.link.linkType == "external">
-                                                    <a href="${glossaryitem.link.link}">${glossaryitem.title}</a>
-
-                                                <#elseif glossaryitem.link.linkType == "internal">
-                                                    <a href="<@hst.link hippobean=glossaryitem.link.link />">${glossaryitem.title}</a>
+                                             <h4>
+                                                <#if glossaryitem.link??>
+                                                    <#if glossaryitem.link.linkType == "external">
+                                                        <a href="${glossaryitem.link.link}">${glossaryitem.title}</a>
+                                                    <#elseif glossaryitem.link.linkType == "internal">
+                                                        <a href="<@hst.link hippobean=glossaryitem.link.link />">${glossaryitem.title}</a>
+                                                    </#if>
+                                                <#else>
+                                                    ${glossaryitem.title}
                                                 </#if>
-                                            <#else>
-                                                ${glossaryitem.title}
-                                            </#if>
+                                            </h4>
                                         </dt>
 
                                         <dd><@hst.html hippohtml=glossaryitem.definition contentRewriter=gaContentRewriter/></dd>
