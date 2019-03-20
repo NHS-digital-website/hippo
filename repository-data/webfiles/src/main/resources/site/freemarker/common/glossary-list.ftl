@@ -53,8 +53,11 @@
                                 <#if glossaryitem.title?substring(0, 1) == letter>
                                     <div class="article-section article-section--letter-group no-border" id="${slugify(letter)}">
                                         <@stickyGroupBlockHeader letter></@stickyGroupBlockHeader>
+
+                                        <#assign glossaryitemID = glossaryitem.title?lower_case?replace(' ', '-') />
+
                                         <dt>
-                                             <h4>
+                                             <h4 id="${glossaryitemID}">
                                                 <#if glossaryitem.link??>
                                                     <#if glossaryitem.link.linkType == "external">
                                                         <a href="${glossaryitem.link.link}">${glossaryitem.title}</a>
