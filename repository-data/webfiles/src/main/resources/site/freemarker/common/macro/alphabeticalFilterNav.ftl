@@ -9,7 +9,7 @@
     <div class="article-section-nav">
         <h2 class="article-section-nav__title">Refine results</h2>
         <nav>
-            <ol class="article-section-nav__menu article-section-nav__menu--push">
+            <ol title="Alphabetical navigation" class="article-section-nav__menu article-section-nav__menu--push">
             <#list lettersOfTheAlphabet as letter>
                 <#if blockGroups[letter]??>
                     <li>

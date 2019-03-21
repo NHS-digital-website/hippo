@@ -16,9 +16,23 @@ definitions:
           - wicket.id
           - validator.id
           /root:
-            item: ${cluster.id}.field
+            extension.left: ${cluster.id}.left
+            extension.right: ${cluster.id}.right
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.layout.TwoColumn
+            wicket.extensions:
+            - extension.left
+            - extension.right
+          /left:
+            item: ${cluster.id}.left.item
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+            wicket.id: ${cluster.id}.left
+          /right:
+            item: ${cluster.id}.right.item
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+            wicket.id: ${cluster.id}.right
           /heading:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -26,7 +40,7 @@ definitions:
             field: heading
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
+            wicket.id: ${cluster.id}.left.item
           /definition:
             /cluster.options:
               ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
@@ -39,18 +53,25 @@ definitions:
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /items:
+            wicket.id: ${cluster.id}.left.item
+          /internal:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Link
-            compoundList: website:externallinkbase,website:internallink
-            contentPickerType: links
-            field: items
-            hint: ''
+            caption: Internal Link
+            field: internal
+            hint: Please note that, if the internal link has been specified, it takes
+              precedence over the external link field
             jcr:primaryType: frontend:plugin
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+          /external:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: External link
+            field: external
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -62,6 +83,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
+          /external:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:external
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           /heading:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -70,13 +99,13 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
-          /items:
+          /internal:
+            hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:items
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators:
-            - contentblocks-validator
+            hipposysedit:path: website:internal
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
@@ -95,7 +124,11 @@ definitions:
           /website:definition:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
+          /website:internal:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
           jcr:primaryType: website:glossaryitem
+          website:external: ''
           website:heading: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:

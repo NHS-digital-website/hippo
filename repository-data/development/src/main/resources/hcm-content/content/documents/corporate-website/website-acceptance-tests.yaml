@@ -512,6 +512,159 @@
     - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
+  /glossary-test-document:
+    /glossary-test-document[1]:
+      /website:glossaryitems[1]:
+        /website:definition:
+          hippostd:content: <p>A banana is an edible fruit – botanically a berry –
+            produced by several kinds of large herbaceous flowering plants in the
+            genus Musa.&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:glossaryitem
+        website:external: https://en.wikipedia.org/wiki/Banana
+        website:heading: Bananas
+      /website:glossaryitems[2]:
+        /website:definition:
+          hippostd:content: <p>Mangoes are juicy stone fruit (drupe) from numerous
+            species of tropical trees belonging to the flowering plant genus Mangifera</p>
+          jcr:primaryType: hippostd:html
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:glossaryitem
+        website:external: ''
+        website:heading: Mango
+      /website:summary:
+        hippostd:content: |-
+          <p>Glossary Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2019-03-21T14:00:19.037Z
+      hippostdpubwf:lastModificationDate: 2019-03-21T14:01:56.050Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 7aac7c35-d9a0-4632-8f6d-abba2151857b
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:glossarylist
+      website:indexpage: false
+      website:seosummary: Some useful glossary for the service for purpose of SEO
+      website:shortsummary: Browse our gallery page
+      website:title: Glossary AcceptanceTestDocument
+    /glossary-test-document[2]:
+      /website:glossaryitems[1]:
+        /website:definition:
+          hippostd:content: <p>A banana is an edible fruit – botanically a berry –
+            produced by several kinds of large herbaceous flowering plants in the
+            genus Musa.&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:glossaryitem
+        website:external: https://en.wikipedia.org/wiki/Banana
+        website:heading: Bananas
+      /website:glossaryitems[2]:
+        /website:definition:
+          hippostd:content: <p>Mangoes are juicy stone fruit (drupe) from numerous
+            species of tropical trees belonging to the flowering plant genus Mangifera</p>
+          jcr:primaryType: hippostd:html
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:glossaryitem
+        website:external: ''
+        website:heading: Mango
+      /website:summary:
+        hippostd:content: |-
+          <p>Glossary Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2019-03-21T14:00:19.037Z
+      hippostdpubwf:lastModificationDate: 2019-03-21T14:04:41.429Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 7aac7c35-d9a0-4632-8f6d-abba2151857b
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:glossarylist
+      website:indexpage: false
+      website:seosummary: Some useful glossary for the service for purpose of SEO
+      website:shortsummary: Browse our gallery page
+      website:title: Glossary AcceptanceTestDocument
+    /glossary-test-document[3]:
+      /website:glossaryitems[1]:
+        /website:definition:
+          hippostd:content: <p>A banana is an edible fruit – botanically a berry –
+            produced by several kinds of large herbaceous flowering plants in the
+            genus Musa.&nbsp;</p>
+          jcr:primaryType: hippostd:html
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:glossaryitem
+        website:external: https://en.wikipedia.org/wiki/Banana
+        website:heading: Bananas
+      /website:glossaryitems[2]:
+        /website:definition:
+          hippostd:content: <p>Mangoes are juicy stone fruit (drupe) from numerous
+            species of tropical trees belonging to the flowering plant genus Mangifera</p>
+          jcr:primaryType: hippostd:html
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:glossaryitem
+        website:external: ''
+        website:heading: Mango
+      /website:summary:
+        hippostd:content: |-
+          <p>Glossary Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <p>New paragraph here.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2019-03-21T14:00:19.037Z
+      hippostdpubwf:lastModificationDate: 2019-03-21T14:04:41.429Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2019-03-21T14:04:44.086Z
+      hippotranslation:id: 7aac7c35-d9a0-4632-8f6d-abba2151857b
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:glossarylist
+      website:indexpage: false
+      website:seosummary: Some useful glossary for the service for purpose of SEO
+      website:shortsummary: Browse our gallery page
+      website:title: Glossary AcceptanceTestDocument
+    hippo:name: Glossary test document
+    hippo:versionHistory: a036e4d3-48a5-450b-a9a9-49b4792b4378
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
   /hub-test-document:
     /hub-test-document[1]:
       /website:body:

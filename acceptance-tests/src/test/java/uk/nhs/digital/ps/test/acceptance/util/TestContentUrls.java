@@ -259,6 +259,10 @@ public class TestContentUrls {
         // Visual Hub page
         addSiteUrl("Visual Hub test document",
             "/website-acceptance-tests/visual-hub-test-document");
+
+        // Glossary page
+        addSiteUrl("Glossary test document",
+            "/website-acceptance-tests/glossary-test-document");
     }
 
     private void setupCmsUrls() {
