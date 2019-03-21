@@ -27,7 +27,7 @@
                     <div id="${slugify('Summary')}" class="article-section article-section--summary article-section--reset-top">
                         <h2><@fmt.message key="headers.summary" /></h2>
 
-                        <div data-uipath="website.general.summary" class="article-section--summary">
+                        <div data-uipath="website.glossary.summary" class="article-section--summary">
                             <@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/>
                         </div>
                     </div>
@@ -46,11 +46,12 @@
 
             <div class="column column--two-thirds page-block page-block--main">
                 <div class="article-section">
-                    <dl>
+                    <dl data-uipath="website.glossary.list">
                         <#list lettersOfTheAlphabet as letter>
 
                             <#list document.glossaryItems as glossaryitem>
-                                <#if glossaryitem.title?substring(0, 1) == letter>
+
+                                <#if glossaryitem.title?substring(0, 1)?cap_first == letter>
                                     <div class="article-section article-section--letter-group no-border" id="${slugify(letter)}">
                                         <@stickyGroupBlockHeader letter></@stickyGroupBlockHeader>
 
@@ -58,12 +59,13 @@
 
                                         <dt>
                                              <h4 id="${glossaryitemID}">
-                                                <#if glossaryitem.link??>
-                                                    <#if glossaryitem.link.linkType == "external">
-                                                        <a href="${glossaryitem.link.link}">${glossaryitem.title}</a>
-                                                    <#elseif glossaryitem.link.linkType == "internal">
-                                                        <a href="<@hst.link hippobean=glossaryitem.link.link />">${glossaryitem.title}</a>
-                                                    </#if>
+                                                <#if glossaryitem.internal?has_content || glossaryitem.external?has_content>
+                                                    <#if glossaryitem.internal?has_content>
+                                                        <@hst.link var="link" hippobean=glossaryitem.internal/>
+                                                    <#else>
+                                                         <#assign link=glossaryitem.external/>
+                                                     </#if>
+                                                     <a href="${link}">${glossaryitem.title}</a>
                                                 <#else>
                                                     ${glossaryitem.title}
                                                 </#if>

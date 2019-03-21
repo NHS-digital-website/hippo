@@ -20,9 +20,14 @@ public class GlossaryItem extends HippoCompound {
         return getHippoHtml("website:definition");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:items")
-    public HippoBean getLink() {
-        return getBean("website:items", HippoBean.class);
+    @HippoEssentialsGenerated(internalName = "website:external")
+    public String getExternal() {
+        return getProperty("website:external");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:internal")
+    public HippoBean getInternal() {
+        return getLinkedBean("website:internal", HippoBean.class);
     }
 
 }
