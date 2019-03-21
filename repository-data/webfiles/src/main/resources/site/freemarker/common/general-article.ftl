@@ -12,11 +12,13 @@
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
 
-<#list document.metadata as md>
-    <@hst.headContribution category="metadata">
-        ${md?no_esc}
-    </@hst.headContribution>
-</#list>
+<#if document.metadata?has_content>
+    <#list document.metadata as md>
+        <@hst.headContribution category="metadata">
+            ${md?no_esc}
+        </@hst.headContribution>
+    </#list>
+</#if>
 
 <@hst.setBundle basename="rb.generic.headers,publicationsystem.headers"/>
 
