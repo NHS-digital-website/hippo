@@ -326,7 +326,7 @@
             <p>add some content here.</p>
           jcr:primaryType: hippostd:html
         /website:image:
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:docbase: 2c59bf9c-6fd6-49c3-b3a3-2ef052e2a37f
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
@@ -334,6 +334,56 @@
         jcr:primaryType: website:emphasisBox
         website:emphasisType: Emphasis
         website:heading: Important note heading
+      /website:sections[3]:
+        /website:iconlistitems:
+          /website:description:
+            hippostd:content: <p>A green arrow 1 description here</p>
+            jcr:primaryType: hippostd:html
+          /website:image:
+            hippo:docbase: 2c59bf9c-6fd6-49c3-b3a3-2ef052e2a37f
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          jcr:primaryType: website:iconlistitem
+          website:heading: Green arrow take 1
+        jcr:primaryType: website:iconlist
+        website:title: My Icon List
+      /website:sections[4]:
+        /website:description:
+          hippostd:content: <p>Some description lorem ipsum</p>
+          jcr:primaryType: hippostd:html
+        /website:galleryitems[1]:
+          /website:description:
+            hippostd:content: <p>Description for the gallery item 1.&nbsp; This item
+              has image warning text.</p>
+            jcr:primaryType: hippostd:html
+          /website:image:
+            hippo:docbase: 2c59bf9c-6fd6-49c3-b3a3-2ef052e2a37f
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          jcr:primaryType: website:galleryitem
+          website:imagewarning: some warning text...
+          website:title: Test Gallery item 1
+        /website:galleryitems[2]:
+          /website:description:
+            hippostd:content: <p>Description for the gallery item 2.&nbsp;&nbsp; This
+              item has NO image warning text.</p>
+            jcr:primaryType: hippostd:html
+          /website:image:
+            hippo:docbase: 2c59bf9c-6fd6-49c3-b3a3-2ef052e2a37f
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          jcr:primaryType: website:galleryitem
+          website:imagewarning: ''
+          website:title: Test Gallery item 1
+        jcr:primaryType: website:gallerysection
+        website:heading: Test Gallery Section heading
+        website:headinglevel: Main heading
       /website:summary:
         hippostd:content: |-
           <p>General Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -348,7 +398,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-10-26T08:47:16.366Z
-      hippostdpubwf:lastModificationDate: 2019-03-12T12:09:53.465Z
+      hippostdpubwf:lastModificationDate: 2019-03-22T13:15:20.061Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 6684c917-2061-438a-949a-ac0ffe6b10a1
       hippotranslation:locale: en
@@ -396,7 +446,7 @@
             <p>add some content here.</p>
           jcr:primaryType: hippostd:html
         /website:image:
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:docbase: 2c59bf9c-6fd6-49c3-b3a3-2ef052e2a37f
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
@@ -404,6 +454,56 @@
         jcr:primaryType: website:emphasisBox
         website:emphasisType: Emphasis
         website:heading: Important note heading
+      /website:sections[3]:
+        /website:iconlistitems:
+          /website:description:
+            hippostd:content: <p>A green arrow 1 description here</p>
+            jcr:primaryType: hippostd:html
+          /website:image:
+            hippo:docbase: 2c59bf9c-6fd6-49c3-b3a3-2ef052e2a37f
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          jcr:primaryType: website:iconlistitem
+          website:heading: Green arrow take 1
+        jcr:primaryType: website:iconlist
+        website:title: My Icon List
+      /website:sections[4]:
+        /website:description:
+          hippostd:content: <p>Some description lorem ipsum</p>
+          jcr:primaryType: hippostd:html
+        /website:galleryitems[1]:
+          /website:description:
+            hippostd:content: <p>Description for the gallery item 1.&nbsp; This item
+              has image warning text.</p>
+            jcr:primaryType: hippostd:html
+          /website:image:
+            hippo:docbase: 2c59bf9c-6fd6-49c3-b3a3-2ef052e2a37f
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          jcr:primaryType: website:galleryitem
+          website:imagewarning: some warning text...
+          website:title: Test Gallery item 1
+        /website:galleryitems[2]:
+          /website:description:
+            hippostd:content: <p>Description for the gallery item 2.&nbsp;&nbsp; This
+              item has NO image warning text.</p>
+            jcr:primaryType: hippostd:html
+          /website:image:
+            hippo:docbase: 2c59bf9c-6fd6-49c3-b3a3-2ef052e2a37f
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          jcr:primaryType: website:galleryitem
+          website:imagewarning: ''
+          website:title: Test Gallery item 1
+        jcr:primaryType: website:gallerysection
+        website:heading: Test Gallery Section heading
+        website:headinglevel: Main heading
       /website:summary:
         hippostd:content: |-
           <p>General Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -419,13 +519,12 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-10-26T08:47:16.366Z
-      hippostdpubwf:lastModificationDate: 2019-03-12T12:07:58.549Z
+      hippostdpubwf:lastModificationDate: 2019-03-22T13:15:47.017Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 6684c917-2061-438a-949a-ac0ffe6b10a1
       hippotranslation:locale: en
       jcr:mixinTypes:
       - hippotaxonomy:classifiable
-      - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:general
       website:gossid: 0
@@ -468,7 +567,7 @@
             <p>add some content here.</p>
           jcr:primaryType: hippostd:html
         /website:image:
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:docbase: 2c59bf9c-6fd6-49c3-b3a3-2ef052e2a37f
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
@@ -476,6 +575,56 @@
         jcr:primaryType: website:emphasisBox
         website:emphasisType: Emphasis
         website:heading: Important note heading
+      /website:sections[3]:
+        /website:iconlistitems:
+          /website:description:
+            hippostd:content: <p>A green arrow 1 description here</p>
+            jcr:primaryType: hippostd:html
+          /website:image:
+            hippo:docbase: 2c59bf9c-6fd6-49c3-b3a3-2ef052e2a37f
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          jcr:primaryType: website:iconlistitem
+          website:heading: Green arrow take 1
+        jcr:primaryType: website:iconlist
+        website:title: My Icon List
+      /website:sections[4]:
+        /website:description:
+          hippostd:content: <p>Some description lorem ipsum</p>
+          jcr:primaryType: hippostd:html
+        /website:galleryitems[1]:
+          /website:description:
+            hippostd:content: <p>Description for the gallery item 1.&nbsp; This item
+              has image warning text.</p>
+            jcr:primaryType: hippostd:html
+          /website:image:
+            hippo:docbase: 2c59bf9c-6fd6-49c3-b3a3-2ef052e2a37f
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          jcr:primaryType: website:galleryitem
+          website:imagewarning: some warning text...
+          website:title: Test Gallery item 1
+        /website:galleryitems[2]:
+          /website:description:
+            hippostd:content: <p>Description for the gallery item 2.&nbsp;&nbsp; This
+              item has NO image warning text.</p>
+            jcr:primaryType: hippostd:html
+          /website:image:
+            hippo:docbase: 2c59bf9c-6fd6-49c3-b3a3-2ef052e2a37f
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          jcr:primaryType: website:galleryitem
+          website:imagewarning: ''
+          website:title: Test Gallery item 1
+        jcr:primaryType: website:gallerysection
+        website:heading: Test Gallery Section heading
+        website:headinglevel: Main heading
       /website:summary:
         hippostd:content: |-
           <p>General Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -491,9 +640,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-10-26T08:47:16.366Z
-      hippostdpubwf:lastModificationDate: 2019-03-12T12:07:58.549Z
+      hippostdpubwf:lastModificationDate: 2019-03-22T13:15:47.017Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2019-03-12T12:08:03.548Z
+      hippostdpubwf:publicationDate: 2019-03-22T13:15:51.355Z
       hippotranslation:id: 6684c917-2061-438a-949a-ac0ffe6b10a1
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -506,7 +655,7 @@
       website:title: General AcceptanceTestDocument
       website:type: guidance
     hippo:name: General test document
-    hippo:versionHistory: cbe60b6b-5d01-4fc0-94ff-dbc5d7b1121a
+    hippo:versionHistory: a1ccd26d-b6e1-47a4-9b53-885025fff88c
     jcr:mixinTypes:
     - hippo:named
     - hippo:versionInfo

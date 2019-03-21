@@ -1,0 +1,46 @@
+.galleryItems {
+    // compensate for Bootstrap grid oversights
+    width: calc(100% + #{$gutter});
+    margin-left: -#{$gutter / 2};
+
+    &:not(:first-child) {
+        margin-top: $gutter;
+    }
+
+    &__card {
+        position: relative;
+        border: 2px solid $grey-5;
+        margin-bottom:10px;
+    }
+
+    &__warning {
+        position: absolute;
+        font-size: 0.9em;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        background: $grey-5;
+        padding: 0.1em 0.6em;
+    }
+
+    &__heading {
+        margin-bottom: 0.75rem;
+        margin-top:50px;
+    }
+
+    &__description {
+        padding: 1em;
+        font-size: 0.9em;
+        background: $grey-5;
+
+        p, ul, ol, dl, blockquote, table {
+            font-size: inherit;
+        }
+    }
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
