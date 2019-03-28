@@ -15,6 +15,13 @@
 
 <#assign hasSummaryContent = document.summary.content?has_content />
 
+<#assign alphabeticalGroupHash = {} />
+<#list document.glossaryItems as glossaryitem>
+    <#assign key = glossaryitem.title?substring(0, 1)?cap_first>
+    <#assign alphabeticalGroupHash = alphabeticalGroupHash + {  key : (alphabeticalGroupHash[key]![]) + [ glossaryitem ] } />
+</#list>
+
+
 <article class="article article--general">
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
@@ -46,38 +53,38 @@
 
             <div class="column column--two-thirds page-block page-block--main">
                 <div class="article-section">
-                    <dl data-uipath="website.glossary.list">
+                    <div data-uipath="website.glossary.list">
                         <#list lettersOfTheAlphabet as letter>
+                            <#if alphabeticalGroupHash[letter]??>
+                                <div class="article-section article-section--letter-group no-border" id="${slugify(letter)}">
+                                    <@stickyGroupBlockHeader letter></@stickyGroupBlockHeader>
+                                    <dl>
+                                        <#list alphabeticalGroupHash[letter] as glossaryitem>
 
-                            <#list document.glossaryItems as glossaryitem>
-
-                                <#if glossaryitem.title?substring(0, 1)?cap_first == letter>
-                                    <div class="article-section article-section--letter-group no-border" id="${slugify(letter)}">
-                                        <@stickyGroupBlockHeader letter></@stickyGroupBlockHeader>
-
-                                        <#assign glossaryitemID = glossaryitem.title?lower_case?replace(' ', '-') />
-
-                                        <dt>
-                                             <h4 id="${glossaryitemID}">
-                                                <#if glossaryitem.internal?has_content || glossaryitem.external?has_content>
-                                                    <#if glossaryitem.internal?has_content>
-                                                        <@hst.link var="link" hippobean=glossaryitem.internal/>
+                                            <dt>
+                                                <#assign glossaryitemID = glossaryitem.title?lower_case?replace(' ', '-') />
+                                                <div class="strong" id="${glossaryitemID}">
+                                                    <#if glossaryitem.internal?has_content || glossaryitem.external?has_content>
+                                                        <#if glossaryitem.internal?has_content>
+                                                            <@hst.link var="link" hippobean=glossaryitem.internal/>
+                                                        <#else>
+                                                            <#assign link=glossaryitem.external/>
+                                                        </#if>
+                                                        <a href="${link}">${glossaryitem.title}</a>
                                                     <#else>
-                                                         <#assign link=glossaryitem.external/>
-                                                     </#if>
-                                                     <a href="${link}">${glossaryitem.title}</a>
-                                                <#else>
-                                                    ${glossaryitem.title}
-                                                </#if>
-                                            </h4>
-                                        </dt>
-
-                                        <dd><@hst.html hippohtml=glossaryitem.definition contentRewriter=gaContentRewriter/></dd>
-                                    </div>
-                                </#if>
-                            </#list>
+                                                        ${glossaryitem.title}
+                                                    </#if>
+                                                </div>
+                                            </dt>
+                                            <dd class="bottom-margin-40">
+                                                <@hst.html hippohtml=glossaryitem.definition contentRewriter=gaContentRewriter/>
+                                            </dd>
+                                        </#list>
+                                    </dl>
+                                </div>
+                            </#if>
                         </#list>
-                    </dl>
+                    </div>
                 </div>
 
                 <div class="article-section muted">
