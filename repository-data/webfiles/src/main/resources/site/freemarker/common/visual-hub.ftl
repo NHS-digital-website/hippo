@@ -5,6 +5,9 @@
 <#include "../include/imports.ftl">
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
+<#include "macro/visualhubBox.ftl">
+<#include "macro/component/inlineSVG-v2.ftl">
+
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -16,50 +19,83 @@
 <#assign hasAdditionalInformation = document.additionalInformation.content?has_content />
 <#assign hasLinks = document.links?? && document.links?size gt 0 />
 
-<#-- TODO: implement frontend
-
-    ${document.title}
-    <@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/>
-    ${document.shortsummary}
-    ${document.seosummary}
-    other fields...
-
--->
-
-<article class="article article--general">
-    <div class="grid-wrapper grid-wrapper--article">
-
-        <div class="grid-row">
-            <div class="column column--reset">
-                <div class="local-header article-header">
-                    <h1 class="local-header__title" data-uipath="document.title">${document.title}</h1>
+<article class="article">
+    <#if hasBannerImage>
+        <@hst.link hippobean=document.image.original fullyQualified=true var="bannerImage" />
+        <div class="banner-image" aria-label="Document Header" style="background-image: url(${bannerImage});">
+            <div class="grid-wrapper">
+                <div class="grid-row">
+                    <div class="column column--reset banner-image-title">
+                        <div class="banner-image-title-background">
+                            <h1 data-uipath="document.title">${document.title}</h1>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="grid-row">
-            <div class="column column--two-thirds page-block page-block--main">
-
-                <#-- [FTL-BEGIN] 'Summary' section -->
-                <#if hasSummaryContent>
-                    <div id="${slugify('Summary')}" class="article-section article-section--summary article-section--reset-top">
-                        <h2><@fmt.message key="headers.summary" /></h2>
-                        <div data-uipath="website.hub.summary" class="article-section--summary"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></div>
+        <div class="grid-wrapper banner-image-summary">
+            <div class="article-header__inner">
+                <div class="grid-row">
+                    <div class="column column--reset column--81-25" data-uipath="website.hub.summary">
+                        <@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/>
                     </div>
-                </#if>
-                <#-- [FTL-END] 'Summary' section -->
+                </div>
+            </div>
+        </div>
+    <#else>
+        <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
+            <div class="local-header article-header article-header--with-icon">
+                <div class="grid-wrapper">
+                    <div class="article-header__inner">
+                        <div class="grid-row">
+                            <div class="column--two-thirds column--reset">
+                                <h1 class="local-header__title" data-uipath="document.title">${document.title}</h1>
+                                <span class="article-header__subtitle" data-uipath="website.hub.summary">
+                                    <@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/>
+                                </span>
+                            </div>
+                            <#if hasTopicIcon>
+                            <div class="column--one-third column--reset small-none">
+                                <@hst.link hippobean=document.icon.original fullyQualified=true var="iconImage" />
+                                <@svg iconImage "fill:none;stroke:#ffcd60;" document.title "" />
+                            </div>
+                            </#if>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </#if>
 
+    <#if hasLinks>
+        <div class="grid-wrapper">
+            <div class="grid-row visual-hub-grid-row">
+                <div class="column column--reset">
+                    <#list document.links as link>
+                        <#if link?is_odd_item || link?is_first>
+                            <div class="visual-hub-group">
+                        </#if>
+                        <@visualhubBox link />
+                        <#if link?is_even_item || link?is_last>
+                            </div>
+                        </#if>
+                    </#list>
+                </div>
+            </div>
+        </div>
+    </#if>
 
-                <#-- [FTL-BEGIN] 'Visual links' section -->
-                <#if hasLinks>
+    <div class="grid-wrapper grid-wrapper--article">
+        <div class="grid-row">
+            <div class="column column--reset">
+                    <@hst.html hippohtml=document.additionalInformation contentRewriter=gaContentRewriter />
 
-                </#if>
-                <#-- [FTL-END] 'Visual links' section -->
 
                 <div class="article-section muted">
                     <@lastModified document.lastModified false></@lastModified>
                 </div>
-           </div>
+            </div>
         </div>
     </div>
+
 </article>
