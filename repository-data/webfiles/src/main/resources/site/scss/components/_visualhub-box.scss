@@ -1,0 +1,112 @@
+/* Banner Image layout */
+
+.banner-image {
+    $height: 500px;
+
+    height: $height;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &-title {
+        padding-top: ($height - 78) * 0.90;
+
+        &-background {
+            background-color: #005EB8;
+            color: white;
+            display: inline-block;
+            margin-left: -1500px;
+            padding: 10px 20px 10px 1500px;
+
+        }
+    }
+}
+
+.banner-image-summary {
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+
+/* Topic Banner */
+.small-none {
+    @include media($max-width: $min-tablet-width, $ignore-for-ie: true) {
+        display: none;
+    }
+}
+
+
+/* Visual Hub box */
+
+.visual-hub {
+    &-grid-row {
+        margin: 0 -16px;
+    }
+
+    &-group {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 0;
+    }
+
+    &-box {
+        padding: 0 16px;
+        margin-bottom: 36px;
+        display: flex;
+        float: left;
+        @include media($min-width: $min-desktop-width, $ignore-for-ie: true) {
+            width: 50%;
+        }
+        @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+            width: 100%;
+        }
+
+        &-content {
+            display: grid;
+            width: 100%;
+            
+            a {
+                background-color: #f0f4f5;
+                display: block;
+                padding: 16px;
+                text-decoration: none;
+                color: #425563;
+                box-shadow: 0 4px 0 0 #d8dde0;
+
+                h2 {
+                    text-decoration: underline;
+                    color: #005eb8;
+                    font-size: 24px;
+                }
+
+                &:hover {
+                    box-shadow: 0 0 0 4px #ffcd60;
+
+                    h2 {
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            &-text {
+                @include media($min-width: $min-desktop-width, $ignore-for-ie: true) {
+                    width: 60%;
+                }
+                display: inline-block;
+            }
+
+            &-img {
+                @include media($min-width: $min-desktop-width, $ignore-for-ie: true) {
+                    width: 30%;
+                    float: right;
+                    display: inline-block;
+                }
+                @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+                    display: none;
+                }
+            }
+
+
+        }
+    }
+}
