@@ -1,0 +1,26 @@
+/* Visual Hub box */
+
+.visualhubBox {
+  padding: 30px;
+  margin: 30px 0;
+  background-color: #F4F5F7;
+  border: 1px solid #eee;
+  border-bottom-width: 10px;
+  border-bottom-color: #DEE2E5;
+  border-radius: 3px;
+  display: flex; }
+
+.visualhubBox-left {
+    float: left;
+    width:65%;
+    border:1px solid red;
+}
+
+.visualhubBox-right {
+    float: left;
+    width:35%;
+    border:1px solid blue;
+    height:200px;
+    vertical-align: middle;
+    margin:10px;
+}
