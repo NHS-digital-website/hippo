@@ -24,7 +24,7 @@
                 <#elseif link.linkType == "external">
                     <a href="${link.link}" onKeyUp="return vjsu.onKeyUp(event)">${title}</a>
                 <#elseif link.linkType == "asset">
-                    <a href="<@hst.link hippobean=link.link />">${title}</a>
+                    <a href="<@hst.link hippobean=link.link onKeyUp="return vjsu.onKeyUp(event)" />">${title}</a>
                 </#if>
             </h3>
 
