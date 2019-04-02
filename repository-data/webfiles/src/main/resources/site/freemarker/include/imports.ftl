@@ -153,10 +153,14 @@
 
     <#assign links = [] />
     <#if options??>
-        <#if options.ignoreSummary?? && !options.ignoreSummary>
+        <#if options.includeTopLink?? && options.includeTopLink>
+            <#assign links = [{ "url": "#top", "title": "Top of page" }] />
+        </#if>
+
+        <#if options.ignoreSummary?? && options.ignoreSummary>
         <#else>
             <@fmt.message key="headers.summary" var="summaryHeader" />
-            <#assign links = [{ "url": "#summary", "title": summaryHeader }] />
+            <#assign links += [{ "url": "#summary", "title": summaryHeader }] />
         </#if>
 
         <#if options.document??>
