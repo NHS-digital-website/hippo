@@ -1,13 +1,15 @@
 <#ftl output_format="HTML">
 
 <script>
-    // @TODO - rather than targeting *all* tables, we should
-    // target specific tables with a class e.g. "sortable"
-    // i.e `document.querySelectorAll('table.sortable');`
     var tables = document.querySelectorAll('table');
 
     if (tables.length) {
         tables.forEach(function(table) {
+
+            var disableSort = table.getAttribute("data-disablesort");
+            if (disableSort == 'true')
+                return;
+
             var tableHeadings = table.querySelectorAll('th');
 
             tableHeadings.forEach(function(tableHead, index) {

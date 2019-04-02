@@ -36,3 +36,4 @@ definitions:
       - id
       - style
       - width
+      - data-disablesort
