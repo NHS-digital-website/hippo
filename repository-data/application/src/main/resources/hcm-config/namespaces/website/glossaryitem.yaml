@@ -45,7 +45,8 @@ definitions:
             /cluster.options:
               ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
                 items: [''Styles'',''Link'',''PickInternalLink'',''BulletedList'',''NumberedList'',''Table'',''SpecialChar'',''PickImage'',''Source'']}],allowedContent:
-                ''h4 p ul ol li img a[*](*);table[class,id,dir]{*};'' }'
+                ''h4 p ul ol li img a[*](*);table[class,id,dir,data-disablesort]{*};''
+                }'
               ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount''}'
               jcr:primaryType: frontend:pluginconfig
             caption: Definition
