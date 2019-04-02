@@ -23,28 +23,45 @@
 <@hst.setBundle basename="rb.generic.headers,publicationsystem.headers"/>
 
 <#assign hasSummaryContent = document.summary.content?has_content />
+<#assign hasPageIcon = document.pageIcon?has_content />
 <#assign hasSectionContent = document.sections?has_content />
 <#assign hasChildPages = childPages?has_content />
 <#assign hasHtmlCode = document.htmlCode?has_content />
-<#assign hasPageIcon = document.pageIcon?has_content />
 <#assign sectionTitlesFound = countSectionTitles(document.sections) />
 <#assign renderNav = ((hasSummaryContent || hasChildPages) && sectionTitlesFound gte 1) || sectionTitlesFound gt 1 || (hasSummaryContent && hasChildPages) />
 
 <article class="article article--general">
-    <div class="grid-wrapper grid-wrapper--article">
-        <div class="grid-row">
-            <div class="column column--reset">
-                <div class="local-header article-header">
-                    <h1 class="local-header__title" data-uipath="document.title">${document.title}</h1>
+
+    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
+        <div class="local-header article-header article-header--with-icon">
+            <div class="grid-wrapper">
+                <div class="article-header__inner">
+                    <div class="grid-row">
+                        <div class="column<#if hasPageIcon>--three-quarters</#if> column--reset">
+                            <h1 id="top" class="local-header__title" data-uipath="document.title">${document.title}</h1>
+                            <#if hasSummaryContent>
+                                <div class="article-header__subtitle" data-uipath="website.general.summary"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></div>
+                            </#if>
+                        </div>
+                        <#if hasPageIcon>
+                            <div class="column--one-quarter column--reset">
+                                <@hst.link hippobean=document.pageIcon.original fullyQualified=true var="image" />
+                                <img src="${image?replace("/binaries", "/svg-magic/binaries")}?colour=ffcd60" alt="${document.title}" />
+                            </div>
+                        </#if>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="grid-wrapper grid-wrapper--article">
 
         <div class="grid-row">
             <#if renderNav>
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
                 <div id="sticky-nav">
-                    <@sectionNav getSectionNavLinks({ "document": document, "childPages": childPages, "ignoreSummary": hasSummaryContent })></@sectionNav>
+                    <@sectionNav getSectionNavLinks({ "document": document, "childPages": childPages, "includeTopLink": true, "ignoreSummary": true})></@sectionNav>
                 </div>
                 <#-- Restore the bundle -->
                 <@hst.setBundle basename="rb.generic.headers,publicationsystem.headers"/>
@@ -52,12 +69,6 @@
             </#if>
 
             <div class="column column--two-thirds page-block page-block--main">
-                <#if hasSummaryContent>
-                <div id="${slugify('Summary')}" class="article-section article-section--summary article-section--reset-top">
-                    <h2><@fmt.message key="headers.summary" /></h2>
-                    <div data-uipath="website.general.summary" class="article-section--summary"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></div>
-                </div>
-                </#if>
 
                 <#if hasSectionContent>
                     <@sections document.sections></@sections>
