@@ -1,0 +1,710 @@
+---
+/content/documents/administration/website/highlighter-languages:
+  /highlighter-languages:
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: accesslog
+      selection:label: Access log
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: actionscript
+      selection:label: ActionScript
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: ada
+      selection:label: Ada
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: angelscript
+      selection:label: AngelScript
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: apache
+      selection:label: Apache
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: applescript
+      selection:label: AppleScript
+    /selection:listitem[7]:
+      jcr:primaryType: selection:listitem
+      selection:key: arduino
+      selection:label: Arduino
+    /selection:listitem[8]:
+      jcr:primaryType: selection:listitem
+      selection:key: armasm
+      selection:label: ARM Assembly
+    /selection:listitem[9]:
+      jcr:primaryType: selection:listitem
+      selection:key: asciidoc
+      selection:label: AsciiDoc
+    /selection:listitem[10]:
+      jcr:primaryType: selection:listitem
+      selection:key: aspectj
+      selection:label: AspectJ
+    /selection:listitem[11]:
+      jcr:primaryType: selection:listitem
+      selection:key: autohotkey
+      selection:label: AutoHotkey
+    /selection:listitem[12]:
+      jcr:primaryType: selection:listitem
+      selection:key: autoit
+      selection:label: AutoIt
+    /selection:listitem[13]:
+      jcr:primaryType: selection:listitem
+      selection:key: avrasm
+      selection:label: AVR Assembler
+    /selection:listitem[14]:
+      jcr:primaryType: selection:listitem
+      selection:key: awk
+      selection:label: Awk
+    /selection:listitem[15]:
+      jcr:primaryType: selection:listitem
+      selection:key: axapta
+      selection:label: Axapta
+    /selection:listitem[16]:
+      jcr:primaryType: selection:listitem
+      selection:key: bash
+      selection:label: Bash
+    /selection:listitem[17]:
+      jcr:primaryType: selection:listitem
+      selection:key: basic
+      selection:label: Basic
+    /selection:listitem[18]:
+      jcr:primaryType: selection:listitem
+      selection:key: bnf
+      selection:label: Backus–Naur Form
+    /selection:listitem[19]:
+      jcr:primaryType: selection:listitem
+      selection:key: cal
+      selection:label: C/AL
+    /selection:listitem[20]:
+      jcr:primaryType: selection:listitem
+      selection:key: capnproto
+      selection:label: Cap’n Proto
+    /selection:listitem[21]:
+      jcr:primaryType: selection:listitem
+      selection:key: ceylon
+      selection:label: Ceylon
+    /selection:listitem[22]:
+      jcr:primaryType: selection:listitem
+      selection:key: clean
+      selection:label: Clean
+    /selection:listitem[23]:
+      jcr:primaryType: selection:listitem
+      selection:key: clojure
+      selection:label: Clojure
+    /selection:listitem[24]:
+      jcr:primaryType: selection:listitem
+      selection:key: clojure-repl
+      selection:label: Clojure REPL
+    /selection:listitem[25]:
+      jcr:primaryType: selection:listitem
+      selection:key: cmake
+      selection:label: CMake
+    /selection:listitem[26]:
+      jcr:primaryType: selection:listitem
+      selection:key: coffeescript
+      selection:label: CoffeeScript
+    /selection:listitem[27]:
+      jcr:primaryType: selection:listitem
+      selection:key: coq
+      selection:label: Coq
+    /selection:listitem[28]:
+      jcr:primaryType: selection:listitem
+      selection:key: cos
+      selection:label: Caché Object Script
+    /selection:listitem[29]:
+      jcr:primaryType: selection:listitem
+      selection:key: cpp
+      selection:label: C++
+    /selection:listitem[30]:
+      jcr:primaryType: selection:listitem
+      selection:key: crmsh
+      selection:label: crmsh
+    /selection:listitem[31]:
+      jcr:primaryType: selection:listitem
+      selection:key: crystal
+      selection:label: Crystal
+    /selection:listitem[32]:
+      jcr:primaryType: selection:listitem
+      selection:key: cs
+      selection:label: C#
+    /selection:listitem[33]:
+      jcr:primaryType: selection:listitem
+      selection:key: csp
+      selection:label: CSP
+    /selection:listitem[34]:
+      jcr:primaryType: selection:listitem
+      selection:key: css
+      selection:label: CSS
+    /selection:listitem[35]:
+      jcr:primaryType: selection:listitem
+      selection:key: d
+      selection:label: D
+    /selection:listitem[36]:
+      jcr:primaryType: selection:listitem
+      selection:key: dart
+      selection:label: Dart
+    /selection:listitem[37]:
+      jcr:primaryType: selection:listitem
+      selection:key: delphi
+      selection:label: Delphi
+    /selection:listitem[38]:
+      jcr:primaryType: selection:listitem
+      selection:key: diff
+      selection:label: Diff
+    /selection:listitem[39]:
+      jcr:primaryType: selection:listitem
+      selection:key: django
+      selection:label: Django
+    /selection:listitem[40]:
+      jcr:primaryType: selection:listitem
+      selection:key: dns
+      selection:label: DNS Zone file
+    /selection:listitem[41]:
+      jcr:primaryType: selection:listitem
+      selection:key: dockerfile
+      selection:label: Dockerfile
+    /selection:listitem[42]:
+      jcr:primaryType: selection:listitem
+      selection:key: dos
+      selection:label: DOS .bat
+    /selection:listitem[43]:
+      jcr:primaryType: selection:listitem
+      selection:key: dsconfig
+      selection:label: dsconfig
+    /selection:listitem[44]:
+      jcr:primaryType: selection:listitem
+      selection:key: dts
+      selection:label: Device Tree
+    /selection:listitem[45]:
+      jcr:primaryType: selection:listitem
+      selection:key: dust
+      selection:label: Dust
+    /selection:listitem[46]:
+      jcr:primaryType: selection:listitem
+      selection:key: elixir
+      selection:label: Elixir
+    /selection:listitem[47]:
+      jcr:primaryType: selection:listitem
+      selection:key: elm
+      selection:label: Elm
+    /selection:listitem[48]:
+      jcr:primaryType: selection:listitem
+      selection:key: erb
+      selection:label: ERB (Embedded Ruby)
+    /selection:listitem[49]:
+      jcr:primaryType: selection:listitem
+      selection:key: erlang
+      selection:label: Erlang
+    /selection:listitem[50]:
+      jcr:primaryType: selection:listitem
+      selection:key: erlang-repl
+      selection:label: Erlang REPL
+    /selection:listitem[51]:
+      jcr:primaryType: selection:listitem
+      selection:key: excel
+      selection:label: Excel
+    /selection:listitem[52]:
+      jcr:primaryType: selection:listitem
+      selection:key: fix
+      selection:label: FIX
+    /selection:listitem[53]:
+      jcr:primaryType: selection:listitem
+      selection:key: flix
+      selection:label: Flix
+    /selection:listitem[54]:
+      jcr:primaryType: selection:listitem
+      selection:key: fortran
+      selection:label: Fortran
+    /selection:listitem[55]:
+      jcr:primaryType: selection:listitem
+      selection:key: fsharp
+      selection:label: F#
+    /selection:listitem[56]:
+      jcr:primaryType: selection:listitem
+      selection:key: gams
+      selection:label: GAMS
+    /selection:listitem[57]:
+      jcr:primaryType: selection:listitem
+      selection:key: gauss
+      selection:label: GAUSS
+    /selection:listitem[58]:
+      jcr:primaryType: selection:listitem
+      selection:key: gcode
+      selection:label: G-code (ISO 6983)
+    /selection:listitem[59]:
+      jcr:primaryType: selection:listitem
+      selection:key: gherkin
+      selection:label: Gherkin
+    /selection:listitem[60]:
+      jcr:primaryType: selection:listitem
+      selection:key: glsl
+      selection:label: GLSL
+    /selection:listitem[61]:
+      jcr:primaryType: selection:listitem
+      selection:key: gml
+      selection:label: GML
+    /selection:listitem[62]:
+      jcr:primaryType: selection:listitem
+      selection:key: go
+      selection:label: Go
+    /selection:listitem[63]:
+      jcr:primaryType: selection:listitem
+      selection:key: golo
+      selection:label: Golo
+    /selection:listitem[64]:
+      jcr:primaryType: selection:listitem
+      selection:key: gradle
+      selection:label: Gradle
+    /selection:listitem[65]:
+      jcr:primaryType: selection:listitem
+      selection:key: groovy
+      selection:label: Groovy
+    /selection:listitem[66]:
+      jcr:primaryType: selection:listitem
+      selection:key: haml
+      selection:label: Haml
+    /selection:listitem[67]:
+      jcr:primaryType: selection:listitem
+      selection:key: handlebars
+      selection:label: Handlebars
+    /selection:listitem[68]:
+      jcr:primaryType: selection:listitem
+      selection:key: haskell
+      selection:label: Haskell
+    /selection:listitem[69]:
+      jcr:primaryType: selection:listitem
+      selection:key: haxe
+      selection:label: Haxe
+    /selection:listitem[70]:
+      jcr:primaryType: selection:listitem
+      selection:key: hsp
+      selection:label: HSP
+    /selection:listitem[71]:
+      jcr:primaryType: selection:listitem
+      selection:key: xml
+      selection:label: HTML
+    /selection:listitem[72]:
+      jcr:primaryType: selection:listitem
+      selection:key: http
+      selection:label: HTTP
+    /selection:listitem[73]:
+      jcr:primaryType: selection:listitem
+      selection:key: hy
+      selection:label: Hy
+    /selection:listitem[74]:
+      jcr:primaryType: selection:listitem
+      selection:key: ini
+      selection:label: Ini, TOML
+    /selection:listitem[75]:
+      jcr:primaryType: selection:listitem
+      selection:key: irpf90
+      selection:label: IRPF90
+    /selection:listitem[76]:
+      jcr:primaryType: selection:listitem
+      selection:key: isbl
+      selection:label: ISBL
+    /selection:listitem[77]:
+      jcr:primaryType: selection:listitem
+      selection:key: java
+      selection:label: Java
+    /selection:listitem[78]:
+      jcr:primaryType: selection:listitem
+      selection:key: javascript
+      selection:label: JavaScript
+    /selection:listitem[79]:
+      jcr:primaryType: selection:listitem
+      selection:key: jboss-cli
+      selection:label: jboss-cli
+    /selection:listitem[80]:
+      jcr:primaryType: selection:listitem
+      selection:key: json
+      selection:label: JSON
+    /selection:listitem[81]:
+      jcr:primaryType: selection:listitem
+      selection:key: julia
+      selection:label: Julia
+    /selection:listitem[82]:
+      jcr:primaryType: selection:listitem
+      selection:key: kotlin
+      selection:label: Kotlin
+    /selection:listitem[83]:
+      jcr:primaryType: selection:listitem
+      selection:key: lasso
+      selection:label: Lasso
+    /selection:listitem[84]:
+      jcr:primaryType: selection:listitem
+      selection:key: ldif
+      selection:label: LDIF
+    /selection:listitem[85]:
+      jcr:primaryType: selection:listitem
+      selection:key: leaf
+      selection:label: Leaf
+    /selection:listitem[86]:
+      jcr:primaryType: selection:listitem
+      selection:key: less
+      selection:label: Less
+    /selection:listitem[87]:
+      jcr:primaryType: selection:listitem
+      selection:key: lisp
+      selection:label: Lisp
+    /selection:listitem[88]:
+      jcr:primaryType: selection:listitem
+      selection:key: livecodeserver
+      selection:label: LiveCode
+    /selection:listitem[89]:
+      jcr:primaryType: selection:listitem
+      selection:key: livescript
+      selection:label: LiveScript
+    /selection:listitem[90]:
+      jcr:primaryType: selection:listitem
+      selection:key: llvm
+      selection:label: LLVM IR
+    /selection:listitem[91]:
+      jcr:primaryType: selection:listitem
+      selection:key: lsl
+      selection:label: Linden Scripting Language
+    /selection:listitem[92]:
+      jcr:primaryType: selection:listitem
+      selection:key: lua
+      selection:label: Lua
+    /selection:listitem[93]:
+      jcr:primaryType: selection:listitem
+      selection:key: makefile
+      selection:label: Makefile
+    /selection:listitem[94]:
+      jcr:primaryType: selection:listitem
+      selection:key: markdown
+      selection:label: Markdown
+    /selection:listitem[95]:
+      jcr:primaryType: selection:listitem
+      selection:key: mathematica
+      selection:label: Mathematica
+    /selection:listitem[96]:
+      jcr:primaryType: selection:listitem
+      selection:key: matlab
+      selection:label: Matlab
+    /selection:listitem[97]:
+      jcr:primaryType: selection:listitem
+      selection:key: maxima
+      selection:label: Maxima
+    /selection:listitem[98]:
+      jcr:primaryType: selection:listitem
+      selection:key: mel
+      selection:label: MEL
+    /selection:listitem[99]:
+      jcr:primaryType: selection:listitem
+      selection:key: mercury
+      selection:label: Mercury
+    /selection:listitem[100]:
+      jcr:primaryType: selection:listitem
+      selection:key: mipsasm
+      selection:label: MIPS Assembly
+    /selection:listitem[101]:
+      jcr:primaryType: selection:listitem
+      selection:key: mizar
+      selection:label: Mizar
+    /selection:listitem[102]:
+      jcr:primaryType: selection:listitem
+      selection:key: mojolicious
+      selection:label: Mojolicious
+    /selection:listitem[103]:
+      jcr:primaryType: selection:listitem
+      selection:key: monkey
+      selection:label: Monkey
+    /selection:listitem[104]:
+      jcr:primaryType: selection:listitem
+      selection:key: moonscript
+      selection:label: MoonScript
+    /selection:listitem[105]:
+      jcr:primaryType: selection:listitem
+      selection:key: n1ql
+      selection:label: N1QL
+    /selection:listitem[106]:
+      jcr:primaryType: selection:listitem
+      selection:key: nginx
+      selection:label: Nginx
+    /selection:listitem[107]:
+      jcr:primaryType: selection:listitem
+      selection:key: nimrod
+      selection:label: Nimrod
+    /selection:listitem[108]:
+      jcr:primaryType: selection:listitem
+      selection:key: nix
+      selection:label: Nix
+    /selection:listitem[109]:
+      jcr:primaryType: selection:listitem
+      selection:key: nsis
+      selection:label: NSIS
+    /selection:listitem[110]:
+      jcr:primaryType: selection:listitem
+      selection:key: objectivec
+      selection:label: Objective-C
+    /selection:listitem[111]:
+      jcr:primaryType: selection:listitem
+      selection:key: ocaml
+      selection:label: OCaml
+    /selection:listitem[112]:
+      jcr:primaryType: selection:listitem
+      selection:key: openscad
+      selection:label: OpenSCAD
+    /selection:listitem[113]:
+      jcr:primaryType: selection:listitem
+      selection:key: oxygene
+      selection:label: Oxygene
+    /selection:listitem[114]:
+      jcr:primaryType: selection:listitem
+      selection:key: parser3
+      selection:label: Parser3
+    /selection:listitem[115]:
+      jcr:primaryType: selection:listitem
+      selection:key: perl
+      selection:label: Perl
+    /selection:listitem[116]:
+      jcr:primaryType: selection:listitem
+      selection:key: pf
+      selection:label: pf
+    /selection:listitem[117]:
+      jcr:primaryType: selection:listitem
+      selection:key: pgsql
+      selection:label: PostgreSQL SQL dialect and PL/pgSQL
+    /selection:listitem[118]:
+      jcr:primaryType: selection:listitem
+      selection:key: php
+      selection:label: PHP
+    /selection:listitem[119]:
+      jcr:primaryType: selection:listitem
+      selection:key: plaintext
+      selection:label: plaintext
+    /selection:listitem[120]:
+      jcr:primaryType: selection:listitem
+      selection:key: pony
+      selection:label: Pony
+    /selection:listitem[121]:
+      jcr:primaryType: selection:listitem
+      selection:key: powershell
+      selection:label: PowerShell
+    /selection:listitem[122]:
+      jcr:primaryType: selection:listitem
+      selection:key: processing
+      selection:label: Processing
+    /selection:listitem[123]:
+      jcr:primaryType: selection:listitem
+      selection:key: profile
+      selection:label: Python profile
+    /selection:listitem[124]:
+      jcr:primaryType: selection:listitem
+      selection:key: prolog
+      selection:label: Prolog
+    /selection:listitem[125]:
+      jcr:primaryType: selection:listitem
+      selection:key: properties
+      selection:label: Properties
+    /selection:listitem[126]:
+      jcr:primaryType: selection:listitem
+      selection:key: puppet
+      selection:label: Puppet
+    /selection:listitem[127]:
+      jcr:primaryType: selection:listitem
+      selection:key: purebasic
+      selection:label: PureBASIC
+    /selection:listitem[128]:
+      jcr:primaryType: selection:listitem
+      selection:key: python
+      selection:label: Python
+    /selection:listitem[129]:
+      jcr:primaryType: selection:listitem
+      selection:key: q
+      selection:label: Q
+    /selection:listitem[130]:
+      jcr:primaryType: selection:listitem
+      selection:key: qml
+      selection:label: QML
+    /selection:listitem[131]:
+      jcr:primaryType: selection:listitem
+      selection:key: r
+      selection:label: R
+    /selection:listitem[132]:
+      jcr:primaryType: selection:listitem
+      selection:key: reasonml
+      selection:label: ReasonML
+    /selection:listitem[133]:
+      jcr:primaryType: selection:listitem
+      selection:key: rib
+      selection:label: RenderMan RIB
+    /selection:listitem[134]:
+      jcr:primaryType: selection:listitem
+      selection:key: roboconf
+      selection:label: Roboconf
+    /selection:listitem[135]:
+      jcr:primaryType: selection:listitem
+      selection:key: rsl
+      selection:label: RenderMan RSL
+    /selection:listitem[136]:
+      jcr:primaryType: selection:listitem
+      selection:key: ruby
+      selection:label: Ruby
+    /selection:listitem[137]:
+      jcr:primaryType: selection:listitem
+      selection:key: ruleslanguage
+      selection:label: Oracle Rules Language
+    /selection:listitem[138]:
+      jcr:primaryType: selection:listitem
+      selection:key: rust
+      selection:label: Rust
+    /selection:listitem[139]:
+      jcr:primaryType: selection:listitem
+      selection:key: sas
+      selection:label: SAS
+    /selection:listitem[140]:
+      jcr:primaryType: selection:listitem
+      selection:key: scala
+      selection:label: Scala
+    /selection:listitem[141]:
+      jcr:primaryType: selection:listitem
+      selection:key: scheme
+      selection:label: Scheme
+    /selection:listitem[142]:
+      jcr:primaryType: selection:listitem
+      selection:key: scilab
+      selection:label: Scilab
+    /selection:listitem[143]:
+      jcr:primaryType: selection:listitem
+      selection:key: scss
+      selection:label: SCSS
+    /selection:listitem[144]:
+      jcr:primaryType: selection:listitem
+      selection:key: shell
+      selection:label: Shell Session
+    /selection:listitem[145]:
+      jcr:primaryType: selection:listitem
+      selection:key: smali
+      selection:label: Smali
+    /selection:listitem[146]:
+      jcr:primaryType: selection:listitem
+      selection:key: smalltalk
+      selection:label: Smalltalk
+    /selection:listitem[147]:
+      jcr:primaryType: selection:listitem
+      selection:key: sml
+      selection:label: SML
+    /selection:listitem[148]:
+      jcr:primaryType: selection:listitem
+      selection:key: sqf
+      selection:label: SQF
+    /selection:listitem[149]:
+      jcr:primaryType: selection:listitem
+      selection:key: sql
+      selection:label: SQL
+    /selection:listitem[150]:
+      jcr:primaryType: selection:listitem
+      selection:key: stan
+      selection:label: Stan
+    /selection:listitem[151]:
+      jcr:primaryType: selection:listitem
+      selection:key: stata
+      selection:label: Stata
+    /selection:listitem[152]:
+      jcr:primaryType: selection:listitem
+      selection:key: stylus
+      selection:label: Stylus
+    /selection:listitem[153]:
+      jcr:primaryType: selection:listitem
+      selection:key: subunit
+      selection:label: SubUnit
+    /selection:listitem[154]:
+      jcr:primaryType: selection:listitem
+      selection:key: swift
+      selection:label: Swift
+    /selection:listitem[155]:
+      jcr:primaryType: selection:listitem
+      selection:key: taggerscript
+      selection:label: Tagger Script
+    /selection:listitem[156]:
+      jcr:primaryType: selection:listitem
+      selection:key: tcl
+      selection:label: Tcl
+    /selection:listitem[157]:
+      jcr:primaryType: selection:listitem
+      selection:key: tex
+      selection:label: TeX
+    /selection:listitem[158]:
+      jcr:primaryType: selection:listitem
+      selection:key: thrift
+      selection:label: Thrift
+    /selection:listitem[159]:
+      jcr:primaryType: selection:listitem
+      selection:key: tp
+      selection:label: TP
+    /selection:listitem[160]:
+      jcr:primaryType: selection:listitem
+      selection:key: twig
+      selection:label: Twig
+    /selection:listitem[161]:
+      jcr:primaryType: selection:listitem
+      selection:key: typescript
+      selection:label: TypeScript
+    /selection:listitem[162]:
+      jcr:primaryType: selection:listitem
+      selection:key: vala
+      selection:label: Vala
+    /selection:listitem[163]:
+      jcr:primaryType: selection:listitem
+      selection:key: vbnet
+      selection:label: VB.NET
+    /selection:listitem[164]:
+      jcr:primaryType: selection:listitem
+      selection:key: vbscript
+      selection:label: VBScript
+    /selection:listitem[165]:
+      jcr:primaryType: selection:listitem
+      selection:key: vbscript-html
+      selection:label: VBScript in HTML
+    /selection:listitem[166]:
+      jcr:primaryType: selection:listitem
+      selection:key: verilog
+      selection:label: Verilog
+    /selection:listitem[167]:
+      jcr:primaryType: selection:listitem
+      selection:key: vhdl
+      selection:label: VHDL
+    /selection:listitem[168]:
+      jcr:primaryType: selection:listitem
+      selection:key: vim
+      selection:label: Vim Script
+    /selection:listitem[169]:
+      jcr:primaryType: selection:listitem
+      selection:key: x86asm
+      selection:label: Intel x86 Assembly
+    /selection:listitem[170]:
+      jcr:primaryType: selection:listitem
+      selection:key: xl
+      selection:label: XL
+    /selection:listitem[171]:
+      jcr:primaryType: selection:listitem
+      selection:key: xml
+      selection:label: XML
+    /selection:listitem[172]:
+      jcr:primaryType: selection:listitem
+      selection:key: xquery
+      selection:label: XQuery
+    /selection:listitem[173]:
+      jcr:primaryType: selection:listitem
+      selection:key: yaml
+      selection:label: YAML
+    /selection:listitem[174]:
+      jcr:primaryType: selection:listitem
+      selection:key: zephir
+      selection:label: Zephir
+    hippo:availability:
+    - live
+    - preview
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: Highlighter Languages
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
