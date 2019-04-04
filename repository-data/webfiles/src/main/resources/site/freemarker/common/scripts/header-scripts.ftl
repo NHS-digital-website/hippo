@@ -15,3 +15,4 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
 <![endif]-->
 <script src="<@hst.webfile path="/js/jquery/jquery-3.3.1.min.js"/>"></script>
+<script src="<@hst.webfile path="/js/highlighter/highlighter-copy-button.js"/>"></script>

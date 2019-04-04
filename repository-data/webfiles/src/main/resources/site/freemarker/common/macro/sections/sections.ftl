@@ -8,6 +8,7 @@
 <#include "emphasisBox.ftl">
 <#include "iconList.ftl">
 <#include "gallerySection.ftl">
+<#include "codeSection.ftl">
 
 <!-- This is a load of global setup for the highcharts config -->
 <#include "highChartsSetup.ftl">
@@ -46,7 +47,8 @@
             <@iconList section=section />
         <#elseif section.sectionType == 'gallerySection'>
             <@gallerySection section=section/>
-
+        <#elseif section.sectionType == 'code'>
+            <@codeSection section=section/>
         </#if>
     </#list>
 </#macro>
