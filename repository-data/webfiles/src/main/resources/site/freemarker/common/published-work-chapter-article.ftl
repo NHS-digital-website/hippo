@@ -10,7 +10,7 @@
 
 <@hst.setBundle basename="rb.doctype.published-work,rb.generic.headers,publicationsystem.headers"/>
 
-<#assign hasSummaryContent = document.summary?? && document.summary?has_content />
+<#assign hasSummaryContent = document.summary?? && document.summary.content?has_content />
 <#assign hasSectionContent = document.sections?has_content />
 <#assign hasChapters = linkeddocuments?? && linkeddocuments.hippoBeans?has_content />
 <#assign sectionTitlesFound = countSectionTitles(document.sections) />

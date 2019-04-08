@@ -14,7 +14,7 @@
 <@metaTags></@metaTags>
 
 <@hst.setBundle basename="rb.doctype.published-work,publicationsystem.headers"/>
-<#assign hasSummaryContent = document.summary?? && document.summary?has_content />
+<#assign hasSummaryContent = document.summary?? && document.summary.content?has_content />
 <#assign hasSectionContent = document.sections?has_content />
 <#assign hasPublicationDate = document.publicationDate?? />
 <#assign hasGeographicCoverage = document.geographicCoverage?has_content />
