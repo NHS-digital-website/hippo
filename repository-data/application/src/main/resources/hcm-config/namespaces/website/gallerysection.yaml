@@ -120,6 +120,7 @@ definitions:
               hippo:values: []
               jcr:primaryType: hippogallerypicker:imagelink
             jcr:primaryType: website:galleryitem
+            website:imagealt: ''
             website:imagewarning: ''
             website:title: ''
           jcr:primaryType: website:gallerysection

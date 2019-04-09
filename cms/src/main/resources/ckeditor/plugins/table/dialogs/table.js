@@ -380,7 +380,7 @@
 								label: editor.lang.common.width,
 								title: editor.lang.common.cssLengthTooltip,
 								// Smarter default table width. (https://dev.ckeditor.com/ticket/9600)
-								'default': editor.filter.check( 'table{width}' ) ? ( editable.getSize( 'width' ) < 888 ? '100%' : 888 ) : 0,
+								'default': editor.filter.check( 'table{width}' ) ? ( editable.getSize( 'width' ) < 500 ? '100%' : 500 ) : 0,
 								getValue: defaultToPixel,
 								validate: CKEDITOR.dialog.validate.cssLength( editor.lang.common.invalidCssLength.replace( '%1', editor.lang.common.width ) ),
 								onChange: function() {
@@ -459,6 +459,7 @@
 									selectedTable.removeAttribute( 'cellPadding' );
 							}
 						},
+						// CUSTOM Addition of checkbox to suppress table sort functionality
                          {
                              type: 'hbox',
                              widths: [ '5em' ],
