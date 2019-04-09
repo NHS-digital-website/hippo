@@ -49,6 +49,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.right.item
+          /imagealt:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Alt text
+            field: imagealt
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
           /imagewarning:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -101,6 +110,17 @@ definitions:
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
+          /imagealt:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:imagealt
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
           /imagewarning:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -150,6 +170,7 @@ definitions:
             hippo:values: []
             jcr:primaryType: hippogallerypicker:imagelink
           jcr:primaryType: website:galleryitem
+          website:imagealt: ''
           website:imagewarning: ''
           website:title: ''
         jcr:primaryType: hipposysedit:prototypeset

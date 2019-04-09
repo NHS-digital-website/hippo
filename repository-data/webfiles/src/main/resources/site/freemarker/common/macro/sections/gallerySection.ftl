@@ -27,7 +27,7 @@
 
                         <@hst.link hippobean=galleryItem.image.original fullyQualified=true var="image" />
 
-                        <img src="${image}" alt="${galleryItem.title}" />
+                        <img src="${image}" alt="${galleryItem.imageAlt}" />
 
                         <div class="galleryItems__description">
                             <@hst.html hippohtml=galleryItem.description contentRewriter=gaContentRewriter />

@@ -59,11 +59,11 @@ definitions:
             /cluster.options:
               ckeditor.config.appended.json: '{toolbarGroups: [{ name: ''document''}],
                 extraPlugins: ''balloonpanel,a11ychecker'', allowedContent: ''h2 h3
-                h4 em strong ul div thead tbody td tr th caption ol li sub sup img
-                a[*](*);p{text-align};table[class,id,dir,data-disablesort]{*};iframe[id,class,style,title,height,name,src,width,allowfullscreen,sandbox,srcdoc]{*}'',
+                h4 code em strong ul div thead tbody td tr th caption ol li sub sup
+                img a[*](*);p{text-align};table[class,id,dir,data-disablesort]{*};iframe[id,class,style,title,height,name,src,width,allowfullscreen,sandbox,srcdoc]{*}'',
                 disallowedContent: ''iframe[frameborder]'', mathJaxLib: ''https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML''}}'
               ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:
-                ''wordcount,mathjax''}'
+                ''wordcount,mathjax'', stylesSet: ''nhsdStyle:./nhsdStyles.js''}'
               jcr:primaryType: frontend:pluginconfig
             caption: Body
             field: body
@@ -73,6 +73,7 @@ definitions:
             wicket.css:
             - body
             wicket.id: ${cluster.id}.left.item
+            wicket.skin: skin/ckeditor.css
           /image:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

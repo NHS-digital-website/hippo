@@ -1,0 +1,13 @@
+/* Controls the styling within the CMS itself (not the site)
+   So if change this styling, also need to update i.e. _code.scss where
+   the style is also defined.
+*/
+.codeinline {
+    font-family: monospace;
+    background-color: #fff;
+    color: #d14;
+    padding: 1px 4px;
+    border:1px dashed grey;
+    margin-right: 2px;
+    margin-left: 2px;
+}

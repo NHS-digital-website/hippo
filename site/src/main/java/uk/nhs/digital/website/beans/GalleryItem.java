@@ -24,6 +24,11 @@ public class GalleryItem extends HippoCompound {
         return getLinkedBean("website:image", HippoGalleryImageSet.class);
     }
 
+    @HippoEssentialsGenerated(internalName = "website:imagealt")
+    public String getImageAlt() {
+        return getProperty("website:imagealt");
+    }
+
     @HippoEssentialsGenerated(internalName = "website:imagewarning")
     public String getImageWarning() {
         return getProperty("website:imagewarning");
