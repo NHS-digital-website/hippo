@@ -1,13 +1,12 @@
 package uk.nhs.digital.website.beans;
 
 import org.hippoecm.hst.content.beans.Node;
-import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
 @HippoEssentialsGenerated(internalName = "website:section")
 @Node(jcrType = "website:section")
-public class Section extends HippoCompound {
+public class Section extends BaseCompound {
     @HippoEssentialsGenerated(internalName = "website:title")
     public String getTitle() {
         return getProperty("website:title");

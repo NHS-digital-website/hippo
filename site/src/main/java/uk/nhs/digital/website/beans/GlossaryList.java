@@ -1,8 +1,8 @@
 package uk.nhs.digital.website.beans;
 
 import org.hippoecm.hst.content.beans.Node;
-import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import uk.nhs.digital.common.components.CompoundTitleComparator;
 
 import java.util.List;
 
@@ -16,8 +16,11 @@ public class GlossaryList extends CommonFieldsBean {
     }
 
     @HippoEssentialsGenerated(internalName = "website:glossaryitems")
-    public List<HippoBean> getGlossaryItems() {
-        return getChildBeansByName("website:glossaryitems");
+    public List<GlossaryItem> getGlossaryItems() {
+
+        List<GlossaryItem> hippoBeans =  getChildBeansByName("website:glossaryitems");
+        hippoBeans.sort(CompoundTitleComparator.COMPARATOR);
+        return hippoBeans;
     }
 
 }
