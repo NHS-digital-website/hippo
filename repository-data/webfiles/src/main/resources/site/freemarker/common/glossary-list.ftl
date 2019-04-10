@@ -63,7 +63,7 @@
 
                                             <dt>
                                                 <#assign glossaryitemID = glossaryitem.title?lower_case?replace(' ', '-') />
-                                                <div class="strong" id="${glossaryitemID}">
+                                                <div class="glossaryItemHeader" id="${glossaryitemID}">
                                                     <#if glossaryitem.internal?has_content || glossaryitem.external?has_content>
                                                         <#if glossaryitem.internal?has_content>
                                                             <@hst.link var="link" hippobean=glossaryitem.internal/>
@@ -76,7 +76,7 @@
                                                     </#if>
                                                 </div>
                                             </dt>
-                                            <dd class="bottom-margin-40">
+                                            <dd class="bottom-margin-20">
                                                 <@hst.html hippohtml=glossaryitem.definition contentRewriter=gaContentRewriter/>
                                             </dd>
                                         </#list>
