@@ -24,6 +24,10 @@
         svg, path {
             fill: $white;
         }
+
+        a:link, a:visited {
+            color: $white;
+        }
     }
 
     &-important {
