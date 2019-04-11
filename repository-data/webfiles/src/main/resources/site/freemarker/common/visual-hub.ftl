@@ -31,18 +31,16 @@
                 </div>
             </div>
         </div>
-
-        <div class="grid-wrapper">
+        <div class="grid-wrapper banner-image-summary">
             <div class="article-header__inner">
                 <div class="grid-row">
-                    <div class="column column--reset">
+                    <div class="column column--reset column--81-25">
                         <p class="article-header__subtitle"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></p>
                     </div>
                 </div>
             </div>
         </div>
     <#elseif hasTopicIcon>
-        topic
         <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
             <div class="local-header article-header article-header--with-icon">
                 <div class="grid-wrapper">
@@ -73,7 +71,9 @@
                         <div class="grid-row galleryItems">
                             <#list document.links as link>
 
-                                <div class="column column--one-half galleryItems__item">
+                                ${link.title}
+
+                                <div class="column column--reset-left column--one-half galleryItems__item">
                                     <@visualhubBox link></@visualhubBox>
                                 </div>
 

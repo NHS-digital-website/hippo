@@ -2,7 +2,12 @@
 
 <#macro visualhubBox link>
 
+    link.title ${link.title}
+    <br />
+    link.link.title ${link.link.title}
+<hr />
     <#assign title = link.title>
+
     <#assign summary = link.summary>
     <@hst.link var="icon" hippobean=link.icon.original fullyQualified=true />
 
