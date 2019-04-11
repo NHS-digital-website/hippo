@@ -40,6 +40,7 @@
 </#macro>
 
 <#assign hasSessions = document.events?size gte 1 />
+<#assign hasFutureEvent = false>
 
 <#if !hasSessions>
 <article class="article article--event" itemscope itemtype="http://schema.org/Event">
@@ -62,6 +63,9 @@
                                 <@fmt.formatDate value=event.startdatetime.time type="Date" pattern="yyyy-MM-dd" var="comparableStartDate" timeZone="${getTimeZone()}" />
                                 <@fmt.formatDate value=event.enddatetime.time type="Date" pattern="yyyy-MM-dd" var="comparableEndDate"  timeZone="${getTimeZone()}"/>
                                 <#assign validDate = (comparableStartDate?? && comparableEndDate??) />
+                                <#if event.enddatetime.time?date gt .now?date>
+                                    <#assign hasFutureEvent = true>
+                                </#if>
 
                                 <div itemscope itemtype="http://schema.org/Event" class="tabbed-detail-wrapper">
                                     <#if document.events?size gt 1 && validDate>
@@ -137,22 +141,11 @@
         <div class="grid-row">
             <div class="column column--two-thirds page-block page-block--main">
 
-                <#if hasSessions>
-                    <#list document.events as event>
-                        <#assign hasFutureEvent = false>
-                        <#if event.enddatetime.time?date gt .now?date>
-                            <#assign hasFutureEvent = true>
-                        </#if>
-                        <#if document.booking?has_content>
-                            <#if hasFutureEvent>
-                                ${event.startdatetime.time?date}
-                                <div class="article-section">
-                                    <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, document.booking) />
-                                    <a class="button" href="${document.booking}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">Book Now</a>
-                                </div>
-                            </#if>
-                        </#if>
-                    </#list>
+                <#if hasSessions && hasFutureEvent && document.booking?has_content>
+                    <div class="article-section">
+                        <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, document.booking) />
+                        <a class="button" href="${document.booking}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">Book Now</a>
+                    </div>
                 </#if>
 
                 <#if document.summaryimage?? && document.summaryimage.original??>
