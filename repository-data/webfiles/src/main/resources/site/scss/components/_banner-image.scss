@@ -1,0 +1,23 @@
+.banner-image {
+    $height: 500px;
+
+    height: $height;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &-title {
+        padding-top: ($height - 78) * 0.90;
+
+        &-background {
+            background-color: #005EB8;
+            padding: 10px 20px;
+            color: white;
+            display: inline-block;
+            margin-left: -1500px;
+            padding-left: 1500px;
+
+        }
+    }
+}

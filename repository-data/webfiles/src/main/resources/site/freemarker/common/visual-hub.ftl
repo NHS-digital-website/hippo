@@ -18,30 +18,18 @@
 <#assign hasLinks = document.links?? && document.links?size gt 0 />
 
 <article class="article">
-    <#if hasTopicIcon>
-        <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
-            <div class="local-header article-header article-header--with-icon">
-                <div class="grid-wrapper">
-                    <div class="article-header__inner">
-                        <div class="grid-row">
-                            <div class="column--two-thirds column--reset">
-                                <h1 class="local-header__title" data-uipath="document.title">${document.title}
-                                <p class="article-header__subtitle"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></p>
-                            </div>
-                            <div class="column--one-third column--reset">
-                                <@hst.link hippobean=document.icon.original fullyQualified=true var="iconImage" />
-                                <img aria-hidden="true" src="${iconImage}" alt="" />
-                            </div>
+    <#if hasBannerImage>
+        <@hst.link hippobean=document.image.original fullyQualified=true var="bannerImage" />
+        <div class="banner-image" aria-label="Document Header" style="background-image: url(${bannerImage});">
+            <div class="grid-wrapper">
+                <div class="grid-row">
+                    <div class="column column--reset banner-image-title">
+                        <div class="banner-image-title-background">
+                            <h1 style="">${document.title}</h1>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    <#elseif hasBannerImage>
-        <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
-            ${document.title}
-            <@hst.link hippobean=document.image.original fullyQualified=true var="bannerImage" />
-            <img aria-hidden="true" src="${bannerImage}" alt="" />
         </div>
 
         <div class="grid-wrapper">
@@ -49,6 +37,26 @@
                 <div class="grid-row">
                     <div class="column column--reset">
                         <p class="article-header__subtitle"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <#elseif hasTopicIcon>
+        topic
+        <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
+            <div class="local-header article-header article-header--with-icon">
+                <div class="grid-wrapper">
+                    <div class="article-header__inner">
+                        <div class="grid-row">
+                            <div class="column--two-thirds column--reset">
+                                <h1 class="local-header__title" data-uipath="document.title">${document.title}
+                                    <p class="article-header__subtitle"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></p>
+                            </div>
+                            <div class="column--one-third column--reset">
+                                <@hst.link hippobean=document.icon.original fullyQualified=true var="iconImage" />
+                                <img aria-hidden="true" src="${iconImage}" alt=""/>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
