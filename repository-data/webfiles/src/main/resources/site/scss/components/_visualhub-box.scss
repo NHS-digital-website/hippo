@@ -14,11 +14,10 @@
 
         &-background {
             background-color: #005EB8;
-            padding: 10px 20px;
             color: white;
             display: inline-block;
             margin-left: -1500px;
-            padding-left: 1500px;
+            padding: 10px 20px 10px 1500px;
 
         }
     }
@@ -30,30 +29,65 @@
 }
 
 
-
 /* Visual Hub box */
 
-.visualhubBox {
-  padding: 30px;
-  margin: 30px 0;
-  background-color: #F4F5F7;
-  border: 1px solid #eee;
-  border-bottom-width: 10px;
-  border-bottom-color: #DEE2E5;
-  border-radius: 3px;
-  display: flex; }
+.visual-hub {
+    &-grid-row {
+        margin: 0 -16px;
+    }
 
-.visualhubBox-left {
-    float: left;
-    width:65%;
-    border:1px solid red;
+    &-group {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 36px;
+
+    }
+
+    &-box {
+        padding: 0 16px;
+
+        display: flex;
+        float: left;
+        width: 50%;
+
+        &-content {
+            box-shadow: 0 4px 0 0 #d8dde0;
+
+            a {
+                background-color: #f0f4f5;
+                display: block;
+                padding: 16px;
+                text-decoration: none;
+                color: #425563;
+
+                h3 {
+                    text-decoration: underline;
+                    color: #005eb8;
+                }
+
+                &:hover {
+                    box-shadow: 0 0 0 4px #ffcd60;
+
+                    h3 {
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            &-text {
+                width: 60%;
+                display: inline-block;
+            }
+
+            &-img {
+                width: 40%;
+                float: right;
+                display: inline-block;
+            }
+
+        }
+
+
+    }
 }
 
-.visualhubBox-right {
-    float: left;
-    width:35%;
-    border:1px solid blue;
-    height:200px;
-    vertical-align: middle;
-    margin:10px;
-}

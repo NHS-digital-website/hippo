@@ -61,35 +61,29 @@
         </div>
     </#if>
 
+    <#if hasLinks>
+        <div class="grid-wrapper">
+            <div class="grid-row visual-hub-grid-row">
+                <div class="column column--reset">
+                    <#list document.links as link>
+                        <#if link?is_odd_item || link?is_first>
+                            <div class="visual-hub-group">
+                        </#if>
+                        <@visualhubBox link />
+                        <#if link?is_even_item || link?is_last>
+                            </div>
+                        </#if>
+                    </#list>
+                </div>
+            </div>
+        </div>
+    </#if>
 
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
-            <div class="column page-block page-block--main">
+            <div class="column column--reset">
+                    <@hst.html hippohtml=document.additionalInformation contentRewriter=gaContentRewriter />
 
-                <#if hasLinks>
-                    <div class="article-section">
-                        <div class="grid-row galleryItems">
-                            <#list document.links as link>
-
-                                ${link.title}
-
-                                <div class="column column--reset-left column--one-half galleryItems__item">
-                                    <@visualhubBox link></@visualhubBox>
-                                </div>
-
-                                <#if link?is_even_item>
-                                    <div class="clearfix"></div>
-                                </#if>
-                            </#list>
-                        </div>
-
-                        <div>
-                            <@hst.html hippohtml=document.additionalInformation contentRewriter=gaContentRewriter />
-                        </div>
-
-                    </div>
-
-                </#if>
 
                 <div class="article-section muted">
                     <@lastModified document.lastModified false></@lastModified>
