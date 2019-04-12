@@ -6,6 +6,8 @@
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
 <#include "macro/visualhubBox.ftl">
+<#include "scripts/inlineSVG-v2.js.ftl">
+
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>

@@ -39,16 +39,17 @@
     &-group {
         display: flex;
         flex-wrap: wrap;
-        margin-bottom: 36px;
-
+        margin-bottom: 0;
     }
 
     &-box {
         padding: 0 16px;
-
+        margin-bottom: 36px;
         display: flex;
         float: left;
-        width: 50%;
+        @include media($min-width: $min-desktop-width, $ignore-for-ie: true) {
+            width: 50%;
+        }
 
         &-content {
             box-shadow: 0 4px 0 0 #d8dde0;
@@ -75,19 +76,25 @@
             }
 
             &-text {
-                width: 60%;
+                @include media($min-width: $min-desktop-width, $ignore-for-ie: true) {
+                    width: 60%;
+                }
                 display: inline-block;
             }
 
             &-img {
-                width: 40%;
-                float: right;
-                display: inline-block;
+                @include media($min-width: $min-desktop-width, $ignore-for-ie: true) {
+                    width: 40%;
+                    float: right;
+                    display: inline-block;
+                }
+                @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+                    display: none;
+                }
             }
-
+            img[src$=".svg"].inlineable-svg {
+                display: none;
+            }
         }
-
-
     }
 }
-

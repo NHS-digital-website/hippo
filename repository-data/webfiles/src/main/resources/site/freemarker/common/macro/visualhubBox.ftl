@@ -14,7 +14,7 @@
     <@hst.link var="icon" hippobean=link.icon.original fullyQualified=true />
 
     <div class="visual-hub-box">
-        <div class="visual-hub-box-content">
+        <div class="visual-hub-box-content" >
             <#if link.linkType == "internal">
             <#-- Below does not work if declared in section above -->
                 <a href="<@hst.link var="link" hippobean=link.link />">
@@ -27,7 +27,9 @@
                     <h3>${title}</h3>
                     ${summary}
                 </div>
-                <img class="visual-hub-box-content-img" src="${icon}" alt="${title}"/>
+
+
+                <img class="visual-hub-box-content-img inlineable-svg" src="${icon}" alt="${title}"/>
             </a>
         </div>
     </div>
