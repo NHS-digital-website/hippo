@@ -1,5 +1,7 @@
 <#ftl output_format="HTML">
 
+<#include "component/inlineSVG-v2.ftl">
+
 <#macro visualhubBox link>
 
     <#assign title = link.title>
@@ -24,12 +26,10 @@
                 <a href="<@hst.link hippobean=link.link onKeyUp="return vjsu.onKeyUp(event)" />">
             </#if>
                 <div class="visual-hub-box-content-text">
-                    <h3>${title}</h3>
+                    <h2>${title}</h2>
                     ${summary}
                 </div>
-
-
-                <img class="visual-hub-box-content-img inlineable-svg" src="${icon}" alt="${title}"/>
+                <@svg icon "fill:none;stroke:#005eb8;stroke-width:5" title "visual-hub-box-content-img" />
             </a>
         </div>
     </div>

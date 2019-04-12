@@ -28,6 +28,13 @@
     padding-bottom: 30px;
 }
 
+/* Topic Banner */
+.small-none {
+    @include media($max-width: $min-tablet-width, $ignore-for-ie: true) {
+        display: none;
+    }
+}
+
 
 /* Visual Hub box */
 
@@ -52,24 +59,24 @@
         }
 
         &-content {
-            box-shadow: 0 4px 0 0 #d8dde0;
-
             a {
                 background-color: #f0f4f5;
                 display: block;
                 padding: 16px;
                 text-decoration: none;
                 color: #425563;
+                box-shadow: 0 4px 0 0 #d8dde0;
 
-                h3 {
+                h2 {
                     text-decoration: underline;
                     color: #005eb8;
+                    font-size: 24px;
                 }
 
                 &:hover {
                     box-shadow: 0 0 0 4px #ffcd60;
 
-                    h3 {
+                    h2 {
                         text-decoration: none;
                     }
                 }
@@ -92,9 +99,8 @@
                     display: none;
                 }
             }
-            img[src$=".svg"].inlineable-svg {
-                display: none;
-            }
+
+
         }
     }
 }

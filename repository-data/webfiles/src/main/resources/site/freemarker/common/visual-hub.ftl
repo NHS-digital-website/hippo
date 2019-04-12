@@ -6,7 +6,7 @@
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
 <#include "macro/visualhubBox.ftl">
-<#include "scripts/inlineSVG-v2.js.ftl">
+<#include "macro/component/inlineSVG-v2.ftl">
 
 
 <#-- Add meta tags -->
@@ -52,9 +52,9 @@
                                 <h1 class="local-header__title" data-uipath="document.title">${document.title}
                                     <p class="article-header__subtitle"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></p>
                             </div>
-                            <div class="column--one-third column--reset">
+                            <div class="column--one-third column--reset small-none">
                                 <@hst.link hippobean=document.icon.original fullyQualified=true var="iconImage" />
-                                <img aria-hidden="true" src="${iconImage}" alt=""/>
+                                <@svg iconImage "fill:none;stroke:#ffcd60;stroke-width:5" document.title "fake" />
                             </div>
                         </div>
                     </div>
