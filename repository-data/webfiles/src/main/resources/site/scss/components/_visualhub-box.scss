@@ -57,8 +57,14 @@
         @include media($min-width: $min-desktop-width, $ignore-for-ie: true) {
             width: 50%;
         }
+        @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+            width: 100%;
+        }
 
         &-content {
+            display: grid;
+            width: 100%;
+            
             a {
                 background-color: #f0f4f5;
                 display: block;
@@ -91,7 +97,7 @@
 
             &-img {
                 @include media($min-width: $min-desktop-width, $ignore-for-ie: true) {
-                    width: 40%;
+                    width: 30%;
                     float: right;
                     display: inline-block;
                 }

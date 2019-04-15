@@ -19,7 +19,7 @@
         <div class="visual-hub-box-content" >
             <#if link.linkType == "internal">
             <#-- Below does not work if declared in section above -->
-                <a href="<@hst.link var="link" hippobean=link.link />">
+                <a href="<@hst.link hippobean=link.link />">
             <#elseif link.linkType == "external">
                 <a href="${link.link}" onKeyUp="return vjsu.onKeyUp(event)">
             <#elseif link.linkType == "asset">
@@ -29,7 +29,7 @@
                     <h2>${title}</h2>
                     ${summary}
                 </div>
-                <@svg icon "fill:none;stroke:#005eb8;stroke-width:5" title "visual-hub-box-content-img" />
+                <@svg icon "fill:none;stroke:#005eb8;" title "visual-hub-box-content-img" />
             </a>
         </div>
     </div>

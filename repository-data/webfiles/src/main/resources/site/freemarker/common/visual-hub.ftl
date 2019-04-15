@@ -54,7 +54,7 @@
                             </div>
                             <div class="column--one-third column--reset small-none">
                                 <@hst.link hippobean=document.icon.original fullyQualified=true var="iconImage" />
-                                <@svg iconImage "fill:none;stroke:#ffcd60;stroke-width:5" document.title "fake" />
+                                <@svg iconImage "fill:none;stroke:#ffcd60;" document.title "" />
                             </div>
                         </div>
                     </div>
