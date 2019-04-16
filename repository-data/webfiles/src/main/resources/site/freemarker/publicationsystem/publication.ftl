@@ -1,7 +1,4 @@
 <#ftl output_format="HTML">
-
-<#-- @ftlvariable name="publication" type="uk.nhs.digital.ps.beans.Publication" -->
-
 <#include "../include/imports.ftl">
 <#include "./macro/structured-text.ftl">
 <#include "./macro/publicationHeader.ftl">
@@ -10,14 +7,13 @@
 <#include "../common/macro/fileMetaAppendix.ftl">
 <#include "../common/macro/component/lastModified.ftl">
 <#include "../common/macro/fileIcon.ftl">
-<#include "../common/macro/component/infoGraphic.ftl">
 
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
-
+<#-- @ftlvariable name="publication" type="uk.nhs.digital.ps.beans.Publication" -->
 
 <#-- Add meta tags -->
 <#include "../common/macro/metaTags.ftl">
-<@metaTags publication></@metaTags>
+<@metaTags></@metaTags>
 
 <#macro restrictedContentOfUpcomingPublication>
     <@publicationHeader publication=publication restricted=true/>
@@ -39,11 +35,6 @@
 <@fmt.message key="headers.administrative-sources" var="administrativeResourcesHeader" />
 <@fmt.message key="headers.datasets" var="datasetsHeader" />
 <@fmt.message key="headers.resources" var="resourcesHeader" />
-
-<#assign hasOldKeyfacts = publication.keyFacts.elements?has_content || keyFactImageSections?has_content />
-<#assign hasNewKeyfacts = (publication.keyFactsHead?? && publication.keyFactsHead?has_content)
-                            || (publication.keyFactsTail?? && publication.keyFactsTail?has_content)
-                            || (publication.keyFactInfographics?? && publication.keyFactInfographics?has_content)  />
 
 <#function getSectionNavLinks index>
     <#assign links = [] />
@@ -76,42 +67,19 @@
                     <div itemprop="description"><@structuredText item=publication.summary uipath="ps.publication.summary" /></div>
                 </div>
 
-
-                <#if hasOldKeyfacts || hasNewKeyfacts>
+                <#if publication.keyFacts.elements?has_content || keyFactImageSections?has_content>
                     <div class="article-section article-section--highlighted" id="key-facts">
                         <div class="callout callout--attention">
                             <h2>${keyFactsHeader}</h2>
-
-                            <#-- New key facts take precedence (if has both, just display new)  -->
-                            <#if hasNewKeyfacts>
-
-                                <#-- New version of key facts head section -->
-                                <@hst.html hippohtml=publication.keyFactsHead contentRewriter=gaContentRewriter/>
-
-                                <#-- see ${publication.keyFactInfographics} - its a loop of Infographic.java -->
-
-                                <#list publication.keyFactInfographics as graphic>
-                                    <@infoGraphic graphic />
-                                </#list>
-
-                                <#-- New version of key facts tail section -->
-                                <#-- see ${publication.keyFactsTail}  -->
-                                <@hst.html hippohtml=publication.keyFactsTail contentRewriter=gaContentRewriter/>
-
-                            <#elseif hasOldKeyfacts>
-
-                                <#if publication.keyFacts.elements?has_content>
-                                    <@structuredText item=publication.keyFacts uipath="ps.publication.key-facts" />
-                                </#if>
-
-                                <#if keyFactImageSections?has_content>
-                                    <div data-uipath="ps.publication.key-fact-images">
-                                        <@sections sections=keyFactImageSections />
-                                    </div>
-                                </#if>
+                            <#if publication.keyFacts.elements?has_content>
+                                <@structuredText item=publication.keyFacts uipath="ps.publication.key-facts" />
                             </#if>
 
-
+                            <#if keyFactImageSections?has_content>
+                                <div data-uipath="ps.publication.key-fact-images">
+                                    <@sections sections=keyFactImageSections />
+                                </div>
+                            </#if>
                         </div>
                     </div>
                 </#if>

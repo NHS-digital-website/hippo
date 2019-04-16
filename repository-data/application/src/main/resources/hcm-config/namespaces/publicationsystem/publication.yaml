@@ -173,34 +173,22 @@ definitions:
             wicket.css:
             - granularity
             wicket.id: ${cluster.id}.right.item
-          /KeyFactsHead:
+          /KeyFacts:
             /cluster.options:
-              ckeditor.config.appended.json: '{toolbar: [{ name: ''linktoolbar'',
-                items: [''Link'',''PickInternalLink''] }] }'
-              ckeditor.config.overlayed.json: '{}'
               jcr:primaryType: frontend:pluginconfig
-            caption: Key Facts (Head Section)
-            field: keyFactsHead
+            caption: Key Facts
+            field: key_facts
+            hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.css:
+            - key-facts
             wicket.id: ${cluster.id}.left.item
-          /keyFactInfographics:
+          /keyFactImages:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Key Fact Infographics
-            field: keyFactInfographics
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-          /KeyFactsTail:
-            /cluster.options:
-              ckeditor.config.appended.json: '{toolbar: [{ name: ''linktoolbar'',
-                items: [''Link'',''PickInternalLink''] }] }'
-              ckeditor.config.overlayed.json: '{}'
-              jcr:primaryType: frontend:pluginconfig
-            caption: Key Facts (Tail Section)
-            field: html
+            field: keyFactImages
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
@@ -309,14 +297,6 @@ definitions:
             hipposysedit:validators:
             - publicationsystem-dropdown-granularity
             jcr:primaryType: hipposysedit:field
-          /html:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:KeyFactsTail
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            jcr:primaryType: hipposysedit:field
           /information_type:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
@@ -327,21 +307,21 @@ definitions:
             hipposysedit:validators:
             - publicationsystem-dropdown-information-type
             jcr:primaryType: hipposysedit:field
-          /keyFactInfographics:
+          /keyFactImages:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
             hipposysedit:ordered: true
-            hipposysedit:path: publicationsystem:keyFactInfographics
+            hipposysedit:path: publicationsystem:KeyFactImages
             hipposysedit:primary: false
-            hipposysedit:type: website:infographic
+            hipposysedit:type: publicationsystem:imageSection
             jcr:primaryType: hipposysedit:field
-          /keyFactsHead:
+          /key_facts:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:KeyFactsHead
+            hipposysedit:path: publicationsystem:KeyFacts
             hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
+            hipposysedit:type: Text
             jcr:primaryType: hipposysedit:field
           /nominal_date:
             hipposysedit:mandatory: false
@@ -419,14 +399,7 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          /publicationsystem:KeyFactsHead:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
-          /publicationsystem:KeyFactsTail:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
           common:FacetType: publication
-          common:orderedSearchDate: 62135726400000
           common:searchRank: 3
           common:searchable: true
           hippostd:holder: holder
@@ -445,6 +418,7 @@ definitions:
           publicationsystem:CoverageEnd: 0001-01-01T12:00:00Z
           publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
           publicationsystem:GeographicCoverage: []
+          publicationsystem:KeyFacts: ''
           publicationsystem:NominalDate: 0001-01-01T12:00:00Z
           publicationsystem:PubliclyAccessible: false
           publicationsystem:Summary: ''
