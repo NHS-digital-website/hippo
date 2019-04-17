@@ -61,7 +61,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://www.twitter.com/NHSDigital" onClick="${getOnClickMethodCall('Footer', 'https://www.twitter.com/NHSDigital')}" onKeyUp="return vjsu.onKeyUp(event)">
+                                            <a href="https://twitter.com/NHSDigital" onClick="${getOnClickMethodCall('Footer', 'https://twitter.com/NHSDigital')}" onKeyUp="return vjsu.onKeyUp(event)">
                                                 <img src="<@hst.webfile  path="images/icon-twitter.png"/>" alt="Twitter logo" class="image-icon"/><span>Twitter</span>
                                             </a>
                                         </li>
