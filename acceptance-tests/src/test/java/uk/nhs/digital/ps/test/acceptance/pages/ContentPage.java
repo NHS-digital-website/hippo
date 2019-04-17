@@ -44,6 +44,18 @@ public class ContentPage extends AbstractCmsPage {
                 By.xpath(XpathSelectors.TABBED_PANEL + "//li[contains(@class, 'tab2')]"), "class", "selected"));
     }
 
+    public boolean openImagesDropdown() {
+        helper.findElement(
+            By.xpath(XpathSelectors.CONTENT_CATEGORY)).click();
+
+        helper.findElement(
+            By.xpath(XpathSelectors.CONTENT_CATEGORY + "//span[contains(@class, 'section.images')]")).click();
+
+        return helper.waitForElementUntil(
+            ExpectedConditions.attributeContains(
+                By.xpath(XpathSelectors.CONTENT_CATEGORY + "//span[contains(@class, 'section.images')]/.."), "class", "selected"));
+    }
+
     public boolean newPublication(final Publication publication) {
         return createDocument(PUBLICATION, publication.getName());
     }

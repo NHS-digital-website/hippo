@@ -1,0 +1,34 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/images-write:
+      /editor:
+        hipposys:groups:
+        - statistical-publications-and-clinical-indicators-editor
+        hipposys:role: editor
+        jcr:primaryType: hipposys:authrole
+      /gallery-node:
+        /path-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/gallery/icons
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      /image-folder-template:
+        /node-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:uuid
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /hippo:configuration/hippo:queries/hippo:templates/new-image-folder/hippostd:templates/image
+            gallery
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      /readwrite:
+        hipposys:groups:
+        - statistical-publications-and-clinical-indicators-editor
+        hipposys:role: readwrite
+        jcr:primaryType: hipposys:authrole
+      jcr:primaryType: hipposys:domain
