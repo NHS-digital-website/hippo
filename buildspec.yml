@@ -19,10 +19,10 @@ phases:
       - apt-get update
       - apt-get install -y oracle-java8-installer || echo "this should fail"
       - cd /var/lib/dpkg/info
-        && sed -i 's|JAVA_VERSION=8u191|JAVA_VERSION=8u201|' oracle-java8-installer.*
-        && sed -i 's|PARTNER_URL=http://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/|PARTNER_URL=http://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/|' oracle-java8-installer.*
-        && sed -i 's|SHA256SUM_TGZ="53c29507e2405a7ffdbba627e6d64856089b094867479edc5ede4105c1da0d65"|SHA256SUM_TGZ="cb700cc0ac3ddc728a567c350881ce7e25118eaf7ca97ca9705d4580c506e370"|' oracle-java8-installer.*
-        && sed -i 's|J_DIR=jdk1.8.0_191|J_DIR=jdk1.8.0_201|' oracle-java8-installer.*
+        && sed -i 's|JAVA_VERSION=8u201|JAVA_VERSION=8u211|' oracle-java8-installer.*
+        && sed -i 's|PARTNER_URL=http://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/|PARTNER_URL=https://download.oracle.com/otn/java/jdk/8u211-b12/478a62b7d4e34b78b671c754eaaf38ab/|' oracle-java8-installer.*
+        && sed -i 's|SHA256SUM_TGZ="cb700cc0ac3ddc728a567c350881ce7e25118eaf7ca97ca9705d4580c506e370"|SHA256SUM_TGZ="c0b7e45330c3f79750c89de6ee0d949ed4af946849592154874d22abc9c4668d"|' oracle-java8-installer.*
+        && sed -i 's|J_DIR=jdk1.8.0_201|J_DIR=jdk1.8.0_211|' oracle-java8-installer.*
       - apt-get install -y oracle-java8-installer maven
       # - rm -rf /var/lib/apt/lists/*
       - rm -rf /var/cache/oracle-jdk8-installer
