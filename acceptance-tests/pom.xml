@@ -218,7 +218,15 @@
 
                     <plugin>
                         <!-- Automatically downloads and installs Chromederiver binaries within a temporary project
-                        space so that they don't have to be deployed manually. -->
+                        space so that they don't have to be deployed manually. Since April 2019 the latest recognised version from
+                        https://github.com/webdriverextensions/webdriverextensions-maven-plugin-repository/blob/master/repository-3.0.json
+                        is Chromedriver 2.45 (compatible with Chrome v70-72).  However, the latest Chrome version is now v74, and
+                        therefore incompatible with 2.45.
+                        As per https://github.com/webdriverextensions/webdriverextensions-maven-plugin#installing-a-driver-from-an-url
+                        an exact version of Chromedriver needs to be specified from a URL.  The disadvantage with this approach is it is
+                        now platform specific (i.e. linux), but impact is minimal since developers and deployment pipeline all use linux
+                        If running acceptance tests on MacOs or Windows, please update the below locally to test, but do not commit changes.
+                         -->
                         <groupId>com.github.webdriverextensions</groupId>
                         <artifactId>webdriverextensions-maven-plugin</artifactId>
                         <version>3.1.3</version>
@@ -233,7 +241,10 @@
                             <drivers>
                                 <driver>
                                     <name>chromedriver</name>
-                                    <version>2.45</version>
+                                    <platform>linux</platform>
+                                    <bit>64</bit>
+                                    <version>74.0.3729.6</version>
+                                    <url>http://chromedriver.storage.googleapis.com/74.0.3729.6/chromedriver_linux64.zip</url>
                                 </driver>
                             </drivers>
                         </configuration>
