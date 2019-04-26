@@ -162,7 +162,7 @@
         <#if options.document??>
             <#if options.document.sections?has_content>
                 <#list options.document.sections as section>
-                    <#if section.title?has_content && section.sectionType == 'website-section'>
+                    <#if includeInSideNav(section)>
                         <#assign isNumberedList = false />
                         <#if section.isNumberedList??>
                             <#assign isNumberedList = section.isNumberedList />
@@ -186,6 +186,12 @@
     </#if>
 
     <#return links />
+</#function>
+
+<#function includeInSideNav section>
+    <#return section.title?has_content &&
+            (section.sectionType == 'website-section' ||
+            (section.sectionType == 'gallerySection' && section.headingLevel == 'Main heading')) />
 </#function>
 
 <#-- Count the sections with titles available -->
