@@ -60,21 +60,18 @@
                                     <@stickyGroupBlockHeader letter></@stickyGroupBlockHeader>
                                     <dl>
                                         <#list alphabeticalGroupHash[letter] as glossaryitem>
-
-                                            <dt>
-                                                <#assign glossaryitemID = glossaryitem.title?lower_case?replace(' ', '-') />
-                                                <div class="glossaryItemHeader" id="${glossaryitemID}">
-                                                    <#if glossaryitem.internal?has_content || glossaryitem.external?has_content>
-                                                        <#if glossaryitem.internal?has_content>
-                                                            <@hst.link var="link" hippobean=glossaryitem.internal/>
-                                                        <#else>
-                                                            <#assign link=glossaryitem.external/>
-                                                        </#if>
-                                                        <a href="${link}">${glossaryitem.title}</a>
+                                            <#assign glossaryitemID = glossaryitem.title?lower_case?replace(' ', '-') />
+                                            <dt class="glossaryItemHeader" id="${glossaryitemID}">
+                                                <#if glossaryitem.internal?has_content || glossaryitem.external?has_content>
+                                                    <#if glossaryitem.internal?has_content>
+                                                        <@hst.link var="link" hippobean=glossaryitem.internal/>
                                                     <#else>
-                                                        ${glossaryitem.title}
+                                                        <#assign link=glossaryitem.external/>
                                                     </#if>
-                                                </div>
+                                                    <a href="${link}">${glossaryitem.title}</a>
+                                                <#else>
+                                                    ${glossaryitem.title}
+                                                </#if>
                                             </dt>
                                             <dd class="bottom-margin-20">
                                                 <@hst.html hippohtml=glossaryitem.definition contentRewriter=gaContentRewriter/>
