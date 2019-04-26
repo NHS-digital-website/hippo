@@ -13,6 +13,10 @@ import java.util.List;
 @Node(jcrType = "website:gallerysection")
 public class GallerySection extends HippoCompound {
 
+    public String getTitle() {
+        return getHeading();
+    }
+
     @HippoEssentialsGenerated(internalName = "website:heading")
     public String getHeading() {
         return getProperty("website:heading");

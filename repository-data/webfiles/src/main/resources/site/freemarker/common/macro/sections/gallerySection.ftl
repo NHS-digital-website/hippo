@@ -6,9 +6,9 @@
     <div class="article-section">
 
         <#if section.headingLevel == 'Main heading'>
-            <h2 data-uipath="website.contentblock.gallerysection.title">${section.heading}</h2>
+            <h2 data-uipath="website.contentblock.gallerysection.title" id="${slugify(section.title)}">${section.title}</h2>
         <#else>
-            <h3 data-uipath="website.contentblock.gallerysection.title">${section.heading}</h3>
+            <h3 data-uipath="website.contentblock.gallerysection.title">${section.title}</h3>
         </#if>
 
         <div data-uipath="website.contentblock.gallerysection.description">
