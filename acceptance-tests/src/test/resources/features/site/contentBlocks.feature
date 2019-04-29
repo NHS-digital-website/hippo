@@ -8,6 +8,7 @@ Feature: Ensure content block sections display required fields.
             | Emphasis Box Heading          | Important note heading                |
             | Emphasis Box Content          | Some important note in the content ...|
             | Iconlist Title                | My Icon List ...                      |
+            | Iconlist Introduction         | Some introduction text to display ... |
             | Iconlistitem Heading          | Green arrow take 1 ...                |
             | Iconlistitem Description      | A green arrow 1 description here      |
             | Gallery section Title         | Test Gallery Section heading          |

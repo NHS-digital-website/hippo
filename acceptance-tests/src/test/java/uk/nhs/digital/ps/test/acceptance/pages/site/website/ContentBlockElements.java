@@ -1,14 +1,6 @@
 package uk.nhs.digital.ps.test.acceptance.pages.site.website;
 
-import static uk.nhs.digital.ps.test.acceptance.pages.site.website.ContentBlockElements.FieldKeys.EMPHASIS_CONENT;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.website.ContentBlockElements.FieldKeys.EMPHASIS_HEADING;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.website.ContentBlockElements.FieldKeys.GALLERYSECTION_DESCRIPTION;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.website.ContentBlockElements.FieldKeys.GALLERYSECTION_TITLE;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.website.ContentBlockElements.FieldKeys.ICONLISTITEM_DESCRIPTION;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.website.ContentBlockElements.FieldKeys.ICONLISTITEM_HEADING;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.website.ContentBlockElements.FieldKeys.ICONLIST_TITLE;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.website.ContentBlockElements.FieldKeys.SECTION_CONTENT;
-import static uk.nhs.digital.ps.test.acceptance.pages.site.website.ContentBlockElements.FieldKeys.SECTION_TITLE;
+import static uk.nhs.digital.ps.test.acceptance.pages.site.website.ContentBlockElements.FieldKeys.*;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -33,6 +25,8 @@ public class ContentBlockElements implements PageElements {
                 By.xpath("//*[" + getDataUiPathXpath("emphasis.content") + "]"));
             put(ICONLIST_TITLE,
                 By.xpath("//*[" + getDataUiPathXpath("iconlist.title") + "]"));
+            put(ICONLIST_INTRODUCTION,
+                By.xpath("//*[" + getDataUiPathXpath("iconlist.introduction") + "]"));
             put(ICONLISTITEM_HEADING,
                 By.xpath("//*[" + getDataUiPathXpath("iconlistitem.heading") + "]"));
             put(ICONLISTITEM_DESCRIPTION,
@@ -80,6 +74,7 @@ public class ContentBlockElements implements PageElements {
         String EMPHASIS_HEADING = "Emphasis Box Heading";
         String EMPHASIS_CONENT = "Emphasis Box Content";
         String ICONLIST_TITLE = "Iconlist Title";
+        String ICONLIST_INTRODUCTION = "Iconlist Introduction";
         String ICONLISTITEM_HEADING = "Iconlistitem Heading";
         String ICONLISTITEM_DESCRIPTION = "Iconlistitem Description";
         String GALLERYSECTION_TITLE = "Gallery section Title";

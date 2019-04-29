@@ -1,10 +1,18 @@
 <#ftl output_format="HTML">
 
 <#macro iconList section>
-    <div class="article-section">
+    <div class="${(section.headingLevel == 'Main heading')?then('article-section', 'article-header__detail-lines')}">
         <#if section.title?has_content>
-            <h3 data-uipath="website.contentblock.iconlist.title">${section.title}</h3>
+            <#if section.headingLevel == 'Main heading'>
+                <h2 data-uipath="website.contentblock.iconlist.title" id="${slugify(section.title)}">${section.title}</h2>
+            <#else>
+                <h3 data-uipath="website.contentblock.iconlist.title">${section.title}</h3>
+            </#if>
         </#if>
+
+        <div data-uipath="website.contentblock.iconlist.introduction">
+            <@hst.html hippohtml=section.introduction contentRewriter=gaContentRewriter />
+        </div>
 
         <dl class="iconList">
             <#list section.iconListItems as iconListItem>

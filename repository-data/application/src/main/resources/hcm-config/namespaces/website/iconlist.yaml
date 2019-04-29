@@ -28,6 +28,24 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /headinglevel:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: Main heading,Sub heading
+            caption: Heading level
+            field: headinglevel
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /introduction:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Introduction
+            field: introduction
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
           /iconlistitems:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -41,6 +59,17 @@ definitions:
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
+          /headinglevel:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:headinglevel
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
           /iconlistitems:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
@@ -49,6 +78,14 @@ definitions:
             hipposysedit:type: hippo:compound
             hipposysedit:validators:
             - contentblocks-validator
+            jcr:primaryType: hipposysedit:field
+          /introduction:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:introduction
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
@@ -72,7 +109,11 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /website:introduction:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           jcr:primaryType: website:iconlist
+          website:headinglevel: Main heading
           website:title: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
