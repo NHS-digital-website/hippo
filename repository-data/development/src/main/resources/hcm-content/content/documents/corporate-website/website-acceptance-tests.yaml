@@ -347,7 +347,11 @@
             jcr:primaryType: hippogallerypicker:imagelink
           jcr:primaryType: website:iconlistitem
           website:heading: Green arrow take 1
+        /website:introduction:
+          hippostd:content: <p>Some introduction text to display for icon list</p>
+          jcr:primaryType: hippostd:html
         jcr:primaryType: website:iconlist
+        website:headinglevel: Main heading
         website:title: My Icon List
       /website:sections[4]:
         /website:description:
@@ -359,12 +363,13 @@
               has image warning text.</p>
             jcr:primaryType: hippostd:html
           /website:image:
-            hippo:docbase: 2c59bf9c-6fd6-49c3-b3a3-2ef052e2a37f
+            hippo:docbase: 25f9eaad-47d3-416d-8dff-b96003c47c69
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
             jcr:primaryType: hippogallerypicker:imagelink
           jcr:primaryType: website:galleryitem
+          website:imagealt: Some Alt text
           website:imagewarning: some warning text...
           website:title: Test Gallery item 1
         /website:galleryitems[2]:
@@ -373,12 +378,13 @@
               item has NO image warning text.</p>
             jcr:primaryType: hippostd:html
           /website:image:
-            hippo:docbase: 2c59bf9c-6fd6-49c3-b3a3-2ef052e2a37f
+            hippo:docbase: 25f9eaad-47d3-416d-8dff-b96003c47c69
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
             jcr:primaryType: hippogallerypicker:imagelink
           jcr:primaryType: website:galleryitem
+          website:imagealt: Some Alt text
           website:imagewarning: ''
           website:title: Test Gallery item 1
         jcr:primaryType: website:gallerysection
@@ -398,7 +404,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-10-26T08:47:16.366Z
-      hippostdpubwf:lastModificationDate: 2019-03-22T13:15:20.061Z
+      hippostdpubwf:lastModificationDate: 2019-04-29T10:34:33.154Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 6684c917-2061-438a-949a-ac0ffe6b10a1
       hippotranslation:locale: en
@@ -467,7 +473,11 @@
             jcr:primaryType: hippogallerypicker:imagelink
           jcr:primaryType: website:iconlistitem
           website:heading: Green arrow take 1
+        /website:introduction:
+          hippostd:content: <p>Some introduction text to display for icon list</p>
+          jcr:primaryType: hippostd:html
         jcr:primaryType: website:iconlist
+        website:headinglevel: Main heading
         website:title: My Icon List
       /website:sections[4]:
         /website:description:
@@ -479,12 +489,13 @@
               has image warning text.</p>
             jcr:primaryType: hippostd:html
           /website:image:
-            hippo:docbase: 2c59bf9c-6fd6-49c3-b3a3-2ef052e2a37f
+            hippo:docbase: 25f9eaad-47d3-416d-8dff-b96003c47c69
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
             jcr:primaryType: hippogallerypicker:imagelink
           jcr:primaryType: website:galleryitem
+          website:imagealt: Some Alt text
           website:imagewarning: some warning text...
           website:title: Test Gallery item 1
         /website:galleryitems[2]:
@@ -493,12 +504,13 @@
               item has NO image warning text.</p>
             jcr:primaryType: hippostd:html
           /website:image:
-            hippo:docbase: 2c59bf9c-6fd6-49c3-b3a3-2ef052e2a37f
+            hippo:docbase: 25f9eaad-47d3-416d-8dff-b96003c47c69
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
             jcr:primaryType: hippogallerypicker:imagelink
           jcr:primaryType: website:galleryitem
+          website:imagealt: Some Alt text
           website:imagewarning: ''
           website:title: Test Gallery item 1
         jcr:primaryType: website:gallerysection
@@ -519,7 +531,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-10-26T08:47:16.366Z
-      hippostdpubwf:lastModificationDate: 2019-03-22T13:15:47.017Z
+      hippostdpubwf:lastModificationDate: 2019-04-29T10:35:30.293Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 6684c917-2061-438a-949a-ac0ffe6b10a1
       hippotranslation:locale: en
@@ -588,7 +600,11 @@
             jcr:primaryType: hippogallerypicker:imagelink
           jcr:primaryType: website:iconlistitem
           website:heading: Green arrow take 1
+        /website:introduction:
+          hippostd:content: <p>Some introduction text to display for icon list</p>
+          jcr:primaryType: hippostd:html
         jcr:primaryType: website:iconlist
+        website:headinglevel: Main heading
         website:title: My Icon List
       /website:sections[4]:
         /website:description:
@@ -600,12 +616,13 @@
               has image warning text.</p>
             jcr:primaryType: hippostd:html
           /website:image:
-            hippo:docbase: 2c59bf9c-6fd6-49c3-b3a3-2ef052e2a37f
+            hippo:docbase: 25f9eaad-47d3-416d-8dff-b96003c47c69
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
             jcr:primaryType: hippogallerypicker:imagelink
           jcr:primaryType: website:galleryitem
+          website:imagealt: Some Alt text
           website:imagewarning: some warning text...
           website:title: Test Gallery item 1
         /website:galleryitems[2]:
@@ -614,12 +631,13 @@
               item has NO image warning text.</p>
             jcr:primaryType: hippostd:html
           /website:image:
-            hippo:docbase: 2c59bf9c-6fd6-49c3-b3a3-2ef052e2a37f
+            hippo:docbase: 25f9eaad-47d3-416d-8dff-b96003c47c69
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
             jcr:primaryType: hippogallerypicker:imagelink
           jcr:primaryType: website:galleryitem
+          website:imagealt: Some Alt text
           website:imagewarning: ''
           website:title: Test Gallery item 1
         jcr:primaryType: website:gallerysection
@@ -640,9 +658,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-10-26T08:47:16.366Z
-      hippostdpubwf:lastModificationDate: 2019-03-22T13:15:47.017Z
+      hippostdpubwf:lastModificationDate: 2019-04-29T10:35:30.293Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2019-03-22T13:15:51.355Z
+      hippostdpubwf:publicationDate: 2019-04-29T10:35:33.804Z
       hippotranslation:id: 6684c917-2061-438a-949a-ac0ffe6b10a1
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -655,7 +673,7 @@
       website:title: General AcceptanceTestDocument
       website:type: guidance
     hippo:name: General test document
-    hippo:versionHistory: a1ccd26d-b6e1-47a4-9b53-885025fff88c
+    hippo:versionHistory: bccf46be-d7d7-4238-921a-02bc6c79faeb
     jcr:mixinTypes:
     - hippo:named
     - hippo:versionInfo
