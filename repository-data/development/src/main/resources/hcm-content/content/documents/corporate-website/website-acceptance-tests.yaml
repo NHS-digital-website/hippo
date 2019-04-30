@@ -390,6 +390,18 @@
         jcr:primaryType: website:gallerysection
         website:heading: Test Gallery Section heading
         website:headinglevel: Main heading
+      /website:sections[5]:
+        /website:description:
+          hippostd:content: <p>Some description for download compound test data</p>
+          jcr:primaryType: hippostd:html
+        /website:items:
+          jcr:primaryType: website:externallink
+          website:link: https://www.bbc.co.uk
+          website:shortsummary: This external link takes you to the BBC website
+          website:title: BBC website
+        jcr:primaryType: website:download
+        website:heading: Download test header
+        website:headinglevel: Main heading
       /website:summary:
         hippostd:content: |-
           <p>General Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -515,6 +527,18 @@
           website:title: Test Gallery item 1
         jcr:primaryType: website:gallerysection
         website:heading: Test Gallery Section heading
+        website:headinglevel: Main heading
+      /website:sections[5]:
+        /website:description:
+          hippostd:content: <p>Some description for download compound test data</p>
+          jcr:primaryType: hippostd:html
+        /website:items:
+          jcr:primaryType: website:externallink
+          website:link: https://www.bbc.co.uk
+          website:shortsummary: This external link takes you to the BBC website
+          website:title: BBC website
+        jcr:primaryType: website:download
+        website:heading: Download test header
         website:headinglevel: Main heading
       /website:summary:
         hippostd:content: |-
@@ -642,6 +666,18 @@
           website:title: Test Gallery item 1
         jcr:primaryType: website:gallerysection
         website:heading: Test Gallery Section heading
+        website:headinglevel: Main heading
+      /website:sections[5]:
+        /website:description:
+          hippostd:content: <p>Some description for download compound test data</p>
+          jcr:primaryType: hippostd:html
+        /website:items:
+          jcr:primaryType: website:externallink
+          website:link: https://www.bbc.co.uk
+          website:shortsummary: This external link takes you to the BBC website
+          website:title: BBC website
+        jcr:primaryType: website:download
+        website:heading: Download test header
         website:headinglevel: Main heading
       /website:summary:
         hippostd:content: |-
