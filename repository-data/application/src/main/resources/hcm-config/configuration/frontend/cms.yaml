@@ -27,6 +27,8 @@ definitions:
       - docm
       - xlsm
       - pptm
+      - jar
+      - war
       max.file.size: 3000M
     /hippo:configuration/hippo:frontend/cms/cms-services/imageValidationService:
       extensions.allowed:

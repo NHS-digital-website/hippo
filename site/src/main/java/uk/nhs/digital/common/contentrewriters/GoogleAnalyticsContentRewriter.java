@@ -32,7 +32,7 @@ public class GoogleAnalyticsContentRewriter extends SimpleContentRewriter {
     private static final String GA_ACTION_LINK_CLICK = "Link click";
     private static final List<String> DOWNLOAD_EXTENSIONS = asList(
         "DOC", "DOCX", "XLS", "XLSX", "PDF", "CSV", "ZIP", "TXT", "RAR", "PPT",
-        "PPTX", "JPEG", "JPG", "PNG", "DOCM", "XLSM", "PPTM", "WAV", "MP4");
+        "PPTX", "JPEG", "JPG", "PNG", "DOCM", "XLSM", "PPTM", "WAV", "MP4", "JAR", "WAR");
 
     private static boolean htmlCleanerInitialized;
     private static HtmlCleaner cleaner;
