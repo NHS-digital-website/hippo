@@ -23,7 +23,8 @@
     <div class="emphasis-box emphasis-box-${slugify(section.emphasisType)}" ${ariaAttribute}="${ariaValue}">
         <#if section.image??>
             <div class="emphasis-box__image">
-                <img src="<@hst.link hippobean=section.image />" alt="" class="svg" />
+                <@hst.link hippobean=section.image fullyQualified=true var="iconImage" />
+                <img src="${iconImage?replace("/binaries", "/svg-magic/binaries")}?colour=005eb8" alt="${section.heading}" />
             </div>
         </#if>
 

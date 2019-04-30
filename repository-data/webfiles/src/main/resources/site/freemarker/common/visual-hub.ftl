@@ -6,8 +6,6 @@
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
 <#include "macro/visualhubBox.ftl">
-<#include "macro/component/inlineSVG-v2.ftl">
-
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -57,7 +55,7 @@
                             <#if hasTopicIcon>
                             <div class="column--one-third column--reset small-none">
                                 <@hst.link hippobean=document.icon.original fullyQualified=true var="iconImage" />
-                                <@svg iconImage "fill:none;stroke:#ffcd60;" document.title "" />
+                                <img src="${iconImage?replace("/binaries", "/svg-magic/binaries")}?colour=ffcd60" alt="${document.title}" />
                             </div>
                             </#if>
                         </div>

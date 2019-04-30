@@ -1,12 +1,13 @@
 <#ftl output_format="HTML">
 
-<#include "component/inlineSVG-v2.ftl">
-
 <#macro visualhubBox link>
 
-    <#assign title = link.title>
-    <#assign summary = link.summary>
-
+    <#if link.title??>
+        <#assign title = link.title>
+    </#if>
+    <#if link.summary??>
+        <#assign summary = link.summary>
+    </#if>
     <#if link.linkType == "internal">
         <#assign title = link.link.title>
     <#elseif link.linkType == "external">
@@ -29,7 +30,7 @@
                     <h2>${title}</h2>
                     ${summary}
                 </div>
-                <@svg icon "fill:none;stroke:#005eb8;" title "visual-hub-box-content-img" />
+                <img src="${icon?replace("/binaries", "/svg-magic/binaries")}?colour=005eb8" alt="${title}" class="visual-hub-box-content-img" />
             </a>
         </div>
     </div>
