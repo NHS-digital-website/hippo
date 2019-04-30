@@ -237,6 +237,11 @@
     <servlet-class>org.hippoecm.hst.servlet.HstPingServlet</servlet-class>
   </servlet>
 
+    <servlet>
+        <servlet-name>SvgServlet</servlet-name>
+        <servlet-class>uk.nhs.digital.svg.colour.SvgColourSetterServlet</servlet-class>
+    </servlet>
+
   <servlet-mapping>
     <servlet-name>BinariesServlet</servlet-name>
     <url-pattern>/binaries/*</url-pattern>
@@ -271,6 +276,11 @@
     <servlet-name>PingServlet</servlet-name>
     <url-pattern>/ping/*</url-pattern>
   </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SvgServlet</servlet-name>
+        <url-pattern>/svg-magic/*</url-pattern>
+    </servlet-mapping>
 
   <security-constraint>
     <web-resource-collection>

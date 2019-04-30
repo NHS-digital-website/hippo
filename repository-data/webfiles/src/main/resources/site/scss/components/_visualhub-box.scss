@@ -72,6 +72,7 @@
                 text-decoration: none;
                 color: #425563;
                 box-shadow: 0 4px 0 0 #d8dde0;
+                overflow: hidden;
 
                 h2 {
                     text-decoration: underline;
@@ -105,8 +106,6 @@
                     display: none;
                 }
             }
-
-
         }
     }
 }
