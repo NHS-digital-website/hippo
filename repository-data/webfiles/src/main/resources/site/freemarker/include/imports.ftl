@@ -193,6 +193,7 @@
             (section.sectionType == 'website-section' ||
             (section.sectionType == 'gallerySection' && section.headingLevel == 'Main heading') ||
             (section.sectionType == 'iconList' && section.headingLevel == 'Main heading')) />
+            (section.sectionType == 'download' && section.headingLevel == 'Main heading')) />
 </#function>
 
 <#-- Count the sections with titles available -->

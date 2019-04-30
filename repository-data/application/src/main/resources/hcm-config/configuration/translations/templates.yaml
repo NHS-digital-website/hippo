@@ -83,6 +83,11 @@ definitions:
           jcr:name: Links list
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:download:
+        /en:
+          jcr:name: Downloads
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:effectivedate:
         /en:
           jcr:name: Effective date
@@ -91,6 +96,11 @@ definitions:
       /website:emphasisBox:
         /en:
           jcr:name: Emphasis Box
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:externallink:
+        /en:
+          jcr:name: External link
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:externallinkbase:
@@ -141,6 +151,11 @@ definitions:
       /website:iconlistitem:
         /en:
           jcr:name: Icon list item
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:internallink:
+        /en:
+          jcr:name: Internal link
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:publishedwork:

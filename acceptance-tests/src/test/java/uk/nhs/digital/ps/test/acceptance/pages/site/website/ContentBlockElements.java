@@ -35,6 +35,10 @@ public class ContentBlockElements implements PageElements {
                 By.xpath("//*[" + getDataUiPathXpath("gallerysection.title") + "]"));
             put(GALLERYSECTION_DESCRIPTION,
                 By.xpath("//*[" + getDataUiPathXpath("gallerysection.description") + "]"));
+            put(DOWNLOAD_TITLE,
+                By.xpath("//*[" + getDataUiPathXpath("download.title") + "]"));
+            put(DOWNLOAD_DESCRIPTION,
+                By.xpath("//*[" + getDataUiPathXpath("download.description") + "]"));
 
         }
     };
@@ -79,5 +83,7 @@ public class ContentBlockElements implements PageElements {
         String ICONLISTITEM_DESCRIPTION = "Iconlistitem Description";
         String GALLERYSECTION_TITLE = "Gallery section Title";
         String GALLERYSECTION_DESCRIPTION = "Gallery section Description";
+        String DOWNLOAD_TITLE = "Download Title";
+        String DOWNLOAD_DESCRIPTION = "Download Description";
     }
 }

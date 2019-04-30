@@ -13,3 +13,5 @@ Feature: Ensure content block sections display required fields.
             | Iconlistitem Description      | A green arrow 1 description here      |
             | Gallery section Title         | Test Gallery Section heading          |
             | Gallery section Description   | Some description lorem ipsum          |
+            | Download Title                | Download test header                  |
+            | Download Description          | Some description for download ...     |

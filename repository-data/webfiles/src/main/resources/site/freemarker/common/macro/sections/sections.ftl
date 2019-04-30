@@ -9,6 +9,7 @@
 <#include "iconList.ftl">
 <#include "gallerySection.ftl">
 <#include "codeSection.ftl">
+<#include "downloadSection.ftl">
 
 <!-- This is a load of global setup for the highcharts config -->
 <#include "highChartsSetup.ftl">
@@ -49,6 +50,8 @@
             <@gallerySection section=section/>
         <#elseif section.sectionType == 'code'>
             <@codeSection section=section/>
+        <#elseif section.sectionType == 'download'>
+            <@downloadSection section=section/>
         </#if>
     </#list>
 </#macro>
