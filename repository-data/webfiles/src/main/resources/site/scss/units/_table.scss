@@ -51,16 +51,13 @@ table {
     }
 
     td {
-        border-top: 1px solid $col-15;
+        border-bottom: 1px solid $col-15;
+        border-left: 2px solid #FFFFFF;
 
         &,
         * {
             @include core-font(14);
         }
-    }
-
-    tr:first-child td {
-        border-top: none;
     }
 }
 
