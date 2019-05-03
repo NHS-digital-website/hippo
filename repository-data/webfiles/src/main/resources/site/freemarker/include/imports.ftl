@@ -195,9 +195,13 @@
 <#function includeInSideNav section>
     <#return section.title?has_content &&
             (section.sectionType == 'website-section' ||
-            (section.sectionType == 'gallerySection' && section.headingLevel == 'Main heading') ||
-            (section.sectionType == 'iconList' && section.headingLevel == 'Main heading')) />
-            (section.sectionType == 'download' && section.headingLevel == 'Main heading')) />
+                (section.headingLevel == 'Main heading' &&
+                    (section.sectionType == 'gallerySection' ||
+                     section.sectionType == 'iconList' ||
+                     section.sectionType == 'download'
+                    )
+                )
+            ) />
 </#function>
 
 <#-- Count the sections with titles available -->
