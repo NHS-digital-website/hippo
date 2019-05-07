@@ -6,11 +6,9 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import uk.nhs.digital.highlighter.Highlighter;
 import uk.nhs.digital.highlighter.Language;
 
-
 @HippoEssentialsGenerated(internalName = "website:code")
 @Node(jcrType = "website:code")
 public class Code extends HippoCompound {
-
     private Language language = null;
 
     public String getSectionType() {
@@ -62,10 +60,4 @@ public class Code extends HippoCompound {
         }
         return language;
     }
-
-    @HippoEssentialsGenerated(internalName = "website:codetype")
-    public String getCodeType() {
-        return getProperty("website:codetype");
-    }
-
 }

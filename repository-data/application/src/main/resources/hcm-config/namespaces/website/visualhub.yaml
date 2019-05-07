@@ -77,6 +77,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /introduction:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Introduction
+            field: introduction
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
           /links:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -123,6 +132,14 @@ definitions:
             hipposysedit:path: website:image
             hipposysedit:primary: false
             hipposysedit:type: hippogallerypicker:imagelink
+            jcr:primaryType: hipposysedit:field
+          /introduction:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:introduction
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
           /links:
             hipposysedit:multiple: true
@@ -197,6 +214,9 @@ definitions:
             hippo:modes: []
             hippo:values: []
             jcr:primaryType: hippogallerypicker:imagelink
+          /website:introduction:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           /website:summary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html

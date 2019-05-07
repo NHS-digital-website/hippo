@@ -65,6 +65,16 @@
         </div>
     </#if>
 
+    <#if document.introduction?has_content>
+        <div class="grid-wrapper visual-hub-introduction">
+            <div class="grid-row">
+                <div class="column column--reset">
+                    <@hst.html hippohtml=document.introduction contentRewriter=gaContentRewriter />
+                </div>
+            </div>
+        </div>
+    </#if>
+
     <#if hasLinks>
         <div class="grid-wrapper">
             <div class="grid-row visual-hub-grid-row">
