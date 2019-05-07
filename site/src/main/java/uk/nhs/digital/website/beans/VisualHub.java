@@ -32,4 +32,8 @@ public class VisualHub extends CommonFieldsBean {
         return getHippoHtml("website:additionalinformation");
     }
 
+    @HippoEssentialsGenerated(internalName = "website:introduction")
+    public HippoHtml getIntroduction() {
+        return getHippoHtml("website:introduction");
+    }
 }
