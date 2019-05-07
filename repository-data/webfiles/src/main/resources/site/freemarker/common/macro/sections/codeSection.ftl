@@ -12,9 +12,10 @@
         <#assign  lineCounter = 0 />
     </#if>
 
-    <div class="article-section">
+    <#assign  mainHeading = section.headingLevel == 'Main heading' />
 
-        <#if section.headingLevel == 'Main heading'>
+    <div class="${mainHeading?then('article-section', 'article-section sub-heading')}">
+        <#if mainHeading>
             <h2 data-uipath="website.contentblock.codesection.title">${section.heading}</h2>
         <#else>
             <h3 data-uipath="website.contentblock.codesection.title">${section.heading}</h3>
