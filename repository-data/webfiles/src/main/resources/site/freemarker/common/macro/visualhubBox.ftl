@@ -14,8 +14,6 @@
         <#assign summary = link.shortsummary>
     </#if>
 
-    <@hst.link var="icon" hippobean=link.icon.original fullyQualified=true />
-
     <div class="visual-hub-box">
         <div class="visual-hub-box-content" >
             <#if link.linkType == "internal">
@@ -26,11 +24,18 @@
             <#elseif link.linkType == "asset">
                 <a href="<@hst.link hippobean=link.link onKeyUp="return vjsu.onKeyUp(event)" />">
             </#if>
-                <div class="visual-hub-box-content-text">
+                <div class="visual-hub-box-content${((link.icon.original)??)?then('-text', '-full-text')}">
                     <h2>${title}</h2>
                     ${summary}
                 </div>
-                <img src="${icon?replace("/binaries", "/svg-magic/binaries")}?colour=005eb8" alt="${title}" class="visual-hub-box-content-img" />
+                 <#if (link.icon.original)??>
+                     <@hst.link var="icon" hippobean=link.icon.original fullyQualified=true />
+                     <#if icon?ends_with("svg")>
+                        <img src="${icon?replace("/binaries", "/svg-magic/binaries")}?colour=005eb8" alt="${title}" class="visual-hub-box-content-img" />
+                    <#else>
+                        <img src="${icon}" alt="${title}" class="visual-hub-box-content-img" />
+                    </#if>
+                </#if>
             </a>
         </div>
     </div>
