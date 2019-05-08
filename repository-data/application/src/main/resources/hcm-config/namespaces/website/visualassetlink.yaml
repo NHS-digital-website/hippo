@@ -80,8 +80,6 @@ definitions:
             hipposysedit:path: website:icon
             hipposysedit:primary: false
             hipposysedit:type: hippogallerypicker:imagelink
-            hipposysedit:validators:
-            - required
             jcr:primaryType: hipposysedit:field
           /link:
             hipposysedit:mandatory: false

@@ -24,7 +24,11 @@
         <#if section.image??>
             <div class="emphasis-box__image">
                 <@hst.link hippobean=section.image fullyQualified=true var="iconImage" />
-                <img src="${iconImage?replace("/binaries", "/svg-magic/binaries")}?colour=005eb8" alt="${section.heading}" />
+                <#if iconImage?ends_with("svg")>
+                    <img src="${iconImage?replace("/binaries", "/svg-magic/binaries")}?colour=005eb8" alt="${section.heading}" />
+                <#else>
+                    <img src="${iconImage}" alt="${section.heading}" />
+                </#if>
             </div>
         </#if>
 

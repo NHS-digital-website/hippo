@@ -53,10 +53,14 @@
                                 </span>
                             </div>
                             <#if hasTopicIcon>
-                            <div class="column--one-third column--reset small-none">
-                                <@hst.link hippobean=document.icon.original fullyQualified=true var="iconImage" />
-                                <img src="${iconImage?replace("/binaries", "/svg-magic/binaries")}?colour=ffcd60" alt="${document.title}" />
-                            </div>
+                                <div class="column--one-third column--reset small-none">
+                                    <@hst.link hippobean=document.icon.original fullyQualified=true var="iconImage" />
+                                    <#if iconImage?ends_with("svg")>
+                                        <img src="${iconImage?replace("/binaries", "/svg-magic/binaries")}?colour=ffcd60" alt="${document.title}" />
+                                    <#else>
+                                        <img src="${iconImage}" alt="${document.title}" />
+                                    </#if>
+                                </div>
                             </#if>
                         </div>
                     </div>
