@@ -89,11 +89,13 @@ definitions:
           - website:service
           - website:general
           - website:hub
+          - website:visualhub
           - website:componentlist
           hst:componentconfigurationmappingvalues:
           - hst:pages/service
           - hst:pages/general
           - hst:pages/hub
+          - hst:pages/visualhub
           - hst:pages/componentlist
           hst:relativecontentpath: data-and-information/content
           jcr:primaryType: hst:sitemapitem
@@ -193,7 +195,12 @@ definitions:
         /news:
           hst:componentconfigurationid: hst:pages/latestnews
           jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/hub
+        hst:componentconfigurationmappingnames:
+        - website:hub
+        - website:visualhub
+        hst:componentconfigurationmappingvalues:
+        - hst:pages/hub
+        - hst:pages/visualhub
         hst:relativecontentpath: news-and-events/content
         jcr:primaryType: hst:sitemapitem
       /robots.txt:
