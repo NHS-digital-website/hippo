@@ -12,10 +12,17 @@
         margin-top: 0;
     }
 
-    &.sub-heading {
+    &-with-sub-heading {
+        @extend .article-section;
         border-top: none;
         margin-top: 0;
     }
+
+    &-with-no-heading {
+        @extend .article-section-with-sub-heading;
+        padding-top: 16px !important;
+    }
+
 
     * + * {
         margin-top: 14px;

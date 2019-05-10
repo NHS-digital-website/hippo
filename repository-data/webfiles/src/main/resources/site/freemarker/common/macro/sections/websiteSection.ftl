@@ -9,7 +9,7 @@
             </div>
         </div>
     <#else>
-        <div class="article-section">
+        <div class="article-section-with-no-heading">
             <div data-uipath="website.contentblock.section.content" class="rich-text-content">
                 <@hst.html hippohtml=section.html contentRewriter=gaContentRewriter/>
             </div>
