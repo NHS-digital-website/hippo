@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 
-<#include "../fileIcon.ftl">
+<#include "../fileIconByMimeType.ftl">
 
 <#macro gallerySection section>
     <div class="article-section">
@@ -40,7 +40,7 @@
                             <li class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
                                 <a href="<@hst.link hippobean=attachment.link />" class="block-link" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">
                                     <div class="block-link__header">
-                                        <@fileIcon attachment.link.asset.mimeType></@fileIcon>
+                                        <@fileIconByMimeType attachment.link.asset.mimeType></@fileIconByMimeType>
                                     </div>
                                     <div class="block-link__body">
                                         <span class="block-link__title">${attachment.title}</span>

@@ -2,7 +2,7 @@
 <#include "../../include/imports.ftl">
 <#include "component/icon.ftl">
 
-<#macro fileIcon mimeType = "">
+<#macro fileIconByMimeType mimeType = "">
     <#if mimeType != "">
         <#assign fileFormat = getFormatByMimeType(mimeType?lower_case) />
     </#if>

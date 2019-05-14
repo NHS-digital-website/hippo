@@ -6,7 +6,7 @@
 <#include "../macro/fileMetaAppendix.ftl">
 <#include "../macro/typeSpan.ftl">
 <#include "../macro/component/lastModified.ftl">
-<#include "../macro/fileIcon.ftl">
+<#include "../macro/fileIconByMimeType.ftl">
 
 <article class="article article--list">
     <div class="grid-wrapper grid-wrapper--article">
@@ -59,7 +59,7 @@
                                                onClick="${onClickMethodCall}"
                                                onKeyUp="return vjsu.onKeyUp(event)">
                                                 <div class="block-link__header">
-                                                    <@fileIcon block.link.asset.mimeType></@fileIcon>
+                                                    <@fileIconByMimeType block.link.asset.mimeType></@fileIconByMimeType>
                                                 </div>
                                                 <div class="block-link__body">
                                                     <span class="block-link__title">${block.title}</span>
