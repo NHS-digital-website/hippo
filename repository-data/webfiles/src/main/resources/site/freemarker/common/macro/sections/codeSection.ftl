@@ -2,8 +2,6 @@
 
 <#-- @ftlvariable name="section" type="uk.nhs.digital.website.beans.Code" -->
 
-<#include "../fileIcon.ftl">
-
 <#macro codeSection section>
 
     <#if section.firstLineNumber != "">

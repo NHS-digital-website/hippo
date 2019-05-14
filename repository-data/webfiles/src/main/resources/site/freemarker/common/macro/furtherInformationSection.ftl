@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 <#include "fileMetaAppendix.ftl">
 <#include "typeSpan.ftl">
-<#include "fileIcon.ftl">
+<#include "fileIconByMimeType.ftl">
 <@hst.setBundle basename="rb.generic.headers"/>
 <#-- @ftlvariable name="childPages" type="java.util.List<uk.nhs.digital.common.components.DocumentChildComponent>" -->
 
@@ -50,7 +50,7 @@
                     <#if childPage.linkType == "asset">
                         <a href="<@hst.link hippobean=childPage.link />" class="block-link" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">
                             <div class="block-link__header">
-                                <@fileIcon childPage.link.asset.mimeType></@fileIcon>
+                                <@fileIconByMimeType childPage.link.asset.mimeType></@fileIconByMimeType>
                             </div>
                             <div class="block-link__body">
                                 <span class="block-link__title">${childPage.title}</span>

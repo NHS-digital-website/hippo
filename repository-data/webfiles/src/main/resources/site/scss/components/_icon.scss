@@ -95,17 +95,20 @@ $icon-height: 22px;
     background-image: url("../images/icon/CSV_36x44.svg");
 }
 
-.icon--text {
+.icon--text,
+.icon--txt{
     background-image: url("../images/icon/txt_36x44.svg");
 }
 
-.icon--html {
+.icon--html,
+.icon--xhtml {
     background-image: url("../images/icon/html.svg");
 }
 
 .icon--image,
 .icon--jpg,
 .icon--png,
-.icon--gif {
+.icon--gif,
+.icon--svg {
     background-image: url("../images/icon/Image_36x44.svg");
 }

@@ -7,7 +7,7 @@
 <#include "../common/macro/fileMetaAppendix.ftl">
 <#include "../common/macro/component/lastModified.ftl">
 <#include "./macro/structured-text.ftl">
-<#include "../common/macro/fileIcon.ftl">
+<#include "../common/macro/fileIconByMimeType.ftl">
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 
 <#-- Add meta tags -->
@@ -274,7 +274,7 @@
                                onKeyUp="return vjsu.onKeyUp(event)"
                                itemprop="contentUrl">
                                 <div class="block-link__header">
-                                    <@fileIcon attachment.resource.mimeType></@fileIcon>
+                                    <@fileIconByMimeType attachment.resource.mimeType></@fileIconByMimeType>
                                 </div>
                                 <div class="block-link__body">
                                     <span class="block-link__title" itemprop="name">${attachment.text}</span>

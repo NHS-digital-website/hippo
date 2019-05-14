@@ -2,7 +2,7 @@
 <#include "../../include/imports.ftl">
 <#include "fileMetaAppendix.ftl">
 <#include "typeSpan.ftl">
-<#include "fileIcon.ftl">
+<#include "fileIconByMimeType.ftl">
 
 <#macro childPageGrid childPages>
 <#if childPages?has_content>
@@ -26,7 +26,7 @@
                            onClick="${onClickMethodCall}"
                            onKeyUp="return vjsu.onKeyUp(event)">
                             <div class="block-link__header">
-                                <@fileIcon childPage.link.asset.mimeType></@fileIcon>
+                                <@fileIconByMimeType childPage.link.asset.mimeType></@fileIconByMimeType>
                             </div>
                             <div class="block-link__body">
                                 <span class="block-link__title">${childPage.title}</span>

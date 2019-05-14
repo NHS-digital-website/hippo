@@ -2,7 +2,8 @@
 
 <#-- @ftlvariable name="section" type="uk.nhs.digital.website.beans.Download" -->
 
-<#include "../fileIcon.ftl">
+<#include "../fileIconByMimeType.ftl">
+<#include "../fileIconByFileType.ftl">
 <#include "../typeSpan.ftl">
 
 <#macro downloadSection section>
@@ -53,7 +54,7 @@
                                        onClick="${onClickMethodCall}"
                                        onKeyUp="return vjsu.onKeyUp(event)">
                                         <div class="block-link__header">
-                                            <span class="icon icon--2x icon--html" aria-hidden="true"></span>
+                                            <@fileIconByFileType block.link />
                                         </div>
                                         <div class="block-link__body">
                                             <span class="block-link__title">${block.title}</span>
@@ -67,7 +68,7 @@
                                        onClick="${onClickMethodCall}"
                                        onKeyUp="return vjsu.onKeyUp(event)">
                                     <div class="block-link__header">
-                                        <@fileIcon block.link.asset.mimeType></@fileIcon>
+                                        <@fileIconByMimeType block.link.asset.mimeType></@fileIconByMimeType>
                                     </div>
                                     <div class="block-link__body">
                                         <span class="block-link__title">${block.title}</span>
