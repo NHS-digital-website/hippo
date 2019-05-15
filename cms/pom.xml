@@ -260,6 +260,31 @@
             <groupId>com.onehippo.cms7</groupId>
         </dependency>
 
+
+        <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-inference-engine-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-inference-engine-repository</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-inference-engine-plugin</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-inference-engine-collector-plugin</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>cms</finalName>
@@ -271,11 +296,19 @@
                     <include>**/*.properties</include>
                     <include>**/*.html</include>
                     <include>**/*.yml</include>
+                    <include>**/*.js</include>
                 </includes>
             </resource>
             <resource>
                 <filtering>true</filtering>
                 <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <filtering>false</filtering>
+                <directory>${basedir}/src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
             </resource>
         </resources>
         <plugins>

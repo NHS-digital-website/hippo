@@ -24,13 +24,13 @@
 <#-- Return the section navigation links for the months -->
 <#function getSectionNavLinks>
     <#assign links = [] />
-    
+
     <#list monthNames as month>
         <#if newsGroupHash[month]??>
             <#assign links += [{ "url": "#" + slugify(month), "title": month, "aria-label": "Jump to events starting in ${month}" }] />
         </#if>
-    </#list>  
-    
+    </#list>
+
     <#return links />
 </#function>
 
@@ -45,7 +45,7 @@
                         </div>
                         <div class="column--two-thirds column--reset">
                             <h1 class="local-header__title" data-uipath="document.title"><@fmt.message key="headers.page-title" /></h1>
-                            <p class="article-header__subtitle"><@fmt.message key="texts.intro" /></p>  
+                            <p class="article-header__subtitle"><@fmt.message key="texts.intro" /></p>
                         </div>
                     </div>
                 </div>
@@ -86,6 +86,17 @@
                         </div>
                     </#if>
                 </div>
+
+                <div class="column column--one-third">
+                    <div class="article-section">
+                        <div class="grid-row">
+                            <div class="column column--reset">
+                                <@hst.include ref="component-rightpane"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         <#else>
             <div class="grid-row">
