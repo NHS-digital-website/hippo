@@ -93,6 +93,8 @@
         <forge.folderctxmenus.version>3.0.1</forge.folderctxmenus.version>
         <essentials.version>4.5.0</essentials.version>
         <spring.version>4.3.24.RELEASE</spring.version>
+
+        <hippo-addon-inference-engine.version>2.0.7</hippo-addon-inference-engine.version>
     </properties>
 
     <repositories>
@@ -425,6 +427,48 @@
                 <version>${forge.folderctxmenus.version}</version>
             </dependency>
 
+            <!-- Inference Rule Engine -->
+            <dependency>
+                <groupId>com.onehippo.cms7</groupId>
+                <artifactId>hippo-addon-inference-engine-api</artifactId>
+                <version>${hippo-addon-inference-engine.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.onehippo.cms7</groupId>
+                <artifactId>hippo-addon-inference-engine-core</artifactId>
+                <version>${hippo-addon-inference-engine.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.onehippo.cms7</groupId>
+                <artifactId>hippo-addon-inference-engine-plugin</artifactId>
+                <version>${hippo-addon-inference-engine.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.onehippo.cms7</groupId>
+                <artifactId>hippo-addon-inference-engine-repository</artifactId>
+                <version>${hippo-addon-inference-engine.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.onehippo.cms7</groupId>
+                <artifactId>hippo-addon-inference-engine-data-collector</artifactId>
+                <version>${hippo-addon-inference-engine.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.onehippo.cms7</groupId>
+                <artifactId>hippo-addon-inference-engine-collector-plugin</artifactId>
+                <version>${hippo-addon-inference-engine.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -640,6 +684,11 @@
                     <artifactId>hippo-addon-crisp-api</artifactId>
                     <scope>provided</scope>
                 </dependency>
+                <dependency>
+                    <groupId>com.onehippo.cms7</groupId>
+                    <artifactId>hippo-addon-inference-engine-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
             </dependencies>
             <build>
                 <plugins>
@@ -741,6 +790,12 @@
                                         <artifactId>hippo-addon-crisp-api</artifactId>
                                         <classpath>shared</classpath>
                                     </dependency>
+
+                                    <dependency>
+                                        <groupId>com.onehippo.cms7</groupId>
+                                        <artifactId>hippo-addon-inference-engine-api</artifactId>
+                                        <classpath>shared</classpath>
+                                    </dependency>
                                 </dependencies>
                             </container>
                         </configuration>
@@ -836,6 +891,11 @@
                     <artifactId>hippo-addon-crisp-api</artifactId>
                     <scope>provided</scope>
                 </dependency>
+                <dependency>
+                    <groupId>com.onehippo.cms7</groupId>
+                    <artifactId>hippo-addon-inference-engine-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
             </dependencies>
             <build>
                 <defaultGoal>validate</defaultGoal>
@@ -887,6 +947,11 @@
                 <dependency>
                     <groupId>org.onehippo.cms7</groupId>
                     <artifactId>hippo-addon-crisp-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.onehippo.cms7</groupId>
+                    <artifactId>hippo-addon-inference-engine-api</artifactId>
                     <scope>provided</scope>
                 </dependency>
             </dependencies>
@@ -952,6 +1017,11 @@
                 <dependency>
                     <groupId>org.onehippo.cms7</groupId>
                     <artifactId>hippo-addon-crisp-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.onehippo.cms7</groupId>
+                    <artifactId>hippo-addon-inference-engine-api</artifactId>
                     <scope>provided</scope>
                 </dependency>
             </dependencies>

@@ -13,7 +13,7 @@ definitions:
           hst:xtype: HST.Item
           jcr:primaryType: hst:containeritemcomponent
         /eventslist:
-          hst:componentclassname: uk.nhs.digital.common.components.LatestEventsComponent
+          hst:componentclassname: uk.nhs.digital.common.components.EventsComponent
           hst:iconpath: images/essentials/catalog-component-icons/events-list.png
           hst:label: Event List
           hst:template: eventlist-main-eventlist
@@ -45,6 +45,13 @@ definitions:
           hst:iconpath: images/catalog/component-products-30x30.png
           hst:label: Search
           hst:template: searchbanner
+          hst:xtype: HST.Item
+          jcr:primaryType: hst:containeritemcomponent
+        /service-list:
+          hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsListComponent
+          hst:iconpath: images/catalog/component-products-30x30.png
+          hst:label: Service List
+          hst:template: service-list
           hst:xtype: HST.Item
           jcr:primaryType: hst:containeritemcomponent
         jcr:primaryType: hst:containeritempackage
