@@ -1,0 +1,253 @@
+---
+/content/documents/corporate-website/services/data-security-centre:
+  /cyber-security-glossary:
+    /cyber-security-glossary[1]:
+      /website:glossaryitems[1]:
+        /website:definition:
+          hippostd:content: <p>The Advanced Encryption Standard (AES), also known
+            as Rijndael,&nbsp;is an electronic data encryption specification defined
+            by the National Institute of Standards and Technology (NIST). All AES
+            implementations use a symmetric-key algorithm with a block size of 128
+            bits, but have key sizes varying between 128, 192 or 256 bits.</p>
+          jcr:primaryType: hippostd:html
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:glossaryitem
+        website:external: ''
+        website:heading: Advanced Encryption Standard - AES
+      /website:glossaryitems[2]:
+        /website:definition:
+          hippostd:content: <p>An attack that uses unauthorised commands from trusted
+            users in order to perform malicious actions on a targeted website.</p>
+          jcr:primaryType: hippostd:html
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:glossaryitem
+        website:external: ''
+        website:heading: Cross-site request forgery
+      /website:glossaryitems[3]:
+        /website:definition:
+          hippostd:content: <p>Also known as the Master Partition Table (MPT), it
+            is the first sector on a disk and contains the code used to execute the
+            operating system as well as the location of all partitions on the drive.
+            MBR can work with both BIOS or UEFI firmware but cannot address disks
+            larger than 2TB. It can be replaced by the GUID Partition Table (GPT)
+            on UEFI firmware devices.</p>
+          jcr:primaryType: hippostd:html
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:glossaryitem
+        website:external: ''
+        website:heading: Master Boot Record - MBR
+      /website:glossaryitems[4]:
+        /website:definition:
+          hippostd:content: <p>A VPN is a method of hosting a private network across
+            public infrastructure or the internet. End-to-end encryption and additional
+            security measures are implemented to protect the traffic.</p>
+          jcr:primaryType: hippostd:html
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:glossaryitem
+        website:external: ''
+        website:heading: Virtual Private Network - VPN
+      /website:summary:
+        hippostd:content: <p>Find&nbsp;a list of common cyber security phrases and
+          terminology, along with an explanation of what they mean.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2019-07-29T15:25:16.962Z
+      hippostdpubwf:lastModificationDate: 2019-07-29T15:40:44.867Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: ebd5ff56-fb2d-489c-82ce-39337bc16ed1
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:glossarylist
+      website:indexpage: false
+      website:seosummary: Find a list of common cyber security phrases and terminology,
+        along with an explanation of what they mean.
+      website:shortsummary: Find a list of common cyber security phrases and terminology,
+        along with an explanation of what they mean.
+      website:title: Cyber security glossary
+    /cyber-security-glossary[2]:
+      /website:glossaryitems[1]:
+        /website:definition:
+          hippostd:content: <p>The Advanced Encryption Standard (AES), also known
+            as Rijndael,&nbsp;is an electronic data encryption specification defined
+            by the National Institute of Standards and Technology (NIST). All AES
+            implementations use a symmetric-key algorithm with a block size of 128
+            bits, but have key sizes varying between 128, 192 or 256 bits.</p>
+          jcr:primaryType: hippostd:html
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:glossaryitem
+        website:external: ''
+        website:heading: Advanced Encryption Standard - AES
+      /website:glossaryitems[2]:
+        /website:definition:
+          hippostd:content: <p>An attack that uses unauthorised commands from trusted
+            users in order to perform malicious actions on a targeted website.</p>
+          jcr:primaryType: hippostd:html
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:glossaryitem
+        website:external: ''
+        website:heading: Cross-site request forgery
+      /website:glossaryitems[3]:
+        /website:definition:
+          hippostd:content: <p>Also known as the Master Partition Table (MPT), it
+            is the first sector on a disk and contains the code used to execute the
+            operating system as well as the location of all partitions on the drive.
+            MBR can work with both BIOS or UEFI firmware but cannot address disks
+            larger than 2TB. It can be replaced by the GUID Partition Table (GPT)
+            on UEFI firmware devices.</p>
+          jcr:primaryType: hippostd:html
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:glossaryitem
+        website:external: ''
+        website:heading: Master Boot Record - MBR
+      /website:glossaryitems[4]:
+        /website:definition:
+          hippostd:content: <p>A VPN is a method of hosting a private network across
+            public infrastructure or the internet. End-to-end encryption and additional
+            security measures are implemented to protect the traffic.</p>
+          jcr:primaryType: hippostd:html
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:glossaryitem
+        website:external: ''
+        website:heading: Virtual Private Network - VPN
+      /website:summary:
+        hippostd:content: <p>Find&nbsp;a list of common cyber security phrases and
+          terminology, along with an explanation of what they mean.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2019-07-29T15:25:16.962Z
+      hippostdpubwf:lastModificationDate: 2019-07-29T15:41:26.089Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: ebd5ff56-fb2d-489c-82ce-39337bc16ed1
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:glossarylist
+      website:indexpage: false
+      website:seosummary: Find a list of common cyber security phrases and terminology,
+        along with an explanation of what they mean.
+      website:shortsummary: Find a list of common cyber security phrases and terminology,
+        along with an explanation of what they mean.
+      website:title: Cyber security glossary
+    /cyber-security-glossary[3]:
+      /website:glossaryitems[1]:
+        /website:definition:
+          hippostd:content: <p>The Advanced Encryption Standard (AES), also known
+            as Rijndael,&nbsp;is an electronic data encryption specification defined
+            by the National Institute of Standards and Technology (NIST). All AES
+            implementations use a symmetric-key algorithm with a block size of 128
+            bits, but have key sizes varying between 128, 192 or 256 bits.</p>
+          jcr:primaryType: hippostd:html
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:glossaryitem
+        website:external: ''
+        website:heading: Advanced Encryption Standard - AES
+      /website:glossaryitems[2]:
+        /website:definition:
+          hippostd:content: <p>An attack that uses unauthorised commands from trusted
+            users in order to perform malicious actions on a targeted website.</p>
+          jcr:primaryType: hippostd:html
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:glossaryitem
+        website:external: ''
+        website:heading: Cross-site request forgery
+      /website:glossaryitems[3]:
+        /website:definition:
+          hippostd:content: <p>Also known as the Master Partition Table (MPT), it
+            is the first sector on a disk and contains the code used to execute the
+            operating system as well as the location of all partitions on the drive.
+            MBR can work with both BIOS or UEFI firmware but cannot address disks
+            larger than 2TB. It can be replaced by the GUID Partition Table (GPT)
+            on UEFI firmware devices.</p>
+          jcr:primaryType: hippostd:html
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:glossaryitem
+        website:external: ''
+        website:heading: Master Boot Record - MBR
+      /website:glossaryitems[4]:
+        /website:definition:
+          hippostd:content: <p>A VPN is a method of hosting a private network across
+            public infrastructure or the internet. End-to-end encryption and additional
+            security measures are implemented to protect the traffic.</p>
+          jcr:primaryType: hippostd:html
+        /website:internal:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          jcr:primaryType: hippo:mirror
+        jcr:primaryType: website:glossaryitem
+        website:external: ''
+        website:heading: Virtual Private Network - VPN
+      /website:summary:
+        hippostd:content: <p>Find&nbsp;a list of common cyber security phrases and
+          terminology, along with an explanation of what they mean.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2019-07-29T15:25:16.962Z
+      hippostdpubwf:lastModificationDate: 2019-07-29T15:41:26.089Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2019-07-29T15:41:28.542Z
+      hippotranslation:id: ebd5ff56-fb2d-489c-82ce-39337bc16ed1
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: website:glossarylist
+      website:indexpage: false
+      website:seosummary: Find a list of common cyber security phrases and terminology,
+        along with an explanation of what they mean.
+      website:shortsummary: Find a list of common cyber security phrases and terminology,
+        along with an explanation of what they mean.
+      website:title: Cyber security glossary
+    hippo:name: Cyber Security Glossary
+    hippo:versionHistory: 48df20a7-58ef-4bba-a3b5-a340430b3ec5
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Data Security Centre
+  hippostd:foldertype:
+  - new-digital-website-folder
+  - new-digital-website-document
+  hippotranslation:id: a115db48-e376-43c0-a1ad-f35dfc3fab41
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

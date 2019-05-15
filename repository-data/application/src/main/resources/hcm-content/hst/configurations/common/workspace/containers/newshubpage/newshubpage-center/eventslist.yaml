@@ -1,0 +1,28 @@
+---
+/hst:hst/hst:configurations/common/hst:workspace/hst:containers/newshubpage/newshubpage-right/eventslist:
+  hst:componentclassname: uk.nhs.digital.common.components.EventsComponent
+  hst:iconpath: images/essentials/catalog-component-icons/events-list.png
+  hst:label: Event List
+  hst:parameternames:
+  - path
+  - hidePastEvents
+  - documentDateField
+  - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+  - sortOrder
+  - documentTypes
+  - sortField
+  - pageSize
+  - showPagination
+  hst:parametervalues:
+  - ''
+  - 'on'
+  - website:startdatetime
+  - 'on'
+  - asc
+  - website:event
+  - website:startdatetime
+  - '2'
+  - 'off'
+  hst:template: eventlist-main-eventlist
+  hst:xtype: hst.item
+  jcr:primaryType: hst:containeritemcomponent
