@@ -246,6 +246,13 @@
                                     <version>74.0.3729.6</version>
                                     <url>http://chromedriver.storage.googleapis.com/74.0.3729.6/chromedriver_linux64.zip</url>
                                 </driver>
+                                <driver>
+                                    <name>chromedriver</name>
+                                    <platform>mac</platform>
+                                    <bit>64</bit>
+                                    <version>74.0.3729.6</version>
+                                    <url>http://chromedriver.storage.googleapis.com/74.0.3729.6/chromedriver_mac64.zip</url>
+                                </driver>
                             </drivers>
                         </configuration>
                     </plugin>
