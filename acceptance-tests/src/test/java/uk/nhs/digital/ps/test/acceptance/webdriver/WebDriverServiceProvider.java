@@ -10,6 +10,8 @@ import java.io.UncheckedIOException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Manages WebDriver service (the server component of WebDriver).
@@ -28,11 +30,14 @@ public class WebDriverServiceProvider {
      */
     private static final String WEB_DRIVER_LOCATION = "drivers";
 
+    private final Map<String, String> driverMap = createDriverMap();
+
+
     private ChromeDriverService chromeDriverService;
 
     /**
      * Starts WebDriver service.
-     *
+     * <p>
      * For perfomance reasons, this method should be called once before the entire testing session rather than
      * before each test.
      */
@@ -51,7 +56,7 @@ public class WebDriverServiceProvider {
 
     /**
      * Stops WebDriver service.
-     *
+     * <p>
      * For perfomance reasons, this method should be called once at the end of the entire testing session rather than
      * after each test.
      */
@@ -78,12 +83,18 @@ public class WebDriverServiceProvider {
 
         final File[] candidateFiles = webDriverLocationPath.toFile().listFiles((dir, name) -> !name.endsWith(".version"));
 
-        if (candidateFiles == null || candidateFiles.length != 1) {
-            throw new IllegalStateException("Expected exactly one web driver binary file to be available in "
-                + webDriverLocationPath);
+        if (candidateFiles == null) {
+            throw new IllegalStateException("Expected at least one web driver binary file to be available in " + webDriverLocationPath);
         }
 
-        return candidateFiles[0];
+        final String os = System.getProperty("os.name");
+
+        for (File file : candidateFiles) {
+            if (file.getName().contains(driverMap.get(os))) {
+                return file;
+            }
+        }
+        return null;
     }
 
     /**
@@ -100,5 +111,12 @@ public class WebDriverServiceProvider {
         }
 
         return chromeDriverService;
+    }
+
+    private Map<String, String> createDriverMap() {
+        Map<String, String> driverMap = new HashMap<>();
+        driverMap.put("Mac OS X", "mac");
+        driverMap.put("Linux", "linux");
+        return driverMap;
     }
 }
