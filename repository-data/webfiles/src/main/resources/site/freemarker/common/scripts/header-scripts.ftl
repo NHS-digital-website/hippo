@@ -16,3 +16,5 @@
 <![endif]-->
 <script src="<@hst.webfile path="/js/jquery/jquery-3.3.1.min.js"/>"></script>
 <script src="<@hst.webfile path="/js/highlighter/highlighter-copy-button.js"/>"></script>
+<script src="<@hst.webfile path="/js/details-element/aria.js"/>"></script>
+<script src="<@hst.webfile path="/js/details-element/details-element-polyfill/dist/details-element-polyfill.js"/>"></script>
