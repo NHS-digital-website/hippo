@@ -10,6 +10,7 @@
 <#include "gallerySection.ftl">
 <#include "codeSection.ftl">
 <#include "downloadSection.ftl">
+<#include "expander.ftl">
 
 <!-- This is a load of global setup for the highcharts config -->
 <#include "highChartsSetup.ftl">
@@ -52,6 +53,8 @@
             <@codeSection section=section/>
         <#elseif section.sectionType == 'download'>
             <@downloadSection section=section/>
+        <#elseif section.sectionType == 'expander'>
+            <@expander section />
         </#if>
     </#list>
 </#macro>

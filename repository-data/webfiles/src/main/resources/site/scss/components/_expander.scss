@@ -1,0 +1,92 @@
+.expander {
+    .details-body {
+        th,
+        td {
+            border-left-color: $grey-5;
+            background: $grey-5;
+        }
+    }
+
+    .no-details & {
+        details:not([open]) {
+            .details-body {
+                display: none;
+            }
+        }
+    }
+
+    &.expander-most {
+        details {
+            background-color: $grey-5;
+
+            summary {
+                font-size: 18px;
+                display: block;
+                padding: 24px;
+
+                &:after {
+                    display: none;
+                }
+
+                &:focus {
+                    outline: 3px solid $focus-colour;
+                }
+
+                &::-webkit-details-marker {
+                    display: none;
+                }
+
+                span {
+                    background-repeat: no-repeat;
+                    background-position: 0 center;
+                    background-image: url("../images/icon/expander-plus-icon.svg");
+                    padding: 8px 8px 8px 38px;
+                }
+            }
+
+
+            &[open] {
+                summary {
+                    span {
+                        background-image: url("../images/icon/expander-minus-icon.svg") !important;
+                    }
+                }
+            }
+
+            .details-body {
+                padding: 0 24px 24px;
+            }
+        }
+    }
+
+    &.expander-some {
+        padding: 0 2px 0 0;
+
+        details {
+            summary {
+                font-size: 18px;
+                display: block;
+                border-left: 4px solid transparent;
+
+                span {
+                    text-decoration: underline;
+                }
+
+                .no-details &::before {
+                    content: "►";
+                }
+            }
+
+            .no-details &[open] summary::before {
+                content: "▼";
+            }
+
+            .details-body {
+                background-color: $grey-5;
+                border-left: 4px solid $blue;
+                margin-top: 3px;
+                padding: 16px 24px;
+            }
+        }
+    }
+}
