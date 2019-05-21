@@ -49,7 +49,7 @@
 
         <#if docType?length gt 0>
             <#local onClickAttr="logGoogleAnalyticsEvent('Link click', '${docType}', '${link}')" />
-            <#return onClickAttr/>
+            <#return onClickAttr?no_esc />
         </#if>
     </#if>
 </#function>
@@ -243,6 +243,12 @@
         "text/plain": "txt",
         "application/x-rar-compressed": "rar",
         "application/zip": "zip",
+        "application/java-archive": "jar",
+        "application/json": "json",
+
+        "application/x-war": "war",
+        "application/x-webarchive": "war",
+        "application/x-tika-java-web-archive": "war",
 
         "application/vnd.ms-powerpoint": "ppt",
         "application/vnd.ms-powerpoint.presentation.macroenabled.12": "ppt",
@@ -266,7 +272,10 @@
         "application/vnd.ms-word.document.macroenabled.12": "doc",
         "application/vnd.ms-word.template.macroEnabled.12": "doc",
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document": "doc",
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.template": "doc"
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.template": "doc",
+
+        "text/xml": "xml",
+        "application/xml": "xml"
     }/>
 
     <#return (mimeTypes[mimeType]??)?then(mimeTypes[mimeType], "") />
