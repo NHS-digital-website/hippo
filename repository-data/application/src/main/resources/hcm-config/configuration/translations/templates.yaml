@@ -173,6 +173,11 @@ definitions:
           jcr:name: Published Work Chapter
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:quote:
+        /en:
+          jcr:name: quote
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:roadmap:
         /en:
           jcr:name: Roadmap

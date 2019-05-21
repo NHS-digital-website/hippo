@@ -34,6 +34,9 @@
 [website:download] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:quote] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:effectivedate] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -126,4 +129,3 @@
 
 [website:visualinternallink] > hippo:compound, hippostd:relaxed
   orderable
-
