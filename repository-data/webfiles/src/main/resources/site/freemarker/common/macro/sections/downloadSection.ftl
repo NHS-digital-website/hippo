@@ -47,7 +47,7 @@
                                     </a>
 
                                 <#elseif block.linkType == "external">
-                                    <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, block.link) />
+                                    <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, block.title) />
 
                                     <a href="${block.link}"
                                        class="block-link"
@@ -63,7 +63,10 @@
                                     </a>
 
                                 <#elseif block.linkType == "asset">
-                                    <a href="<@hst.link hippobean=block.link />"
+                                    <@hst.link hippobean=block.link var="link" />
+                                    <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, link) />
+
+                                    <a href="${link}"
                                        class="block-link"
                                        onClick="${onClickMethodCall}"
                                        onKeyUp="return vjsu.onKeyUp(event)">

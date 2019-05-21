@@ -29,6 +29,8 @@ definitions:
       - pptm
       - jar
       - war
+      - xml
+      - json
       max.file.size: 3000M
     /hippo:configuration/hippo:frontend/cms/cms-services/imageValidationService:
       extensions.allowed:
