@@ -80,6 +80,10 @@
             margin-top: 10px;
             display: inline-block;
             text-decoration: underline;
+
+            &:hover {
+              text-decoration: none;
+            }
         }
 
         .section-numbered {
@@ -135,6 +139,14 @@
                 height: 100%;
                 left: 0;
                 color: $col-septenary;
+                &:hover,
+                &:focus {
+                    text-decoration: none;
+                    color: $link-hover-colour-nhs;
+                }
+                &:active {
+                    color: $link-active-colour-nhs; 
+                }
             }
 
             &:hover,

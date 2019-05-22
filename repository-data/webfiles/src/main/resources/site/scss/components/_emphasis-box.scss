@@ -28,6 +28,15 @@
         a:link, a:visited {
             color: $white;
         }
+
+        a:hover,
+        a:focus {
+            color: $link-hover-colour-nhs;
+        }
+
+        a:active {
+            color: $link-active-colour-nhs;
+        }
     }
 
     &-important {

@@ -52,6 +52,20 @@
     margin: round($gutter * 0.75) 0 0;
 }
 
+.site-header-a__logo {
+
+    &:hover,
+    &:active,
+    &:focus {
+        background: none;
+        box-shadow: none;
+    }
+
+    &:focus {
+        outline: 3px solid $focus-colour;
+    }
+}
+
 .site-header__search-wrapper {
     position: relative;
     width: 100%;
