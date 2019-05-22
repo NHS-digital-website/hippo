@@ -14,15 +14,23 @@ a {
     }
 
     &:hover {
-        color: $link-hover-colour;
+        background: $yellow-link-hover;
+        box-shadow: 0 0 0 4px $yellow-link-hover;
+        color: $link-hover-colour-nhs;
+        text-decoration: none;
     }
 
     &:active {
-        color: $link-active-colour;
+        background: $yellow-link-active;
+        box-shadow: 0 0 0 4px $yellow-link-active;
+        color: $link-active-colour-nhs;
     }
 
     &:focus {
-        outline: 3px solid $focus-colour;
+        background: $yellow;
+        box-shadow: 0 0 0 4px $yellow;
+        color: $link-hover-colour-nhs;
+        outline: 0;
     }
 }
 
@@ -36,17 +44,21 @@ a {
 
         &:link,
         &:visited,
-        &:active,
         &:hover,
         &:focus {
             color: $col-septenary;
         }
 
         &:hover {
-            text-decoration: underline;
+            text-decoration: none; 
+            color: $link-hover-colour-nhs;
         }
 
+        &:active {
+            color: $link-active-colour-nhs;
+        }
         &:focus {
+            color: $link-hover-colour-nhs;
             outline: 3px solid $focus-colour;
         }
     }

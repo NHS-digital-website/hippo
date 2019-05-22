@@ -51,9 +51,13 @@
     
     @include core-font(16);
 
-    &:hover {
-        text-decoration: underline;
-        color: $col-primary;
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        color: $link-hover-colour-nhs;
+    }
+    &:active {
+        color: $link-active-colour-nhs; 
     }
 }
 

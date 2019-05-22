@@ -34,6 +34,8 @@ $red-10: #f5e6e4;
 $yellow: #ffb81c;
 $yellow-50: #fada8b;
 $yellow-10: #fdf2d5;
+$yellow-link-hover: #ffcd60;
+$yellow-link-active: #ffbf33;
 
 
 
@@ -58,6 +60,8 @@ $col-16: #000000;           // Black
 $col-17: #FFE8B4;           // Alert Yellow
 $col-18: #768692;           // Blue-ish light grey
 $col-19: #422C88;           // Purple lightup banner theme
+$col-20: #212B32;           // Dark gray (almost black)
+$col-21: #374047;           // Dark gray (a bit lighter than col-20)
 
 
 // Semantic colour names
@@ -74,9 +78,11 @@ $link-visited-colour: $dark-blue;
 $link-visited-reverse-polarity: $col-quinary;
 
 $link-hover-colour: $col-secondary;
+$link-hover-colour-nhs: $col-20;
 $link-hover-reverse-polarity: $col-tertiary;
 
 $link-active-colour: $col-secondary;
+$link-active-colour-nhs: $col-21;
 $link-active-reverse-polarity: $col-tertiary;
 
 $focus-colour: $col-octonary;

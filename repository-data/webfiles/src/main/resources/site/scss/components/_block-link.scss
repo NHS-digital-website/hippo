@@ -12,13 +12,23 @@
         color: $grey-1;
     }
 
+    &:active {
+        background-color: $grey-5;
+        box-shadow: none;
+        outline: 0;
+    }
+
     &:hover {
         background-color: $blue-10;
         border-left-color: $bright-blue;
+        box-shadow: none;
+        outline: 0;
     }
 
     &:focus {
+        background-color: $grey-5;
         border-left-color: $bright-blue;
+        outline: 3px solid $focus-colour;
     }
 
     &__title {

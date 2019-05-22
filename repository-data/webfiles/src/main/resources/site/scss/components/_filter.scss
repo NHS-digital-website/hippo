@@ -138,6 +138,15 @@
 
         @include core-font(14);
 
+        &:hover,
+        &:focus {
+            text-decoration: none;
+            color: $link-hover-colour-nhs;
+        }
+        &:active {
+            color: $link-active-colour-nhs; 
+        }
+
         &.is-hidden {
             display: none;
         }
@@ -164,6 +173,21 @@ a.filter-link {
 
     @include core-font(14);
 
+    &:hover,
+    &:active,
+    &:focus {
+        background-position: 7px 12px;
+        background-repeat: no-repeat;
+        background-size: 8px;
+        background-image: url("../images/icon-filter.png");
+        background-color: $yellow-link-hover;
+    }
+
+    &:active,
+    &:focus {
+        background-color: $yellow;
+    }
+
     &.filter-link--selected,
     &.filter-link--active {
         color: $col-quinary;
@@ -171,6 +195,17 @@ a.filter-link {
         background-color: $col-septenary;
         background-image: url("../images/icon-filter-down.png");
 
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: $col-septenary;
+            background-image: url("../images/icon-filter-down.png");
+            text-decoration: none;
+        }
+
+        &:focus {
+            outline: 3px solid $focus-colour;
+        }
         &:after {
             content: "x";
             position: absolute;

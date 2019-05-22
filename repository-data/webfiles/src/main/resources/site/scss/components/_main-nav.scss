@@ -24,15 +24,6 @@ $burger-piece-height: 3px;
         }
     }
 
-    a {
-        text-decoration: none;
-
-        &:hover {
-            text-decoration: underline;
-            color: $col-primary;
-        }
-    }
-
     @include media($max-width: $desktop-width, $ignore-for-ie: true) {
         text-align: left;
         margin-top: 0;
