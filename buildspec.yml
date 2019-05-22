@@ -40,6 +40,9 @@ phases:
       - ssh-keygen -R github.com
       - ssh-keyscan github.com >> $HOME/.ssh/known_hosts
 
+      # Print the Ubuntu version
+      - cat /etc/lsb-release
+
   build:
     commands:
       # Tag
