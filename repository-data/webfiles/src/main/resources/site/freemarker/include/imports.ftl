@@ -195,11 +195,12 @@
 <#function includeInSideNav section>
     <#return section.title?has_content &&
             (section.sectionType == 'website-section' ||
-                (section.headingLevel == 'Main heading' &&
-                    (section.sectionType == 'gallerySection' ||
-                     section.sectionType == 'iconList' ||
-                     section.sectionType == 'download'
-                    )
+                (
+                  (section.sectionType == 'gallerySection' ||
+                   section.sectionType == 'iconList' ||
+                   section.sectionType == 'download'
+                  ) 
+                && section.headingLevel == 'Main heading'
                 )
             ) />
 </#function>

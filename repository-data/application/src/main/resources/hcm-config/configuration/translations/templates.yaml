@@ -83,6 +83,11 @@ definitions:
           jcr:name: Links list
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:ctabutton:
+        /en:
+          jcr:name: CTA
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:download:
         /en:
           jcr:name: Downloads
