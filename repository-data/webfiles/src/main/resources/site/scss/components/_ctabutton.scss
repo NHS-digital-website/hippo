@@ -1,0 +1,51 @@
+@import "../environment/tools/mixins/button";
+@import "../environment/settings/colours";
+
+.ctabtn--div {
+  position: relative;
+  left: 0; 
+  width:  100%;
+
+}
+
+.ctabtn-left {
+  position: relative;
+  left: 0; 
+  text-align: left;
+}
+
+.ctabtn-right {
+  position: relative;
+  right: 0; 
+  text-align: right;
+}
+
+.ctabtn--nhs-digital-button {
+  @include button($blue);
+
+  &:hover,
+  &:focus,
+  &:active {
+      outline: 3px solid $focus-colour;
+  }
+}
+
+.ctabtn--journey-start-button {
+  @include button($green);
+
+  &:hover,
+  &:focus,
+  &:active {
+      outline: 3px solid $focus-colour;
+  }
+}
+
+.ctabtn--secondary-button {
+  @include button($grey-1);
+
+  &:hover,
+  &:focus,
+  &:active {
+      outline: 3px solid $focus-colour;
+  }
+}

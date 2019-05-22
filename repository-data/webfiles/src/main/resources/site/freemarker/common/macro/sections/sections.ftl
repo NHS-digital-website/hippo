@@ -11,6 +11,7 @@
 <#include "codeSection.ftl">
 <#include "downloadSection.ftl">
 <#include "expander.ftl">
+<#include "ctaSection.ftl">
 
 <!-- This is a load of global setup for the highcharts config -->
 <#include "highChartsSetup.ftl">
@@ -55,6 +56,8 @@
             <@downloadSection section=section/>
         <#elseif section.sectionType == 'expander'>
             <@expander section />
+        <#elseif section.sectionType == 'ctabutton'>
+            <@ctaSection section=section/>
         </#if>
     </#list>
 </#macro>
