@@ -7,17 +7,16 @@
         <div class="column column--reset">
             <ol class="breadcrumb" title="Navigation">
                 <li class="breadcrumb__crumb">
-                    <a href="<@hst.link siteMapItemRefId='root'/>" class="breadcrumb__link">NHS Digital</a>
+                    <a href="<@hst.link siteMapItemRefId='root'/>" class="breadcrumb__link" data-text="NHS Digital">NHS Digital</a>
                 </li>
                 <#list breadcrumb.items as item>
                     <li class="breadcrumb__crumb">
                         <img src="<@hst.webfile  path="images/icon-arrow.png"/>" alt="Right arrow icon" class="breadcrumb__sep"/>
-                        
                         <#if !item?is_last>
                         <@hst.link var="link" link=item.link/>
-                        <a href="${link}" class="breadcrumb__link">${item.title}</a>
+                        <a href="${link}" class="breadcrumb__link" data-text="${item.title}">${item.title}</a>
                         <#else>
-                        <span class="breadcrumb__link breadcrumb__link--secondary">${item.title}</span>
+                        <span class="breadcrumb__link breadcrumb__link--secondary" data-text="${item.title}">${item.title}</span>
                         </#if>
                     </li>
                 </#list>
