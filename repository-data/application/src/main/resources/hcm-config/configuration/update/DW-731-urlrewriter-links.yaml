@@ -1,0 +1,15 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-731-urlrewriter-links:
+      hipposys:batchsize: 1
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: '{}'
+      hipposys:query: //element(*, urlrewriter:basedocument)[@hippo:availability='live']
+      hipposys:script:
+        resource: /configuration/update/DW-731-urlrewriter-links.groovy
+        type: string
+      hipposys:throttle: 3000
+      jcr:primaryType: hipposys:updaterinfo
