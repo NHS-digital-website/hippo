@@ -7,6 +7,7 @@
 <#include "../common/macro/fileMetaAppendix.ftl">
 <#include "../common/macro/component/lastModified.ftl">
 <#include "../common/macro/fileIconByMimeType.ftl">
+<#include "../common/macro/component/pagination.ftl">
 
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 <#-- @ftlvariable name="publication" type="uk.nhs.digital.ps.beans.Publication" -->
@@ -157,6 +158,10 @@
                 </#if>
 
                 <@lastModified publication.lastModified></@lastModified>
+
+                <div class="article-section no-border no-top-margin">
+                    <@pagination publication/>
+                </div>
 
             </div>
         </div>

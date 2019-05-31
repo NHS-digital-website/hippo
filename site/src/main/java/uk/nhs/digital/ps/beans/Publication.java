@@ -2,6 +2,8 @@ package uk.nhs.digital.ps.beans;
 
 import org.hippoecm.hst.content.beans.Node;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import uk.nhs.digital.pagination.Paginated;
+import uk.nhs.digital.pagination.Pagination;
 import uk.nhs.digital.ps.beans.structuredText.StructuredText;
 
 import java.util.ArrayList;
@@ -9,7 +11,7 @@ import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "publicationsystem:publication")
 @Node(jcrType = "publicationsystem:publication")
-public class Publication extends PublicationBase {
+public class Publication extends PublicationBase implements Paginated {
 
     @HippoEssentialsGenerated(internalName = PublicationBase.PropertyKeys.SUMMARY)
     public StructuredText getSummary() {
@@ -45,5 +47,10 @@ public class Publication extends PublicationBase {
         }
 
         return pages;
+    }
+
+    @Override
+    public Pagination paginate() {
+        return new Pagination(null, getPageIndex().stream().skip(1).findFirst().orElse(null));
     }
 }
