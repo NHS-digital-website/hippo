@@ -41,3 +41,60 @@
         }
     }
 }
+
+.digital-pagination {
+    display: inline-block;
+    width: 100%;
+
+    &-list, li {
+        list-style: none;
+        padding: 0;
+
+        &-item-previous {
+            float: left;
+            text-align: left;
+            width: 50%
+        }
+
+        &-item-next {
+            float: right;
+            text-align: right;
+            width: 50%
+        }
+    }
+
+    &-link {
+        display: block;
+        position: relative;
+        text-decoration: none;
+        width: 100%;
+
+        &-title {
+            font-size: 1.1rem;
+            display: block;
+
+            img {
+                display: inline-block;
+                height: 24px;
+                width: 24px;
+            }
+        }
+        
+        &-hidden {
+            display: none;
+        }
+
+        &-page {
+            clear: both;
+            text-decoration: underline;
+            font-size: 0.9rem;
+        }
+
+        &:hover {
+            box-shadow: 0 0 0 16px #ffcd60;
+            outline: 4px solid #ffcd60;
+            background-color: #ffcd60;
+            color: $dark-blue;
+        }
+    }
+}

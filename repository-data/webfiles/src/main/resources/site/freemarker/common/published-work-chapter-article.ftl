@@ -2,6 +2,7 @@
 <#include "../include/imports.ftl">
 <#include "../common/macro/sections/sections.ftl">
 <#include "../common/macro/component/lastModified.ftl">
+<#include "../common/macro/component/pagination.ftl">
 <#include "macro/sectionNav.ftl">
 <#include "macro/metaTags.ftl">
 
@@ -19,7 +20,12 @@
 
 <#if hasChapters>
     <#assign documents = [] />
+
+    <#-- this loop only runs ones -->
     <#list linkeddocuments.hippoBeans as item>
+
+        ${document.keepPublishedWorkDuringViewRender(item)}
+
         <#-- Cache the parent document's details -->
         <@hst.link hippobean=item var="link" />
         <#assign documents = [{ "index": 0, "id": item.identifier, "title": item.title, "link": link }] />
@@ -118,6 +124,10 @@
 
                 <div class="article-section muted">
                     <@lastModified document.lastModified false></@lastModified>
+                </div>
+
+                <div class="article-section no-border no-top-margin">
+                    <@pagination document />
                 </div>
             </div>
         </div>

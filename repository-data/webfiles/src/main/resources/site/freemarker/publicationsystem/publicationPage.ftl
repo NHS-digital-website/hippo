@@ -7,6 +7,7 @@
 <#include "../include/imports.ftl">
 <#include "../common/macro/sectionNav.ftl">
 <#include "../common/macro/component/lastModified.ftl">
+<#include "../common/macro/component/pagination.ftl">
 
 <#function getSectionNavLinks index>
     <#assign links = [] />
@@ -52,6 +53,9 @@
 
                 <@lastModified page.lastModified></@lastModified>
 
+                <div class="article-section no-border no-top-margin">
+                    <@pagination page/>
+                </div>
             </div>
         </div>
     </div>

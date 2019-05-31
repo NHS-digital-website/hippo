@@ -5,7 +5,10 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.common.enums.Region;
+import uk.nhs.digital.pagination.Paginated;
+import uk.nhs.digital.pagination.Pagination;
 import uk.nhs.digital.ps.beans.ExtAttachment;
+import uk.nhs.digital.ps.beans.IndexPageImpl;
 
 import java.util.Calendar;
 import java.util.List;
@@ -13,7 +16,7 @@ import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "website:publishedwork")
 @Node(jcrType = "website:publishedwork")
-public class Publishedwork extends CommonFieldsBean {
+public class Publishedwork extends CommonFieldsBean implements Paginated {
 
     @HippoEssentialsGenerated(internalName = "website:InformationType")
     public String[] getInformationType() {
@@ -90,4 +93,8 @@ public class Publishedwork extends CommonFieldsBean {
         return getChildBeansByName("website:resources", ExtAttachment.class);
     }
 
+    @Override
+    public Pagination paginate() {
+        return new Pagination(null, getLinks().stream().findFirst().map(i -> new IndexPageImpl(i.getDisplayName(), i)).orElse(null));
+    }
 }

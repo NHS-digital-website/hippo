@@ -5,6 +5,7 @@
 <#include "../include/imports.ftl">
 <#include "../common/macro/sections/sections.ftl">
 <#include "../common/macro/component/lastModified.ftl">
+<#include "../common/macro/component/pagination.ftl">
 <#include "macro/sectionNav.ftl">
 <#include "macro/metaTags.ftl">
 <#include "../common/macro/fileMetaAppendix.ftl">
@@ -262,6 +263,10 @@
                 </#if>
                 <div class="article-section muted">
                     <p><@lastModified document.lastModified false></@lastModified></p>
+                </div>
+
+                <div class="article-section no-border no-top-margin">
+                    <@pagination document />
                 </div>
             </div>
         </div>
