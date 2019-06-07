@@ -30,4 +30,4 @@ definitions:
         or @jcr:primaryType='website:publishedwork' or @jcr:primaryType='website:publishedworkchapter'
         or @jcr:primaryType='website:generalnonsearch' or @jcr:primaryType='website:roadmap'
         or @jcr:primaryType='website:roadmapitem' or @jcr:primaryType='website:glossarylist'
-        or @jcr:primaryType='website:visualhub']
+        or @jcr:primaryType='website:visualhub' or @jcr:primaryType='website:apimaster']

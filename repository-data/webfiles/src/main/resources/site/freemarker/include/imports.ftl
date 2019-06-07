@@ -29,7 +29,8 @@
         "List":                         "uk.nhs.digital.website.beans.ComponentList",
         "Footer":                       "Footer",
         "GDPR Transparency":            "uk.nhs.digital.website.beans.Gdprtransparency",
-        "GDPR Summary":                 "uk.nhs.digital.website.beans.Gdprsummary"
+        "GDPR Summary":                 "uk.nhs.digital.website.beans.Gdprsummary",
+        "API Master":                   "uk.nhs.digital.website.beans.ApiMaster"
     }/>
 
     <#list docTypes?keys as key>

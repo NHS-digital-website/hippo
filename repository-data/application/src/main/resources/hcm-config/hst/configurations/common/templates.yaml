@@ -8,6 +8,9 @@ definitions:
       /about:
         hst:renderpath: webfile:/freemarker/common/about.ftl
         jcr:primaryType: hst:template
+      /apimaster-article:
+        hst:renderpath: webfile:/freemarker/common/apimaster-article.ftl
+        jcr:primaryType: hst:template
       /app-layout:
         hst:renderpath: webfile:/freemarker/common/app-layout.ftl
         jcr:primaryType: hst:template

@@ -68,9 +68,34 @@ definitions:
           jcr:name: Text
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:aboutapi:
+        /en:
+          jcr:name: About this API
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:apiendpointgroup:
+        /en:
+          jcr:name: API endpoint group
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:apiinfobuilder:
+        /en:
+          jcr:name: API information builder
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:apimaster:
+        /en:
+          jcr:name: API master
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:assetlink:
         /en:
           jcr:name: Related file
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:award:
+        /en:
+          jcr:name: Award
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:bannerdocument:
@@ -78,9 +103,19 @@ definitions:
           jcr:name: Banner
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:biography:
+        /en:
+          jcr:name: Biography
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:componentlist:
         /en:
           jcr:name: Links list
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:contactdetail:
+        /en:
+          jcr:name: Contact details
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:ctabutton:
@@ -163,6 +198,36 @@ definitions:
           jcr:name: Internal link
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:lawfulbasis:
+        /en:
+          jcr:name: Lawful basis
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:otherrole:
+        /en:
+          jcr:name: Other role
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:othersocialmedia:
+        /en:
+          jcr:name: Other social media
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:personalinfo:
+        /en:
+          jcr:name: Personal information
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:personimage:
+        /en:
+          jcr:name: Person image
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:postnominal:
+        /en:
+          jcr:name: Post nominal
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:publishedwork:
         /en:
           jcr:name: Published Work
@@ -173,9 +238,24 @@ definitions:
           jcr:name: Published Work Chapter
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:qualification:
+        /en:
+          jcr:name: Qualification
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:quote:
         /en:
           jcr:name: quote
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:releaseinfo:
+        /en:
+          jcr:name: Release info
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:responsibility:
+        /en:
+          jcr:name: Responsibility
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:roadmap:
@@ -188,9 +268,19 @@ definitions:
           jcr:name: Roadmap Item
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:role:
+        /en:
+          jcr:name: Role
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:service:
         /en:
           jcr:name: Service
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:socialmedia:
+        /en:
+          jcr:name: Social media
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:visualassetlink:
