@@ -1,0 +1,45 @@
+---
+/content/documents/administration/website/release-statuses:
+  /release-statuses:
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: experimental
+      selection:label: Experimental
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: alpha
+      selection:label: Alpha
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: beta
+      selection:label: Beta
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: release-candidate
+      selection:label: Release candidate
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: live
+      selection:label: Live
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: deprecated
+      selection:label: Deprecated
+    /selection:listitem[7]:
+      jcr:primaryType: selection:listitem
+      selection:key: retired
+      selection:label: Retired
+    hippo:availability:
+    - live
+    - preview
+    hippotranslation:id: b993c628-c17f-4a5e-81ad-3097cdb36770
+    hippotranslation:locale: inherited - from query
+    jcr:mixinTypes:
+    - hippotranslation:translated
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: Release statuses
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

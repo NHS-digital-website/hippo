@@ -24,5 +24,6 @@ definitions:
       publicationsystem-publication-date: Publication Date cannot be in the past or
         more than {0} years in the future.
       publicationsystem-title: Title must be 250 characters or less
+      valid-release-version: Numerical version of the release ex. 1, 1.0, 1.0.100
       valid-url: Link URL must start with http:// or https://
       website-blank-multi-string: Field cannot be blank

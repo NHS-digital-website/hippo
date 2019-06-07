@@ -26,6 +26,10 @@ definitions:
       jcr:primaryType: frontend:plugin
       max_length: 250
       plugin.class: uk.nhs.digital.ps.TextLengthValidator
+    /hippo:configuration/hippo:frontend/cms/cms-validators/valid-release-version:
+      jcr:primaryType: frontend:plugin
+      plugin.class: org.hippoecm.frontend.editor.validator.plugins.RegExCmsValidator
+      regex_pattern: ^[0-9]{1,3}\.?[0-9]{0,3}\.?[0-9]{0,3}$
     /hippo:configuration/hippo:frontend/cms/cms-validators/valid-url:
       jcr:primaryType: frontend:plugin
       plugin.class: org.hippoecm.frontend.editor.validator.plugins.RegExCmsValidator
