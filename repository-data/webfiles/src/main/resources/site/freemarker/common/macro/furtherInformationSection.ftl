@@ -32,7 +32,7 @@
                     <#elseif hst.isBeanType(childPage, 'org.hippoecm.hst.content.beans.standard.HippoBean')>
                         <article class="cta cta--hf">
                         <@typeSpan "internal" />
-                        <h2 class="cta__title"><a href="<@hst.link var=link hippobean=childPage />">${childPage.title}</a></h2>
+                        <h2 class="cta__title"><a href="<@hst.link hippobean=childPage />">${childPage.title}</a></h2>
                             <#if childPage.shortsummary?? && childPage.shortsummary?has_content>
                                 <p class="cta__text">${childPage.shortsummary}</p>
                             </#if>
