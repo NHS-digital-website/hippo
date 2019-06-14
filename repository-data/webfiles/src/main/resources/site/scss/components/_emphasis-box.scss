@@ -56,6 +56,7 @@
     &-emphasis {
         border-left-color: #4c90ce;
         background-color: #d4e4f3;
+        overflow-y: auto;
 
         svg, path {
             fill: $nhs-blue;
