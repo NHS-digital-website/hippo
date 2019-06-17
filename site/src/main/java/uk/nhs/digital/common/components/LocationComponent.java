@@ -1,0 +1,13 @@
+package uk.nhs.digital.common.components;
+
+import org.hippoecm.hst.container.*;
+import org.hippoecm.hst.core.component.*;
+import org.onehippo.forge.selection.hst.contentbean.*;
+import org.onehippo.forge.selection.hst.util.*;
+
+public class LocationComponent extends BaseGaContentComponent {
+    @Override
+    public void doBeforeRender(HstRequest request, HstResponse response) {
+        super.doBeforeRender(request, response);
+    }
+}

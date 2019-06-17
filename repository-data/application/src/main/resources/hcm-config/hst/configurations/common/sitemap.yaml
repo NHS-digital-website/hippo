@@ -23,6 +23,7 @@ definitions:
           - website:visualhub
           - website:apimaster
           - website:person
+          - website:location
           hst:componentconfigurationmappingvalues:
           - hst:pages/service
           - hst:pages/general
@@ -41,6 +42,7 @@ definitions:
           - hst:pages/visualhub
           - hst:pages/apimaster
           - hst:pages/person
+          - hst:pages/location
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404
@@ -62,6 +64,7 @@ definitions:
         - website:visualhub
         - website:apimaster
         - website:person
+        - website:location
         hst:componentconfigurationmappingvalues:
         - hst:pages/service
         - hst:pages/general
@@ -80,6 +83,7 @@ definitions:
         - hst:pages/visualhub
         - hst:pages/apimaster
         - hst:pages/person
+        - hst:pages/location
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:

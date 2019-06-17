@@ -73,6 +73,11 @@ definitions:
           jcr:name: About this API
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:address:
+        /en:
+          jcr:name: Address
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:apiendpointgroup:
         /en:
           jcr:name: API endpoint group
@@ -121,6 +126,26 @@ definitions:
       /website:ctabutton:
         /en:
           jcr:name: CTA
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:cycleparking:
+        /en:
+          jcr:name: Cycle Parking
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:directiontositebycar:
+        /en:
+          jcr:name: Direction To Site By Car
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:directiontositebypublictransport:
+        /en:
+          jcr:name: Direction To Site By Public Transport
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:directiontositebytrain:
+        /en:
+          jcr:name: Direction To Site By Train
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:download:
@@ -203,6 +228,26 @@ definitions:
           jcr:name: Lawful basis
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:localtaxi:
+        /en:
+          jcr:name: Local Taxi
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:location:
+        /en:
+          jcr:name: Location
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:onsitecarparking:
+        /en:
+          jcr:name: OnSite Car Parking
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:openinghours:
+        /en:
+          jcr:name: Opening Hours
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:otherrole:
         /en:
           jcr:name: Other role
@@ -231,6 +276,11 @@ definitions:
       /website:postnominal:
         /en:
           jcr:name: Post nominal
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:publictransportstation:
+        /en:
+          jcr:name: Public Transport Station
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:publishedwork:
@@ -286,6 +336,11 @@ definitions:
       /website:socialmedia:
         /en:
           jcr:name: Social media
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:transportroutes:
+        /en:
+          jcr:name: Public Transport Routes
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:visualassetlink:

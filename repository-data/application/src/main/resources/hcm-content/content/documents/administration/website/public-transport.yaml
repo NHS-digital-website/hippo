@@ -1,0 +1,37 @@
+---
+/content/documents/administration/website/public-transport:
+  /public-transport:
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: rail-station
+      selection:label: Rail station
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: underground
+      selection:label: Underground
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: bus-stop
+      selection:label: Bus stop
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: tram-stop
+      selection:label: Tram stop
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: airport
+      selection:label: Airport
+    hippo:availability:
+    - live
+    - preview
+    hippotranslation:id: 6b7c9b30-1748-489e-93a9-75ceacf70472
+    hippotranslation:locale: inherited - from query
+    jcr:mixinTypes:
+    - hippotranslation:translated
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: public transport
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
