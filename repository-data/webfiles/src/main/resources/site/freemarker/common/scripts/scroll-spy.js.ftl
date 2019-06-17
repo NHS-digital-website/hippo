@@ -11,7 +11,7 @@
      */
     (function() {
         'use strict';
-        var section = document.querySelectorAll(".article-section");
+        var section = document.querySelectorAll(".article-section, .article-section-separator, .article-section--summary-separator");
         var sections = { top : 0 };
         function getPosition(element) {
             var distance = 0;

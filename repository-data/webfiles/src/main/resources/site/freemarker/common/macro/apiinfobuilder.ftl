@@ -1,11 +1,9 @@
 <#ftl output_format="HTML">
-
-<#-- @ftlvariable name="section" type="uk.nhs.digital.website.beans.ApiInfoBuilder" -->
-
 <#include "../../include/imports.ftl">
+<#include "hubBoxWithTitle.ftl">
 
-  <#macro apiinfobuilder section>
-    <div class="apiinfobuilder--div">
-      <h3>${section.title}</h3>
-    </div>
-  </#macro>
+<#macro apiinfobuilder builder>
+  <div id="apiinfobuilder-${slugify(builder.title)}" class="article-section-separator apiinfobuilder--div">
+      <@hubBoxAndTitle doc=builder linksfield=builder.content/>
+  </div>
+</#macro>

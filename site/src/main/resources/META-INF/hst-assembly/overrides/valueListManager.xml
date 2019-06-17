@@ -11,6 +11,7 @@
                 <entry key="eventstype" value="/content/documents/administration/website/events-type"/>
                 <entry key="roadmapcategories" value="/content/documents/administration/website/roadmapcategories"/>
                 <entry key="effectivedatestatus" value="/content/documents/administration/website/effectivedatestatus"/>
+                <entry key="releasestatuses" value="/content/documents/administration/website/release-statuses"/>
             </map>
         </constructor-arg>
     </bean>

@@ -17,6 +17,7 @@
     - ''
     - ''
     - ''
+    - ''
     resourcebundle:id: publicationsystem.labels
     resourcebundle:keys:
     - labels.archive
@@ -25,6 +26,7 @@
     - labels.series
     - labels.search-ghost-text
     - labels.upcoming-publication
+    - labels.api
     resourcebundle:messages:
     - Archive
     - Publication
@@ -32,6 +34,7 @@
     - Series / Collection
     - Search Clinical Indicators
     - Publication not yet published
+    - API
   /labels[2]:
     hippo:availability:
     - preview
@@ -51,6 +54,7 @@
     - ''
     - ''
     - ''
+    - ''
     resourcebundle:id: publicationsystem.labels
     resourcebundle:keys:
     - labels.archive
@@ -59,6 +63,7 @@
     - labels.series
     - labels.search-ghost-text
     - labels.upcoming-publication
+    - labels.api
     resourcebundle:messages:
     - Archive
     - Publication
@@ -66,6 +71,7 @@
     - Series / Collection
     - Search Clinical Indicators
     - Publication not yet published
+    - API
   /labels[3]:
     hippo:availability:
     - live
@@ -85,6 +91,7 @@
     - ''
     - ''
     - ''
+    - ''
     resourcebundle:id: publicationsystem.labels
     resourcebundle:keys:
     - labels.archive
@@ -93,6 +100,7 @@
     - labels.series
     - labels.search-ghost-text
     - labels.upcoming-publication
+    - labels.api
     resourcebundle:messages:
     - Archive
     - Publication
@@ -100,6 +108,7 @@
     - Series / Collection
     - Search Clinical Indicators
     - Publication not yet published
+    - API
   hippo:name: Labels
   jcr:mixinTypes:
   - hippo:named

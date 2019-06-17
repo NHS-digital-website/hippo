@@ -44,25 +44,26 @@ definitions:
             wicket.id: ${cluster.id}.left.item
           /content:
             /cluster.options:
-              ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',  items:
-                [''Link'',''PickInternalLink'',''Source''] }] }'
               jcr:primaryType: frontend:pluginconfig
             caption: Content
+            compoundList: website:externallink,website:internallink
+            contentPickerType: links
             field: content
             hint: A place to add zero to many document links
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.left.item
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
           /content:
             hipposysedit:mandatory: false
-            hipposysedit:multiple: false
+            hipposysedit:multiple: true
             hipposysedit:ordered: false
             hipposysedit:path: website:content
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false

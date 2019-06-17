@@ -54,8 +54,6 @@ definitions:
             wicket.id: ${cluster.id}.field
           /introduction:
             /cluster.options:
-              ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',  items:
-                [''Link'',''PickInternalLink'',''Source''] }] }'
               jcr:primaryType: frontend:pluginconfig
             caption: Introduction
             field: introduction
@@ -117,7 +115,7 @@ definitions:
             compoundList: website:releaseinfo
             contentPickerType: links
             field: releaseinfos
-            hint: Section containing the release history of the API
+            hint: Section containing the release history of the API.
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
@@ -206,7 +204,7 @@ definitions:
             jcr:primaryType: hipposysedit:field
           /releaseinfos:
             hipposysedit:mandatory: true
-            hipposysedit:multiple: true
+            hipposysedit:multiple: false
             hipposysedit:ordered: true
             hipposysedit:path: website:releaseinfos
             hipposysedit:type: hippo:compound
