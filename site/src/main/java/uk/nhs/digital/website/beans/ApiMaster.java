@@ -3,10 +3,11 @@ package uk.nhs.digital.website.beans;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
-
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
-import java.util.List;
+import uk.nhs.digital.ps.beans.HippoBeanHelper;
+
+import java.util.*;
 
 @HippoEssentialsGenerated(internalName = "website:apimaster")
 @Node(jcrType = "website:apimaster")
@@ -19,12 +20,12 @@ public class ApiMaster extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:apiservice")
     public List<HippoBean> getApiservice() {
-        return getChildBeansByName("website:apiservice");
+        return getLinkedBeans("website:apiservice", HippoBean.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "hippotaxonomy:apitopics")
-    public String[] getApitopics() {
-        return getProperty("hippotaxonomy:apitopics");
+    @HippoEssentialsGenerated(internalName = "hippotaxonomy:keys")
+    public String[] getKeys() {
+        return getProperty("hippotaxonomy:keys");
     }
 
     @HippoEssentialsGenerated(internalName = "website:introduction")
@@ -38,8 +39,8 @@ public class ApiMaster extends CommonFieldsBean {
     }
 
     @HippoEssentialsGenerated(internalName = "website:releaseinfos")
-    public List<HippoBean> getReleaseinfos() {
-        return getChildBeansByName("website:releaseinfos");
+    public ReleaseInfo getReleaseinfos() {
+        return getBean("website:releaseinfos", ReleaseInfo.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:apiinfobuilders")
@@ -50,5 +51,9 @@ public class ApiMaster extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:apiendpointgroups")
     public List<HippoBean> getApiendpointgroups() {
         return getChildBeansByName("website:apiendpointgroups");
+    }
+
+    public List<String> getFullTaxonomyList() {
+        return HippoBeanHelper.getFullTaxonomyList(this);
     }
 }

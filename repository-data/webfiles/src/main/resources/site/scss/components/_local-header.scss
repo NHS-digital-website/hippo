@@ -57,6 +57,31 @@
   margin: 0;
 }
 
+.local-header__title-left {
+  @extend .local-header__title;
+  float: left;
+}
+
+.local-header__tag {
+    @include core-font(14);
+
+    position: relative;
+    margin: 10px 10px 30px 10px;
+    display: inline-block;
+    border-radius: 0;
+    padding: 5px 10px;
+    color: $black;
+    background: $yellow;
+    font-weight: bold;
+
+}
+
+.local-header__title-left {
+  @include bold-font(48);
+  color: $white;
+  margin: 0;
+}
+
 .local-header__intro {
   color: $white;
   margin-top: $baseline-grid-unit * 4;

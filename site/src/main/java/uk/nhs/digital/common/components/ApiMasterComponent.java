@@ -9,5 +9,11 @@ public class ApiMasterComponent extends BaseGaContentComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
+
+        final ValueList releaseStatusesValueList =
+            SelectionUtil.getValueListByIdentifier("releasestatuses", RequestContextProvider.get());
+        if (releaseStatusesValueList != null) {
+            request.setAttribute("releasestatuses", SelectionUtil.valueListAsMap(releaseStatusesValueList));
+        }
     }
 }

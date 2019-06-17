@@ -97,8 +97,7 @@ definitions:
             compoundList: website:externallink,website:internallink
             contentPickerType: links
             field: replacementlink
-            hint: The link to the awarding body or organisation that provided the
-              qualification
+            hint: If this api replaces another, please provide the link to it here
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.left.item

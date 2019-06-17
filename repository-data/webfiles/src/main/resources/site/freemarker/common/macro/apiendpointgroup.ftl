@@ -1,11 +1,9 @@
 <#ftl output_format="HTML">
-
-<#-- @ftlvariable name="section" type="uk.nhs.digital.website.beans.ApiEndpointGroup" -->
-
 <#include "../../include/imports.ftl">
+<#include "hubBoxWithTitle.ftl">
 
-  <#macro apiendpointgroup section>
-    <div class="apiendpointgroup--div">
-      <h3>${section.title}</h3>
-    </div>
-  </#macro>
+<#macro apiendpointgroup endpoint>
+  <div id="apiendpoint-${slugify(endpoint.title)}" class="article-section-separator apiendpointgroup--div">
+      <@hubBoxAndTitle doc=endpoint linksfield=endpoint.apirequest/>
+  </div>
+</#macro>

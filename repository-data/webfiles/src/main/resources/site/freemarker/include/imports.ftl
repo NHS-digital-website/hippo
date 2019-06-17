@@ -208,6 +208,39 @@
             ) />
 </#function>
 
+<#-- Get section links in multiple elements -->
+<#function getNavLinsInMultiple sectionCompounds idprefix=''>
+    <#assign links = [] />
+
+    <#list sectionCompounds as compound>
+      <#assign links += [{ "url": "#${idprefix}" + slugify(compound.title), "title": compound.title}] />
+      <#if compound.sections?has_content>
+        <#list compound.sections as section>
+          <#if section.title?has_content>
+            <#assign links += [{ "url": "#" + slugify(section.title), "title": section.title}] />
+          </#if>
+        </#list>
+        </#if>
+    </#list>
+
+    <#return links />
+</#function>
+
+<#-- Count the sections in multiple elements -->
+<#function countSectionTitlesInMultiple sectionCompounds>
+    <#local titlesFound = 0 />
+    <#list sectionCompounds as compound>
+      <#if compound.sections??>
+          <#list compound.sections as section>
+              <#if section.title?has_content>
+                  <#local titlesFound += 1 />
+              </#if>
+          </#list>
+      </#if>
+    </#list>
+    <#return titlesFound />
+</#function>
+
 <#-- Count the sections with titles available -->
 <#function countSectionTitles sections>
     <#local titlesFound = 0 />

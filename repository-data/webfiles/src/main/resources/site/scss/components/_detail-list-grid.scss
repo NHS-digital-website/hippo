@@ -1,5 +1,10 @@
 /* Detail list */
+.detail-list__flex {
+  display: inline-flex;
+}
+
 .detail-list-grid {
+
     .detail-list {
         @include clearfix;
     }

@@ -2,8 +2,9 @@ package uk.nhs.digital.website.beans;
 
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
-import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+
+import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "website:apiinfobuilder")
 @Node(jcrType = "website:apiinfobuilder")
@@ -19,7 +20,8 @@ public class ApiInfoBuilder extends HippoCompound {
     }
 
     @HippoEssentialsGenerated(internalName = "website:content")
-    public HippoHtml getContent() {
-        return getHippoHtml("website:content");
+    public List<?> getContent() {
+        return getChildBeansByName("website:content");
     }
+
 }

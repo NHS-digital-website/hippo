@@ -12,6 +12,10 @@
   margin-bottom: $default-spacing-unit * 2.75;
 }
 
+.page-block--main-alignment {
+  padding-top: 12px;
+}
+
 @include media(desktop) {
     .page-block--sidebar + .page-block--main {
         padding-left: $gutter * 1.5;
