@@ -142,6 +142,39 @@
 [website:publishedwork] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
   orderable
 
+[website:location] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:address] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:publictransportstation] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:transportroutes] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:localtaxi] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:openinghours] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:onsitecarparking] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:cycleparking] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:directiontositebycar] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:directiontositebytrain] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:directiontositebypublictransport] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:publishedworkchapter] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
   orderable
 

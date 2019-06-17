@@ -31,7 +31,8 @@
         "GDPR Transparency":            "uk.nhs.digital.website.beans.Gdprtransparency",
         "GDPR Summary":                 "uk.nhs.digital.website.beans.Gdprsummary",
         "API Master":                   "uk.nhs.digital.website.beans.ApiMaster",
-        "Person":                       "uk.nhs.digital.website.beans.Person"
+        "Person":                       "uk.nhs.digital.website.beans.Person",
+        "Location":                     "uk.nhs.digital.website.beans.Location"        
     }/>
 
     <#list docTypes?keys as key>
@@ -304,4 +305,3 @@
 
     <#return { "left": leftHash, "right": rightHash } />
 </#function>
-
