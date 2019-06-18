@@ -5,16 +5,16 @@
     <#assign pagenation = page.paginate() />
     <#if pagination??>
         <nav class="digital-pagination" role="navigation" aria-label="Pagination">
-            <#if pagenation.previous??>
             <ul class="digital-pagination-list">
-                <li class="digital-pagination-list-item-previous">
-                    <a class="digital-pagination-link"
-                       href="<@hst.link hippobean=pagenation.previous.linkedBean />">
-                        <span class="digital-pagination-link-title"><img aria-hidden="true" alt="Left Arrow" src="<@hst.webfile path="/images/pagination/left-arrow.svg"/>"/> Previous</span>
-                        <span class="digital-pagination-link-hidden"> : </span>
-                        <span class="digital-pagination-link-page">${pagenation.previous.title}</span>
-                    </a>
-                </li>
+                <#if pagenation.previous??>
+                    <li class="digital-pagination-list-item-previous">
+                        <a class="digital-pagination-link"
+                           href="<@hst.link hippobean=pagenation.previous.linkedBean />">
+                            <span class="digital-pagination-link-title"><img aria-hidden="true" alt="Left Arrow" src="<@hst.webfile path="/images/pagination/left-arrow.svg"/>"/> Previous</span>
+                            <span class="digital-pagination-link-hidden"> : </span>
+                            <span class="digital-pagination-link-page">${pagenation.previous.title}</span>
+                        </a>
+                    </li>
                 </#if>
                 <#if pagenation.next??>
                     <li class="digital-pagination-list-item-next">

@@ -41,7 +41,7 @@ public class Publishedworkchapter extends CommonFieldsBean implements Paginated 
         if (publishedwork != null) {
             int index = IntStream
                 .range(0, publishedwork.getLinks().size())
-                .filter(i -> publishedwork.getLinks().get(i).getDisplayName().equalsIgnoreCase(getTitle()))
+                .filter(i -> ((String)publishedwork.getLinks().get(i).getProperty("website:title")).equalsIgnoreCase(getTitle()))
                 .findFirst()
                 .orElse(-1);
             if (0 <= index && index < publishedwork.getLinks().size()) {

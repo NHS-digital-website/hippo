@@ -128,6 +128,20 @@
     </div>
 
     <#if hasChildPages>
+
+        <#assign documents = [] />
+
+        <#-- Cache the parent document's details -->
+        <@hst.link hippobean=document var="link" />
+        <#assign documents = [{ "index": 0, "id": document.identifier, "title": document.title, "link": link }] />
+
+        <#-- Cache the chapter details -->
+        <#list childPages as chapter>
+            <@hst.link hippobean=chapter var="link" />
+            <#assign documents += [{ "index": chapter?counter, "id": chapter.identifier, "title": chapter.title, "link": link }] />
+        </#list>
+
+
         <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
             <div class="chapter-nav">
                 <div class="grid-wrapper">
@@ -143,14 +157,14 @@
                         </div>
                     </div>
 
-                    <#assign splitChapters = splitHash(childPages) />
+                    <#assign splitChapters = splitHash(documents) />
 
                     <div class="grid-row">
                         <div class="column column--one-half column--left">
                             <ul class="list list--reset cta-list">
                                 <#list splitChapters.left as childPage>
                                     <li>
-                                        <a href="<@hst.link var=link hippobean=childPage />" title="${childPage.title}">${childPage.title}</a>
+                                        <a href="${childPage.link}" title="${childPage.title}">${childPage.title}</a>
                                     </li>
                                 </#list>
                             </ul>
@@ -161,7 +175,7 @@
                                 <ul class="list list--reset cta-list">
                                     <#list splitChapters.right as childPage>
                                         <li>
-                                            <a href="<@hst.link var=link hippobean=childPage />" title="${childPage.title}">${childPage.title}</a>
+                                            <a href="${childPage.link}" title="${childPage.title}">${childPage.title}</a>
                                         </li>
                                     </#list>
                                 </ul>
