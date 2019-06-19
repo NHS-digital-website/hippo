@@ -8,6 +8,9 @@ definitions:
       - website
       - nationalindicatorlibrary
       - publicationsystem
+    /hippo:configuration/hippo:frontend/cms/cms-folder-views/urlrewriter:ruleset:
+      list.page.size: '20'
+      list.view.size: '20'
     /hippo:configuration/hippo:frontend/cms/cms-services/assetValidationService:
       extensions.allowed:
       - doc
