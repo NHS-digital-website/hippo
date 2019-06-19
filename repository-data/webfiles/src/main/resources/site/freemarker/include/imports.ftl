@@ -30,7 +30,8 @@
         "Footer":                       "Footer",
         "GDPR Transparency":            "uk.nhs.digital.website.beans.Gdprtransparency",
         "GDPR Summary":                 "uk.nhs.digital.website.beans.Gdprsummary",
-        "API Master":                   "uk.nhs.digital.website.beans.ApiMaster"
+        "API Master":                   "uk.nhs.digital.website.beans.ApiMaster",
+        "Person":                       "uk.nhs.digital.website.beans.Person"
     }/>
 
     <#list docTypes?keys as key>

@@ -1,0 +1,33 @@
+---
+/content/documents/administration/website/preferredpronouns:
+  /preferredpronouns:
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: pronouns-he
+      selection:label: he/his
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: pronouns-she
+      selection:label: she/hers
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: pronouns-they
+      selection:label: they/theirs
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: pronouns-other
+      selection:label: Other
+    hippo:availability:
+    - live
+    - preview
+    hippotranslation:id: 4094c8e3-fad4-4fe3-9bc1-7f7a272b92e5
+    hippotranslation:locale: inherited - from query
+    jcr:mixinTypes:
+    - hippotranslation:translated
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: Preferred pronouns
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

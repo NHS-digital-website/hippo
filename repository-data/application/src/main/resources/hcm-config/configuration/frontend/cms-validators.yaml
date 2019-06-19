@@ -1,6 +1,14 @@
 ---
 definitions:
   config:
+    /hippo:configuration/hippo:frontend/cms/cms-validators/email:
+      jcr:primaryType: frontend:plugin
+      plugin.class: org.hippoecm.frontend.editor.validator.plugins.RegExCmsValidator
+      regex_pattern: ^([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})?$
+    /hippo:configuration/hippo:frontend/cms/cms-validators/phonenumber:
+      jcr:primaryType: frontend:plugin
+      plugin.class: org.hippoecm.frontend.editor.validator.plugins.RegExCmsValidator
+      regex_pattern: ^((((\+44\s?\d{4}|\(?0\d{4}\)?)\s?\d{3}\s?\d{3})|((\+44\s?\d{3}|\(?0\d{3}\)?)\s?\d{3}\s?\d{4})|((\+44\s?\d{2}|\(?0\d{2}\)?)\s?\d{4}\s?\d{4}))(\s?\#(\d{4}|\d{3}))?)?$
     /hippo:configuration/hippo:frontend/cms/cms-validators/publicationsystem-attachment:
       jcr:primaryType: frontend:plugin
       plugin.class: uk.nhs.digital.ps.AttachmentFieldValidator
@@ -26,6 +34,14 @@ definitions:
       jcr:primaryType: frontend:plugin
       max_length: 250
       plugin.class: uk.nhs.digital.ps.TextLengthValidator
+    /hippo:configuration/hippo:frontend/cms/cms-validators/twitterusername:
+      jcr:primaryType: frontend:plugin
+      plugin.class: org.hippoecm.frontend.editor.validator.plugins.RegExCmsValidator
+      regex_pattern: ^@?(\w){0,15}$
+    /hippo:configuration/hippo:frontend/cms/cms-validators/valid-linkedin-url:
+      jcr:primaryType: frontend:plugin
+      plugin.class: org.hippoecm.frontend.editor.validator.plugins.RegExCmsValidator
+      regex_pattern: ^(https?://.*linkedin.*/.*)?$
     /hippo:configuration/hippo:frontend/cms/cms-validators/valid-release-version:
       jcr:primaryType: frontend:plugin
       plugin.class: org.hippoecm.frontend.editor.validator.plugins.RegExCmsValidator

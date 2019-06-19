@@ -2,6 +2,8 @@
 definitions:
   config:
     /hippo:configuration/hippo:translations/hippo:cms/validators/en:
+      email: Email address proper formatting
+      phonenumber: Telephone number formatting
       publicationsystem-attachment#blank-attachment: There is an attachment field
         without an attachment. Please remove it or upload a file.
       publicationsystem-attachment#duplicate-name: There is an attachment field with
@@ -24,6 +26,8 @@ definitions:
       publicationsystem-publication-date: Publication Date cannot be in the past or
         more than {0} years in the future.
       publicationsystem-title: Title must be 250 characters or less
+      twitterusername: Twitter username formatting
+      valid-linkedin-url: Link URL is proper Linkedin URL
       valid-release-version: Numerical version of the release ex. 1, 1.0, 1.0.100
       valid-url: Link URL must start with http:// or https://
       website-blank-multi-string: Field cannot be blank
