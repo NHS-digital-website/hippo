@@ -45,9 +45,8 @@
                             <div class="column column--left">
                                 <nav class="site-footer__menu site-footer__menu--4">
                                     <ul class="list list--inline list--reset">
-                                        <li><a href="/legal">Legal</a></li>
-                                        <li><a href="/privacy-and-cookies">Privacy and cookies</a></li>
-                                        <li><a href="/terms-and-conditions">Terms and conditions</a></li>
+                                        <li><a href="/about-nhs-digital/privacy-and-cookies">Privacy and cookies</a></li>
+                                        <li><a href="/about-nhs-digital/terms-and-conditions">Terms and conditions</a></li>
                                         <li><a href="/about-nhs-digital/accessibility">Accessibility</a></li>
                                         <li><a href="javascript:Cookiebot.renew()">Cookie consent</a></li>
                                     </ul>

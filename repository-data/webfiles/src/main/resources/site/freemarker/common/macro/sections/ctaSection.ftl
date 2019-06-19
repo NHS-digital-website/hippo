@@ -9,8 +9,8 @@
         <#if ctalink.linkType == "internal">
         <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, ctalink.link.title) />
           <div class="ctabtn--div">
-            <div class="ctabtn-${slugify(section.alignment)}" id="ctabtn-${slugify(section.title)}" role="button" aria-labelledby="ctabtn-link-${slugify(section.title)}">
-              <a href="<@hst.link hippobean=ctalink.link />" 
+            <div class="ctabtn-${slugify(section.alignment)}" aria-labelledby="ctabtn-${slugify(section.title)}">
+              <a href="<@hst.link hippobean=ctalink.link />"
                 class="ctabtn-${slugify(section.alignment)} ctabtn--${slugify(section.buttonType)}" 
                 id="ctabtn-${slugify(section.title)}" 
                 onClick="${onClickMethodCall}"
@@ -22,7 +22,7 @@
         <#elseif ctalink.linkType == "external">
           <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, ctalink.link) />
           <div class="ctabtn--div">
-            <div class="ctabtn-${slugify(section.alignment)}" id="ctabtn-${slugify(section.title)}" role="button" aria-labelledby="ctabtn-link-${slugify(section.title)}">
+            <div class="ctabtn-${slugify(section.alignment)}" aria-labelledby="ctabtn-${slugify(section.title)}">
               <a href="${ctalink.link}"
                 class="ctabtn-${slugify(section.alignment)} ctabtn--${slugify(section.buttonType)}" 
                 id="ctabtn-${slugify(section.title)}" 

@@ -14,15 +14,15 @@
         <div class="layout layout--flush">
             <div class="layout__item layout-2-3">
                 <ul class="footer__inner__list">
-                    <@hst.link var="termslink" path="/about/terms-and-conditions"/>
-                    <@hst.link var="accessibilitylink" path="/about/accessibility-help"/>
-                    <@hst.link var="privacylink" path="/about/privacy-and-cookies"/>
+                    <@hst.link var="termslink" path="/about-nhs-digital/terms-and-conditions"/>
+                    <@hst.link var="accessibilitylink" path="/about-nhs-digital/accessibility"/>
+                    <@hst.link var="privacylink" path="/about-nhs-digital/privacy-and-cookies"/>
                     <li class="footer__inner__list__item"><a href="${termslink}" class="footer__inner__list__item__link">Terms and conditions</a></li><!--
                     --><li class="footer__inner__list__item"><a href="${privacylink}" class="footer__inner__list__item__link">Privacy and cookies</a></li><!--
                     --><li class="footer__inner__list__item"><a href="${accessibilitylink}" class="footer__inner__list__item__link">Accessibility</a></li>
                 </ul>
                 <p class="flush">
-                    © 2018 NHS Digital
+                    &copy; 2019 NHS Digital
                 </p>
             </div><!--
 
