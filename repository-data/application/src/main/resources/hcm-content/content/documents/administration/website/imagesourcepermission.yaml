@@ -1,0 +1,49 @@
+---
+/content/documents/administration/website/imagesourcepermission:
+  /imagesourcepermission:
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: no-image
+      selection:label: No image
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: nhsd-owned
+      selection:label: Image owned by NHS Digital
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: nhs-other-owned
+      selection:label: Image owned by other NHS body or DHSC
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: specific-permission
+      selection:label: Image used with specific permission of rights holder
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: cc-licence
+      selection:label: Image is released under creative commons licence
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: open-gov-licence
+      selection:label: Image is under the Open Government Licence
+    /selection:listitem[7]:
+      jcr:primaryType: selection:listitem
+      selection:key: public-domain
+      selection:label: Image is in the public domain
+    /selection:listitem[9]:
+      jcr:primaryType: selection:listitem
+      selection:key: no-rights
+      selection:label: We do not have rights to this image
+    hippo:availability:
+    - live
+    - preview
+    hippotranslation:id: 4094c8e3-fad4-4fe3-9bc1-7f7a272b92e5
+    hippotranslation:locale: inherited - from query
+    jcr:mixinTypes:
+    - hippotranslation:translated
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: Image source permission
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

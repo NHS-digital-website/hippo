@@ -213,6 +213,11 @@ definitions:
           jcr:name: Other social media
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:person:
+        /en:
+          jcr:name: Person
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:personalinfo:
         /en:
           jcr:name: Personal information
