@@ -8,10 +8,9 @@
 
     <#if section.dataFile?has_content>
         <#local dataFile=section.dataFile>
-        <span class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
+        <span class="attachment">
             <@externalstorageLink dataFile; url>
             <a data-uipath="ps.publication.chart-section.data-file"
-               itemprop="contentUrl"
                title="${downloadDataFileHeader}"
                href="${url}"
                onClick="logGoogleAnalyticsEvent(
@@ -20,7 +19,7 @@
                onKeyUp="logGoogleAnalyticsEvent(
                    'Download chart data','Publication','${dataFile.filename}'
                );">
-                <span itemprop="name">${downloadDataFileHeader}</span>
+                ${downloadDataFileHeader}
             </a>
             </@externalstorageLink>
         </span>
