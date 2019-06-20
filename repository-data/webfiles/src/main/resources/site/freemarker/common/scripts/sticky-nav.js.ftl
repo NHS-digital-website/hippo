@@ -1,19 +1,15 @@
 <#ftl output_format="HTML">
 
+<#include "resize-sensor.js.ftl"/>
+<#include "scroll-spy.js.ftl"/>
 <#include "sticky-sidebar.js.ftl"/>
-<#include "scrollspy.js.ftl"/>
 
 <script>
     var DOMElement = $('#sticky-nav');
-
-    var spy = new ScrollSpy('.article-section-nav nav', {
-        nav: '.article-section-nav__list > li > a',
-        className: 'active',
-    });
-
     var sidebar = new StickySidebar('#sticky-nav', {
         topSpacing: 20,
         bottomSpacing: 40,
+        resizeSensor: true,
         containerSelector: '.grid-row'
     });
 
@@ -24,11 +20,10 @@
             DOMElement.removeAttr('id');
         } else {
             sidebar.initialize();
-
             DOMElement.attr('id', 'sticky-nav');
         }
     });
-    
+
     $('.article-section-nav__list a').click(function() {
         var match = jQuery(this).attr('href').match(/#\S+/);
         logGoogleAnalyticsEvent('Link click','Section Nav',location.pathname + match[0]);
