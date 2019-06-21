@@ -125,7 +125,7 @@ public class AcceptanceTestConfiguration {
             Paths.get(buildDirectory, "download"),
             Paths.get(buildDirectory),
             getProperty(environment, "cmsUrl", "http://localhost:8080/cms"),
-            getProperty(environment, "siteUrl", "http://localhost:8080")
+            getProperty(environment, "siteUrl", "http://localhost:8080/site")
         );
 
         log.info("Applying test properties: {}", acceptanceTestProperties);

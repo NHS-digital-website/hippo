@@ -16,14 +16,6 @@
   <artifactId>repository</artifactId>
   <packaging>war</packaging>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.onehippo.cms7</groupId>
-      <artifactId>hippo-package-app-dependencies</artifactId>
-      <type>pom</type>
-    </dependency>
-  </dependencies>
-
   <build>
     <finalName>repository</finalName>
     <resources>

@@ -2,7 +2,6 @@
 definitions:
   config:
     /hippo:configuration/hippo:translations/hippo:cms/validators/en:
-      email: Email address proper formatting
       http-status-code: Invalid HTTP status code ex. 200, 404, 400
       percentage: Progress percentage should be between 0-100
       phonenumber: Telephone number formatting

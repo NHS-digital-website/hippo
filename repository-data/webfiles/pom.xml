@@ -13,20 +13,9 @@
     <dependencies>
         <dependency>
             <groupId>uk.nhs.digital</groupId>
-            <artifactId>website-site</artifactId>
+            <artifactId>website-components</artifactId>
             <version>${project.version}</version>
-            <type>war</type>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.onehippo.cms7.hst.dependencies</groupId>
-            <artifactId>hst-client-dependencies</artifactId>
-            <type>pom</type>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.onehippo.cms7</groupId>
-            <artifactId>hippo-essentials-components-hst</artifactId>
+            <type>jar</type>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -37,6 +26,17 @@
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-library</artifactId>
+        </dependency>
+        <!-- support ftl auto completion -->
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>

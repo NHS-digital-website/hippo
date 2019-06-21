@@ -8,6 +8,7 @@
     <developmentSubModule>development</developmentSubModule>
     <enterprise>true</enterprise>
     <extraTemplates>true</extraTemplates>
+    <hstRoot>/hst:hst</hstRoot>
     <projectNamespace>website</projectNamespace>
     <repositoryDataModule>repository-data</repositoryDataModule>
     <selectedBeansPackage>uk.nhs.digital.website.beans</selectedBeansPackage>

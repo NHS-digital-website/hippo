@@ -18,8 +18,8 @@
 
     <dependencies>
         <dependency>
-          <groupId>org.onehippo.cms7</groupId>
-          <artifactId>hippo-services</artifactId>
+            <groupId>org.onehippo.cms7</groupId>
+            <artifactId>hippo-services</artifactId>
         </dependency>
     </dependencies>
 

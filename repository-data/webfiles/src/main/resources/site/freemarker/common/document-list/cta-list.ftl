@@ -16,7 +16,7 @@
                 <div class="cta cta--large">
                     <#if hstRequestContext.preview>
                         <div style="position:relative">
-                            <@hst.cmseditlink hippobean=item />
+                            <@hst.manageContent hippobean=item />
                         </div>
                     </#if>
                     <h3 class="cta__title">${item.title}</h3>

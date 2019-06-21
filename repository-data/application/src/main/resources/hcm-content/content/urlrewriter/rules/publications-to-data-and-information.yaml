@@ -13,7 +13,7 @@
     jcr:primaryType: urlrewriter:rule
     urlrewriter:ruledescription: Redirect from /publications to /data-and-information/publications
     urlrewriter:rulefrom: /publications/**
-    urlrewriter:ruleto: /data-and-information/publications/$1
+    urlrewriter:ruleto: /site/data-and-information/publications/$1
     urlrewriter:ruletype: permanent-redirect
   /publications-to-data-and-information[2]:
     hippo:availability:
@@ -29,7 +29,7 @@
     jcr:primaryType: urlrewriter:rule
     urlrewriter:ruledescription: Redirect from /publications to /data-and-information/publications
     urlrewriter:rulefrom: /publications/**
-    urlrewriter:ruleto: /data-and-information/publications/$1
+    urlrewriter:ruleto: /site/data-and-information/publications/$1
     urlrewriter:ruletype: permanent-redirect
   /publications-to-data-and-information[3]:
     hippo:availability: []
@@ -43,7 +43,7 @@
     jcr:primaryType: urlrewriter:rule
     urlrewriter:ruledescription: Redirect from /publications to /data-and-information/publications
     urlrewriter:rulefrom: /publications/**
-    urlrewriter:ruleto: /data-and-information/publications/$1
+    urlrewriter:ruleto: /site/data-and-information/publications/$1
     urlrewriter:ruletype: permanent-redirect
   hippo:name: Publications to Data and Information (dev)
   jcr:mixinTypes:

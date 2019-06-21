@@ -261,7 +261,6 @@
     <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
         ${item.title}
     </a>
-    <span class="cta__meta" data-uipath="ps.search-results.result.date"><@formatDate date=item.publicationDate.time/></span>
     <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
 </div>
 </#macro>

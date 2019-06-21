@@ -23,13 +23,17 @@ init: .git/.local-hooks-installed
 ## Clean, build and start local hippo
 # Clean and recompile only modules that we do customise.
 serve: essentials/target/essentials.war
-	mvn clean verify $(MVN_OPTS) -pl site,cms,repository-data/development,repository-data/local -am -DskipTests=true
+	mvn clean verify $(MVN_OPTS) \
+	-am -DskipTests=true \
+	-pl site/components,site/webapp,cms,repository-data/development,repository-data/site-development,repository-data/local
 	$(MAKE) run
 
 ## Serve without allowing auto-export
 # Clean and recompile only modules that we do customise.
 serve.noexport: essentials/target/essentials.war
-	mvn clean verify $(MVN_OPTS) -pl site,cms,repository-data/development,repository-data/local -am -DskipTests=true
+	mvn clean verify $(MVN_OPTS) \
+	-am -DskipTests=true \
+	-pl site,cms,repository-data/development,repository-data/local
 	$(MAKE) run PROFILE_RUN=cargo.run,without-autoexport
 
 ## Start server using cargo.run

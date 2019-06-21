@@ -19,9 +19,9 @@
         <#if (imagePath)??>
             <div class="infographic__icon">
                 <#if imagePath?ends_with("svg")>
-                    <img src="${imagePath?replace("/binaries", "/svg-magic/binaries")}?colour=${colourClass}" }" alt="Image for infographic ${graphic.headline}" width="100" height="100" />
+                    <img src="${imagePath?replace("/binaries", "/svg-magic/binaries")}?colour=${colourClass}" alt="Image for infographic ${graphic.headline}" width="100" height="100" />
                 <#else>
-                    <img aria-hidden="true" src="${imagePath}" }" alt="Image for infographic ${graphic.headline}" width="100" height="100" />
+                    <img aria-hidden="true" src="${imagePath}" alt="Image for infographic ${graphic.headline}" width="100" height="100" />
                 </#if>
             </div>
         </#if>

@@ -10,7 +10,7 @@ Feature: Dataset edit screen - validation
         And I populate the dataset
         When I clear the title
         And I save the dataset
-        Then the save is rejected with error message containing "A mandatory string input field is empty"
+        Then the save is rejected with error message containing "Enter a value"
 
 
     @DiscardAfter
@@ -19,7 +19,7 @@ Feature: Dataset edit screen - validation
         And I populate the dataset
         When I clear the summary
         And I save the dataset
-        Then the save is rejected with error message containing "A mandatory string input field is empty"
+        Then the save is rejected with error message containing "Enter a value"
 
 
     @DiscardAfter
@@ -28,7 +28,7 @@ Feature: Dataset edit screen - validation
         And I populate the dataset
         When I clear the nominal date
         And I save the dataset
-        Then the save is rejected with error message containing "A required field is not present"
+        Then the save is rejected with error message containing "Enter a value"
 
 
     @DiscardAfter
@@ -74,7 +74,7 @@ Feature: Dataset edit screen - validation
         Given I have a dataset opened for editing
         When I add an empty resource link field
         When I populate and save the dataset
-        Then the save is rejected with error message containing "A mandatory string input field is empty"
+        Then the save is rejected with error message containing "Enter a value"
 
 
     Scenario: No validation errors for a populated dataset

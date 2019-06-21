@@ -1,0 +1,186 @@
+---
+/content/documents/corporate-website/publication-system/ci-hub/social-care:
+  /social-care[1]:
+    /publicationsystem:cilandingasset:
+      /publicationsystem:content:
+        hippostd:content: |-
+          <p>The Adult Social Care Outcomes Framework measures how well care and support services achieve the outcomes that matter most to people. The ASCOF is used both locally and nationally to set priorities for care and support, measure progress and strengthen transparency and accountability.</p>
+
+          <p>The measures are split across four domains:</p>
+
+          <ol>
+           <li>Enhancing quality of life for people with care and support needs</li>
+           <li>Delaying and reducing the need for care and support</li>
+           <li>Ensuring that people have a positive experience of care and support</li>
+           <li>Safeguarding adults whose circumstances make them vulnerable and protecting from avoidable harm</li>
+          </ol>
+
+          <p>This section provides data on the ASCOF outcomes for the 2016-17 reporting year. Data are provided at council, regional and national level for each outcome.&nbsp;</p>
+
+          <p>Data for the measures are sourced from:&nbsp;</p>
+
+          <ul>
+           <li>Personal Social Services Adult Social Care Survey (ASCS)</li>
+           <li>Personal Social Services Survey of Adult Carers in England (SACE)</li>
+           <li>Hospital Episode Statistics (HES)</li>
+           <li>Delayed Transfers of Care (DToC)</li>
+           <li>Office for National Statistics (ONS) 2016 mid-year population estimates</li>
+           <li>Short and Long-term (SALT) return</li>
+          </ul>
+
+          <p>The ASCOF Handbook of Definitions provides full methodologies, rationales and worked examples for each outcome. Users who are unfamiliar with these indicators would benefit from reading this document before making any conclusions on the outcomes. It is available via the following link:<br />
+          <a href="https://www.gov.uk/government/publications/adult-social-care-outcomes-framework-handbook-of-definitions" target="_blank">https://www.gov.uk/government/publications/adult-social-care-outcomes-framework-handbook-of-definitions</a></p>
+
+          <p>&nbsp;</p>
+
+          <p>The 2016-17 ASCOF written report and associated annexes (including disaggregated data in both Excel and .csv formats, relevant tables and charts, monthly data for measures based on data from HES and the Mental Health Services Dataset, and a time-series of aggregated measures) were published on 25 October 2017, and are available on the publication webpage at:<br />
+          <a href="http://www.content.digital.nhs.uk/catalogue/PUB30122" target="_blank">http://www.digital.nhs.uk/catalogue/PUB30122</a></p>
+
+          <p>The ASCOF measures 1F and 1H which are based on the Mental Health data set have been suspended in 2016-17 due to the quality and completeness of the data and so are not included in the Indicator Portal. The 1F and 1H outcomes have also not been included in the 2016-17 report, csv, disaggregated annex and time series annex file. The CASSR 1F and 1H scores have been made available in a separate annex file to enable CASSRs to see what their 2016-17 scores would have been, this is available on the publication page at:<br />
+          <a href="http://www.content.digital.nhs.uk/catalogue/PUB30122" target="_blank">http://www.digital.nhs.uk/catalogue/PUB30122</a></p>
+        jcr:primaryType: hippostd:html
+      jcr:primaryType: publicationsystem:cilandingasset
+      publicationsystem:title: ''
+    common:searchable: true
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-01-23T20:51:55.391Z
+    hippostdpubwf:lastModificationDate: 2019-09-17T15:06:26.193Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 3306448a-ac36-4c04-b397-8ce288b28d68
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:cilanding
+    jcr:uuid: 51dbe509-eb68-438c-889e-3fd1e2031b0c
+    publicationsystem:actionLinkName: Browse Social Care
+    publicationsystem:actionLinkRelPath: search/category/adult-social-outcomes-framework--ascof-/category/team/category/clinical-indicators
+    publicationsystem:title: Social Care
+    publicationsystem:urlNameOfContentFolder: adult-social-care-outcomes-framework-ascof
+  /social-care[2]:
+    /publicationsystem:cilandingasset:
+      /publicationsystem:content:
+        hippostd:content: |-
+          <p>The Adult Social Care Outcomes Framework measures how well care and support services achieve the outcomes that matter most to people. The ASCOF is used both locally and nationally to set priorities for care and support, measure progress and strengthen transparency and accountability.</p>
+
+          <p>The measures are split across four domains:</p>
+
+          <ol>
+           <li>Enhancing quality of life for people with care and support needs</li>
+           <li>Delaying and reducing the need for care and support</li>
+           <li>Ensuring that people have a positive experience of care and support</li>
+           <li>Safeguarding adults whose circumstances make them vulnerable and protecting from avoidable harm</li>
+          </ol>
+
+          <p>This section provides data on the ASCOF outcomes for the 2016-17 reporting year. Data are provided at council, regional and national level for each outcome.&nbsp;</p>
+
+          <p>Data for the measures are sourced from:&nbsp;</p>
+
+          <ul>
+           <li>Personal Social Services Adult Social Care Survey (ASCS)</li>
+           <li>Personal Social Services Survey of Adult Carers in England (SACE)</li>
+           <li>Hospital Episode Statistics (HES)</li>
+           <li>Delayed Transfers of Care (DToC)</li>
+           <li>Office for National Statistics (ONS) 2016 mid-year population estimates</li>
+           <li>Short and Long-term (SALT) return</li>
+          </ul>
+
+          <p>The ASCOF Handbook of Definitions provides full methodologies, rationales and worked examples for each outcome. Users who are unfamiliar with these indicators would benefit from reading this document before making any conclusions on the outcomes. It is available via the following link:<br />
+          <a href="https://www.gov.uk/government/publications/adult-social-care-outcomes-framework-handbook-of-definitions" target="_blank">https://www.gov.uk/government/publications/adult-social-care-outcomes-framework-handbook-of-definitions</a></p>
+
+          <p>&nbsp;</p>
+
+          <p>The 2016-17 ASCOF written report and associated annexes (including disaggregated data in both Excel and .csv formats, relevant tables and charts, monthly data for measures based on data from HES and the Mental Health Services Dataset, and a time-series of aggregated measures) were published on 25 October 2017, and are available on the publication webpage at:<br />
+          <a href="http://www.content.digital.nhs.uk/catalogue/PUB30122" target="_blank">http://www.digital.nhs.uk/catalogue/PUB30122</a></p>
+
+          <p>The ASCOF measures 1F and 1H which are based on the Mental Health data set have been suspended in 2016-17 due to the quality and completeness of the data and so are not included in the Indicator Portal. The 1F and 1H outcomes have also not been included in the 2016-17 report, csv, disaggregated annex and time series annex file. The CASSR 1F and 1H scores have been made available in a separate annex file to enable CASSRs to see what their 2016-17 scores would have been, this is available on the publication page at:<br />
+          <a href="http://www.content.digital.nhs.uk/catalogue/PUB30122" target="_blank">http://www.digital.nhs.uk/catalogue/PUB30122</a></p>
+        jcr:primaryType: hippostd:html
+      jcr:primaryType: publicationsystem:cilandingasset
+      publicationsystem:title: ''
+    common:searchable: true
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-01-23T20:51:55.391Z
+    hippostdpubwf:lastModificationDate: 2018-04-17T13:56:59.060Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 3306448a-ac36-4c04-b397-8ce288b28d68
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: publicationsystem:cilanding
+    jcr:uuid: 2e7db9c6-93f0-4898-9e05-464b69289d40
+    publicationsystem:actionLinkName: Browse Social Care
+    publicationsystem:actionLinkRelPath: search/category/adult-social-outcomes-framework--ascof-/category/team/category/clinical-indicators
+    publicationsystem:title: Social Care
+    publicationsystem:urlNameOfContentFolder: adult-social-care-outcomes-framework-ascof
+  /social-care[3]:
+    /publicationsystem:cilandingasset:
+      /publicationsystem:content:
+        hippostd:content: |-
+          <p>The Adult Social Care Outcomes Framework measures how well care and support services achieve the outcomes that matter most to people. The ASCOF is used both locally and nationally to set priorities for care and support, measure progress and strengthen transparency and accountability.</p>
+
+          <p>The measures are split across four domains:</p>
+
+          <ol>
+           <li>Enhancing quality of life for people with care and support needs</li>
+           <li>Delaying and reducing the need for care and support</li>
+           <li>Ensuring that people have a positive experience of care and support</li>
+           <li>Safeguarding adults whose circumstances make them vulnerable and protecting from avoidable harm</li>
+          </ol>
+
+          <p>This section provides data on the ASCOF outcomes for the 2016-17 reporting year. Data are provided at council, regional and national level for each outcome.&nbsp;</p>
+
+          <p>Data for the measures are sourced from:&nbsp;</p>
+
+          <ul>
+           <li>Personal Social Services Adult Social Care Survey (ASCS)</li>
+           <li>Personal Social Services Survey of Adult Carers in England (SACE)</li>
+           <li>Hospital Episode Statistics (HES)</li>
+           <li>Delayed Transfers of Care (DToC)</li>
+           <li>Office for National Statistics (ONS) 2016 mid-year population estimates</li>
+           <li>Short and Long-term (SALT) return</li>
+          </ul>
+
+          <p>The ASCOF Handbook of Definitions provides full methodologies, rationales and worked examples for each outcome. Users who are unfamiliar with these indicators would benefit from reading this document before making any conclusions on the outcomes. It is available via the following link:<br />
+          <a href="https://www.gov.uk/government/publications/adult-social-care-outcomes-framework-handbook-of-definitions" target="_blank">https://www.gov.uk/government/publications/adult-social-care-outcomes-framework-handbook-of-definitions</a></p>
+
+          <p>&nbsp;</p>
+
+          <p>The 2016-17 ASCOF written report and associated annexes (including disaggregated data in both Excel and .csv formats, relevant tables and charts, monthly data for measures based on data from HES and the Mental Health Services Dataset, and a time-series of aggregated measures) were published on 25 October 2017, and are available on the publication webpage at:<br />
+          <a href="http://www.content.digital.nhs.uk/catalogue/PUB30122" target="_blank">http://www.digital.nhs.uk/catalogue/PUB30122</a></p>
+
+          <p>The ASCOF measures 1F and 1H which are based on the Mental Health data set have been suspended in 2016-17 due to the quality and completeness of the data and so are not included in the Indicator Portal. The 1F and 1H outcomes have also not been included in the 2016-17 report, csv, disaggregated annex and time series annex file. The CASSR 1F and 1H scores have been made available in a separate annex file to enable CASSRs to see what their 2016-17 scores would have been, this is available on the publication page at:<br />
+          <a href="http://www.content.digital.nhs.uk/catalogue/PUB30122" target="_blank">http://www.digital.nhs.uk/catalogue/PUB30122</a></p>
+        jcr:primaryType: hippostd:html
+      jcr:primaryType: publicationsystem:cilandingasset
+      publicationsystem:title: ''
+    common:searchable: true
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-01-23T20:51:55.391Z
+    hippostdpubwf:lastModificationDate: 2018-04-17T13:56:59.060Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2018-04-17T13:57:08.863Z
+    hippotranslation:id: 3306448a-ac36-4c04-b397-8ce288b28d68
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:cilanding
+    jcr:uuid: 0ca58dd8-da92-43a5-9846-16f8b9defce2
+    publicationsystem:actionLinkName: Browse Social Care
+    publicationsystem:actionLinkRelPath: search/category/adult-social-outcomes-framework--ascof-/category/team/category/clinical-indicators
+    publicationsystem:title: Social Care
+    publicationsystem:urlNameOfContentFolder: adult-social-care-outcomes-framework-ascof
+  hippo:name: Social Care
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
+  jcr:uuid: 602b4017-9c68-471a-9c1b-9590c823db96

@@ -1,10 +1,6 @@
 ---
 definitions:
   config:
-    /hippo:configuration/hippo:frontend/cms/cms-validators/email:
-      jcr:primaryType: frontend:plugin
-      plugin.class: org.hippoecm.frontend.editor.validator.plugins.RegExCmsValidator
-      regex_pattern: ^([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})?$
     /hippo:configuration/hippo:frontend/cms/cms-validators/http-status-code:
       jcr:primaryType: frontend:plugin
       plugin.class: org.hippoecm.frontend.editor.validator.plugins.RegExCmsValidator

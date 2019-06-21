@@ -1,7 +1,5 @@
 package uk.nhs.digital.externalstorage.s3;
 
-import org.onehippo.cms7.services.SingletonService;
-
 import java.io.InputStream;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -9,7 +7,6 @@ import java.util.function.Supplier;
 /**
  * See the implementing {@linkplain uk.nhs.digital.externalstorage.s3.BlockingPooledS3Connector} class for details.
  */
-@SingletonService
 public interface PooledS3Connector {
 
     /**

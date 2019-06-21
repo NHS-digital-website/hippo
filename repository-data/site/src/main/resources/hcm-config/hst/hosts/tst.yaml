@@ -1,0 +1,33 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:hosts/tst:
+      /io:
+        /nhsd:
+          /tst:
+            /content:
+              .meta:residual-child-node-category: content
+              jcr:primaryType: hst:virtualhost
+            /hst:root:
+              /gdpr:
+                .meta:residual-child-node-category: content
+                hst:ismapped: false
+                hst:namedpipeline: TargetingRestApiPipeline
+                hst:types:
+                - rest
+                jcr:primaryType: hst:mount
+              hst:mountpoint: /hst:hst/hst:sites/common
+              hst:responseheaders:
+              - 'Strict-Transport-Security : max-age=31536000'
+              - 'Content-Security-Policy: upgrade-insecure-requests'
+              - 'Referrer-Policy: no-referrer-when-downgrade'
+              - 'Feature-Policy: vibrate ''none''; microphone ''none''; camera ''none'';
+                payment ''none''; accelerometer ''none''; ambient-light-sensor ''none'';
+                magnetometer ''none''; midi ''none''; usb ''none''; wake-lock ''none'';
+                execution-while-out-of-viewport ''none''; sync-xhr ''self''; gyroscope
+                ''none''; push ''self''; speaker *;  fullscreen *'
+              jcr:primaryType: hst:mount
+            jcr:primaryType: hst:virtualhost
+          jcr:primaryType: hst:virtualhost
+        jcr:primaryType: hst:virtualhost
+      jcr:primaryType: hst:virtualhostgroup

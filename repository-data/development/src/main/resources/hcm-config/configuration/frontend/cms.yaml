@@ -1,6 +1,0 @@
----
-definitions:
-  config:
-    /hippo:configuration/hippo:frontend/cms/hippo-targeting/experience-optimizer-perspective:
-      targeting.rest.url: /_targeting
-      update.default.on: true

@@ -1,0 +1,13 @@
+---
+/content/documents/corporate-website/publication-system/acceptance-tests:
+  hippo:name: Acceptance Tests
+  hippostd:foldertype:
+  - new-statistical-publications-and-clinical-indicators-document
+  - new-statistical-publications-and-clinical-indicators-folder
+  hippotranslation:id: 00000000-0000-0000-0000-000000000000
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

@@ -1,22 +1,22 @@
-.hippo-login-extend {
+.login-extend {
   background-color: #005EB8!important;
-  background-position: 340px 38%!important;
+  background-position: 380px 50%!important;
   background-repeat: no-repeat!important;
-  background-size: 530px!important;
+  background-size: 400px!important;
 }
 
-body.live .hippo-login-extend {
+body.live .login-extend {
     background-image: url(cms-background.png);
 }
 
-body.uat .hippo-login-extend {
+body.uat .login-extend {
     background-image: url(cms-background-uat.png);
 }
 
-body.tst .hippo-login-extend {
+body.tst .login-extend {
     background-image: url(cms-background-tst.png);
 }
 
-body.local .hippo-login-extend {
+body.local .login-extend {
     background-image: url(cms-background-local.png);
 }
