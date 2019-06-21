@@ -79,3 +79,6 @@ definitions:
       collector: pageviews
       jcr:primaryType: frontend:plugin
       plugin.class: uk.nhs.digital.common.relevance.PageViewsCollectorPlugin
+    /hippo:configuration/hippo:frontend/cms/hippo-targeting/experience-optimizer-perspective:
+      targeting.rest.url: /_targeting
+      update.default.on: true

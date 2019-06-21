@@ -243,6 +243,14 @@ public class CmsSteps extends AbstractSpringSteps {
             hasItem(containsString(errorMessageFragment)));
     }
 
+    @Then("^the modal save is rejected with error message containing \"([^\"]+)\"$")
+    public void validationModalErrorMessageIsShownAndContains(String errorMessageFragment) throws Throwable {
+
+        assertThat("Error message should be shown and contains",
+            contentPage.getErrorMessageInModal(),
+            is(containsString(errorMessageFragment)));
+    }
+
     // Scenario: Blank attachment field rejection =====================================================================
     @When("^I add an empty upload field$")
     public void whenIAddAnEmptyUploadField() throws Throwable {

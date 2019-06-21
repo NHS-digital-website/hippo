@@ -13,7 +13,7 @@
     jcr:primaryType: urlrewriter:rule
     urlrewriter:ruledescription: SHMI Redirect
     urlrewriter:rulefrom: /shmi
-    urlrewriter:ruleto: publications/ci-hub/summary-hospital-level-mortality-indicator-shmi
+    urlrewriter:ruleto: /site/publications/ci-hub/summary-hospital-level-mortality-indicator-shmi
     urlrewriter:ruletype: temporary-redirect
   /shmi-redirect[2]:
     hippo:availability:
@@ -29,7 +29,7 @@
     jcr:primaryType: urlrewriter:rule
     urlrewriter:ruledescription: SHMI Redirect
     urlrewriter:rulefrom: /shmi
-    urlrewriter:ruleto: publications/ci-hub/summary-hospital-level-mortality-indicator-shmi
+    urlrewriter:ruleto: /site/publications/ci-hub/summary-hospital-level-mortality-indicator-shmi
     urlrewriter:ruletype: temporary-redirect
   /shmi-redirect[3]:
     hippo:availability:
@@ -45,7 +45,7 @@
     jcr:primaryType: urlrewriter:rule
     urlrewriter:ruledescription: SHMI Redirect
     urlrewriter:rulefrom: /shmi
-    urlrewriter:ruleto: publications/ci-hub/summary-hospital-level-mortality-indicator-shmi
+    urlrewriter:ruleto: /site/publications/ci-hub/summary-hospital-level-mortality-indicator-shmi
     urlrewriter:ruletype: temporary-redirect
   hippo:name: SHMI Redirect
   jcr:mixinTypes:

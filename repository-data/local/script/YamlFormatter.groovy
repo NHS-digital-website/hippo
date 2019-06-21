@@ -5,8 +5,6 @@ import org.yaml.snakeyaml.DumperOptions
 import org.yaml.snakeyaml.Yaml
 
 import static java.lang.Character.isDigit
-import static java.lang.Character.isDigit
-import static java.lang.Integer.parseInt
 import static java.lang.Integer.parseInt
 
 class YamlFormatter extends Script {
@@ -15,7 +13,13 @@ class YamlFormatter extends Script {
     // Same for ci-hub, since referenced for page links
     static final Set keepUuidFiles =
         ["corporate-website.yaml",
-         "ci-hub.yaml",
+         "ccg-outcomes.yaml",
+         "compendium-indicators.yaml",
+         "nhs-outcomes-framework.yaml",
+         "patient-online-management-information-pomi.yaml",
+         "social-care.yaml",
+         "summary-hospital-level-mortality-indicator-shmi.yaml",
+         "content.yaml",
          "nihub.yaml",
          "nihublink.yaml",
          "acceptance-tests-images.yaml",

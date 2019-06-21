@@ -112,13 +112,13 @@ public class LoginPage extends AbstractCmsPage {
     }
 
     public boolean isOpen() {
-        return helper.findOptionalElement(By.className("hippo-login-form-buttons")) != null;
+        return helper.findOptionalElement(By.className("login-form-buttons")) != null;
     }
 
 
     public String findLoginErrorMessage() {
 
-        final WebElement hippoLoginFeedbackPanel = helper.findElement(By.className("hippo-login-feedback"));
+        final WebElement hippoLoginFeedbackPanel = helper.findElement(By.className("feedbackPanelINFO"));
 
         return helper.findChildElement(hippoLoginFeedbackPanel, By.tagName("span")).getText();
     }

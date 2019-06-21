@@ -10,7 +10,7 @@ Feature: Archive edit screen - validation
         And I populate the archive
         When I clear the title
         And I save the archive
-        Then the save is rejected with error message containing "A mandatory string input field is empty"
+        Then the save is rejected with error message containing "Enter a value"
 
 
     @DiscardAfter
@@ -19,7 +19,7 @@ Feature: Archive edit screen - validation
         And I populate the archive
         When I clear the summary
         And I save the archive
-        Then the save is rejected with error message containing "A mandatory string input field is empty"
+        Then the save is rejected with error message containing "Enter a value"
 
 
     @DiscardAfter

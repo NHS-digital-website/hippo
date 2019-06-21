@@ -1,0 +1,7 @@
+---
+group: publicationsystem
+module:
+  after: website-repository-data-site
+  name: website-repository-data-site-development
+project: publicationsystem
+site: publicationsystem
