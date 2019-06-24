@@ -11,6 +11,12 @@
         margin-right: 1.5rem;
         width: 100px;
         flex: none;
+
+        &__img {
+          margin-top: 20px;
+          width: 100px;
+          height: 100px;
+        }
     }
 
     &__title {
