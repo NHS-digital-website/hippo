@@ -22,9 +22,9 @@
                     <div class="iconList__icon">
                         <@hst.link hippobean=iconListItem.image.original fullyQualified=true var="iconImage" />
                         <#if iconImage?ends_with("svg")>
-                            <img aria-hidden="true"  src="${iconImage?replace("/binaries", "/svg-magic/binaries")}?colour=005EB8" alt="${title}" />
+                            <img class="iconList__icon__img" aria-hidden="true"  src="${iconImage?replace("/binaries", "/svg-magic/binaries")}?colour=005EB8" alt="${title}" />
                         <#else>
-                            <img aria-hidden="true" src="${iconImage}" alt="${title}" />
+                            <img class="iconList__icon__img" aria-hidden="true" src="${iconImage}" alt="${title}" />
                         </#if>
                     </div>
 
