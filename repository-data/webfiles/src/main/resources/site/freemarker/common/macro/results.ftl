@@ -285,6 +285,10 @@
     <div>
         <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publishedworkchapter"/></span>
     </div>
+    <#if item.publishedWork??>
+        <strong>${item.publishedWork.title}<strong>
+        <br />
+    </#if>
     <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
         ${item.title}
     </a>

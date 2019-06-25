@@ -24,8 +24,6 @@
     <#-- this loop only runs ones -->
     <#list linkeddocuments.hippoBeans as item>
 
-        ${document.keepPublishedWorkDuringViewRender(item)}
-
         <#-- Cache the parent document's details -->
         <@hst.link hippobean=item var="link" />
         <#assign documents = [{ "index": 0, "id": item.identifier, "title": item.title, "link": link }] />
