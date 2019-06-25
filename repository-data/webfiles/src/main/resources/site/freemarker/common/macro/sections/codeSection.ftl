@@ -22,21 +22,24 @@
         </#if>
 
         <div class="code-block">
+
             <div class="button-bar">
                 <span
                     role="button"
                     aria-label="Copy the code block to the clipboard. Javascript must be enabled"
                     class="button-code-block"
-                ><span class="hidden-text">Copy</span></span>
+                ><span class="hidden-text">COPY</span></span>
             </div>
-            <div itemscope itemtype="https://schema.org/SoftwareSourceCode">
+
+            <div class="code-content" itemscope itemtype="https://schema.org/SoftwareSourceCode">
                 <meta itemprop="codeSampleType" content="snippet">
-                <div class="scroll-box no-top-margin">
+                <div class="scroll-box no-top-margin scrollbar">
                     <pre class="${section.lineNumbers?then('line-numbers', 'no-line-numbers')} syntax-highlighted" style="white-space: ${section.wrapLines?then('pre-wrap', 'pre')}; counter-reset: linenum ${lineCounter};">${section.codeTextHighlighted?no_esc}</pre>
                 </div>
                 <p class="language" itemprop="programmingLanguage">${section.language.label}</p>
                 <meta itemprop="runtimePlatform" content="${section.language.label}">
             </div>
+
         </div>
     </div>
 </#macro>

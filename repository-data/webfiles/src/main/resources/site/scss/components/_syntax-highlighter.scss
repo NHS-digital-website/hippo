@@ -1,20 +1,26 @@
+$code-background: black;
+
 .code-block {
-    border: 1px solid #B9B9B9;
+    border: none;
     padding: 20px 20px 14px;
     font-size: .7em;
 
     .button-bar {
         display: block;
         text-align: right;
+        padding-right: 18px;
+        padding-top: 18px;
+        background-color: $code-background;
 
         .button-code-block {
             .js-enabled & {
                 padding: 5px 10px;
-                border: 1px solid #025DB3;
-                color: #025DB3;
+                border: 1px solid $white;
+                color: $white;
+                font-size: 1.2em;
 
                 &:after {
-                    content: 'Copy';
+                    content: 'COPY';
                 }
 
                 .hidden-text {
@@ -25,13 +31,14 @@
                 &:focus,
                 &:active,
                 &-done {
-                    background-color: #025DB3;
-                    color: #FFFFFF;
+                    background-color: $white;
+                    border: 1px solid $code-background;
+                    color: $code-background;
                 }
 
                 &-done {
                     &:after {
-                        content: 'Copied';
+                        content: 'COPIED';
                     }
                 }
             }
@@ -42,124 +49,155 @@
         }
     }
 
-    .scroll-box {
-        overflow-x: auto;
-        overflow-y: hidden;
 
-        pre {
-            display: table;
-            table-layout: fixed;
-            min-width: 100%;
+    .language {
+      border: 2px solid $grey-3;
+      background: $grey-4;
+      padding-left: 10px;
+      font-size: 1.4em;
+      font-weight: bold;
+      margin-block-start: 0;
+      margin-top: 0;
+    }
 
-            span.tr {
-                display: table-row;
-                line-height: 2em;
-            }
+    .code-content {
+        margin: 0; 
 
-            span.th {
-                display: table-cell;
-            }
+        //style of scrollbar for firefox 64+
+        .scrollbar {
+          scrollbar-color: $white $code-background;
+          scrollbar-width: thin;
+        }
 
-            code {
-                display: table-cell;
-                padding: 0 8px;
-            }
+        //style of scrollbar for non firefox and non IE
+        .scrollbar::-webkit-scrollbar
+        {
+            height: 8px;
+            background-color: $code-background;
+        }
 
-            &.line-numbers {
+        .scrollbar::-webkit-scrollbar-track
+        {
+            border-radius: 5px;
+            background-color: $code-background;
+        }
+
+        .scrollbar::-webkit-scrollbar-thumb
+        {
+            border-radius: 5px;
+            background-color: $white;
+        }
+
+        .scroll-box {
+            overflow-x: auto;
+            overflow-y: hidden;
+
+            pre {
+                display: table;
+                table-layout: fixed;
+                min-width: 100%;
+                padding-bottom: 20px;
+                background: $code-background;
 
                 span.tr {
-                    counter-increment: linenum;
+                    display: table-row;
+                    line-height: 2em;
                 }
 
                 span.th {
-                    user-select: none;
-                    -moz-user-select: none;
-                    -webkit-user-select: none;
-                    width: 38px;
-                    border-right: 1px solid #a9b7c6;
-                    color: #a9b7c6;
-                    padding: 0 8px 0 4px;
+                    display: table-cell;
+                }
 
+                code {
+                    display: table-cell;
+                    padding: 0 8px;
+                    font-family: monospace;
+                }
 
-                    &::before {
-                        content: counter(linenum);
-                        text-align: right;
-                        display: block;
+                &.line-numbers {
+
+                    span.tr {
+                        counter-increment: linenum;
                     }
+
+                    span.th {
+                        user-select: none;
+                        -moz-user-select: none;
+                        -webkit-user-select: none;
+                        width: 38px;
+                        border-right: 1px solid #eaeaea;
+                        color: #eaeaea;
+                        padding: 0 8px 0 4px;
+
+
+                        &::before {
+                            content: counter(linenum);
+                            text-align: right;
+                            display: block;
+                        }
+                    }
+
                 }
 
-            }
-
-            &.syntax-highlighted {
-                /*
-                The following section is based on highlight.js' Android Studio style theme by Pedro Oliveira <kanytu@gmail.com>
-                */
-
-                .hljs {
-                    color: #a9b7c6;
-                    background: #282b2e;
-                    padding: 0.5em;
-                }
-
-                .hljs-number,
-                .hljs-literal,
-                .hljs-symbol,
-                .hljs-bullet {
-                    color: #6897BB;
-                }
-
-                .hljs-keyword,
-                .hljs-selector-tag,
-                .hljs-deletion {
-                    color: #cc7832;
-                }
-
-                .hljs-variable,
-                .hljs-template-variable,
-                .hljs-link {
-                    color: #629755;
-                }
-
-                .hljs-comment,
-                .hljs-quote {
-                    color: #808080;
-                }
-
-                .hljs-meta {
-                    color: #bbb529;
-                }
-
-                .hljs-string,
-                .hljs-attribute,
-                .hljs-addition {
-                    color: #6A8759;
-                }
-
-                .hljs-section,
-                .hljs-title,
-                .hljs-type {
-                    color: #ffc66d;
-                }
-
-                .hljs-name,
-                .hljs-selector-id,
-                .hljs-selector-class {
-                    color: #e8bf6a;
-                }
-
-                .hljs-emphasis {
-                    font-style: italic;
-                }
-
-                .hljs-strong {
-                    font-weight: bold;
+                &.syntax-highlighted {
+                    /*
+                    The following section is based on highlight.js Tomorrow Night Bright style theme by Chris Kempson
+                    */
+                    .hljs-comment,
+                    .hljs-quote{
+                        color:#969896
+                    }
+                    .hljs-variable,
+                    .hljs-template-variable,
+                    .hljs-tag,
+                    .hljs-name,
+                    .hljs-selector-id,
+                    .hljs-selector-class,
+                    .hljs-regexp,
+                    .hljs-deletion{
+                        color:#d54e53
+                    }
+                    .hljs-number,
+                    .hljs-built_in,
+                    .hljs-builtin-name,
+                    .hljs-literal,
+                    .hljs-type,
+                    .hljs-params,
+                    .hljs-meta,
+                    .hljs-link{
+                        color:#e78c45
+                    }
+                    .hljs-attribute{
+                        color:#e7c547
+                    }
+                    .hljs-string,
+                    .hljs-symbol,
+                    .hljs-bullet,
+                    .hljs-addition{
+                        color:#b9ca4a
+                    }
+                    .hljs-title,
+                    .hljs-section{
+                        color:#7aa6da
+                    }
+                    .hljs-keyword,
+                    .hljs-selector-tag{
+                        color:#c397d8
+                    }
+                    .hljs{
+                        background:$code-background;
+                        color:#eaeaea;
+                        padding:.5em
+                    }
+                    .hljs-emphasis{
+                        font-style:italic
+                    }
+                    .hljs-strong{
+                        font-weight:bold
+                    }
+ 
                 }
             }
         }
-    }
-
-    .language {
-        font-family: Console,monospace !important;
-        margin-top: 12px;
     }
 }
