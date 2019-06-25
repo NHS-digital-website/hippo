@@ -44,7 +44,7 @@
                             </#if>
                         </div>
                         <#if hasPageIcon>
-                            <div class="column--one-quarter column--reset">
+                            <div class="column--one-quarter column--reset local-header__icon">
                                 <@hst.link hippobean=document.pageIcon.original fullyQualified=true var="image" />
                                 <#if image?ends_with("svg")>
                                     <img src="${image?replace("/binaries", "/svg-magic/binaries")}?colour=ffcd60" alt="${document.title}" />

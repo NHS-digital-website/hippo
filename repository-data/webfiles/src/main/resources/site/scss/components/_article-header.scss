@@ -36,6 +36,35 @@
         margin-bottom: $gutter;
     }
 
+    .grid-row {
+
+      .local-header__icon {
+        height: auto;
+
+        img {
+            max-width: 210px;
+
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 80%;
+            transform: translate(0%, -50%)
+        }
+
+        @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+            img {
+                max-width: 117px;
+            }
+        }
+
+        @include media($max-width: $min-tablet-width, $ignore-for-ie: true) {
+            img {
+                display: none;
+            }
+        }
+      }
+    }
+
     img {
         margin: 0 auto;
         max-width: 180px;
