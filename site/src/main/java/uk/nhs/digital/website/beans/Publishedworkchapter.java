@@ -1,8 +1,15 @@
 package uk.nhs.digital.website.beans;
 
+import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.Node;
+import org.hippoecm.hst.content.beans.query.HstQuery;
+import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.core.request.HstRequestContext;
+import org.hippoecm.hst.util.ContentBeanUtils;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.nhs.digital.pagination.Paginated;
 import uk.nhs.digital.pagination.Pagination;
 import uk.nhs.digital.ps.beans.IndexPage;
@@ -15,7 +22,7 @@ import java.util.stream.IntStream;
 @Node(jcrType = "website:publishedworkchapter")
 public class Publishedworkchapter extends CommonFieldsBean implements Paginated {
 
-    private Publishedwork publishedwork;
+    private static final Logger log = LoggerFactory.getLogger(Publishedworkchapter.class);
 
     @HippoEssentialsGenerated(internalName = "hippotaxonomy:keys")
     public String[] getKeys() {
@@ -32,16 +39,29 @@ public class Publishedworkchapter extends CommonFieldsBean implements Paginated 
         return getChildBeansByName("website:sections");
     }
 
-    public void keepPublishedWorkDuringViewRender(Publishedwork publishedwork) {
-        this.publishedwork = publishedwork;
+    public Publishedwork getPublishedWork() {
+        final HstRequestContext context = RequestContextProvider.get();
+        //  Publishedworkchapter publishedWorkChapter = context.getContentBean(Publishedworkchapter.class);
+        try {
+            HstQuery linkedBeanQuery = ContentBeanUtils.createIncomingBeansQuery(
+                this.getCanonicalBean(), context.getSiteContentBaseBean(),
+                "website:links/@hippo:docbase",
+                Publishedwork.class, false);
+            linkedBeanQuery.setLimit(1);
+            return (Publishedwork) linkedBeanQuery.execute().getHippoBeans().nextHippoBean();
+        } catch (QueryException queryException) {
+            log.warn("QueryException ", queryException);
+        }
+        return null;
     }
 
     @Override
     public Pagination paginate() {
-        if (publishedwork != null) {
+        Publishedwork publishedwork = getPublishedWork();
+        if ( publishedwork != null) {
             int index = IntStream
-                .range(0, publishedwork.getLinks().size())
-                .filter(i -> ((String)publishedwork.getLinks().get(i).getProperty("website:title")).equalsIgnoreCase(getTitle()))
+                .range(0,  publishedwork.getLinks().size())
+                .filter(i -> ((String) publishedwork.getLinks().get(i).getProperty("website:title")).equalsIgnoreCase(getTitle()))
                 .findFirst()
                 .orElse(-1);
             if (0 <= index && index < publishedwork.getLinks().size()) {
