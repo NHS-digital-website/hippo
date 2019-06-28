@@ -12,27 +12,13 @@
     <description>NHS Digital Website CMS</description>
     <dependencies>
         <dependency>
-            <groupId>org.onehippo.cms7.hst.dependencies</groupId>
-            <artifactId>hst-repository-dependencies</artifactId>
-            <type>pom</type>
-        </dependency>
-        <dependency>
-            <groupId>org.onehippo.cms7.hst.dependencies</groupId>
-            <artifactId>hst-cms-dependencies</artifactId>
-            <type>pom</type>
-        </dependency>
-        <dependency>
             <groupId>org.onehippo.cms7</groupId>
             <artifactId>hippo-package-cms-dependencies</artifactId>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>org.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-channel-manager-frontend</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-channel-manager-repository</artifactId>
+          <groupId>org.onehippo.cms7.hst.toolkit-resources.addon</groupId>
+          <artifactId>hst-addon-hcm-site</artifactId>
         </dependency>
         <dependency>
             <groupId>uk.nhs.digital</groupId>
@@ -161,7 +147,7 @@
 
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-enterprise-package-app-dependencies</artifactId>
+            <artifactId>hippo-enterprise-package-cms-dependencies</artifactId>
             <type>pom</type>
         </dependency>
 
@@ -184,9 +170,8 @@
         </dependency>
 
         <dependency>
-            <groupId>org.onehippo.cms7</groupId>
-            <artifactId>hippo-plugin-robotstxt-addon-repository</artifactId>
-            <scope>compile</scope>
+          <groupId>org.onehippo.cms7</groupId>
+          <artifactId>hippo-plugin-robotstxt-addon-hcm-site</artifactId>
         </dependency>
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
@@ -209,17 +194,12 @@
 
         <dependency>
             <groupId>org.onehippo.cms7</groupId>
-            <artifactId>hippo-plugin-sitemap-content</artifactId>
+            <artifactId>hippo-plugin-sitemap-hcm-site</artifactId>
         </dependency>
 
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-eforms-repository</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-eforms-cms</artifactId>
+            <artifactId>hippo-addon-eforms-hcm-site</artifactId>
         </dependency>
 
         <dependency>
@@ -236,7 +216,7 @@
 
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-targeting-dependencies-cms</artifactId>
+            <artifactId>hippo-addon-targeting-cms-dependencies</artifactId>
             <type>pom</type>
         </dependency>
 
@@ -274,7 +254,7 @@
                 <configuration>
                     <archive>
                         <manifestEntries>
-                            <Hippo-Release-Version>${hippo.release.version}</Hippo-Release-Version>
+                            <BloomReach-Release-Version>${hippo.release.version}</BloomReach-Release-Version>
                             <Project-Version>${project.version}</Project-Version>
                             <Project-Build>${buildNumber}</Project-Build>
                         </manifestEntries>

@@ -7,7 +7,7 @@
       <li>
         <#if hstRequestContext.preview>
             <div style="position:relative">
-                <@hst.cmseditlink hippobean=item />
+                <@hst.manageContent hippobean=item />
             </div>
         </#if>
         <h3>${item.title}</h3>

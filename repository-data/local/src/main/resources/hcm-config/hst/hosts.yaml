@@ -5,7 +5,6 @@ definitions:
       /localhost:
         /localhost:
           /hst:root:
-            hst:contextpath: ''
             hst:homepage: root
             hst:mountpoint: /hst:hst/hst:sites/common
             jcr:primaryType: hst:mount
@@ -13,7 +12,6 @@ definitions:
         hst:cmslocation: http://localhost:8080/cms
         hst:defaultport: 8080
         jcr:primaryType: hst:virtualhostgroup
-      hst:defaultcontextpath: ''
       hst:diagnosticsenabled: false
       hst:scheme: http
     /hst:hst/hst:hosts/dev:

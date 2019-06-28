@@ -21,6 +21,7 @@
         <dependency>
             <groupId>org.onehippo.cms7.hst.dependencies</groupId>
             <artifactId>hst-client-dependencies</artifactId>
+            <version>5.2.0</version>
             <type>pom</type>
             <scope>provided</scope>
         </dependency>

@@ -81,6 +81,17 @@
   </filter>
 
   <filter>
+    <filter-name>PingFilter</filter-name>
+    <filter-class>org.hippoecm.hst.container.PingFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>PingFilter</filter-name>
+    <url-pattern>/ping/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+
+  <filter>
     <filter-name>HstFilter</filter-name>
     <filter-class>org.hippoecm.hst.container.HstFilter</filter-class>
   </filter>
@@ -232,11 +243,6 @@
     </init-param>
   </servlet>
 
-  <servlet>
-    <servlet-name>PingServlet</servlet-name>
-    <servlet-class>org.hippoecm.hst.servlet.HstPingServlet</servlet-class>
-  </servlet>
-
     <servlet>
         <servlet-name>SvgServlet</servlet-name>
         <servlet-class>uk.nhs.digital.svg.colour.SvgColourSetterServlet</servlet-class>
@@ -270,11 +276,6 @@
   <servlet-mapping>
     <servlet-name>HstResourceServlet</servlet-name>
     <url-pattern>/resources/*</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>PingServlet</servlet-name>
-    <url-pattern>/ping/*</url-pattern>
   </servlet-mapping>
 
     <servlet-mapping>

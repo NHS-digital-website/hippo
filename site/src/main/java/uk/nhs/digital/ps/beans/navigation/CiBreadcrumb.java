@@ -10,7 +10,7 @@ public class CiBreadcrumb extends Breadcrumb {
     private boolean isClinicalIndicator;
 
     public CiBreadcrumb(List<BreadcrumbItem> items, String separator, boolean isClinicalIndicator) {
-        super(items, separator);
+        super(items, separator, null);
         this.isClinicalIndicator = isClinicalIndicator;
     }
 

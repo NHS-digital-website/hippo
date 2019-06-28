@@ -19,4 +19,8 @@
     <templateLanguage>freemarker</templateLanguage>
     <useSamples>false</useSamples>
     <webfilesSubModule>webfiles</webfilesSubModule>
+    <hstHcmDependenciesAlias>CMS</hstHcmDependenciesAlias>
+    <cmsDependenciesModule>cms</cmsDependenciesModule>		
+    <siteComponentsSubModule>site</siteComponentsSubModule>		
+    <siteWebappSubModule>site</siteWebappSubModule>		
 </project>
