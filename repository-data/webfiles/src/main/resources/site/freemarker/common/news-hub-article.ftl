@@ -65,7 +65,7 @@
                             <div class="column column--reset">
                                 <div class="hub-box-list">
                                     <#list pageable.items as item>
-                                        <#assign newsData = { "title": item.title, "text": item.shortsummary, "light": true } />
+                                        <#assign newsData = { "title": item.title, "text": item.shortsummary} />
 
                                         <@hst.link hippobean=item var="newsLink" />
                                         <@fmt.formatDate value=item.publisheddatetime.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" var="date" />

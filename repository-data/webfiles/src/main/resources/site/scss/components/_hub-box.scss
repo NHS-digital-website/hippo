@@ -3,6 +3,8 @@
     @extend .cta-list;
 
     .hub-box {
+        background-color: $col-15;
+        border:1px;
         margin-top: $gutter * 2;
         margin-bottom: 0;
 
@@ -23,7 +25,6 @@
 /* Hub box */
 .hub-box {
     @extend .cta;
-
     display: block;
     width: 100%;
     border: 22px solid $col-duodenary;

@@ -37,7 +37,7 @@ table {
 
     th {
         background-color: $white;
-        border-left: 2px solid $col-septenary;
+        border-left: 2px solid $background-colour;
         border-bottom: 2px solid $col-15;
 
         &,
@@ -52,8 +52,8 @@ table {
 
     td {
         word-break: break-word;
-        border-bottom: 1px solid $col-15;
-        border-left: 2px solid #FFFFFF;
+        border-bottom: 1px solid #D1D7DB;
+        border-left: 2px solid $background-colour;
 
         &,
         * {

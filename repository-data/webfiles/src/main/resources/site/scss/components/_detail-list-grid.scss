@@ -43,8 +43,8 @@
     }
 
     .grid-row {
-        border-top: 1px solid $col-septenary;
-        border-top: 1px solid rgba($col-septenary, 0.5);
+        border-top: 1px solid $background-colour;
+        border-top: 1px solid rgba($background-colour, 0.5);
 
         &:first-child {
             border-top: none;
@@ -60,8 +60,8 @@
             border-top: none;
 
             .column {
-                border-top: 1px solid $col-septenary;
-                border-top: 1px solid rgba($col-septenary, 0.5);
+                border-top: 1px solid $background-colour;
+                border-top: 1px solid rgba($background-colour, 0.5);
             }
 
             &:first-child {

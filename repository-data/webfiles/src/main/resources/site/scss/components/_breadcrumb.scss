@@ -78,9 +78,8 @@
     &,
     &:link,
     &:hover,
-    &:active,
-    &:visited {
-        color: $col-quinary;
+    &:active {
+        color: $col-quaternary;
         text-decoration: none;
     }
 }

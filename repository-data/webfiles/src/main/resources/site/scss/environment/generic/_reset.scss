@@ -39,7 +39,7 @@ html {
 }
 
 body {
-    background-color: $col-septenary;
+    background-color: $background-colour;
     margin: 0;
 }
 
@@ -87,8 +87,7 @@ input[type='time']::placeholder,
 input[type='datetime']::placeholder,
 input[type='datetime-local']::placeholder,
 input[type='color']::placeholder {
-    color: $col-quaternary;
-    opacity: 0.5;
+    color: $grey-1;
     text-shadow: none;
     -webkit-text-fill-color: initial;
 }

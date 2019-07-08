@@ -1,25 +1,29 @@
 /* quote-box */
-  .quote-box {
-   padding: 20px;
-   margin: 20px 0;
-   border: 1px solid #eee;
-   border-left-width: 7px;
-   border-radius: 3px;
-   display: flex;
-   background-image: url(../images/icon/quote.svg);
-   background-position: top left 20px;
-   background-repeat: no-repeat;
-   text-indent: 50px;
-   background-size: 2.5em;
-   border-left-color: #aab2b7;
-   background-color: #f0f4f5;
-   }
-   .quote-text {
-     color: #005EB8;
-     p{font-size:24px;}
-   }
-   .quote-box-role {
-     text-indent: 0;
-     color: #425563;
-     font-size: 19px;
-  }
+.quote-box {
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 3px;
+    display: flex;
+    background-image: url(../images/icon/quote.svg);
+    background-position: top left 20px;
+    background-repeat: no-repeat;
+    text-indent: 50px;
+    background-size: 2.5em;
+    border: 1px solid #eee;
+    border-left: solid 7px #98a4ad;
+    background-color: #dfe2e5;
+}
+
+.quote-text {
+    color: #005EB8;
+
+    p {
+        font-size: 24px;
+    }
+}
+
+.quote-box-role {
+    text-indent: 0;
+    color: #425563;
+    font-size: 19px;
+}

@@ -9,8 +9,8 @@
 
     &__card {
         position: relative;
-        border: 2px solid $grey-5;
         margin-bottom:10px;
+        background-color: #ffffff;
     }
 
     &__warning {
@@ -19,7 +19,7 @@
         z-index: 2;
         top: 0;
         left: 0;
-        background: $grey-5;
+        background: #DFE2E5;
         padding: 0.1em 0.6em;
     }
 
@@ -31,7 +31,7 @@
     &__description {
         padding: 1em;
         font-size: 0.9em;
-        background: $grey-5;
+        background: $col-septenary;
 
         p, ul, ol, dl, blockquote, table {
             font-size: inherit;

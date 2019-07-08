@@ -93,7 +93,7 @@
 }
 
 .article-header__title {
-    background: $col-septenary;
+    background: $background-colour;
 }
 
 .article-header__label {
@@ -117,7 +117,7 @@
 }
 
 .article-header__detail-line {
-    border-top: 1px solid $col-septenary;
+    border-top: 1px solid $background-colour;
     border-top: 1px solid rgba($col-septenary, 0.5);
     margin-top: 0;
     padding: $gutter 0 round($gutter * 0.5);

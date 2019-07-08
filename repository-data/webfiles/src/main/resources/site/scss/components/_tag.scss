@@ -33,14 +33,14 @@
     display: inline-block;
     border-radius: 5px;
     padding: 5px 10px;
-    background: $col-duodenary;
+    background: $col-15;
 
     &:link {
-        color: $col-quaternary;
+        color: $col-primary;
     }
 
     &:visited {
-        color: $col-quaternary;
+        color: $col-primary;
     }
 
     &.selected,

@@ -32,7 +32,7 @@
 
     border: 2px solid $col-primary;
     border-right-width: 0;
-    border-right-color: $col-septenary;
+    border-right-color: $background-colour;
 
     outline: 0;
     appearance: none;
@@ -41,7 +41,8 @@
     height: $search-strip-height;
     line-height: 18px;
     padding: round($baseline-grid-unit * 2.6) $gutter - 2px;
-    color: $col-quaternary;
+    color: $muted-colour;
+    background-color: $background-colour;
 
     &:focus {
         padding: round($baseline-grid-unit * 2.6) $gutter - 3px;
