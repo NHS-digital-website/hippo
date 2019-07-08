@@ -5,8 +5,8 @@
 <#macro quoteSection section>
     <div class="quote-box" aria-label="Quotation">
        <div itemscope itemtype="https://schema.org/Quotation">
-         <div class="quote-text">
-           <span itemprop="text"><@hst.html hippohtml=section.quote contentRewriter=gaContentRewriter/></span>
+         <div class="quote-text" itemprop="text">
+          <@hst.html hippohtml=section.quote contentRewriter=gaContentRewriter/>
          </div>
        <div class="quote-box-role">
 
