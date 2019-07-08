@@ -12,6 +12,11 @@ public class Section extends BaseCompound {
         return getProperty("website:title");
     }
 
+    @HippoEssentialsGenerated(internalName = "website:headinglevel")
+    public String getHeadingLevel() {
+        return getProperty("website:headinglevel");
+    }
+
     @HippoEssentialsGenerated(internalName = "website:type")
     public String getType() {
         return getProperty("website:type");
