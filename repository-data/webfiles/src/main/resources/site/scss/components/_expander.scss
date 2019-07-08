@@ -17,7 +17,7 @@
 
     &.expander-most {
         details {
-            background-color: $grey-5;
+            background-color: $col-15;
 
             summary {
                 font-size: 18px;
@@ -29,7 +29,12 @@
                 }
 
                 &:focus {
+                    outline: none;
+                }
+
+                &:hover                 {
                     outline: 3px solid $focus-colour;
+                    background-color: #FFF1CC;
                 }
 
                 &::-webkit-details-marker {
@@ -72,6 +77,15 @@
                     text-decoration: underline;
                 }
 
+                &:focus {
+                    outline: none;
+                }
+
+                &:hover {
+                    outline: 3px solid $focus-colour;
+                    background-color: #FFF1CC;
+                }
+
                 .no-details &::before {
                     content: "►";
                 }
@@ -82,7 +96,6 @@
             }
 
             .details-body {
-                background-color: $grey-5;
                 border-left: 4px solid $blue;
                 margin-top: 3px;
                 padding: 16px 24px;

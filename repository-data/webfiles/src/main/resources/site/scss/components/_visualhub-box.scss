@@ -66,13 +66,21 @@
             width: 100%;
             
             a {
-                background-color: #f0f4f5;
+                background-color: #F9FAFB;
                 display: block;
                 padding: 16px;
                 text-decoration: none;
                 color: #425563;
-                box-shadow: 0 4px 0 0 #d8dde0;
+                box-shadow: 0 4px 0 0 #DFE2E5;
                 overflow: hidden;
+
+                &:hover {
+                    background-color: #FFF1CC;
+                }
+
+                &:active {
+                    background-color: #FFF884;
+                }
 
                 h2 {
                     text-decoration: underline;

@@ -63,14 +63,13 @@ $col-18: #768692;           // Blue-ish light grey
 $col-19: #422C88;           // Purple lightup banner theme
 $col-20: #212B32;           // Dark gray (almost black)
 $col-21: #374047;           // Dark gray (a bit lighter than col-20)
+$col-22: #F9FAFB;           // Light (almost white)
 
 
 // Semantic colour names
 // =====================
 $nhs-blue: $col-primary;
 $emergency-services-red: $red;
-
-$text-colour: $col-quaternary;
 
 $link-colour: $col-primary;
 $link-reverse-polarity: $col-quinary;
@@ -88,3 +87,9 @@ $link-active-reverse-polarity: $col-tertiary;
 
 $focus-colour: $col-octonary;
 
+// dyslexic colour theme
+// =====================
+$background-colour: $grey-5;
+$text-colour: #212b32;
+$muted-colour: $col-quaternary;
+$section-dividers: #B3BBC1;

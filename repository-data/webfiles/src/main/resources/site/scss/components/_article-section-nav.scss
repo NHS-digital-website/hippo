@@ -4,7 +4,7 @@
 #sticky-nav a.active {
   border-left: 7px solid #ffb81c;
   padding-left: 10px;
-  color: #425563;
+  color: $col-20;
   text-decoration:none;
   font-weight: bold;
 }
@@ -38,7 +38,7 @@
         margin: 0 0 $default-spacing-unit;
         display: inline-block;
         padding: 0 10px 10px 0;
-        border-bottom: $baseline-grid-unit solid $col-quaternary;
+        border-bottom: $baseline-grid-unit solid $col-20;
 
         @include bold-font(24);
 

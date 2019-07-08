@@ -1,7 +1,7 @@
 /* Filter */
 .filter {
     margin: 0 0 40px;
-    background-color: $col-duodenary;
+    background-color: $col-22;
 
     @include media($min-width: $min-desktop-width) {
         margin-right: $gutter * 2;
@@ -86,9 +86,6 @@
         }
     }
 
-    &:hover {
-        background: rgba($col-16, 0.02);
-    }
 }
 
 /* Filter list */
@@ -192,13 +189,13 @@ a.filter-link {
     &.filter-link--active {
         color: $col-quinary;
         border: 1px solid $col-15;
-        background-color: $col-septenary;
+        background-color: $background-colour;
         background-image: url("../images/icon-filter-down.png");
 
         &:hover,
         &:active,
         &:focus {
-            background-color: $col-septenary;
+            background-color: $background-colour;
             background-image: url("../images/icon-filter-down.png");
             text-decoration: none;
         }
@@ -237,7 +234,7 @@ a.filter-link {
         &.filter-link--selected,
         &.filter-link--active {
         background-image: none;
-            background-color: $col-septenary;
+            background-color: $col-22;
             padding-right: 22px;
         }
     }

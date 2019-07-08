@@ -28,7 +28,7 @@
     }
 
     .tabs-nav__item--active {
-        background-color: $col-septenary;
+        background-color: $background-colour;
 
         @include media(tablet) {
             position: relative;

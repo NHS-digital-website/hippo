@@ -68,6 +68,7 @@
     min-height: 30px;
     padding: round($baseline-grid-unit * 2.6) round($baseline-grid-unit * 4);
     color: $col-quaternary;
+    background-color: $background-colour;
 
     @include border-highlight;
     @include core-font(20);

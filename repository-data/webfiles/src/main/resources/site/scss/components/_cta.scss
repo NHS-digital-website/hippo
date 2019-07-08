@@ -37,6 +37,7 @@
         position: relative;
         display: inline-block;
         border: 1px solid rgba($col-15, 0.5);
+        background-color: $col-22;
         border-radius: 4px;
         padding: 3px 8px 2px;
         margin-left: -8px;
@@ -120,7 +121,7 @@
 
 // Detailed CTA (used in search results)
 .cta--detailed {
-    border-top: 1px solid $col-15;
+    border-top: 1px solid #BFC2C3;
     padding: $gutter 0;
 
     @include clearfix;
