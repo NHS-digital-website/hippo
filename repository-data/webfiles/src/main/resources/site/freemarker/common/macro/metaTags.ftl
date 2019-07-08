@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 
-<#macro metaTags document=document>
+<#macro metaTags>
 
 <#assign siteTitle = "NHS Digital"/>
 <#assign pageTitle = 'Home - ' + siteTitle />

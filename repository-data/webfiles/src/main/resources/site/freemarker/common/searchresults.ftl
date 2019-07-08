@@ -4,6 +4,7 @@
 
 <#-- Add meta tags -->
 <#include "macro/metaTags.ftl">
+<#assign overridePageTitle>Search Results</#assign>
 <@metaTags></@metaTags>
 
 <div data-uipath="ps.search-results" data-totalresults="${(pageable.total)!0}">
