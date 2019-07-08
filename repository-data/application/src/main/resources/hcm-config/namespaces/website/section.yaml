@@ -28,6 +28,16 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /headinglevel:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: Main heading,Sub heading
+            caption: Heading level
+            field: headinglevel
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
           /html:
             /cluster.options:
               ckeditor.config.appended.json: '{toolbarGroups: [{ name: ''document''}],
@@ -71,6 +81,14 @@ definitions:
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
+          /headinglevel:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:headinglevel
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            jcr:primaryType: hipposysedit:field
           /html:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -78,8 +96,6 @@ definitions:
             hipposysedit:path: website:html
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
-            hipposysedit:validators:
-            - required
             jcr:primaryType: hipposysedit:field
           /numberedList:
             hipposysedit:mandatory: false
@@ -123,6 +139,7 @@ definitions:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
           jcr:primaryType: website:section
+          website:headinglevel: Main heading
           website:numberedList: false
           website:title: ''
           website:type: ''

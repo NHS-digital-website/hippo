@@ -197,7 +197,14 @@
 
 <#function includeInSideNav section>
     <#return section.title?has_content &&
-            (section.sectionType == 'website-section' ||
+            (
+              ( section.sectionType == 'website-section'  &&
+                  (
+                   !section.headingLevel?has_content ||
+                   section.headingLevel == 'Main heading'
+                  )
+              )
+            ||
                 (
                   (section.sectionType == 'gallerySection' ||
                    section.sectionType == 'iconList' ||
