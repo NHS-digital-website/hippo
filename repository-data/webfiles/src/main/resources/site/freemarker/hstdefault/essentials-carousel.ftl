@@ -64,7 +64,7 @@
     </div>
 
     <@hst.headContribution category="htmlHead">
-        <style type="text/css">
+        <style>
             /* Carousel base class */
             #${componentId} {
                 height: ${cparam.carouselHeight}px;

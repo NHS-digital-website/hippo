@@ -43,11 +43,11 @@
 <#assign hasFutureEvent = false>
 
 <#if !hasSessions>
-<article class="article article--event" itemscope itemtype="http://schema.org/Event">
+<article class="article article--event" itemscope itemtype="http://schema.org/Event" aria-label="Document Header">
 <#else>
-<article class="article article--event">
+<article class="article article--event" aria-label="Document Header">
 </#if>
-    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
+    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
         <div class="local-header article-header article-header--detailed">
             <div class="grid-wrapper">
                 <div class="article-header__inner">
