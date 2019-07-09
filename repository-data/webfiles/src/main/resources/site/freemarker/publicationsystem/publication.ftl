@@ -199,7 +199,7 @@
 
 <#-- ACTUAL TEMPLATE -->
 <#if publication?? >
-    <article class="article article--publication" itemscope itemtype="http://schema.org/PublicationIssue">
+    <article class="article article--publication" itemscope itemtype="http://schema.org/PublicationIssue" aria-label="Document Header">
         <#if publication.publiclyAccessible>
             <@fullContentOfPubliclyAvailablePublication/>
         <#else>

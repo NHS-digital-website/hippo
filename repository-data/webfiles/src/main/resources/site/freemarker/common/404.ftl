@@ -11,15 +11,17 @@
 <div class="grid-wrapper">
     <div class="grid-row">
         <div class="column column--reset">
-            <ol class="breadcrumb">
-                <li class="breadcrumb__crumb">
-                    <a href="<@hst.link siteMapItemRefId='root'/>" class="breadcrumb__link" title="NHS Digital homepage">NHS Digital</a>
-                </li>
-                <li class="breadcrumb__crumb">
-                    <img src="<@hst.webfile  path="images/icon-arrow.png"/>" alt="Right arrow icon" class="breadcrumb__sep"/>
-                    <span class="breadcrumb__link breadcrumb__link--secondary" data-uipath="document.title">${documentTitle}</span>
-                </li>
-            </ol>
+            <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb__crumb">
+                        <a href="<@hst.link siteMapItemRefId='root'/>" class="breadcrumb__link" title="NHS Digital homepage">NHS Digital</a>
+                    </li>
+                    <li class="breadcrumb__crumb">
+                        <img src="<@hst.webfile  path="images/icon-arrow.png"/>" alt="Right arrow icon" class="breadcrumb__sep"/>
+                        <span class="breadcrumb__link breadcrumb__link--secondary" data-uipath="document.title" aria-current="page">${documentTitle}</span>
+                    </li>
+                </ol>
+            </nav>
         </div>
     </div>
 </div>

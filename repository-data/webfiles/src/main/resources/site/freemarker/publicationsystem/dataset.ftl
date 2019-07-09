@@ -8,7 +8,7 @@
 <#include "../common/macro/metaTags.ftl">
 <@metaTags></@metaTags>
 
-<article class="article article--dataset">
+<article class="article article--dataset" aria-label="Document Header">
 <#if dataset??>
 
 <#assign hasPublicationDate = dataset.nominalDate?has_content />
@@ -40,7 +40,7 @@
 </#macro>
   
     <div itemscope itemtype="http://schema.org/Dataset">    
-        <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" data-uipath="ps.document.content" aria-label="Document Header">
+        <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" data-uipath="ps.document.content">
             <div class="local-header article-header article-header--detailed">
                 <div class="grid-wrapper">
                     <div class="article-header__inner">

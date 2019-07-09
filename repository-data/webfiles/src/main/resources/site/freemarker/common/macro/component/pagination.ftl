@@ -4,7 +4,7 @@
 <#macro pagination page>
     <#assign pagenation = page.paginate() />
     <#if pagination??>
-        <nav class="digital-pagination" role="navigation" aria-label="Pagination">
+        <nav class="digital-pagination" aria-label="Pagination">
             <ul class="digital-pagination-list">
                 <#if pagenation.previous??>
                     <li class="digital-pagination-list-item-previous">

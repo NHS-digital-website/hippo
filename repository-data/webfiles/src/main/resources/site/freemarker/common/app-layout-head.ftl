@@ -52,7 +52,7 @@
     <@hst.headContributions categoryExcludes="htmlBodyEnd, scripts, genericMeta, facebookMeta, twitterMeta, metadata" xhtml=true />
 
     <#-- Fix for IE 11 to make it smoth -->
-    <style type="text/css">
+    <style>
         .inner-wrapper-sticky {
             z-index:1;
         }

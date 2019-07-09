@@ -17,7 +17,7 @@
 <#assign hasAdditionalInformation = document.additionalInformation.content?has_content />
 <#assign hasLinks = document.links?? && document.links?size gt 0 />
 
-<article class="article">
+<article class="article" aria-label="Document Header">
     <#if hasBannerImage>
         <@hst.link hippobean=document.image.original fullyQualified=true var="bannerImage" />
         <div class="banner-image" aria-label="Document Header" style="background-image: url(${bannerImage});">
@@ -41,7 +41,7 @@
             </div>
         </div>
     <#else>
-        <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
+        <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
             <div class="local-header article-header article-header--with-icon">
                 <div class="grid-wrapper">
                     <div class="article-header__inner">

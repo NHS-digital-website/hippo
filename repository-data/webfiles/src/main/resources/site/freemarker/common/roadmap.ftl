@@ -107,9 +107,9 @@
 <#assign sectionTitlesFound = countSectionTitles(roadmapitems.hippoBeans) />
 <@fmt.message key="headers.about-this-publication" var="aboutThisPublicationHeader" />
 
-<article class="article article--latest-events">
+<article class="article article--latest-events" aria-label="Document Header">
 
-    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
+    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
         <div class="local-header article-header article-header--detailed">
             <div class="grid-wrapper">
                 <div class="article-header__inner">

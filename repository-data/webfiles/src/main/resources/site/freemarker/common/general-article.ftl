@@ -30,9 +30,8 @@
 <#assign sectionTitlesFound = countSectionTitles(document.sections) />
 <#assign renderNav = ((hasSummaryContent || hasChildPages) && sectionTitlesFound gte 1) || sectionTitlesFound gt 1 || (hasSummaryContent && hasChildPages) />
 
-<article class="article article--general">
-
-    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
+<article class="article article--general" aria-label="Document Header">
+    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
         <div class="local-header article-header article-header--with-icon">
             <div class="grid-wrapper">
                 <div class="article-header__inner">

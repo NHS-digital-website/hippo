@@ -6,7 +6,8 @@
     <div class="grid-row">
         <div class="column column--reset">
             <#if ciBreadcrumb?? && ciBreadcrumb.items?size gte 1>
-                <ol class="breadcrumb" title="Navigation" aria-label="breadcrumb">
+            <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb" title="Navigation">
                     <li class="breadcrumb__crumb">
                         <a href="<@hst.link siteMapItemRefId='root'/>" class="breadcrumb__link" title="NHS Digital" data-text="NHS Digital">NHS Digital</a>
                     </li>
@@ -26,11 +27,12 @@
                                 <@hst.link var="link" link=item.link/>
                                 <a href="${link}" class="breadcrumb__link" data-text="${item.title}">${item.title}</a>
                             <#else>
-                                <span class="breadcrumb__link breadcrumb__link--secondary" data-text="${item.title}">${item.title}</span>
+                                <span class="breadcrumb__link breadcrumb__link--secondary" data-text="${item.title}" aria-current="page">${item.title}</span>
                             </#if>
                         </li>
                     </#list>
                 </ol>
+            </nav>
             </#if>
         </div>
     </div>
