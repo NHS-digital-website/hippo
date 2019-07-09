@@ -11,6 +11,9 @@
 <#-- GA Tracking code -->
 <#include "google-analytics.js.ftl"/>
 
+<#-- Hotjar tracking -->
+<#include "hotjar.js.ftl"/>
+
 <!--[if IE]>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
 <![endif]-->
