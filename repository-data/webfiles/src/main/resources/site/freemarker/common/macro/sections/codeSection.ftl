@@ -12,7 +12,7 @@
 
     <#assign  mainHeading = section.headingLevel == 'Main heading' />
 
-    <div class="article-section${(section.heading?has_content && mainHeading)?then('', '-with-sub-heading')}${section.heading?has_content?then('', '-with-no-heading')}">
+    <div id="${slugify(section.heading)}" class="article-section${(section.heading?has_content && mainHeading)?then('', '-with-sub-heading')}${section.heading?has_content?then('', '-with-no-heading')}">
         <#if section.heading?has_content>
             <#if mainHeading>
                 <h2 data-uipath="website.contentblock.codesection.title">${section.heading}</h2>
