@@ -234,6 +234,11 @@ definitions:
           jcr:name: Icon list item
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:infographic:
+        /en:
+          jcr:name: Infographic
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:internallink:
         /en:
           jcr:name: Internal link

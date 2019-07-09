@@ -33,4 +33,8 @@ public class Infographic extends HippoCompound {
     public HippoHtml getQualifyingInformation() {
         return getHippoHtml("website:qualifyingInformation");
     }
+
+    public String getSectionType() {
+        return "infographic";
+    }
 }

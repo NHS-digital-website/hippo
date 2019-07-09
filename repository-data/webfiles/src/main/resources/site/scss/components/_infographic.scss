@@ -1,4 +1,7 @@
 
+.infographic-div {
+    padding-top: 24px;
+}
 .infographic {
     padding: $default-spacing-unit;
     background-color: $white;
@@ -28,9 +31,8 @@
     }
 
     &__title {
-        font-weight: bold;
         margin: 0;
-        font-size: $h2-font-size;
+        font-size: 16px;
         line-height: 1;
         margin-bottom: $default-spacing-unit;
 
@@ -69,4 +71,3 @@
     }
 
 }
-
