@@ -13,6 +13,7 @@
 <#include "expander.ftl">
 <#include "ctaSection.ftl">
 <#include "quoteSection.ftl">
+<#include "../component/infoGraphic.ftl">
 
 <!-- This is a load of global setup for the highcharts config -->
 <#include "highChartsSetup.ftl">
@@ -61,6 +62,8 @@
             <@ctaSection section=section/>
         <#elseif section.sectionType == 'quote'>
             <@quoteSection section=section/>
+        <#elseif section.sectionType == 'infographic'>
+            <@infoGraphic graphic=section/>
         </#if>
     </#list>
 </#macro>
