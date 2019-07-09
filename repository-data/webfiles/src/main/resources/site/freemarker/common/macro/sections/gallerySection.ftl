@@ -3,10 +3,10 @@
 <#include "../fileIconByMimeType.ftl">
 
 <#macro gallerySection section>
-    <div class="article-section">
+    <div id="${slugify(section.heading)}" class="${(section.headingLevel == 'Main heading')?then('article-section', 'article-header__detail-lines')}">
 
         <#if section.headingLevel == 'Main heading'>
-            <h2 data-uipath="website.contentblock.gallerysection.title" id="${slugify(section.title)}">${section.title}</h2>
+            <h2 data-uipath="website.contentblock.gallerysection.title">${section.title}</h2>
         <#else>
             <h3 data-uipath="website.contentblock.gallerysection.title">${section.title}</h3>
         </#if>

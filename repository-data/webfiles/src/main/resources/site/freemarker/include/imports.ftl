@@ -174,7 +174,11 @@
                         <#if section.isNumberedList??>
                             <#assign isNumberedList = section.isNumberedList />
                         </#if>
-                        <#assign links += [{ "url": "#" + slugify(section.title), "title": section.title, "isNumberedList": isNumberedList?c }] />
+                        <#if section.title?has_content>
+                            <#assign links += [{ "url": "#" + slugify(section.title), "title": section.title, "isNumberedList": isNumberedList?c }] />
+                        <#elseif section.heading?has_content>
+                            <#assign links += [{ "url": "#" + slugify(section.heading), "title": section.heading, "isNumberedList": isNumberedList?c }] />
+                        </#if>
                     </#if>
                 </#list>
             </#if>
@@ -196,7 +200,7 @@
 </#function>
 
 <#function includeInSideNav section>
-    <#return section.title?has_content &&
+    <#return (section.title?has_content || section.heading?has_content) &&
             (
               ( section.sectionType == 'website-section'  &&
                   (
@@ -208,6 +212,7 @@
                 (
                   (section.sectionType == 'gallerySection' ||
                    section.sectionType == 'iconList' ||
+                   section.sectionType == 'code' ||
                    section.sectionType == 'download'
                   ) 
                 && section.headingLevel == 'Main heading'

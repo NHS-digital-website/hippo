@@ -1,10 +1,10 @@
 <#ftl output_format="HTML">
 
 <#macro iconList section>
-    <div class="${(section.headingLevel == 'Main heading')?then('article-section', 'article-header__detail-lines')}">
+    <div id="${slugify(section.title)}" class="${(section.headingLevel == 'Main heading')?then('article-section', 'article-header__detail-lines')}">
         <#if section.title?has_content>
             <#if section.headingLevel == 'Main heading'>
-                <h2 data-uipath="website.contentblock.iconlist.title" id="${slugify(section.title)}">${section.title}</h2>
+                <h2 data-uipath="website.contentblock.iconlist.title">${section.title}</h2>
             <#else>
                 <h3 data-uipath="website.contentblock.iconlist.title">${section.title}</h3>
             </#if>

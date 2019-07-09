@@ -10,10 +10,10 @@
 
     <#assign hasLinks = section.items?? && section.items?size gt 0 />
 
-    <div class="${(section.headingLevel == 'Main heading')?then('article-section', 'article-header__detail-lines')}">
+    <div id="${slugify(section.heading)}" class="${(section.headingLevel == 'Main heading')?then('article-section', 'article-header__detail-lines')}">
 
         <#if section.headingLevel == 'Main heading'>
-            <h2 data-uipath="website.contentblock.download.title" id="${slugify(section.heading)}">${section.heading}</h2>
+            <h2 data-uipath="website.contentblock.download.title">${section.heading}</h2>
         <#else>
             <h3 data-uipath="website.contentblock.download.title">${section.heading}</h3>
         </#if>
