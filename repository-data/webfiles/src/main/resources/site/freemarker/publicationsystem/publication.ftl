@@ -15,7 +15,8 @@
 
 <#-- Add meta tags -->
 <#include "../common/macro/metaTags.ftl">
-<@metaTags publication></@metaTags>
+<#assign document = publication />
+<@metaTags></@metaTags>
 
 <#macro restrictedContentOfUpcomingPublication>
     <@publicationHeader publication=publication restricted=true/>
