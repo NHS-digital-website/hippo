@@ -18,12 +18,12 @@ public class Role extends HippoCompound {
     }
 
     @HippoEssentialsGenerated(internalName = "website:primaryrole")
-    public String gerPrimaryrole() {
+    public String getPrimaryrole() {
         return getProperty("website:primaryrole");
     }
 
     @HippoEssentialsGenerated(internalName = "website:primaryroleorg")
-    public String gerPrimaryroleorg() {
+    public String getPrimaryroleorg() {
         return getProperty("website:primaryroleorg");
     }
 
@@ -38,7 +38,7 @@ public class Role extends HippoCompound {
     }
 
     @HippoEssentialsGenerated(internalName = "website:contactdetails")
-    public ContactDetail getContactdetailes() {
+    public ContactDetail getContactdetails() {
         return getBean("website:contactdetails", ContactDetail.class);
     }
 }

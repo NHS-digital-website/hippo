@@ -84,6 +84,13 @@
     }
 }
 
+.related-articles--div {
+  .article__date-list-item { 
+      margin-bottom: 0px;
+      margin-top: 5px;
+  }
+}
+
 .article__warning {
     .callout {
         padding: $gutter 20px;

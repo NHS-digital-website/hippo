@@ -149,6 +149,9 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /website:boardmembership:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           jcr:primaryType: website:role
           website:primaryrole: ''
           website:primaryroleorg: ''

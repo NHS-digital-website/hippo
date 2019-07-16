@@ -145,6 +145,9 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /website:twitterhashtags:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           jcr:primaryType: website:socialmedia
           website:linkedinlink: ''
           website:twitteruser: ''

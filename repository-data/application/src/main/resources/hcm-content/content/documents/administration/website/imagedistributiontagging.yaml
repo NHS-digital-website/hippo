@@ -4,7 +4,7 @@
     /selection:listitem[1]:
       jcr:primaryType: selection:listitem
       selection:key: copyright-nhsd
-      selection:label: Coypright NHS Digital
+      selection:label: Copyright NHS Digital
     /selection:listitem[2]:
       jcr:primaryType: selection:listitem
       selection:key: crown-copyrigh

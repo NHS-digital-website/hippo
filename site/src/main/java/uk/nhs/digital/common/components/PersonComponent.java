@@ -10,10 +10,22 @@ public class PersonComponent extends BaseGaContentComponent {
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
 
-        final ValueList lawfulBasisValueList =
-            SelectionUtil.getValueListByIdentifier("lawfulbasis", RequestContextProvider.get());
-        if (lawfulBasisValueList != null) {
-            request.setAttribute("lawfulbasis", SelectionUtil.valueListAsMap(lawfulBasisValueList));
+        final ValueList suppressdataValueList =
+            SelectionUtil.getValueListByIdentifier("suppressdata", RequestContextProvider.get());
+        if (suppressdataValueList != null) {
+            request.setAttribute("suppressdata", SelectionUtil.valueListAsMap(suppressdataValueList));
+        }
+
+        final ValueList imagedistributiontaggingValueList =
+            SelectionUtil.getValueListByIdentifier("imagedistributiontagging", RequestContextProvider.get());
+        if (imagedistributiontaggingValueList != null) {
+            request.setAttribute("imagedistributiontagging", SelectionUtil.valueListAsMap(imagedistributiontaggingValueList));
+        }
+
+        final ValueList imagesourcepermissionValueList =
+            SelectionUtil.getValueListByIdentifier("imagesourcepermission", RequestContextProvider.get());
+        if (imagesourcepermissionValueList != null) {
+            request.setAttribute("imagesourcepermission", SelectionUtil.valueListAsMap(imagedistributiontaggingValueList));
         }
     }
 }

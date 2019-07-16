@@ -25,7 +25,7 @@
                               This is part of
                               <#list article.apiservice as service>
                                 <@hst.link hippobean=service var="apiservice"/>
-                                <a temprop="url" href="${apiservice}" onClick="logGoogleAnalyticsEvent('document click','Event','${apiservice}');" onKeyUp="return vjsu.onKeyUp(event)" title="${service.title}"><span itemprop="name">${service.title}</span></a><#sep>,
+                                <a itemprop="url" href="${apiservice}" onClick="logGoogleAnalyticsEvent('Link click','Person','${apiservice}');" onKeyUp="return vjsu.onKeyUp(event)" title="${service.title}"><span itemprop="name">${service.title}</span></a><#sep>,
                               </#list>
                           </p>
                       </#if>
@@ -60,8 +60,8 @@
                                 <div class="grid-row">
                                     <div class="column column--reset">
                                         <dl class="detail-list detail-list__flex">
-                                            <dt class="detail-list__key" id="release-version-${slugify(article.title)}">Release version: </dt>
-                                            <dd class="detail-list__value" itemprop="spatialCoverage" data-uipath="article.releaseinfo.release-version">
+                                            <dt class="detail-list__key" id="release-version-${slugify(article.apiname)}">Release version: </dt>
+                                            <dd class="detail-list__value" itemprop="versionReleased" data-uipath="article.releaseinfo.release-version">
                                             <#if releaseinfo.version?has_content >
                                               ${releaseinfo.version}
                                               <#if releaseinfo.otherversionreference?has_content >

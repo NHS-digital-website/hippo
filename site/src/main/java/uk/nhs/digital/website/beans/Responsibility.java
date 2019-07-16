@@ -23,7 +23,7 @@ public class Responsibility extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:responsibleforservice")
     public List<HippoBean> getResponsibleforservice() {
-        return getChildBeansByName("website:responsibleforservice");
+        return getLinkedBeans("website:responsibleforservice", HippoBean.class);
     }
 }
 

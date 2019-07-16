@@ -5,8 +5,6 @@ import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
-import java.util.List;
-
 @HippoEssentialsGenerated(internalName = "website:award")
 @Node(jcrType = "website:award")
 public class Award extends HippoCompound {
@@ -21,8 +19,8 @@ public class Award extends HippoCompound {
     }
 
     @HippoEssentialsGenerated(internalName = "website:awardlink")
-    public List<?> getAwardlink() {
-        return getChildBeansByName("website:awardlink");
+    public Externallink getAwardlink() {
+        return getBean("website:awardlink", Externallink.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:awardingbody")
@@ -31,8 +29,8 @@ public class Award extends HippoCompound {
     }
 
     @HippoEssentialsGenerated(internalName = "website:awardingbodylink")
-    public List<?> getAwardingbodylink() {
-        return getChildBeansByName("website:awardingbodylink");
+    public Externallink getAwardingbodylink() {
+        return getBean("website:awardingbodylink", Externallink.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:awardpicture")

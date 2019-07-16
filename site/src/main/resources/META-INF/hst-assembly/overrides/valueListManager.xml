@@ -5,6 +5,7 @@
           class="org.onehippo.forge.selection.hst.manager.DefaultValueListManager">
         <constructor-arg>
             <map>
+                <entry key="suppressdata" value="/content/documents/administration/website/suppress-data"/>
                 <entry key="rights" value="/content/documents/administration/website/rights"/>
                 <entry key="lawfulbasis" value="/content/documents/administration/website/lawful-basis"/>
                 <entry key="creditbanner" value="/content/documents/administration/website/news-banner-type"/>
@@ -13,6 +14,8 @@
                 <entry key="effectivedatestatus" value="/content/documents/administration/website/effectivedatestatus"/>
                 <entry key="releasestatuses" value="/content/documents/administration/website/release-statuses"/>
                 <entry key="parametertypeList" value="/content/documents/administration/website/parameter-type"/>
+                <entry key="imagedistributiontagging" value="/content/documents/administration/website/imagedistributiontagging"/>
+                <entry key="imagesourcepermission" value="/content/documents/administration/website/imagesourcepermission"/>
             </map>
         </constructor-arg>
     </bean>
