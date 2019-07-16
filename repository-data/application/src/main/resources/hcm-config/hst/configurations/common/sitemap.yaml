@@ -25,6 +25,7 @@ definitions:
           - website:person
           - website:location
           - website:cyberalert
+          - website:apiendpoint
           hst:componentconfigurationmappingvalues:
           - hst:pages/service
           - hst:pages/general
@@ -45,6 +46,7 @@ definitions:
           - hst:pages/person
           - hst:pages/location
           - hst:pages/cyberalert
+          - hst:pages/apiendpoint
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404
@@ -68,6 +70,7 @@ definitions:
         - website:person
         - website:location
         - website:cyberalert
+        - website:apiendpoint
         hst:componentconfigurationmappingvalues:
         - hst:pages/service
         - hst:pages/general
@@ -88,6 +91,7 @@ definitions:
         - hst:pages/person
         - hst:pages/location
         - hst:pages/cyberalert
+        - hst:pages/apiendpoint
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:

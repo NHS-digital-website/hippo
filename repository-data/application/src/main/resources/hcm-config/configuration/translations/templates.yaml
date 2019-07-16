@@ -84,6 +84,11 @@ definitions:
           jcr:name: Address
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:apiendpoint:
+        /en:
+          jcr:name: API Endpoint
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:apiendpointgroup:
         /en:
           jcr:name: API endpoint group
@@ -102,6 +107,11 @@ definitions:
       /website:assetlink:
         /en:
           jcr:name: Related file
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:authnandauths:
+        /en:
+          jcr:name: Authorisation and Authentication
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:award:
@@ -289,6 +299,11 @@ definitions:
           jcr:name: Other social media
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:parameters:
+        /en:
+          jcr:name: Parameters
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:person:
         /en:
           jcr:name: Person
@@ -354,6 +369,11 @@ definitions:
           jcr:name: Remediation step
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:responsedefinition:
+        /en:
+          jcr:name: Response Definition
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:responsibility:
         /en:
           jcr:name: Responsibility
@@ -374,6 +394,11 @@ definitions:
           jcr:name: Role
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:samplecode:
+        /en:
+          jcr:name: Sample code
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:section:
         /en:
           jcr:name: Section
@@ -387,6 +412,11 @@ definitions:
       /website:socialmedia:
         /en:
           jcr:name: Social media
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:statuserrorcode:
+        /en:
+          jcr:name: status error code
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:threataffect:

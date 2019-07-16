@@ -1,0 +1,93 @@
+/* Endpoint summary table */
+.api-endpoint-table {
+    width: 100px;
+    height: 75px;
+    border:1px solid #d8dde0;
+    border-collapse: separate;
+    border-spacing:15px 20px;
+ }
+ .api-endpoint-table td:nth-child(2) {
+   width: auto;
+   border:0px;
+ }
+.colour-class-head {
+  text-align: center;
+  white-space: nowrap;
+  width: auto;
+  background: #024902;
+  color: white;
+}
+.colour-class-get {
+  text-align: center;
+  white-space: nowrap;
+  width: 50px;
+  height: 50px;
+  background: #058905;
+  color: white;
+}
+.colour-class-post {
+  text-align: center;
+  white-space: nowrap;
+  width: auto;
+  background: #0c57d1;
+  color: white;
+}
+.colour-class-put {
+  text-align: center;
+  white-space: nowrap;
+  width: 50px;
+  background: #032c70;
+  color: white;
+}
+.colour-class-patch {
+  text-align: center;
+  white-space: nowrap;
+  width: auto;
+  background: #011028;
+  color: white;
+}
+.colour-class-delete {
+  text-align: center;
+  white-space: nowrap;
+  width: auto;
+  background: #f40e29;
+  color: white;
+}
+.colour-class-trace {
+  text-align: center;
+  white-space: nowrap;
+  width: auto;
+  background: #b7b6b0;
+  color: white;
+}
+.colour-class-options {
+  text-align: center;
+  white-space: nowrap;
+  width: auto;
+  background: #666563;
+  color: white;
+}
+.colour-class-connect {
+  text-align: center;
+  white-space: nowrap;
+  width: auto;
+  background: #2b2a28;
+  color: white;
+}
+
+/* parameter_table */
+.parameter-codeinline {
+    font-family: monospace;
+    background-color: #fff;
+    color: #d14;
+    padding: 1px 4px;
+    border:1px dashed grey;
+    margin-right: 2px;
+    margin-left: 2px;
+    white-space: pre;
+}
+
+/* response definition */
+.noword-wrap {
+    white-space: nowrap;
+}
