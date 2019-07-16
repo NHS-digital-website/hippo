@@ -2,5 +2,9 @@
 definitions:
   config:
     /targeting:targeting:
+      targeting:consentCookieEnabled: true
+      targeting:consentCookieName: visitortracking
+      targeting:consentCookieOptIn: true
+      targeting:consentCookieValue: allowed
       targeting:cookiesHttpOnly: true
-      targeting:disabled: true
+      targeting:disabled: false

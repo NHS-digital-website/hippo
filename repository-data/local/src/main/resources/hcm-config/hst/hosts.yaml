@@ -13,6 +13,13 @@ definitions:
               hst:types:
               - rest
               jcr:primaryType: hst:mount
+            /gdpr:
+              .meta:residual-child-node-category: content
+              hst:ismapped: false
+              hst:namedpipeline: TargetingRestApiPipeline
+              hst:types:
+              - rest
+              jcr:primaryType: hst:mount
             hst:contextpath: ''
             hst:homepage: root
             hst:mountpoint: /hst:hst/hst:sites/common

@@ -1,5 +1,1658 @@
 ---
 /content/documents/corporate-website/about-nhs-digital:
+  /cookies-we-use:
+    /cookies-we-use[1]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+      /website:pageicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:sections[1]:
+        /website:html:
+          hippostd:content: |-
+            <p>These cookies enable basic functions like page navigation and access to secure areas of the website. Our website cannot function properly without these cookies.</p>
+
+            <table>
+             <thead>
+              <tr>
+               <td style="vertical-align:top">
+               <p>Name</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Provider</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Purpose</p>
+               </td>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td style="vertical-align:top">
+               <p>__cfduid</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>cdnjs.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by the content network, Cloudflare, to identify trusted web traffic.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>BACKEND&nbsp;[x2]</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>content.digital.nhs.uk<br />
+               digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Part of our load balancing system, ensuring you get uninterrupted browsing</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>@@History/@@scroll|#&nbsp;[x4]</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk<br />
+               youtube.com<br />
+               youtube-nocookie.com<br />
+               app.powerbi.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by plugins to keep track of your scroll position, zoom level etc and make your experience work</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>CookieConsent</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Remembers your choice on handling of cookies on our domain for one year</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>mjx.latest</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by the MathJax library (www.mathjax.org) to allow us to show equations within our publications</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>LPSessionID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>lo.v.liveperson.net</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Preserves the visitor's session state across page requests.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>qos_token</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>openstreetmap.org</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by OpenStreetMap in order to control traffic flow</p>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Necessary cookies
+        website:type: ''
+      /website:sections[2]:
+        /website:html:
+          hippostd:content: |-
+            <p>These cookies remember information that changes the way our website behaves or looks, like your preferred language or the region that you are in.</p>
+
+            <p>&nbsp;</p>
+
+            <table>
+             <thead>
+              <tr>
+               <td style="vertical-align:top">
+               <p>Name</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Provider</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Purpose</p>
+               </td>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td style="vertical-align:top">
+               <p>LPSID-35565217</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by LivePerson to enable chat functions</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>lpTestCookie#&nbsp;[x2]</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk<br />
+               lpcdn.lpsnmedia.net</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used to check if the user's browser supports cookies.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>LPVID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by LivePerson real time messaging platform to recognize the visitor on returning visits.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>LPVisitorID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>lo.v.liveperson.net</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by LivePerson real time messaging platform to recognize the visitor on returning visits.</p>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Preference cookies
+        website:type: ''
+      /website:sections[3]:
+        /website:html:
+          hippostd:content: |-
+            <p>These cookies let us understand how visitors interact with our website by collecting and reporting information anonymously.</p>
+
+            <table>
+             <thead>
+              <tr>
+               <td style="vertical-align:top">
+               <p>Name</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Provider</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Purpose</p>
+               </td>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td style="vertical-align:top">
+               <p>ai_user</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>app.powerbi.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by Microsoft Application Insights software to collect statistical usage and telemetry information. The cookie stores a unique identifier to recognize users on returning visits over time.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_ga</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Registers a unique ID that is used to generate statistical data on how the visitor uses the website.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_gat</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by Google Analytics to throttle request rate</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_gid</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Registers a unique ID that is used to generate statistical data on how the visitor uses the website.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>lpLastVisit-#</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by LivePerson real time messaging platform to store the timestamp of the user's last visit.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>collect</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>google-analytics.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used to send data to Google Analytics about the visitor's device and behaviour. Tracks the visitor across devices and marketing channels.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>vuid</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>vimeo.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Collects data on the user's visits to the website, such as which pages have been read.</p>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+
+            <p>&nbsp;</p>
+
+            <p>Relevance tracking enables personalised content to be displayed based on the characteristics of individual visitors.&nbsp; This can include visitor characteristics such as where they are coming from, what content they have seen, and frequently visited document types.</p>
+
+            <p>Tracking status: <span id="tracking-status" class="codeinline">&nbsp;</span></p>
+
+            <p><a onclick="setVisitorTracking('allowed');" href="#info">Allow tracking</a> (* <a onclick="Cookiebot.renew()" href="#">cookie consent</a> must also be set to "I'm ok wth cookies")</p>
+
+            <p><a onclick="setVisitorTracking('disallowed');" href="#info">Disallow tracking</a></p>
+
+            <p>&nbsp;</p>
+
+            <p><a onclick="showTrackingInfo();" href="#info" title="View my personal data">Show my tracking info</a><sup> [<a onclick="clearTrackingInfo();" href="#info" title="Forget about me">x REMOVE</a>]</sup></p>
+
+            <div class="container-tracking-info">&nbsp;</div>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Analytics cookies
+        website:type: ''
+      /website:sections[4]:
+        /website:html:
+          hippostd:content: |-
+            <p>These cookies are required by third party applications such as Power BI and our social media channels such as YouTube and Twitter.</p>
+
+            <table>
+             <thead>
+              <tr>
+               <td style="vertical-align:top">
+               <p>Name</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Provider</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Purpose</p>
+               </td>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td style="vertical-align:top">
+               <p>ai_session</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>app.powerbi.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Preserves users states across page requests.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>WFESessionId</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>app.powerbi.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_EDGE_S</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_EDGE_V</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_SS</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>MUID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used widely by Microsoft as a unique user ID. The cookie enables user tracking by synchronising the ID across many Microsoft domains.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>MUIDB</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>SRCHD</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>SRCHUID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>SRCHUSR</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>GPS</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>youtube.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Registers a unique ID on mobile devices to enable tracking based on geographical GPS location.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>VISITOR_INFO1_LIVE</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>youtube.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Tries to estimate the users' bandwidth on pages with integrated YouTube videos.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>YSC</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>youtube.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Registers a unique ID to keep statistics of what videos from YouTube the user has seen.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>r/collect</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>doubleclick.net</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Pending</p>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Social media and third party cookies
+        website:type: ''
+      /website:sections[5]:
+        /website:html:
+          hippostd:content: <p style="margin-left:0cm; margin-right:0cm">We do not
+            currently use any&nbsp;additional cookies.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Additional cookies
+        website:type: ''
+      /website:sections[6]:
+        /website:html:
+          hippostd:content: |-
+            <p>You can find out and learn how to manage cookies on popular browsers here:</p>
+
+            <ul>
+             <li><a href="https://support.google.com/accounts/answer/61416?co=GENIE.Platform%3DDesktop&amp;hl=en" target="_blank">Google Chrome</a></li>
+             <li><a href="https://privacy.microsoft.com/en-us/windows-10-microsoft-edge-and-privacy" target="_blank">Microsoft Edge</a></li>
+             <li><a href="https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences" target="_blank">Mozilla Firefox</a></li>
+             <li><a href="https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies" target="_blank">Microsoft Internet Explorer</a></li>
+             <li><a href="https://www.opera.com/help/tutorials/security/privacy/" target="_blank">Opera</a></li>
+             <li><a href="https://support.apple.com/en-gb/guide/safari/manage-cookies-and-website-data-sfri11471/mac" target="_blank">Apple Safari</a></li>
+            </ul>
+
+            <p>You can opt out of being tracked by Google Analytics across all websites by installing a plugin in your browser.&nbsp; To find out more and how to do this, visit <a href="http://tools.google.com/dlpage/gaoptout">http://tools.google.com/dlpage/gaoptout</a></p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Managing cookies on popular browsers
+        website:type: ''
+      /website:summary:
+        hippostd:content: <p>A list of cookies we use on our website.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: mashuk.reza
+      hippostdpubwf:creationDate: 2018-05-24T15:07:12.868Z
+      hippostdpubwf:lastModificationDate: 2019-07-16T14:34:08.600Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: f2400a0d-6534-44ab-b052-37c6c40535f3
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:general
+      website:gossid: 0
+      website:seosummary: NHS Digital cookie declaration
+      website:shortsummary: Cookie declaration
+      website:title: Cookies we use on our site
+      website:type: ''
+    /cookies-we-use[2]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+      /website:pageicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:sections[1]:
+        /website:html:
+          hippostd:content: |-
+            <p>These cookies enable basic functions like page navigation and access to secure areas of the website. Our website cannot function properly without these cookies.</p>
+
+            <table>
+             <thead>
+              <tr>
+               <td style="vertical-align:top">
+               <p>Name</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Provider</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Purpose</p>
+               </td>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td style="vertical-align:top">
+               <p>__cfduid</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>cdnjs.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by the content network, Cloudflare, to identify trusted web traffic.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>BACKEND&nbsp;[x2]</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>content.digital.nhs.uk<br />
+               digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Part of our load balancing system, ensuring you get uninterrupted browsing</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>@@History/@@scroll|#&nbsp;[x4]</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk<br />
+               youtube.com<br />
+               youtube-nocookie.com<br />
+               app.powerbi.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by plugins to keep track of your scroll position, zoom level etc and make your experience work</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>CookieConsent</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Remembers your choice on handling of cookies on our domain for one year</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>mjx.latest</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by the MathJax library (www.mathjax.org) to allow us to show equations within our publications</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>LPSessionID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>lo.v.liveperson.net</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Preserves the visitor's session state across page requests.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>qos_token</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>openstreetmap.org</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by OpenStreetMap in order to control traffic flow</p>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Necessary cookies
+        website:type: ''
+      /website:sections[2]:
+        /website:html:
+          hippostd:content: |-
+            <p>These cookies remember information that changes the way our website behaves or looks, like your preferred language or the region that you are in.</p>
+
+            <p>&nbsp;</p>
+
+            <table>
+             <thead>
+              <tr>
+               <td style="vertical-align:top">
+               <p>Name</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Provider</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Purpose</p>
+               </td>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td style="vertical-align:top">
+               <p>LPSID-35565217</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by LivePerson to enable chat functions</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>lpTestCookie#&nbsp;[x2]</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk<br />
+               lpcdn.lpsnmedia.net</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used to check if the user's browser supports cookies.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>LPVID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by LivePerson real time messaging platform to recognize the visitor on returning visits.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>LPVisitorID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>lo.v.liveperson.net</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by LivePerson real time messaging platform to recognize the visitor on returning visits.</p>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Preference cookies
+        website:type: ''
+      /website:sections[3]:
+        /website:html:
+          hippostd:content: |-
+            <p>These cookies let us understand how visitors interact with our website by collecting and reporting information anonymously.</p>
+
+            <table>
+             <thead>
+              <tr>
+               <td style="vertical-align:top">
+               <p>Name</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Provider</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Purpose</p>
+               </td>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td style="vertical-align:top">
+               <p>ai_user</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>app.powerbi.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by Microsoft Application Insights software to collect statistical usage and telemetry information. The cookie stores a unique identifier to recognize users on returning visits over time.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_ga</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Registers a unique ID that is used to generate statistical data on how the visitor uses the website.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_gat</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by Google Analytics to throttle request rate</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_gid</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Registers a unique ID that is used to generate statistical data on how the visitor uses the website.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>lpLastVisit-#</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by LivePerson real time messaging platform to store the timestamp of the user's last visit.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>collect</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>google-analytics.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used to send data to Google Analytics about the visitor's device and behaviour. Tracks the visitor across devices and marketing channels.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>vuid</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>vimeo.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Collects data on the user's visits to the website, such as which pages have been read.</p>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+
+            <p>&nbsp;</p>
+
+            <p>Relevance tracking enables personalised content to be displayed based on the characteristics of individual visitors.&nbsp; This can include visitor characteristics such as where they are coming from, what content they have seen, and frequently visited document types.</p>
+
+            <p>Tracking status: <span id="tracking-status" class="codeinline">&nbsp;</span></p>
+
+            <p><a onclick="setVisitorTracking('allowed');" href="#info">Allow tracking</a> (* <a onclick="Cookiebot.renew()" href="#">cookie consent</a> must also be set to "I'm ok wth cookies")</p>
+
+            <p><a onclick="setVisitorTracking('disallowed');" href="#info">Disallow tracking</a></p>
+
+            <p>&nbsp;</p>
+
+            <p><a onclick="showTrackingInfo();" href="#info" title="View my personal data">Show my tracking info</a><sup> [<a onclick="clearTrackingInfo();" href="#info" title="Forget about me">x REMOVE</a>]</sup></p>
+
+            <div class="container-tracking-info">&nbsp;</div>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Analytics cookies
+        website:type: ''
+      /website:sections[4]:
+        /website:html:
+          hippostd:content: |-
+            <p>These cookies are required by third party applications such as Power BI and our social media channels such as YouTube and Twitter.</p>
+
+            <table>
+             <thead>
+              <tr>
+               <td style="vertical-align:top">
+               <p>Name</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Provider</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Purpose</p>
+               </td>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td style="vertical-align:top">
+               <p>ai_session</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>app.powerbi.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Preserves users states across page requests.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>WFESessionId</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>app.powerbi.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_EDGE_S</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_EDGE_V</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_SS</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>MUID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used widely by Microsoft as a unique user ID. The cookie enables user tracking by synchronising the ID across many Microsoft domains.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>MUIDB</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>SRCHD</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>SRCHUID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>SRCHUSR</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>GPS</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>youtube.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Registers a unique ID on mobile devices to enable tracking based on geographical GPS location.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>VISITOR_INFO1_LIVE</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>youtube.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Tries to estimate the users' bandwidth on pages with integrated YouTube videos.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>YSC</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>youtube.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Registers a unique ID to keep statistics of what videos from YouTube the user has seen.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>r/collect</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>doubleclick.net</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Pending</p>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Social media and third party cookies
+        website:type: ''
+      /website:sections[5]:
+        /website:html:
+          hippostd:content: <p style="margin-left:0cm; margin-right:0cm">We do not
+            currently use any&nbsp;additional cookies.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Additional cookies
+        website:type: ''
+      /website:sections[6]:
+        /website:html:
+          hippostd:content: |-
+            <p>You can find out and learn how to manage cookies on popular browsers here:</p>
+
+            <ul>
+             <li><a href="https://support.google.com/accounts/answer/61416?co=GENIE.Platform%3DDesktop&amp;hl=en" target="_blank">Google Chrome</a></li>
+             <li><a href="https://privacy.microsoft.com/en-us/windows-10-microsoft-edge-and-privacy" target="_blank">Microsoft Edge</a></li>
+             <li><a href="https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences" target="_blank">Mozilla Firefox</a></li>
+             <li><a href="https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies" target="_blank">Microsoft Internet Explorer</a></li>
+             <li><a href="https://www.opera.com/help/tutorials/security/privacy/" target="_blank">Opera</a></li>
+             <li><a href="https://support.apple.com/en-gb/guide/safari/manage-cookies-and-website-data-sfri11471/mac" target="_blank">Apple Safari</a></li>
+            </ul>
+
+            <p>You can opt out of being tracked by Google Analytics across all websites by installing a plugin in your browser.&nbsp; To find out more and how to do this, visit <a href="http://tools.google.com/dlpage/gaoptout">http://tools.google.com/dlpage/gaoptout</a></p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Managing cookies on popular browsers
+        website:type: ''
+      /website:summary:
+        hippostd:content: <p>A list of cookies we use on our website.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: mashuk.reza
+      hippostdpubwf:creationDate: 2018-05-24T15:07:12.868Z
+      hippostdpubwf:lastModificationDate: 2019-07-16T14:34:42.058Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: f2400a0d-6534-44ab-b052-37c6c40535f3
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:general
+      website:gossid: 0
+      website:seosummary: NHS Digital cookie declaration
+      website:shortsummary: Cookie declaration
+      website:title: Cookies we use on our site
+      website:type: ''
+    /cookies-we-use[3]:
+      /website:component:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+      /website:pageicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:sections[1]:
+        /website:html:
+          hippostd:content: |-
+            <p>These cookies enable basic functions like page navigation and access to secure areas of the website. Our website cannot function properly without these cookies.</p>
+
+            <table>
+             <thead>
+              <tr>
+               <td style="vertical-align:top">
+               <p>Name</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Provider</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Purpose</p>
+               </td>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td style="vertical-align:top">
+               <p>__cfduid</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>cdnjs.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by the content network, Cloudflare, to identify trusted web traffic.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>BACKEND&nbsp;[x2]</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>content.digital.nhs.uk<br />
+               digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Part of our load balancing system, ensuring you get uninterrupted browsing</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>@@History/@@scroll|#&nbsp;[x4]</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk<br />
+               youtube.com<br />
+               youtube-nocookie.com<br />
+               app.powerbi.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by plugins to keep track of your scroll position, zoom level etc and make your experience work</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>CookieConsent</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Remembers your choice on handling of cookies on our domain for one year</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>mjx.latest</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by the MathJax library (www.mathjax.org) to allow us to show equations within our publications</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>LPSessionID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>lo.v.liveperson.net</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Preserves the visitor's session state across page requests.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>qos_token</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>openstreetmap.org</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by OpenStreetMap in order to control traffic flow</p>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Necessary cookies
+        website:type: ''
+      /website:sections[2]:
+        /website:html:
+          hippostd:content: |-
+            <p>These cookies remember information that changes the way our website behaves or looks, like your preferred language or the region that you are in.</p>
+
+            <p>&nbsp;</p>
+
+            <table>
+             <thead>
+              <tr>
+               <td style="vertical-align:top">
+               <p>Name</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Provider</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Purpose</p>
+               </td>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td style="vertical-align:top">
+               <p>LPSID-35565217</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by LivePerson to enable chat functions</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>lpTestCookie#&nbsp;[x2]</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk<br />
+               lpcdn.lpsnmedia.net</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used to check if the user's browser supports cookies.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>LPVID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by LivePerson real time messaging platform to recognize the visitor on returning visits.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>LPVisitorID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>lo.v.liveperson.net</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by LivePerson real time messaging platform to recognize the visitor on returning visits.</p>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Preference cookies
+        website:type: ''
+      /website:sections[3]:
+        /website:html:
+          hippostd:content: |-
+            <p>These cookies let us understand how visitors interact with our website by collecting and reporting information anonymously.</p>
+
+            <table>
+             <thead>
+              <tr>
+               <td style="vertical-align:top">
+               <p>Name</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Provider</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Purpose</p>
+               </td>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td style="vertical-align:top">
+               <p>ai_user</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>app.powerbi.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by Microsoft Application Insights software to collect statistical usage and telemetry information. The cookie stores a unique identifier to recognize users on returning visits over time.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_ga</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Registers a unique ID that is used to generate statistical data on how the visitor uses the website.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_gat</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by Google Analytics to throttle request rate</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_gid</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Registers a unique ID that is used to generate statistical data on how the visitor uses the website.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>lpLastVisit-#</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>digital.nhs.uk</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used by LivePerson real time messaging platform to store the timestamp of the user's last visit.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>collect</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>google-analytics.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used to send data to Google Analytics about the visitor's device and behaviour. Tracks the visitor across devices and marketing channels.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>vuid</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>vimeo.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Collects data on the user's visits to the website, such as which pages have been read.</p>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+
+            <p>&nbsp;</p>
+
+            <p>Relevance tracking enables personalised content to be displayed based on the characteristics of individual visitors.&nbsp; This can include visitor characteristics such as where they are coming from, what content they have seen, and frequently visited document types.</p>
+
+            <p>Tracking status: <span id="tracking-status" class="codeinline">&nbsp;</span></p>
+
+            <p><a onclick="setVisitorTracking('allowed');" href="#info">Allow tracking</a> (* <a onclick="Cookiebot.renew()" href="#">cookie consent</a> must also be set to "I'm ok wth cookies")</p>
+
+            <p><a onclick="setVisitorTracking('disallowed');" href="#info">Disallow tracking</a></p>
+
+            <p>&nbsp;</p>
+
+            <p><a onclick="showTrackingInfo();" href="#info" title="View my personal data">Show my tracking info</a><sup> [<a onclick="clearTrackingInfo();" href="#info" title="Forget about me">x REMOVE</a>]</sup></p>
+
+            <div class="container-tracking-info">&nbsp;</div>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Analytics cookies
+        website:type: ''
+      /website:sections[4]:
+        /website:html:
+          hippostd:content: |-
+            <p>These cookies are required by third party applications such as Power BI and our social media channels such as YouTube and Twitter.</p>
+
+            <table>
+             <thead>
+              <tr>
+               <td style="vertical-align:top">
+               <p>Name</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Provider</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Purpose</p>
+               </td>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td style="vertical-align:top">
+               <p>ai_session</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>app.powerbi.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Preserves users states across page requests.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>WFESessionId</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>app.powerbi.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_EDGE_S</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_EDGE_V</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>_SS</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>MUID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Used widely by Microsoft as a unique user ID. The cookie enables user tracking by synchronising the ID across many Microsoft domains.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>MUIDB</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>SRCHD</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>SRCHUID</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>SRCHUSR</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>bing.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Placed by Microsoft PowerBI</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>GPS</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>youtube.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Registers a unique ID on mobile devices to enable tracking based on geographical GPS location.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>VISITOR_INFO1_LIVE</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>youtube.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Tries to estimate the users' bandwidth on pages with integrated YouTube videos.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>YSC</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>youtube.com</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Registers a unique ID to keep statistics of what videos from YouTube the user has seen.</p>
+               </td>
+              </tr>
+              <tr>
+               <td style="vertical-align:top">
+               <p>r/collect</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>doubleclick.net</p>
+               </td>
+               <td style="vertical-align:top">
+               <p>Pending</p>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Social media and third party cookies
+        website:type: ''
+      /website:sections[5]:
+        /website:html:
+          hippostd:content: <p style="margin-left:0cm; margin-right:0cm">We do not
+            currently use any&nbsp;additional cookies.</p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Additional cookies
+        website:type: ''
+      /website:sections[6]:
+        /website:html:
+          hippostd:content: |-
+            <p>You can find out and learn how to manage cookies on popular browsers here:</p>
+
+            <ul>
+             <li><a href="https://support.google.com/accounts/answer/61416?co=GENIE.Platform%3DDesktop&amp;hl=en" target="_blank">Google Chrome</a></li>
+             <li><a href="https://privacy.microsoft.com/en-us/windows-10-microsoft-edge-and-privacy" target="_blank">Microsoft Edge</a></li>
+             <li><a href="https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences" target="_blank">Mozilla Firefox</a></li>
+             <li><a href="https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies" target="_blank">Microsoft Internet Explorer</a></li>
+             <li><a href="https://www.opera.com/help/tutorials/security/privacy/" target="_blank">Opera</a></li>
+             <li><a href="https://support.apple.com/en-gb/guide/safari/manage-cookies-and-website-data-sfri11471/mac" target="_blank">Apple Safari</a></li>
+            </ul>
+
+            <p>You can opt out of being tracked by Google Analytics across all websites by installing a plugin in your browser.&nbsp; To find out more and how to do this, visit <a href="http://tools.google.com/dlpage/gaoptout">http://tools.google.com/dlpage/gaoptout</a></p>
+          jcr:primaryType: hippostd:html
+        jcr:primaryType: website:section
+        website:numberedList: false
+        website:title: Managing cookies on popular browsers
+        website:type: ''
+      /website:summary:
+        hippostd:content: <p>A list of cookies we use on our website.</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: mashuk.reza
+      hippostdpubwf:creationDate: 2018-05-24T15:07:12.868Z
+      hippostdpubwf:lastModificationDate: 2019-07-16T14:34:42.058Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2019-07-16T14:34:44.648Z
+      hippotranslation:id: f2400a0d-6534-44ab-b052-37c6c40535f3
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:general
+      website:gossid: 0
+      website:seosummary: NHS Digital cookie declaration
+      website:shortsummary: Cookie declaration
+      website:title: Cookies we use on our site
+      website:type: ''
+    hippo:name: cookies we use
+    hippo:versionHistory: 8d6a2a07-a4a1-4277-868c-b40488650331
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
   hippo:name: About NHS Digital
   hippostd:foldertype:
   - new-digital-website-folder

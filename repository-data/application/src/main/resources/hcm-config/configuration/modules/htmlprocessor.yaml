@@ -3,6 +3,23 @@ definitions:
   config:
     /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext:
       omitComments: true
+    /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/a:
+      attributes:
+      - accesskey
+      - charset
+      - class
+      - dir
+      - href
+      - id
+      - lang
+      - name
+      - rel
+      - style
+      - tabindex
+      - target
+      - title
+      - type
+      - onclick
     /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/address:
       .meta:delete: true
     /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/b:
@@ -28,6 +45,13 @@ definitions:
       .meta:delete: true
     /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/s:
       .meta:delete: true
+    /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/span:
+      attributes:
+      - class
+      - dir
+      - lang
+      - style
+      - id
     /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/table:
       attributes:
       - align
