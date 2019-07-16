@@ -14,12 +14,12 @@ public class ContactDetail extends HippoCompound {
     }
 
     @HippoEssentialsGenerated(internalName = "website:emailaddress")
-    public String getEmail() {
+    public String getEmailaddress() {
         return getProperty("website:emailaddress");
     }
 
     @HippoEssentialsGenerated(internalName = "website:phonenumber")
-    public String getPhone() {
+    public String getPhonenumber() {
         return getProperty("website:phonenumber");
     }
 }

@@ -6,7 +6,6 @@ import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
 import java.util.Calendar;
-import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "website:qualification")
 @Node(jcrType = "website:qualification")
@@ -22,8 +21,8 @@ public class Qualification extends HippoCompound {
     }
 
     @HippoEssentialsGenerated(internalName = "website:quallink")
-    public List<?> getQuallink() {
-        return getChildBeansByName("website:quallink");
+    public Externallink getQuallink() {
+        return getBean("website:quallink", Externallink.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:qualawardingbody")
@@ -32,8 +31,8 @@ public class Qualification extends HippoCompound {
     }
 
     @HippoEssentialsGenerated(internalName = "website:qualawardingbodylink")
-    public List<?> getQualawardingbodylink() {
-        return getChildBeansByName("website:qualawardingbodylink");
+    public Externallink getQualawardingbodylink() {
+        return getBean("website:qualawardingbodylink", Externallink.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:qualificationlogo")

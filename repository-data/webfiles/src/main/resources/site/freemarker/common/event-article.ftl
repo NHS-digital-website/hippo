@@ -7,6 +7,7 @@
 <#include "macro/metaTags.ftl">
 <#include "../common/macro/fileMetaAppendix.ftl">
 <#include "../common/macro/fileIconByMimeType.ftl">
+<#include "macro/relatedarticles.ftl">
 
 <@hst.setBundle basename="site.website.labels"/>
 <@fmt.message key="child-pages-section.title" var="childPagesSectionTitle"/>
@@ -198,19 +199,8 @@
                     </div>
                 </#if>
 
-
                 <#if document.relatedDocuments?has_content>
-                    <div class="article-section" id="section-related-links">
-                        <h2>Related Links</h2>
-                        <ul class="list">
-                            <#list document.relatedDocuments as relatedDocument>
-                                <li>
-                                    <@hst.link hippobean=relatedDocument var="newslink"/>
-                                    <a href="${newslink}" onClick="logGoogleAnalyticsEvent('document click','Event','${newslink}');" onKeyUp="return vjsu.onKeyUp(event)" title="${relatedDocument.title}">${relatedDocument.title}</a>
-                                </li>
-                            </#list>
-                        </ul>
-                    </div>
+                  <@relatedarticles "Event" document.relatedDocuments false></@relatedarticles>
                 </#if>
 
             </div>

@@ -1,0 +1,35 @@
+@import "../environment/settings/colours";
+
+.personimage--div,
+.quallogo--div,
+.awardpicture--div {
+  img {
+    max-height: 480px;
+  }
+}
+
+.personimage--div {
+  width: fit-content;
+}
+
+.contactdetail {
+  &-box {
+     padding-left: 20px;
+     margin: 20px 0;
+     border: 0 solid #eee;
+     border-left-width: 7px;
+     border-left-color: #aab2b7;
+
+  }
+
+  &-item {
+    margin-top: 10px; 
+
+    &-bold {
+        @extend .contactdetail-item;
+        font-weight: bold;
+    }
+  }
+}
+
+
