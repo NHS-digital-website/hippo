@@ -32,7 +32,8 @@
         "GDPR Summary":                 "uk.nhs.digital.website.beans.Gdprsummary",
         "API Master":                   "uk.nhs.digital.website.beans.ApiMaster",
         "Person":                       "uk.nhs.digital.website.beans.Person",
-        "Location":                     "uk.nhs.digital.website.beans.Location"        
+        "Location":                     "uk.nhs.digital.website.beans.Location",
+        "API Endpoint":                 "uk.nhs.digital.website.beans.ApiEndpoint"
     }/>
 
     <#list docTypes?keys as key>
@@ -214,7 +215,7 @@
                    section.sectionType == 'iconList' ||
                    section.sectionType == 'code' ||
                    section.sectionType == 'download'
-                  ) 
+                  )
                 && section.headingLevel == 'Main heading'
                 )
             ) />
@@ -349,4 +350,59 @@
     </#if>
 
     <#return { "left": leftHash, "right": rightHash } />
+</#function>
+
+<#-- Gather section nav for ApiEndpoint in a hash -->
+<#function getSectionNavforApiEndpoint document>
+    <@hst.setBundle basename="rb.generic.headers"/>
+
+    <#assign links = [] />
+    <#assign hasParameters = document.apiendpointparams?? && document.apiendpointparams?has_content />
+    <#assign hasSampleRequest = document.samplerequest?? && document.samplerequest?has_content />
+    <#assign hasSampleResponse = document.sampleresponse?? && document.sampleresponse?has_content />
+    <#assign hasResponseDefinition = document.responsedefinitions?? && document.responsedefinitions?has_content />
+    <#assign hasStatusErrorCode = document.statuserrorcodes?? && document.statuserrorcodes?has_content />
+
+    <#if document??>
+        <#if document.includeTopLink?? && document.includeTopLink>
+            <#assign links = [{ "url": "#top", "title": "Top of page" }] />
+        </#if>
+
+        <#if document??>
+	        <#if document.requestname?? && document.uriaddress?? && document.summary??>
+                <#assign links += [{ "url": "#" + "Endpoint", "title": "Endpoint" }] />
+            </#if>
+            <#if document.authnauths?? && document.authnauths.content?has_content>
+                <#assign links += [{ "url": "#" + "authns", "title": "Authorisation and Authentication" }] />
+            </#if>
+            <#if hasParameters>
+                <#assign links += [{ "url": "#" + "Parameter", "title": "Parameters" }] />
+            </#if>
+            <#if hasSampleRequest>
+                <#assign links += [{ "url": "#" + "SampleRequest", "title": "Sample Request" }] />
+            </#if>
+            <#if hasSampleResponse>
+                <#assign links += [{ "url": "#" + "SampleResponse", "title": "Sample Response" }] />
+            </#if>
+            <#if hasResponseDefinition>
+                <#assign links += [{ "url": "#" + "responseDefination", "title": "Response Definitions" }] />
+            </#if>
+            <#if hasStatusErrorCode>
+                <#assign links += [{ "url": "#" + "statusErrorCode", "title": "Status and error codes" }] />
+            </#if>
+            <#if document.sections?has_content>
+                <#list document.sections as section>
+                    <#if includeInSideNav(section)>
+                        <#assign isNumberedList = false />
+                        <#if section.isNumberedList??>
+                            <#assign isNumberedList = section.isNumberedList />
+                        </#if>
+                        <#assign links += [{ "url": "#" + slugify(section.title), "title": section.title, "isNumberedList": isNumberedList?c }] />
+                    </#if>
+                </#list>
+            </#if>
+        </#if>
+    </#if>
+
+    <#return links />
 </#function>

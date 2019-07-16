@@ -46,12 +46,12 @@ public class Code extends HippoCompound {
     }
 
     @HippoEssentialsGenerated(internalName = "website:codetext")
-    public String getCodeText() {
+    public String getCodetext() {
         return getProperty("website:codetext");
     }
 
     public String getCodeTextHighlighted() {
-        return Highlighter.INSTANCE.paint(getCodeText(), getLanguage());
+        return Highlighter.INSTANCE.paint(getCodetext(), getLanguage());
     }
 
     public Language getLanguage() {

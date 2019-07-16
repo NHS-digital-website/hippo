@@ -1,6 +1,7 @@
 package uk.nhs.digital.website.beans;
 
 import org.hippoecm.hst.content.beans.Node;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
@@ -20,8 +21,8 @@ public class ApiEndpointGroup extends HippoCompound {
     }
 
     @HippoEssentialsGenerated(internalName = "website:apirequest")
-    public List<?> getApirequest() {
-        return getChildBeansByName("website:apirequest");
+    public List<HippoBean> getApirequest() {
+        return getLinkedBeans("website:apirequest", HippoBean.class);
     }
 
 }

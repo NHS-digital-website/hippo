@@ -1,0 +1,49 @@
+---
+/content/documents/administration/website/parameter-type:
+  /parameter-type:
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: token
+      selection:label: Token
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: date
+      selection:label: Date
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: string
+      selection:label: String
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: boolean
+      selection:label: Boolean
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: object
+      selection:label: Object
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: array
+      selection:label: Array
+    /selection:listitem[7]:
+      jcr:primaryType: selection:listitem
+      selection:key: integer
+      selection:label: Integer
+    /selection:listitem[8]:
+      jcr:primaryType: selection:listitem
+      selection:key: nullValue
+      selection:label: 'null'
+    hippo:availability:
+    - live
+    - preview
+    hippotranslation:id: 0a82bdc9-5e9f-47c2-89a7-e98ffecad34f
+    hippotranslation:locale: inherited - from query
+    jcr:mixinTypes:
+    - hippotranslation:translated
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: Parameter type
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

@@ -252,3 +252,21 @@
 
 [website:threatupdate] > hippo:compound, hippostd:relaxed
   orderable
+
+[website:apiendpoint] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:authnandauths] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:samplecode] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:parameters] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:responsedefinition] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:statuserrorcode] > hippo:compound, hippostd:relaxed
+  orderable
