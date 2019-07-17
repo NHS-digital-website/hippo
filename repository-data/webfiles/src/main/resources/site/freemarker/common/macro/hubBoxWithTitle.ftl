@@ -11,15 +11,48 @@
                 <div class="column column--reset">
                   <div class="hub-box-list">
                     <#list linksfield as link>
-                      <#if link.linkType == "internal">
-                        <#assign boxdata = { "title": link.link.title, "text": link.link.shortsummary, "light": true } />
+
+                      <#if link?? && !link.linkType?? > 
+
+                        <#-- special case for apiendpointgroup -->
+
+                        <#assign title = "">
+                        <#assign apimethod = "">
+
+                        <#if link.requestname??>
+                          <#assign title = link.requestname>
+                          <#if link.apimethod??>
+                            <#assign apimethod = link.apimethod?lower_case>
+                          </#if>
+                          <#if link.releasestatus == 'deprecated' || link.releasestatus == 'retired'>
+                            <#assign title = link.releasestatus?capitalize + ": " + title>
+                          </#if>
+                        </#if>
+
+                        <#assign boxdata = { "title": title, "text": link.shortsummary, "light": true } />
+                        <@hst.link hippobean=link var="boxlink"/>
+                        <#assign boxdata += { "link": boxlink } />
+                        <#assign boxdata += { "colorbox": apimethod } />
+
+                      <#elseif link.linkType == "internal">
+
+                        <#assign title = link.link.title?has_content?then(link.link.title, '')>
+                        <#assign text = link.link.shortsummary?has_content?then(link.link.shortsummary, '')>
+
+                        <#assign boxdata = { "title": title, "text": text, "light": true } />
                         <@hst.link hippobean=link.link var="boxlink" />
                         <#assign boxdata += { "link": boxlink } />
                       <#elseif link.linkType == "external">
-                        <#assign boxdata = { "title": link.title, "text": link.shortsummary, "light": true } />
+
+                        <#assign title = link.title?has_content?then(link.title, '')>
+                        <#assign text = link.shortsummary?has_content?then(link.shortsummary, '')>
+
+                        <#assign boxdata = { "title": title, "text": text, "light": true } />
                         <#assign boxdata += { "link": link.link } />
                       </#if>
+
                       <@hubBox boxdata></@hubBox>
+
                     </#list>
                   </div>
                 </div>

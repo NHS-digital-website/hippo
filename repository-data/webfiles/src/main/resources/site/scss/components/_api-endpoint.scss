@@ -1,78 +1,77 @@
 /* Endpoint summary table */
 .api-endpoint-table {
     width: 100px;
+    width: auto;
     height: 75px;
     border:1px solid #d8dde0;
     border-collapse: separate;
     border-spacing:15px 20px;
- }
- .api-endpoint-table td:nth-child(2) {
-   width: auto;
-   border:0px;
- }
-.colour-class-head {
+    padding: 20px 0 0 20px;
+}
+
+.api-endpoint-url {
+  margin-top: 0;
+}
+
+.api-endpoint-table td:nth-child(2) {
+ width: auto;
+ border:0px;
+}
+
+.colour-class {
+  font-size: 14px;
   text-align: center;
-  white-space: nowrap;
   width: auto;
-  background: #024902;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-right: 10px;
   color: white;
-}
-.colour-class-get {
-  text-align: center;
-  white-space: nowrap;
-  width: 50px;
-  height: 50px;
-  background: #058905;
-  color: white;
-}
-.colour-class-post {
-  text-align: center;
-  white-space: nowrap;
-  width: auto;
-  background: #0c57d1;
-  color: white;
-}
-.colour-class-put {
-  text-align: center;
-  white-space: nowrap;
-  width: 50px;
-  background: #032c70;
-  color: white;
-}
-.colour-class-patch {
-  text-align: center;
-  white-space: nowrap;
-  width: auto;
-  background: #011028;
-  color: white;
-}
-.colour-class-delete {
-  text-align: center;
-  white-space: nowrap;
-  width: auto;
-  background: #f40e29;
-  color: white;
-}
-.colour-class-trace {
-  text-align: center;
-  white-space: nowrap;
-  width: auto;
-  background: #b7b6b0;
-  color: white;
-}
-.colour-class-options {
-  text-align: center;
-  white-space: nowrap;
-  width: auto;
-  background: #666563;
-  color: white;
-}
-.colour-class-connect {
-  text-align: center;
-  white-space: nowrap;
-  width: auto;
-  background: #2b2a28;
-  color: white;
+  float: left;
+
+  &-head {
+    @extend .colour-class;
+    background: #024902;
+  }
+
+  &-get {
+    @extend .colour-class;
+    background: #058905;
+  }
+
+  &-post {
+    @extend .colour-class;
+    background: #0c57d1;
+  }
+
+  &-put {
+    @extend .colour-class;
+    background: #032c70;
+  }
+
+  &-patch {
+    @extend .colour-class;
+    background: #011028;
+  }
+
+  &-trace {
+    @extend .colour-class;
+    background: #b7b6b0;
+  }
+
+  &-delete {
+    @extend .colour-class;
+    background: #f40e29;
+  }
+
+  &-options {
+    @extend .colour-class;
+    background: #666563;
+  }
+
+  &-connect {
+    @extend .colour-class;
+    background: #2b2a28;
+  }
 }
 
 /* parameter_table */

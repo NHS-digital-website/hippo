@@ -27,24 +27,8 @@
 <#assign hasShortsummary = document.shortsummary?? />
 
 <#assign apimethodValue = document.apimethod?upper_case />
-<#if apimethodValue == "HEAD">
-  <#assign colourClass = "colour-class-head" />
-<#elseif apimethodValue == "GET">
-  <#assign colourClass = "colour-class-get" />
-<#elseif apimethodValue == "POST">
-  <#assign colourClass = "colour-class-post" />
-<#elseif apimethodValue == "PUT">
-  <#assign colourClass = "colour-class-put" />
-<#elseif apimethodValue == "PATCH">
-  <#assign colourClass = "colour-class-patch" />
-<#elseif apimethodValue == "DELETE">
-  <#assign colourClass = "colour-class-delete" />
-<#elseif apimethodValue == "TRACE">
-  <#assign colourClass = "colour-class-trace" />
-<#elseif apimethodValue == "OPTIONS">
-  <#assign colourClass = "colour-class-options" />
-<#elseif apimethodValue == "CONNECT">
-  <#assign colourClass = "colour-class-connect" />
+<#if apimethodValue??>
+  <#assign colourClass = "colour-class-${apimethodValue?lower_case}" />
 </#if>
 
 <article class="article article--service">
@@ -58,12 +42,12 @@
                               <div>
                                   <h1 class="local-header__title-left" data-uipath="document.title" itemprop="name" itemscope itemtype="https://schema.org/webapi">${document.requestname}</h1>
                                   <div class="local-header__tag">${releasestatuses[document.releasestatus]?upper_case}</div>
-                                  <#if document.apiMasterParent?has_content && document.apiMasterParent.apiname??>
+                                  <#if document.apiMasterParent?has_content && document.apiMasterParent.title??>
                                     <p class="article-header__subtitle">
                                     This is part of
                                     <a href="<@hst.link hippobean=document.apiMasterParent/>"
-                                        title="${document.apiMasterParent.apiname}">
-                                        <span itemprop="subjectof" itemscope itemtype="https://schema.org/webapi">${document.apiMasterParent.apiname}</span>
+                                        title="${document.apiMasterParent.title}">
+                                        <span itemprop="subjectof" itemscope itemtype="https://schema.org/webapi">${document.apiMasterParent.title}</span>
                                     </a>
                                     </p>
                                 </#if>
@@ -95,14 +79,10 @@
                           <@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/>
                         </div>
                         <div>
-                        <table class="api-endpoint-table">
-                          <tbody>
-                            <tr>
-                              <td class="${colourClass}" >${document.apimethod?upper_case}</td>
-                              <td itemprop="url" itemscope itemtype="https://schema.org/webapi">${document.uriaddress}</td>
-                            </tr>
-                          </tbody>
-                        </table>
+                          <div class="api-endpoint-table">
+                            <div class="${colourClass}" >${apimethodValue}</div>
+                            <div class="api-endpoint-url" itemprop="url" itemscope itemtype="https://schema.org/webapi">${document.uriaddress}</div>
+                          </div>
                         </div>
                       </div>
                     </#if>

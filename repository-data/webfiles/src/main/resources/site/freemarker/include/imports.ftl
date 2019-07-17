@@ -222,18 +222,20 @@
 </#function>
 
 <#-- Get section links in multiple elements -->
-<#function getNavLinsInMultiple sectionCompounds idprefix=''>
+<#function getNavLinksInMultiple sectionCompounds idprefix=''>
     <#assign links = [] />
 
     <#list sectionCompounds as compound>
-      <#assign links += [{ "url": "#${idprefix}" + slugify(compound.title), "title": compound.title}] />
-      <#if compound.sections?has_content>
-        <#list compound.sections as section>
-          <#if section.title?has_content>
-            <#assign links += [{ "url": "#" + slugify(section.title), "title": section.title}] />
-          </#if>
-        </#list>
+      <#if compound.title?has_content>
+        <#assign links += [{ "url": "#${idprefix}" + slugify(compound.title), "title": compound.title}] />
+        <#if compound.sections?has_content>
+          <#list compound.sections as section>
+            <#if section.title?has_content>
+              <#assign links += [{ "url": "#" + slugify(section.title), "title": section.title}] />
+            </#if>
+          </#list>
         </#if>
+      </#if>
     </#list>
 
     <#return links />
