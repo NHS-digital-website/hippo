@@ -32,9 +32,9 @@
 
                   <#assign links = [{ "url": "#top", "title": 'Top of page' }] />
                   <#assign links += [{ "url": "#summary", "title": 'Summary' }] />
-                  <#assign links += getNavLinsInMultiple(document.aboutapis, "aboutapi-") />
-                  <#assign links += getNavLinsInMultiple(document.apiinfobuilders, "apiinfobuilder-") />
-                  <#assign links += getNavLinsInMultiple(document.apiendpointgroups, "apiendpoint-") />
+                  <#assign links += getNavLinksInMultiple(document.aboutapis, "aboutapi-") />
+                  <#assign links += getNavLinksInMultiple(document.apiinfobuilders, "apiinfobuilder-") />
+                  <#assign links += getNavLinksInMultiple(document.apiendpointgroups, "apiendpoint-") />
                   <@sectionNav links=links></@sectionNav>
               </div>
               <#-- Restore the bundle -->

@@ -16,7 +16,7 @@
                   <div class="column column--two-thirds page-block page-block--main">
 
                     <div>
-                      <h1 id="top" class="local-header__title-left" data-uipath="article.title" itemprop="name">${article.apiname}</h1>
+                      <h1 id="top" class="local-header__title-left" data-uipath="article.title" itemprop="name">${article.title}</h1>
 
                       <div class="local-header__tag">${releasestatuses[document.releaseinfos.releasestatus]?upper_case}</div>
 
@@ -47,7 +47,7 @@
                               <div class="grid-row">
                                   <div class="column column--reset">
                                       <dl class="detail-list">
-                                          <dt class="detail-list__key" id="release-date-${slugify(article.apiname)}">Release date: </dt>
+                                          <dt class="detail-list__key" id="release-date-${slugify(article.title)}">Release date: </dt>
                                           <dd class="detail-list__value" data-uipath="article.releaseinfo.releasedate" itemprop="dateReleased">
                                               <@fmt.formatDate value=releaseinfo.releasedate.time?date type="date" pattern="d MMM yyyy" timeZone="${getTimeZone()}" />
                                           </dd>
@@ -60,7 +60,7 @@
                                 <div class="grid-row">
                                     <div class="column column--reset">
                                         <dl class="detail-list detail-list__flex">
-                                            <dt class="detail-list__key" id="release-version-${slugify(article.apiname)}">Release version: </dt>
+                                            <dt class="detail-list__key" id="release-version-${slugify(article.title)}">Release version: </dt>
                                             <dd class="detail-list__value" itemprop="spatialCoverage" data-uipath="article.releaseinfo.release-version">
                                             <#if releaseinfo.version?has_content >
                                               ${releaseinfo.version}

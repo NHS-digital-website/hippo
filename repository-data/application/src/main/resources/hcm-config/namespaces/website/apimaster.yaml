@@ -19,11 +19,11 @@ definitions:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-          /apiname:
+          /title:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: API name
-            field: apiname
+            field: title
             hint: The name of the API
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
@@ -174,16 +174,6 @@ definitions:
             hipposysedit:validators:
             - contentblocks-validator
             jcr:primaryType: hipposysedit:field
-          /apiname:
-            hipposysedit:mandatory: true
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:apiname
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators:
-            - required
-            jcr:primaryType: hipposysedit:field
           /apiservice:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
@@ -242,6 +232,16 @@ definitions:
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
+          /title:
+            hipposysedit:mandatory: true
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:title
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
           - website:basedocument
@@ -286,10 +286,10 @@ definitions:
           - mix:referenceable
           - hippotaxonomy:classifiable
           jcr:primaryType: website:apimaster
-          website:apiname: ''
           website:seosummary: ''
           website:shortsummary: ''
           website:summary: ''
+          website:title: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable

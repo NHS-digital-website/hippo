@@ -3,7 +3,8 @@
 <#include "hubBoxWithTitle.ftl">
 
 <#macro apiinfobuilder builder>
-  <div id="apiinfobuilder-${slugify(builder.title)}" class="article-section-separator apiinfobuilder--div">
+  <#assign customid = builder.title?has_content?then("id=apiinfobuilder-${slugify(builder.title)}", '') />
+  <div ${customid} class="article-section-separator apiinfobuilder--div">
       <@hubBoxAndTitle doc=builder linksfield=builder.content/>
   </div>
 </#macro>

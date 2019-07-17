@@ -9,6 +9,9 @@
             </#if>
             
             <div class="hub-box__contents">
+                <#if options.colorbox?has_content>
+                  <div class="colour-class-${options.colorbox}">${options.colorbox?upper_case}</div>
+                </#if>
                 <#if options.title??>
                     <h2 class="hub-box__title">
                         <#if options.link??>

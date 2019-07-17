@@ -13,11 +13,6 @@ import java.util.*;
 @Node(jcrType = "website:apimaster")
 public class ApiMaster extends CommonFieldsBean {
 
-    @HippoEssentialsGenerated(internalName = "website:apiname")
-    public String getApiname() {
-        return getProperty("website:apiname");
-    }
-
     @HippoEssentialsGenerated(internalName = "website:apiservice")
     public List<HippoBean> getApiservice() {
         return getLinkedBeans("website:apiservice", HippoBean.class);
