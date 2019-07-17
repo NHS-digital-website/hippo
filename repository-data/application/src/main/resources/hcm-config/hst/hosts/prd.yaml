@@ -25,6 +25,13 @@ definitions:
               hst:mountpoint: /hst:hst/hst:sites/common
               hst:responseheaders:
               - 'Strict-Transport-Security : max-age=31536000'
+              - 'Content-Security-Policy: upgrade-insecure-requests'
+              - 'Referrer-Policy: no-referrer-when-downgrade'
+              - 'Feature-Policy: vibrate ''none''; microphone ''none''; camera ''none'';
+                payment ''none''; accelerometer ''none''; ambient-light-sensor ''none'';
+                magnetometer ''none''; midi ''none''; usb ''none''; wake-lock ''none'';
+                execution-while-out-of-viewport ''none''; sync-xhr ''self''; gyroscope
+                ''none''; push ''self''; speaker *;  fullscreen *'
               jcr:primaryType: hst:mount
             /www:
               /hst:root:
