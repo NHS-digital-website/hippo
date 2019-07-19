@@ -31,5 +31,5 @@
             <div class="infographic__footer"><@hst.html hippohtml=graphic.qualifyingInformation contentRewriter=gaContentRewriter/></div>
         </div>
     </div>
-  <div>
+  </div>
 </#macro>

@@ -11,9 +11,9 @@
                     <li>
                         <#if selectedFilter?seq_contains(link.key)>
                         <#assign linkout = "&" + filter + "=" + selectedFilter?join("&" + filter + "=") + affix />
-                        <a href="${getDocumentUrl()}${linkout?replace("&${filter}="+link.key, "")?replace("&", "?", "f")}" aria-label="Show '${link.title}' " + filter + " only" title="Show '${link.title}' types only" class="tag-link selected">${link.title}</a>
+                        <a href="${getDocumentUrl()}${linkout?replace("&${filter}="+link.key, "")?replace("&", "?", "f")}" aria-label="Show '${link.title}' " + ${filter} + " only" title="Show '${link.title}' types only" class="tag-link selected">${link.title}</a>
                         <#else>
-                        <a href="?${filter}=${selectedFilter?join("&" + filter + "=", "", "&" + filter + "=")}${link.key + affix}" aria-label="Show '${link.title}'  " + filter + " only" title="Show '${link.title}' types only" class="tag-link">${link.title}</a>
+                        <a href="?${filter}=${selectedFilter?join("&" + filter + "=", "", "&" + filter + "=")}${link.key + affix}" aria-label="Show '${link.title}'  " + ${filter} + " only" title="Show '${link.title}' types only" class="tag-link">${link.title}</a>
                     </#if>
                     </li>
                 </#list>
