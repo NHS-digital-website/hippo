@@ -36,7 +36,7 @@
             <div class="grid-wrapper">
                 <div class="article-header__inner">
                     <div class="grid-row">
-                        <div class="column<#if hasPageIcon>--three-quarters</#if> column--reset">
+                        <div class="column--three-quarters column--reset">
                             <h1 id="top" class="local-header__title" data-uipath="document.title">${document.title}</h1>
                             <#if hasSummaryContent>
                                 <div class="article-header__subtitle" data-uipath="website.general.summary"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></div>
