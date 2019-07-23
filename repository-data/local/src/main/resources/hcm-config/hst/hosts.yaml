@@ -20,6 +20,13 @@ definitions:
               hst:types:
               - rest
               jcr:primaryType: hst:mount
+            /restapi:
+              hst:alias: restapi
+              hst:ismapped: false
+              hst:namedpipeline: JaxrsRestPlainPipeline
+              hst:types:
+              - rest
+              jcr:primaryType: hst:mount
             hst:contextpath: ''
             hst:homepage: root
             hst:mountpoint: /hst:hst/hst:sites/common
