@@ -20,7 +20,7 @@ import java.util.List;
 @Node(jcrType = "website:apiendpoint")
 public class ApiEndpoint extends CommonFieldsBean {
 
-    private static final Logger log = LoggerFactory.getLogger(Publishedworkchapter.class);
+    private static final Logger log = LoggerFactory.getLogger(ApiEndpoint.class);
 
     @HippoEssentialsGenerated(internalName = "website:requestname")
     public String getRequestname() {
