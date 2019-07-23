@@ -24,6 +24,12 @@
     <meta name="twitter:image" content="<@hst.webfile path="images/nhs-digital-logo-social.png" fullyQualified=true/>">
     <@hst.headContributions categoryExcludes="htmlBodyEnd, scripts" categoryIncludes="twitterMeta" xhtml=true/>
     
+    <#-- Preload fonts to improve performance -->
+    <link rel="preload" href="<@hst.webfile path="fonts/FrutigerLTW01-55Roman.woff2" />" as="font" type="font/woff2" crossorigin>   
+    <link rel="preload" href="<@hst.webfile path="fonts/FrutigerLTW01-56Italic.woff2" />" as="font" type="font/woff2" crossorigin>   
+    <link rel="preload" href="<@hst.webfile path="fonts/FrutigerLTW01-65Bold.woff2" />" as="font" type="font/woff2" crossorigin>   
+    <link rel="preload" href="<@hst.webfile path="fonts/FrutigerLTW01-66BoldItalic.woff2" />" as="font" type="font/woff2" crossorigin>   
+
     <!--[if IE]><link rel="shortcut icon" href="<@hst.webfile path="icons/favicon.ico"/>"><![endif]-->
     <link rel="apple-touch-icon" sizes="180x180" href="<@hst.webfile path="icons/apple-touch-icon.png"/>">
     <link rel="icon" type="image/png" sizes="32x32" href="<@hst.webfile path="icons/favicon-32x32.png"/>">
