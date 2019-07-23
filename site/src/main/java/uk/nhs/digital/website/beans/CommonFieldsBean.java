@@ -2,6 +2,9 @@ package uk.nhs.digital.website.beans;
 
 import static org.apache.commons.collections.IteratorUtils.toList;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.hippoecm.hst.container.RequestContextProvider;
 
 import org.hippoecm.hst.content.beans.query.HstQuery;
@@ -29,14 +32,25 @@ public class CommonFieldsBean extends BaseDocument {
 
     protected static int NO_LIMIT = 0;
 
+    @JsonIgnore
+    public String getSeosummaryJson() {
+        return getHippoHtmlContent("website:seosummary");
+    }
+
     @HippoEssentialsGenerated(internalName = "website:seosummary", allowModifications = false)
     public HippoHtml getSeosummary() {
         return getHippoHtml("website:seosummary");
     }
 
+    @JsonIgnore
     @HippoEssentialsGenerated(internalName = "website:shortsummary", allowModifications = false)
     public String getShortsummary() {
         return getProperty("website:shortsummary");
+    }
+
+    @JsonProperty("summary")
+    public String getSummaryJson() {
+        return getHippoHtmlContent("website:summary");
     }
 
     @HippoEssentialsGenerated(internalName = "website:summary", allowModifications = false)
@@ -44,20 +58,35 @@ public class CommonFieldsBean extends BaseDocument {
         return getHippoHtml("website:summary");
     }
 
+    @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:title", allowModifications = false)
     public String getTitle() {
         return getProperty("website:title");
     }
 
+    @JsonIgnore
     @HippoEssentialsGenerated(internalName = "website:bannercontrols", allowModifications = false)
     public BannerControl  getBannercontrols() {
         return getBean("website:bannercontrols", BannerControl.class);
     }
 
     //================================================================================
+    // JSON-output related helper functions
+
+    @JsonIgnore
+    protected String getHippoHtmlContent(String property) {
+        HippoHtml html = getHippoHtml(property);
+        if (html != null) {
+            return html.getContent();
+        }
+        return null;
+    }
+
+    //================================================================================
     //getReleatedDocuemnts queries for reference documents where current document
     //is equal object of class beanClass
 
+    @JsonIgnore
     protected <T extends HippoBean> List<T> getRelatedDocuments(
         String property,
         Class<T> beanClass
@@ -67,6 +96,7 @@ public class CommonFieldsBean extends BaseDocument {
 
     }
 
+    @JsonIgnore
     protected <T extends HippoBean> List<T> getRelatedDocuments(
         String property,
         int limit,
@@ -77,6 +107,7 @@ public class CommonFieldsBean extends BaseDocument {
 
     }
 
+    @JsonIgnore
     protected <T extends HippoBean> List<T> getRelatedDocuments(
         String property,
         int limit,
@@ -88,6 +119,7 @@ public class CommonFieldsBean extends BaseDocument {
 
     }
 
+    @JsonIgnore
     protected <T extends HippoBean> List<T> getRelatedDocuments(
         String property,
         int limit,
