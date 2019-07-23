@@ -224,7 +224,6 @@
                 <#if hasIndicatorsOfCompromise>
                     <div id="${slugify(indicatorsOfCompromiseHeader)}" class="article-section">
                         <h2>${indicatorsOfCompromiseHeader}</h2>
-
                         <@sections document.indicatorsCompromise></@sections>
                     </div>
                 </#if>
