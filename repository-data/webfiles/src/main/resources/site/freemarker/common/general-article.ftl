@@ -4,6 +4,7 @@
 
 <#include "../include/imports.ftl">
 <#include "macro/sections/sections.ftl">
+<#include "macro/documentHeader.ftl">
 <#include "macro/sectionNav.ftl">
 <#include "macro/furtherInformationSection.ftl">
 <#include "macro/metaTags.ftl">
@@ -23,40 +24,15 @@
 <@hst.setBundle basename="rb.generic.headers,publicationsystem.headers"/>
 
 <#assign hasSummaryContent = document.summary.content?has_content />
-<#assign hasPageIcon = document.pageIcon?has_content />
 <#assign hasSectionContent = document.sections?has_content />
 <#assign hasChildPages = childPages?has_content />
 <#assign hasHtmlCode = document.htmlCode?has_content />
 <#assign sectionTitlesFound = countSectionTitles(document.sections) />
 <#assign renderNav = ((hasSummaryContent || hasChildPages) && sectionTitlesFound gte 1) || sectionTitlesFound gt 1 || (hasSummaryContent && hasChildPages) />
 
-<article class="article article--general" aria-label="Document Header">
-    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
-        <div class="local-header article-header article-header--with-icon">
-            <div class="grid-wrapper">
-                <div class="article-header__inner">
-                    <div class="grid-row">
-                        <div class="column<#if hasPageIcon>--three-quarters</#if> column--reset">
-                            <h1 id="top" class="local-header__title" data-uipath="document.title">${document.title}</h1>
-                            <#if hasSummaryContent>
-                                <div class="article-header__subtitle" data-uipath="website.general.summary"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></div>
-                            </#if>
-                        </div>
-                        <#if hasPageIcon>
-                            <div class="column--one-quarter column--reset local-header__icon">
-                                <@hst.link hippobean=document.pageIcon.original fullyQualified=true var="image" />
-                                <#if image?ends_with("svg")>
-                                    <img src="${image?replace("/binaries", "/svg-magic/binaries")}?colour=ffcd60" alt="${document.title}" />
-                                <#else>
-                                    <img src="${image}" alt="${document.title}" />
-                                </#if>
-                            </div>
-                        </#if>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<article class="article article--general">
+
+    <@documentHeader document 'general' document.pageIcon?has_content?then(document.pageIcon, '')></@documentHeader>
 
     <div class="grid-wrapper grid-wrapper--article">
 

@@ -3,6 +3,7 @@
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Service" -->
 
 <#include "../include/imports.ftl">
+<#include "macro/documentHeader.ftl">
 <#include "macro/sections/sections.ftl">
 <#include "macro/sectionNav.ftl">
 <#include "macro/furtherInformationSection.ftl">
@@ -12,11 +13,13 @@
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
 
-<#list document.rawMetadata as md>
-    <@hst.headContribution category="metadata">
-        ${md?no_esc}
-    </@hst.headContribution>
-</#list>
+<#if document.rawMetadata?has_content>
+  <#list document.rawMetadata as md>
+      <@hst.headContribution category="metadata">
+          ${md?no_esc}
+      </@hst.headContribution>
+  </#list>
+</#if>
 
 <@hst.setBundle basename="rb.generic.headers,publicationsystem.headers"/>
 
@@ -30,20 +33,15 @@
 <#assign renderNav = (sectionTitlesFound gte 1 || hasChildPages) || sectionTitlesFound gt 1 || hasContactDetailsContent />
 
 <article class="article article--service">
-    <div class="grid-wrapper grid-wrapper--article">
-        <div class="grid-row">
-            <div class="column column--reset">
-                <div class="local-header article-header">
-                    <h1 class="local-header__title" data-uipath="document.title">${document.title}</h1>
-                </div>
-            </div>
-        </div>
 
+    <@documentHeader document 'service' document.pageIcon?has_content?then(document.pageIcon, '')></@documentHeader>
+
+    <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <#if renderNav>
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
                 <div id="sticky-nav">
-                    <@sectionNav getSectionNavLinks({ "document": document, "childPages": childPages })></@sectionNav>
+                    <@sectionNav getSectionNavLinks({ "document": document, "childPages": childPages, "includeTopLink": true, "ignoreSummary": true })></@sectionNav>
                 </div>
                 <#-- Restore the bundle -->
                 <@hst.setBundle basename="rb.generic.headers,publicationsystem.headers"/>
@@ -51,16 +49,6 @@
             </#if>
 
             <div class="column column--two-thirds page-block page-block--main">
-                <#if hasTopTasks>
-                    <#assign summarySectionClassName = "article-section article-section--summary no-border">
-                <#else>
-                    <#assign summarySectionClassName = "article-section article-section--summary">
-                </#if>
-
-                <div id="${slugify('Summary')}" class="${summarySectionClassName}">
-                    <h2><@fmt.message key="headers.summary" /></h2>
-                    <div data-uipath="website.service.summary" class="article-section--summary"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></div>
-                </div>
 
                 <#if hasTopTasks>
                 <div class="article-section article-section--highlighted">
@@ -106,4 +94,6 @@
     </div>
 </article>
 
-${document.htmlCode?no_esc}
+<#if document.htmlCode?has_content>
+  ${document.htmlCode?no_esc}
+</#if>
