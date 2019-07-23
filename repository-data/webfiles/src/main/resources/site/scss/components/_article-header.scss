@@ -108,6 +108,16 @@
 
     margin-top: round($gutter * 0.5);
     margin-bottom: $gutter;
+
+    p {
+      font-size: 22px;
+      line-height: 30px;
+
+      @include media($max-width: $min-tablet-width, $ignore-for-ie: true) {
+          font-size: 18px;
+          line-height: 26px;
+      }
+    }
 }
 
 
