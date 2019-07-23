@@ -46,5 +46,5 @@
 <@hst.headContribution keyHint="twitterMetaDescription" category="twitterMeta">
     <meta property="og:description" name="twitter:description" content="${pageSEOSummary}" />
 </@hst.headContribution>
-    
+
 </#macro>
