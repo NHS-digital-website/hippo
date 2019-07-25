@@ -250,6 +250,16 @@
             <artifactId>hippo-addon-lucene-export</artifactId>
         </dependency>
 
+        <dependency>
+            <artifactId>hippo-addon-reporting-dashboard-frontend</artifactId>
+            <groupId>com.onehippo.cms7</groupId>
+        </dependency>
+
+        <dependency>
+            <artifactId>hippo-addon-reporting-dashboard-repository</artifactId>
+            <groupId>com.onehippo.cms7</groupId>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>cms</finalName>
