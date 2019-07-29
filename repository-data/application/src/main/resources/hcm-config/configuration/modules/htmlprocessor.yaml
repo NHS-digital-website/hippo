@@ -2,6 +2,12 @@
 definitions:
   config:
     /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext:
+      /abbr:
+        attributes:
+        - id
+        - class
+        - title
+        jcr:primaryType: hipposys:moduleconfig
       omitComments: true
     /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/a:
       attributes:
