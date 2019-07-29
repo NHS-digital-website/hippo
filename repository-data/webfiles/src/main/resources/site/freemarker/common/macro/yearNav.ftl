@@ -10,9 +10,9 @@
                 <#list links as link>
                     <li>
                         <#if selectedYear == link.key>
-                            <a href="${"?year=" + link.key + affix}" aria-label="Show '${link.title}' only" title="Show '${link.title}' only" class="tag-link selected">${link.title}</a>
+                            <a href="${"?year=" + link.key + affix}" title="Show '${link.title}' only" class="tag-link selected">${link.title}</a>
                         <#else>
-                            <a href="?year=${link.key + affix}" aria-label="Show '${link.title}' only" title="Show '${link.title}' only" class="tag-link">${link.title}</a>
+                            <a href="?year=${link.key + affix}" title="Show '${link.title}' only" class="tag-link">${link.title}</a>
                         </#if>
                     </li>
                 </#list>
