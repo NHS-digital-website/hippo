@@ -102,6 +102,7 @@
               <configuration>
                 <inputPath>${project.basedir}/src/main/resources/site/scss/</inputPath>
                 <outputPath>${project.basedir}/src/main/resources/site/css</outputPath>
+                <outputStyle>compressed</outputStyle>
               </configuration>
             </plugin>
         </plugins>
