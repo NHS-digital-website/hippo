@@ -35,12 +35,6 @@ public class InformationTypeCmsWidget {
         // get element
         WebElement addButton = helper.findElement(By.xpath(ROOT_ELEMENT_XPATH + "//a[contains(@class, 'add-link')]"));
 
-        // scroll to element, to prevent errors like "Other element would receive the click"
-        new Actions(webDriver)
-            .moveToElement(addButton)
-            .moveByOffset(0, 200)
-            .perform();
-
         // click
         addButton.click();
 

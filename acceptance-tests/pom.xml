@@ -91,7 +91,7 @@
         <dependency>
             <groupId>org.awaitility</groupId>
             <artifactId>awaitility</artifactId>
-            <version>3.1.5</version>
+            <version>3.1.6</version>
             <scope>test</scope>
         </dependency>
 
@@ -243,15 +243,15 @@
                                     <name>chromedriver</name>
                                     <platform>linux</platform>
                                     <bit>64</bit>
-                                    <version>74.0.3729.6</version>
-                                    <url>http://chromedriver.storage.googleapis.com/74.0.3729.6/chromedriver_linux64.zip</url>
+                                    <version>76.0.3809.68</version>
+                                    <url>http://chromedriver.storage.googleapis.com/76.0.3809.68/chromedriver_linux64.zip</url>
                                 </driver>
                                 <driver>
                                     <name>chromedriver</name>
                                     <platform>mac</platform>
                                     <bit>64</bit>
-                                    <version>74.0.3729.6</version>
-                                    <url>http://chromedriver.storage.googleapis.com/74.0.3729.6/chromedriver_mac64.zip</url>
+                                    <version>76.0.3809.68</version>
+                                    <url>http://chromedriver.storage.googleapis.com/76.0.3809.68/chromedriver_mac64.zip</url>
                                 </driver>
                             </drivers>
                         </configuration>
