@@ -270,3 +270,6 @@
 
 [website:statuserrorcode] > hippo:compound, hippostd:relaxed
   orderable
+
+[website:category] > hippo:compound, hippostd:relaxed
+  orderable
