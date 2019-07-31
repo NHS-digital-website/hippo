@@ -56,7 +56,7 @@ CKEDITOR.dialog.add( 'abbrDialog', function( editor ) {
                         },
                         setup: function( dialog ) {
                             var element = dialog.element;
-                            this.setValue( element.getAttribute( "class" ) );
+                            this.setValue( element.getAttribute( "class" ) == "speak-letter-by-letter" );
                         },
                         commit: function( dialog ) {
                             var element = dialog.element;

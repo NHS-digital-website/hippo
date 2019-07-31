@@ -15,6 +15,7 @@ import org.htmlcleaner.*;
 import org.slf4j.*;
 import uk.nhs.digital.website.beans.Section;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -36,6 +37,9 @@ public class GoogleAnalyticsContentRewriter extends SimpleContentRewriter {
 
     private static boolean htmlCleanerInitialized;
     private static HtmlCleaner cleaner;
+
+    private static HstRequestContext prevPageRequestContext = null;
+    private ArrayList<String> appliedAbbrs = new ArrayList<String>();
 
     private static synchronized void initCleaner() {
         if (!htmlCleanerInitialized) {
@@ -60,6 +64,7 @@ public class GoogleAnalyticsContentRewriter extends SimpleContentRewriter {
                           final Mount targetMount) {
 
         if (html == null || HTML_TAG_PATTERN.matcher(html).find()) {
+            prevPageRequestContext = requestContext;
             //content is empty
             return null;
         }
@@ -146,12 +151,44 @@ public class GoogleAnalyticsContentRewriter extends SimpleContentRewriter {
         Arrays.stream(iframes)
             .forEach(TagNode::removeAllChildren);
 
+        // Add <dfn> for first instance of <abbr> of each abbreviation
+        // It should work adding <dfn> only for each abbreviation per full
+        // page, while this rewrite() function is invoked for each page section. 
+        //
+        // However, we noticed that requestContext is the same for each
+        // sections per page request. Therefore we reset appliedAbbrs every
+        // time when new requestContext object arrives (ex. page refresh or new page)
+        TagNode[] abbrs = rootNode.getElementsByName("abbr", true);
+        if (requestContext != prevPageRequestContext) {
+            appliedAbbrs = new ArrayList<String>();
+        }
+        for (TagNode abbr : abbrs) {
+            String abbrUniqueName = (abbr.getText().toString() + "-" + abbr.getAttributeByName("title").trim().replace(" ", "-")).toLowerCase();
+            if ( ! appliedAbbrs.contains(abbrUniqueName)) {
+
+                HtmlSerializer serializer = new SimpleHtmlSerializer(getHtmlCleaner().getProperties());
+                String abbrString = serializer.getAsString(abbr);
+                //skip xml header from abbrString
+                abbrString = abbrString.substring(abbrString.indexOf("<abbr"), abbrString.length()).trim();
+
+                String dfnString = "<dfn>" + abbrString + "</dfn>";
+
+                TagNode parent = abbr.getParent();
+                String innerHtml = getHtmlCleaner().getInnerHtml(parent);
+                innerHtml = innerHtml.replaceFirst(abbrString, dfnString);
+                getHtmlCleaner().setInnerHtml(parent, innerHtml);
+
+                appliedAbbrs.add(abbrUniqueName);
+            }
+        }
+
         // everything is rewritten. Now write the "body" element
         // as result
         TagNode[] targetNodes =
             rootNode.getElementsByName("body", true);
         if (targetNodes.length > 0) {
             TagNode bodyNode = targetNodes[0];
+            prevPageRequestContext = requestContext;
             return super.rewrite(getHtmlCleaner().getInnerHtml(bodyNode),
                 node, requestContext, targetMount);
         } else {
@@ -163,6 +200,7 @@ public class GoogleAnalyticsContentRewriter extends SimpleContentRewriter {
             }
         }
 
+        prevPageRequestContext = requestContext;
         return null;
     }
 
