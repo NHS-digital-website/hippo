@@ -170,6 +170,9 @@ definitions:
       /service-article:
         hst:renderpath: webfile:/freemarker/common/service-article.ftl
         jcr:primaryType: hst:template
+      /service-list:
+        hst:renderpath: webfile:/freemarker/common/service-list.ftl
+        jcr:primaryType: hst:template
       /static-ui-component:
         hst:renderpath: webfile:/freemarker/common/static-ui/component/index.ftl
         jcr:primaryType: hst:template

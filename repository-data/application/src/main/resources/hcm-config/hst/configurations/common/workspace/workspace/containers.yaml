@@ -30,4 +30,12 @@ definitions:
           hst:xtype: HST.vBox
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
+      /newshubpage:
+        /newshubpage-right:
+          .meta:residual-child-node-category: content
+          hst:label: News page container
+          hst:lastmodified: 2019-07-29T17:00:23.293Z
+          hst:xtype: HST.vBox
+          jcr:primaryType: hst:containercomponent
+        jcr:primaryType: hst:containercomponentfolder
       jcr:primaryType: hst:containercomponentfolder

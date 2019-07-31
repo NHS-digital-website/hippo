@@ -3,6 +3,9 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:pages/latestnews:
       /main:
+        /component-rightpane:
+          hst:referencecomponent: newshubpage/newshubpage-right
+          jcr:primaryType: hst:containercomponentreference
         hst:componentclassname: uk.nhs.digital.common.components.LatestNewsComponent
         hst:parameternames:
         - defaultPageSize
