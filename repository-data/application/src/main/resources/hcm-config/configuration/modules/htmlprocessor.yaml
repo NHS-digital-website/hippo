@@ -8,6 +8,8 @@ definitions:
         - class
         - title
         jcr:primaryType: hipposys:moduleconfig
+      /dfn:
+        jcr:primaryType: hipposys:moduleconfig
       omitComments: true
     /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/a:
       attributes:

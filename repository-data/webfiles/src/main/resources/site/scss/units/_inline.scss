@@ -1,5 +1,40 @@
+
+dfn > abbr[title]::before {
+   content : attr(title) ' (';
+}
+
+dfn::after {
+  content : ')';
+}
+
+dfn {
+  font-style: normal;
+
+  &:hover {
+    background-color: $yellow-link-hover;
+  }
+}
+
 abbr[title] {
-  text-decoration: none;
+  border-bottom: none;
+  text-decoration: underline dotted; 
+  text-decoration-color: $blue-50;
+
+  &:hover {
+    background-color: $yellow-link-hover;
+  }
+
+  &:hover::after {
+    content : attr(title);
+    position: absolute;
+    margin-top: 26px;
+    width: auto;
+    padding: 5px;
+    background: $grey-4;
+    color:$black;
+    font-size: 16px;
+    border-left: 5px solid $grey-2;
+  }
 }
 
 b,
