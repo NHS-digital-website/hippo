@@ -1,0 +1,99 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/website/category:
+      /editor:templates:
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
+          /root:
+            item: ${cluster.id}.field
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /name:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Name
+            field: name
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /description:
+            /cluster.options:
+              ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
+                items: [''Link'',''PickInternalLink'',''Source''] }] }'
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount''}'
+              jcr:primaryType: frontend:pluginconfig
+            caption: Description
+            field: description
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /linkservices:
+            /cluster.options:
+              base.path: /content/documents
+              jcr:primaryType: frontend:pluginconfig
+              nodetypes: []
+            caption: Linked Services
+            field: linkservices
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+        jcr:primaryType: editor:templateset
+      /hipposysedit:nodetype:
+        /hipposysedit:nodetype:
+          /description:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:description
+            hipposysedit:primary: true
+            hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
+          /linkservices:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:linkservices
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+            jcr:primaryType: hipposysedit:field
+          /name:
+            hipposysedit:mandatory: true
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:name
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - hippo:compound
+          - hippostd:relaxed
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /hipposysedit:prototypes:
+        /hipposysedit:prototype:
+          jcr:primaryType: website:category
+          website:version: ''
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype

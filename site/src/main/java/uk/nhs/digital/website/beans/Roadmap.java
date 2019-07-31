@@ -21,4 +21,14 @@ public class Roadmap extends CommonFieldsBean {
         return getProperty("website:granularity");
     }
 
+    @HippoEssentialsGenerated(internalName = "website:categories")
+    public List<HippoBean> getCategories() {
+        return getChildBeansByName("website:categories");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:item")
+    public List<HippoBean> getItem() {
+        return getLinkedBeans("website:item", HippoBean.class);
+    }
+
 }
