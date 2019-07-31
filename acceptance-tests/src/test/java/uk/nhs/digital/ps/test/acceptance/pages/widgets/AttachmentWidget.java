@@ -16,7 +16,7 @@ public class AttachmentWidget {
     }
 
     public String getFullName() {
-        return getHyperlink().getText();
+        return getHyperlink().getAttribute("title");
     }
 
     public String getSizeText() {

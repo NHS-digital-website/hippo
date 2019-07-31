@@ -55,13 +55,6 @@ public class SitePage extends AbstractSitePage {
     }
 
     public void clickOnElement(WebElement element) {
-        // scroll to element to prevent errors like "Other element would receive the click"
-        new Actions(getWebDriver())
-            .moveToElement(element)
-            .moveByOffset(0, 100)
-            .perform();
-
-        // click it
         element.click();
     }
 

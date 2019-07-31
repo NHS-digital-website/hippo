@@ -226,10 +226,7 @@ public class ContentPage extends AbstractCmsPage {
         publishDocumentOnField.clear();
         publishDocumentOnField.sendKeys(date);
 
-        // use below instead of clickButtonOnModalDialog("OK"), since latter will timeout/error
-        // if validation message occurs and prevents the dialog from closing (test for
-        // schedule publication date format needs to check for this message)
-        helper.findElement(By.xpath("//input[@type='submit' and @value='OK']")).click();
+        clickButtonOk();
     }
 
     public void cancelModalDialog() {
@@ -247,7 +244,7 @@ public class ContentPage extends AbstractCmsPage {
         findDocumentMenu().click();
         findDelete().click();
 
-        clickButtonOnModalDialog("OK");
+        clickButtonOk();
     }
 
     public void previewDocument() {
@@ -271,7 +268,7 @@ public class ContentPage extends AbstractCmsPage {
         boolean online = helper.findOptionalElement(By.partialLinkText("Take offline...")) != null;
         if (online) {
             takeOffline.click();
-            clickButtonOnModalDialog("OK");
+            clickButtonOk();
         }
     }
 
@@ -496,6 +493,13 @@ public class ContentPage extends AbstractCmsPage {
         helper.waitForElementUntil(ExpectedConditions.invisibilityOfElementLocated(
             By.xpath("//div[contains(@class, 'wicket-modal')]")));
 
+    }
+
+    public void clickButtonOk() {
+        // use below instead of clickButtonOnModalDialog("OK"), since latter will timeout/error
+        // if validation message occurs and prevents the dialog from closing (test for
+        // schedule publication date format needs to check for this message)
+        helper.findElement(By.xpath("//input[@type='submit' and @value='OK']")).click();
     }
 
     private WebElement findSaveAndClose() {
