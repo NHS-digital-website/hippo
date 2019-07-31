@@ -71,6 +71,8 @@ public class TestContentUrls {
             "/data-and-information/publications/acceptance-tests/publication-with-datasets/datasets-subfolder/publication-with-datasets-dataset");
         addSiteUrl("series with publication with datasets",
             "/data-and-information/publications/acceptance-tests/series-with-publication-with-datasets");
+        addSiteUrl("series with publication with datasets test",
+            "/data-and-information/publications/acceptance-tests/series-with-publication-with-datasets");
 
         // folder
         addSiteUrl("acceptence tests folder", "/data-and-information/publications/acceptance-tests");
