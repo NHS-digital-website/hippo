@@ -59,31 +59,17 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /roadmaplink:
+          /categorylink:
             /cluster.options:
               base.path: /content/documents
               jcr:primaryType: frontend:pluginconfig
               nodetypes:
-              - website:roadmap
-            caption: Roadmap Link
-            field: roadmaplink
+              - website:categorylist
+            caption: Category Link
+            field: categorylink
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /markers:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/website/roadmapcategories
-            caption: Markers
-            field: markers
-            jcr:primaryType: frontend:plugin
-            multiselect.type: checkboxes
-            palette.alloworder: false
-            palette.maxrows: '10'
-            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
-            selectlist.maxrows: '10'
-            valuelist.provider: service.valuelist.default
             wicket.id: ${cluster.id}.field
           /impactedservices:
             /cluster.options:
@@ -96,6 +82,18 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /roadmapitemstatuses:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Roadmap item status
+            compoundList: website:roadmapitemstatus
+            contentPickerType: links
+            field: roadmapitemstatuses
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+            wicket.skin: skin/content-blocks.css
           /effectivedate:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -118,7 +116,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Sections
-            compoundList: website:section,publicationsystem:chartSection,publicationsystem:mapSection,website:emphasisBox,website:download
+            compoundList: website:section,publicationsystem:chartSection,publicationsystem:mapSection,website:emphasisBox,website:download,website:iconlist,website:gallerysection,website:code,website:expander,website:ctabutton,website:quote
             contentPickerType: links
             field: sections
             hint: ''
@@ -139,6 +137,14 @@ definitions:
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
+          /categorylink:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: true
+            hipposysedit:path: website:categorylink
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+            jcr:primaryType: hipposysedit:field
           /effectivedate:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -165,23 +171,14 @@ definitions:
             hipposysedit:validators:
             - contentblocks-validator
             jcr:primaryType: hipposysedit:field
-          /markers:
+          /roadmapitemstatuses:
             hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:markers
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            jcr:primaryType: hipposysedit:field
-          /roadmaplink:
-            hipposysedit:mandatory: true
             hipposysedit:multiple: false
             hipposysedit:ordered: true
-            hipposysedit:path: website:roadmaplink
-            hipposysedit:primary: false
-            hipposysedit:type: hippo:mirror
+            hipposysedit:path: website:roadmapitemstatuses
+            hipposysedit:type: hippo:compound
             hipposysedit:validators:
-            - required
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /sections:
             hipposysedit:multiple: true
@@ -254,9 +251,6 @@ definitions:
             website:enddate: 0001-01-01T12:00:00Z
             website:startdate: 0001-01-01T12:00:00Z
             website:status: ''
-          /website:roadmaplink:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
           /website:summary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
@@ -273,7 +267,6 @@ definitions:
           jcr:mixinTypes:
           - mix:referenceable
           jcr:primaryType: website:roadmapitem
-          website:markers: []
           website:seosummary: ''
           website:shortsummary: ''
           website:title: ''

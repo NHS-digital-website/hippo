@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/website/category:
+    /hippo:namespaces/website/categorylist:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -53,12 +53,14 @@ definitions:
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
           /description:
-            hipposysedit:mandatory: false
+            hipposysedit:mandatory: true
             hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: website:description
             hipposysedit:primary: true
             hipposysedit:type: hippostd:html
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /linkservices:
             hipposysedit:mandatory: false
@@ -75,11 +77,16 @@ definitions:
             hipposysedit:path: website:name
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators:
+            - non-empty
+            - required
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
-          - hippo:compound
+          - website:basedocument
           - hippostd:relaxed
+          - hippotranslation:translated
+          - hippotaxonomy:classifiable
           hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
           jcr:mixinTypes:
           - mix:referenceable
@@ -90,8 +97,22 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          jcr:primaryType: website:category
-          website:version: ''
+          common:FacetType: categorylist
+          common:searchRank: 2
+          common:searchable: true
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2019-05-29T14:57:09.771Z
+          hippostdpubwf:lastModificationDate: 2018-05-29T14:57:09.771Z
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: website:categorylist
+          website:description: ''
+          website:name: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable

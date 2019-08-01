@@ -81,18 +81,6 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /categories:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Roadmap categories
-            compoundList: website:category
-            contentPickerType: links
-            field: categories
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
-            wicket.skin: skin/content-blocks.css
           /item:
             /cluster.options:
               base.path: /content/documents
@@ -110,15 +98,6 @@ definitions:
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /categories:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:categories
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators:
-            - contentblocks-validator
-            jcr:primaryType: hipposysedit:field
           /granularity:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false

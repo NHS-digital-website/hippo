@@ -11,14 +11,9 @@ import java.util.List;
 @Node(jcrType = "website:roadmapitem")
 public class RoadmapItem extends CommonFieldsBean {
 
-    @HippoEssentialsGenerated(internalName = "website:roadmaplink")
-    public HippoBean getRoadmapLink() {
-        return getBean("website:roadmaplink", HippoBean.class);
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:markers")
-    public String[] getMarkers() {
-        return getProperty("website:markers");
+    @HippoEssentialsGenerated(internalName = "website:categorylink")
+    public HippoBean getCategoryLink() {
+        return getBean("website:categorylink", HippoBean.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:impactedservices")
@@ -44,6 +39,11 @@ public class RoadmapItem extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:items")
     public List<?> getBlocks() {
         return getChildBeansByName("website:items");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:roadmapitemstatuses")
+    public RoadmapItemStatus getRoadmapItemStatuses() {
+        return getBean("website:roadmapitemstatuses", RoadmapItemStatus.class);
     }
 
 }

@@ -220,6 +220,9 @@
 [website:roadmapitem] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:roadmapitemstatus] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:role] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -271,5 +274,5 @@
 [website:statuserrorcode] > hippo:compound, hippostd:relaxed
   orderable
 
-[website:category] > hippo:compound, hippostd:relaxed
+[website:categorylist] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
   orderable

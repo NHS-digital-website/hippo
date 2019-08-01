@@ -7,6 +7,7 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import java.util.Calendar;
 
 
+
 @HippoEssentialsGenerated(internalName = "website:effectivedate")
 @Node(jcrType = "website:effectivedate")
 public class EffectiveDate extends HippoCompound {
@@ -24,6 +25,11 @@ public class EffectiveDate extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "website:enddate")
     public Calendar getEndDate() {
         return getProperty("website:enddate");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:datescale")
+    public String getDateScale() {
+        return getProperty("website:datescale");
     }
 
 }

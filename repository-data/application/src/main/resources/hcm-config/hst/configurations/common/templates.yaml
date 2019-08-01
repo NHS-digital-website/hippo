@@ -26,6 +26,9 @@ definitions:
       /base-top-menu:
         hst:renderpath: webfile:/freemarker/common/base-top-menu.ftl
         jcr:primaryType: hst:template
+      /categorylist-article:
+        hst:renderpath: webfile:/freemarker/common/categorylist-article.ftl
+        jcr:primaryType: hst:template
       /cilanding:
         hst:renderpath: webfile:/freemarker/publicationsystem/cilanding.ftl
         jcr:primaryType: hst:template
