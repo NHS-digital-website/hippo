@@ -16,11 +16,8 @@
     $(window).on('load resize', function() {
         if (window.matchMedia('(max-width: 924px)').matches) {
             sidebar.destroy();
-
-            DOMElement.removeAttr('id');
         } else {
             sidebar.initialize();
-            DOMElement.attr('id', 'sticky-nav');
         }
     });
 
