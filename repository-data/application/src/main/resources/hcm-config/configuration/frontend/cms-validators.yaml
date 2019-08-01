@@ -9,6 +9,10 @@ definitions:
       jcr:primaryType: frontend:plugin
       plugin.class: org.hippoecm.frontend.editor.validator.plugins.RegExCmsValidator
       regex_pattern: ^([0-9]{3}){0,3}$
+    /hippo:configuration/hippo:frontend/cms/cms-validators/percentage:
+      jcr:primaryType: frontend:plugin
+      plugin.class: org.hippoecm.frontend.editor.validator.plugins.RegExCmsValidator
+      regex_pattern: ^([0-9]|[1-8][0-9]|9[0-9]|100)$
     /hippo:configuration/hippo:frontend/cms/cms-validators/phonenumber:
       jcr:primaryType: frontend:plugin
       plugin.class: org.hippoecm.frontend.editor.validator.plugins.RegExCmsValidator

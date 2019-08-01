@@ -129,9 +129,9 @@ definitions:
           jcr:name: Biography
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
-      /website:category:
+      /website:categorylist:
         /en:
-          jcr:name: Category
+          jcr:name: Category list
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:componentlist:
@@ -392,6 +392,11 @@ definitions:
       /website:roadmapitem:
         /en:
           jcr:name: Roadmap Item
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:roadmapitemstatus:
+        /en:
+          jcr:name: Roadmap Item Status
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:role:

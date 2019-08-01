@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/website/effectivedate:
+    /hippo:namespaces/website/roadmapitemstatus:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -22,82 +22,80 @@ definitions:
           /status:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/website/effectivedatestatus
-            caption: Date status
+              orientation: vertical
+              selectable.options: Idea,Planned,In progress,Complete,Archive,Cancelled,Superseded
+            caption: Status
             field: status
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /datescale:
+          /progress:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              orientation: vertical
-              selectable.options: Precise date,Month only,Quarter only,Year only,Future
-            caption: Date scale
-            field: datescale
+            caption: Progress percentage
+            field: progress
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /startdate:
+          /completeddate:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Start date
-            field: startdate
-            hint: If not precise date, select any date within the range selected
+            caption: Completed date
+            field: completeddate
+            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /enddate:
+          /supersededdate:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: End date
-            field: enddate
-            hint: If not precise date, select any date within the range selected
+            caption: Superseded date
+            field: supersededdate
+            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /datescale:
+          /completeddate:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:completeddate
+            hipposysedit:primary: false
+            hipposysedit:type: CalendarDate
+            jcr:primaryType: hipposysedit:field
+          /progress:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:progress
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - percentage
+            jcr:primaryType: hipposysedit:field
+          /status:
             hipposysedit:mandatory: true
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:datescale
+            hipposysedit:path: website:status
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             hipposysedit:validators:
             - non-empty
             - required
             jcr:primaryType: hipposysedit:field
-          /enddate:
+          /supersededdate:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:enddate
+            hipposysedit:path: website:supersededdate
             hipposysedit:primary: false
             hipposysedit:type: CalendarDate
-            jcr:primaryType: hipposysedit:field
-          /startdate:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:startdate
-            hipposysedit:primary: false
-            hipposysedit:type: CalendarDate
-            jcr:primaryType: hipposysedit:field
-          /status:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:status
-            hipposysedit:primary: false
-            hipposysedit:type: selection:RadioGroup
-            hipposysedit:validators:
-            - non-empty
-            - required
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
@@ -105,19 +103,17 @@ definitions:
           - hippostd:relaxed
           hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
           jcr:mixinTypes:
-          - hipposysedit:remodel
           - mix:referenceable
+          - hipposysedit:remodel
           jcr:primaryType: hipposysedit:nodetype
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          jcr:primaryType: website:effectivedate
-          website:datescale: Precise date
-          website:enddate: 0001-01-01T12:00:00Z
-          website:startdate: 0001-01-01T12:00:00Z
-          website:status: ''
+          jcr:primaryType: website:roadmapitemstatus
+          website:progress: '0'
+          website:version: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable
