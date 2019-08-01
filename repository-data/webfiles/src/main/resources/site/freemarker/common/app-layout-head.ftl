@@ -65,8 +65,15 @@
 
     <@hst.headContributions categoryExcludes="htmlBodyEnd, scripts, genericMeta, facebookMeta, twitterMeta, metadata" xhtml=true />
 
-    <#-- Fix for IE 11 to make it smoth -->
+    <#-- Fixes for IE 11 -->
     <style>
+        @media only screen and (max-width: 924px) {
+            .inner-wrapper-sticky {
+                position: relative !important;
+                left: 0 !important;
+                top: 0 !important;
+            }
+        }
         .inner-wrapper-sticky {
             z-index:1;
         }
