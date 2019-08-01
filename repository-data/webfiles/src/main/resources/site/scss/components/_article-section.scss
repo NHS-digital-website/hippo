@@ -24,7 +24,6 @@
         padding-top: 16px !important;
     }
 
-
     * + * {
         margin-top: 14px;
 
@@ -33,7 +32,8 @@
         }
     }
 
-    * + li {
+    * + li,
+    * + br {
         margin-top: 0;
 
         @include media(tablet) {
@@ -110,7 +110,7 @@
 
         li {
             padding-left: 0;
-          
+
             p,
             h2 {
                 margin-top: 0;
@@ -152,7 +152,7 @@
 
         @include media($max-width: $min-desktop-width) {
             margin-bottom: 0;
-        } 
+        }
     }
 }
 
