@@ -3,6 +3,13 @@
         th,
         td {
             border-left-color: $grey-5;
+        }
+
+        th {
+            background: #B3BBC1;
+        }
+
+        td {
             background: $grey-5;
         }
     }
