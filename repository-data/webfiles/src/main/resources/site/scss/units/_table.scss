@@ -36,9 +36,8 @@ table {
     }
 
     th {
-        background-color: $white;
+        background-color: #B3BBC1;
         border-left: 2px solid $background-colour;
-        border-bottom: 2px solid $col-15;
 
         &,
         * {
@@ -53,7 +52,6 @@ table {
     td {
         word-break: break-word;
         border-bottom: 1px solid #D1D7DB;
-        border-left: 2px solid $background-colour;
 
         &,
         * {
@@ -66,7 +64,7 @@ table {
     position: relative;
     width: 100%;
     overflow: hidden;
-    
+
     @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
         @include touch-scroll-x;
     }
@@ -111,12 +109,17 @@ th[role=columnheader]:not([data-sort-method="none"]):after {
     margin-right: 10px;
     border-width: 0 $table-sorter-arrow-size $table-sorter-arrow-size * 1.5;
     border-style: solid;
-    border-color: $table-sorter-arrow-color transparent;
+    border-color: #687784 transparent;
     opacity: 0.5;
     -ms-user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
+
+}
+
+th[role=columnheader][aria-sort]:after {
+    border-color: $table-sorter-arrow-color transparent;
 }
 
 th[aria-sort=ascending]:not([data-sort-method="none"]):after {
