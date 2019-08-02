@@ -5,6 +5,7 @@
 <#include "macro/tagNav.ftl">
 <#include "macro/hubBox.ftl">
 <#include "macro/stickyGroupBlockHeader.ftl">
+<#include "macro/documentHeader.ftl">
 
 <@hst.setBundle basename="rb.component.latest-events"/>
 <@fmt.message key="headers.past-events" var="pastEventsHeader" />
@@ -76,25 +77,15 @@
     <#return links />
 </#function>
 
-<article class="article article--latest-events" aria-label="Document Header">
-    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
-        <div class="local-header article-header article-header--with-icon">
-            <div class="grid-wrapper">
-                <div class="article-header__inner">
-                    <div class="grid-row">
-                        <div class="column--one-third column--reset">
-                            <img src="<@hst.webfile path="images/icon-calendar.png" fullyQualified=true/>" alt="Calendar">
-                        </div>
-                        <div class="column--two-thirds column--reset">
-                            <h1 class="local-header__title" data-uipath="document.title"><@fmt.message key="headers.hub-title"/></h1>
-                            <p class="article-header__subtitle"><@fmt.message key="texts.hub-intro"/></p>  
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<article class="article article--latest-events">
 
+
+    <#assign header_title><@fmt.message key="headers.hub-title" /></#assign>
+    <#assign header_summary><@fmt.message key="texts.hub-intro" /></#assign>
+    <#assign header_icon = 'images/icon-calendar.png' />
+    <#assign document = "simulating_doc" />
+
+    <@documentHeader document 'events' header_icon header_title header_summary></@documentHeader>
 
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
