@@ -4,6 +4,7 @@
 <#include "macro/sectionNav.ftl">
 <#include "macro/hubBox.ftl">
 <#include "macro/stickyGroupBlockHeader.ftl">
+<#include "macro/documentHeader.ftl">
 
 <@hst.setBundle basename="rb.doctype.news-hub"/>
 
@@ -34,24 +35,14 @@
     <#return links />
 </#function>
 
-<article class="article article--news-hub" aria-label="Document Header">
-    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
-        <div class="local-header article-header article-header--with-icon">
-            <div class="grid-wrapper">
-                <div class="article-header__inner">
-                    <div class="grid-row">
-                        <div class="column--one-third column--reset">
-                            <img src="<@hst.webfile path="images/icon-article.png" fullyQualified=true/>" alt="News article">
-                        </div>
-                        <div class="column--two-thirds column--reset">
-                            <h1 class="local-header__title" data-uipath="document.title"><@fmt.message key="headers.page-title" /></h1>
-                            <p class="article-header__subtitle"><@fmt.message key="texts.intro" /></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<article class="article article--news-hub">
+
+    <#assign header_title><@fmt.message key="headers.page-title" /></#assign>
+    <#assign header_summary><@fmt.message key="texts.intro" /></#assign>
+    <#assign header_icon = 'images/icon-article.png' />
+    <#assign document = "simulating_doc" />
+
+    <@documentHeader document 'news' header_icon header_title header_summary></@documentHeader>
 
     <div class="grid-wrapper grid-wrapper--article">
         <#if pageable?? && pageable.items?has_content>
