@@ -14,7 +14,7 @@
             <@hst.html hippohtml=section.introduction contentRewriter=gaContentRewriter />
         </div>
 
-        <dl class="iconList">
+        <div class="iconList">
             <#list section.iconListItems as iconListItem>
 
                 <!-- iconListItem -->
@@ -29,15 +29,15 @@
                     </div>
 
                     <div class="iconList__content">
-                        <dt class="iconList__title" data-uipath="website.contentblock.iconlistitem.heading">${iconListItem.heading}</dt>
+                        <div class="iconList__title" data-uipath="website.contentblock.iconlistitem.heading">${iconListItem.heading}</div>
 
-                        <dd class="iconList__body" data-uipath="website.contentblock.iconlistitem.description">
+                        <div class="iconList__body" data-uipath="website.contentblock.iconlistitem.description">
                             <@hst.html hippohtml=iconListItem.description contentRewriter=gaContentRewriter />
-                        </dd>
+                        </div>
                     </div>
                 </div>
 
             </#list>
-        </dl>
+        </div>
     </div>
 </#macro>
