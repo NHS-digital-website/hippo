@@ -12,6 +12,13 @@
         margin-bottom:10px;
         background-color: #ffffff;
     }
+    &__card-no-heading {
+        position: relative;
+        margin-bottom:10px;
+        background-color: #ffffff;
+        margin-bottom: 0.75rem;
+        margin-top:100px;
+    }
 
     &__warning {
         position: absolute;

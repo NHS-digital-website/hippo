@@ -18,9 +18,12 @@
         <div class="grid-row galleryItems">
             <#list section.galleryItems as galleryItem>
                 <div class="column column--one-half galleryItems__item">
-                    <h3 class="galleryItems__heading">${galleryItem.title}</h3>
-
-                    <div class="galleryItems__card">
+                    <#if galleryItem.title?has_content>
+                      <h3 class="galleryItems__heading">${galleryItem.title}</h3>
+                      <div class="galleryItems__card">
+                    <#else>
+                      <div class="galleryItems__card-no-heading">
+                    </#if>
                         <#if galleryItem.imageWarning != ''>
                             <div class="galleryItems__warning">${galleryItem.imageWarning}</div>
                         </#if>
