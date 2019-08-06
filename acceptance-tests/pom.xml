@@ -352,6 +352,7 @@
                                 </deployable>
                             </deployables>
                             <container>
+                                <timeout>240000</timeout>
                                 <zipUrlInstaller>
                                     <url>${tomcatDistributionUrl}</url>
                                 </zipUrlInstaller>
