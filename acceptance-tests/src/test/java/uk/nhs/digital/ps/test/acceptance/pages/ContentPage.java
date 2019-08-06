@@ -142,6 +142,9 @@ public class ContentPage extends AbstractCmsPage {
             By.xpath(XpathSelectors.TAXONOMY_PICKER + "//a[normalize-space(text())='Add category']")
         );
 
+        // will mostly fail without the pause as Add Category button takes a while to complete
+        wait(2);
+
         clickButtonOnModalDialog("OK");
     }
 
@@ -573,5 +576,13 @@ public class ContentPage extends AbstractCmsPage {
 
     public WebElement findFileDownloadLink(final WebDriver webDriver, final String fileName) {
         return webDriver.findElement(By.linkText(fileName));
+    }
+
+    private void wait(int sec) {
+        try {
+            Thread.sleep(sec * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
