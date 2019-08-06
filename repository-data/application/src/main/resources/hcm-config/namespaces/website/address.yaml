@@ -49,7 +49,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Area
-            field: street
+            field: area
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
@@ -100,6 +100,15 @@ definitions:
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /maplink:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Map link
+            field: maplink
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
@@ -169,6 +178,16 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
+          /maplink:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:maplink
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - valid-url
+            jcr:primaryType: hipposysedit:field
           /postalCode:
             hipposysedit:mandatory: true
             hipposysedit:multiple: false
@@ -177,6 +196,8 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators:
+            - non-empty
+            - required
             - postalCode
             jcr:primaryType: hipposysedit:field
           /street:

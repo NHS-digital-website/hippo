@@ -175,9 +175,6 @@
 [website:publictransportstation] > hippo:compound, hippostd:relaxed
   orderable
 
-[website:transportroutes] > hippo:compound, hippostd:relaxed
-  orderable
-
 [website:localtaxi] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -191,9 +188,6 @@
   orderable
 
 [website:directiontositebycar] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:directiontositebytrain] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:directiontositebypublictransport] > hippo:compound, hippostd:relaxed

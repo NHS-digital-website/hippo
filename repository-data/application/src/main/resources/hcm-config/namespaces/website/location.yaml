@@ -48,6 +48,92 @@ definitions:
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
             wicket.skin: skin/content-blocks.css
+          /telephone:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Telephone
+            field: telephone
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /emailaddress:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Location email address
+            field: emailaddress
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /locationwebsite:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Location website
+            compoundList: website:externallink
+            contentPickerType: links
+            field: locationwebsite
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /threewordskey:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: What's 3 words key for entrance
+            field: threewordskey
+            hint: eg ///cities.either.luck
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /pluscode:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Plus Code
+            field: pluscode
+            hint: Plus codes eg QFW4+3J
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /nhsdigitalsite:
+            /cluster.options:
+              falseLabel: 'No'
+              jcr:primaryType: frontend:pluginconfig
+              trueLabel: 'Yes'
+            caption: NHS Digital Site
+            field: nhsdigitalsite
+            hint: NHS Digital Locations
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /urgentinformation:
+            /cluster.options:
+              ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
+                items: [''Link'',''PickInternalLink'',''Source''] }] }'
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount''}'
+              jcr:primaryType: frontend:pluginconfig
+            caption: Urgent information
+            field: urgentinformation
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /imageofsite:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Image Of Site
+            field: imageofsite
+            hint: picture of site
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /imageofsitealttext:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Alternative text
+            field: imageofsitealttext
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
           /opentopublic:
             /cluster.options:
               falseLabel: 'No'
@@ -71,42 +157,13 @@ definitions:
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
             wicket.skin: skin/content-blocks.css
-          /telephone:
+          /directiontositebypublictransportation:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Telephone
-            field: telephone
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /emailaddress:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Location email address
-            field: emailaddress
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /publictransportstations:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Nearest Public Transport Station
-            compoundList: website:publictransportstation
+            caption: Direction To Site By Public Transport
+            compoundList: website:directiontositebypublictransport
             contentPickerType: links
-            field: publictransportstations
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
-            wicket.skin: skin/content-blocks.css
-          /publictransportroutes:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Public transport routes
-            compoundList: website:transportroutes
-            contentPickerType: links
-            field: publictransportroutes
+            field: directiontositebypublictransportation
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
@@ -119,6 +176,18 @@ definitions:
             compoundList: website:localtaxi
             contentPickerType: links
             field: localtaxis
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+            wicket.skin: skin/content-blocks.css
+          /directiontositebycars:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Direction To Site By Car
+            compoundList: website:directiontositebycar
+            contentPickerType: links
+            field: directiontositebycars
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
@@ -148,51 +217,6 @@ definitions:
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
             wicket.skin: skin/content-blocks.css
-          /directiontositebycars:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Direction To Site By Car
-            compoundList: website:directiontositebycar
-            contentPickerType: links
-            field: directiontositebycars
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
-            wicket.skin: skin/content-blocks.css
-          /directiontositebytrains:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Direction To Site By Train
-            compoundList: website:directiontositebytrain
-            contentPickerType: links
-            field: directiontositebytrains
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
-            wicket.skin: skin/content-blocks.css
-          /directiontositebypublictransportes:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Direction To Site By Public Transport
-            compoundList: website:directiontositebypublictransport
-            contentPickerType: links
-            field: directiontositebypublictransportes
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
-            wicket.skin: skin/content-blocks.css
-          /imageofsite:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Image Of Site
-            field: imageofsite
-            hint: picture of site
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
           /globallocationnumber:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -210,57 +234,6 @@ definitions:
             hint: Unique Property Reference Numbe(UPRN)
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /nhsdigitalsite:
-            /cluster.options:
-              falseLabel: 'No'
-              jcr:primaryType: frontend:pluginconfig
-              trueLabel: 'Yes'
-            caption: NHS Digital Site
-            field: nhsdigitalsite
-            hint: NHS Digital Locations
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /locationwebsite:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Location website
-            compoundList: website:externallink
-            contentPickerType: links
-            field: locationwebsite
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /threewordskey:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: What's 3 words key for entrance
-            field: threewordskey
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /pluscode:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Plus Code
-            field: pluscode
-            hint: Plus codes give addresses
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /urgentinformation:
-            /cluster.options:
-              ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
-                items: [''Link'',''PickInternalLink'',''Source''] }] }'
-              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount''}'
-              jcr:primaryType: frontend:pluginconfig
-            caption: urgent Information
-            field: urgentinformation
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
           /suppresssearchengines:
             /cluster.options:
@@ -323,20 +296,11 @@ definitions:
             hipposysedit:validators:
             - contentblocks-validator
             jcr:primaryType: hipposysedit:field
-          /directiontositebypublictransportes:
+          /directiontositebypublictransportation:
             hipposysedit:mandatory: false
-            hipposysedit:multiple: false
+            hipposysedit:multiple: true
             hipposysedit:ordered: true
-            hipposysedit:path: website:directiontositebypublictransportes
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators:
-            - contentblocks-validator
-            jcr:primaryType: hipposysedit:field
-          /directiontositebytrains:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: true
-            hipposysedit:path: website:directiontositebytrains
+            hipposysedit:path: website:directiontositebypublictransportation
             hipposysedit:type: hippo:compound
             hipposysedit:validators:
             - contentblocks-validator
@@ -375,9 +339,17 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippogallerypicker:imagelink
             jcr:primaryType: hipposysedit:field
+          /imageofsitealttext:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:imageofsitealttext
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           /locaddress:
             hipposysedit:mandatory: false
-            hipposysedit:multiple: true
+            hipposysedit:multiple: false
             hipposysedit:ordered: true
             hipposysedit:path: website:locaddress
             hipposysedit:type: hippo:compound
@@ -403,7 +375,7 @@ definitions:
             jcr:primaryType: hipposysedit:field
           /locopeninghours:
             hipposysedit:mandatory: false
-            hipposysedit:multiple: true
+            hipposysedit:multiple: false
             hipposysedit:ordered: true
             hipposysedit:path: website:locopeninghours
             hipposysedit:type: hippo:compound
@@ -466,24 +438,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
-          /publictransportroutes:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:publictransportroutes
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators:
-            - contentblocks-validator
-            jcr:primaryType: hipposysedit:field
-          /publictransportstations:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:publictransportstations
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators:
-            - contentblocks-validator
-            jcr:primaryType: hipposysedit:field
           /suppresssearchengines:
             hipposysedit:mandatory: true
             hipposysedit:multiple: false
@@ -518,7 +472,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: website:uniquepropertyreferencenumber
             hipposysedit:primary: false
-            hipposysedit:type: Long
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           /urgentinformation:
             hipposysedit:mandatory: true
@@ -561,6 +515,7 @@ definitions:
           website:dunsnumber: ''
           website:emailaddress: ''
           website:globallocationnumber: ''
+          website:imageofsitealttext: ''
           website:name: ''
           website:nhsdigitalsite: true
           website:odscode: ''

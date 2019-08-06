@@ -20,6 +20,11 @@ public class DirectionToSiteByCar extends HippoCompound {
         return getLinkedBean("website:bycarpicture", HippoGalleryImageSet.class);
     }
 
+    @HippoEssentialsGenerated(internalName = "website:bycarpicturealttext")
+    public String getByCarPictureAltText() {
+        return getProperty("website:bycarpicturealttext");
+    }
+
     @HippoEssentialsGenerated(internalName = "website:bycarvideo")
     public HippoHtml getBycarvideo() {
         return getHippoHtml("website:bycarvideo");

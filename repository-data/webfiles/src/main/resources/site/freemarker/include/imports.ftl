@@ -408,3 +408,52 @@
 
     <#return links />
 </#function>
+
+<#-- Gather section nav for Location in a hash -->
+<#function getSectionNavforLocation document>
+    <@hst.setBundle basename="rb.generic.headers"/>
+
+    <#assign links = [] />
+    <#assign hasUrgentinformation = document.urgentinformation.content?? && document.urgentinformation.content?has_content/>
+    <#assign hasOpeningHours = document.locopeninghours?? && document.locopeninghours?has_content/>
+    <#assign hasDirectionToSiteByPublicTransports = document.directionToSiteByPublicTransportation?? && document.directionToSiteByPublicTransportation?has_content/>
+    <#assign hasOnsiteCarsParking = document.onsitecarsparking?? && document.onsitecarsparking?has_content/>
+    <#assign hasCyclesParking = document.cyclesparking?? && document.cyclesparking?has_content/>
+    <#assign hasLocalTaxis = document.localtaxis?? && document.localtaxis?has_content/>
+    <#assign hasOtherLocationData = document.uniquePropertyReferenceNumber?? && document.uniquePropertyReferenceNumber?has_content || document.dunsnumber?? && document.dunsnumber?has_content || document.odscode?? && document.odscode?has_content/>
+    <#assign hasDirectionToSiteByCar = document.directiontositebycars?? && document.directiontositebycars?has_content/>
+
+    <#if document??>
+        <#if document.includeTopLink?? && document.includeTopLink>
+            <#assign links = [{ "url": "#top", "title": "Top of page" }] />
+        </#if>
+
+        <#if document??>
+            <#if hasOpeningHours >
+                <#assign links += [{ "url": "#" + "Openinghours", "title": "Opening hours" }] />
+            </#if>
+            <#if hasDirectionToSiteByPublicTransports >
+                <#list document.directionToSiteByPublicTransportation as dirToSiteByPublicTrans >
+                <#assign links += [{ "url": "#" + "${dirToSiteByPublicTrans.publictransportType?lower_case}", "title": "Directions by ${dirToSiteByPublicTrans.publictransportType?lower_case}" }] />
+                </#list>
+            </#if>
+            <#if hasLocalTaxis>
+                <#assign links += [{ "url": "#" + "taxi", "title": "Taxi" }] />
+            </#if>
+            <#if hasDirectionToSiteByCar>
+                <#assign links += [{ "url": "#" + "directionsbycar", "title": "Directions by car" }] />
+            </#if>
+            <#if hasOnsiteCarsParking>
+                <#assign links += [{ "url": "#" + "carparking", "title": "Car parking" }] />
+            </#if>
+            <#if hasCyclesParking>
+                <#assign links += [{ "url": "#" + "cycleparking", "title": "Cycle parking" }] />
+            </#if>
+            <#if hasOtherLocationData>
+                <#assign links += [{ "url": "#" + "otherlocationdata", "title": "Other location data" }] />
+            </#if>
+        </#if>
+    </#if>
+
+    <#return links />
+</#function>

@@ -174,11 +174,6 @@ definitions:
           jcr:name: Direction To Site By Public Transport
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
-      /website:directiontositebytrain:
-        /en:
-          jcr:name: Direction To Site By Train
-          jcr:primaryType: hipposys:resourcebundle
-        jcr:primaryType: hipposys:resourcebundles
       /website:download:
         /en:
           jcr:name: Downloads
@@ -437,11 +432,6 @@ definitions:
       /website:threatupdate:
         /en:
           jcr:name: Threat update
-          jcr:primaryType: hipposys:resourcebundle
-        jcr:primaryType: hipposys:resourcebundles
-      /website:transportroutes:
-        /en:
-          jcr:name: Public Transport Routes
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:visualassetlink:
