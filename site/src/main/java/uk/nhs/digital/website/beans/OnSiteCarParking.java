@@ -46,8 +46,12 @@ public class OnSiteCarParking extends HippoCompound {
     }
 
     @HippoEssentialsGenerated(internalName = "website:websitelink")
-    public List<?> getWebsitelink() {
-        return getChildBeansByName("website:websitelink");
+    public Externallink getWebsiteLink() {
+        List<Externallink> externalLinkList = getChildBeansByName("website:websitelink", Externallink.class);
+        if (externalLinkList != null && !externalLinkList.isEmpty()) {
+            return externalLinkList.get(0);
+        }
+        return null;
     }
 
     @HippoEssentialsGenerated(internalName = "website:costs")

@@ -27,17 +27,6 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /type:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              orientation: vertical
-              source: /content/documents/administration/website/public-transport
-            caption: Type of Public Transport
-            field: type
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
           /distance:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -76,9 +65,72 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /bypublictransportpicture:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: By public transport picture
+            field: bypublictransportpicture
+            hint: This will display as a large picture at the top of your page
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /bypublictransportpicturealttext:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Alternative text
+            field: bypublictransportpicturealttext
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /bypublictransportvideo:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: By public transport video
+            field: bypublictransportvideo
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /gettolocationfromhere:
+            /cluster.options:
+              ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
+                items: [''Link'',''PickInternalLink'',''Source''] }] }'
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount''}'
+              jcr:primaryType: frontend:pluginconfig
+            caption: How to get to the location from here
+            field: gettolocationfromhere
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
+          /bypublictransportpicture:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:bypublictransportpicture
+            hipposysedit:primary: false
+            hipposysedit:type: hippogallerypicker:imagelink
+            jcr:primaryType: hipposysedit:field
+          /bypublictransportpicturealttext:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:bypublictransportpicturealttext
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /bypublictransportvideo:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:bypublictransportvideo
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
           /distance:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -103,6 +155,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
+          /gettolocationfromhere:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:gettolocationfromhere
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
           /name:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -110,14 +170,6 @@ definitions:
             hipposysedit:path: website:name
             hipposysedit:primary: false
             hipposysedit:type: String
-            jcr:primaryType: hipposysedit:field
-          /type:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:type
-            hipposysedit:primary: false
-            hipposysedit:type: DynamicDropdown
             jcr:primaryType: hipposysedit:field
           /walkingtime:
             hipposysedit:mandatory: false

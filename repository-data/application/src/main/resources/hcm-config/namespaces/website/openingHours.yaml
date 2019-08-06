@@ -19,64 +19,134 @@ definitions:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-          /day:
+          /monday:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/website/week-day
-            caption: Day
-            field: day
-            jcr:primaryType: frontend:plugin
-            multiselect.type: checkboxes
-            palette.alloworder: false
-            palette.maxrows: '10'
-            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
-            selectlist.maxrows: '10'
-            valuelist.provider: service.valuelist.default
-            wicket.id: ${cluster.id}.field
-          /starttime:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Start time
-            field: starttime
-            hint: ''
+            caption: Monday
+            field: monday
+            hint: e.g. '9am - 12pm, 1pm - 5pm' OR '9am-5pm (closed bank holidays)'
+              OR 'Training day'. Leave field blank to hide individual day.
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /endtime:
+          /tuesday:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: End time
-            field: endtime
-            hint: ''
+            caption: Tuesday
+            field: tuesday
+            hint: e.g. '9am - 12pm, 1pm - 5pm' OR '9am-5pm (closed bank holidays)'
+              OR 'Training day'. Leave field blank to hide individual day.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /wednesday:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Wednesday
+            field: wednesday
+            hint: e.g. '9am - 12pm, 1pm - 5pm' OR '9am-5pm (closed bank holidays)'
+              OR 'Training day'. Leave field blank to hide individual day.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /thursday:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Thursday
+            field: thursday
+            hint: e.g. '9am - 12pm, 1pm - 5pm' OR '9am-5pm (closed bank holidays)'
+              OR 'Training day'. Leave field blank to hide individual day.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /friday:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Friday
+            field: friday
+            hint: e.g. '9am - 12pm, 1pm - 5pm' OR '9am-5pm (closed bank holidays)'
+              OR 'Training day'. Leave field blank to hide individual day.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /saturday:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Saturday
+            field: saturday
+            hint: e.g. '9am - 12pm, 1pm - 5pm' OR '9am-5pm (closed bank holidays)'
+              OR 'Training day'. Leave field blank to hide individual day.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /sunday:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Sunday
+            field: sunday
+            hint: e.g. '9am - 12pm, 1pm - 5pm' OR '9am-5pm (closed bank holidays)'
+              OR 'Training day'. Leave field blank to hide individual day.
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /day:
+          /friday:
             hipposysedit:mandatory: false
-            hipposysedit:multiple: true
+            hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:day
+            hipposysedit:path: website:friday
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
-          /endtime:
+          /monday:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:endtime
+            hipposysedit:path: website:monday
             hipposysedit:primary: false
-            hipposysedit:type: Date
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
-          /starttime:
+          /saturday:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:starttime
+            hipposysedit:path: website:saturday
             hipposysedit:primary: false
-            hipposysedit:type: Date
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /sunday:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:sunday
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /thursday:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:thursday
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /tuesday:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:tuesday
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /wednesday:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:wednesday
+            hipposysedit:primary: false
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:

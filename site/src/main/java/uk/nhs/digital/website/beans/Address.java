@@ -49,6 +49,11 @@ public class Address extends HippoCompound {
         return getProperty("website:postalCode");
     }
 
+    @HippoEssentialsGenerated(internalName = "website:maplink")
+    public String getMapLink() {
+        return getProperty("website:maplink");
+    }
+
     @HippoEssentialsGenerated(internalName = "website:geocoordinates")
     public HippoHtml getGeocoordinates() {
         return getHippoHtml("website:geocoordinates");

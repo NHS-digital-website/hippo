@@ -23,18 +23,13 @@ public class Location extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = "website:locaddress")
-    public List<HippoBean> getLocaddress() {
-        return getChildBeansByName("website:locaddress");
+    public Address getLocAddress() {
+        return getBean("website:locaddress", Address.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:onsitecarsparking")
     public OnSiteCarParking getOnsitecarsparking() {
         return getBean("website:onsitecarsparking", OnSiteCarParking.class);
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:publictransportstations")
-    public List<HippoBean> getPublictransportstations() {
-        return getChildBeansByName("website:publictransportstations");
     }
 
     @HippoEssentialsGenerated(internalName = "website:cyclesparking")
@@ -47,14 +42,9 @@ public class Location extends BaseDocument {
         return getBean("website:directiontositebycars", DirectionToSiteByCar.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "website:directiontositebytrains")
-    public DirectionToSiteByTrain getDirectiontositebytrains() {
-        return getBean("website:directiontositebytrains", DirectionToSiteByTrain.class);
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:directiontositebypublictransportes")
-    public DirectionToSiteByPublicTransport getDirectiontositebypublictransportes() {
-        return getBean("website:directiontositebypublictransportes", DirectionToSiteByPublicTransport.class);
+    @HippoEssentialsGenerated(internalName = "website:directiontositebypublictransportation")
+    public List<HippoBean> getDirectionToSiteByPublicTransportation() {
+        return getChildBeansByName("website:directiontositebypublictransportation");
     }
 
     @HippoEssentialsGenerated(internalName = "website:telephone")
@@ -97,8 +87,13 @@ public class Location extends BaseDocument {
         return getLinkedBean("website:imageofsite", HippoGalleryImageSet.class);
     }
 
+    @HippoEssentialsGenerated(internalName = "website:imageofsitealttext")
+    public String getImageOfSiteAltText() {
+        return getProperty("website:imageofsitealttext");
+    }
+
     @HippoEssentialsGenerated(internalName = "website:uniquepropertyreferencenumber")
-    public Long getUniquepropertyreferencenumber() {
+    public String getUniquePropertyReferenceNumber() {
         return getProperty("website:uniquepropertyreferencenumber");
     }
 
@@ -118,8 +113,12 @@ public class Location extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = "website:locationwebsite")
-    public List<?> getLocationwebsite() {
-        return getChildBeansByName("website:locationwebsite");
+    public Externallink getLocationWebsite() {
+        List<Externallink> externalLinkList = getChildBeansByName("website:locationwebsite", Externallink.class);
+        if (externalLinkList != null && !externalLinkList.isEmpty()) {
+            return externalLinkList.get(0);
+        }
+        return null;
     }
 
     @HippoEssentialsGenerated(internalName = "website:threewordskey")
@@ -135,11 +134,6 @@ public class Location extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "website:locopeninghours")
     public List<HippoBean> getLocopeninghours() {
         return getChildBeansByName("website:locopeninghours");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:publictransportroutes")
-    public List<HippoBean> getPublictransportroutes() {
-        return getChildBeansByName("website:publictransportroutes");
     }
 
 }

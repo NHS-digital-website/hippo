@@ -19,6 +19,17 @@ definitions:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /publictransporttype:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              orientation: vertical
+              selectable.options: Train,Tube,Bus,Tram,Air
+            caption: Type of Public Transport
+            field: publictransporttype
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
           /bypublictransporttext:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -27,35 +38,21 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /bypublictransportpicture:
+          /publictransportstations:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: By public transport picture
-            field: bypublictransportpicture
-            hint: This will display as a large picture at the top of your page
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /bypublictransportvideo:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: By public transport video
-            field: bypublictransportvideo
+            caption: Nearest Public Transport Station
+            compoundList: website:publictransportstation
+            contentPickerType: links
+            field: publictransportstations
             hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
+            wicket.skin: skin/content-blocks.css
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /bypublictransportpicture:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:bypublictransportpicture
-            hipposysedit:primary: false
-            hipposysedit:type: hippogallerypicker:imagelink
-            jcr:primaryType: hipposysedit:field
           /bypublictransporttext:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -64,13 +61,22 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
-          /bypublictransportvideo:
+          /publictransportstations:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:publictransportstations
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
+            jcr:primaryType: hipposysedit:field
+          /publictransporttype:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:bypublictransportvideo
+            hipposysedit:path: website:publictransporttype
             hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
+            hipposysedit:type: StaticDropdown
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
