@@ -2,6 +2,9 @@ package uk.nhs.digital.svg.colour;
 
 import static java.text.MessageFormat.format;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,7 +13,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Enumeration;
 import java.util.function.Function;
-
 import javax.net.ssl.HttpsURLConnection;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
@@ -19,13 +21,24 @@ import javax.servlet.http.HttpServletResponse;
 
 public class SvgColourSetterServlet extends HttpServlet {
 
+    private static final Logger log = LoggerFactory.getLogger(SvgColourSetterServlet.class);
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+        String requestUrl = request.getRequestURL().toString();
+
+        log.debug("SvgColourSetterServlet requestURL - " + requestUrl);
+
         //  Set up proxy request
-        String url = request.getRequestURL().toString()
-            .replace("/site/svg-magic", "") // LIVE/TST/UAT/DEV
-            .replace("/svg-magic", ""); // Development
-        HttpURLConnection proxyTarget = getConnection(new URL(url));
+        if (requestUrl.contains("8080")) {
+            // LOCALHOST Site icons AND LIVE/TST/UAT/DEV/TRAINING CMS preview icons
+            requestUrl = requestUrl.replace("/svg-magic", "");
+        } else {
+            // LIVE/TST/UAT/DEV/TRAINING Site icons
+            requestUrl = requestUrl.replace("/site/svg-magic", "");
+        }
+
+        HttpURLConnection proxyTarget = getConnection(new URL(requestUrl));
         forwardRequestHeadersToProxyTarget(request, proxyTarget);
 
         // Send proxy request and capture the response code
