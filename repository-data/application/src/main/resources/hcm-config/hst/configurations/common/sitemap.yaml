@@ -27,6 +27,7 @@ definitions:
           - website:cyberalert
           - website:apiendpoint
           - website:categorylist
+          - website:blog
           hst:componentconfigurationmappingvalues:
           - hst:pages/service
           - hst:pages/general
@@ -49,6 +50,7 @@ definitions:
           - hst:pages/cyberalert
           - hst:pages/apiendpoint
           - hst:pages/categorylist
+          - hst:pages/blog
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404
@@ -74,6 +76,7 @@ definitions:
         - website:cyberalert
         - website:apiendpoint
         - website:categorylist
+        - website:blog
         hst:componentconfigurationmappingvalues:
         - hst:pages/service
         - hst:pages/general
@@ -96,6 +99,7 @@ definitions:
         - hst:pages/cyberalert
         - hst:pages/apiendpoint
         - hst:pages/categorylist
+        - hst:pages/blog
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:

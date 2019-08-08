@@ -43,6 +43,9 @@
 [website:biography] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:blog] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:calltoaction] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 

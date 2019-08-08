@@ -6,6 +6,7 @@
 <#assign pageTitle = 'Home - ' + siteTitle />
 <#assign siteSEOSummary = "We’re the national information and technology partner to the health and social care system using digital technology to transform the NHS and social care" />
 <#assign pageSEOSummary = siteSEOSummary />
+<#assign defaultMetaImage><@hst.webfile path="images/nhs-digital-logo-social.png" fullyQualified=true/></#assign>
 
 <#if document?? && document.title??>
     <#assign pageTitle = document.title + ' - ' + siteTitle />
@@ -15,6 +16,12 @@
 </#if>
 <#if document?? && document.seosummary?? && document.seosummary?has_content>
     <#assign pageSEOSummary = document.seosummary />
+</#if>
+
+<#-- blog lead image to replace default -->
+<#if document?? && document.leadImage?? && document.leadImage?has_content>
+    <@hst.link hippobean=document.leadImage.original fullyQualified=true var="leadImage" />
+    <#assign defaultMetaImage = leadImage />
 </#if>
 
 <#-- Generic meta tags -->
@@ -27,7 +34,7 @@
 <@hst.headContribution keyHint="metaDescription" category="genericMeta">
     <meta name="description" content="${pageSEOSummary}" />
 </@hst.headContribution>
-    
+
 <#-- Facebook OG meta tags -->
 <@hst.headContribution keyHint="facebookMetaTitle" category="facebookMeta">
     <meta property="og:title" content="${pageTitle}" />
@@ -38,6 +45,9 @@
 <@hst.headContribution keyHint="facebookMetaDescription" category="facebookMeta">
     <meta property="og:description" content="${pageSEOSummary}" />
 </@hst.headContribution>
+<@hst.headContribution keyHint="facebookMetaImage" category="facebookMeta">
+    <meta property="og:image" content="${defaultMetaImage}" />
+</@hst.headContribution>
 
 <#-- Twitter meta tags -->
 <@hst.headContribution keyHint="twitterMetaTitle" category="twitterMeta">
@@ -45,6 +55,9 @@
 </@hst.headContribution>
 <@hst.headContribution keyHint="twitterMetaDescription" category="twitterMeta">
     <meta property="og:description" name="twitter:description" content="${pageSEOSummary}" />
+</@hst.headContribution>
+<@hst.headContribution keyHint="twitterMetaImage" category="twitterMeta">
+    <meta property="og:image" name="twitter:image" content="${defaultMetaImage}" />
 </@hst.headContribution>
 
 </#macro>

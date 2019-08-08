@@ -42,6 +42,8 @@
                 <@glossarylist item=document />
             <#elseif document.class.name == "uk.nhs.digital.website.beans.CyberAlert">
                 <@cyberalert item=document />
+            <#elseif document.class.name == "uk.nhs.digital.website.beans.Blog">
+                <@blog item=document />
             </#if>
         </#list>
     </div>
@@ -351,6 +353,18 @@
 <div class="cta cta--detailed" data-uipath="ps.search-results.result">
     <div>
         <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.cyberalert"/></span>
+    </div>
+    <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
+        ${item.title}
+    </a>
+    <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
+</div>
+</#macro>
+
+<#macro blog item>
+<div class="cta cta--detailed" data-uipath="ps.search-results.result">
+    <div>
+        <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.blog"/></span>
     </div>
     <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
         ${item.title}

@@ -23,7 +23,7 @@ public class Person extends CommonFieldsBean {
         PersonalInfo personalInfo = getPersonalinfos();
         String preferredName = personalInfo.getPreferredname();
 
-        if (preferredName != null) {
+        if (!preferredName.isEmpty()) {
             return preferredName;
         }
         return personalInfo.getFirstname() + " " + personalInfo.getLastname();
@@ -110,7 +110,7 @@ public class Person extends CommonFieldsBean {
             .getHippoBeans();
 
         List<T> list = new ArrayList<T>();
-        
+
         while (hippoBeans.hasNext()) {
             list.add( (T) hippoBeans.nextHippoBean());
         }
