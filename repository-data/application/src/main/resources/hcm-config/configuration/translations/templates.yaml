@@ -129,6 +129,11 @@ definitions:
           jcr:name: Biography
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:blog:
+        /en:
+          jcr:name: Blog
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:categorylist:
         /en:
           jcr:name: Category list

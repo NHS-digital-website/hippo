@@ -47,6 +47,7 @@ public class SitePage extends AbstractSitePage {
         pagesElements.add(new LinksListPageElements());
         pagesElements.add(new GdprPageElements());
         pagesElements.add(new GlossaryPageElements());
+        pagesElements.add(new BlogPageElements());
     }
 
     public void openByPageName(final String pageName) {

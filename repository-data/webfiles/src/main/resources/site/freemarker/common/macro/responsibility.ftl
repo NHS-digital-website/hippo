@@ -3,13 +3,13 @@
 <#include "../../include/imports.ftl">
 
   <#macro responsibility resp idsuffix firstname manages="" managedby="">
-    <#if 
+    <#if
      resp?has_content && (resp.responsible?has_content || resp.responsibleforservice?has_content) ||
      manages?has_content ||
      managedby?has_content
     >
       <div id="responsibility-${slugify(idsuffix)}" class="responsibility--div article-section">
-        <h2>Responsibilities</h2> 
+        <h2>Responsibilities</h2>
 
         <#if resp.responsible?has_content>
           <p data-uipath="person.responsibilities">

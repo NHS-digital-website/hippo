@@ -263,6 +263,14 @@ public class TestContentUrls {
         // Glossary page
         addSiteUrl("Glossary test document",
             "/website-acceptance-tests/glossary-test-document");
+
+        // Blog page
+        addSiteUrl("Blog test document 1",
+            "/website-acceptance-tests/blog/blog-test-document-1");
+        addSiteUrl("Blog test document 2",
+            "/website-acceptance-tests/blog/blog-test-document-2");
+        addSiteUrl("Blog test document 3",
+            "/website-acceptance-tests/blog/blog-subfolder/blog-test-document-3");
     }
 
     private void setupCmsUrls() {
