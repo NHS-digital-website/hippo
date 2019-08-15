@@ -104,6 +104,12 @@ definitions:
       /hub-article:
         hst:renderpath: webfile:/freemarker/common/hub-article.ftl
         jcr:primaryType: hst:template
+      /icon-library:
+        hst:renderpath: webfile:/freemarker/common/icon-library.ftl
+        jcr:primaryType: hst:template
+      /icon-library-item:
+        hst:renderpath: webfile:/freemarker/common/icon-library-item.ftl
+        jcr:primaryType: hst:template
       /indicator:
         hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/indicator.ftl
         jcr:primaryType: hst:template

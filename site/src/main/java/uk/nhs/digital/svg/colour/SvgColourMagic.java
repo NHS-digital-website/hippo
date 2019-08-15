@@ -5,7 +5,7 @@ import static java.text.MessageFormat.format;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SvgColourSetter {
+public class SvgColourMagic {
 
     static final Pattern regex = Pattern.compile("#((?:[0-9a-fA-F]{3}){1,2})", Pattern.UNICODE_CASE);
 

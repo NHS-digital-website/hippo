@@ -1,0 +1,194 @@
+.icon-library {
+
+    .emphasis-box-gutter {
+        @include media(desktop) {
+            padding-right: 32px;
+        }
+    }
+
+    .search-form {
+        color: #425563;
+        margin: 1.2em 0 1.48em;
+
+        & > * {
+            vertical-align: middle;
+            display: inline-block;
+        }
+
+        .screen-label {
+            margin-right: 20px;
+        }
+
+        .search-strip__contents {
+            width: auto;
+        }
+    }
+
+    &-container {
+        margin: 1em -16px 3.2em;
+        box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+
+        .icon-box-margin {
+            padding: 16px 16px 20px;
+            box-sizing: border-box;
+            display: flex;
+
+            @include media(mobile) {
+                width: 50%;
+            }
+
+            @include media(tablet) {
+                width: 20%;
+            }
+
+            @include media(desktop) {
+                width: 16.66%;
+            }
+
+            .icon-box {
+                background-color: #F9FAFB;
+                box-shadow: 0 4px 0 0 #DFE2E5;
+                color: #425563;
+                padding: 16px;
+                flex: auto;
+                text-align: center;
+
+                img {
+                    max-width: 100%;
+                    max-height: 190px;
+                    width: 100%;
+                }
+
+                .icon-name {
+                    clear: both;
+                    text-decoration: underline;
+                    color: #005eb8;
+
+                    &::first-letter {
+                        text-transform: uppercase;
+                    }
+                }
+
+                &:hover,
+                &:active,
+                &:focus {
+                    box-shadow: 0 0 0 4px #ffcd60;
+                    background-color: #FFF1CC;
+
+                    .icon-name {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.icon-library-item {
+    @include media(desktop) {
+        .download-image-form {
+            padding-left: 36px;
+        }
+    }
+
+    h1::first-letter {
+        text-transform: uppercase;
+    }
+
+    .base-icon {
+        background-color: #ffffff;
+        margin-bottom: 36px;
+        margin-top: 10px
+    }
+
+    .form-group {
+        margin-bottom: 36px;
+
+        legend {
+            font-size: .9em;
+            font-weight: bold;
+        }
+
+        .radio-item {
+            clear: left;
+            display: block;
+            margin-top: 12px;
+            padding: 0 0 0 40px;
+            position: relative;
+
+            input[type="radio"] {
+                -webkit-appearance: radio;
+                box-sizing: border-box;
+                margin: 3px 3px 0px 5px;
+
+                &.radio-input {
+                    cursor: pointer;
+                    height: 40px;
+                    left: 0;
+                    margin: 0;
+                    opacity: 0;
+                    position: absolute;
+                    top: 0;
+                    width: 40px;
+                    z-index: 1;
+
+                    &:checked + label::after {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            label {
+                -ms-touch-action: manipulation;
+                cursor: pointer;
+                display: inline-block;
+                margin-bottom: 0;
+                padding: 4px 40px 4px 12px;;
+                touch-action: manipulation;
+
+                &::before {
+                    border: 3px solid #005eb8;
+                    border-radius: 50%;
+                    box-sizing: border-box;
+                    content: '';
+                    height: 40px;
+                    left: 0;
+                    position: absolute;
+                    top: 0;
+                    width: 40px;
+                }
+
+                &::after {
+                    border: 10px solid #005eb8;
+                    border-radius: 50%;
+                    content: '';
+                    height: 0;
+                    left: 10px;
+                    opacity: 0;
+                    position: absolute;
+                    top: 10px;
+                    width: 0;
+                }
+            }
+        }
+    }
+
+    .button {
+        &:hover,
+        &:active,
+        &:focus {
+            box-shadow: 0 0 0 4px #ffcd60;
+        }
+    }
+
+    .emphasis-box {
+        margin-left: 10px;
+        margin-top: 64px;
+    }
+}
+
+
+
+
