@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/icon-library-item:
+      /main:
+        hst:componentclassname: uk.nhs.digital.common.components.IconLibraryItemComponent
+        hst:template: icon-library-item
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/apppage
+      jcr:primaryType: hst:component

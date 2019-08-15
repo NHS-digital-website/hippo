@@ -33,7 +33,8 @@
     }
 
     * + li,
-    * + br {
+    * + br,
+    &.no-thanks * + * {
         margin-top: 0;
 
         @include media(tablet) {

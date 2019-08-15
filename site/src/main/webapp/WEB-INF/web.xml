@@ -65,11 +65,13 @@
   <filter>
     <filter-name>XSSUrlFilter</filter-name>
     <filter-class>org.hippoecm.hst.container.XSSUrlFilter</filter-class>
+      <async-supported>true</async-supported>
   </filter>
 
   <filter>
     <filter-name>CharacterEncodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+      <async-supported>true</async-supported>
     <init-param>
       <param-name>encoding</param-name>
       <param-value>UTF-8</param-value>
@@ -83,11 +85,13 @@
   <filter>
     <filter-name>HstFilter</filter-name>
     <filter-class>org.hippoecm.hst.container.HstFilter</filter-class>
+      <async-supported>true</async-supported>
   </filter>
 
   <filter>
     <filter-name>RewriteFilter</filter-name>
     <filter-class>org.onehippo.forge.rewriting.HippoRewriteFilter</filter-class>
+      <async-supported>true</async-supported>
     <!-- sets up log level (will be logged to context log)
      can be: TRACE, DEBUG, INFO (default), WARN, ERROR, FATAL, log4j, commons, slf4j,
      sysout:{level} (ie, sysout:DEBUG)
@@ -239,7 +243,13 @@
 
     <servlet>
         <servlet-name>SvgServlet</servlet-name>
-        <servlet-class>uk.nhs.digital.svg.colour.SvgColourSetterServlet</servlet-class>
+        <servlet-class>uk.nhs.digital.svg.colour.SvgColourMagicServlet</servlet-class>
+        <async-supported>true</async-supported>
+    </servlet>
+
+    <servlet>
+        <servlet-name>IconDownload</servlet-name>
+        <servlet-class>uk.nhs.digital.svg.library.IconDownloadServlet</servlet-class>
     </servlet>
 
   <servlet-mapping>
@@ -280,6 +290,11 @@
     <servlet-mapping>
         <servlet-name>SvgServlet</servlet-name>
         <url-pattern>/svg-magic/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>IconDownload</servlet-name>
+        <url-pattern>/download-icon/*</url-pattern>
     </servlet-mapping>
 
   <security-constraint>

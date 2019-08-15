@@ -13,6 +13,7 @@
         'use strict';
         var section = document.querySelectorAll(".article-section, .article-section-separator, .article-section--summary-separator");
         var sections = { top : 0 };
+        var pageBlocks = document.getElementsByClassName("page-block--main");
 
         const MARGIN_OF_ERROR = 2; //used to 'adjust/falsify' element position for marking while click
 
@@ -55,7 +56,7 @@
               return second[1] - first[1];
             });
 
-            //return first element after sorting by position / which is bottom 
+            //return first element after sorting by position / which is bottom
             // element of the the sticky nav
             return sectionsArray[0][0];
         }
@@ -85,8 +86,10 @@
             }
             marker();
         });
-        new ResizeSensor(document.getElementsByClassName("page-block--main")[0], function(){
-            calculate();
-        });
+        if (pageBlocks.length) {
+            new ResizeSensor(pageBlocks[0], function(){
+                calculate();
+            });
+        }
     })();
 </script>
