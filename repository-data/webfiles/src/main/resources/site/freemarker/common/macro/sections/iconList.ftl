@@ -22,14 +22,26 @@
                     <div class="iconList__icon">
                         <@hst.link hippobean=iconListItem.image.original fullyQualified=true var="iconImage" />
                         <#if iconImage?ends_with("svg")>
-                            <img class="iconList__icon__img" aria-hidden="true"  src="${iconImage?replace("/binaries", "/svg-magic/binaries")}?colour=005EB8" alt="${title}" />
+                            <img class="iconList__icon__img" aria-hidden="true"  src="${iconImage?replace("/binaries", "/svg-magic/binaries")}?colour=005EB8" alt="${section.title}" />
                         <#else>
-                            <img class="iconList__icon__img" aria-hidden="true" src="${iconImage}" alt="${title}" />
+                            <img class="iconList__icon__img" aria-hidden="true" src="${iconImage}" alt="${section.title}" />
                         </#if>
                     </div>
 
                     <div class="iconList__content">
-                        <div class="iconList__title" data-uipath="website.contentblock.iconlistitem.heading">${iconListItem.heading}</div>
+                        <#if iconListItem.itemlink?has_content>
+                          <div class="iconList__title" data-uipath="website.contentblock.iconlistitem.heading">
+                            <#list iconListItem.itemlink as link>
+                              <#if link.linkType == "internal">
+                                <a href="<@hst.link hippobean=link.link />" onClick="logGoogleAnalyticsEvent('Link click','Person','${link.link.title}');" onKeyUp="return vjsu.onKeyUp(event)" title="${iconListItem.heading}">${iconListItem.heading}</a>
+                              <#else>
+                                <a href="${link.link}" onClick="logGoogleAnalyticsEvent('Link click','Person','${link.link}');" onKeyUp="return vjsu.onKeyUp(event)" title="${iconListItem.heading}">${iconListItem.heading}</a>
+                              </#if>
+                            </#list>
+                          </div>
+                        <#else>
+                              <div class="iconList__title" data-uipath="website.contentblock.iconlistitem.heading">${iconListItem.heading}</div>
+                        </#if>
 
                         <div class="iconList__body" data-uipath="website.contentblock.iconlistitem.description">
                             <@hst.html hippohtml=iconListItem.description contentRewriter=gaContentRewriter />
