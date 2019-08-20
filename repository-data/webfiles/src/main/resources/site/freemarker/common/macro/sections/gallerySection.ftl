@@ -3,9 +3,9 @@
 <#include "../fileIconByMimeType.ftl">
 
 <#macro gallerySection section>
-    <div id="${slugify(section.heading)}" class="${(section.headingLevel == 'Main heading')?then('article-section', 'article-header__detail-lines')}">
+    <div id="${slugify(section.heading)}" class="${(section.headingLevel?has_content && section.headingLevel == 'Main heading')?then('article-section', 'article-header__detail-lines')}">
 
-        <#if section.headingLevel == 'Main heading'>
+        <#if section.headingLevel?has_content && section.headingLevel == 'Main heading'>
             <h2 data-uipath="website.contentblock.gallerysection.title">${section.title}</h2>
         <#else>
             <h3 data-uipath="website.contentblock.gallerysection.title">${section.title}</h3>

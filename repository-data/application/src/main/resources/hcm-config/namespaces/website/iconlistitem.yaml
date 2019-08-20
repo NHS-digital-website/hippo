@@ -41,6 +41,17 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /itemlink:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Item links
+            compoundList: website:externallink,website:internallink
+            contentPickerType: links
+            field: itemlink
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.left.item
           /description:
             /cluster.options:
               ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
@@ -91,6 +102,14 @@ definitions:
             hipposysedit:type: hippogallerypicker:imagelink
             hipposysedit:validators:
             - required
+            jcr:primaryType: hipposysedit:field
+          /itemlink:
+            hipposysedit:multiple: false
+            hipposysedit:ordered: true
+            hipposysedit:path: website:itemlink
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:

@@ -6,6 +6,7 @@ import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
+import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "website:iconlistitem")
 @Node(jcrType = "website:iconlistitem")
@@ -24,6 +25,11 @@ public class IconListItem extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "website:description")
     public HippoHtml getDescription() {
         return getHippoHtml("website:description");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:itemlink")
+    public List<?> getItemlink() {
+        return getChildBeansByName("website:itemlink");
     }
 
 }
