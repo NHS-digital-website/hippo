@@ -29,6 +29,50 @@
 		return maxCols;
 	}
 
+  function isNumeric(num){
+    return !isNaN(num)
+  }
+
+  function validateColumnControl ( ) {
+		return function() {
+      var pass = true;
+
+			var value = this.getValue().trim();
+      if (value == null || value == "") {
+        //allow empty value
+        return true;
+      }
+
+      var widthValues = value.split(',').filter(elem => elem);
+
+      var columnsNumber = this.getDialog().getContentElement( 'info', 'txtCols' );
+      //validate that number of columns is equal number of coma separated values
+      if (widthValues.length != columnsNumber.getValue() ) {
+        pass = false; 
+      } else {
+
+        var sum = 0;
+        for (var i = 0; i < widthValues.length; i++) {
+          //validate that values are integers and higher than 0
+          pass = isNumeric(widthValues[i]) && Number(widthValues[i]) > 0;
+          if ( !pass ) {
+            break;
+          } else {
+            sum += Number(widthValues[i]);
+          }
+        }
+
+        //if we still passed previous criteria - validate that sum is 100
+        if ( pass ) { pass = sum == 100 };
+      }
+
+      if ( !pass ) {
+        alert( "'Column with control' must be empty or coma separated non-0 numbers which sum is equal to 100 and number is equal to number of columns (ex. '80,20' for 2 columns or '30,30,40' for 3 columns)" ); // jshint ignore:line
+        this.select();
+      }
+      return pass;
+    };
+  }
 
 	// Whole-positive-integer validator.
 	function validatorNum( msg ) {
@@ -248,6 +292,31 @@
 					} catch ( er ) {
 					}
 				}
+
+        if (data.info) {
+              var widthValues = data.info.txtColumnWidthControl;
+              trElems = table.getElementsByTag( 'tr' );
+              if (trElems.count() > 0) {
+
+                var thElems = trElems.getItem (0).getElementsByTag ('th');
+                var tdElems = trElems.getItem (0).getElementsByTag ('td');
+                var elemsCount = thElems.count() + tdElems.count();
+
+                for (var i = 0; i < elemsCount; i++) {
+                  idx = i;
+                  if (i >= thElems.count()) {
+                    idx = i-thElems.count();
+                    td = tdElems.getItem(idx);
+                  } else {
+                    td = thElems.getItem(i);
+                  }
+                  //widthValues syntax is validated in 'validate' for
+                  //txtColumnWidthControl, so we can split safetly here
+                  widthValues ? td.setStyle('width', widthValues.split(',')[i] + "%") : td.removeStyle('width');
+                }
+              }
+        }
+
 			},
 			contents: [ {
 				id: 'info',
@@ -534,6 +603,46 @@
 									captionElement.getItem( i ).remove();
 							}
 						}
+					},
+					{
+						type: 'text',
+						id: 'txtColumnWidthControl',
+						bidi: true,
+						requiredContent: 'td',
+						label: 'Column width control',
+            validate: validateColumnControl(),
+						setup: function( selectedTable ) {
+              var value = "";
+              trElems = selectedTable.getElementsByTag( 'tr' );
+              if (trElems.count() > 0) {
+
+                var thElems = trElems.getItem(0).getElementsByTag ('th');
+                var tdElems = trElems.getItem(0).getElementsByTag ('td');
+                var elemsCount = thElems.count() + tdElems.count();
+
+                for (i = 0; i < elemsCount; i++) {
+
+                  idx = i;
+                  if (i >= thElems.count()) {
+                    idx = i-thElems.count();
+                    td = tdElems.getItem(idx);
+                  } else {
+                    td = thElems.getItem(i);
+                  }
+
+                  width = td.getStyle('width');
+                  if (width) {
+                    value += width.replace(/%/, "");
+                    if (i != elemsCount - 1) {
+                      value += ",";
+                    }
+                  }
+                }
+
+              }
+              this.setValue(value);
+						},
+						commit: commitValue
 					},
 					{
 						type: 'text',
