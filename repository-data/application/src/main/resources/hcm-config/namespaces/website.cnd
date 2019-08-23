@@ -46,6 +46,9 @@
 [website:blog] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:bloghub] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:calltoaction] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 

@@ -200,7 +200,7 @@
                 </#if>
 
                 <#if document.relatedDocuments?has_content>
-                  <@relatedarticles "Event" document.relatedDocuments false></@relatedarticles>
+                  <@relatedarticles document.relatedDocuments "Event" false></@relatedarticles>
                 </#if>
 
             </div>

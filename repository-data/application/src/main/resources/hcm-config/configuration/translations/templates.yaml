@@ -134,6 +134,11 @@ definitions:
           jcr:name: Blog
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:bloghub:
+        /en:
+          jcr:name: Blog Hub
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:categorylist:
         /en:
           jcr:name: Category list

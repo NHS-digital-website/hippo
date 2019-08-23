@@ -57,7 +57,7 @@
 
                 
                 <#if document.relateddocuments?has_content>
-                  <@relatedarticles "News" document.relateddocuments false></@relatedarticles>
+                  <@relatedarticles document.relateddocuments "News" false></@relatedarticles>
                 </#if>
 
             </div>
