@@ -12,8 +12,10 @@
     <#assign custom_summary = summary />
     <#assign hasDocumentSummary = false />
     <#if ! custom_summary?has_content >
-      <#assign custom_summary = document.summary />
       <#assign hasDocumentSummary = document.summary?? && document.summary.content?has_content />
+      <#if hasDocumentSummary >
+        <#assign custom_summary = document.summary />
+      </#if>
     </#if>
 
     <#assign hasPageIcon = icon?has_content />
