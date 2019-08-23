@@ -33,7 +33,8 @@
         "API Master":                   "uk.nhs.digital.website.beans.ApiMaster",
         "Person":                       "uk.nhs.digital.website.beans.Person",
         "Location":                     "uk.nhs.digital.website.beans.Location",
-        "API Endpoint":                 "uk.nhs.digital.website.beans.ApiEndpoint"
+        "API Endpoint":                 "uk.nhs.digital.website.beans.ApiEndpoint",
+        "BlogHub":                      "uk.nhs.digital.website.beans.BlogHub"
     }/>
 
     <#list docTypes?keys as key>
