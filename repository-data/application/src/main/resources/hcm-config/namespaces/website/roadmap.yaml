@@ -71,7 +71,7 @@ definitions:
           /granularity:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Monthly,Quarterly,Yearly
+              selectable.options: Precise date,Monthly,Quarterly,Yearly
             caption: Roadmap granularity
             field: granularity
             hint: ''

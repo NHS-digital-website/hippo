@@ -12,8 +12,8 @@ import java.util.List;
 public class RoadmapItem extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:categorylink")
-    public HippoBean getCategoryLink() {
-        return getBean("website:categorylink", HippoBean.class);
+    public List<HippoBean> getCategoryLink() {
+        return getLinkedBeans("website:categorylink", HippoBean.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:impactedservices")

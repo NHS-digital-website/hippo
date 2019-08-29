@@ -136,7 +136,7 @@ definitions:
         /hipposysedit:nodetype:
           /categorylink:
             hipposysedit:mandatory: false
-            hipposysedit:multiple: false
+            hipposysedit:multiple: true
             hipposysedit:ordered: true
             hipposysedit:path: website:categorylink
             hipposysedit:primary: false
