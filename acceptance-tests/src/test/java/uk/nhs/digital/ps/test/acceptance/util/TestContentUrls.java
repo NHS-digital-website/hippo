@@ -32,7 +32,6 @@ public class TestContentUrls {
 
     public String lookupSiteUrl(String pageName) {
         final String lowerCasedPageName = pageName.toLowerCase();
-
         if (!siteUrlLookup.containsKey(lowerCasedPageName)) {
             throw new RuntimeException("Unknown pageName: " + pageName);
         }
@@ -271,6 +270,14 @@ public class TestContentUrls {
             "/website-acceptance-tests/blog/blog-test-document-2");
         addSiteUrl("Blog test document 3",
             "/website-acceptance-tests/blog/blog-subfolder/blog-test-document-3");
+
+        // Roadmap page
+        addSiteUrl("Roadmap",
+            "/website-acceptance-tests/roadmap-test-document/content");
+        addSiteUrl("Roadmap item 1",
+            "/website-acceptance-tests/roadmap-test-document/roadmap-item-1");
+        addSiteUrl("Roadmap item 2",
+            "/website-acceptance-tests/roadmap-test-document/roadmap-item-2");
     }
 
     private void setupCmsUrls() {

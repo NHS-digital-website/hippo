@@ -42,6 +42,8 @@ public class SitePage extends AbstractSitePage {
         pagesElements.add(new GeneralPageElements());
         pagesElements.add(new ContentBlockElements());
         pagesElements.add(new ServicePageElements());
+        pagesElements.add(new RoadmapPageElements());
+        pagesElements.add(new RoadmapItemPageElements());
         pagesElements.add(new HubPageElements());
         pagesElements.add(new PublishedWorkPageElements());
         pagesElements.add(new LinksListPageElements());

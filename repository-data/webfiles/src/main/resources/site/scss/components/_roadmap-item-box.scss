@@ -1,21 +1,55 @@
 /* Roadmap Item box list */
 .roadmapitem-box {
-  display: block;
-  width: 40%;
-  float:left;
-  margin-right:50px;
-  border: 22px solid #F4F5F7;
-  @media (max-width: $wide-desktop-width) {
-    & {
-      width: 100%; }
-  }}
-  .roadmapitem-box .hub-box__contents {
-    margin-top: 0;
-    padding: 20px 20px 15px; }
-  .roadmapitem-box .hub-box__text {
-    margin-top: 16px; }
-  .roadmapitem-box .tag-list {
-    margin-top: 16px; }
-  @media (max-width: 641px) {
-    .hub-box {
-      border-width: 12px; } }
+    border: 4px solid #E5E9EC;
+    padding: 20px;
+
+    .cta__text {
+        margin-top: 8px
+    }
+
+    .align-middle {
+        vertical-align: middle;
+
+        .roadmap-status-icon {
+            width: 1.2em;
+            display: inline;
+            margin-right: -0.2em;
+        }
+    }
+}
+
+.radio-item {
+    display: block;
+    position: relative;
+    padding: 4px 45px;
+    margin-bottom: 12px;
+    margin-top: 0 !important;
+
+    &.selected {
+        cursor: default;
+
+        .radio-input::after {
+            border: 10px solid #005eb8;
+            border-radius: 50%;
+            content: '';
+            height: 0;
+            left: 10px;
+            position: absolute;
+            top: 10px;
+            width: 0;
+        }
+    }
+
+    .radio-input::before {
+        border: 3px solid #005eb8;
+        border-radius: 50%;
+        box-sizing: border-box;
+        content: '';
+        height: 40px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 40px;
+    }
+
+}
