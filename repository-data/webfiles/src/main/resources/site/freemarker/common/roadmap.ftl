@@ -164,7 +164,6 @@
                             <div class="grid-row">
                                 <h2>${getDisplayDate(key)?keep_before(" ")}</h2>
                                 <#list groupedDatesHash[key] as item>
-
                                     <#assign itemData = { "title": item.title, "text": item.shortsummary } />
 
                                     <@hst.link hippobean=item var="itemLink" />
@@ -176,7 +175,6 @@
                                     <#assign itemData += { "monthsDuration": item.effectiveDate.getMethodNames(startdate, enddate)} />
                                     <@roadmapItemBox itemData></@roadmapItemBox>
                                 </#list>
-
                             </div>
                         </div>
                 </#list>
