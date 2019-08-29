@@ -1,64 +1,36 @@
 <#ftl output_format="HTML">
+<#-- @ftlvariable name="dateFm" type="uk.nhs.digital.website.beans.EffectiveDate" -->
 <#include "../../include/imports.ftl">
 
 <#macro roadmapItemBox options>
     <#if options??>
-        <article class="roadmapitem-box ${(options.light??)?then('hub-box--light', '')}">
+        <div class="article-section-with-no-heading expander expander-some">
+            <details>
+                <summary><span data-uipath="website.roadmap.${options.title}">${options.title}</span></summary>
+                    <div class="details-body">
 
-            <div class="hub-box__contents">
-                <#if options.title??>
-                    <h3 class="hub-box__title">
-                        <#if options.link??>
-                            <a href="${options.link}">
-                        </#if>
-                        ${options.title}
-                        <#if options.link??>
-                            </a>
-                        </#if>
-                    </h3>
-                </#if>
+                        <h3><#if options.link??><a href="${options.link}"></#if><span data-uipath="website.roadmapitem.link.${options.title}">${options.title}</span><#if options.link??></a></#if></h3>
 
-                <#if options.text??>
-                    <p class="hub-box__text">${options.text}</p>
-                </#if>
 
-                <table>
-                    <tbody>
-                        <#if options.status??>
-                            <tr>
-                                <td class="strong">Status</td>
-                                <td><span class="hub-box__meta">${options.status}</span></td>
-                            </tr>
+                        <#if options.text??>
+                            <p >${options.text}</p>
                         </#if>
 
-                        <#if options.date??>
-                            <tr>
-                                <td class="strong">Effective</td>
-                                <td><span class="hub-box__meta">${options.date}</span></td>
-                            </tr>
+                        <#if options.category??>
+                         <#list options.category as category>
+                            <div ><span>${category.name?cap_first}</span></div>
+                         </#list>
                         </#if>
 
-                        <#if options.standards??>
-                            <tr>
-                                <td class="strong">Standards</td>
-                                <td>
-                                    <#list options.standards as standard>
-                                        <span class="hub-box__meta"><a href="${standard.webLink}">${standard.referenceNumber}</a></span><#sep>,
-                                    </#list>
-                                </td>
-                            </tr>
+                        <#if options.monthsDuration?? && options.monthsDuration?has_content >
+                           <div class="months-display"
+                            <#list options.monthsDuration as months>
+                                <span>${months}</span><#sep> |
+                             </#list>
+                           </div>
                         </#if>
-                    </tbody>
-                </table>
-
-                <#if options.markers??>
-                    <ul class="tag-list">
-                        <#list options.markers as marker>
-                            <li class="tag">${marker}</li>
-                        </#list>
-                    </ul>
-                </#if>
-            </div>
-        </article>
+                    </div>
+            </details>
+        </div>
     </#if>
 </#macro>

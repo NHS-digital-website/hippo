@@ -47,7 +47,7 @@
                         <div class="column column--reset">
                             <dl class="detail-list">
                                 <dt class="detail-list__key">${effectiveDateHeader}</dt>
-                                <dd class="detail-list__value">
+                                <dd class="detail-list__value"  data-uipath="roadmapitem.effectiveDateValue">
                                     <@fmt.formatDate value=document.effectiveDate.startDate.time type="Date" pattern="dd MMMM yyyy" var="startdate" timeZone="${getTimeZone()}" />
                                     <@fmt.formatDate value=document.effectiveDate.endDate.time type="Date" pattern="dd MMMM yyyy" var="enddate" timeZone="${getTimeZone()}" />
                                     ${startdate} to ${enddate} (${effectivedatestatus[document.effectiveDate.status]})
@@ -60,7 +60,7 @@
                         <div class="column column--reset">
                             <dl class="detail-list">
                                 <dt class="detail-list__key">${standardsHeader}</dt>
-                                <dd class="detail-list__value">
+                                <dd class="detail-list__value" data-uipath="roadmapitem.standardValue">
 
                                     <#if hasStandards>
                                         <#list document.standards as standard>
@@ -98,7 +98,7 @@
                 <#if hasSummaryContent>
                     <div id="${slugify(summaryHeader)}" class="article-section article-section--summary article-section--reset-top">
                         <h2>${summaryHeader}</h2>
-                        <div data-uipath="website.general.summary" class="article-section--summary"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></div>
+                        <div data-uipath="roadmapitem.summary" class="article-section--summary"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></div>
                     </div>
                 </#if>
 

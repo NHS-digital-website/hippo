@@ -19,3 +19,17 @@
   @media (max-width: 641px) {
     .hub-box {
       border-width: 12px; } }
+
+
+.months-display {
+  clear: both;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 14px;
+  line-height: 20px;
+
+  display: inline-block;
+  padding: 0 05px 10px 0;
+  border-bottom: $baseline-grid-unit solid #CBCBCB;
+}

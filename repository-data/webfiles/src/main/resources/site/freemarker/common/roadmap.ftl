@@ -1,10 +1,13 @@
 <#ftl output_format="HTML">
+<#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Roadmap" -->
+
 <#include "../include/imports.ftl">
 <#include "../common/macro/sections/sections.ftl">
 <#include "macro/sectionNav.ftl">
 <#include "macro/roadmapItemBox.ftl">
 <#include "macro/tagNav.ftl">
 <#include "macro/metaTags.ftl">
+
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -19,7 +22,7 @@
 <#assign monthYearGroupHash = {} />
 <#assign yearGroupHash = {} />
 
-<#list roadmapitems.hippoBeans as item>
+<#list document.item as item>
     <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="yyyy-MM" var="monthYear" timeZone="${getTimeZone()}" />
     <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="yyyy" var="year" timeZone="${getTimeZone()}" />
     <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="MM" var="month" timeZone="${getTimeZone()}" />
@@ -29,6 +32,7 @@
     <#assign yearGroupHash = yearGroupHash + {  year : (yearGroupHash[year]![]) + [ item ] } />
     <#assign quarterGroupHash = quarterGroupHash + {  quarter : (quarterGroupHash[quarter]![]) + [ item ] } />
 </#list>
+
 
 <#if interval == "Monthly">
     <#assign groupedDatesHash = monthYearGroupHash />
@@ -77,7 +81,7 @@
     <#assign links = [] />
     <#list groupedDatesHash?keys?sort as k>
         <#assign displayDate= getDisplayDate(k) />
-        <#assign links += [{ "url": "#" + slugify(displayDate), "title": displayDate, "aria-label": "Jump to items starting in ${displayDate}" }] />
+        <#assign links += [{ "url": "#" + slugify(displayDate), "title": displayDate }] />
     </#list>
     <#return links />
 </#function>
@@ -85,10 +89,12 @@
 
 <#--Group the events by type  -->
 <#assign typeGroupHash = {} />
-<#list roadmapitems.hippoBeans as item>
+<#list document.item as item>
+   <#if item.markers?? >
     <#list item.markers as type>
         <#assign typeGroupHash = typeGroupHash + {  type : (typeGroupHash[type]![]) + [ item ] } />
     </#list>
+   </#if>
 </#list>
 
 <#-- Return the filter navigation links for the type -->
@@ -104,7 +110,7 @@
 </#function>
 
 
-<#assign sectionTitlesFound = countSectionTitles(roadmapitems.hippoBeans) />
+<#assign sectionTitlesFound = countSectionTitles(document.item) />
 <@fmt.message key="headers.about-this-publication" var="aboutThisPublicationHeader" />
 
 <article class="article article--latest-events" aria-label="Document Header">
@@ -120,7 +126,7 @@
 
                     <div class="detail-list-grid">
                         <div class="grid-row">
-                            <div class="column column--reset">
+                            <div class="column column--reset" data-uipath="website.roadmap.summary">
                                 <@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/>
                             </div>
                         </div>
@@ -135,51 +141,34 @@
         <div class="grid-row">
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
                 <div id="sticky-nav">
-                    <@sectionNav getSectionNavLinks()></@sectionNav>
-
-                    <#if getFilterNavLinks()?size gt 0>
-                        <@tagNav getFilterNavLinks() "" "Filter by type" "type" selectedTypes></@tagNav>
-                    </#if>
+                    <#assign links = getSectionNavLinks() />
+                    <@sectionNav links=links ></@sectionNav>
                 </div>
             </div>
 
             <div class="column column--two-thirds page-block page-block--main">
                 <#list groupedDatesHash?keys?sort as key>
-                    <div class="grid-row">
-                        <div class="column column--reset">
-                            <div class="cta-list hub-box-list">
-                                <div class="article-section article-section--letter-group no-border">
-                                    <div class="grid-row" id="${slugify(getDisplayDate(key))}">
-                                        <h2>${getDisplayDate(key)}</h2>
+                        <div id="${slugify(getDisplayDate(key))}" class="article-section article-section--letter-group--highlighted">
+                            <div class="grid-row">
+                                <h2>${getDisplayDate(key)?keep_before(" ")}</h2>
+                                <#list groupedDatesHash[key] as item>
 
-                                        <#list groupedDatesHash[key] as item>
+                                    <#assign itemData = { "title": item.title, "text": item.shortsummary } />
 
-                                            <#assign itemData = { "title": item.title, "text": item.shortsummary } />
+                                    <@hst.link hippobean=item var="itemLink" />
+                                    <#assign itemData += { "link": itemLink } />
 
-                                            <@hst.link hippobean=item var="itemLink" />
-                                            <#assign itemData += { "link": itemLink } />
+                                    <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="MMM-yyyy" var="startdate" timeZone="${getTimeZone()}" />
+                                    <@fmt.formatDate value=item.effectiveDate.endDate.time type="Date" pattern="MMM-yyyy" var="enddate" timeZone="${getTimeZone()}" />
+                                    <#assign itemData += { "category": item.categoryLink } />
+                                    <#assign itemData += { "monthsDuration": item.effectiveDate.getMethodNames(startdate, enddate)} />
+                                    <@roadmapItemBox itemData></@roadmapItemBox>
+                                </#list>
 
-                                            <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="MMMM yyyy" var="startdate" timeZone="${getTimeZone()}" />
-                                            <#assign itemData += { "status": effectivedatestatus[item.effectiveDate.status], "date": startdate } />
-                                            <#assign itemData += { "standards": item.standards } />
-
-                                            <#assign markers = [] />
-                                            <#list item.markers as marker>
-                                                <#assign markers += [roadmapcategories[marker]] />
-                                            </#list>
-                                            <#assign itemData += { "markers": markers } />
-
-                                            <@roadmapItemBox itemData></@roadmapItemBox>
-                                        </#list>
-
-                                    </div>
-                                </div>
                             </div>
                         </div>
-                    </div>
                 </#list>
             </div>
-
         </div>
     </div>
 </article>
