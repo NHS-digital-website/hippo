@@ -1,0 +1,72 @@
+
+.definedterm {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+  border: 3px solid;
+  padding: 2px 5px 2px 5px;
+  margin: 2px;
+  border-radius: 5px;
+
+  &-must {
+    @extend .definedterm;
+    color: $green; 
+    border-color: $green; 
+  }
+
+  &-should {
+    @extend .definedterm;
+    color: $col-primary; 
+    border-color: $col-primary; 
+  }
+
+  &-could {
+    @extend .definedterm;
+    color: $grey-9; 
+    border-color: $grey-9; 
+  }
+
+  &-will-not {
+    @extend .definedterm;
+    color: $red; 
+    border-color: $red; 
+  }
+
+  &-live {
+    @extend .definedterm;
+    border: none;
+    border-radius: 0;
+
+    color: $white;
+    background-color: $green;
+
+  }
+
+  &-alpha {
+    @extend .definedterm-live;
+    color: $col-20;
+    background-color: $col-24;
+  }
+
+  &-beta {
+    @extend .definedterm-live;
+    color: $col-20;
+    background-color: $yellow;
+  }
+
+  &-discovery {
+    @extend .definedterm-live;
+    background-color: $col-23;
+  }
+
+  &-experimental {
+    @extend .definedterm-live;
+    background-color: $col-25;
+  }
+
+  &-release-candidate {
+    @extend .definedterm-live;
+    background-color: $col-26;
+  }
+}

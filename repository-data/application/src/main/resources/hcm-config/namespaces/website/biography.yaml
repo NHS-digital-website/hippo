@@ -35,14 +35,6 @@ definitions:
             wicket.id: ${cluster.id}.right
           /profbiography:
             /cluster.options:
-              ckeditor.config.appended.json: '{toolbarGroups: [{ name: ''document''}],
-                extraPlugins: ''balloonpanel,a11ychecker'', allowedContent: ''h2 h3
-                h4 code em strong ul div thead tbody td tr th caption ol li sub sup
-                abbr dfn img a[*](*);p{text-align};table[class,id,dir,data-disablesort]{*};td[align,valign]{*};thead[align,valign]{*};tr[align,valign]{*};th[align,valign]{*};iframe[id,class,style,title,height,name,src,width,allowfullscreen,sandbox,srcdoc]{*}'',
-                disallowedContent: ''iframe[frameborder];abbr[title,id,class];td[,axis,bgcolor,char,charoff,height,nowrap,scope,width,colspan,rowspan];tr[axis,bgcolor,char,charoff,height,nowrap,width,colspan,rowspan];thead[axis,charoff];p[align]'',
-                mathJaxLib: ''https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML''}}'
-              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:
-                ''wordcount,mathjax'', stylesSet: ''nhsdStyle:./nhsdStyles.js''}'
               jcr:primaryType: frontend:pluginconfig
             caption: Professional biography
             field: profbiography
@@ -53,14 +45,6 @@ definitions:
             wicket.id: ${cluster.id}.left.item
           /prevpositions:
             /cluster.options:
-              ckeditor.config.appended.json: '{toolbarGroups: [{ name: ''document''}],
-                extraPlugins: ''balloonpanel,a11ychecker'', allowedContent: ''h2 h3
-                h4 code em strong ul div thead tbody td tr th caption ol li sub sup
-                abbr dfn img a[*](*);p{text-align};table[class,id,dir,data-disablesort]{*};td[align,valign]{*};thead[align,valign]{*};tr[align,valign]{*};th[align,valign]{*};iframe[id,class,style,title,height,name,src,width,allowfullscreen,sandbox,srcdoc]{*}'',
-                disallowedContent: ''iframe[frameborder];abbr[title,id,class];td[,axis,bgcolor,char,charoff,height,nowrap,scope,width,colspan,rowspan];tr[axis,bgcolor,char,charoff,height,nowrap,width,colspan,rowspan];thead[axis,charoff];p[align]'',
-                mathJaxLib: ''https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML''}}'
-              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:
-                ''wordcount,mathjax'', stylesSet: ''nhsdStyle:./nhsdStyles.js''}'
               jcr:primaryType: frontend:pluginconfig
             caption: Previous positions / experience
             field: prevpositions
@@ -71,14 +55,6 @@ definitions:
             wicket.id: ${cluster.id}.left.item
           /nonnhspositions:
             /cluster.options:
-              ckeditor.config.appended.json: '{toolbarGroups: [{ name: ''document''}],
-                extraPlugins: ''balloonpanel,a11ychecker'', allowedContent: ''h2 h3
-                h4 code em strong ul div thead tbody td tr th caption ol li sub sup
-                abbr dfn img a[*](*);p{text-align};table[class,id,dir,data-disablesort]{*};td[align,valign]{*};thead[align,valign]{*};tr[align,valign]{*};th[align,valign]{*};iframe[id,class,style,title,height,name,src,width,allowfullscreen,sandbox,srcdoc]{*}'',
-                disallowedContent: ''iframe[frameborder];abbr[title,id,class];td[,axis,bgcolor,char,charoff,height,nowrap,scope,width,colspan,rowspan];tr[axis,bgcolor,char,charoff,height,nowrap,width,colspan,rowspan];thead[axis,charoff];p[align]'',
-                mathJaxLib: ''https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML''}}'
-              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:
-                ''wordcount,mathjax'', stylesSet: ''nhsdStyle:./nhsdStyles.js''}'
               jcr:primaryType: frontend:pluginconfig
             caption: Non NHS Digital positions / awards
             field: nonnhspositions
@@ -89,14 +65,6 @@ definitions:
             wicket.id: ${cluster.id}.left.item
           /additionalbiography:
             /cluster.options:
-              ckeditor.config.appended.json: '{toolbarGroups: [{ name: ''document''}],
-                extraPlugins: ''balloonpanel,a11ychecker'', allowedContent: ''h2 h3
-                h4 code em strong ul div thead tbody td tr th caption ol li sub sup
-                abbr dfn img a[*](*);p{text-align};table[class,id,dir,data-disablesort]{*};td[align,valign]{*};thead[align,valign]{*};tr[align,valign]{*};th[align,valign]{*};iframe[id,class,style,title,height,name,src,width,allowfullscreen,sandbox,srcdoc]{*}'',
-                disallowedContent: ''iframe[frameborder];abbr[title,id,class];td[,axis,bgcolor,char,charoff,height,nowrap,scope,width,colspan,rowspan];tr[axis,bgcolor,char,charoff,height,nowrap,width,colspan,rowspan];thead[axis,charoff];p[align]'',
-                mathJaxLib: ''https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML''}}'
-              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:
-                ''wordcount,mathjax'', stylesSet: ''nhsdStyle:./nhsdStyles.js''}'
               jcr:primaryType: frontend:pluginconfig
             caption: Additional biography summary
             field: additionalbiography
@@ -107,14 +75,6 @@ definitions:
             wicket.id: ${cluster.id}.left.item
           /personalbiography:
             /cluster.options:
-              ckeditor.config.appended.json: '{toolbarGroups: [{ name: ''document''}],
-                extraPlugins: ''balloonpanel,a11ychecker'', allowedContent: ''h2 h3
-                h4 code em strong ul div thead tbody td tr th caption ol li sub sup
-                abbr dfn img a[*](*);p{text-align};table[class,id,dir,data-disablesort]{*};td[align,valign]{*};thead[align,valign]{*};tr[align,valign]{*};th[align,valign]{*};iframe[id,class,style,title,height,name,src,width,allowfullscreen,sandbox,srcdoc]{*}'',
-                disallowedContent: ''iframe[frameborder];abbr[title,id,class];td[,axis,bgcolor,char,charoff,height,nowrap,scope,width,colspan,rowspan];tr[axis,bgcolor,char,charoff,height,nowrap,width,colspan,rowspan];thead[axis,charoff];p[align]'',
-                mathJaxLib: ''https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML''}}'
-              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:
-                ''wordcount,mathjax'', stylesSet: ''nhsdStyle:./nhsdStyles.js''}'
               jcr:primaryType: frontend:pluginconfig
             caption: Personal biography summary
             field: personalbiography
