@@ -3,6 +3,11 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:workspace/hst:containers:
       /homepage:
+        /homepage-blog:
+          .meta:residual-child-node-category: content
+          hst:label: Blog
+          hst:xtype: HST.vBox
+          jcr:primaryType: hst:containercomponent
         /homepage-bottom:
           jcr:primaryType: hst:containercomponentfolder
         /homepage-center:

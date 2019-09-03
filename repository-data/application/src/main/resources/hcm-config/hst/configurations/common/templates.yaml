@@ -95,6 +95,12 @@ definitions:
       /homeland:
         hst:renderpath: webfile:/freemarker/common/homeland.ftl
         jcr:primaryType: hst:template
+      /homeland-bloglist:
+        hst:renderpath: webfile:/freemarker/common/homeland-bloglist.ftl
+        jcr:primaryType: hst:template
+      /homeland-bottom-intro:
+        hst:renderpath: webfile:/freemarker/common/document-list/about-intro.ftl
+        jcr:primaryType: hst:template
       /hub-article:
         hst:renderpath: webfile:/freemarker/common/hub-article.ftl
         jcr:primaryType: hst:template

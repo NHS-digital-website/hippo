@@ -1,5 +1,12 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
+<@hst.setBundle basename="homepage.website.labels"/>
+
+<@fmt.message key="data-and-information.title" var="dataAndInformationSectionTitle"/>
+
+<div class="article-section__header">
+    <h2>${dataAndInformationSectionTitle}</h2>
+</div>
 
 <#if pageable?? && pageable.items?has_content>
     <div class="cta-list cta-list--grid cta-list--fitted-grid cta-list--data-and-information">

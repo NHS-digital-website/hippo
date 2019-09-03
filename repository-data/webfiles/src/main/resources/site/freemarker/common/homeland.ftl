@@ -7,10 +7,6 @@
 
 <@hst.setBundle basename="homepage.website.labels"/>
 <@fmt.message key="data-and-information.title" var="dataAndInformationSectionTitle"/>
-<@fmt.message key="about-us.title" var="aboutUsSectionTitle"/>
-<@fmt.message key="about-us.text" var="aboutUsSectionText"/>
-<@fmt.message key="systems-and-services.title" var="systemsAndServicesTitle"/>
-<@fmt.message key="systems-and-services.text" var="systemsAndServicesText"/>
 
 <div>
   <@hst.include ref="top"/>
@@ -18,36 +14,34 @@
 
 <div class="page-block">
     <div class="grid-wrapper grid-wrapper--article">
+
+        <#-- [FTL-BEGIN] 'Blog latest' section -->
+            <@hst.include ref="blog"/>
+        <#-- [FTL-END] 'Blog latest' section -->
+
+
         <#-- [FTL-BEGIN] 'Data and information' section -->
-        <div class="article-section article-section--data-and-information article-section--padded">
-            <div class="article-section__header">
-                <h2>${dataAndInformationSectionTitle}</h2>
-            </div>
-            
+        <div class="article-section--data-and-information">
             <div class="article-section__contents">
                 <@hst.include ref="center"/>
             </div>
         </div>
         <#-- [FTL-END] 'Data and information' section -->
 
+
         <#-- [FTL-BEGIN] 'Systems and Services' section -->
         <div class="article-section">
-            <div class="article-section__header">
-                <h2>${systemsAndServicesTitle}</h2>
-                <p>${systemsAndServicesText}</p>
-            </div>
-
             <div class="article-section__contents">
                 <@hst.include ref="center-2"/>
             </div>
         </div>
         <#-- [FTL-END] 'Systems and Services' section -->
 
+
         <#-- [FTL-BEGIN] 'About us' section -->
         <div class="article-section article-section--about-us">
             <div class="article-section__header">
-                <h2>${aboutUsSectionTitle}</h2>
-                <p>${aboutUsSectionText}</p>
+                <@hst.include ref="bottom-intro"/>
             </div>
 
             <div class="article-section__contents">
@@ -66,6 +60,7 @@
         </div>
         <#-- [FTL-END] 'About us' section -->
 
+
         <#-- [FTL-BEGIN] 'Information box' section -->
         <div class="article-section article-section--reset-top">
             <div class="article-section__contents">
@@ -73,5 +68,6 @@
             </div>
         </div>
         <#-- [FTL-END] 'Information box' section -->
+
     </div>
 </div>

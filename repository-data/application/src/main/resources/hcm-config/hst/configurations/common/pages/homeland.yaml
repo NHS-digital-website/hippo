@@ -3,14 +3,14 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:pages/homeland:
       /main:
-        /bottom:
-          hst:referencecomponent: homepage/homepage-bottom/header
+        /blog:
+          hst:referencecomponent: homepage/homepage-blog
           jcr:primaryType: hst:containercomponentreference
         /bottom-center:
           hst:referencecomponent: homepage/homepage-bottom/center
           jcr:primaryType: hst:containercomponentreference
-        /bottom-header:
-          hst:referencecomponent: homepage/homepage-bottom/header
+        /bottom-intro:
+          hst:referencecomponent: homepage/homepage-bottom/about
           jcr:primaryType: hst:containercomponentreference
         /bottom-left:
           hst:referencecomponent: homepage/homepage-bottom/left

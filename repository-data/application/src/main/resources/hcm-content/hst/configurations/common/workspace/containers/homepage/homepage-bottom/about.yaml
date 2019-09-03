@@ -1,0 +1,12 @@
+---
+/hst:hst/hst:configurations/common/hst:workspace/hst:containers/homepage/homepage-bottom/about/intro:
+  hst:componentclassname: uk.nhs.digital.common.components.WrappedListPickerComponent
+  hst:iconpath: images/catalog/component-products-30x30.png
+  hst:label: About intro
+  hst:parameternames:
+  - org.hippoecm.hst.core.component.template
+  hst:parametervalues:
+  - webfile:/freemarker/common/document-list/about-intro.ftl
+  hst:template: document-list
+  hst:xtype: hst.item
+  jcr:primaryType: hst:containeritemcomponent

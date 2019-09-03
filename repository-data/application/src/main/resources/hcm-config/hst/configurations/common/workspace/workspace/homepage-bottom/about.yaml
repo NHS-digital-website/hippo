@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hst:hst/hst:configurations/common/hst:workspace/hst:containers/homepage/homepage-bottom/header:
+    /hst:hst/hst:configurations/common/hst:workspace/hst:containers/homepage/homepage-bottom/about:
       .meta:order-before: center
       .meta:residual-child-node-category: content
       hst:label: Bottom Header
