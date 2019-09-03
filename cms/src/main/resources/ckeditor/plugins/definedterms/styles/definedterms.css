@@ -1,0 +1,81 @@
+[class^="definedterm-"] {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+  border: 3px solid;
+  padding: 2px 5px 2px 5px;
+  margin: 2px;
+  border-radius: 5px;
+
+  color: #687784; 
+  border-color: #687784; 
+}
+
+.definedterm-must {
+  color: #007f3b; /* $green */
+  border-color: #007f3b; /* $green */
+}
+
+.definedterm-should {
+    color: #005EB8; 
+    border-color: #005EB8; 
+}
+
+.definedterm-could {
+    color: #687784; 
+    border-color: #687784; 
+}
+
+.definedterm-will-not {
+    color: #da291c; 
+    border-color: #da291c; 
+}
+
+.definedterm-live {
+    border: none;
+    border-radius: 0;
+
+    color: #fff; 
+    background-color: #007f3b;
+}
+
+.definedterm-alpha {
+    border: none;
+    border-radius: 0;
+
+    color: #212B32; 
+    background-color: #fae100;
+}
+
+.definedterm-beta {
+    border: none;
+    border-radius: 0;
+
+    color: #212B32; 
+    background-color: #ffb81c;
+}
+
+.definedterm-discovery {
+    border: none;
+    border-radius: 0;
+
+    color: #fff; 
+    background-color: #8a1538;
+}
+
+.definedterm-experimental {
+    border: none;
+    border-radius: 0;
+
+    color: #fff; 
+    background-color: #330072;
+}
+
+.definedterm-release-candidate {
+    border: none;
+    border-radius: 0;
+
+    color: #fff; 
+    background-color: #0072ce;
+}
