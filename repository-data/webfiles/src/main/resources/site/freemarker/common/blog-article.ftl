@@ -36,87 +36,87 @@
             <div class="grid-wrapper">
                 <div class="article-header__inner">
 
-                    <h1 class="local-header__title">Blog</h1>
+                     <div class="grid-row">
+                        <div class="column--two-thirds column--reset">
 
-                    <h1 class="local-header__title" itemprop="headline" data-uipath="document.title">${document.title}</h1>
+                            <span class="article-header__label">Blog</span>
 
-                    <div class="article-header__subtitle" data-uipath="website.blog.summary"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></div>
+                            <h1 class="local-header__title" itemprop="headline" data-uipath="document.title">${document.title}</h1>
 
-                    <div class="detail-list-grid">
+                            <div class="article-header__subtitle" data-uipath="website.blog.summary"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></div>
 
-                        <#if hasAuthors || hasAuthorManualEntry>
-                            <div class="grid-row">
-                                <div class="column column--reset">
-                                    <dl class="detail-list">
-                                        <dt class="detail-list__key">Author:</dt>
-                                        <dd class="detail-list__value">
-                                            <#if hasAuthors>
-                                                <#list document.authors as author>
-                                                    <div class="blog-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                                                        <span itemprop="name">${author.title}</span>
-                                                        <#if author.roles??>
-                                                            <#if author.roles.primaryrole?has_content>, <span itemprop="jobtitle">${author.roles.primaryrole}</span></#if>
-                                                            <#if author.roles.primaryroleorg?has_content>, <span itemprop="worksfor" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">${author.roles.primaryroleorg}</span></span></#if>
-                                                        </#if>
-                                                    </div>
-                                                </#list>
-                                            <#else>
-                                                <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-                                                    <#if document.authorName?has_content><span itemprop="name">${document.authorName}</span></#if><#if document.authorJobTitle?has_content>, <span itemprop="jobtitle">${document.authorJobTitle}</span></#if><#if document.authorRole?has_content>, <span itemprop="jobtitle">${document.authorRole}</span></#if><#if document.authorOrganisation?has_content>, <span itemprop="worksfor" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">${document.authorOrganisation}</span></span></#if>
-                                                </div>
-                                            </#if>
-                                        </dd>
-                                    </dl>
-                                </div>
-                            </div>
-                        </#if>
+                            <div class="detail-list-grid">
 
-
-                        <div class="grid-row">
-                            <div class="column column--reset">
-                                <dl class="detail-list">
-                                    <dt class="detail-list__key">Date:</dt>
-                                    <dd class="detail-list__value" itemprop="datePublished" data-uipath="website.blog.dateofpublication">
-                                        <@fmt.formatDate value=document.dateOfPublication.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
-
-                                        <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-                                            <meta itemprop="name" content="NHS Digital">
-                                            <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-                                                <meta itemprop="url" content="<@hst.webfile path='/images/nhs-digital-logo.svg' />" />
-                                            </span>
+                                <#if hasAuthors || hasAuthorManualEntry>
+                                    <div class="grid-row">
+                                        <div class="column column--reset">
+                                            <dl class="detail-list">
+                                                <dt class="detail-list__key">Author:</dt>
+                                                <dd class="detail-list__value">
+                                                    <#if hasAuthors>
+                                                        <#list document.authors as author>
+                                                            <div class="blog-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                                                                <span itemprop="name">${author.title}</span><#if author.roles??><#if author.roles.primaryrole?has_content>, <span itemprop="jobtitle">${author.roles.primaryrole}</span></#if><#if author.roles.primaryroleorg?has_content>, <span itemprop="worksfor" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">${author.roles.primaryroleorg}</span></span></#if></#if>
+                                                            </div>
+                                                        </#list>
+                                                    <#else>
+                                                        <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+                                                            <#if document.authorName?has_content><span itemprop="name">${document.authorName}</span></#if><#if document.authorJobTitle?has_content>, <span itemprop="jobtitle">${document.authorJobTitle}</span></#if><#if document.authorRole?has_content>, <span itemprop="jobtitle">${document.authorRole}</span></#if><#if document.authorOrganisation?has_content>, <span itemprop="worksfor" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">${document.authorOrganisation}</span></span></#if>
+                                                        </div>
+                                                    </#if>
+                                                </dd>
+                                            </dl>
                                         </div>
-                                    </dd>
-                                </dl>
+                                    </div>
+                                </#if>
+
+
+                                <div class="grid-row">
+                                    <div class="column column--reset">
+                                        <dl class="detail-list">
+                                            <dt class="detail-list__key">Date:</dt>
+                                            <dd class="detail-list__value" itemprop="datePublished" data-uipath="website.blog.dateofpublication">
+                                                <@fmt.formatDate value=document.dateOfPublication.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
+
+                                                <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+                                                    <meta itemprop="name" content="NHS Digital">
+                                                    <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                                                        <meta itemprop="url" content="<@hst.webfile path='/images/nhs-digital-logo.svg' />" />
+                                                    </span>
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                </div>
+
+                                <#if hasTaxonomyTags>
+                                    <div class="grid-row">
+                                        <div class="column column--reset">
+                                            <dl class="detail-list">
+                                                <dt class="detail-list__key">Topic:</dt>
+                                                <dd class="detail-list__value" itemprop="keywords" data-uipath="website.blog.taxonomytags">
+                                                    <#list document.taxonomyTags as tag>${tag}<#sep>, </#list>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                 </#if>
+
+                                <#if hasBlogCategories>
+                                    <div class="grid-row">
+                                         <div class="column column--reset">
+                                             <dl class="detail-list">
+                                                 <dt class="detail-list__key">Categories:</dt>
+                                                 <dd class="detail-list__value" data-uipath="website.blog.categories">
+                                                    <#list document.blogCategories as category>${category}<#sep>, </#list>
+                                                 </dd>
+                                             </dl>
+                                         </div>
+                                    </div>
+                                </#if>
                             </div>
                         </div>
-
-                        <#if hasTaxonomyTags>
-                            <div class="grid-row">
-                                <div class="column column--reset">
-                                    <dl class="detail-list">
-                                        <dt class="detail-list__key">Topic:</dt>
-                                        <dd class="detail-list__value" itemprop="keywords" data-uipath="website.blog.taxonomytags">
-                                            <#list document.taxonomyTags as tag>${tag}<#sep>, </#list>
-                                        </dd>
-                                    </dl>
-                                </div>
-                            </div>
-                         </#if>
-
-                        <#if hasBlogCategories>
-                            <div class="grid-row">
-                                 <div class="column column--reset">
-                                     <dl class="detail-list">
-                                         <dt class="detail-list__key">Categories:</dt>
-                                         <dd class="detail-list__value" data-uipath="website.blog.categories">
-                                            <#list document.blogCategories as category>${category}<#sep>, </#list>
-                                         </dd>
-                                     </dl>
-                                 </div>
-                            </div>
-                        </#if>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -244,7 +244,7 @@
                                         <@hst.link hippobean=author.personimages.picture.original fullyQualified=true var="authorPicture" />
                                         <img class="blog-authors__icon__img" src="${authorPicture}" alt="${author.title}" />
                                     <#else>
-                                        <img class="blog-authors__icon__nhsimg" src="<@hst.webfile path="/images/nhs-digital-logo.svg"/>" alt="NHS Digital logo">
+                                        <img class="blog-authors__icon__nhsimg" src="<@hst.webfile path="/images/fibre_57101102_med.jpg"/>" alt="NHS Digital blog">
                                     </#if>
                                 </div>
 
@@ -282,7 +282,7 @@
                                         <@hst.link hippobean=latest.leadImage.original fullyQualified=true var="leadImage" />
                                         <img class="latestBlog__icon__img" src="${leadImage}" alt="<#if hasLeadImageAltText>${latest.leadImageAltText}</#if>" />
                                     <#else>
-                                        <img class="latestBlog__icon__nhsimg" src="<@hst.webfile path="/images/nhs-digital-logo.svg"/>" alt="NHS Digital logo" >
+                                        <img class="latestBlog__icon__nhsimg" src="<@hst.webfile path="/images/fibre_57101102_med.jpg"/>" alt="NHS Digital blog" >
                                     </#if>
                                 </div>
 

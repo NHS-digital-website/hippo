@@ -5,6 +5,13 @@ definitions:
       /publicationsystem-catalog:
         jcr:primaryType: hst:containeritempackage
       /website-catalog:
+        /bloglist:
+          hst:componentclassname: uk.nhs.digital.common.components.LatestBlogComponent
+          hst:iconpath: images/essentials/catalog-component-icons/news-list.png
+          hst:label: Blog List
+          hst:template: homeland-bloglist
+          hst:xtype: hst.item
+          jcr:primaryType: hst:containeritemcomponent
         /carousel:
           hst:componentclassname: uk.nhs.digital.common.components.WrappedListPickerComponent
           hst:iconpath: images/catalog/component-products-30x30.png

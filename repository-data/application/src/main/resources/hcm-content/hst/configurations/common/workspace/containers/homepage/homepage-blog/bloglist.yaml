@@ -1,0 +1,30 @@
+---
+/hst:hst/hst:configurations/common/hst:workspace/hst:containers/homepage/homepage-blog/bloglist:
+  hst:componentclassname: uk.nhs.digital.common.components.LatestBlogComponent
+  hst:iconpath: images/essentials/catalog-component-icons/banner.png
+  hst:label: Blog List
+  hst:parameternames:
+  - path
+  - hideFutureItems
+  - documentDateField
+  - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+  - documentTypes
+  - sortOrder
+  - sortField
+  - pageSize
+  - showPagination
+  - includeSubtypes
+  hst:parametervalues:
+  - ''
+  - 'on'
+  - website:dateofpublication
+  - 'on'
+  - website:blog
+  - desc
+  - website:dateofpublication
+  - '3'
+  - 'off'
+  - 'off'
+  hst:template: homeland-bloglist
+  hst:xtype: hst.item
+  jcr:primaryType: hst:containeritemcomponent
