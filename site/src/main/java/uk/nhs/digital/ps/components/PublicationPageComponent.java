@@ -8,7 +8,6 @@ import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
-import uk.nhs.digital.ps.beans.MapSection;
 import uk.nhs.digital.ps.beans.PublicationPage;
 import uk.nhs.digital.ps.beans.TextSection;
 import uk.nhs.digital.website.beans.*;
@@ -42,9 +41,6 @@ public class PublicationPageComponent extends EssentialsContentComponent {
         }
         if (section instanceof TextSection) {
             return ((TextSection) section).getHeading();
-        }
-        if (section instanceof MapSection) {
-            return ((MapSection) section).getTitle();
         }
         if (section instanceof IconList) {
             return ((IconList) section).getTitle();
