@@ -70,6 +70,16 @@
     }
 }
 
+.article--legacy-series {
+    .cta {
+      .cta__button {
+        h4 {
+            display: unset;
+        }
+      }
+    }
+}
+
 .article__label {
     color: $col-18;
 
