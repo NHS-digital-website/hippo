@@ -4,7 +4,7 @@
 
 a {
     @include no-tap-highlight;
-    
+
     &:link {
         color: $link-colour;
     }
@@ -32,10 +32,6 @@ a {
         color: $link-hover-colour-nhs;
         outline: 0;
     }
-
-      h1, h2, h3, h4, h5, h6 {
-        @extend a;
-      }
 }
 
 .link--reverse-polarity {
@@ -54,7 +50,7 @@ a {
         }
 
         &:hover {
-            text-decoration: none; 
+            text-decoration: none;
             color: $link-hover-colour-nhs;
         }
 
