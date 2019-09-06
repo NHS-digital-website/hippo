@@ -36,22 +36,22 @@ public class PublicationPageComponent extends EssentialsContentComponent {
     }
 
     private static String getTitle(HippoBean section) {
-        if (section instanceof Section) {
-            return ((Section) section).getTitle();
-        }
         if (section instanceof TextSection) {
             return ((TextSection) section).getHeading();
         }
-        if (section instanceof IconList) {
+        if (section instanceof Section && ((Section) section).getHeadingLevel().equalsIgnoreCase("Main heading")) {
+            return ((Section) section).getTitle();
+        }
+        if (section instanceof IconList && ((IconList) section).getHeadingLevel().equalsIgnoreCase("Main heading")) {
             return ((IconList) section).getTitle();
         }
-        if (section instanceof GallerySection) {
+        if (section instanceof GallerySection && ((GallerySection) section).getHeadingLevel().equalsIgnoreCase("Main heading")) {
             return ((GallerySection) section).getTitle();
         }
-        if (section instanceof Download) {
+        if (section instanceof Download && ((Download) section).getHeadingLevel().equalsIgnoreCase("Main heading")) {
             return ((Download) section).getTitle();
         }
-        if (section instanceof Infographic) {
+        if (section instanceof Infographic && ((Infographic) section).getSectionType().equalsIgnoreCase("Main heading")) {
             return ((Infographic) section).getHeadline();
         }
         return "";
