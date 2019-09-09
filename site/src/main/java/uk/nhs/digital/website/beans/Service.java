@@ -6,7 +6,7 @@ import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
-import java.util.*;
+import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "website:service")
 @Node(jcrType = "website:service")

@@ -171,7 +171,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Sections
-            compoundList: website:section,website:code,website:emphasisBox,website:download,website:expander,website:ctabutton,website:quote
+            compoundList: website:section,website:code,website:emphasisBox,website:download,website:expander,website:ctabutton,website:quote,website:checklist
             contentPickerType: links
             field: sections
             hint: ''

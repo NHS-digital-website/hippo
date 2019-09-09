@@ -52,6 +52,9 @@
 [website:calltoaction] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:checklist] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:contactdetail] > hippo:compound, hippostd:relaxed
   orderable
 

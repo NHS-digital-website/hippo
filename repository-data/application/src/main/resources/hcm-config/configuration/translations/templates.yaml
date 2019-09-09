@@ -144,6 +144,11 @@ definitions:
           jcr:name: Category list
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:checklist:
+        /en:
+          jcr:name: Check list
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:componentlist:
         /en:
           jcr:name: Links list
