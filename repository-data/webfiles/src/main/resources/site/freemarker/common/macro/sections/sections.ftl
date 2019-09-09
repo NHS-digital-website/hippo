@@ -12,6 +12,7 @@
 <#include "downloadSection.ftl">
 <#include "expander.ftl">
 <#include "ctaSection.ftl">
+<#include "checklist.ftl">
 <#include "quoteSection.ftl">
 <#include "../component/infoGraphic.ftl">
 
@@ -60,6 +61,8 @@
             <@expander section />
         <#elseif section.sectionType == 'ctabutton'>
             <@ctaSection section=section/>
+        <#elseif section.sectionType == 'checklist'>
+            <@checklist section=section/>
         <#elseif section.sectionType == 'quote'>
             <@quoteSection section=section/>
         <#elseif section.sectionType == 'infographic'>
