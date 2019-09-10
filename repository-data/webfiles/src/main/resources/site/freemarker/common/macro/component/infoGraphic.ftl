@@ -26,7 +26,7 @@
             </div>
         </#if>
         <div class="infographic__body">
-            <h4 class="infographic__title">${graphic.headline}</h4>
+            <div class="infographic__title">${graphic.headline}</div>
             <div class="infographic__explanatory"><@hst.html hippohtml=graphic.explanatoryLine contentRewriter=gaContentRewriter/></div>
             <div class="infographic__footer"><@hst.html hippohtml=graphic.qualifyingInformation contentRewriter=gaContentRewriter/></div>
         </div>
