@@ -101,7 +101,7 @@
             <#if renderNav>
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
                 <div id="sticky-nav">
-                    <@sectionNav getSectionNavLinks({ "document": document, "ignoreSummary": hasSummaryContent })></@sectionNav>
+                    <@sectionNav getSectionNavLinks({ "document": document, "ignoreSummary": !hasSummaryContent })></@sectionNav>
                 </div>
                 <#-- Restore the bundle -->
                 <@hst.setBundle basename="rb.doctype.published-work,rb.generic.headers,publicationsystem.headers"/>

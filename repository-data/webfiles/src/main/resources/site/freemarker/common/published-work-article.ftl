@@ -29,7 +29,7 @@
 <#assign sectionTitlesFound = countSectionTitles(document.sections) />
 <@fmt.message key="headers.about-this-publication" var="aboutThisPublicationHeader" />
 
-<#assign renderNav = (hasSummaryContent && sectionTitlesFound gte 1) />
+<#assign renderNav = (hasSummaryContent && sectionTitlesFound gte 1) || sectionTitlesFound gt 1 />
 
 <#macro publicationDate>
     <dl class="detail-list">
@@ -197,7 +197,7 @@
                         <#if hasAboutThisSection>
                             <#assign links = links + [{"url": "#about-this-publication", "title": aboutThisPublicationHeader}] />
                         </#if>
-                        <@sectionNav getSectionNavLinks({ "document": document, "links": links}), pageContentsHeader></@sectionNav>
+                        <@sectionNav getSectionNavLinks({ "document": document, "links": links, "ignoreSummary": !hasSummaryContent}), pageContentsHeader></@sectionNav>
 
                         <#-- Restore the bundle -->
                         <@hst.setBundle basename="rb.doctype.published-work,publicationsystem.headers"/>
