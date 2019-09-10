@@ -1,5 +1,5 @@
 <#ftl output_format="HTML">
-<#include "../../include/imports.ftl">
+<#include "../include/imports.ftl">
 
 <#if pageable?? && pageable.items?has_content>
   <ul>
