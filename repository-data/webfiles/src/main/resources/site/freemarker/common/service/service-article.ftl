@@ -2,13 +2,13 @@
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.Service" -->
 
-<#include "../include/imports.ftl">
-<#include "macro/documentHeader.ftl">
-<#include "macro/sections/sections.ftl">
-<#include "macro/sectionNav.ftl">
-<#include "macro/furtherInformationSection.ftl">
-<#include "macro/metaTags.ftl">
-<#include "macro/component/lastModified.ftl">
+<#include "../../include/imports.ftl">
+<#include "../macro/documentHeader.ftl">
+<#include "../macro/sections/sections.ftl">
+<#include "../macro/sectionNav.ftl">
+<#include "../macro/furtherInformationSection.ftl">
+<#include "../macro/metaTags.ftl">
+<#include "../macro/component/lastModified.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -50,21 +50,16 @@
 
             <div class="column column--two-thirds page-block page-block--main">
 
-                <#if hasTopTasks>
-                <div class="article-section article-section--highlighted">
-                    <div class="callout callout--attention">
-                        <h2><@fmt.message key="headers.top-tasks" /></h2>
-                        <div class="rich-text-content">
-                            <#list document.toptasks as toptask>
-                            <@hst.html hippohtml=toptask contentRewriter=gaContentRewriter/>
-                            </#list>
-                        </div>
-                    </div>
-                </div>
-                </#if>
+                <#-- [FTL-BEGIN] 'Top tasks top' section -->
+                    <@hst.include ref="toptasks-top"/>
+                <#-- [FTL-END] 'Top tasks top' section -->
+
+                <#-- [FTL-BEGIN] 'Other content' section -->
+                    <@hst.include ref="othercontent"/>
+                <#-- [FTL-END] 'Other content' section -->
 
                 <#if hasIntroductionContent>
-                <div class="article-section article-section--introduction">
+                <div class="article-section no-border article-section--introduction">
                     <div class="rich-text-content">
                         <@hst.html hippohtml=document.introduction contentRewriter=gaContentRewriter/>
                     </div>
@@ -74,6 +69,10 @@
                 <#if hasSectionContent>
                 <@sections document.sections></@sections>
                 </#if>
+
+                <#-- [FTL-BEGIN] 'Top tasks bottom' section -->
+                    <@hst.include ref="toptasks-bottom"/>
+                <#-- [FTL-END] 'Top tasks bottom' section -->
 
                 <#if hasContactDetailsContent>
                 <div class="article-section article-section--contact" id="${slugify('Contact details')}">

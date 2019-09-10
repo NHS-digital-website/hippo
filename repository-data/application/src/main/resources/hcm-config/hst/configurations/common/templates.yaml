@@ -189,10 +189,16 @@ definitions:
         hst:renderpath: webfile:/freemarker/publicationsystem/series.ftl
         jcr:primaryType: hst:template
       /service-article:
-        hst:renderpath: webfile:/freemarker/common/service-article.ftl
+        hst:renderpath: webfile:/freemarker/common/service/service-article.ftl
         jcr:primaryType: hst:template
       /service-list:
         hst:renderpath: webfile:/freemarker/common/service-list.ftl
+        jcr:primaryType: hst:template
+      /service-othercontent:
+        hst:renderpath: webfile:/freemarker/common/service/service-othercontent.ftl
+        jcr:primaryType: hst:template
+      /service-toptasks:
+        hst:renderpath: webfile:/freemarker/common/service/service-toptasks.ftl
         jcr:primaryType: hst:template
       /static-ui-component:
         hst:renderpath: webfile:/freemarker/common/static-ui/component/index.ftl
