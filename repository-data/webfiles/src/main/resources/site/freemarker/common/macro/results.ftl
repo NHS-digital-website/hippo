@@ -1,5 +1,5 @@
 <#ftl output_format="HTML">
-<@hst.setBundle basename="publicationsystem.labels,nationalindicatorlibrary.headers,nationalindicatorlibrary.labels,website.labels,homepage.website.labels,rb.doctype.published-work,rb.doctype.cyberalerts"/>
+<@hst.setBundle basename="publicationsystem.labels,nationalindicatorlibrary.headers,nationalindicatorlibrary.labels,website.labels,homepage.website.labels,rb.doctype.published-work,rb.doctype.cyberalerts,rb.generic.labels"/>
 
 <#macro searchResults items>
     <div class="cta-list">
@@ -16,34 +16,33 @@
                 <@dataset item=document />
             <#elseif document.class.name == "uk.nhs.digital.nil.beans.Indicator">
                 <@indicator item=document />
-            <#elseif document.class.name == "uk.nhs.digital.website.beans.Service">
-                <@service item=document />
-            <#elseif document.class.name == "uk.nhs.digital.website.beans.General" ||
-                     document.class.name == "uk.nhs.digital.website.beans.Hub" ||
-                     document.class.name == "uk.nhs.digital.website.beans.VisualHub">
-                <@general item=document />
             <#elseif document.class.name == "uk.nhs.digital.website.beans.Event">
                 <@event item=document />
             <#elseif document.class.name == "uk.nhs.digital.website.beans.News">
                 <@news item=document />
-            <#elseif document.class.name == "uk.nhs.digital.website.beans.Gdprtransparency">
-                <@gdpr item=document />
-            <#elseif document.class.name == "uk.nhs.digital.website.beans.Publishedwork">
-                <@publishedwork item=document />
             <#elseif document.class.name == "uk.nhs.digital.website.beans.Publishedworkchapter">
                 <@publishedworkchapter item=document />
-            <#elseif document.class.name == "uk.nhs.digital.website.beans.ComponentList">
-                <@componentlist item=document />
-            <#elseif document.class.name == "uk.nhs.digital.website.beans.Roadmap">
-                <@roadmap item=document />
-            <#elseif document.class.name == "uk.nhs.digital.website.beans.RoadmapItem">
-                <@roadmapitem item=document />
-            <#elseif document.class.name == "uk.nhs.digital.website.beans.GlossaryList">
-                <@glossarylist item=document />
-            <#elseif document.class.name == "uk.nhs.digital.website.beans.CyberAlert">
-                <@cyberalert item=document />
-            <#elseif document.class.name == "uk.nhs.digital.website.beans.Blog">
-                <@blog item=document />
+            <#elseif document.class.name == "uk.nhs.digital.website.beans.Publishedwork">
+              <@genericSearchElement item=document isShowTitle=true elemDate=document.publicationDate.time />
+            <#elseif document.class.name == "uk.nhs.digital.website.beans.General" ||
+                     document.class.name == "uk.nhs.digital.website.beans.Hub" ||
+                     document.class.name == "uk.nhs.digital.website.beans.ComponentList" ||
+                     document.class.name == "uk.nhs.digital.website.beans.VisualHub">
+                <!-- showing title deliberately disabled for these doctypes -->
+                <@genericSearchElement item=document isShowTitle=false elemDate="" />
+            <#elseif document.class.name == "uk.nhs.digital.website.beans.Gdprtransparency" 
+                  || document.class.name == "uk.nhs.digital.website.beans.Service"
+                  || document.class.name == "uk.nhs.digital.website.beans.Roadmap"
+                  || document.class.name == "uk.nhs.digital.website.beans.RoadmapItem"
+                  || document.class.name == "uk.nhs.digital.website.beans.GlossaryList"
+                  || document.class.name == "uk.nhs.digital.website.beans.CyberAlert"
+                  || document.class.name == "uk.nhs.digital.website.beans.Blog"
+                  || document.class.name == "uk.nhs.digital.website.beans.BlogHub"
+                  || document.class.name == "uk.nhs.digital.website.beans.Person"
+                  || document.class.name == "uk.nhs.digital.website.beans.ApiMaster"
+                  || document.class.name == "uk.nhs.digital.website.beans.ApiEndpoint"
+            >
+                <@genericSearchElement item=document isShowTitle=true elemDate="" />
             </#if>
         </#list>
     </div>
@@ -186,27 +185,6 @@
     </div>
 </#macro>
 
-<#macro service item>
-    <div class="cta cta--detailed" data-uipath="ps.search-results.result">
-        <div>
-            <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.service"/></span>
-        </div>
-        <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
-            ${item.title}
-        </a>
-        <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
-    </div>
-</#macro>
-
-<#macro general item>
-    <div class="cta cta--detailed" data-uipath="ps.search-results.result">
-        <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
-            ${item.title}
-        </a>
-        <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
-    </div>
-</#macro>
-
 <#macro event item>
     <div class="cta cta--detailed" data-uipath="ps.search-results.result">
         <div>
@@ -259,31 +237,6 @@
     </div>
 </#macro>
 
-<#macro gdpr item>
-    <div class="cta cta--detailed" data-uipath="ps.search-results.result">
-        <div>
-            <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.gdpr"/></span>
-        </div>
-        <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
-            ${item.title}
-        </a>
-        <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
-    </div>
-</#macro>
-
-<#macro publishedwork item>
-<div class="cta cta--detailed" data-uipath="ps.search-results.result">
-    <div>
-        <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publishedwork"/></span>
-    </div>
-    <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
-        ${item.title}
-    </a>
-    <span class="cta__meta" data-uipath="ps.search-results.result.date"><@formatDate date=item.publicationDate.time/></span>
-    <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
-</div>
-</#macro>
-
 <#macro publishedworkchapter item>
 <div class="cta cta--detailed" data-uipath="ps.search-results.result">
     <div>
@@ -300,22 +253,10 @@
 </div>
 </#macro>
 
-<#macro componentlist item>
-
-<div class="cta cta--detailed" data-uipath="ps.search-results.result">
-    <div class="cta cta--detailed" data-uipath="ps.search-results.result">
-        <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
-            ${item.title}
-        </a>
-        <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
-    </div>
-</div>
-</#macro>
-
-<#macro roadmap item>
+<#macro publishedwork item>
 <div class="cta cta--detailed" data-uipath="ps.search-results.result">
     <div>
-        <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.roadmap"/></span>
+        <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.publishedwork"/></span>
     </div>
     <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
         ${item.title}
@@ -325,50 +266,25 @@
 </div>
 </#macro>
 
-<#macro roadmapitem item>
-<div class="cta cta--detailed" data-uipath="ps.search-results.result">
-    <div>
-        <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.roadmapitem"/></span>
-    </div>
-    <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
-        ${item.title}
-    </a>
-    <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
-</div>
-</#macro>
 
-<#macro glossarylist item>
-<div class="cta cta--detailed" data-uipath="ps.search-results.result">
-    <div>
-        <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.glossarylist"/></span>
-    </div>
-    <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
-        ${item.title}
-    </a>
-    <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
-</div>
-</#macro>
+<#macro genericSearchElement item isShowTitle=true elemDate='' >
 
-<#macro cyberalert item>
-<div class="cta cta--detailed" data-uipath="ps.search-results.result">
-    <div>
-        <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.cyberalert"/></span>
-    </div>
-    <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
-        ${item.title}
-    </a>
-    <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
-</div>
-</#macro>
+<#assign nameList = item.class.name?split(".")>
+<#assign doctype = nameList[nameList?size-1]?lower_case >
 
-<#macro blog item>
 <div class="cta cta--detailed" data-uipath="ps.search-results.result">
-    <div>
-        <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.blog"/></span>
-    </div>
+    <#if isShowTitle>
+      <div>
+        <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.${doctype}"/></span>
+      </div>
+    </#if>
     <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">
         ${item.title}
     </a>
+
+    <#if elemDate?has_content>
+      <span class="cta__meta" data-uipath="ps.search-results.result.date"><@formatDate date=elemDate /></span>
+      </#if>
     <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=item.shortsummary size="300"/></p>
 </div>
 </#macro>

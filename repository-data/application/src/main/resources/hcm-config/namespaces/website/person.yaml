@@ -370,7 +370,7 @@ definitions:
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
           common:FacetType: person
-          common:searchRank: 2
+          common:searchRank: 4
           common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft

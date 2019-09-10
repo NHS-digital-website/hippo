@@ -5,25 +5,40 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-06-07T16:23:27.852Z
-    hippostdpubwf:lastModificationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModificationDate: 2019-09-10T13:50:11.859Z
     hippostdpubwf:lastModifiedBy: admin
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: resourcebundle:resourcebundle
     resourcebundle:descriptions:
     - Labels are used for input fields, buttons etc
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
     resourcebundle:id: rb.generic.labels
     resourcebundle:keys:
     - labels.example
+    - labels.blog
+    - labels.bloghub
+    - labels.person
+    - labels.apimaster
+    - labels.apiendpoint
     resourcebundle:messages:
     - This is an example label
+    - Blog
+    - Blog Hub
+    - Person
+    - API Master
+    - API Endpoint
   /rb.generic.labels[2]:
     hippo:availability:
     - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-06-07T16:23:27.852Z
-    hippostdpubwf:lastModificationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModificationDate: 2019-09-10T13:51:21.493Z
     hippostdpubwf:lastModifiedBy: admin
     jcr:mixinTypes:
     - mix:referenceable
@@ -31,32 +46,64 @@
     jcr:primaryType: resourcebundle:resourcebundle
     resourcebundle:descriptions:
     - Labels are used for input fields, buttons etc
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
     resourcebundle:id: rb.generic.labels
     resourcebundle:keys:
     - labels.example
+    - labels.blog
+    - labels.bloghub
+    - labels.person
+    - labels.apimaster
+    - labels.apiendpoint
     resourcebundle:messages:
     - This is an example label
+    - Blog
+    - Blog Hub
+    - Person
+    - API Master
+    - API Endpoint
   /rb.generic.labels[3]:
     hippo:availability:
     - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-06-07T16:23:27.852Z
-    hippostdpubwf:lastModificationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModificationDate: 2019-09-10T13:51:21.493Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-06-07T13:23:27.852Z
+    hippostdpubwf:publicationDate: 2019-09-10T13:51:24.722Z
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: resourcebundle:resourcebundle
     resourcebundle:descriptions:
     - Labels are used for input fields, buttons etc
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
     resourcebundle:id: rb.generic.labels
     resourcebundle:keys:
     - labels.example
+    - labels.blog
+    - labels.bloghub
+    - labels.person
+    - labels.apimaster
+    - labels.apiendpoint
     resourcebundle:messages:
     - This is an example label
+    - Blog
+    - Blog Hub
+    - Person
+    - API Master
+    - API Endpoint
   hippo:name: Labels
+  hippo:versionHistory: fc356255-d9b9-4505-a376-8ae3d8bc7d93
   jcr:mixinTypes:
   - hippo:named
+  - hippo:versionInfo
   - mix:referenceable
   jcr:primaryType: hippo:handle

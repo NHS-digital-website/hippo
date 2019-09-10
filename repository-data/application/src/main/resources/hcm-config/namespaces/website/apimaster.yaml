@@ -272,7 +272,7 @@ definitions:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
           common:FacetType: apimaster
-          common:searchRank: 2
+          common:searchRank: 5
           common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft

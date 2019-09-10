@@ -20,12 +20,20 @@
     - labels.roadmapitem
     - labels.glossarylist
     - labels.blog
+    - labels.bloghub
+    - labels.person
+    - labels.apimaster
+    - labels.apiendpoint
     resourcebundle:messages:
     - Service
     - Roadmap
     - Roadmap Item
     - Glossary list
     - Blog
+    - Blog Hub
+    - Person
+    - API Master
+    - API Endpoint
   /labels[2]:
     hippo:availability: []
     hippostd:state: draft
@@ -45,12 +53,20 @@
     - labels.roadmapitem
     - labels.glossarylist
     - labels.blog
+    - labels.bloghub
+    - labels.person
+    - labels.apimaster
+    - labels.apiendpoint
     resourcebundle:messages:
     - Service
     - Roadmap
     - Roadmap Item
     - Glossary list
     - Blog
+    - Blog Hub
+    - Person
+    - API Master
+    - API Endpoint
   /labels[3]:
     hippo:availability:
     - live
@@ -72,12 +88,20 @@
     - labels.roadmapitem
     - labels.glossarylist
     - labels.blog
+    - labels.bloghub
+    - labels.person
+    - labels.apimaster
+    - labels.apiendpoint
     resourcebundle:messages:
     - Service
     - Roadmap
     - Roadmap Item
     - Glossary list
     - Blog
+    - Blog Hub
+    - Person
+    - API Master
+    - API Endpoint
   hippo:name: Labels
   jcr:mixinTypes:
   - hippo:named

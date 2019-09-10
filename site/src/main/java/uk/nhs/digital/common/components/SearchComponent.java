@@ -403,7 +403,27 @@ public class SearchComponent extends CommonComponent {
      */
     private void addBlogTypes(HstQueryBuilder query) {
         query.ofTypes(
-            Blog.class
+            Blog.class,
+            BlogHub.class
+        );
+    }
+
+    /**
+     * Adding the API document type
+     */
+    private void addApis(HstQueryBuilder query) {
+        query.ofTypes(
+            ApiMaster.class,
+            ApiEndpoint.class
+        );
+    }
+
+    /**
+     * Adding the API document type
+     */
+    private void addPerson(HstQueryBuilder query) {
+        query.ofTypes(
+            Person.class
         );
     }
 
@@ -423,6 +443,8 @@ public class SearchComponent extends CommonComponent {
         addGlossaryList(query);
         addCyberAlert(query);
         addBlogTypes(query);
+        addApis(query);
+        addPerson(query);
     }
 
 }
