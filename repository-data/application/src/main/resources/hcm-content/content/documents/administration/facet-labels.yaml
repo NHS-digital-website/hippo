@@ -29,6 +29,11 @@
     - facet.upcomingStatus
     - facet.gdprtransparency
     - facet.gdprsummary
+    - facet.blog
+    - facet.bloghub
+    - facet.person
+    - facet.apimaster
+    - facet.apiendpoint
     resourcebundle:messages:
     - Publication
     - Data set
@@ -38,6 +43,11 @@
     - Upcoming
     - Gdpr transparency
     - Gdpr summary
+    - Blog
+    - Blog hub
+    - Person
+    - API Master
+    - API Endpoint
   /facet-labels[2]:
     hippo:availability:
     - preview
@@ -69,6 +79,11 @@
     - facet.upcomingStatus
     - facet.gdprtransparency
     - facet.gdprsummary
+    - facet.blog
+    - facet.bloghub
+    - facet.person
+    - facet.apimaster
+    - facet.apiendpoint
     resourcebundle:messages:
     - Publication
     - Data set
@@ -78,6 +93,11 @@
     - Upcoming
     - Gdpr transparency
     - Gdpr summary
+    - Blog
+    - Blog hub
+    - Person
+    - API Master
+    - API Endpoint
   /facet-labels[3]:
     hippo:availability:
     - live
@@ -109,6 +129,11 @@
     - facet.upcomingStatus
     - facet.gdprtransparency
     - facet.gdprsummary
+    - facet.blog
+    - facet.bloghub
+    - facet.person
+    - facet.apimaster
+    - facet.apiendpoint
     resourcebundle:messages:
     - Publication
     - Data set
@@ -118,6 +143,11 @@
     - Upcoming
     - Gdpr transparency
     - Gdpr summary
+    - Blog
+    - Blog hub
+    - Person
+    - API Master
+    - API Endpoint
   hippo:name: Facet Labels
   jcr:mixinTypes:
   - hippo:named

@@ -16,6 +16,10 @@ branches:
     - travis-test
 
 addons:
+  apt: 
+    update: true
+    packages:
+      - dpkg
   chrome: stable
 
 cache:
