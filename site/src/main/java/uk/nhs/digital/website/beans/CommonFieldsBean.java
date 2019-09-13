@@ -9,8 +9,8 @@ import org.onehippo.cms7.essentials.dashboard.annotations.*;
  */
 public class CommonFieldsBean extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "website:seosummary")
-    public String getSeosummary() {
-        return getProperty("website:seosummary");
+    public HippoHtml getSeosummary() {
+        return getHippoHtml("website:seosummary");
     }
 
     @HippoEssentialsGenerated(internalName = "website:shortsummary")

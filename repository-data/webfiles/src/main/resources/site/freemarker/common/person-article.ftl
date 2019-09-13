@@ -22,6 +22,10 @@
 <#include "../common/macro/metaTags.ftl">
 <@metaTags></@metaTags>
 
+<#-- Add meta tags -->
+<#include "../common/macro/metaTags.ftl">
+<@metaTags></@metaTags>
+
 <#assign personName  = document.personalinfos.preferredname?has_content?then(document.personalinfos.preferredname, document.personalinfos.firstname) />
 <#assign personMainName  = document.personalinfos.preferredname?has_content?then(document.personalinfos.preferredname, document.personalinfos.firstname + " " + document.personalinfos.lastname) />
 <#assign postnominals = "" />

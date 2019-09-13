@@ -19,7 +19,7 @@
     <#-- [BEGIN] Schema microdata -->
     <meta itemprop="name" content="${title}">
     <link itemprop="url" href="${getDocumentUrl()}" />
-    <meta itemprop="description" content="${document.seosummary}">
+    <meta itemprop="description" content="${document.seosummary.content?replace('<[^>]+>','','r')}">
     <meta itemprop="location" content="${document.location}">
 
     <#if startTimeData?has_content && startTimeData?is_date>

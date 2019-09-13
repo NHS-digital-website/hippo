@@ -39,12 +39,11 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
           /seosummary:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
             caption: SEO Summary
             field: seosummary
+            hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
           /shortsummary:
             /cluster.options:
@@ -281,7 +280,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: website:seosummary
             hipposysedit:primary: false
-            hipposysedit:type: String
+            hipposysedit:type: hippostd:seoSummary
             jcr:primaryType: hipposysedit:field
           /shortsummary:
             hipposysedit:mandatory: false

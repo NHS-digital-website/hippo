@@ -3,6 +3,7 @@ package uk.nhs.digital.nil.beans;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.cxf.common.util.CollectionUtils;
 import org.hippoecm.hst.content.beans.Node;
+import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.ps.beans.BaseDocument;
 import uk.nhs.digital.ps.beans.ExtAttachment;
@@ -57,8 +58,8 @@ public class Indicator extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.SEO_SUMMARY)
-    public String getSeosummary() {
-        return getPropertyIfPermitted(PropertyKeys.SEO_SUMMARY);
+    public HippoHtml getSeosummary() {
+        return getHippoHtml("website:seosummary");
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.TAXONOMY)

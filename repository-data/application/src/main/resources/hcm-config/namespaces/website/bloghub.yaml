@@ -89,15 +89,11 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
           /seosummary:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              size: '160'
             caption: SEO Summary
             field: seosummary
-            hint: A summary of the blog post, used in external search engine search
-              results
+            hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
           /pageicon:
             /cluster.options:
@@ -234,7 +230,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: website:seosummary
             hipposysedit:primary: false
-            hipposysedit:type: String
+            hipposysedit:type: hippostd:seoSummary
             jcr:primaryType: hipposysedit:field
           /shortsummary:
             hipposysedit:mandatory: false
@@ -323,7 +319,6 @@ definitions:
           - hippotaxonomy:classifiable
           jcr:primaryType: website:bloghub
           website:issn: ''
-          website:seosummary: ''
           website:shortsummary: ''
           website:subtitle: ''
           website:title: ''

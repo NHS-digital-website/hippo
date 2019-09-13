@@ -15,7 +15,13 @@
     <#assign pageTitle = overridePageTitle + ' - ' + siteTitle />
 </#if>
 <#if document?? && document.seosummary?? && document.seosummary?has_content>
-    <#assign pageSEOSummary = document.seosummary />
+    <#noautoesc>
+      <!-- strip HTML tags -->
+      <#assign tempSEOSummary =  document.seosummary.content?replace('<[^>]+>','','r') />
+      <#if tempSEOSummary?has_content>
+        <#assign pageSEOSummary = tempSEOSummary />
+      </#if>
+    </#noautoesc>
 </#if>
 
 <#-- lead image to replace default (field name must be leadImage - see blog and general types -->

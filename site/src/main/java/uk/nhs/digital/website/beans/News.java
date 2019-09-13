@@ -20,8 +20,8 @@ public class News extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = "website:seosummary")
-    public String getSeosummary() {
-        return getProperty("website:seosummary");
+    public HippoHtml getSeosummary() {
+        return getHippoHtml("website:seosummary");
     }
 
     @HippoEssentialsGenerated(internalName = "website:shortsummary")
