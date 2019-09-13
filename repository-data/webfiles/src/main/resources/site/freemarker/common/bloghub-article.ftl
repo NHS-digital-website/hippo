@@ -19,7 +19,7 @@
 
     <!-- metadata schema.org data - START -->
     <div class="is-hidden" itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><span itemprop="name">${document.publisher.title}</span></div>
-    <#if document.seosummary?has_content><div class="is-hidden" itemprop="description">${document.seosummary}</div></#if>
+    <#if document.seosummary?has_content><div class="is-hidden" itemprop="description">${document.seosummary.content?replace('<[^>]+>','','r')}</div></#if>
     <#if document.taxonomyTags?has_content><span class="is-hidden" itemprop="keywords" ><#list document.taxonomyTags as tag>${tag} <#sep>, </#list></span></#if>
 
     <#if document.leadImage?has_content>

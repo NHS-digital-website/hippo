@@ -3,6 +3,7 @@ package uk.nhs.digital.ps.beans;
 import static java.util.Arrays.asList;
 
 import org.hippoecm.hst.content.beans.Node;
+import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.ps.beans.structuredText.StructuredText;
 import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
@@ -88,7 +89,7 @@ public class Dataset extends BaseDocument {
         return HippoBeanHelper.getParentPublication(this);
     }
 
-    public String getSeosummary() {
+    public HippoHtml getSeosummary() {
         return getParentPublication().getSeosummary();
     }
 

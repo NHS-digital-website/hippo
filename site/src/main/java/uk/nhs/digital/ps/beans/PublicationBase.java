@@ -8,6 +8,7 @@ import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
+import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.slf4j.Logger;
@@ -168,8 +169,8 @@ public abstract class PublicationBase extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.SEO_SUMMARY)
-    public String getSeosummary() {
-        return getPropertyIfPermitted(PropertyKeys.SEO_SUMMARY);
+    public HippoHtml getSeosummary() {
+        return getHippoHtml("publicationsystem:seosummary");
     }
 
     public boolean isPubliclyAccessible() {
