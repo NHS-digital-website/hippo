@@ -180,14 +180,11 @@ definitions:
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
           /author:
-            hipposysedit:mandatory: true
+            hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: website:author
             hipposysedit:type: hippo:mirror
-            hipposysedit:validators:
-            - contentblocks-validator
-            - required
             jcr:primaryType: hipposysedit:field
           /blogheadingimage:
             hipposysedit:mandatory: false
@@ -256,19 +253,14 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: website:subject
             hipposysedit:type: hippo:mirror
-            hipposysedit:validators:
-            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /subtitle:
-            hipposysedit:mandatory: true
+            hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: website:subtitle
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators:
-            - non-empty
-            - required
             jcr:primaryType: hipposysedit:field
           /summary:
             hipposysedit:mandatory: true
