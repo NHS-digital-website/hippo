@@ -51,4 +51,9 @@ public class General extends CommonFieldsBean {
         return getLinkedBean("website:pageicon", HippoGalleryImageSet.class);
     }
 
+    @HippoEssentialsGenerated(internalName = "website:leadimage")
+    public HippoGalleryImageSet getLeadImage()  {
+        return getLinkedBean("website:leadimage", HippoGalleryImageSet.class);
+    }
+
 }
