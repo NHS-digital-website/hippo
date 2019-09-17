@@ -18,7 +18,7 @@
     <#assign pageSEOSummary = document.seosummary />
 </#if>
 
-<#-- blog lead image to replace default -->
+<#-- lead image to replace default (field name must be leadImage - see blog and general types -->
 <#if document?? && document.leadImage?? && document.leadImage?has_content>
     <@hst.link hippobean=document.leadImage.original fullyQualified=true var="leadImage" />
     <#assign defaultMetaImage = leadImage />

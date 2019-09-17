@@ -157,6 +157,14 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /leadimage:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Social media lead image
+            field: leadimage
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -201,6 +209,14 @@ definitions:
             hipposysedit:type: hippo:compound
             hipposysedit:validators:
             - contentblocks-validator
+            jcr:primaryType: hipposysedit:field
+          /leadimage:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:leadimage
+            hipposysedit:primary: false
+            hipposysedit:type: hippogallerypicker:imagelink
             jcr:primaryType: hipposysedit:field
           /metadata:
             hipposysedit:mandatory: false
@@ -292,6 +308,12 @@ definitions:
             jcr:primaryType: website:friendlyurls
             website:alternativeurls: []
             website:destination: ''
+          /website:leadimage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
           /website:pageicon:
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             hippo:facets: []
