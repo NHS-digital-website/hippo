@@ -1,0 +1,116 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/website/xyzxyz:
+      /editor:templates:
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
+          /root:
+            item: ${cluster.id}.field
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /name:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Name of the item
+            field: name
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /description:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Description of the item
+            field: description
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /apimethod:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              orientation: vertical
+              selectable.options: Connect,Delete,Get,Head,Options,Patch,Post,Put,Trace
+            caption: API Method
+            field: apimethod
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+        jcr:primaryType: editor:templateset
+      /hipposysedit:nodetype:
+        /hipposysedit:nodetype:
+          /apimethod:
+            hipposysedit:mandatory: true
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:apimethod
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
+          /description:
+            hipposysedit:mandatory: true
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:description
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /name:
+            hipposysedit:mandatory: true
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:name
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - website:basedocument
+          - hippostd:relaxed
+          - hippotranslation:translated
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /hipposysedit:prototypes:
+        /hipposysedit:prototype:
+          common:FacetType: xyzxyz
+          common:searchRank: 2
+          common:searchable: true
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2019-05-29T14:57:09.771Z
+          hippostdpubwf:lastModificationDate: 2018-05-29T14:57:09.771Z
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: website:xyzxyz
+          website:name: ''
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype

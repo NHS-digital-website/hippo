@@ -233,4 +233,7 @@ definitions:
       /visual-hub:
         hst:renderpath: webfile:/freemarker/common/visual-hub.ftl
         jcr:primaryType: hst:template
+      /xyzxyz-article:
+        hst:renderpath: webfile:/freemarker/common/xyzxyz-article.ftl
+        jcr:primaryType: hst:template
       jcr:primaryType: hst:templates

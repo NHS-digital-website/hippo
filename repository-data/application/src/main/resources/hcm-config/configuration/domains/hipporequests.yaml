@@ -6,6 +6,7 @@ definitions:
       - statistical-publications-and-clinical-indicators-author
       - national-indicator-library-author
       - cyber-alerts-author
+      - sitewriters
       - author
     /hippo:configuration/hippo:domains/hipporequests/editor:
       hipposys:groups:

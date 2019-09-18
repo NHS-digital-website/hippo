@@ -5,6 +5,7 @@ definitions:
       /author:
         hipposys:groups:
         - national-indicator-library-author
+        - sitewriters
         hipposys:role: author
         jcr:primaryType: hipposys:authrole
       /editor:

@@ -4,6 +4,7 @@ definitions:
     /hippo:configuration/hippo:domains/statistical-publications-and-clinical-indicators:
       /author:
         hipposys:groups:
+        - sitewriters
         - statistical-publications-and-clinical-indicators-author
         hipposys:role: author
         jcr:primaryType: hipposys:authrole

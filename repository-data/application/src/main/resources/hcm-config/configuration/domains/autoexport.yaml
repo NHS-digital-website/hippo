@@ -1,0 +1,8 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/autoexport/author:
+      hipposys:groups:
+      - sitewriters
+      hipposys:role: author
+      jcr:primaryType: hipposys:authrole

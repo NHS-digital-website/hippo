@@ -469,3 +469,8 @@ definitions:
           jcr:name: Internal icon link
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:xyzxyz:
+        /en:
+          jcr:name: Xyzxyz
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles

@@ -181,6 +181,9 @@
 [website:location] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
   orderable
 
+[website:xyzxyz] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:publictransportstation] > hippo:compound, hippostd:relaxed
   orderable
 
