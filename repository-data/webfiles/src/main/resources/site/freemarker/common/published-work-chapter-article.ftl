@@ -27,7 +27,7 @@
         <#-- Cache the parent document's details -->
         <@hst.link hippobean=item var="link" />
         <#assign documents = [{ "index": 0, "id": item.identifier, "title": item.title, "link": link }] />
-        
+
         <#-- Cache the chapter details -->
         <#list item.links as chapter>
             <@hst.link hippobean=chapter var="link" />
@@ -52,7 +52,7 @@
 
     <#if hasChapters>
         <#assign splitChapters = splitHash(documents) />
-    
+
         <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
             <div class="chapter-nav">
                 <div class="grid-wrapper">
@@ -64,7 +64,7 @@
 
                     <div class="grid-row">
                         <div class="column column--reset">
-                            <h2 class="chapter-nav__title"><@fmt.message key="headers.publication-chapters" /></h2>  
+                            <h2 class="chapter-nav__title"><@fmt.message key="headers.publication-chapters" /></h2>
                         </div>
                     </div>
 
@@ -100,9 +100,11 @@
         <div class="grid-row">
             <#if renderNav>
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                <!-- start sticky-nav -->
                 <div id="sticky-nav">
                     <@sectionNav getSectionNavLinks({ "document": document, "ignoreSummary": !hasSummaryContent })></@sectionNav>
                 </div>
+                <!-- end sticky-nav -->
                 <#-- Restore the bundle -->
                 <@hst.setBundle basename="rb.doctype.published-work,rb.generic.headers,publicationsystem.headers"/>
             </div>
@@ -130,8 +132,4 @@
             </div>
         </div>
     </div>
-
-    <#-- <#if hasChapters>
-        <a href="<@hst.link var=link hippobean=chapter />" title="${chapter.title}">${chapter.title}</a>
-    </#if> -->
 </article>

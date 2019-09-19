@@ -32,9 +32,11 @@
         <div class="grid-row">
             <#if index?has_content>
                 <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                    <!-- start sticky-nav -->
                     <div id="sticky-nav">
                         <@sectionNav getSectionNavLinks(index)></@sectionNav>
                     </div>
+                    <!-- end sticky-nav -->
                 </div>
             </#if>
 

@@ -16,7 +16,7 @@
                         </div>
                         <div class="column--two-thirds column--reset">
                             <h1 class="local-header__title" data-uipath="document.title">Events</h1>
-                            <p class="article-header__subtitle">Welcome to our events area. Find out where you are likely to see us over the coming months and read about all our events.</p>  
+                            <p class="article-header__subtitle">Welcome to our events area. Find out where you are likely to see us over the coming months and read about all our events.</p>
                         </div>
                     </div>
                 </div>
@@ -27,10 +27,12 @@
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
-                <div id="sticky-nav">    
+                <!-- start sticky-nav -->
+                <div id="sticky-nav">
                     <#assign links = [{ "url": "#january", "title": "January" }, { "url": "#october", "title": "October" }, { "url": "#past-events", "title": "Past events" } ] />
                     <@sectionNav links></@sectionNav>
                 </div>
+                <!-- end sticky-nav -->
             </div>
 
             <div class="column column--two-thirds page-block page-block--main">

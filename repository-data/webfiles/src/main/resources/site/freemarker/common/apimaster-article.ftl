@@ -28,6 +28,7 @@
 
         <#if renderNav>
           <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+              <!-- start sticky-nav -->
               <div id="sticky-nav">
 
                   <#assign links = [{ "url": "#top", "title": 'Top of page' }] />
@@ -37,6 +38,7 @@
                   <#assign links += getNavLinksInMultiple(document.apiendpointgroups, "apiendpoint-") />
                   <@sectionNav links=links></@sectionNav>
               </div>
+              <!-- end sticky-nav -->
               <#-- Restore the bundle -->
               <@hst.setBundle basename="rb.generic.headers,publicationsystem.headers"/>
           </div>
@@ -81,6 +83,6 @@
         </div>
 
       </div>
-                          
+
 </article>
-                          
+

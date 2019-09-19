@@ -145,9 +145,11 @@
     <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
         <div class="grid-row">
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                <!-- start sticky-nav -->
                 <div id="sticky-nav">
                     <@sectionNav getSectionNavLinks()></@sectionNav>
                 </div>
+                <!-- end sticky-nav -->
             </div>
 
             <div class="column column--two-thirds page-block page-block--main">

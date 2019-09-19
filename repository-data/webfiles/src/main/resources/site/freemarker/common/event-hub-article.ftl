@@ -38,13 +38,13 @@
 <#-- Return the section navigation links for the months -->
 <#function getSectionNavLinks>
     <#assign links = [] />
-    
+
     <#list monthsOfTheYear as month>
         <#if eventGroupHash[month]??>
             <#assign links += [{ "url": "#" + slugify(month), "title": month, "aria-label": "Jump to events starting in ${month}" }] />
         </#if>
-    </#list>  
-    
+    </#list>
+
     <#return links />
 </#function>
 
@@ -90,8 +90,8 @@
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                <!-- start sticky-nav -->
                 <div id="sticky-nav">
-
 
                     <#if getFilterYearLinks()?size gt 0>
                         <#assign affix = selectedTypes?has_content?then("&type=" + selectedTypes?join("&type="), "") />
@@ -103,6 +103,7 @@
                     <#assign affix = "&year=" + selectedYear />
                     <@tagNav getFilterNavLinks() affix "Filter by type" "type" selectedTypes></@tagNav>
                 </div>
+                <!-- end sticky-nav -->
             </div>
 
             <div class="column column--two-thirds page-block page-block--main">

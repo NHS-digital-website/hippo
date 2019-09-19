@@ -63,9 +63,11 @@
         <div class="grid-row">
             <#if index?has_content && index?size gt 1>
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                <!-- start sticky-nav -->
                 <div id="sticky-nav">
                     <@sectionNav getSectionNavLinks(index)></@sectionNav>
                 </div>
+                <!-- end sticky-nav -->
             </div>
             </#if>
 
@@ -109,8 +111,6 @@
                                     </div>
                                 </#if>
                             </#if>
-
-
                         </div>
                     </div>
                 </#if>
@@ -192,7 +192,6 @@
                 <div class="article-section no-border no-top-margin">
                     <@pagination publication/>
                 </div>
-
             </div>
         </div>
     </div>

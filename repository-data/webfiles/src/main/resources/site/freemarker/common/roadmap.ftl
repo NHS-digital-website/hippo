@@ -134,6 +134,7 @@
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                <!-- start sticky-nav -->
                 <div id="sticky-nav">
                     <@sectionNav getSectionNavLinks()></@sectionNav>
 
@@ -141,6 +142,7 @@
                         <@tagNav getFilterNavLinks() "" "Filter by type" "type" selectedTypes></@tagNav>
                     </#if>
                 </div>
+                <!-- end sticky-nav -->
             </div>
 
             <div class="column column--two-thirds page-block page-block--main">
@@ -171,7 +173,6 @@
 
                                             <@roadmapItemBox itemData></@roadmapItemBox>
                                         </#list>
-
                                     </div>
                                 </div>
                             </div>

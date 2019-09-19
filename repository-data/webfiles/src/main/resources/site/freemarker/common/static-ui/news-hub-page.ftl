@@ -17,7 +17,7 @@
                         </div>
                         <div class="column--two-thirds column--reset">
                             <h1 class="local-header__title" data-uipath="document.title">News</h1>
-                            <p class="article-header__subtitle">The latest news and events from NHS Digital.</p>  
+                            <p class="article-header__subtitle">The latest news and events from NHS Digital.</p>
                         </div>
                     </div>
                 </div>
@@ -29,8 +29,7 @@
         <div class="grid-row">
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
                 <div id="sticky-nav">
-                    <#assign filterNavLinks = [{ "url": "#", "title": "NHS Digital (4)" }, { "url": "#", "title": "Programme (16)" }, { "url": "#", "title": "NHS Digital (32)" }, { "url": "#", "title": "System and services (22)" }, { "url": "#", "title": "2018 (25)" }, { "url": "#", "title": "2017 (150)" }, { "url": "#", "title": "2016 (123)" }, { "url": "#", "title": "2015 (85)" }]/>
-                    <@tagNav filterNavLinks></@tagNav>
+                    <!-- backend not yet implement -->
                 </div>
             </div>
 
