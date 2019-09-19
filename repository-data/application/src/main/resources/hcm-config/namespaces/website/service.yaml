@@ -60,6 +60,8 @@ definitions:
             wicket.id: ${cluster.id}.field
           /toptasks:
             /cluster.options:
+              ckeditor.config.appended.json: '{ extraPlugins: ''autogrow'', autoGrow_onStartup:
+                true, autoGrow_maxHeight: 50 }'
               ckeditor.config.overlayed.json: '{ toolbarGroups: [ { name: ''links''
                 }, { name: ''mode'' } ] }'
               jcr:primaryType: frontend:pluginconfig

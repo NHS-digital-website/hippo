@@ -38,6 +38,8 @@ definitions:
             wicket.id: ${cluster.id}.field
           /description:
             /cluster.options:
+              ckeditor.config.appended.json: '{ extraPlugins: ''autogrow'', autoGrow_onStartup:
+                true, autoGrow_maxHeight: 50 }'
               jcr:primaryType: frontend:pluginconfig
             caption: Description
             field: description
