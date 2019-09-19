@@ -155,7 +155,7 @@
         <div class="grid-row">
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
                 <div id="sticky-nav">
-                    <@sectionNav getSectionNavforLocation(document)></@sectionNav>
+                    <!-- backend not yet implement -->
                 </div>
             </div>
 
