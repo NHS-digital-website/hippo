@@ -119,7 +119,7 @@
                                 <#assign link>${requestContext.servletRequest.pathTranslated}${requestContext.servletRequest.pathTranslated?ends_with("/")?then("", "/")}${icon.id}</#assign>
                                 <div class="icon-box-margin">
                                     <a class="icon-box" href="${link}">
-                                        <img loading="lazy" src="${image}" />
+                                        <img loading="lazy" src="${image}" alt="${name}"/>
                                         <p class="icon-name">${name}</p>
                                     </a>
                                 </div>

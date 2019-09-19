@@ -65,7 +65,8 @@ definitions:
           /listentries:
             /cluster.options:
               ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',  items:
-                [''Link'',''PickInternalLink'',''Source''] }] }'
+                [''Link'',''PickInternalLink'',''Source''] }], extraPlugins: ''autogrow'',
+                autoGrow_onStartup: true, autoGrow_maxHeight: 50 }'
               jcr:primaryType: frontend:pluginconfig
             caption: List entries
             field: listentries
