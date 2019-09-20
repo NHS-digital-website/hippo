@@ -16,6 +16,11 @@
 <#include "macro/role.ftl">
 <#include "macro/sectionNav.ftl">
 <#include "macro/relatedarticles.ftl">
+<#include "macro/latestblogs.ftl">
+
+<#-- Add meta tags -->
+<#include "../common/macro/metaTags.ftl">
+<@metaTags></@metaTags>
 
 <#assign personName  = document.personalinfos.preferredname?has_content?then(document.personalinfos.preferredname, document.personalinfos.firstname) />
 <#assign personMainName  = document.personalinfos.preferredname?has_content?then(document.personalinfos.preferredname, document.personalinfos.firstname + " " + document.personalinfos.lastname) />
@@ -153,6 +158,9 @@
                       <#if document.relatedEvents?has_content >
                             <#assign links += [{ "url": "#related-articles-events-${idsuffix}", "title": 'Forthcoming events' }] />
                       </#if>
+                      <#if document.relatedBlogs?has_content >
+                            <#assign links += [{ "url": "#related-articles-blogs-${idsuffix}", "title": 'Blogs' }] />
+                      </#if>
 
 
                       <@sectionNav links=links></@sectionNav>
@@ -163,8 +171,12 @@
             <div class="column column--two-thirds page-block page-block--main">
 
               <#if notSuppress>
-                  <@personimage document.personimages idsuffix></@personimage>
-                  <@biography document.biographies idsuffix></@biography>
+                  <#if document.personimages?has_content>
+                    <@personimage document.personimages idsuffix></@personimage>
+                  </#if>
+                  <#if document.biographies?has_content>
+                    <@biography document.biographies idsuffix></@biography>
+                  </#if>
               </#if>
 
               <@responsibility document.responsibilities idsuffix personName document.manages document.managedby ></@responsibility>
@@ -179,6 +191,7 @@
 
               <@relatedarticles document.relatedNews 'Person' true 'news-' + idsuffix 'News articles'></@relatedarticles>
               <@relatedarticles document.relatedEvents 'Person' true 'events-' + idsuffix 'Forthcoming events'></@relatedarticles>
+              <@latestblogs document.relatedBlogs 'blogs-' + idsuffix 'Blogs'></@latestblogs>
 
             </div>
         </div>
