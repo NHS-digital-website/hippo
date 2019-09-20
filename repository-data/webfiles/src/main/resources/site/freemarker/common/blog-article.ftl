@@ -7,6 +7,7 @@
 <#include "macro/sectionNav.ftl">
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
+<#include "macro/latestblogs.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -27,7 +28,6 @@
 <#assign hasTwitterHashtag = document.twitterHashtag?? && document.twitterHashtag?has_content />
 <#assign hasContactDetails = document.contactDetails?? && document.contactDetails.content?has_content />
 <#assign hasRelatedSubjects = document.relatedSubjects?? && document.relatedSubjects?has_content />
-<#assign hasLatestBlogs = document.latestBlogs?? && document.latestBlogs?has_content />
 
 
 <article itemscope itemtype="http://schema.org/BlogPosting">
@@ -271,39 +271,11 @@
     <div class="grid-wrapper grid-wrapper--article" aria-label="document-content">
         <div class="grid-row">
 
-                <#if hasLatestBlogs>
-                    <div class="latestBlog">
-                        <h2>Latest blogs</h2>
+            <@latestblogs document.latestBlogs></@latestblogs>
 
-                        <#list document.latestBlogs as latest>
-                            <div class="latestBlog__item">
-                                <div class="latestBlog__icon">
-                                    <#if latest.leadImage??>
-                                        <@hst.link hippobean=latest.leadImage.original fullyQualified=true var="leadImage" />
-                                        <img class="latestBlog__icon__img" src="${leadImage}" alt="<#if hasLeadImageAltText>${latest.leadImageAltText}</#if>" />
-                                    <#else>
-                                        <img class="latestBlog__icon__nhsimg" src="<@hst.webfile path="/images/fibre_57101102_med.jpg"/>" alt="NHS Digital blog" >
-                                    </#if>
-                                </div>
-
-                                <div class="latestBlog__content">
-                                    <div class="latestBlog__title"><a class="cta__title cta__button" title="${latest.title}" href="<@hst.link hippobean=latest/>">${latest.title}</a></div>
-                                        <div class="latestBlog__author">
-                                            <#if latest.authors?? && latest.authors?has_content>
-                                                By <#list latest.authors as author>${author.title}<#sep>, </#list>.
-                                            </#if>
-                                            <@fmt.formatDate value=latest.dateOfPublication.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
-                                        </div>
-                                    <div class="latestBlog__body">${latest.shortsummary}</div>
-                                </div>
-                            </div>
-                        </#list>
-                    </div>
-                </#if>
-
-                <div class="article-section muted">
-                    <@lastModified document.lastModified false></@lastModified>
-                </div>
+            <div class="article-section muted">
+                <@lastModified document.lastModified false></@lastModified>
+            </div>
         </div>
     </div>
 
