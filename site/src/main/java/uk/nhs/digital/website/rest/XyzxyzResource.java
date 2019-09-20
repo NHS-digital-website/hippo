@@ -30,7 +30,6 @@ public class XyzxyzResource extends BaseRestResource {
     @GET
     @Path("/")
     public Pageable<Xyzxyz> index(@Context HttpServletRequest request) {
-        System.out.println("-----------index-----------------------");
         return findBeans(new DefaultRestContext(this, request), Xyzxyz.class);
     }
 
@@ -60,6 +59,7 @@ public class XyzxyzResource extends BaseRestResource {
             xyzxyzRepresentation = new XyzxyzRepresentation().represent(instanceOfXyzxyz);
 
         } catch (Exception e) {
+            // add logger
             System.out.println(e);
         }
         return xyzxyzRepresentation;
