@@ -9,7 +9,7 @@ CKEDITOR.plugins.add( 'definedterms', {
 
 		editor.addCommand( 'definedterms', new CKEDITOR.dialogCommand( 'definedtermsDialog', {
 
-			allowedContent: 'span[class]',
+			allowedContent: 'span[class]{*}',
 			requiredContent: 'span[class]',
 
 			contentForms: [

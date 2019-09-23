@@ -56,6 +56,9 @@ definitions:
       /dataset:
         hst:renderpath: webfile:/freemarker/publicationsystem/dataset.ftl
         jcr:primaryType: hst:template
+      /definedterms-article:
+        hst:renderpath: webfile:/freemarker/common/definedterms-article.ftl
+        jcr:primaryType: hst:template
       /document-list:
         hst:renderpath: webfile:/freemarker/common/document-list.ftl
         jcr:primaryType: hst:template
