@@ -36,6 +36,7 @@ definitions:
           - website:editorsnotes
           - website:supplementaryinformation
           - website:team
+          - website:definedterms
           hst:componentconfigurationmappingvalues:
           - hst:pages/service
           - hst:pages/general
@@ -67,6 +68,7 @@ definitions:
           - hst:pages/editorsnotes
           - hst:pages/supplementaryinformation
           - hst:pages/team
+          - hst:pages/definedterms
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404
@@ -101,6 +103,7 @@ definitions:
         - website:editorsnotes
         - website:supplementaryinformation
         - website:team
+        - website:definedterms
         hst:componentconfigurationmappingvalues:
         - hst:pages/service
         - hst:pages/general
@@ -132,6 +135,7 @@ definitions:
         - hst:pages/editorsnotes
         - hst:pages/supplementaryinformation
         - hst:pages/team
+        - hst:pages/definedterms
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:
