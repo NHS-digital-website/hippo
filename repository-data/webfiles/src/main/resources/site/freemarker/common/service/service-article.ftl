@@ -50,13 +50,19 @@
 
             <div class="column column--two-thirds page-block page-block--main">
 
-                <#-- [FTL-BEGIN] 'Top tasks top' section -->
-                    <@hst.include ref="toptasks-top"/>
-                <#-- [FTL-END] 'Top tasks top' section -->
+                <#if hasTopTasks>
+                    <div class="article-section article-section--highlighted">
+                        <div class="callout callout--attention">
+                            <h2>Top tasks</h2>
+                            <div class="rich-text-content">
+                                <#list document.toptasks as toptask>
+                                    <@hst.html hippohtml=toptask contentRewriter=gaContentRewriter/>
+                                </#list>
+                            </div>
+                        </div>
+                    </div>
+                </#if>
 
-                <#-- [FTL-BEGIN] 'Other content' section -->
-                    <@hst.include ref="othercontent"/>
-                <#-- [FTL-END] 'Other content' section -->
 
                 <#if hasIntroductionContent>
                 <div class="article-section no-border article-section--introduction">
@@ -69,10 +75,6 @@
                 <#if hasSectionContent>
                 <@sections document.sections></@sections>
                 </#if>
-
-                <#-- [FTL-BEGIN] 'Top tasks bottom' section -->
-                    <@hst.include ref="toptasks-bottom"/>
-                <#-- [FTL-END] 'Top tasks bottom' section -->
 
                 <#if hasContactDetailsContent>
                 <div class="article-section article-section--contact" id="${slugify('Contact details')}">
