@@ -80,6 +80,12 @@
 [website:componentlist] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:definedterm] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:definedterms] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:download] > hippo:compound, hippostd:relaxed
   orderable
 

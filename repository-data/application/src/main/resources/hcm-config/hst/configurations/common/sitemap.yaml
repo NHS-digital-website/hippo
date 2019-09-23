@@ -34,6 +34,7 @@ definitions:
           - website:orgstructure
           - website:group
           - website:editorsnotes
+          - website:definedterms
           hst:componentconfigurationmappingvalues:
           - hst:pages/service
           - hst:pages/general
@@ -63,6 +64,7 @@ definitions:
           - hst:pages/orgstructure
           - hst:pages/group
           - hst:pages/editorsnotes
+          - hst:pages/definedterms
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404
@@ -95,6 +97,7 @@ definitions:
         - website:orgstructure
         - website:group
         - website:editorsnotes
+        - website:definedterms
         hst:componentconfigurationmappingvalues:
         - hst:pages/service
         - hst:pages/general
@@ -124,6 +127,7 @@ definitions:
         - hst:pages/orgstructure
         - hst:pages/group
         - hst:pages/editorsnotes
+        - hst:pages/definedterms
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:

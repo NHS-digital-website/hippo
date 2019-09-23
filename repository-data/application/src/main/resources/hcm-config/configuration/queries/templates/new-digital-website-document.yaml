@@ -37,3 +37,4 @@ definitions:
         @jcr:primaryType='website:jobrole' or @jcr:primaryType='website:businessunit'
         or @jcr:primaryType='website:group' or @jcr:primaryType='website:orgstructure'
         or @jcr:primaryType='website:editorsnotes']
+        @jcr:primaryType='website:definedterms']
