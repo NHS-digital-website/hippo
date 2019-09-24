@@ -8,7 +8,7 @@
 <#include "macro/furtherInformationSection.ftl">
 <#include "../publicationsystem/macro/structured-text.ftl">
 <#include "macro/sections/sections.ftl">
-<#include "macro/sectionNav.ftl">
+<#include "macro/stickyNavSections.ftl">
 <#include "macro/fileMetaAppendix.ftl">
 <#include "macro/component/lastModified.ftl">
 <#include "macro/fileIconByMimeType.ftl">
@@ -26,6 +26,7 @@
 <#assign hasOdsCode = document.odscode?? && document.odscode?has_content/>
 <#assign hasOtherLocationData = hasUniquePropertyRefrenceNumber || hasDunsNumber || hasOdsCode />
 <#assign hasDirectionToSiteByCar = document.directiontositebycars?? && document.directiontositebycars?has_content/>
+<#assign hasTopLink = document.includeTopLink?? && document.includeTopLink/>
 <#if hasLocalAddress >
 <#assign hasGeocoordinates = document.locAddress.geocoordinates?? && document.locAddress.geocoordinates.content?has_content />
 <#else>
@@ -154,9 +155,35 @@
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                <!-- start sticky-nav -->
                 <div id="sticky-nav">
-                    <@sectionNav getSectionNavforLocation(document)></@sectionNav>
+                    <#assign links = [] />
+                    <#if hasOpeningHours >
+                        <#assign links += [{ "url": "#" + "Openinghours", "title": "Opening hours" }] />
+                    </#if>
+                    <#if hasDirectionToSiteByPublicTransports >
+                        <#list document.directionToSiteByPublicTransportation as dirToSiteByPublicTrans >
+                        <#assign links += [{ "url": "#" + "${dirToSiteByPublicTrans.publictransportType?lower_case}", "title": "Directions by ${dirToSiteByPublicTrans.publictransportType?lower_case}" }] />
+                        </#list>
+                    </#if>
+                    <#if hasLocalTaxis>
+                        <#assign links += [{ "url": "#" + "taxi", "title": "Taxi" }] />
+                    </#if>
+                    <#if hasDirectionToSiteByCar>
+                        <#assign links += [{ "url": "#" + "directionsbycar", "title": "Directions by car" }] />
+                    </#if>
+                    <#if hasOnsiteCarsParking>
+                        <#assign links += [{ "url": "#" + "carparking", "title": "Car parking" }] />
+                    </#if>
+                    <#if hasCyclesParking>
+                        <#assign links += [{ "url": "#" + "cycleparking", "title": "Cycle parking" }] />
+                    </#if>
+                    <#if hasOtherLocationData>
+                        <#assign links += [{ "url": "#" + "otherlocationdata", "title": "Other location data" }] />
+                    </#if>
+                    <@stickyNavSections getStickySectionNavLinks({"includeTopLink": hasTopLink, "sections": links})></@stickyNavSections>
                 </div>
+                <!-- end sticky-nav -->
             </div>
 
             <div class="column column--two-thirds page-block page-block--main">

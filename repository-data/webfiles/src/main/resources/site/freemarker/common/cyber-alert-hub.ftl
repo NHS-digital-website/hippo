@@ -1,10 +1,10 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
-<#include "macro/tagNav.ftl">
-<#include "macro/sectionNav.ftl">
+<#include "macro/stickyNavTags.ftl">
+<#include "macro/stickyNavSections.ftl">
 <#include "macro/cyberAlertBox.ftl">
 <#include "macro/stickyGroupBlockHeader.ftl">
-<#include "macro/yearNav.ftl">
+<#include "macro/stickyNavYears.ftl">
 
 <@hst.setBundle basename="rb.doctype.cyberalerts"/>
 
@@ -29,19 +29,6 @@
     <#assign month = monthNames[dateString?keep_after("-")?number-1] />
     <#assign monthYear = month + " " + year />
     <#return monthYear />
-</#function>
-
-
-<#-- Return the section navigation links for the months -->
-<#function getSectionNavLinks>
-    <#assign links = [] />
-
-    <#list monthYearGroupHash?keys as k>
-        <#assign displayDate= getDisplayDate(k) />
-        <#assign links += [{ "url": "#" + slugify(displayDate), "title": displayDate, "aria-label": "Jump to items starting in ${displayDate}" }] />
-    </#list>
-
-    <#return links />
 </#function>
 
 <#--Group filter tags (severity and type)  -->
@@ -116,26 +103,28 @@
 
             <div class="grid-row">
                 <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                    <!-- start sticky-nav -->
                     <div id="sticky-nav">
-
-
                         <#assign affix = selectedThreattype?has_content?then("&threattype=" + selectedThreattype?join("&threattype="), "") />
                         <#assign affix += selectedSeverity?has_content?then("&severity=" + selectedSeverity?join("&severity="), "") />
-                        <@yearNav getFilterYearLinks() affix></@yearNav>
+                        <@stickyNavYears getFilterYearLinks() affix></@stickyNavYears>
 
-                        <@sectionNav getSectionNavLinks()></@sectionNav>
+                        <#assign links = [] />
+                        <#list monthYearGroupHash?keys as k>
+                            <#assign displayDate= getDisplayDate(k) />
+                            <#assign links += [{ "url": "#" + slugify(displayDate), "title": displayDate, "aria-label": "Jump to items starting in ${displayDate}" }] />
+                        </#list>
+                        <@stickyNavSections getStickySectionNavLinks({"sections": links})></@stickyNavSections>
 
                         <#assign affix = "&year=" + selectedYear />
                         <#assign affix += selectedSeverity?has_content?then("&severity=" + selectedSeverity?join("&severity="), "") />
-                        <@tagNav getFilterTypeGroupHash() affix "Filter by type" "threattype" selectedThreattype></@tagNav>
+                        <@stickyNavTags getFilterTypeGroupHash() affix "Filter by type" "threattype" selectedThreattype></@stickyNavTags>
 
                         <#assign affix = "&year=" + selectedYear />
                         <#assign affix += selectedThreattype?has_content?then("&threattype=" + selectedThreattype?join("&threattype="), "") />
-                        <@tagNav getFilterSeverityGroupHash() affix "Filter by severity" "severity" selectedSeverity></@tagNav>
-
-
-
+                        <@stickyNavTags getFilterSeverityGroupHash() affix "Filter by severity" "severity" selectedSeverity></@stickyNavTags>
                     </div>
+                    <!-- end sticky-nav -->
                 </div>
 
                 <div class="column column--two-thirds page-block page-block--main">

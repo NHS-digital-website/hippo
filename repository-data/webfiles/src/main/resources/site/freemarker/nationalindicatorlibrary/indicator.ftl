@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
-<#include "../common/macro/sectionNav.ftl">
+<#include "../common/macro/stickyNavSections.ftl">
 <#include "../common/macro/fileMetaAppendix.ftl">
 
 <#-- Add meta tags -->
@@ -26,26 +26,6 @@
 <@fmt.message key="headers.interpretationGuidelines" var="interpretationGuidelinesHeader" />
 <@fmt.message key="headers.categories" var="categoriesHeader" />
 <@fmt.message key="headers.resources" var="resourcesHeader" />
-
-<#function getSectionNavLinks>
-    <#assign links = [{ "url": "#" + slugify(purposeHeader), "title": purposeHeader }] />
-    <#assign links += [{ "url": "#" + slugify(definitionHeader), "title": definitionHeader }] />
-    <#assign links += [{ "url": "#" + slugify(methodologyHeader), "title": methodologyHeader }] />
-
-    <#if caveatsHasContent>
-        <#assign links += [{ "url": "#" + slugify(caveatsHeader), "title": caveatsHeader }] />
-    </#if>
-
-    <#if interpHasContent>
-        <#assign links += [{ "url": "#" + slugify(interpretationGuidelinesHeader), "title": interpretationGuidelinesHeader }] />
-    </#if>
-
-    <#if hasAttachments>
-        <#assign links += [{ "url": "#" + slugify(resourcesHeader), "title": resourcesHeader }] />
-    </#if>
-
-    <#return links />
-</#function>
 
 <article class="article article--indicator" aria-label="Document Header">
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" data-uipath="ps.document.content">
@@ -145,9 +125,23 @@
     <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
         <div class="grid-row">
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                <!-- start sticky-nav -->
                 <div id="sticky-nav">
-                    <@sectionNav getSectionNavLinks()></@sectionNav>
+                    <#assign links = [{ "url": "#" + slugify(purposeHeader), "title": purposeHeader }] />
+                    <#assign links += [{ "url": "#" + slugify(definitionHeader), "title": definitionHeader }] />
+                    <#assign links += [{ "url": "#" + slugify(methodologyHeader), "title": methodologyHeader }] />
+                    <#if caveatsHasContent>
+                        <#assign links += [{ "url": "#" + slugify(caveatsHeader), "title": caveatsHeader }] />
+                    </#if>
+                    <#if interpHasContent>
+                        <#assign links += [{ "url": "#" + slugify(interpretationGuidelinesHeader), "title": interpretationGuidelinesHeader }] />
+                    </#if>
+                    <#if hasAttachments>
+                        <#assign links += [{ "url": "#" + slugify(resourcesHeader), "title": resourcesHeader }] />
+                    </#if>
+                    <@stickyNavSections getStickySectionNavLinks({"sections": links})></@stickyNavSections>
                 </div>
+                <!-- end sticky-nav -->
             </div>
 
             <div class="column column--two-thirds page-block page-block--main">

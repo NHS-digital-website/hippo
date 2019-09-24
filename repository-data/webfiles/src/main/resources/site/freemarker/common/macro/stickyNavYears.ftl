@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 
-<#macro yearNav links affix="" title="Filter by year">
+<#macro stickyNavYears links affix="" title="Filter by year">
 <div class="article-section-nav-wrapper">
     <div class="article-section-nav">
         <h2 class="article-section-nav__title">${title}</h2>

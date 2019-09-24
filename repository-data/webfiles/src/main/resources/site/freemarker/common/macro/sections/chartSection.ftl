@@ -1,7 +1,9 @@
 <#ftl output_format="HTML">
 
-<#macro chartSection section type size>
 <#-- @ftlvariable name="section" type="uk.nhs.digital.ps.beans.ChartSection" -->
+
+<#macro chartSection section type size>
+    <@hst.setBundle basename="publicationsystem.headers"/>
     <@fmt.message key="headers.download-chart-data" var="downloadDataFileHeader" />
 
     <div id="${section.uniqueId}" data-uipath="ps.publication.chart-section" style="width:100%; height:${size}px;"></div>
@@ -15,7 +17,7 @@
                href="${url}"
                onClick="logGoogleAnalyticsEvent(
                    'Download chart data','Publication','${dataFile.filename}'
-               );" 
+               );"
                onKeyUp="logGoogleAnalyticsEvent(
                    'Download chart data','Publication','${dataFile.filename}'
                );">

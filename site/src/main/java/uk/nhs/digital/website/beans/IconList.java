@@ -4,20 +4,26 @@ import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import uk.nhs.digital.indices.StickySection;
 
 import java.util.List;
 
-
 @HippoEssentialsGenerated(internalName = "website:iconlist")
 @Node(jcrType = "website:iconlist")
-public class IconList extends BaseCompound {
+public class IconList extends BaseCompound implements StickySection {
 
     @HippoEssentialsGenerated(internalName = "website:title")
     public String getTitle() {
         return getProperty("website:title");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:headinglevel")
+    @Override
+    public String getHeading() {
+        return this.getTitle();
+    }
+
+    @Override
+    @HippoEssentialsGenerated(internalName = "website:headinglevel", allowModifications = false)
     public String getHeadingLevel() {
         return getProperty("website:headinglevel");
     }
