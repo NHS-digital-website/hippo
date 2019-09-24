@@ -14,7 +14,7 @@
 <#include "macro/lawfulbasis.ftl">
 <#include "macro/personimage.ftl">
 <#include "macro/role.ftl">
-<#include "macro/sectionNav.ftl">
+<#include "macro/stickyNavSections.ftl">
 <#include "macro/relatedarticles.ftl">
 <#include "macro/latestblogs.ftl">
 
@@ -96,7 +96,7 @@
                                         <#assign twitteruser = document.socialmedias.twitteruser?substring(1) />
                                       </#if>
                                       <#assign twitterlink = "https://twitter.com/" + twitteruser />
-                                      
+
                                       <a href="${twitterlink}" onClick="logGoogleAnalyticsEvent('Link click','Person','${twitterlink}');" onKeyUp="return vjsu.onKeyUp(event)"  title="${document.socialmedias.twitteruser}">${document.socialmedias.twitteruser}</a>
                                     </dd>
                                 </dl>
@@ -117,6 +117,7 @@
         <div class="grid-row">
             <#if renderNav>
               <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                  <!-- start sticky-nav -->
                   <div id="sticky-nav">
                       <#assign links = [{ "url": "#top", "title": 'Top of page' }] />
 
@@ -126,7 +127,7 @@
                           </#if>
                       </#if>
 
-                      <#if 
+                      <#if
                        document.responsibilities?has_content && (document.responsibilities.responsible?has_content || document.responsibilities.responsibleforservice?has_content) ||
                        document.manages?has_content ||
                        document.managedby?has_content
@@ -159,8 +160,9 @@
                       </#if>
 
 
-                      <@sectionNav links=links></@sectionNav>
+                      <@stickyNavSections links=links></@stickyNavSections>
                   </div>
+                  <!-- end sticky-nav -->
               </div>
             </#if>
 

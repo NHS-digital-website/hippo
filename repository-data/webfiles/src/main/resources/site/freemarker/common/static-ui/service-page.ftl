@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
-<#include "../macro/sectionNav.ftl">
+<#include "../macro/stickyNavSections.ftl">
 
 <article class="article article--service">
     <div class="grid-wrapper grid-wrapper--article">
@@ -14,10 +14,12 @@
 
         <div class="grid-row">
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                <!-- start sticky-nav -->
                 <div id="sticky-nav">
                     <#assign links = [ {"title": "Link 1", "url": "#"}, {"title": "Link 2", "url": "#"}, {"title": "Link 3", "url": "#"}, {"title": "Link 4", "url": "#"}, {"title": "Link 5", "url": "#"} ] />
-                    <@sectionNav links />
+                    <@stickyNavSections getStickySectionNavLinks({"sections": links}) />
                 </div>
+                <!-- end sticky-nav -->
             </div>
 
             <div class="column column--two-thirds page-block page-block--main">
@@ -49,7 +51,7 @@
                 <#-- [FTL-END] optional 'Introduction section' -->
 
                 <#include "shared/sections.ftl"/>
-                
+
                 <#include "shared/child-documents.ftl"/>
             </div>
         </div>

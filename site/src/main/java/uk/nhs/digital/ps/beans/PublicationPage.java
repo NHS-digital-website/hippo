@@ -19,8 +19,8 @@ public class PublicationPage extends BaseDocument implements IndexPage, Paginate
         return getProperty("publicationsystem:Title");
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:bodySections")
-    public List<HippoBean> getBodySections() {
+    @HippoEssentialsGenerated(internalName = "publicationsystem:bodySections", allowModifications = false)
+    public List<HippoBean> getSections() {
         return getChildBeansIfPermitted("publicationsystem:bodySections", null);
     }
 

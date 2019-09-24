@@ -3,7 +3,7 @@
 <#include "./macro/structured-text.ftl">
 <#include "./macro/publicationHeader.ftl">
 <#include "../common/macro/sections/sections.ftl">
-<#include "../common/macro/sectionNav.ftl">
+<#include "../common/macro/stickyNavSections.ftl">
 <#include "../common/macro/fileMetaAppendix.ftl">
 <#include "../common/macro/component/lastModified.ftl">
 <#include "../common/macro/fileIconByMimeType.ftl">
@@ -44,18 +44,6 @@
                             || (publication.keyFactsTail?? && publication.keyFactsTail.content?has_content)
                             || (publication.keyFactInfographics?? && publication.keyFactInfographics?size >0)  />
 
-<#function getSectionNavLinks index>
-    <#assign links = [] />
-
-    <#if index?has_content>
-        <#list index as i>
-            <#assign links += [{ "url": "#" + slugify(i), "title": i }] />
-        </#list>
-    </#if>
-
-    <#return links />
-</#function>
-
 <#macro fullContentOfPubliclyAvailablePublication>
     <@publicationHeader publication=publication/>
 
@@ -63,9 +51,15 @@
         <div class="grid-row">
             <#if index?has_content && index?size gt 1>
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                <!-- start sticky-nav -->
                 <div id="sticky-nav">
-                    <@sectionNav getSectionNavLinks(index)></@sectionNav>
+                    <#assign links = [] />
+                    <#list index as i>
+                        <#assign links += [{ "url": "#" + slugify(i), "title": i }] />
+                    </#list>
+                    <@stickyNavSections getStickySectionNavLinks({"document": publication, "sections": links})></@stickyNavSections>
                 </div>
+                <!-- end sticky-nav -->
             </div>
             </#if>
 

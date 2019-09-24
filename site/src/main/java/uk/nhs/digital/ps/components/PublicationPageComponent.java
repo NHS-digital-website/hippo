@@ -1,18 +1,10 @@
 package uk.nhs.digital.ps.components;
 
-import static java.util.stream.Collectors.toList;
-
-import org.apache.commons.lang.StringUtils;
-import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
 import uk.nhs.digital.ps.beans.PublicationPage;
-import uk.nhs.digital.ps.beans.TextSection;
-import uk.nhs.digital.website.beans.*;
-
-import java.util.List;
 
 public class PublicationPageComponent extends EssentialsContentComponent {
 
@@ -24,36 +16,7 @@ public class PublicationPageComponent extends EssentialsContentComponent {
         PublicationPage page = (PublicationPage) request.getRequestContext().getContentBean();
 
         request.setAttribute("page", page);
-        request.setAttribute("index", getIndex(page));
-        request.setAttribute("pageSections", pageSectionGrouper.groupSections(page.getBodySections()));
+        request.setAttribute("pageSections", pageSectionGrouper.groupSections(page.getSections()));
     }
 
-    private List<String> getIndex(PublicationPage page) {
-        return page.getBodySections().stream()
-            .map(PublicationPageComponent::getTitle)
-            .filter(StringUtils::isNotBlank)
-            .collect(toList());
-    }
-
-    private static String getTitle(HippoBean section) {
-        if (section instanceof TextSection) {
-            return ((TextSection) section).getHeading();
-        }
-        if (section instanceof Section && ((Section) section).getHeadingLevel().equalsIgnoreCase("Main heading")) {
-            return ((Section) section).getTitle();
-        }
-        if (section instanceof IconList && ((IconList) section).getHeadingLevel().equalsIgnoreCase("Main heading")) {
-            return ((IconList) section).getTitle();
-        }
-        if (section instanceof GallerySection && ((GallerySection) section).getHeadingLevel().equalsIgnoreCase("Main heading")) {
-            return ((GallerySection) section).getTitle();
-        }
-        if (section instanceof Download && ((Download) section).getHeadingLevel().equalsIgnoreCase("Main heading")) {
-            return ((Download) section).getTitle();
-        }
-        if (section instanceof Infographic && ((Infographic) section).getSectionType().equalsIgnoreCase("Main heading")) {
-            return ((Infographic) section).getHeadline();
-        }
-        return "";
-    }
 }

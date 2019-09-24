@@ -4,7 +4,6 @@
 
 <#include "../include/imports.ftl">
 <#include "macro/sections/sections.ftl">
-<#include "macro/sectionNav.ftl">
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
 <#include "macro/latestblogs.ftl">

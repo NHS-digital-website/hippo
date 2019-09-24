@@ -4,24 +4,26 @@ import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import uk.nhs.digital.indices.StickySection;
 
 import java.util.List;
 
-
 @HippoEssentialsGenerated(internalName = "website:download")
 @Node(jcrType = "website:download")
-public class Download extends HippoCompound {
+public class Download extends HippoCompound implements StickySection {
 
     public String getTitle() {
         return getHeading();
     }
 
-    @HippoEssentialsGenerated(internalName = "website:heading")
+    @Override
+    @HippoEssentialsGenerated(internalName = "website:heading", allowModifications = false)
     public String getHeading() {
         return getProperty("website:heading");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:headinglevel")
+    @Override
+    @HippoEssentialsGenerated(internalName = "website:headinglevel", allowModifications = false)
     public String getHeadingLevel() {
         return getProperty("website:headinglevel");
     }
@@ -39,5 +41,5 @@ public class Download extends HippoCompound {
     public String getSectionType() {
         return "download";
     }
-    
+
 }

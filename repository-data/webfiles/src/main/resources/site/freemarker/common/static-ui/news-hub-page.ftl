@@ -1,8 +1,8 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 
-<#include "../macro/sectionNav.ftl">
-<#include "../macro/tagNav.ftl">
+<#include "../macro/stickyNavSections.ftl">
+<#include "../macro/stickyNavTags.ftl">
 <#include "../macro/hubBox.ftl">
 <#include "../macro/stickyGroupBlockHeader.ftl">
 
@@ -17,7 +17,7 @@
                         </div>
                         <div class="column--two-thirds column--reset">
                             <h1 class="local-header__title" data-uipath="document.title">News</h1>
-                            <p class="article-header__subtitle">The latest news and events from NHS Digital.</p>  
+                            <p class="article-header__subtitle">The latest news and events from NHS Digital.</p>
                         </div>
                     </div>
                 </div>
@@ -28,10 +28,12 @@
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                <!-- start sticky-nav -->
                 <div id="sticky-nav">
                     <#assign filterNavLinks = [{ "url": "#", "title": "NHS Digital (4)" }, { "url": "#", "title": "Programme (16)" }, { "url": "#", "title": "NHS Digital (32)" }, { "url": "#", "title": "System and services (22)" }, { "url": "#", "title": "2018 (25)" }, { "url": "#", "title": "2017 (150)" }, { "url": "#", "title": "2016 (123)" }, { "url": "#", "title": "2015 (85)" }]/>
-                    <@tagNav filterNavLinks></@tagNav>
+                    <@stickyNavTags filterNavLinks></@stickyNavTags>
                 </div>
+                <!-- end sticky-nav -->
             </div>
 
             <div class="column column--two-thirds page-block page-block--main">

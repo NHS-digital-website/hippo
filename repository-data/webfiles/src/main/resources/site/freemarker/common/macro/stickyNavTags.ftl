@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 
-<#macro tagNav links affix title filter selectedFilter>
+<#macro stickyNavTags links affix title filter selectedFilter>
 <div class="article-section-nav-wrapper">
     <div class="article-section-nav">
         <h2 class="article-section-nav__title">${title}</h2>

@@ -3,7 +3,7 @@
 <#-- @ftlvariable name="legacyPublication" type="uk.nhs.digital.ps.beans.LegacyPublication" -->
 
 <#include "../include/imports.ftl">
-<#include "../common/macro/sectionNav.ftl">
+<#include "../common/macro/stickyNavSections.ftl">
 <#include "../common/macro/fileMetaAppendix.ftl">
 <#include "../common/macro/component/lastModified.ftl">
 <#include "./macro/structured-text.ftl">
@@ -44,26 +44,6 @@
 <@fmt.message key="headers.administrative-sources" var="adminSourcesHeader" />
 <@fmt.message key="headers.resources" var="resourcesHeader" />
 <@fmt.message key="headers.related-links" var="relatedLinksHeader" />
-<#function getSectionNavLinks>
-    <#assign links = [] />
-    <#if hasSummary>
-        <#assign links = [{ "url": "#" + slugify(summaryHeader), "title": summaryHeader }] />
-    </#if>
-    <#if hasKeyFacts>
-        <#assign links += [{ "url": "#" + slugify(keyFactsHeader), "title": keyFactsHeader }] />
-    </#if>
-    <#if hasAdministrativeSources>
-        <#assign links += [{ "url": "#" + slugify(adminSourcesHeader), "title": adminSourcesHeader }] />
-    </#if>
-    <#if hasResources>
-        <#assign links += [{ "url": "#" + slugify(resourcesHeader), "title": resourcesHeader }] />
-    </#if>
-    <#if hasRelatedLinks>
-        <#assign links += [{ "url": "#" + slugify(relatedLinksHeader), "title": relatedLinksHeader }] />
-    </#if>
-
-    <#return links />
-</#function>
 
 <#macro nationalStatsStamp>
     <#list legacyPublication.informationType as type>
@@ -209,9 +189,27 @@
     <div class="grid-row">
         <#if renderNav>
         <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+            <!-- start sticky-nav -->
             <div id="sticky-nav">
-                <@sectionNav getSectionNavLinks()></@sectionNav>
+                <#assign links = [] />
+                <#if hasSummary>
+                    <#assign links = [{ "url": "#" + slugify(summaryHeader), "title": summaryHeader }] />
+                </#if>
+                <#if hasKeyFacts>
+                    <#assign links += [{ "url": "#" + slugify(keyFactsHeader), "title": keyFactsHeader }] />
+                </#if>
+                <#if hasAdministrativeSources>
+                    <#assign links += [{ "url": "#" + slugify(adminSourcesHeader), "title": adminSourcesHeader }] />
+                </#if>
+                <#if hasResources>
+                    <#assign links += [{ "url": "#" + slugify(resourcesHeader), "title": resourcesHeader }] />
+                </#if>
+                <#if hasRelatedLinks>
+                    <#assign links += [{ "url": "#" + slugify(relatedLinksHeader), "title": relatedLinksHeader }] />
+                </#if>
+                <@stickyNavSections getStickySectionNavLinks({"sections": links})></@stickyNavSections>
             </div>
+            <!-- end sticky-nav -->
         </div>
         </#if>
 
