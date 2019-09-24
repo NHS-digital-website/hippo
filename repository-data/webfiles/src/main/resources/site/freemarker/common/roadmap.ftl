@@ -3,9 +3,9 @@
 
 <#include "../include/imports.ftl">
 <#include "../common/macro/sections/sections.ftl">
-<#include "macro/sectionNav.ftl">
+<#include "macro/stickyNavSections.ftl">
 <#include "macro/roadmapItemBox.ftl">
-<#include "macro/tagNav.ftl">
+<#include "macro/stickyNavTags.ftl">
 <#include "macro/metaTags.ftl">
 
 
@@ -140,10 +140,22 @@
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                <!-- start sticky-nav -->
                 <div id="sticky-nav">
-                    <#assign links = getSectionNavLinks() />
-                    <@sectionNav links=links ></@sectionNav>
+                    <#--<#assign links = getSectionNavLinks() />-->
+                    <#--<@sectionNav links=links ></@sectionNav>-->
+                    <#assign sections = [] />
+                    <#list groupedDatesHash?keys?sort as k>
+                        <#assign displayDate= getDisplayDate(k) />
+                        <#assign sections += [{ "url": "#" + slugify(displayDate), "title": displayDate, "aria-label": "Jump to items starting in ${displayDate}" }] />
+                    </#list>
+                    <@stickyNavSections getStickySectionNavLinks({  "sections": sections, "includeTopLink": false})></@stickyNavSections>
+
+                    <#if getFilterNavLinks()?size gt 0>
+                        <@stickyNavTags getFilterNavLinks() "" "Filter by type" "type" selectedTypes></@stickyNavTags>
+                    </#if>
                 </div>
+                <!-- end sticky-nav -->
             </div>
 
             <div class="column column--two-thirds page-block page-block--main">

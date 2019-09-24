@@ -1,8 +1,8 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
-<#include "macro/sectionNav.ftl">
-<#include "macro/yearNav.ftl">
-<#include "macro/tagNav.ftl">
+<#include "macro/stickyNavSections.ftl">
+<#include "macro/stickyNavYears.ftl">
+<#include "macro/stickyNavTags.ftl">
 <#include "macro/hubBox.ftl">
 <#include "macro/stickyGroupBlockHeader.ftl">
 <#include "macro/documentHeader.ftl">
@@ -35,36 +35,6 @@
     </#list>
 </#list>
 
-<#-- Return the section navigation links for the months -->
-<#function getSectionNavLinks>
-    <#assign links = [] />
-    
-    <#list monthsOfTheYear as month>
-        <#if eventGroupHash[month]??>
-            <#assign links += [{ "url": "#" + slugify(month), "title": month, "aria-label": "Jump to events starting in ${month}" }] />
-        </#if>
-    </#list>  
-    
-    <#return links />
-</#function>
-
-<#-- Return the filter navigation links for the type -->
-<#function getFilterNavLinks>
-    <#assign links = [] />
-    <#if typeGroupHash?has_content>
-        <#list typeGroupHash?keys as key>
-            <#assign typeCount = typeGroupHash[key]?size />
-            <#assign links += [{ "key" : key, "title": eventstype[key] + " (${typeCount})" }] />
-        </#list>
-        <#else>
-            <#list selectedTypes as key>
-                <#assign links += [{ "key" : key, "title": key?cap_first?replace("-", " ") + " (0)" }] />
-            </#list>
-    </#if>
-
-    <#return links />
-</#function>
-
 <#-- Return the filter navigation links for the year -->
 <#function getFilterYearLinks>
     <#assign links = [] />
@@ -90,19 +60,36 @@
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                <!-- start sticky-nav -->
                 <div id="sticky-nav">
-
-
                     <#if getFilterYearLinks()?size gt 0>
                         <#assign affix = selectedTypes?has_content?then("&type=" + selectedTypes?join("&type="), "") />
-                        <@yearNav getFilterYearLinks() affix></@yearNav>
+                        <@stickyNavYears getFilterYearLinks() affix></@stickyNavYears>
                     </#if>
 
-                    <@sectionNav getSectionNavLinks()></@sectionNav>
+                    <#assign links = [] />
+                    <#list monthsOfTheYear as month>
+                        <#if eventGroupHash[month]??>
+                            <#assign links += [{ "url": "#" + slugify(month), "title": month, "aria-label": "Jump to events starting in ${month}" }] />
+                        </#if>
+                    </#list>
+                    <@stickyNavSections getStickySectionNavLinks({"sections": links})></@stickyNavSections>
 
+                    <#assign tags = [] />
+                    <#if typeGroupHash?has_content>
+                        <#list typeGroupHash?keys as key>
+                            <#assign typeCount = typeGroupHash[key]?size />
+                            <#assign tags += [{ "key" : key, "title": eventstype[key] + " (${typeCount})" }] />
+                        </#list>
+                    <#else>
+                        <#list selectedTypes as key>
+                            <#assign tags += [{ "key" : key, "title": key?cap_first?replace("-", " ") + " (0)" }] />
+                        </#list>
+                    </#if>
                     <#assign affix = "&year=" + selectedYear />
-                    <@tagNav getFilterNavLinks() affix "Filter by type" "type" selectedTypes></@tagNav>
+                    <@stickyNavTags tags affix "Filter by type" "type" selectedTypes></@stickyNavTags>
                 </div>
+                <!-- end sticky-nav -->
             </div>
 
             <div class="column column--two-thirds page-block page-block--main">

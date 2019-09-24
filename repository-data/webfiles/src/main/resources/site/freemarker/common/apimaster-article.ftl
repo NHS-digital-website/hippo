@@ -7,7 +7,7 @@
 <#include "macro/apiinfobuilder.ftl">
 <#include "macro/apiendpointgroup.ftl">
 <#include "macro/aboutapi.ftl">
-<#include "macro/sectionNav.ftl">
+<#include "macro/stickyNavSections.ftl">
 
 <#-- Add meta tags -->
 <#include "../common/macro/metaTags.ftl">
@@ -28,15 +28,16 @@
 
         <#if renderNav>
           <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
-              <div id="sticky-nav">
-
+              <!-- start sticky-nav -->
+                <div id="sticky-nav">
                   <#assign links = [{ "url": "#top", "title": 'Top of page' }] />
                   <#assign links += [{ "url": "#summary", "title": 'Summary' }] />
                   <#assign links += getNavLinksInMultiple(document.aboutapis, "aboutapi-") />
                   <#assign links += getNavLinksInMultiple(document.apiinfobuilders, "apiinfobuilder-") />
                   <#assign links += getNavLinksInMultiple(document.apiendpointgroups, "apiendpoint-") />
-                  <@sectionNav links=links></@sectionNav>
+                  <@stickyNavSections getStickySectionNavLinks({"sections": links})></@stickyNavSections>
               </div>
+              <!-- end sticky-nav -->
               <#-- Restore the bundle -->
               <@hst.setBundle basename="rb.generic.headers,publicationsystem.headers"/>
           </div>
@@ -81,6 +82,5 @@
         </div>
 
       </div>
-                          
+
 </article>
-                          

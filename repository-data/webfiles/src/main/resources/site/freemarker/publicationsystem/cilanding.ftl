@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
-<#include "../common/macro/sectionNav.ftl">
+<#include "../common/macro/stickyNavSections.ftl">
 <#include "../common/macro/fileMetaAppendix.ftl">
 
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
@@ -9,27 +9,13 @@
 <#include "../common/macro/metaTags.ftl">
 <@metaTags></@metaTags>
 
-<#assign hasSubSections = document.subSections?has_content />
-<#assign foundSubsectionTitle = countSectionTitles(document.subSections) gte 1 />
+<#assign hassections = document.sections?has_content />
+<#assign foundSubsectionTitle = countSectionTitles(document.sections) gte 1 />
 <#-- Only render the nav if there is at least 1 subsection with title -->
-<#assign renderNav = hasSubSections && foundSubsectionTitle />
+<#assign renderNav = hassections && foundSubsectionTitle />
 
 <@fmt.message key="headers.ci-landing-actions" var="actionsHeader" />
 <#assign resourcesHeader = "Resources" />
-
-<#function getSectionNavLinks>
-    <#assign links = [{ "url": "#" + slugify(actionsHeader), "title": actionsHeader }] />
-
-    <#if hasSubSections>
-        <#list document.subSections as section>
-            <#if section.title?has_content>
-                <#assign links += [{ "url": "#" + slugify(section.title), "title": section.title }] />
-            </#if>
-        </#list>
-    </#if>
-
-    <#return links />
-</#function>
 
 <article class="article article--service">
     <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
@@ -42,9 +28,17 @@
         <div class="grid-row">
             <#if renderNav>
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                <!-- start sticky-nav -->
                 <div id="sticky-nav">
-                    <@sectionNav getSectionNavLinks()></@sectionNav>
+                    <#assign links = [{ "url": "#" + slugify(actionsHeader), "title": actionsHeader }] />
+                    <#list document.sections as section>
+                        <#if section.title?has_content>
+                            <#assign links += [{ "url": "#" + slugify(section.title), "title": section.title }] />
+                        </#if>
+                    </#list>
+                    <@stickyNavSections getStickySectionNavLinks({"sections": links})></@stickyNavSections>
                 </div>
+                <!-- end sticky-nav -->
             </div>
             </#if>
 
@@ -71,9 +65,9 @@
                 <#-- [FTL-END] Actions sections -->
 
                 <div data-uipath="ps.cilanding.sections" class="article-section">
-                    <#if hasSubSections>
+                    <#if hassections>
                     <#-- [FTL-BEGIN] Optional Sub sections -->
-                    <#list document.subSections as section>
+                    <#list document.sections as section>
                     <#assign hasTitle = section.title?has_content />
                     <div ${hasTitle?then('id=${slugify(section.title)}', "")} class="article-section ${hasTitle?then("", "no-top-padding")}">
                         <#-- Render title -->

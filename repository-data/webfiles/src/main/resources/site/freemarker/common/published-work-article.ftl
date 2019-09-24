@@ -6,7 +6,7 @@
 <#include "../common/macro/sections/sections.ftl">
 <#include "../common/macro/component/lastModified.ftl">
 <#include "../common/macro/component/pagination.ftl">
-<#include "macro/sectionNav.ftl">
+<#include "macro/stickyNavSections.ftl">
 <#include "macro/metaTags.ftl">
 <#include "../common/macro/fileMetaAppendix.ftl">
 <#include "../common/macro/fileIconByMimeType.ftl">
@@ -191,17 +191,19 @@
         <div class="grid-row">
             <#if renderNav>
                 <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                    <!-- start sticky-nav -->
                     <div id="sticky-nav">
                         <@fmt.message key="headers.page-contents" var="pageContentsHeader" />
                         <#assign links = [] />
                         <#if hasAboutThisSection>
                             <#assign links = links + [{"url": "#about-this-publication", "title": aboutThisPublicationHeader}] />
                         </#if>
-                        <@sectionNav getSectionNavLinks({ "document": document, "links": links, "ignoreSummary": !hasSummaryContent}), pageContentsHeader></@sectionNav>
+                        <@stickyNavSections getStickySectionNavLinks({ "document": document, "sections": links, "includeSummary": hasSummaryContent}), pageContentsHeader></@stickyNavSections>
 
                         <#-- Restore the bundle -->
                         <@hst.setBundle basename="rb.doctype.published-work,publicationsystem.headers"/>
                     </div>
+                    <!-- end sticky-nav -->
                 </div>
             </#if>
 

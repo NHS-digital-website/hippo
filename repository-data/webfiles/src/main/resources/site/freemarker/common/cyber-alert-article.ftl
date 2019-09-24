@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <#include "macro/sections/sections.ftl">
-<#include "macro/sectionNav.ftl">
+<#include "macro/stickyNavSections.ftl">
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
 
@@ -185,9 +185,11 @@
         <div class="grid-row">
 
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                <!-- start sticky-nav -->
                 <div id="sticky-nav">
-                    <@sectionNav getSectionNavLinks({"links": links })></@sectionNav>
+                    <@stickyNavSections getStickySectionNavLinks({"sections": links, "includeSummary": true })></@stickyNavSections>
                 </div>
+                <!-- end sticky-nav -->
             </div>
 
             <div class="column column--two-thirds page-block page-block--main">

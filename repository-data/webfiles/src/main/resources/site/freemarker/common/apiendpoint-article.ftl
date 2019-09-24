@@ -8,7 +8,7 @@
 <#include "macro/furtherInformationSection.ftl">
 <#include "../publicationsystem/macro/structured-text.ftl">
 <#include "macro/sections/sections.ftl">
-<#include "macro/sectionNav.ftl">
+<#include "macro/stickyNavSections.ftl">
 <#include "macro/fileMetaAppendix.ftl">
 <#include "macro/component/lastModified.ftl">
 <#include "macro/fileIconByMimeType.ftl">
@@ -25,6 +25,7 @@
 <#assign renderNav = sectionTitlesFound gte 1 || hasAuthnAuthsContent || hasApiEndpointContent />
 <#assign hasSectionContent = document.sections?has_content />
 <#assign hasShortsummary = document.shortsummary?? />
+<#assign hasTopLink = document.includeTopLink?? && document.includeTopLink />
 
 <#assign apimethodValue = document.apimethod?upper_case />
 <#if apimethodValue??>
@@ -63,9 +64,33 @@
         </div>
         <div class="grid-row">
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                <!-- start sticky-nav -->
                 <div id="sticky-nav">
-                    <@sectionNav getSectionNavforApiEndpoint(document)></@sectionNav>
+                    <#assign links = [] />
+                    <#if document.requestname?? && document.uriaddress?? && document.summary??>
+                        <#assign links += [{ "url": "#" + "Endpoint", "title": "Endpoint" }] />
+                    </#if>
+                    <#if document.authnauths?? && document.authnauths.content?has_content>
+                        <#assign links += [{ "url": "#" + "authns", "title": "Authorisation and Authentication" }] />
+                    </#if>
+                    <#if hasParameters>
+                        <#assign links += [{ "url": "#" + "Parameter", "title": "Parameters" }] />
+                    </#if>
+                    <#if hasSampleRequest>
+                        <#assign links += [{ "url": "#" + "SampleRequest", "title": "Sample Request" }] />
+                    </#if>
+                    <#if hasSampleResponse>
+                        <#assign links += [{ "url": "#" + "SampleResponse", "title": "Sample Response" }] />
+                    </#if>
+                    <#if hasResponseDefinition>
+                        <#assign links += [{ "url": "#" + "responseDefination", "title": "Response Definitions" }] />
+                    </#if>
+                    <#if hasStatusErrorCode>
+                        <#assign links += [{ "url": "#" + "statusErrorCode", "title": "Status and error codes" }] />
+                    </#if>
+                    <@stickyNavSections getStickySectionNavLinks({"document": document, "includeTopLink": hasTopLink, "sections": links})></@stickyNavSections>
                 </div>
+                <!-- end sticky-nav -->
             </div>
 
             <div class="column column--two-thirds page-block page-block--main">

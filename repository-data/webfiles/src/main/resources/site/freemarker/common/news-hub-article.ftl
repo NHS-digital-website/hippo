@@ -1,7 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 
-<#include "macro/sectionNav.ftl">
 <#include "macro/hubBox.ftl">
 <#include "macro/stickyGroupBlockHeader.ftl">
 <#include "macro/documentHeader.ftl">
@@ -21,19 +20,6 @@
     <@fmt.formatDate value=item.publisheddatetime.time type="Date" pattern="MMMM" timeZone="${getTimeZone()}" var="key" />
     <#assign newsGroupHash = newsGroupHash + {  key : (newsGroupHash[key]![]) + [ item ] } />
 </#list>
-
-<#-- Return the section navigation links for the months -->
-<#function getSectionNavLinks>
-    <#assign links = [] />
-
-    <#list monthNames as month>
-        <#if newsGroupHash[month]??>
-            <#assign links += [{ "url": "#" + slugify(month), "title": month, "aria-label": "Jump to events starting in ${month}" }] />
-        </#if>
-    </#list>
-
-    <#return links />
-</#function>
 
 <article class="article article--news-hub">
 

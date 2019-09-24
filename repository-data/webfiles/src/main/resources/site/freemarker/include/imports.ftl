@@ -153,124 +153,6 @@
     <#return  string?lower_case?replace("\\W+", "-", "r") />
 </#function>
 
-<#-- Gather section nav links in a hash -->
-<#function getSectionNavLinks options>
-    <@hst.setBundle basename="rb.generic.headers"/>
-
-    <#assign links = [] />
-    <#if options??>
-        <#if options.includeTopLink?? && options.includeTopLink>
-            <#assign links = [{ "url": "#top", "title": "Top of page" }] />
-        </#if>
-
-        <#if options.ignoreSummary?? && options.ignoreSummary>
-        <#else>
-            <@fmt.message key="headers.summary" var="summaryHeader" />
-            <#assign links += [{ "url": "#summary", "title": summaryHeader }] />
-        </#if>
-
-        <#if options.document??>
-            <#if options.document.sections?has_content>
-                <#list options.document.sections as section>
-                    <#if includeInSideNav(section)>
-                        <#assign isNumberedList = false />
-                        <#if section.isNumberedList??>
-                            <#assign isNumberedList = section.isNumberedList />
-                        </#if>
-                        <#if section.title?has_content>
-                            <#assign links += [{ "url": "#" + slugify(section.title), "title": section.title, "isNumberedList": isNumberedList?c }] />
-                        <#elseif section.heading?has_content>
-                            <#assign links += [{ "url": "#" + slugify(section.heading), "title": section.heading, "isNumberedList": isNumberedList?c }] />
-                        </#if>
-                    </#if>
-                </#list>
-            </#if>
-            <#if options.document.contactdetails?? && options.document.contactdetails.content?has_content>
-                <@fmt.message key="headers.contact-details" var="contactDetailsHeader" />
-                <#assign links += [{ "url": "#contact-details", "title": contactDetailsHeader }] />
-            </#if>
-        </#if>
-        <#if options.childPages?? && options.childPages?has_content>
-            <@fmt.message key="headers.further-information" var="furtherInformationHeader" />
-            <#assign links += [{ "url": "#further-information", "title": furtherInformationHeader }] />
-        </#if>
-        <#if options.links??>
-            <#assign links += options.links />
-        </#if>
-    </#if>
-
-    <#return links />
-</#function>
-
-<#function includeInSideNav section>
-    <#return (section.title?has_content || section.heading?has_content) &&
-            (
-              ( section.sectionType == 'website-section'  &&
-                  (
-                   !section.headingLevel?has_content ||
-                   section.headingLevel == 'Main heading'
-                  )
-              )
-            ||
-                (
-                  (section.sectionType == 'gallerySection' ||
-                   section.sectionType == 'iconList' ||
-                   section.sectionType == 'code' ||
-                   section.sectionType == 'download'
-                  )
-                && section.headingLevel == 'Main heading'
-                )
-            ) />
-</#function>
-
-<#-- Get section links in multiple elements -->
-<#function getNavLinksInMultiple sectionCompounds idprefix=''>
-    <#assign links = [] />
-
-    <#list sectionCompounds as compound>
-      <#if compound.title?has_content>
-        <#assign links += [{ "url": "#${idprefix}" + slugify(compound.title), "title": compound.title}] />
-        <#if compound.sections?has_content>
-          <#list compound.sections as section>
-            <#if section.title?has_content>
-              <#assign links += [{ "url": "#" + slugify(section.title), "title": section.title}] />
-            </#if>
-          </#list>
-        </#if>
-      </#if>
-    </#list>
-
-    <#return links />
-</#function>
-
-<#-- Count the sections in multiple elements -->
-<#function countSectionTitlesInMultiple sectionCompounds>
-    <#local titlesFound = 0 />
-    <#list sectionCompounds as compound>
-      <#if compound.sections??>
-          <#list compound.sections as section>
-              <#if section.title?has_content>
-                  <#local titlesFound += 1 />
-              </#if>
-          </#list>
-      </#if>
-    </#list>
-    <#return titlesFound />
-</#function>
-
-<#-- Count the sections with titles available -->
-<#function countSectionTitles sections>
-    <#local titlesFound = 0 />
-    <#if sections??>
-        <#list sections as section>
-            <#if section.title?has_content>
-                <#local titlesFound += 1 />
-            </#if>
-        </#list>
-    </#if>
-    <#return titlesFound />
-</#function>
-
 <#-- Months of the year -->
 <#function monthsOfTheYear>
     <#return ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] />
@@ -356,106 +238,50 @@
     <#return { "left": leftHash, "right": rightHash } />
 </#function>
 
-<#-- Gather section nav for ApiEndpoint in a hash -->
-<#function getSectionNavforApiEndpoint document>
-    <@hst.setBundle basename="rb.generic.headers"/>
+<#-- Count the sections with titles available -->
+<#function countSectionTitles sections>
+    <#local titlesFound = 0 />
+    <#if sections??>
+        <#list sections as section>
+            <#if section.title?has_content>
+                <#local titlesFound += 1 />
+            </#if>
+        </#list>
+    </#if>
+    <#return titlesFound />
+</#function>
 
+<#-- Get section links in multiple elements -->
+<#function getNavLinksInMultiple sectionCompounds idprefix=''>
     <#assign links = [] />
-    <#assign hasParameters = document.apiendpointparams?? && document.apiendpointparams?has_content />
-    <#assign hasSampleRequest = document.samplerequest?? && document.samplerequest?has_content />
-    <#assign hasSampleResponse = document.sampleresponse?? && document.sampleresponse?has_content />
-    <#assign hasResponseDefinition = document.responsedefinitions?? && document.responsedefinitions?has_content />
-    <#assign hasStatusErrorCode = document.statuserrorcodes?? && document.statuserrorcodes?has_content />
 
-    <#if document??>
-        <#if document.includeTopLink?? && document.includeTopLink>
-            <#assign links = [{ "url": "#top", "title": "Top of page" }] />
-        </#if>
-
-        <#if document??>
-	        <#if document.requestname?? && document.uriaddress?? && document.summary??>
-                <#assign links += [{ "url": "#" + "Endpoint", "title": "Endpoint" }] />
-            </#if>
-            <#if document.authnauths?? && document.authnauths.content?has_content>
-                <#assign links += [{ "url": "#" + "authns", "title": "Authorisation and Authentication" }] />
-            </#if>
-            <#if hasParameters>
-                <#assign links += [{ "url": "#" + "Parameter", "title": "Parameters" }] />
-            </#if>
-            <#if hasSampleRequest>
-                <#assign links += [{ "url": "#" + "SampleRequest", "title": "Sample Request" }] />
-            </#if>
-            <#if hasSampleResponse>
-                <#assign links += [{ "url": "#" + "SampleResponse", "title": "Sample Response" }] />
-            </#if>
-            <#if hasResponseDefinition>
-                <#assign links += [{ "url": "#" + "responseDefination", "title": "Response Definitions" }] />
-            </#if>
-            <#if hasStatusErrorCode>
-                <#assign links += [{ "url": "#" + "statusErrorCode", "title": "Status and error codes" }] />
-            </#if>
-            <#if document.sections?has_content>
-                <#list document.sections as section>
-                    <#if includeInSideNav(section)>
-                        <#assign isNumberedList = false />
-                        <#if section.isNumberedList??>
-                            <#assign isNumberedList = section.isNumberedList />
-                        </#if>
-                        <#assign links += [{ "url": "#" + slugify(section.title), "title": section.title, "isNumberedList": isNumberedList?c }] />
+    <#list sectionCompounds as compound>
+        <#if compound.title?has_content>
+            <#assign links += [{ "url": "#${idprefix}" + slugify(compound.title), "title": compound.title}] />
+            <#if compound.sections?has_content>
+                <#list compound.sections as section>
+                    <#if section.title?has_content>
+                        <#assign links += [{ "url": "#" + slugify(section.title), "title": section.title}] />
                     </#if>
                 </#list>
             </#if>
         </#if>
-    </#if>
+    </#list>
 
     <#return links />
 </#function>
 
-<#-- Gather section nav for Location in a hash -->
-<#function getSectionNavforLocation document>
-    <@hst.setBundle basename="rb.generic.headers"/>
-
-    <#assign links = [] />
-    <#assign hasUrgentinformation = document.urgentinformation.content?? && document.urgentinformation.content?has_content/>
-    <#assign hasOpeningHours = document.locopeninghours?? && document.locopeninghours?has_content/>
-    <#assign hasDirectionToSiteByPublicTransports = document.directionToSiteByPublicTransportation?? && document.directionToSiteByPublicTransportation?has_content/>
-    <#assign hasOnsiteCarsParking = document.onsitecarsparking?? && document.onsitecarsparking?has_content/>
-    <#assign hasCyclesParking = document.cyclesparking?? && document.cyclesparking?has_content/>
-    <#assign hasLocalTaxis = document.localtaxis?? && document.localtaxis?has_content/>
-    <#assign hasOtherLocationData = document.uniquePropertyReferenceNumber?? && document.uniquePropertyReferenceNumber?has_content || document.dunsnumber?? && document.dunsnumber?has_content || document.odscode?? && document.odscode?has_content/>
-    <#assign hasDirectionToSiteByCar = document.directiontositebycars?? && document.directiontositebycars?has_content/>
-
-    <#if document??>
-        <#if document.includeTopLink?? && document.includeTopLink>
-            <#assign links = [{ "url": "#top", "title": "Top of page" }] />
+<#-- Count the sections in multiple elements -->
+<#function countSectionTitlesInMultiple sectionCompounds>
+    <#local titlesFound = 0 />
+    <#list sectionCompounds as compound>
+        <#if compound.sections??>
+            <#list compound.sections as section>
+                <#if section.title?has_content>
+                    <#local titlesFound += 1 />
+                </#if>
+            </#list>
         </#if>
-
-        <#if document??>
-            <#if hasOpeningHours >
-                <#assign links += [{ "url": "#" + "Openinghours", "title": "Opening hours" }] />
-            </#if>
-            <#if hasDirectionToSiteByPublicTransports >
-                <#list document.directionToSiteByPublicTransportation as dirToSiteByPublicTrans >
-                <#assign links += [{ "url": "#" + "${dirToSiteByPublicTrans.publictransportType?lower_case}", "title": "Directions by ${dirToSiteByPublicTrans.publictransportType?lower_case}" }] />
-                </#list>
-            </#if>
-            <#if hasLocalTaxis>
-                <#assign links += [{ "url": "#" + "taxi", "title": "Taxi" }] />
-            </#if>
-            <#if hasDirectionToSiteByCar>
-                <#assign links += [{ "url": "#" + "directionsbycar", "title": "Directions by car" }] />
-            </#if>
-            <#if hasOnsiteCarsParking>
-                <#assign links += [{ "url": "#" + "carparking", "title": "Car parking" }] />
-            </#if>
-            <#if hasCyclesParking>
-                <#assign links += [{ "url": "#" + "cycleparking", "title": "Cycle parking" }] />
-            </#if>
-            <#if hasOtherLocationData>
-                <#assign links += [{ "url": "#" + "otherlocationdata", "title": "Other location data" }] />
-            </#if>
-        </#if>
-    </#if>
-
-    <#return links />
+    </#list>
+    <#return titlesFound />
 </#function>

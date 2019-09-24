@@ -5,10 +5,11 @@ import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import uk.nhs.digital.indices.StickySection;
 
 @HippoEssentialsGenerated(internalName = "website:infographic")
 @Node(jcrType = "website:infographic")
-public class Infographic extends HippoCompound {
+public class Infographic extends HippoCompound implements StickySection {
     @HippoEssentialsGenerated(internalName = "website:colour")
     public String getColour() {
         return getProperty("website:colour");
@@ -36,5 +37,15 @@ public class Infographic extends HippoCompound {
 
     public String getSectionType() {
         return "infographic";
+    }
+
+    @Override
+    public String getHeading() {
+        return this.getHeadline();
+    }
+
+    @Override
+    public String getHeadingLevel() {
+        return this.getSectionType();
     }
 }

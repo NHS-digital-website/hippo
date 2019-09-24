@@ -41,14 +41,16 @@
                 </#if>
             </div>
         </div>
-        
+
         <#assign alphabetical_hash = group_blocks(document.glossaryItems)/>
 
         <div class="grid-row article-section--padded">
             <div class="column column--one-third page-block page-block--sidebar">
+                <!-- start sticky-nav -->
                 <div id="sticky-nav">
                     <@alphabeticalFilterNav alphabetical_hash></@alphabeticalFilterNav>
                 </div>
+                <!-- end sticky-nav -->
             </div>
 
             <div class="column column--two-thirds page-block page-block--main">
