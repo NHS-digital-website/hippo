@@ -5,24 +5,27 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import uk.nhs.digital.indices.StickySection;
 
 import java.util.List;
 
 
 @HippoEssentialsGenerated(internalName = "website:gallerysection")
 @Node(jcrType = "website:gallerysection")
-public class GallerySection extends HippoCompound {
+public class GallerySection extends HippoCompound implements StickySection {
 
     public String getTitle() {
         return getHeading();
     }
 
-    @HippoEssentialsGenerated(internalName = "website:heading")
+    @Override
+    @HippoEssentialsGenerated(internalName = "website:heading", allowModifications = false)
     public String getHeading() {
         return getProperty("website:heading");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:headinglevel")
+    @Override
+    @HippoEssentialsGenerated(internalName = "website:headinglevel", allowModifications = false)
     public String getHeadingLevel() {
         return getProperty("website:headinglevel");
     }
@@ -40,5 +43,5 @@ public class GallerySection extends HippoCompound {
     public String getSectionType() {
         return "gallerySection";
     }
-    
+
 }

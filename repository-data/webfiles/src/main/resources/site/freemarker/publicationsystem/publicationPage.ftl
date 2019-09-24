@@ -5,21 +5,9 @@
 <#include "./macro/publicationHeader.ftl">
 <#include "./publication.ftl">
 <#include "../include/imports.ftl">
-<#include "../common/macro/sectionNav.ftl">
+<#include "../common/macro/sectionNavTemp.ftl">
 <#include "../common/macro/component/lastModified.ftl">
 <#include "../common/macro/component/pagination.ftl">
-
-<#function getSectionNavLinks index>
-    <#assign links = [] />
-
-    <#if index?has_content>
-        <#list index as i>
-            <#assign links += [{ "url": "#" + slugify(i), "title": i }] />
-        </#list>
-    </#if>
-
-    <#return links />
-</#function>
 
 <article class="article article--chaptered-publication" itemscope itemtype="http://schema.org/WebPage">
     <#if page.publication??>
@@ -30,11 +18,12 @@
 
     <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
         <div class="grid-row">
-            <#if index?has_content>
+
+            <#if pageIndex?has_content>
                 <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
                     <!-- start sticky-nav -->
                     <div id="sticky-nav">
-                        <@sectionNav getSectionNavLinks(index)></@sectionNav>
+                        <@sectionNav pageIndex></@sectionNav>
                     </div>
                     <!-- end sticky-nav -->
                 </div>

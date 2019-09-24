@@ -8,6 +8,7 @@ import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
+import uk.nhs.digital.indices.StickyIndex;
 import uk.nhs.digital.ps.beans.Publication;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class PublicationComponent extends EssentialsContentComponent {
     private static final String SUMMARY_ID = "Summary";
     private static final String KEY_FACTS_ID = "Key facts";
     private static final String ADMIN_SOURCES_ID = "Administrative sources";
-    private static final String DATASETS_ID = "Data sets";
+    private static final String DATA_SETS_ID = "Data sets";
     private static final String RESOURCES_ID = "Resources";
     private static final String RELATED_LINKS_ID = "Related links";
 
@@ -31,12 +32,12 @@ public class PublicationComponent extends EssentialsContentComponent {
         Publication publication = (Publication) ctx.getContentBean();
 
         request.setAttribute("publication", publication);
-        request.setAttribute("index", getIndex(publication));
+        request.setAttribute("pageIndex", index(publication));
         request.setAttribute("keyFactImageSections", pageSectionGrouper.groupSections(publication.getKeyFactImages()));
     }
 
-    private List<String> getIndex(Publication publication) {
-        List<String> index = new ArrayList<>();
+    List<StickyIndex> index(Publication publication) {
+        List<StickyIndex> index = new ArrayList<>();
 
         // No contents for upcoming publications
         if (!publication.isPubliclyAccessible()) {
@@ -44,28 +45,28 @@ public class PublicationComponent extends EssentialsContentComponent {
         }
 
         if (!publication.getSummary().isEmpty()) {
-            index.add(SUMMARY_ID);
+            index.add(new StickyIndex(SUMMARY_ID));
         }
 
         if (!publication.getKeyFacts().isEmpty()) {
-            index.add(KEY_FACTS_ID);
+            index.add(new StickyIndex(KEY_FACTS_ID));
         }
 
         if (isNotBlank(publication.getAdministrativeSources())) {
-            index.add(ADMIN_SOURCES_ID);
+            index.add(new StickyIndex(ADMIN_SOURCES_ID));
         }
 
         if (isNotEmpty(publication.getDatasets())) {
-            index.add(DATASETS_ID);
+            index.add(new StickyIndex(DATA_SETS_ID));
         }
 
         if (isNotEmpty(publication.getAttachments())
             || isNotEmpty(publication.getResourceLinks())) {
-            index.add(RESOURCES_ID);
+            index.add(new StickyIndex(RESOURCES_ID));
         }
 
         if (isNotEmpty(publication.getRelatedLinks())) {
-            index.add(RELATED_LINKS_ID);
+            index.add(new StickyIndex(RELATED_LINKS_ID));
         }
 
         return index;

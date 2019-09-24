@@ -6,6 +6,9 @@ import uk.nhs.digital.ps.beans.ImageSection;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A page section group is a group of HTML pages that make up a single logical document.
+ */
 public class PageSectionGrouper {
     public List<Object> groupSections(List<? extends HippoBean> sections) {
         // convert the section into a grouped list so we can
