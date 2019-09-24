@@ -19,6 +19,18 @@ definitions:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /personalinfos:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Personal info
+            compoundList: website:personalinfo
+            contentPickerType: links
+            field: personalinfos
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+            wicket.skin: skin/content-blocks.css
           /shortsummary:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -72,18 +84,6 @@ definitions:
             field: responsibilities
             hint: One or many services that the person referred to is responsible
               for or associated with
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
-            wicket.skin: skin/content-blocks.css
-          /personalinfos:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Personal info
-            compoundList: website:personalinfo
-            contentPickerType: links
-            field: personalinfos
-            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
