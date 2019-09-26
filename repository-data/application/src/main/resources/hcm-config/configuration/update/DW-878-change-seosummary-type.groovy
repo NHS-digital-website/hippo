@@ -12,7 +12,6 @@ import javax.jcr.NodeIterator
  */
 class ChangeSeoSummaryType extends BaseNodeUpdateVisitor {
 
-    private static String property_seo_summary = "website:seosummary"
     private static final String PROPERTY_SEO_SUMMARY_PUB = "publicationsystem:seosummary"
 
     boolean doUpdate(Node node) {
@@ -43,6 +42,7 @@ class ChangeSeoSummaryType extends BaseNodeUpdateVisitor {
             JcrUtils.ensureIsCheckedOut(n)
 
             //publicationsystem-based documents has other seosummary property
+            String property_seo_summary = "website:seosummary"
             if (n.hasProperty(PROPERTY_SEO_SUMMARY_PUB) || n.hasNode(PROPERTY_SEO_SUMMARY_PUB)) {
                 property_seo_summary = PROPERTY_SEO_SUMMARY_PUB
             }
