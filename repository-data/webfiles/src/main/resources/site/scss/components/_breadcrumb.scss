@@ -9,7 +9,8 @@
     position: relative;
     display: inline-block;
     width: 100%;
-    padding: round($gutter * 1.375) 0;
+    padding-bottom: 12px;
+    padding-top: 12px;
     vertical-align: middle;
 
     @include clearfix;
@@ -17,26 +18,13 @@
     li,
     a {
         @include core-font(16);
-    }
-
-    li {
-        margin-left: 10px;
-    }
-
-    @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
-        li {
-            margin-left: 5px;
-        }
-
-        .breadcrumb__sep {
-            margin-right: 1px;
-            margin-top: -2px;
-        }
+        margin: 0;
+        padding: 0;
     }
 }
 
 .breadcrumb__crumb {
-    margin-left: 0;
+    margin: 0;
 }
 
 .breadcrumb__link,
@@ -45,7 +33,6 @@
 }
 
 .breadcrumb__link {
-    position: relative;
     text-decoration: none;
     color: $col-primary;
 
@@ -65,16 +52,9 @@
 }
 
 .breadcrumb__sep {
-    position: absolute;
     height: round($gutter * 0.5);
-    left: 0;
-    top: 9px;
-    width: auto;
-    margin: -1px 6px 0 0;
-
-    & + .breadcrumb__link {
-        padding-left: 14px;
-    }
+    margin-left: 15px;
+    margin-right: 10px;
 }
 
 .breadcrumb__link--secondary {

@@ -74,10 +74,6 @@
                 box-shadow: 0 4px 0 0 #98A4AD;
                 overflow: hidden;
 
-                &:hover {
-                    background-color: #FFF1CC;
-                }
-
                 &:active {
                     background-color: #FFF884;
                 }
@@ -89,7 +85,9 @@
                     line-height: 26pt;
                 }
 
-                &:hover {
+                &:hover,
+                &:focus {
+                    background-color: #FFF1CC;
                     box-shadow: 0 0 0 4px #ffcd60;
 
                     h2 {
