@@ -2,6 +2,7 @@ package uk.nhs.digital.ps.beans;
 
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.pagination.Paginated;
 import uk.nhs.digital.pagination.Pagination;
@@ -27,7 +28,7 @@ public class PublicationPage extends BaseDocument implements IndexPage, Paginate
         return HippoBeanHelper.getParentPublication(this);
     }
 
-    public String getSeosummary() {
+    public HippoHtml getSeosummary() {
         return getPublication().getSeosummary();
     }
 

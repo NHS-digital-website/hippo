@@ -42,14 +42,11 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
           /seosummary:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              size: '160'
-            caption: Seo Summary
+            caption: SEO Summary
             field: seosummary
-            hint: A short biography, about the person and their relevance to NHS Digital
+            hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
           /classifiable:
             /cluster.options:
@@ -330,12 +327,12 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: website:seosummary
             hipposysedit:primary: false
-            hipposysedit:type: String
+            hipposysedit:type: hippostd:seoSummary
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
           /shortsummary:
-            hipposysedit:mandatory: true
+            hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: website:shortsummary
@@ -385,6 +382,7 @@ definitions:
           - hippotaxonomy:classifiable
           jcr:primaryType: website:person
           website:clinician: false
+          website:seosummary: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable
