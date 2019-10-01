@@ -62,6 +62,8 @@ public class DocumentTypeCharacteristicPlugin extends CharacteristicPlugin {
         documentTypes.add(createDocumentType("API endpoint","website:apiendpoint"));
         documentTypes.add(createDocumentType("API master","website:apimaster"));
         documentTypes.add(createDocumentType("Banner","website:bannerdocument"));
+        documentTypes.add(createDocumentType("Blog","website:blog"));
+        documentTypes.add(createDocumentType("Blog hub","website:bloghub"));
         documentTypes.add(createDocumentType("Call to action","website:calltoaction"));
         documentTypes.add(createDocumentType("Event","website:event"));
         documentTypes.add(createDocumentType("GDPR Summary","website:gdprsummary"));

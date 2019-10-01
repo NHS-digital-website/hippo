@@ -142,9 +142,11 @@
                             <meta itemprop="url" content="${leadImage}">
                             <img itemprop="contentUrl" src="${leadImage}" alt="<#if hasLeadImageAltText>${document.leadImageAltText}</#if>" />
                         </div>
-                        <div class="lead-image-caption" data-uipath="website.blog.leadimagecaption">
-                            <@hst.html hippohtml=document.leadImageCaption contentRewriter=gaContentRewriter/>
-                        </div>
+                        <#if hasLeadImageCaption>
+                          <div class="lead-image-caption" data-uipath="website.blog.leadimagecaption">
+                              <@hst.html hippohtml=document.leadImageCaption contentRewriter=gaContentRewriter/>
+                          </div>
+                        </#if>
                     </div>
                 </#if>
 
