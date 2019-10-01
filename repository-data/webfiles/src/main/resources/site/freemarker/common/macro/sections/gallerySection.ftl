@@ -48,9 +48,11 @@
 
                         <img src="${image}" alt="${galleryItem.imageAlt}" />
 
-                        <div class="galleryItems__description">
-                            <@hst.html hippohtml=galleryItem.description contentRewriter=gaContentRewriter />
-                        </div>
+                        <#if galleryItem.description.content?has_content>
+                          <div class="galleryItems__description">
+                              <@hst.html hippohtml=galleryItem.description contentRewriter=gaContentRewriter />
+                          </div>
+                        </#if>
 
                     </div>
 
