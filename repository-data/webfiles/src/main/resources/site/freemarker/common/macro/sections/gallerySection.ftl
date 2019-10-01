@@ -16,13 +16,29 @@
         </div>
 
         <div class="grid-row galleryItems">
+            <#assign itemNr = 0 />
+            <#assign hasPrevEvenItemTitle = false />
             <#list section.galleryItems as galleryItem>
+                <#assign itemNr = itemNr + 1 />
+
+                <#if itemNr % 2 == 1> 
+                  <#if galleryItem.title?has_content>
+                    <#assign hasPrevEvenItemTitle = true />
+                  <#else>
+                    <#assign hasPrevEvenItemTitle = false />
+                  </#if>
+                </#if>
+
                 <div class="column column--one-half galleryItems__item">
                     <#if galleryItem.title?has_content>
                       <h3 class="galleryItems__heading">${galleryItem.title}</h3>
                       <div class="galleryItems__card">
                     <#else>
-                      <div class="galleryItems__card-no-heading">
+                      <#if itemNr % 2 == 0 && hasPrevEvenItemTitle>
+                        <div class="galleryItems__card-no-heading-left">
+                      <#else>
+                        <div class="galleryItems__card">
+                      </#if>
                     </#if>
                         <#if galleryItem.imageWarning != ''>
                             <div class="galleryItems__warning">${galleryItem.imageWarning}</div>
