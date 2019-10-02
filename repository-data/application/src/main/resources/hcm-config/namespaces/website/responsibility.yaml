@@ -93,9 +93,6 @@ definitions:
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
           jcr:primaryType: website:responsibility
-          website:responsible:
-          - ''
-          website:responsibleforservices: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable
