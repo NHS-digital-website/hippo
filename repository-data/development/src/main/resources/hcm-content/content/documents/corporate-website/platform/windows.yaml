@@ -11,6 +11,9 @@
       website:link: https://www.win95.com
       website:status: Deprecated
       website:versionnumber: Windows 95
+    /website:seosummary:
+      hippostd:content: Windows seo summary
+      jcr:primaryType: hippostd:html
     /website:summary:
       hippostd:content: <p>Some summary information here about windows</p>
       jcr:primaryType: hippostd:html
@@ -30,7 +33,6 @@
     jcr:primaryType: website:platform
     website:abbreviation: windowsrocks
     website:platformtype: Software
-    website:seosummary: Windows seo summary
     website:shortsummary: Windows short summary
     website:synonyms:
     - winXP
@@ -48,6 +50,9 @@
       website:link: https://www.win95.com
       website:status: Deprecated
       website:versionnumber: Windows 95
+    /website:seosummary:
+      hippostd:content: Windows seo summary
+      jcr:primaryType: hippostd:html
     /website:summary:
       hippostd:content: <p>Some summary information here about windows</p>
       jcr:primaryType: hippostd:html
@@ -69,7 +74,6 @@
     jcr:primaryType: website:platform
     website:abbreviation: windowsrocks
     website:platformtype: Software
-    website:seosummary: Windows seo summary
     website:shortsummary: Windows short summary
     website:synonyms:
     - winXP
@@ -87,6 +91,9 @@
       website:link: https://www.win95.com
       website:status: Deprecated
       website:versionnumber: Windows 95
+    /website:seosummary:
+      hippostd:content: Windows seo summary
+      jcr:primaryType: hippostd:html
     /website:summary:
       hippostd:content: <p>Some summary information here about windows</p>
       jcr:primaryType: hippostd:html
@@ -108,7 +115,6 @@
     jcr:primaryType: website:platform
     website:abbreviation: windowsrocks
     website:platformtype: Software
-    website:seosummary: Windows seo summary
     website:shortsummary: Windows short summary
     website:synonyms:
     - winXP

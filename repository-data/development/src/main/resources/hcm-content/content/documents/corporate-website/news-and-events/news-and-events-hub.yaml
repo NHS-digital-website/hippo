@@ -29,6 +29,11 @@
       website:link: https://nhs-digital.citizenspace.com/
       website:shortsummary: NHS Digital runs regular consultation on our work.
       website:title: Consultations
+    /website:seosummary:
+      hippostd:content: See all the latest news from NHS Digital and find out about
+        our upcoming events, including meetings, conferences, seminars, workshops
+        and more. You can also find out about the campaigns we are running.
+      jcr:primaryType: hippostd:html
     /website:summary:
       hippostd:content: <p>Find out about the latest news and events from NHS Digital.</p>
       jcr:primaryType: hippostd:html
@@ -48,9 +53,6 @@
     jcr:uuid: 0601d31c-7229-4e97-a91f-da7968a84fc6
     website:gossid: 327
     website:listtitle: ''
-    website:seosummary: See all the latest news from NHS Digital and find out about
-      our upcoming events, including meetings, conferences, seminars, workshops and
-      more. You can also find out about the campaigns we are running.
     website:shortsummary: Find out about the latest news and events from NHS Digital.
     website:title: News and events
   /content[2]:
@@ -82,6 +84,11 @@
       website:link: https://nhs-digital.citizenspace.com/
       website:shortsummary: NHS Digital runs regular consultation on our work.
       website:title: Consultations
+    /website:seosummary:
+      hippostd:content: See all the latest news from NHS Digital and find out about
+        our upcoming events, including meetings, conferences, seminars, workshops
+        and more. You can also find out about the campaigns we are running.
+      jcr:primaryType: hippostd:html
     /website:summary:
       hippostd:content: <p>Find out about the latest news and events from NHS Digital.</p>
       jcr:primaryType: hippostd:html
@@ -102,9 +109,6 @@
     jcr:uuid: 52cb2c57-78a1-4fec-975e-13afecd70e66
     website:gossid: 327
     website:listtitle: ''
-    website:seosummary: See all the latest news from NHS Digital and find out about
-      our upcoming events, including meetings, conferences, seminars, workshops and
-      more. You can also find out about the campaigns we are running.
     website:shortsummary: Find out about the latest news and events from NHS Digital.
     website:title: News and events
   /content[3]:
@@ -136,6 +140,11 @@
       website:link: https://nhs-digital.citizenspace.com/
       website:shortsummary: NHS Digital runs regular consultation on our work.
       website:title: Consultations
+    /website:seosummary:
+      hippostd:content: See all the latest news from NHS Digital and find out about
+        our upcoming events, including meetings, conferences, seminars, workshops
+        and more. You can also find out about the campaigns we are running.
+      jcr:primaryType: hippostd:html
     /website:summary:
       hippostd:content: <p>Find out about the latest news and events from NHS Digital.</p>
       jcr:primaryType: hippostd:html
@@ -157,9 +166,6 @@
     jcr:uuid: bc65740b-8774-4510-896f-f09c00f3ac1d
     website:gossid: 327
     website:listtitle: ''
-    website:seosummary: See all the latest news from NHS Digital and find out about
-      our upcoming events, including meetings, conferences, seminars, workshops and
-      more. You can also find out about the campaigns we are running.
     website:shortsummary: Find out about the latest news and events from NHS Digital.
     website:title: News and events
   hippo:name: News and events

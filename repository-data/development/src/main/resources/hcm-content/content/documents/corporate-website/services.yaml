@@ -45,6 +45,12 @@
         website:numberedList: false
         website:title: Section Three
         website:type: ''
+      /website:seosummary:
+        hippostd:content: Collaboratively morph magnetic growth strategies without
+          seamless e-business. Compellingly whiteboard client-based potentialities
+          whereas ethical potentialities. Monotonectally utilize professional technologies
+          through fully tested process improvements.
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: "<p>Collaboratively morph magnetic growth strategies without\
           \ seamless e-business. Compellingly whiteboard client-based potentialities\
@@ -83,10 +89,6 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:service
-      website:seosummary: Collaboratively morph magnetic growth strategies without
-        seamless e-business. Compellingly whiteboard client-based potentialities whereas
-        ethical potentialities. Monotonectally utilize professional technologies through
-        fully tested process improvements.
       website:shortsummary: Collaboratively morph magnetic growth strategies without
         seamless e-business
       website:title: 'Service Document #1'
@@ -134,6 +136,12 @@
         website:numberedList: false
         website:title: Section Three
         website:type: ''
+      /website:seosummary:
+        hippostd:content: Collaboratively morph magnetic growth strategies without
+          seamless e-business. Compellingly whiteboard client-based potentialities
+          whereas ethical potentialities. Monotonectally utilize professional technologies
+          through fully tested process improvements.
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: "<p>Collaboratively morph magnetic growth strategies without\
           \ seamless e-business. Compellingly whiteboard client-based potentialities\
@@ -174,10 +182,6 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:service
-      website:seosummary: Collaboratively morph magnetic growth strategies without
-        seamless e-business. Compellingly whiteboard client-based potentialities whereas
-        ethical potentialities. Monotonectally utilize professional technologies through
-        fully tested process improvements.
       website:shortsummary: Collaboratively morph magnetic growth strategies without
         seamless e-business
       website:title: 'Service Document #1'
@@ -225,6 +229,12 @@
         website:numberedList: false
         website:title: Section Three
         website:type: ''
+      /website:seosummary:
+        hippostd:content: Collaboratively morph magnetic growth strategies without
+          seamless e-business. Compellingly whiteboard client-based potentialities
+          whereas ethical potentialities. Monotonectally utilize professional technologies
+          through fully tested process improvements.
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: "<p>Collaboratively morph magnetic growth strategies without\
           \ seamless e-business. Compellingly whiteboard client-based potentialities\
@@ -265,10 +275,6 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:service
-      website:seosummary: Collaboratively morph magnetic growth strategies without
-        seamless e-business. Compellingly whiteboard client-based potentialities whereas
-        ethical potentialities. Monotonectally utilize professional technologies through
-        fully tested process improvements.
       website:shortsummary: Collaboratively morph magnetic growth strategies without
         seamless e-business
       website:title: 'Service Document #1'
@@ -305,6 +311,13 @@
           website:numberedList: false
           website:title: Section One
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Compellingly deliver technically sound potentialities
+            through cost effective methodologies. Compellingly leverage other's interdependent
+            channels via innovative mindshare. Authoritatively generate dynamic interfaces
+            through tactical web services. Continually mesh excellent best practices
+            after cross-unit web services.
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: <p>Compellingly deliver technically sound potentialities
             through cost effective methodologies. Compellingly leverage other's interdependent
@@ -336,11 +349,6 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:service
-        website:seosummary: Compellingly deliver technically sound potentialities
-          through cost effective methodologies. Compellingly leverage other's interdependent
-          channels via innovative mindshare. Authoritatively generate dynamic interfaces
-          through tactical web services. Continually mesh excellent best practices
-          after cross-unit web services.
         website:shortsummary: Compellingly deliver technically sound potentialities
           through cost effective methodologies.
         website:title: 'Service Child Document #1'
@@ -370,6 +378,13 @@
           website:numberedList: false
           website:title: Section One
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Compellingly deliver technically sound potentialities
+            through cost effective methodologies. Compellingly leverage other's interdependent
+            channels via innovative mindshare. Authoritatively generate dynamic interfaces
+            through tactical web services. Continually mesh excellent best practices
+            after cross-unit web services.
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: <p>Compellingly deliver technically sound potentialities
             through cost effective methodologies. Compellingly leverage other's interdependent
@@ -403,11 +418,6 @@
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: website:service
-        website:seosummary: Compellingly deliver technically sound potentialities
-          through cost effective methodologies. Compellingly leverage other's interdependent
-          channels via innovative mindshare. Authoritatively generate dynamic interfaces
-          through tactical web services. Continually mesh excellent best practices
-          after cross-unit web services.
         website:shortsummary: Compellingly deliver technically sound potentialities
           through cost effective methodologies.
         website:title: 'Service Child Document #1'
@@ -437,6 +447,13 @@
           website:numberedList: false
           website:title: Section One
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Compellingly deliver technically sound potentialities
+            through cost effective methodologies. Compellingly leverage other's interdependent
+            channels via innovative mindshare. Authoritatively generate dynamic interfaces
+            through tactical web services. Continually mesh excellent best practices
+            after cross-unit web services.
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: <p>Compellingly deliver technically sound potentialities
             through cost effective methodologies. Compellingly leverage other's interdependent
@@ -470,11 +487,6 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:service
-        website:seosummary: Compellingly deliver technically sound potentialities
-          through cost effective methodologies. Compellingly leverage other's interdependent
-          channels via innovative mindshare. Authoritatively generate dynamic interfaces
-          through tactical web services. Continually mesh excellent best practices
-          after cross-unit web services.
         website:shortsummary: Compellingly deliver technically sound potentialities
           through cost effective methodologies.
         website:title: 'Service Child Document #1'
@@ -506,6 +518,11 @@
             jcr:primaryType: website:section
             website:title: Section One
             website:type: ''
+          /website:seosummary:
+            hippostd:content: Energistically maintain open-source products rather
+              than intuitive infomediaries. Globally brand efficient process improvements
+              rather than principle-centered niches.
+            jcr:primaryType: hippostd:html
           /website:summary:
             hippostd:content: <p>Energistically maintain open-source products rather
               than intuitive infomediaries. Globally brand efficient process improvements
@@ -547,9 +564,6 @@
           jcr:mixinTypes:
           - mix:referenceable
           jcr:primaryType: website:service
-          website:seosummary: Energistically maintain open-source products rather
-            than intuitive infomediaries. Globally brand efficient process improvements
-            rather than principle-centered niches.
           website:shortsummary: Energistically maintain open-source products rather
             than intuitive infomediaries
           website:title: 'Service Grandchild Document #1'
@@ -574,6 +588,11 @@
             jcr:primaryType: website:section
             website:title: Section One
             website:type: ''
+          /website:seosummary:
+            hippostd:content: Energistically maintain open-source products rather
+              than intuitive infomediaries. Globally brand efficient process improvements
+              rather than principle-centered niches.
+            jcr:primaryType: hippostd:html
           /website:summary:
             hippostd:content: <p>Energistically maintain open-source products rather
               than intuitive infomediaries. Globally brand efficient process improvements
@@ -617,9 +636,6 @@
           - mix:referenceable
           - mix:versionable
           jcr:primaryType: website:service
-          website:seosummary: Energistically maintain open-source products rather
-            than intuitive infomediaries. Globally brand efficient process improvements
-            rather than principle-centered niches.
           website:shortsummary: Energistically maintain open-source products rather
             than intuitive infomediaries
           website:title: 'Service Grandchild Document #1'
@@ -644,6 +660,11 @@
             jcr:primaryType: website:section
             website:title: Section One
             website:type: ''
+          /website:seosummary:
+            hippostd:content: Energistically maintain open-source products rather
+              than intuitive infomediaries. Globally brand efficient process improvements
+              rather than principle-centered niches.
+            jcr:primaryType: hippostd:html
           /website:summary:
             hippostd:content: <p>Energistically maintain open-source products rather
               than intuitive infomediaries. Globally brand efficient process improvements
@@ -687,9 +708,6 @@
           jcr:mixinTypes:
           - mix:referenceable
           jcr:primaryType: website:service
-          website:seosummary: Energistically maintain open-source products rather
-            than intuitive infomediaries. Globally brand efficient process improvements
-            rather than principle-centered niches.
           website:shortsummary: Energistically maintain open-source products rather
             than intuitive infomediaries
           website:title: 'Service Grandchild Document #1'
@@ -757,6 +775,12 @@
           jcr:primaryType: website:section
           website:title: Section Two
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Competently network superior expertise after orthogonal
+            experiences. Collaboratively envisioneer 24/365 process improvements vis-a-vis
+            integrated innovation. Distinctively reintermediate cross functional infrastructures
+            vis-a-vis holistic e-tailers.
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: <p>Competently network superior expertise after orthogonal
             experiences. Collaboratively envisioneer 24/365 process improvements vis-a-vis
@@ -777,10 +801,6 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:service
-        website:seosummary: Competently network superior expertise after orthogonal
-          experiences. Collaboratively envisioneer 24/365 process improvements vis-a-vis
-          integrated innovation. Distinctively reintermediate cross functional infrastructures
-          vis-a-vis holistic e-tailers.
         website:shortsummary: Competently network superior expertise after orthogonal
           experiences. Collaboratively envisioneer
         website:title: 'Service Child Document #2'
@@ -819,6 +839,12 @@
           jcr:primaryType: website:section
           website:title: Section Two
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Competently network superior expertise after orthogonal
+            experiences. Collaboratively envisioneer 24/365 process improvements vis-a-vis
+            integrated innovation. Distinctively reintermediate cross functional infrastructures
+            vis-a-vis holistic e-tailers.
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: <p>Competently network superior expertise after orthogonal
             experiences. Collaboratively envisioneer 24/365 process improvements vis-a-vis
@@ -841,10 +867,6 @@
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: website:service
-        website:seosummary: Competently network superior expertise after orthogonal
-          experiences. Collaboratively envisioneer 24/365 process improvements vis-a-vis
-          integrated innovation. Distinctively reintermediate cross functional infrastructures
-          vis-a-vis holistic e-tailers.
         website:shortsummary: Competently network superior expertise after orthogonal
           experiences. Collaboratively envisioneer
         website:title: 'Service Child Document #2'
@@ -883,6 +905,12 @@
           jcr:primaryType: website:section
           website:title: Section Two
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Competently network superior expertise after orthogonal
+            experiences. Collaboratively envisioneer 24/365 process improvements vis-a-vis
+            integrated innovation. Distinctively reintermediate cross functional infrastructures
+            vis-a-vis holistic e-tailers.
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: <p>Competently network superior expertise after orthogonal
             experiences. Collaboratively envisioneer 24/365 process improvements vis-a-vis
@@ -905,10 +933,6 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:service
-        website:seosummary: Competently network superior expertise after orthogonal
-          experiences. Collaboratively envisioneer 24/365 process improvements vis-a-vis
-          integrated innovation. Distinctively reintermediate cross functional infrastructures
-          vis-a-vis holistic e-tailers.
         website:shortsummary: Competently network superior expertise after orthogonal
           experiences. Collaboratively envisioneer
         website:title: 'Service Child Document #2'
@@ -964,6 +988,11 @@
           jcr:primaryType: website:section
           website:title: Section Two
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Intrinsicly deploy business models before an expanded
+            array of growth strategies. Rapidiously scale resource-leveling mindshare
+            rather than resource-leveling e-commerce.
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: <p>Intrinsicly deploy business models before an expanded
             array of growth strategies. Rapidiously scale resource-leveling mindshare
@@ -997,9 +1026,6 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:service
-        website:seosummary: Intrinsicly deploy business models before an expanded
-          array of growth strategies. Rapidiously scale resource-leveling mindshare
-          rather than resource-leveling e-commerce.
         website:shortsummary: Intrinsicly deploy business models before an expanded
           array of growth strategies
         website:title: 'Service Child Document #3'
@@ -1037,6 +1063,11 @@
           jcr:primaryType: website:section
           website:title: Section Two
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Intrinsicly deploy business models before an expanded
+            array of growth strategies. Rapidiously scale resource-leveling mindshare
+            rather than resource-leveling e-commerce.
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: <p>Intrinsicly deploy business models before an expanded
             array of growth strategies. Rapidiously scale resource-leveling mindshare
@@ -1072,9 +1103,6 @@
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: website:service
-        website:seosummary: Intrinsicly deploy business models before an expanded
-          array of growth strategies. Rapidiously scale resource-leveling mindshare
-          rather than resource-leveling e-commerce.
         website:shortsummary: Intrinsicly deploy business models before an expanded
           array of growth strategies
         website:title: 'Service Child Document #3'
@@ -1112,6 +1140,11 @@
           jcr:primaryType: website:section
           website:title: Section Two
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Intrinsicly deploy business models before an expanded
+            array of growth strategies. Rapidiously scale resource-leveling mindshare
+            rather than resource-leveling e-commerce.
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: <p>Intrinsicly deploy business models before an expanded
             array of growth strategies. Rapidiously scale resource-leveling mindshare
@@ -1147,9 +1180,6 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:service
-        website:seosummary: Intrinsicly deploy business models before an expanded
-          array of growth strategies. Rapidiously scale resource-leveling mindshare
-          rather than resource-leveling e-commerce.
         website:shortsummary: Intrinsicly deploy business models before an expanded
           array of growth strategies
         website:title: 'Service Child Document #3'
@@ -1215,6 +1245,12 @@
           website:numberedList: false
           website:title: Section Two
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Holisticly parallel task interactive mindshare with one-to-one
+            technologies. Intrinsicly revolutionize cooperative quality vectors and
+            reliable deliverables. Seamlessly synergize equity invested collaboration
+            and idea-sharing and high standards in networks.
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: <p>Holisticly parallel task interactive mindshare with
             one-to-one technologies. Intrinsicly revolutionize cooperative quality
@@ -1243,10 +1279,6 @@
         - mix:referenceable
         jcr:primaryType: website:service
         website:gossid: 0
-        website:seosummary: Holisticly parallel task interactive mindshare with one-to-one
-          technologies. Intrinsicly revolutionize cooperative quality vectors and
-          reliable deliverables. Seamlessly synergize equity invested collaboration
-          and idea-sharing and high standards in networks.
         website:shortsummary: Holisticly parallel task interactive mindshare with
           one-to-one technologies. Intrinsicly revolutionize cooperative quality
         website:title: 'Service Child Document #4'
@@ -1294,6 +1326,12 @@
           website:numberedList: false
           website:title: Section Two
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Holisticly parallel task interactive mindshare with one-to-one
+            technologies. Intrinsicly revolutionize cooperative quality vectors and
+            reliable deliverables. Seamlessly synergize equity invested collaboration
+            and idea-sharing and high standards in networks.
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: <p>Holisticly parallel task interactive mindshare with
             one-to-one technologies. Intrinsicly revolutionize cooperative quality
@@ -1324,10 +1362,6 @@
         - mix:versionable
         jcr:primaryType: website:service
         website:gossid: 0
-        website:seosummary: Holisticly parallel task interactive mindshare with one-to-one
-          technologies. Intrinsicly revolutionize cooperative quality vectors and
-          reliable deliverables. Seamlessly synergize equity invested collaboration
-          and idea-sharing and high standards in networks.
         website:shortsummary: Holisticly parallel task interactive mindshare with
           one-to-one technologies. Intrinsicly revolutionize cooperative quality
         website:title: 'Service Child Document #4'
@@ -1375,6 +1409,12 @@
           website:numberedList: false
           website:title: Section Two
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Holisticly parallel task interactive mindshare with one-to-one
+            technologies. Intrinsicly revolutionize cooperative quality vectors and
+            reliable deliverables. Seamlessly synergize equity invested collaboration
+            and idea-sharing and high standards in networks.
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: <p>Holisticly parallel task interactive mindshare with
             one-to-one technologies. Intrinsicly revolutionize cooperative quality
@@ -1405,10 +1445,6 @@
         - mix:referenceable
         jcr:primaryType: website:service
         website:gossid: 0
-        website:seosummary: Holisticly parallel task interactive mindshare with one-to-one
-          technologies. Intrinsicly revolutionize cooperative quality vectors and
-          reliable deliverables. Seamlessly synergize equity invested collaboration
-          and idea-sharing and high standards in networks.
         website:shortsummary: Holisticly parallel task interactive mindshare with
           one-to-one technologies. Intrinsicly revolutionize cooperative quality
         website:title: 'Service Child Document #4'
@@ -1468,6 +1504,11 @@
           jcr:primaryType: website:section
           website:title: Section Two
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Enthusiastically procrastinate team driven infomediaries
+            without economically sound collaboration and idea-sharing. Professionally
+            parallel task resource-leveling intellectual capital via inexpensive partnerships.
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: <p>Enthusiastically procrastinate team driven infomediaries
             without economically sound collaboration and idea-sharing. Professionally
@@ -1499,9 +1540,6 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:service
-        website:seosummary: Enthusiastically procrastinate team driven infomediaries
-          without economically sound collaboration and idea-sharing. Professionally
-          parallel task resource-leveling intellectual capital via inexpensive partnerships.
         website:shortsummary: Enthusiastically procrastinate team driven infomediaries
           without economically sound collaboration and idea-sharing. Professionally
           parallel task resource-leveling
@@ -1542,6 +1580,11 @@
           jcr:primaryType: website:section
           website:title: Section Two
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Enthusiastically procrastinate team driven infomediaries
+            without economically sound collaboration and idea-sharing. Professionally
+            parallel task resource-leveling intellectual capital via inexpensive partnerships.
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: <p>Enthusiastically procrastinate team driven infomediaries
             without economically sound collaboration and idea-sharing. Professionally
@@ -1575,9 +1618,6 @@
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: website:service
-        website:seosummary: Enthusiastically procrastinate team driven infomediaries
-          without economically sound collaboration and idea-sharing. Professionally
-          parallel task resource-leveling intellectual capital via inexpensive partnerships.
         website:shortsummary: Enthusiastically procrastinate team driven infomediaries
           without economically sound collaboration and idea-sharing. Professionally
           parallel task resource-leveling
@@ -1618,6 +1658,11 @@
           jcr:primaryType: website:section
           website:title: Section Two
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Enthusiastically procrastinate team driven infomediaries
+            without economically sound collaboration and idea-sharing. Professionally
+            parallel task resource-leveling intellectual capital via inexpensive partnerships.
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: <p>Enthusiastically procrastinate team driven infomediaries
             without economically sound collaboration and idea-sharing. Professionally
@@ -1651,9 +1696,6 @@
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:service
-        website:seosummary: Enthusiastically procrastinate team driven infomediaries
-          without economically sound collaboration and idea-sharing. Professionally
-          parallel task resource-leveling intellectual capital via inexpensive partnerships.
         website:shortsummary: Enthusiastically procrastinate team driven infomediaries
           without economically sound collaboration and idea-sharing. Professionally
           parallel task resource-leveling

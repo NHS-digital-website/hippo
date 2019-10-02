@@ -18,6 +18,11 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: This is a one-day, classroom based workshop, designed to
+          help achieve understanding of how to apply clinical risk management theory
+          into working practice.
+        jcr:primaryType: hippostd:html
       /website:summaryimage:
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
@@ -39,13 +44,11 @@
       - hippotaxonomy:classifiable
       - mix:versionable
       jcr:primaryType: website:event
+      jcr:uuid: d5fc0692-3220-4ab4-9ff8-c1517b6eb239
       website:booking: https://digital.nhs.uk/binaries/content/assets/legacy/word/3/m/clinical_safety_training_application_form_v5.docx
       website:display: true
       website:location: Leeds
       website:maplocation: ''
-      website:seosummary: This is a one-day, classroom based workshop, designed to
-        help achieve understanding of how to apply clinical risk management theory
-        into working practice.
       website:shortsummary: This is a one-day, classroom based workshop, designed
         to help achieve understanding of how to apply clinical risk management theory
         into working practice.
@@ -72,6 +75,11 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: This is a one-day, classroom based workshop, designed to
+          help achieve understanding of how to apply clinical risk management theory
+          into working practice.
+        jcr:primaryType: hippostd:html
       /website:summaryimage:
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
@@ -92,13 +100,11 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:event
+      jcr:uuid: 49ac1b09-d2a5-43dd-a262-528d73cab06f
       website:booking: https://digital.nhs.uk/binaries/content/assets/legacy/word/3/m/clinical_safety_training_application_form_v5.docx
       website:display: true
       website:location: Leeds
       website:maplocation: ''
-      website:seosummary: This is a one-day, classroom based workshop, designed to
-        help achieve understanding of how to apply clinical risk management theory
-        into working practice.
       website:shortsummary: This is a one-day, classroom based workshop, designed
         to help achieve understanding of how to apply clinical risk management theory
         into working practice.
@@ -125,6 +131,11 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: This is a one-day, classroom based workshop, designed to
+          help achieve understanding of how to apply clinical risk management theory
+          into working practice.
+        jcr:primaryType: hippostd:html
       /website:summaryimage:
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
@@ -147,13 +158,11 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:event
+      jcr:uuid: 337d4136-15ee-41af-9dfc-dc9593892d29
       website:booking: https://digital.nhs.uk/binaries/content/assets/legacy/word/3/m/clinical_safety_training_application_form_v5.docx
       website:display: true
       website:location: Leeds
       website:maplocation: ''
-      website:seosummary: This is a one-day, classroom based workshop, designed to
-        help achieve understanding of how to apply clinical risk management theory
-        into working practice.
       website:shortsummary: This is a one-day, classroom based workshop, designed
         to help achieve understanding of how to apply clinical risk management theory
         into working practice.
@@ -168,6 +177,7 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: 4dcd4a3d-47c8-4049-8d44-17134cf29c2f
   /clinical-risk-management-training-foundation-course---20-july-2019:
     /clinical-risk-management-training-foundation-course---20-july-2019[1]:
       /website:body:
@@ -188,6 +198,11 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: This is a one-day, classroom based workshop, designed to
+          help achieve understanding of how to apply clinical risk management theory
+          into working practice.
+        jcr:primaryType: hippostd:html
       /website:summaryimage:
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
@@ -209,13 +224,11 @@
       - hippotaxonomy:classifiable
       - mix:versionable
       jcr:primaryType: website:event
+      jcr:uuid: 3b872398-bf51-411b-ada3-1cff97615654
       website:booking: https://digital.nhs.uk/binaries/content/assets/legacy/word/3/m/clinical_safety_training_application_form_v5.docx
       website:display: true
       website:location: London
       website:maplocation: ''
-      website:seosummary: This is a one-day, classroom based workshop, designed to
-        help achieve understanding of how to apply clinical risk management theory
-        into working practice.
       website:shortsummary: This is a one-day, classroom based workshop, designed
         to help achieve understanding of how to apply clinical risk management theory
         into working practice.
@@ -244,6 +257,11 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: This is a one-day, classroom based workshop, designed to
+          help achieve understanding of how to apply clinical risk management theory
+          into working practice.
+        jcr:primaryType: hippostd:html
       /website:summaryimage:
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
@@ -264,13 +282,11 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:event
+      jcr:uuid: 798f1efd-4e9b-43e5-a3d7-c53a424f533d
       website:booking: https://digital.nhs.uk/binaries/content/assets/legacy/word/3/m/clinical_safety_training_application_form_v5.docx
       website:display: true
       website:location: London
       website:maplocation: ''
-      website:seosummary: This is a one-day, classroom based workshop, designed to
-        help achieve understanding of how to apply clinical risk management theory
-        into working practice.
       website:shortsummary: This is a one-day, classroom based workshop, designed
         to help achieve understanding of how to apply clinical risk management theory
         into working practice.
@@ -299,6 +315,11 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: This is a one-day, classroom based workshop, designed to
+          help achieve understanding of how to apply clinical risk management theory
+          into working practice.
+        jcr:primaryType: hippostd:html
       /website:summaryimage:
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
@@ -321,13 +342,11 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:event
+      jcr:uuid: de9e0920-4348-4d63-a15a-0db4866b6018
       website:booking: https://digital.nhs.uk/binaries/content/assets/legacy/word/3/m/clinical_safety_training_application_form_v5.docx
       website:display: true
       website:location: London
       website:maplocation: ''
-      website:seosummary: This is a one-day, classroom based workshop, designed to
-        help achieve understanding of how to apply clinical risk management theory
-        into working practice.
       website:shortsummary: This is a one-day, classroom based workshop, designed
         to help achieve understanding of how to apply clinical risk management theory
         into working practice.
@@ -342,6 +361,7 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: dcf17f44-3f16-41c9-9920-10245912369c
   /clinical-safety-community-of-interest-18-september-2018:
     /clinical-safety-community-of-interest-18-september-2018[1]:
       /website:body:
@@ -382,6 +402,9 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
       /website:summaryimage:
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
@@ -402,11 +425,11 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:event
+      jcr:uuid: 0633c212-f1b1-4e63-89d7-13c95dca2b5d
       website:booking: ''
       website:display: false
       website:location: 1 Trevelyan Square, Boar Lane, Leeds, LS1 6AE
       website:maplocation: https://www.google.co.uk/maps/place/1+Trevelyan+Square,+Leeds+LS1+6AE/@53.794973,-1.5436822,16.75z/data=!4m5!3m4!1s0x48795c1925027091:0x522d0a5723affa6f!8m2!3d53.795292!4d-1.5436844
-      website:seosummary: ''
       website:shortsummary: ''
       website:title: Clinical Safety Community of Interest 18 September 2018
       website:type:
@@ -452,6 +475,9 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
       /website:summaryimage:
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
@@ -473,11 +499,11 @@
       - hippotaxonomy:classifiable
       - mix:versionable
       jcr:primaryType: website:event
+      jcr:uuid: e46b684f-d0a5-4569-9e22-a90730925505
       website:booking: ''
       website:display: false
       website:location: 1 Trevelyan Square, Boar Lane, Leeds, LS1 6AE
       website:maplocation: https://www.google.co.uk/maps/place/1+Trevelyan+Square,+Leeds+LS1+6AE/@53.794973,-1.5436822,16.75z/data=!4m5!3m4!1s0x48795c1925027091:0x522d0a5723affa6f!8m2!3d53.795292!4d-1.5436844
-      website:seosummary: ''
       website:shortsummary: ''
       website:title: Clinical Safety Community of Interest 18 September 2018
       website:type:
@@ -523,6 +549,9 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
       /website:summaryimage:
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
@@ -545,11 +574,11 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:event
+      jcr:uuid: 7e055f25-5a6a-4cd8-9c3d-8059055bba26
       website:booking: ''
       website:display: false
       website:location: 1 Trevelyan Square, Boar Lane, Leeds, LS1 6AE
       website:maplocation: https://www.google.co.uk/maps/place/1+Trevelyan+Square,+Leeds+LS1+6AE/@53.794973,-1.5436822,16.75z/data=!4m5!3m4!1s0x48795c1925027091:0x522d0a5723affa6f!8m2!3d53.795292!4d-1.5436844
-      website:seosummary: ''
       website:shortsummary: ''
       website:title: Clinical Safety Community of Interest 18 September 2018
       website:type:
@@ -561,6 +590,7 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: b53054cc-a8ca-46d9-95d8-1926389dea15
   /clinical-safety-community-of-interest-course---14-may-2019:
     /clinical-safety-community-of-interest-course---14-may-2019[1]:
       /website:body:
@@ -599,6 +629,11 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: Previously known as the Revalidation Course. This course
+          is for both clinicians and non-clinicians. Clinicians attending this course
+          will be issued with 6.5 CPD points.
+        jcr:primaryType: hippostd:html
       /website:summaryimage:
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
@@ -620,13 +655,11 @@
       - hippotaxonomy:classifiable
       - mix:versionable
       jcr:primaryType: website:event
+      jcr:uuid: 9321601c-639a-4cf7-a4b4-fa4ccbd7037f
       website:booking: https://digital.nhs.uk/binaries/content/assets/legacy/word/3/m/clinical_safety_training_application_form_v5.docx
       website:display: true
       website:location: London
       website:maplocation: ''
-      website:seosummary: Previously known as the Revalidation Course. This course
-        is for both clinicians and non-clinicians. Clinicians attending this course
-        will be issued with 6.5 CPD points.
       website:shortsummary: Previously known as the Revalidation Course. This course
         is for both clinicians and non-clinicians. Clinicians attending this course
         will be issued with 6.5 CPD points.
@@ -673,6 +706,11 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: Previously known as the Revalidation Course. This course
+          is for both clinicians and non-clinicians. Clinicians attending this course
+          will be issued with 6.5 CPD points.
+        jcr:primaryType: hippostd:html
       /website:summaryimage:
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
@@ -693,13 +731,11 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:event
+      jcr:uuid: ad724d54-802b-46f0-86ac-f1db1b9b2ee0
       website:booking: https://digital.nhs.uk/binaries/content/assets/legacy/word/3/m/clinical_safety_training_application_form_v5.docx
       website:display: true
       website:location: London
       website:maplocation: ''
-      website:seosummary: Previously known as the Revalidation Course. This course
-        is for both clinicians and non-clinicians. Clinicians attending this course
-        will be issued with 6.5 CPD points.
       website:shortsummary: Previously known as the Revalidation Course. This course
         is for both clinicians and non-clinicians. Clinicians attending this course
         will be issued with 6.5 CPD points.
@@ -746,6 +782,11 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: Previously known as the Revalidation Course. This course
+          is for both clinicians and non-clinicians. Clinicians attending this course
+          will be issued with 6.5 CPD points.
+        jcr:primaryType: hippostd:html
       /website:summaryimage:
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
@@ -768,13 +809,11 @@
       - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: website:event
+      jcr:uuid: b18a5801-7225-42c6-b1b3-a13f4a8bb3d1
       website:booking: https://digital.nhs.uk/binaries/content/assets/legacy/word/3/m/clinical_safety_training_application_form_v5.docx
       website:display: true
       website:location: London
       website:maplocation: ''
-      website:seosummary: Previously known as the Revalidation Course. This course
-        is for both clinicians and non-clinicians. Clinicians attending this course
-        will be issued with 6.5 CPD points.
       website:shortsummary: Previously known as the Revalidation Course. This course
         is for both clinicians and non-clinicians. Clinicians attending this course
         will be issued with 6.5 CPD points.
@@ -789,6 +828,7 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
+    jcr:uuid: 6329c657-7736-472f-9551-fde1b49380ad
   /content:
     /content[1]:
       /website:body:
@@ -987,6 +1027,10 @@
           hippo:docbase: 7b1a50ca-9ac1-42ab-8402-4f851faa2bd1
           jcr:primaryType: hippo:mirror
         jcr:primaryType: website:internallink
+      /website:seosummary:
+        hippostd:content: NHS Digital hosts meetings, conferences, seminars and workshops,
+          and our staff attend health events nationwide.
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: <p>Welcome to our events area. Find out where you are likely
           to see us over the coming months and read about all our events.</p>
@@ -1004,10 +1048,9 @@
       jcr:mixinTypes:
       - mix:versionable
       jcr:primaryType: website:hub
+      jcr:uuid: 78982a41-f93b-4e4e-8ebb-a679dc05c5da
       website:gossid: 329
       website:listtitle: ''
-      website:seosummary: NHS Digital hosts meetings, conferences, seminars and workshops,
-        and our staff attend health events nationwide.
       website:shortsummary: NHS Digital hosts meetings, conferences, seminars and
         workshops, and our staff attend health events nationwide.
       website:title: Events
@@ -1208,6 +1251,10 @@
           hippo:docbase: 7b1a50ca-9ac1-42ab-8402-4f851faa2bd1
           jcr:primaryType: hippo:mirror
         jcr:primaryType: website:internallink
+      /website:seosummary:
+        hippostd:content: NHS Digital hosts meetings, conferences, seminars and workshops,
+          and our staff attend health events nationwide.
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: <p>Welcome to our events area. Find out where you are likely
           to see us over the coming months and read about all our events.</p>
@@ -1226,10 +1273,9 @@
       jcr:mixinTypes:
       - mix:versionable
       jcr:primaryType: website:hub
+      jcr:uuid: 847188ac-f72a-45d3-a615-c8a9f1ef415a
       website:gossid: 329
       website:listtitle: ''
-      website:seosummary: NHS Digital hosts meetings, conferences, seminars and workshops,
-        and our staff attend health events nationwide.
       website:shortsummary: NHS Digital hosts meetings, conferences, seminars and
         workshops, and our staff attend health events nationwide.
       website:title: Events
@@ -1430,6 +1476,10 @@
           hippo:docbase: 7b1a50ca-9ac1-42ab-8402-4f851faa2bd1
           jcr:primaryType: hippo:mirror
         jcr:primaryType: website:internallink
+      /website:seosummary:
+        hippostd:content: NHS Digital hosts meetings, conferences, seminars and workshops,
+          and our staff attend health events nationwide.
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: <p>Welcome to our events area. Find out where you are likely
           to see us over the coming months and read about all our events.</p>
@@ -1449,10 +1499,9 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:hub
+      jcr:uuid: 95df7833-d33d-4b4f-91c8-af9d24c2cede
       website:gossid: 329
       website:listtitle: ''
-      website:seosummary: NHS Digital hosts meetings, conferences, seminars and workshops,
-        and our staff attend health events nationwide.
       website:shortsummary: NHS Digital hosts meetings, conferences, seminars and
         workshops, and our staff attend health events nationwide.
       website:title: Events
@@ -1473,3 +1522,4 @@
   - hippotranslation:translated
   - mix:versionable
   jcr:primaryType: hippostd:folder
+  jcr:uuid: 8f56ee78-a2e2-45a0-85ab-d625c1c3e33c

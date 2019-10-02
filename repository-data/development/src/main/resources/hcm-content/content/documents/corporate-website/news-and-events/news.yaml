@@ -10,6 +10,10 @@
       jcr:primaryType: website:friendlyurls
       website:alternativeurls: []
       website:destination: ''
+    /website:seosummary:
+      hippostd:content: All the latest news from NHS Digital,  the national information
+        and technology partner to the health and care system
+      jcr:primaryType: hippostd:html
     /website:summary:
       hippostd:content: <p>See all the latest news from NHS Digital</p>
       jcr:primaryType: hippostd:html
@@ -27,9 +31,8 @@
     - hippotaxonomy:classifiable
     - mix:referenceable
     jcr:primaryType: website:general
+    jcr:uuid: 93750f48-21d7-4152-a9bf-6e78af85bdf3
     website:gossid: 0
-    website:seosummary: All the latest news from NHS Digital,  the national information
-      and technology partner to the health and care system
     website:shortsummary: See all the latest news from NHS Digital
     website:title: Latest news
     website:type: ''
@@ -43,6 +46,10 @@
       jcr:primaryType: website:friendlyurls
       website:alternativeurls: []
       website:destination: ''
+    /website:seosummary:
+      hippostd:content: All the latest news from NHS Digital,  the national information
+        and technology partner to the health and care system
+      jcr:primaryType: hippostd:html
     /website:summary:
       hippostd:content: <p>See all the latest news from NHS Digital</p>
       jcr:primaryType: hippostd:html
@@ -61,9 +68,8 @@
     - hippotaxonomy:classifiable
     - mix:versionable
     jcr:primaryType: website:general
+    jcr:uuid: b1bc7bbb-30da-41f0-b0ce-b78fae5cedea
     website:gossid: 0
-    website:seosummary: All the latest news from NHS Digital,  the national information
-      and technology partner to the health and care system
     website:shortsummary: See all the latest news from NHS Digital
     website:title: Latest news
     website:type: ''
@@ -77,6 +83,10 @@
       jcr:primaryType: website:friendlyurls
       website:alternativeurls: []
       website:destination: ''
+    /website:seosummary:
+      hippostd:content: All the latest news from NHS Digital,  the national information
+        and technology partner to the health and care system
+      jcr:primaryType: hippostd:html
     /website:summary:
       hippostd:content: <p>See all the latest news from NHS Digital</p>
       jcr:primaryType: hippostd:html
@@ -96,9 +106,8 @@
     - hippotaxonomy:classifiable
     - mix:referenceable
     jcr:primaryType: website:general
+    jcr:uuid: 54817bda-1d38-435a-8269-e0098e056b80
     website:gossid: 0
-    website:seosummary: All the latest news from NHS Digital,  the national information
-      and technology partner to the health and care system
     website:shortsummary: See all the latest news from NHS Digital
     website:title: Latest news
     website:type: ''

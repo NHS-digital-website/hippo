@@ -17,6 +17,9 @@
       website:code: MSID245
       website:type: gs1
       website:url: someurl.com
+    /website:seosummary:
+      hippostd:content: Some seo summary for Org
+      jcr:primaryType: hippostd:html
     /website:summary:
       hippostd:content: <p>MS summary here.</p>
       jcr:primaryType: hippostd:html
@@ -41,7 +44,6 @@
     website:organisationType:
     - supplier
     - nhs-organisation
-    website:seosummary: Some seo summary for Org
     website:shortsummary: Some short summary for Org
     website:synonyms:
     - InternetExplorer
@@ -67,6 +69,9 @@
       website:code: MSID245
       website:type: gs1
       website:url: someurl.com
+    /website:seosummary:
+      hippostd:content: Some seo summary for Org
+      jcr:primaryType: hippostd:html
     /website:summary:
       hippostd:content: <p>MS summary here.</p>
       jcr:primaryType: hippostd:html
@@ -93,7 +98,6 @@
     website:organisationType:
     - supplier
     - nhs-organisation
-    website:seosummary: Some seo summary for Org
     website:shortsummary: Some short summary for Org
     website:synonyms:
     - InternetExplorer
@@ -119,6 +123,9 @@
       website:code: MSID245
       website:type: gs1
       website:url: someurl.com
+    /website:seosummary:
+      hippostd:content: Some seo summary for Org
+      jcr:primaryType: hippostd:html
     /website:summary:
       hippostd:content: <p>MS summary here.</p>
       jcr:primaryType: hippostd:html
@@ -145,7 +152,6 @@
     website:organisationType:
     - supplier
     - nhs-organisation
-    website:seosummary: Some seo summary for Org
     website:shortsummary: Some short summary for Org
     website:synonyms:
     - InternetExplorer
