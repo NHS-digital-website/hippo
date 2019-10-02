@@ -80,6 +80,11 @@
     /website:component:
       hippostd:content: ''
       jcr:primaryType: hippostd:html
+    /website:seosummary:
+      hippostd:content: NHS Digital has responsibility for standardising, collecting
+        and publishing data and information from across the health and social care
+        system in England
+      jcr:primaryType: hippostd:html
     /website:summary:
       hippostd:content: <p>NHS Digital has responsibility for standardising, collecting
         and publishing data and information from across the health and social care
@@ -99,9 +104,6 @@
     jcr:primaryType: website:hub
     website:gossid: 0
     website:listtitle: ''
-    website:seosummary: NHS Digital has responsibility for standardising, collecting
-      and publishing data and information from across the health and social care system
-      in England
     website:shortsummary: NHS Digital has responsibility for standardising, collecting
       and publishing data and information from across the health and social care system
       in England.
@@ -186,6 +188,11 @@
     /website:component:
       hippostd:content: ''
       jcr:primaryType: hippostd:html
+    /website:seosummary:
+      hippostd:content: NHS Digital has responsibility for standardising, collecting
+        and publishing data and information from across the health and social care
+        system in England
+      jcr:primaryType: hippostd:html
     /website:summary:
       hippostd:content: <p>NHS Digital has responsibility for standardising, collecting
         and publishing data and information from across the health and social care
@@ -207,9 +214,6 @@
     jcr:primaryType: website:hub
     website:gossid: 0
     website:listtitle: ''
-    website:seosummary: NHS Digital has responsibility for standardising, collecting
-      and publishing data and information from across the health and social care system
-      in England
     website:shortsummary: NHS Digital has responsibility for standardising, collecting
       and publishing data and information from across the health and social care system
       in England.
@@ -294,6 +298,11 @@
     /website:component:
       hippostd:content: ''
       jcr:primaryType: hippostd:html
+    /website:seosummary:
+      hippostd:content: NHS Digital has responsibility for standardising, collecting
+        and publishing data and information from across the health and social care
+        system in England
+      jcr:primaryType: hippostd:html
     /website:summary:
       hippostd:content: <p>NHS Digital has responsibility for standardising, collecting
         and publishing data and information from across the health and social care
@@ -315,9 +324,6 @@
     jcr:primaryType: website:hub
     website:gossid: 0
     website:listtitle: ''
-    website:seosummary: NHS Digital has responsibility for standardising, collecting
-      and publishing data and information from across the health and social care system
-      in England
     website:shortsummary: NHS Digital has responsibility for standardising, collecting
       and publishing data and information from across the health and social care system
       in England.

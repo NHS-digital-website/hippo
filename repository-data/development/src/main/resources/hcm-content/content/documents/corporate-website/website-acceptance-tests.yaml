@@ -69,6 +69,10 @@
             jcr:primaryType: website:emphasisBox
             website:emphasisType: Note
             website:heading: Some note emphasis section
+          /website:seosummary:
+            hippostd:content: Some useful summary for the blog post for purpose of
+              SEO
+            jcr:primaryType: hippostd:html
           /website:summary:
             hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
               elit. Quisque semper placerat mattis. Cras nec faucibus lectus. Donec
@@ -120,8 +124,6 @@
           website:dateofpublication: 2019-04-15T23:00:00Z
           website:leadimagealttext: Duis sed orci id neque ultricies feugiat lead
             image alt text
-          website:seosummary: Some useful summary for the blog post for purpose of
-            SEO
           website:shortsummary: Donec tempor enim nunc, vel vehicula justo bibendum
             et. Pellentesque faucibus vulputate interdum. Aliquam fringilla laoreet
             dui, at gravida augue tempus vel. Aenean scelerisque cursus porttitor.
@@ -193,6 +195,10 @@
             jcr:primaryType: website:emphasisBox
             website:emphasisType: Note
             website:heading: Some note emphasis section
+          /website:seosummary:
+            hippostd:content: Some useful summary for the blog post for purpose of
+              SEO
+            jcr:primaryType: hippostd:html
           /website:summary:
             hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
               elit. Quisque semper placerat mattis. Cras nec faucibus lectus. Donec
@@ -243,8 +249,6 @@
           website:dateofpublication: 2019-04-15T23:00:00Z
           website:leadimagealttext: Duis sed orci id neque ultricies feugiat lead
             image alt text
-          website:seosummary: Some useful summary for the blog post for purpose of
-            SEO
           website:shortsummary: Donec tempor enim nunc, vel vehicula justo bibendum
             et. Pellentesque faucibus vulputate interdum. Aliquam fringilla laoreet
             dui, at gravida augue tempus vel. Aenean scelerisque cursus porttitor.
@@ -316,6 +320,10 @@
             jcr:primaryType: website:emphasisBox
             website:emphasisType: Note
             website:heading: Some note emphasis section
+          /website:seosummary:
+            hippostd:content: Some useful summary for the blog post for purpose of
+              SEO
+            jcr:primaryType: hippostd:html
           /website:summary:
             hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
               elit. Quisque semper placerat mattis. Cras nec faucibus lectus. Donec
@@ -368,8 +376,6 @@
           website:dateofpublication: 2019-04-15T23:00:00Z
           website:leadimagealttext: Duis sed orci id neque ultricies feugiat lead
             image alt text
-          website:seosummary: Some useful summary for the blog post for purpose of
-            SEO
           website:shortsummary: Donec tempor enim nunc, vel vehicula justo bibendum
             et. Pellentesque faucibus vulputate interdum. Aliquam fringilla laoreet
             dui, at gravida augue tempus vel. Aenean scelerisque cursus porttitor.
@@ -461,6 +467,9 @@
           jcr:primaryType: website:emphasisBox
           website:emphasisType: Emphasis
           website:heading: An emphasis section
+        /website:seosummary:
+          hippostd:content: Some useful summary for the blog post for purpose of SEO
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: <p>Blog Introduction&nbsp;Lorem ipsum dolor sit amet,
             consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
@@ -502,7 +511,6 @@
         - How we work
         website:dateofpublication: 2020-09-17T23:00:00Z
         website:leadimagealttext: hellow work d sdkj sfsdfg sdfg dfgf
-        website:seosummary: Some useful summary for the blog post for purpose of SEO
         website:shortsummary: Browse our blog page to see what is happening
         website:title: Blog AcceptanceTestDocument 1
         website:twitterhashtag:
@@ -574,6 +582,9 @@
           jcr:primaryType: website:emphasisBox
           website:emphasisType: Emphasis
           website:heading: An emphasis section
+        /website:seosummary:
+          hippostd:content: Some useful summary for the blog post for purpose of SEO
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: <p>Blog Introduction&nbsp;Lorem ipsum dolor sit amet,
             consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
@@ -617,7 +628,6 @@
         - How we work
         website:dateofpublication: 2020-09-17T23:00:00Z
         website:leadimagealttext: hellow work d sdkj sfsdfg sdfg dfgf
-        website:seosummary: Some useful summary for the blog post for purpose of SEO
         website:shortsummary: Browse our blog page to see what is happening
         website:title: Blog AcceptanceTestDocument 1
         website:twitterhashtag:
@@ -689,6 +699,9 @@
           jcr:primaryType: website:emphasisBox
           website:emphasisType: Emphasis
           website:heading: An emphasis section
+        /website:seosummary:
+          hippostd:content: Some useful summary for the blog post for purpose of SEO
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: <p>Blog Introduction&nbsp;Lorem ipsum dolor sit amet,
             consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
@@ -732,7 +745,6 @@
         - How we work
         website:dateofpublication: 2020-09-17T23:00:00Z
         website:leadimagealttext: hellow work d sdkj sfsdfg sdfg dfgf
-        website:seosummary: Some useful summary for the blog post for purpose of SEO
         website:shortsummary: Browse our blog page to see what is happening
         website:title: Blog AcceptanceTestDocument 1
         website:twitterhashtag:
@@ -817,6 +829,9 @@
           jcr:primaryType: website:emphasisBox
           website:emphasisType: Important
           website:heading: Some important emphasis section
+        /website:seosummary:
+          hippostd:content: Some useful summary for the blog post for purpose of SEO
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: <p>Blog Introduction&nbsp;Phasellus ac venenatis quam,
             non finibus neque. Aliquam ornare, nisl nec mattis pellentesque, neque
@@ -867,7 +882,6 @@
         website:dateofpublication: 2019-08-27T23:00:00Z
         website:leadimagealttext: Duis sed orci id neque ultricies feugiat lead image
           alt text
-        website:seosummary: Some useful summary for the blog post for purpose of SEO
         website:shortsummary: Fusce in lectus augue. Nunc libero nisl, faucibus eu
           condimentum id, egestas sit amet sem. Cras consequat iaculis est ut mollis.
           Sed vitae mauris a nulla mollis semper.
@@ -947,6 +961,9 @@
           jcr:primaryType: website:emphasisBox
           website:emphasisType: Important
           website:heading: Some important emphasis section
+        /website:seosummary:
+          hippostd:content: Some useful summary for the blog post for purpose of SEO
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: <p>Blog Introduction&nbsp;Phasellus ac venenatis quam,
             non finibus neque. Aliquam ornare, nisl nec mattis pellentesque, neque
@@ -996,7 +1013,6 @@
         website:dateofpublication: 2019-08-27T23:00:00Z
         website:leadimagealttext: Duis sed orci id neque ultricies feugiat lead image
           alt text
-        website:seosummary: Some useful summary for the blog post for purpose of SEO
         website:shortsummary: Fusce in lectus augue. Nunc libero nisl, faucibus eu
           condimentum id, egestas sit amet sem. Cras consequat iaculis est ut mollis.
           Sed vitae mauris a nulla mollis semper.
@@ -1076,6 +1092,9 @@
           jcr:primaryType: website:emphasisBox
           website:emphasisType: Important
           website:heading: Some important emphasis section
+        /website:seosummary:
+          hippostd:content: Some useful summary for the blog post for purpose of SEO
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: <p>Blog Introduction&nbsp;Phasellus ac venenatis quam,
             non finibus neque. Aliquam ornare, nisl nec mattis pellentesque, neque
@@ -1127,7 +1146,6 @@
         website:dateofpublication: 2019-08-27T23:00:00Z
         website:leadimagealttext: Duis sed orci id neque ultricies feugiat lead image
           alt text
-        website:seosummary: Some useful summary for the blog post for purpose of SEO
         website:shortsummary: Fusce in lectus augue. Nunc libero nisl, faucibus eu
           condimentum id, egestas sit amet sem. Cras consequat iaculis est ut mollis.
           Sed vitae mauris a nulla mollis semper.
@@ -1137,6 +1155,504 @@
         - hashtagwithoutprefix
       hippo:name: Blog test document 2
       hippo:versionHistory: 6daac41b-2539-4cc4-a164-09e86d551006
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    /citizen-identity---the-evolution-of-username-password-security:
+      /citizen-identity---the-evolution-of-username-password-security[1]:
+        /website:component:
+          /citizen-identity---the-evolution-of-username-password-security:
+            hippo:docbase: 0b660172-c735-475b-a2ee-a92c47978a40
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippo:facetselect
+          /citizen-identity---the-evolution-of-username-password-security_1:
+            hippo:docbase: 0b660172-c735-475b-a2ee-a92c47978a40
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippo:facetselect
+          /richard-mcstay-fingerprintid.jpg:
+            hippo:docbase: 6f6b54c0-9c69-4590-bd04-f3bc78865a95
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippo:facetselect
+          hippostd:content: |-
+            <h2><a href="citizen-identity---the-evolution-of-username-password-security">Citizen identity – the evolution of username password security</a></h2>
+
+            <p><span><span><span><span><span><img src="richard-mcstay-fingerprintid.jpg/{_document}/hippogallery:original" alt="Person using fingerprint identity verification on a smartphone" />How do we give the public secure access to their healthcare data and NHS services? Lead Delivery Manager Richard McStay</span></span><span> talks about NHS login and the NHS Digital Citizen Identity team’s work to ensure people can prove their identity when signing up for online services. </span></span></span></span></p>
+
+            <p><a href="citizen-identity---the-evolution-of-username-password-security_1">Read more about proving your identity with NHS login</a></p>
+          jcr:primaryType: hippostd:html
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+          website:destination: ''
+        /website:pageicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:sections[1]:
+          /website:html:
+            /richard-mcstay-fingerprintid.jpg:
+              hippo:docbase: 6f6b54c0-9c69-4590-bd04-f3bc78865a95
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+              jcr:primaryType: hippo:facetselect
+            hippostd:content: |-
+              <p>By Richard McStay.&nbsp; 20 August 2019</p>
+
+              <p><img src="richard-mcstay-fingerprintid.jpg/{_document}/hippogallery:original" alt="Person uses fingerprint access to a smart phone" /></p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: ''
+          website:type: ''
+        /website:sections[2]:
+          /website:html:
+            hippostd:content: |-
+              <p><span><span><span><strong>Fingerprints, biometrics, retinal scanning, voice recognition and facial mapping – likeness, liveness, authentication and verification. Gaining access to your personal stuff, whether it be your cash, shopping app of choice or healthcare data is a tricky business, often requiring an airport-style, digital security gate to get to what we think as 'ours'&nbsp;in the first place. </strong></span></span></span></p>
+
+              <p><span><span><span>Unfortunately, this very necessary evil is likely to continue, and it is the responsibility of those given the task of implementing it to make it as simple and pain-free as possible, while still being completely and rock-solidly secure.</span></span></span></p>
+
+              <p><span><span><span>The security aspect of providing a mechanism by which people can verify their identity is a real challenge. Unauthorised access to most other aspects of your personal life such as your social media profile is highly inconvenient, sure, but relatively recoverable and retrievable. Medical information is significantly more personal to us and therefore the security needs to reflect this by being absolutely watertight. It is essential that only the right person has access.</span></span></span></p>
+
+              <p><span><span><span>The key for healthcare is the digital link that matches me to my healthcare record and gives applications the confidence that the connections they make to healthcare data stores and services are definitely for the user that has signed up for them. It’s a GP appointment for me, it’s my repeat medication, it’s my healthcare record, it my referral and those are my results from that scan. </span></span></span></p>
+
+              <h2><span><span><span><span><span>Solving the puzzle</span></span></span></span></span></h2>
+
+              <p><span><span><span>NHS Digital’s Citizen Identity team has been working on solving this particular puzzle for some time - a watertight solution to be used by healthcare apps to allow users to verify their healthcare identity and then use those details to securely log-in not only to that service, but any healthcare service that is integrated. The concept is very similar to login with Google or Facebook but requires the user to prove their identity more securely because of the often-sensitive nature of the data or service they wish to access.</span></span></span></p>
+
+              <p><span><span><span>The identity marketplace has this capability already, and this is something we tested and researched with the public, but the message was clear: “I trust the NHS and if I have to do this to access a healthcare app, I want an NHS solution”. So, we set out to produce an NHS branded identity solution that included the ‘must-haves’ of likeness and liveness. We also needed to incorporate the existing Patient Online capability to avoid users having to identify themselves twice if they’ve already gone through the process at their GP practice. </span></span></span></p>
+
+              <h2><span><span><span><span><span>Proving identity with NHS login</span></span></span></span></span></h2>
+
+              <p><span><span><span>From this clear user directive, NHS login was created and is now used for a number of different healthcare apps, including the <a href="https://digital.nhs.uk/blog/transformation-blog/2019/passwordless-login-the-search-for-speed-with-security">NHS App</a>, with a significant queue forming to use this technology across the NHS.</span></span></span></p>
+
+              <p><span><span><span>Users can verify themselves with their existing details they used to sign up to Patient Online or go through a short ‘prove your identity’ journey involving a photo of an identity document and a ‘video selfie’ that checks you’re a real, live, human, in addition to some basic name and address details. The video is a key component as it replicates citizens presenting themselves for identification when we require non-digital access or entry to services like passport control or GP appointments and can be used to ensure app users are not being coerced or trying to access services with fraudulent documentation. We cross-check your information and send you an email – all very straight-forward as the majority of the public has easy access to the right details and documents. </span></span></span></p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: ''
+          website:type: ''
+        /website:sections[3]:
+          /website:description:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:quote:
+            hippostd:content: <p style="margin-left:0cm; margin-right:0cm">Longer
+              term, 'sign-in with your NHS login' has the potential to become the
+              ID verification and authentication product integrated across a wide
+              number of health and social care platforms.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:quote
+          website:heading: ''
+          website:organisation: NHS Digital
+          website:person: Richard McStay
+          website:role: Lead Delivery Manager
+        /website:sections[4]:
+          /website:html:
+            /richard-mcstay.jpg:
+              hippo:docbase: b45fe968-c801-48bf-a88c-00646843ca9f
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+              jcr:primaryType: hippo:facetselect
+            hippostd:content: |-
+              <p><span><span><span>Proving someone’s identity is harder than that though, especially as people don’t always want to go through the process of verifying it. In the same way nobody really wants to complete a passport application or go through airport security, they just want to get straight to the holiday, they want to swiftly access a new app that they’ve seen or that’s been recommended to them.</span></span></span></p>
+
+              <p><span><span><span>Despite the challenges some will experience with the above process, the benefit of NHS login is that you only have to do it (successfully) once. &nbsp;The variety and diversity of healthcare apps currently developed or being developed is kickstarting the process of putting the control of healthcare information into the hands of patients.</span></span></span></p>
+
+              <p><span><span><span>There’s still work to for us to do and while the version that’s being used now for healthcare tools like the NHS App is simple, safe and secure, the learning we’ve gained will continue to shape our solution in this space. </span></span></span></p>
+
+              <p><span><span><span>Using the combinations of user, partner and analytics feedback, we’re constantly evolving our product. In the short term, we need to be able to offer a solution for those unable to use digital identity methods, but still receive the benefits of digital healthcare tools, such as an offline-to-online capability and/or clinical validation. Longer term, “sign-in with your NHS login” has <em>the</em> potential to become the ID verification and authentication product integrated across a wide number of health and social care platforms.</span></span></span></p>
+
+              <p><span><span><span>Providing this secure capability for patients to safely use health and care applications supports a growing need for using technology led, innovative ways to access our health data and the services the NHS provides.</span></span></span></p>
+
+              <p><span><span><span><strong>Want to provide secure NHS login verification and authentication in your application? Go to <a href="https://digital.nhs.uk/services/nhs-login">https://digital.nhs.uk/services/nhs-login</a> for more information </strong></span></span></span></p>
+
+              <p><img src="richard-mcstay.jpg/{_document}/hippogallery:original" alt="Picture of blog author Richard McStay" /></p>
+
+              <p>Richard McStay</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: ''
+          website:type: ''
+        /website:seosummary:
+          hippostd:content: How do we safely give the public access to their personal
+            healthcare record? Richard McStay talks about NHS login and the NHS Digital’s
+            Citizen Identity team’s work to ensure people can prove their identity
+            when signing up for online services.
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: <p style="margin-left:0cm; margin-right:0cm">How do we
+            give the public secure access to their healthcare data and NHS services?
+            Lead Delivery Manager Richard McStay talks about NHS login and the NHS
+            Digital Citizen Identity team’s work to ensure people can prove their
+            identity when signing up for online services.</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: catherine.farrell
+        hippostdpubwf:creationDate: 2019-08-14T13:00:17.264Z
+        hippostdpubwf:lastModificationDate: 2019-08-29T10:27:14.141Z
+        hippostdpubwf:lastModifiedBy: owain.davies1
+        hippotranslation:id: 29cd59b1-ef73-4fe3-92a3-27d66f8dd2ff
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:general
+        website:gossid: 0
+        website:metadata: []
+        website:shortsummary: Richard McStay talks about NHS login and the NHS Digital’s
+          Citizen Identity team’s work to ensure people can prove their identity when
+          signing up for online services.
+        website:title: Citizen Identity – the evolution of username password security
+        website:type: ''
+      /citizen-identity---the-evolution-of-username-password-security[2]:
+        /website:component:
+          /citizen-identity---the-evolution-of-username-password-security:
+            hippo:docbase: 0b660172-c735-475b-a2ee-a92c47978a40
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippo:facetselect
+          /citizen-identity---the-evolution-of-username-password-security_1:
+            hippo:docbase: 0b660172-c735-475b-a2ee-a92c47978a40
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippo:facetselect
+          /richard-mcstay-fingerprintid.jpg:
+            hippo:docbase: 6f6b54c0-9c69-4590-bd04-f3bc78865a95
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippo:facetselect
+          hippostd:content: |-
+            <h2><a href="citizen-identity---the-evolution-of-username-password-security">Citizen identity – the evolution of username password security</a></h2>
+
+            <p><span><span><span><span><span><img src="richard-mcstay-fingerprintid.jpg/{_document}/hippogallery:original" alt="Person using fingerprint identity verification on a smartphone" />How do we give the public secure access to their healthcare data and NHS services? Lead Delivery Manager Richard McStay</span></span><span> talks about NHS login and the NHS Digital Citizen Identity team’s work to ensure people can prove their identity when signing up for online services. </span></span></span></span></p>
+
+            <p><a href="citizen-identity---the-evolution-of-username-password-security_1">Read more about proving your identity with NHS login</a></p>
+          jcr:primaryType: hippostd:html
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+          website:destination: ''
+        /website:pageicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:sections[1]:
+          /website:html:
+            /richard-mcstay-fingerprintid.jpg:
+              hippo:docbase: 6f6b54c0-9c69-4590-bd04-f3bc78865a95
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+              jcr:primaryType: hippo:facetselect
+            hippostd:content: |-
+              <p>By Richard McStay.&nbsp; 20 August 2019</p>
+
+              <p><img src="richard-mcstay-fingerprintid.jpg/{_document}/hippogallery:original" alt="Person uses fingerprint access to a smart phone" /></p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: ''
+          website:type: ''
+        /website:sections[2]:
+          /website:html:
+            hippostd:content: |-
+              <p><span><span><span><strong>Fingerprints, biometrics, retinal scanning, voice recognition and facial mapping – likeness, liveness, authentication and verification. Gaining access to your personal stuff, whether it be your cash, shopping app of choice or healthcare data is a tricky business, often requiring an airport-style, digital security gate to get to what we think as 'ours'&nbsp;in the first place. </strong></span></span></span></p>
+
+              <p><span><span><span>Unfortunately, this very necessary evil is likely to continue, and it is the responsibility of those given the task of implementing it to make it as simple and pain-free as possible, while still being completely and rock-solidly secure.</span></span></span></p>
+
+              <p><span><span><span>The security aspect of providing a mechanism by which people can verify their identity is a real challenge. Unauthorised access to most other aspects of your personal life such as your social media profile is highly inconvenient, sure, but relatively recoverable and retrievable. Medical information is significantly more personal to us and therefore the security needs to reflect this by being absolutely watertight. It is essential that only the right person has access.</span></span></span></p>
+
+              <p><span><span><span>The key for healthcare is the digital link that matches me to my healthcare record and gives applications the confidence that the connections they make to healthcare data stores and services are definitely for the user that has signed up for them. It’s a GP appointment for me, it’s my repeat medication, it’s my healthcare record, it my referral and those are my results from that scan. </span></span></span></p>
+
+              <h2><span><span><span><span><span>Solving the puzzle</span></span></span></span></span></h2>
+
+              <p><span><span><span>NHS Digital’s Citizen Identity team has been working on solving this particular puzzle for some time - a watertight solution to be used by healthcare apps to allow users to verify their healthcare identity and then use those details to securely log-in not only to that service, but any healthcare service that is integrated. The concept is very similar to login with Google or Facebook but requires the user to prove their identity more securely because of the often-sensitive nature of the data or service they wish to access.</span></span></span></p>
+
+              <p><span><span><span>The identity marketplace has this capability already, and this is something we tested and researched with the public, but the message was clear: “I trust the NHS and if I have to do this to access a healthcare app, I want an NHS solution”. So, we set out to produce an NHS branded identity solution that included the ‘must-haves’ of likeness and liveness. We also needed to incorporate the existing Patient Online capability to avoid users having to identify themselves twice if they’ve already gone through the process at their GP practice. </span></span></span></p>
+
+              <h2><span><span><span><span><span>Proving identity with NHS login</span></span></span></span></span></h2>
+
+              <p><span><span><span>From this clear user directive, NHS login was created and is now used for a number of different healthcare apps, including the <a href="https://digital.nhs.uk/blog/transformation-blog/2019/passwordless-login-the-search-for-speed-with-security">NHS App</a>, with a significant queue forming to use this technology across the NHS.</span></span></span></p>
+
+              <p><span><span><span>Users can verify themselves with their existing details they used to sign up to Patient Online or go through a short ‘prove your identity’ journey involving a photo of an identity document and a ‘video selfie’ that checks you’re a real, live, human, in addition to some basic name and address details. The video is a key component as it replicates citizens presenting themselves for identification when we require non-digital access or entry to services like passport control or GP appointments and can be used to ensure app users are not being coerced or trying to access services with fraudulent documentation. We cross-check your information and send you an email – all very straight-forward as the majority of the public has easy access to the right details and documents. </span></span></span></p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: ''
+          website:type: ''
+        /website:sections[3]:
+          /website:description:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:quote:
+            hippostd:content: <p style="margin-left:0cm; margin-right:0cm">Longer
+              term, 'sign-in with your NHS login' has the potential to become the
+              ID verification and authentication product integrated across a wide
+              number of health and social care platforms.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:quote
+          website:heading: ''
+          website:organisation: NHS Digital
+          website:person: Richard McStay
+          website:role: Lead Delivery Manager
+        /website:sections[4]:
+          /website:html:
+            /richard-mcstay.jpg:
+              hippo:docbase: b45fe968-c801-48bf-a88c-00646843ca9f
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+              jcr:primaryType: hippo:facetselect
+            hippostd:content: |-
+              <p><span><span><span>Proving someone’s identity is harder than that though, especially as people don’t always want to go through the process of verifying it. In the same way nobody really wants to complete a passport application or go through airport security, they just want to get straight to the holiday, they want to swiftly access a new app that they’ve seen or that’s been recommended to them.</span></span></span></p>
+
+              <p><span><span><span>Despite the challenges some will experience with the above process, the benefit of NHS login is that you only have to do it (successfully) once. &nbsp;The variety and diversity of healthcare apps currently developed or being developed is kickstarting the process of putting the control of healthcare information into the hands of patients.</span></span></span></p>
+
+              <p><span><span><span>There’s still work to for us to do and while the version that’s being used now for healthcare tools like the NHS App is simple, safe and secure, the learning we’ve gained will continue to shape our solution in this space. </span></span></span></p>
+
+              <p><span><span><span>Using the combinations of user, partner and analytics feedback, we’re constantly evolving our product. In the short term, we need to be able to offer a solution for those unable to use digital identity methods, but still receive the benefits of digital healthcare tools, such as an offline-to-online capability and/or clinical validation. Longer term, “sign-in with your NHS login” has <em>the</em> potential to become the ID verification and authentication product integrated across a wide number of health and social care platforms.</span></span></span></p>
+
+              <p><span><span><span>Providing this secure capability for patients to safely use health and care applications supports a growing need for using technology led, innovative ways to access our health data and the services the NHS provides.</span></span></span></p>
+
+              <p><span><span><span><strong>Want to provide secure NHS login verification and authentication in your application? Go to <a href="https://digital.nhs.uk/services/nhs-login">https://digital.nhs.uk/services/nhs-login</a> for more information </strong></span></span></span></p>
+
+              <p><img src="richard-mcstay.jpg/{_document}/hippogallery:original" alt="Picture of blog author Richard McStay" /></p>
+
+              <p>Richard McStay</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: ''
+          website:type: ''
+        /website:seosummary:
+          hippostd:content: How do we safely give the public access to their personal
+            healthcare record? Richard McStay talks about NHS login and the NHS Digital’s
+            Citizen Identity team’s work to ensure people can prove their identity
+            when signing up for online services.
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: <p style="margin-left:0cm; margin-right:0cm">How do we
+            give the public secure access to their healthcare data and NHS services?
+            Lead Delivery Manager Richard McStay talks about NHS login and the NHS
+            Digital Citizen Identity team’s work to ensure people can prove their
+            identity when signing up for online services.</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: catherine.farrell
+        hippostdpubwf:creationDate: 2019-08-14T13:00:17.264Z
+        hippostdpubwf:lastModificationDate: 2019-08-29T10:27:27.165Z
+        hippostdpubwf:lastModifiedBy: owain.davies1
+        hippotranslation:id: 29cd59b1-ef73-4fe3-92a3-27d66f8dd2ff
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        - mix:versionable
+        jcr:primaryType: website:general
+        website:gossid: 0
+        website:metadata: []
+        website:shortsummary: Richard McStay talks about NHS login and the NHS Digital’s
+          Citizen Identity team’s work to ensure people can prove their identity when
+          signing up for online services.
+        website:title: Citizen Identity – the evolution of username password security
+        website:type: ''
+      /citizen-identity---the-evolution-of-username-password-security[3]:
+        /website:component:
+          /citizen-identity---the-evolution-of-username-password-security:
+            hippo:docbase: 0b660172-c735-475b-a2ee-a92c47978a40
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippo:facetselect
+          /citizen-identity---the-evolution-of-username-password-security_1:
+            hippo:docbase: 0b660172-c735-475b-a2ee-a92c47978a40
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippo:facetselect
+          /richard-mcstay-fingerprintid.jpg:
+            hippo:docbase: 6f6b54c0-9c69-4590-bd04-f3bc78865a95
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippo:facetselect
+          hippostd:content: |-
+            <h2><a href="citizen-identity---the-evolution-of-username-password-security">Citizen identity – the evolution of username password security</a></h2>
+
+            <p><span><span><span><span><span><img src="richard-mcstay-fingerprintid.jpg/{_document}/hippogallery:original" alt="Person using fingerprint identity verification on a smartphone" />How do we give the public secure access to their healthcare data and NHS services? Lead Delivery Manager Richard McStay</span></span><span> talks about NHS login and the NHS Digital Citizen Identity team’s work to ensure people can prove their identity when signing up for online services. </span></span></span></span></p>
+
+            <p><a href="citizen-identity---the-evolution-of-username-password-security_1">Read more about proving your identity with NHS login</a></p>
+          jcr:primaryType: hippostd:html
+        /website:friendlyurls:
+          jcr:primaryType: website:friendlyurls
+          website:alternativeurls: []
+          website:destination: ''
+        /website:pageicon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:sections[1]:
+          /website:html:
+            /richard-mcstay-fingerprintid.jpg:
+              hippo:docbase: 6f6b54c0-9c69-4590-bd04-f3bc78865a95
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+              jcr:primaryType: hippo:facetselect
+            hippostd:content: |-
+              <p>By Richard McStay.&nbsp; 20 August 2019</p>
+
+              <p><img src="richard-mcstay-fingerprintid.jpg/{_document}/hippogallery:original" alt="Person uses fingerprint access to a smart phone" /></p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: ''
+          website:type: ''
+        /website:sections[2]:
+          /website:html:
+            hippostd:content: |-
+              <p><span><span><span><strong>Fingerprints, biometrics, retinal scanning, voice recognition and facial mapping – likeness, liveness, authentication and verification. Gaining access to your personal stuff, whether it be your cash, shopping app of choice or healthcare data is a tricky business, often requiring an airport-style, digital security gate to get to what we think as 'ours'&nbsp;in the first place. </strong></span></span></span></p>
+
+              <p><span><span><span>Unfortunately, this very necessary evil is likely to continue, and it is the responsibility of those given the task of implementing it to make it as simple and pain-free as possible, while still being completely and rock-solidly secure.</span></span></span></p>
+
+              <p><span><span><span>The security aspect of providing a mechanism by which people can verify their identity is a real challenge. Unauthorised access to most other aspects of your personal life such as your social media profile is highly inconvenient, sure, but relatively recoverable and retrievable. Medical information is significantly more personal to us and therefore the security needs to reflect this by being absolutely watertight. It is essential that only the right person has access.</span></span></span></p>
+
+              <p><span><span><span>The key for healthcare is the digital link that matches me to my healthcare record and gives applications the confidence that the connections they make to healthcare data stores and services are definitely for the user that has signed up for them. It’s a GP appointment for me, it’s my repeat medication, it’s my healthcare record, it my referral and those are my results from that scan. </span></span></span></p>
+
+              <h2><span><span><span><span><span>Solving the puzzle</span></span></span></span></span></h2>
+
+              <p><span><span><span>NHS Digital’s Citizen Identity team has been working on solving this particular puzzle for some time - a watertight solution to be used by healthcare apps to allow users to verify their healthcare identity and then use those details to securely log-in not only to that service, but any healthcare service that is integrated. The concept is very similar to login with Google or Facebook but requires the user to prove their identity more securely because of the often-sensitive nature of the data or service they wish to access.</span></span></span></p>
+
+              <p><span><span><span>The identity marketplace has this capability already, and this is something we tested and researched with the public, but the message was clear: “I trust the NHS and if I have to do this to access a healthcare app, I want an NHS solution”. So, we set out to produce an NHS branded identity solution that included the ‘must-haves’ of likeness and liveness. We also needed to incorporate the existing Patient Online capability to avoid users having to identify themselves twice if they’ve already gone through the process at their GP practice. </span></span></span></p>
+
+              <h2><span><span><span><span><span>Proving identity with NHS login</span></span></span></span></span></h2>
+
+              <p><span><span><span>From this clear user directive, NHS login was created and is now used for a number of different healthcare apps, including the <a href="https://digital.nhs.uk/blog/transformation-blog/2019/passwordless-login-the-search-for-speed-with-security">NHS App</a>, with a significant queue forming to use this technology across the NHS.</span></span></span></p>
+
+              <p><span><span><span>Users can verify themselves with their existing details they used to sign up to Patient Online or go through a short ‘prove your identity’ journey involving a photo of an identity document and a ‘video selfie’ that checks you’re a real, live, human, in addition to some basic name and address details. The video is a key component as it replicates citizens presenting themselves for identification when we require non-digital access or entry to services like passport control or GP appointments and can be used to ensure app users are not being coerced or trying to access services with fraudulent documentation. We cross-check your information and send you an email – all very straight-forward as the majority of the public has easy access to the right details and documents. </span></span></span></p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: ''
+          website:type: ''
+        /website:sections[3]:
+          /website:description:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:quote:
+            hippostd:content: <p style="margin-left:0cm; margin-right:0cm">Longer
+              term, 'sign-in with your NHS login' has the potential to become the
+              ID verification and authentication product integrated across a wide
+              number of health and social care platforms.</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:quote
+          website:heading: ''
+          website:organisation: NHS Digital
+          website:person: Richard McStay
+          website:role: Lead Delivery Manager
+        /website:sections[4]:
+          /website:html:
+            /richard-mcstay.jpg:
+              hippo:docbase: b45fe968-c801-48bf-a88c-00646843ca9f
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+              jcr:primaryType: hippo:facetselect
+            hippostd:content: |-
+              <p><span><span><span>Proving someone’s identity is harder than that though, especially as people don’t always want to go through the process of verifying it. In the same way nobody really wants to complete a passport application or go through airport security, they just want to get straight to the holiday, they want to swiftly access a new app that they’ve seen or that’s been recommended to them.</span></span></span></p>
+
+              <p><span><span><span>Despite the challenges some will experience with the above process, the benefit of NHS login is that you only have to do it (successfully) once. &nbsp;The variety and diversity of healthcare apps currently developed or being developed is kickstarting the process of putting the control of healthcare information into the hands of patients.</span></span></span></p>
+
+              <p><span><span><span>There’s still work to for us to do and while the version that’s being used now for healthcare tools like the NHS App is simple, safe and secure, the learning we’ve gained will continue to shape our solution in this space. </span></span></span></p>
+
+              <p><span><span><span>Using the combinations of user, partner and analytics feedback, we’re constantly evolving our product. In the short term, we need to be able to offer a solution for those unable to use digital identity methods, but still receive the benefits of digital healthcare tools, such as an offline-to-online capability and/or clinical validation. Longer term, “sign-in with your NHS login” has <em>the</em> potential to become the ID verification and authentication product integrated across a wide number of health and social care platforms.</span></span></span></p>
+
+              <p><span><span><span>Providing this secure capability for patients to safely use health and care applications supports a growing need for using technology led, innovative ways to access our health data and the services the NHS provides.</span></span></span></p>
+
+              <p><span><span><span><strong>Want to provide secure NHS login verification and authentication in your application? Go to <a href="https://digital.nhs.uk/services/nhs-login">https://digital.nhs.uk/services/nhs-login</a> for more information </strong></span></span></span></p>
+
+              <p><img src="richard-mcstay.jpg/{_document}/hippogallery:original" alt="Picture of blog author Richard McStay" /></p>
+
+              <p>Richard McStay</p>
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:section
+          website:headinglevel: Main heading
+          website:numberedList: false
+          website:title: ''
+          website:type: ''
+        /website:seosummary:
+          hippostd:content: How do we safely give the public access to their personal
+            healthcare record? Richard McStay talks about NHS login and the NHS Digital’s
+            Citizen Identity team’s work to ensure people can prove their identity
+            when signing up for online services.
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: <p style="margin-left:0cm; margin-right:0cm">How do we
+            give the public secure access to their healthcare data and NHS services?
+            Lead Delivery Manager Richard McStay talks about NHS login and the NHS
+            Digital Citizen Identity team’s work to ensure people can prove their
+            identity when signing up for online services.</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: catherine.farrell
+        hippostdpubwf:creationDate: 2019-08-14T13:00:17.264Z
+        hippostdpubwf:lastModificationDate: 2019-08-29T10:27:27.165Z
+        hippostdpubwf:lastModifiedBy: owain.davies1
+        hippostdpubwf:publicationDate: 2019-08-29T10:27:30.451Z
+        hippotranslation:id: 29cd59b1-ef73-4fe3-92a3-27d66f8dd2ff
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - hippotaxonomy:classifiable
+        - mix:referenceable
+        jcr:primaryType: website:general
+        website:gossid: 0
+        website:metadata: []
+        website:shortsummary: Richard McStay talks about NHS login and the NHS Digital’s
+          Citizen Identity team’s work to ensure people can prove their identity when
+          signing up for online services.
+        website:title: Citizen Identity – the evolution of username password security
+        website:type: ''
+      hippo:name: Citizen Identity – the evolution of username password security
+      hippo:versionHistory: 59181aa4-3deb-4789-a897-7058458260ff
       jcr:mixinTypes:
       - hippo:named
       - hippo:versionInfo
@@ -1210,6 +1726,9 @@
           jcr:primaryType: website:emphasisBox
           website:emphasisType: Important
           website:heading: Important warning about some email
+        /website:seosummary:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: |-
             <p>Cyber Alert Trojan Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -1275,7 +1794,6 @@
         - Worm
         website:ncsclink: https://ncsc.gov.uk
         website:publicallyaccessible: true
-        website:seosummary: ''
         website:severity: High
         website:shortsummary: Some short summary here for the Cyber Alert
         website:sourceofthreatupdates:
@@ -1341,6 +1859,9 @@
           jcr:primaryType: website:emphasisBox
           website:emphasisType: Important
           website:heading: Important warning about some email
+        /website:seosummary:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: |-
             <p>Cyber Alert Trojan Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -1408,7 +1929,6 @@
         - Worm
         website:ncsclink: https://ncsc.gov.uk
         website:publicallyaccessible: true
-        website:seosummary: ''
         website:severity: High
         website:shortsummary: Some short summary here for the Cyber Alert
         website:sourceofthreatupdates:
@@ -1474,6 +1994,9 @@
           jcr:primaryType: website:emphasisBox
           website:emphasisType: Important
           website:heading: Important warning about some email
+        /website:seosummary:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: |-
             <p>Cyber Alert Trojan Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -1541,7 +2064,6 @@
         - Worm
         website:ncsclink: https://ncsc.gov.uk
         website:publicallyaccessible: true
-        website:seosummary: ''
         website:severity: High
         website:shortsummary: Some short summary here for the Cyber Alert
         website:sourceofthreatupdates:
@@ -1603,6 +2125,9 @@
           jcr:primaryType: website:emphasisBox
           website:emphasisType: Important
           website:heading: Important warning about some email
+        /website:seosummary:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: |-
             <p>Cyber Alert Trojan Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -1658,7 +2183,6 @@
         - Ransomware
         website:ncsclink: https://ncsc.gov.uk
         website:publicallyaccessible: true
-        website:seosummary: ''
         website:severity: Medium
         website:shortsummary: Some short summary here for the Cyber Alert take 2
         website:sourceofthreatupdates:
@@ -1717,6 +2241,9 @@
           jcr:primaryType: website:emphasisBox
           website:emphasisType: Important
           website:heading: Important warning about some email
+        /website:seosummary:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: |-
             <p>Cyber Alert Trojan Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -1771,7 +2298,6 @@
         - Ransomware
         website:ncsclink: https://ncsc.gov.uk
         website:publicallyaccessible: true
-        website:seosummary: ''
         website:severity: Medium
         website:shortsummary: Some short summary here for the Cyber Alert take 2
         website:sourceofthreatupdates:
@@ -1830,6 +2356,9 @@
           jcr:primaryType: website:emphasisBox
           website:emphasisType: Important
           website:heading: Important warning about some email
+        /website:seosummary:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: |-
             <p>Cyber Alert Trojan Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -1886,7 +2415,6 @@
         - Ransomware
         website:ncsclink: https://ncsc.gov.uk
         website:publicallyaccessible: true
-        website:seosummary: ''
         website:severity: Medium
         website:shortsummary: Some short summary here for the Cyber Alert take 2
         website:sourceofthreatupdates:
@@ -1928,6 +2456,10 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: Some useful summary for the GDPR summary for purpose of
+          SEO
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>GDPR Summary Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -1948,8 +2480,6 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:gdprsummary
-      website:seosummary: Some useful summary for the GDPR summary for purpose of
-        SEO
       website:shortsummary: Browse our GDPR summary page
       website:title: GDPR Summary AcceptanceTestDocument
     /gdpr-summary-test-document[2]:
@@ -1963,6 +2493,10 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: Some useful summary for the GDPR summary for purpose of
+          SEO
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>GDPR Summary Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -1985,8 +2519,6 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:gdprsummary
-      website:seosummary: Some useful summary for the GDPR summary for purpose of
-        SEO
       website:shortsummary: Browse our GDPR summary page
       website:title: GDPR Summary AcceptanceTestDocument
     /gdpr-summary-test-document[3]:
@@ -2000,6 +2532,10 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: Some useful summary for the GDPR summary for purpose of
+          SEO
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>GDPR Summary Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -2022,8 +2558,6 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:gdprsummary
-      website:seosummary: Some useful summary for the GDPR summary for purpose of
-        SEO
       website:shortsummary: Browse our GDPR summary page
       website:title: GDPR Summary AcceptanceTestDocument
     hippo:name: GDPR Summary test document
@@ -2039,6 +2573,10 @@
         website:destination: ''
       /website:legallywhy:
         hippostd:content: <p>Legally why field content to follow..</p>
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: Some useful summary for the GDPR transparency for purpose
+          of SEO
         jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
@@ -2081,8 +2619,6 @@
       - erase-or-remove-it
       - restrict-or-stop-processing-it
       website:sensitivity: false
-      website:seosummary: Some useful summary for the GDPR transparency for purpose
-        of SEO
       website:shortsummary: Browse our GDPR transparency page
       website:timeretained: 1 week
       website:title: GDPR Transparency AcceptanceTestDocument
@@ -2094,6 +2630,10 @@
         website:destination: ''
       /website:legallywhy:
         hippostd:content: <p>Legally why field content to follow..</p>
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: Some useful summary for the GDPR transparency for purpose
+          of SEO
         jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
@@ -2138,8 +2678,6 @@
       - erase-or-remove-it
       - restrict-or-stop-processing-it
       website:sensitivity: false
-      website:seosummary: Some useful summary for the GDPR transparency for purpose
-        of SEO
       website:shortsummary: Browse our GDPR transparency page
       website:timeretained: 1 week
       website:title: GDPR Transparency AcceptanceTestDocument
@@ -2151,6 +2689,10 @@
         website:destination: ''
       /website:legallywhy:
         hippostd:content: <p>Legally why field content to follow..</p>
+        jcr:primaryType: hippostd:html
+      /website:seosummary:
+        hippostd:content: Some useful summary for the GDPR transparency for purpose
+          of SEO
         jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
@@ -2195,8 +2737,6 @@
       - erase-or-remove-it
       - restrict-or-stop-processing-it
       website:sensitivity: false
-      website:seosummary: Some useful summary for the GDPR transparency for purpose
-        of SEO
       website:shortsummary: Browse our GDPR transparency page
       website:timeretained: 1 week
       website:title: GDPR Transparency AcceptanceTestDocument
@@ -2318,6 +2858,9 @@
         jcr:primaryType: website:download
         website:heading: Download test header
         website:headinglevel: Main heading
+      /website:seosummary:
+        hippostd:content: SEO is good.  Some nice summary to help with Google rankings.
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>General Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -2341,7 +2884,6 @@
       - mix:referenceable
       jcr:primaryType: website:general
       website:gossid: 0
-      website:seosummary: SEO is good.  Some nice summary to help with Google rankings.
       website:shortsummary: General short summary to go here
       website:title: General AcceptanceTestDocument
       website:type: guidance
@@ -2456,6 +2998,9 @@
         jcr:primaryType: website:download
         website:heading: Download test header
         website:headinglevel: Main heading
+      /website:seosummary:
+        hippostd:content: SEO is good.  Some nice summary to help with Google rankings.
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>General Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -2480,7 +3025,6 @@
       - mix:versionable
       jcr:primaryType: website:general
       website:gossid: 0
-      website:seosummary: SEO is good.  Some nice summary to help with Google rankings.
       website:shortsummary: General short summary to go here
       website:title: General AcceptanceTestDocument
       website:type: guidance
@@ -2595,6 +3139,9 @@
         jcr:primaryType: website:download
         website:heading: Download test header
         website:headinglevel: Main heading
+      /website:seosummary:
+        hippostd:content: SEO is good.  Some nice summary to help with Google rankings.
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>General Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -2620,7 +3167,6 @@
       - mix:referenceable
       jcr:primaryType: website:general
       website:gossid: 0
-      website:seosummary: SEO is good.  Some nice summary to help with Google rankings.
       website:shortsummary: General short summary to go here
       website:title: General AcceptanceTestDocument
       website:type: guidance
@@ -2656,6 +3202,9 @@
         jcr:primaryType: website:glossaryitem
         website:external: ''
         website:heading: Mango
+      /website:seosummary:
+        hippostd:content: Some useful glossary for the service for purpose of SEO
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>Glossary Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -2676,7 +3225,6 @@
       - mix:referenceable
       jcr:primaryType: website:glossarylist
       website:indexpage: false
-      website:seosummary: Some useful glossary for the service for purpose of SEO
       website:shortsummary: Browse our gallery page
       website:title: Glossary AcceptanceTestDocument
     /glossary-test-document[2]:
@@ -2703,6 +3251,9 @@
         jcr:primaryType: website:glossaryitem
         website:external: ''
         website:heading: Mango
+      /website:seosummary:
+        hippostd:content: Some useful glossary for the service for purpose of SEO
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>Glossary Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -2725,7 +3276,6 @@
       - mix:versionable
       jcr:primaryType: website:glossarylist
       website:indexpage: false
-      website:seosummary: Some useful glossary for the service for purpose of SEO
       website:shortsummary: Browse our gallery page
       website:title: Glossary AcceptanceTestDocument
     /glossary-test-document[3]:
@@ -2752,6 +3302,9 @@
         jcr:primaryType: website:glossaryitem
         website:external: ''
         website:heading: Mango
+      /website:seosummary:
+        hippostd:content: Some useful glossary for the service for purpose of SEO
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>Glossary Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -2774,7 +3327,6 @@
       - mix:referenceable
       jcr:primaryType: website:glossarylist
       website:indexpage: false
-      website:seosummary: Some useful glossary for the service for purpose of SEO
       website:shortsummary: Browse our gallery page
       website:title: Glossary AcceptanceTestDocument
     hippo:name: Glossary test document
@@ -2796,6 +3348,9 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: Some useful summary for the hub for purpose of SEO
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>Hub Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -2818,7 +3373,6 @@
       jcr:primaryType: website:hub
       website:gossid: 0
       website:listtitle: ''
-      website:seosummary: Some useful summary for the hub for purpose of SEO
       website:shortsummary: Browse our hub page
       website:title: Hub AcceptanceTestDocument
     /hub-test-document[2]:
@@ -2832,6 +3386,9 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: Some useful summary for the hub for purpose of SEO
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>Hub Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -2856,7 +3413,6 @@
       jcr:primaryType: website:hub
       website:gossid: 0
       website:listtitle: ''
-      website:seosummary: Some useful summary for the hub for purpose of SEO
       website:shortsummary: Browse our hub page
       website:title: Hub AcceptanceTestDocument
     /hub-test-document[3]:
@@ -2870,6 +3426,9 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: Some useful summary for the hub for purpose of SEO
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>Hub Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -2894,7 +3453,6 @@
       jcr:primaryType: website:hub
       website:gossid: 0
       website:listtitle: ''
-      website:seosummary: Some useful summary for the hub for purpose of SEO
       website:shortsummary: Browse our hub page
       website:title: Hub AcceptanceTestDocument
     hippo:name: Hub test document
@@ -2911,6 +3469,9 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: Some useful summary for the links list for purpose of SEO
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>Links list Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -2933,7 +3494,6 @@
       jcr:primaryType: website:componentlist
       website:anchor: false
       website:gossid: 0
-      website:seosummary: Some useful summary for the links list for purpose of SEO
       website:shortsummary: Browse our links list page
       website:title: Links list AcceptanceTestDocument
     /links-list-test-document[2]:
@@ -2944,6 +3504,9 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: Some useful summary for the links list for purpose of SEO
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>Links list Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -2968,7 +3531,6 @@
       jcr:primaryType: website:componentlist
       website:anchor: false
       website:gossid: 0
-      website:seosummary: Some useful summary for the links list for purpose of SEO
       website:shortsummary: Browse our links list page
       website:title: Links list AcceptanceTestDocument
     /links-list-test-document[3]:
@@ -2979,6 +3541,9 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: Some useful summary for the links list for purpose of SEO
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>Links list Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -3003,7 +3568,6 @@
       jcr:primaryType: website:componentlist
       website:anchor: false
       website:gossid: 0
-      website:seosummary: Some useful summary for the links list for purpose of SEO
       website:shortsummary: Browse our links list page
       website:title: Links list AcceptanceTestDocument
     hippo:name: Links list test document
@@ -3080,6 +3644,10 @@
         jcr:primaryType: website:role
         website:primaryrole: Chief Executive
         website:primaryroleorg: Test Corporation Inc.
+      /website:seosummary:
+        hippostd:content: Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        jcr:primaryType: hippostd:html
       common:FacetType: person
       common:searchRank: 2
       common:searchable: true
@@ -3096,8 +3664,6 @@
       - mix:referenceable
       jcr:primaryType: website:person
       website:clinician: false
-      website:seosummary: Excepteur sint occaecat cupidatat non proident, sunt in
-        culpa qui officia deserunt mollit anim id est laborum.
       website:shortsummary: Some person short summary here lorem ipsum consectetur
         adipiscing elit, sed do eiusmod tempor incididunt ut
     /person-test-document[2]:
@@ -3168,6 +3734,10 @@
         jcr:primaryType: website:role
         website:primaryrole: Chief Executive
         website:primaryroleorg: Test Corporation Inc.
+      /website:seosummary:
+        hippostd:content: Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        jcr:primaryType: hippostd:html
       common:FacetType: person
       common:searchRank: 2
       common:searchable: true
@@ -3186,8 +3756,6 @@
       - mix:versionable
       jcr:primaryType: website:person
       website:clinician: false
-      website:seosummary: Excepteur sint occaecat cupidatat non proident, sunt in
-        culpa qui officia deserunt mollit anim id est laborum.
       website:shortsummary: Some person short summary here lorem ipsum consectetur
         adipiscing elit, sed do eiusmod tempor incididunt ut
     /person-test-document[3]:
@@ -3258,6 +3826,10 @@
         jcr:primaryType: website:role
         website:primaryrole: Chief Executive
         website:primaryroleorg: Test Corporation Inc.
+      /website:seosummary:
+        hippostd:content: Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        jcr:primaryType: hippostd:html
       common:FacetType: person
       common:searchRank: 2
       common:searchable: true
@@ -3276,8 +3848,6 @@
       - mix:referenceable
       jcr:primaryType: website:person
       website:clinician: false
-      website:seosummary: Excepteur sint occaecat cupidatat non proident, sunt in
-        culpa qui officia deserunt mollit anim id est laborum.
       website:shortsummary: Some person short summary here lorem ipsum consectetur
         adipiscing elit, sed do eiusmod tempor incididunt ut
     hippo:name: Person test document
@@ -3301,6 +3871,10 @@
         website:numberedList: false
         website:title: Some section content
         website:type: ''
+      /website:seosummary:
+        hippostd:content: Some useful summary for the published work chapter for purpose
+          of SEO
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>Published Work Chapter Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -3320,8 +3894,6 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:publishedworkchapter
-      website:seosummary: Some useful summary for the published work chapter for purpose
-        of SEO
       website:shortsummary: Browse our published work chapter page
       website:title: Published Work Chapter 1
     /published-work-chapter-1[2]:
@@ -3337,6 +3909,10 @@
         website:numberedList: false
         website:title: Some section content
         website:type: ''
+      /website:seosummary:
+        hippostd:content: Some useful summary for the published work chapter for purpose
+          of SEO
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>Published Work Chapter Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -3358,8 +3934,6 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:publishedworkchapter
-      website:seosummary: Some useful summary for the published work chapter for purpose
-        of SEO
       website:shortsummary: Browse our published work chapter page
       website:title: Published Work Chapter 1
     /published-work-chapter-1[3]:
@@ -3375,6 +3949,10 @@
         website:numberedList: false
         website:title: Some section content
         website:type: ''
+      /website:seosummary:
+        hippostd:content: Some useful summary for the published work chapter for purpose
+          of SEO
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>Published Work Chapter Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -3396,8 +3974,6 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:publishedworkchapter
-      website:seosummary: Some useful summary for the published work chapter for purpose
-        of SEO
       website:shortsummary: Browse our published work chapter page
       website:title: Published Work Chapter 1
     hippo:name: Published Work Chapter 1
@@ -3419,6 +3995,9 @@
         website:numberedList: false
         website:title: Some section content here
         website:type: ''
+      /website:seosummary:
+        hippostd:content: SEO pls
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: <p>sdklfj sdifjdsfjifo jdsfjidsfd sf</p>
         jcr:primaryType: hippostd:html
@@ -3436,7 +4015,6 @@
       jcr:mixinTypes:
       - mix:versionable
       jcr:primaryType: website:publishedworkchapter
-      website:seosummary: SEO pls
       website:shortsummary: some short summary
       website:title: Published Work Chapter 2
     /published-work-chapter-2[2]:
@@ -3452,6 +4030,9 @@
         website:numberedList: false
         website:title: Some section content here
         website:type: ''
+      /website:seosummary:
+        hippostd:content: SEO pls
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: <p>sdklfj sdifjdsfjifo jdsfjidsfd sf</p>
         jcr:primaryType: hippostd:html
@@ -3468,7 +4049,6 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:publishedworkchapter
-      website:seosummary: SEO pls
       website:shortsummary: some short summary
       website:title: Published Work Chapter 2
     /published-work-chapter-2[3]:
@@ -3484,6 +4064,9 @@
         website:numberedList: false
         website:title: Some section content here
         website:type: ''
+      /website:seosummary:
+        hippostd:content: SEO pls
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: <p>sdklfj sdifjdsfjifo jdsfjidsfd sf</p>
         jcr:primaryType: hippostd:html
@@ -3502,7 +4085,6 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:publishedworkchapter
-      website:seosummary: SEO pls
       website:shortsummary: some short summary
       website:title: Published Work Chapter 2
     hippo:name: Published Work Chapter 2
@@ -3525,6 +4107,10 @@
       /website:links[2]:
         hippo:docbase: b923a747-7295-4191-b031-060f1b806f0e
         jcr:primaryType: hippo:mirror
+      /website:seosummary:
+        hippostd:content: Some useful summary for the published work for purpose of
+          SEO
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>Published Work&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -3558,8 +4144,6 @@
       website:isbn: '764814624551'
       website:issn: '235364644'
       website:publicationDate: 2018-10-26T11:19:00Z
-      website:seosummary: Some useful summary for the published work for purpose of
-        SEO
       website:shortsummary: Browse our published work page
       website:title: Published Work AcceptanceTestDocument
     /published-work-test-document[2]:
@@ -3576,6 +4160,10 @@
       /website:links[2]:
         hippo:docbase: b923a747-7295-4191-b031-060f1b806f0e
         jcr:primaryType: hippo:mirror
+      /website:seosummary:
+        hippostd:content: Some useful summary for the published work for purpose of
+          SEO
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>Published Work&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -3611,8 +4199,6 @@
       website:isbn: '764814624551'
       website:issn: '235364644'
       website:publicationDate: 2018-10-26T11:19:00Z
-      website:seosummary: Some useful summary for the published work for purpose of
-        SEO
       website:shortsummary: Browse our published work page
       website:title: Published Work AcceptanceTestDocument
     /published-work-test-document[3]:
@@ -3629,6 +4215,10 @@
       /website:links[2]:
         hippo:docbase: b923a747-7295-4191-b031-060f1b806f0e
         jcr:primaryType: hippo:mirror
+      /website:seosummary:
+        hippostd:content: Some useful summary for the published work for purpose of
+          SEO
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>Published Work&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -3664,8 +4254,6 @@
       website:isbn: '764814624551'
       website:issn: '235364644'
       website:publicationDate: 2018-10-26T11:19:00Z
-      website:seosummary: Some useful summary for the published work for purpose of
-        SEO
       website:shortsummary: Browse our published work page
       website:title: Published Work AcceptanceTestDocument
     hippo:name: Published Work test document
@@ -3679,6 +4267,11 @@
         /website:linkedservices:
           hippo:docbase: e1e25811-95b7-42bd-94fa-207f2c5c2028
           jcr:primaryType: hippo:mirror
+        /website:seosummary:
+          hippostd:content: Objectively revolutionize premium e-services with cross-unit
+            portals. Dynamically myocardinate equity invested e-business and parallel
+            intellectual capital.
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: |-
             <p>some roadmap summary content to go here</p>
@@ -3699,9 +4292,6 @@
         - mix:referenceable
         jcr:primaryType: website:roadmap
         website:granularity: Quarterly
-        website:seosummary: Objectively revolutionize premium e-services with cross-unit
-          portals. Dynamically myocardinate equity invested e-business and parallel
-          intellectual capital.
         website:shortsummary: some short summary to go here please for the sake of
           content on the website. Have a nice day.
         website:title: GP IT futures Roadmap
@@ -3709,6 +4299,11 @@
         /website:linkedservices:
           hippo:docbase: e1e25811-95b7-42bd-94fa-207f2c5c2028
           jcr:primaryType: hippo:mirror
+        /website:seosummary:
+          hippostd:content: Objectively revolutionize premium e-services with cross-unit
+            portals. Dynamically myocardinate equity invested e-business and parallel
+            intellectual capital.
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: |-
             <p>some roadmap summary content to go here</p>
@@ -3731,9 +4326,6 @@
         - mix:versionable
         jcr:primaryType: website:roadmap
         website:granularity: Quarterly
-        website:seosummary: Objectively revolutionize premium e-services with cross-unit
-          portals. Dynamically myocardinate equity invested e-business and parallel
-          intellectual capital.
         website:shortsummary: some short summary to go here please for the sake of
           content on the website. Have a nice day.
         website:title: GP IT futures Roadmap
@@ -3741,6 +4333,11 @@
         /website:linkedservices:
           hippo:docbase: e1e25811-95b7-42bd-94fa-207f2c5c2028
           jcr:primaryType: hippo:mirror
+        /website:seosummary:
+          hippostd:content: Objectively revolutionize premium e-services with cross-unit
+            portals. Dynamically myocardinate equity invested e-business and parallel
+            intellectual capital.
+          jcr:primaryType: hippostd:html
         /website:summary:
           hippostd:content: |-
             <p>some roadmap summary content to go here</p>
@@ -3763,9 +4360,6 @@
         - mix:referenceable
         jcr:primaryType: website:roadmap
         website:granularity: Quarterly
-        website:seosummary: Objectively revolutionize premium e-services with cross-unit
-          portals. Dynamically myocardinate equity invested e-business and parallel
-          intellectual capital.
         website:shortsummary: some short summary to go here please for the sake of
           content on the website. Have a nice day.
         website:title: GP IT futures Roadmap
@@ -3812,6 +4406,9 @@
           website:numberedList: false
           website:title: Seciton One
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Short SEO summary to go here.
+          jcr:primaryType: hippostd:html
         /website:standards:
           jcr:primaryType: website:standards
           website:body: Governing Body stats
@@ -3838,7 +4435,6 @@
         - context-specific-stds
         - new-capability
         - research-only
-        website:seosummary: Short SEO summary to go here.
         website:shortsummary: Browse SHMI
         website:title: Roadmap Item 1
       /roadmap-item-1[2]:
@@ -3878,6 +4474,9 @@
           website:numberedList: false
           website:title: Seciton One
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Short SEO summary to go here.
+          jcr:primaryType: hippostd:html
         /website:standards:
           jcr:primaryType: website:standards
           website:body: Governing Body stats
@@ -3906,7 +4505,6 @@
         - context-specific-stds
         - new-capability
         - research-only
-        website:seosummary: Short SEO summary to go here.
         website:shortsummary: Browse SHMI
         website:title: Roadmap Item 1
       /roadmap-item-1[3]:
@@ -3946,6 +4544,9 @@
           website:numberedList: false
           website:title: Seciton One
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Short SEO summary to go here.
+          jcr:primaryType: hippostd:html
         /website:standards:
           jcr:primaryType: website:standards
           website:body: Governing Body stats
@@ -3974,7 +4575,6 @@
         - context-specific-stds
         - new-capability
         - research-only
-        website:seosummary: Short SEO summary to go here.
         website:shortsummary: Browse SHMI
         website:title: Roadmap Item 1
       hippo:name: Roadmap item 1
@@ -4020,6 +4620,9 @@
           website:numberedList: false
           website:title: Seciton One
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Short SEO summary to go here.
+          jcr:primaryType: hippostd:html
         /website:standards:
           jcr:primaryType: website:standards
           website:body: DevCorp
@@ -4048,7 +4651,6 @@
         - business-capability
         - new-capability
         - research-only
-        website:seosummary: Short SEO summary to go here.
         website:shortsummary: Browse SHMI
         website:title: Roadmap Item 2
       /roadmap-item-2[2]:
@@ -4088,6 +4690,9 @@
           website:numberedList: false
           website:title: Seciton One
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Short SEO summary to go here.
+          jcr:primaryType: hippostd:html
         /website:standards:
           jcr:primaryType: website:standards
           website:body: DevCorp
@@ -4115,7 +4720,6 @@
         - business-capability
         - new-capability
         - research-only
-        website:seosummary: Short SEO summary to go here.
         website:shortsummary: Browse SHMI
         website:title: Roadmap Item 2
       /roadmap-item-2[3]:
@@ -4155,6 +4759,9 @@
           website:numberedList: false
           website:title: Seciton One
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Short SEO summary to go here.
+          jcr:primaryType: hippostd:html
         /website:standards:
           jcr:primaryType: website:standards
           website:body: DevCorp
@@ -4184,7 +4791,6 @@
         - business-capability
         - new-capability
         - research-only
-        website:seosummary: Short SEO summary to go here.
         website:shortsummary: Browse SHMI
         website:title: Roadmap Item 2
       hippo:name: Roadmap item 2
@@ -4230,6 +4836,9 @@
           website:numberedList: false
           website:title: Seciton One
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Short SEO summary to go here.
+          jcr:primaryType: hippostd:html
         /website:standards:
           jcr:primaryType: website:standards
           website:body: DevCorp
@@ -4258,7 +4867,6 @@
         - business-capability
         - research-only
         - overarching-tech-stds
-        website:seosummary: Short SEO summary to go here.
         website:shortsummary: Browse SHMI
         website:title: Roadmap Item 3
       /roadmap-item-3[2]:
@@ -4298,6 +4906,9 @@
           website:numberedList: false
           website:title: Seciton One
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Short SEO summary to go here.
+          jcr:primaryType: hippostd:html
         /website:standards:
           jcr:primaryType: website:standards
           website:body: DevCorp
@@ -4325,7 +4936,6 @@
         - business-capability
         - research-only
         - overarching-tech-stds
-        website:seosummary: Short SEO summary to go here.
         website:shortsummary: Browse SHMI
         website:title: Roadmap Item 3
       /roadmap-item-3[3]:
@@ -4365,6 +4975,9 @@
           website:numberedList: false
           website:title: Seciton One
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Short SEO summary to go here.
+          jcr:primaryType: hippostd:html
         /website:standards:
           jcr:primaryType: website:standards
           website:body: DevCorp
@@ -4394,7 +5007,6 @@
         - business-capability
         - research-only
         - overarching-tech-stds
-        website:seosummary: Short SEO summary to go here.
         website:shortsummary: Browse SHMI
         website:title: Roadmap Item 3
       hippo:name: Roadmap item 3
@@ -4440,6 +5052,9 @@
           website:numberedList: false
           website:title: Seciton One
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Short SEO summary to go here.
+          jcr:primaryType: hippostd:html
         /website:standards:
           jcr:primaryType: website:standards
           website:body: DevCorp
@@ -4468,7 +5083,6 @@
         - business-capability
         - research-only
         - overarching-tech-stds
-        website:seosummary: Short SEO summary to go here.
         website:shortsummary: Browse SHMI
         website:title: Roadmap Item 4
       /roadmap-item-4[2]:
@@ -4508,6 +5122,9 @@
           website:numberedList: false
           website:title: Seciton One
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Short SEO summary to go here.
+          jcr:primaryType: hippostd:html
         /website:standards:
           jcr:primaryType: website:standards
           website:body: DevCorp
@@ -4535,7 +5152,6 @@
         - business-capability
         - research-only
         - overarching-tech-stds
-        website:seosummary: Short SEO summary to go here.
         website:shortsummary: Browse SHMI
         website:title: Roadmap Item 4
       /roadmap-item-4[3]:
@@ -4575,6 +5191,9 @@
           website:numberedList: false
           website:title: Seciton One
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Short SEO summary to go here.
+          jcr:primaryType: hippostd:html
         /website:standards:
           jcr:primaryType: website:standards
           website:body: DevCorp
@@ -4604,7 +5223,6 @@
         - business-capability
         - research-only
         - overarching-tech-stds
-        website:seosummary: Short SEO summary to go here.
         website:shortsummary: Browse SHMI
         website:title: Roadmap Item 4
       hippo:name: Roadmap item 4
@@ -4650,6 +5268,9 @@
           website:numberedList: false
           website:title: Seciton One
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Short SEO summary to go here.
+          jcr:primaryType: hippostd:html
         /website:standards:
           jcr:primaryType: website:standards
           website:body: Harrings Cort
@@ -4678,7 +5299,6 @@
         - business-capability
         - research-only
         - overarching-tech-stds
-        website:seosummary: Short SEO summary to go here.
         website:shortsummary: Browse SHMI and some other short summary content to
           go here
         website:title: Roadmap Item 5
@@ -4719,6 +5339,9 @@
           website:numberedList: false
           website:title: Seciton One
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Short SEO summary to go here.
+          jcr:primaryType: hippostd:html
         /website:standards:
           jcr:primaryType: website:standards
           website:body: Harrings Cort
@@ -4746,7 +5369,6 @@
         - business-capability
         - research-only
         - overarching-tech-stds
-        website:seosummary: Short SEO summary to go here.
         website:shortsummary: Browse SHMI and some other short summary content to
           go here
         website:title: Roadmap Item 5
@@ -4787,6 +5409,9 @@
           website:numberedList: false
           website:title: Seciton One
           website:type: ''
+        /website:seosummary:
+          hippostd:content: Short SEO summary to go here.
+          jcr:primaryType: hippostd:html
         /website:standards:
           jcr:primaryType: website:standards
           website:body: Harrings Cort
@@ -4816,7 +5441,6 @@
         - business-capability
         - research-only
         - overarching-tech-stds
-        website:seosummary: Short SEO summary to go here.
         website:shortsummary: Browse SHMI and some other short summary content to
           go here
         website:title: Roadmap Item 5
@@ -4936,6 +5560,9 @@
         jcr:primaryType: website:checklist
         website:heading: Please do
         website:icon: ' Tick'
+      /website:seosummary:
+        hippostd:content: Some useful summary for the service for purpose of SEO
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>Service Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -4966,7 +5593,6 @@
       - mix:referenceable
       jcr:primaryType: website:service
       website:gossid: 0
-      website:seosummary: Some useful summary for the service for purpose of SEO
       website:shortsummary: Browse our service page
       website:title: Service AcceptanceTestDocument
     /service-test-document[2]:
@@ -5068,6 +5694,9 @@
         jcr:primaryType: website:checklist
         website:heading: Please do
         website:icon: ' Tick'
+      /website:seosummary:
+        hippostd:content: Some useful summary for the service for purpose of SEO
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>Service Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -5100,7 +5729,6 @@
       - mix:versionable
       jcr:primaryType: website:service
       website:gossid: 0
-      website:seosummary: Some useful summary for the service for purpose of SEO
       website:shortsummary: Browse our service page
       website:title: Service AcceptanceTestDocument
     /service-test-document[3]:
@@ -5202,6 +5830,9 @@
         jcr:primaryType: website:checklist
         website:heading: Please do
         website:icon: ' Tick'
+      /website:seosummary:
+        hippostd:content: Some useful summary for the service for purpose of SEO
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>Service Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -5234,7 +5865,6 @@
       - mix:referenceable
       jcr:primaryType: website:service
       website:gossid: 0
-      website:seosummary: Some useful summary for the service for purpose of SEO
       website:shortsummary: Browse our service page
       website:title: Service AcceptanceTestDocument
     hippo:name: Service test document
@@ -5275,6 +5905,9 @@
         website:link: https://www.somexternalsite.co.uk
         website:shortsummary: summary info for external link
         website:title: Some external link title
+      /website:seosummary:
+        hippostd:content: Some useful summary for the visualhub for purpose of SEO
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>Visual Hub Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -5294,7 +5927,6 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:visualhub
-      website:seosummary: Some useful summary for the visualhub for purpose of SEO
       website:shortsummary: Browse our VisualHub page
       website:title: VisualHub AcceptanceTestDocument
     /visual-hub-test-document[2]:
@@ -5327,6 +5959,9 @@
         website:link: https://www.somexternalsite.co.uk
         website:shortsummary: summary info for external link
         website:title: Some external link title
+      /website:seosummary:
+        hippostd:content: Some useful summary for the visualhub for purpose of SEO
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>Visual Hub Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -5348,7 +5983,6 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:visualhub
-      website:seosummary: Some useful summary for the visualhub for purpose of SEO
       website:shortsummary: Browse our VisualHub page
       website:title: VisualHub AcceptanceTestDocument
     /visual-hub-test-document[3]:
@@ -5381,6 +6015,9 @@
         website:link: https://www.somexternalsite.co.uk
         website:shortsummary: summary info for external link
         website:title: Some external link title
+      /website:seosummary:
+        hippostd:content: Some useful summary for the visualhub for purpose of SEO
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: |-
           <p>Visual Hub Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -5402,7 +6039,6 @@
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:visualhub
-      website:seosummary: Some useful summary for the visualhub for purpose of SEO
       website:shortsummary: Browse our VisualHub page
       website:title: VisualHub AcceptanceTestDocument
     hippo:name: Visual Hub test document

@@ -54,6 +54,10 @@
         jcr:primaryType: website:glossaryitem
         website:external: ''
         website:heading: Virtual Private Network - VPN
+      /website:seosummary:
+        hippostd:content: Find a list of common cyber security phrases and terminology,
+          along with an explanation of what they mean.
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: <p>Find&nbsp;a list of common cyber security phrases and
           terminology, along with an explanation of what they mean.</p>
@@ -72,8 +76,6 @@
       - mix:referenceable
       jcr:primaryType: website:glossarylist
       website:indexpage: false
-      website:seosummary: Find a list of common cyber security phrases and terminology,
-        along with an explanation of what they mean.
       website:shortsummary: Find a list of common cyber security phrases and terminology,
         along with an explanation of what they mean.
       website:title: Cyber security glossary
@@ -130,6 +132,10 @@
         jcr:primaryType: website:glossaryitem
         website:external: ''
         website:heading: Virtual Private Network - VPN
+      /website:seosummary:
+        hippostd:content: Find a list of common cyber security phrases and terminology,
+          along with an explanation of what they mean.
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: <p>Find&nbsp;a list of common cyber security phrases and
           terminology, along with an explanation of what they mean.</p>
@@ -150,8 +156,6 @@
       - mix:versionable
       jcr:primaryType: website:glossarylist
       website:indexpage: false
-      website:seosummary: Find a list of common cyber security phrases and terminology,
-        along with an explanation of what they mean.
       website:shortsummary: Find a list of common cyber security phrases and terminology,
         along with an explanation of what they mean.
       website:title: Cyber security glossary
@@ -208,6 +212,10 @@
         jcr:primaryType: website:glossaryitem
         website:external: ''
         website:heading: Virtual Private Network - VPN
+      /website:seosummary:
+        hippostd:content: Find a list of common cyber security phrases and terminology,
+          along with an explanation of what they mean.
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: <p>Find&nbsp;a list of common cyber security phrases and
           terminology, along with an explanation of what they mean.</p>
@@ -228,8 +236,6 @@
       - mix:referenceable
       jcr:primaryType: website:glossarylist
       website:indexpage: false
-      website:seosummary: Find a list of common cyber security phrases and terminology,
-        along with an explanation of what they mean.
       website:shortsummary: Find a list of common cyber security phrases and terminology,
         along with an explanation of what they mean.
       website:title: Cyber security glossary
