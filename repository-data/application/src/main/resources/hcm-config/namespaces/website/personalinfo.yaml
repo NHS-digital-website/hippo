@@ -156,15 +156,12 @@ definitions:
             - required
             jcr:primaryType: hipposysedit:field
           /gender:
-            hipposysedit:mandatory: true
+            hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: website:gender
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
-            hipposysedit:validators:
-            - non-empty
-            - required
             jcr:primaryType: hipposysedit:field
           /honorific:
             hipposysedit:mandatory: false
@@ -226,15 +223,12 @@ definitions:
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           /preferredpronouns:
-            hipposysedit:mandatory: true
+            hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: website:preferredpronouns
             hipposysedit:primary: false
             hipposysedit:type: DynamicDropdown
-            hipposysedit:validators:
-            - non-empty
-            - required
             jcr:primaryType: hipposysedit:field
           /pronunciation:
             hipposysedit:mandatory: false
