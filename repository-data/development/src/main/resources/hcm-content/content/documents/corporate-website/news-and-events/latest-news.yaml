@@ -110,6 +110,9 @@
           hippo:docbase: ec8dcc52-ae3a-45bb-90a9-cab41514765b
           jcr:primaryType: hippo:mirror
         jcr:primaryType: website:internallink
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: <p>NHS Digital's latest news.</p>
         jcr:primaryType: hippostd:html
@@ -128,7 +131,6 @@
       - mix:referenceable
       jcr:primaryType: website:general
       website:gossid: 0
-      website:seosummary: ''
       website:shortsummary: ''
       website:title: Latest news
       website:type: ''
@@ -240,6 +242,9 @@
           hippo:docbase: ec8dcc52-ae3a-45bb-90a9-cab41514765b
           jcr:primaryType: hippo:mirror
         jcr:primaryType: website:internallink
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: <p>NHS Digital's latest news.</p>
         jcr:primaryType: hippostd:html
@@ -259,7 +264,6 @@
       - mix:versionable
       jcr:primaryType: website:general
       website:gossid: 0
-      website:seosummary: ''
       website:shortsummary: ''
       website:title: Latest news
       website:type: ''
@@ -371,6 +375,9 @@
           hippo:docbase: ec8dcc52-ae3a-45bb-90a9-cab41514765b
           jcr:primaryType: hippo:mirror
         jcr:primaryType: website:internallink
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
       /website:summary:
         hippostd:content: <p>NHS Digital's latest news.</p>
         jcr:primaryType: hippostd:html
@@ -391,7 +398,6 @@
       - mix:referenceable
       jcr:primaryType: website:general
       website:gossid: 0
-      website:seosummary: ''
       website:shortsummary: ''
       website:title: Latest news
       website:type: ''
@@ -412,6 +418,9 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: some short summary
+        jcr:primaryType: hippostd:html
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -428,7 +437,6 @@
       jcr:primaryType: website:news
       website:display: true
       website:publisheddatetime: 2019-01-18T16:42:00Z
-      website:seosummary: some short summary
       website:shortsummary: Some short summary
       website:theme: ''
       website:title: Lorem Ipsum news title
@@ -444,6 +452,9 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: some short summary
+        jcr:primaryType: hippostd:html
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -462,7 +473,6 @@
       jcr:primaryType: website:news
       website:display: true
       website:publisheddatetime: 2019-01-18T16:42:00Z
-      website:seosummary: some short summary
       website:shortsummary: Some short summary
       website:theme: ''
       website:title: Lorem Ipsum news title
@@ -478,6 +488,9 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: some short summary
+        jcr:primaryType: hippostd:html
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -496,7 +509,6 @@
       jcr:primaryType: website:news
       website:display: true
       website:publisheddatetime: 2019-01-18T16:42:00Z
-      website:seosummary: some short summary
       website:shortsummary: Some short summary
       website:theme: ''
       website:title: Lorem Ipsum news title
@@ -520,6 +532,9 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: Browse news
+        jcr:primaryType: hippostd:html
       common:searchRank: 4
       common:searchable: true
       hippo:availability: []
@@ -536,7 +551,6 @@
       jcr:primaryType: website:news
       website:display: true
       website:publisheddatetime: 2018-07-25T15:46:00Z
-      website:seosummary: Browse news
       website:shortsummary: Some news short summary text here please
       website:theme: ''
       website:title: Test news document
@@ -552,6 +566,9 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: Browse news
+        jcr:primaryType: hippostd:html
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -570,7 +587,6 @@
       jcr:primaryType: website:news
       website:display: true
       website:publisheddatetime: 2018-07-25T15:46:00Z
-      website:seosummary: Browse news
       website:shortsummary: Some news short summary text here please
       website:theme: ''
       website:title: Test news document
@@ -586,6 +602,9 @@
         jcr:primaryType: website:friendlyurls
         website:alternativeurls: []
         website:destination: ''
+      /website:seosummary:
+        hippostd:content: Browse news
+        jcr:primaryType: hippostd:html
       common:searchRank: 4
       common:searchable: true
       hippo:availability:
@@ -604,7 +623,6 @@
       jcr:primaryType: website:news
       website:display: true
       website:publisheddatetime: 2018-07-25T15:46:00Z
-      website:seosummary: Browse news
       website:shortsummary: Some news short summary text here please
       website:theme: ''
       website:title: Test news document

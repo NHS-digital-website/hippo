@@ -52,6 +52,9 @@
       jcr:primaryType: website:emphasisBox
       website:emphasisType: Warning
       website:heading: Do not click on the button
+    /website:seosummary:
+      hippostd:content: SEO is good.  Some nice summary to help with Google rankings.
+      jcr:primaryType: hippostd:html
     /website:summary:
       hippostd:content: <p>Some summary information please</p>
       jcr:primaryType: hippostd:html
@@ -113,7 +116,6 @@
     - Exploit
     website:ncsclink: https://www.somelink34113.gov.uk
     website:publicallyaccessible: true
-    website:seosummary: SEO is good.  Some nice summary to help with Google rankings.
     website:severity: High
     website:shortsummary: Browse SHMI
     website:sourceofthreatupdates:
@@ -175,6 +177,9 @@
       jcr:primaryType: website:emphasisBox
       website:emphasisType: Warning
       website:heading: Do not click on the button
+    /website:seosummary:
+      hippostd:content: SEO is good.  Some nice summary to help with Google rankings.
+      jcr:primaryType: hippostd:html
     /website:summary:
       hippostd:content: <p>Some summary information please</p>
       jcr:primaryType: hippostd:html
@@ -238,7 +243,6 @@
     - Exploit
     website:ncsclink: https://www.somelink34113.gov.uk
     website:publicallyaccessible: true
-    website:seosummary: SEO is good.  Some nice summary to help with Google rankings.
     website:severity: High
     website:shortsummary: Browse SHMI
     website:sourceofthreatupdates:
@@ -300,6 +304,9 @@
       jcr:primaryType: website:emphasisBox
       website:emphasisType: Warning
       website:heading: Do not click on the button
+    /website:seosummary:
+      hippostd:content: SEO is good.  Some nice summary to help with Google rankings.
+      jcr:primaryType: hippostd:html
     /website:summary:
       hippostd:content: <p>Some summary information please</p>
       jcr:primaryType: hippostd:html
@@ -363,7 +370,6 @@
     - Exploit
     website:ncsclink: https://www.somelink34113.gov.uk
     website:publicallyaccessible: true
-    website:seosummary: SEO is good.  Some nice summary to help with Google rankings.
     website:severity: High
     website:shortsummary: Browse SHMI
     website:sourceofthreatupdates:

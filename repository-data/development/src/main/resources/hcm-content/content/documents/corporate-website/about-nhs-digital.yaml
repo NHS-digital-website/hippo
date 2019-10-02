@@ -15,6 +15,11 @@
     /website:friendlyurls:
       jcr:primaryType: website:friendlyurls
       website:alternativeurls: []
+    /website:seosummary:
+      hippostd:content: We're the national information and technology partner to the
+        health and social care system. We're using digital technology to transform
+        the NHS and social care.
+      jcr:primaryType: hippostd:html
     /website:summary:
       hippostd:content: <p>We're the national information and technology partner to
         the health and social care system. We're using digital technology to transform
@@ -35,9 +40,6 @@
     jcr:primaryType: website:hub
     website:gossid: 7797
     website:listtitle: ''
-    website:seosummary: We're the national information and technology partner to the
-      health and social care system. We're using digital technology to transform the
-      NHS and social care.
     website:shortsummary: We're the national information and technology partner to
       the health and social care system. We're using digital technology to transform
       the NHS and social care.
@@ -57,6 +59,11 @@
     /website:friendlyurls:
       jcr:primaryType: website:friendlyurls
       website:alternativeurls: []
+    /website:seosummary:
+      hippostd:content: We're the national information and technology partner to the
+        health and social care system. We're using digital technology to transform
+        the NHS and social care.
+      jcr:primaryType: hippostd:html
     /website:summary:
       hippostd:content: <p>We're the national information and technology partner to
         the health and social care system. We're using digital technology to transform
@@ -78,9 +85,6 @@
     jcr:primaryType: website:hub
     website:gossid: 7797
     website:listtitle: ''
-    website:seosummary: We're the national information and technology partner to the
-      health and social care system. We're using digital technology to transform the
-      NHS and social care.
     website:shortsummary: We're the national information and technology partner to
       the health and social care system. We're using digital technology to transform
       the NHS and social care.
@@ -100,6 +104,11 @@
     /website:friendlyurls:
       jcr:primaryType: website:friendlyurls
       website:alternativeurls: []
+    /website:seosummary:
+      hippostd:content: We're the national information and technology partner to the
+        health and social care system. We're using digital technology to transform
+        the NHS and social care.
+      jcr:primaryType: hippostd:html
     /website:summary:
       hippostd:content: <p>We're the national information and technology partner to
         the health and social care system. We're using digital technology to transform
@@ -122,9 +131,6 @@
     jcr:primaryType: website:hub
     website:gossid: 7797
     website:listtitle: ''
-    website:seosummary: We're the national information and technology partner to the
-      health and social care system. We're using digital technology to transform the
-      NHS and social care.
     website:shortsummary: We're the national information and technology partner to
       the health and social care system. We're using digital technology to transform
       the NHS and social care.

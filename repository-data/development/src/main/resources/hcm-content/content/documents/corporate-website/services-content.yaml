@@ -30,6 +30,12 @@
         electronic database of NHS patient details such as name, address, date of
         birth and NHS Number
       website:title: Personal Demographics Service
+    /website:seosummary:
+      hippostd:content: NHS Digital deliver systems and services to the NHS and the
+        wider health and social care sector which help providers deliver better care.    Our
+        information, data, and IT systems help health professionals, commissioners,
+        analysts and managers give the best outcomes for patients.
+      jcr:primaryType: hippostd:html
     /website:summary:
       hippostd:content: <p>We deliver systems and services to the NHS and the wider
         health and social care sector which help providers deliver better care.    Our
@@ -52,10 +58,6 @@
     jcr:primaryType: website:componentlist
     website:anchor: true
     website:gossid: 203
-    website:seosummary: NHS Digital deliver systems and services to the NHS and the
-      wider health and social care sector which help providers deliver better care.    Our
-      information, data, and IT systems help health professionals, commissioners,
-      analysts and managers give the best outcomes for patients.
     website:shortsummary: Our information, data, and IT systems help health professionals,
       commissioners, analysts and managers give the best outcomes for patients.
     website:title: Systems and services
@@ -89,6 +91,12 @@
         electronic database of NHS patient details such as name, address, date of
         birth and NHS Number
       website:title: Personal Demographics Service
+    /website:seosummary:
+      hippostd:content: NHS Digital deliver systems and services to the NHS and the
+        wider health and social care sector which help providers deliver better care.    Our
+        information, data, and IT systems help health professionals, commissioners,
+        analysts and managers give the best outcomes for patients.
+      jcr:primaryType: hippostd:html
     /website:summary:
       hippostd:content: <p>We deliver systems and services to the NHS and the wider
         health and social care sector which help providers deliver better care.    Our
@@ -112,10 +120,6 @@
     jcr:primaryType: website:componentlist
     website:anchor: true
     website:gossid: 203
-    website:seosummary: NHS Digital deliver systems and services to the NHS and the
-      wider health and social care sector which help providers deliver better care.    Our
-      information, data, and IT systems help health professionals, commissioners,
-      analysts and managers give the best outcomes for patients.
     website:shortsummary: Our information, data, and IT systems help health professionals,
       commissioners, analysts and managers give the best outcomes for patients.
     website:title: Systems and services
@@ -149,6 +153,12 @@
         electronic database of NHS patient details such as name, address, date of
         birth and NHS Number
       website:title: Personal Demographics Service
+    /website:seosummary:
+      hippostd:content: NHS Digital deliver systems and services to the NHS and the
+        wider health and social care sector which help providers deliver better care.    Our
+        information, data, and IT systems help health professionals, commissioners,
+        analysts and managers give the best outcomes for patients.
+      jcr:primaryType: hippostd:html
     /website:summary:
       hippostd:content: <p>We deliver systems and services to the NHS and the wider
         health and social care sector which help providers deliver better care.    Our
@@ -170,10 +180,6 @@
     jcr:primaryType: website:componentlist
     website:anchor: true
     website:gossid: 203
-    website:seosummary: NHS Digital deliver systems and services to the NHS and the
-      wider health and social care sector which help providers deliver better care.    Our
-      information, data, and IT systems help health professionals, commissioners,
-      analysts and managers give the best outcomes for patients.
     website:shortsummary: Our information, data, and IT systems help health professionals,
       commissioners, analysts and managers give the best outcomes for patients.
     website:title: Systems and services
