@@ -142,11 +142,12 @@
 
     &__item {
         float: left;
-        margin-right: 3%;
+        margin-right: 1%;
         margin-top: 20px;
         background-color: $grey-4;
-        height: $item_height;
-        width: 30%;
+        min-height: $item_height;
+        width: 32%;
+        min-width: 300px;
         position: relative;
         border: 1px solid #eee;
         border-bottom: solid 5px #98a4ad;
@@ -182,4 +183,17 @@
 
         }
     }
+
+    @include media($max-width: $wide-desktop-width, $ignore-for-ie: true) {
+      &__item {
+        width: 49%;
+      }
+    }
+
+    @include media($max-width: $min-tablet-width, $ignore-for-ie: true) {
+      &__item {
+        width: 100%;
+      }
+    }
+
 }
