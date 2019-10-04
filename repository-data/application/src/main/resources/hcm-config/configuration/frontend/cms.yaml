@@ -62,6 +62,11 @@ definitions:
       jcr:primaryType: frontend:plugin
       plugin.class: com.onehippo.cms7.inference.engine.collectorplugin.InferenceRulesCharacteristicPlugin
       visitor.characteristic.visible: true
+    /hippo:configuration/hippo:frontend/cms/hippo-targeting/characteristic-pageviews:
+      characteristic: pageviews
+      collector: pageviews
+      jcr:primaryType: frontend:plugin
+      plugin.class: com.onehippo.cms7.targeting.frontend.plugin.pageviews.PageViewsCharacteristicPlugin
     /hippo:configuration/hippo:frontend/cms/hippo-targeting/collector-inferenceRulesVisitorInterestType:
       .meta:order-before: characteristic-inferenceRulesVisitorInterestType
       characteristic: inferenceRulesVisitorInterestType
@@ -69,3 +74,8 @@ definitions:
       jcr:primaryType: frontend:plugin
       plugin.class: com.onehippo.cms7.inference.engine.collectorplugin.InferenceRulesCollectorPlugin
       visitor.characteristic.visible: true
+    /hippo:configuration/hippo:frontend/cms/hippo-targeting/collector-pageviews:
+      characteristic: pageviews
+      collector: pageviews
+      jcr:primaryType: frontend:plugin
+      plugin.class: uk.nhs.digital.common.relevance.PageViewsCollectorPlugin
