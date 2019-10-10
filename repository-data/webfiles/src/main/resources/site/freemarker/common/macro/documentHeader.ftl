@@ -2,7 +2,7 @@
 
 <#include "../../include/imports.ftl">
 
-<#macro documentHeader document doctype icon="" title="" summary="" topics="">
+<#macro documentHeader document doctype icon="" title="" summary="" topics="" hasSchemaOrg=true>
 
     <#assign custom_title = title />
     <#if ! custom_title?has_content >
@@ -27,13 +27,21 @@
                 <div class="article-header__inner">
                     <div class="grid-row">
                         <div class="column--two-thirds column--reset">
-                            <h1 id="top" class="local-header__title" data-uipath="document.title" itemprop="name">${custom_title}</h1>
+                            <#if hasSchemaOrg>
+                              <h1 id="top" class="local-header__title" data-uipath="document.title" itemprop="name">${custom_title}</h1>
+                            <#else>
+                              <h1 id="top" class="local-header__title" data-uipath="document.title">${custom_title}</h1>
+                            </#if>
                             <#if hasDocumentSummary>
                               <div class="article-header__subtitle" data-uipath="website.${doctype}.summary">
                                 <@hst.html hippohtml=custom_summary contentRewriter=gaContentRewriter/>
                               </div>
                             <#else>
+                              <#if hasSchemaOrg>
                               <div itemprop="description" class="article-header__subtitle" data-uipath="website.${doctype}.summary">
+                              <#else>
+                              <div class="article-header__subtitle" data-uipath="website.${doctype}.summary">
+                              </#if>
                                 <p>${custom_summary}</p>
                               </div>
                             </#if>
@@ -62,7 +70,11 @@
                                 <dl class="detail-list">
                                     <dt class="detail-list__key">Topics:</dt>
                                     <dd class="detail-list__value">
+                                      <#if hasSchemaOrg>
                                         <span itemprop="keywords" ><#list document.taxonomyTags as tag>${tag} <#sep>, </#list></span>
+                                      <#else>
+                                        <span><#list document.taxonomyTags as tag>${tag} <#sep>, </#list></span>
+                                      </#if>
                                     </dd>
                                 </dl>
                             </div>
