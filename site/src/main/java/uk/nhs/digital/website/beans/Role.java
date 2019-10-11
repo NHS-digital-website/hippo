@@ -7,8 +7,6 @@ import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
-import java.util.List;
-
 @HippoEssentialsGenerated(internalName = "website:role")
 @Node(jcrType = "website:role")
 public class Role extends HippoCompound {
@@ -17,19 +15,32 @@ public class Role extends HippoCompound {
         return "role";
     }
 
-    @HippoEssentialsGenerated(internalName = "website:primaryrole")
+    @HippoEssentialsGenerated(internalName = "website:primaryrolepicker")
+    public HippoBean getPrimaryrolepicker() {
+        return getLinkedBean("website:primaryrolepicker", HippoBean.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:primaryrole", allowModifications = false)
     public String getPrimaryrole() {
+        JobRole primaryRolePicker = (JobRole)this.getPrimaryrolepicker();
+        if (primaryRolePicker != null) {
+            return primaryRolePicker.getTitle();
+        }
         return getProperty("website:primaryrole");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:primaryroleorg")
-    public String getPrimaryroleorg() {
-        return getProperty("website:primaryroleorg");
+    @HippoEssentialsGenerated(internalName = "website:primaryroleorgpicker")
+    public HippoBean getPrimaryroleorgpicker() {
+        return getLinkedBean("website:primaryroleorgpicker", HippoBean.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "website:otherroles")
-    public List<HippoBean> getOtherroles() {
-        return getChildBeansByName("website:otherroles");
+    @HippoEssentialsGenerated(internalName = "website:primaryroleorg", allowModifications = false)
+    public String getPrimaryroleorg() {
+        Organisation primaryJobOrg = (Organisation)this.getPrimaryroleorgpicker();
+        if (primaryJobOrg != null) {
+            return primaryJobOrg.getTitle();
+        }
+        return getProperty("website:primaryroleorg");
     }
 
     @HippoEssentialsGenerated(internalName = "website:boardmembership")
