@@ -48,6 +48,53 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /roles:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Role
+            compoundList: website:role
+            contentPickerType: links
+            field: roles
+            hint: A section to contain the roles a person has
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+            wicket.skin: skin/content-blocks.css
+          /clinician:
+            /cluster.options:
+              falseLabel: 'No'
+              jcr:primaryType: frontend:pluginconfig
+              trueLabel: 'Yes'
+            caption: Clinician
+            field: clinician
+            hint: A checkbox to indicate whether the person is a clinician
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /personimages:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Person image
+            compoundList: website:personimage
+            contentPickerType: links
+            field: personimages
+            hint: A section to hold details and images of the person
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+            wicket.skin: skin/content-blocks.css
+          /biographies:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Biography
+            compoundList: website:biography
+            contentPickerType: links
+            field: biographies
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+            wicket.skin: skin/content-blocks.css
           /classifiable:
             /cluster.options:
               caption: Knows about
@@ -60,14 +107,14 @@ definitions:
             mixin: hippotaxonomy:classifiable
             plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
             wicket.id: ${cluster.id}.field
-          /biographies:
+          /socialmedias:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Biography
-            compoundList: website:biography
+            caption: Social media
+            compoundList: website:socialmedia
             contentPickerType: links
-            field: biographies
-            hint: ''
+            field: socialmedias
+            hint: A section to hold the person's social media addresses
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
@@ -109,53 +156,6 @@ definitions:
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
             wicket.skin: skin/content-blocks.css
-          /personimages:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Person image
-            compoundList: website:personimage
-            contentPickerType: links
-            field: personimages
-            hint: A section to hold details and images of the person
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
-            wicket.skin: skin/content-blocks.css
-          /roles:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Role
-            compoundList: website:role
-            contentPickerType: links
-            field: roles
-            hint: A section to contain the roles a person has
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
-            wicket.skin: skin/content-blocks.css
-          /socialmedias:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Social media
-            compoundList: website:socialmedia
-            contentPickerType: links
-            field: socialmedias
-            hint: A section to hold the person's social media addresses
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
-            wicket.skin: skin/content-blocks.css
-          /clinician:
-            /cluster.options:
-              falseLabel: 'No'
-              jcr:primaryType: frontend:pluginconfig
-              trueLabel: 'Yes'
-            caption: Clinician
-            field: clinician
-            hint: A checkbox to indicate whether the person is a clinician
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
           /qualifications:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
