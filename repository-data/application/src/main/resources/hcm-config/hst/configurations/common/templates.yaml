@@ -113,6 +113,9 @@ definitions:
       /indicator:
         hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/indicator.ftl
         jcr:primaryType: hst:template
+      /jobrole:
+        hst:renderpath: webfile:/freemarker/common/jobrole.ftl
+        jcr:primaryType: hst:template
       /legacypublication:
         hst:renderpath: webfile:/freemarker/publicationsystem/legacy-publication.ftl
         jcr:primaryType: hst:template

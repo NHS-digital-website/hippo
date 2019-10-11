@@ -34,7 +34,8 @@
         "Person":                       "uk.nhs.digital.website.beans.Person",
         "Location":                     "uk.nhs.digital.website.beans.Location",
         "API Endpoint":                 "uk.nhs.digital.website.beans.ApiEndpoint",
-        "BlogHub":                      "uk.nhs.digital.website.beans.BlogHub"
+        "BlogHub":                      "uk.nhs.digital.website.beans.BlogHub",
+        "JobRole":                      "uk.nhs.digital.website.beans.JobRole"
     }/>
 
     <#list docTypes?keys as key>

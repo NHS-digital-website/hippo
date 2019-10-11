@@ -1,0 +1,256 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/website/jobrole:
+      /editor:templates:
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
+          /root:
+            extension.left: ${cluster.id}.left
+            extension.right: ${cluster.id}.right
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.layout.TwoColumn
+            wicket.extensions:
+            - extension.left
+            - extension.right
+          /left:
+            item: ${cluster.id}.left.item
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+            wicket.id: ${cluster.id}.left
+          /right:
+            item: ${cluster.id}.right.item
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+            wicket.id: ${cluster.id}.right
+          /title:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Job Title
+            field: title
+            hint: The title of the job
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /genericjobrole:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Generic job role
+            field: genericjobrole
+            hint: The genericjobrole
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /reponsiblities:
+            /cluster.options:
+              ckeditor.config.appended.json: '{ extraPlugins: ''autogrow'', autoGrow_onStartup:
+                true, autoGrow_maxHeight: 50 }'
+              ckeditor.config.overlayed.json: '{ toolbarGroups: [ { name: ''links''
+                }, { name: ''mode'' } ] }'
+              jcr:primaryType: frontend:pluginconfig
+            caption: Responsibilities
+            field: responsibilities
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /accountablities:
+            /cluster.options:
+              ckeditor.config.appended.json: '{ extraPlugins: ''autogrow'', autoGrow_onStartup:
+                true, autoGrow_maxHeight: 50 }'
+              ckeditor.config.overlayed.json: '{ toolbarGroups: [ { name: ''links''
+                }, { name: ''mode'' } ] }'
+              jcr:primaryType: frontend:pluginconfig
+            caption: Accountablities
+            field: accountablities
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /summary:
+            /cluster.options:
+              ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
+                items: [''Link'',''PickInternalLink'',''Source''] }] }'
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount''}'
+              jcr:primaryType: frontend:pluginconfig
+            caption: Description
+            field: summary
+            hint: A description of the job role
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /shortsummary:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Short Summary
+            field: shortsummary
+            hint: A short concise summary of the job role
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /seosummary:
+            caption: SEO Summary
+            field: seosummary
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /businessunit:
+            /cluster.options:
+              base.path: /content/documents
+              jcr:primaryType: frontend:pluginconfig
+              last.visited.enabled: true
+              nodetypes:
+              - website:businessunit
+            caption: Business unit
+            field: businessunit
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /reportsto:
+            /cluster.options:
+              base.path: /content/documents
+              jcr:primaryType: frontend:pluginconfig
+              last.visited.enabled: true
+              nodetypes:
+              - website:jobrole
+            caption: Reports to
+            field: reportsto
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+        jcr:primaryType: editor:templateset
+      /hipposysedit:nodetype:
+        /hipposysedit:nodetype:
+          /accountablities:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:accountablities
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
+          /businessunit:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:businessunit
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /genericjobrole:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:genericjobrole
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /reportsto:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:reportsto
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /responsibilities:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:responsibilities
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
+          /seosummary:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:seosummary
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:seoSummary
+            jcr:primaryType: hipposysedit:field
+          /shortsummary:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:shortsummary
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            jcr:primaryType: hipposysedit:field
+          /summary:
+            hipposysedit:mandatory: true
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:summary
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
+          /title:
+            hipposysedit:mandatory: true
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:title
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - website:basedocument
+          - hippostd:relaxed
+          - hippotaxonomy:classifiable
+          - hippotranslation:translated
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes:
+          - hipposysedit:remodel
+          - mix:referenceable
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /hipposysedit:prototypes:
+        /hipposysedit:prototype:
+          /website:summary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          common:searchRank: 5
+          common:searchable: true
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2018-05-22T10:46:55.362Z
+          hippostdpubwf:lastModificationDate: 2018-05-22T10:46:55.362Z
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hippotaxonomy:classifiable
+          jcr:primaryType: website:jobrole
+          website:genericjobrole: ''
+          website:shortsummary: ''
+          website:title: ''
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype

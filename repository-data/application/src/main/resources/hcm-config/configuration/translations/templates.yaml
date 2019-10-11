@@ -269,6 +269,11 @@ definitions:
           jcr:name: Internal link
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:jobrole:
+        /en:
+          jcr:name: Job role
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:lawfulbasis:
         /en:
           jcr:name: Lawful basis
