@@ -58,14 +58,26 @@
 
                     <ol class="list list--reset">
                         <#list galleryItem.relatedFiles as attachment>
+
+                            <@hst.link hippobean=attachment.link var="link" />
+                            <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, link) />
+
                             <li class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
                                 <a href="<@hst.link hippobean=attachment.link />" class="block-link" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">
                                     <div class="block-link__header">
-                                        <@fileIconByMimeType attachment.link.asset.mimeType></@fileIconByMimeType>
+                                        <#if attachment.link.asset?has_content>
+                                          <@fileIconByMimeType attachment.link.asset.mimeType></@fileIconByMimeType>
+                                        <#else>
+                                          <@fileIconByMimeType attachment.link.original.mimeType></@fileIconByMimeType>
+                                        </#if>
                                     </div>
                                     <div class="block-link__body">
                                         <span class="block-link__title">${attachment.title}</span>
-                                        <@fileMetaAppendix attachment.link.asset.getLength(), attachment.link.asset.mimeType></@fileMetaAppendix>
+                                        <#if attachment.link.asset?has_content>
+                                          <@fileMetaAppendix attachment.link.asset.getLength(), attachment.link.asset.mimeType></@fileMetaAppendix>
+                                        <#else>
+                                          <@fileMetaAppendix attachment.link.original.getLength(), attachment.link.original.mimeType></@fileMetaAppendix>
+                                        </#if>
                                     </div>
                                 </a>
                             </li>
