@@ -7,9 +7,12 @@
         margin-top: $gutter;
     }
 
+    &__item {
+      margin-bottom: 15px;
+    }
+
     &__card {
         position: relative;
-        margin-bottom:10px;
         background-color: #ffffff;
     }
     &__card-no-heading-left {
