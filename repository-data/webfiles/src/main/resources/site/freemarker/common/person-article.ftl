@@ -61,15 +61,7 @@
                 <div class="article-wrapper__inner">
                   <h1 id="top" class="local-header__title" data-uipath="document.personalinfos.name"><span itemprop="name">${personMainName}</span></h1>
 
-                  <#if document.roles?? && document.roles.primaryrole?has_content>
-                    <div class="article-header__label">
-                      <#if document.roles.primaryroleorg?has_content>
-                        <span itemprop="jobTitle">${document.roles.primaryrole}</span> at <span itemprop="worksFor" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">${document.roles.primaryroleorg}</span></span>
-                      <#else>
-                        <span itemprop="jobTitle">${document.roles.primaryrole}</span>
-                      </#if>
-                    </div>
-                  </#if>
+                  <@personrole document.roles idsuffix></@personrole>
 
                   <#if notSuppress>
                     <#if postnominals?has_content>

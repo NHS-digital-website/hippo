@@ -33,38 +33,52 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
             wicket.id: ${cluster.id}.right
+          /primaryrolepicker:
+            /cluster.options:
+              base.path: /content/documents
+              jcr:primaryType: frontend:pluginconfig
+              last.visited.enabled: true
+              nodetypes:
+              - website:jobrole
+            field: primaryrolepicker
+            hint: The primary role the person has within NHS Digital. This usually
+              is the person's job title
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
           /primaryrole:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Primary role
+            caption: Manual role (only use if job not available)
             field: primaryrole
             hint: The primary role the person has within NHS Digital. This usually
               is the person's job title
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /primaryroleorgpicker:
+            /cluster.options:
+              base.path: /content/documents
+              jcr:primaryType: frontend:pluginconfig
+              last.visited.enabled: true
+              nodetypes:
+              - website:organisation
+            caption: Primary role organization
+            field: primaryroleorgpicker
+            hint: One or more organisations the person is associated with
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
           /primaryroleorg:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Primary role organization
+            caption: Manual primary role organization (only use if organisation not
+              available)
             field: primaryroleorg
             hint: One or more organisations the person is associated with
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
-          /otherroles:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Other role
-            compoundList: website:otherrole
-            contentPickerType: links
-            field: otherroles
-            hint: One or more secondary roles the person has. This usually is the
-              person's other job title.
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-            wicket.skin: skin/content-blocks.css
           /boardmembership:
             /cluster.options:
               ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',  items:
@@ -110,15 +124,6 @@ definitions:
             hipposysedit:validators:
             - contentblocks-validator
             jcr:primaryType: hipposysedit:field
-          /otherroles:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:otherroles
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators:
-            - contentblocks-validator
-            jcr:primaryType: hipposysedit:field
           /primaryrole:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -134,6 +139,26 @@ definitions:
             hipposysedit:path: website:primaryroleorg
             hipposysedit:primary: false
             hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /primaryroleorgpicker:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:primaryroleorgpicker
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /primaryrolepicker:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:primaryrolepicker
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+            hipposysedit:validators:
+            - optional
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
