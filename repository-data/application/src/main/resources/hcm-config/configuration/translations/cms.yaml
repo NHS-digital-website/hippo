@@ -6,6 +6,8 @@ definitions:
       http-status-code: Invalid HTTP status code ex. 200, 404, 400
       percentage: Progress percentage should be between 0-100
       phonenumber: Telephone number formatting
+      portfoliocode: Portfolio code must be formatted as PXXXX/XX where X is digit
+      postalCode: Post code must be formatted according to UK post code rules
       publicationsystem-attachment#blank-attachment: There is an attachment field
         without an attachment. Please remove it or upload a file.
       publicationsystem-attachment#duplicate-name: There is an attachment field with
@@ -28,6 +30,8 @@ definitions:
       publicationsystem-publication-date: Publication Date cannot be in the past or
         more than {0} years in the future.
       publicationsystem-title: Title must be 250 characters or less
+      rgbcolor: Must be RGB-based formatted color (#XXXXXX) where X is value from
+        ranges [0-9] or [A-F]
       twitterusername: Twitter username formatting
       valid-linkedin-url: Link URL is proper Linkedin URL
       valid-release-version: Numerical version of the release ex. 1, 1.0, 1.0.100
