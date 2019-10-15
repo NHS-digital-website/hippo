@@ -1,0 +1,142 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/website/bannercontrol:
+      /editor:templates:
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
+          /root:
+            extension.left: ${cluster.id}.left
+            extension.right: ${cluster.id}.right
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.layout.TwoColumn
+            wicket.extensions:
+            - extension.left
+            - extension.right
+          /left:
+            item: ${cluster.id}.left.item
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+            wicket.id: ${cluster.id}.left
+          /right:
+            item: ${cluster.id}.right.item
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+            wicket.id: ${cluster.id}.right
+          /icon:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Icon
+            field: icon
+            hint: Select your icon picture
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /iconcolor:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Icon color (#XXXXXX)
+            field: iconcolor
+            hint: Must follow
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.css:
+            - heading
+            wicket.id: ${cluster.id}.left.item
+          /backgroundcolor:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Background color (#XXXXXX)
+            field: backgroundcolor
+            hint: Must follow
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.css:
+            - heading
+            wicket.id: ${cluster.id}.left.item
+          /fontcolor:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Font color (#XXXXXX)
+            field: fontcolor
+            hint: Must follow
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.css:
+            - heading
+            wicket.id: ${cluster.id}.left.item
+        jcr:primaryType: editor:templateset
+      /hipposysedit:nodetype:
+        /hipposysedit:nodetype:
+          /backgroundcolor:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:backgroundcolor
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - rgbcolor
+            jcr:primaryType: hipposysedit:field
+          /fontcolor:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:fontcolor
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - rgbcolor
+            jcr:primaryType: hipposysedit:field
+          /icon:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:icon
+            hipposysedit:primary: false
+            hipposysedit:type: hippogallerypicker:imagelink
+            jcr:primaryType: hipposysedit:field
+          /iconcolor:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:iconcolor
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - rgbcolor
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - hippo:compound
+          - hippostd:relaxed
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes:
+          - hipposysedit:remodel
+          - mix:referenceable
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /hipposysedit:prototypes:
+        /hipposysedit:prototype:
+          jcr:primaryType: website:bannercontrol
+          website:backgroundcolor: ''
+          website:fontcolor: ''
+          website:icon: Bullet
+          website:iconcolor: ''
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype
