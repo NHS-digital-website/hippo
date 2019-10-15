@@ -37,6 +37,9 @@
 [website:apimaster] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:bannercontrol] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:bannerdocument] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
@@ -47,6 +50,9 @@
   orderable
 
 [website:bloghub] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:businessunit] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
 [website:calltoaction] > hippostd:relaxed, hippotranslation:translated, website:basedocument

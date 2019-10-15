@@ -32,6 +32,9 @@ definitions:
       /bloghub-article:
         hst:renderpath: webfile:/freemarker/common/bloghub-article.ftl
         jcr:primaryType: hst:template
+      /businessunit:
+        hst:renderpath: webfile:/freemarker/common/businessunit.ftl
+        jcr:primaryType: hst:template
       /categorylist-article:
         hst:renderpath: webfile:/freemarker/common/categorylist-article.ftl
         jcr:primaryType: hst:template

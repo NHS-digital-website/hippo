@@ -119,6 +119,11 @@ definitions:
           jcr:name: Award
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:bannercontrol:
+        /en:
+          jcr:name: Banner control
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:bannerdocument:
         /en:
           jcr:name: Banner
@@ -137,6 +142,11 @@ definitions:
       /website:bloghub:
         /en:
           jcr:name: Blog Hub
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:businessunit:
+        /en:
+          jcr:name: Business unit
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:categorylist:
