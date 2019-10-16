@@ -43,6 +43,12 @@
 [website:bannerdocument] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:board] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:boardrole] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:biography] > hippo:compound, hippostd:relaxed
   orderable
 
