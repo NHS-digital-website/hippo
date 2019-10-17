@@ -146,6 +146,9 @@ definitions:
       /nilanding:
         hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/nilanding.ftl
         jcr:primaryType: hst:template
+      /orgstructure:
+        hst:renderpath: webfile:/freemarker/common/orgstructure.ftl
+        jcr:primaryType: hst:template
       /person-article:
         hst:renderpath: webfile:/freemarker/common/person-article.ftl
         jcr:primaryType: hst:template

@@ -28,7 +28,6 @@
       <#assign headerStyle = 'style=background-color:${document.bannercontrols.backgroundcolor}' />
     </#if>
 
-    <#assign fontColor='' />
     <#if hasBannerControls && document.bannercontrols.fontcolor?has_content>
       <#assign headerStyle = '${headerStyle};color:${document.bannercontrols.fontcolor}' />
     </#if>

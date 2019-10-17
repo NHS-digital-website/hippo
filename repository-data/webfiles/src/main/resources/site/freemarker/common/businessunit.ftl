@@ -5,7 +5,7 @@
 <#include "../include/imports.ftl">
 <#include "macro/sections/sections.ftl">
 <#include "macro/documentHeader.ftl">
-<#include "macro/sectionNav.ftl">
+<#include "macro/stickyNavSections.ftl">
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
 
@@ -17,7 +17,7 @@
 <#assign sectionTitlesFound = countSectionTitles(document.sections) />
 <#assign renderNav = (hasSummaryContent && sectionTitlesFound gte 1) || sectionTitlesFound gt 1 />
 
-<article class="article article--general">
+<article class="article article--businessunit">
 
     <#assign pageIcon = '' />
     <#if document.bannercontrols?has_content && document.bannercontrols.icon?has_content>
@@ -38,8 +38,8 @@
                     <#if document.purposes?has_content>
                       <#assign links += [{ "url": "#purposes", "title": 'Purposes' }] />
                     </#if>
-                    <#assign links += getSectionNavLinks({ "document": document, "includeTopLink": false, "ignoreSummary": true}) />
-                    <@sectionNav links></@sectionNav>
+                    <#assign links += getStickySectionNavLinks({ "document": document, "includeTopLink": false, "ignoreSummary": true}) />
+                    <@stickyNavSections links></@stickyNavSections>
                 </div>
             </div>
             </#if>

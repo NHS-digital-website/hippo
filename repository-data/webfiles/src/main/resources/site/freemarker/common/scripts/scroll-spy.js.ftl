@@ -11,7 +11,7 @@
      */
     (function() {
         'use strict';
-        var section = document.querySelectorAll(".article-section, .article-section-separator, .article-section--summary-separator");
+        var section = document.querySelectorAll(".article-section, .article-section-separator, .article-section--summary-separator, .sticky-nav-spy-item");
         var sections = { top : 0 };
         var pageBlocks = document.getElementsByClassName("page-block--main");
 

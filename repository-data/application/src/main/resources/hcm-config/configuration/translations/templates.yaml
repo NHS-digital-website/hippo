@@ -169,6 +169,11 @@ definitions:
           jcr:name: Check list
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:componentbusinessunit:
+        /en:
+          jcr:name: Component Business Unit
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:componentlist:
         /en:
           jcr:name: Links list
@@ -207,6 +212,11 @@ definitions:
       /website:directiontositebypublictransport:
         /en:
           jcr:name: Direction To Site By Public Transport
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:directorate:
+        /en:
+          jcr:name: Directorate
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:download:
@@ -327,6 +337,11 @@ definitions:
       /website:organisationcode:
         /en:
           jcr:name: Organisation code
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:orgstructure:
+        /en:
+          jcr:name: Org structure
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:otherrole:

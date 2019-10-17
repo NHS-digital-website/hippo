@@ -36,7 +36,8 @@
         "API Endpoint":                 "uk.nhs.digital.website.beans.ApiEndpoint",
         "BlogHub":                      "uk.nhs.digital.website.beans.BlogHub",
         "JobRole":                      "uk.nhs.digital.website.beans.JobRole",
-        "BusinessUnit":                 "uk.nhs.digital.website.beans.BusinessUnit"
+        "BusinessUnit":                 "uk.nhs.digital.website.beans.BusinessUnit",
+        "OrgStructure":                 "uk.nhs.digital.website.beans.OrgStructure"
     }/>
 
     <#list docTypes?keys as key>

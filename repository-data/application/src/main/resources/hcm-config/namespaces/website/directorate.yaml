@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/website/personimage:
+    /hippo:namespaces/website/directorate:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -33,106 +33,120 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
             wicket.id: ${cluster.id}.right
-          /picture:
+          /mainbusinessunit:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Picture
-            field: picture
-            hint: A main profile picture of the person.
+            caption: Main business unit
+            compoundList: website:componentbusinessunit
+            contentPickerType: links
+            field: mainbusinessunit
+            hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.left.item
-          /imagesourcepermission:
+            wicket.skin: skin/content-blocks.css
+          /backgroundcolor:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/website/imagesourcepermission
-            caption: Image source permission
-            field: imagesourcepermission
-            hint: An indication of whether NHS Digital has the rights to use the person
-              picture on the website or not"
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-          /imagerightsdetails:
-            /cluster.options:
-              ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',  items:
-                [''Link'',''PickInternalLink'',''Source''] }] }'
-              jcr:primaryType: frontend:pluginconfig
-            caption: Image rights details
-            field: imagerightsdetails
-            hint: Any further details or bespoke statement as to the right's status
-              of the person's picture
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-          /imagedistributiontagging:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/website/imagedistributiontagging
-            caption: Image distribution tagging
-            field: imagedistributiontagging
-            hint: A choice of distribution rights supported for the person's image"
+            caption: Background color (#XXXXXX)
+            field: backgroundcolor
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.css:
+            - heading
             wicket.id: ${cluster.id}.left.item
-          /otherimagedistributiontagging:
+          /embedbackgroundcolor:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Other image distribution tagging (select only when 'Other' selected
-              in Image distribution tagging)
-            field: otherimagedistributiontagging
-            hint: Detail on the distribution rights supported for the person's image
+            caption: Embed background color (#XXXXXX)
+            field: embedbackgroundcolor
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.css:
+            - heading
             wicket.id: ${cluster.id}.left.item
+          /fontcolor:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Font color (#XXXXXX)
+            field: fontcolor
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.css:
+            - heading
+            wicket.id: ${cluster.id}.left.item
+          /componentbusinessunits:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Component business units
+            compoundList: website:componentbusinessunit
+            contentPickerType: links
+            field: componentbusinessunits
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            wicket.skin: skin/content-blocks.css
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /imagedistributiontagging:
-            hipposysedit:mandatory: true
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:imagedistributiontagging
-            hipposysedit:primary: false
-            hipposysedit:type: DynamicDropdown
-            hipposysedit:validators:
-            - non-empty
-            - required
-            jcr:primaryType: hipposysedit:field
-          /imagerightsdetails:
+          /backgroundcolor:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:imagerightsdetails
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            jcr:primaryType: hipposysedit:field
-          /imagesourcepermission:
-            hipposysedit:mandatory: true
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:imagesourcepermission
-            hipposysedit:primary: false
-            hipposysedit:type: DynamicDropdown
-            hipposysedit:validators:
-            - non-empty
-            - required
-            jcr:primaryType: hipposysedit:field
-          /otherimagedistributiontagging:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:otherimagedistributiontagging
+            hipposysedit:path: website:backgroundcolor
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators:
+            - rgbcolor
             jcr:primaryType: hipposysedit:field
-          /picture:
+          /componentbusinessunits:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: website:componentbusinessunits
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
+            jcr:primaryType: hipposysedit:field
+          /embedbackgroundcolor:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:picture
+            hipposysedit:path: website:embedbackgroundcolor
             hipposysedit:primary: false
-            hipposysedit:type: hippogallerypicker:imagelink
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - rgbcolor
+            jcr:primaryType: hipposysedit:field
+          /fontcolor:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:fontcolor
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - rgbcolor
+            jcr:primaryType: hipposysedit:field
+          /mainbusinessunit:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:mainbusinessunit
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
+            jcr:primaryType: hipposysedit:field
+          /responsibleperson:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:responsibleperson
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+            hipposysedit:validators:
+            - optional
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
@@ -140,21 +154,16 @@ definitions:
           - hippostd:relaxed
           hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
           jcr:mixinTypes:
-          - mix:referenceable
           - hipposysedit:remodel
+          - mix:referenceable
           jcr:primaryType: hipposysedit:nodetype
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          /website:imagerightsdetails:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
-          jcr:primaryType: website:personimage
-          website:imagedistributiontagging: ''
-          website:imagesourcepermission: ''
-          website:otherimagedistributiontagging: ''
+          jcr:primaryType: website:directorate
+          website:heading: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable
