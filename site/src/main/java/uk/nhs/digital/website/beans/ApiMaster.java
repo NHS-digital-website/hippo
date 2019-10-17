@@ -7,7 +7,7 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 
 import uk.nhs.digital.ps.beans.HippoBeanHelper;
 
-import java.util.*;
+import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "website:apimaster")
 @Node(jcrType = "website:apimaster")

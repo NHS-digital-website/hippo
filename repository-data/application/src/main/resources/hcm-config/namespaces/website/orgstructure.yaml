@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/website/businessunit:
+    /hippo:namespaces/website/orgstructure:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -36,18 +36,9 @@ definitions:
           /title:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Business unit name
+            caption: Title
             field: title
-            hint: The name of the business unit
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-          /portfoliocode:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Portfolio code
-            field: portfoliocode
-            hint: Code of the portfolio
+            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
@@ -59,7 +50,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Summary
             field: summary
-            hint: A summary of the business unit, used in external search engine search
+            hint: A summary of the org structure, used in external search engine search
               results
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
@@ -69,7 +60,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Short Summary
             field: shortsummary
-            hint: A short concise summary of the business unit, used in internal search
+            hint: A short concise summary of the org structure, used in internal search
               engine search results
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
@@ -81,53 +72,39 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
-          /vision:
+          /introduction:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Vision
-            field: vision
+            caption: Introduction
+            field: introduction
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
-          /purposes:
+          /navigationembed:
             /cluster.options:
-              ckeditor.config.appended.json: '{ extraPlugins: ''autogrow'', autoGrow_onStartup:
-                true, autoGrow_maxHeight: 50 }'
-              ckeditor.config.overlayed.json: '{ toolbarGroups: [ { name: ''links''
-                }, { name: ''mode'' } ] }'
+              falseLabel: 'No'
               jcr:primaryType: frontend:pluginconfig
-            caption: Purposes
-            field: purposes
+              trueLabel: 'Yes'
+            caption: Navigation embed
+            field: navigationembed
             hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
-          /sections:
+          /directorates:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Section builder
-            compoundList: website:section,publicationsystem:chartSection,publicationsystem:mapSection,website:emphasisBox,website:iconlist,website:gallerysection,website:code,website:download,website:expander,website:ctabutton,website:quote,website:infographic,website:checklist
+            caption: Directorates
+            compoundList: website:directorate
             contentPickerType: links
-            field: sections
+            field: directorates
             hint: ''
             jcr:primaryType: frontend:plugin
+            maxitems: 7
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.left.item
             wicket.skin: skin/content-blocks.css
-          /ispartofbusinessunit:
-            /cluster.options:
-              base.path: /content/documents
-              jcr:primaryType: frontend:pluginconfig
-              last.visited.enabled: true
-              nodetypes:
-              - website:businessunit
-            caption: Is part of business unit
-            field: ispartofbusinessunit
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
           /bannercontrols:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -152,41 +129,30 @@ definitions:
             hipposysedit:validators:
             - contentblocks-validator
             jcr:primaryType: hipposysedit:field
-          /ispartofbusinessunit:
+          /directorates:
             hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:ispartofbusinessunit
-            hipposysedit:primary: false
-            hipposysedit:type: hippo:mirror
-            hipposysedit:validators:
-            - optional
-            jcr:primaryType: hipposysedit:field
-          /portfoliocode:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:portfoliocode
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators:
-            - portfoliocode
-            jcr:primaryType: hipposysedit:field
-          /purposes:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: false
-            hipposysedit:path: website:purposes
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            jcr:primaryType: hipposysedit:field
-          /sections:
             hipposysedit:multiple: true
             hipposysedit:ordered: true
-            hipposysedit:path: website:sections
+            hipposysedit:path: website:directorates
             hipposysedit:type: hippo:compound
             hipposysedit:validators:
             - contentblocks-validator
+            jcr:primaryType: hipposysedit:field
+          /introduction:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:introduction
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
+          /navigationembed:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:navigationembed
+            hipposysedit:primary: false
+            hipposysedit:type: selection:BooleanRadioGroup
             jcr:primaryType: hipposysedit:field
           /seosummary:
             hipposysedit:mandatory: false
@@ -227,14 +193,6 @@ definitions:
             - non-empty
             - required
             jcr:primaryType: hipposysedit:field
-          /vision:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:vision
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
           - website:basedocument
@@ -251,6 +209,9 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /website:introduction:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           /website:summary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
@@ -267,8 +228,7 @@ definitions:
           jcr:mixinTypes:
           - mix:referenceable
           - hippotaxonomy:classifiable
-          jcr:primaryType: website:businessunit
-          website:portfoliocode: ''
+          jcr:primaryType: website:orgstructure
           website:shortsummary: ''
           website:title: ''
         jcr:primaryType: hipposysedit:prototypeset

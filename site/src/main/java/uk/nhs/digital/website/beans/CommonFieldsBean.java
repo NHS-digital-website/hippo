@@ -28,5 +28,9 @@ public class CommonFieldsBean extends BaseDocument {
         return getProperty("website:title");
     }
 
+    @HippoEssentialsGenerated(internalName = "website:bannercontrols")
+    public BannerControl  getBannercontrols() {
+        return getBean("website:bannercontrols", BannerControl.class);
+    }
 
 }

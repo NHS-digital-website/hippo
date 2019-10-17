@@ -76,6 +76,9 @@
 [website:code] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:componentbusinessunit] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:componentlist] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
@@ -184,6 +187,9 @@
 [website:organisationcode] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:orgstructure] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:platform] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
@@ -215,6 +221,9 @@
   orderable
 
 [website:directiontositebypublictransport] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:directorate] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:publishedworkchapter] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
