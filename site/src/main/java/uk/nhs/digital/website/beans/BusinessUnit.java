@@ -36,9 +36,4 @@ public class BusinessUnit extends CommonFieldsBean {
         return getLinkedBean("website:ispartofbusinessunit", HippoBean.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "website:bannercontrols")
-    public BannerControl  getBannercontrols() {
-        return getBean("website:bannercontrols", BannerControl.class);
-    }
-
 }
