@@ -35,7 +35,7 @@
 
         function markStickyNavElem(navElem){
             if (document.querySelector('.active') != null) document.querySelector('.active').setAttribute('class', ' ');
-            if (document.querySelector('a[href*=' + navElem + ']') != null) document.querySelector('a[href*=' + navElem + ']').setAttribute('class', 'active');
+            if (document.querySelector('a[href="#' + navElem + '"]') != null) document.querySelector('a[href="#' + navElem + '"]').setAttribute('class', 'active');
         }
 
         function getBottomStickyNavElement(sections) {
