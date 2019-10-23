@@ -1,0 +1,15 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-994-change-asset-type:
+      hipposys:batchsize: 10
+      hipposys:description: ''
+      hipposys:dryrun: false
+      hipposys:loglevel: DEBUG
+      hipposys:parameters: '{}'
+      hipposys:query: /jcr:root/content/assets//*//..
+      hipposys:script:
+        resource: /configuration/update/DW-994-change-asset-type.groovy
+        type: string
+      hipposys:throttle: 500
+      jcr:primaryType: hipposys:updaterinfo

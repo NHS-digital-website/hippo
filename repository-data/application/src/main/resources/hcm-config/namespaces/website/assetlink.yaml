@@ -35,8 +35,8 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
               last.visited.nodetypes: []
               nodetypes:
-              - hippogallery:exampleAssetSet
               - hippogallery:imageset
+              - website:customizedAssetSet
             caption: Asset Link
             field: link
             hint: ''

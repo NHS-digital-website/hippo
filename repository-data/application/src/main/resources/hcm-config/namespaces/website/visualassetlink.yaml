@@ -43,8 +43,8 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
               last.visited.nodetypes: []
               nodetypes:
-              - hippogallery:exampleAssetSet
               - hippogallery:imageset
+              - website:customizedAssetSet
             caption: File
             field: link
             hint: ''

@@ -1,0 +1,67 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/website/customizedAssetSet:
+      /editor:templates:
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties:
+          - mode
+          frontend:references:
+          - model.compareTo
+          - wicket.model
+          - engine
+          frontend:services:
+          - wicket.id
+          mode: edit
+          /root:
+            item: ${cluster.id}.field
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /asset:
+            caption: asset
+            field: asset
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /meetpdfa:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Meet PDF/A Standard?
+            field: meetpdfa
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+        jcr:primaryType: editor:templateset
+      /hipposysedit:nodetype:
+        /hipposysedit:nodetype:
+          /asset:
+            hipposysedit:autocreated: true
+            hipposysedit:mandatory: true
+            hipposysedit:path: hippogallery:asset
+            hipposysedit:primary: true
+            hipposysedit:type: hippo:resource
+            jcr:primaryType: hipposysedit:field
+          /meetpdfa:
+            hipposysedit:autocreated: true
+            hipposysedit:mandatory: false
+            hipposysedit:path: website:meetpdfa
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - hippogallery:exampleAssetSet
+          - hippogallery:relaxed
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype
