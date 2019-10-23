@@ -179,6 +179,11 @@ definitions:
           jcr:name: CTA
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:customizedAssetSet:
+        /en:
+          jcr:name: Customised Asset
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:cyberacknowledgement:
         /en:
           jcr:name: Cyber alert acknowledgement

@@ -65,7 +65,11 @@
                                     </div>
                                     <div class="block-link__body">
                                         <span class="block-link__title">${block.title}</span>
-                                        <@fileMetaAppendix block.link.asset.getLength()></@fileMetaAppendix>
+                                        <#assign meetpdfa = false />
+                                        <#if block.link.meetpdfa?? && block.link.meetpdfa >
+                                          <#assign meetpdfa = true />
+                                        </#if>
+                                        <@fileMetaAppendix block.link.asset.getLength() block.link.asset.mimeType meetpdfa></@fileMetaAppendix>
                                     </div>
                                     </a>
                                 </#if>
