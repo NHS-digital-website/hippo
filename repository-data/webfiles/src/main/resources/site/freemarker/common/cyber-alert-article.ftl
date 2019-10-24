@@ -35,7 +35,7 @@
 
 
 <#assign hasSummaryContent = document.summary?? && document.summary?has_content />
-<#assign hasSectionContent = document.sections?has_content />
+<#assign hasSectionContent = document.sections?? && document.sections?has_content />
 <#assign hasThreatAffects = document.threatAffects?? && document.threatAffects?has_content />
 <#assign hasThreatUpdates = document.threatUpdates?? && document.threatUpdates?has_content />
 <#assign hasRemediationIntro = document.remediationIntro?? && document.remediationIntro.content?has_content />
@@ -51,6 +51,7 @@
 
 <#assign links = [] />
 <#if hasThreatAffects><#assign links += [{ "url": "#" + slugify(affectedPlatformsHeader), "title": affectedPlatformsHeader }] /></#if>
+<#if hasSectionContent>
 <#list document.sections as section>
     <#if section.title?has_content && section.sectionType == 'website-section'>
         <#assign isNumberedList = false />
@@ -60,6 +61,7 @@
         <#assign links += [{ "url": "#" + slugify(section.title), "title": section.title, "isNumberedList": isNumberedList?c }] />
     </#if>
 </#list>
+</#if>
 <#if hasThreatUpdates><#assign links += [{ "url": "#" + slugify(threatUpdatesHeader), "title": threatUpdatesHeader }] /></#if>
 <#if hasRemediationIntro><#assign links += [{ "url": "#" + slugify(remediationIntroHeader), "title": remediationIntroHeader }] /></#if>
 <#if hasRemediationSteps><#assign links += [{ "url": "#" + slugify(remediationStepsHeader), "title": remediationStepsHeader }] /></#if>
@@ -69,32 +71,7 @@
 <#if hasCVE><#assign links += [{ "url": "#" + slugify(cveHeader), "title": cveHeader }] /></#if>
 <#if hasAcknowledgement><#assign links += [{ "url": "#" + slugify(acknowledgementHeader), "title": acknowledgementHeader }] /></#if>
 
-
-<#-- ACTUAL TEMPLATE -->
-<#if document?? >
-    <article class="article article--cyber-alert">
-        <#if document.publicallyAccessible>
-            <@fullContentOfCyberAlert/>
-        <#else>
-            <@restrictedContentOfCyberAlert/>
-        </#if>
-    </article>
-</#if>
-
-
-<#macro restrictedContentOfCyberAlert>
-    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
-        <div class="local-header article-header--detailed">
-            <div class="grid-wrapper">
-                <div class="article-header__inner">
-                    <h1 class="local-header__title" data-uipath="document.title">${document.title}</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-</#macro>
-
-<#macro fullContentOfCyberAlert>
+<article class="article article--cyber-alert">
 
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
         <div class="local-header article-header--detailed">
@@ -107,62 +84,68 @@
 
 
                     <div class="detail-list-grid">
-                        <div class="grid-row">
+                        <#if document.threatId?has_content>
+                          <div class="grid-row">
 
-                            <div class="column column--reset">
-                                <dl class="detail-list">
-                                    <dt class="detail-list__key">${threatIdLabel}:</dt>
-                                    <dd class="detail-list__value">${document.threatId}</dd>
-                                </dl>
-                            </div>
-                        </div>
+                              <div class="column column--reset">
+                                  <dl class="detail-list">
+                                      <dt class="detail-list__key">${threatIdLabel}:</dt>
+                                      <dd class="detail-list__value">${document.threatId}</dd>
+                                  </dl>
+                              </div>
+                          </div>
+                        </#if>
 
-                        <div class="grid-row">
-                            <div class="column column--reset">
-                                <dl class="detail-list">
-                                    <dt class="detail-list__key">${categoryLabel}:</dt>
-                                    <dd class="detail-list__value">
-                                        <#if document.category?has_content>
-                                            <#list document.category as category>${category}<#sep>, </#list>
-                                        </#if>
-                                    </dd>
-                                </dl>
-                            </div>
-                        </div>
+                        <#if document.category?has_content>
+                          <div class="grid-row">
+                              <div class="column column--reset">
+                                  <dl class="detail-list">
+                                      <dt class="detail-list__key">${categoryLabel}:</dt>
+                                      <dd class="detail-list__value">
+                                              <#list document.category as category>${category}<#sep>, </#list>
+                                      </dd>
+                                  </dl>
+                              </div>
+                          </div>
+                        </#if>
 
-                        <div class="grid-row">
-                            <div class="column column--reset">
-                                <dl class="detail-list">
-                                    <dt class="detail-list__key">${threatSeverityLabel}:</dt>
-                                    <dd class="detail-list__value">${document.severity}</dd>
-                                </dl>
-                            </div>
-                        </div>
+                        <#if document.severity?has_content>
+                          <div class="grid-row">
+                              <div class="column column--reset">
+                                  <dl class="detail-list">
+                                      <dt class="detail-list__key">${threatSeverityLabel}:</dt>
+                                      <dd class="detail-list__value">${document.severity}</dd>
+                                  </dl>
+                              </div>
+                          </div>
+                        </#if>
 
 
-                        <div class="grid-row">
-                            <div class="column column--reset">
-                                <dl class="detail-list">
-                                    <dt class="detail-list__key">${threatVectorLabel}:</dt>
-                                    <dd class="detail-list__value">
-                                        <#if document.threatvector?has_content>
-                                            <#list document.threatvector as vector>${vector}<#sep>, </#list>
-                                        </#if>
-                                    </dd>
-                                </dl>
-                            </div>
-                        </div>
+                        <#if document.threatvector?has_content>
+                          <div class="grid-row">
+                              <div class="column column--reset">
+                                  <dl class="detail-list">
+                                      <dt class="detail-list__key">${threatVectorLabel}:</dt>
+                                      <dd class="detail-list__value">
+                                              <#list document.threatvector as vector>${vector}<#sep>, </#list>
+                                      </dd>
+                                  </dl>
+                              </div>
+                          </div>
+                        </#if>
 
-                        <div class="grid-row">
-                            <div class="column column--reset">
-                                <dl class="detail-list">
-                                    <dt class="detail-list__key">${datePublishedLabel}:</dt>
-                                    <dd class="detail-list__value">
-                                        <@fmt.formatDate value=document.publishedDate.time?date type="date" pattern="d MMM yyyy" timeZone="${getTimeZone()}" />
-                                    </dd>
-                                </dl>
-                            </div>
-                        </div>
+                        <#if document.publishedDate?has_content>
+                          <div class="grid-row">
+                              <div class="column column--reset">
+                                  <dl class="detail-list">
+                                      <dt class="detail-list__key">${datePublishedLabel}:</dt>
+                                      <dd class="detail-list__value">
+                                          <@fmt.formatDate value=document.publishedDate.time?date type="date" pattern="d MMM yyyy" timeZone="${getTimeZone()}" />
+                                      </dd>
+                                  </dl>
+                              </div>
+                          </div>
+                        </#if>
 
                     </div>
 
@@ -194,17 +177,15 @@
 
             <div class="column column--two-thirds page-block page-block--main">
                 <#if hasSummaryContent>
-                    <div class="article-header">
-                        <div  id="${slugify(summaryHeader)}" class="article-section article-section--summary article-section--reset-top">
-                            <h2>${summaryHeader}</h2>
-                            <div data-uipath="website.publishedwork.summary"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></div>
-                        </div>
+                    <div  id="${slugify(summaryHeader)}" class="article-section article-section--summary article-section--reset-top">
+                        <h2>${summaryHeader}</h2>
+                        <div data-uipath="website.publishedwork.summary"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></div>
                     </div>
                 </#if>
 
                 <#if hasThreatAffects>
-                    <div class="article-header">
-                        <h2 id="${slugify(affectedPlatformsHeader)}">${affectedPlatformsHeader}</h2>
+                    <div id="${slugify(affectedPlatformsHeader)}" class="article-section">
+                        <h2>${affectedPlatformsHeader}</h2>
                         The following platforms are known to be affected:
                         <ul>
                             <#list document.threatAffects as item>
@@ -234,16 +215,16 @@
 
 
                 <#if hasSectionContent>
-                    <div class="article-header">
-                        <h2 id="${slugify(threatDetailsHeader)}">${threatDetailsHeader}</h2>
+                    <div id="${slugify(threatDetailsHeader)}" class="article-section">
+                        <h2>${threatDetailsHeader}</h2>
                         <@sections document.sections></@sections>
                     </div>
                 </#if>
 
 
                 <#if hasThreatUpdates>
-                    <div class="article-header">
-                        <h2 id="${slugify(threatUpdatesHeader)}">${threatUpdatesHeader}</h2>
+                    <div id="${slugify(threatUpdatesHeader)}" class="article-section">
+                        <h2>${threatUpdatesHeader}</h2>
 
                         <table>
                             <thead>
@@ -271,16 +252,16 @@
 
 
                 <#if hasRemediationIntro>
-                    <div class="article-header">
-                        <h2 id="${slugify(remediationIntroHeader)}">${remediationIntroHeader}</h2>
+                    <div id="${slugify(remediationIntroHeader)}" class="article-section">
+                        <h2>${remediationIntroHeader}</h2>
                         <@hst.html hippohtml=document.remediationIntro contentRewriter=gaContentRewriter/>
                     </div>
                 </#if>
 
 
                 <#if hasRemediationSteps>
-                    <div class="article-header">
-                        <h2 id="${slugify(remediationStepsHeader)}">${remediationStepsHeader}</h2>
+                    <div id="${slugify(remediationStepsHeader)}" class="article-section">
+                        <h2>${remediationStepsHeader}</h2>
 
                         <table>
                             <thead>
@@ -303,23 +284,23 @@
 
 
                 <#if hasIndicatorsOfCompromise>
-                    <div class="article-header">
-                        <h2 id="${slugify(indicatorsOfCompromiseHeader)}">${indicatorsOfCompromiseHeader}</h2>
+                    <div id="${slugify(indicatorsOfCompromiseHeader)}" class="article-section">
+                        <h2>${indicatorsOfCompromiseHeader}</h2>
                         <@hst.html hippohtml=document.indicatorsCompromise contentRewriter=gaContentRewriter/>
                     </div>
                 </#if>
 
 
                 <#if hasNcscLink>
-                    <div class="article-header">
-                        <h2 id="${slugify(ncscLinkHeader)}">${ncscLinkHeader}</h2>
+                    <div id="${slugify(ncscLinkHeader)}" class="article-section">
+                        <h2>${ncscLinkHeader}</h2>
                         <a href="${document.ncscLink}" onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','${document.ncscLink}');" onKeyUp="return vjsu.onKeyUp(event)">${document.ncscLink}</a>
                     </div>
                 </#if>
 
                  <#if hasSourceOfUpdate>
-                    <div class="article-header">
-                        <h2 id="${slugify(sourceOfUpdateHeader)}">${sourceOfUpdateHeader}</h2>
+                    <div id="${slugify(sourceOfUpdateHeader)}" class="article-section">
+                        <h2>${sourceOfUpdateHeader}</h2>
                         <ul>
                             <#list document.sourceOfThreatUpdates as item>
                                 <li><a href="${item}" onClick="logGoogleAnalyticsEvent('Link click','Cyber alert','${item}');" onKeyUp="return vjsu.onKeyUp(event)">${item}</a></li>
@@ -329,8 +310,8 @@
                 </#if>
 
                 <#if hasServices>
-                    <div class="article-header">
-                        <h2 id="${slugify(servicesHeader)}">${servicesHeader}</h2>
+                    <div id="${slugify(servicesHeader)}" class="article-section">
+                        <h2>${servicesHeader}</h2>
                         <ul>
                             <#list document.services as item>
                                 <li>
@@ -345,8 +326,8 @@
 
 
                 <#if hasCVE>
-                    <div class="article-header">
-                        <h2 id="${slugify(cveHeader)}">${cveHeader}</h2>
+                    <div id="${slugify(cveHeader)}" class="article-section">
+                        <h2>${cveHeader}</h2>
                         <ul>
                             <#list document.cveIdentifiers as item>
                                 <li>
@@ -361,8 +342,8 @@
 
 
                 <#if hasAcknowledgement>
-                    <div class="article-header">
-                        <h2 id="${slugify(acknowledgementHeader)}">${acknowledgementHeader}</h2>
+                    <div id="${slugify(acknowledgementHeader)}" class="article-section">
+                        <h2>${acknowledgementHeader}</h2>
                         <#list document.cyberAcknowledgements as item>
                             <div class="emphasis-box emphasis-box-emphasis" aria-label="Emphasis">
 
@@ -387,4 +368,4 @@
             </div>
         </div>
     </div>
-</#macro>
+</article>

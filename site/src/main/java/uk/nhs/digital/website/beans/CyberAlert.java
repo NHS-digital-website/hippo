@@ -14,104 +14,148 @@ import java.util.List;
 @Node(jcrType = "website:cyberalert")
 public class CyberAlert extends CommonFieldsBean {
 
-    @HippoEssentialsGenerated(internalName = "website:threatid")
+    @HippoEssentialsGenerated(internalName = "website:threatid", allowModifications = false)
     public String getThreatId() {
         return getProperty("website:threatid");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:severity")
-    public String getSeverity() {
-        return getProperty("website:severity");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:category")
-    public String[] getCategory() {
-        return getProperty("website:category");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:threattype")
-    public String getThreatType() {
-        return getProperty("website:threattype");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:threatvector")
-    public String[] getThreatvector() {
-        return getProperty("website:threatvector");
-    }
-
-    @HippoEssentialsGenerated(internalName = "publicationsystem:NominalDate")
+    @HippoEssentialsGenerated(internalName = "publicationsystem:NominalDate", allowModifications = false)
     public Calendar getPublishedDate() {
         return getProperty("publicationsystem:NominalDate");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:threataffects")
-    public List<HippoBean> getThreatAffects() {
-        return getChildBeansByName("website:threataffects", HippoBean.class);
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:section")
-    public List<HippoBean> getSections() {
-        return getChildBeansByName("website:section");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:threatupdates")
-    public List<HippoBean> getThreatUpdates() {
-        return getChildBeansByName("website:threatupdates");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:remediationintro")
-    public HippoHtml getRemediationIntro() {
-        return getHippoHtml("website:remediationintro");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:remediationsteps")
-    public List<HippoBean> getRemediationSteps() {
-        return getChildBeansByName("website:remediationsteps");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:indicatorscompromise")
-    public HippoHtml getIndicatorsCompromise() {
-        return getHippoHtml("website:indicatorscompromise");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:ncsclink")
-    public String getNcscLink() {
-        return getProperty("website:ncsclink");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:sourceofthreatupdates")
+    @HippoEssentialsGenerated(internalName = "website:sourceofthreatupdates", allowModifications = false)
     public String[] getSourceOfThreatUpdates() {
         return getProperty("website:sourceofthreatupdates");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:service")
-    public List<HippoBean> getServices() {
-        return getLinkedBeans("website:service", HippoBean.class);
-    }
-
-    @HippoEssentialsGenerated(internalName = "hippotaxonomy:keys")
-    public String[] getKeys() {
-        return getProperty("hippotaxonomy:keys");
-    }
-
-    public List<String> getFullTaxonomyList() {
-        return HippoBeanHelper.getFullTaxonomyList(this);
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:cybercveidentifiers")
-    public List<HippoBean> getCveIdentifiers() {
-        return getChildBeansByName("website:cybercveidentifiers");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:cyberacknowledgement")
+    @HippoEssentialsGenerated(internalName = "website:cyberacknowledgement", allowModifications = false)
     public List<HippoBean> getCyberAcknowledgements() {
         return getChildBeansByName("website:cyberacknowledgement");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:publicallyaccessible")
+    @HippoEssentialsGenerated(internalName = "website:severity", allowModifications = false)
+    public String getSeverity() {
+        if (getPublicallyAccessible()) {
+            return getProperty("website:severity");
+        }
+        return null;
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:category", allowModifications = false)
+    public String[] getCategory() {
+        if (getPublicallyAccessible()) {
+            return getProperty("website:category");
+        }
+        return null;
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:threattype", allowModifications = false)
+    public String getThreatType() {
+        if (getPublicallyAccessible()) {
+            return getProperty("website:threattype");
+        }
+        return null;
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:threatvector", allowModifications = false)
+    public String[] getThreatvector() {
+        if (getPublicallyAccessible()) {
+            return getProperty("website:threatvector");
+        }
+        return null;
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:threataffects", allowModifications = false)
+    public List<HippoBean> getThreatAffects() {
+        if (getPublicallyAccessible()) {
+            return getChildBeansByName("website:threataffects", HippoBean.class);
+        }
+        return null;
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:section", allowModifications = false)
+    public List<HippoBean> getSections() {
+        if (getPublicallyAccessible()) {
+            return getChildBeansByName("website:section");
+        }
+        return null;
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:threatupdates", allowModifications = false)
+    public List<HippoBean> getThreatUpdates() {
+        if (getPublicallyAccessible()) {
+            return getChildBeansByName("website:threatupdates");
+        }
+        return null;
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:remediationintro", allowModifications = false)
+    public HippoHtml getRemediationIntro() {
+        if (getPublicallyAccessible()) {
+            return getHippoHtml("website:remediationintro");
+        }
+        return null;
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:remediationsteps", allowModifications = false)
+    public List<HippoBean> getRemediationSteps() {
+        if (getPublicallyAccessible()) {
+            return getChildBeansByName("website:remediationsteps");
+        }
+        return null;
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:indicatorscompromise", allowModifications = false)
+    public HippoHtml getIndicatorsCompromise() {
+        if (getPublicallyAccessible()) {
+            return getHippoHtml("website:indicatorscompromise");
+        }
+        return null;
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:ncsclink", allowModifications = false)
+    public String getNcscLink() {
+        if (getPublicallyAccessible()) {
+            return getProperty("website:ncsclink");
+        }
+        return null;
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:service", allowModifications = false)
+    public List<HippoBean> getServices() {
+        if (getPublicallyAccessible()) {
+            return getLinkedBeans("website:service", HippoBean.class);
+        }
+        return null;
+    }
+
+    @HippoEssentialsGenerated(internalName = "hippotaxonomy:keys", allowModifications = false)
+    public String[] getKeys() {
+        if (getPublicallyAccessible()) {
+            return getProperty("hippotaxonomy:keys");
+        }
+        return null;
+    }
+
+    public List<String> getFullTaxonomyList() {
+        if (getPublicallyAccessible()) {
+            return HippoBeanHelper.getFullTaxonomyList(this);
+        }
+        return null;
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:cybercveidentifiers", allowModifications = false)
+    public List<HippoBean> getCveIdentifiers() {
+        if (getPublicallyAccessible()) {
+            return getChildBeansByName("website:cybercveidentifiers");
+        }
+        return null;
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:publicallyaccessible", allowModifications = false)
     public Boolean getPublicallyAccessible() {
         return getProperty("website:publicallyaccessible");
     }
-
 
 }
