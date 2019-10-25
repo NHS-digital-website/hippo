@@ -7,9 +7,9 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 
 import java.util.List;
 
-@HippoEssentialsGenerated(internalName = "website:board")
-@Node(jcrType = "website:board")
-public class Board extends CommonFieldsBean {
+@HippoEssentialsGenerated(internalName = "website:group")
+@Node(jcrType = "website:group")
+public class Group extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:quorate")
     public Long getQuorate() {
@@ -36,9 +36,9 @@ public class Board extends CommonFieldsBean {
         return getBean("website:bannercontrols", BannerControl.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "website:boardreports")
-    public HippoBean getBoardreports() {
-        return getLinkedBean("website:boardreports", HippoBean.class);
+    @HippoEssentialsGenerated(internalName = "website:groupreports")
+    public HippoBean getGroupreports() {
+        return getLinkedBean("website:groupreports", HippoBean.class);
     }
 
     @HippoEssentialsGenerated(internalName = "hippotaxonomy:topics")

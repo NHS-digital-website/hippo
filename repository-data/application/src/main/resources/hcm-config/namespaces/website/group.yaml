@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/website/board:
+    /hippo:namespaces/website/group:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -77,7 +77,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Roles
-            compoundList: website:boardrole
+            compoundList: website:grouprole
             contentPickerType: links
             field: roles
             hint: ''
@@ -109,15 +109,15 @@ definitions:
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
             wicket.skin: skin/content-blocks.css
-          /boardreports:
+          /groupreports:
             /cluster.options:
               base.path: /content/documents
               jcr:primaryType: frontend:pluginconfig
               last.visited.enabled: true
               nodetypes:
-              - website:board
-            caption: Board reports
-            field: boardreports
+              - website:group
+            caption: Group reports
+            field: groupreports
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
@@ -154,11 +154,11 @@ definitions:
             hipposysedit:validators:
             - contentblocks-validator
             jcr:primaryType: hipposysedit:field
-          /boardreports:
+          /groupreports:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:boardreports
+            hipposysedit:path: website:groupreports
             hipposysedit:primary: false
             hipposysedit:type: hippo:mirror
             hipposysedit:validators:
@@ -254,7 +254,7 @@ definitions:
           jcr:mixinTypes:
           - mix:referenceable
           - hippotaxonomy:classifiable
-          jcr:primaryType: website:board
+          jcr:primaryType: website:group
           website:quorate: 0
           website:shortsummary: ''
           website:title: ''

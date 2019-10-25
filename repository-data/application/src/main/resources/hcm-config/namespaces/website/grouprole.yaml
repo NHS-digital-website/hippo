@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/website/boardrole:
+    /hippo:namespaces/website/grouprole:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -33,13 +33,13 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /boardposition:
+          /groupposition:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               selectable.options: Attendee,Chair,Member,Observer,Attendee,Subject
                 matter expert,Secretariat
-            caption: Board position
-            field: boardposition
+            caption: Group position
+            field: groupposition
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
@@ -56,11 +56,11 @@ definitions:
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /boardposition:
+          /groupposition:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:boardposition
+            hipposysedit:path: website:groupposition
             hipposysedit:primary: false
             hipposysedit:type: urlrewriter:BroadcastingStaticDropdown
             jcr:primaryType: hipposysedit:field
@@ -96,8 +96,8 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          jcr:primaryType: website:boardrole
-          website:boardposition: Attendee
+          jcr:primaryType: website:grouprole
+          website:groupposition: Attendee
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable
