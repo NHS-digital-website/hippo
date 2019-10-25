@@ -40,6 +40,7 @@ definitions:
               last.visited.enabled: true
               nodetypes:
               - website:jobrole
+            caption: Primary role
             field: primaryrolepicker
             hint: The primary role the person has within NHS Digital. This usually
               is the person's job title

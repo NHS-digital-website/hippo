@@ -43,12 +43,6 @@
 [website:bannerdocument] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
-[website:board] > hippostd:relaxed, hippotranslation:translated, website:basedocument
-  orderable
-
-[website:boardrole] > hippo:compound, hippostd:relaxed
-  orderable
-
 [website:biography] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -137,6 +131,12 @@
   orderable
 
 [website:glossarylist] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:group] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:grouprole] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:hub] > hippostd:relaxed, hippotranslation:translated, website:basedocument

@@ -32,6 +32,7 @@ definitions:
           - website:jobrole
           - website:businessunit
           - website:orgstructure
+          - website:group
           hst:componentconfigurationmappingvalues:
           - hst:pages/service
           - hst:pages/general
@@ -59,6 +60,7 @@ definitions:
           - hst:pages/jobrole
           - hst:pages/businessunit
           - hst:pages/orgstructure
+          - hst:pages/group
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404
@@ -89,6 +91,7 @@ definitions:
         - website:jobrole
         - website:businessunit
         - website:orgstructure
+        - website:group
         hst:componentconfigurationmappingvalues:
         - hst:pages/service
         - hst:pages/general
@@ -116,6 +119,7 @@ definitions:
         - hst:pages/jobrole
         - hst:pages/businessunit
         - hst:pages/orgstructure
+        - hst:pages/group
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:
