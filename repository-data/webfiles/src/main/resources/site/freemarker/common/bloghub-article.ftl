@@ -10,7 +10,7 @@
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
 
-<#assign itemsMaxCount=20/>
+<#assign itemsMaxCount=10/>
 
 <#assign hasLatestBlogs = document.latestBlogs?? && document.latestBlogs?has_content />
 <#assign hasSummaryContent = document.summary?? && document.summary?has_content />
