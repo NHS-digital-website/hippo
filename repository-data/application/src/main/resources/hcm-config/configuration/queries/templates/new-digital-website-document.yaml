@@ -35,4 +35,4 @@ definitions:
         or @jcr:primaryType='website:apiendpoint' or @jcr:primaryType='website:categorylist'
         or @jcr:primaryType='website:blog' or @jcr:primaryType='website:bloghub' or
         @jcr:primaryType='website:jobrole' or @jcr:primaryType='website:businessunit'
-        or @jcr:primaryType='website:board' or @jcr:primaryType='website:orgstructure']
+        or @jcr:primaryType='website:group' or @jcr:primaryType='website:orgstructure']

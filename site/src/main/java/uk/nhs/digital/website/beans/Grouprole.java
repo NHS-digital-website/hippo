@@ -6,13 +6,13 @@ import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
-@HippoEssentialsGenerated(internalName = "website:boardrole")
-@Node(jcrType = "website:boardrole")
-public class Boardrole extends HippoCompound {
+@HippoEssentialsGenerated(internalName = "website:grouprole")
+@Node(jcrType = "website:grouprole")
+public class Grouprole extends HippoCompound {
 
-    @HippoEssentialsGenerated(internalName = "website:boardposition")
-    public String getBoardposition() {
-        return getProperty("website:boardposition");
+    @HippoEssentialsGenerated(internalName = "website:groupposition")
+    public String getGroupposition() {
+        return getProperty("website:groupposition");
     }
 
     @HippoEssentialsGenerated(internalName = "website:role")

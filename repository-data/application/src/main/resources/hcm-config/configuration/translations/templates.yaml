@@ -144,16 +144,6 @@ definitions:
           jcr:name: Blog Hub
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
-      /website:board:
-        /en:
-          jcr:name: Group
-          jcr:primaryType: hipposys:resourcebundle
-        jcr:primaryType: hipposys:resourcebundles
-      /website:boardrole:
-        /en:
-          jcr:name: Group Role
-          jcr:primaryType: hipposys:resourcebundle
-        jcr:primaryType: hipposys:resourcebundles
       /website:businessunit:
         /en:
           jcr:name: Business unit
@@ -272,6 +262,16 @@ definitions:
       /website:glossarylist:
         /en:
           jcr:name: Glossary list
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:group:
+        /en:
+          jcr:name: Group
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:grouprole:
+        /en:
+          jcr:name: Group Role
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:hub:
