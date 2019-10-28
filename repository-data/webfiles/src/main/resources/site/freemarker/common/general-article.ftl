@@ -32,7 +32,7 @@
 
 <article class="article article--general">
 
-    <@documentHeader document 'general' document.pageIcon?has_content?then(document.pageIcon, '')></@documentHeader>
+    <@documentHeader document 'general'></@documentHeader>
 
     <div class="grid-wrapper grid-wrapper--article">
 

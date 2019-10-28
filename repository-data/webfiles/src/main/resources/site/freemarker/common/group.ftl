@@ -31,11 +31,7 @@
 
 <article class="article article--group">
 
-    <#assign pageIcon = '' />
-    <#if document.bannercontrols?has_content && document.bannercontrols.icon?has_content>
-      <#assign pageIcon = document.bannercontrols.icon />
-    </#if>
-    <@documentHeader document 'group' pageIcon></@documentHeader>
+    <@documentHeader document 'group'></@documentHeader>
 
     <div class="grid-wrapper grid-wrapper--article">
 
