@@ -57,8 +57,6 @@ definitions:
               nodetypes:
               - website:organisation
             caption: Publisher
-            compoundList: website:internallink
-            contentPickerType: links
             field: publisher
             hint: The publishing organisation that owns the blog and it's content
               [e.g. NHS England]
@@ -172,6 +170,18 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /bannercontrols:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Banner control - web team only
+            compoundList: website:bannercontrol
+            contentPickerType: links
+            field: bannercontrols
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            wicket.skin: skin/content-blocks.css
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -181,6 +191,15 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: website:author
             hipposysedit:type: hippo:mirror
+            jcr:primaryType: hipposysedit:field
+          /bannercontrols:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:bannercontrols
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /blogheadingimage:
             hipposysedit:mandatory: false
@@ -221,7 +240,6 @@ definitions:
             hipposysedit:path: website:publisher
             hipposysedit:type: hippo:mirror
             hipposysedit:validators:
-            - contentblocks-validator
             - required
             jcr:primaryType: hipposysedit:field
           /seosummary:

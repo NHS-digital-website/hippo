@@ -18,7 +18,9 @@
 <article itemscope itemtype="http://schema.org/Blog">
 
     <!-- metadata schema.org data - START -->
-    <div class="is-hidden" itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><span itemprop="name">${document.publisher.title}</span></div>
+    <#if document.publisher?has_content>
+      <div class="is-hidden" itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><span itemprop="name">${document.publisher.title}</span></div>
+    </#if>
     <#if document.seosummary?has_content><div class="is-hidden" itemprop="description">${document.seosummary.content?replace('<[^>]+>','','r')}</div></#if>
     <#if document.taxonomyTags?has_content><span class="is-hidden" itemprop="keywords" ><#list document.taxonomyTags as tag>${tag} <#sep>, </#list></span></#if>
 
@@ -33,7 +35,7 @@
     <#if document.subject?has_content><span class="is-hidden" itemprop="about" >${document.subject.title}</span></#if>
     <!-- metadata schema.org data - END   -->
 
-    <@documentHeader document 'bloghub' document.pageIcon?has_content?then(document.pageIcon, '') "" "" ""></@documentHeader>
+    <@documentHeader document 'bloghub'></@documentHeader>
 
     <div class="grid-wrapper grid-wrapper--article" aria-label="document-content">
         <div class="grid-row">

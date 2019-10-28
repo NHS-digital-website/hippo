@@ -2,7 +2,7 @@
 
 <#include "../../include/imports.ftl">
 
-<#macro documentHeader document doctype icon="" title="" summary="" topics="" hasSchemaOrg=true>
+<#macro documentHeader document doctype header_icon_arg='' title="" summary="" topics="" hasSchemaOrg=true>
 
     <#assign custom_title = title />
     <!-- checking whether simulating doc in order to avoid console errors from NewsHub and EventHub docs -->
@@ -19,7 +19,16 @@
       </#if>
     </#if>
 
-    <#assign hasPageIcon = icon?has_content />
+    <#assign headerIcon = header_icon_arg>
+    <#if ! header_icon_arg?has_content>
+      <#if document.bannercontrols?? && document.bannercontrols?has_content && document.bannercontrols.icon?has_content>
+        <#assign headerIcon = document.bannercontrols.icon />
+      <#elseif document.pageIcon?? && document.pageIcon?has_content>
+        <#assign headerIcon = document.pageIcon />
+      </#if>
+    </#if>
+
+    <#assign hasPageIcon = headerIcon?has_content />
     <#assign hasTopics = topics?has_content />
     <#assign hasBannerControls = document != "simulating_doc" && document.bannercontrols?? && document.bannercontrols?has_content>
 
@@ -29,7 +38,7 @@
     </#if>
 
     <#if hasBannerControls && document.bannercontrols.fontcolor?has_content>
-      <#assign headerStyle = '${headerStyle};color:${document.bannercontrols.fontcolor}' />
+    <#assign headerStyle = '${headerStyle}${headerStyle?has_content?then(";","style=")}color:${document.bannercontrols.fontcolor}' />
     </#if>
 
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
@@ -39,9 +48,9 @@
                     <div class="grid-row">
                         <div class="column--two-thirds column--reset">
                             <#if hasSchemaOrg>
-                            <h1 id="top" class="local-header__title" data-uipath="document.title" itemprop="name" ${headerStyle}>${custom_title}</h1>
+                              <h1 id="top" class="local-header__title" data-uipath="document.title" itemprop="name" ${headerStyle}>${custom_title}</h1>
                             <#else>
-                              <h1 id="top" class="local-header__title" data-uipath="document.title">${custom_title}</h1>
+                              <h1 id="top" class="local-header__title" data-uipath="document.title" ${headerStyle}>${custom_title}</h1>
                             </#if>
                             <#if hasDocumentSummary>
                               <div class="article-header__subtitle" data-uipath="website.${doctype}.summary">
@@ -61,7 +70,7 @@
                             <div class="column--one-third column--reset local-header__icon">
                               <#if hasDocumentSummary> 
                                   <#-- ex. Service case - image from HippoGalleryImageSet -->
-                                  <@hst.link hippobean=icon.original fullyQualified=true var="image" />
+                                  <@hst.link hippobean=headerIcon.original fullyQualified=true var="image" />
                                   <#if image?ends_with("svg")>
                                       <#assign colour = 'ffcd60'>
                                       <#if hasBannerControls && document.bannercontrols.iconcolor?has_content>
@@ -75,7 +84,7 @@
                                   </#if>
                                 <#else>
                                   <#-- ex. Events or News case - image from provided path -->
-                                  <img src="<@hst.webfile path="${icon}" fullyQualified=true/>" alt="${custom_title}">
+                                  <img src="<@hst.webfile path="${headerIcon}" fullyQualified=true/>" alt="${custom_title}">
                                 </#if>
                             </div>
                         </#if>

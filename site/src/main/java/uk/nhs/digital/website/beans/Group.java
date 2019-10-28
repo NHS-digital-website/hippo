@@ -31,11 +31,6 @@ public class Group extends CommonFieldsBean {
         return getChildBeansByName("website:sections");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:bannercontrols")
-    public BannerControl  getBannercontrols() {
-        return getBean("website:bannercontrols", BannerControl.class);
-    }
-
     @HippoEssentialsGenerated(internalName = "website:groupreports")
     public HippoBean getGroupreports() {
         return getLinkedBean("website:groupreports", HippoBean.class);
