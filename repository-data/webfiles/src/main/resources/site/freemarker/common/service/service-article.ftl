@@ -34,7 +34,7 @@
 
 <article class="article article--service">
 
-    <@documentHeader document 'service' document.pageIcon?has_content?then(document.pageIcon, '') '' '' '' false></@documentHeader>
+    <@documentHeader document 'service' '' '' '' '' false></@documentHeader>
 
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">

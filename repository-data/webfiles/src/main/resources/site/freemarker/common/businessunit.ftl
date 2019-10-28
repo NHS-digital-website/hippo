@@ -19,11 +19,7 @@
 
 <article class="article article--businessunit">
 
-    <#assign pageIcon = '' />
-    <#if document.bannercontrols?has_content && document.bannercontrols.icon?has_content>
-      <#assign pageIcon = document.bannercontrols.icon />
-    </#if>
-    <@documentHeader document 'businessunit' pageIcon></@documentHeader>
+    <@documentHeader document 'businessunit' ''></@documentHeader>
 
     <div class="grid-wrapper grid-wrapper--article">
 

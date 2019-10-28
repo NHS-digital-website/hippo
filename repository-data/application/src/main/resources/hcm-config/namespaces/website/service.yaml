@@ -176,9 +176,30 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /bannercontrols:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Banner control - web team only
+            compoundList: website:bannercontrol
+            contentPickerType: links
+            field: bannercontrols
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+            wicket.skin: skin/content-blocks.css
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
+          /bannercontrols:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:bannercontrols
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
+            jcr:primaryType: hipposysedit:field
           /component:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
