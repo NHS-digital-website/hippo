@@ -1,8 +1,10 @@
 package uk.nhs.digital.website.beans;
 
 import org.hippoecm.hst.content.beans.Node;
+import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
+import org.hippoecm.hst.core.component.HstComponentException;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
 import java.util.List;
@@ -36,4 +38,15 @@ public class BusinessUnit extends CommonFieldsBean {
         return getLinkedBean("website:ispartofbusinessunit", HippoBean.class);
     }
 
+    @HippoEssentialsGenerated(internalName = "website:responsiblerole")
+    public HippoBean getResponsiblerole() {
+        return getLinkedBean("website:responsiblerole", HippoBean.class);
+    }
+
+    public List<BusinessUnit> getChildren() throws HstComponentException, QueryException {
+
+        return getRelatedDocuments(
+           "website:ispartofbusinessunit/@hippo:docbase",
+           BusinessUnit.class);
+    }
 }

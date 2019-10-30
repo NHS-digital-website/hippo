@@ -1,17 +1,10 @@
 package uk.nhs.digital.website.beans;
 
-import static org.apache.commons.collections.IteratorUtils.toList;
-
-import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.Node;
 
-import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 import org.hippoecm.hst.core.component.HstComponentException;
-import org.hippoecm.hst.core.request.HstRequestContext;
-import org.hippoecm.hst.util.ContentBeanUtils;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
 import java.util.List;
@@ -19,8 +12,6 @@ import java.util.List;
 @HippoEssentialsGenerated(internalName = "website:person")
 @Node(jcrType = "website:person")
 public class Person extends CommonFieldsBean {
-
-    private static int NO_LIMIT = 0;
 
     @HippoEssentialsGenerated(internalName = "website:title")
     public String getTitle()  {
@@ -101,31 +92,6 @@ public class Person extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:manages")
     public List<HippoBean> getManages() {
         return getLinkedBeans("website:manages", HippoBean.class);
-    }
-
-    public <T extends HippoBean> List<T> getRelatedDocuments(String property, Class<T> beanClass) throws HstComponentException, QueryException {
-        return getRelatedDocuments(property, NO_LIMIT, null, beanClass );
-    }
-
-    public <T extends HippoBean> List<T> getRelatedDocuments(String property, int limit, String orderBy, Class<T> beanClass) throws HstComponentException, QueryException {
-
-        final HstRequestContext context = RequestContextProvider.get();
-
-        HstQuery query = ContentBeanUtils.createIncomingBeansQuery(
-            this.getCanonicalBean(), context.getSiteContentBaseBean(),
-            property, beanClass, false);
-
-        if (limit > NO_LIMIT) {
-            query.setLimit(limit);
-        }
-
-        if (orderBy != null) {
-            query.addOrderByDescending(orderBy);
-        }
-
-        HippoBeanIterator hippoBeans = query.execute().getHippoBeans();
-
-        return toList(hippoBeans);
     }
 
     public List<News> getRelatedNews() throws HstComponentException, QueryException {
