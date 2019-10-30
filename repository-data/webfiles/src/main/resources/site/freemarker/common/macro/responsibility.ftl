@@ -42,8 +42,8 @@
                   <#assign pinfo = managee.personalinfos />
                   <#assign displayName = pinfo.preferredname?has_content?then(pinfo.preferredname, pinfo.firstname + " " + pinfo.lastname) />
                   <#assign personrole = ''>
-                  <#if managee.roles?has_content && managee.roles.primaryrole?has_content>
-                    <#assign personrole = ', ' + managee.roles.primaryrole />
+                  <#if managee.roles?has_content && managee.roles.primaryroles?has_content>
+                    <#assign personrole = ', ' + managee.roles.firstprimaryrole />
                   </#if>
                   <@hst.link hippobean=managee var="link" />
                   <li><a href="${link}" onClick="logGoogleAnalyticsEvent('Link click','Person','${link}');" onKeyUp="return vjsu.onKeyUp(event)" title="${displayName}${personrole}">${displayName}${personrole}</a></li>
@@ -57,8 +57,8 @@
               <#assign pinfo = managedby.personalinfos />
               <#assign displayName = pinfo.preferredname?has_content?then(pinfo.preferredname, pinfo.firstname + " " + pinfo.lastname) />
               <#assign personrole = ''>
-              <#if managedby.roles?has_content && managedby.roles.primaryrole?has_content>
-                <#assign personrole = ', ' + managedby.roles.primaryrole />
+              <#if managedby.roles?has_content && managedby.roles.primaryroles?has_content>
+                <#assign personrole = ', ' + managedby.roles.firstprimaryrole />
               </#if>
               ${firstname} is managed by:
               <ul>

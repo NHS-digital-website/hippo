@@ -55,7 +55,7 @@
                                                     <#if hasAuthors>
                                                         <#list document.authors as author>
                                                             <div class="blog-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                                                                <span itemprop="name">${author.title}</span><#if author.roles??><#if author.roles.primaryrole?has_content>, <span itemprop="jobtitle">${author.roles.primaryrole}</span></#if><#if author.roles.primaryroleorg?has_content>, <span itemprop="worksfor" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">${author.roles.primaryroleorg}</span></span></#if></#if>
+                                                                <span itemprop="name">${author.title}</span><#if author.roles??><#if author.roles.primaryroles?has_content>, <span itemprop="jobtitle">${author.roles.firstprimaryrole}</span></#if><#if author.roles.primaryroleorg?has_content>, <span itemprop="worksfor" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">${author.roles.primaryroleorg}</span></span></#if></#if>
                                                             </div>
                                                         </#list>
                                                     <#else>

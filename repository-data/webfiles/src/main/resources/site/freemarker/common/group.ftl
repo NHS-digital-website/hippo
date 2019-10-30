@@ -82,8 +82,8 @@
                       <div class="group-member-item">
                         <#if role.role.roles?? && role.role.roles?has_content>
                           <div class="group-member-item-role">
-                            <#if role.role.roles.primaryrole?has_content>
-                              ${role.role.roles.primaryrole}
+                            <#if role.role.roles.primaryroles?has_content>
+                              ${role.role.roles.firstprimaryrole}
                             </#if>
                             <#if role.role.roles.primaryroleorg?has_content>
                               at ${role.role.roles.primaryroleorg}
