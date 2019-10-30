@@ -4,6 +4,7 @@
 
 <#include "../fileIconByMimeType.ftl">
 <#include "../fileIconByFileType.ftl">
+<#include "../fileMetaAppendix.ftl">
 <#include "../typeSpan.ftl">
 
 <#macro downloadSection section>
@@ -32,19 +33,7 @@
 
                                 <#if block.linkType == "internal">
 
-                                    <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, block.link.title) />
-                                    <a href="<@hst.link hippobean=block.link />"
-                                       class="block-link"
-                                       onClick="${onClickMethodCall}"
-                                       onKeyUp="return vjsu.onKeyUp(event)">
-                                        <div class="block-link__header">
-                                            <span class="icon icon--2x icon--html" aria-hidden="true"></span>
-                                        </div>
-                                        <div class="block-link__body">
-                                            <span class="block-link__title">${block.link.title}</span>
-                                            <p class="cta__text">${block.link.shortsummary}</p>
-                                        </div>
-                                    </a>
+                                    <@downloadBlock block.link />
 
                                 <#elseif block.linkType == "external">
                                     <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, block.title) />

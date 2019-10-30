@@ -128,6 +128,19 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /responsiblerole:
+            /cluster.options:
+              base.path: /content/documents
+              jcr:primaryType: frontend:pluginconfig
+              last.visited.enabled: true
+              nodetypes:
+              - website:jobrole
+            caption: Responsible job role
+            field: responsiblerole
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
           /bannercontrols:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -179,6 +192,16 @@ definitions:
             hipposysedit:path: website:purposes
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
+          /responsiblerole:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:responsiblerole
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+            hipposysedit:validators:
+            - optional
             jcr:primaryType: hipposysedit:field
           /sections:
             hipposysedit:multiple: true
