@@ -6,6 +6,6 @@
 
   <#macro otherrole section>
     <div class="otherrole--div">
-      <h3>${section.primaryrole}</h3>
+      <h3>${section.firstprimaryrole}</h3>
     </div>
   </#macro>

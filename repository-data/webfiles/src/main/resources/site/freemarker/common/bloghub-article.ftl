@@ -100,7 +100,7 @@
                                               </div>
                                               <#if latest.authors?size == 1 && author.roles?has_content>
                                               <div class="bloghub__item__content__author__name__role" >
-                                                <#if author.roles.primaryrole?has_content><span itemprop="jobTitle">${author.roles.primaryrole}</span ></#if><#if author.roles.primaryroleorg?has_content>, <span itemprop="worksFor">${author.roles.primaryroleorg}</span></#if>
+                                                <#if author.roles.primaryroles?has_content><span itemprop="jobTitle">${author.roles.firstprimaryrole}</span ></#if><#if author.roles.primaryroleorg?has_content>, <span itemprop="worksFor">${author.roles.primaryroleorg}</span></#if>
                                               </div>
                                               </#if>
                                             </#list>

@@ -75,7 +75,7 @@
                         <div class="grid-row">
                             <div class="column column--reset">
                                 <dl class="detail-list">
-                                    <dt class="detail-list__key" id="primaryrole-${slugify(idsuffix)}">Linkedin: </dt>
+                                    <dt class="detail-list__key" id="linkedin-${slugify(idsuffix)}">Linkedin: </dt>
                                     <dd class="detail-list__value" data-uipath="person.socialmedia.linkedinlink">
                                       <a href="${document.socialmedias.linkedinlink}" onClick="logGoogleAnalyticsEvent('Link click','Person','${document.socialmedias.linkedinlink}');" onKeyUp="return vjsu.onKeyUp(event)"  title="${document.socialmedias.linkedinlink}">${document.socialmedias.linkedinlink}</a>
                                     </dd>
@@ -88,7 +88,7 @@
                         <div class="grid-row">
                             <div class="column column--reset">
                                 <dl class="detail-list">
-                                    <dt class="detail-list__key" id="primaryrole-${slugify(idsuffix)}">Twitter: </dt>
+                                    <dt class="detail-list__key" id="twitter-${slugify(idsuffix)}">Twitter: </dt>
                                     <dd class="detail-list__value" data-uipath="person.socialmedia.twitteruser">
 
                                       <#assign twitteruser = document.socialmedias.twitteruser />
