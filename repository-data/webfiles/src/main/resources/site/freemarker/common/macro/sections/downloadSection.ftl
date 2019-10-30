@@ -6,6 +6,7 @@
 <#include "../fileIconByFileType.ftl">
 <#include "../fileMetaAppendix.ftl">
 <#include "../typeSpan.ftl">
+<#include "../component/downloadBlock.ftl">
 
 <#macro downloadSection section>
 
