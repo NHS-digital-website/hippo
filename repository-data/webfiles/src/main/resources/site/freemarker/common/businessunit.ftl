@@ -33,6 +33,9 @@
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
                 <div id="sticky-nav">
                     <#assign links = [{ "url": "#top", "title": 'Top of page' }] />
+                    <#if hasVisionContent>
+                      <#assign links += [{ "url": "#vision", "title": 'Vision' }] />
+                    </#if>
                     <#if hasResponsibleRoleContent>
                       <#assign links += [{ "url": "#responsiblerole", "title": 'Responsible person' }] />
                     </#if>
@@ -41,9 +44,6 @@
                     </#if>
                     <#if hasChildren>
                       <#assign links += [{ "url": "#children", "title": 'Programmes of work' }] />
-                    </#if>
-                    <#if hasVisionContent>
-                      <#assign links += [{ "url": "#vision", "title": 'Vision' }] />
                     </#if>
                     <#if document.purposes?has_content>
                       <#assign links += [{ "url": "#purposes", "title": 'Purposes' }] />
@@ -55,6 +55,13 @@
             </#if>
 
             <div class="column column--two-thirds page-block page-block--main">
+
+                <#if hasVisionContent>
+                  <div id="vision" class="article-section" data-uipath="website.businessunit.vision">
+                      <h2>Vision</h2>
+                      <@hst.html hippohtml=document.vision contentRewriter=gaContentRewriter />
+                  </div>
+                </#if>
 
                 <#if hasResponsibleRoleContent>
                   <div id="responsiblerole" class="article-section" data-uipath="website.businessunit.responsiblerole">
@@ -89,13 +96,6 @@
                       </#list>
                   </div>
                 </#if>
-                <#if hasVisionContent>
-                  <div id="vision" class="article-section" data-uipath="website.businessunit.vision">
-                      <h2>Vision</h2>
-                      <@hst.html hippohtml=document.vision contentRewriter=gaContentRewriter />
-                  </div>
-                </#if>
-
                 <#if document.purposes?has_content>
                   <div id="purposes" class="article-section" data-uipath="website.businessunit.purposes">
                       <h2>Purposes</h2>
