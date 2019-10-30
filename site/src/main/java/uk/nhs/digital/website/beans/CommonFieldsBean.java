@@ -50,14 +50,19 @@ public class CommonFieldsBean extends BaseDocument {
     }
 
     protected <T extends HippoBean> List<T> getRelatedDocuments(String property, Class<T> beanClass) throws HstComponentException, QueryException {
-        return getRelatedDocuments(property, NO_LIMIT, null, beanClass );
+        return getRelatedDocuments(property, NO_LIMIT, null, "descending", beanClass );
     }
 
     protected <T extends HippoBean> List<T> getRelatedDocuments(String property, int limit, Class<T> beanClass) throws HstComponentException, QueryException {
-        return getRelatedDocuments(property, limit, null, beanClass );
+        return getRelatedDocuments(property, limit, null, "descending", beanClass );
     }
 
     protected <T extends HippoBean> List<T> getRelatedDocuments(String property, int limit, String orderBy, Class<T> beanClass) throws HstComponentException, QueryException {
+        return getRelatedDocuments(property, limit, orderBy, "descending", beanClass );
+    }
+
+    protected <T extends HippoBean> List<T> getRelatedDocuments(String property, int limit, String orderBy, 
+        String orderDirection, Class<T> beanClass) throws HstComponentException, QueryException {
 
         final HstRequestContext context = RequestContextProvider.get();
 
@@ -70,7 +75,11 @@ public class CommonFieldsBean extends BaseDocument {
         }
 
         if (orderBy != null) {
-            query.addOrderByDescending(orderBy);
+            if (orderDirection == "ascending") {
+                query.addOrderByAscending(orderBy);
+            } else {
+                query.addOrderByDescending(orderBy);
+            }
         }
 
         HippoBeanIterator hippoBeans = query.execute().getHippoBeans();
