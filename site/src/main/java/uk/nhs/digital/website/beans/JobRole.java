@@ -1,8 +1,10 @@
 package uk.nhs.digital.website.beans;
 
 import org.hippoecm.hst.content.beans.Node;
+import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
+import org.hippoecm.hst.core.component.HstComponentException;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
 import java.util.List;
@@ -34,5 +36,14 @@ public class JobRole extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:accountabilities")
     public List<HippoHtml> getAccountablities() {
         return getChildBeansByName("website:accountabilities", HippoHtml.class);
+    }
+
+    public List<Person> getRelatedPeople() throws HstComponentException, QueryException {
+
+        int limit = 3;
+        return getRelatedDocuments(
+           "website:roles/website:primaryrolepicker/@hippo:docbase",
+           limit,
+           Person.class);
     }
 }
