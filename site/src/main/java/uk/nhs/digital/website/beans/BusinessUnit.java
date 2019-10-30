@@ -43,10 +43,19 @@ public class BusinessUnit extends CommonFieldsBean {
         return getLinkedBean("website:responsiblerole", HippoBean.class);
     }
 
+    @HippoEssentialsGenerated(internalName = "website:order")
+    public String getOrder() {
+        return getProperty("website:order");
+    }
+
     public List<BusinessUnit> getChildren() throws HstComponentException, QueryException {
 
+        int limit = 50;
         return getRelatedDocuments(
            "website:ispartofbusinessunit/@hippo:docbase",
+           limit, 
+           "website:order",
+           "ascending",
            BusinessUnit.class);
     }
 }

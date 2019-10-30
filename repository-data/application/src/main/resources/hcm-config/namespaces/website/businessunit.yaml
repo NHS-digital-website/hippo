@@ -141,6 +141,16 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /order:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Manual ordering control
+            field: order
+            hint: This determines the order that business units return at the front
+              end
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
           /bannercontrols:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -174,6 +184,16 @@ definitions:
             hipposysedit:type: hippo:mirror
             hipposysedit:validators:
             - optional
+            jcr:primaryType: hipposysedit:field
+          /order:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:order
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - ordernumber
             jcr:primaryType: hipposysedit:field
           /portfoliocode:
             hipposysedit:mandatory: false
