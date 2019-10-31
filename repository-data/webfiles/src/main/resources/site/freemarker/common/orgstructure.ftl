@@ -62,7 +62,6 @@
 
                 <div id="ourstructure" class="article-section" data-uipath="website.orgstructure.ourstructure">
                     <h2>${ourStrctureText}</h2>
-                    <p>Our organisation is split into directorates, who each take resonsibility for different areas of work.</p>
                 </div>
 
                 <#if isNavigationEmbedTrue>

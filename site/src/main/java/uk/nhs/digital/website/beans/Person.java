@@ -1,12 +1,19 @@
 package uk.nhs.digital.website.beans;
 
+import static org.apache.commons.collections.IteratorUtils.toList;
+import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.*;
+
+import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.Node;
 
+import org.hippoecm.hst.content.beans.query.HstQuery;
+import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "website:person")
@@ -105,4 +112,39 @@ public class Person extends CommonFieldsBean {
     public List<Blog> getRelatedBlogs() throws HstComponentException, QueryException {
         return getRelatedDocuments("website:authors/@hippo:docbase", 3, "website:dateofpublication", Blog.class);
     }
+    
+    public List<BusinessUnit> getBusinessUnits() throws HstComponentException, QueryException {
+
+        Role role = this.getRoles();
+
+        if (role != null) {
+            HstQuery query  = HstQueryBuilder.create(RequestContextProvider.get().getSiteContentBaseBean())
+                .where(constraint("website:responsiblerole").notEqualTo(null))
+                .ofTypes(BusinessUnit.class)
+                .orderByAscending("website:order")
+                .build();
+
+            List<BusinessUnit> businessUnits = toList(query.execute().getHippoBeans());
+
+            if (businessUnits.size() > 0) {
+
+                List<BusinessUnit> filteredUnits = new ArrayList<BusinessUnit>();
+
+                for (BusinessUnit unit : businessUnits) {
+                    for (HippoBean subrole : role.getPrimaryrolepicker()) {
+                        CommonFieldsBean jobrole = (CommonFieldsBean)subrole;
+                        JobRole unitrole = (JobRole)unit.getResponsiblerole();
+                        if (jobrole != null && unitrole != null && unitrole.getProperty("jcr:uuid").toString().equals(jobrole.getProperty("jcr:uuid").toString())) {
+                            filteredUnits.add(unit);
+                        }
+                    }
+                }
+
+                return filteredUnits;
+            }
+        }
+
+        return null;
+    }
+
 }
