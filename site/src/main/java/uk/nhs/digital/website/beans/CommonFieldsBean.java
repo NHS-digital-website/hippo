@@ -7,7 +7,6 @@ import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.request.HstRequestContext;
@@ -49,26 +48,60 @@ public class CommonFieldsBean extends BaseDocument {
         return getBean("website:bannercontrols", BannerControl.class);
     }
 
-    protected <T extends HippoBean> List<T> getRelatedDocuments(String property, Class<T> beanClass) throws HstComponentException, QueryException {
+    //================================================================================
+    //getReleatedDocuemnts queries for reference documents where current document 
+    //is equal object of class beanClass
+
+    protected <T extends HippoBean> List<T> getRelatedDocuments(
+        String property, 
+        Class<T> beanClass
+    ) throws HstComponentException, QueryException {
+
         return getRelatedDocuments(property, NO_LIMIT, null, "descending", beanClass );
+
     }
 
-    protected <T extends HippoBean> List<T> getRelatedDocuments(String property, int limit, Class<T> beanClass) throws HstComponentException, QueryException {
+    protected <T extends HippoBean> List<T> getRelatedDocuments(
+        String property, 
+        int limit, 
+        Class<T> beanClass
+    ) throws HstComponentException, QueryException {
+      
         return getRelatedDocuments(property, limit, null, "descending", beanClass );
+
     }
 
-    protected <T extends HippoBean> List<T> getRelatedDocuments(String property, int limit, String orderBy, Class<T> beanClass) throws HstComponentException, QueryException {
+    protected <T extends HippoBean> List<T> getRelatedDocuments(
+        String property, 
+        int limit, 
+        String orderBy, 
+        Class<T> beanClass
+    ) throws HstComponentException, QueryException {
+
         return getRelatedDocuments(property, limit, orderBy, "descending", beanClass );
+
     }
 
-    protected <T extends HippoBean> List<T> getRelatedDocuments(String property, int limit, String orderBy, 
-        String orderDirection, Class<T> beanClass) throws HstComponentException, QueryException {
+    protected <T extends HippoBean> List<T> getRelatedDocuments(
+        String property, 
+        int limit, 
+        String orderBy, 
+        String orderDirection, 
+        Class<T> beanClass
+    ) throws HstComponentException, QueryException {
 
         final HstRequestContext context = RequestContextProvider.get();
 
         HstQuery query = ContentBeanUtils.createIncomingBeansQuery(
             this.getCanonicalBean(), context.getSiteContentBaseBean(),
             property, beanClass, false);
+
+        applyRestrictionsToQuery(query, limit, orderBy, orderDirection);
+
+        return toList(query.execute().getHippoBeans());
+    }
+
+    private void applyRestrictionsToQuery(HstQuery query, int limit, String orderBy, String orderDirection) {
 
         if (limit > NO_LIMIT) {
             query.setLimit(limit);
@@ -81,9 +114,6 @@ public class CommonFieldsBean extends BaseDocument {
                 query.addOrderByDescending(orderBy);
             }
         }
-
-        HippoBeanIterator hippoBeans = query.execute().getHippoBeans();
-
-        return toList(hippoBeans);
     }
+
 }

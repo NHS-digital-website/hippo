@@ -17,6 +17,7 @@
 <#include "macro/stickyNavSections.ftl">
 <#include "macro/relatedarticles.ftl">
 <#include "macro/latestblogs.ftl">
+<#include "macro/component/downloadBlock.ftl">
 
 <#-- Add meta tags -->
 <#include "../common/macro/metaTags.ftl">
@@ -32,6 +33,8 @@
 <#assign personMainNameAndPostnominals = personMainName />
 <#assign renderNav = document.biographies?has_content || document.roles?has_content || document.responsibilities?has_content  />
 <#assign idsuffix = slugify(personMainName) />
+<#assign businessUnits = document.businessUnits />
+<#assign hasBusinessUnits = businessUnits?has_content />
 
 <#assign notSuppress = !(document.lawfulbasises?has_content && document.lawfulbasises.suppressdata?has_content && suppressdata[document.lawfulbasises.suppressdata] == suppressdata['suppress-data']) />
 
@@ -125,6 +128,9 @@
                           <#if document.biographies?has_content && document.biographies.profbiography.content?has_content >
                             <#assign links += [{ "url": "#biography-${idsuffix}", "title": 'Biography' }] />
                           </#if>
+                          <#if hasBusinessUnits>
+                            <#assign links += [{ "url": "#businessunits-${idsuffix}", "title": 'Responsible for' }] />
+                          </#if>
                       </#if>
 
                       <#if
@@ -174,6 +180,17 @@
                   </#if>
                   <#if document.biographies?has_content>
                     <@biography document.biographies idsuffix></@biography>
+                  </#if>
+
+                  <#if businessUnits?has_content>
+                    <div id="businessunits-${idsuffix}" class="article-section">
+                        <h2>Responsible for</h2>
+                        <#list businessUnits as businessunit>
+                          <div>
+                            <@downloadBlock businessunit />
+                          </div>
+                        </#list>
+                    </div>
                   </#if>
               </#if>
 
