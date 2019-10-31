@@ -16,6 +16,7 @@ a {
     &:hover {
         background: $yellow-link-hover;
         box-shadow: 0 0 0 4px $yellow-link-hover;
+        outline: 1px solid $yellow-link-hover;
         color: $link-hover-colour-nhs;
         text-decoration: none;
     }
