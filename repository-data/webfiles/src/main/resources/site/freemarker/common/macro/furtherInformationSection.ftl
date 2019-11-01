@@ -1,11 +1,13 @@
 <#ftl output_format="HTML">
+
+<#-- @ftlvariable name="childPages" type="java.util.List<uk.nhs.digital.common.components.DocumentChildComponent>" -->
+
 <#include "fileMetaAppendix.ftl">
 <#include "typeSpan.ftl">
 <#include "fileIconByMimeType.ftl">
-<@hst.setBundle basename="rb.generic.headers"/>
-<#-- @ftlvariable name="childPages" type="java.util.List<uk.nhs.digital.common.components.DocumentChildComponent>" -->
 
 <#macro furtherInformationSection childPages>
+    <@hst.setBundle basename="rb.generic.headers"/>
     <#-- BEGIN optional 'Further information section' -->
     <#if childPages?has_content>
     <div class="article-section article-section--child-pages" id="further-information">
