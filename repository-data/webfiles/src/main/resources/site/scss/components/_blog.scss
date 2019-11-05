@@ -20,8 +20,18 @@
         padding: 5px 5px 5px 0px;
         flex: none;
 
+        a {
+          &:hover {
+            box-shadow: 0 0 0 0;
+          }
+        }
+
         &__img {
             width:80px;
+
+            &:hover {
+              background-color: $yellow-link-hover;
+            }
         }
     }
 }
@@ -31,7 +41,7 @@
 }
 
 .lead-image-container {
-    width: 100%;
+    width: fit-content;
     margin-bottom: 30px;
 
     .lead-image-caption {
@@ -68,6 +78,16 @@
             object-fit: cover;
             display: inline;
             margin-top: 10px;
+
+            @include media($max-width: $wide-desktop-width, $ignore-for-ie: true) {
+              width: 170px;
+              height: 170px;
+            }
+
+            @include media($max-width: $min-tablet-width, $ignore-for-ie: true) {
+              width: 90px;
+              height: 90px;
+            }
         }
 
         &__nhsimg {
@@ -78,6 +98,10 @@
 
     &__content {
         width: 75%;
+    }
+
+    &__body {
+        margin-top: 16px;
     }
 
     &__title {
@@ -107,7 +131,7 @@
         width: 25%;
 
         &__img {
-            width: 90%;
+            width: 80%;
             object-fit: cover;
             display: inline;
         }
@@ -132,6 +156,7 @@
         font-size: 16px;
         margin-bottom: 0.5rem;
     }
+
 }
 
 

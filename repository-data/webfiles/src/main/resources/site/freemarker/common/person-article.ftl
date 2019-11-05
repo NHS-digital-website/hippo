@@ -169,14 +169,14 @@
                           </#if>
                       </#if>
 
+                      <#if document.relatedBlogs?has_content >
+                            <#assign links += [{ "url": "#related-articles-blogs-${idsuffix}", "title": 'Blogs' }] />
+                      </#if>
                       <#if document.relatedNews?has_content >
                             <#assign links += [{ "url": "#related-articles-news-${idsuffix}", "title": 'News articles' }] />
                       </#if>
                       <#if document.relatedEvents?has_content >
                             <#assign links += [{ "url": "#related-articles-events-${idsuffix}", "title": 'Forthcoming events' }] />
-                      </#if>
-                      <#if document.relatedBlogs?has_content >
-                            <#assign links += [{ "url": "#related-articles-blogs-${idsuffix}", "title": 'Blogs' }] />
                       </#if>
 
 
@@ -213,14 +213,14 @@
               <#if notSuppress>
                     <@award document.awards idsuffix personName></@award>
                     <@qualification document.qualifications idsuffix personName></@qualification>
-                    <#if document.roles?has_content>
+                    <#if document.roles?has_content && document.roles.contactdetails?has_content>
                       <@contactdetail document.roles.contactdetails idsuffix personMainNameAndPostnominals></@contactdetail>
                     </#if>
               </#if>
 
-              <@relatedarticles document.relatedNews 'Person' true 'news-' + idsuffix 'News articles'></@relatedarticles>
-              <@relatedarticles document.relatedEvents 'Person' true 'events-' + idsuffix 'Forthcoming events'></@relatedarticles>
-              <@latestblogs document.relatedBlogs 'blogs-' + idsuffix 'Blogs'></@latestblogs>
+              <@latestblogs document.relatedBlogs 'Person' 'blogs-' + idsuffix 'Blogs' />
+              <@latestblogs document.relatedNews 'Person' 'news-' + idsuffix 'News articles' />
+              <@latestblogs document.relatedEvents 'Person' 'events-' + idsuffix 'Forthcoming events' />
 
             </div>
         </div>

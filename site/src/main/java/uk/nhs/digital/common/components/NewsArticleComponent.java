@@ -21,6 +21,13 @@ public class NewsArticleComponent extends BaseGaContentComponent {
         if (creditbannerValueList != null) {
             request.setAttribute("creditbanner", SelectionUtil.valueListAsMap(creditbannerValueList));
         }
+
+        final ValueList newstypesValueList = SelectionUtil.getValueListByIdentifier("newstypes", RequestContextProvider.get());
+        if (newstypesValueList != null) {
+            request.setAttribute("newstypes", SelectionUtil.valueListAsMap(newstypesValueList));
+        }
+
+        request.setAttribute("currentUrl", request.getRequestURL().toString());
     }
 
 }

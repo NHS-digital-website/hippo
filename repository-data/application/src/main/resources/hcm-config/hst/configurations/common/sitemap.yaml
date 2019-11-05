@@ -33,6 +33,7 @@ definitions:
           - website:businessunit
           - website:orgstructure
           - website:group
+          - website:editorsnotes
           hst:componentconfigurationmappingvalues:
           - hst:pages/service
           - hst:pages/general
@@ -61,6 +62,7 @@ definitions:
           - hst:pages/businessunit
           - hst:pages/orgstructure
           - hst:pages/group
+          - hst:pages/editorsnotes
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404
@@ -92,6 +94,7 @@ definitions:
         - website:businessunit
         - website:orgstructure
         - website:group
+        - website:editorsnotes
         hst:componentconfigurationmappingvalues:
         - hst:pages/service
         - hst:pages/general
@@ -120,6 +123,7 @@ definitions:
         - hst:pages/businessunit
         - hst:pages/orgstructure
         - hst:pages/group
+        - hst:pages/editorsnotes
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:

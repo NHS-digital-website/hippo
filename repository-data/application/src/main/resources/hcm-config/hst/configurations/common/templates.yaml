@@ -59,6 +59,9 @@ definitions:
       /document-list:
         hst:renderpath: webfile:/freemarker/common/document-list.ftl
         jcr:primaryType: hst:template
+      /editorsnotes:
+        hst:renderpath: webfile:/freemarker/common/macro/editorsnotes.ftl
+        jcr:primaryType: hst:template
       /eforms-default:
         hst:renderpath: webfile:/freemarker/common/eforms/eforms-default.ftl
         jcr:primaryType: hst:template

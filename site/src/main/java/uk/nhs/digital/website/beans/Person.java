@@ -102,7 +102,7 @@ public class Person extends CommonFieldsBean {
     }
 
     public List<News> getRelatedNews() throws HstComponentException, QueryException {
-        return getRelatedDocuments("website:relateddocuments/@hippo:docbase", News.class);
+        return getRelatedDocuments("website:peoplementioned/@hippo:docbase", News.class);
     }
 
     public List<Event> getRelatedEvents() throws HstComponentException, QueryException {

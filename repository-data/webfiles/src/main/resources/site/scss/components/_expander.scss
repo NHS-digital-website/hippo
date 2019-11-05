@@ -48,6 +48,10 @@
                     display: none;
                 }
 
+                &::marker {
+                    display: none;
+                }
+
                 span {
                     background-repeat: no-repeat;
                     background-position: 0 center;
@@ -55,7 +59,6 @@
                     padding: 8px 8px 8px 38px;
                 }
             }
-
 
             &[open] {
                 summary {
@@ -93,13 +96,25 @@
                     background-color: #FFF1CC;
                 }
 
-                .no-details &::before {
-                    content: "►";
+                &::before {
+                    content: "► ";
+                }
+
+
+                &::-webkit-details-marker {
+                    display: none;
+                }
+
+                &::marker {
+                    display: none;
+                }
+                &:first-of-type {
+                  list-style-type: none;
                 }
             }
 
-            .no-details &[open] summary::before {
-                content: "▼";
+            &[open] summary::before {
+                content: "▼ ";
             }
 
             .details-body {

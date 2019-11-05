@@ -35,9 +35,12 @@
         "Location":                     "uk.nhs.digital.website.beans.Location",
         "API Endpoint":                 "uk.nhs.digital.website.beans.ApiEndpoint",
         "BlogHub":                      "uk.nhs.digital.website.beans.BlogHub",
+        "Blog":                         "uk.nhs.digital.website.beans.Blog",
         "JobRole":                      "uk.nhs.digital.website.beans.JobRole",
         "BusinessUnit":                 "uk.nhs.digital.website.beans.BusinessUnit",
-        "OrgStructure":                 "uk.nhs.digital.website.beans.OrgStructure"
+        "OrgStructure":                 "uk.nhs.digital.website.beans.OrgStructure",
+        "News":                         "uk.nhs.digital.website.beans.News",
+        "EditorsNotes":                 "uk.nhs.digital.website.beans.EditorsNotes"
     }/>
 
     <#list docTypes?keys as key>

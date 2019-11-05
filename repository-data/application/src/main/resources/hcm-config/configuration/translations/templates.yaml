@@ -214,6 +214,11 @@ definitions:
           jcr:name: Downloads
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:editorsnotes:
+        /en:
+          jcr:name: Editors notes
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:effectivedate:
         /en:
           jcr:name: Effective date
@@ -222,6 +227,11 @@ definitions:
       /website:emphasisBox:
         /en:
           jcr:name: Emphasis Box
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:expander:
+        /en:
+          jcr:name: Expander
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:externallink:
@@ -309,6 +319,11 @@ definitions:
           jcr:name: Lawful basis
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:leadimagesection:
+        /en:
+          jcr:name: Lead image section
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:localtaxi:
         /en:
           jcr:name: Local Taxi
@@ -317,6 +332,21 @@ definitions:
       /website:location:
         /en:
           jcr:name: Location
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:mediacontact:
+        /en:
+          jcr:name: Media contact
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:news:
+        /en:
+          jcr:name: News
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:notesforeditors:
+        /en:
+          jcr:name: Notes for editors
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:onsitecarparking:
@@ -472,6 +502,11 @@ definitions:
       /website:socialmedia:
         /en:
           jcr:name: Social media
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:socialmediaimages:
+        /en:
+          jcr:name: Social media images
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:statuserrorcode:

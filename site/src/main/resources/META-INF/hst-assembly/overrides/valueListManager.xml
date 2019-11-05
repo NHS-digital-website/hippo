@@ -16,6 +16,7 @@
                 <entry key="parametertypeList" value="/content/documents/administration/website/parameter-type"/>
                 <entry key="imagedistributiontagging" value="/content/documents/administration/website/imagedistributiontagging"/>
                 <entry key="imagesourcepermission" value="/content/documents/administration/website/imagesourcepermission"/>
+                <entry key="newstypes" value="/content/documents/administration/website/news-type"/>
             </map>
         </constructor-arg>
     </bean>

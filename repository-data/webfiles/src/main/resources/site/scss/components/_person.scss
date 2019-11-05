@@ -16,14 +16,11 @@
   &-box {
      padding-left: 20px;
      margin: 20px 0;
-     border: 0 solid #eee;
-     border-left-width: 7px;
-     border-left-color: #aab2b7;
-
+     border-left: 3px solid #cbcbcb;
   }
 
   &-item {
-    margin-top: 10px; 
+    margin-top: 0;
 
     &-bold {
         @extend .contactdetail-item;
