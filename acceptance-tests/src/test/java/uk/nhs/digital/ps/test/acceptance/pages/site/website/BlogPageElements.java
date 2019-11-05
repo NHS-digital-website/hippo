@@ -24,7 +24,7 @@ public class BlogPageElements implements PageElements {
             put(DATE_OF_PUBLICATION,
                 By.xpath("//*[" + getDataUiPathXpath("dateofpublication") + "]"));
             put(TAXONOMY_TAGS,
-                By.xpath("//*[" + getDataUiPathXpath("taxonomytags") + "]"));
+                By.xpath("//*[" + getDataUiPathXpath("topics") + "]"));
             put(CATEGORIES,
                 By.xpath("//*[" + getDataUiPathXpath("categories") + "]"));
             put(LEAD_IMAGE_CAPTION,

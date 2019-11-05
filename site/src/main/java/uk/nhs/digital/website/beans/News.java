@@ -1,17 +1,58 @@
 package uk.nhs.digital.website.beans;
 
-import org.hippoecm.hst.content.beans.*;
-import org.hippoecm.hst.content.beans.standard.*;
-import org.onehippo.cms7.essentials.dashboard.annotations.*;
+import static org.apache.commons.collections.IteratorUtils.toList;
+import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
 
-import java.util.*;
+import org.hippoecm.hst.content.beans.Node;
+import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
+import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
+import org.hippoecm.hst.content.beans.standard.*;
+import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+
+import java.util.Calendar;
+import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "website:news")
 @Node(jcrType = "website:news")
-public class News extends BaseDocument {
+public class News extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:creditbanner")
     public String getCreditBanner() {
         return getProperty("website:creditbanner");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:leadimagesection")
+    public LeadImageSection getLeadimagesection() {
+        return getBean("website:leadimagesection", LeadImageSection.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:sections")
+    public List<HippoBean> getSections() {
+        return getChildBeansByName("website:sections");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:socialmediaimages")
+    public SocialMediaImages getSocialmediaimages() {
+        return getBean("website:socialmediaimages", SocialMediaImages.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:notesforeditors")
+    public NotesForEditors getNotesforeditors() {
+        return getBean("website:notesforeditors", NotesForEditors.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:peoplementioned")
+    public List<HippoBean> getPeoplementioned() {
+        return getLinkedBeans("website:peoplementioned", HippoBean.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:backstory")
+    public HippoHtml getBackstory() {
+        return getHippoHtml("website:backstory");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:mediacontact")
+    public ContactDetail getMediacontact() {
+        return getBean("website:mediacontact", ContactDetail.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:publisheddatetime")
@@ -19,14 +60,9 @@ public class News extends BaseDocument {
         return getProperty("website:publisheddatetime");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:seosummary")
-    public HippoHtml getSeosummary() {
-        return getHippoHtml("website:seosummary");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:shortsummary")
-    public String getShortsummary() {
-        return getProperty("website:shortsummary");
+    @HippoEssentialsGenerated(internalName = "website:twitterhashtag")
+    public String[] getTwitterHashtag() {
+        return getProperty("website:twitterhashtag");
     }
 
     @HippoEssentialsGenerated(internalName = "website:theme")
@@ -34,19 +70,9 @@ public class News extends BaseDocument {
         return getProperty("website:theme");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:title")
-    public String getTitle() {
-        return getProperty("website:title");
-    }
-
     @HippoEssentialsGenerated(internalName = "website:type")
     public String getType() {
         return getProperty("website:type");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:body")
-    public HippoHtml getBody() {
-        return getHippoHtml("website:body");
     }
 
     @HippoEssentialsGenerated(internalName = "website:relateddocuments")
@@ -54,8 +80,35 @@ public class News extends BaseDocument {
         return getLinkedBeans("website:relateddocuments", HippoBean.class);
     }
 
+    @HippoEssentialsGenerated(internalName = "website:relatedsubjects")
+    public List<HippoBean> getRelatedsubjects() {
+        return getLinkedBeans("website:relatedsubjects", HippoBean.class);
+    }
+
     @HippoEssentialsGenerated(internalName = "website:display")
     public Boolean getDisplay() {
         return getProperty("website:display");
+    }
+
+    @HippoEssentialsGenerated(internalName = "common:SearchableTags")
+    public String[] getTopics() {
+        return getProperty("common:SearchableTags");
+    }
+
+    public List<News> getLatestNews() throws QueryException {
+
+        HippoBean folder = getCanonicalBean().getParentBean();
+
+        HippoBeanIterator hippoBeans = HstQueryBuilder.create(folder)
+            .ofTypes(News.class)
+            .where(constraint("jcr:uuid").notEqualTo(this.getIdentifier()))
+            .orderByDescending("website:publisheddatetime")
+            .limit(5)
+            .build()
+            .execute()
+            .getHippoBeans();
+
+        return toList(hippoBeans);
+
     }
 }

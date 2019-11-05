@@ -2,16 +2,24 @@
 
 <#-- @ftlvariable name="section" type="uk.nhs.digital.website.beans.Expander" -->
 
-<#macro expander section>
-    <div class="article-section-with-no-heading expander ${(section.audience == "Most people")?then("expander-most", "expander-some")}">
+<#macro expander section heading="" content="">
+    <div class="article-section-with-no-heading expander ${(section != "" && section.audience?? && section.audience == "Most people")?then("expander-most", "expander-some")}">
         <details>
             <summary>
                 <span>
-                    ${section.heading}
+                    <#if heading?has_content>
+                      ${heading}
+                    <#else>
+                      ${section.heading}
+                    </#if>
                 </span>
             </summary>
             <div class="details-body">
-                <@hst.html hippohtml=section.content />
+                <#if content?has_content>
+                  <@hst.html hippohtml=content />
+                <#else>
+                  <@hst.html hippohtml=section.content />
+                </#if>
             </div>
         </details>
     </div>

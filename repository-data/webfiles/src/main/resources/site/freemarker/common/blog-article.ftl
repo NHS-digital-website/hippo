@@ -16,7 +16,7 @@
 <#assign hasAuthorManualEntry = document.authorRole?? || (document.authorDescription?? && document.authorDescription?has_content) ||
                                 document.authorName?? || document.authorJobTitle?? || document.authorOrganisation?? />
 <#assign hasBlogCategories = document.blogCategories?? && document.blogCategories?has_content />
-<#assign hasTaxonomyTags = document.taxonomyTags?? && document.taxonomyTags?has_content />
+<#assign hasTopics = document.topics?? && document.topics?has_content />
 
 <#assign hasLeadImage = document.leadImage?has_content />
 <#assign hasLeadImageAltText = document.leadImageAltText?has_content />
@@ -88,13 +88,13 @@
                                     </div>
                                 </div>
 
-                                <#if hasTaxonomyTags>
+                                <#if hasTopics>
                                     <div class="grid-row">
                                         <div class="column column--reset">
                                             <dl class="detail-list">
                                                 <dt class="detail-list__key">Topic:</dt>
-                                                <dd class="detail-list__value" itemprop="keywords" data-uipath="website.blog.taxonomytags">
-                                                    <#list document.taxonomyTags as tag>${tag}<#sep>, </#list>
+                                                <dd class="detail-list__value" itemprop="keywords" data-uipath="website.blog.topics">
+                                                    <#list document.topics as tag>${tag}<#sep>, </#list>
                                                 </dd>
                                             </dl>
                                         </div>
@@ -251,7 +251,8 @@
 
                                 <div class="blog-authors__content">
                                     <div class="blog-authors__title">
-                                        <a class="cta__title cta__button" href="<@hst.link hippobean=author/>">${author.title}</a>
+                                        <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, author.title) />
+                                        <a class="cta__title cta__button" href="<@hst.link hippobean=author/>"  onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${author.title}</a>
                                     </div>
                                     <div class="blog-authors__body">
                                         <#if author.biographies?? && author.biographies?has_content && author.biographies.profbiography.content?has_content>

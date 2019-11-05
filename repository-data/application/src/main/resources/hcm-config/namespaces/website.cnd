@@ -91,6 +91,9 @@
 [website:quote] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:editorsnotes] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:effectivedate] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -160,7 +163,16 @@
 [website:news] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:mediacontact] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:notesforeditors] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:lawfulbasis] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:leadimagesection] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:othersocialmedia] > hippo:compound, hippostd:relaxed
@@ -260,6 +272,9 @@
   orderable
 
 [website:socialmedia] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:socialmediaimages] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:standards] > hippo:compound, hippostd:relaxed

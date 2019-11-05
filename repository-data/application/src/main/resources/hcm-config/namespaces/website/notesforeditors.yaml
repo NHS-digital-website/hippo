@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/website/contactdetail:
+    /hippo:namespaces/website/notesforeditors:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -33,66 +33,48 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
             wicket.id: ${cluster.id}.right
-          /name:
+          /preparednotes:
             /cluster.options:
+              base.path: /content/documents
               jcr:primaryType: frontend:pluginconfig
-            caption: Name
-            field: name
-            hint: Name
+              last.visited.enabled: true
+              nodetypes:
+              - website:editorsnotes
+            caption: Prepared notes
+            field: preparednotes
+            hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
-          /emailaddress:
+          /customnotes:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Email address
-            field: emailaddress
-            hint: The email address of the person for publishing. This may be a mailbox
-              address if the person does not want contacting on their individual email
+            caption: Custom notes
+            field: customnotes
+            hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-          /phonenumber:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Telephone number
-            field: phonenumber
-            hint: The telephone number of the person for publishing. This may be a
-              helpdesk, office or switchboard number if the person does not want contaced
-              directly
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /emailaddress:
+          /customnotes:
             hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:emailaddress
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:customnotes
             hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators:
-            - email
+            hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
-          /name:
+          /preparednotes:
             hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:name
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:preparednotes
             hipposysedit:primary: false
-            hipposysedit:type: String
-            jcr:primaryType: hipposysedit:field
-          /phonenumber:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:phonenumber
-            hipposysedit:primary: false
-            hipposysedit:type: String
+            hipposysedit:type: hippo:mirror
             hipposysedit:validators:
-            - phonenumber
+            - optional
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
@@ -100,17 +82,15 @@ definitions:
           - hippostd:relaxed
           hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
           jcr:mixinTypes:
-          - mix:referenceable
           - hipposysedit:remodel
+          - mix:referenceable
           jcr:primaryType: hipposysedit:nodetype
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          jcr:primaryType: website:contactdetail
-          website:emailaddress: ''
-          website:phonenumber: ''
+          jcr:primaryType: website:notesforeditors
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable

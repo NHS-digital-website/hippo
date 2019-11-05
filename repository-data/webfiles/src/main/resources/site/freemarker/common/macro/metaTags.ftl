@@ -7,6 +7,7 @@
 <#assign siteSEOSummary = "We’re the national information and technology partner to the health and social care system using digital technology to transform the NHS and social care" />
 <#assign pageSEOSummary = siteSEOSummary />
 <#assign defaultMetaImage><@hst.webfile path="images/nhs-digital-logo-social.jpg" fullyQualified=true/></#assign>
+<#assign defaultTwitterImage = defaultMetaImage />
 
 <#if document?? && document.title??>
     <#assign pageTitle = document.title + ' - ' + siteTitle />
@@ -25,9 +26,30 @@
 </#if>
 
 <#-- lead image to replace default (field name must be leadImage - see blog and general types -->
-<#if document?? && document.leadImage?? && document.leadImage?has_content>
+<#if document?? && document.socialmediaimages?? && document.socialmediaimages?has_content && 
+    (document.socialmediaimages.socialmediaimage?has_content || document.socialmediaimages.twitterimage?has_content)>
+    <#if ! document.socialmediaimages.socialmediaimage?has_content>
+      <@hst.link hippobean=document.socialmediaimages.twitterimage.original fullyQualified=true var="image" />
+      <#assign defaultMetaImage = image />
+      <#assign defaultTwitterImage = image />
+    <#elseif ! document.socialmediaimages.twitterimage?has_content>
+      <@hst.link hippobean=document.socialmediaimages.socialmediaimage.original fullyQualified=true var="image" />
+      <#assign defaultMetaImage = image />
+      <#assign defaultTwitterImage = image />
+    <#else>
+      <@hst.link hippobean=document.socialmediaimages.socialmediaimage.original fullyQualified=true var="socialimage" />
+      <@hst.link hippobean=document.socialmediaimages.twitterimage.original fullyQualified=true var="twitterimage" />
+      <#assign defaultMetaImage = socialimage />
+      <#assign defaultTwitterImage = twitterimage />
+    </#if>
+<#elseif document?? && document.leadimagesection?? && document.leadimagesection.leadImage?? && document.leadimagesection.leadImage?has_content>
+    <@hst.link hippobean=document.leadimagesection.leadImage.original fullyQualified=true var="leadImage" />
+    <#assign defaultMetaImage = leadImage />
+    <#assign defaultTwitterImage = defaultMetaImage />
+<#elseif document?? && document.leadImage?? && document.leadImage?has_content>
     <@hst.link hippobean=document.leadImage.original fullyQualified=true var="leadImage" />
     <#assign defaultMetaImage = leadImage />
+    <#assign defaultTwitterImage = defaultMetaImage />
 </#if>
 
 <#-- Generic meta tags -->
@@ -63,7 +85,7 @@
     <meta property="og:description" name="twitter:description" content="${pageSEOSummary}" />
 </@hst.headContribution>
 <@hst.headContribution keyHint="twitterMetaImage" category="twitterMeta">
-    <meta property="og:image" name="twitter:image" content="${defaultMetaImage}" />
+    <meta property="og:image" name="twitter:image" content="${defaultTwitterImage}" />
 </@hst.headContribution>
 
 </#macro>

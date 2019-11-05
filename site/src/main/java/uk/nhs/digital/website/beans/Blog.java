@@ -103,7 +103,7 @@ public class Blog extends CommonFieldsBean {
     }
 
     @HippoEssentialsGenerated(internalName = "common:SearchableTags")
-    public String[] getTaxonomyTags() {
+    public String[] getTopics() {
         return getProperty("common:SearchableTags");
     }
 

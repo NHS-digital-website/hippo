@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/editorsnotes:
+      /main:
+        hst:componentclassname: uk.nhs.digital.common.components.BaseGaContentComponent
+        hst:template: editorsnotes
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/apppage
+      jcr:primaryType: hst:component
