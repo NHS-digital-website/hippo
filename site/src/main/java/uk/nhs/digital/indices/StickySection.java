@@ -22,7 +22,10 @@ public interface StickySection {
      * @return true if the StickySection is intended as a main heading.
      */
     default boolean isMainHeading() {
-        return this.getHeadingLevel().equalsIgnoreCase("Main heading") && this.getHeading() != null && !this.getHeading().isEmpty();
+        return this.getHeadingLevel() == null 
+            || this.getHeadingLevel().equalsIgnoreCase("Main heading") 
+               && this.getHeading() != null 
+               && !this.getHeading().isEmpty();
     }
 
 }
