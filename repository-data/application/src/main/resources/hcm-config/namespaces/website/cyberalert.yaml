@@ -161,14 +161,16 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /indicatorscompromise:
+          /indicatorscompromisenew:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Indicators of compromise
-            field: indicatorscompromise
-            hint: A set of values that would indicate your system has been compromised
+            compoundList: website:expander
+            contentPickerType: links
+            field: indicatorscompromisenew
+            hint: How many users of this page are likely to read this information
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
           /ncsclink:
             /cluster.options:
@@ -263,13 +265,13 @@ definitions:
             hipposysedit:validators:
             - contentblocks-validator
             jcr:primaryType: hipposysedit:field
-          /indicatorscompromise:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:indicatorscompromise
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
+          /indicatorscompromisenew:
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:indicatorscompromisenew
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /ncsclink:
             hipposysedit:mandatory: false
@@ -447,9 +449,6 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          /website:indicatorscompromise:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
           /website:remediationintro:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
