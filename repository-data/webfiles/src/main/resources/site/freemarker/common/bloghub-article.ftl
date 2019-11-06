@@ -120,7 +120,11 @@
                             </div>
                         </#list>
 
-                        <@showAll document.latestBlogs?has_content?then(document.latestBlogs?size, 0) itemsMaxCount "bloghub__showall"/>
+                        <#assign noissnClass = "" />
+                        <#if ! document.issn?has_content>
+                          <#assign noissnClass = "bloghub__showall-no-issn" />
+                        </#if>
+                        <@showAll document.latestBlogs?has_content?then(document.latestBlogs?size, 0) itemsMaxCount "bloghub__showall ${noissnClass}"/>
                         </div>
                 </#if>
         </div>
