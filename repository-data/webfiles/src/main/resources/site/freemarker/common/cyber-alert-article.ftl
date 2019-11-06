@@ -40,7 +40,7 @@
 <#assign hasThreatUpdates = document.threatUpdates?? && document.threatUpdates?has_content />
 <#assign hasRemediationIntro = document.remediationIntro?? && document.remediationIntro.content?has_content />
 <#assign hasRemediationSteps = document.remediationSteps?? && document.remediationSteps?has_content />
-<#assign hasIndicatorsOfCompromise = document.indicatorsCompromise?? && document.indicatorsCompromise.content?has_content />
+<#assign hasIndicatorsOfCompromise = document.indicatorsCompromise?? && document.indicatorsCompromise?has_content />
 <#assign hasNcscLink = document.ncscLink?? && document.ncscLink?has_content />
 <#assign hasSourceOfUpdate = document.sourceOfThreatUpdates?? && document.sourceOfThreatUpdates?has_content />
 <#assign hasServices = document.services?? && document.services?has_content />
@@ -286,7 +286,8 @@
                 <#if hasIndicatorsOfCompromise>
                     <div id="${slugify(indicatorsOfCompromiseHeader)}" class="article-section">
                         <h2>${indicatorsOfCompromiseHeader}</h2>
-                        <@hst.html hippohtml=document.indicatorsCompromise contentRewriter=gaContentRewriter/>
+
+                        <@sections document.indicatorsCompromise></@sections>
                     </div>
                 </#if>
 

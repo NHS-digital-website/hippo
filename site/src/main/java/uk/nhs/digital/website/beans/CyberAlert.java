@@ -106,13 +106,14 @@ public class CyberAlert extends CommonFieldsBean {
         return null;
     }
 
-    @HippoEssentialsGenerated(internalName = "website:indicatorscompromise", allowModifications = false)
-    public HippoHtml getIndicatorsCompromise() {
+    @HippoEssentialsGenerated(internalName = "website:indicatorscompromisenew", allowModifications = false)
+    public List<HippoBean> getIndicatorsCompromise() {
         if (getPublicallyAccessible()) {
-            return getHippoHtml("website:indicatorscompromise");
+            return getChildBeansByName("website:indicatorscompromisenew");
         }
         return null;
     }
+
 
     @HippoEssentialsGenerated(internalName = "website:ncsclink", allowModifications = false)
     public String getNcscLink() {
