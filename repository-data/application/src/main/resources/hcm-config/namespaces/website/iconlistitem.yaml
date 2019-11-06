@@ -110,6 +110,7 @@ definitions:
             hipposysedit:type: hippo:compound
             hipposysedit:validators:
             - contentblocks-validator
+            - optional
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
