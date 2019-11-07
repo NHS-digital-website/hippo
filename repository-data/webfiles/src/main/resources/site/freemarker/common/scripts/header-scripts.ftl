@@ -1,15 +1,15 @@
 <#ftl output_format="HTML">
 
-<#-- Add CSS class to mark JS enabled -->
-<#include "js-enabled.js.ftl"/>
-
-<#include "vanilla-js-utils.js.ftl"/>
+<#-- GA Tracking code -->
+<#include "google-analytics.js.ftl"/>
 
 <#-- Cookiebot loading -->
 <#include "cookiebot-load.js.ftl"/>
 
-<#-- GA Tracking code -->
-<#include "google-analytics.js.ftl"/>
+<#-- Add CSS class to mark JS enabled -->
+<#include "js-enabled.js.ftl"/>
+
+<#include "vanilla-js-utils.js.ftl"/>
 
 <#-- Hotjar tracking -->
 <#include "hotjar.js.ftl"/>

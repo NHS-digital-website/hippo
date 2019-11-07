@@ -8,27 +8,29 @@
         }
 
         if (cookieConsent.includes("statistics:false")) {
-            setVisitorTracking('disallowed');
             clearTrackingInfo();
         }
     }
 
     function setVisitorTracking(status) {
-
         // function may be called directly
-        if (status == 'allowed' && cookieConsent.includes("statistics:false")) {
-            alert('Only necessary cookies have been allowed. To enable tracking, all cookies must be allowed in Cookie consent');
-            return;
-        }
 
-        var CookieDate = new Date;
-        CookieDate.setFullYear(CookieDate.getFullYear() +2);
-        document.cookie = 'visitortracking=' + status + '; expires=' + CookieDate.toUTCString() + '; path=/';
+        var cookieConsent = getCookie("CookieConsent");
+        if (cookieConsent.includes("statistics:false")) {
+            if (status == 'allowed') {
+                alert('Only necessary cookies have been allowed. To enable tracking, all cookies must be allowed in Cookie consent');
+            }
+            return;
+        } else {
+          var CookieDate = new Date;
+          CookieDate.setFullYear(CookieDate.getFullYear() +2);
+          document.cookie = 'visitortracking=' + status + '; expires=' + CookieDate.toUTCString() + '; path=/';
+        }
 
         if (status == 'disallowed')
         {
             clearTrackingInfo();
-        }
+        } 
 
         getVisitorTrackingStatus();
     }
