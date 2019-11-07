@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 
-<script>
+<script type="text/plain" data-cookieconsent="statistics">
     var cookieConsent = getCookie("CookieConsent");
     if (cookieConsent != "") {
         if (cookieConsent.includes("statistics:true") && getCookie("visitortracking") == '') {
