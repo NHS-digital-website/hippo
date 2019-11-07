@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 
-<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8a16fbff-6ab2-4087-ae02-65267c376ba1" async></script>
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8a16fbff-6ab2-4087-ae02-65267c376ba1" data-blockingmode="auto"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     
