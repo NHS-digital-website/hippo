@@ -1,10 +1,10 @@
 <#ftl output_format="HTML">
 
-<#-- GA Tracking code -->
-<#include "google-analytics.js.ftl"/>
-
 <#-- Cookiebot loading -->
 <#include "cookiebot-load.js.ftl"/>
+
+<#-- GA Tracking code -->
+<#include "google-analytics.js.ftl"/>
 
 <#-- Add CSS class to mark JS enabled -->
 <#include "js-enabled.js.ftl"/>
