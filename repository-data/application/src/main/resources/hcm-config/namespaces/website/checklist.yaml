@@ -107,12 +107,13 @@ definitions:
           /listentries:
             hipposysedit:mandatory: true
             hipposysedit:multiple: true
-            hipposysedit:ordered: false
+            hipposysedit:ordered: true
             hipposysedit:path: website:listentries
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             hipposysedit:validators:
             - required
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
