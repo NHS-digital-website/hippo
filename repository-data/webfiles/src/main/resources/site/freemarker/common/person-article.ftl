@@ -80,7 +80,7 @@
                                 <dl class="detail-list">
                                     <dt class="detail-list__key" id="linkedin-${slugify(idsuffix)}">Linkedin: </dt>
                                     <dd class="detail-list__value" data-uipath="person.socialmedia.linkedinlink">
-                                      <a href="${document.socialmedias.linkedinlink}" onClick="logGoogleAnalyticsEvent('Link click','Person','${document.socialmedias.linkedinlink}');" onKeyUp="return vjsu.onKeyUp(event)"  title="${document.socialmedias.linkedinlink}">${document.socialmedias.linkedinlink}</a>
+                                      <a itemprop="sameAs" href="${document.socialmedias.linkedinlink}" onClick="logGoogleAnalyticsEvent('Link click','Person','${document.socialmedias.linkedinlink}');" onKeyUp="return vjsu.onKeyUp(event)"  title="${document.socialmedias.linkedinlink}">LinkedIn profile</a>
                                     </dd>
                                 </dl>
                             </div>
@@ -100,11 +100,25 @@
                                       </#if>
                                       <#assign twitterlink = "https://twitter.com/" + twitteruser />
 
-                                      <a href="${twitterlink}" onClick="logGoogleAnalyticsEvent('Link click','Person','${twitterlink}');" onKeyUp="return vjsu.onKeyUp(event)"  title="${document.socialmedias.twitteruser}">${document.socialmedias.twitteruser}</a>
+                                      <a itemprop="sameAs" href="${twitterlink}" onClick="logGoogleAnalyticsEvent('Link click','Person','${twitterlink}');" onKeyUp="return vjsu.onKeyUp(event)"  title="${document.socialmedias.twitteruser}">@${document.socialmedias.twitteruser}</a>
                                     </dd>
                                 </dl>
                             </div>
                         </div>
+                      </#if>
+                      <#if document.socialmedias.othersocialmedias?has_content>
+                        <#list document.socialmedias.othersocialmedias as medium>
+                          <div class="grid-row">
+                              <div class="column column--reset">
+                                  <dl class="detail-list">
+                                    <dt class="detail-list__key" >${medium.title}: </dt>
+                                    <dd class="detail-list__value" data-uipath="person.socialmedia.${slugify(medium.title)}">
+                                        <a itemprop="sameAs" href="${medium.link}" onClick="logGoogleAnalyticsEvent('Link click','Person','${medium.link}');" onKeyUp="return vjsu.onKeyUp(event)"  title="${medium.title}">${medium.link}</a>
+                                      </dd>
+                                  </dl>
+                              </div>
+                          </div>
+                        </#list>
                       </#if>
 
                     </div>
