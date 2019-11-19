@@ -15,7 +15,7 @@
                         <#if link["aria-label"]??>
                             <#assign label = link["aria-label"] />
                         </#if>
-                        <#if link.isNumberedList>
+                        <#if link.isNumberedList?? && link.isNumberedList>
                             <#assign numberedListCount++ />
                             <#assign numberedLinkTitle = numberedListCount + ". " + link.title>
                             <li class="section-numbered">
@@ -57,7 +57,11 @@
             <#if options.document.sections?has_content>
                 <#list options.document.sections as section>
                     <#if isStickySectionMainHeading(section)>
-                        <#assign links += [{ "url": "#" + slugify(section.heading), "title": section.heading, "isNumberedList": section.isNumberedList}] />
+                        <#if section.isNumberedList??>
+                          <#assign links += [{ "url": "#" + slugify(section.heading), "title": section.heading, "isNumberedList": section.isNumberedList}] />
+                        <#else>
+                          <#assign links += [{ "url": "#" + slugify(section.heading), "title": section.heading, "isNumberedList": false}] />
+                        </#if>
                     </#if>
                 </#list>
             </#if>
