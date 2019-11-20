@@ -1,0 +1,164 @@
+---
+/content/documents/corporate-website/publication-system/ci-hub/ccg-outcomes:
+  /ccg-outcomes[1]:
+    /publicationsystem:cilandingasset:
+      /publicationsystem:content:
+        hippostd:content: |-
+          <p>The Clinical Commissioning Group Outcomes Indicator Set (CCG OIS) is an integral part of NHS England’s systematic approach to quality improvement. Its primary aim is to support and enable CCGs and health and wellbeing partners to plan for health improvement by providing information for measuring and benchmarking outcomes of services commissioned by CCGs. It is also intended to provide clear, comparative information for patients and the public about the quality of health services commissioned by CCGs and the associated health outcomes.</p>
+
+          <p>&nbsp;</p>
+
+          <p>The CCG Outcomes Indicator Set uses the registered patient population of England as its subject population, and where standardisation is required, the Office for National Statistics mid-year population estimates for England. All indicators are reported at CCG and National level, where 'National' represents the sum total of patients registered with a GP in England.</p>
+
+          <p>The NHS Outcomes Framework uses the ONS mid-year population estimates for England as its subject population, and where standardisation is required the European Standard Population is generally used. All indicators are reported at England level, and are broken down, where possible, by a combination of Age, Lower tier local authority, Upper tier local authority, Region, Religion, Ethnicity, Deprivation decile, Sexual orientation, Gender and Condition.&nbsp;</p>
+
+          <p>The indicators are structured around the five NHS Outcomes Framework domains.</p>
+
+          <ul>
+           <li><strong>Domain 1, Preventing people from dying prematurely</strong>&nbsp;<br />
+           This domain captures how successful the NHS is in reducing the number of avoidable deaths.</li>
+           <li><strong>Domain 2, Enhancing quality of life for people with long-term conditions</strong>&nbsp;<br />
+           This domain captures how successfully the NHS is supporting people with long-term conditions to live as normal a life as possible.</li>
+           <li><strong>Domain 3, Helping people to recover from episodes of ill health or following injury</strong>&nbsp;<br />
+           This domain captures how people recover from ill health or injury and wherever possible how it can be prevented.</li>
+           <li><strong>Domain 4, Ensuring that people have a positive experience of care</strong>&nbsp;<br />
+           This domain looks at the importance of providing a positive experience of care for patients, service users and carers.</li>
+           <li><strong>Domain 5, Treating and caring for people in a safe environment and protecting them from avoidable harm</strong>&nbsp;<br />
+           This domain explores patient safety and its importance in terms of quality of care to deliver better health outcomes.</li>
+          </ul>
+
+          <p><strong>Further information</strong>&nbsp;</p>
+
+          <p>CCG Outcomes Indicator Set on the NHS England website:</p>
+        jcr:primaryType: hippostd:html
+      jcr:primaryType: publicationsystem:cilandingasset
+      publicationsystem:title: ''
+    common:searchable: true
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-01-23T14:54:36.279Z
+    hippostdpubwf:lastModificationDate: 2019-09-17T15:05:13.718Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: be1317d6-5605-40f4-a2f3-1195643d6549
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:cilanding
+    jcr:uuid: e932a402-fef1-49f5-a8ec-7ce45c4d0472
+    publicationsystem:actionLinkName: Browse CCG Outcomes
+    publicationsystem:actionLinkRelPath: search/category/clinical-commissioning-groups-outcomes-framework/category/team/category/clinical-indicators?sort=relevance&area=data
+    publicationsystem:title: CCG Outcomes - Indicator Set
+    publicationsystem:urlNameOfContentFolder: ccg-outcomes-indicator-set
+  /ccg-outcomes[2]:
+    /publicationsystem:cilandingasset:
+      /publicationsystem:content:
+        hippostd:content: |-
+          <p>The Clinical Commissioning Group Outcomes Indicator Set (CCG OIS) is an integral part of NHS England’s systematic approach to quality improvement. Its primary aim is to support and enable CCGs and health and wellbeing partners to plan for health improvement by providing information for measuring and benchmarking outcomes of services commissioned by CCGs. It is also intended to provide clear, comparative information for patients and the public about the quality of health services commissioned by CCGs and the associated health outcomes.</p>
+
+          <p>&nbsp;</p>
+
+          <p>The CCG Outcomes Indicator Set uses the registered patient population of England as its subject population, and where standardisation is required, the Office for National Statistics mid-year population estimates for England. All indicators are reported at CCG and National level, where 'National' represents the sum total of patients registered with a GP in England.</p>
+
+          <p>The NHS Outcomes Framework uses the ONS mid-year population estimates for England as its subject population, and where standardisation is required the European Standard Population is generally used. All indicators are reported at England level, and are broken down, where possible, by a combination of Age, Lower tier local authority, Upper tier local authority, Region, Religion, Ethnicity, Deprivation decile, Sexual orientation, Gender and Condition.&nbsp;</p>
+
+          <p>The indicators are structured around the five NHS Outcomes Framework domains.</p>
+
+          <ul>
+           <li><strong>Domain 1, Preventing people from dying prematurely</strong>&nbsp;<br />
+           This domain captures how successful the NHS is in reducing the number of avoidable deaths.</li>
+           <li><strong>Domain 2, Enhancing quality of life for people with long-term conditions</strong>&nbsp;<br />
+           This domain captures how successfully the NHS is supporting people with long-term conditions to live as normal a life as possible.</li>
+           <li><strong>Domain 3, Helping people to recover from episodes of ill health or following injury</strong>&nbsp;<br />
+           This domain captures how people recover from ill health or injury and wherever possible how it can be prevented.</li>
+           <li><strong>Domain 4, Ensuring that people have a positive experience of care</strong>&nbsp;<br />
+           This domain looks at the importance of providing a positive experience of care for patients, service users and carers.</li>
+           <li><strong>Domain 5, Treating and caring for people in a safe environment and protecting them from avoidable harm</strong>&nbsp;<br />
+           This domain explores patient safety and its importance in terms of quality of care to deliver better health outcomes.</li>
+          </ul>
+
+          <p><strong>Further information</strong>&nbsp;</p>
+
+          <p>CCG Outcomes Indicator Set on the NHS England website:</p>
+        jcr:primaryType: hippostd:html
+      jcr:primaryType: publicationsystem:cilandingasset
+      publicationsystem:title: ''
+    common:searchable: true
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-01-23T14:54:36.279Z
+    hippostdpubwf:lastModificationDate: 2019-09-17T15:05:27.241Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: be1317d6-5605-40f4-a2f3-1195643d6549
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: publicationsystem:cilanding
+    jcr:uuid: 76bc9318-9b62-46f8-bae6-fa3266edbfb6
+    publicationsystem:actionLinkName: Browse CCG Outcomes
+    publicationsystem:actionLinkRelPath: search/category/clinical-commissioning-groups-outcomes-framework/category/team/category/clinical-indicators?sort=relevance&area=data
+    publicationsystem:title: CCG Outcomes - Indicator Set
+    publicationsystem:urlNameOfContentFolder: ccg-outcomes-indicator-set
+  /ccg-outcomes[3]:
+    /publicationsystem:cilandingasset:
+      /publicationsystem:content:
+        hippostd:content: |-
+          <p>The Clinical Commissioning Group Outcomes Indicator Set (CCG OIS) is an integral part of NHS England’s systematic approach to quality improvement. Its primary aim is to support and enable CCGs and health and wellbeing partners to plan for health improvement by providing information for measuring and benchmarking outcomes of services commissioned by CCGs. It is also intended to provide clear, comparative information for patients and the public about the quality of health services commissioned by CCGs and the associated health outcomes.</p>
+
+          <p>&nbsp;</p>
+
+          <p>The CCG Outcomes Indicator Set uses the registered patient population of England as its subject population, and where standardisation is required, the Office for National Statistics mid-year population estimates for England. All indicators are reported at CCG and National level, where 'National' represents the sum total of patients registered with a GP in England.</p>
+
+          <p>The NHS Outcomes Framework uses the ONS mid-year population estimates for England as its subject population, and where standardisation is required the European Standard Population is generally used. All indicators are reported at England level, and are broken down, where possible, by a combination of Age, Lower tier local authority, Upper tier local authority, Region, Religion, Ethnicity, Deprivation decile, Sexual orientation, Gender and Condition.&nbsp;</p>
+
+          <p>The indicators are structured around the five NHS Outcomes Framework domains.</p>
+
+          <ul>
+           <li><strong>Domain 1, Preventing people from dying prematurely</strong>&nbsp;<br />
+           This domain captures how successful the NHS is in reducing the number of avoidable deaths.</li>
+           <li><strong>Domain 2, Enhancing quality of life for people with long-term conditions</strong>&nbsp;<br />
+           This domain captures how successfully the NHS is supporting people with long-term conditions to live as normal a life as possible.</li>
+           <li><strong>Domain 3, Helping people to recover from episodes of ill health or following injury</strong>&nbsp;<br />
+           This domain captures how people recover from ill health or injury and wherever possible how it can be prevented.</li>
+           <li><strong>Domain 4, Ensuring that people have a positive experience of care</strong>&nbsp;<br />
+           This domain looks at the importance of providing a positive experience of care for patients, service users and carers.</li>
+           <li><strong>Domain 5, Treating and caring for people in a safe environment and protecting them from avoidable harm</strong>&nbsp;<br />
+           This domain explores patient safety and its importance in terms of quality of care to deliver better health outcomes.</li>
+          </ul>
+
+          <p><strong>Further information</strong>&nbsp;</p>
+
+          <p>CCG Outcomes Indicator Set on the NHS England website:</p>
+        jcr:primaryType: hippostd:html
+      jcr:primaryType: publicationsystem:cilandingasset
+      publicationsystem:title: ''
+    common:searchable: true
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-01-23T14:54:36.279Z
+    hippostdpubwf:lastModificationDate: 2019-09-17T15:05:27.241Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2019-09-17T15:05:32.881Z
+    hippotranslation:id: be1317d6-5605-40f4-a2f3-1195643d6549
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:cilanding
+    jcr:uuid: 66bf4288-0091-4f4b-9260-23fed04395a6
+    publicationsystem:actionLinkName: Browse CCG Outcomes
+    publicationsystem:actionLinkRelPath: search/category/clinical-commissioning-groups-outcomes-framework/category/team/category/clinical-indicators?sort=relevance&area=data
+    publicationsystem:title: CCG Outcomes - Indicator Set
+    publicationsystem:urlNameOfContentFolder: ccg-outcomes-indicator-set
+  hippo:name: CCG Outcomes
+  hippo:versionHistory: bf58d00a-036a-422b-8a31-a54ee9cdcd9d
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
+  jcr:uuid: 8ea0c757-d07e-46d4-943b-cfcfec9fea0c

@@ -65,7 +65,7 @@ Feature: As am author I need to create a new publication
         When I have a publication opened for editing
         And I populate and save the publication
         And I schedule the publication for publishing on "03/27/2015"
-        Then the save is rejected with error message containing "'Date' must be a date."
+        Then the modal save is rejected with error message containing "03/27/2015' in field 'Date' must be a date."
         When I cancel the modal dialog
         # Scheduled to distant future to prevent "date cannot be in past" validation message
         And I schedule the publication for publishing on "27/03/2099"

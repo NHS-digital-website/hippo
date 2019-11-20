@@ -16,24 +16,6 @@
   <artifactId>repository</artifactId>
   <packaging>war</packaging>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.onehippo.cms7</groupId>
-      <artifactId>hippo-package-app-dependencies</artifactId>
-      <type>pom</type>
-    </dependency>
-    <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>jcl-over-slf4j</artifactId>
-        <version>1.7.26</version>
-    </dependency>
-    <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>1.7.26</version>
-    </dependency>
-  </dependencies>
-
   <build>
     <finalName>repository</finalName>
     <resources>

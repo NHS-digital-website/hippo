@@ -187,18 +187,26 @@
                                 <ol class="article-section-nav__list article-section-nav__list--tag-links">
                                     <li>
                                         <#if orderBy == 'endDate'>
-                                            <span class="radio-item selected"><span class="radio-input"></span>End date</span>
+                                            <span class="radio-item selected"><span
+                                                        class="radio-input"></span>End date</span>
                                         <#else>
                                             <#assign query += "&order-by=end-date" />
-                                            <a class="radio-item" href="${getDocumentUrl()}${query?replace("&&", "&")?replace("&", "?", "f")}"><span class="radio-input"></span>End date</a>
+                                            <a class="radio-item"
+                                               href="${getDocumentUrl()}${query?replace("&&", "&")?replace("&", "?", "f")}"><span
+                                                        class="radio-input"></span>End
+                                                date</a>
                                         </#if>
                                     </li>
                                     <li>
                                         <#if orderBy == 'startDate'>
-                                            <span class="radio-item selected"><span class="radio-input"></span>Start date</span>
+                                            <span class="radio-item selected"><span
+                                                        class="radio-input"></span>Start date</span>
                                         <#else>
                                             <#assign query += "&order-by=start-date" />
-                                            <a class="radio-item" href="${getDocumentUrl()}${query?replace("&&", "&")?replace("&", "?", "f")}"><span class="radio-input"></span>Start date</a>
+                                            <a class="radio-item"
+                                               href="${getDocumentUrl()}${query?replace("&&", "&")?replace("&", "?", "f")}"><span
+                                                        class="radio-input"></span>Start
+                                                date</a>
                                         </#if>
                                     </li>
                                 </ol>
@@ -258,15 +266,15 @@
                     </div>
                 </#list>
                 <#if futureGroup?size != 0>
-                <div id="future"
-                     class="article-section article-section--letter-group--highlighted">
-                    <div class="grid-row">
-                        <h2>Future</h2>
-                        <#list futureGroup as item>
-                            <@roadmapItem item />
-                        </#list>
+                    <div id="future"
+                         class="article-section article-section--letter-group--highlighted">
+                        <div class="grid-row">
+                            <h2>Future</h2>
+                            <#list futureGroup as item>
+                                <@roadmapItem item />
+                            </#list>
+                        </div>
                     </div>
-                </div>
                 </#if>
             </div>
         </div>

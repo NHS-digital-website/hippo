@@ -47,41 +47,6 @@
             <PatternLayout pattern="%%d{HH:mm:ss} %-5p [%C{1}] %m%n"/>
         </Console>
 
-        <!-- splunk CMS -->
-        <Http name="splunk-cms"
-            url="${sys:splunk.url}"
-            token="${sys:splunk.token}"
-            batch_size_count="${sys:splunk.batch.size.count}"
-            disableCertificateValidation="true"
-            source="${sys:splunk.hec.name}"
-            sourcetype="hippo-cms">
-            <LookupFilter key="jndi:logging/contextName" value="cms" onMatch="ACCEPT"/>
-            <PatternLayout pattern="%m"/>
-        </Http>
-
-        <!-- splunk SITE -->
-        <Http name="splunk-site"
-            url="${sys:splunk.url}"
-            token="${sys:splunk.token}"
-            batch_size_count="${sys:splunk.batch.size.count}"
-            disableCertificateValidation="true"
-            source="${sys:splunk.hec.name}"
-            sourcetype="hippo-site">
-            <LookupFilter key="jndi:logging/contextName" value="site" onMatch="ACCEPT"/>
-            <PatternLayout pattern="%m"/>
-        </Http>
-
-        <!-- splunk AUDIT -->
-        <Http name="splunk-audit"
-            url="${sys:splunk.url}"
-            token="${sys:splunk.token}"
-            batch_size_count="${sys:splunk.batch.size.count}"
-            disableCertificateValidation="true"
-            source="${sys:splunk.hec.name}"
-            sourcetype="hippo-audit">
-            <PatternLayout pattern="%m"/>
-        </Http>
-
     </Appenders>
 
     <Loggers>
@@ -101,11 +66,9 @@
         <!-- audit logging -->
         <Logger additivity="false" name="org.hippoecm.repository.api.Workflow" level="info">
             <AppenderRef ref="audit"/>
-            <AppenderRef ref="splunk-audit"/>
         </Logger>
         <Logger additivity="false" name="org.onehippo.audit" level="info">
             <AppenderRef ref="audit"/>
-            <AppenderRef ref="splunk-audit"/>
         </Logger>
 
         <!-- Site logging -->
@@ -173,8 +136,6 @@
             <AppenderRef ref="site"/>
             <AppenderRef ref="cms"/>
             <AppenderRef ref="console"/>
-            <AppenderRef ref="splunk-cms"/>
-            <AppenderRef ref="splunk-site"/>
         </Root>
 
     </Loggers>

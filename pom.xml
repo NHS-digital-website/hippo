@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>12.6.7</version>
+        <version>13.2.2</version>
         <!-- Please have a look at the property section while upgrading -->
     </parent>
 
@@ -88,13 +88,13 @@
         <externalstorage.aws.region></externalstorage.aws.region>
         <externalstorage.aws.s3.endpoint></externalstorage.aws.s3.endpoint>
 
-        <tomcatDistributionUrl>https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.48/bin/apache-tomcat-8.0.48.tar.gz</tomcatDistributionUrl>
+        <!--<tomcatDistributionUrl>https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.48/bin/apache-tomcat-8.0.48.tar.gz</tomcatDistributionUrl>-->
 
-        <forge.folderctxmenus.version>3.0.1</forge.folderctxmenus.version>
-        <essentials.version>12.6.7</essentials.version>
-        <spring.version>4.3.24.RELEASE</spring.version>
+        <forge.folderctxmenus.version>4.0.1</forge.folderctxmenus.version>
+        <essentials.version>13.2.2</essentials.version>
+        <spring.version>5.1.8.RELEASE</spring.version>
 
-        <hippo-addon-inference-engine.version>2.0.7</hippo-addon-inference-engine.version>
+        <hippo-addon-inference-engine.version>3.0.1</hippo-addon-inference-engine.version>
     </properties>
 
     <repositories>
@@ -136,18 +136,21 @@
         </repository>
     </repositories>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-targeting-shared-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>org.onehippo.cms7</groupId>
-                <artifactId>hippo-essentials-plugin-sdk-api</artifactId>
-                <version>${essentials.version}</version>
-            </dependency>
 
             <dependency>
                 <groupId>org.onehippo.forge</groupId>
                 <artifactId>breadcrumb</artifactId>
-                <version>1.5.0</version>
+                <version>3.0.0</version>
             </dependency>
 
             <dependency>
@@ -155,30 +158,6 @@
                 <artifactId>jsp-api</artifactId>
                 <version>2.2</version>
                 <scope>provided</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.onehippo.cms7</groupId>
-                <artifactId>hippo-addon-crisp-api</artifactId>
-                <version>${hippo.addon-crisp.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.onehippo.cms7</groupId>
-                <artifactId>hippo-addon-crisp-core</artifactId>
-                <version>${hippo.addon-crisp.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.onehippo.cms7</groupId>
-                <artifactId>hippo-addon-crisp-repository</artifactId>
-                <version>${hippo.addon-crisp.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.onehippo.cms7</groupId>
-                <artifactId>hippo-addon-crisp-hst</artifactId>
-                <version>${hippo.addon-crisp.version}</version>
             </dependency>
 
             <!-- other predefined runtime scope versioned dependencies -->
@@ -226,21 +205,21 @@
             <dependency>
                 <groupId>org.easymock</groupId>
                 <artifactId>easymock</artifactId>
-                <version>3.6</version>
+                <version>4.0.2</version>
                 <scope>test</scope>
             </dependency>
 
             <dependency>
                 <groupId>org.powermock</groupId>
                 <artifactId>powermock-module-junit4</artifactId>
-                <version>1.7.4</version>
+                <version>2.0.2</version>
                 <scope>test</scope>
             </dependency>
 
             <dependency>
                 <groupId>org.powermock</groupId>
                 <artifactId>powermock-api-mockito2</artifactId>
-                <version>1.7.4</version>
+                <version>2.0.2</version>
                 <scope>test</scope>
             </dependency>
 
@@ -254,14 +233,14 @@
             <dependency>
                 <groupId>org.hamcrest</groupId>
                 <artifactId>hamcrest-library</artifactId>
-                <version>1.3</version>
+                <version>2.1</version>
                 <scope>test</scope>
             </dependency>
 
             <dependency>
                 <groupId>com.splunk.logging</groupId>
                 <artifactId>splunk-library-javalogging</artifactId>
-                <version>1.6.2</version>
+                <version>1.7.3</version>
             </dependency>
 
             <dependency>
@@ -273,13 +252,13 @@
             <dependency>
                 <groupId>org.apache.sling</groupId>
                 <artifactId>org.apache.sling.testing.jcr-mock</artifactId>
-                <version>1.4.2</version>
+                <version>1.4.4</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>com.amazonaws</groupId>
                 <artifactId>aws-java-sdk</artifactId>
-                <version>1.11.455</version>
+                <version>1.11.582</version>
             </dependency>
 
             <!-- Although we don't explicitly use these dependencies, there are conflicts
@@ -317,32 +296,22 @@
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
-                <version>4.5.6</version>
+                <version>4.5.9</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpcore</artifactId>
-                <version>4.4.10</version>
+                <version>4.4.11</version>
             </dependency>
             <dependency>
                 <groupId>org.codehaus.plexus</groupId>
                 <artifactId>plexus-utils</artifactId>
-                <version>3.1.0</version>
+                <version>3.2.0</version>
             </dependency>
             <dependency>
                 <groupId>org.codehaus.plexus</groupId>
                 <artifactId>plexus-component-annotations</artifactId>
-                <version>1.7.1</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>28.0-jre</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-digester</groupId>
-                <artifactId>commons-digester</artifactId>
-                <version>1.8.1</version>
+                <version>2.0.0</version>
             </dependency>
             <dependency>
                 <groupId>commons-io</groupId>
@@ -363,7 +332,7 @@
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-collections4</artifactId>
-                <version>4.2</version>
+                <version>4.3</version>
             </dependency>
             <dependency>
                 <groupId>javax.annotation</groupId>
@@ -373,7 +342,7 @@
             <dependency>
                 <groupId>org.codehaus.woodstox</groupId>
                 <artifactId>stax2-api</artifactId>
-                <version>4.1</version>
+                <version>4.2</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -410,6 +379,41 @@
                 <artifactId>spring-aop</artifactId>
                 <version>${spring.version}</version>
             </dependency>
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>2.10.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.json</groupId>
+                <artifactId>json</artifactId>
+                <version>20180813</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-pool</groupId>
+                <artifactId>commons-pool</artifactId>
+                <version>1.6</version>
+            </dependency>
+            <dependency>
+                <groupId>net.bytebuddy</groupId>
+                <artifactId>byte-buddy</artifactId>
+                <version>1.9.13</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-core</artifactId>
+                <version>2.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.objenesis</groupId>
+                <artifactId>objenesis</artifactId>
+                <version>3.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>1.23</version>
+            </dependency>
 
             <!--
                 Import Export
@@ -417,19 +421,19 @@
             <dependency>
                 <groupId>org.onehippo.forge.content-exim</groupId>
                 <artifactId>content-exim-core</artifactId>
-                <version>2.3.0</version>
+                <version>3.0.1</version>
             </dependency>
 
             <dependency>
                 <groupId>org.onehippo.forge.folderctxmenus</groupId>
                 <artifactId>folderctxmenus-repository</artifactId>
-                <version>${forge.folderctxmenus.version}</version>
+                <version>4.0.1</version>
             </dependency>
 
             <dependency>
                 <groupId>org.onehippo.forge.folderctxmenus</groupId>
                 <artifactId>folderctxmenus-frontend</artifactId>
-                <version>${forge.folderctxmenus.version}</version>
+                <version>4.0.1</version>
             </dependency>
 
             <!-- Inference Rule Engine -->
@@ -660,6 +664,7 @@
             <modules>
                 <module>s3connector</module>
                 <module>cms</module>
+                <module>cms-dependencies</module>
                 <module>essentials</module>
                 <module>repository-data</module>
                 <module>repository</module>
@@ -687,6 +692,11 @@
                 <dependency>
                     <groupId>org.onehippo.cms7</groupId>
                     <artifactId>hippo-addon-crisp-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.onehippo.cms7</groupId>
+                    <artifactId>hippo-addon-targeting-shared-api</artifactId>
                     <scope>provided</scope>
                 </dependency>
                 <dependency>
@@ -732,6 +742,10 @@
                                         <file>${project.basedir}/s3connector/target/s3-connector-${project.version}.jar</file>
                                         <todir>shared/lib</todir>
                                     </file>
+                                    <file>
+                                        <file>${project.basedir}/repository-data/site-development/target/website-repository-data-site-development-${project.version}.jar</file>
+                                        <todir>${development-module-deploy-dir}</todir>
+                                    </file>
                                 </files>
                                 <properties>
                                     <cargo.jvmargs>
@@ -754,10 +768,10 @@
                                     <location>${project.basedir}/cms/target/cms.war</location>
                                 </deployable>
                                 <deployable>
-                                    <location>${project.basedir}/site/target/ROOT.war</location>
+                                    <location>${project.basedir}/site/webapp/target/site.war</location>
                                     <type>war</type>
                                     <properties>
-                                        <context>/</context>
+                                        <context>/site</context>
                                     </properties>
                                 </deployable>
                                 <deployable>
@@ -770,7 +784,7 @@
                             </deployables>
                             <container>
                                 <zipUrlInstaller>
-                                    <url>${tomcatDistributionUrl}</url>
+                                    <url>${cargo.tomcat.distribution.url}</url>
                                 </zipUrlInstaller>
                                 <systemProperties>
                                     <log4j.configurationFile>file://${project.basedir}/conf/log4j2-dev.xml</log4j.configurationFile>
@@ -788,6 +802,7 @@
                                     <externalstorage.aws.bucket>${externalstorage.aws.bucket}</externalstorage.aws.bucket>
                                     <externalstorage.aws.region>${externalstorage.aws.region}</externalstorage.aws.region>
                                     <externalstorage.aws.s3.endpoint>${externalstorage.aws.s3.endpoint}</externalstorage.aws.s3.endpoint>
+                                    <dynamic.bean.generation>false</dynamic.bean.generation>
                                 </systemProperties>
                                 <dependencies>
                                     <dependency>
@@ -795,7 +810,11 @@
                                         <artifactId>hippo-addon-crisp-api</artifactId>
                                         <classpath>shared</classpath>
                                     </dependency>
-
+                                    <dependency>
+                                        <groupId>com.onehippo.cms7</groupId>
+                                        <artifactId>hippo-addon-targeting-shared-api</artifactId>
+                                        <classpath>shared</classpath>
+                                    </dependency>
                                     <dependency>
                                         <groupId>com.onehippo.cms7</groupId>
                                         <artifactId>hippo-addon-inference-engine-api</artifactId>
@@ -889,16 +908,6 @@
                 <dependency>
                     <groupId>org.apache.logging.log4j</groupId>
                     <artifactId>log4j-core</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.onehippo.cms7</groupId>
-                    <artifactId>hippo-addon-crisp-api</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.onehippo.cms7</groupId>
-                    <artifactId>hippo-addon-inference-engine-api</artifactId>
                     <scope>provided</scope>
                 </dependency>
             </dependencies>

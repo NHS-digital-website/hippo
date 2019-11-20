@@ -1,0 +1,246 @@
+---
+/content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi:
+  /summary-hospital-level-mortality-indicator-shmi[1]:
+    /publicationsystem:cilandingasset[1]:
+      /publicationsystem:Attachments:
+        /publicationsystem:attachmentResource:
+          externalstorage:reference: 24/66E68E/SHMI_publication_timetable.xlsx
+          externalstorage:size: 34661
+          externalstorage:url: https://files.local.nhsd.io/24/66E68E/SHMI_publication_timetable.xlsx
+          hippo:filename: SHMI_publication_timetable.xlsx
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi[1]/cilandingasset[1]/Attachments/attachmentResource/text.bin
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi[1]/cilandingasset[1]/Attachments/attachmentResource/data.bin
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-04-27T12:04:25.991Z
+          jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+          jcr:primaryType: externalstorage:resource
+        jcr:primaryType: publicationsystem:extattachment
+        publicationsystem:displayName: SHMI publication timetable
+      /publicationsystem:content:
+        hippostd:content: <p>The Summary Hospital-level Mortality Indicator (SHMI)
+          reports on mortality at trust level across the NHS in England using a standard
+          and transparent methodology. It is produced and published quarterly as a
+          National Statistic by NHS Digital.</p>
+        jcr:primaryType: hippostd:html
+      /publicationsystem:relatedlink[1]:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: National review of the Hospital Standardised Mortality
+          Ratio
+        publicationsystem:linkUrl: http://webarchive.nationalarchives.gov.uk/+/www.dh.gov.uk/en/Healthcare/Qualityandproductivity/Makingqualityhappen/NationalQualityBoard/DH_102954
+      /publicationsystem:relatedlink[2]:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ScHARR report - An evaluation of the Summary Hospital
+          Mortality Index
+        publicationsystem:linkUrl: http://www.sheffield.ac.uk/polopoly_fs/1.51777%21/file/SHMI_Final_Report.pdf
+      jcr:primaryType: publicationsystem:cilandingasset
+      publicationsystem:title: ''
+    /publicationsystem:cilandingasset[2]:
+      /publicationsystem:content:
+        hippostd:content: <p>The SHMI's specification is founded on an open and transparent
+          methodology. We expect that the SHMI will need to be interpreted, understood
+          and also reproduced by different users. Therefore, we have provided detailed
+          specification documents on the construction of the SHMI and accompanying
+          contextual indicators. The mapping from ICD-10 diagnosis codes to SHMI diagnosis
+          groups which is referenced in the specification is also available to download.</p>
+        jcr:primaryType: hippostd:html
+      jcr:primaryType: publicationsystem:cilandingasset
+      publicationsystem:title: SHMI specification
+    /publicationsystem:cilandingasset[3]:
+      /publicationsystem:content:
+        hippostd:content: <p>Following the recommendations from the national review
+          of the Hospital Standardised Mortality Ratio (HSMR), the Department of Health
+          commissioned NHS Digital to produce and publish the SHMI.&nbsp; As part
+          of the review, the Department of Health also commissioned independent statistical
+          modelling work, which was carried out by the School of Health and Related
+          Research (ScHARR) at the University of Sheffield and their report is available
+          to download below.</p>
+        jcr:primaryType: hippostd:html
+      jcr:primaryType: publicationsystem:cilandingasset
+      publicationsystem:title: Our commitment to continuous improvement
+    common:searchable: true
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-01-23T20:53:22.404Z
+    hippostdpubwf:lastModificationDate: 2019-09-17T15:06:34.028Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 5ee1c6c1-8692-4a15-a04a-bb721e0c7874
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:cilanding
+    jcr:uuid: ce9c8a21-ea8b-49f3-9b03-a116926e475b
+    publicationsystem:actionLinkName: Browse SHMI
+    publicationsystem:actionLinkRelPath: search/category/summary-hospital-level-mortality-indicator--shmi-/category/team/category/clinical-indicators
+    publicationsystem:title: Summary Hospital-level Mortality Indicator (SHMI)
+    publicationsystem:urlNameOfContentFolder: shmi
+  /summary-hospital-level-mortality-indicator-shmi[2]:
+    /publicationsystem:cilandingasset[1]:
+      /publicationsystem:Attachments:
+        /publicationsystem:attachmentResource:
+          externalstorage:reference: 24/66E68E/SHMI_publication_timetable.xlsx
+          externalstorage:size: 34661
+          externalstorage:url: https://files.local.nhsd.io/24/66E68E/SHMI_publication_timetable.xlsx
+          hippo:filename: SHMI_publication_timetable.xlsx
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi[2]/cilandingasset[1]/Attachments/attachmentResource/text.bin
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi[2]/cilandingasset[1]/Attachments/attachmentResource/data.bin
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-04-27T12:04:25.991Z
+          jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+          jcr:primaryType: externalstorage:resource
+        jcr:primaryType: publicationsystem:extattachment
+        publicationsystem:displayName: SHMI publication timetable
+      /publicationsystem:content:
+        hippostd:content: <p>The Summary Hospital-level Mortality Indicator (SHMI)
+          reports on mortality at trust level across the NHS in England using a standard
+          and transparent methodology. It is produced and published quarterly as a
+          National Statistic by NHS Digital.</p>
+        jcr:primaryType: hippostd:html
+      /publicationsystem:relatedlink[1]:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: National review of the Hospital Standardised Mortality
+          Ratio
+        publicationsystem:linkUrl: http://webarchive.nationalarchives.gov.uk/+/www.dh.gov.uk/en/Healthcare/Qualityandproductivity/Makingqualityhappen/NationalQualityBoard/DH_102954
+      /publicationsystem:relatedlink[2]:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ScHARR report - An evaluation of the Summary Hospital
+          Mortality Index
+        publicationsystem:linkUrl: http://www.sheffield.ac.uk/polopoly_fs/1.51777%21/file/SHMI_Final_Report.pdf
+      jcr:primaryType: publicationsystem:cilandingasset
+      publicationsystem:title: ''
+    /publicationsystem:cilandingasset[2]:
+      /publicationsystem:content:
+        hippostd:content: <p>The SHMI's specification is founded on an open and transparent
+          methodology. We expect that the SHMI will need to be interpreted, understood
+          and also reproduced by different users. Therefore, we have provided detailed
+          specification documents on the construction of the SHMI and accompanying
+          contextual indicators. The mapping from ICD-10 diagnosis codes to SHMI diagnosis
+          groups which is referenced in the specification is also available to download.</p>
+        jcr:primaryType: hippostd:html
+      jcr:primaryType: publicationsystem:cilandingasset
+      publicationsystem:title: SHMI specification
+    /publicationsystem:cilandingasset[3]:
+      /publicationsystem:content:
+        hippostd:content: <p>Following the recommendations from the national review
+          of the Hospital Standardised Mortality Ratio (HSMR), the Department of Health
+          commissioned NHS Digital to produce and publish the SHMI.&nbsp; As part
+          of the review, the Department of Health also commissioned independent statistical
+          modelling work, which was carried out by the School of Health and Related
+          Research (ScHARR) at the University of Sheffield and their report is available
+          to download below.</p>
+        jcr:primaryType: hippostd:html
+      jcr:primaryType: publicationsystem:cilandingasset
+      publicationsystem:title: Our commitment to continuous improvement
+    common:searchable: true
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-01-23T20:53:22.404Z
+    hippostdpubwf:lastModificationDate: 2018-04-17T13:55:44.130Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 5ee1c6c1-8692-4a15-a04a-bb721e0c7874
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: publicationsystem:cilanding
+    jcr:uuid: bcb44884-2163-46e7-8b3b-d9e84457fb87
+    publicationsystem:actionLinkName: Browse SHMI
+    publicationsystem:actionLinkRelPath: search/category/summary-hospital-level-mortality-indicator--shmi-/category/team/category/clinical-indicators
+    publicationsystem:title: Summary Hospital-level Mortality Indicator (SHMI)
+    publicationsystem:urlNameOfContentFolder: shmi
+  /summary-hospital-level-mortality-indicator-shmi[3]:
+    /publicationsystem:cilandingasset[1]:
+      /publicationsystem:Attachments:
+        /publicationsystem:attachmentResource:
+          externalstorage:reference: 24/66E68E/SHMI_publication_timetable.xlsx
+          externalstorage:size: 34661
+          externalstorage:url: https://files.local.nhsd.io/24/66E68E/SHMI_publication_timetable.xlsx
+          hippo:filename: SHMI_publication_timetable.xlsx
+          hippo:text:
+            resource: /content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi[3]/cilandingasset[1]/Attachments/attachmentResource/text.bin
+            type: binary
+          jcr:data:
+            resource: /content/documents/corporate-website/publication-system/ci-hub/summary-hospital-level-mortality-indicator-shmi/summary-hospital-level-mortality-indicator-shmi[3]/cilandingasset[1]/Attachments/attachmentResource/data.bin
+            type: binary
+          jcr:encoding: UTF-8
+          jcr:lastModified: 2018-04-27T12:04:25.991Z
+          jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+          jcr:primaryType: externalstorage:resource
+        jcr:primaryType: publicationsystem:extattachment
+        publicationsystem:displayName: SHMI publication timetable
+      /publicationsystem:content:
+        hippostd:content: <p>The Summary Hospital-level Mortality Indicator (SHMI)
+          reports on mortality at trust level across the NHS in England using a standard
+          and transparent methodology. It is produced and published quarterly as a
+          National Statistic by NHS Digital.</p>
+        jcr:primaryType: hippostd:html
+      /publicationsystem:relatedlink[1]:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: National review of the Hospital Standardised Mortality
+          Ratio
+        publicationsystem:linkUrl: http://webarchive.nationalarchives.gov.uk/+/www.dh.gov.uk/en/Healthcare/Qualityandproductivity/Makingqualityhappen/NationalQualityBoard/DH_102954
+      /publicationsystem:relatedlink[2]:
+        jcr:primaryType: publicationsystem:relatedlink
+        publicationsystem:linkText: ScHARR report - An evaluation of the Summary Hospital
+          Mortality Index
+        publicationsystem:linkUrl: http://www.sheffield.ac.uk/polopoly_fs/1.51777%21/file/SHMI_Final_Report.pdf
+      jcr:primaryType: publicationsystem:cilandingasset
+      publicationsystem:title: ''
+    /publicationsystem:cilandingasset[2]:
+      /publicationsystem:content:
+        hippostd:content: <p>The SHMI's specification is founded on an open and transparent
+          methodology. We expect that the SHMI will need to be interpreted, understood
+          and also reproduced by different users. Therefore, we have provided detailed
+          specification documents on the construction of the SHMI and accompanying
+          contextual indicators. The mapping from ICD-10 diagnosis codes to SHMI diagnosis
+          groups which is referenced in the specification is also available to download.</p>
+        jcr:primaryType: hippostd:html
+      jcr:primaryType: publicationsystem:cilandingasset
+      publicationsystem:title: SHMI specification
+    /publicationsystem:cilandingasset[3]:
+      /publicationsystem:content:
+        hippostd:content: <p>Following the recommendations from the national review
+          of the Hospital Standardised Mortality Ratio (HSMR), the Department of Health
+          commissioned NHS Digital to produce and publish the SHMI.&nbsp; As part
+          of the review, the Department of Health also commissioned independent statistical
+          modelling work, which was carried out by the School of Health and Related
+          Research (ScHARR) at the University of Sheffield and their report is available
+          to download below.</p>
+        jcr:primaryType: hippostd:html
+      jcr:primaryType: publicationsystem:cilandingasset
+      publicationsystem:title: Our commitment to continuous improvement
+    common:searchable: true
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-01-23T20:53:22.404Z
+    hippostdpubwf:lastModificationDate: 2018-04-17T13:55:44.130Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2018-04-17T13:57:08.269Z
+    hippotranslation:id: 5ee1c6c1-8692-4a15-a04a-bb721e0c7874
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:cilanding
+    jcr:uuid: 927cf152-001f-4df4-bebd-b8641309b51a
+    publicationsystem:actionLinkName: Browse SHMI
+    publicationsystem:actionLinkRelPath: search/category/summary-hospital-level-mortality-indicator--shmi-/category/team/category/clinical-indicators
+    publicationsystem:title: Summary Hospital-level Mortality Indicator (SHMI)
+    publicationsystem:urlNameOfContentFolder: shmi
+  hippo:name: Summary Hospital-level Mortality Indicator (SHMI)
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
+  jcr:uuid: ee2b31eb-2c45-4098-9a23-00d0a54c010a

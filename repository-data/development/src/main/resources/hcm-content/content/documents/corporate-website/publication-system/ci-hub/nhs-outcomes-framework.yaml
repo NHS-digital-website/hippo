@@ -1,0 +1,168 @@
+---
+/content/documents/corporate-website/publication-system/ci-hub/nhs-outcomes-framework:
+  /nhs-outcomes-framework[1]:
+    /publicationsystem:cilandingasset:
+      /publicationsystem:content:
+        hippostd:content: |-
+          <p>The NHS Outcomes Framework provides national level accountability for the outcomes the NHS delivers; it drives transparency, quality improvement and outcome measurement throughout the NHS.</p>
+
+          <p>It also sets out the national outcome goals that the Secretary of State uses to monitor the progress of NHS England. It does not set out how these outcomes should be delivered, it is for NHS England to determine how best to deliver improvements by working with Clinical Commissioning Groups to make use of the tools at their disposal.</p>
+
+          <p>The NHS Outcomes Framework uses the ONS mid-year population estimates for England as its subject population, and where standardisation is required the European Standard Population is generally used. All indicators are reported at England level, and are broken down, where possible, by a combination of Age, Lower tier local authority, Upper tier local authority, Region, Religion, Ethnicity, Deprivation decile, Sexual orientation, Gender and Condition.</p>
+
+          <p>The CCG Outcomes Indicator Set uses the registered patient population of England as its subject population, and where standardisation is required, the Office for National Statistics mid-year population estimates for England. All indicators are reported at CCG and National level, where 'National' represents the sum total of patients registered with a GP in England.</p>
+
+          <p><strong>Framework structure</strong></p>
+
+          <p>The framework is structured around five high level outcome domains.</p>
+
+          <ul>
+           <li><strong>Domain 1 - Preventing people from dying prematurely</strong><br />
+           This domain captures how successful the NHS is in reducing the number of avoidable deaths.</li>
+           <li><strong>Domain 2 - Enhancing quality of life for people with long-term conditions</strong><br />
+           This domain captures how successfully the NHS is supporting people with long-term conditions to live as normal a life as possible.</li>
+           <li><strong>Domain 3 - Helping people to recover from episodes of ill health or following injury</strong><br />
+           This domain captures how people recover from ill health or injury and wherever possible how it can be prevented.</li>
+           <li><strong>Domain 4 - Ensuring that people have a positive experience of care</strong><br />
+           This domain looks at the importance of providing a positive experience of care for patients, service users and carers.</li>
+           <li><strong>Domain 5 - Treating and caring for people in a safe environment and protecting them from avoidable harm</strong><br />
+           This domain explores patient safety and its importance in terms of quality of care to deliver better health outcomes.</li>
+          </ul>
+
+          <p><strong>List of all indicators</strong></p>
+
+          <p><a href="https://indicators.hscic.gov.uk/download/Indicator%20Portal%20indicators.xls" target="_blank">Download the full list of indicators</a>&nbsp;contained within the Indicator Portal. Filter column B on the NHS Outcomes Framework indicators to see this work stream's list of indicators.</p>
+        jcr:primaryType: hippostd:html
+      jcr:primaryType: publicationsystem:cilandingasset
+      publicationsystem:title: ''
+    common:searchable: true
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-01-23T20:52:43.733Z
+    hippostdpubwf:lastModificationDate: 2019-09-17T15:06:12.262Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 889f3118-fcea-44d1-87a0-fb72c4cd1052
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:cilanding
+    jcr:uuid: cba978b7-1170-497b-a6e4-420fcf7332d2
+    publicationsystem:actionLinkName: Browse NHS Outcomes
+    publicationsystem:actionLinkRelPath: search/category/nhs-outcomes-framework/category/team/category/clinical-indicators
+    publicationsystem:title: NHS Outcomes Framework
+    publicationsystem:urlNameOfContentFolder: nhs-outcomes-framework
+  /nhs-outcomes-framework[2]:
+    /publicationsystem:cilandingasset:
+      /publicationsystem:content:
+        hippostd:content: |-
+          <p>The NHS Outcomes Framework provides national level accountability for the outcomes the NHS delivers; it drives transparency, quality improvement and outcome measurement throughout the NHS.</p>
+
+          <p>It also sets out the national outcome goals that the Secretary of State uses to monitor the progress of NHS England. It does not set out how these outcomes should be delivered, it is for NHS England to determine how best to deliver improvements by working with Clinical Commissioning Groups to make use of the tools at their disposal.</p>
+
+          <p>The NHS Outcomes Framework uses the ONS mid-year population estimates for England as its subject population, and where standardisation is required the European Standard Population is generally used. All indicators are reported at England level, and are broken down, where possible, by a combination of Age, Lower tier local authority, Upper tier local authority, Region, Religion, Ethnicity, Deprivation decile, Sexual orientation, Gender and Condition.</p>
+
+          <p>The CCG Outcomes Indicator Set uses the registered patient population of England as its subject population, and where standardisation is required, the Office for National Statistics mid-year population estimates for England. All indicators are reported at CCG and National level, where 'National' represents the sum total of patients registered with a GP in England.</p>
+
+          <p><strong>Framework structure</strong></p>
+
+          <p>The framework is structured around five high level outcome domains.</p>
+
+          <ul>
+           <li><strong>Domain 1 - Preventing people from dying prematurely</strong><br />
+           This domain captures how successful the NHS is in reducing the number of avoidable deaths.</li>
+           <li><strong>Domain 2 - Enhancing quality of life for people with long-term conditions</strong><br />
+           This domain captures how successfully the NHS is supporting people with long-term conditions to live as normal a life as possible.</li>
+           <li><strong>Domain 3 - Helping people to recover from episodes of ill health or following injury</strong><br />
+           This domain captures how people recover from ill health or injury and wherever possible how it can be prevented.</li>
+           <li><strong>Domain 4 - Ensuring that people have a positive experience of care</strong><br />
+           This domain looks at the importance of providing a positive experience of care for patients, service users and carers.</li>
+           <li><strong>Domain 5 - Treating and caring for people in a safe environment and protecting them from avoidable harm</strong><br />
+           This domain explores patient safety and its importance in terms of quality of care to deliver better health outcomes.</li>
+          </ul>
+
+          <p><strong>List of all indicators</strong></p>
+
+          <p><a href="https://indicators.hscic.gov.uk/download/Indicator%20Portal%20indicators.xls" target="_blank">Download the full list of indicators</a>&nbsp;contained within the Indicator Portal. Filter column B on the NHS Outcomes Framework indicators to see this work stream's list of indicators.</p>
+        jcr:primaryType: hippostd:html
+      jcr:primaryType: publicationsystem:cilandingasset
+      publicationsystem:title: ''
+    common:searchable: true
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-01-23T20:52:43.733Z
+    hippostdpubwf:lastModificationDate: 2018-04-17T13:56:59.247Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 889f3118-fcea-44d1-87a0-fb72c4cd1052
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: publicationsystem:cilanding
+    jcr:uuid: dd40199b-efee-49f8-bea3-a2f7a51e9b42
+    publicationsystem:actionLinkName: Browse NHS Outcomes
+    publicationsystem:actionLinkRelPath: search/category/nhs-outcomes-framework/category/team/category/clinical-indicators
+    publicationsystem:title: NHS Outcomes Framework
+    publicationsystem:urlNameOfContentFolder: nhs-outcomes-framework
+  /nhs-outcomes-framework[3]:
+    /publicationsystem:cilandingasset:
+      /publicationsystem:content:
+        hippostd:content: |-
+          <p>The NHS Outcomes Framework provides national level accountability for the outcomes the NHS delivers; it drives transparency, quality improvement and outcome measurement throughout the NHS.</p>
+
+          <p>It also sets out the national outcome goals that the Secretary of State uses to monitor the progress of NHS England. It does not set out how these outcomes should be delivered, it is for NHS England to determine how best to deliver improvements by working with Clinical Commissioning Groups to make use of the tools at their disposal.</p>
+
+          <p>The NHS Outcomes Framework uses the ONS mid-year population estimates for England as its subject population, and where standardisation is required the European Standard Population is generally used. All indicators are reported at England level, and are broken down, where possible, by a combination of Age, Lower tier local authority, Upper tier local authority, Region, Religion, Ethnicity, Deprivation decile, Sexual orientation, Gender and Condition.</p>
+
+          <p>The CCG Outcomes Indicator Set uses the registered patient population of England as its subject population, and where standardisation is required, the Office for National Statistics mid-year population estimates for England. All indicators are reported at CCG and National level, where 'National' represents the sum total of patients registered with a GP in England.</p>
+
+          <p><strong>Framework structure</strong></p>
+
+          <p>The framework is structured around five high level outcome domains.</p>
+
+          <ul>
+           <li><strong>Domain 1 - Preventing people from dying prematurely</strong><br />
+           This domain captures how successful the NHS is in reducing the number of avoidable deaths.</li>
+           <li><strong>Domain 2 - Enhancing quality of life for people with long-term conditions</strong><br />
+           This domain captures how successfully the NHS is supporting people with long-term conditions to live as normal a life as possible.</li>
+           <li><strong>Domain 3 - Helping people to recover from episodes of ill health or following injury</strong><br />
+           This domain captures how people recover from ill health or injury and wherever possible how it can be prevented.</li>
+           <li><strong>Domain 4 - Ensuring that people have a positive experience of care</strong><br />
+           This domain looks at the importance of providing a positive experience of care for patients, service users and carers.</li>
+           <li><strong>Domain 5 - Treating and caring for people in a safe environment and protecting them from avoidable harm</strong><br />
+           This domain explores patient safety and its importance in terms of quality of care to deliver better health outcomes.</li>
+          </ul>
+
+          <p><strong>List of all indicators</strong></p>
+
+          <p><a href="https://indicators.hscic.gov.uk/download/Indicator%20Portal%20indicators.xls" target="_blank">Download the full list of indicators</a>&nbsp;contained within the Indicator Portal. Filter column B on the NHS Outcomes Framework indicators to see this work stream's list of indicators.</p>
+        jcr:primaryType: hippostd:html
+      jcr:primaryType: publicationsystem:cilandingasset
+      publicationsystem:title: ''
+    common:searchable: true
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-01-23T20:52:43.733Z
+    hippostdpubwf:lastModificationDate: 2018-04-17T13:56:59.247Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2018-04-17T13:57:08.595Z
+    hippotranslation:id: 889f3118-fcea-44d1-87a0-fb72c4cd1052
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:cilanding
+    jcr:uuid: 81dc95ba-98f4-45a0-b57e-52d8f7b89518
+    publicationsystem:actionLinkName: Browse NHS Outcomes
+    publicationsystem:actionLinkRelPath: search/category/nhs-outcomes-framework/category/team/category/clinical-indicators
+    publicationsystem:title: NHS Outcomes Framework
+    publicationsystem:urlNameOfContentFolder: nhs-outcomes-framework
+  hippo:name: NHS Outcomes Framework
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
+  jcr:uuid: 91fa0b68-27cd-42c0-ac9f-1dfc1d41c4d7

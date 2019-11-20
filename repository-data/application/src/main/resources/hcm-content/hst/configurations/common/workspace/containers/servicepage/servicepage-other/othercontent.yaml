@@ -1,0 +1,12 @@
+---
+/hst:hst/hst:configurations/common/hst:workspace/hst:containers/servicepage/servicepage-other/othercontent:
+  hst:componentclassname: uk.nhs.digital.common.components.ServiceComponent
+  hst:iconpath: images/essentials/catalog-component-icons/news-list.png
+  hst:label: Service (other component)
+  hst:parameternames:
+  - com.onehippo.cms7.targeting.TargetingParameterUtil.hide
+  hst:parametervalues:
+  - 'on'
+  hst:template: service-othercontent
+  hst:xtype: hst.item
+  jcr:primaryType: hst:containeritemcomponent
