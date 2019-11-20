@@ -8,24 +8,22 @@
   <import resource="classpath:/org/hippoecm/hst/site/optional/jaxrs/SpringComponentManager-rest-plain-pipeline.xml"/>
   <import resource="classpath:/org/hippoecm/hst/site/optional/jaxrs/SpringComponentManager-rest-content-pipeline.xml"/>
 
-    <bean id="customRestPlainResourceProviders" class="org.springframework.beans.factory.config.ListFactoryBean">
-        <property name="sourceList">
-            <list>
-                <bean
-                    class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
-                    <constructor-arg>
-                        <bean class="uk.nhs.digital.website.rest.CyberAlertResource"/>
-                    </constructor-arg>
-                </bean>
-                <bean
-                    class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
-                    <constructor-arg>
-                        <bean class="uk.nhs.digital.website.rest.DefinedTermsResource"/>
-                    </constructor-arg>
-                </bean>
-            </list>
-        </property>
-    </bean>
+  <bean id="customRestPlainResourceProviders" class="org.springframework.beans.factory.config.ListFactoryBean">
+    <property name="sourceList">
+      <list>
+        <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
+          <constructor-arg>
+            <bean class="uk.nhs.digital.website.rest.CyberAlertResource"/>
+          </constructor-arg>
+        </bean>
+        <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
+          <constructor-arg>
+            <bean class="uk.nhs.digital.website.rest.DefinedTermsResource"/>
+          </constructor-arg>
+        </bean>
+      </list>
+    </property>
+  </bean>
 
   <!--
     JAXB CONTEXT MAPPINGS
