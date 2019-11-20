@@ -26,6 +26,25 @@ import javax.servlet.http.HttpServletRequest;
 @Node(jcrType = "website:cyberalert")
 public class CyberAlert extends CommonFieldsBean {
 
+    //override for customize REST API purposes
+    @JsonProperty
+    @Override
+    public String getSeosummaryJson() {
+        if (getPublicallyAccessible()) {
+            return getHippoHtmlContent("website:seosummary");
+        }
+        return null;
+    }
+
+    @JsonProperty
+    @Override
+    @HippoEssentialsGenerated(internalName = "website:shortsummary", allowModifications = false)
+    public String getShortsummary() {
+        if (getPublicallyAccessible()) {
+            return getProperty("website:shortsummary");
+        }
+        return null;
+    }
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:threatid", allowModifications = false)
     public String getThreatId() {
