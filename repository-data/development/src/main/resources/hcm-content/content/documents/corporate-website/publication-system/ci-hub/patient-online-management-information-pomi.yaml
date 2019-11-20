@@ -1,0 +1,254 @@
+---
+/content/documents/corporate-website/publication-system/ci-hub/patient-online-management-information-pomi:
+  /patient-online-management-information-pomi[1]:
+    /publicationsystem:cilandingasset:
+      /publicationsystem:content:
+        hippostd:content: |-
+          <p>The Patient Online services indicator set was commissioned by NHS England to monitor progress against a government ambition for all patients who wish it to have online access to services in general practices by the end of March 2015.</p>
+
+          <p>This information was made available via the PHF10 return that collected information on a quarterly basis from system suppliers on the availability at GP practice level of online appointment booking, ordering of repeat prescriptions and access to medical records, test results, GP letters and summary information (allergies, adverse reactions and medications). This data was collected via the NHS Digital Data Depot secure file transfer system.</p>
+
+          <p>During the 2014/15 financial year (Q2 to Q4) the introduction of data requirements for the NHS Digital's GP System of Choice (GPSoC) team was combined with the PHF10 return and piloted to run monthly reporting in an attempt to make this ‘online availability data’ more frequently accessible and relevant.</p>
+
+          <p>Following the successful pilot of the monthly reporting, GPSoC and NHS England agreed to develop the metrics for this indicator set. As a result, from April 2015 the Patient Online Management Information (POMI) indicator set was introduced, replacing the old PHF10 return. The new POMI return continues to collect information on the availability to patients of electronic access to their test results, GP letters, prescriptions and online appointment booking facilities at the GP Practice level.</p>
+
+          <p>The subset and full medical records viewing services are being redefined to align with the requirements in the 2015/16 GMS/PMS regulations and the two previous indicators have been decommissioned from April 2015. This review will also consider other elements within the indicator set and how these align with the redefined indicators.</p>
+
+          <p>The new indicator to provide information on the availability to patients to access their detailed coded record (DCR) was introduced from February 2016, and the previous indicators for test results and letters decommissioned from April 2016. Work is ongoing between the NHS Digital and NHS England to review existing and, where required, develop further indicators for this data set.</p>
+
+          <p>From April 2017 the Patient Online Management Information data will no longer be published via the Indicator Portal. The data will be made available via the&nbsp;<a href="https://www.digital.nhs.uk/GP-Data-Hub" target="_blank">NHS Digital GP Data Hub</a>.</p>
+
+          <p>The data will continue to be refreshed on a monthly basis, and will be presented in an interactive dashboard in addition to an accessible .csv file, which can be accessed at&nbsp;<a href="http://content.digital.nhs.uk/pomipublications" target="_blank">http://content.digital.nhs.uk/pomipublications</a>. The time lag between the end of a reporting month and release of the data will be decreased to less than a month (e.g. data for the month of June will be made available before the end of July).</p>
+
+          <p>An overview of the available indicators for both the PHF10 and the POMI returns can be viewed below.</p>
+
+          <p>Patient Online Management Information (POMI) - Monthly Reporting (from February 2016)</p>
+
+          <ul>
+           <li>GP System Functionality for Patients to Book or Cancel Appointments Electronically</li>
+           <li>GP System Functionality for Patients to Order Repeat Prescriptions Electronically</li>
+           <li>GP System Functionality for Patients to View Detailed Coded Records (DCR) Electronically</li>
+          </ul>
+
+          <p>Patient Online Management Information (POMI) - Monthly Reporting (from April 2015)</p>
+
+          <ul>
+           <li>GP System Functionality for Patients to Book or Cancel Appointments Electronically</li>
+           <li>GP System Functionality for Patients to Order Repeat Prescriptions Electronically</li>
+           <li>GP System Functionality for Patients to View GP Letters Electronically</li>
+           <li>GP System Functionality for Patients to View Test Results Electronically</li>
+          </ul>
+
+          <p>PHF10 - Quarterly Reporting (to March 2015)</p>
+
+          <ul>
+           <li>GP System Functionality for Patients to Book or Cancel Appointments Electronically</li>
+           <li>GP System Functionality for Patients to View or Order Repeat Prescriptions Electronically</li>
+           <li>GP System Functionality for Patients to View GP Letters Electronically</li>
+           <li>GP System Functionality for Patients to View Test Results Electronically</li>
+           <li>GP System Functionality for Patients to View a Subset of Medical Records Electronically</li>
+           <li>GP System Functionality for Patients to View Full Medical Records Electronically</li>
+          </ul>
+
+          <p>Other useful links</p>
+
+          <p>NHS England<br />
+          <a href="http://www.england.nhs.uk/ourwork/pe/patient-online//" target="_blank">http://www.england.nhs.uk/ourwork/pe/patient-online/</a></p>
+
+          <p>GP System of Choice (GPSoC)<br />
+          <a href="http://systems.hscic.gov.uk/gpsoc" target="_blank">http://systems.hscic.gov.uk/gpsoc</a></p>
+
+          <p>Department of Health - the Government’s initial plan (white paper) for the period November 2012 - March 2015 (the government term)<br />
+          <a href="http://www.dh.gov.uk/en/Publicationsandstatistics/Publications/PublicationsPolicyAndGuidance/DH_117353" target="_blank">http://www.dh.gov.uk/en/Publicationsandstatistics/Publications/PublicationsPolicyAndGuidance/DH_117353</a></p>
+        jcr:primaryType: hippostd:html
+      jcr:primaryType: publicationsystem:cilandingasset
+      publicationsystem:title: ''
+    common:searchable: true
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-01-23T20:53:46.749Z
+    hippostdpubwf:lastModificationDate: 2019-09-18T08:51:59.584Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 5015f06a-b8c2-4299-8555-ab385dd3f0f3
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:cilanding
+    jcr:uuid: 53422f10-7889-4e79-b360-ea1eda883ed0
+    publicationsystem:actionLinkName: ''
+    publicationsystem:actionLinkRelPath: ''
+    publicationsystem:title: Patient Online Management Information (POMI)
+    publicationsystem:urlNameOfContentFolder: patient-online-management-information-pomi
+  /patient-online-management-information-pomi[2]:
+    /publicationsystem:cilandingasset:
+      /publicationsystem:content:
+        hippostd:content: |-
+          <p>The Patient Online services indicator set was commissioned by NHS England to monitor progress against a government ambition for all patients who wish it to have online access to services in general practices by the end of March 2015.</p>
+
+          <p>This information was made available via the PHF10 return that collected information on a quarterly basis from system suppliers on the availability at GP practice level of online appointment booking, ordering of repeat prescriptions and access to medical records, test results, GP letters and summary information (allergies, adverse reactions and medications). This data was collected via the NHS Digital Data Depot secure file transfer system.</p>
+
+          <p>During the 2014/15 financial year (Q2 to Q4) the introduction of data requirements for the NHS Digital's GP System of Choice (GPSoC) team was combined with the PHF10 return and piloted to run monthly reporting in an attempt to make this ‘online availability data’ more frequently accessible and relevant.</p>
+
+          <p>Following the successful pilot of the monthly reporting, GPSoC and NHS England agreed to develop the metrics for this indicator set. As a result, from April 2015 the Patient Online Management Information (POMI) indicator set was introduced, replacing the old PHF10 return. The new POMI return continues to collect information on the availability to patients of electronic access to their test results, GP letters, prescriptions and online appointment booking facilities at the GP Practice level.</p>
+
+          <p>The subset and full medical records viewing services are being redefined to align with the requirements in the 2015/16 GMS/PMS regulations and the two previous indicators have been decommissioned from April 2015. This review will also consider other elements within the indicator set and how these align with the redefined indicators.</p>
+
+          <p>The new indicator to provide information on the availability to patients to access their detailed coded record (DCR) was introduced from February 2016, and the previous indicators for test results and letters decommissioned from April 2016. Work is ongoing between the NHS Digital and NHS England to review existing and, where required, develop further indicators for this data set.</p>
+
+          <p>From April 2017 the Patient Online Management Information data will no longer be published via the Indicator Portal. The data will be made available via the&nbsp;<a href="https://www.digital.nhs.uk/GP-Data-Hub" target="_blank">NHS Digital GP Data Hub</a>.</p>
+
+          <p>The data will continue to be refreshed on a monthly basis, and will be presented in an interactive dashboard in addition to an accessible .csv file, which can be accessed at&nbsp;<a href="http://content.digital.nhs.uk/pomipublications" target="_blank">http://content.digital.nhs.uk/pomipublications</a>. The time lag between the end of a reporting month and release of the data will be decreased to less than a month (e.g. data for the month of June will be made available before the end of July).</p>
+
+          <p>An overview of the available indicators for both the PHF10 and the POMI returns can be viewed below.</p>
+
+          <p>Patient Online Management Information (POMI) - Monthly Reporting (from February 2016)</p>
+
+          <ul>
+           <li>GP System Functionality for Patients to Book or Cancel Appointments Electronically</li>
+           <li>GP System Functionality for Patients to Order Repeat Prescriptions Electronically</li>
+           <li>GP System Functionality for Patients to View Detailed Coded Records (DCR) Electronically</li>
+          </ul>
+
+          <p>Patient Online Management Information (POMI) - Monthly Reporting (from April 2015)</p>
+
+          <ul>
+           <li>GP System Functionality for Patients to Book or Cancel Appointments Electronically</li>
+           <li>GP System Functionality for Patients to Order Repeat Prescriptions Electronically</li>
+           <li>GP System Functionality for Patients to View GP Letters Electronically</li>
+           <li>GP System Functionality for Patients to View Test Results Electronically</li>
+          </ul>
+
+          <p>PHF10 - Quarterly Reporting (to March 2015)</p>
+
+          <ul>
+           <li>GP System Functionality for Patients to Book or Cancel Appointments Electronically</li>
+           <li>GP System Functionality for Patients to View or Order Repeat Prescriptions Electronically</li>
+           <li>GP System Functionality for Patients to View GP Letters Electronically</li>
+           <li>GP System Functionality for Patients to View Test Results Electronically</li>
+           <li>GP System Functionality for Patients to View a Subset of Medical Records Electronically</li>
+           <li>GP System Functionality for Patients to View Full Medical Records Electronically</li>
+          </ul>
+
+          <p>Other useful links</p>
+
+          <p>NHS England<br />
+          <a href="http://www.england.nhs.uk/ourwork/pe/patient-online//" target="_blank">http://www.england.nhs.uk/ourwork/pe/patient-online/</a></p>
+
+          <p>GP System of Choice (GPSoC)<br />
+          <a href="http://systems.hscic.gov.uk/gpsoc" target="_blank">http://systems.hscic.gov.uk/gpsoc</a></p>
+
+          <p>Department of Health - the Government’s initial plan (white paper) for the period November 2012 - March 2015 (the government term)<br />
+          <a href="http://www.dh.gov.uk/en/Publicationsandstatistics/Publications/PublicationsPolicyAndGuidance/DH_117353" target="_blank">http://www.dh.gov.uk/en/Publicationsandstatistics/Publications/PublicationsPolicyAndGuidance/DH_117353</a></p>
+        jcr:primaryType: hippostd:html
+      jcr:primaryType: publicationsystem:cilandingasset
+      publicationsystem:title: ''
+    common:searchable: true
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-01-23T20:53:46.749Z
+    hippostdpubwf:lastModificationDate: 2019-09-18T08:52:06.823Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 5015f06a-b8c2-4299-8555-ab385dd3f0f3
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: publicationsystem:cilanding
+    jcr:uuid: 31cbbf14-c691-48f8-aa7d-73cc9a032915
+    publicationsystem:actionLinkName: ''
+    publicationsystem:actionLinkRelPath: ''
+    publicationsystem:title: Patient Online Management Information (POMI)
+    publicationsystem:urlNameOfContentFolder: patient-online-management-information-pomi
+  /patient-online-management-information-pomi[3]:
+    /publicationsystem:cilandingasset:
+      /publicationsystem:content:
+        hippostd:content: |-
+          <p>The Patient Online services indicator set was commissioned by NHS England to monitor progress against a government ambition for all patients who wish it to have online access to services in general practices by the end of March 2015.</p>
+
+          <p>This information was made available via the PHF10 return that collected information on a quarterly basis from system suppliers on the availability at GP practice level of online appointment booking, ordering of repeat prescriptions and access to medical records, test results, GP letters and summary information (allergies, adverse reactions and medications). This data was collected via the NHS Digital Data Depot secure file transfer system.</p>
+
+          <p>During the 2014/15 financial year (Q2 to Q4) the introduction of data requirements for the NHS Digital's GP System of Choice (GPSoC) team was combined with the PHF10 return and piloted to run monthly reporting in an attempt to make this ‘online availability data’ more frequently accessible and relevant.</p>
+
+          <p>Following the successful pilot of the monthly reporting, GPSoC and NHS England agreed to develop the metrics for this indicator set. As a result, from April 2015 the Patient Online Management Information (POMI) indicator set was introduced, replacing the old PHF10 return. The new POMI return continues to collect information on the availability to patients of electronic access to their test results, GP letters, prescriptions and online appointment booking facilities at the GP Practice level.</p>
+
+          <p>The subset and full medical records viewing services are being redefined to align with the requirements in the 2015/16 GMS/PMS regulations and the two previous indicators have been decommissioned from April 2015. This review will also consider other elements within the indicator set and how these align with the redefined indicators.</p>
+
+          <p>The new indicator to provide information on the availability to patients to access their detailed coded record (DCR) was introduced from February 2016, and the previous indicators for test results and letters decommissioned from April 2016. Work is ongoing between the NHS Digital and NHS England to review existing and, where required, develop further indicators for this data set.</p>
+
+          <p>From April 2017 the Patient Online Management Information data will no longer be published via the Indicator Portal. The data will be made available via the&nbsp;<a href="https://www.digital.nhs.uk/GP-Data-Hub" target="_blank">NHS Digital GP Data Hub</a>.</p>
+
+          <p>The data will continue to be refreshed on a monthly basis, and will be presented in an interactive dashboard in addition to an accessible .csv file, which can be accessed at&nbsp;<a href="http://content.digital.nhs.uk/pomipublications" target="_blank">http://content.digital.nhs.uk/pomipublications</a>. The time lag between the end of a reporting month and release of the data will be decreased to less than a month (e.g. data for the month of June will be made available before the end of July).</p>
+
+          <p>An overview of the available indicators for both the PHF10 and the POMI returns can be viewed below.</p>
+
+          <p>Patient Online Management Information (POMI) - Monthly Reporting (from February 2016)</p>
+
+          <ul>
+           <li>GP System Functionality for Patients to Book or Cancel Appointments Electronically</li>
+           <li>GP System Functionality for Patients to Order Repeat Prescriptions Electronically</li>
+           <li>GP System Functionality for Patients to View Detailed Coded Records (DCR) Electronically</li>
+          </ul>
+
+          <p>Patient Online Management Information (POMI) - Monthly Reporting (from April 2015)</p>
+
+          <ul>
+           <li>GP System Functionality for Patients to Book or Cancel Appointments Electronically</li>
+           <li>GP System Functionality for Patients to Order Repeat Prescriptions Electronically</li>
+           <li>GP System Functionality for Patients to View GP Letters Electronically</li>
+           <li>GP System Functionality for Patients to View Test Results Electronically</li>
+          </ul>
+
+          <p>PHF10 - Quarterly Reporting (to March 2015)</p>
+
+          <ul>
+           <li>GP System Functionality for Patients to Book or Cancel Appointments Electronically</li>
+           <li>GP System Functionality for Patients to View or Order Repeat Prescriptions Electronically</li>
+           <li>GP System Functionality for Patients to View GP Letters Electronically</li>
+           <li>GP System Functionality for Patients to View Test Results Electronically</li>
+           <li>GP System Functionality for Patients to View a Subset of Medical Records Electronically</li>
+           <li>GP System Functionality for Patients to View Full Medical Records Electronically</li>
+          </ul>
+
+          <p>Other useful links</p>
+
+          <p>NHS England<br />
+          <a href="http://www.england.nhs.uk/ourwork/pe/patient-online//" target="_blank">http://www.england.nhs.uk/ourwork/pe/patient-online/</a></p>
+
+          <p>GP System of Choice (GPSoC)<br />
+          <a href="http://systems.hscic.gov.uk/gpsoc" target="_blank">http://systems.hscic.gov.uk/gpsoc</a></p>
+
+          <p>Department of Health - the Government’s initial plan (white paper) for the period November 2012 - March 2015 (the government term)<br />
+          <a href="http://www.dh.gov.uk/en/Publicationsandstatistics/Publications/PublicationsPolicyAndGuidance/DH_117353" target="_blank">http://www.dh.gov.uk/en/Publicationsandstatistics/Publications/PublicationsPolicyAndGuidance/DH_117353</a></p>
+        jcr:primaryType: hippostd:html
+      jcr:primaryType: publicationsystem:cilandingasset
+      publicationsystem:title: ''
+    common:searchable: true
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-01-23T20:53:46.749Z
+    hippostdpubwf:lastModificationDate: 2019-09-18T08:52:06.823Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2019-09-18T08:52:10.020Z
+    hippotranslation:id: 5015f06a-b8c2-4299-8555-ab385dd3f0f3
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: publicationsystem:cilanding
+    jcr:uuid: 352e43e1-e661-4ada-ac7c-9f14ba886e43
+    publicationsystem:actionLinkName: ''
+    publicationsystem:actionLinkRelPath: ''
+    publicationsystem:title: Patient Online Management Information (POMI)
+    publicationsystem:urlNameOfContentFolder: patient-online-management-information-pomi
+  hippo:name: Patient Online Management Information (POMI)
+  hippo:versionHistory: 515cd9f1-20d0-4a04-8dce-e4c08d98b086
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
+  jcr:uuid: 98f167fa-7c3d-49e9-b8f4-70ec6e845051

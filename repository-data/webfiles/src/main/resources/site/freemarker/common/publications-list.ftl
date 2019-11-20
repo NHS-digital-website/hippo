@@ -18,7 +18,7 @@
                     <article class="cta">
                         <#if hstRequestContext.preview>
                         <div style="position:relative">
-                            <@hst.cmseditlink hippobean=item />
+                            <@hst.manageContent hippobean=item />
                         </div>
                         </#if>
                         <h2 class="cta__title"><a href="<@hst.link hippobean=item/>">${item.title}</a></h2>

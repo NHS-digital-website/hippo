@@ -1,0 +1,7 @@
+---
+group:
+  after: hippo-cms
+  name: publicationsystem
+module:
+  name: website-repository-data-site
+project: publicationsystem

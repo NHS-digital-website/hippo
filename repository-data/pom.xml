@@ -22,6 +22,8 @@
         <module>development</module>
         <module>webfiles</module>
         <module>local</module>
+        <module>site</module>
+        <module>site-development</module>
     </modules>
 
     <build>

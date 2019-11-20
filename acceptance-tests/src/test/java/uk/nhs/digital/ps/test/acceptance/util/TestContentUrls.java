@@ -32,6 +32,7 @@ public class TestContentUrls {
 
     public String lookupSiteUrl(String pageName) {
         final String lowerCasedPageName = pageName.toLowerCase();
+
         if (!siteUrlLookup.containsKey(lowerCasedPageName)) {
             throw new RuntimeException("Unknown pageName: " + pageName);
         }

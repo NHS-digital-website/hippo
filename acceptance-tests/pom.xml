@@ -18,7 +18,7 @@
 
     <properties>
         <cucumber.version>1.2.5</cucumber.version>
-        <spring.version>4.3.24.RELEASE</spring.version>
+        <spring.version>5.1.8.RELEASE</spring.version>
         <selenium.version>3.141.59</selenium.version>
     </properties>
 
@@ -126,21 +126,33 @@
             <artifactId>hippo-repository-builtin</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.onehippo.cms7.hst</groupId>
+            <artifactId>hst-api</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.onehippo.cms</groupId>
             <artifactId>hippo-configuration-management-api</artifactId>
         </dependency>
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-inference-engine-api</artifactId>
+            <artifactId>hippo-addon-targeting-shared-api</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-crisp-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-inference-engine-api</artifactId>
+        </dependency>
+        <!--<dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j-impl</artifactId>
@@ -266,13 +278,63 @@
 
         <profile>
             <id>acceptance-test-hippo</id>
+            <properties>
+                <!-- Elastic search to do with relevance -->
+                <es.tcpPort>9300</es.tcpPort>
+                <es.path>${project.build.directory}/storage</es.path>
+                <es.skip.start>false</es.skip.start>
+                <targeting.truncate>true</targeting.truncate>
+                <es.httpPort>9200</es.httpPort>
+                <targeting.bootstrap>false</targeting.bootstrap>
+
+                <!-- H2 also for relevance -->
+                <sql.driver>org.h2.Driver</sql.driver>
+                <sql.url>jdbc:h2:${repo.path}/targeting/targeting;AUTO_SERVER=TRUE</sql.url>
+                <sql.username>sa</sql.username>
+            </properties>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
             <dependencies>
                 <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-slf4j-impl</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>jcl-over-slf4j</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-core</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.onehippo.cms7</groupId>
+                    <artifactId>hippo-addon-crisp-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.onehippo.cms7</groupId>
+                    <artifactId>hippo-addon-targeting-shared-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
                     <groupId>com.onehippo.cms7</groupId>
                     <artifactId>hippo-addon-inference-engine-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.h2database</groupId>
+                    <artifactId>h2</artifactId>
+                    <version>${h2.database.version}</version>
                     <scope>provided</scope>
                 </dependency>
             </dependencies>
@@ -333,6 +395,10 @@
                                         <file>${website.basedir}/s3connector/target/s3-connector-${project.version}.jar</file>
                                         <todir>shared/lib</todir>
                                     </file>
+                                    <file>
+                                        <file>${website.basedir}/repository-data/site-development/target/website-repository-data-site-development-${project.version}.jar</file>
+                                        <todir>${development-module-deploy-dir}</todir>
+                                    </file>
                                 </files>
                             </configuration>
                             <deployables>
@@ -346,15 +412,15 @@
                                 <deployable>
                                     <type>war</type>
                                     <properties>
-                                        <context>/</context>
+                                        <context>/site</context>
                                     </properties>
-                                    <location>${website.basedir}/site/target/ROOT.war</location>
+                                    <location>${website.basedir}/site/webapp/target/site.war</location>
                                 </deployable>
                             </deployables>
                             <container>
                                 <timeout>240000</timeout>
                                 <zipUrlInstaller>
-                                    <url>${tomcatDistributionUrl}</url>
+                                    <url>${cargo.tomcat.distribution.url}</url>
                                 </zipUrlInstaller>
                                 <systemProperties>
                                     <log4j.configurationFile>file://${website.basedir}/conf/log4j2-dev.xml</log4j.configurationFile>
@@ -374,13 +440,12 @@
                                     <externalstorage.aws.bucket>${externalstorage.aws.bucket}</externalstorage.aws.bucket>
                                     <externalstorage.aws.region>${externalstorage.aws.region}</externalstorage.aws.region>
                                     <externalstorage.aws.s3.endpoint>${externalstorage.aws.s3.endpoint}</externalstorage.aws.s3.endpoint>
+                                    <dynamic.bean.generation>false</dynamic.bean.generation>
                                 </systemProperties>
+
                                 <dependencies>
                                     <!-- Dependencies shared by all deployed apps. Have to be declared in project's
                                      dependencies first. -->
-
-                                    <!-- shared/lib - dependencies shared by the applications but not exposed to the
-                                    server -->
                                     <dependency>
                                         <groupId>org.onehippo.cms7</groupId>
                                         <artifactId>hippo-cms7-commons</artifactId>
@@ -402,13 +467,48 @@
                                         <classpath>shared</classpath>
                                     </dependency>
                                     <dependency>
-                                        <groupId>org.onehippo.cms</groupId>
-                                        <artifactId>hippo-configuration-management-api</artifactId>
+                                        <groupId>org.onehippo.cms7.hst</groupId>
+                                        <artifactId>hst-api</artifactId>
+                                        <classpath>shared</classpath>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>org.onehippo.cms7</groupId>
+                                        <artifactId>hippo-addon-crisp-api</artifactId>
+                                        <classpath>shared</classpath>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>com.onehippo.cms7</groupId>
+                                        <artifactId>hippo-addon-targeting-shared-api</artifactId>
                                         <classpath>shared</classpath>
                                     </dependency>
                                     <dependency>
                                         <groupId>com.onehippo.cms7</groupId>
                                         <artifactId>hippo-addon-inference-engine-api</artifactId>
+                                        <classpath>shared</classpath>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>org.apache.geronimo.specs</groupId>
+                                        <artifactId>geronimo-jta_1.1_spec</artifactId>
+                                        <classpath>extra</classpath>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>javax.jcr</groupId>
+                                        <artifactId>jcr</artifactId>
+                                        <classpath>extra</classpath>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>javax.mail</groupId>
+                                        <artifactId>mail</artifactId>
+                                        <classpath>extra</classpath>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>org.apache.logging.log4j</groupId>
+                                        <artifactId>log4j-api</artifactId>
+                                        <classpath>shared</classpath>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>org.apache.logging.log4j</groupId>
+                                        <artifactId>log4j-core</artifactId>
                                         <classpath>shared</classpath>
                                     </dependency>
                                     <dependency>
@@ -427,31 +527,43 @@
                                         <classpath>shared</classpath>
                                     </dependency>
                                     <dependency>
-                                        <groupId>org.apache.logging.log4j</groupId>
-                                        <artifactId>log4j-api</artifactId>
-                                        <classpath>shared</classpath>
-                                    </dependency>
-                                    <dependency>
-                                        <groupId>org.apache.logging.log4j</groupId>
-                                        <artifactId>log4j-core</artifactId>
-                                        <classpath>shared</classpath>
-                                    </dependency>
-
-                                    <!-- common/lib - dependencies shared by all applictions and the server -->
-                                    <dependency>
-                                        <groupId>javax.jcr</groupId>
-                                        <artifactId>jcr</artifactId>
-                                    </dependency>
-                                    <dependency>
-                                        <groupId>org.apache.geronimo.specs</groupId>
-                                        <artifactId>geronimo-jta_1.1_spec</artifactId>
-                                    </dependency>
-                                    <dependency>
-                                        <groupId>javax.mail</groupId>
-                                        <artifactId>mail</artifactId>
+                                        <groupId>com.h2database</groupId>
+                                        <artifactId>h2</artifactId>
+                                        <classpath>extra</classpath>
                                     </dependency>
                                 </dependencies>
+
                             </container>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>com.github.alexcojocaru</groupId>
+                        <artifactId>elasticsearch-maven-plugin</artifactId>
+                        <version>${maven.plugin.elasticsearch.version}</version>
+                        <executions>
+                            <execution>
+                                <id>start-elasticsearch</id>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>runforked</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>stop-elasticsearch</id>
+                                <phase>post-integration-test</phase>
+                                <goals>
+                                    <goal>stop</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <clusterName>esDevCluster</clusterName>
+                            <httpPort>${es.httpPort}</httpPort>
+                            <transportPort>${es.tcpPort}</transportPort>
+                            <version>${maven.plugin.elasticsearch.configuration.version}</version>
+                            <keepExistingData>true</keepExistingData>
+                            <timeout>60</timeout>
+                            <skip>${es.skip.start}</skip>
                         </configuration>
                     </plugin>
 

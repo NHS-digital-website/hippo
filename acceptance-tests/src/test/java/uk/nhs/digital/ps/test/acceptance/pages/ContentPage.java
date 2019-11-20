@@ -516,12 +516,18 @@ public class ContentPage extends AbstractCmsPage {
     }
 
     public List<String> getErrorMessages() {
-        List<WebElement> errorElements = helper.findElements(By.xpath("//span[contains(@class, 'feedbackPanelERROR')]"));
+        List<WebElement> errorElements = helper.findElements(By.xpath("//span[contains(@class, 'validation-message')]"));
         return errorElements.stream().map(WebElement::getText).collect(toList());
     }
 
+    public String getErrorMessageInModal() {
+        return helper.findElement(
+            By.xpath("//div[contains(@class, 'wicket-modal')]//li[contains(@class, 'feedbackPanelERROR')]"))
+                .getText();
+    }
+
     public List<String> getInfoMessages() {
-        List<WebElement> errorElements = helper.findElements(By.xpath("//span[contains(@class, 'feedbackPanelINFO')]"));
+        List<WebElement> errorElements = helper.findElements(By.xpath("//li[contains(@class, 'feedbackPanelINFO')]"));
         return errorElements.stream().map(WebElement::getText).collect(toList());
     }
 

@@ -1,7 +1,0 @@
----
-definitions:
-  config:
-    /hst:hst/hst:hosts:
-      hst:homepage: root
-      hst:scheme: https
-      hst:showcontextpath: false
