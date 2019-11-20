@@ -32,7 +32,7 @@ public class CommonFieldsBean extends BaseDocument {
 
     protected static int NO_LIMIT = 0;
 
-    @JsonIgnore
+    @JsonProperty
     public String getSeosummaryJson() {
         return getHippoHtmlContent("website:seosummary");
     }
@@ -42,7 +42,7 @@ public class CommonFieldsBean extends BaseDocument {
         return getHippoHtml("website:seosummary");
     }
 
-    @JsonIgnore
+    @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:shortsummary", allowModifications = false)
     public String getShortsummary() {
         return getProperty("website:shortsummary");
