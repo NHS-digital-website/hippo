@@ -123,7 +123,15 @@
                         <h2>${datasetsHeader}</h2>
                         <ul data-uipath="ps.publication.datasets">
                             <#list publication.datasets as dataset>
-                                <li itemprop="hasPart" itemscope itemtype="http://schema.org/Dataset"><a itemprop="url" href="<@hst.link hippobean=dataset.selfLinkBean/>" title="${dataset.title}"><span itemprop="name">${dataset.title}</span></a></li>
+                                <li itemprop="hasPart" itemscope itemtype="http://schema.org/Dataset">
+                                  <a itemprop="url" href="<@hst.link hippobean=dataset.selfLinkBean/>" title="${dataset.title}">
+                                    <span itemprop="name">${dataset.title}</span>
+                                  </a>
+                                  <#list dataset.summary.elements as element>
+                                    <meta itemprop="description" content="${element}" />
+                                  </#list>
+                                  <meta itemprop="license" content="https://digital.nhs.uk/about-nhs-digital/terms-and-conditions" />
+                                </li>
                             </#list>
                         </ul>
                     </div>
@@ -135,7 +143,7 @@
                         <#if publication.attachments?has_content>
                         <ul data-uipath="ps.publication.resources-attachments" class="list list--reset">
                         <#list publication.attachments as attachment>
-                            <li class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
+                            <li class="attachment" itemprop="distribution" itemscope itemtype="http://schema.org/DataDownload">
                                 <@externalstorageLink attachment.resource; url>
                                 <a title="${attachment.text}"
                                    href="${url}"
@@ -150,6 +158,9 @@
                                         <span class="block-link__title" itemprop="name">${attachment.text}</span>
                                         <@fileMetaAppendix attachment.resource.length, attachment.resource.mimeType></@fileMetaAppendix>
                                     </div>
+                                    <meta itemprop="license" content="https://digital.nhs.uk/about-nhs-digital/terms-and-conditions" />
+                                    <meta itemprop="encodingFormat" content="${attachment.resource.mimeType}" />
+                                    <meta itemprop="name" content="${attachment.text}" />
                                 </a>
                                 </@externalstorageLink>
                             </li>
@@ -194,7 +205,8 @@
 
 <#-- ACTUAL TEMPLATE -->
 <#if publication?? >
-    <article class="article article--publication" itemscope itemtype="http://schema.org/PublicationIssue" aria-label="Document Header">
+    <article class="article article--publication" itemscope itemtype="http://schema.org/Dataset" aria-label="Document Header">
+        <meta itemprop="license" content="https://digital.nhs.uk/about-nhs-digital/terms-and-conditions" />
         <#if publication.publiclyAccessible>
             <@fullContentOfPubliclyAvailablePublication/>
         <#else>

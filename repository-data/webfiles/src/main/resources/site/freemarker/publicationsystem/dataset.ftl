@@ -45,11 +45,14 @@
                 <div class="grid-wrapper">
                     <div class="article-header__inner">
                         <meta itemprop="keywords" content="${dataset.fullTaxonomyList?join(",")}"/>
+                        <#assign thisurl="<@hst.link hippobean=dataset.selfLinkBean/>"/>
+                        <meta itemprop="url" content="<@hst.link hippobean=dataset.selfLinkBean/>"/>
+                        <meta itemprop="license" content="https://digital.nhs.uk/about-nhs-digital/terms-and-conditions" />
                         <span class="article-header__label"><@fmt.message key="labels.dataset"/></span>
-                        <h1 class="local-header__title" data-uipath="document.title">${dataset.title}</h1>
+                        <h1 class="local-header__title" data-uipath="document.title" itemprop="name">${dataset.title}</h1>
 
                         <#if dataset.parentPublication??>
-                            <p class="article-header__subtitle" itemprop="isPartOf" itemscope itemtype="http://schema.org/PublicationIssue">
+                            <p class="article-header__subtitle" itemprop="includedInDataCatalog" itemscope itemtype="http://schema.org/DataCatalog">
                                 This data set is part of
                                 <a itemprop="url" href="<@hst.link hippobean=dataset.parentPublication.selfLinkBean/>"
                                     title="${dataset.parentPublication.title}">
@@ -101,7 +104,8 @@
                                     <dl class="detail-list">
                                         <dt class="detail-list__key" id="geographic-coverage" data-uipath="geographic-coverage"><@fmt.message key="headers.geographical-coverage"/></dt>
                                         <dd class="detail-list__value" data-uipath="ps.dataset.geographic-coverage">
-                                            <#list dataset.geographicCoverage as geographicCoverageItem>${geographicCoverageItem}<#sep>, </#list>
+                                            <#list dataset.geographicCoverage as geographicCoverageItem>
+                                            <span itemprop="spatialCoverage" itemscope itemtype="http://schema.org/Place"><span itemprop="name">${geographicCoverageItem}</span></span><#sep>, </#list>
                                         </dd>
                                     </dl>
                                 </div>
@@ -141,9 +145,12 @@
                         <h2><@fmt.message key="headers.resources"/></h2>
                         <ul data-uipath="ps.dataset.resources" class="list">
                             <#list dataset.files as attachment>
-                                <li class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/DataDownload">
+                                <li class="attachment" itemprop="distribution" itemscope itemtype="http://schema.org/DataDownload">
                                     <@externalstorageLink attachment.resource; url>
-                                    <a itemprop="contentUrl" title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Data set','${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)"><span itemprop="name">${attachment.text}</span></a>
+                                      <a itemprop="contentUrl" title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Data set','${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)"><span itemprop="name">${attachment.text}</span></a>
+                                      <meta itemprop="license" content="https://digital.nhs.uk/about-nhs-digital/terms-and-conditions" />
+                                      <meta itemprop="encodingFormat" content="${attachment.resource.mimeType}" />
+                                      <meta itemprop="name" content="${attachment.text}" />
                                     </@externalstorageLink>
                                     <@fileMetaAppendix attachment.resource.length, attachment.resource.mimeType></@fileMetaAppendix>
                                 </li>
