@@ -45,6 +45,7 @@ public class CyberAlert extends CommonFieldsBean {
         }
         return null;
     }
+
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:threatid", allowModifications = false)
     public String getThreatId() {
