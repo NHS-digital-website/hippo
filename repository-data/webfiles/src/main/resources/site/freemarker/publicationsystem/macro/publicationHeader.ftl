@@ -12,7 +12,7 @@
                     <span class="article-header__label"><@fmt.message key="labels.publication"/></span>
                     <h1 class="local-header__title" data-uipath="document.title" itemprop="name">${publication.title}</h1>
                     <#if publication.parentDocument??>
-                        <p class="article-header__subtitle" itemprop="isPartOf" itemscope itemtype="http://schema.org/Series">
+                        <p class="article-header__subtitle" itemprop="includedInDataCatalog" itemscope itemtype="http://schema.org/DataCatalog">
                             This is part of
                             <a itemprop="url" href="<@hst.link hippobean=publication.parentDocument.selfLinkBean/>"
                                 title="${publication.parentDocument.title}">

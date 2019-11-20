@@ -107,7 +107,7 @@
                 <span class="article-header__label"><@fmt.message key="labels.publication"/></span>
                 <h1 class="local-header__title" data-uipath="document.title" itemprop="name">${legacyPublication.title}</h1>
                 <#if legacyPublication.parentDocument??>
-                    <p class="article-header__subtitle" itemprop="isPartOf" itemscope itemtype="http://schema.org/Series">
+                    <p class="article-header__subtitle" itemprop="includedInDataCatalog" itemscope itemtype="http://schema.org/DataCatalog">
                         This is part of
                         <a itemprop="url" href="<@hst.link hippobean=legacyPublication.parentDocument.selfLinkBean/>"
                             title="${legacyPublication.parentDocument.title}">
@@ -263,7 +263,7 @@
                 <ul data-uipath="ps.publication.resources" class="list list--reset">
                 </#if>
                 <#list legacyPublication.attachments as attachment>
-                    <li class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
+                    <li class="attachment" itemprop="distribution" itemscope itemtype="http://schema.org/DataDownload">
                         <@externalstorageLink attachment.resource; url>
                             <a title="${attachment.text}"
                                href="${url}"
@@ -278,6 +278,8 @@
                                     <span class="block-link__title" itemprop="name">${attachment.text}</span>
                                     <@fileMetaAppendix attachment.resource.length, attachment.resource.mimeType></@fileMetaAppendix>
                                 </div>
+                                <meta itemprop="license" content="https://digital.nhs.uk/about-nhs-digital/terms-and-conditions" />
+                                <meta itemprop="encodingFormat" content="${attachment.resource.mimeType}" />
                             </a>
                         </@externalstorageLink>
                     </li>
@@ -332,7 +334,8 @@
 
 <#-- ACTUAL TEMPLATE -->
 <#if legacyPublication?? >
-<article class="article article--legacy-publication" itemscope itemtype="http://schema.org/PublicationIssue">
+<article class="article article--legacy-publication" itemscope itemtype="http://schema.org/Dataset">
+    <meta itemprop="license" content="https://digital.nhs.uk/about-nhs-digital/terms-and-conditions" />
     <#if legacyPublication.publiclyAccessible>
         <@fullContentOfPubliclyAvailablePublication/>
     <#else>
