@@ -1,0 +1,57 @@
+version: 1
+update_configs:
+  - package_manager: "java:maven"
+    directory: "/"
+    update_schedule: "daily"
+    commit_message:
+      prefix: "[DW-000] "
+      include_scope: true
+
+  - package_manager: "java:maven"
+    directory: "/acceptance-tests"
+    update_schedule: "daily"
+    commit_message:
+      prefix: "[DW-000] "
+      include_scope: true
+
+  - package_manager: "java:maven"
+    directory: "/cms"
+    update_schedule: "daily"
+    commit_message:
+      prefix: "[DW-000] "
+      include_scope: true
+
+  - package_manager: "java:maven"
+    directory: "/essentials"
+    update_schedule: "daily"
+    commit_message:
+      prefix: "[DW-000] "
+      include_scope: true
+
+  - package_manager: "java:maven"
+    directory: "/repository"
+    update_schedule: "daily"
+    commit_message:
+      prefix: "[DW-000] "
+      include_scope: true
+
+  - package_manager: "java:maven"
+    directory: "/repository-data"
+    update_schedule: "daily"
+    commit_message:
+      prefix: "[DW-000] "
+      include_scope: true
+
+  - package_manager: "java:maven"
+    directory: "/s3connector"
+    update_schedule: "daily"
+    commit_message:
+      prefix: "[DW-000] "
+      include_scope: true
+
+  - package_manager: "java:maven"
+    directory: "/site"
+    update_schedule: "daily"
+    commit_message:
+      prefix: "[DW-000] "
+      include_scope: true
