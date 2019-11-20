@@ -70,3 +70,9 @@
     background-color: $col-26;
   }
 }
+
+[class^='definedterm-'] {
+  /* inherit definedterm class style for all classes starting with 'definedterm-' */
+  @extend .definedterm;
+}
+

@@ -12,6 +12,15 @@ definitions:
           hst:types:
           - rest
           jcr:primaryType: hst:mount
+        /restapi:
+          hst:alias: restapi
+          hst:ismapped: false
+          hst:namedpipeline: JaxrsRestPlainPipeline
+          hst:responseheaders:
+          - 'Access-Control-Allow-Origin: *'
+          hst:types:
+          - rest
+          jcr:primaryType: hst:mount
         /restservices:
           .meta:residual-child-node-category: content
           hst:alias: restservices

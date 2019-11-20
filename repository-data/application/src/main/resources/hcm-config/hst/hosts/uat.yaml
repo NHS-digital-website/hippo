@@ -16,6 +16,15 @@ definitions:
                 hst:types:
                 - rest
                 jcr:primaryType: hst:mount
+              /restapi:
+                hst:alias: restapi
+                hst:ismapped: false
+                hst:namedpipeline: JaxrsRestPlainPipeline
+                hst:responseheaders:
+                - 'Access-Control-Allow-Origin: https://cms-uat.nhsd.io'
+                hst:types:
+                - rest
+                jcr:primaryType: hst:mount
               hst:mountpoint: /hst:hst/hst:sites/common
               hst:responseheaders:
               - 'Strict-Transport-Security : max-age=31536000'
