@@ -80,17 +80,17 @@ CKEDITOR.dialog.add('definedtermsDialog', function(editor) {
             $.ajax({
                 type: "GET",
                 url: origin+"/restapi/definedterms",
-                dataType: "xml",
+                dataType: "json",
                 timeout: 3000,
-                success: function(xml)
+                success: function(json)
                     {
-                        $(xml).find("definedterm").each(function () {
-                                term = $(this).find("term").text();
-                                colorrgb = $(this).find("colorrgb").text().trim().toLowerCase();
-                                if (! (term in terms) || (term in terms && colorrgb != '')) {
-                                  terms[term] = colorrgb.trim().toLowerCase();
-                                }
-                        });
+                        json.items.forEach(function(items){ items.terms.forEach(function(jsonObject){
+                            term = jsonObject.term;  
+                            colorrgb = jsonObject.colorrgb;
+                            if (! (term in terms) || (term in terms && colorrgb != '')) {
+                              terms[term] = colorrgb.trim().toLowerCase();
+                            }
+                        })});
 
                         for (var key in terms) {
                             var selected = '';

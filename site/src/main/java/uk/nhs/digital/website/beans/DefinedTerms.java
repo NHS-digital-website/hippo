@@ -1,23 +1,20 @@
 package uk.nhs.digital.website.beans;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAnyElement;
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement(name = "definedterms")
-@XmlAccessorType(XmlAccessType.NONE)
+@JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE)
 @HippoEssentialsGenerated(internalName = "website:definedterms")
 @Node(jcrType = "website:definedterms")
-public class DefinedTerms extends CommonFieldsBean {
+public class DefinedTerms extends BaseDocument {
 
-    @XmlAnyElement
+    @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:terms")
     public List<HippoBean> getTerms() {
         return getChildBeansByName("website:terms");
