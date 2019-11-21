@@ -26,7 +26,7 @@ public class CommonFieldsBean extends BaseDocument {
 
     protected static int NO_LIMIT = 0;
 
-    @JsonProperty
+    @JsonProperty("seosummary")
     public String getSeosummaryJson() {
         return getHippoHtmlContent("website:seosummary");
     }
