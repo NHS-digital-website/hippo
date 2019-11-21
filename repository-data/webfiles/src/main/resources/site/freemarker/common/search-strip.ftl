@@ -9,8 +9,8 @@
 <form role="search" method="get" action="${searchLink}" class="search-strip" aria-label="${searchTitle}" id="search">
     <div class="search-strip__contents">
         <div class="search-strip__table-cell">
-            <input type="text" name="query" id="query" class="search-strip__input" placeholder="${buttonLabel}" value="${query!""}" aria-label="${buttonLabel}">
-            <label for="query" class="visually-hidden">${buttonLabel}</label>
+            <input type="text" name="query" id="${searchId?has_content?then(searchId, 'query')}" class="search-strip__input" placeholder="${buttonLabel}" value="${query!""}" aria-label="${buttonLabel}">
+            <label for="${searchId?has_content?then(searchId, 'query')}" class="visually-hidden">${buttonLabel}</label>
         </div>
         <div class="search-strip__table-cell search-strip__table-cell--button">
             <button data-uipath="search.button" class="search-strip__button" aria-label="${buttonLabel}">

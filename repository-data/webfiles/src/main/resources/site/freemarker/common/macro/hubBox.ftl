@@ -15,7 +15,7 @@
                 <#if options.title??>
                     <h2 class="hub-box__title">
                         <#if options.link??>
-                        <a href="${options.link}">
+                        <a class="hub-box__title-a"href="${options.link}">
                         </#if>
                         ${options.title}
                         <#if options.link??>
