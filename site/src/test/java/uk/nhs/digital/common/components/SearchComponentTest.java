@@ -49,7 +49,7 @@ public class SearchComponentTest {
         // setUp
 
         // when
-        final String actualQueryOutput = searchComponent.parseAndApplyWildcards(queryInput);
+        final String actualQueryOutput = ComponentUtils.parseAndApplyWildcards(queryInput);
 
         // then
         assertThat("Wildcard query is correct", actualQueryOutput, is(expectedQueryOutput));

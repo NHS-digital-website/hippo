@@ -24,6 +24,10 @@
     - labels.person
     - labels.apimaster
     - labels.apiendpoint
+    - labels.jobrole
+    - labels.businessunit
+    - labels.orgstructure
+    - labels.group
     resourcebundle:messages:
     - Service
     - Roadmap
@@ -34,6 +38,10 @@
     - Person
     - API Master
     - API Endpoint
+    - Job role
+    - Business unit
+    - Org structure
+    - Group
   /labels[2]:
     hippo:availability: []
     hippostd:state: draft
@@ -57,6 +65,10 @@
     - labels.person
     - labels.apimaster
     - labels.apiendpoint
+    - labels.jobrole
+    - labels.businessunit
+    - labels.orgstructure
+    - labels.group
     resourcebundle:messages:
     - Service
     - Roadmap
@@ -67,6 +79,10 @@
     - Person
     - API Master
     - API Endpoint
+    - Job role
+    - Business unit
+    - Org structure
+    - Group
   /labels[3]:
     hippo:availability:
     - live
@@ -92,6 +108,10 @@
     - labels.person
     - labels.apimaster
     - labels.apiendpoint
+    - labels.jobrole
+    - labels.businessunit
+    - labels.orgstructure
+    - labels.group
     resourcebundle:messages:
     - Service
     - Roadmap
@@ -102,6 +122,10 @@
     - Person
     - API Master
     - API Endpoint
+    - Job role
+    - Business unit
+    - Org structure
+    - Group
   hippo:name: Labels
   jcr:mixinTypes:
   - hippo:named

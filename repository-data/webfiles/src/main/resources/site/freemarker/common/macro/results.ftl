@@ -41,6 +41,10 @@
                   || document.class.name == "uk.nhs.digital.website.beans.Person"
                   || document.class.name == "uk.nhs.digital.website.beans.ApiMaster"
                   || document.class.name == "uk.nhs.digital.website.beans.ApiEndpoint"
+                  || document.class.name == "uk.nhs.digital.website.beans.JobRole"
+                  || document.class.name == "uk.nhs.digital.website.beans.BusinessUnit"
+                  || document.class.name == "uk.nhs.digital.website.beans.Group"
+                  || document.class.name == "uk.nhs.digital.website.beans.OrgStructure"
             >
                 <@genericSearchElement item=document isShowTitle=true elemDate="" />
             </#if>

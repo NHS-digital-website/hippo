@@ -7,12 +7,14 @@ import org.hippoecm.hst.content.beans.query.exceptions.*;
 import org.hippoecm.hst.content.beans.query.filter.*;
 import org.hippoecm.hst.core.component.*;
 import org.hippoecm.hst.core.parameters.*;
+import org.hippoecm.hst.util.*;
 import org.onehippo.cms7.essentials.components.*;
 import org.onehippo.cms7.essentials.components.info.*;
 import org.slf4j.*;
 import uk.nhs.digital.common.components.info.*;
 
 import java.util.*;
+import java.util.regex.*;
 
 @ParametersInfo(
     type = LatestNewsComponentInfo.class
@@ -33,6 +35,22 @@ public class LatestNewsComponent extends EssentialsNewsComponent {
         } catch (FilterException var7) {
             log.error("An exception occurred while trying to create a query filter showing document with display field on : {}", var7);
         }
+
+    }
+
+    @Override
+    protected Filter createQueryFilter(final HstRequest request, final HstQuery query) throws FilterException {
+
+        Filter queryFilter = null;
+
+        final String queryParam = getSearchQuery(request);
+        if (queryParam != null) {
+            String querystring = ComponentUtils.parseAndApplyWildcards(queryParam);
+
+            queryFilter = query.createFilter();
+            queryFilter.addContains(".", querystring);
+        }
+        return queryFilter;
     }
 
     @Override

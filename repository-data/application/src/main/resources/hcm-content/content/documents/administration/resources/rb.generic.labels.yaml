@@ -25,6 +25,10 @@
     - labels.person
     - labels.apimaster
     - labels.apiendpoint
+    - labels.jobrole
+    - labels.businessunit
+    - labels.orgstructure
+    - labels.group
     resourcebundle:messages:
     - This is an example label
     - Blog
@@ -32,6 +36,10 @@
     - Person
     - API Master
     - API Endpoint
+    - Job role
+    - Business unit
+    - Org structure
+    - Group
   /rb.generic.labels[2]:
     hippo:availability:
     - preview
@@ -59,6 +67,10 @@
     - labels.person
     - labels.apimaster
     - labels.apiendpoint
+    - labels.jobrole
+    - labels.businessunit
+    - labels.orgstructure
+    - labels.group
     resourcebundle:messages:
     - This is an example label
     - Blog
@@ -66,6 +78,10 @@
     - Person
     - API Master
     - API Endpoint
+    - Job role
+    - Business unit
+    - Org structure
+    - Group
   /rb.generic.labels[3]:
     hippo:availability:
     - live
@@ -93,6 +109,10 @@
     - labels.person
     - labels.apimaster
     - labels.apiendpoint
+    - labels.jobrole
+    - labels.businessunit
+    - labels.orgstructure
+    - labels.group
     resourcebundle:messages:
     - This is an example label
     - Blog
@@ -100,6 +120,10 @@
     - Person
     - API Master
     - API Endpoint
+    - Job role
+    - Business unit
+    - Org structure
+    - Group
   hippo:name: Labels
   hippo:versionHistory: fc356255-d9b9-4505-a376-8ae3d8bc7d93
   jcr:mixinTypes:
