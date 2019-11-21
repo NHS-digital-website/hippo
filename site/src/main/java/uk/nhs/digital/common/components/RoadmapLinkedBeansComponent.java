@@ -7,7 +7,6 @@ import org.onehippo.forge.selection.hst.contentbean.ValueList;
 import org.onehippo.forge.selection.hst.contentbean.ValueListItem;
 import org.onehippo.forge.selection.hst.util.SelectionUtil;
 
-
 import java.util.List;
 
 public class RoadmapLinkedBeansComponent extends BaseGaContentComponent {
@@ -42,6 +41,9 @@ public class RoadmapLinkedBeansComponent extends BaseGaContentComponent {
             }
         }
 
+        //sending the road map item's categories
+        //String[] selectedTypes = getSelectedTypes(request);
+        //request.setAttribute("selectedTypes", Arrays.asList(selectedTypes));
     }
 
     /**

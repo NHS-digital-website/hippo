@@ -21,6 +21,7 @@
 <#assign quarterGroupHash = {} />
 <#assign monthYearGroupHash = {} />
 <#assign yearGroupHash = {} />
+<#assign filters = {} />
 
 <#list document.item as item>
     <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="yyyy-MM" var="monthYear" timeZone="${getTimeZone()}" />
@@ -31,8 +32,10 @@
     <#assign monthYearGroupHash = monthYearGroupHash + {  monthYear : (monthYearGroupHash[monthYear]![]) + [ item ] } />
     <#assign yearGroupHash = yearGroupHash + {  year : (yearGroupHash[year]![]) + [ item ] } />
     <#assign quarterGroupHash = quarterGroupHash + {  quarter : (quarterGroupHash[quarter]![]) + [ item ] } />
+    <#if item.categoryLink?? &&  item.categoryLink?size == 1>
+        <#assign filters = filters + {  item.categoryLink[0].name : (filters[item.categoryLink[0].name]![]) + [item.categoryLink[0]] } />
+    </#if>
 </#list>
-
 
 <#if interval == "Monthly">
     <#assign groupedDatesHash = monthYearGroupHash />
@@ -77,28 +80,28 @@
 </#function>
 
 <#-- Return the section navigation links -->
-<#function getSectionNavLinks>
+<#--<#function getSectionNavLinks>
     <#assign links = [] />
     <#list groupedDatesHash?keys?sort as k>
         <#assign displayDate= getDisplayDate(k) />
         <#assign links += [{ "url": "#" + slugify(displayDate), "title": displayDate }] />
     </#list>
     <#return links />
-</#function>
+</#function>-->
 
 
 <#--Group the events by type  -->
-<#assign typeGroupHash = {} />
+<#--<#assign typeGroupHash = {} />
 <#list document.item as item>
    <#if item.markers?? >
     <#list item.markers as type>
         <#assign typeGroupHash = typeGroupHash + {  type : (typeGroupHash[type]![]) + [ item ] } />
     </#list>
    </#if>
-</#list>
+</#list>-->
 
 <#-- Return the filter navigation links for the type -->
-<#function getFilterNavLinks>
+<#--<#function getFilterNavLinks>
     <#assign links = [] />
 
     <#list typeGroupHash?keys as key>
@@ -107,8 +110,7 @@
     </#list>
 
     <#return links />
-</#function>
-
+</#function>-->
 
 <#assign sectionTitlesFound = countSectionTitles(document.item) />
 <@fmt.message key="headers.about-this-publication" var="aboutThisPublicationHeader" />
@@ -150,9 +152,13 @@
                         <#assign sections += [{ "url": "#" + slugify(displayDate), "title": displayDate, "aria-label": "Jump to items starting in ${displayDate}" }] />
                     </#list>
                     <@stickyNavSections getStickySectionNavLinks({  "sections": sections, "includeTopLink": false})></@stickyNavSections>
-
-                    <#if getFilterNavLinks()?size gt 0>
-                        <@stickyNavTags getFilterNavLinks() "" "Filter by type" "type" selectedTypes></@stickyNavTags>
+                    <#if filters?has_content>
+                        <#assign tags = [] />
+                        <#list filters?keys as key>
+                            <#assign typeCount = filters[key]?size />
+                            <#assign tags += [{ "key" : key, "title": key + " (${typeCount})" }] />
+                        </#list>
+                        <@stickyNavTags tags "" "Filter by type" "type" selectedTypes></@stickyNavTags>
                     </#if>
                 </div>
                 <!-- end sticky-nav -->
