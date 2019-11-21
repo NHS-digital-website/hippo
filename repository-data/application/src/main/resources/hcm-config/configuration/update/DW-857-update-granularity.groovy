@@ -19,7 +19,7 @@ class UpdateGranularity extends BaseNodeUpdateVisitor {
         // (which has the 3 variants)
         try {
             if (node.hasNodes()) {
-                return updateFieldAndSaveDocument(node)
+                return updateNode(node)
             }
         } catch (e) {
             log.error("Failed to process record.", e)
@@ -64,28 +64,6 @@ class UpdateGranularity extends BaseNodeUpdateVisitor {
       }
       
       return false
-    }
-
-    boolean updateFieldAndSaveDocument(Node parentHippoHandleNode) {
-
-        NodeIterator nodeIterator = parentHippoHandleNode.getNodes()
-        int variantsUpdated = 0
-
-        if (updateNode(parentHippoHandleNode)) {
-          variantsUpdated += 1
-        }
-
-        // Iterate through each variant
-        while(nodeIterator.hasNext()) {
-
-            Node n = nodeIterator.nextNode()
-          
-            if (updateNode(n)) {
-              variantsUpdated += 1
-            }
-        }
-
-        return variantsUpdated > 0
     }
 
     boolean undoUpdate(Node node) {

@@ -7,7 +7,8 @@ definitions:
       hipposys:dryrun: false
       hipposys:loglevel: DEBUG
       hipposys:parameters: '{}'
-      hipposys:query: /jcr:root/content/documents/corporate-website//*//..
+      hipposys:query: /jcr:root/content/documents/corporate-website//*[(@jcr:primaryType='publicationsystem:legacypublication')
+        or (@jcr:primaryType='publicationsystem:publication') or (@jcr:primaryType='publicationsystem:dataset')]
       hipposys:script:
         resource: /configuration/update/DW-857-update-granularity.groovy
         type: string

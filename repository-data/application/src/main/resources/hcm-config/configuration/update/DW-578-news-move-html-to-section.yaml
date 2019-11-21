@@ -7,7 +7,7 @@ definitions:
       hipposys:dryrun: false
       hipposys:loglevel: DEBUG
       hipposys:parameters: '{}'
-      hipposys:query: /jcr:root/content/documents/corporate-website/news-and-events//*//..
+      hipposys:query: /jcr:root/content/documents/corporate-website//*[@jcr:primaryType='website:news']
       hipposys:script:
         resource: /configuration/update/DW-578-news-move-html-to-section.groovy
         type: string
