@@ -79,39 +79,6 @@
     </#if>
 </#function>
 
-<#-- Return the section navigation links -->
-<#--<#function getSectionNavLinks>
-    <#assign links = [] />
-    <#list groupedDatesHash?keys?sort as k>
-        <#assign displayDate= getDisplayDate(k) />
-        <#assign links += [{ "url": "#" + slugify(displayDate), "title": displayDate }] />
-    </#list>
-    <#return links />
-</#function>-->
-
-
-<#--Group the events by type  -->
-<#--<#assign typeGroupHash = {} />
-<#list document.item as item>
-   <#if item.markers?? >
-    <#list item.markers as type>
-        <#assign typeGroupHash = typeGroupHash + {  type : (typeGroupHash[type]![]) + [ item ] } />
-    </#list>
-   </#if>
-</#list>-->
-
-<#-- Return the filter navigation links for the type -->
-<#--<#function getFilterNavLinks>
-    <#assign links = [] />
-
-    <#list typeGroupHash?keys as key>
-        <#assign typeCount = typeGroupHash[key]?size />
-        <#assign links += [{ "key": "${key}" , "title": roadmapcategories[key] + " (${typeCount})"}] />
-    </#list>
-
-    <#return links />
-</#function>-->
-
 <#assign sectionTitlesFound = countSectionTitles(document.item) />
 <@fmt.message key="headers.about-this-publication" var="aboutThisPublicationHeader" />
 
@@ -144,14 +111,14 @@
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
                 <!-- start sticky-nav -->
                 <div id="sticky-nav">
-                    <#--<#assign links = getSectionNavLinks() />-->
-                    <#--<@sectionNav links=links ></@sectionNav>-->
                     <#assign sections = [] />
                     <#list groupedDatesHash?keys?sort as k>
                         <#assign displayDate= getDisplayDate(k) />
                         <#assign sections += [{ "url": "#" + slugify(displayDate), "title": displayDate, "aria-label": "Jump to items starting in ${displayDate}" }] />
                     </#list>
-                    <@stickyNavSections getStickySectionNavLinks({  "sections": sections, "includeTopLink": false})></@stickyNavSections>
+                    <#if sections?size != 0>
+                        <@stickyNavSections getStickySectionNavLinks({  "sections": sections, "includeTopLink": false})></@stickyNavSections>
+                    </#if>
                     <#if filters?has_content>
                         <#assign tags = [] />
                         <#list filters?keys as key>
