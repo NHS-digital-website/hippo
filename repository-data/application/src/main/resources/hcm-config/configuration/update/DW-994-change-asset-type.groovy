@@ -28,7 +28,14 @@ class ChangeDefaultAssetTypeToCustomizedOne extends BaseNodeUpdateVisitor {
 
     boolean updateNode(Node n) {
 
-      JcrUtils.ensureIsCheckedOut(n)
+      try {
+        JcrUtils.ensureIsCheckedOut(n)
+      } catch (e) {
+        
+        def path = n.getPath()
+        log.info("EXCEPTION in ensureIsCheckedOut for path: " + path)
+        return false 
+      }
 
       def path = n.getPath()
       def nodeType = n.getPrimaryNodeType().getName()
