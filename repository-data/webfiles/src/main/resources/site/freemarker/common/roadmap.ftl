@@ -28,12 +28,22 @@
     <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="yyyy" var="year" timeZone="${getTimeZone()}" />
     <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="MM" var="month" timeZone="${getTimeZone()}" />
     <#assign quarter = year + "Q" + (month?number / 3)?int />
-
-    <#assign monthYearGroupHash = monthYearGroupHash + {  monthYear : (monthYearGroupHash[monthYear]![]) + [ item ] } />
-    <#assign yearGroupHash = yearGroupHash + {  year : (yearGroupHash[year]![]) + [ item ] } />
-    <#assign quarterGroupHash = quarterGroupHash + {  quarter : (quarterGroupHash[quarter]![]) + [ item ] } />
     <#if item.categoryLink?? &&  item.categoryLink?size == 1>
         <#assign filters = filters + {  item.categoryLink[0].name : (filters[item.categoryLink[0].name]![]) + [item.categoryLink[0]] } />
+    </#if>
+    <#if selectedTypes?size != 0>
+        <#list selectedTypes as i>
+            ${i} - ${item.categoryLink[0].name}
+            <#if item.categoryLink[0].name == i>
+                <#assign monthYearGroupHash = monthYearGroupHash + {  monthYear : (monthYearGroupHash[monthYear]![]) + [ item ] } />
+                <#assign yearGroupHash = yearGroupHash + {  year : (yearGroupHash[year]![]) + [ item ] } />
+                <#assign quarterGroupHash = quarterGroupHash + {  quarter : (quarterGroupHash[quarter]![]) + [ item ] } />
+            </#if>
+        </#list>
+    <#else>
+        <#assign monthYearGroupHash = monthYearGroupHash + {  monthYear : (monthYearGroupHash[monthYear]![]) + [ item ] } />
+        <#assign yearGroupHash = yearGroupHash + {  year : (yearGroupHash[year]![]) + [ item ] } />
+        <#assign quarterGroupHash = quarterGroupHash + {  quarter : (quarterGroupHash[quarter]![]) + [ item ] } />
     </#if>
 </#list>
 
@@ -123,7 +133,7 @@
                         <#assign tags = [] />
                         <#list filters?keys as key>
                             <#assign typeCount = filters[key]?size />
-                            <#assign tags += [{ "key" : key, "title": key + " (${typeCount})" }] />
+                            <#assign tags += [{ "key" : key, "title": key?cap_first + " (${typeCount})" }] />
                         </#list>
                         <@stickyNavTags tags "" "Filter by type" "type" selectedTypes></@stickyNavTags>
                     </#if>
