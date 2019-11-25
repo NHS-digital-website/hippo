@@ -12,6 +12,9 @@ case $1 in
     trg)
         echo "training";
         ;;
+    training)
+        echo "training";
+        ;;
     tst)
         echo "test";
         ;;
