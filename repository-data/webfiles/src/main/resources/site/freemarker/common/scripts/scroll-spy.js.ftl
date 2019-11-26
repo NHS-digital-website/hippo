@@ -35,7 +35,9 @@
 
         function markStickyNavElem(navElem){
             if (document.querySelector('.active') != null) document.querySelector('.active').setAttribute('class', ' ');
-            if (document.querySelector('a[href="#' + navElem + '"]') != null) document.querySelector('a[href="#' + navElem + '"]').setAttribute('class', 'active');
+            var newActive = document.querySelector('a[href="#' + navElem + '"]');
+            var idElement = document.getElementById(navElem);
+            if (newActive != null && idElement != null && ! idElement.classList.contains("sticky-nav-exclude-active")) newActive.setAttribute('class', 'active');
         }
 
         function getBottomStickyNavElement(sections) {
