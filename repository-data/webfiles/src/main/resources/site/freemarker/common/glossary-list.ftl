@@ -58,7 +58,7 @@
                     <div data-uipath="website.glossary.list">
                         <#list lettersOfTheAlphabet as letter>
                             <#if alphabeticalGroupHash[letter]??>
-                                <div class="article-section article-section--letter-group no-border" id="${slugify(letter)}">
+                                <div class="article-section article-section--letter-group no-border sticky-nav-exclude-active" id="${slugify(letter)}">
                                     <@stickyGroupBlockHeader letter></@stickyGroupBlockHeader>
                                     <dl>
                                         <#list alphabeticalGroupHash[letter] as glossaryitem>
