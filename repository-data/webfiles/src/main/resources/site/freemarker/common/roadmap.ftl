@@ -110,6 +110,9 @@
     <#assign itemData += { "monthsDuration": item.effectiveDate.getMethodNames(startdate, enddate)} />
     <#assign itemData += { "datetime": datetime } />
     <#assign itemData += { "datelabel": datelabel} />
+    <#if item.roadmapItemStatuses?? >
+        <#assign itemData += { "status": item.roadmapItemStatuses.status } />
+    </#if>
     <@roadmapItemBox itemData></@roadmapItemBox>
 </#macro>
 
