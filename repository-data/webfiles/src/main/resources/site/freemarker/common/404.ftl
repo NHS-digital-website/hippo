@@ -38,7 +38,6 @@
                     <h2>Error code 404</h2>
 
                     <p>If you typed in the web address, please check it is correct and try again.</p>
-                    <p>We recently moved to a new website. Our old website and content is still available on the <a href="http://webarchive.nationalarchives.gov.uk/search/result/?q=NHS+Digital" title="Visit National Archives website">National archives</a>.</p>
                 </div>
 
                 <div class="article-section no-border">

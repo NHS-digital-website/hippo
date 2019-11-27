@@ -173,6 +173,14 @@
     <#return documentUrl />
 </#function>
 
+<#function getFileExtension filepath>
+  <#assign extension = "" >
+  <#if filepath?contains(".")>
+      <#assign extension = filepath?keep_after_last(".")?lower_case >
+  </#if>
+  <#return extension />
+</#function>
+
 <#function getFormatByMimeType mimeType>
     <#local mimeTypes = {
         "image/jpeg": "jpg",
@@ -192,25 +200,25 @@
 
         "application/vnd.ms-powerpoint": "ppt",
         "application/vnd.ms-powerpoint.presentation.macroenabled.12": "ppt",
-        "application/vnd.ms-powerpoint.addin.macroEnabled.12": "ppt",
-        "application/vnd.ms-powerpoint.presentation.macroEnabled.12": "ppt",
-        "application/vnd.ms-powerpoint.template.macroEnabled.12": "ppt",
-        "application/vnd.ms-powerpoint.slideshow.macroEnabled.12": "ppt",
+        "application/vnd.ms-powerpoint.addin.macroenabled.12": "ppt",
+        "application/vnd.ms-powerpoint.presentation.macroenabled.12": "ppt",
+        "application/vnd.ms-powerpoint.template.macroenabled.12": "ppt",
+        "application/vnd.ms-powerpoint.slideshow.macroenabled.12": "ppt",
         "application/vnd.openxmlformats-officedocument.presentationml.presentation": "ppt",
         "application/vnd.openxmlformats-officedocument.presentationml.template": "ppt",
         "application/vnd.openxmlformats-officedocument.presentationml.slideshow": "ppt",
 
         "application/vnd.ms-excel": "xls",
         "application/x-tika-msoffice": "xls",
-        "application/vnd.ms-excel.sheet.macroEnabled.12": "xls",
-        "application/vnd.ms-excel.addin.macroEnabled.12": "xls",
-        "application/vnd.ms-excel.template.macroEnabled.12": "xls",
+        "application/vnd.ms-excel.sheet.macroenabled.12": "xls",
+        "application/vnd.ms-excel.addin.macroenabled.12": "xls",
+        "application/vnd.ms-excel.template.macroenabled.12": "xls",
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": "xls",
         "application/vnd.openxmlformats-officedocument.spreadsheetml.template": "xls",
 
         "application/msword": "doc",
         "application/vnd.ms-word.document.macroenabled.12": "doc",
-        "application/vnd.ms-word.template.macroEnabled.12": "doc",
+        "application/vnd.ms-word.template.macroenabled.12": "doc",
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document": "doc",
         "application/vnd.openxmlformats-officedocument.wordprocessingml.template": "doc",
 
@@ -218,7 +226,7 @@
         "application/xml": "xml"
     }/>
 
-    <#return (mimeTypes[mimeType]??)?then(mimeTypes[mimeType], "") />
+    <#return (mimeTypes[mimeType?lower_case]??)?then(mimeTypes[mimeType], "") />
 </#function>
 
 <#-- Split a hash into 2 hashes -->

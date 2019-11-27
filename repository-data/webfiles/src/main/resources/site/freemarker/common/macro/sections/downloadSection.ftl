@@ -69,7 +69,7 @@
                                         <#if block.link.meetpdfa?? && block.link.meetpdfa >
                                           <#assign meetpdfa = true />
                                         </#if>
-                                        <@fileMetaAppendix block.link.asset.getLength() block.link.asset.mimeType meetpdfa></@fileMetaAppendix>
+                                        <@fileMetaAppendix block.link.asset.getLength() block.link.asset.mimeType meetpdfa link></@fileMetaAppendix>
                                     </div>
                                     </a>
                                 </#if>

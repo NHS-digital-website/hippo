@@ -2,7 +2,13 @@
 
 <#macro imageSection section>
     <div data-uipath="ps.publication.image-section">
-        <#if section.link?has_content><a href="${section.link}" data-uipath="ps.publication.image-section.link"></#if>
+
+        <#assign link = section.link />
+        <#if section.link?has_content && ! section.link?starts_with("http") >
+          <#assign link = "http://" + section.link />
+        </#if>
+
+        <#if link?has_content><a href="${link}" data-uipath="ps.publication.image-section.link"></#if>
             <figure>
                 <img src="<@hst.link hippobean=section.image/>"
                      alt="${section.altText}"
