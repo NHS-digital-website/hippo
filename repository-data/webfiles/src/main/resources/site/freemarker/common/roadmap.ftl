@@ -8,6 +8,8 @@
 <#include "macro/stickyNavTags.ftl">
 <#include "macro/metaTags.ftl">
 
+<#assign inArray="uk.nhs.digital.freemarker.InArray"?new() />
+
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
 
@@ -21,9 +23,6 @@
 <#assign monthYearGroupHash = {} />
 <#assign yearGroupHash = {} />
 
-<#assign completed = [] />
-<#assign cancelled = [] />
-
 <#assign filters = {} />
 
 <#list document.item as item>
@@ -31,28 +30,6 @@
         <#if item.categoryLink?? &&  item.categoryLink?size == 1>
             <#assign filters = filters + {  item.categoryLink[0].name : (filters[item.categoryLink[0].name]![]) + [item.categoryLink[0]] } />
         </#if>
-
-        <#if item.roadmapItemStatuses?? && item.roadmapItemStatuses.status?lower_case == 'complete'>
-            <#if selectedTypes?size != 0>
-                <#list selectedTypes as i>
-                    <#if item.categoryLink[0].name == i>
-                        <#assign completed += [item] />
-                    </#if>
-                </#list>
-            <#else>
-                <#assign completed += [item] />
-            </#if>
-        <#elseif item.roadmapItemStatuses?? && (item.roadmapItemStatuses.status?lower_case == 'cancelled' || item.roadmapItemStatuses.status?lower_case == 'superseded')>
-            <#if selectedTypes?size != 0>
-                <#list selectedTypes as i>
-                    <#if item.categoryLink[0].name == i>
-                        <#assign cancelled += [item] />
-                    </#if>
-                </#list>
-            <#else>
-                <#assign cancelled += [item] />
-            </#if>
-        <#else>
             <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="yyyy-MM" var="monthYear" timeZone="${getTimeZone()}" />
             <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="yyyy" var="year" timeZone="${getTimeZone()}" />
             <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="MM" var="month" timeZone="${getTimeZone()}" />
@@ -72,7 +49,6 @@
                 <#assign quarterGroupHash = quarterGroupHash + {  quarter : (quarterGroupHash[quarter]![]) + [ item ] } />
             </#if>
         </#if>
-    </#if>
 </#list>
 
 <#if interval == "Monthly">
@@ -128,8 +104,12 @@
 
     <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="MMM-yyyy" var="startdate" timeZone="${getTimeZone()}" />
     <@fmt.formatDate value=item.effectiveDate.endDate.time type="Date" pattern="MMM-yyyy" var="enddate" timeZone="${getTimeZone()}" />
+    <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="yyyy-MM-dd" var="datetime" timeZone="${getTimeZone()}" />
+    <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="MMMM yyyy" var="datelabel" timeZone="${getTimeZone()}" />
     <#assign itemData += { "category": item.categoryLink } />
     <#assign itemData += { "monthsDuration": item.effectiveDate.getMethodNames(startdate, enddate)} />
+    <#assign itemData += { "datetime": datetime } />
+    <#assign itemData += { "datelabel": datelabel} />
     <@roadmapItemBox itemData></@roadmapItemBox>
 </#macro>
 
@@ -163,13 +143,7 @@
                     <#assign sections = [] />
                     <#list groupedDatesHash?keys?sort as k>
                         <#assign displayDate= getDisplayDate(k) />
-                        <#if completed?size != 0>
-                            <#assign sections += [{ "url": "#completed", "title": "Compleated", "aria-label": "Jump to compleated items" }] />
-                        </#if>
                         <#assign sections += [{ "url": "#" + slugify(displayDate), "title": displayDate, "aria-label": "Jump to items starting in ${displayDate}" }] />
-                        <#if cancelled?size != 0>
-                            <#assign sections += [{ "url": "#cancelled", "title": "Cancelled", "aria-label": "Jump to cancelled items" }] />
-                        </#if>
                     </#list>
                     <#if sections?size != 0>
                         <@stickyNavSections getStickySectionNavLinks({  "sections": sections, "includeTopLink": false})></@stickyNavSections>
@@ -187,37 +161,30 @@
             </div>
 
              <div class="column column--two-thirds page-block page-block--main">
-                 <#if completed?size != 0>
-                    <div id="completed" class="article-section article-section--letter-group--highlighted">
-                        <div class="grid-row">
-                            <h2>Completed</h2>
-                            <#list completed as item>
-                                <@roadmapItem item />
-                            </#list>
-                        </div>
-                    </div>
-                 </#if>
                 <#list groupedDatesHash?keys?sort as key>
+
                     <div id="${slugify(getDisplayDate(key))}"
                          class="article-section article-section--letter-group--highlighted">
                         <div class="grid-row">
                             <h2>${getDisplayDate(key)?keep_before(" ")}</h2>
                             <#list groupedDatesHash[key] as item>
-                                <@roadmapItem item />
+                                <#if item.roadmapItemStatuses?? && inArray(item.roadmapItemStatuses.status?lower_case, ['complete'])>
+                                    <@roadmapItem item />
+                                </#if>
+                            </#list>
+                            <#list groupedDatesHash[key] as item>
+                                <#if !item.roadmapItemStatuses?? || (item.roadmapItemStatuses?? && !inArray(item.roadmapItemStatuses.status?lower_case, ['complete', 'cancelled', 'superseded']))>
+                                    <@roadmapItem item />
+                                </#if>
+                            </#list>
+                            <#list groupedDatesHash[key] as item>
+                                <#if item.roadmapItemStatuses?? && inArray(item.roadmapItemStatuses.status?lower_case, ['cancelled', 'superseded'])>
+                                    <@roadmapItem item />
+                                </#if>
                             </#list>
                         </div>
                     </div>
                 </#list>
-                 <#if cancelled?size != 0>
-                     <div id="cancelled" class="article-section article-section--letter-group--highlighted">
-                         <div class="grid-row">
-                             <h2>Cancelled</h2>
-                             <#list cancelled as item>
-                                 <@roadmapItem item />
-                             </#list>
-                         </div>
-                     </div>
-                 </#if>
             </div>
         </div>
     </div>
