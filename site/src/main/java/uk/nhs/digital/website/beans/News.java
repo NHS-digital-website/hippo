@@ -80,11 +80,6 @@ public class News extends CommonFieldsBean {
         return getLinkedBeans("website:relateddocuments", HippoBean.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "website:relatedsubjects")
-    public List<HippoBean> getRelatedsubjects() {
-        return getLinkedBeans("website:relatedsubjects", HippoBean.class);
-    }
-
     @HippoEssentialsGenerated(internalName = "website:display")
     public Boolean getDisplay() {
         return getProperty("website:display");

@@ -132,19 +132,10 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /relatedsubjects:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Related subjects
-            field: relatedsubjects
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
           /relatedDocuments:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Related Documents
+            caption: Services or pages related to this event
             field: relatedDocuments
             hint: ''
             jcr:primaryType: frontend:plugin
@@ -262,14 +253,6 @@ definitions:
             hipposysedit:multiple: true
             hipposysedit:ordered: true
             hipposysedit:path: website:relatedDocuments
-            hipposysedit:primary: false
-            hipposysedit:type: hippo:mirror
-            jcr:primaryType: hipposysedit:field
-          /relatedsubjects:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:relatedsubjects
             hipposysedit:primary: false
             hipposysedit:type: hippo:mirror
             jcr:primaryType: hipposysedit:field

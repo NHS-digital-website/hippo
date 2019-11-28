@@ -6,13 +6,18 @@ import org.hippoecm.hst.container.RequestContextProvider;
 
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
+import org.hippoecm.hst.content.beans.query.filter.BaseFilter;
+import org.hippoecm.hst.content.beans.query.filter.Filter;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.util.ContentBeanUtils;
+import org.hippoecm.repository.util.DateTools;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -57,7 +62,7 @@ public class CommonFieldsBean extends BaseDocument {
         Class<T> beanClass
     ) throws HstComponentException, QueryException {
 
-        return getRelatedDocuments(property, NO_LIMIT, null, "descending", beanClass );
+        return getRelatedDocuments(property, NO_LIMIT, null, "descending", beanClass, null );
 
     }
 
@@ -67,7 +72,7 @@ public class CommonFieldsBean extends BaseDocument {
         Class<T> beanClass
     ) throws HstComponentException, QueryException {
       
-        return getRelatedDocuments(property, limit, null, "descending", beanClass );
+        return getRelatedDocuments(property, limit, null, "descending", beanClass, null );
 
     }
 
@@ -78,7 +83,7 @@ public class CommonFieldsBean extends BaseDocument {
         Class<T> beanClass
     ) throws HstComponentException, QueryException {
 
-        return getRelatedDocuments(property, limit, orderBy, "descending", beanClass );
+        return getRelatedDocuments(property, limit, orderBy, "descending", beanClass, null );
 
     }
 
@@ -87,21 +92,43 @@ public class CommonFieldsBean extends BaseDocument {
         int limit, 
         String orderBy, 
         String orderDirection, 
-        Class<T> beanClass
+        Class<T> beanClass,
+        List<BaseFilter> andFilters
     ) throws HstComponentException, QueryException {
+
+        List<String> linkPaths  = new ArrayList<>();
+        linkPaths.add(property);
+        return getRelatedDocuments(linkPaths, limit, orderBy, orderDirection, beanClass, andFilters);
+    }
+
+    protected <T extends HippoBean> List<T> getRelatedDocuments(
+        List<String> properties, 
+        int limit, 
+        String orderBy, 
+        String orderDirection, 
+        Class<T> beanClass,
+        List<BaseFilter> andFilters
+    ) throws HstComponentException, QueryException {
+
+        HstQuery query = getInitialQuery(properties, beanClass);
+
+        applyRestrictionsToQuery(query, limit, orderBy, orderDirection, andFilters);
+
+        return toList(query.execute().getHippoBeans());
+    }
+
+    protected <T extends HippoBean> HstQuery getInitialQuery(List<String> properties , Class<T> beanClass) throws HstComponentException, QueryException {
 
         final HstRequestContext context = RequestContextProvider.get();
 
         HstQuery query = ContentBeanUtils.createIncomingBeansQuery(
             this.getCanonicalBean(), context.getSiteContentBaseBean(),
-            property, beanClass, false);
+            properties, beanClass, false);
 
-        applyRestrictionsToQuery(query, limit, orderBy, orderDirection);
-
-        return toList(query.execute().getHippoBeans());
+        return query;
     }
 
-    private void applyRestrictionsToQuery(HstQuery query, int limit, String orderBy, String orderDirection) {
+    private void applyRestrictionsToQuery(HstQuery query, int limit, String orderBy, String orderDirection, List<BaseFilter> andFilters) {
 
         if (limit > NO_LIMIT) {
             query.setLimit(limit);
@@ -114,6 +141,33 @@ public class CommonFieldsBean extends BaseDocument {
                 query.addOrderByDescending(orderBy);
             }
         }
+
+        //applying AND filters
+        if (andFilters != null && andFilters.size() > 0) {
+            Filter initFilter = (Filter)query.getFilter();
+            Filter mainFilter = query.createFilter();
+            mainFilter.addAndFilter(initFilter);
+            for (BaseFilter filter : andFilters) {
+                mainFilter.addAndFilter(filter);
+            }
+            query.setFilter(mainFilter);
+        }
+    }
+
+    public List<Event> getRelatedEvents() throws HstComponentException, QueryException {
+
+        List<String> linkPaths = new ArrayList<>();
+        linkPaths.add("website:relatedDocuments/@hippo:docbase");
+        linkPaths.add("website:peoplementioned/@hippo:docbase");
+
+        Filter filter = getInitialQuery(linkPaths, Event.class).createFilter();
+        Calendar today = Calendar.getInstance();
+        filter.addGreaterOrEqualThan("website:events/website:enddatetime", today, DateTools.Resolution.DAY);
+
+        List<BaseFilter> filters = new ArrayList<BaseFilter>();
+        filters.add(filter);
+
+        return getRelatedDocuments(linkPaths, NO_LIMIT, null, null, Event.class, filters);
     }
 
 }
