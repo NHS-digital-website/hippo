@@ -91,7 +91,7 @@
                         <div class="search-form">
                             <span class="screen-label">Find an icon</span>
                             <form role="search" method="get" class="search-strip" aria-label="Filter icon results"
-                                  id="search">
+                                  id="filter">
                                 <div class="search-strip__contents">
                                     <div class="search-strip__table-cell">
                                         <input type="text" name="icon-search" id="icon-search" class="search-strip__input"
@@ -100,7 +100,7 @@
                                     </div>
                                     <div class="search-strip__table-cell search-strip__table-cell--button">
                                         <button data-uipath="search.button" class="search-strip__button"
-                                                aria-label="Search">
+                                                aria-label="Filter">
                                             <img src="/webfiles/1566301554675/images/icon-search-white.png"
                                                  alt="Magnifying glass">
                                         </button>

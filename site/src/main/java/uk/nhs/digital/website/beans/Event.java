@@ -60,6 +60,16 @@ public class Event extends BaseDocument {
         return getLinkedBeans("website:relatedDocuments", HippoBean.class);
     }
 
+    @HippoEssentialsGenerated(internalName = "website:relatedsubjects")
+    public List<HippoBean> getRelatedsubjects() {
+        return getLinkedBeans("website:relatedsubjects", HippoBean.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:peoplementioned")
+    public List<HippoBean> getPeoplementioned() {
+        return getLinkedBeans("website:peoplementioned", HippoBean.class);
+    }
+
     @HippoEssentialsGenerated(internalName = "website:summaryimage")
     public HippoGalleryImageSet getSummaryimage() {
         return getLinkedBean("website:summaryimage", HippoGalleryImageSet.class);

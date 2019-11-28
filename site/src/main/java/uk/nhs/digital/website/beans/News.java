@@ -90,6 +90,11 @@ public class News extends CommonFieldsBean {
         return getProperty("website:display");
     }
 
+    @HippoEssentialsGenerated(internalName = "website:prioritynews")
+    public Boolean getPrioritynews() {
+        return getProperty("website:prioritynews");
+    }
+
     @HippoEssentialsGenerated(internalName = "common:SearchableTags")
     public String[] getTopics() {
         return getProperty("common:SearchableTags");
