@@ -9,6 +9,7 @@
 <#include "macro/furtherInformationSection.ftl">
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
+<#include "macro/latestblogs.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -29,6 +30,7 @@
 <#assign hasHtmlCode = document.htmlCode?has_content />
 <#assign sectionTitlesFound = countSectionTitles(document.sections) />
 <#assign renderNav = ((hasSummaryContent || hasChildPages) && sectionTitlesFound gte 1) || sectionTitlesFound gt 1 || (hasSummaryContent && hasChildPages) />
+<#assign idsuffix = slugify(document.title) />
 
 <article class="article article--general">
 
@@ -41,7 +43,11 @@
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
                 <!-- start sticky-nav -->
                 <div id="sticky-nav">
-                    <@stickyNavSections getStickySectionNavLinks({ "document": document, "childPages": childPages, "includeTopLink": true})></@stickyNavSections>
+                    <#assign links = getStickySectionNavLinks({ "document": document, "childPages": childPages, "includeTopLink": true }) />
+                    <#if document.relatedEvents?has_content >
+                          <#assign links += [{ "url": "#related-articles-events-${idsuffix}", "title": 'Forthcoming events' }] />
+                    </#if>
+                    <@stickyNavSections links></@stickyNavSections>
                 </div>
                 <!-- end sticky-nav -->
                 <#-- Restore the bundle -->
@@ -58,6 +64,8 @@
                 <#if hasChildPages>
                     <@furtherInformationSection childPages></@furtherInformationSection>
                 </#if>
+
+                <@latestblogs document.relatedEvents 'General' 'events-' + idsuffix 'Forthcoming events' />
 
                 <div class="article-section muted">
                     <@lastModified document.lastModified false></@lastModified>

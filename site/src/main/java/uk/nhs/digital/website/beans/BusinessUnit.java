@@ -56,6 +56,7 @@ public class BusinessUnit extends CommonFieldsBean {
            limit, 
            "website:order",
            "ascending",
-           BusinessUnit.class);
+           BusinessUnit.class,
+           null);
     }
 }

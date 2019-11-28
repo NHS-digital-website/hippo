@@ -105,10 +105,6 @@ public class Person extends CommonFieldsBean {
         return getRelatedDocuments("website:peoplementioned/@hippo:docbase", News.class);
     }
 
-    public List<Event> getRelatedEvents() throws HstComponentException, QueryException {
-        return getRelatedDocuments("website:relatedDocuments/@hippo:docbase", Event.class);
-    }
-
     public List<Blog> getRelatedBlogs() throws HstComponentException, QueryException {
         return getRelatedDocuments("website:authors/@hippo:docbase", 3, "website:dateofpublication", Blog.class);
     }

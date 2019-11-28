@@ -100,13 +100,13 @@
                                       </#if>
                                       <#assign twitterlink = "https://twitter.com/" + twitteruser />
 
-                                      <a itemprop="sameAs" href="${twitterlink}" onClick="logGoogleAnalyticsEvent('Link click','Person','${twitterlink}');" onKeyUp="return vjsu.onKeyUp(event)"  title="${document.socialmedias.twitteruser}">@${document.socialmedias.twitteruser}</a>
+                                      <a itemprop="sameAs" href="${twitterlink}" onClick="logGoogleAnalyticsEvent('Link click','Person','${twitterlink}');" onKeyUp="return vjsu.onKeyUp(event)"  title="${document.socialmedias.twitteruser}">@${twitteruser}</a>
                                     </dd>
                                 </dl>
                             </div>
                         </div>
                       </#if>
-                      <#if document.socialmedias.othersocialmedias?has_content>
+                      <#if document.socialmedias?? && document.socialmedias.othersocialmedias?has_content>
                         <#list document.socialmedias.othersocialmedias as medium>
                           <div class="grid-row">
                               <div class="column column--reset">
