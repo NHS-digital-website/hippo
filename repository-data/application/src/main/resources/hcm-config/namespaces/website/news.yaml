@@ -195,6 +195,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /prioritynews:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Priority News?
+            field: prioritynews
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
           /classifiable:
             /cluster.options:
               caption: Topics
@@ -263,6 +272,14 @@ definitions:
             hipposysedit:path: website:peoplementioned
             hipposysedit:primary: false
             hipposysedit:type: hippo:mirror
+            jcr:primaryType: hipposysedit:field
+          /prioritynews:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:prioritynews
+            hipposysedit:primary: false
+            hipposysedit:type: selection:BooleanRadioGroup
             jcr:primaryType: hipposysedit:field
           /publisheddatetime:
             hipposysedit:mandatory: false
@@ -389,6 +406,7 @@ definitions:
           jcr:primaryType: website:news
           website:creditbanner: ''
           website:display: false
+          website:prioritynews: false
           website:publisheddatetime: 0001-01-01T12:00:00Z
           website:shortsummary: ''
           website:theme: ''
