@@ -6,27 +6,49 @@
     .cta__text {
         margin-top: 8px
     }
+
+    .align-middle {
+        vertical-align: middle;
+
+        .roadmap-status-icon {
+            width: 1.2em;
+            display: inline;
+            margin-right: -0.2em;
+        }
+    }
 }
 
-//$dark-blue
+.radio-item {
+    display: block;
+    position: relative;
+    padding: 5px 45px;
+    margin-bottom: 12px;
 
+    &.selected {
+        cursor: default;
 
-/*@media (max-width: 641px) {
-    .hub-box {
-        border-width: 12px;
+        .radio-input::after {
+            border: 10px solid #005eb8;
+            border-radius: 50%;
+            content: '';
+            height: 0;
+            left: 10px;
+            position: absolute;
+            top: 10px;
+            width: 0;
+        }
     }
-}*/
 
+    .radio-input::before {
+        border: 3px solid #005eb8;
+        border-radius: 50%;
+        box-sizing: border-box;
+        content: '';
+        height: 40px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 40px;
+    }
 
-/*.months-display {
-  clear: both;
-  display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
-  font-size: 14px;
-  line-height: 20px;
-
-  display: inline-block;
-  padding: 0 05px 10px 0;
-  border-bottom: $baseline-grid-unit solid #CBCBCB;
-}*/
+}

@@ -10,19 +10,8 @@ public class RoadmapLinkedBeansComponent extends BaseGaContentComponent {
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
         super.doBeforeRender(request, response);
-        request.setAttribute("selectedTypes", Arrays.asList(getSelectedTypes(request)));
+        request.setAttribute("sortBy", getPublicRequestParameter(request, "sort-by"));
+        request.setAttribute("selectedTypes", Arrays.asList(getPublicRequestParameters(request, "type")));
     }
-
-    /**
-     * Fetch the values of type parameters from the URL query string
-     *
-     * @param request containing the type parameters
-     * @return array of type parameters if at least one exists, otherwise empty
-     */
-    protected String[] getSelectedTypes(HstRequest request) {
-        return getPublicRequestParameters(request, "type");
-    }
-
-
 
 }

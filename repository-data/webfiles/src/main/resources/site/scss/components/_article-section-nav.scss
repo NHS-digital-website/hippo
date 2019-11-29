@@ -1,12 +1,15 @@
 @import "../units/list";
 
 /* Sticky nav */
-#sticky-nav a.active {
-  border-left: 7px solid #ffb81c;
-  padding-left: 10px;
-  color: $col-20;
-  text-decoration:none;
-  font-weight: bold;
+#sticky-nav {
+    a.active,
+    span.active {
+        border-left: 7px solid #ffb81c;
+        padding-left: 10px;
+        color: $col-20;
+        text-decoration: none;
+        font-weight: bold;
+    }
 }
 
 /* Article section nav */
@@ -98,7 +101,7 @@
 
         @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
             @include clearfix;
-            
+
             position: relative;
             line-height: 0;
             left: -6px;
@@ -117,7 +120,7 @@
         list-style: none;
         margin-top: 0;
         padding: 0;
-        
+
         @include bold-font(18);
         @include clearfix;
 
@@ -145,7 +148,7 @@
                     color: $link-hover-colour-nhs;
                 }
                 &:active {
-                    color: $link-active-colour-nhs; 
+                    color: $link-active-colour-nhs;
                 }
             }
 

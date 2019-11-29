@@ -30,25 +30,25 @@
         <#if item.categoryLink?? &&  item.categoryLink?size == 1>
             <#assign filters = filters + {  item.categoryLink[0].name : (filters[item.categoryLink[0].name]![]) + [item.categoryLink[0]] } />
         </#if>
-            <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="yyyy-MM" var="monthYear" timeZone="${getTimeZone()}" />
-            <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="yyyy" var="year" timeZone="${getTimeZone()}" />
-            <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="MM" var="month" timeZone="${getTimeZone()}" />
-            <#assign quarter = year + "Q" + (month?number / 3)?int />
+        <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="yyyy-MM" var="monthYear" timeZone="${getTimeZone()}" />
+        <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="yyyy" var="year" timeZone="${getTimeZone()}" />
+        <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="MM" var="month" timeZone="${getTimeZone()}" />
+        <#assign quarter = year + "Q" + (month?number / 3)?int />
 
-            <#if selectedTypes?size != 0>
-                <#list selectedTypes as i>
-                    <#if item.categoryLink[0].name == i>
-                        <#assign monthYearGroupHash = monthYearGroupHash + {  monthYear : (monthYearGroupHash[monthYear]![]) + [ item ] } />
-                        <#assign yearGroupHash = yearGroupHash + {  year : (yearGroupHash[year]![]) + [ item ] } />
-                        <#assign quarterGroupHash = quarterGroupHash + {  quarter : (quarterGroupHash[quarter]![]) + [ item ] } />
-                    </#if>
-                </#list>
-            <#else>
-                <#assign monthYearGroupHash = monthYearGroupHash + {  monthYear : (monthYearGroupHash[monthYear]![]) + [ item ] } />
-                <#assign yearGroupHash = yearGroupHash + {  year : (yearGroupHash[year]![]) + [ item ] } />
-                <#assign quarterGroupHash = quarterGroupHash + {  quarter : (quarterGroupHash[quarter]![]) + [ item ] } />
-            </#if>
+        <#if selectedTypes?size != 0>
+            <#list selectedTypes as i>
+                <#if item.categoryLink[0].name == i>
+                    <#assign monthYearGroupHash = monthYearGroupHash + {  monthYear : (monthYearGroupHash[monthYear]![]) + [ item ] } />
+                    <#assign yearGroupHash = yearGroupHash + {  year : (yearGroupHash[year]![]) + [ item ] } />
+                    <#assign quarterGroupHash = quarterGroupHash + {  quarter : (quarterGroupHash[quarter]![]) + [ item ] } />
+                </#if>
+            </#list>
+        <#else>
+            <#assign monthYearGroupHash = monthYearGroupHash + {  monthYear : (monthYearGroupHash[monthYear]![]) + [ item ] } />
+            <#assign yearGroupHash = yearGroupHash + {  year : (yearGroupHash[year]![]) + [ item ] } />
+            <#assign quarterGroupHash = quarterGroupHash + {  quarter : (quarterGroupHash[quarter]![]) + [ item ] } />
         </#if>
+    </#if>
 </#list>
 
 <#if interval == "Monthly">
@@ -143,6 +143,22 @@
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
                 <!-- start sticky-nav -->
                 <div id="sticky-nav">
+
+                    <div class="article-section-nav-wrapper">
+                        <div class="article-section-nav">
+                            <h2 class="article-section-nav__title">Sort by</h2>
+                            <nav>
+                                <ol class="article-section-nav__list article-section-nav__list--tag-links">
+                                    <li>
+                                        <a class="radio-item" href="#"><span class="radio-input"></span>Start date</a>
+                                    </li>
+                                    <li>
+                                        <span class="radio-item selected"><span class="radio-input"></span>End date</span>
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
                     <#assign sections = [] />
                     <#list groupedDatesHash?keys?sort as k>
                         <#assign displayDate= getDisplayDate(k) />
@@ -163,7 +179,7 @@
                 <!-- end sticky-nav -->
             </div>
 
-             <div class="column column--two-thirds page-block page-block--main">
+            <div class="column column--two-thirds page-block page-block--main">
                 <#list groupedDatesHash?keys?sort as key>
 
                     <div id="${slugify(getDisplayDate(key))}"

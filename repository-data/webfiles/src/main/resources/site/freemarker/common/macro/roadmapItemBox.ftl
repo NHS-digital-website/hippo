@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 <#-- @ftlvariable name="dateFm" type="uk.nhs.digital.website.beans.EffectiveDate" -->
+
 <#include "../../include/imports.ftl">
 
 <#assign inArray="uk.nhs.digital.freemarker.InArray"?new() />
@@ -26,20 +27,27 @@
             </#if>
 
             <#if options.status??>
-                <#if inArray(options.status?lower_case, ['complete'])>
-                    <img src="<@hst.webfile path="/images/icon/Icon-tick-v3_v2.svg"/>"
-                         alt="Tick Image" alt="Tick"
-                         class="roadmap-status-icon"/> ${options.status?cap_first}
-                <#elseif inArray(options.status?lower_case, ['cancelled', 'superseded']) >
-                    <img src="<@hst.webfile path="/images/icon/Icon-cross-v2_v2.svg"/>"
-                         alt="Tick Image" alt="Tick"
-                         class="roadmap-status-icon"/> ${options.status?cap_first}
-                </#if>
+                <div class="align-middle">
+                    <#if inArray(options.status?lower_case, ['complete'])>
+                        <img src="<@hst.webfile path="/images/icon/Icon-tick-v3_v2.svg"/>"
+                             alt="Tick Image" alt="Tick"
+                             class="roadmap-status-icon"/> ${options.status?cap_first}
+                    <#elseif inArray(options.status?lower_case, ['cancelled', 'superseded']) >
+                        <img src="<@hst.webfile path="/images/icon/Icon-cross-v2_v2.svg"/>"
+                             alt="Tick Image" alt="Tick"
+                             class="roadmap-status-icon"/> ${options.status?cap_first}
+                    </#if>
+                </div>
             </#if>
 
             <#if options.category??>
                 <#list options.category as category>
-                    <div><span>${category.name?cap_first}</span></div>
+                    <#if selectedTypes?size == 0>
+                        <a href="?type=${category.name}" class="tag-link">${category.name?cap_first}</a>
+                    <#else>
+                        <#assign linkout = "&type=" + selectedTypes?join("&type=") />
+                            <a href="${getDocumentUrl()}${linkout?replace("&type="+category.name?cap_first, "")?replace("&", "?", "f")}" class="tag-link selected">${category.name?cap_first}</a>
+                    </#if>
                 </#list>
             </#if>
         </div>
