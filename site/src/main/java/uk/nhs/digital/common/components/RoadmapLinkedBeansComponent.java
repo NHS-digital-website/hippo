@@ -10,8 +10,15 @@ public class RoadmapLinkedBeansComponent extends BaseGaContentComponent {
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
         super.doBeforeRender(request, response);
-        request.setAttribute("sortBy", getPublicRequestParameter(request, "sort-by"));
+        request.setAttribute("orderBy", getSortByOrDefault(getPublicRequestParameter(request, "order-by")));
         request.setAttribute("selectedTypes", Arrays.asList(getPublicRequestParameters(request, "type")));
+    }
+
+    private String getSortByOrDefault(String order) {
+        if (order != null && order.equalsIgnoreCase("start-date")) {
+            return "startDate";
+        }
+        return "endDate";
     }
 
 }

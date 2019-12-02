@@ -9,6 +9,15 @@
 <#include "macro/metaTags.ftl">
 
 <#assign inArray="uk.nhs.digital.freemarker.InArray"?new() />
+<#assign byStartDate="uk.nhs.digital.freemarker.roadmap.RoadmapItemSorterByStartDate"?new() />
+<#assign byEndDate="uk.nhs.digital.freemarker.roadmap.RoadmapItemSorterByEndDate"?new() />
+<#assign queryHelper="uk.nhs.digital.freemarker.QueryStringHelper"?new() />
+
+<#if hstRequest.queryString??>
+    <#assign query = "&" + queryHelper(hstRequest.queryString?split("&"), ["order-by=start-date", "order-by=end-date"])?join("&") />
+<#else>
+    <#assign query = "" />
+</#if>
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -25,7 +34,7 @@
 
 <#assign filters = {} />
 
-<#list document.item as item>
+<#list (orderBy == 'startDate')?then(byStartDate(document.item),byEndDate(document.item)) as item>
     <#if !item.roadmapItemStatuses?? || (item.roadmapItemStatuses?? && item.roadmapItemStatuses.status?lower_case != 'archive')>
         <#if item.categoryLink?? &&  item.categoryLink?size == 1>
             <#assign filters = filters + {  item.categoryLink[0].name : (filters[item.categoryLink[0].name]![]) + [item.categoryLink[0]] } />
@@ -150,10 +159,19 @@
                             <nav>
                                 <ol class="article-section-nav__list article-section-nav__list--tag-links">
                                     <li>
-                                        <a class="radio-item" href="#"><span class="radio-input"></span>Start date</a>
+                                        <#if orderBy == 'endDate'>
+                                            <span class="radio-item selected"><span class="radio-input"></span>End date</span>
+                                        <#else>
+                                            <a class="radio-item" href="${getDocumentUrl()}${query?replace("&", "?", "f")}"><span class="radio-input"></span>End date</a>
+                                        </#if>
                                     </li>
                                     <li>
-                                        <span class="radio-item selected"><span class="radio-input"></span>End date</span>
+                                        <#if orderBy == 'startDate'>
+                                            <span class="radio-item selected"><span class="radio-input"></span>Start date</span>
+                                        <#else>
+                                            <#assign query += "&order-by=start-date" />
+                                            <a class="radio-item" href="${getDocumentUrl()}${query?replace("&", "?", "f")}"><span class="radio-input"></span>Start date</a>
+                                        </#if>
                                     </li>
                                 </ol>
                             </nav>
@@ -173,7 +191,11 @@
                             <#assign typeCount = filters[key]?size />
                             <#assign tags += [{ "key" : key, "title": key?cap_first + " (${typeCount})" }] />
                         </#list>
-                        <@stickyNavTags tags "" "Filter by type" "type" selectedTypes></@stickyNavTags>
+                        <#assign affix = "" />
+                        <#if orderBy == 'startDate'>
+                            <#assign affix += "&order-by=start-date" />
+                        </#if>
+                        <@stickyNavTags tags affix "Filter by type" "type" selectedTypes></@stickyNavTags>
                     </#if>
                 </div>
                 <!-- end sticky-nav -->

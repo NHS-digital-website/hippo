@@ -21,8 +21,9 @@
 .radio-item {
     display: block;
     position: relative;
-    padding: 5px 45px;
+    padding: 4px 45px;
     margin-bottom: 12px;
+    margin-top: 0 !important;
 
     &.selected {
         cursor: default;
