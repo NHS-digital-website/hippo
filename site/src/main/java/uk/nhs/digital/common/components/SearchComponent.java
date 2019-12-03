@@ -126,8 +126,6 @@ public class SearchComponent extends CommonComponent {
         if (queryParameter != null) {
             String query = SearchInputParsingUtils.parse(queryParameter, true);
             String queryIncWildcards = ComponentUtils.parseAndApplyWildcards(queryParameter);
-            System.out.println("query: '" + query + "'");
-            System.out.println("queryIncWildcards: '" + queryIncWildcards + "'");
 
             searchStringConstraint = or(
                 //forcing specific fields first: this will boost the weight of a hit fot those specific property

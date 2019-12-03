@@ -1,8 +1,11 @@
 package uk.nhs.digital.ps.beans;
 
 import static java.util.Arrays.asList;
+import static org.apache.commons.collections.IteratorUtils.toList;
 
 import com.google.common.collect.Lists;
+import org.hippoecm.hst.container.RequestContextProvider;
+import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
@@ -10,11 +13,14 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.hippoecm.hst.core.component.HstComponentException;
+import org.hippoecm.hst.core.request.HstRequestContext;
+import org.hippoecm.hst.util.ContentBeanUtils;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.ps.components.DocumentTitleComparator;
 import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
+import uk.nhs.digital.website.beans.News;
 
 import java.util.*;
 
@@ -189,6 +195,24 @@ public abstract class PublicationBase extends BaseDocument {
     @HippoEssentialsGenerated(internalName = PropertyKeys.ATTACHMENTS_V3)
     public List<ExtAttachment> getAttachments() {
         return getChildBeansIfPermitted(PropertyKeys.ATTACHMENTS_V3, ExtAttachment.class);
+    }
+
+    protected <T extends HippoBean> List<T> getRelatedDocuments(
+        String property, 
+        Class<T> beanClass
+    ) throws HstComponentException, QueryException {
+
+        final HstRequestContext context = RequestContextProvider.get();
+
+        HstQuery query = ContentBeanUtils.createIncomingBeansQuery(
+            this.getCanonicalBean(), context.getSiteContentBaseBean(),
+            property, beanClass, false);
+
+        return toList(query.execute().getHippoBeans());
+    }
+
+    public List<News> getRelatedNews() throws HstComponentException, QueryException {
+        return getRelatedDocuments("website:relateddocuments/@hippo:docbase", News.class);
     }
 
     @Override

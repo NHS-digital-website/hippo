@@ -9,6 +9,7 @@
 <#include "../common/macro/fileIconByMimeType.ftl">
 <#include "../common/macro/component/pagination.ftl">
 <#include "../common/macro/component/infoGraphic.ftl">
+<#include "../common/macro/latestblogs.ftl">
 
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 
@@ -16,6 +17,8 @@
 <#-- Add meta tags -->
 <#include "../common/macro/metaTags.ftl">
 <#assign document = publication />
+<#assign idsuffix = slugify(publication.title) />
+<#assign hasRelatedNews = publication.relatedNews?has_content>
 <@metaTags></@metaTags>
 
 <#macro restrictedContentOfUpcomingPublication>
@@ -57,6 +60,9 @@
                     <#list index as i>
                         <#assign links += [{ "url": "#" + slugify(i), "title": i }] />
                     </#list>
+                    <#if hasRelatedNews >
+                          <#assign links += [{ "url": "#related-articles-news-${idsuffix}", "title": 'Related news' }] />
+                    </#if>
                     <@stickyNavSections getStickySectionNavLinks({"document": publication, "sections": links})></@stickyNavSections>
                 </div>
                 <!-- end sticky-nav -->
@@ -178,6 +184,8 @@
                         </#if>
                     </div>
                 </#if>
+
+                <@latestblogs publication.relatedNews 'Publication' 'news-' + idsuffix 'Related news' />
 
                 <#if publication.relatedLinks?has_content>
                     <div class="article-section" id="related-links">

@@ -8,6 +8,7 @@
 <#include "../common/macro/component/lastModified.ftl">
 <#include "./macro/structured-text.ftl">
 <#include "../common/macro/fileIconByMimeType.ftl">
+<#include "../common/macro/latestblogs.ftl">
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 
 <#-- Add meta tags -->
@@ -21,7 +22,10 @@
 <#assign hasResourceLinks = legacyPublication.resourceLinks?has_content>
 <#assign hasDataSets = legacyPublication.datasets?has_content>
 <#assign hasRelatedLinks = legacyPublication.relatedLinks?has_content>
+<#assign hasRelatedNews = legacyPublication.relatedNews?has_content>
 <#assign hasResources = hasAttachments || hasResourceLinks || hasDataSets>
+
+<#assign idsuffix = slugify(legacyPublication.title) />
 
 <#assign sectionCounter = 0 />
 <#function shouldRenderNav>
@@ -204,6 +208,9 @@
                 <#if hasResources>
                     <#assign links += [{ "url": "#" + slugify(resourcesHeader), "title": resourcesHeader }] />
                 </#if>
+                <#if hasRelatedNews >
+                      <#assign links += [{ "url": "#related-articles-news-${idsuffix}", "title": 'Related news' }] />
+                </#if>
                 <#if hasRelatedLinks>
                     <#assign links += [{ "url": "#" + slugify(relatedLinksHeader), "title": relatedLinksHeader }] />
                 </#if>
@@ -309,6 +316,8 @@
             </div>
             </#if>
             <#-- [FTL-END] Optional 'Attachments' section -->
+
+            <@latestblogs legacyPublication.relatedNews 'LegacyPublication' 'news-' + idsuffix 'Related news' />
 
             <#-- [FTL-BEGIN] Optional 'Related links' section -->
             <#if hasRelatedLinks>

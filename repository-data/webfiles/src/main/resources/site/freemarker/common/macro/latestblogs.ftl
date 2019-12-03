@@ -1,16 +1,19 @@
 <#ftl output_format="HTML">
 
 <#include "../../include/imports.ftl">
+<#include "component/showAll.ftl">
+
+<#assign itemsMaxCount=3/>
 
 <#macro latestblogs blogs fromDoctype='Blog' idsuffix='latest-blogs' title="Latest blogs">
 
-  <#assign hasLatestBlogs = blogs?has_content />
+  <#assign hasLatestBlogs = blogs?has_content && blogs?size &gt; 0 />
   <#if hasLatestBlogs>
-  <div id="related-articles-${slugify(idsuffix)}" class="latestBlog article-section related-articles--div">
+  <div id="related-articles-${slugify(idsuffix)}" class="latestBlog article-section related-articles--div filter-parent" data-max-count="${itemsMaxCount}" data-state="short">
         <h2>${title}</h2>
 
           <#list blogs as latest>
-              <div class="latestBlog__item">
+              <div class="latestBlog__item filter-list__item">
                   <div class="latestBlog__icon">
                       <#assign image = '' />
                       <#assign alttext = '' />
@@ -53,6 +56,7 @@
                   </div>
               </div>
           </#list>
+          <@showAll blogs?has_content?then(blogs?size, 0) itemsMaxCount "" />
       </div>
   </#if>
 </#macro>
