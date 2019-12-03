@@ -7,6 +7,23 @@
     background: $col-senary;
 }
 
+.iframe-wrapper-no-consent {
+
+    position: relative;
+    width: 100%;
+    background: $yellow-50;
+
+    border: 1px solid $yellow;
+    border-left-width: 7px;
+    
+
+    .cookieconsent-optout-marketing {
+      margin: 20px;
+      font-size: 18px;
+    }
+
+}
+
 .iframe-wrapper iframe {
     position: absolute;
     top: 0;
