@@ -41,7 +41,8 @@
 
                             <span class="article-header__label">News</span>
 
-                            <h1 class="local-header__title" itemprop="headline" itemprop="mainEntityOfPage" data-uipath="document.title">${document.title}</h1>
+                            <h1 class="local-header__title" itemprop="headline" data-uipath="document.title">${document.title}</h1>
+                            <meta itemprop="mainEntityOfPage" content="${document.title}">
                             <meta itemprop="author" content="NHS Digital">
                             <meta itemprop="copyrightHolder" content="NHS Digital">
                             <meta itemprop="license" content="https://digital.nhs.uk/about-nhs-digital/terms-and-conditions">
@@ -66,13 +67,13 @@
                                             <dd class="detail-list__value" itemprop="datePublished" data-uipath="website.news.dateofpublication">
                                                 <@fmt.formatDate value=document.publisheddatetime.time type="Date" pattern="d MMMM yyyy, EEEE" timeZone="${getTimeZone()}" />
                                             </dd>
-
-                                            <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization"> <meta itemprop="name" content="NHS Digital">
-                                                <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-                                                    <meta itemprop="url" content="<@hst.webfile path='/images/nhs-digital-logo.svg' />" />
-                                                </span>
-                                            </div>
                                         </dl>
+                                        <div class="is-hidden" itemprop="publisher" itemscope itemtype="https://schema.org/Organization"> 
+                                            <meta itemprop="name" content="NHS Digital">
+                                            <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                                                <meta itemprop="url" content="<@hst.webfile path='/images/nhs-digital-logo.svg' />" />
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -166,12 +167,6 @@
                   </div>
                 </#if>
 
-                <#if document.relateddocuments?has_content || hasEditorsNotes || hasBackstory >
-                  <div class="article-section">
-                      <h2>Read the full report</h2>
-                  </div>
-                </#if>
-
                 <#list document.relateddocuments as child>
                   <div class="article-header">
                     <@downloadBlock child />
@@ -179,14 +174,14 @@
                 </#list>
 
                 <#if hasEditorsNotes>
-                      <div class="article-section-with-no-heading expander expander-some">
+                      <div class="article-section-with-no-heading expander expander-some expander-notes-for-editors">
                         <details>
                           <summary><span>Notes for editors</span></summary>
                           <div class="details-body">
                             <ol>
                             <#list document.notesforeditors.htmlnotes as note>
                               <#if note.content?has_content>
-                                <li><@hst.html hippohtml=note contentRewriter=gaContentRewriter/></li>
+                                <li class="notes-for-editors"><@hst.html hippohtml=note contentRewriter=gaContentRewriter/></li>
                               </#if>
                             </#list>
                             </ol>
@@ -250,9 +245,8 @@
                             <div class="latestBlog__item">
 
                                 <div class="latestBlog__icon">
-                                    <#if author.personimages?? && author.personimages?has_content>
-                                        <@hst.link hippobean=author.personimages.picture.original fullyQualified=true var="authorPicture" />
-                                        <img class="latestBlog__icon__img" src="${authorPicture}" alt="${author.title}" />
+                                    <#if author.personimages?? && author.personimages?has_content && author.personimages.picture?has_content>
+                                        <img class="latestBlog__icon__img" src="<@hst.link hippobean=author.personimages.picture.original fullyQualified=true />" alt="${author.title}" />
                                     <#else>
                                         <img class="latestBlog__icon__nhsimg" src="<@hst.webfile path="/images/fibre_57101102_med.jpg"/>" alt="NHS Digital blog">
                                     </#if>
@@ -275,9 +269,9 @@
                     </div>
                 </#if>
 
-                <#assign rendername="Media enquiries" /><#if document.mediacontact.name?has_content ><#assign rendername=document.mediacontact.name /></#if>
-                <#assign renderemail="media@nhsdigital.nhs.uk" /><#if document.mediacontact.emailaddress?has_content ><#assign renderemail=document.mediacontact.emailaddress /></#if>
-                <#assign renderphone="0300 30 33 888" /><#if document.mediacontact.phonenumber?has_content ><#assign renderphone=document.mediacontact.phonenumber /></#if>
+                <#assign rendername="Media enquiries" /><#if hasContactDetails && document.mediacontact.name?has_content ><#assign rendername=document.mediacontact.name /></#if>
+                <#assign renderemail="media@nhsdigital.nhs.uk" /><#if hasContactDetails && document.mediacontact.emailaddress?has_content ><#assign renderemail=document.mediacontact.emailaddress /></#if>
+                <#assign renderphone="0300 30 33 888" /><#if hasContactDetails && document.mediacontact.phonenumber?has_content ><#assign renderphone=document.mediacontact.phonenumber /></#if>
                 <@contactdetail '' idsuffix rendername renderemail renderphone "Contact us" false></@contactdetail>
 
                 <#if document.relatedsubjects?has_content>

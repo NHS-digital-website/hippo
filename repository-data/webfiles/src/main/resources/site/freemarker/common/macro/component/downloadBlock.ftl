@@ -12,7 +12,9 @@
         </div>
         <div class="block-link__body">
             <span class="block-link__title">${doc.title}</span>
-            <p class="cta__text">${doc.shortsummary}</p>
+            <#if doc.shortsummary?has_content>
+              <p class="cta__text">${doc.shortsummary}</p>
+            </#if>
         </div>
     </a>
 </#macro>
