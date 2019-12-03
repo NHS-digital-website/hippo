@@ -27,9 +27,9 @@
           <#if renderphone != ''>
             <div class="contactdetail-item">Phone: 
               <#if isSchemaOrg>
-                <a href="tel:${renderphone}" itemprop="telephone" class=contactdetail-item>${renderphone}</a>
+                <a href="tel:${renderphone?replace(" ","")?replace("-","")}" itemprop="telephone" class=contactdetail-item>${renderphone}</a>
               <#else>
-                <a href="tel:${renderphone}" class=contactdetail-item>${renderphone}</a>
+                <a href="tel:${renderphone?replace(" ","")?replace("-","")}" class=contactdetail-item>${renderphone}</a>
               </#if>
             </div>
           </#if>
