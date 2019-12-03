@@ -151,6 +151,25 @@ public class GoogleAnalyticsContentRewriter extends SimpleContentRewriter {
         Arrays.stream(iframes)
             .forEach(TagNode::removeAllChildren);
 
+        for (TagNode iframe : iframes) {
+            //when we forbid cookies in Cookiebot, then iframe has attribute
+            //'data-src'. This attribute chagnes to 'src' when we permit cookies. 
+            String documentPathCookieOptIn = iframe.getAttributeByName("src");
+            String documentPathCookieOptOut = iframe.getAttributeByName("data-src");
+
+            if (documentPathCookieOptIn != null && documentPathCookieOptIn.contains("youtube") 
+                || documentPathCookieOptOut != null && documentPathCookieOptOut.contains("youtube")) {
+
+                TagNode parent = iframe.getParent();
+                if (parent != null) {
+                    TagNode beforeYoutube = new TagNode("div");
+                    beforeYoutube.addAttribute("class", "cookieconsent-optout-marketing");
+                    parent.insertChildBefore(iframe, beforeYoutube);
+                }
+            }
+
+        }
+
         // Add <dfn> for first instance of <abbr> of each abbreviation
         // It should work adding <dfn> only for each abbreviation per full
         // page, while this rewrite() function is invoked for each page section. 
