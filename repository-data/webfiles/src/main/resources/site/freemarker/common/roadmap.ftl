@@ -39,9 +39,17 @@
         <#if item.categoryLink?? &&  item.categoryLink?size == 1>
             <#assign filters = filters + {  item.categoryLink[0].name : (filters[item.categoryLink[0].name]![]) + [item.categoryLink[0]] } />
         </#if>
-        <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="yyyy-MM" var="monthYear" timeZone="${getTimeZone()}" />
-        <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="yyyy" var="year" timeZone="${getTimeZone()}" />
-        <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="MM" var="month" timeZone="${getTimeZone()}" />
+
+        <#if orderBy == 'startDate'>
+            <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="yyyy-MM" var="monthYear" timeZone="${getTimeZone()}" />
+            <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="yyyy" var="year" timeZone="${getTimeZone()}" />
+            <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="MM" var="month" timeZone="${getTimeZone()}" />
+        <#else>
+            <@fmt.formatDate value=item.effectiveDate.endDate.time type="Date" pattern="yyyy-MM" var="monthYear" timeZone="${getTimeZone()}" />
+            <@fmt.formatDate value=item.effectiveDate.endDate.time type="Date" pattern="yyyy" var="year" timeZone="${getTimeZone()}" />
+            <@fmt.formatDate value=item.effectiveDate.endDate.time type="Date" pattern="MM" var="month" timeZone="${getTimeZone()}" />
+        </#if>
+
         <#assign quarter = year + "Q" + (month?number / 3)?int />
 
         <#if selectedTypes?size != 0>
@@ -113,8 +121,15 @@
 
     <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="MMM-yyyy" var="startdate" timeZone="${getTimeZone()}" />
     <@fmt.formatDate value=item.effectiveDate.endDate.time type="Date" pattern="MMM-yyyy" var="enddate" timeZone="${getTimeZone()}" />
-    <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="yyyy-MM-dd" var="datetime" timeZone="${getTimeZone()}" />
-    <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="MMMM yyyy" var="datelabel" timeZone="${getTimeZone()}" />
+
+    <#if orderBy == 'startDate'>
+        <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="yyyy-MM-dd" var="datetime" timeZone="${getTimeZone()}" />
+        <@fmt.formatDate value=item.effectiveDate.startDate.time type="Date" pattern="MMMM yyyy" var="datelabel" timeZone="${getTimeZone()}" />
+    <#else>
+        <@fmt.formatDate value=item.effectiveDate.endDate.time type="Date" pattern="yyyy-MM-dd" var="datetime" timeZone="${getTimeZone()}" />
+        <@fmt.formatDate value=item.effectiveDate.endDate.time type="Date" pattern="MMMM yyyy" var="datelabel" timeZone="${getTimeZone()}" />
+    </#if>
+
     <#assign itemData += { "category": item.categoryLink } />
     <#assign itemData += { "monthsDuration": item.effectiveDate.getMethodNames(startdate, enddate)} />
     <#assign itemData += { "datetime": datetime } />
@@ -162,6 +177,7 @@
                                         <#if orderBy == 'endDate'>
                                             <span class="radio-item selected"><span class="radio-input"></span>End date</span>
                                         <#else>
+                                            <#assign query += "&order-by=end-date" />
                                             <a class="radio-item" href="${getDocumentUrl()}${query?replace("&", "?", "f")}"><span class="radio-input"></span>End date</a>
                                         </#if>
                                     </li>
