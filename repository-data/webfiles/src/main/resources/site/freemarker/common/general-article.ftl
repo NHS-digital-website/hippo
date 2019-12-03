@@ -43,7 +43,14 @@
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
                 <!-- start sticky-nav -->
                 <div id="sticky-nav">
-                    <#assign links = getStickySectionNavLinks({ "document": document, "childPages": childPages, "includeTopLink": true }) />
+                    <#assign links = [{ "url": "#top", "title": "Top of page" }] />
+                    <#if document.latestNews?has_content >
+                          <#assign links += [{ "url": "#related-articles-latest-news-${idsuffix}", "title": 'Latest news' }] />
+                    </#if>
+                    <#assign links += getStickySectionNavLinks({ "document": document, "childPages": childPages, "includeTopLink": false }) />
+                    <#if !document.latestNews?has_content && document.relatedNews?has_content >
+                          <#assign links += [{ "url": "#related-articles-related-news-${idsuffix}", "title": 'Related news' }] />
+                    </#if>
                     <#if document.relatedEvents?has_content >
                           <#assign links += [{ "url": "#related-articles-events-${idsuffix}", "title": 'Forthcoming events' }] />
                     </#if>
@@ -57,8 +64,14 @@
 
             <div class="column column--two-thirds page-block page-block--main">
 
+                <@latestblogs document.latestNews 'General' 'latest-news-' + idsuffix 'Latest news' />
+
                 <#if hasSectionContent>
                     <@sections document.sections></@sections>
+                </#if>
+
+                <#if !document.latestNews?has_content && document.relatedNews?has_content >
+                  <@latestblogs document.relatedNews 'General' 'related-news-' + idsuffix 'Related news' />
                 </#if>
 
                 <#if hasChildPages>

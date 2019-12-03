@@ -23,9 +23,14 @@
 <!--    \<\@showAll overallNumberOfItems maxItemsToDisplay \/\>                        -->
 <!--  </div>                                                                   -->
 
+<#assign showAllNumber = 0 />
+
 <#macro showAll itemsSize maxCount showAllStylingClass=''>
+
+    <#assign showAllNumber = showAllNumber + 1 />
+
     <#if itemsSize &gt; maxCount >
-      <div class="filter-vis-toggles ${showAllStylingClass}">
+      <div class="filter-vis-toggles-${showAllNumber} ${showAllStylingClass}">
         <a href="#" class="filter-vis-toggle--show">Show all (${itemsSize})</a>
         <a href="#" class=" filter-vis-toggle--hide is-hidden">Show less (${maxCount})</a>
       </div>
@@ -34,8 +39,8 @@
     <script>
         (function(){
             var oldBrowser = window.addEventListener ? false : true;
-            var $visToggles = document.getElementsByClassName('filter-vis-toggles');
-            var $filterParent = document.getElementsByClassName('filter-parent')[0];
+            var $visToggles = document.getElementsByClassName('filter-vis-toggles-${showAllNumber}');
+            var $filterParent = document.getElementsByClassName('filter-parent');
 
             var vjsUtils = window.vanillaJSUtils;
 
@@ -50,7 +55,9 @@
                     }
                 }
 
-                hideListItems($filterParent);
+                for(var i = 0; i < $filterParent.length; i ++) {
+                    hideListItems($filterParent[i]);
+                }
             }
 
             function toggleUl(ulElement) {
@@ -102,7 +109,6 @@
 
             function handleVisToggleClick(event) {
                 var ulElement = event.target.parentNode.parentNode;
-                console.log(ulElement);
 
                 toggleUl(ulElement);
 

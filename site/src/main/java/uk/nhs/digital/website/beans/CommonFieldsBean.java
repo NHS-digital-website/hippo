@@ -170,4 +170,34 @@ public class CommonFieldsBean extends BaseDocument {
         return getRelatedDocuments(linkPaths, NO_LIMIT, null, null, Event.class, filters);
     }
 
+    private List<News> getNews(boolean isLatestNews) throws HstComponentException, QueryException {
+
+        List<String> linkPaths = new ArrayList<>();
+        linkPaths.add("website:relateddocuments/@hippo:docbase");
+        linkPaths.add("website:peoplementioned/@hippo:docbase");
+
+        Filter filter = getInitialQuery(linkPaths, News.class).createFilter();
+        Calendar thresholdDate = Calendar.getInstance();
+        thresholdDate.add(Calendar.MONTH, -2);
+        if (isLatestNews) {
+            filter.addGreaterOrEqualThan("website:publisheddatetime", thresholdDate, DateTools.Resolution.DAY);
+        } else {
+            filter.addLessThan("website:publisheddatetime", thresholdDate, DateTools.Resolution.DAY);
+        }
+
+        List<BaseFilter> filters = new ArrayList<BaseFilter>();
+        filters.add(filter);
+
+        int maxElements = 6; //based on DW-1105 acceptance criteria
+        return getRelatedDocuments(linkPaths, maxElements, null, null, News.class,filters);
+    }
+
+    public List<News> getRelatedNews() throws HstComponentException, QueryException {
+        return getNews(false);
+    }
+
+    public List<News> getLatestNews() throws HstComponentException, QueryException {
+        return getNews(true);
+    }
+
 }
