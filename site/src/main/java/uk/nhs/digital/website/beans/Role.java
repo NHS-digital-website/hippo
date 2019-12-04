@@ -18,21 +18,26 @@ public class Role extends HippoCompound {
         return "role";
     }
 
-    @HippoEssentialsGenerated(internalName = "website:primaryrolepicker", allowModifications = false)
-    public List<HippoBean> getPrimaryrolepicker() {
-        return getLinkedBeans("website:primaryrolepicker", HippoBean.class);
+    @HippoEssentialsGenerated(internalName = "website:rolepicker")
+    public List<HippoBean> getRolepicker() {
+        return getChildBeansByName("website:rolepicker");
     }
 
     @HippoEssentialsGenerated(internalName = "website:primaryrole", allowModifications = false)
     public List<String> getPrimaryroles() {
-        List<HippoBean> primaryRolePicker = (List<HippoBean>)this.getPrimaryrolepicker();
         List<String> roles = new ArrayList<String>();
-        if (primaryRolePicker.size() > 0) {
-            for (HippoBean role : primaryRolePicker) {
-                JobRole jobrole = (JobRole)role;
-                roles.add(jobrole.getTitle());
+
+        List<HippoBean> rolepickers = this.getRolepicker();
+        for (HippoBean picker : rolepickers) {
+            JobRolePicker rolepicker = (JobRolePicker)picker;
+            if (rolepicker != null && rolepicker.getPrimaryrolepicker() != null) {
+                JobRole jobrole = rolepicker.getPrimaryrolepicker();
+                if (jobrole != null) {
+                    roles.add(jobrole.getTitle());
+                }
             }
-        } else {
+        }
+        if (roles.size() == 0) {
             roles.add(getProperty("website:primaryrole"));
         }
         return roles;

@@ -164,6 +164,12 @@
 [website:jobrole] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:jobrolepicker] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:checklist] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:news] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 

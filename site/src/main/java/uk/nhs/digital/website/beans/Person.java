@@ -127,11 +127,15 @@ public class Person extends CommonFieldsBean {
                 List<BusinessUnit> filteredUnits = new ArrayList<BusinessUnit>();
 
                 for (BusinessUnit unit : businessUnits) {
-                    for (HippoBean subrole : role.getPrimaryrolepicker()) {
-                        CommonFieldsBean jobrole = (CommonFieldsBean)subrole;
-                        JobRole unitrole = (JobRole)unit.getResponsiblerole();
-                        if (jobrole != null && unitrole != null && unitrole.getProperty("jcr:uuid").toString().equals(jobrole.getProperty("jcr:uuid").toString())) {
-                            filteredUnits.add(unit);
+                    List<HippoBean> rolepickers = role.getRolepicker();
+                    for (HippoBean picker : rolepickers) {
+                        if (picker != null) {
+                            JobRolePicker rolepicker = (JobRolePicker)picker;
+                            CommonFieldsBean jobrole = (CommonFieldsBean)rolepicker.getPrimaryrolepicker();
+                            JobRole unitrole = (JobRole)unit.getResponsiblerole();
+                            if (jobrole != null && unitrole != null && unitrole.getProperty("jcr:uuid").toString().equals(jobrole.getProperty("jcr:uuid").toString())) {
+                                filteredUnits.add(unit);
+                            }
                         }
                     }
                 }

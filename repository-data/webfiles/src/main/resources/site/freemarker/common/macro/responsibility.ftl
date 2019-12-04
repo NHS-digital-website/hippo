@@ -4,7 +4,7 @@
 
   <#macro responsibility resp idsuffix firstname manages="" managedby="">
     <#if
-     resp?has_content && (resp.responsible?has_content || resp.responsibleforservice?has_content) ||
+     resp?? && resp?has_content && (resp.responsible?has_content || resp.responsibleforservice?has_content) ||
      manages?has_content ||
      managedby?has_content
     >
