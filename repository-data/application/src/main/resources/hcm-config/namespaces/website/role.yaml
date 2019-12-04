@@ -33,20 +33,18 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
             wicket.id: ${cluster.id}.right
-          /primaryrolepicker:
+          /rolepicker:
             /cluster.options:
-              base.path: /content/documents
               jcr:primaryType: frontend:pluginconfig
-              last.visited.enabled: true
-              nodetypes:
-              - website:jobrole
             caption: Primary role
-            field: primaryrolepicker
-            hint: The primary role the person has within NHS Digital. This usually
-              is the person's job title
+            compoundList: website:jobrolepicker
+            contentPickerType: links
+            field: rolepicker
+            hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.left.item
+            wicket.skin: skin/content-blocks.css
           /primaryrole:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -151,15 +149,14 @@ definitions:
             hipposysedit:validators:
             - optional
             jcr:primaryType: hipposysedit:field
-          /primaryrolepicker:
+          /rolepicker:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
-            hipposysedit:ordered: false
-            hipposysedit:path: website:primaryrolepicker
-            hipposysedit:primary: false
-            hipposysedit:type: hippo:mirror
+            hipposysedit:ordered: true
+            hipposysedit:path: website:rolepicker
+            hipposysedit:type: hippo:compound
             hipposysedit:validators:
-            - optional
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:

@@ -319,6 +319,11 @@ definitions:
           jcr:name: Job role
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:jobrolepicker:
+        /en:
+          jcr:name: Job role picker
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:lawfulbasis:
         /en:
           jcr:name: Lawful basis

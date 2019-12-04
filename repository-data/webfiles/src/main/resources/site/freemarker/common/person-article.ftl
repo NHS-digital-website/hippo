@@ -33,8 +33,7 @@
 <#assign personMainNameAndPostnominals = personMainName />
 <#assign renderNav = document.biographies?has_content || document.roles?has_content || document.responsibilities?has_content  />
 <#assign idsuffix = slugify(personMainName) />
-<#assign businessUnits = document.businessUnits />
-<#assign hasBusinessUnits = businessUnits?has_content />
+<#assign hasBusinessUnits = document.businessUnits?? && document.businessUnits?has_content/>
 
 <#assign notSuppress = !(document.lawfulbasises?has_content && document.lawfulbasises.suppressdata?has_content && suppressdata[document.lawfulbasises.suppressdata] == suppressdata['suppress-data']) />
 
@@ -64,7 +63,9 @@
                 <div class="article-wrapper__inner">
                   <h1 id="top" class="local-header__title" data-uipath="document.personalinfos.name"><span itemprop="name">${personMainName}</span></h1>
 
-                  <@personrole document.roles idsuffix></@personrole>
+                  <#if document.roles?has_content>
+                      <@personrole document.roles idsuffix></@personrole>
+                  </#if>
 
                   <#if notSuppress>
                     <#if postnominals?has_content>
@@ -196,10 +197,10 @@
                     <@biography document.biographies idsuffix></@biography>
                   </#if>
 
-                  <#if businessUnits?has_content>
+                  <#if document.businessUnits?has_content>
                     <div id="businessunits-${idsuffix}" class="article-section">
                         <h2>Responsible for</h2>
-                        <#list businessUnits as businessunit>
+                        <#list document.businessUnits as businessunit>
                           <div>
                             <@downloadBlock businessunit />
                           </div>
@@ -208,7 +209,9 @@
                   </#if>
               </#if>
 
-              <@responsibility document.responsibilities idsuffix personName document.manages document.managedby ></@responsibility>
+              <#if document.responsibilities?has_content >
+                  <@responsibility document.responsibilities idsuffix personName document.manages document.managedby ></@responsibility>
+              </#if>
 
               <#if notSuppress>
                     <@award document.awards idsuffix personName></@award>
