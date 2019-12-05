@@ -43,10 +43,10 @@
             <#if options.category??>
                 <#list options.category as category>
                     <#if selectedTypes?size == 0>
-                        <a href="?type=${category.name}" class="tag-link">${category.name?cap_first}</a>
+                        <span class="tag-link">${category.name?cap_first}</span>
                     <#else>
-                        <#assign linkout = "&type=" + selectedTypes?join("&type=") />
-                            <a href="${getDocumentUrl()}${linkout?replace("&type="+category.name?cap_first, "")?replace("&", "?", "f")}" class="tag-link selected">${category.name?cap_first}</a>
+                        <#assign linkout = "&type=" + selectedTypes?join("&type=") + "&order-by=" + options.order + "-date" />
+                            <span class="tag-link">${category.name?cap_first}</span>
                     </#if>
                 </#list>
             </#if>

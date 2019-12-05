@@ -12,6 +12,7 @@
 <#assign byStartDate="uk.nhs.digital.freemarker.roadmap.RoadmapItemSorterByStartDate"?new() />
 <#assign byEndDate="uk.nhs.digital.freemarker.roadmap.RoadmapItemSorterByEndDate"?new() />
 <#assign queryHelper="uk.nhs.digital.freemarker.QueryStringHelper"?new() />
+<#assign getIntersection="uk.nhs.digital.freemarker.CategoryListIntersectionHelper"?new() />
 
 <#if hstRequest.queryString??>
     <#assign query = "&" + queryHelper(hstRequest.queryString?split("&"), ["order-by=start-date", "order-by=end-date"])?join("&") />
@@ -36,8 +37,10 @@
 
 <#list (orderBy == 'startDate')?then(byStartDate(document.item),byEndDate(document.item)) as item>
     <#if !item.roadmapItemStatuses?? || (item.roadmapItemStatuses?? && item.roadmapItemStatuses.status?lower_case != 'archive')>
-        <#if item.categoryLink?? &&  item.categoryLink?size == 1>
-            <#assign filters = filters + {  item.categoryLink[0].name : (filters[item.categoryLink[0].name]![]) + [item.categoryLink[0]] } />
+        <#if item.categoryLink?? &&  item.categoryLink?size != 0>
+            <#list item.categoryLink as category>
+                <#assign filters = filters + {  category.name : (filters[category.name]![]) + [category] } />
+            </#list>
         </#if>
 
         <#if orderBy == 'startDate'>
@@ -50,16 +53,13 @@
             <@fmt.formatDate value=item.effectiveDate.endDate.time type="Date" pattern="MM" var="month" timeZone="${getTimeZone()}" />
         </#if>
 
-        <#assign quarter = year + "Q" + (month?number / 3)?int />
-
+        <#assign quarter = year + "Q" + ((month?number-1) / 3 +1)?int />
         <#if selectedTypes?size != 0>
-            <#list selectedTypes as i>
-                <#if item.categoryLink[0].name == i>
-                    <#assign monthYearGroupHash = monthYearGroupHash + {  monthYear : (monthYearGroupHash[monthYear]![]) + [ item ] } />
-                    <#assign yearGroupHash = yearGroupHash + {  year : (yearGroupHash[year]![]) + [ item ] } />
-                    <#assign quarterGroupHash = quarterGroupHash + {  quarter : (quarterGroupHash[quarter]![]) + [ item ] } />
-                </#if>
-            </#list>
+            <#if getIntersection(item.categoryLink, selectedTypes)?size != 0>
+                <#assign monthYearGroupHash = monthYearGroupHash + {  monthYear : (monthYearGroupHash[monthYear]![]) + [ item ] } />
+                <#assign yearGroupHash = yearGroupHash + {  year : (yearGroupHash[year]![]) + [ item ] } />
+                <#assign quarterGroupHash = quarterGroupHash + {  quarter : (quarterGroupHash[quarter]![]) + [ item ] } />
+            </#if>
         <#else>
             <#assign monthYearGroupHash = monthYearGroupHash + {  monthYear : (monthYearGroupHash[monthYear]![]) + [ item ] } />
             <#assign yearGroupHash = yearGroupHash + {  year : (yearGroupHash[year]![]) + [ item ] } />
@@ -103,7 +103,7 @@
 
     <#elseif interval == "Quarterly">
         <#assign year= dateString?keep_before("Q") />
-        <#assign quarterString = quartersOfTheYear[dateString?keep_after("Q")?number] + " " + year />
+        <#assign quarterString = quartersOfTheYear[dateString?keep_after("Q")?number-1] + " " + year />
         <#return (quarterString == getCurrentQuarter())?then("Current changes", quarterString) />
     <#else>
         <#return (dateString == getCurrentYear())?then("Current changes", dateString) />
@@ -137,6 +137,12 @@
     <#if item.roadmapItemStatuses?? >
         <#assign itemData += { "status": item.roadmapItemStatuses.status } />
     </#if>
+    <#if orderBy == "startDate">
+        <#assign itemData += { "order": "start"} />
+    <#else>
+        <#assign itemData += { "order": "end"} />
+    </#if>
+
     <@roadmapItemBox itemData></@roadmapItemBox>
 </#macro>
 
@@ -178,7 +184,7 @@
                                             <span class="radio-item selected"><span class="radio-input"></span>End date</span>
                                         <#else>
                                             <#assign query += "&order-by=end-date" />
-                                            <a class="radio-item" href="${getDocumentUrl()}${query?replace("&", "?", "f")}"><span class="radio-input"></span>End date</a>
+                                            <a class="radio-item" href="${getDocumentUrl()}${query?replace("&&", "&")?replace("&", "?", "f")}"><span class="radio-input"></span>End date</a>
                                         </#if>
                                     </li>
                                     <li>
@@ -186,7 +192,7 @@
                                             <span class="radio-item selected"><span class="radio-input"></span>Start date</span>
                                         <#else>
                                             <#assign query += "&order-by=start-date" />
-                                            <a class="radio-item" href="${getDocumentUrl()}${query?replace("&", "?", "f")}"><span class="radio-input"></span>Start date</a>
+                                            <a class="radio-item" href="${getDocumentUrl()}${query?replace("&&", "&")?replace("&", "?", "f")}"><span class="radio-input"></span>Start date</a>
                                         </#if>
                                     </li>
                                 </ol>
@@ -223,7 +229,7 @@
                     <div id="${slugify(getDisplayDate(key))}"
                          class="article-section article-section--letter-group--highlighted">
                         <div class="grid-row">
-                            <h2>${getDisplayDate(key)?keep_before(" ")}</h2>
+                            <h2>${getDisplayDate(key)?keep_before_last(" ")}</h2>
                             <#list groupedDatesHash[key] as item>
                                 <#if item.roadmapItemStatuses?? && inArray(item.roadmapItemStatuses.status?lower_case, ['complete'])>
                                     <@roadmapItem item />
