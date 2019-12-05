@@ -65,7 +65,7 @@
                                         <dl class="detail-list">
                                             <dt class="detail-list__key">Date:</dt>
                                             <dd class="detail-list__value" itemprop="datePublished" data-uipath="website.news.dateofpublication">
-                                                <@fmt.formatDate value=document.publisheddatetime.time type="Date" pattern="d MMMM yyyy, EEEE" timeZone="${getTimeZone()}" />
+                                                <@fmt.formatDate value=document.publisheddatetime.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
                                             </dd>
                                         </dl>
                                         <div class="is-hidden" itemprop="publisher" itemscope itemtype="https://schema.org/Organization"> 
@@ -270,7 +270,7 @@
                 </#if>
 
                 <#assign rendername="Media enquiries" /><#if hasContactDetails && document.mediacontact.name?has_content ><#assign rendername=document.mediacontact.name /></#if>
-                <#assign renderemail="media@nhsdigital.nhs.uk" /><#if hasContactDetails && document.mediacontact.emailaddress?has_content ><#assign renderemail=document.mediacontact.emailaddress /></#if>
+                <#assign renderemail="media@nhsdigital.nhs.net" /><#if hasContactDetails && document.mediacontact.emailaddress?has_content ><#assign renderemail=document.mediacontact.emailaddress /></#if>
                 <#assign renderphone="0300 30 33 888" /><#if hasContactDetails && document.mediacontact.phonenumber?has_content ><#assign renderphone=document.mediacontact.phonenumber /></#if>
                 <@contactdetail '' idsuffix rendername renderemail renderphone "Contact us" false></@contactdetail>
 
@@ -296,7 +296,7 @@
                         <a href="<@hst.link hippobean=news/>" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${news.title}</a>
                       </div>
                       <div class="news-latest-news-item-date">
-                        <@fmt.formatDate value=news.publisheddatetime.time type="Date" pattern="d MMMM yyyy, EEEE" timeZone="${getTimeZone()}" />
+                        <@fmt.formatDate value=news.publisheddatetime.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
                       </div>
                     </div>
                   </#list>
