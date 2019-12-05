@@ -42,12 +42,7 @@
 
             <#if options.category??>
                 <#list options.category as category>
-                    <#if selectedTypes?size == 0>
-                        <span class="tag-link">${category.name?cap_first}</span>
-                    <#else>
-                        <#assign linkout = "&type=" + selectedTypes?join("&type=") + "&order-by=" + options.order + "-date" />
-                            <span class="tag-link">${category.name?cap_first}</span>
-                    </#if>
+                    <span class="tag-link">${category.name?cap_first}</span>
                 </#list>
             </#if>
         </div>

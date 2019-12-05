@@ -11,8 +11,8 @@
 <#assign inArray="uk.nhs.digital.freemarker.InArray"?new() />
 <#assign byStartDate="uk.nhs.digital.freemarker.roadmap.RoadmapItemSorterByStartDate"?new() />
 <#assign byEndDate="uk.nhs.digital.freemarker.roadmap.RoadmapItemSorterByEndDate"?new() />
+<#assign getIntersection="uk.nhs.digital.freemarker.roadmap.CategoryListIntersectionHelper"?new() />
 <#assign queryHelper="uk.nhs.digital.freemarker.QueryStringHelper"?new() />
-<#assign getIntersection="uk.nhs.digital.freemarker.CategoryListIntersectionHelper"?new() />
 
 <#if hstRequest.queryString??>
     <#assign query = "&" + queryHelper(hstRequest.queryString?split("&"), ["order-by=start-date", "order-by=end-date"])?join("&") />

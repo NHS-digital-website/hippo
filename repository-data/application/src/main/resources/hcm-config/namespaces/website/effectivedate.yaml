@@ -79,6 +79,8 @@ definitions:
             hipposysedit:path: website:enddate
             hipposysedit:primary: false
             hipposysedit:type: CalendarDate
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /startdate:
             hipposysedit:mandatory: false
@@ -87,6 +89,8 @@ definitions:
             hipposysedit:path: website:startdate
             hipposysedit:primary: false
             hipposysedit:type: CalendarDate
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /status:
             hipposysedit:mandatory: false
