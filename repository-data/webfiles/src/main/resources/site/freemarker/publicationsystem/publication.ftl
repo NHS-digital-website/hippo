@@ -60,9 +60,6 @@
                     <#list index as i>
                         <#assign links += [{ "url": "#" + slugify(i), "title": i }] />
                     </#list>
-                    <#if hasRelatedNews >
-                          <#assign links += [{ "url": "#related-articles-news-${idsuffix}", "title": 'Related news' }] />
-                    </#if>
                     <@stickyNavSections getStickySectionNavLinks({"document": publication, "sections": links})></@stickyNavSections>
                 </div>
                 <!-- end sticky-nav -->
@@ -185,7 +182,9 @@
                     </div>
                 </#if>
 
-                <@latestblogs publication.relatedNews 'Publication' 'news-' + idsuffix 'Related news' />
+                <#if hasRelatedNews>
+                    <@latestblogs publication.relatedNews 'Publication' 'news-' + idsuffix 'Related news' />
+                </#if>
 
                 <#if publication.relatedLinks?has_content>
                     <div class="article-section" id="related-links">

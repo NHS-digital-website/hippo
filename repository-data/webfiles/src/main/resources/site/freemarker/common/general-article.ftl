@@ -48,9 +48,6 @@
                           <#assign links += [{ "url": "#related-articles-latest-news-${idsuffix}", "title": 'Latest news' }] />
                     </#if>
                     <#assign links += getStickySectionNavLinks({ "document": document, "childPages": childPages, "includeTopLink": false }) />
-                    <#if !document.latestNews?has_content && document.relatedNews?has_content >
-                          <#assign links += [{ "url": "#related-articles-related-news-${idsuffix}", "title": 'Related news' }] />
-                    </#if>
                     <#if document.relatedEvents?has_content >
                           <#assign links += [{ "url": "#related-articles-events-${idsuffix}", "title": 'Forthcoming events' }] />
                     </#if>
