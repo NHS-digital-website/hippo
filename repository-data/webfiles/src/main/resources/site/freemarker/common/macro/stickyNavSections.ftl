@@ -70,6 +70,9 @@
                 <#assign links += [{ "url": "#contact-details", "title": contactDetailsHeader }] />
             </#if>
         </#if>
+        <#if document.relatedNews?? && (!document.latestNews?? || !document.latestNews?has_content) && document.relatedNews?has_content >
+              <#assign links += [{ "url": "#related-articles-related-news-${idsuffix}", "title": 'Related news' }] />
+        </#if>
         <#if options.childPages?? && options.childPages?has_content>
             <@fmt.message key="headers.further-information" var="furtherInformationHeader" />
             <#assign links += [{ "url": "#further-information", "title": furtherInformationHeader }] />
