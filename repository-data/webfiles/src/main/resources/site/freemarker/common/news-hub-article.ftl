@@ -28,7 +28,7 @@
     <#assign header_icon = 'images/icon-article.png' />
     <#assign document = "simulating_doc" />
 
-    <@documentHeader document 'news' header_icon header_title header_summary></@documentHeader>
+    <@documentHeader document 'news' header_icon header_title header_summary "" false></@documentHeader>
 
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
@@ -95,6 +95,7 @@
 
                 <#assign searchLink = "" />
                 <#assign searchId = "query_news" />
+                <#assign searchFormId = "filter" />
                 <#assign buttonLabel = "Filter" />
                 <#include "search-strip.ftl">
               </div>
@@ -116,6 +117,7 @@
                                         <@fmt.formatDate value=item.publisheddatetime.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" var="date" />
 
                                         <#assign newsData += { "link": newsLink, "date": date } />
+                                        <#assign newsData += { "imagesection": item.leadimagesection?has_content?then(item.leadimagesection, "EMPTY")} />
 
                                         <@hubBox newsData></@hubBox>
                                     </#list>

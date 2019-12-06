@@ -6,7 +6,12 @@
 <@fmt.message key="search-banner.buttonLabel" var="buttonLabel"/>
 <@fmt.message key="search-banner.title" var="searchTitle"/>
 
-<form role="search" method="get" action="${searchLink}" class="search-strip" aria-label="${searchTitle}" id="search">
+<#assign actionProp = "" />
+<#if searchLink?has_content>
+    <#assign actionProp = "action=${searchLink}" />
+</#if>
+
+<form role="search" method="get" ${actionProp} class="search-strip" aria-label="${searchTitle}" id="${searchFormId?has_content?then(searchFormId, 'search')}">
     <div class="search-strip__contents">
         <div class="search-strip__table-cell">
             <input type="text" name="query" id="${searchId?has_content?then(searchId, 'query')}" class="search-strip__input" placeholder="${buttonLabel}" value="${query!""}" aria-label="${buttonLabel}">

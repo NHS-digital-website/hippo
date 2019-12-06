@@ -29,6 +29,42 @@
     width: 100%;
     border: 22px solid $col-duodenary;
 
+    &:first-child {
+
+      .hub-box-with-icon {
+        display: block;
+
+        .hub-box__icon {
+          width: 100%;
+          padding: 0;
+        }
+
+      }
+
+    }
+
+    .hub-box-with-icon {
+
+        border-bottom: 8px solid $grey-7;
+        display: flex;
+
+        .hub-box__icon {
+            padding: 20px 0 20px 20px;
+
+            width: 25%;
+
+            &__img {
+                object-fit: cover;
+                display: inline;
+            }
+        }
+
+        .hub-box__contents {
+            width: 75%;
+            margin-top: 0;
+        }
+    }
+
     .hub-box__contents {
         margin-top: 0;
         padding: 20px 20px 15px;
@@ -66,6 +102,7 @@
     @include media($max-width: $min-tablet-width, $ignore-for-ie: true) {
         border-width: 12px;
     }
+    
 }
 
 .hub-box--light {
