@@ -68,7 +68,7 @@
                                                 <@fmt.formatDate value=document.publisheddatetime.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
                                             </dd>
                                         </dl>
-                                        <div class="is-hidden" itemprop="publisher" itemscope itemtype="https://schema.org/Organization"> 
+                                        <div class="is-hidden" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
                                             <meta itemprop="name" content="NHS Digital">
                                             <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
                                                 <meta itemprop="url" content="<@hst.webfile path='/images/nhs-digital-logo.svg' />" />
@@ -115,7 +115,7 @@
                                                      <#else>
                                                          <#assign tag = oldtag>
                                                      </#if>
-                                                     <a href="https://twitter.com/search?q=${tag?replace('#','%23')}" target="blank_">${tag}</a><#sep>, 
+                                                     <a href="https://twitter.com/search?q=${tag?replace('#','%23')}" target="blank_">${tag}</a><#sep>,
                                                    </#list>
                                                  </dd>
                                              </dl>
@@ -174,20 +174,16 @@
                 </#list>
 
                 <#if hasEditorsNotes>
-                      <div class="article-section-with-no-heading expander expander-some expander-notes-for-editors">
-                        <details>
-                          <summary><span>Notes for editors</span></summary>
-                          <div class="details-body">
-                            <ol>
+                    <div class="article-section">
+                        <h2>Notes for editors</h2>
+                        <ol>
                             <#list document.notesforeditors.htmlnotes as note>
-                              <#if note.content?has_content>
-                                <li class="notes-for-editors"><@hst.html hippohtml=note contentRewriter=gaContentRewriter/></li>
-                              </#if>
+                                <#if note.content?has_content>
+                                    <li class="notes-for-editors"><@hst.html hippohtml=note contentRewriter=gaContentRewriter/></li>
+                                </#if>
                             </#list>
-                            </ol>
-                          </div>
-                        </details>
-                      </div>
+                        </ol>
+                    </div>
                 </#if>
 
                 <#if hasBackstory>
@@ -199,7 +195,7 @@
                     </div>
                 </#if>
 
-                <div class="article-header" >
+                <div class="article-section" >
                     <h2>Share this page</h2>
                     <@hst.link var="link" hippobean=document />
 
@@ -207,13 +203,13 @@
                         <#-- Use UTF-8 charset for URL escaping from now: -->
                         <#setting url_escaping_charset="UTF-8">
 
-                        <div class="blog-social-icon">
+                        <div class="blog-social-icon like-first-child">
                             <a target="_blank" href="http://www.facebook.com/sharer.php?u=${currentUrl?url}">
                                 <img src="<@hst.webfile path="/images/icon/Facebook.svg"/>" alt="Share on Facebook" class="blog-social-icon__img" />
                             </a>
                         </div>
 
-                        <div class="blog-social-icon">
+                        <div class="blog-social-icon like-first-child">
                             <#assign hashtags ='' />
                             <#if hasTwitterHashtag>
                                 <#list document.twitterHashtag as tag>
@@ -229,7 +225,7 @@
                             </a>
                         </div>
 
-                        <div class="blog-social-icon">
+                        <div class="blog-social-icon like-first-child">
                             <a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=${currentUrl?url}&title=${document.title?url}&summary=${document.shortsummary?url}">
                                 <img src="<@hst.webfile path="/images/icon/LinkedIn.svg"/>" alt="Share on LinkedIn" class="blog-social-icon__img" />
                             </a>
@@ -237,7 +233,7 @@
                     </div>
 
                 </div>
-                
+
                 <#if hasPeople>
 
                     <div class="latestBlog">
