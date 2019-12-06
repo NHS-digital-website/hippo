@@ -7,7 +7,8 @@
     padding-top: $default-spacing-unit * 3;
     border-top: 1px solid $section-dividers;
 
-    &:first-child {
+    &:first-child,
+    .like-first-child {
         padding-top: 0;
         border-top: none;
         margin-top: 0;
