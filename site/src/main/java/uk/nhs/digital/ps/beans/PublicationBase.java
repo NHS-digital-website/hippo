@@ -23,6 +23,7 @@ import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
 import uk.nhs.digital.website.beans.News;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public abstract class PublicationBase extends BaseDocument {
 
@@ -198,7 +199,7 @@ public abstract class PublicationBase extends BaseDocument {
     }
 
     protected <T extends HippoBean> List<T> getRelatedDocuments(
-        String property, 
+        String property,
         Class<T> beanClass
     ) throws HstComponentException, QueryException {
 
@@ -212,7 +213,9 @@ public abstract class PublicationBase extends BaseDocument {
     }
 
     public List<News> getRelatedNews() throws HstComponentException, QueryException {
-        return getRelatedDocuments("website:relateddocuments/@hippo:docbase", News.class);
+        return getRelatedDocuments("website:relateddocuments/@hippo:docbase", News.class).stream().sorted(
+            (n1, n2) -> n1.getPublisheddatetime().compareTo(n2.getPublisheddatetime())
+        ).collect(Collectors.toList());
     }
 
     @Override

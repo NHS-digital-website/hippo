@@ -19,6 +19,7 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * This is a generic bean containing most of the used fields accross all the
@@ -54,11 +55,11 @@ public class CommonFieldsBean extends BaseDocument {
     }
 
     //================================================================================
-    //getReleatedDocuemnts queries for reference documents where current document 
+    //getReleatedDocuemnts queries for reference documents where current document
     //is equal object of class beanClass
 
     protected <T extends HippoBean> List<T> getRelatedDocuments(
-        String property, 
+        String property,
         Class<T> beanClass
     ) throws HstComponentException, QueryException {
 
@@ -67,19 +68,19 @@ public class CommonFieldsBean extends BaseDocument {
     }
 
     protected <T extends HippoBean> List<T> getRelatedDocuments(
-        String property, 
-        int limit, 
+        String property,
+        int limit,
         Class<T> beanClass
     ) throws HstComponentException, QueryException {
-      
+
         return getRelatedDocuments(property, limit, null, "descending", beanClass, null );
 
     }
 
     protected <T extends HippoBean> List<T> getRelatedDocuments(
-        String property, 
-        int limit, 
-        String orderBy, 
+        String property,
+        int limit,
+        String orderBy,
         Class<T> beanClass
     ) throws HstComponentException, QueryException {
 
@@ -88,10 +89,10 @@ public class CommonFieldsBean extends BaseDocument {
     }
 
     protected <T extends HippoBean> List<T> getRelatedDocuments(
-        String property, 
-        int limit, 
-        String orderBy, 
-        String orderDirection, 
+        String property,
+        int limit,
+        String orderBy,
+        String orderDirection,
         Class<T> beanClass,
         List<BaseFilter> andFilters
     ) throws HstComponentException, QueryException {
@@ -102,10 +103,10 @@ public class CommonFieldsBean extends BaseDocument {
     }
 
     protected <T extends HippoBean> List<T> getRelatedDocuments(
-        List<String> properties, 
-        int limit, 
-        String orderBy, 
-        String orderDirection, 
+        List<String> properties,
+        int limit,
+        String orderBy,
+        String orderDirection,
         Class<T> beanClass,
         List<BaseFilter> andFilters
     ) throws HstComponentException, QueryException {
@@ -193,11 +194,15 @@ public class CommonFieldsBean extends BaseDocument {
     }
 
     public List<News> getRelatedNews() throws HstComponentException, QueryException {
-        return getNews(false);
+        return getNews(false).stream().sorted(
+            (n1, n2) -> n1.getPublisheddatetime().compareTo(n2.getPublisheddatetime())
+        ).collect(Collectors.toList());
     }
 
     public List<News> getLatestNews() throws HstComponentException, QueryException {
-        return getNews(true);
+        return getNews(true).stream().sorted(
+            (n1, n2) -> n1.getPublisheddatetime().compareTo(n2.getPublisheddatetime())
+        ).collect(Collectors.toList());
     }
 
 }
