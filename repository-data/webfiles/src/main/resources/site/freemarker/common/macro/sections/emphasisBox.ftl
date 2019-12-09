@@ -1,9 +1,13 @@
 <#ftl output_format="HTML">
 
 <#macro emphasisBox section>
-    <#assign slug = 'emphasis-' + section.emphasisType + '-' + section?keep_after('@') />
+    <#if section?is_string >
+      <#assign slug = 'emphasis-' + section.emphasisType + '-' + section?keep_after('@') />
+    <#else>
+      <#assign slug = 'emphasis-' + section.emphasisType />
+    </#if>
 
-    <#if section.heading?has_content>
+    <#if section.heading?has_content && slug??>
         <#assign ariaAttribute = 'aria-labelledby' />
         <#assign ariaValue = slugify(slug) />
     <#else>
@@ -33,12 +37,14 @@
         </#if>
 
         <div class="emphasis-box__content">
-            <#if section.heading?has_content>
+            <#if section.heading?has_content && slug??>
                 <h3 id="${slugify(slug)}" data-uipath="website.contentblock.emphasis.heading">${section.heading}</h3>
             </#if>
 
-            <#if section.body.content?has_content>
+            <#if section.body?? && section.body.content?has_content>
                 <div data-uipath="website.contentblock.emphasis.content"><@hst.html hippohtml=section.body contentRewriter=gaContentRewriter /></div>
+            <#elseif section.bodyCustom??>
+                <div data-uipath="website.contentblock.emphasis.content">${section.bodyCustom}</div>
             </#if>
         </div>
     </div>
