@@ -71,7 +71,7 @@
                                         <div class="is-hidden" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
                                             <meta itemprop="name" content="NHS Digital">
                                             <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-                                                <meta itemprop="url" content="<@hst.webfile path='/images/nhs-digital-logo.svg' />" />
+                                                <meta itemprop="url" content="<@hst.webfile path='/images/nhs-digital-logo-social.jpg' fullyQualified=true />" />
                                             </span>
                                         </div>
                                     </div>
@@ -159,6 +159,11 @@
                           </div>
                         </#if>
                     </div>
+                <#else>
+                    <span itemprop="image" itemscope
+                          itemtype="https://schema.org/ImageObject">
+                        <meta itemprop="url" content="<@hst.webfile path='/images/nhs-digital-logo-social.jpg' fullyQualified=true />"/>
+                    </span>
                 </#if>
 
                 <#if hasSectionContent>
