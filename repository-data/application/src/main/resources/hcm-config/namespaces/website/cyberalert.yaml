@@ -237,9 +237,28 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /archivecontent:
+            /cluster.options:
+              falseLabel: 'No'
+              jcr:primaryType: frontend:pluginconfig
+              trueLabel: 'Yes'
+            caption: Archive content?
+            field: archivecontent
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
+          /archivecontent:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:archivecontent
+            hipposysedit:primary: false
+            hipposysedit:type: selection:BooleanRadioGroup
+            jcr:primaryType: hipposysedit:field
           /category:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
@@ -470,6 +489,7 @@ definitions:
           - hippotaxonomy:classifiable
           jcr:primaryType: website:cyberalert
           publicationsystem:NominalDate: 0001-01-01T12:00:00Z
+          website:archivecontent: false
           website:category:
           - ''
           website:ncsclink: ''

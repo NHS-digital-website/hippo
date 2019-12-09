@@ -154,6 +154,11 @@ public class CyberAlert extends CommonFieldsBean {
         return null;
     }
 
+    @HippoEssentialsGenerated(internalName = "website:archivecontent")
+    public Boolean getArchiveContent() {
+        return (Boolean)getProperty("website:archivecontent") && getPublicallyAccessible();
+    }
+
     @HippoEssentialsGenerated(internalName = "website:publicallyaccessible", allowModifications = false)
     public Boolean getPublicallyAccessible() {
         return getProperty("website:publicallyaccessible");
