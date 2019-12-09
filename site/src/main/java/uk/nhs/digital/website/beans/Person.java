@@ -15,6 +15,7 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @HippoEssentialsGenerated(internalName = "website:person")
 @Node(jcrType = "website:person")
@@ -102,13 +103,15 @@ public class Person extends CommonFieldsBean {
     }
 
     public List<News> getRelatedNews() throws HstComponentException, QueryException {
-        return getRelatedDocuments("website:peoplementioned/@hippo:docbase", News.class);
+        return getRelatedDocuments("website:peoplementioned/@hippo:docbase", News.class).stream().sorted(
+            (n1, n2) -> n1.getPublisheddatetime().compareTo(n2.getPublisheddatetime())
+        ).collect(Collectors.toList());
     }
 
     public List<Blog> getRelatedBlogs() throws HstComponentException, QueryException {
         return getRelatedDocuments("website:authors/@hippo:docbase", 3, "website:dateofpublication", Blog.class);
     }
-    
+
     public List<BusinessUnit> getBusinessUnits() throws HstComponentException, QueryException {
 
         Role role = this.getRoles();
