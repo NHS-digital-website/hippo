@@ -4,6 +4,8 @@
 @import "../environment/settings/layout";
 @import "../environment/tools/mixins/_addons";
 
+
+
 ul {
     list-style: disc outside;
     padding-left: 1em;
@@ -224,5 +226,11 @@ ol {
 
     &::after {
         transform: rotate(-45deg);
+    }
+}
+
+.page-block--main {
+    li {
+        padding-bottom: 0.5em;
     }
 }
