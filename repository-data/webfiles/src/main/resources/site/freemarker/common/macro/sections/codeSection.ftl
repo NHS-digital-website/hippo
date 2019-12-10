@@ -2,7 +2,7 @@
 
 <#-- @ftlvariable name="section" type="uk.nhs.digital.website.beans.Code" -->
 
-<#macro codeSection section>
+<#macro codeSection section mainHeadingLevel=2 >
 
     <#if section.firstLineNumber != "">
         <#assign  lineCounter = section.firstLineNumber?number - 1 />
@@ -20,9 +20,12 @@
     <div ${customid} class="article-section${(section.heading?has_content && mainHeading)?then('', '-with-sub-heading')}${section.heading?has_content?then('', '-with-no-heading')}">
         <#if section.heading?has_content>
             <#if mainHeading>
-                <h2 data-uipath="website.contentblock.codesection.title">${section.heading}</h2>
+                <#assign mainHeadingTag = "h" + mainHeadingLevel />
+                <${mainHeadingTag} data-uipath="website.contentblock.codesection.title">${section.heading}</${mainHeadingTag}>
             <#else>
-                <h3 data-uipath="website.contentblock.codesection.title">${section.heading}</h3>
+                <#assign subHeadingLevel = mainHeadingLevel?int + 1 />
+                <#assign subHeadingTag = "h" + subHeadingLevel />
+                <${subHeadingTag} data-uipath="website.contentblock.codesection.title">${section.heading}</${subHeadingTag}>
             </#if>
         </#if>
 

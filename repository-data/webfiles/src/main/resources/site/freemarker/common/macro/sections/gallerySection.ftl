@@ -2,13 +2,16 @@
 
 <#include "../fileIconByMimeType.ftl">
 
-<#macro gallerySection section>
+<#macro gallerySection section mainHeadingLevel=2 >
     <div id="${slugify(section.heading)}" class="${(section.headingLevel?has_content && section.headingLevel == 'Main heading')?then('article-section', 'article-header__detail-lines')}">
 
         <#if section.headingLevel?has_content && section.headingLevel == 'Main heading'>
-            <h2 data-uipath="website.contentblock.gallerysection.title">${section.title}</h2>
+            <#assign mainHeadingTag = "h" + mainHeadingLevel />
+            <${mainHeadingTag} data-uipath="website.contentblock.gallerysection.title">${section.title}</${mainHeadingTag}>
         <#else>
-            <h3 data-uipath="website.contentblock.gallerysection.title">${section.title}</h3>
+            <#assign subHeadingLevel = mainHeadingLevel?int + 1 />
+            <#assign subHeadingTag = "h" + subHeadingLevel />
+            <${subHeadingTag} data-uipath="website.contentblock.gallerysection.title">${section.title}</${subHeadingTag}>
         </#if>
 
         <div data-uipath="website.contentblock.gallerysection.description">

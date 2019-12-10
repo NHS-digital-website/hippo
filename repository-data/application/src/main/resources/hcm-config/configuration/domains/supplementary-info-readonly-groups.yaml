@@ -1,0 +1,27 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/supplementary-info-readonly-groups:
+      /readonly:
+        hipposys:groups:
+        - author
+        - editor
+        - cyber-alerts-author
+        - cyber-alerts-editor
+        - national-indicator-library-author
+        - national-indicator-library-editor
+        - unlocker
+        - user-admin
+        - webmaster
+        hipposys:role: readonly
+        jcr:primaryType: hipposys:authrole
+      /supplementary-info-documents:
+        /supplementary-info-nodename:
+          hipposys:equals: true
+          hipposys:facet: nodetype
+          hipposys:filter: false
+          hipposys:type: Name
+          hipposys:value: website:supplementaryinformation
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      jcr:primaryType: hipposys:domain

@@ -1,8 +1,9 @@
 <#ftl output_format="HTML">
 
 <#include "../../include/imports.ftl">
+<#include "headerMetadata.ftl">
 
-<#macro documentHeader document doctype header_icon_arg='' title="" summary="" topics="" hasSchemaOrg=true>
+<#macro documentHeader document doctype header_icon_arg='' title="" summary="" topics="" hasSchemaOrg=true metadata={} >
 
     <#assign custom_title = title />
     <!-- checking whether simulating doc in order to avoid console errors from NewsHub and EventHub docs -->
@@ -47,28 +48,39 @@
                 <div class="article-header__inner">
                     <div class="grid-row">
                         <div class="column--two-thirds column--reset">
-                            <#if hasSchemaOrg>
-                              <h1 id="top" class="local-header__title" data-uipath="document.title" itemprop="name" ${headerStyle}>${custom_title}</h1>
-                            <#else>
-                              <h1 id="top" class="local-header__title" data-uipath="document.title" ${headerStyle}>${custom_title}</h1>
+
+                            <#if doctype == "news">
+                              <span class="article-header__label">${doctype?capitalize}</span>
                             </#if>
+
+                            <#assign titleProp = "itemprop=name">
+                            <#if hasSchemaOrg>
+                              <#assign titleProp = "itemprop=name">
+                              <#if doctype == "news">
+                                  <#assign titleProp = "itemprop=headline">
+                              </#if>
+                            </#if>
+
+                            <h1 id="top" class="local-header__title" data-uipath="document.title" ${titleProp} ${headerStyle}>${custom_title}</h1>
                             <#if hasDocumentSummary>
                               <div class="article-header__subtitle" data-uipath="website.${doctype}.summary">
                                 <@hst.html hippohtml=custom_summary contentRewriter=gaContentRewriter/>
                               </div>
                             <#else>
+
+                              <#assign schemaProp = "" />
                               <#if hasSchemaOrg>
-                              <div itemprop="description" class="article-header__subtitle" data-uipath="website.${doctype}.summary">
-                              <#else>
-                              <div class="article-header__subtitle" data-uipath="website.${doctype}.summary">
+                                <#assign schemaProp = "itemprop=description" />
                               </#if>
-                                <p>${custom_summary}</p>
+
+                              <div ${schemaProp} class="article-header__subtitle" data-uipath="website.${doctype}.summary">
+                                  ${custom_summary}
                               </div>
                             </#if>
                         </div>
                         <#if hasPageIcon>
                             <div class="column--one-third column--reset local-header__icon">
-                              <#if hasDocumentSummary> 
+                              <#if document.bannercontrols?? && document.bannercontrols.icon?has_content || document.pageIcon?? && document.pageIcon?has_content > 
                                   <#-- ex. Service case - image from HippoGalleryImageSet -->
                                   <@hst.link hippobean=headerIcon.original fullyQualified=true var="image" />
                                   <#if image?ends_with("svg")>
@@ -82,10 +94,10 @@
                                   <#else>
                                       <img src="${image}" alt="${custom_title}" />
                                   </#if>
-                                <#else>
-                                  <#-- ex. Events or News case - image from provided path -->
-                                  <img src="<@hst.webfile path="${headerIcon}" fullyQualified=true/>" alt="${custom_title}">
-                                </#if>
+                              <#else>
+                                <#-- ex. EventsHub or NewsHub case - image from provided path -->
+                                <img src="<@hst.webfile path="${headerIcon}" fullyQualified=true/>" alt="${custom_title}">
+                              </#if>
                             </div>
                         </#if>
                     </div>
@@ -108,6 +120,9 @@
                       </div>
                     </#if>
                 </div>
+
+                <@headerMetadata metadata />
+
             </div>
         </div>
     </div>

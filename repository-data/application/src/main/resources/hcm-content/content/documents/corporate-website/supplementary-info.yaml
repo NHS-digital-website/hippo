@@ -1,0 +1,13 @@
+---
+/content/documents/corporate-website/supplementary-info:
+  hippo:name: Supplementary Info
+  hippostd:foldertype:
+  - new-supplementary-info-folder
+  - new-supplementary-info-document
+  hippotranslation:id: b882e700-3c83-411d-8ecf-c987151ce955
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

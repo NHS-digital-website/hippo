@@ -8,6 +8,8 @@
 <#include "macro/component/lastModified.ftl">
 <#include "macro/component/downloadBlock.ftl">
 <#include "macro/contactdetail.ftl">
+<#include "macro/headerMetadata.ftl">
+<#include "macro/documentHeader.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -29,106 +31,62 @@
 <#assign hasTwitterHashtag = document.twitterHashtag?? && document.twitterHashtag?has_content />
 <#assign idsuffix = slugify(document.title) />
 
+<#assign metadata = [ 
+  {
+   "key": "Date", 
+   "value": document.publisheddatetime.time, 
+   "uipath": "website.news.dateofpublication", 
+   "type": "date", 
+   "schemaOrgTag": "datePublished" 
+  } 
+] />
+<#if hasTopics>
+  <#assign metadata += [ 
+    {
+     "key": "Topics", 
+     "value": document.topics, 
+     "uipath": "website.news.topics", 
+     "type": "list", 
+     "schemaOrgTag": "keywords" 
+    } 
+  ] />
+</#if>
+<#if hasNewsType>
+  <#assign metadata += [ 
+    {
+     "key": "News type", 
+     "value": newstypes[document.type], 
+     "uipath": "website.news.type", 
+     "type": "span"
+    } 
+  ] />
+</#if>
+<#if hasTwitterHashtag>
+  <#assign metadata += [ 
+    {
+     "key": "Twitter", 
+     "value": document.twitterHashtag, 
+     "uipath": "website.news.twitter", 
+     "type": "twitterHashtag"
+    } 
+  ] />
+</#if>
+
 <article class="article article--news" itemscope itemtype="http://schema.org/NewsArticle">
 
-    <div class="grid-wrapper grid-wrapper--article grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
-        <div class="local-header article-header--detailed">
-            <div class="grid-wrapper">
-                <div class="article-header__inner">
-
-                     <div class="grid-row">
-                        <div class="column--two-thirds column--reset">
-
-                            <span class="article-header__label">News</span>
-
-                            <h1 class="local-header__title" itemprop="headline" data-uipath="document.title">${document.title}</h1>
-                            <meta itemprop="mainEntityOfPage" content="${document.title}">
-                            <meta itemprop="author" content="NHS Digital">
-                            <meta itemprop="copyrightHolder" content="NHS Digital">
-                            <meta itemprop="license" content="https://digital.nhs.uk/about-nhs-digital/terms-and-conditions">
-
-                            <div class="article-header__subtitle" data-uipath="website.news.summary" itemprop="description">${document.shortsummary}</div>
-                        </div>
-
-                        <div class="column--one-third column--reset local-header__icon">
-                          <img src="<@hst.webfile path="images/penpaper.svg" fullyQualified=true/>" alt="news icon">
-                        </div>
-
-                     </div>
-
-                     <div class="grid-row-no-margin">
-                        <div class="column column--reset">
-                            <div class="detail-list-grid">
-
-                                <div class="grid-row">
-                                    <div class="column column--reset">
-                                        <dl class="detail-list">
-                                            <dt class="detail-list__key">Date:</dt>
-                                            <dd class="detail-list__value" itemprop="datePublished" data-uipath="website.news.dateofpublication">
-                                                <@fmt.formatDate value=document.publisheddatetime.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
-                                            </dd>
-                                        </dl>
-                                        <div class="is-hidden" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-                                            <meta itemprop="name" content="NHS Digital">
-                                            <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-                                                <meta itemprop="url" content="<@hst.webfile path='/images/nhs-digital-logo-social.jpg' fullyQualified=true />" />
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <#if hasTopics>
-                                    <div class="grid-row">
-                                        <div class="column column--reset">
-                                            <dl class="detail-list">
-                                                <dt class="detail-list__key">Topic:</dt>
-                                                <dd class="detail-list__value" itemprop="keywords" data-uipath="website.news.topics">
-                                                    <#list document.topics as tag>${tag}<#sep>, </#list>
-                                                </dd>
-                                            </dl>
-                                        </div>
-                                    </div>
-                                 </#if>
-
-                                <#if hasNewsType>
-                                    <div class="grid-row">
-                                        <div class="column column--reset">
-                                            <dl class="detail-list">
-                                                <dt class="detail-list__key">News type:</dt>
-                                                <dd class="detail-list__value" data-uipath="website.news.type">
-                                                    <span>${newstypes[document.type]}</span>
-                                                </dd>
-                                            </dl>
-                                        </div>
-                                    </div>
-                                 </#if>
-
-                                <#if hasTwitterHashtag>
-                                    <div class="grid-row">
-                                         <div class="column column--reset">
-                                             <dl class="detail-list">
-                                                 <dt class="detail-list__key">Twitter:</dt>
-                                                 <dd class="detail-list__value" data-uipath="website.news.twitter">
-                                                   <#list document.twitterHashtag as oldtag>
-                                                     <#if ! oldtag?starts_with("#")>
-                                                         <#assign tag = "#" + oldtag>
-                                                     <#else>
-                                                         <#assign tag = oldtag>
-                                                     </#if>
-                                                     <a href="https://twitter.com/search?q=${tag?replace('#','%23')}" target="blank_">${tag}</a><#sep>,
-                                                   </#list>
-                                                 </dd>
-                                             </dl>
-                                         </div>
-                                    </div>
-                                </#if>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <meta itemprop="mainEntityOfPage" content="${document.title}">
+    <meta itemprop="author" content="NHS Digital">
+    <meta itemprop="copyrightHolder" content="NHS Digital">
+    <meta itemprop="license" content="https://digital.nhs.uk/about-nhs-digital/terms-and-conditions">
+    <div class="is-hidden" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+        <meta itemprop="name" content="NHS Digital">
+        <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+            <meta itemprop="url" content="<@hst.webfile path='/images/nhs-digital-logo-social.jpg' fullyQualified=true />" />
+        </span>
     </div>
+
+
+    <@documentHeader document 'news' "images/penpaper.svg" '' document.shortsummary '' true metadata></@documentHeader>
 
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">

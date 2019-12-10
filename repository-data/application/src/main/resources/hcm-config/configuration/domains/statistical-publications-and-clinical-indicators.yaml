@@ -34,4 +34,13 @@ definitions:
         - statistical-publications-and-clinical-indicators-editor
         hipposys:role: readwrite
         jcr:primaryType: hipposys:authrole
+      /supplementary-info-documents:
+        /path-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/corporate-website/supplementary-info
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
       jcr:primaryType: hipposys:domain

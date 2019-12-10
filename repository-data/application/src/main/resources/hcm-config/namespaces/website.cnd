@@ -290,6 +290,9 @@
 [website:standards] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:supplementaryinformation] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:visualassetlink] > hippo:compound, hippostd:relaxed
   orderable
 
