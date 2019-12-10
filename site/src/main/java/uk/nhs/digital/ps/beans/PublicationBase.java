@@ -214,7 +214,7 @@ public abstract class PublicationBase extends BaseDocument {
 
     public List<News> getRelatedNews() throws HstComponentException, QueryException {
         return getRelatedDocuments("website:relateddocuments/@hippo:docbase", News.class).stream().sorted(
-            (n1, n2) -> n1.getPublisheddatetime().compareTo(n2.getPublisheddatetime())
+            (n1, n2) -> n2.getPublisheddatetime().compareTo(n1.getPublisheddatetime())
         ).collect(Collectors.toList());
     }
 

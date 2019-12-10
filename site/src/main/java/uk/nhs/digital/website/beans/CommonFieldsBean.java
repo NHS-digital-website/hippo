@@ -195,13 +195,13 @@ public class CommonFieldsBean extends BaseDocument {
 
     public List<News> getRelatedNews() throws HstComponentException, QueryException {
         return getNews(false).stream().sorted(
-            (n1, n2) -> n1.getPublisheddatetime().compareTo(n2.getPublisheddatetime())
+            (n1, n2) -> n2.getPublisheddatetime().compareTo(n1.getPublisheddatetime())
         ).collect(Collectors.toList());
     }
 
     public List<News> getLatestNews() throws HstComponentException, QueryException {
         return getNews(true).stream().sorted(
-            (n1, n2) -> n1.getPublisheddatetime().compareTo(n2.getPublisheddatetime())
+            (n1, n2) -> n2.getPublisheddatetime().compareTo(n1.getPublisheddatetime())
         ).collect(Collectors.toList());
     }
 
