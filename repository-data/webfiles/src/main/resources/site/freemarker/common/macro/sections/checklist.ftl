@@ -17,19 +17,25 @@
         </#if>
 
         <ul class="check-list-widget__list ${tickClass}">
-          <#list section.listentries as entry>
-            <li>
-              <#if section.icon?trim == 'Tick'>
+            <#list section.listentries as entry>
+                <li>
+                    <#if section.icon?trim == 'Tick'>
                     <img class="check-list-widget-icon" src="<@hst.webfile path="/images/icon/Icon-tick-v3_v2.svg"/>" alt="Tick Image">
-                <#elseif section.icon?trim == 'Cross'>
+                    <#elseif section.icon?trim == 'Cross'>
                     <img class="check-list-widget-icon" src="<@hst.webfile path="/images/icon/Icon-cross-v2_v2.svg"/>" alt="Cross Image">
-                <#elseif section.icon?trim == 'Custom' && section.customicon?has_content>
-                    <@hst.link hippobean=section.customicon.original fullyQualified=true var="leadImage" />
-                    <img class="check-list-widget-icon" src="${leadImage}" alt="Custom image" />
-                </#if>
-                <@hst.html hippohtml=entry contentRewriter=gaContentRewriter/>
-            </li>
-          </#list>
+                    <#elseif section.icon?trim == 'Custom' && section.customicon?has_content>
+                        <@hst.link hippobean=section.customicon.original fullyQualified=true var="leadImage" />
+                        <#if leadImage?ends_with("svg")>
+                            <img src="${leadImage?replace("/binaries", "/svg-magic/binaries")}?colour=005eb8"
+                                 alt="Custom image" class="check-list-widget-icon"/>
+                        <#else>
+                            <img src="${leadImage}" alt="Custom image"
+                                 class="check-list-widget-icon"/>
+                        </#if>
+                    </#if>
+                    <span><@hst.html hippohtml=entry contentRewriter=gaContentRewriter/></span>
+                </li>
+            </#list>
         </ul>
     </div>
 </#macro>
