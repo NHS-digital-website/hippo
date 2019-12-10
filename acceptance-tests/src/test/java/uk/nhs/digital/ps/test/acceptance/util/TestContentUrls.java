@@ -278,6 +278,14 @@ public class TestContentUrls {
             "/website-acceptance-tests/roadmap-test-document/roadmap-item-1");
         addSiteUrl("Roadmap item 2",
             "/website-acceptance-tests/roadmap-test-document/roadmap-item-2");
+
+        // Person
+        addSiteUrl("George Lucastine",
+            "/website-acceptance-tests/person-test-document");
+        addSiteUrl("John Doe",
+            "/website-acceptance-tests/person-test-document-2");
+        addSiteUrl("Cynthia Barker",
+            "/website-acceptance-tests/person-test-document-3");
     }
 
     private void setupCmsUrls() {

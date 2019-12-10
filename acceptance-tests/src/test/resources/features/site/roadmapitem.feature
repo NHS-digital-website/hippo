@@ -6,7 +6,7 @@ Feature: Ensure Roadmapitem page displays required fields.
         And I should also see:
             | Standards       | REF123.14.09 ... |
             | Roadmapitem Summary | lorem ipsum summary content for roadmap ... |
-        And I should not see:
+        But I should not see:
             | Effective date       | 20 May 2018 to 31 July 2018 ... |
 
     Scenario: Check individual content fields (Roadmap test document)
