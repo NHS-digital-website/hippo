@@ -130,6 +130,18 @@ public class SiteSteps extends AbstractSpringSteps {
         }
     }
 
+    @Then("^I should not see:?$")
+    public void thenIShouldNotSee(final DataTable pageSections) throws Throwable {
+        String elementName = null;
+        for (List<String> elementsContent : pageSections.raw()) {
+            elementName = elementsContent.get(0);
+            WebElement pageElement = sitePage.findPageElement(elementName);
+
+            assertThat("I should not have found the page element: " + elementName,
+                pageElement, is(nullValue()));
+        }
+    }
+
     @Then("^I should(?: also)? see \"([^\"]+)\" with:")
     public void thenIShouldSeeItemsOf(String pageElementName, final DataTable elementItems) throws Throwable  {
         WebElement pageElement = sitePage.findPageElement(pageElementName);
@@ -169,6 +181,14 @@ public class SiteSteps extends AbstractSpringSteps {
         List<String> headers = headersTable.asList(String.class);
         for (String header : headers) {
             assertNotNull("Header should be displayed: " + header, sitePage.findElementWithText(header));
+        }
+    }
+
+    @Then("^I should see the following:$")
+    public void thenIShouldSeeTheFollowing(DataTable contentsTable) throws Throwable {
+        List<String> headers = contentsTable.asList(String.class);
+        for (String header : headers) {
+            assertNotNull("The Text should be displayed: " + header, sitePage.findElementWithText(header));
         }
     }
 
