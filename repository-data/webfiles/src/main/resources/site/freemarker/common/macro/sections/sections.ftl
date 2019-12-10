@@ -22,7 +22,7 @@
 <!-- Set up equation support from mathjax -->
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_HTML"></script>
 
-<#macro sections sections>
+<#macro sections sections mainHeadingLevel=2 >
 
     <#assign numberedListCount=0 />
     <#assign isPreviousEmphasisBox = false />
@@ -33,7 +33,7 @@
             <#if section.isNumberedList>
                 <#assign numberedListCount++ />
             </#if>
-            <@websiteSection section=section isPreviousSectionEmphasisBox=isPreviousEmphasisBox numberedListCount=numberedListCount />
+            <@websiteSection section=section isPreviousSectionEmphasisBox=isPreviousEmphasisBox numberedListCount=numberedListCount mainHeadingLevel=mainHeadingLevel />
             <#assign isPreviousEmphasisBox = false />
         <#elseif section.sectionType == 'image'>
             <@imageSection section=section />
@@ -50,13 +50,13 @@
             <#assign isPreviousEmphasisBox = true />
             <@emphasisBox section=section />
         <#elseif section.sectionType == 'iconList'>
-            <@iconList section=section />
+            <@iconList section=section mainHeadingLevel=mainHeadingLevel />
         <#elseif section.sectionType == 'gallerySection'>
-            <@gallerySection section=section/>
+            <@gallerySection section=section mainHeadingLevel=mainHeadingLevel />
         <#elseif section.sectionType == 'code'>
-            <@codeSection section=section/>
+            <@codeSection section=section mainHeadingLevel=mainHeadingLevel />
         <#elseif section.sectionType == 'download'>
-            <@downloadSection section=section/>
+            <@downloadSection section=section mainHeadingLevel=mainHeadingLevel />
         <#elseif section.sectionType == 'expander'>
             <@expander section />
         <#elseif section.sectionType == 'ctabutton'>

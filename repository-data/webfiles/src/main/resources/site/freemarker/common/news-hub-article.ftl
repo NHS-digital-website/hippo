@@ -28,7 +28,7 @@
     <#assign header_icon = 'images/icon-article.png' />
     <#assign document = "simulating_doc" />
 
-    <@documentHeader document 'news' header_icon header_title header_summary "" false></@documentHeader>
+    <@documentHeader document 'newshub' header_icon header_title header_summary "" false></@documentHeader>
 
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">

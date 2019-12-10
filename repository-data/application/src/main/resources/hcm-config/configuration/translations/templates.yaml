@@ -17,6 +17,8 @@ definitions:
       new-platform-folder: new folder
       new-statistical-publications-and-clinical-indicators-document: new document
       new-statistical-publications-and-clinical-indicators-folder: new folder
+      new-supplementary-info-document: new supplementary information document
+      new-supplementary-info-folder: new folder
       new-translated-folder: new folder
     /hippo:configuration/hippo:translations/hippo:types:
       /publicationsystem:archive:
@@ -232,6 +234,11 @@ definitions:
       /website:emphasisBox:
         /en:
           jcr:name: Emphasis Box
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:event:
+        /en:
+          jcr:name: Event
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:expander:
@@ -522,6 +529,11 @@ definitions:
       /website:statuserrorcode:
         /en:
           jcr:name: status error code
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:supplementaryinformation:
+        /en:
+          jcr:name: Supplementary information
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:threataffect:

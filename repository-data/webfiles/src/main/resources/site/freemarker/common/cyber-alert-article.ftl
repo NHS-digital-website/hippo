@@ -4,6 +4,7 @@
 <#include "macro/stickyNavSections.ftl">
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
+<#include "macro/documentHeader.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -73,90 +74,18 @@
 <#if hasCVE><#assign links += [{ "url": "#" + slugify(cveHeader), "title": cveHeader }] /></#if>
 <#if hasAcknowledgement><#assign links += [{ "url": "#" + slugify(acknowledgementHeader), "title": acknowledgementHeader }] /></#if>
 
+<#assign metadata = [] />
+<#if document.threatId?has_content><#assign metadata += [ { "key": threatIdLabel, "value": document.threatId } ] /></#if>
+<#if document.category?has_content><#assign metadata += [ { "key": categoryLabel, "value": document.category, "type": "list" } ] /></#if>
+<#if document.severity?has_content><#assign metadata += [ { "key": threatSeverityLabel, "value": document.severity } ] /></#if>
+<#if document.threatvector?has_content><#assign metadata += [ { "key": threatVectorLabel, "value": document.threatvector, "type": "list" } ] /></#if>
+<#if document.publishedDate?has_content><#assign metadata += [ { "key": datePublishedLabel, "value": document.publishedDate.time, "type": "date" } ] /></#if>
+
 <article class="article article--cyber-alert">
 
-    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
-        <div class="local-header article-header--detailed">
-            <div class="grid-wrapper">
-                <div class="article-header__inner">
+    <@documentHeader document 'cyberalert' "" '' document.shortsummary '' false metadata></@documentHeader>
 
-                    <h1 class="local-header__title" data-uipath="document.title">${document.title}</h1>
-
-                    <p class="article-header__subtitle">${document.shortsummary}</p>
-
-
-                    <div class="detail-list-grid">
-                        <#if document.threatId?has_content>
-                          <div class="grid-row">
-
-                              <div class="column column--reset">
-                                  <dl class="detail-list">
-                                      <dt class="detail-list__key">${threatIdLabel}:</dt>
-                                      <dd class="detail-list__value">${document.threatId}</dd>
-                                  </dl>
-                              </div>
-                          </div>
-                        </#if>
-
-                        <#if document.category?has_content>
-                          <div class="grid-row">
-                              <div class="column column--reset">
-                                  <dl class="detail-list">
-                                      <dt class="detail-list__key">${categoryLabel}:</dt>
-                                      <dd class="detail-list__value">
-                                              <#list document.category as category>${category}<#sep>, </#list>
-                                      </dd>
-                                  </dl>
-                              </div>
-                          </div>
-                        </#if>
-
-                        <#if document.severity?has_content>
-                          <div class="grid-row">
-                              <div class="column column--reset">
-                                  <dl class="detail-list">
-                                      <dt class="detail-list__key">${threatSeverityLabel}:</dt>
-                                      <dd class="detail-list__value">${document.severity}</dd>
-                                  </dl>
-                              </div>
-                          </div>
-                        </#if>
-
-
-                        <#if document.threatvector?has_content>
-                          <div class="grid-row">
-                              <div class="column column--reset">
-                                  <dl class="detail-list">
-                                      <dt class="detail-list__key">${threatVectorLabel}:</dt>
-                                      <dd class="detail-list__value">
-                                              <#list document.threatvector as vector>${vector}<#sep>, </#list>
-                                      </dd>
-                                  </dl>
-                              </div>
-                          </div>
-                        </#if>
-
-                        <#if document.publishedDate?has_content>
-                          <div class="grid-row">
-                              <div class="column column--reset">
-                                  <dl class="detail-list">
-                                      <dt class="detail-list__key">${datePublishedLabel}:</dt>
-                                      <dd class="detail-list__value">
-                                          <@fmt.formatDate value=document.publishedDate.time?date type="date" pattern="d MMM yyyy" timeZone="${getTimeZone()}" />
-                                      </dd>
-                                  </dl>
-                              </div>
-                          </div>
-                        </#if>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide grid-wrapper--emphasis-yellow">
+    <div class="cyber-alert-minus-margin grid-wrapper grid-wrapper--full-width grid-wrapper--wide grid-wrapper--emphasis-yellow">
         <div class="grid-wrapper">
             <div class="article-header__inner">
                 Report a cyber attack: call <a href="tel:004403003035222" title="Contact us by telephone">0300 303 5222</a>

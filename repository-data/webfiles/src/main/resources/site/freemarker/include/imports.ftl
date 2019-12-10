@@ -40,7 +40,8 @@
         "BusinessUnit":                 "uk.nhs.digital.website.beans.BusinessUnit",
         "OrgStructure":                 "uk.nhs.digital.website.beans.OrgStructure",
         "News":                         "uk.nhs.digital.website.beans.News",
-        "EditorsNotes":                 "uk.nhs.digital.website.beans.EditorsNotes"
+        "EditorsNotes":                 "uk.nhs.digital.website.beans.EditorsNotes",
+        "SupplementaryInformation":     "uk.nhs.digital.website.beans.SupplementaryInformation"
     }/>
 
     <#list docTypes?keys as key>

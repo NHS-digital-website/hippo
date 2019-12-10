@@ -8,16 +8,19 @@
 <#include "../typeSpan.ftl">
 <#include "../component/downloadBlock.ftl">
 
-<#macro downloadSection section>
+<#macro downloadSection section mainHeadingLevel=2 >
 
     <#assign hasLinks = section.items?? && section.items?size gt 0 />
 
     <div id="${slugify(section.heading)}" class="${(section.headingLevel == 'Main heading')?then('article-section', 'article-header__detail-lines')}">
 
         <#if section.headingLevel == 'Main heading'>
-            <h2 data-uipath="website.contentblock.download.title">${section.heading}</h2>
+            <#assign mainHeadingTag = "h" + mainHeadingLevel />
+            <${mainHeadingTag} data-uipath="website.contentblock.download.title">${section.heading}</${mainHeadingTag}>
         <#else>
-            <h3 data-uipath="website.contentblock.download.title">${section.heading}</h3>
+            <#assign subHeadingLevel = mainHeadingLevel?int + 1 />
+            <#assign subHeadingTag = "h" + subHeadingLevel />
+            <${subHeadingTag} data-uipath="website.contentblock.download.title">${section.heading}</${subHeadingTag}>
         </#if>
 
         <div data-uipath="website.contentblock.download.description"><@hst.html hippohtml=section.description contentRewriter=gaContentRewriter /></div>
