@@ -172,11 +172,16 @@
                   </div>
                 </#if>
 
-                <#list document.relateddocuments as child>
-                  <div class="article-header">
-                    <@downloadBlock child />
+                <#if document.relateddocuments?has_content>
+                  <div class="article-section">
+                      <h2>Related pages</h2>
+                      <#list document.relateddocuments as child>
+                        <div class="article-section-top-margin">
+                          <@downloadBlock child />
+                        </div>
+                      </#list>
                   </div>
-                </#list>
+                </#if>
 
                 <#if hasEditorsNotes>
                     <div class="article-section">
