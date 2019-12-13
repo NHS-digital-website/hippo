@@ -1,0 +1,16 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-1114-hippo-text-setter:
+      hipposys:batchsize: 100
+      hipposys:description: Set hippo:text on pdf and office resources in order to
+        include content of the resoureces into search results
+      hipposys:dryrun: false
+      hipposys:loglevel: INFO
+      hipposys:parameters: ''
+      hipposys:query: //element(*,hippo:resource)
+      hipposys:script:
+        resource: /configuration/update/DW-1114-hippo-text-setter.groovy
+        type: string
+      hipposys:throttle: 10
+      jcr:primaryType: hipposys:updaterinfo

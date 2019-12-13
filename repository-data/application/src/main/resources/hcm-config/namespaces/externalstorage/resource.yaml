@@ -58,6 +58,10 @@ definitions:
             hipposysedit:path: externalstorage:size
             hipposysedit:type: Long
             jcr:primaryType: hipposysedit:field
+          /text:
+            hipposysedit:path: hippo:text
+            hipposysedit:type: Binary
+            jcr:primaryType: hipposysedit:field
           /url:
             hipposysedit:mandatory: true
             hipposysedit:path: externalstorage:url
@@ -76,6 +80,9 @@ definitions:
           externalstorage:size: 0
           externalstorage:url: ''
           hippo:filename: hippo:resource
+          hippo:text:
+            resource: data.bin
+            type: binary
           jcr:data:
             resource: data.bin
             type: binary

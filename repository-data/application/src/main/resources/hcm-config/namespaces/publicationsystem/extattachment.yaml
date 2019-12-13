@@ -77,6 +77,9 @@ definitions:
             externalstorage:size: 0
             externalstorage:url: ''
             hippo:filename: externalstorage:resource
+            hippo:text:
+              resource: /namespaces/publicationsystem/extattachment/prototypes/prototype/attachmentResource/data.bin
+              type: binary
             jcr:data:
               resource: /namespaces/publicationsystem/extattachment/prototypes/prototype/attachmentResource/data.bin
               type: binary
