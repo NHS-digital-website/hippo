@@ -1,0 +1,16 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/DW-1114-hippo-text-cleaner:
+      hipposys:batchsize: 100
+      hipposys:description: Set empty hippo:text on pdf and office resources in order
+        to exclude content of the resoureces from search results
+      hipposys:dryrun: false
+      hipposys:loglevel: INFO
+      hipposys:parameters: ''
+      hipposys:query: //element(*,hippo:resource)
+      hipposys:script:
+        resource: /configuration/update/DW-1114-hippo-text-cleaner.groovy
+        type: string
+      hipposys:throttle: 10
+      jcr:primaryType: hipposys:updaterinfo

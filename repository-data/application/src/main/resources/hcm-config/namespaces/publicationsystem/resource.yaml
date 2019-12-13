@@ -54,7 +54,9 @@ definitions:
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           /text:
+            hipposysedit:mandatory: true
             hipposysedit:path: hippo:text
+            hipposysedit:primary: true
             hipposysedit:type: Binary
             jcr:primaryType: hipposysedit:field
           hipposysedit:uri: http://www.onehippo.org/jcr/hippo/nt/2.0
@@ -67,6 +69,9 @@ definitions:
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
           hippo:filename: hippo:resource
+          hippo:text:
+            resource: data.bin
+            type: binary
           jcr:data:
             resource: data.bin
             type: binary
