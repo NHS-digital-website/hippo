@@ -101,7 +101,7 @@
                                       </#if>
                                       <#assign twitterlink = "https://twitter.com/" + twitteruser />
 
-                                      <a itemprop="sameAs" href="${twitterlink}" onClick="logGoogleAnalyticsEvent('Link click','Person','${twitterlink}');" onKeyUp="return vjsu.onKeyUp(event)"  title="${document.socialmedias.twitteruser}">@${twitteruser}</a>
+                                      <a itemprop="sameAs" href="${twitterlink}" onClick="logGoogleAnalyticsEvent('Link click','Person','${twitterlink}');" onKeyUp="return vjsu.onKeyUp(event)"  title="${document.socialmedias.twitteruser}" target="_blank">@${twitteruser}</a>
                                     </dd>
                                 </dl>
                             </div>

@@ -176,6 +176,11 @@ definitions:
           jcr:name: Contact details
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:contactdetailextended:
+        /en:
+          jcr:name: Contact details (extended)
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:ctabutton:
         /en:
           jcr:name: CTA
@@ -534,6 +539,16 @@ definitions:
       /website:supplementaryinformation:
         /en:
           jcr:name: Supplementary information
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:team:
+        /en:
+          jcr:name: Team
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:teammember:
+        /en:
+          jcr:name: Team Member
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:threataffect:

@@ -17,6 +17,10 @@ public class VisualHub extends CommonFieldsBean {
         return getLinkedBean("website:image", HippoGalleryImageSet.class);
     }
 
+    public HippoGalleryImageSet getPageIcon() {
+        return this.getIcon();
+    }
+
     @HippoEssentialsGenerated(internalName = "website:icon")
     public HippoGalleryImageSet getIcon() {
         return getLinkedBean("website:icon", HippoGalleryImageSet.class);

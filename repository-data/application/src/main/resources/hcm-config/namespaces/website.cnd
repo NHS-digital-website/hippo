@@ -68,6 +68,9 @@
 [website:contactdetail] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:contactdetailextended] > website:contactdetail
+  orderable
+
 [website:ctabutton] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -327,6 +330,12 @@
   orderable
 
 [website:statuserrorcode] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:team] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:teammember] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:categorylist] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument

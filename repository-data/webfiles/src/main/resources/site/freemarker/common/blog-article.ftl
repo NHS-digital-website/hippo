@@ -7,6 +7,7 @@
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
 <#include "macro/latestblogs.ftl">
+<#include "macro/personitem.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -238,30 +239,7 @@
                 <#if hasAuthors>
                     <div class="blog-authors">
                         <#list document.authors as author>
-                            <div class="blog-authors__item">
-
-                                <div class="blog-authors__icon">
-                                    <#if author.personimages?? && author.personimages?has_content>
-                                        <@hst.link hippobean=author.personimages.picture.original fullyQualified=true var="authorPicture" />
-                                        <img class="blog-authors__icon__img" src="${authorPicture}" alt="${author.title}" />
-                                    <#else>
-                                        <img class="blog-authors__icon__nhsimg" src="<@hst.webfile path="/images/fibre_57101102_med.jpg"/>" alt="NHS Digital blog">
-                                    </#if>
-                                </div>
-
-                                <div class="blog-authors__content">
-                                    <div class="blog-authors__title">
-                                        <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, author.title) />
-                                        <a class="cta__title cta__button" href="<@hst.link hippobean=author/>"  onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${author.title}</a>
-                                    </div>
-                                    <div class="blog-authors__body">
-                                        <#if author.biographies?? && author.biographies?has_content && author.biographies.profbiography.content?has_content>
-                                            <@hst.html hippohtml=author.biographies.profbiography contentRewriter=gaContentRewriter/>
-                                        </#if>
-                                    </div>
-                                </div>
-
-                            </div>
+                            <@personitem author />
                         </#list>
                     </div>
                 </#if>
