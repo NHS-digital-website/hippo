@@ -1,0 +1,230 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/website/contactdetailextended:
+      /editor:templates:
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
+          /root:
+            extension.left: ${cluster.id}.left
+            extension.right: ${cluster.id}.right
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.layout.TwoColumn
+            wicket.extensions:
+            - extension.left
+            - extension.right
+          /left:
+            item: ${cluster.id}.left.item
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+            wicket.id: ${cluster.id}.left
+          /right:
+            item: ${cluster.id}.right.item
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+            wicket.id: ${cluster.id}.right
+          /purpose:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Purpose
+            field: purpose
+            hint: e.g. For technical support
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /description:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Description of contact point
+            field: description
+            hint: e.g. National service desk
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /emailaddress:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Email address
+            field: emailaddress
+            hint: The email address of the person for publishing. This may be a mailbox
+              address if the person does not want contacting on their individual email
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /phonenumber:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Telephone number
+            field: phonenumber
+            hint: The telephone number of the person for publishing. This may be a
+              helpdesk, office or switchboard number if the person does not want contaced
+              directly
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /twitterhandle:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Twitter handle
+            field: twitterhandle
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /webchatdescription:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Webchat description
+            field: webchatdescription
+            hint: e.g. Chat to service advisor
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /webchatlink:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Webchat link
+            field: webchatlink
+            hint: URL to launch a webchat
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /webformdescription:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Webform description
+            field: webformdescription
+            hint: Complete our service request onlin
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /webformlink:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Webform link
+            field: webformlink
+            hint: URL to enter details in web form
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+        jcr:primaryType: editor:templateset
+      /hipposysedit:nodetype:
+        /hipposysedit:nodetype:
+          /description:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:description
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /emailaddress:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:emailaddress
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - email
+            jcr:primaryType: hipposysedit:field
+          /phonenumber:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:phonenumber
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - phonenumber
+            jcr:primaryType: hipposysedit:field
+          /purpose:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:purpose
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /twitterhandle:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:twitterhandle
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - twitterusername
+            jcr:primaryType: hipposysedit:field
+          /webchatdescription:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:webchatdescription
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /webchatlink:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:webchatlink
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - valid-url
+            jcr:primaryType: hipposysedit:field
+          /webformdescription:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:webformdescription
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /webformlink:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:webformlink
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - valid-url
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - website:contactdetail
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /hipposysedit:prototypes:
+        /hipposysedit:prototype:
+          jcr:primaryType: website:contactdetailextended
+          website:description: ''
+          website:purpose: ''
+          website:twitterhandle: ''
+          website:webchatdescription: ''
+          website:webchatlink: ''
+          website:webformdescription: ''
+          website:webformlink: ''
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype

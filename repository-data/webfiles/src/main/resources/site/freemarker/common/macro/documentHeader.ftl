@@ -20,18 +20,20 @@
       </#if>
     </#if>
 
+    <#assign hasBannerControls = document != "simulating_doc" && document.bannercontrols?? && document.bannercontrols?has_content />
+    <#assign hasPageIcon = document != "simulating_doc" && document.pageIcon?? && document.pageIcon?has_content />
+
     <#assign headerIcon = header_icon_arg>
     <#if ! header_icon_arg?has_content>
-      <#if document.bannercontrols?? && document.bannercontrols?has_content && document.bannercontrols.icon?has_content>
+      <#if hasBannerControls && document.bannercontrols.icon?has_content>
         <#assign headerIcon = document.bannercontrols.icon />
-      <#elseif document.pageIcon?? && document.pageIcon?has_content>
+      <#elseif hasPageIcon>
         <#assign headerIcon = document.pageIcon />
       </#if>
     </#if>
 
-    <#assign hasPageIcon = headerIcon?has_content />
+    <#assign hasFinalPageIcon = headerIcon?has_content />
     <#assign hasTopics = topics?has_content />
-    <#assign hasBannerControls = document != "simulating_doc" && document.bannercontrols?? && document.bannercontrols?has_content>
 
     <#assign headerStyle='' />
     <#if hasBannerControls && document.bannercontrols.backgroundcolor?has_content>
@@ -78,9 +80,9 @@
                               </div>
                             </#if>
                         </div>
-                        <#if hasPageIcon>
+                        <#if hasFinalPageIcon>
                             <div class="column--one-third column--reset local-header__icon">
-                              <#if document.bannercontrols?? && document.bannercontrols.icon?has_content || document.pageIcon?? && document.pageIcon?has_content > 
+                              <#if hasBannerControls && document.bannercontrols.icon?has_content || document != "simulating_doc" && hasPageIcon > 
                                   <#-- ex. Service case - image from HippoGalleryImageSet -->
                                   <@hst.link hippobean=headerIcon.original fullyQualified=true var="image" />
                                   <#if image?ends_with("svg")>

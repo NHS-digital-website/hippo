@@ -41,7 +41,8 @@
         "OrgStructure":                 "uk.nhs.digital.website.beans.OrgStructure",
         "News":                         "uk.nhs.digital.website.beans.News",
         "EditorsNotes":                 "uk.nhs.digital.website.beans.EditorsNotes",
-        "SupplementaryInformation":     "uk.nhs.digital.website.beans.SupplementaryInformation"
+        "SupplementaryInformation":     "uk.nhs.digital.website.beans.SupplementaryInformation",
+        "Team":                         "uk.nhs.digital.website.beans.Team"
     }/>
 
     <#list docTypes?keys as key>

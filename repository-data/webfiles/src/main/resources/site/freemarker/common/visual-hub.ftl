@@ -14,7 +14,7 @@
 
 <#assign hasSummaryContent = document.summary.content?has_content />
 <#assign hasBannerImage = document.image?has_content />
-<#assign hasTopicIcon = document.icon?has_content />
+<#assign hasTopicIcon = document.pageIcon?has_content />
 <#assign hasAdditionalInformation = document.additionalInformation.content?has_content />
 <#assign hasLinks = document.links?? && document.links?size gt 0 />
 
@@ -42,7 +42,7 @@
             </div>
         </div>
     <#else>
-      <@documentHeader document 'hub' document.icon?has_content?then(document.icon, '')></@documentHeader>
+      <@documentHeader document 'hub' document.pageIcon?has_content?then(document.pageIcon, '')></@documentHeader>
     </#if>
 
     <#if document.introduction?has_content>

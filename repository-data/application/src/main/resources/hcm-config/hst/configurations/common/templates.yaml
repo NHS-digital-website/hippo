@@ -248,6 +248,9 @@ definitions:
       /supplementaryinformation:
         hst:renderpath: webfile:/freemarker/common/supplementaryinformation.ftl
         jcr:primaryType: hst:template
+      /team:
+        hst:renderpath: webfile:/freemarker/common/team.ftl
+        jcr:primaryType: hst:template
       /visual-hub:
         hst:renderpath: webfile:/freemarker/common/visual-hub.ftl
         jcr:primaryType: hst:template
