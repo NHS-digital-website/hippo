@@ -4,7 +4,7 @@ definitions:
     /hst:hst/hst:configurations/common/hst:pages/service:
       /main:
         /othercontent:
-          hst:referencecomponent: servicepage/servicepage-othercontent
+          hst:referencecomponent: servicepage/servicepage-other
           jcr:primaryType: hst:containercomponentreference
         /toptasks-bottom:
           hst:referencecomponent: servicepage/servicepage-bottom
