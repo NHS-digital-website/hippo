@@ -4,7 +4,7 @@
 .site-header {
     position: relative;
     border-bottom: 1px solid $col-primary;
-    padding: round($gutter * 1.25) 0;
+    padding: round($gutter * 1.375) 0;
     vertical-align: bottom;
 
     .search-strip {
@@ -14,7 +14,7 @@
     }
 
     .column--81-25 {
-        padding-top: 0px;
+        padding-top: 5px;
     }
 
     @include media($max-width: $desktop-width, $ignore-for-ie: true) {
@@ -45,8 +45,8 @@
 .site-header__logo {
     position: relative;
     display: inline-block;
-    max-width: 72px;
-    width: 72px;
+    max-width: 89px;
+    width: 89px;
     max-height: 69px;
     height: auto;
     margin: round($gutter * 0.75) 0 0;
