@@ -88,7 +88,7 @@
         <externalstorage.aws.region></externalstorage.aws.region>
         <externalstorage.aws.s3.endpoint></externalstorage.aws.s3.endpoint>
 
-        <!--<tomcatDistributionUrl>https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.48/bin/apache-tomcat-8.0.48.tar.gz</tomcatDistributionUrl>-->
+        <tomcatDistributionUrl>https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.48/bin/apache-tomcat-8.0.48.tar.gz</tomcatDistributionUrl>
 
         <forge.folderctxmenus.version>4.0.1</forge.folderctxmenus.version>
         <essentials.version>13.2.2</essentials.version>
@@ -784,7 +784,7 @@
                             </deployables>
                             <container>
                                 <zipUrlInstaller>
-                                    <url>${cargo.tomcat.distribution.url}</url>
+                                    <url>${tomcatDistributionUrl}</url>
                                 </zipUrlInstaller>
                                 <systemProperties>
                                     <log4j.configurationFile>file://${project.basedir}/conf/log4j2-dev.xml</log4j.configurationFile>
