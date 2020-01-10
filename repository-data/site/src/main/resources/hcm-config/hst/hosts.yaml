@@ -2,313 +2,285 @@
 definitions:
   config:
     /hst:hosts:
-      jcr:primaryType: hst:virtualhosts
-      jcr:uuid: 31f2be78-0d53-4cb7-a66f-cf7394d42650
+      /dev-localhost:
+        /localhost:
+          /hst:root:
+            /api:
+              hst:alias: api
+              hst:ismapped: false
+              hst:namedpipeline: RestApiPipeline
+              hst:types:
+              - rest
+              jcr:primaryType: hst:mount
+            /gdpr:
+              hst:ismapped: false
+              hst:namedpipeline: TargetingRestApiPipeline
+              hst:types:
+              - rest
+              jcr:primaryType: hst:mount
+            /restapi:
+              hst:alias: restapi
+              hst:ismapped: false
+              hst:namedpipeline: JaxrsRestPlainPipeline
+              hst:types:
+              - rest
+              jcr:primaryType: hst:mount
+            hst:contextpath: ''
+            hst:homepage: root
+            hst:mountpoint: /hst:hst/hst:sites/common
+            jcr:primaryType: hst:mount
+          hst:scheme: http
+          hst:showcontextpath: true
+          hst:showport: true
+          jcr:primaryType: hst:virtualhost
+        hst:defaultport: 8080
+        jcr:primaryType: hst:virtualhostgroup
+      /dev-od:
+        /io:
+          /nhsd:
+            /dev:
+              /content:
+                jcr:primaryType: hst:virtualhost
+              /hst:root:
+                /gdpr:
+                  hst:ismapped: false
+                  hst:namedpipeline: TargetingRestApiPipeline
+                  hst:types:
+                  - rest
+                  jcr:primaryType: hst:mount
+                /restapi:
+                  hst:alias: restapi
+                  hst:ismapped: false
+                  hst:namedpipeline: JaxrsRestPlainPipeline
+                  hst:responseheaders:
+                  - 'Access-Control-Allow-Origin: https://cms-dev.nhsd.io'
+                  hst:types:
+                  - rest
+                  jcr:primaryType: hst:mount
+                hst:mountpoint: /hst:hst/hst:sites/common
+                hst:responseheaders:
+                - 'Strict-Transport-Security : max-age=31536000'
+                - 'Content-Security-Policy: upgrade-insecure-requests'
+                - 'Referrer-Policy: no-referrer-when-downgrade'
+                - 'Feature-Policy: vibrate ''none''; microphone ''none''; camera ''none'';
+                  payment ''none''; accelerometer ''none''; ambient-light-sensor ''none'';
+                  magnetometer ''none''; midi ''none''; usb ''none''; wake-lock ''none'';
+                  execution-while-out-of-viewport ''none''; sync-xhr ''self''; gyroscope
+                  ''none''; push ''self''; speaker *;  fullscreen *'
+                jcr:primaryType: hst:mount
+              jcr:primaryType: hst:virtualhost
+            jcr:primaryType: hst:virtualhost
+          jcr:primaryType: hst:virtualhost
+        jcr:primaryType: hst:virtualhostgroup
+      /internal:
+        /127.0.0.1:
+          /hst:root:
+            /gdpr:
+              hst:ismapped: false
+              hst:namedpipeline: TargetingRestApiPipeline
+              hst:types:
+              - rest
+              jcr:primaryType: hst:mount
+            /restapi:
+              hst:alias: restapi
+              hst:ismapped: false
+              hst:namedpipeline: JaxrsRestPlainPipeline
+              hst:responseheaders:
+              - 'Access-Control-Allow-Origin: *'
+              hst:types:
+              - rest
+              jcr:primaryType: hst:mount
+            /restservices:
+              hst:alias: restservices
+              hst:ismapped: false
+              hst:namedpipeline: JaxrsRestPlainPipeline
+              hst:types:
+              - rest
+              jcr:primaryType: hst:mount
+            hst:homepage: root
+            hst:mountpoint: /hst:hst/hst:sites/common
+            hst:responseheaders:
+            - 'Strict-Transport-Security : max-age=31536000'
+            - 'Content-Security-Policy: upgrade-insecure-requests'
+            - 'Referrer-Policy: no-referrer-when-downgrade'
+            - 'Feature-Policy: vibrate ''none''; microphone ''none''; camera ''none'';
+              payment ''none''; accelerometer ''none''; ambient-light-sensor ''none'';
+              magnetometer ''none''; midi ''none''; usb ''none''; wake-lock ''none'';
+              execution-while-out-of-viewport ''none''; sync-xhr ''self''; gyroscope
+              ''none''; push ''self''; speaker *;  fullscreen *'
+            jcr:primaryType: hst:mount
+          hst:scheme: http
+          jcr:primaryType: hst:virtualhost
+        jcr:primaryType: hst:virtualhostgroup
+      /prd:
+        /uk:
+          /nhs:
+            /digital:
+              /beta:
+                /hst:root:
+                  hst:mountpoint: /hst:hst/hst:sites/common
+                  hst:nochannelinfo: true
+                  jcr:primaryType: hst:mount
+                jcr:primaryType: hst:virtualhost
+              /content:
+                jcr:primaryType: hst:virtualhost
+              /hst:root:
+                /gdpr:
+                  hst:ismapped: false
+                  hst:namedpipeline: TargetingRestApiPipeline
+                  hst:types:
+                  - rest
+                  jcr:primaryType: hst:mount
+                /restapi:
+                  hst:alias: restapi
+                  hst:ismapped: false
+                  hst:namedpipeline: JaxrsRestPlainPipeline
+                  hst:responseheaders:
+                  - 'Access-Control-Allow-Origin: https://cms.digital.nhs.uk'
+                  hst:types:
+                  - rest
+                  jcr:primaryType: hst:mount
+                hst:mountpoint: /hst:hst/hst:sites/common
+                hst:responseheaders:
+                - 'Strict-Transport-Security : max-age=31536000'
+                - 'Content-Security-Policy: upgrade-insecure-requests'
+                - 'Referrer-Policy: no-referrer-when-downgrade'
+                - 'Feature-Policy: vibrate ''none''; microphone ''none''; camera ''none'';
+                  payment ''none''; accelerometer ''none''; ambient-light-sensor ''none'';
+                  magnetometer ''none''; midi ''none''; usb ''none''; wake-lock ''none'';
+                  execution-while-out-of-viewport ''none''; sync-xhr ''self''; gyroscope
+                  ''none''; push ''self''; speaker *;  fullscreen *'
+                jcr:primaryType: hst:mount
+              /www:
+                /hst:root:
+                  /gdpr:
+                    hst:ismapped: false
+                    hst:namedpipeline: TargetingRestApiPipeline
+                    hst:types:
+                    - rest
+                    jcr:primaryType: hst:mount
+                  hst:mountpoint: /hst:hst/hst:sites/common
+                  hst:nochannelinfo: true
+                  jcr:primaryType: hst:mount
+                jcr:primaryType: hst:virtualhost
+              jcr:primaryType: hst:virtualhost
+            jcr:primaryType: hst:virtualhost
+          jcr:primaryType: hst:virtualhost
+        jcr:primaryType: hst:virtualhostgroup
+      /training-od:
+        /io:
+          /nhsd:
+            /training:
+              /content:
+                jcr:primaryType: hst:virtualhost
+              /hst:root:
+                /gdpr:
+                  hst:ismapped: false
+                  hst:namedpipeline: TargetingRestApiPipeline
+                  hst:types:
+                  - rest
+                  jcr:primaryType: hst:mount
+                /restapi:
+                  hst:alias: restapi
+                  hst:ismapped: false
+                  hst:namedpipeline: JaxrsRestPlainPipeline
+                  hst:responseheaders:
+                  - 'Access-Control-Allow-Origin: https://cms-training.nhsd.io'
+                  hst:types:
+                  - rest
+                  jcr:primaryType: hst:mount
+                hst:mountpoint: /hst:hst/hst:sites/common
+                hst:responseheaders:
+                - 'Strict-Transport-Security : max-age=31536000'
+                - 'Content-Security-Policy: upgrade-insecure-requests'
+                - 'Referrer-Policy: no-referrer-when-downgrade'
+                - 'Feature-Policy: vibrate ''none''; microphone ''none''; camera ''none'';
+                  payment ''none''; accelerometer ''none''; ambient-light-sensor ''none'';
+                  magnetometer ''none''; midi ''none''; usb ''none''; wake-lock ''none'';
+                  execution-while-out-of-viewport ''none''; sync-xhr ''self''; gyroscope
+                  ''none''; push ''self''; speaker *;  fullscreen *'
+                jcr:primaryType: hst:mount
+              jcr:primaryType: hst:virtualhost
+            jcr:primaryType: hst:virtualhost
+          jcr:primaryType: hst:virtualhost
+        jcr:primaryType: hst:virtualhostgroup
+      /tst:
+        /io:
+          /nhsd:
+            /tst:
+              /content:
+                jcr:primaryType: hst:virtualhost
+              /hst:root:
+                /gdpr:
+                  hst:ismapped: false
+                  hst:namedpipeline: TargetingRestApiPipeline
+                  hst:types:
+                  - rest
+                  jcr:primaryType: hst:mount
+                /restapi:
+                  hst:alias: restapi
+                  hst:ismapped: false
+                  hst:namedpipeline: JaxrsRestPlainPipeline
+                  hst:responseheaders:
+                  - 'Access-Control-Allow-Origin: https://cms-tst.nhsd.io'
+                  hst:types:
+                  - rest
+                  jcr:primaryType: hst:mount
+                hst:mountpoint: /hst:hst/hst:sites/common
+                hst:responseheaders:
+                - 'Strict-Transport-Security : max-age=31536000'
+                - 'Content-Security-Policy: upgrade-insecure-requests'
+                - 'Referrer-Policy: no-referrer-when-downgrade'
+                - 'Feature-Policy: vibrate ''none''; microphone ''none''; camera ''none'';
+                  payment ''none''; accelerometer ''none''; ambient-light-sensor ''none'';
+                  magnetometer ''none''; midi ''none''; usb ''none''; wake-lock ''none'';
+                  execution-while-out-of-viewport ''none''; sync-xhr ''self''; gyroscope
+                  ''none''; push ''self''; speaker *;  fullscreen *'
+                jcr:primaryType: hst:mount
+              jcr:primaryType: hst:virtualhost
+            jcr:primaryType: hst:virtualhost
+          jcr:primaryType: hst:virtualhost
+        jcr:primaryType: hst:virtualhostgroup
+      /uat:
+        /io:
+          /nhsd:
+            /uat:
+              /content:
+                jcr:primaryType: hst:virtualhost
+              /hst:root:
+                /gdpr:
+                  hst:ismapped: false
+                  hst:namedpipeline: TargetingRestApiPipeline
+                  hst:types:
+                  - rest
+                  jcr:primaryType: hst:mount
+                /restapi:
+                  hst:alias: restapi
+                  hst:ismapped: false
+                  hst:namedpipeline: JaxrsRestPlainPipeline
+                  hst:responseheaders:
+                  - 'Access-Control-Allow-Origin: https://cms-uat.nhsd.io'
+                  hst:types:
+                  - rest
+                  jcr:primaryType: hst:mount
+                hst:mountpoint: /hst:hst/hst:sites/common
+                hst:responseheaders:
+                - 'Strict-Transport-Security : max-age=31536000'
+                - 'Content-Security-Policy: upgrade-insecure-requests'
+                - 'Referrer-Policy: no-referrer-when-downgrade'
+                - 'Feature-Policy: vibrate ''none''; microphone ''none''; camera ''none'';
+                  payment ''none''; accelerometer ''none''; ambient-light-sensor ''none'';
+                  magnetometer ''none''; midi ''none''; usb ''none''; wake-lock ''none'';
+                  execution-while-out-of-viewport ''none''; sync-xhr ''self''; gyroscope
+                  ''none''; push ''self''; speaker *;  fullscreen *'
+                jcr:primaryType: hst:mount
+              jcr:primaryType: hst:virtualhost
+            jcr:primaryType: hst:virtualhost
+          jcr:primaryType: hst:virtualhost
+        jcr:primaryType: hst:virtualhostgroup
       hst:diagnosticsenabled: false
       hst:homepage: root
       hst:scheme: https
       hst:showcontextpath: false
       hst:showport: false
-      /dev-localhost:
-        jcr:primaryType: hst:virtualhostgroup
-        jcr:uuid: eeeb6615-b88c-4a19-8891-45c041ba0adb
-        hst:defaultport: 8080
-        /localhost:
-          jcr:primaryType: hst:virtualhost
-          jcr:uuid: 3417270a-8c2c-433f-a8ba-7364f10c1181
-          hst:scheme: http
-          hst:showcontextpath: true
-          hst:showport: true
-          /hst:root:
-            jcr:primaryType: hst:mount
-            jcr:uuid: 30e6da88-0b11-4f34-873a-006a380ace1e
-            hst:contextpath: ''
-            hst:homepage: root
-            hst:mountpoint: /hst:hst/hst:sites/common
-            /api:
-              jcr:primaryType: hst:mount
-              jcr:uuid: c7b02c99-bd88-45aa-ac7a-e9cdfadc9443
-              hst:alias: api
-              hst:ismapped: false
-              hst:namedpipeline: RestApiPipeline
-              hst:types: [rest]
-            /gdpr:
-              jcr:primaryType: hst:mount
-              jcr:uuid: 802fda21-94a7-46c7-8bc2-6a9f01281632
-              hst:ismapped: false
-              hst:namedpipeline: TargetingRestApiPipeline
-              hst:types: [rest]
-            /restapi:
-              jcr:primaryType: hst:mount
-              jcr:uuid: 5eaa15f7-16ab-4b3b-a1e4-9d4a55ba3170
-              hst:alias: restapi
-              hst:ismapped: false
-              hst:namedpipeline: JaxrsRestPlainPipeline
-              hst:types: [rest]
-      /internal:
-        jcr:primaryType: hst:virtualhostgroup
-        jcr:uuid: aa314e24-3249-4323-8397-9c1a6aa478ce
-        /127.0.0.1:
-          jcr:primaryType: hst:virtualhost
-          jcr:uuid: 9770ac6f-05ef-4d3e-921b-fa20f6bf166d
-          hst:scheme: http
-          /hst:root:
-            jcr:primaryType: hst:mount
-            jcr:uuid: 83ec118f-50f3-4d95-aa66-ea3338c67978
-            hst:homepage: root
-            hst:mountpoint: /hst:hst/hst:sites/common
-            hst:responseheaders: ['Strict-Transport-Security : max-age=31536000', 'Content-Security-Policy:
-               upgrade-insecure-requests', 'Referrer-Policy: no-referrer-when-downgrade',
-                                  'Feature-Policy: vibrate ''none''; microphone ''none''; camera ''none'';
-               payment ''none''; accelerometer ''none''; ambient-light-sensor ''none'';
-               magnetometer ''none''; midi ''none''; usb ''none''; wake-lock ''none'';
-               execution-while-out-of-viewport ''none''; sync-xhr ''self''; gyroscope
-               ''none''; push ''self''; speaker *;  fullscreen *']
-            /gdpr:
-              jcr:primaryType: hst:mount
-              jcr:uuid: d8e710b3-b135-44f0-8d4a-4316b589cdae
-              hst:ismapped: false
-              hst:namedpipeline: TargetingRestApiPipeline
-              hst:types: [rest]
-            /restapi:
-              jcr:primaryType: hst:mount
-              jcr:uuid: a86a68ff-07b8-4b5f-aac3-73a4816feef6
-              hst:alias: restapi
-              hst:ismapped: false
-              hst:namedpipeline: JaxrsRestPlainPipeline
-              hst:responseheaders: ['Access-Control-Allow-Origin: *']
-              hst:types: [rest]
-            /restservices:
-              jcr:primaryType: hst:mount
-              jcr:uuid: b858930c-b293-453f-98f5-096cf6b314f3
-              hst:alias: restservices
-              hst:ismapped: false
-              hst:namedpipeline: JaxrsRestPlainPipeline
-              hst:types: [rest]
-      /prd:
-        jcr:primaryType: hst:virtualhostgroup
-        jcr:uuid: 3cfee8a7-dca0-403e-baa7-0ec62b734a55
-        /uk:
-          jcr:primaryType: hst:virtualhost
-          jcr:uuid: e96a8858-f170-4ef8-9f68-7d20863b5845
-          /nhs:
-            jcr:primaryType: hst:virtualhost
-            jcr:uuid: 559c9a47-cf66-4a3a-8f85-9ffa630a2a7e
-            /digital:
-              jcr:primaryType: hst:virtualhost
-              jcr:uuid: 9d394870-961a-4a37-b0db-899ec2ab1f2a
-              /beta:
-                jcr:primaryType: hst:virtualhost
-                jcr:uuid: 550511fc-9fdd-451e-aec6-2c53f573a374
-                /hst:root:
-                  jcr:primaryType: hst:mount
-                  jcr:uuid: 3422c444-bd60-416b-b327-08a45999e1d6
-                  hst:mountpoint: /hst:hst/hst:sites/common
-                  hst:nochannelinfo: true
-              /content:
-                jcr:primaryType: hst:virtualhost
-                jcr:uuid: cf59d8d2-d705-4ddc-bd6c-20f630cae0f2
-              /hst:root:
-                jcr:primaryType: hst:mount
-                jcr:uuid: a900084d-0157-413a-92e4-fd66b92e9d56
-                hst:mountpoint: /hst:hst/hst:sites/common
-                hst:responseheaders: ['Strict-Transport-Security : max-age=31536000',
-                                      'Content-Security-Policy: upgrade-insecure-requests', 'Referrer-Policy:
-                   no-referrer-when-downgrade', 'Feature-Policy: vibrate ''none''; microphone
-                   ''none''; camera ''none''; payment ''none''; accelerometer ''none'';
-                   ambient-light-sensor ''none''; magnetometer ''none''; midi ''none'';
-                   usb ''none''; wake-lock ''none''; execution-while-out-of-viewport
-                   ''none''; sync-xhr ''self''; gyroscope ''none''; push ''self''; speaker
-                   *;  fullscreen *']
-                /gdpr:
-                  jcr:primaryType: hst:mount
-                  jcr:uuid: 045fd917-911b-4700-96b3-d836a704ab3f
-                  hst:ismapped: false
-                  hst:namedpipeline: TargetingRestApiPipeline
-                  hst:types: [rest]
-                /restapi:
-                  jcr:primaryType: hst:mount
-                  jcr:uuid: 4a16df12-dd27-4091-8562-e6a91c6923d3
-                  hst:alias: restapi
-                  hst:ismapped: false
-                  hst:namedpipeline: JaxrsRestPlainPipeline
-                  hst:responseheaders: ['Access-Control-Allow-Origin: https://cms.digital.nhs.uk']
-                  hst:types: [rest]
-              /www:
-                jcr:primaryType: hst:virtualhost
-                jcr:uuid: 4766ad37-3031-4a1c-91b7-f3488b938a0f
-                /hst:root:
-                  jcr:primaryType: hst:mount
-                  jcr:uuid: 438ce78d-7121-4d04-a1ec-bf3457253c01
-                  hst:mountpoint: /hst:hst/hst:sites/common
-                  hst:nochannelinfo: true
-                  /gdpr:
-                    jcr:primaryType: hst:mount
-                    jcr:uuid: f5742609-d93d-4e4e-a69d-889cd7eaa0d9
-                    hst:ismapped: false
-                    hst:namedpipeline: TargetingRestApiPipeline
-                    hst:types: [rest]
-      /training-od:
-        jcr:primaryType: hst:virtualhostgroup
-        jcr:uuid: 6e1afc04-dd41-4632-ad20-b8f191534545
-        /io:
-          jcr:primaryType: hst:virtualhost
-          jcr:uuid: d1a259e4-4ee1-4cf1-8af6-6689730e4c5b
-          /nhsd:
-            jcr:primaryType: hst:virtualhost
-            jcr:uuid: 0bd02053-df01-4f08-9295-1b507052bd72
-            /training:
-              jcr:primaryType: hst:virtualhost
-              jcr:uuid: 83e56d50-c1ff-4a26-9850-95956c239f25
-              /content:
-                jcr:primaryType: hst:virtualhost
-                jcr:uuid: d6a02ca7-ab5a-4bd6-aa85-db08abb9920b
-              /hst:root:
-                jcr:primaryType: hst:mount
-                jcr:uuid: 68b08b26-f350-4b60-84af-caabe68f6891
-                hst:mountpoint: /hst:hst/hst:sites/common
-                hst:responseheaders: ['Strict-Transport-Security : max-age=31536000',
-                                      'Content-Security-Policy: upgrade-insecure-requests', 'Referrer-Policy:
-                   no-referrer-when-downgrade', 'Feature-Policy: vibrate ''none''; microphone
-                   ''none''; camera ''none''; payment ''none''; accelerometer ''none'';
-                   ambient-light-sensor ''none''; magnetometer ''none''; midi ''none'';
-                   usb ''none''; wake-lock ''none''; execution-while-out-of-viewport
-                   ''none''; sync-xhr ''self''; gyroscope ''none''; push ''self''; speaker
-                   *;  fullscreen *']
-                /gdpr:
-                  jcr:primaryType: hst:mount
-                  jcr:uuid: a03364ba-33ed-44e6-9d0d-c9b255900b04
-                  hst:ismapped: false
-                  hst:namedpipeline: TargetingRestApiPipeline
-                  hst:types: [rest]
-                /restapi:
-                  jcr:primaryType: hst:mount
-                  jcr:uuid: d6b20daf-fe51-4afb-8637-945e6ed243a3
-                  hst:alias: restapi
-                  hst:ismapped: false
-                  hst:namedpipeline: JaxrsRestPlainPipeline
-                  hst:responseheaders: ['Access-Control-Allow-Origin: https://cms-training.nhsd.io']
-                  hst:types: [rest]
-      /tst:
-        jcr:primaryType: hst:virtualhostgroup
-        jcr:uuid: ef42612d-9811-495b-af0d-64a94b8f9fdf
-        /io:
-          jcr:primaryType: hst:virtualhost
-          jcr:uuid: 78924047-f761-4251-bbcd-450e8d717ce3
-          /nhsd:
-            jcr:primaryType: hst:virtualhost
-            jcr:uuid: 0d53bee8-6009-4f89-b9ed-307098369e81
-            /tst:
-              jcr:primaryType: hst:virtualhost
-              jcr:uuid: 4d085e68-7205-4f89-b196-8364339f1559
-              /content:
-                jcr:primaryType: hst:virtualhost
-                jcr:uuid: 8a302bb3-20e8-4a0f-acf7-e95e2e4abd47
-              /hst:root:
-                jcr:primaryType: hst:mount
-                jcr:uuid: 4b384d8b-3fc3-4ab1-b8bb-5b3766109084
-                hst:mountpoint: /hst:hst/hst:sites/common
-                hst:responseheaders: ['Strict-Transport-Security : max-age=31536000',
-                                      'Content-Security-Policy: upgrade-insecure-requests', 'Referrer-Policy:
-                   no-referrer-when-downgrade', 'Feature-Policy: vibrate ''none''; microphone
-                   ''none''; camera ''none''; payment ''none''; accelerometer ''none'';
-                   ambient-light-sensor ''none''; magnetometer ''none''; midi ''none'';
-                   usb ''none''; wake-lock ''none''; execution-while-out-of-viewport
-                   ''none''; sync-xhr ''self''; gyroscope ''none''; push ''self''; speaker
-                   *;  fullscreen *']
-                /gdpr:
-                  jcr:primaryType: hst:mount
-                  jcr:uuid: 3dbfea6c-2b52-4edd-a415-117d4f9c58de
-                  hst:ismapped: false
-                  hst:namedpipeline: TargetingRestApiPipeline
-                  hst:types: [rest]
-                /restapi:
-                  jcr:primaryType: hst:mount
-                  jcr:uuid: daf9f25f-867f-49fe-a4db-35f0536657cd
-                  hst:alias: restapi
-                  hst:ismapped: false
-                  hst:namedpipeline: JaxrsRestPlainPipeline
-                  hst:responseheaders: ['Access-Control-Allow-Origin: https://cms-tst.nhsd.io']
-                  hst:types: [rest]
-      /uat:
-        jcr:primaryType: hst:virtualhostgroup
-        jcr:uuid: 2e38a1d7-4f94-4f08-8b7f-ce3eb021ec1f
-        /io:
-          jcr:primaryType: hst:virtualhost
-          jcr:uuid: 14215c38-48e3-4b2d-85fb-012ecb895dbe
-          /nhsd:
-            jcr:primaryType: hst:virtualhost
-            jcr:uuid: 75eaf894-3fe5-4b6c-8ab7-8e53ff9b6881
-            /uat:
-              jcr:primaryType: hst:virtualhost
-              jcr:uuid: 9ba93959-cf9a-4511-b510-2c9c4cc49c03
-              /content:
-                jcr:primaryType: hst:virtualhost
-                jcr:uuid: f8d28064-6a44-4ab7-9ac2-3efcf8ac4d93
-              /hst:root:
-                jcr:primaryType: hst:mount
-                jcr:uuid: d63bc068-462b-497f-8abe-2bbd1e52755e
-                hst:mountpoint: /hst:hst/hst:sites/common
-                hst:responseheaders: ['Strict-Transport-Security : max-age=31536000',
-                                      'Content-Security-Policy: upgrade-insecure-requests', 'Referrer-Policy:
-                   no-referrer-when-downgrade', 'Feature-Policy: vibrate ''none''; microphone
-                   ''none''; camera ''none''; payment ''none''; accelerometer ''none'';
-                   ambient-light-sensor ''none''; magnetometer ''none''; midi ''none'';
-                   usb ''none''; wake-lock ''none''; execution-while-out-of-viewport
-                   ''none''; sync-xhr ''self''; gyroscope ''none''; push ''self''; speaker
-                   *;  fullscreen *']
-                /gdpr:
-                  jcr:primaryType: hst:mount
-                  jcr:uuid: 1fd59333-914d-4996-840b-4de07a715992
-                  hst:ismapped: false
-                  hst:namedpipeline: TargetingRestApiPipeline
-                  hst:types: [rest]
-                /restapi:
-                  jcr:primaryType: hst:mount
-                  jcr:uuid: 72b8ff76-6809-4efb-b20e-394ad272fab2
-                  hst:alias: restapi
-                  hst:ismapped: false
-                  hst:namedpipeline: JaxrsRestPlainPipeline
-                  hst:responseheaders: ['Access-Control-Allow-Origin: https://cms-uat.nhsd.io']
-                  hst:types: [rest]
-      /dev-od:
-        jcr:primaryType: hst:virtualhostgroup
-        jcr:uuid: 53110f82-174c-43d1-8874-66536861ca83
-        /io:
-          jcr:primaryType: hst:virtualhost
-          jcr:uuid: caf554ea-e3bc-4418-8f31-7ab6db2b1446
-          /nhsd:
-            jcr:primaryType: hst:virtualhost
-            jcr:uuid: f48f86dc-8f44-46dc-892a-9b9746e4e2d3
-            /dev:
-              jcr:primaryType: hst:virtualhost
-              jcr:uuid: 716d5edd-b79a-4322-bf09-e9f86ca091a2
-              /content:
-                jcr:primaryType: hst:virtualhost
-                jcr:uuid: 5437a173-c713-4d7f-be8f-9226aff3bbb6
-              /hst:root:
-                jcr:primaryType: hst:mount
-                jcr:uuid: 8fd55d20-00eb-4023-b0e9-94d0117c43b5
-                hst:mountpoint: /hst:hst/hst:sites/common
-                hst:responseheaders: ['Strict-Transport-Security : max-age=31536000',
-                                      'Content-Security-Policy: upgrade-insecure-requests', 'Referrer-Policy:
-                   no-referrer-when-downgrade', 'Feature-Policy: vibrate ''none''; microphone
-                   ''none''; camera ''none''; payment ''none''; accelerometer ''none'';
-                   ambient-light-sensor ''none''; magnetometer ''none''; midi ''none'';
-                   usb ''none''; wake-lock ''none''; execution-while-out-of-viewport
-                   ''none''; sync-xhr ''self''; gyroscope ''none''; push ''self''; speaker
-                   *;  fullscreen *']
-                /gdpr:
-                  jcr:primaryType: hst:mount
-                  jcr:uuid: c1aa6e88-12a7-473b-86c7-b08247565e7c
-                  hst:ismapped: false
-                  hst:namedpipeline: TargetingRestApiPipeline
-                  hst:types: [rest]
-                /restapi:
-                  jcr:primaryType: hst:mount
-                  jcr:uuid: 5b116b71-241c-403d-8a57-646a72127de5
-                  hst:alias: restapi
-                  hst:ismapped: false
-                  hst:namedpipeline: JaxrsRestPlainPipeline
-                  hst:responseheaders: ['Access-Control-Allow-Origin: https://cms-dev.nhsd.io']
-                  hst:types: [rest]
+      jcr:primaryType: hst:virtualhosts
