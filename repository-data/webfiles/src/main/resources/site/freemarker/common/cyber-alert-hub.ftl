@@ -79,7 +79,6 @@
     <#return links />
 </#function>
 
-
 <article class="article article--news-hub">
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
         <div class="local-header article-header article-header--with-icon">
@@ -129,8 +128,6 @@
 
                 <div class="column column--two-thirds page-block page-block--main">
                     <#if pageable?? && pageable.items?has_content>
-                    TEST: ${pageable.items?size}
-
                         <#list monthYearGroupHash?keys as key>
                             <div class="article-section article-section--letter-group">
 
