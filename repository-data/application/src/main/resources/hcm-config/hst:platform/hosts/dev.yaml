@@ -1,10 +1,10 @@
 ---
 definitions:
   config:
-    /hst:platform/hst:hosts/training-od:
+    /hst:platform/hst:hosts/dev:
       /io:
         /nhsd:
-          /cms-training:
+          /cms-dev:
             /hst:root:
               hst:ismapped: false
               hst:namedpipeline: WebApplicationInvokingPipeline

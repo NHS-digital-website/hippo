@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hst:hst/hst:hosts/training-od:
+    /hst:hst/hst:hosts/training:
       /io:
         /nhsd:
           /training:
