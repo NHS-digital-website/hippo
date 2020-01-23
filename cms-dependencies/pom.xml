@@ -20,7 +20,7 @@
         <dependency>
             <groupId>uk.nhs.digital</groupId>
             <artifactId>website-repository-data-application</artifactId>
-            <version>${project.version}</version>
+            <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>org.onehippo.cms7</groupId>
