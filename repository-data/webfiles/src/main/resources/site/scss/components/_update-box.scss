@@ -1,0 +1,14 @@
+/* Update box */
+.update-box {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 7px;
+    border-radius: 3px;
+
+    &__emphasis {
+        border-left-color: #4c90ce;
+        background-color: #d4e4f3;
+        overflow-y: auto;
+    }
+}
