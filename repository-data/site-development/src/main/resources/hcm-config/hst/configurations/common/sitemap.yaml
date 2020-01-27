@@ -27,6 +27,10 @@ definitions:
           hst:componentconfigurationid: hst:pages/static-ui-component-table
           hst:relativecontentpath: component/table
           jcr:primaryType: hst:sitemapitem
+        /update-box:
+          hst:componentconfigurationid: hst:pages/static-ui-component-update-box
+          hst:relativecontentpath: component/update-box
+          jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/static-ui-component
         hst:relativecontentpath: static-ui/component
         jcr:primaryType: hst:sitemapitem
