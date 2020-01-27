@@ -571,6 +571,11 @@ definitions:
           jcr:name: Threat update
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:update:
+        /en:
+          jcr:name: Update
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:visualassetlink:
         /en:
           jcr:name: Asset icon link

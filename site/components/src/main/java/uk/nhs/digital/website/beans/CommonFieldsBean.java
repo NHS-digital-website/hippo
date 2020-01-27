@@ -4,9 +4,7 @@ import static org.apache.commons.collections.IteratorUtils.toList;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import org.hippoecm.hst.container.RequestContextProvider;
-
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.query.filter.BaseFilter;
@@ -18,6 +16,7 @@ import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.util.ContentBeanUtils;
 import org.hippoecm.repository.util.DateTools;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import uk.nhs.digital.common.util.DocumentUtils;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -68,6 +67,12 @@ public class CommonFieldsBean extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "website:bannercontrols", allowModifications = false)
     public BannerControl  getBannercontrols() {
         return getBean("website:bannercontrols", BannerControl.class);
+    }
+
+    public List<Update> getUpdates() throws QueryException {
+        List<Update> allLinkedUpdates = getRelatedDocuments(
+            "website:relateddocument/@hippo:docbase", Update.class);
+        return DocumentUtils.getFilteredAndSortedUpdates(allLinkedUpdates);
     }
 
     //================================================================================

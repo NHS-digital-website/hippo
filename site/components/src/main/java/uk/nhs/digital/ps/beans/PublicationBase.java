@@ -18,9 +18,11 @@ import org.hippoecm.hst.util.ContentBeanUtils;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.nhs.digital.common.util.DocumentUtils;
 import uk.nhs.digital.ps.components.DocumentTitleComparator;
 import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
 import uk.nhs.digital.website.beans.News;
+import uk.nhs.digital.website.beans.Update;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -210,6 +212,12 @@ public abstract class PublicationBase extends BaseDocument {
             property, beanClass, false);
 
         return toList(query.execute().getHippoBeans());
+    }
+
+    public List<Update> getUpdates() throws QueryException {
+        List<Update> allLinkedUpdates = getRelatedDocuments(
+            "website:relateddocument/@hippo:docbase", Update.class);
+        return DocumentUtils.getFilteredAndSortedUpdates(allLinkedUpdates);
     }
 
     public List<News> getRelatedNews() throws HstComponentException, QueryException {

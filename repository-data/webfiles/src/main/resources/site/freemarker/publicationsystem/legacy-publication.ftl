@@ -9,6 +9,7 @@
 <#include "./macro/structured-text.ftl">
 <#include "../common/macro/fileIconByMimeType.ftl">
 <#include "../common/macro/latestblogs.ftl">
+<#include "../common/macro/component/updateBox.ftl">
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 
 <#-- Add meta tags -->
@@ -190,6 +191,18 @@
 </div>
 
 <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
+    <div class="grid-row">
+        <div class="column column--no-padding">
+            <div class="update-box-group">
+                <#if legacyPublication.updates?has_content>
+                    <#list legacyPublication.updates as update>
+                        <@updateBox update />
+                    </#list>
+                </#if>
+            </div>
+        </div>
+    </div>
+
     <div class="grid-row">
         <#if renderNav>
         <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">

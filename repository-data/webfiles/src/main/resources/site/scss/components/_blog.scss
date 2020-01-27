@@ -174,8 +174,9 @@
         width: 32%;
         min-width: 300px;
         position: relative;
-        border: 1px solid #eee;
         border-bottom: solid 5px #98a4ad;
+
+        @extend %component-border;
 
         &__icon {
           margin-bottom: 20px;

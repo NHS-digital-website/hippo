@@ -10,6 +10,7 @@
 <#include "../macro/metaTags.ftl">
 <#include "../macro/component/lastModified.ftl">
 <#include "../macro/latestblogs.ftl">
+<#include "../macro/component/updateBox.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -39,12 +40,27 @@
     <@documentHeader document 'service' '' '' '' '' false></@documentHeader>
 
     <div class="grid-wrapper grid-wrapper--article">
+
         <div class="grid-row">
+            <div class="column column--no-padding">
+                <div class="update-box-group">
+                    <#if document.updates?has_content>
+                        <#list document.updates as update>
+                            <@updateBox update />
+                        </#list>
+                    </#if>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="grid-row">
+
             <#if renderNav>
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
                 <!-- start sticky-nav -->
                 <div id="sticky-nav">
-                    
+
                     <#assign links = [{ "url": "#top", "title": "Top of page" }] />
                     <#if document.latestNews?has_content >
                           <#assign links += [{ "url": "#related-articles-latest-news-${idsuffix}", "title": 'Latest news' }] />
@@ -78,7 +94,7 @@
 
 
                 <@latestblogs document.latestNews 'Service' 'latest-news-' + idsuffix 'Latest news' />
-              
+
                 <#if hasIntroductionContent>
                 <div class="article-section no-border article-section--introduction">
                     <div class="rich-text-content">
