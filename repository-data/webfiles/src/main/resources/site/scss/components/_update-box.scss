@@ -1,4 +1,7 @@
 /* Update box */
+$txt-left-padding-desk: 125px;
+$txt-left-padding-mob: 50px;
+
 .update-box {
     padding: 20px;
     margin: 20px 0;
@@ -6,9 +9,105 @@
     border-left-width: 7px;
     border-radius: 3px;
 
-    &__emphasis {
-        border-left-color: #4c90ce;
-        background-color: #d4e4f3;
+    &__heading {
+        position: relative;
+
+        @include normalize-margin(0 0 1 0, $h3-font-size);
+
+        &-icon {
+            position: absolute;
+            display: inline-block;
+            width: 100px;
+            left: 0;
+        }
+
+        &-title {
+            padding-left: $txt-left-padding-desk;
+            margin: 0;
+
+            @include bold-font(26);
+        }
+    }
+
+    &__description {
+        margin-top: 0;
+        padding-left: $txt-left-padding-desk;
+
+        @include core-font(18);
+
+        p:not(:first-child) {
+            margin-top: 20px;
+        }
+    }
+
+    @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+        &__heading-icon {
+            width: 36px;
+        }
+
+        &__heading-title {
+            padding-left: $txt-left-padding-mob;
+        }
+
+        &__description {
+            padding-left: 0px;
+
+            p:not(:first-child) {
+                margin-top: 14px;
+            }
+        }
+    }
+
+    &--information,
+    &--important,
+    &--critical {
         overflow-y: auto;
+
+        svg {
+            fill:none;
+            stroke-linecap:round;
+            stroke-linejoin:round;
+            stroke-width:4px;
+        }
+    }
+
+    &--information,
+    &--important {
+        svg {
+            stroke: $nhs-blue;
+        }
+    }
+
+    &--information {
+        border-left-color: $col-information-border;
+        background-color: $col-information-background;
+    }
+
+    &--important {
+        border-left-color: $col-important-border;
+        background-color: $col-important-background;
+    }
+
+    &--critical {
+        border-left-color: $col-critical-border;
+        background-color: $col-critical-background;
+        color: $white;
+
+        svg {
+            stroke: $white;
+        }
+
+        a:link, a:visited {
+            color: $white;
+        }
+
+        a:hover,
+        a:focus {
+            color: $link-hover-colour-nhs;
+        }
+
+        a:active {
+            color: $link-active-colour-nhs;
+        }
     }
 }
