@@ -669,10 +669,10 @@
             </activation>
             <modules>
                 <module>s3connector</module>
-                <module>cms</module>
-                <module>cms-dependencies</module>
-                <module>essentials</module>
                 <module>repository-data</module>
+                <module>cms-dependencies</module>
+                <module>cms</module>
+                <module>essentials</module>
                 <module>repository</module>
                 <module>site</module>
                 <module>acceptance-tests</module>

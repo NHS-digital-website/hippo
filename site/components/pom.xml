@@ -129,7 +129,7 @@
         <dependency>
             <groupId>uk.nhs.digital</groupId>
             <artifactId>s3-connector</artifactId>
-            <version>${revision}</version>
+            <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>
 

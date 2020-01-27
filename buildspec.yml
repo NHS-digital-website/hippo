@@ -21,6 +21,7 @@ phases:
       - apt-get update
       - apt-get install -y openjdk-8-jdk
       - apt-get install -y maven
+      - mvn --verison
 
       - update-alternatives --config java
       - java -version
@@ -68,3 +69,7 @@ phases:
 artifacts:
   files:
     - "**/*"
+
+cache:
+  paths:
+    - '/root/.m2/**/*'
