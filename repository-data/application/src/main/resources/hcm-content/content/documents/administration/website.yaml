@@ -445,6 +445,31 @@
     - hippo:named
     - mix:referenceable
     jcr:primaryType: hippo:handle
+  /update-severity:
+    /update-severity:
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: information
+        selection:label: Information only
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: important
+        selection:label: Important warning
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: critical
+        selection:label: Critical failure
+      hippo:availability:
+      - live
+      - preview
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: selection:valuelist
+    hippo:name: update severity
+    jcr:mixinTypes:
+    - hippo:named
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
   hippo:name: Website
   hippostd:foldertype:
   - new-document

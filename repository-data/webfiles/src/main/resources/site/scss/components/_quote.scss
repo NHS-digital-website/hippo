@@ -9,9 +9,10 @@
     background-repeat: no-repeat;
     text-indent: 50px;
     background-size: 2.5em;
-    border: 1px solid #eee;
     border-left: solid 7px #98a4ad;
     background-color: #dfe2e5;
+    
+    @extend %component-border;
 }
 
 .quote-text {
