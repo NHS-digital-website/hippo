@@ -55,11 +55,11 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /expiry:
+          /expirydate:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Expiry
-            field: expiry
+            caption: Expiry date
+            field: expirydate
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
@@ -77,11 +77,11 @@ definitions:
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
-          /expiry:
+          /expirydate:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:expiry
+            hipposysedit:path: website:expirydate
             hipposysedit:primary: false
             hipposysedit:type: Date
             jcr:primaryType: hipposysedit:field
@@ -151,7 +151,7 @@ definitions:
           jcr:mixinTypes:
           - mix:referenceable
           jcr:primaryType: website:update
-          website:expiry: 0001-01-01T12:00:00Z
+          website:expirydate: 0001-01-01T12:00:00Z
           website:severity: ''
           website:title: ''
         jcr:primaryType: hipposysedit:prototypeset
