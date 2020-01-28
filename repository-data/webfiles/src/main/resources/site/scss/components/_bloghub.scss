@@ -47,9 +47,10 @@
         height: $item_height;
         width: 32%;
         position: relative;
-        border: 1px solid #eee;
         border-bottom: solid 5px #98a4ad;
         margin-right: 1%;
+
+        @extend %component-border;
 
         &__first {
           width: 98%;
