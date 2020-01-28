@@ -1,14 +1,14 @@
 package uk.nhs.digital.common.util;
 
+import static org.junit.Assert.assertEquals;
+import static org.mockito.BDDMockito.given;
+
 import org.junit.Test;
 import org.mockito.Mockito;
 import uk.nhs.digital.website.beans.Update;
 
 import java.time.LocalDate;
 import java.util.*;
-
-import static org.junit.Assert.assertEquals;
-import static org.mockito.BDDMockito.given;
 
 public class DocumentUtilsTest {
 

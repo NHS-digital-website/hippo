@@ -22,10 +22,10 @@ import uk.nhs.digital.common.util.DocumentUtils;
 import uk.nhs.digital.ps.components.DocumentTitleComparator;
 import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
 import uk.nhs.digital.website.beans.News;
+import uk.nhs.digital.website.beans.Update;
 
 import java.util.*;
 import java.util.stream.Collectors;
-import uk.nhs.digital.website.beans.Update;
 
 public abstract class PublicationBase extends BaseDocument {
 

@@ -1,10 +1,11 @@
 package uk.nhs.digital.website.beans;
 
-import java.util.Arrays;
-import java.util.Calendar;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
+
+import java.util.Arrays;
+import java.util.Calendar;
 
 @Node(jcrType = "website:update")
 public class Update extends CommonFieldsBean {

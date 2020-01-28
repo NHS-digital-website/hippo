@@ -1,10 +1,11 @@
 package uk.nhs.digital.common.util;
 
+import uk.nhs.digital.website.beans.Update;
+
 import java.util.Calendar;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-import uk.nhs.digital.website.beans.Update;
 
 public final class DocumentUtils {
 

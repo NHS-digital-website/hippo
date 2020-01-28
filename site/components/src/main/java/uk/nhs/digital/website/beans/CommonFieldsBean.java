@@ -4,10 +4,6 @@ import static org.apache.commons.collections.IteratorUtils.toList;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.stream.Collectors;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
@@ -21,6 +17,11 @@ import org.hippoecm.hst.util.ContentBeanUtils;
 import org.hippoecm.repository.util.DateTools;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.common.util.DocumentUtils;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * This is a generic bean containing most of the used fields accross all the
