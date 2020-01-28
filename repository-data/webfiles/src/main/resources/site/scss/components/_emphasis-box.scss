@@ -2,13 +2,9 @@
 .emphasis-box {
     padding: 20px;
     margin: 20px 0;
-    border-left-width: 7px;
-    border-radius: 3px;
+    border-left: 7px solid;
     display: flex;
 
-    @extend %component-border;
-
-    
     &__image {
         width: 100px;
         margin-right: 1rem;

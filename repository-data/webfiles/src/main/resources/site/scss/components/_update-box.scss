@@ -7,10 +7,7 @@ $box-padding: 20px;
     position: relative;
     padding: $box-padding;
     margin: 20px 0;
-    border-left-width: 7px;
-    border-radius: 3px;
-
-    @extend %component-border;
+    border-left: 7px solid;
 
     &__content {
         position: relative;
