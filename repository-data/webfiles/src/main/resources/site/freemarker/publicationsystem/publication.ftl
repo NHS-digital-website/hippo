@@ -10,6 +10,7 @@
 <#include "../common/macro/component/pagination.ftl">
 <#include "../common/macro/component/infoGraphic.ftl">
 <#include "../common/macro/latestblogs.ftl">
+<#include "../common/macro/component/updateBox.ftl">
 
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 
@@ -65,6 +66,16 @@
                 <!-- end sticky-nav -->
             </div>
             </#if>
+
+            <div class="grid-row">
+                <div class="column column--two-thirds page-block page-block--main">
+                    <#if publication.updates?has_content>
+                        <#list publication.updates as update>
+                            <@updateBox update />
+                        </#list>
+                    </#if>
+                </div>
+            </div>
 
             <div class="column column--two-thirds page-block page-block--main">
                 <div id="summary" class="article-section article-section--summary no-border">

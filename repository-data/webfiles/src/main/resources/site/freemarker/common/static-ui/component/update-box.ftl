@@ -56,24 +56,3 @@
         </div>
     </div>
 </div>
-
-
-<hr>
-
-<div class="emphasis-box emphasis-box-important" aria-labelledby="emphasis-important-93aa1b19">
-
-    <div class="emphasis-box__content">
-        <h3 id="emphasis-important-93aa1b19" data-uipath="website.contentblock.emphasis.heading">Information that can be passed on</h3>
-
-        <div data-uipath="website.contentblock.emphasis.content"><p>The service can only be used when agreed with the doctors of both parties.</p>
-
-            <p>Only information relating to an existing hereditary condition can be passed on.</p></div>
-    </div>
-</div>
-
-
-
-
-
-
-
