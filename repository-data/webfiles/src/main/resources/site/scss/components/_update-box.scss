@@ -6,15 +6,22 @@ $box-padding: 20px;
 .update-box {
     position: relative;
     padding: $box-padding;
-    margin: 20px 0;
     border-left: 7px solid;
+
+    &-group {
+        margin-bottom: $default-spacing-unit * 2.5;
+    }
+
+    &:not(:first-child) {
+        margin-top: 20px;
+    }
 
     &__content {
         position: relative;
         padding-left: $txt-left-padding-desk;
 
         &-heading {
-            @include normalize-margin(0 0 1 0, $h3-font-size);
+            margin-bottom: 12px;
             @include bold-font(26);
         }
 
