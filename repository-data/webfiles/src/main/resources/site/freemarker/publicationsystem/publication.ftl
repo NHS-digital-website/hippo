@@ -52,6 +52,19 @@
     <@publicationHeader publication=publication/>
 
     <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
+
+        <div class="grid-row">
+            <div class="column column--no-padding">
+                <div class="update-box-group">
+                    <#if publication.updates?has_content>
+                        <#list publication.updates as update>
+                            <@updateBox update />
+                        </#list>
+                    </#if>
+                </div>
+            </div>
+        </div>
+
         <div class="grid-row">
             <#if index?has_content && index?size gt 1>
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
@@ -67,17 +80,8 @@
             </div>
             </#if>
 
-            <div class="grid-row">
-                <div class="column column--two-thirds page-block page-block--main">
-                    <#if publication.updates?has_content>
-                        <#list publication.updates as update>
-                            <@updateBox update />
-                        </#list>
-                    </#if>
-                </div>
-            </div>
-
             <div class="column column--two-thirds page-block page-block--main">
+
                 <div id="summary" class="article-section article-section--summary no-border">
                     <h2>${summaryHeader}</h2>
                     <div itemprop="description"><@structuredText item=publication.summary uipath="ps.publication.summary" /></div>

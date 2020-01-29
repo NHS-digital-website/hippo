@@ -10,6 +10,7 @@
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
 <#include "macro/latestblogs.ftl">
+<#include "macro/component/updateBox.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -37,6 +38,18 @@
     <@documentHeader document 'general'></@documentHeader>
 
     <div class="grid-wrapper grid-wrapper--article">
+
+        <div class="grid-row">
+            <div class="column column--no-padding">
+                <div class="update-box-group">
+                    <#if document.updates?has_content>
+                        <#list document.updates as update>
+                            <@updateBox update />
+                        </#list>
+                    </#if>
+                </div>
+            </div>
+        </div>
 
         <div class="grid-row">
             <#if renderNav>
