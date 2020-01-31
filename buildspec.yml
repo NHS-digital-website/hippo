@@ -21,7 +21,7 @@ phases:
       - apt-get update
       - apt-get install -y openjdk-8-jdk
       - apt-get install -y maven
-      - mvn --verison
+      - mvn --version
 
       - update-alternatives --config java
       - java -version
