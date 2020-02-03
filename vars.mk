@@ -18,7 +18,9 @@ S3_REGION ?= eu-west-1
 
 MVN_VARS = -Ddynamic.bean.generation=false \
 	-Dexternalstorage.aws.bucket=$(S3_BUCKET) \
-	-Dexternalstorage.aws.region=$(S3_REGION)
+	-Dexternalstorage.aws.region=$(S3_REGION) \
+	-DbuildScmBranch=${CODEBUILD_GIT_BRANCH} \
+	-DbuildNumber=${CODEBUILD_SOURCE_VERSION}
 
 export AWS_ACCESS_KEY_ID=$(AWS_KEY)
 export AWS_SECRET_ACCESS_KEY=$(AWS_SECRET)
