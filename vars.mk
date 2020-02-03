@@ -11,6 +11,7 @@ SPLUNK_URL ?= http://localhost
 PROFILE_RUN ?= cargo.run
 S3_BUCKET ?= files.local.nhsd.io
 S3_REGION ?= eu-west-1
+BUILD_SCM_BRANCH ?= master
 
 #-Dsplunk.token=$(SPLUNK_TOKEN) \
 #	-Dsplunk.url=$(SPLUNK_URL) \
@@ -19,7 +20,7 @@ S3_REGION ?= eu-west-1
 MVN_VARS = -Ddynamic.bean.generation=false \
 	-Dexternalstorage.aws.bucket=$(S3_BUCKET) \
 	-Dexternalstorage.aws.region=$(S3_REGION) \
-	-DbuildScmBranch=${CODEBUILD_RESOLVED_SOURCE_VERSION:-$CODEBUILD_SOURCE_VERSION}
+	-DbuildScmBranch=$(BUILD_SCM_BRANCH )
 
 export AWS_ACCESS_KEY_ID=$(AWS_KEY)
 export AWS_SECRET_ACCESS_KEY=$(AWS_SECRET)
