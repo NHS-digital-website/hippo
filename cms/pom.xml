@@ -10,6 +10,7 @@
     <packaging>war</packaging>
     <name>NHS Digital Website CMS</name>
     <description>NHS Digital Website CMS</description>
+
     <dependencies>
         <dependency>
             <groupId>uk.nhs.digital</groupId>
@@ -21,6 +22,10 @@
                     <groupId>uk.nhs.digital</groupId>
                     <artifactId>s3-connector</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>uk.nhs.digital</groupId>
+                    <artifactId>website-repository-data-application</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
 
@@ -30,6 +35,11 @@
             <version>${project.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>uk.nhs.digital</groupId>
+            <artifactId>website-repository-data-application</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
         <!-- TEST DEPENDENCIES -->
         <dependency>
