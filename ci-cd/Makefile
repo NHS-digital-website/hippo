@@ -17,9 +17,9 @@ PATH := $(VENV)/bin:$(PWD)/bin:$(PWD)/vendor:$(shell printenv PATH)
 SHELL := env PATH=$(PATH) /bin/bash
 
 ifneq ($(HIPPO_MAVEN_USERNAME),)
-MVN_OPTS ?= --file ../pom.xml -Drevision=$(VERSION) ${MVN_VARS} --global-settings "$(PWD)/../.mvn.settings.xml"
+MVN_OPTS ?= -e --file ../pom.xml -Drevision=$(VERSION) ${MVN_VARS} --global-settings "$(PWD)/../.mvn.settings.xml"
 endif
-MVN_OPTS ?= --file ../pom.xml -Drevision=$(VERSION) ${MVN_VARS}
+MVN_OPTS ?= -e --file ../pom.xml -Drevision=$(VERSION) ${MVN_VARS}
 
 ifeq ($(TRAVIS_EVENT_TYPE),cron)
 TRAVIS_BUILD_CMD = test.e2e

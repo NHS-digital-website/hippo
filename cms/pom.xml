@@ -101,7 +101,6 @@
                     <archive>
                         <manifestEntries>
                             <BloomReach-Release-Version>${hippo.release.version}</BloomReach-Release-Version>
-                            <Hippo-Release-Version>${hippo.release.version}</Hippo-Release-Version>
                             <Project-Version>${project.version}</Project-Version>
                             <Project-Build>${buildNumber}</Project-Build>
                         </manifestEntries>
