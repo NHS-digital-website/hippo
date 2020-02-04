@@ -15,7 +15,6 @@
     <name>NHS Digital Website Repository Data</name>
     <description>NHS Digital Website Repository Data</description>
     <artifactId>website-repository-data</artifactId>
-    <version>${revision}</version>
     <packaging>pom</packaging>
 
     <modules>
