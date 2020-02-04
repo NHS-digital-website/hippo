@@ -4,9 +4,9 @@ include vars.mk
 export HOME
 
 ifneq ($(HIPPO_MAVEN_USERNAME),)
-MVN_OPTS ?= ${MVN_VARS} -e --global-settings "$(PWD)/.mvn.settings.xml"
+MVN_OPTS ?= ${MVN_VARS} --global-settings "$(PWD)/.mvn.settings.xml"
 endif
-MVN_OPTS ?= ${MVN_VARS} -e
+MVN_OPTS ?= ${MVN_VARS}
 
 ## Prints this help
 help:
