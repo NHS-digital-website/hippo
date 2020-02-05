@@ -95,9 +95,7 @@ test.e2e:
 
 ## Build distribution package
 build:
-	echo "Starting build here!"
-	mvn verify $(MVN_OPTS) -X -DskipTests=true
-	echo "I did not get here!"
+	mvn verify $(MVN_OPTS) -DskipTests=true
 	mvn $(MVN_OPTS) -P separate-dist -DskipTests=true
 	mvn $(MVN_OPTS) -P on-demand-dist -DskipTests=true
 

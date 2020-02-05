@@ -674,7 +674,6 @@
             <modules>
                 <module>s3connector</module>
                 <module>repository-data</module>
-                <module>cms-dependencies</module>
                 <module>cms</module>
                 <module>essentials</module>
                 <module>repository</module>
