@@ -92,7 +92,7 @@
 
         <forge.folderctxmenus.version>4.0.1</forge.folderctxmenus.version>
         <essentials.version>13.2.2</essentials.version>
-        <spring.version>5.1.8.RELEASE</spring.version>
+        <spring.version>5.1.9.RELEASE</spring.version>
 
         <hippo-addon-inference-engine.version>3.0.1</hippo-addon-inference-engine.version>
     </properties>
