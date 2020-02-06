@@ -31,6 +31,8 @@ definitions:
                 hst:types:
                 - rest
                 jcr:primaryType: hst:mount
+              hst:contextpath: ''
+              hst:homepage: root
               hst:mountpoint: /hst:hst/hst:sites/common
               hst:responseheaders:
               - 'Strict-Transport-Security : max-age=31536000'
