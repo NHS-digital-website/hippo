@@ -37,7 +37,7 @@
 
 <#assign notSuppress = !(document.lawfulbasises?has_content && document.lawfulbasises.suppressdata?has_content && suppressdata[document.lawfulbasises.suppressdata] == suppressdata['suppress-data']) />
 
-<article class="article article--publication" itemscope itemtype="http://schema.org/Person">
+<article class="article article--person" itemscope itemtype="http://schema.org/Person">
 
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
 

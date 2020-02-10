@@ -3,7 +3,7 @@
 <#-- @ftlvariable name="page" type="uk.nhs.digital.ps.beans.PublicationPage" -->
 
 <#include "./macro/publicationHeader.ftl">
-<#include "./publication.ftl">
+<#include "../common/macro/sections/sections.ftl">
 <#include "../include/imports.ftl">
 <#include "../common/macro/stickyNavSections.ftl">
 <#include "../common/macro/component/lastModified.ftl">
@@ -13,7 +13,7 @@
     <#if page.publication??>
         <div itemprop="isPartOf" itemscope itemtype="http://schema.org/PublicationIssue">
             <@publicationHeader publication=page.publication />
-        </div>
+        </div> 
     </#if>
 
     <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
@@ -30,15 +30,12 @@
             </#if>
 
             <div class="column column--two-thirds page-block page-block--main">
-                <div class="article-section">
-                    <h1 data-uipath="ps.publication.page-title" title="${page.title}" itemprop="name">${page.title}</h1>
-                </div>
+                <h1 data-uipath="ps.publication.page-title" title="${page.title}" itemprop="name">${page.title}</h1>
 
                 <#if page.sections?has_content>
-                    <div class="article-section no-border">
-                        <div data-uipath="ps.publication.body">
-                            <@sections sections=pageSections />
-                        </div>
+                    <div data-uipath="ps.publication.body">
+                        <div class="article-section"></div>
+                        <@sections sections=pageSections />
                     </div>
                 </#if>
 

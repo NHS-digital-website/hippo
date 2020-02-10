@@ -1,51 +1,63 @@
 @import "../environment/tools/mixins/button";
 @import "../environment/settings/colours";
 
-.ctabtn--div {
-  position: relative;
-  left: 0; 
-  width:  100%;
+.ctabtn {
+    &--div {
+        position: relative;
+        left: 0;
+        width:  100%;
+        margin-top: 20px;
+    }
 
-}
+    &-left {
+        position: relative;
+        left: 0;
+        text-align: left;
+    }
 
-.ctabtn-left {
-  position: relative;
-  left: 0; 
-  text-align: left;
-}
+    &-right {
+        position: relative;
+        right: 0;
+        text-align: right;
+    }
 
-.ctabtn-right {
-  position: relative;
-  right: 0; 
-  text-align: right;
-}
+    &--nhs-digital-button {
+        @include button($blue);
 
-.ctabtn--nhs-digital-button {
-  @include button($blue);
+        &:hover,
+        &:focus,
+        &:active {
+            outline: 3px solid $focus-colour;
+        }
+    }
 
-  &:hover,
-  &:focus,
-  &:active {
-      outline: 3px solid $focus-colour;
-  }
-}
+    &--journey-start-button {
+        @include button($green);
 
-.ctabtn--journey-start-button {
-  @include button($green);
+        &:hover,
+        &:focus,
+        &:active {
+            outline: 3px solid $focus-colour;
+        }
+    }
 
-  &:hover,
-  &:focus,
-  &:active {
-      outline: 3px solid $focus-colour;
-  }
-}
+    &--secondary-button {
+        @include button($grey-1);
 
-.ctabtn--secondary-button {
-  @include button($grey-1);
+        &:hover,
+        &:focus,
+        &:active {
+            outline: 3px solid $focus-colour;
+        }
+    }
 
-  &:hover,
-  &:focus,
-  &:active {
-      outline: 3px solid $focus-colour;
-  }
+    &--white-button {
+        @include button($white, $nhs-blue);
+
+        &:hover,
+        &:focus,
+        &:active {
+            outline: 3px solid $focus-colour;
+        }
+    }
 }

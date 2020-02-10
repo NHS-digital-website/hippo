@@ -21,6 +21,14 @@
 
 <article class="hub-box hub-box--light">
     <div class="hub-box__contents">
+        <h2 class="hub-box__title"><a href="/site/static-ui/component/button">Button</a></h2>
+        <span class="hub-box__meta">Created February 2020</span>
+        <p class="hub-box__text">All CTA button styles available.</p>
+    </div>
+</article>
+
+<article class="hub-box hub-box--light">
+    <div class="hub-box__contents">
         <h2 class="hub-box__title"><a href="/site/static-ui/component/infographic">Infographic</a></h2>
         <span class="hub-box__meta">Created February 2019</span>
         <p class="hub-box__text">Infographics. All icons are svg.</p>

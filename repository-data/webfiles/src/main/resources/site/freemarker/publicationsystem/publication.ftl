@@ -23,7 +23,7 @@
 <@metaTags></@metaTags>
 
 <#macro restrictedContentOfUpcomingPublication>
-    <@publicationHeader publication=publication restricted=true/>
+    <@publicationHeader publication=publication restricted=true downloadPDF=false />
 
     <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
         <div class="grid-row">
@@ -49,21 +49,21 @@
                             || (publication.keyFactInfographics?? && publication.keyFactInfographics?size >0)  />
 
 <#macro fullContentOfPubliclyAvailablePublication>
-    <@publicationHeader publication=publication/>
+    <@publicationHeader publication=publication restricted=false downloadPDF=true/>
 
     <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
-
-        <div class="grid-row">
-            <div class="column column--no-padding">
-                <div class="update-box-group">
-                    <#if publication.updates?has_content>
+        
+        <#if publication.updates?has_content>
+            <div class="grid-row">
+                <div class="column column--no-padding">
+                    <div class="update-box-group">
                         <#list publication.updates as update>
                             <@updateBox update />
                         </#list>
-                    </#if>
+                    </div>
                 </div>
             </div>
-        </div>
+        </#if>
 
         <div class="grid-row">
             <#if index?has_content && index?size gt 1>
@@ -227,7 +227,16 @@
 
 <#-- ACTUAL TEMPLATE -->
 <#if publication?? >
-    <article class="article article--publication" itemscope itemtype="http://schema.org/Dataset" aria-label="Document Header">
+    <#-- Gather the related document links for PDF printing -->
+    <#if publication.pages?has_content>
+        <#assign relatedDocumentLinks = "" />
+        <#list publication.pages as page>
+            <@hst.link var="documentLink" hippobean=page />
+            <#assign relatedDocumentLinks += documentLink + (!page?is_last)?then("; ", "") />
+        </#list>
+    </#if>
+
+    <article class="article article--publication" itemscope itemtype="http://schema.org/Dataset" aria-label="Document Header" data-related-doc-links="${(relatedDocumentLinks?has_content)?then(relatedDocumentLinks, '')}">
         <meta itemprop="license" content="https://digital.nhs.uk/about-nhs-digital/terms-and-conditions" />
         <#if publication.publiclyAccessible>
             <@fullContentOfPubliclyAvailablePublication/>
@@ -235,4 +244,6 @@
             <@restrictedContentOfUpcomingPublication/>
         </#if>
     </article>
+
+    <#include "../common/scripts/print-pdf.js.ftl">
 </#if>
