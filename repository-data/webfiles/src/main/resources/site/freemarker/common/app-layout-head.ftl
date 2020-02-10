@@ -57,6 +57,7 @@
 
     <link rel="stylesheet" href="<@hst.webfile path="/css/eforms.css"/>" media="screen" type="text/css"/>
     <link rel="stylesheet" href="<@hst.webfile path="/css/nhsuk-print.css"/>" media="print" type="text/css"/>
+    <link rel="stylesheet" href="<@hst.webfile path="/css/nhsuk-print-pdf-document.css"/>" media="print" type="text/css"/>
 
     <#include "scripts/header-scripts.ftl" />
 

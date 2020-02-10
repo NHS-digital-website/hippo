@@ -1,0 +1,29 @@
+@import "../environment/tools/mixins/button";
+@import "../environment/settings/colours";
+
+.cta-btn {
+    @include button($blue);
+
+    &--green {
+        @include button($green);
+    }
+
+    &--grey {
+        @include button($grey-1);
+    }
+
+    &--white {
+        @include button($white, $nhs-blue);
+    }
+
+    &--blue,
+    &--green,
+    &--grey,
+    &--white {
+        &:hover,
+        &:focus,
+        &:active {
+            outline: 3px solid $focus-colour;
+        }
+    }
+}

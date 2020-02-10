@@ -1,0 +1,346 @@
+$is-print: true;
+
+@import "normalize/variables";
+
+@import "environment/tools/mixins/addons";
+@import "environment/tools/mixins/custom";
+
+@import "environment/settings/colours";
+@import "environment/settings/fonts";
+@import "environment/settings/globals";
+@import "environment/settings/layout";
+@import "environment/settings/typography";
+
+@import "environment/tools/functions/colour";
+@import "environment/tools/functions/typography";
+
+@import "environment/tools/mixins/typography";
+
+@import "components/infographic";
+
+// @media print {
+    @page {
+        size: A4;
+        margin: 2.5cm;
+    }
+    
+    html.print-pdf-document {
+        body {
+            @include core-font(16);
+            
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            line-height: 1.3;
+            background: #ffffff !important;
+            color: $black;
+        }
+
+        blockquote {
+            page-break-inside: avoid;
+        }
+
+        h1, 
+        h2, 
+        h3, 
+        h4, 
+        h5, 
+        h6 {
+            color: $black !important;
+            margin: 0;
+
+            page-break-after: avoid; 
+            page-break-inside: avoid;
+
+            & + * {
+                margin-top: 0;
+            }
+        }
+
+        h1 {
+            @include core-font(36);
+            margin-bottom: 12pt;
+        }
+
+        h2,
+        h3 {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            @include bold-font(22);
+        }
+
+        h3 {
+            @include core-font(22);
+        }
+
+        h4,
+        h5,
+        h6 {
+            @include bold-font(16);
+            margin-bottom: 0;
+        }
+            
+        img {
+            page-break-inside: avoid;
+            page-break-after: avoid;
+            max-width: 15cm;
+        }
+            
+        table, pre {
+            page-break-inside: avoid;
+        }
+
+        a:link,
+        a:visited,
+        a {
+            background: transparent;
+            color: $blue;
+            text-decoration: underline;
+            text-align: left;
+        }
+
+        a {
+            page-break-inside: avoid;
+        }
+
+        a[href^=http]:after {
+            content:" <" attr(href) "> ";
+        }
+
+        a:after > img {
+            content: "";
+        }
+
+        article a[href^="#"]:after {
+            content: "";
+        }
+
+        a:not(:local-link):after {
+            content:" <" attr(href) "> ";
+        }
+
+        &[href^="javascript:"]:after,
+        &[href^="#"]:after {
+            content: "";
+        }
+
+        p,
+        address,
+        li,
+        dt,
+        dd,
+        blockquote {
+            font-size: 100%
+        }
+
+        code,
+        pre {
+            font-family: "Courier New", Courier, mono;
+        }
+
+        ul,
+        ol,
+        dl {
+            margin-left: 18pt;
+            margin-bottom: 20pt;
+            padding-left: 0;
+            page-break-before: avoid;
+
+            li {
+                line-height: 1.6em;
+                padding-left: 0;
+                margin-left: 0;
+            }
+        }
+
+        p {
+            margin-top: 0;
+        }
+        
+        .print-pdf-logo {
+            width: 100%;
+            position: relative;
+            text-align: right;
+            padding-bottom: 22pt;
+
+            img {
+                display: inline-block;
+                max-width: 3cm;
+            }
+        }
+
+        .article-header {
+            @include clearfix;
+            
+            position: relative;
+
+            &__stamp {
+                margin-top: 2pt;
+                
+                img {
+                    width: 1cm;
+                    height: 1cm;
+                }
+            }
+
+            .local-header__title {
+                display: inline-block;
+                float: left;
+                width: 100%;
+                padding-right: 1.5cm;
+            }
+
+            &__stamp {
+                float: right;
+                text-align: right;
+                width: 1.5cm;
+            }
+        }
+
+
+        // Hide everything
+        #print-pdf-button,
+        #last-edited,
+        .article-header__label,
+        .digital-pagination,
+        hr,
+        p:empty,
+        div:empty {
+            position: absolute;
+            overflow: hidden;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            border: 0;
+            padding: 0;
+            clip: rect(0 0 0 0);
+            display: none;
+        }
+
+        details {
+            .panel--grey {
+                background: none;
+
+                .panel__content {
+                    padding: 0;
+                }
+            }
+        }
+
+        .article-section {
+            padding-top: 18pt;
+            margin-top: 0;
+            border-top: none;
+        }
+
+        .article:not(:first-of-type) {
+            page-break-before: always;
+        }
+
+
+        .callout {
+            img {
+                max-width: 100%;
+            }
+        }
+
+        .list {
+            margin-bottom: 0;
+
+            li {
+                margin-top: 0;
+            }
+        }
+
+        .article-header__info {
+            margin: 24pt 0;
+        }
+
+        // Detail list
+        .detail-list {
+            margin: 0 0 0.5em;
+
+            .detail-list__key,
+            .detail-list__value {
+                display: inline-block;
+                vertical-align: top;
+                margin-left: 0;
+            }
+
+            .details-list__key {
+                margin-right: 2pt;
+            }
+
+            .detail-list__value {
+                max-width: 75%;
+            }
+        }
+
+        .callout--attention {
+            border: 8px solid $blue;
+            padding: 16pt;
+        }
+
+        figure {
+            margin: 0 0 1em;
+        }
+
+        // Why are these nested in the pub doc???
+        .article-section {
+            .article-section {
+                padding: 0;
+            }
+        }
+
+        .article-header__types {
+            @include core-font(22);
+
+            display: block;
+            margin: 24pt 0;
+        }
+
+        .infographic-div {
+            padding-top: 0;
+            page-break-inside: avoid;
+        }
+
+        .infographic__icon {
+            display: block;
+            margin-right: 1rem;
+        }
+
+
+        // Checklist
+        .check-list-widget {
+            .check-list-widget__list {
+                margin-left: 0;
+                
+                li {
+                    @include clearfix;
+                    display: block;
+                }
+
+                .check-list-widget-icon,
+                span {
+                    display: inline-block;
+                    float: left;
+                }
+
+                p {
+                    margin: 0;
+                }
+
+                span {
+                    max-width: 80%;
+                }
+
+                .check-list-widget-icon {
+                    width: 20pt;
+                    margin-right: 10pt;
+                }
+            }
+        }
+    }
+// }

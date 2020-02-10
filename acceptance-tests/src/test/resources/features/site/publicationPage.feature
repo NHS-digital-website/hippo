@@ -10,5 +10,4 @@ Feature: Publications with pages should be displayed correctly
         And I can see the publication pages
         And I should also see:
             | Publication Page Title | First Page For Sectioned Pub |
-        And I wait 3s
         And I can see the first page body sections
