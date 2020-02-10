@@ -110,7 +110,7 @@ public class PublicationPage extends AbstractSitePage {
     public List<SectionWidget> getPageBodySections() {
         WebElement body = findPageElement(PAGE_BODY);
         return body == null ? Collections.emptyList() :
-            body.findElements(By.xpath("./div"))
+            body.findElements(By.xpath("//*[@data-uipath='ps.publication.body']/div[contains (@class, 'article-section')]/div[1]"))
                 .stream()
                 .map(this::createSectionWidget)
                 .collect(toList());
@@ -127,6 +127,7 @@ public class PublicationPage extends AbstractSitePage {
 
     private SectionWidget createSectionWidget(WebElement webElement) {
         String uipath = webElement.getAttribute("data-uipath");
+
         switch (uipath) {
             case ImageSectionWidget.UIPATH:
                 return new ImageSectionWidget(webElement);

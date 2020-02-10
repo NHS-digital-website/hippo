@@ -27,13 +27,15 @@
 
         @include core-font(16);
 
-        @include media($max-width: 946px, $ignore-for-ie: true) {
+        @media screen {
+            @include media($max-width: 946px, $ignore-for-ie: true) {
             max-width: 100%;
-        }
+            }
 
-        @include media($max-width: $min-tablet-width, $ignore-for-ie: true) {
-            display: block;
-            width: 100%;
+            @include media($max-width: $min-tablet-width, $ignore-for-ie: true) {
+                display: block;
+                width: 100%;
+            }
         }
     }
     
@@ -55,18 +57,20 @@
         }
     }
 
-    @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
-        .grid-row {
-            border-top: none;
+    @media screen {
+        @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+            .grid-row {
+                border-top: none;
 
-            .column {
-                border-top: 1px solid $background-colour;
-                border-top: 1px solid rgba($background-colour, 0.5);
-            }
+                .column {
+                    border-top: 1px solid $background-colour;
+                    border-top: 1px solid rgba($background-colour, 0.5);
+                }
 
-            &:first-child {
-                .column:first-child {
-                    border-top: none;
+                &:first-child {
+                    .column:first-child {
+                        border-top: none;
+                    }
                 }
             }
         }

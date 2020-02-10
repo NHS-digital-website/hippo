@@ -11,6 +11,10 @@ definitions:
           hst:componentconfigurationid: hst:pages/static-ui-component-block-link
           hst:relativecontentpath: component/block-link
           jcr:primaryType: hst:sitemapitem
+        /button:
+          hst:componentconfigurationid: hst:pages/static-ui-component-button
+          hst:relativecontentpath: component/button
+          jcr:primaryType: hst:sitemapitem
         /hub-box:
           hst:componentconfigurationid: hst:pages/static-ui-component-hub-box
           hst:relativecontentpath: component/hub-box

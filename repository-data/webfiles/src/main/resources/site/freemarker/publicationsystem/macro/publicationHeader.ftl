@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 
-<#macro publicationHeader publication restricted=false>
+<#macro publicationHeader publication restricted=false downloadPDF=false>
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
         <div class="local-header article-header article-header--detailed">
             <div class="grid-wrapper">
@@ -21,7 +21,7 @@
                         </p>
                     </#if>
 
-                    <span data-uipath="ps.publication.information-types">
+                    <span data-uipath="ps.publication.information-types" class="article-header__types">
                         <#if publication.informationType?has_content>
                             <#list publication.informationType as type>${type}<#sep>, </#list>
                         </#if>
@@ -87,6 +87,14 @@
                                     </div>
                                 </div>
                             </#if>
+                        </#if>
+
+                        <#if downloadPDF>
+                            <div class="grid-row">
+                                <div class="column column--reset">
+                                    <button type="button" class="cta-btn cta-btn--white top-margin-20" id="print-pdf-button"><@fmt.message key="labels.download-pdf"/></button>
+                                </div>
+                            </div>
                         </#if>
                     </div>
                 </div>
