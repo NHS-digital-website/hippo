@@ -20,7 +20,7 @@
         display: none;
         width: 100px;
 
-        @media (min-width: $min-tablet-width) {
+        @media only print, screen and (min-width: $min-tablet-width)  {
             display: block;
             margin-right: 1rem;
         }
@@ -31,9 +31,9 @@
     }
 
     &__title {
+        @include bold-font(26);
+
         margin: 0;
-        font-size: $h2-font-size;
-        font-weight: bold;
         line-height: 1;
         margin-bottom: $default-spacing-unit;
 
