@@ -6,3 +6,6 @@ definitions:
       /common:
         hst:content: /content/documents/corporate-website
         jcr:primaryType: hst:site
+      /intranet:
+        hst:content: /content/documents/intranet
+        jcr:primaryType: hst:site

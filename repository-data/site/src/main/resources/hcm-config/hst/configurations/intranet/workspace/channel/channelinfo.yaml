@@ -1,0 +1,5 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/intranet/hst:workspace/hst:channel/hst:channelinfo:
+      jcr:primaryType: hst:channelinfo

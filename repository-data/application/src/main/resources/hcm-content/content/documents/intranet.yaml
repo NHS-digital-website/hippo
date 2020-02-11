@@ -1,0 +1,12 @@
+---
+/content/documents/intranet:
+  hippo:name: Intranet
+  hippostd:foldertype:
+  - new-translated-folder
+  hippotranslation:id: 787f7294-2691-462c-9838-d53153c30791
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder
