@@ -42,9 +42,19 @@ definitions:
           jcr:name: NI landing
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:accessiblelink:
+        /en:
+          jcr:name: Link to accessible data
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /publicationsystem:archive:
         /en:
           jcr:name: Archive
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:changenotice:
+        /en:
+          jcr:name: Change notice
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /publicationsystem:chartSection:
@@ -65,6 +75,11 @@ definitions:
       /publicationsystem:imageSection:
         /en:
           jcr:name: Image
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:interactivetool:
+        /en:
+          jcr:name: Interactive tool section
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /publicationsystem:legacypublication:
@@ -95,6 +110,11 @@ definitions:
       /publicationsystem:series:
         /en:
           jcr:name: Series / Collection
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:survey:
+        /en:
+          jcr:name: Publication survey
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /publicationsystem:textSection:

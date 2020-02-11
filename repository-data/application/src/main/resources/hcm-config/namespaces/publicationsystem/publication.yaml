@@ -212,6 +212,33 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /survey:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Publication Survey
+            field: survey
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /interactivetool:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Interactive tool section
+            field: interactivetool
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /changenotice:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Change notices
+            field: changenotice
+            hint: Use these to tell users when something important has changed or
+              been updated in the publication
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
           /attachments:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -308,6 +335,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: publicationsystem:extattachment
             jcr:primaryType: hipposysedit:field
+          /changenotice:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:changenotice
+            hipposysedit:primary: false
+            hipposysedit:type: publicationsystem:changenotice
+            jcr:primaryType: hipposysedit:field
           /coverage_end:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -353,6 +388,14 @@ definitions:
             hipposysedit:type: StaticDropdown
             hipposysedit:validators:
             - publicationsystem-dropdown-information-type
+            jcr:primaryType: hipposysedit:field
+          /interactivetool:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:interactivetool
+            hipposysedit:primary: false
+            hipposysedit:type: publicationsystem:interactivetool
             jcr:primaryType: hipposysedit:field
           /keyFactImages:
             hipposysedit:mandatory: false
@@ -434,6 +477,16 @@ definitions:
             - non-empty
             - required
             jcr:primaryType: hipposysedit:field
+          /survey:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:survey
+            hipposysedit:primary: false
+            hipposysedit:type: publicationsystem:survey
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: true
             hipposysedit:multiple: false
@@ -468,7 +521,11 @@ definitions:
           /publicationsystem:KeyFactsTail:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
+          /publicationsystem:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           common:FacetType: publication
+          common:orderedSearchDate: 62135726400000
           common:searchRank: 3
           common:searchable: true
           hippostd:holder: holder

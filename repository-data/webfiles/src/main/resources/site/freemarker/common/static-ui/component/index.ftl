@@ -8,14 +8,6 @@
         <div class="hub-box-list">
             <article class="hub-box">
                 <div class="hub-box__contents">
-                    <h2 class="hub-box__title"><a href="/site/static-ui/component/update-box">Update box</a></h2>
-                    <span class="hub-box__meta">Created January 2020</span>
-                    <p class="hub-box__text">Use the update box component to display an emphasis box when a user creates a service update.</p>
-                </div>
-            </article>
-
-            <article class="hub-box">
-                <div class="hub-box__contents">
                     <h2 class="hub-box__title"><a href="/site/static-ui/component/hub-box">Hub box</a></h2>
                     <span class="hub-box__meta">Created January 2020</span>
                     <p class="hub-box__text">Use the hub box to display a list of components with title, summary and icon</p>
@@ -62,7 +54,6 @@
                 </div>
             </article>
 
-
             <article class="hub-box">
                 <div class="hub-box__contents">
                     <h2 class="hub-box__title"><a href="/site/static-ui/component/skip-link">Skip link</a></h2>
@@ -76,6 +67,14 @@
                     <h2 class="hub-box__title"><a href="/site/static-ui/component/table">Table</a></h2>
                     <span class="hub-box__meta">Created February 2019</span>
                     <p class="hub-box__text">Tabular data.</p>
+                </div>
+            </article>
+
+            <article class="hub-box hub-box--light">
+                <div class="hub-box__contents">
+                    <h2 class="hub-box__title"><a href="/site/static-ui/component/callout-box">Callout Box</a></h2>
+                    <span class="hub-box__meta">Created January 2020</span>
+                    <p class="hub-box__text">Use a callout box when critical, important or basic information needs to be emphasized or called out.</p>
                 </div>
             </article>
         </div>

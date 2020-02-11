@@ -1,0 +1,89 @@
+---
+/content/documents/administration/publication-system/interactive-tool-text:
+  /interactive-tool-text[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-02-17T15:53:56.257Z
+    hippostdpubwf:lastModificationDate: 2020-02-19T10:41:03.962Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: publicationsystem.interactive
+    resourcebundle:keys:
+    - interactive.header
+    - interactive.not-accessible-primary-text
+    - interactive.not-accessible-link-text
+    - interactive.date-label
+    resourcebundle:messages:
+    - Interactive Tool
+    - This tool may not be fully accessible for all users
+    - Find out how to access this information
+    - 'Expires:'
+  /interactive-tool-text[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-02-17T15:53:56.257Z
+    hippostdpubwf:lastModificationDate: 2020-02-18T09:21:00.311Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: publicationsystem.interactive
+    resourcebundle:keys:
+    - interactive.header
+    - interactive.not-accessible-primary-text
+    - interactive.not-accessible-link-text
+    - interactive.date-label
+    resourcebundle:messages:
+    - Interactive Tool
+    - This tool may not be fully accessible for all users
+    - Find out how to access this information
+    - 'Expires:'
+  /interactive-tool-text[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-02-17T15:53:56.257Z
+    hippostdpubwf:lastModificationDate: 2020-02-18T09:21:00.311Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-02-18T09:21:02.318Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: publicationsystem.interactive
+    resourcebundle:keys:
+    - interactive.header
+    - interactive.not-accessible-primary-text
+    - interactive.not-accessible-link-text
+    - interactive.date-label
+    resourcebundle:messages:
+    - Interactive Tool
+    - This tool may not be fully accessible for all users
+    - Find out how to access this information
+    - 'Expires:'
+  hippo:name: Interactive tool text
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

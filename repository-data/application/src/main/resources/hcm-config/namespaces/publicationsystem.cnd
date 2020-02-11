@@ -5,6 +5,9 @@
 <'common'='http://digital.nhs.uk/jcr/common/nt/1.0'>
 <'hippotranslation'='http://www.onehippo.org/jcr/hippotranslation/nt/1.0'>
 
+[publicationsystem:accessiblelink] > hippo:compound, hippostd:relaxed
+  orderable
+
 [publicationsystem:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
   orderable
   - common:searchable (boolean) = 'true' autocreated
@@ -15,7 +18,10 @@
 [publicationsystem:attachment] > hippo:compound, hippostd:relaxed
   orderable
 
-[publicationsystem:chartSection] > hippo:compound, hippostd:relaxed, hippo:derived
+[publicationsystem:changenotice] > hippo:compound, hippostd:relaxed
+  orderable
+
+[publicationsystem:chartSection] > hippo:compound, hippo:derived, hippostd:relaxed
   orderable
 
 [publicationsystem:cilanding] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
@@ -31,6 +37,9 @@
   orderable
 
 [publicationsystem:imageSection] > hippo:compound, hippostd:relaxed
+  orderable
+
+[publicationsystem:interactivetool] > hippo:compound, hippostd:relaxed
   orderable
 
 [publicationsystem:legacypublication] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
@@ -51,6 +60,9 @@
 [publicationsystem:resource] > hippo:derived, hippo:resource
 
 [publicationsystem:series] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
+  orderable
+
+[publicationsystem:survey] > hippo:compound, hippostd:relaxed
   orderable
 
 [publicationsystem:textSection] > hippo:compound, hippostd:relaxed
