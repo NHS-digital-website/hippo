@@ -1,0 +1,86 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/publicationsystem/survey:
+      /editor:templates:
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
+          /root:
+            item: ${cluster.id}.field
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /link:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Link to survey
+            field: link
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /date:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Expiry date
+            field: date
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+        jcr:primaryType: editor:templateset
+      /hipposysedit:nodetype:
+        /hipposysedit:nodetype:
+          /date:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:date
+            hipposysedit:primary: false
+            hipposysedit:type: CalendarDate
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /link:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:link
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - non-empty
+            - required
+            - valid-url
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - hippo:compound
+          - hippostd:relaxed
+          hipposysedit:uri: http://digital.nhs.uk/jcr/publicationsystem/nt/1.0
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /hipposysedit:prototypes:
+        /hipposysedit:prototype:
+          jcr:primaryType: publicationsystem:survey
+          publicationsystem:date: 0001-01-01T12:00:00Z
+          publicationsystem:link: ''
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype

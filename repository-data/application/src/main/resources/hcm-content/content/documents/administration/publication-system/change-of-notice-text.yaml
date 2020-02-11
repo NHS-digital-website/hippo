@@ -1,0 +1,62 @@
+---
+/content/documents/administration/publication-system/change-of-notice-text:
+  /change-of-notice-text[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-02-18T09:21:52.123Z
+    hippostdpubwf:lastModificationDate: 2020-02-19T12:35:44.530Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    resourcebundle:id: publicationsystem.change
+    resourcebundle:keys:
+    - change.date-label
+    resourcebundle:messages:
+    - 'Published:'
+  /change-of-notice-text[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-02-18T09:21:52.123Z
+    hippostdpubwf:lastModificationDate: 2020-02-19T12:35:39.125Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    resourcebundle:id: publicationsystem.change
+    resourcebundle:keys:
+    - change.date-label
+    resourcebundle:messages:
+    - 'Published:'
+  /change-of-notice-text[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-02-18T09:21:52.123Z
+    hippostdpubwf:lastModificationDate: 2020-02-19T12:35:39.125Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-02-19T12:35:40.658Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    resourcebundle:id: publicationsystem.change
+    resourcebundle:keys:
+    - change.date-label
+    resourcebundle:messages:
+    - 'Published:'
+  hippo:name: Change of notice text
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

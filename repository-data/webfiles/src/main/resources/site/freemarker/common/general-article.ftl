@@ -10,7 +10,7 @@
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
 <#include "macro/latestblogs.ftl">
-<#include "macro/component/updateBox.ftl">
+<#include "macro/component/calloutBox.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -39,17 +39,20 @@
 
     <div class="grid-wrapper grid-wrapper--article">
 
-        <div class="grid-row">
-            <div class="column column--no-padding">
-                <div class="update-box-group">
-                    <#if document.updates?has_content>
+        <#if document.updates?has_content>
+            <div class="grid-row">
+                <div class="column column--no-padding">
+                    <div class="callout-box-group">
+                        <#assign item = {} />
                         <#list document.updates as update>
-                            <@updateBox update />
+                            <#assign item += update />
+                            <#assign item += {"calloutType":"update", "index":update?index} />
+                            <@calloutBox item />
                         </#list>
-                    </#if>
+                    </div>
                 </div>
             </div>
-        </div>
+        </#if>
 
         <div class="grid-row">
             <#if renderNav>

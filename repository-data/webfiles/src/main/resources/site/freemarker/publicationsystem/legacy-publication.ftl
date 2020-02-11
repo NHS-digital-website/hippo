@@ -9,7 +9,7 @@
 <#include "./macro/structured-text.ftl">
 <#include "../common/macro/fileIconByMimeType.ftl">
 <#include "../common/macro/latestblogs.ftl">
-<#include "../common/macro/component/updateBox.ftl">
+<#include "../common/macro/component/calloutBox.ftl">
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 
 <#-- Add meta tags -->
@@ -191,17 +191,20 @@
 </div>
 
 <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
-    <div class="grid-row">
-        <div class="column column--no-padding">
-            <div class="update-box-group">
-                <#if legacyPublication.updates?has_content>
+    <#if legacyPublication.updates?has_content>
+        <div class="grid-row">
+            <div class="column column--no-padding">
+                <div class="callout-box-group">
+                    <#assign item = {} />
                     <#list legacyPublication.updates as update>
-                        <@updateBox update />
+                        <#assign item += update />
+                        <#assign item += {"calloutType":"update", "index":update?index} />
+                        <@calloutBox item />
                     </#list>
-                </#if>
+                </div>
             </div>
         </div>
-    </div>
+    </#if>
 
     <div class="grid-row">
         <#if renderNav>

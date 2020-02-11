@@ -1,9 +1,9 @@
-/* Update box */
+/* Callout box */
 $txt-left-padding-desk: 100px;
 $txt-left-padding-mob: 50px;
 $box-padding: 20px;
 
-.update-box {
+.callout-box {
     position: relative;
     padding: $box-padding;
     border-left: 7px solid;
@@ -19,20 +19,46 @@ $box-padding: 20px;
     &__content {
         position: relative;
         padding-left: $txt-left-padding-desk;
+        margin-top: 0;
 
         &-heading {
+            display: block;
             margin-bottom: 12px;
             @include bold-font(26);
+
+            &--light>a {
+                @include core-font(26);
+            }
         }
 
         &-description {
             margin-top: 0;
-
             @include core-font(18);
 
             p:not(:first-child) {
                 margin-top: 20px;
             }
+
+            &-date {
+                float: right;
+                color: $col-14;
+            }
+        }
+
+        &-not-accessible {
+            @include bold-font(18);
+        }
+    }
+
+    &__content--narrow {
+        padding-left: 0;
+
+        p:not(:first-child) {
+            margin-top: 14px;
+        }
+
+        &-heading {
+            padding-left: $txt-left-padding-mob;
         }
     }
 
@@ -50,11 +76,18 @@ $box-padding: 20px;
         width: 80px;
         top: 50%;
         transform: translateY(-50%);
+
+        &--narrow {
+            position: relative;
+            width: 36px;
+            top: 18px;
+            transform: none;
+        }
     }
 
     @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
         &__content {
-            padding-left: 0px;
+            padding-left: 0;
 
             p:not(:first-child) {
                 margin-top: 14px;
@@ -75,7 +108,8 @@ $box-padding: 20px;
 
     &--information,
     &--important,
-    &--critical {
+    &--critical,
+    &--grey {
         overflow-y: auto;
 
         svg {
@@ -87,9 +121,16 @@ $box-padding: 20px;
     }
 
     &--information,
-    &--important {
+    &--important,
+    &--grey {
         svg {
             stroke: $nhs-blue;
+        }
+    }
+
+    &--important-yellow {
+        svg {
+            stroke: $col-important-border;
         }
     }
 
@@ -101,6 +142,11 @@ $box-padding: 20px;
     &--important {
         border-color: $col-important-border;
         background-color: $col-important-background;
+    }
+
+    &--grey {
+        background-color: $col-grey-border;
+        border-color: $col-grey-background;
     }
 
     &--critical {

@@ -7,11 +7,11 @@ definitions:
     /hst:hst/hst:configurations/common/hst:templates/static-ui-component-button:
       hst:renderpath: webfile:/freemarker/common/static-ui/component/button.ftl
       jcr:primaryType: hst:template
+    /hst:hst/hst:configurations/common/hst:templates/static-ui-component-callout-box:
+      hst:renderpath: webfile:/freemarker/common/static-ui/component/callout-box.ftl
+      jcr:primaryType: hst:template
     /hst:hst/hst:configurations/common/hst:templates/static-ui-component-hub-box:
       hst:renderpath: webfile:/freemarker/common/static-ui/component/hub-box.ftl
-      jcr:primaryType: hst:template
-    /hst:hst/hst:configurations/common/hst:templates/static-ui-component-update-box:
-      hst:renderpath: webfile:/freemarker/common/static-ui/component/update-box.ftl
       jcr:primaryType: hst:template
     /hst:hst/hst:configurations/common/hst:templates/static-ui-filtered-list:
       hst:renderpath: webfile:/freemarker/common/static-ui/filtered-list-page.ftl

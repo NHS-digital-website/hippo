@@ -38,15 +38,11 @@ public class Publication extends PublicationBase implements Paginated {
 
     @HippoEssentialsGenerated(internalName = PublicationBase.PropertyKeys.KEY_FACT_IMAGES)
     public List<ImageSection> getKeyFactImages() {
-        assertPropertyPermitted(PropertyKeys.KEY_FACT_IMAGES);
-
         return getChildBeansIfPermitted(PropertyKeys.KEY_FACT_IMAGES, ImageSection.class);
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.KEY_FACT_INFOGRAPHICS)
     public List<Infographic> getKeyFactInfographics() {
-        assertPropertyPermitted(PropertyKeys.KEY_FACT_INFOGRAPHICS);
-
         return getChildBeansIfPermitted(PropertyKeys.KEY_FACT_INFOGRAPHICS, Infographic.class);
     }
 
@@ -72,6 +68,21 @@ public class Publication extends PublicationBase implements Paginated {
         }
 
         return pages;
+    }
+
+    public List<InteractiveTool> getInteractivetool() {
+        return getChildBeansIfPermitted("publicationsystem:interactivetool",
+            InteractiveTool.class);
+    }
+
+    public List<ChangeNotice> getChangenotice() {
+        return getChildBeansIfPermitted("publicationsystem:changenotice",
+            ChangeNotice.class);
+    }
+
+    public Survey getSurvey() {
+        assertPropertyPermitted("publicationsystem:survey");
+        return getHippoCompound("publicationsystem:survey", Survey.class);
     }
 
     @Override

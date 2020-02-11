@@ -15,6 +15,10 @@ definitions:
           hst:componentconfigurationid: hst:pages/static-ui-component-button
           hst:relativecontentpath: component/button
           jcr:primaryType: hst:sitemapitem
+        /callout-box:
+          hst:componentconfigurationid: hst:pages/static-ui-component-callout-box
+          hst:relativecontentpath: component/callout-box
+          jcr:primaryType: hst:sitemapitem
         /hub-box:
           hst:componentconfigurationid: hst:pages/static-ui-component-hub-box
           hst:relativecontentpath: component/hub-box
@@ -34,10 +38,6 @@ definitions:
         /table:
           hst:componentconfigurationid: hst:pages/static-ui-component-table
           hst:relativecontentpath: component/table
-          jcr:primaryType: hst:sitemapitem
-        /update-box:
-          hst:componentconfigurationid: hst:pages/static-ui-component-update-box
-          hst:relativecontentpath: component/update-box
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/static-ui-component
         hst:relativecontentpath: static-ui/component
