@@ -67,28 +67,4 @@
     </property>
   </bean>
 
-  <bean id="jaxrsRestPlainServiceValve" class="org.hippoecm.hst.core.container.JaxrsRestServiceValve"
-        init-method="initialize" destroy-method="destroy">
-    <constructor-arg>
-      <bean class="org.hippoecm.hst.jaxrs.cxf.CXFJaxrsService">
-        <constructor-arg value="jaxrsPlainService"/>
-        <property name="servletPath" value=""/>
-        <property name="jaxrsServerFactoryBean">
-          <bean class="org.apache.cxf.jaxrs.JAXRSServerFactoryBean">
-            <property name="address" value="/"/>
-            <property name="providers" ref="essentialsRestAllEntityProviders"/>
-            <property name="resourceProviders" ref="jaxrsRestPlainResourceProviders"/>
-            <property name="invoker" ref="jaxrsRestPlainServiceInvoker"/>
-          </bean>
-        </property>
-        <property name="inInterceptors">
-          <list>
-            <ref bean="jaxrsRestPlainServiceQueryStringReplacingInterceptor"/>
-          </list>
-        </property>
-      </bean>
-    </constructor-arg>
-    <property name="valveName" value="jaxrsRestPlainServiceValve"/>
-  </bean>
-
 </beans>
