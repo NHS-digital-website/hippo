@@ -6,3 +6,5 @@ action-lists:
     /content/documents/administration/resources/rb.generic.headers: reload
     /content/documents/administration/resources/rb.generic.labels: reload
     /hst:hst/hst:configurations/common/hst:workspace/hst:sitemenus/main/Data and information: reload
+- 1.4:
+    /content/documents/administration/publication-system/headers: reload

@@ -3,11 +3,14 @@ package uk.nhs.digital.ps.components;
 import static org.apache.commons.collections.CollectionUtils.isNotEmpty;
 import static org.apache.commons.lang.StringUtils.isNotBlank;
 
+import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.nhs.digital.ps.beans.Archive;
 import uk.nhs.digital.ps.beans.Publication;
 import uk.nhs.digital.ps.beans.Series;
@@ -22,7 +25,10 @@ public class PublicationComponent extends EssentialsContentComponent {
     private static final String ADMIN_SOURCES_ID = "Administrative sources";
     private static final String DATASETS_ID = "Data sets";
     private static final String RESOURCES_ID = "Resources";
+    private static final String SUPPLEMENTARY_INFO_ID = "Supplementary information requests";
     private static final String RELATED_LINKS_ID = "Related links";
+
+    private static final Logger LOG = LoggerFactory.getLogger(PublicationComponent.class);
 
     private final PageSectionGrouper pageSectionGrouper = new PageSectionGrouper();
 
@@ -65,6 +71,14 @@ public class PublicationComponent extends EssentialsContentComponent {
         if (isNotEmpty(publication.getAttachments())
             || isNotEmpty(publication.getResourceLinks())) {
             index.add(RESOURCES_ID);
+        }
+
+        try {
+            if (isNotEmpty(publication.getSupplementaryInformation())) {
+                index.add(SUPPLEMENTARY_INFO_ID);
+            }
+        } catch (QueryException e) {
+            LOG.error("Error getting related supplementary info", e);
         }
 
         if (isNotEmpty(publication.getRelatedLinks())) {
