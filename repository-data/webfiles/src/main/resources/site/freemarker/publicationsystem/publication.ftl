@@ -44,6 +44,7 @@
 <@fmt.message key="headers.administrative-sources" var="administrativeResourcesHeader" />
 <@fmt.message key="headers.datasets" var="datasetsHeader" />
 <@fmt.message key="headers.resources" var="resourcesHeader" />
+<@fmt.message key="headers.supplementary-information-requests" var="supplementaryHeader" />
 <@fmt.message key="survey.lead-line" var="surveyTitle" />
 <@fmt.message key="survey.second-line" var="surveyContent" />
 <@fmt.message key="survey.hyperlink-text" var="surveyLinkText" />
@@ -284,6 +285,18 @@
                                 </#list>
                             </ul>
                         </#if>
+                    </div>
+                </#if>
+
+                <#if publication.supplementaryInformation?has_content>
+                    <div class="article-section" id="supplementary-information-requests">
+                        <h2>${supplementaryHeader}</h2>
+                        <div data-uipath="ps.publication.supplementary-information-requests">
+                            <#list publication.supplementaryInformation as supData>
+                                <#assign section = [{"sectionType": "download", "items": [{"linkType":"internal", "link":supData}]}] />
+                                <@sections sections=section />
+                            </#list>
+                        </div>
                     </div>
                 </#if>
 
