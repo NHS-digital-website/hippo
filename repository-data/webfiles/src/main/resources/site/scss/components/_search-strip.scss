@@ -1,3 +1,8 @@
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100%   { transform: rotate(359deg); }
+}
+
 /* DW-675 - For mark.js */
 .highlight {
     background: $yellow-50;
@@ -10,9 +15,24 @@
     display: block;
     height: $search-strip-height;
     overflow: hidden;
-}
-.search-strip__margin {
-  margin-top: 20px;
+
+    .search-strip__icon--loading {
+        @extend .is-hidden;
+        
+        animation: spin 1s linear infinite;
+    }
+
+    &.is-loading {
+        .search-strip__icon {            
+            &--loading {
+                @extend .is-visible;
+            }
+
+            &:not(.search-strip__icon--loading) {
+                @extend .is-hidden;
+            }
+        }
+    }
 }
 
 .search-strip__table-cell {

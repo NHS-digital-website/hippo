@@ -1,5 +1,9 @@
 package uk.nhs.digital.common.util;
 
+import org.hippoecm.hst.container.RequestContextProvider;
+import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
+import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
+import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 import uk.nhs.digital.website.beans.Update;
 
 import java.util.Calendar;
@@ -22,5 +26,22 @@ public final class DocumentUtils {
                     update -> Update.Severity.getSortOrder(update.getSeverity()))
                     .thenComparing(Update::getExpirydate, Comparator.nullsLast(Comparator.naturalOrder())))
             .collect(Collectors.toList());
+    }
+
+    public static HippoBeanIterator documentsQuery(final Class clazz) throws QueryException {
+        return HstQueryBuilder
+            .create(RequestContextProvider.get().getSiteContentBaseBean())
+            .ofTypes(clazz)
+            .build()
+            .execute()
+            .getHippoBeans();
+    }
+
+    public static String findYearOrDefault(final String target, int fallback) {
+        return isYear(target) ? target : String.valueOf(fallback);
+    }
+
+    private static boolean isYear(final String candidate) {
+        return candidate != null && candidate.matches("20[1-9][0-9]");
     }
 }

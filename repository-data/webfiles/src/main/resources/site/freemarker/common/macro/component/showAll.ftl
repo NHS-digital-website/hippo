@@ -1,27 +1,27 @@
 <#ftl output_format="HTML">
 <#include "../../../include/imports.ftl">
 
-<!-- Usage of macro in your .ftl file:        -->
-<!--    1. Create wrapper div and add class name 'filter-parent' to it -->
-<!--    2. To the wrapper div add properties: -->
-<!--         - data-state="short" -->
-<!--         - data-max-count="maxItemsToDisplay" -->
-<!--    3. Inside wrapper create series of HTML elements (ex. divs) to show/hide and add class="filter-list__item" to each of the element -->
-<!--    4. add showAll macro and pass 3 params: overallNumberOfItems and maxItemsToDisplay -->
-<!--         - overallNumberOfItems -->
-<!--         - maxItemsToDisplay -->
-<!--         - (optional) showLessStylingClass - class which is used for styling showAll/showLess button -->
-<!--    5. include showAll.ftl file in your ftl file-->
+<#-- Usage of macro in your .ftl file:        
+   1. Create wrapper div and add class name 'filter-parent' to it 
+   2. To the wrapper div add properties: 
+        - data-state="short" 
+        - data-max-count="maxItemsToDisplay" 
+   3. Inside wrapper create series of HTML elements (ex. divs) to show/hide and add class="filter-list__item" to each of the element 
+   4. add showAll macro and pass 3 params: overallNumberOfItems and maxItemsToDisplay 
+        - overallNumberOfItems 
+        - maxItemsToDisplay 
+        - (optional) showLessStylingClass - class which is used for styling showAll/showLess button 
+   5. include showAll.ftl file in your ftl file
 
 
-<!-- Sample FTL structure could look like this one: -->
-<!--  <div class="column filter-parent" data-max-count="\$\{maxItemsToDisplay\}" data-state="short">  -->
-<!--    <div class="filter-list__item">Element 1 to show/hide</div>           -->
-<!--    <div class="filter-list__item">Element 2 to show/hide</div>           -->
-<!--    <div class="filter-list__item">Element 3 to show/hide</div>           -->
-<!--    ...                                                                    -->
-<!--    \<\@showAll overallNumberOfItems maxItemsToDisplay \/\>                        -->
-<!--  </div>                                                                   -->
+Sample FTL structure could look like this one: 
+ <div class="column filter-parent" data-max-count="\$\{maxItemsToDisplay\}" data-state="short">  
+   <div class="filter-list__item">Element 1 to show/hide</div>           
+   <div class="filter-list__item">Element 2 to show/hide</div>           
+   <div class="filter-list__item">Element 3 to show/hide</div>           
+   ...                                                                    
+   \<\@showAll overallNumberOfItems maxItemsToDisplay \/\>                        
+ </div>  -->
 
 <#assign showAllNumber = 0 />
 

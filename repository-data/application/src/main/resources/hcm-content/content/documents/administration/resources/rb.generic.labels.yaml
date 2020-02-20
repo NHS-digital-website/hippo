@@ -5,13 +5,18 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-06-07T16:23:27.852Z
-    hippostdpubwf:lastModificationDate: 2019-09-10T13:50:11.859Z
+    hippostdpubwf:lastModificationDate: 2020-02-10T15:19:46.958Z
     hippostdpubwf:lastModifiedBy: admin
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: resourcebundle:resourcebundle
     resourcebundle:descriptions:
     - Labels are used for input fields, buttons etc
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
     - ''
     - ''
     - ''
@@ -29,6 +34,7 @@
     - labels.businessunit
     - labels.orgstructure
     - labels.group
+    - labels.filter
     resourcebundle:messages:
     - This is an example label
     - Blog
@@ -40,13 +46,14 @@
     - Business unit
     - Org structure
     - Group
+    - Filter
   /rb.generic.labels[2]:
     hippo:availability:
     - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-06-07T16:23:27.852Z
-    hippostdpubwf:lastModificationDate: 2019-09-10T13:51:21.493Z
+    hippostdpubwf:lastModificationDate: 2020-02-10T15:19:54.702Z
     hippostdpubwf:lastModifiedBy: admin
     jcr:mixinTypes:
     - mix:referenceable
@@ -59,6 +66,11 @@
     - ''
     - ''
     - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
     resourcebundle:id: rb.generic.labels
     resourcebundle:keys:
     - labels.example
@@ -71,6 +83,7 @@
     - labels.businessunit
     - labels.orgstructure
     - labels.group
+    - labels.filter
     resourcebundle:messages:
     - This is an example label
     - Blog
@@ -82,15 +95,16 @@
     - Business unit
     - Org structure
     - Group
+    - Filter
   /rb.generic.labels[3]:
     hippo:availability:
     - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-06-07T16:23:27.852Z
-    hippostdpubwf:lastModificationDate: 2019-09-10T13:51:21.493Z
+    hippostdpubwf:lastModificationDate: 2020-02-10T15:19:54.702Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2019-09-10T13:51:24.722Z
+    hippostdpubwf:publicationDate: 2020-02-10T15:19:55.783Z
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: resourcebundle:resourcebundle
@@ -101,6 +115,11 @@
     - ''
     - ''
     - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
     resourcebundle:id: rb.generic.labels
     resourcebundle:keys:
     - labels.example
@@ -113,6 +132,7 @@
     - labels.businessunit
     - labels.orgstructure
     - labels.group
+    - labels.filter
     resourcebundle:messages:
     - This is an example label
     - Blog
@@ -124,8 +144,9 @@
     - Business unit
     - Org structure
     - Group
+    - Filter
   hippo:name: Labels
-  hippo:versionHistory: fc356255-d9b9-4505-a376-8ae3d8bc7d93
+  hippo:versionHistory: 5286dbfc-1434-4af5-9e3a-02ca3a9fe88f
   jcr:mixinTypes:
   - hippo:named
   - hippo:versionInfo

@@ -11,9 +11,9 @@
                     <li>
                         <#if selectedFilter?seq_contains(link.key)>
                         <#assign linkout = "&" + filter + "=" + selectedFilter?join("&" + filter + "=") + affix />
-                          <a href="${getDocumentUrl()}${linkout?replace("&${filter}="+link.key, "")?replace("&", "?", "f")}" title="Show '${link.title}' ${filter} only" class="tag-link selected">${link.title}</a>
+                          <a href="${getDocumentUrl()}${linkout?replace("&${filter}="+link.key, "")?replace("&", "?", "f")}" title="Show '${link.title}' ${filter} only" class="tag-link selected" data-slugified-value="${slugify(link.title)}">${link.title}</a>
                         <#else>
-                          <a href="?${filter}=${selectedFilter?join("&" + filter + "=", "", "&" + filter + "=")}${link.key + affix}" title="Show '${link.title}' ${filter} only" class="tag-link">${link.title}</a>
+                          <a href="?${filter}=${selectedFilter?join("&" + filter + "=", "", "&" + filter + "=")}${link.key + affix}" title="Show '${link.title}' ${filter} only" class="tag-link" data-slugified-value="${slugify(link.title)}">${link.title}</a>
                         </#if>
                     </li>
                 </#list>

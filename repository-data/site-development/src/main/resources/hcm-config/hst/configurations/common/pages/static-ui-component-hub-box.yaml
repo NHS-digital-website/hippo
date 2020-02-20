@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/static-ui-component-hub-box:
+      /main:
+        hst:componentclassname: ''
+        hst:template: static-ui-component-hub-box
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/componentpage
+      jcr:primaryType: hst:component

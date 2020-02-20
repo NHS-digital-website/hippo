@@ -19,8 +19,29 @@ definitions:
       new-statistical-publications-and-clinical-indicators-folder: new folder
       new-supplementary-info-document: new supplementary information document
       new-supplementary-info-folder: new folder
+      new-supplementary-info-hub-document: new supplementary information hub document
       new-translated-folder: new folder
     /hippo:configuration/hippo:translations/hippo:types:
+      /common:stringlist:
+        /en:
+          jcr:name: String list
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /nationalindicatorlibrary:indicator:
+        /en:
+          jcr:name: Indicator
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /nationalindicatorlibrary:nihub:
+        /en:
+          jcr:name: NI hub
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /nationalindicatorlibrary:nilanding:
+        /en:
+          jcr:name: NI landing
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /publicationsystem:archive:
         /en:
           jcr:name: Archive
@@ -29,6 +50,11 @@ definitions:
       /publicationsystem:chartSection:
         /en:
           jcr:name: Chart
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /publicationsystem:cilanding:
+        /en:
+          jcr:name: CI landing
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /publicationsystem:dataset:
@@ -43,7 +69,7 @@ definitions:
         jcr:primaryType: hipposys:resourcebundles
       /publicationsystem:legacypublication:
         /en:
-          jcr:name: Legacy Publication
+          jcr:name: Legacy publication
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /publicationsystem:mapSection:
@@ -58,7 +84,7 @@ definitions:
         jcr:primaryType: hipposys:resourcebundles
       /publicationsystem:publicationPage:
         /en:
-          jcr:name: Publication Page
+          jcr:name: Publication page
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /publicationsystem:relatedlink:
@@ -74,6 +100,11 @@ definitions:
       /publicationsystem:textSection:
         /en:
           jcr:name: Text
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:about:
+        /en:
+          jcr:name: About
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:aboutapi:
@@ -143,12 +174,17 @@ definitions:
         jcr:primaryType: hipposys:resourcebundles
       /website:bloghub:
         /en:
-          jcr:name: Blog Hub
+          jcr:name: Blog hub
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:businessunit:
         /en:
           jcr:name: Business unit
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:calltoaction:
+        /en:
+          jcr:name: Call to action
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:categorylist:
@@ -163,7 +199,7 @@ definitions:
         jcr:primaryType: hipposys:resourcebundles
       /website:componentbusinessunit:
         /en:
-          jcr:name: Component Business Unit
+          jcr:name: Component business unit
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:componentlist:
@@ -188,7 +224,7 @@ definitions:
         jcr:primaryType: hipposys:resourcebundles
       /website:customizedAssetSet:
         /en:
-          jcr:name: Customised Asset
+          jcr:name: Customised asset
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:cyberacknowledgement:
@@ -203,27 +239,27 @@ definitions:
         jcr:primaryType: hipposys:resourcebundles
       /website:cycleparking:
         /en:
-          jcr:name: Cycle Parking
+          jcr:name: Cycle parking
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:definedterm:
         /en:
-          jcr:name: Defined Term
+          jcr:name: Defined term
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:definedterms:
         /en:
-          jcr:name: Defined Terms
+          jcr:name: Defined terms
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:directiontositebycar:
         /en:
-          jcr:name: Direction To Site By Car
+          jcr:name: Direction to site by car
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:directiontositebypublictransport:
         /en:
-          jcr:name: Direction To Site By Public Transport
+          jcr:name: Direction to site by public transport
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:directorate:
@@ -248,7 +284,7 @@ definitions:
         jcr:primaryType: hipposys:resourcebundles
       /website:emphasisBox:
         /en:
-          jcr:name: Emphasis Box
+          jcr:name: Emphasis box
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:event:
@@ -273,12 +309,22 @@ definitions:
         jcr:primaryType: hipposys:resourcebundles
       /website:galleryitem:
         /en:
-          jcr:name: Gallery Item
+          jcr:name: Gallery item
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:gallerysection:
         /en:
-          jcr:name: Gallery Section
+          jcr:name: Gallery section
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:gdprsummary:
+        /en:
+          jcr:name: GDPR summary
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:gdprtransparency:
+        /en:
+          jcr:name: GDPR transparency
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:general:
@@ -308,7 +354,7 @@ definitions:
         jcr:primaryType: hipposys:resourcebundles
       /website:grouprole:
         /en:
-          jcr:name: Group Role
+          jcr:name: Group role
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:hub:
@@ -358,7 +404,7 @@ definitions:
         jcr:primaryType: hipposys:resourcebundles
       /website:localtaxi:
         /en:
-          jcr:name: Local Taxi
+          jcr:name: Local taxi
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:location:
@@ -383,12 +429,12 @@ definitions:
         jcr:primaryType: hipposys:resourcebundles
       /website:onsitecarparking:
         /en:
-          jcr:name: OnSite Car Parking
+          jcr:name: Onsite car parking
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:openinghours:
         /en:
-          jcr:name: Opening Hours
+          jcr:name: Opening hours
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:organisation:
@@ -453,17 +499,17 @@ definitions:
         jcr:primaryType: hipposys:resourcebundles
       /website:publictransportstation:
         /en:
-          jcr:name: Public Transport Station
+          jcr:name: Public transport station
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:publishedwork:
         /en:
-          jcr:name: Published Work
+          jcr:name: Published work
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:publishedworkchapter:
         /en:
-          jcr:name: Published Work Chapter
+          jcr:name: Published work chapter
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:qualification:
@@ -473,7 +519,7 @@ definitions:
         jcr:primaryType: hipposys:resourcebundles
       /website:quote:
         /en:
-          jcr:name: quote
+          jcr:name: Quote
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:releaseinfo:
@@ -488,7 +534,7 @@ definitions:
         jcr:primaryType: hipposys:resourcebundles
       /website:responsedefinition:
         /en:
-          jcr:name: Response Definition
+          jcr:name: Response definition
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:responsibility:
@@ -503,12 +549,12 @@ definitions:
         jcr:primaryType: hipposys:resourcebundles
       /website:roadmapitem:
         /en:
-          jcr:name: Roadmap Item
+          jcr:name: Roadmap item
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:roadmapitemstatus:
         /en:
-          jcr:name: Roadmap Item Status
+          jcr:name: Roadmap item Status
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:role:
@@ -543,12 +589,17 @@ definitions:
         jcr:primaryType: hipposys:resourcebundles
       /website:statuserrorcode:
         /en:
-          jcr:name: status error code
+          jcr:name: Status error code
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:supplementaryinformation:
         /en:
           jcr:name: Supplementary information
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:supplementaryinformationhub:
+        /en:
+          jcr:name: Supplementary information hub
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:team:
@@ -558,7 +609,7 @@ definitions:
         jcr:primaryType: hipposys:resourcebundles
       /website:teammember:
         /en:
-          jcr:name: Team Member
+          jcr:name: Team member
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:threataffect:

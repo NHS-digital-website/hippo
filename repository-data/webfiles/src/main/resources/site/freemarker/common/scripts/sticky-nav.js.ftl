@@ -24,7 +24,8 @@
 
         $('.article-section-nav__list a').click(function () {
             var match = jQuery(this).attr('href').match(/#\S+/);
-            logGoogleAnalyticsEvent('Link click', 'Section Nav', location.pathname + match[0]);
+            var url = match ? location.pathname + match[0] : location.pathname;
+            logGoogleAnalyticsEvent('Link click', 'Section Nav', url);
         });
     }
 </script>

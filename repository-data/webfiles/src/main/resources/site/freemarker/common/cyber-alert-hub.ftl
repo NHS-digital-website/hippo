@@ -137,7 +137,7 @@
                                         <div class="hub-box-list">
                                             <#list monthYearGroupHash[key] as item>
 
-                                                <#assign alertData = { "title": item.title, "text": item.shortsummary, "light": true, "severity": item.severity, "threatType": item.threatType, "threatId": item.threatId } />
+                                                <#assign alertData = { "title": item.title, "text": item.shortsummary, "severity": item.severity, "threatType": item.threatType, "threatId": item.threatId } />
                                                 <@hst.link hippobean=item var="itemLink" />
                                                 <@fmt.formatDate value=item.publishedDate.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" var="publishedDate" />
                                                 <@fmt.formatDate value=item.lastModified type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" var="lastModifiedDate" />

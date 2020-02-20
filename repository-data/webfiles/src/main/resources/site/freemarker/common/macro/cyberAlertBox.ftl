@@ -3,7 +3,7 @@
 
 <#macro cyberAlertBox options>
     <#if options??>
-        <article class="hub-box ${(options.light??)?then('hub-box--light', '')}">
+        <article class="hub-box">
 
             <div class="hub-box__contents">
 
@@ -18,7 +18,7 @@
                         <#if options.link??>
                             </a>
                         </#if>
-                    </h2>                
+                    </h2>
                 </#if>
 
                 <#if options.publishedDate??>
@@ -31,11 +31,12 @@
                     <p class="hub-box__text">${options.text}</p>
                 </#if>
 
-                <span class="tag">Severity: ${options.severity}</span>
-
-                <#if options.threatType??>
-                    <span class="tag">Type: ${options.threatType}</span>
-                </#if>
+                <ul class="tag-list">
+                  <li class="tag">Severity: ${options.severity}</li>
+                  <#if options.threatType??>
+                      <li class="tag">Type: ${options.threatType}</li>
+                  </#if>
+                </ul>
 
             </div>
         </article>

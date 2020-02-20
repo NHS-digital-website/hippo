@@ -1,5 +1,8 @@
 ---
 /hst:hst/hst:configurations/common/hst:workspace/hst:sitemenus/main/Data and information:
+  /Supplementary information:
+    hst:referencesitemapitem: data-and-information/supplementary-information
+    jcr:primaryType: hst:sitemenuitem
   hst:referencesitemapitem: data-and-information
   hst:repobased: false
   jcr:primaryType: hst:sitemenuitem

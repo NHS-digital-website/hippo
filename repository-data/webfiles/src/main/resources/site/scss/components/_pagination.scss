@@ -14,12 +14,18 @@
         border: 1px solid $col-senary;
         border-radius: 5px;
         margin-bottom: 10px;
+        padding-bottom: 0;
 
         & > a,
         & > span {
             display: inline-block;
             text-decoration: none;
             padding: 10px 20px;
+        }
+
+        a:hover {
+            box-shadow: none;
+            outline: none;
         }
     }
 
@@ -79,7 +85,7 @@
                 width: 24px;
             }
         }
-        
+
         &-hidden {
             display: none;
         }
