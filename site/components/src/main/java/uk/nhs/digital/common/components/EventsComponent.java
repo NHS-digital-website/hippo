@@ -13,7 +13,6 @@ import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.query.filter.BaseFilter;
 import org.hippoecm.hst.content.beans.query.filter.Filter;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
@@ -29,6 +28,7 @@ import org.onehippo.forge.selection.hst.util.SelectionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.common.components.info.EventsComponentInfo;
+import uk.nhs.digital.common.util.DocumentUtils;
 import uk.nhs.digital.website.beans.Event;
 
 import java.util.*;
@@ -64,13 +64,13 @@ public class EventsComponent extends EssentialsEventsComponent {
 
         String[] selectedTypes = getPublicRequestParameters(request, "type");
         request.setAttribute("selectedTypes", Arrays.asList(selectedTypes));
-        request.setAttribute("selectedYear", findYearOrDefault(getSelectedYear(request) , Calendar.getInstance().get(Calendar.YEAR)));
+        request.setAttribute("selectedYear", DocumentUtils.findYearOrDefault(getSelectedYear(request) , Calendar.getInstance().get(Calendar.YEAR)));
         request.setAttribute("years", years());
     }
 
     private Map<String, Long> years() {
         try {
-            return StreamSupport.stream(Spliterators.spliteratorUnknownSize(yearsQuery(), Spliterator.ORDERED), true)
+            return StreamSupport.stream(Spliterators.spliteratorUnknownSize(DocumentUtils.documentsQuery(Event.class), Spliterator.ORDERED), true)
                 .filter(e -> ((Event) e).getDisplay())
                 .flatMap(e -> ((Event) e).getEvents().parallelStream())
                 .map(e -> String.valueOf(e.getStartdatetime().get(Calendar.YEAR)))
@@ -81,14 +81,6 @@ public class EventsComponent extends EssentialsEventsComponent {
             e.printStackTrace();
         }
         return new HashMap<>();
-    }
-
-    private HippoBeanIterator yearsQuery() throws QueryException {
-        return HstQueryBuilder.create(RequestContextProvider.get().getSiteContentBaseBean())
-            .ofTypes(Event.class)
-            .build()
-            .execute()
-            .getHippoBeans();
     }
 
     @Override
@@ -184,22 +176,11 @@ public class EventsComponent extends EssentialsEventsComponent {
 
     protected void addIntervalConstraint(final List filters, final HstQuery hstQuery, final String dateField, final HstRequest request) throws FilterException {
         Calendar calendar = Calendar.getInstance();
-        int year = Integer.valueOf(findYearOrDefault(getSelectedYear(request) , calendar.get(Calendar.YEAR)));
+        int year = Integer.parseInt(DocumentUtils.findYearOrDefault(getSelectedYear(request) , calendar.get(Calendar.YEAR)));
         final Filter filter = hstQuery.createFilter();
         calendar.set(Calendar.YEAR, year);
         filter.addBetween(dateField, calendar, calendar, DateTools.Resolution.YEAR);
         filters.add(filter);
-    }
-
-    private String findYearOrDefault(String target, int fallback) {
-        if (isYear(target)) {
-            return target;
-        }
-        return String.valueOf(fallback);
-    }
-
-    private boolean isYear(String candidate) {
-        return candidate != null && candidate.matches("20[1-9][0-9]");
     }
 
     /**

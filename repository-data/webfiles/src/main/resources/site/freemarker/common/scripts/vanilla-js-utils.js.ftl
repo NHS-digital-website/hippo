@@ -57,10 +57,11 @@
         // Expose the util functions on the global namespace
         window.vanillaJSUtils = 
         window.vjsu = {
-            toggleClass: toggleClass,
-            addClass: addClass,
-            removeClass: removeClass,
-            onKeyUp: onKeyUp
+            toggleClass:    toggleClass,
+            addClass:       addClass,
+            hasClass:       hasClass,
+            removeClass:    removeClass,
+            onKeyUp:        onKeyUp
         };
     }())
 </script>

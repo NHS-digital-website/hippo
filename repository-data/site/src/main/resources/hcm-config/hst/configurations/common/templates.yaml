@@ -248,6 +248,9 @@ definitions:
       /static-ui-news-hub:
         hst:renderpath: webfile:/freemarker/common/static-ui/news-hub-page.ftl
         jcr:primaryType: hst:template
+      /supplementary-information-hub-article:
+        hst:renderpath: webfile:/freemarker/common/supplementary-information-hub-article.ftl
+        jcr:primaryType: hst:template
       /supplementaryinformation:
         hst:renderpath: webfile:/freemarker/common/supplementaryinformation.ftl
         jcr:primaryType: hst:template

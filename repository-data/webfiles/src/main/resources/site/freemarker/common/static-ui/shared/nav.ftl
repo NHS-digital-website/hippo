@@ -15,6 +15,9 @@
             <a href="<@hst.link path='/static-ui/hub'/>">Hub page</a>
         </li>
         <li>
+            <a href="<@hst.link path='/static-ui/supplementary-info-hub'/>">Supplementary info hub page</a>
+        </li>
+        <li>
             <a href="<@hst.link path='/static-ui/list'/>">List page</a>
         </li>
         <li>

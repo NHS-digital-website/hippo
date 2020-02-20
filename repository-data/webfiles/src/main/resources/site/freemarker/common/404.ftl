@@ -43,7 +43,7 @@
                 <div class="article-section no-border">
                     <p class="strong">You could try our search:</p>
 
-                    <#include "search-strip.ftl"/>
+                    <#include "../include/search-strip.ftl">
                 </div>
 
                 <div class="article-section article-section--contact no-border">

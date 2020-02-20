@@ -3,42 +3,39 @@
 <'hippostd'='http://www.onehippo.org/jcr/hippostd/nt/2.0'>
 <'hippostdpubwf'='http://www.onehippo.org/jcr/hippostdpubwf/nt/1.0'>
 <'common'='http://digital.nhs.uk/jcr/common/nt/1.0'>
-<'hippotranslation'='http://www.onehippo.org/jcr/hippotranslation/nt/1.0'>
 <'hippotaxonomy'='http://www.hippoecm.org/hippotaxonomy/nt/1.2'>
+<'hippotranslation'='http://www.onehippo.org/jcr/hippotranslation/nt/1.0'>
 <'hippogallery'='http://www.onehippo.org/jcr/hippogallery/nt/2.0'>
 
-[website:customizedAssetSet] > hippogallery:exampleAssetSet, hippogallery:relaxed
-
-
-[website:infographic] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:expander] > hippo:compound, hippostd:relaxed
+[website:aboutapi] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:address] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:assetlink] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:award] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
   orderable
   - common:searchable (boolean) = 'true' autocreated
 
-[website:apiinfobuilder] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:aboutapi] > hippo:compound, hippostd:relaxed
+[website:apiendpoint] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
   orderable
 
 [website:apiendpointgroup] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:apiinfobuilder] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:apimaster] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:assetlink] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:authnandauths] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:award] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:bannercontrol] > hippo:compound, hippostd:relaxed
@@ -62,16 +59,10 @@
 [website:calltoaction] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:categorylist] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:checklist] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:contactdetail] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:contactdetailextended] > website:contactdetail
-  orderable
-
-[website:ctabutton] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:code] > hippo:compound, hippostd:relaxed
@@ -83,25 +74,45 @@
 [website:componentlist] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:contactdetail] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:contactdetailextended] > website:contactdetail
+  orderable
+
+[website:ctabutton] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:customizedAssetSet] > hippogallery:exampleAssetSet, hippogallery:relaxed
+
+[website:cyberacknowledgement] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:cyberalert] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:cybercveidentifier] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:cycleparking] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:definedterm] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:definedterms] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:directiontositebycar] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:directiontositebypublictransport] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:directorate] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:download] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:cyberalert] > hippostd:relaxed, hippotranslation:translated, website:basedocument
-  orderable
-
-[website:cyberacknowledgement] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:cybercveidentifier] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:quote] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:editorsnotes] > hippostd:relaxed, hippotranslation:translated, website:basedocument
@@ -114,6 +125,9 @@
   orderable
 
 [website:event] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:expander] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:externallink] > hippo:compound, hippostd:relaxed
@@ -164,6 +178,9 @@
 [website:iconlistitem] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:infographic] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:internallink] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -197,22 +214,25 @@
 [website:leadimagesection] > hippo:compound, hippostd:relaxed
   orderable
 
-[website:othersocialmedia] > hippo:compound, hippostd:relaxed
+[website:localtaxi] > hippo:compound, hippostd:relaxed
   orderable
 
-[website:otherrole] > hippo:compound, hippostd:relaxed
+[website:location] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
   orderable
 
-[website:person] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+[website:mediacontact] > hippo:compound, hippostd:relaxed
   orderable
 
-[website:personalinfo] > hippo:compound, hippostd:relaxed
+[website:news] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
-[website:personimage] > hippo:compound, hippostd:relaxed
+[website:notesforeditors] > hippo:compound, hippostd:relaxed
   orderable
 
-[website:postnominal] > hippo:compound, hippostd:relaxed
+[website:onsitecarparking] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:openinghours] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:organisation] > hippostd:relaxed, hippotranslation:translated, website:basedocument
@@ -224,52 +244,55 @@
 [website:orgstructure] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:otherrole] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:othersocialmedia] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:parameters] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:person] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:personalinfo] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:personimage] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:platform] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
 [website:platformversion] > hippo:compound, hippostd:relaxed
   orderable
 
-[website:publishedwork] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
-  orderable
-
-[website:location] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
+[website:postnominal] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:publictransportstation] > hippo:compound, hippostd:relaxed
   orderable
 
-[website:localtaxi] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:openinghours] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:onsitecarparking] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:cycleparking] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:directiontositebycar] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:directiontositebypublictransport] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:directorate] > hippo:compound, hippostd:relaxed
+[website:publishedwork] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
   orderable
 
 [website:publishedworkchapter] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
   orderable
 
-[website:remediationstep] > hippo:compound, hippostd:relaxed
-  orderable
-
 [website:qualification] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:quote] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:releaseinfo] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:remediationstep] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:responsedefinition] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:responsibility] > hippo:compound, hippostd:relaxed
@@ -287,6 +310,9 @@
 [website:role] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:samplecode] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:section] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -302,7 +328,25 @@
 [website:standards] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:statuserrorcode] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:supplementaryinformation] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:supplementaryinformationhub] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:team] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:teammember] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:threataffect] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:threatupdate] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:visualassetlink] > hippo:compound, hippostd:relaxed
@@ -317,35 +361,3 @@
 [website:visualinternallink] > hippo:compound, hippostd:relaxed
   orderable
 
-[website:threataffect] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:threatupdate] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:apiendpoint] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
-  orderable
-
-[website:authnandauths] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:samplecode] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:parameters] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:responsedefinition] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:statuserrorcode] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:team] > hippostd:relaxed, hippotranslation:translated, website:basedocument
-  orderable
-
-[website:teammember] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:categorylist] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
-  orderable

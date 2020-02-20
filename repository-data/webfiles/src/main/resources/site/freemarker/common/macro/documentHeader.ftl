@@ -92,13 +92,13 @@
                                       </#if>
                                       <#assign imageUrl = '${image?replace("/binaries", "/svg-magic/binaries")}' />
                                       <#assign imageUrl += "?colour=${colour}" />
-                                      <img src="${imageUrl}" alt="${custom_title}" />
+                                      <img src="${imageUrl}" alt="${custom_title}" aria-hidden="true" />
                                   <#else>
-                                      <img src="${image}" alt="${custom_title}" />
+                                      <img src="${image}" alt="${custom_title}" aria-hidden="true" />
                                   </#if>
                               <#else>
                                 <#-- ex. EventsHub or NewsHub case - image from provided path -->
-                                <img src="<@hst.webfile path="${headerIcon}" fullyQualified=true/>" alt="${custom_title}">
+                                <img src="<@hst.webfile path="${headerIcon}" fullyQualified=true/>" alt="${custom_title}" aria-hidden="true">
                               </#if>
                             </div>
                         </#if>

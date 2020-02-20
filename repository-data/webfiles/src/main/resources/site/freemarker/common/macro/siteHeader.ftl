@@ -29,7 +29,7 @@
                                 <div class="main-nav__menu">
                                     <div class="${wrapperClassName}">
                                         <#if enableSearch>
-                                        <#include "../search-strip.ftl">
+                                        <#include "../../include/search-strip.ftl">
                                         </#if>
                                     </div>
 

@@ -232,6 +232,14 @@ definitions:
             jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/404
           jcr:primaryType: hst:sitemapitem
+        /supplementary-information:
+          /_any_:
+            hst:componentconfigurationid: hst:pages/supplementaryinformation
+            hst:relativecontentpath: /supplementary-info/${1}
+            jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/supplementary-information-hub
+          hst:relativecontentpath: /supplementary-info/supplementary-information-hub
+          jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404
         jcr:primaryType: hst:sitemapitem
       /error:

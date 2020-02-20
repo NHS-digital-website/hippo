@@ -11,6 +11,10 @@ definitions:
           hst:componentconfigurationid: hst:pages/static-ui-component-block-link
           hst:relativecontentpath: component/block-link
           jcr:primaryType: hst:sitemapitem
+        /hub-box:
+          hst:componentconfigurationid: hst:pages/static-ui-component-hub-box
+          hst:relativecontentpath: component/hub-box
+          jcr:primaryType: hst:sitemapitem
         /icon:
           hst:componentconfigurationid: hst:pages/static-ui-component-icon
           hst:relativecontentpath: component/icon
@@ -73,6 +77,10 @@ definitions:
       /service:
         hst:componentconfigurationid: hst:pages/static-ui-service
         hst:relativecontentpath: static-ui/service
+        jcr:primaryType: hst:sitemapitem
+      /supplementary-info-hub:
+        hst:componentconfigurationid: hst:pages/static-ui-supplementary-info-hub
+        hst:relativecontentpath: static-ui/supplementary-info-hub
         jcr:primaryType: hst:sitemapitem
       hst:componentconfigurationid: hst:pages/static-ui-home
       hst:relativecontentpath: static-ui

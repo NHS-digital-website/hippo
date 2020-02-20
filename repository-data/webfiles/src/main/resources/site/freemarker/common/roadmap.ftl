@@ -25,7 +25,6 @@
 
 <@hst.setBundle basename="publicationsystem.headers"/>
 <#assign interval = document.granularity />
-<#assign monthsOfTheYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] />
 <#assign quartersOfTheYear = ["January - March", "April - June", "July - September", "October - December"] />
 
 <#assign groupedDatesHash = {} />
@@ -102,7 +101,7 @@
 <#function getDisplayDate dateString>
     <#if interval == "Monthly">
         <#assign year= dateString?keep_before("-") />
-        <#assign month = monthsOfTheYear[dateString?keep_after("-")?number-1] />
+        <#assign month = monthsOfTheYear()[dateString?keep_after("-")?number-1] />
         <#assign monthYear = month + " " + year />
         <#return (monthYear == getCurrentMonthYear())?then("Current changes", monthYear) />
 

@@ -2,3 +2,7 @@
 action-lists:
 - 1.2:
     /content/documents/administration/publication-system/facet-labels: reload
+- 1.3:
+    /content/documents/administration/resources/rb.generic.headers: reload
+    /content/documents/administration/resources/rb.generic.labels: reload
+    /hst:hst/hst:configurations/common/hst:workspace/hst:sitemenus/main/Data and information: reload

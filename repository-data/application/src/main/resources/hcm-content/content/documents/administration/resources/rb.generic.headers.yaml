@@ -5,7 +5,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-06-07T16:23:27.852Z
-    hippostdpubwf:lastModificationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModificationDate: 2020-02-12T14:00:44.792Z
     hippostdpubwf:lastModifiedBy: admin
     jcr:mixinTypes:
     - mix:referenceable
@@ -16,6 +16,10 @@
     - Top tasks section header
     - Contact details section header
     - Resources details section header
+    - Search page - no results header
+    - ''
+    - ''
+    - Refine header for the (query input field)
     resourcebundle:id: rb.generic.headers
     resourcebundle:keys:
     - headers.summary
@@ -23,19 +27,27 @@
     - headers.top-tasks
     - headers.contact-details
     - headers.resources
+    - headers.no-results
+    - headers.search
+    - headers.page-contents
+    - headers.refine
     resourcebundle:messages:
     - Summary
     - Further information
     - Top tasks
     - Contact details
     - Resources
+    - No results to display
+    - Search
+    - Page contents
+    - Refine
   /rb.generic.headers[2]:
     hippo:availability:
     - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-06-07T16:23:27.852Z
-    hippostdpubwf:lastModificationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModificationDate: 2020-02-12T14:01:10.683Z
     hippostdpubwf:lastModifiedBy: admin
     jcr:mixinTypes:
     - mix:referenceable
@@ -47,6 +59,10 @@
     - Top tasks section header
     - Contact details section header
     - Resources details section header
+    - Search page - no results header
+    - ''
+    - ''
+    - Refine header for the (query input field)
     resourcebundle:id: rb.generic.headers
     resourcebundle:keys:
     - headers.summary
@@ -54,21 +70,29 @@
     - headers.top-tasks
     - headers.contact-details
     - headers.resources
+    - headers.no-results
+    - headers.search
+    - headers.page-contents
+    - headers.refine
     resourcebundle:messages:
     - Summary
     - Further information
     - Top tasks
     - Contact details
     - Resources
+    - No results to display
+    - Search
+    - Page contents
+    - Refine
   /rb.generic.headers[3]:
     hippo:availability:
     - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-06-07T16:23:27.852Z
-    hippostdpubwf:lastModificationDate: 2018-06-07T16:23:27.852Z
+    hippostdpubwf:lastModificationDate: 2020-02-12T14:01:10.683Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-06-07T13:23:27.852Z
+    hippostdpubwf:publicationDate: 2020-02-12T14:01:11.886Z
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: resourcebundle:resourcebundle
@@ -78,6 +102,10 @@
     - Top tasks section header
     - Contact details section header
     - Resources details section header
+    - Search page - no results header
+    - ''
+    - ''
+    - Refine header for the (query input field)
     resourcebundle:id: rb.generic.headers
     resourcebundle:keys:
     - headers.summary
@@ -85,14 +113,24 @@
     - headers.top-tasks
     - headers.contact-details
     - headers.resources
+    - headers.no-results
+    - headers.search
+    - headers.page-contents
+    - headers.refine
     resourcebundle:messages:
     - Summary
     - Further information
     - Top tasks
     - Contact details
     - Resources
+    - No results to display
+    - Search
+    - Page contents
+    - Refine
   hippo:name: Headers
+  hippo:versionHistory: 8a656810-ed34-4aa0-8d27-20a7c13ea2b9
   jcr:mixinTypes:
   - hippo:named
+  - hippo:versionInfo
   - mix:referenceable
   jcr:primaryType: hippo:handle

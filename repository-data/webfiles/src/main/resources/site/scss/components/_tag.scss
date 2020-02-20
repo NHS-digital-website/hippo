@@ -58,6 +58,6 @@ a.tag-link {
     }
 
     &:focus {
-        outline: 3px solid $focus-colour;
+        box-shadow: 0 0 0 4px #ffcd60;
     }
 }
