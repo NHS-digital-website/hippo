@@ -221,8 +221,8 @@
                                         <a class="cta__title cta__button" href="<@hst.link hippobean=author/>"  onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${author.title}</a>
                                     </div>
                                     <div class="blog-authors__body">
-                                        <#if author.biographies?? && author.biographies?has_content && author.biographies.profbiography.content?has_content>
-                                            <@hst.html hippohtml=author.biographies.profbiography contentRewriter=gaContentRewriter/>
+                                        <#if author.shortsummary?? && author.shortsummary?has_content>
+                                            ${author.shortsummary}
                                         </#if>
                                     </div>
                                 </div>
