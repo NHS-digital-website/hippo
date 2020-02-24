@@ -123,6 +123,13 @@
     @include bold-font(26);
 }
 
+.article-header__types {
+    &--push {
+        display: block;
+        margin-top: 11px;
+    }
+}
+
 .article-header__subtitle {
     @include bold-font(22);
 
