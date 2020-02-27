@@ -126,7 +126,10 @@ public class PublicationPage extends AbstractSitePage {
     }
 
     private SectionWidget createSectionWidget(WebElement webElement) {
+        System.out.println("element: " + webElement);
         String uipath = webElement.getAttribute("data-uipath");
+        System.out.println("DataUIPath: " + webElement.getAttribute("data-uipath"));
+
         switch (uipath) {
             case ImageSectionWidget.UIPATH:
                 return new ImageSectionWidget(webElement);
