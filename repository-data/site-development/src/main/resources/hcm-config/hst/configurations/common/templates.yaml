@@ -31,6 +31,9 @@ definitions:
     /hst:hst/hst:configurations/common/hst:templates/static-ui-list:
       hst:renderpath: webfile:/freemarker/common/static-ui/list-page.ftl
       jcr:primaryType: hst:template
+    /hst:hst/hst:configurations/common/hst:templates/static-ui-news-events-homepage:
+      hst:renderpath: webfile:/freemarker/common/static-ui/news-events-homepage.ftl
+      jcr:primaryType: hst:template
     /hst:hst/hst:configurations/common/hst:templates/static-ui-service:
       hst:renderpath: webfile:/freemarker/common/static-ui/service-page.ftl
       jcr:primaryType: hst:template

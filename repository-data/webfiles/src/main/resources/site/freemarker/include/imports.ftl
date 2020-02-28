@@ -25,6 +25,7 @@
         "Service":                      "uk.nhs.digital.website.beans.Service",
         "General":                      "uk.nhs.digital.website.beans.General",
         "Hub":                          "uk.nhs.digital.website.beans.Hub",
+        "HubNewsAndEvents":             "uk.nhs.digital.website.beans.HubNewsAndEvents",
         "Event":                        "uk.nhs.digital.website.beans.Event",
         "List":                         "uk.nhs.digital.website.beans.ComponentList",
         "Footer":                       "Footer",
@@ -271,7 +272,7 @@
     <#assign links = [] />
 
     <#list sectionCompounds as compound>
-        <#if compound.title?has_content>
+        <#if compound.title?has_content && compound.sectionType != 'ctabutton'>
             <#assign links += [{ "url": "#${idprefix}" + slugify(compound.title), "title": compound.title}] />
             <#if compound.sections?has_content>
                 <#list compound.sections as section>
