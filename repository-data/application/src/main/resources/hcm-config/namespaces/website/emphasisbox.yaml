@@ -59,11 +59,10 @@ definitions:
             /cluster.options:
               ckeditor.config.appended.json: '{toolbarGroups: [{ name: ''document''}],
                 extraPlugins: ''balloonpanel,a11ychecker,abbr,definedterms'', allowedContent:
-                ''h2 h3 h4 code em strong ul div span thead tbody td tr th caption
-                ol li dfn abbr sub sup img a[*](*);p{text-align};abbr[title,id];span[class]{*};table[class,id,dir,data-disablesort]{*};td[align,valign]{*};thead[align,valign]{*};tr[align,valign]{*};th[align,valign]{*};iframe[id,class,style,title,height,name,src,width,allowfullscreen,sandbox,srcdoc]{*}'',
+                ''h2;h3;h4;code;em;strong;ul;div;span;thead;tbody;td;tr;th;caption;ol;li;dfn;abbr;sub;sup;img;a[*](*);p{text-align};abbr[title,id];span[class];table[class,id,dir,data-disablesort]{*};td[align,valign]{*};thead[align,valign]{*};tr[align,valign]{*};th[align,valign]{*};iframe[id,class,style,title,height,name,src,width,allowfullscreen,sandbox,srcdoc]{*}'',
                 disallowedContent: ''iframe[frameborder];td[axis,bgcolor,char,charoff,height,nowrap,scope,width,colspan,rowspan];tr[axis,bgcolor,char,charoff,height,nowrap,width,colspan,rowspan];thead[axis,charoff];p[align]'',
                 mathJaxLib: ''https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML'',
-                contentsCss: ''ckeditor/plugins/definedterms/styles/definedterms.css''}}'
+                contentsCss: ''ckeditor/plugins/definedterms/styles/definedterms.css''}'
               ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:
                 ''wordcount,mathjax'', stylesSet: ''nhsdStyle:./nhsdStyles.js''}'
               jcr:primaryType: frontend:pluginconfig
