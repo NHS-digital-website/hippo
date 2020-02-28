@@ -20,6 +20,9 @@
 [website:address] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:hubnewsandevents] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:apiendpoint] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
   orderable
 

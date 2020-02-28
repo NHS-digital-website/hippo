@@ -49,7 +49,7 @@
             <div class="grid-wrapper">
                 <div class="article-header__inner">
                     <div class="grid-row">
-                        <div class="column--two-thirds column--reset">
+                        <div class="column--two-thirds column--reset" itemscope itemtype="http://schema.org/Text">
 
                             <#if doctype == "news">
                               <span class="article-header__label">${doctype?capitalize}</span>
