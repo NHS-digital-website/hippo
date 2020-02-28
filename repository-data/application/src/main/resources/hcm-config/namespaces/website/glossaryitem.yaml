@@ -45,7 +45,7 @@ definitions:
             /cluster.options:
               ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
                 items: [''Styles'',''Link'',''PickInternalLink'',''BulletedList'',''NumberedList'',''Table'',''SpecialChar'',''PickImage'',''Source'']}],allowedContent:
-                ''h4 p ul ol li img a[*](*);table[class,id,dir,data-disablesort]{*};'',
+                ''h4;p;ul;ol;li;img;a[*](*);table[class,id,dir,data-disablesort]{*};'',
                 disallowedContent:''td[abbr,align,axis,bgcolor,char,charoff,height,nowrap,scope,valign,width,colspan,rowspan];tr[align,axis,bgcolor,char,charoff,height,nowrap,valign,width,colspan,rowspan];thead[align,axis,charoff,valign];p[align]''}'
               ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount''}'
               jcr:primaryType: frontend:pluginconfig
