@@ -224,6 +224,9 @@ definitions:
       /static-ui-component-block-link:
         hst:renderpath: webfile:/freemarker/common/static-ui/component/block-link.ftl
         jcr:primaryType: hst:template
+      /static-ui-component-checklist:
+        hst:renderpath: webfile:/freemarker/common/static-ui/component/checklist.ftl
+        jcr:primaryType: hst:template
       /static-ui-component-icon:
         hst:renderpath: webfile:/freemarker/common/static-ui/component/icon.ftl
         jcr:primaryType: hst:template

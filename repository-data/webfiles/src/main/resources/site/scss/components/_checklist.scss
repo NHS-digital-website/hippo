@@ -62,67 +62,70 @@
     max-width: 85%;
 }
 
+// Checklist widget
 .check-list-widget {
-  margin-bottom: 40px;
-  margin-top: 40px;
-  padding: 24px;
-  background-color: $white;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    padding: 24px;
+    background-color: $white;
     color: $col-primary;
 
-    span {
-        color: $text-colour;
+    &__label {
+        padding: 8px 24px;
+        top: -8px;
+        font-size: 1.25rem;
+        line-height: 1.4;
+        background-color: $blue;
+        color: $white;
+        display: inline-block;
+        margin: 0 -24px 8px;
+        position: relative;
     }
 
-  &--with-heading {
-    padding-top: 0 !important;
-  }
+    &__list {
+        font-size: 1rem;
+        line-height: 1.5;
+        
+        li {
+            margin-bottom: 8px;
 
-  &__label {
-    padding: 8px 24px;
-    top: -8px;
+            span {
+                display: block;
+                color: $text-colour;
+            }
+        }
 
-    font-size: 1.25rem;
-    line-height: 1.4;
-    background-color: $blue;
-    color: $white;
-    display: inline-block;
-    margin: 0 -24px 8px;
-    position: relative;
-  }
-
-  &__list {
-    font-size: 1rem;
-    line-height: 1.5;
-    li {
-      margin-bottom: 8px;
+        *:last-child {
+            margin-bottom: 0;
+        }
     }
 
-    *:last_child{
-      margin-bottom: 0;
-    }
-  }
-
-  &--tick {
-    margin-top: 0;
-    padding-left: 40px;
-    position: relative;
-
-    img {
-      left: -4px;
-      margin-top: -4px;
-      position: absolute;
+    &-icon {
+        height: 34px;
+        width: 34px;
     }
 
-    &--no-bullet {
-      list-style: none;
-      img {
-        margin-left: 8px;
-      }
+    &--with-heading {
+        padding-top: 0 !important;
     }
-  }
 
-  &-icon {
-    height: 34px;
-    width: 34px;
-  }
+    &--tick {
+        position: relative;
+        margin-top: 0;
+        padding-left: 40px;
+
+        img {
+            position: absolute;
+            left: -4px;
+            margin-top: -4px;
+        }
+
+        &--no-bullet {
+            list-style: none;
+            
+            img {
+                margin-left: 8px;
+            }
+        }
+    }
 }
