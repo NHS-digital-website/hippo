@@ -33,8 +33,8 @@
 <@fmt.message key="labels.date-lastupdated" var="dateLastUpdatedLabel" />
 <@fmt.message key="email.cyberattack" var="emailLabel" />
 <@fmt.message key="email.cyberattack.title" var="emailTitleLabel" />
-<@fmt.message key="archivecontent.heading" var="archiveContentHeading" />
-<@fmt.message key="archivecontent.body" var="archiveContentBody" />
+<@fmt.message key="headers.archived" var="archiveContentHeading" />
+<@fmt.message key="texts.archived" var="archiveContentBody" />
 
 
 <#assign hasSummaryContent = document.summary?? && document.summary?has_content />
@@ -94,8 +94,18 @@
         </div>
     </div>
 
-
     <div class="grid-wrapper grid-wrapper--article" id="document-content">
+        <div class="grid-row">
+            <div class="column column--no-padding">
+                <div class="update-box-group">
+                    <#if document.archiveContent?? && document.archiveContent >
+                      <#assign section = { "emphasisType": "Important", "heading": archiveContentHeading, "bodyCustom": archiveContentBody  } />
+                      <@emphasisBox section=section />
+                    </#if>
+                </div>
+            </div>
+        </div>
+
         <div class="grid-row">
 
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
@@ -107,13 +117,6 @@
             </div>
 
             <div class="column column--two-thirds page-block page-block--main">
-                <#if document.archiveContent?? && document.archiveContent >
-
-                  <#assign section = { "emphasisType": "Important", "heading": archiveContentHeading, "bodyCustom": archiveContentBody  } />
-
-                  <@emphasisBox section=section />
-                </#if>
-
                 <#if hasSummaryContent>
                     <div  id="${slugify(summaryHeader)}" class="article-section article-section--summary article-section--reset-top">
                         <h2>${summaryHeader}</h2>
