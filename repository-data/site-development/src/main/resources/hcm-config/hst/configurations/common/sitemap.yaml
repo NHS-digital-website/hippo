@@ -19,6 +19,10 @@ definitions:
           hst:componentconfigurationid: hst:pages/static-ui-component-callout-box
           hst:relativecontentpath: component/callout-box
           jcr:primaryType: hst:sitemapitem
+        /checklist:
+          hst:componentconfigurationid: hst:pages/static-ui-component-checklist
+          hst:relativecontentpath: component/checklist
+          jcr:primaryType: hst:sitemapitem
         /hub-box:
           hst:componentconfigurationid: hst:pages/static-ui-component-hub-box
           hst:relativecontentpath: component/hub-box
