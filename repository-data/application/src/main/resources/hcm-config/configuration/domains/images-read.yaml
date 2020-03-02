@@ -13,6 +13,8 @@ definitions:
         jcr:primaryType: hipposys:domainrule
       /readonly:
         hipposys:groups:
+        - intranet-author
+        - intranet-editor
         - statistical-publications-and-clinical-indicators-author
         - statistical-publications-and-clinical-indicators-editor
         hipposys:role: readonly

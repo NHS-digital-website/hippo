@@ -1,0 +1,30 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/intranet:
+      /author:
+        hipposys:groups:
+        - intranet-author
+        hipposys:role: author
+        jcr:primaryType: hipposys:authrole
+      /editor:
+        hipposys:groups:
+        - intranet-editor
+        hipposys:role: editor
+        jcr:primaryType: hipposys:authrole
+      /intranet-documents:
+        /path-by-uuid:
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/intranet
+          jcr:primaryType: hipposys:facetrule
+        jcr:primaryType: hipposys:domainrule
+      /readwrite:
+        hipposys:groups:
+        - intranet-author
+        - intranet-editor
+        hipposys:role: readwrite
+        jcr:primaryType: hipposys:authrole
+      jcr:primaryType: hipposys:domain
