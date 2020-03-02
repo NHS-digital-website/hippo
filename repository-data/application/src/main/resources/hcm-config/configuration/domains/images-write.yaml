@@ -2,8 +2,14 @@
 definitions:
   config:
     /hippo:configuration/hippo:domains/images-write:
+      /author:
+        hipposys:groups:
+        - intranet-author
+        hipposys:role: author
+        jcr:primaryType: hipposys:authrole
       /editor:
         hipposys:groups:
+        - intranet-editor
         - statistical-publications-and-clinical-indicators-editor
         hipposys:role: editor
         jcr:primaryType: hipposys:authrole
@@ -28,6 +34,8 @@ definitions:
         jcr:primaryType: hipposys:domainrule
       /readwrite:
         hipposys:groups:
+        - intranet-author
+        - intranet-editor
         - statistical-publications-and-clinical-indicators-editor
         hipposys:role: readwrite
         jcr:primaryType: hipposys:authrole

@@ -1,0 +1,8 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/intranet-author:
+      hipposys:description: Users with author role in Intranet and read-only in Corporate
+        Website
+      hipposys:securityprovider: internal
+      jcr:primaryType: hipposys:group
