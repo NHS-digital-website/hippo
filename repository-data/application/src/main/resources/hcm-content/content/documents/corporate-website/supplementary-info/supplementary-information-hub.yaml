@@ -1,0 +1,85 @@
+---
+/content/documents/corporate-website/supplementary-info/supplementary-information-hub:
+  /supplementary-information-hub[1]:
+    /website:introduction:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    /website:seosummary:
+      hippostd:content: some;seo;summary
+      jcr:primaryType: hippostd:html
+    /website:summary:
+      hippostd:content: <p>a short summary</p>
+      jcr:primaryType: hippostd:html
+    common:searchRank: 5
+    common:searchable: true
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-02-12T15:09:50.188Z
+    hippostdpubwf:lastModificationDate: 2020-02-12T15:09:50.189Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 938b1246-5fa0-45d9-9b4e-5fc8136463d9
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: website:supplementaryinformationhub
+    website:title: Supplementary Information Browsing Page
+  /supplementary-information-hub[2]:
+    /website:introduction:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    /website:seosummary:
+      hippostd:content: some;seo;summary
+      jcr:primaryType: hippostd:html
+    /website:summary:
+      hippostd:content: <p>a short summary</p>
+      jcr:primaryType: hippostd:html
+    common:searchRank: 5
+    common:searchable: true
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-02-12T15:09:50.188Z
+    hippostdpubwf:lastModificationDate: 2020-02-12T15:10:13.483Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 938b1246-5fa0-45d9-9b4e-5fc8136463d9
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: website:supplementaryinformationhub
+    website:title: Supplementary Information Browsing Page
+  /supplementary-information-hub[3]:
+    /website:introduction:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    /website:seosummary:
+      hippostd:content: some;seo;summary
+      jcr:primaryType: hippostd:html
+    /website:summary:
+      hippostd:content: <p>a short summary</p>
+      jcr:primaryType: hippostd:html
+    common:searchRank: 5
+    common:searchable: true
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-02-12T15:09:50.188Z
+    hippostdpubwf:lastModificationDate: 2020-02-12T15:10:13.483Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-02-12T15:11:57.847Z
+    hippotranslation:id: 938b1246-5fa0-45d9-9b4e-5fc8136463d9
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: website:supplementaryinformationhub
+    website:title: Supplementary Information Browsing Page
+  hippo:name: Supplementary information hub
+  hippo:versionHistory: 97e966ff-9639-4315-8a0e-e8abd70aece2
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
