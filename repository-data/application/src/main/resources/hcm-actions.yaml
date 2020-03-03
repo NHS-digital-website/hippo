@@ -8,3 +8,5 @@ action-lists:
     /hst:hst/hst:configurations/common/hst:workspace/hst:sitemenus/main/Data and information: reload
 - 1.4:
     /content/documents/administration/publication-system/headers: reload
+- 1.5:
+    /hst:hst/hst:configurations/common/hst:workspace/hst:sitemenus/main/News and events: reload
