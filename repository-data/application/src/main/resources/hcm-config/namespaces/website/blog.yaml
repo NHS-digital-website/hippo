@@ -45,7 +45,8 @@ definitions:
             /cluster.options:
               ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
                 items: [''Link'',''PickInternalLink'',''Source''] }] }'
-              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount''}'
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount'',
+                disableNativeSpellChecker: false}'
               jcr:primaryType: frontend:pluginconfig
             caption: Introduction
             field: summary
@@ -126,7 +127,8 @@ definitions:
             /cluster.options:
               ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
                 items: [''Link'',''PickInternalLink'',''Source''] }] }'
-              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount''}'
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount'',
+                disableNativeSpellChecker: false}'
               jcr:primaryType: frontend:pluginconfig
             caption: Author mini biography
             field: authordescription
@@ -153,7 +155,8 @@ definitions:
             /cluster.options:
               ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
                 items: [''Link'',''PickInternalLink'',''Source''] }] }'
-              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount''}'
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount'',
+                disableNativeSpellChecker: false}'
               jcr:primaryType: frontend:pluginconfig
             caption: Lead image caption
             field: leadimagecaption
@@ -164,7 +167,8 @@ definitions:
             /cluster.options:
               ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
                 items: [''Link'',''PickInternalLink'',''Source''] }] }'
-              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount''}'
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount'',
+                disableNativeSpellChecker: false}'
               jcr:primaryType: frontend:pluginconfig
             caption: Lead paragraph
             field: leadparagraph

@@ -31,7 +31,7 @@ definitions:
           /content:
             /cluster.options:
               ckeditor.config.overlayed.json: '{ toolbarGroups: [ { name: ''basicstyles''
-                }, { name: ''list'' } ] }'
+                }, { name: ''list'' } ] , disableNativeSpellChecker: false}'
               jcr:primaryType: frontend:pluginconfig
             caption: Content
             field: content

@@ -179,7 +179,8 @@ definitions:
                 disallowedContent: ''iframe[frameborder];td[abbr,align,axis,bgcolor,char,charoff,height,nowrap,scope,valign,width,colspan,rowspan];tr[align,axis,bgcolor,char,charoff,height,nowrap,valign,width,colspan,rowspan];thead[align,axis,charoff,valign];p[align]'',
                 mathJaxLib: ''https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML''}'
               ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:
-                ''wordcount,mathjax'', stylesSet: ''nhsdStyle:./nhsdStyles.js''}'
+                ''wordcount,mathjax'', stylesSet: ''nhsdStyle:./nhsdStyles.js'', disableNativeSpellChecker:
+                false}'
               jcr:primaryType: frontend:pluginconfig
             caption: Key Facts (Head Section)
             field: keyFactsHead
@@ -204,7 +205,8 @@ definitions:
                 disallowedContent: ''iframe[frameborder];td[abbr,align,axis,bgcolor,char,charoff,height,nowrap,scope,valign,width,colspan,rowspan];tr[align,axis,bgcolor,char,charoff,height,nowrap,valign,width,colspan,rowspan];thead[align,axis,charoff,valign];p[align]'',
                 mathJaxLib: ''https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML''}'
               ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:
-                ''wordcount,mathjax'', stylesSet: ''nhsdStyle:./nhsdStyles.js''}'
+                ''wordcount,mathjax'', stylesSet: ''nhsdStyle:./nhsdStyles.js'', disableNativeSpellChecker:
+                false}'
               jcr:primaryType: frontend:pluginconfig
             caption: Key Facts (Tail Section)
             field: html

@@ -57,7 +57,8 @@ definitions:
             /cluster.options:
               ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
                 items: [''Link'',''PickInternalLink'',''Source''] }] }'
-              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount''}'
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount'',
+                disableNativeSpellChecker: false}'
               jcr:primaryType: frontend:pluginconfig
             caption: Geocoordinates
             field: geocoordinates
@@ -96,7 +97,8 @@ definitions:
             /cluster.options:
               ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
                 items: [''Link'',''PickInternalLink'',''Source''] }] }'
-              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount''}'
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount'',
+                disableNativeSpellChecker: false}'
               jcr:primaryType: frontend:pluginconfig
             caption: How to get to the location from here
             field: gettolocationfromhere

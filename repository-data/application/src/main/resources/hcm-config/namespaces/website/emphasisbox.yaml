@@ -64,7 +64,8 @@ definitions:
                 mathJaxLib: ''https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML'',
                 contentsCss: ''ckeditor/plugins/definedterms/styles/definedterms.css''}'
               ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:
-                ''wordcount,mathjax'', stylesSet: ''nhsdStyle:./nhsdStyles.js''}'
+                ''wordcount,mathjax'', stylesSet: ''nhsdStyle:./nhsdStyles.js'', disableNativeSpellChecker:
+                false}'
               jcr:primaryType: frontend:pluginconfig
             caption: Body
             field: body
