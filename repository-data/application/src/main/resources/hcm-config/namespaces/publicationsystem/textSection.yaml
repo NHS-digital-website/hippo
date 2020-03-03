@@ -35,7 +35,7 @@ definitions:
                 }'
               ckeditor.config.overlayed.json: '{ extraPlugins: ''mathjax'', toolbarGroups:
                 [ { name: ''basicstyles'' }, { name: ''list'' }, { name: ''insert''
-                } ] }'
+                } ] , disableNativeSpellChecker: false}'
               jcr:primaryType: frontend:pluginconfig
             caption: Text
             field: text

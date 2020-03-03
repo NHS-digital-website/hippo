@@ -45,7 +45,8 @@ definitions:
             wicket.id: ${cluster.id}.left.item
           /summary:
             /cluster.options:
-              ckeditor.config.overlayed.json: '{toolbar:[]}'
+              ckeditor.config.overlayed.json: '{toolbar:[], disableNativeSpellChecker:
+                false}'
               jcr:primaryType: frontend:pluginconfig
             caption: Short summary
             field: summary

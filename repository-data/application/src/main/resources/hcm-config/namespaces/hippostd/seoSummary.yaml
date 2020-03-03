@@ -14,7 +14,7 @@ definitions:
             hardLimit: false, showProgressBar: true, absoluteMinimumThreshold: 10,
             minimumThreshold: 160, optimumMinimumThreshold: 230, optimumMaximumThreshold:
             300}, autoGrow_onStartup: true, autoGrow_maxHeight: 100, enterMode: 2,
-            autoParagraph: false }'
+            autoParagraph: false , disableNativeSpellChecker: false}'
           excluded.image.variants: []
           frontend:properties:
           - mode

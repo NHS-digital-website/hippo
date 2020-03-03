@@ -32,7 +32,8 @@ definitions:
               ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
                 items: [''Link'',''PickInternalLink'',''Source''] }], allowedContent:
                 ''a[*];p'' }'
-              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount''}'
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount'',
+                disableNativeSpellChecker: false}'
               jcr:primaryType: frontend:pluginconfig
             caption: Summary
             field: summary

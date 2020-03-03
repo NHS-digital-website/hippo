@@ -56,7 +56,7 @@ definitions:
               ckeditor.config.appended.json: '{ extraPlugins: ''autogrow'', autoGrow_onStartup:
                 true, autoGrow_maxHeight: 50 }'
               ckeditor.config.overlayed.json: '{ toolbarGroups: [ { name: ''links''
-                }, { name: ''mode'' } ] }'
+                }, { name: ''mode'' } ] , disableNativeSpellChecker: false}'
               jcr:primaryType: frontend:pluginconfig
             caption: Responsibilities
             field: responsibilities
@@ -69,7 +69,7 @@ definitions:
               ckeditor.config.appended.json: '{ extraPlugins: ''autogrow'', autoGrow_onStartup:
                 true, autoGrow_maxHeight: 50 }'
               ckeditor.config.overlayed.json: '{ toolbarGroups: [ { name: ''links''
-                }, { name: ''mode'' } ] }'
+                }, { name: ''mode'' } ] , disableNativeSpellChecker: false}'
               jcr:primaryType: frontend:pluginconfig
             caption: Accountablities
             field: accountablities
@@ -81,7 +81,8 @@ definitions:
             /cluster.options:
               ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
                 items: [''Link'',''PickInternalLink'',''Source''] }] }'
-              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount''}'
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount'',
+                disableNativeSpellChecker: false}'
               jcr:primaryType: frontend:pluginconfig
             caption: Description
             field: summary

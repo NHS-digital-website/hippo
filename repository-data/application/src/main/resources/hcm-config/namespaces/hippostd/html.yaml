@@ -8,4 +8,4 @@ definitions:
         disallowedContent: ''iframe[frameborder];td[align,axis,bgcolor,char,charoff,height,nowrap,scope,valign,width,colspan,rowspan];tr[align,axis,bgcolor,char,charoff,height,nowrap,valign,width,colspan,rowspan];thead[align,axis,charoff,valign];p[align]'',
         contentsCss: ''ckeditor/plugins/definedterms/styles/definedterms.css'' }'
       ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, stylesSet: ''nhsdStyle:./nhsdStyles.js'',
-        customConfig: ''./extraConfiguration.js''}'
+        customConfig: ''./extraConfiguration.js'', disableNativeSpellChecker: false}'
