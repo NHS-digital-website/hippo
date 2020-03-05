@@ -92,7 +92,7 @@
                         <#if downloadPDF>
                             <div class="grid-row">
                                 <div class="column column--reset">
-                                    <button type="button" class="cta-btn cta-btn--white top-margin-20" id="print-pdf-button"><@fmt.message key="labels.download-pdf"/></button>
+                                    <button type="button" class="cta-btn cta-btn--white top-margin-20 is-hidden-if-no-js" id="print-pdf-button"><@fmt.message key="labels.download-pdf"/></button>
                                 </div>
                             </div>
                         </#if>

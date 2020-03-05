@@ -176,7 +176,15 @@ There are 2 ways to run the server: with or without `autoexport`. When the app r
 
 #### Front-end library
 
-> We're using the [NHS Digital UI library](https://github.com/nhsuk/frontend-library) as a base for our UI components and styling. The currently available release ([0.8.0](https://github.com/nhsuk/frontend-library/releases/tag/0.8.0)) is used as described in the [documentation](https://github.com/nhsuk/frontend-library#using-the-scss-directly).
+> Ths project is using a styling system based on the [NHS UI library](https://github.com/nhsuk/frontend-library) for most of the UI components. The currently available release ([0.8.0](https://github.com/nhsuk/frontend-library/releases/tag/0.8.0)) is used as described in the [documentation](https://github.com/nhsuk/frontend-library#using-the-scss-directly).
+
+There is a custom float based grid system in place. For more details on the grid system please refer to the [grid](/repository-data/webfiles/src/main/resources/site/scss/objects/_grid.scss) file.
+
+The styling approach follows the [BEM](http://getbem.com/naming/) methodology - providing a robust naming convention and helping with the creation of reusable UI components.
+
+The stylesheets are compiled using the Maven SASS plugin - the source folder is under `repository-data/webfiles/src/main/resources/site/scss`, and the compiled files are created under `repository-data/webfiles/src/main/resources/site/css`.
+
+Tech dept warning - There is a LESS folder - historically used by the old *Publication Systems* part of the application. Some parts of the LESS styling is still used by some old parts of the application, but this should be moved over to the more concise, SASS based styling system.
 
 ## Running the project for the first time
 

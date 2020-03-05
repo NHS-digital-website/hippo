@@ -51,6 +51,8 @@
             });*/
             $(_this.imageLoader).on('completed', function() {
               setTimeout(function() {
+                logGoogleAnalyticsEvent('Button click','Download as PDF', window.location.href);
+
                 var browserName = navigator.userAgent.toLowerCase();
                 _this.iframe.focus();
                 
@@ -76,13 +78,15 @@
             $printInfo.insertBefore($mainContainerEl.find('.article-header__types'));
 
             // Add the related document contents as individual articles
-            for (var i = 0; i < _this.$relatedDocumentContents.length; i++) {
-                var $documentContentsEl = _this.$relatedDocumentContents[i];
+            if (typeof _this.$relatedDocumentContents !== 'undefined') {
+                for (var i = 0; i < _this.$relatedDocumentContents.length; i++) {
+                    var $documentContentsEl = _this.$relatedDocumentContents[i];
 
-                if (!$documentContentsEl.length) {
-                    continue;
-                } else {
-                    $('<article class="article"><div class="grid-wrapper grid-wrapper--article"><div class="grid-row"><div class="column column--reset">' + $documentContentsEl.html() + '</div></div></div></article>').insertAfter($mainContainerEl.find('.article').last());
+                    if (!$documentContentsEl.length) {
+                        continue;
+                    } else {
+                        $('<article class="article"><div class="grid-wrapper grid-wrapper--article"><div class="grid-row"><div class="column column--reset">' + $documentContentsEl.html() + '</div></div></div></article>').insertAfter($mainContainerEl.find('.article').last());
+                    }
                 }
             }
 
