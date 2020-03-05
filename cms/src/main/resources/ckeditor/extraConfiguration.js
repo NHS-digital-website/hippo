@@ -3,6 +3,11 @@ CKEDITOR.on('instanceReady', function(e) {
     e.editor.removeMenuItem("tablecell_merge");
     e.editor.removeMenuItem("tablecell_merge_down");
     e.editor.removeMenuItem("tablecell_merge_right");
+
+    // Prevents cut and paste of images so that image paths can be managed via the CMS
+    e.editor.on('paste', function (ev) {
+        ev.data.dataValue = ev.data.dataValue.replace(/<img[^>]*?>/gi, '');
+    });
 });
 
 CKEDITOR.on('dialogDefinition', function (e) {
