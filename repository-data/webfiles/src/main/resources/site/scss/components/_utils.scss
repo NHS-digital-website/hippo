@@ -81,3 +81,9 @@
     padding: 0;
     clip: rect(0 0 0 0);
 }
+
+.no-js {
+    .is-hidden-if-no-js {
+        @extend .is-hidden;
+    }
+}
