@@ -1,0 +1,11 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/intranet/hst:templates:
+      /home:
+        hst:renderpath: webfile:/freemarker/intranet/home.ftl
+        jcr:primaryType: hst:template
+      /layout_master:
+        hst:renderpath: webfile:/freemarker/intranet/layout/master.ftl
+        jcr:primaryType: hst:template
+      jcr:primaryType: hst:templates

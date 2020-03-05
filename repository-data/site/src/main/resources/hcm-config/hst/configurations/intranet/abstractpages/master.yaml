@@ -1,0 +1,6 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/intranet/hst:abstractpages/master:
+      hst:template: layout_master
+      jcr:primaryType: hst:component

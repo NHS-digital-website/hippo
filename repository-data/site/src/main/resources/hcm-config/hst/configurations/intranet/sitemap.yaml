@@ -2,4 +2,8 @@
 definitions:
   config:
     /hst:hst/hst:configurations/intranet/hst:sitemap:
+      /root:
+        hst:componentconfigurationid: hst:pages/home
+        hst:refId: root
+        jcr:primaryType: hst:sitemapitem
       jcr:primaryType: hst:sitemap

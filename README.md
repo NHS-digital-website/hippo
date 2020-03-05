@@ -136,6 +136,18 @@ repository-data/application/src/main/resources/hcm-config/configuration/modules/
 
 > For best UI developer experience run the local dev server in one Terminal window, and run the SASS or LESS compiler with Maven in another one (remember to 'cd' into the appropriate folder)!
 
+### Browser scope
+
+The browser scope is based on [GDS best practices](https://www.gov.uk/service-manual/technology/designing-for-different-browsers-and-devices#browsers-to-test-in), which follows the Gov.UK service manual).
+
+We support following browsers:
+- Safari (latest version)
+- Chrome (latest version)
+- Firefox (latest version)
+- Opera (latest version)
+- MS Edge (latest version)
+- IE11
+
 #### CLI commands
 
 **Run LESS compiler watching for local dev**
