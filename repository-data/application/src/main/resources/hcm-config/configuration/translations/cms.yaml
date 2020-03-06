@@ -3,6 +3,7 @@ definitions:
   config:
     /hippo:configuration/hippo:translations/hippo:cms/validators/en:
       http-status-code: Invalid HTTP status code ex. 200, 404, 400
+      issn: 'ISSN does not match the required format: 0000-0000'
       ordernumber: This number must be from range 0-99
       percentage: Progress percentage should be between 0-100
       phonenumber: Telephone number formatting

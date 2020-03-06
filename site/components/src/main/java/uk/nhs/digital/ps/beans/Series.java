@@ -8,10 +8,15 @@ import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
+import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.ps.beans.structuredText.StructuredText;
+import uk.nhs.digital.website.beans.Person;
+import uk.nhs.digital.website.beans.Section;
+import uk.nhs.digital.website.beans.Team;
 
+import java.util.Calendar;
 import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "publicationsystem:series")
@@ -69,4 +74,25 @@ public class Series extends BaseDocument {
 
         return null;
     }
+
+    public Person getStatistician() {
+        return getLinkedBean("publicationsystem:statistician", Person.class);
+    }
+
+    public Team getTeam() {
+        return getLinkedBean("publicationsystem:team", Team.class);
+    }
+
+    public Section getSection() {
+        return getBean("publicationsystem:section", Section.class);
+    }
+
+    public HippoHtml getWhyReplaced() {
+        return getHippoHtml("publicationsystem:whyReplaced");
+    }
+
+    public Calendar getChangeDate() {
+        return getProperty("publicationsystem:changeDate");
+    }
+
 }

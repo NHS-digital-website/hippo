@@ -81,6 +81,128 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /statistician:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              nodetypes:
+              - website:person
+            caption: Responsible Statistician
+            field: statistician
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+          /team:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              last.visited.nodetypes: []
+              nodetypes:
+              - website:team
+            caption: Responsible Team
+            field: team
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+          /replaces:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Series changes and replacements
+            field: replaces
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /shortTitle:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '80'
+              size: ''
+            caption: Publication Short Title
+            field: shortTitle
+            hint: e.g Statistics on smoking
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /subTitle:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '80'
+            caption: Publication subtitle
+            field: subTitle
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /dateNaming:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/administration/value-lists/date-naming-convention
+            caption: Date naming convention
+            field: dateNaming
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /about:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: About this publication
+            field: about
+            hint: Describe this publication series, including objectives and outputs
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /methodology:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Methodology
+            field: methodology
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /frequency:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/administration/value-lists/frequency
+            caption: Frequency
+            field: frequency
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /refNumber:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Series Unique reference number
+            field: refNumber
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+          /accessList:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Pre-release access list
+            field: accessList
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /issn:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: ISSN
+            field: issn
+            hint: 'Format: 0000-0000'
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+          /staticdropdown:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: Tier 1, Tier 2, Tier 3
+            caption: Publication Tier
+            field: staticdropdown
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -103,6 +225,24 @@ definitions:
             - non-empty
             - required
             jcr:primaryType: hipposysedit:field
+          /about:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:about
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /accessList:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:accessList
+            hipposysedit:primary: false
+            hipposysedit:type: publicationsystem:accessList
+            jcr:primaryType: hipposysedit:field
           /attachments:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
@@ -111,6 +251,63 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: publicationsystem:extattachment
             jcr:primaryType: hipposysedit:field
+          /dateNaming:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:dateNaming
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
+            jcr:primaryType: hipposysedit:field
+          /frequency:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:frequency
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
+            jcr:primaryType: hipposysedit:field
+          /issn:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:issn
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - optional
+            - issn
+            jcr:primaryType: hipposysedit:field
+          /methodology:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:methodology
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /refNumber:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:refNumber
+            hipposysedit:primary: false
+            hipposysedit:type: Long
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /replaces:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:replaces
+            hipposysedit:primary: false
+            hipposysedit:type: publicationsystem:seriesreplaces
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
           /resourceLinks:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
@@ -118,6 +315,54 @@ definitions:
             hipposysedit:path: publicationsystem:resourceLinks
             hipposysedit:primary: false
             hipposysedit:type: publicationsystem:relatedlink
+            jcr:primaryType: hipposysedit:field
+          /shortTitle:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:shortTitle
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
+          /staticdropdown:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:staticdropdown
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
+          /statistician:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:statistician
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+            jcr:primaryType: hipposysedit:field
+          /subTitle:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:subTitle
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /team:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:team
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
@@ -146,6 +391,14 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /publicationsystem:accessList:
+            jcr:primaryType: publicationsystem:accessList
+          /publicationsystem:statistician:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
+          /publicationsystem:team:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
           common:FacetType: series
           common:searchRank: 5
           common:searchable: true
@@ -163,6 +416,12 @@ definitions:
           publicationsystem:ShowLatest: false
           publicationsystem:Summary: ''
           publicationsystem:Title: ''
+          publicationsystem:dateNaming: ''
+          publicationsystem:frequency: ''
+          publicationsystem:refNumber: 0
+          publicationsystem:shortTitle: ''
+          publicationsystem:staticdropdown: ' Tier 2'
+          publicationsystem:subTitle: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable
