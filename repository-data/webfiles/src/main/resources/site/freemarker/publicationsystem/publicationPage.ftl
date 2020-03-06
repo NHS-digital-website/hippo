@@ -9,6 +9,8 @@
 <#include "../common/macro/component/lastModified.ftl">
 <#include "../common/macro/component/pagination.ftl">
 
+<@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
+
 <article class="article article--chaptered-publication" itemscope itemtype="http://schema.org/WebPage">
     <#if page.publication??>
         <div itemprop="isPartOf" itemscope itemtype="http://schema.org/PublicationIssue">
