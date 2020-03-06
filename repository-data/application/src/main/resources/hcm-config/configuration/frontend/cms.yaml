@@ -54,6 +54,10 @@ definitions:
       minimallength: 12
     /hippo:configuration/hippo:frontend/cms/cms-static/root:
       max.inactive.interval.minutes: '420'
+    /hippo:configuration/hippo:frontend/cms/cms-validators/issn:
+      jcr:primaryType: frontend:plugin
+      plugin.class: org.hippoecm.frontend.editor.validator.plugins.RegExCmsValidator
+      regex_pattern: \d{4}-\d{4}
     /hippo:configuration/hippo:frontend/cms/hippo-targeting/characteristic-documenttype:
       characteristic: documenttypes
       collector: documenttypes
