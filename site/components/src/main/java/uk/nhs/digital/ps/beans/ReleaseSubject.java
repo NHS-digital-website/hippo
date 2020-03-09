@@ -5,6 +5,7 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoDocument;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import uk.nhs.digital.website.beans.JobRole;
 import uk.nhs.digital.website.beans.Organisation;
 
 import java.util.List;
