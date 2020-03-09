@@ -99,9 +99,9 @@ public class Series extends BaseDocument {
         return getProperty("publicationsystem:subTitle");
     }
 
+    /*
     @HippoEssentialsGenerated(internalName = "publicationsystem:dateNaming")
-
-    /*public DynamDropDown getDateNaming() {
+    public DynamDropDown getDateNaming() {
         return getProperty("publicationsystem:dateNaming");
     }*/
 
@@ -114,6 +114,7 @@ public class Series extends BaseDocument {
     public HippoHtml getMethodology() {
         return getHippoHtml("publicationsystem:methodology");
     }
+
     /*
     @HippoEssentialsGenerated(internalName = "publicationsystem:frequency")
     public String getFrequency() {

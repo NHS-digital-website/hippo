@@ -1,9 +1,9 @@
-package uk.nhs.digital.ps;
+package uk.nhs.digital.ps.beans;
 
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoDocument;
+import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
-import uk.nhs.digital.ps.beans.Series;
 
 import java.util.Calendar;
 
@@ -19,7 +19,7 @@ public class SeriesReplaces extends HippoDocument {
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:mirror")
     public Series getMirror() {
-        return getLinkedBean("publicationsystem:mirror", Series.Class);
+        return getLinkedBean("publicationsystem:mirror", Series.class);
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:whyReplaced")
