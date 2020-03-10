@@ -3,6 +3,7 @@
 <#include "../common/macro/sections/sections.ftl">
 <#include "../common/macro/component/lastModified.ftl">
 <#include "../common/macro/component/pagination.ftl">
+<#include "../common/macro/component/chapter-pagination.ftl">
 <#include "macro/stickyNavSections.ftl">
 <#include "macro/metaTags.ftl">
 
@@ -51,46 +52,17 @@
     </div>
 
     <#if hasChapters>
-        <#assign splitChapters = splitHash(documents) />
 
-        <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
-            <div class="chapter-nav">
+        <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide grid-wrapper--chapter-pagination">
+            <div class="chapter-pagination-wrapper">
                 <div class="grid-wrapper">
-                    <div class="grid-row chapter-nav__skip">
+                    <div class="grid-row chapter-pagination-wrapper__skip visually-hidden">
                         <div class="column column--reset">
                             <a href="#document-content"><@fmt.message key="labels.skip-to-content" /></a>
                         </div>
                     </div>
 
-                    <div class="grid-row">
-                        <div class="column column--reset">
-                            <h2 class="chapter-nav__title"><@fmt.message key="headers.publication-chapters" /></h2>
-                        </div>
-                    </div>
-
-                    <div class="grid-row">
-                        <div class="column column--one-half column--left">
-                            <ul class="list list--reset cta-list">
-                            <#list splitChapters.left as chapter>
-                                <li>
-                                    <a href="${chapter.link}" title="${chapter.title}">${chapter.title}</a>
-                                </li>
-                            </#list>
-                            </ul>
-                        </div>
-
-                        <#if splitChapters.right?size gte 1>
-                            <div class="column column--one-half column--right">
-                            <ul class="list list--reset cta-list">
-                            <#list splitChapters.right as chapter>
-                                <li>
-                                    <a href="${chapter.link}" title="${chapter.title}">${chapter.title}</a>
-                                </li>
-                            </#list>
-                            </ul>
-                        </div>
-                        </#if>
-                    </div>
+                    <@chapterNav document "Current chapter – " />
                 </div>
             </div>
         </div>
@@ -132,6 +104,60 @@
             </div>
         </div>
     </div>
+
+    <#if hasChapters>
+        <#assign splitChapters = splitHash(documents) />
+
+        <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" id="chapter-index">
+            <div class="chapter-nav">
+                <div class="grid-wrapper">
+
+                    <div class="grid-row">
+                        <div class="column column--reset">
+                            <h2 class="chapter-nav__title"><@fmt.message key="headers.publication-chapters" /></h2>
+                        </div>
+                    </div>
+
+                    <div class="grid-row">
+                        <div class="column column--one-half column--left">
+                            <ol class="list list--reset cta-list chapter-index">
+                                <#list splitChapters.left as chapter>
+                                    <#if chapter.id == document.identifier>
+                                        <li class="chapter-index__item chapter-index__item--current">
+                                            <p class="chapter-index__current-item">${chapter.title}</p>
+                                        </li>
+                                    <#else>
+                                        <li class="chapter-index__item">
+                                            <a class="chapter-index__link" href="${chapter.link}" title="${chapter.title}">${chapter.title}</a>
+                                        </li>
+                                    </#if>
+                                </#list>
+                            </ol>
+                        </div>
+
+                        <#if splitChapters.right?size gte 1>
+                            <div class="column column--one-half column--right">
+                                <ol class="list list--reset cta-list chapter-index" start="${splitChapters.left?size + 1}">
+                                    <#list splitChapters.right as chapter>
+                                        <#if chapter.id == document.identifier>
+                                            <li class="chapter-index__item chapter-index__item--current">
+                                                <p class="chapter-index__current-item">${chapter.title}</p>
+                                            </li>
+                                        <#else>
+                                            <li class="chapter-index__item">
+                                                <a class="chapter-index__link" href="${chapter.link}" title="${chapter.title}">${chapter.title}</a>
+                                            </li>
+                                        </#if>
+                                    </#list>
+                                </ol>
+                            </div>
+                        </#if>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </#if>
+
 
     <#-- <#if hasChapters>
         <a href="<@hst.link var=link hippobean=chapter />" title="${chapter.title}">${chapter.title}</a>

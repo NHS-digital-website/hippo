@@ -1,0 +1,98 @@
+.grid-wrapper--chapter-pagination {
+    background: white;
+    margin-top: -40px;
+    margin-bottom: 40px;
+    @include media($size: desktop) {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+    }
+}
+
+
+.chapter-pagination-wrapper {
+    border-bottom: $yellow 4px solid;
+    padding: 12px 0;
+    box-shadow: 0 15px 15px -15px rgba(0,0,0,0.2);
+}
+
+.chapter-pagination-wrapper.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background: white;
+}
+
+.chapter-pagination {
+}
+
+.chapter-pagination__list {
+    list-style: none;
+    padding-left: 0;
+    @include media($size: desktop) {
+        display: flex;
+    }
+}
+
+.chapter-pagination__list-item + .chapter-pagination__list-item {
+    margin-top: 12px;
+    @include media($size: desktop) {
+        margin-top: 0;
+    }
+}
+
+.chapter-pagination__list-item {
+    /* specify flex properties individually to get around https://github.com/philipwalton/flexbugs#flexbug-8 */
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: calc(100% / 3);
+}
+
+/* Force break between two inline items */
+.chapter-pagination__direction::after {
+    content: '\A';
+    white-space: pre;
+}
+
+.chapter-pagination__link {
+}
+
+.chapter-pagination__link-arrow {
+    display: inline-block;
+}
+
+.chapter-pagination-item--previous {
+    @include media($size: desktop) {
+        text-align: left;
+    }
+}
+
+.chapter-pagination-item--current {
+    @include media($size: desktop) {
+        text-align: center;
+    }
+}
+
+.chapter-pagination-item--current .chapter-pagination__link {
+    @include media($size: desktop) {
+        margin-left: calc((1em + 1ch) * -1);
+    }
+}
+
+
+.chapter-pagination-item--next {
+    @include media($size: desktop) {
+        text-align: right;
+    }
+}
+
+.chapter-pagination-item--previous .chapter-pagination__link-arrow,
+.chapter-pagination-item--current .chapter-pagination__link-arrow {
+    margin-right: 1ch;
+}
+
+.chapter-pagination-item--next .chapter-pagination__link-arrow {
+    margin-left: 1ch;
+}

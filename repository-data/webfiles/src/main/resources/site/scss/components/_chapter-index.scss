@@ -1,0 +1,23 @@
+.chapter-index {
+    list-style-type: decimal;
+    list-style-position: inside;
+}
+
+.chapter-index__item--current {
+    margin-left: 16px;
+    position: relative;
+    /* Use :after to avoid small layout issue in IE11 */
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -16px;
+        border-left: 4px solid $yellow;
+    }
+}
+
+.chapter-index__current-item {
+    display: inline;
+}

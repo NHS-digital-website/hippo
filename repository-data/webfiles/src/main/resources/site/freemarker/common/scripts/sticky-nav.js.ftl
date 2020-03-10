@@ -5,10 +5,19 @@
 <#include "sticky-sidebar.js.ftl"/>
 
 <script>
-    var DOMElement = $('#sticky-nav');
-    if(DOMElement.length) {
+    var stickyNav = document.querySelector('#sticky-nav');
+    var chapterNav = document.querySelector('.chapter-pagination-wrapper');
+
+    function getStickyOffset() {
+        var CHAPTER_NAV_SPACING = 24;
+        var SIDEBAR_SPACING = 20;
+
+        return chapterNav ? (chapterNav.offsetHeight + (CHAPTER_NAV_SPACING + SIDEBAR_SPACING)) : SIDEBAR_SPACING;
+    }
+
+    if (stickyNav) {
         var sidebar = new StickySidebar('#sticky-nav', {
-            topSpacing: 20,
+            topSpacing: getStickyOffset(),
             bottomSpacing: 40,
             resizeSensor: true,
             containerSelector: '.grid-row'

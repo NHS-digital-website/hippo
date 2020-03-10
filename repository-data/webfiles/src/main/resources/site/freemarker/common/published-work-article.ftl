@@ -6,6 +6,7 @@
 <#include "../common/macro/sections/sections.ftl">
 <#include "../common/macro/component/lastModified.ftl">
 <#include "../common/macro/component/pagination.ftl">
+<#include "../common/macro/component/chapter-pagination.ftl">
 <#include "macro/stickyNavSections.ftl">
 <#include "macro/metaTags.ftl">
 <#include "../common/macro/fileMetaAppendix.ftl">
@@ -33,8 +34,11 @@
 
 <#macro publicationDate>
     <dl class="detail-list">
-        <dt class="detail-list__key"><@fmt.message key="labels.publication-date"/>:</dt>
-        <dd class="detail-list__value" data-uipath="ps.dataset.nominal-date" itemprop="datePublished">
+        <dt class="detail-list__key"><@fmt.message key="labels.publication-date"/>
+            :
+        </dt>
+        <dd class="detail-list__value" data-uipath="ps.dataset.nominal-date"
+            itemprop="datePublished">
             <@fmt.formatDate value=document.publicationDate.time?date type="date" pattern="d MMM yyyy" timeZone="${getTimeZone()}" />
         </dd>
     </dl>
@@ -44,7 +48,9 @@
     <#list document.informationType as type>
         <#if type == "National statistics">
             <div class="article-header__stamp">
-                <img src="<@hst.webfile path="images/national-statistics-logo.svg"/>" title="National Statistics" class="image-icon image-icon--large" />
+                <img src="<@hst.webfile path="images/national-statistics-logo.svg"/>"
+                     title="National Statistics"
+                     class="image-icon image-icon--large"/>
             </div>
             <#break>
         </#if>
@@ -59,7 +65,8 @@
 
                     <@nationalStatsStamp />
 
-                    <h1 class="local-header__title" data-uipath="document.title">${document.title}</h1>
+                    <h1 class="local-header__title"
+                        data-uipath="document.title">${document.title}</h1>
 
                     <#-- TODO - Chapter title to be added  -->
                     <#-- <p class="article-header__subtitle">(Hardcoded) Chapter title</p> -->
@@ -83,7 +90,10 @@
                             <div class="grid-row">
                                 <div class="column column--reset">
                                     <dl class="detail-list">
-                                        <dt class="detail-list__key" id="geographic-coverage"><@fmt.message key="labels.geographic-coverage"/>:</dt>
+                                        <dt class="detail-list__key"
+                                            id="geographic-coverage"><@fmt.message key="labels.geographic-coverage"/>
+                                            :
+                                        </dt>
                                         <dd class="detail-list__value">
                                             <#list document.geographicCoverage as geographicCoverageItem>${geographicCoverageItem}<#sep>, </#list>
                                         </dd>
@@ -96,7 +106,9 @@
                             <div class="grid-row">
                                 <div class="column column--reset">
                                     <dl class="detail-list">
-                                        <dt class="detail-list__key"><@fmt.message key="labels.geographic-granularity"/>:</dt>
+                                        <dt class="detail-list__key"><@fmt.message key="labels.geographic-granularity"/>
+                                            :
+                                        </dt>
                                         <dd class="detail-list__value">
                                             <#list document.geographicGranularity as granularityItem>${granularityItem}<#sep>, </#list>
                                         </dd>
@@ -109,7 +121,9 @@
                             <div class="grid-row">
                                 <div class="column column--reset">
                                     <dl class="detail-list">
-                                        <dt class="detail-list__key"><@fmt.message key="labels.date-range"/>:</dt>
+                                        <dt class="detail-list__key"><@fmt.message key="labels.date-range"/>
+                                            :
+                                        </dt>
                                         <dd class="detail-list__value">
                                             <#if document.coverageStart?? && document.coverageEnd??>
                                                 <@formatCoverageDates start=document.coverageStart.time end=document.coverageEnd.time/>
@@ -131,57 +145,27 @@
 
         <#assign documents = [] />
 
-        <#-- Cache the parent document's details -->
+    <#-- Cache the parent document's details -->
         <@hst.link hippobean=document var="link" />
         <#assign documents = [{ "index": 0, "id": document.identifier, "title": document.title, "link": link }] />
 
-        <#-- Cache the chapter details -->
+    <#-- Cache the chapter details -->
         <#list childPages as chapter>
             <@hst.link hippobean=chapter var="link" />
             <#assign documents += [{ "index": chapter?counter, "id": chapter.identifier, "title": chapter.title, "link": link }] />
         </#list>
 
 
-        <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
-            <div class="chapter-nav">
+        <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide grid-wrapper--chapter-pagination">
+            <div class="chapter-pagination-wrapper">
                 <div class="grid-wrapper">
-                    <div class="grid-row chapter-nav__skip">
+                    <div class="grid-row chapter-pagination-wrapper__skip visually-hidden">
                         <div class="column column--reset">
                             <a href="#document-content"><@fmt.message key="labels.skip-to-content" /></a>
                         </div>
                     </div>
 
-                    <div class="grid-row">
-                        <div class="column column--reset">
-                            <h2 class="chapter-nav__title"><@fmt.message key="headers.publication-chapters" /></h2>
-                        </div>
-                    </div>
-
-                    <#assign splitChapters = splitHash(documents) />
-
-                    <div class="grid-row">
-                        <div class="column column--one-half column--left">
-                            <ul class="list list--reset cta-list">
-                                <#list splitChapters.left as childPage>
-                                    <li>
-                                        <a href="${childPage.link}" title="${childPage.title}">${childPage.title}</a>
-                                    </li>
-                                </#list>
-                            </ul>
-                        </div>
-
-                        <#if splitChapters.right?size gte 1>
-                            <div class="column column--one-half column--right">
-                                <ul class="list list--reset cta-list">
-                                    <#list splitChapters.right as childPage>
-                                        <li>
-                                            <a href="${childPage.link}" title="${childPage.title}">${childPage.title}</a>
-                                        </li>
-                                    </#list>
-                                </ul>
-                            </div>
-                        </#if>
-                    </div>
+                    <@chapterNav document />
                 </div>
             </div>
         </div>
@@ -209,7 +193,8 @@
 
             <div class="column column--two-thirds page-block page-block--main">
                 <#if hasSummaryContent>
-                    <div id="${slugify('Summary')}" class="article-section article-section--summary article-section--reset-top">
+                    <div id="${slugify('Summary')}"
+                         class="article-section article-section--summary article-section--reset-top">
                         <h2><@fmt.message key="headers.summary" /></h2>
                         <div data-uipath="website.publishedwork.summary"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></div>
                     </div>
@@ -255,7 +240,8 @@
                         <h2><@fmt.message key="labels.resources"/></h2>
                         <ul class="list list--reset">
                             <#list document.resources as attachment>
-                                <li class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
+                                <li class="attachment" itemprop="hasPart" itemscope
+                                    itemtype="http://schema.org/MediaObject">
                                     <@externalstorageLink attachment.resource; url>
                                         <a title="${attachment.text}"
                                            href="${url}"
@@ -267,7 +253,8 @@
                                                 <@fileIconByMimeType attachment.resource.mimeType></@fileIconByMimeType>
                                             </div>
                                             <div class="block-link__body">
-                                                <span class="block-link__title" itemprop="name">${attachment.text}</span>
+                                                <span class="block-link__title"
+                                                      itemprop="name">${attachment.text}</span>
                                                 <@fileMetaAppendix attachment.resource.length, attachment.resource.mimeType></@fileMetaAppendix>
                                             </div>
                                         </a>
@@ -287,4 +274,58 @@
             </div>
         </div>
     </div>
+    <#if hasChildPages>
+
+        <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" id="chapter-index">
+            <div class="chapter-nav">
+                <div class="grid-wrapper">
+
+                    <div class="grid-row">
+                        <div class="column column--reset">
+                            <h2 class="chapter-nav__title"><@fmt.message key="headers.publication-chapters" /></h2>
+                        </div>
+                    </div>
+
+                    <#assign splitChapters = splitHash(documents) />
+
+                    <div class="grid-row">
+                        <div class="column column--one-half column--left">
+                            <ol class="list list--reset cta-list chapter-index">
+                                <#list splitChapters.left as chapter>
+                                    <#if chapter.id == document.identifier>
+                                        <li class="chapter-index__item chapter-index__item--current">
+                                            <p class="chapter-index__current-item">${chapter.title}</p>
+                                        </li>
+                                    <#else>
+                                        <li class="chapter-index__item">
+                                            <a class="chapter-index__link" href="${chapter.link}" title="${chapter.title}">${chapter.title}</a>
+                                        </li>
+                                    </#if>
+                                </#list>
+                            </ol>
+                        </div>
+
+                        <#if splitChapters.right?size gte 1>
+                            <div class="column column--one-half column--right">
+                                <ol class="list list--reset cta-list chapter-index" start="${splitChapters.left?size + 1}">
+                                    <#list splitChapters.right as chapter>
+                                        <#if chapter.id == document.identifier>
+                                            <li class="chapter-index__item chapter-index__item--current">
+                                                <p class="chapter-index__current-item">${chapter.title}</p>
+                                            </li>
+                                        <#else>
+                                            <li class="chapter-index__item">
+                                                <a class="chapter-index__link" href="${chapter.link}" title="${chapter.title}">${chapter.title}</a>
+                                            </li>
+                                        </#if>
+                                    </#list>
+                                </ol>
+                            </div>
+                        </#if>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </#if>
+
 </article>

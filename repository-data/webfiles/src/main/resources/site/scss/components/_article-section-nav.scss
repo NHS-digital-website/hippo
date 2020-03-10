@@ -4,12 +4,15 @@
 #sticky-nav {
     a.active,
     span.active {
-        border-left: 7px solid #ffb81c;
-        padding-left: 10px;
+        border-left: $baseline-grid-unit solid #ffb81c;
+        padding-left: 12px;
         color: $col-20;
         text-decoration: none;
-        font-weight: bold;
     }
+}
+
+.article-section-nav-outer-wrapper {
+
 }
 
 /* Article section nav */
@@ -38,13 +41,13 @@
     }
 
     .article-section-nav__title {
-        margin: 0 0 $default-spacing-unit;
+        margin: 0 0 (($default-spacing-unit/8)*7);
         display: inline-block;
-        padding: 0 10px 10px 0;
-        border-bottom: $baseline-grid-unit solid $col-20;
+        padding: 0 10px 21px 0;
+        border-bottom: $baseline-grid-unit/2 solid $col-20;
         width: 100%;
 
-        @include bold-font(24);
+        @include core-font(24);
 
         @include media(desktop) {
             line-height: 24px;
@@ -69,7 +72,10 @@
         list-style: none;
         padding-left: 0;
 
-        @include bold-font(18);
+        @include core-font(18);
+        @include media(desktop) {
+            line-height: $baseline-grid-unit * 6;
+        }
 
         li {
             padding-left: 0;
@@ -82,9 +88,12 @@
         }
 
         a {
+            color: $blue;
             margin-top: 10px;
             display: inline-block;
             text-decoration: underline;
+            padding-top: 3px;
+            padding-bottom: 3px;
 
             &:hover {
               text-decoration: none;
@@ -193,4 +202,30 @@
     & + .article-section-nav {
         margin-top: $gutter * 3;
     }
+}
+
+.inner-wrapper-sticky {
+    transform: translate(0, 0); /* For browsers don't support translate3d. */
+    transform: translate3d(0, 0, 0);
+    will-change: position, transform;
+}
+
+
+.full-width-image {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    @include media($size: desktop) {
+        margin-top: 24px;
+        margin-bottom: 24px;
+        width: calc(166.6666% - 66px);
+        margin-left: calc(-66.66666% + 66px );
+    }
+    @include media($size: wide) {
+        width: calc(166.6666% - 124px);
+        margin-left: calc(-66.66666% + 124px);
+    }
+}
+
+.full-width-image img {
+    width: 100%;
 }
