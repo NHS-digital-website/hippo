@@ -4,6 +4,7 @@ import static org.apache.commons.collections.IteratorUtils.toList;
 import static org.springframework.util.CollectionUtils.isEmpty;
 import static uk.nhs.digital.ps.components.HippoComponentHelper.*;
 
+import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
@@ -13,6 +14,8 @@ import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
+import org.onehippo.forge.selection.hst.contentbean.ValueList;
+import org.onehippo.forge.selection.hst.util.SelectionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.ps.beans.LegacyPublication;
@@ -50,6 +53,21 @@ public class SeriesComponent extends EssentialsContentComponent {
         } else {
             reportInvalidInvocation(request, contentBean);
             return;
+        }
+
+        /* Setting frequency & date naming map on request  */
+        final ValueList frequencyValueList =
+            SelectionUtil.getValueListByIdentifier("frequency", RequestContextProvider.get());
+
+        if (frequencyValueList != null) {
+            request.setAttribute("frequencyMap", SelectionUtil.valueListAsMap(frequencyValueList));
+        }
+
+        final ValueList dateNamingConvention =
+            SelectionUtil.getValueListByIdentifier("datenamingconvention", RequestContextProvider.get());
+
+        if (dateNamingConvention != null) {
+            request.setAttribute("dateNamingMap", SelectionUtil.valueListAsMap(dateNamingConvention));
         }
 
         request.setAttribute("series", seriesIndexDocument);
