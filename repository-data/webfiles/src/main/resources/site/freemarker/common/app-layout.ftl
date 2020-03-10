@@ -13,6 +13,8 @@
     <#-- Add site header with the search bar -->
     <@siteHeader true></@siteHeader>
 
+    <#include "coronavirus-banner.ftl"/>
+
     <@hst.include ref="breadcrumb"/>
 
     <main id="main-content">
