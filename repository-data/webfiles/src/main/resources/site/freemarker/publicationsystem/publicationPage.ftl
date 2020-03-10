@@ -9,6 +9,11 @@
 <#include "../common/macro/component/lastModified.ftl">
 <#include "../common/macro/component/pagination.ftl">
 
+<#assign overridePageTitle>${page.title}</#assign>
+<#-- Add meta tags -->
+<#include "../common/macro/metaTags.ftl">
+<@metaTags></@metaTags>
+
 <@hst.setBundle basename="publicationsystem.labels,publicationsystem.headers"/>
 
 <article class="article article--chaptered-publication" itemscope itemtype="http://schema.org/WebPage">
