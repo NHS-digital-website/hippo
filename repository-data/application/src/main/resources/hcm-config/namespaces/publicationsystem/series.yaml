@@ -106,7 +106,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Series changes and replacements
-            field: replaces
+            field: seriesreplaces
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
@@ -133,7 +133,7 @@ definitions:
           /dateNaming:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/value-lists/date-naming-convention
+              source: /content/documents/administration/website/date-naming-convention
             caption: Date naming convention
             field: dateNaming
             hint: ''
@@ -157,21 +157,40 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
+          /refNumber:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Series Unique reference number
+            field: refNumber
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
           /frequency:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/value-lists/frequency
+              source: /content/documents/administration/website/frequency
             caption: Frequency
             field: frequency
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
-          /refNumber:
+          /issn:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Series Unique reference number
-            field: refNumber
+            caption: ISSN
+            field: issn
+            hint: 'Format: 0000-0000'
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+          /publicationTier:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: Tier 1, Tier 2, Tier 3
+            caption: Publication Tier
+            field: staticdropdown
+            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
@@ -184,25 +203,6 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
-          /issn:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: ISSN
-            field: issn
-            hint: 'Format: 0000-0000'
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-          /staticdropdown:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              selectable.options: Tier 1, Tier 2, Tier 3
-            caption: Publication Tier
-            field: staticdropdown
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -298,7 +298,15 @@ definitions:
             hipposysedit:validators:
             - optional
             jcr:primaryType: hipposysedit:field
-          /replaces:
+          /resourceLinks:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publicationsystem:resourceLinks
+            hipposysedit:primary: false
+            hipposysedit:type: publicationsystem:relatedlink
+            jcr:primaryType: hipposysedit:field
+          /seriesreplaces:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
@@ -307,14 +315,6 @@ definitions:
             hipposysedit:type: publicationsystem:seriesreplaces
             hipposysedit:validators:
             - optional
-            jcr:primaryType: hipposysedit:field
-          /resourceLinks:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: publicationsystem:resourceLinks
-            hipposysedit:primary: false
-            hipposysedit:type: publicationsystem:relatedlink
             jcr:primaryType: hipposysedit:field
           /shortTitle:
             hipposysedit:mandatory: false
@@ -331,7 +331,7 @@ definitions:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:staticdropdown
+            hipposysedit:path: publicationsystem:publicationTier
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             hipposysedit:validators:
@@ -418,9 +418,8 @@ definitions:
           publicationsystem:Title: ''
           publicationsystem:dateNaming: ''
           publicationsystem:frequency: ''
-          publicationsystem:refNumber: 0
+          publicationsystem:publicationTier: ' Tier 2'
           publicationsystem:shortTitle: ''
-          publicationsystem:staticdropdown: ' Tier 2'
           publicationsystem:subTitle: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:

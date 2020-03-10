@@ -19,7 +19,7 @@ definitions:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-          /mirror:
+          /replacementSeries:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               nodetypes:
@@ -42,7 +42,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /date:
+          /changeDate:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Effective Change Date
@@ -58,7 +58,7 @@ definitions:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:date
+            hipposysedit:path: publicationsystem:changeDate
             hipposysedit:primary: false
             hipposysedit:type: Date
             jcr:primaryType: hipposysedit:field
@@ -66,7 +66,7 @@ definitions:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:mirror
+            hipposysedit:path: publicationsystem:replacementSeries
             hipposysedit:primary: false
             hipposysedit:type: hippo:mirror
             jcr:primaryType: hipposysedit:field
@@ -92,14 +92,14 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          /publicationsystem:mirror:
+          /publicationsystem:replacementSeries:
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             jcr:primaryType: hippo:mirror
           /publicationsystem:whyReplaced:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
           jcr:primaryType: publicationsystem:seriesreplaces
-          publicationsystem:date: 0001-01-01T12:00:00Z
+          publicationsystem:changeDate: 0001-01-01T12:00:00Z
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable

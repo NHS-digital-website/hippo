@@ -15,7 +15,6 @@ import uk.nhs.digital.ps.beans.structuredText.StructuredText;
 import uk.nhs.digital.website.beans.Person;
 import uk.nhs.digital.website.beans.Team;
 
-import java.util.Calendar;
 import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "publicationsystem:series")
@@ -74,77 +73,56 @@ public class Series extends BaseDocument {
         return null;
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:statistician")
     public Person getStatistician() {
         return getLinkedBean("publicationsystem:statistician", Person.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:team")
     public Team getTeam() {
         return getLinkedBean("publicationsystem:team", Team.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:accessList")
     public SeriesReplaces getSeriesReplaces() {
-        return getLinkedBean("publicationsystem:accessList", SeriesReplaces.class);
+        return getBean("publicationsystem:replaces", SeriesReplaces.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:shortTitle")
     public String getShortTitle() {
         return getProperty("publicationsystem:shortTitle");
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:subTitle")
     public String getSubTitle() {
         return getProperty("publicationsystem:subTitle");
     }
 
-    /*
-    @HippoEssentialsGenerated(internalName = "publicationsystem:dateNaming")
-    public DynamDropDown getDateNaming() {
+    public String getDateNaming() {
         return getProperty("publicationsystem:dateNaming");
-    }*/
+    }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:about")
     public HippoHtml getAbout() {
         return getHippoHtml("publicationsystem:about");
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:methodology")
     public HippoHtml getMethodology() {
         return getHippoHtml("publicationsystem:methodology");
     }
 
-    /*
-    @HippoEssentialsGenerated(internalName = "publicationsystem:frequency")
     public String getFrequency() {
         return getProperty("publicationsystem:frequency");
-    }*/
-
-    @HippoEssentialsGenerated(internalName = "publicationsystem:changeDate")
-    public Calendar getChangeDate() {
-        return getProperty("publicationsystem:changeDate");
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:refNumber")
     public Long getRefNumber() {
         return getProperty("publicationsystem:refNumber");
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:accessList")
     public AccessList getAccessList() {
-        return getLinkedBean("publicationsystem:accessList", AccessList.class);
+        return getBean("publicationsystem:accessList", AccessList.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "publicationsystem:issn")
     public String getIssn() {
         return getProperty("publicationsystem:issn");
     }
 
-    /*
-    @HippoEssentialsGenerated(internalName = "publicationsystem:staticDropDown")
-    public getStatifDropDown() {
-        return getProperty("publicationsystem:staticDropDown");
-    }*/
+    public String getPublicationTier()  {
+        return getProperty("publicationsystem:publicationTier");
+    }
 
 }

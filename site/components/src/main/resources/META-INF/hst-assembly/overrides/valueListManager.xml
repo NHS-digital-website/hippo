@@ -17,6 +17,8 @@
                 <entry key="imagedistributiontagging" value="/content/documents/administration/website/imagedistributiontagging"/>
                 <entry key="imagesourcepermission" value="/content/documents/administration/website/imagesourcepermission"/>
                 <entry key="newstypes" value="/content/documents/administration/website/news-type"/>
+                <entry key="frequency" value="/content/documents/administration/website/frequency"/>
+                <entry key="datenamingconvention" value="/content/documents/administration/website/date-naming-convention"/>
             </map>
         </constructor-arg>
     </bean>
