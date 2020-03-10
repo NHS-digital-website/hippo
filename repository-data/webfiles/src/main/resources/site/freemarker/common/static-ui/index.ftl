@@ -11,8 +11,10 @@
 <body class="debugs static-ui">
     <@skipLink />
     <#include "shared/nav.ftl"/>
-    
+
     <@siteHeader true></@siteHeader>
+
+    <#include "../coronavirus-banner.ftl"/>
 
     <#include "shared/breadcrumb.ftl"/>
 
