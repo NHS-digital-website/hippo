@@ -305,14 +305,6 @@ definitions:
             - non-empty
             - required
             jcr:primaryType: hipposysedit:field
-          /administrative_sources:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:AdministrativeSources
-            hipposysedit:primary: false
-            hipposysedit:type: Text
-            jcr:primaryType: hipposysedit:field
           /about:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -331,6 +323,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: publicationsystem:accessList
             jcr:primaryType: hipposysedit:field
+          /administrative_sources:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:AdministrativeSources
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            jcr:primaryType: hipposysedit:field
           /attachments:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
@@ -338,6 +338,22 @@ definitions:
             hipposysedit:path: publicationsystem:attachments
             hipposysedit:primary: false
             hipposysedit:type: publicationsystem:extattachment
+            jcr:primaryType: hipposysedit:field
+          /dateNaming:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:dateNaming
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
+            jcr:primaryType: hipposysedit:field
+          /frequency:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:frequency
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
             jcr:primaryType: hipposysedit:field
           /granularity:
             hipposysedit:mandatory: false
@@ -358,22 +374,6 @@ definitions:
             hipposysedit:type: StaticDropdown
             hipposysedit:validators:
             - publicationsystem-dropdown-information-type
-            jcr:primaryType: hipposysedit:field
-          /dateNaming:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:dateNaming
-            hipposysedit:primary: false
-            hipposysedit:type: DynamicDropdown
-            jcr:primaryType: hipposysedit:field
-          /frequency:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:frequency
-            hipposysedit:primary: false
-            hipposysedit:type: DynamicDropdown
             jcr:primaryType: hipposysedit:field
           /issn:
             hipposysedit:mandatory: false

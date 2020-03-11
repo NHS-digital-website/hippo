@@ -2,6 +2,7 @@
 <#include "../include/imports.ftl">
 <#include "./macro/structured-text.ftl">
 <#include "./macro/publicationHeader.ftl">
+<#include "../common/macro/updateGroup.ftl">
 <#include "../common/macro/sections/sections.ftl">
 <#include "../common/macro/stickyNavSections.ftl">
 <#include "../common/macro/fileMetaAppendix.ftl">
@@ -65,33 +66,7 @@
 
     <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
 
-        <#if publication.updates?has_content || publication.changenotice?has_content>
-            <div class="grid-row">
-                <div class="column column--no-padding">
-                    <div class="callout-box-group">
-                        <#if publication.updates?has_content>
-                            <#assign item = {} />
-                            <#list publication.updates as update>
-                                <#assign item += update />
-                                <#assign item += {"calloutType":"update", "index":update?index} />
-                                <@calloutBox item />
-                            </#list>
-                        </#if>
-
-                        <#if publication.changenotice?has_content>
-                            <#assign item = {} />
-                            <#list publication.changenotice as changeData>
-                                <#assign item += changeData />
-                                <@fmt.formatDate value=changeData.date.time type="Date" pattern="d MMMM yyyy HH:mm a" timeZone="${getTimeZone()}" var="changeDateTime" />
-                                <#assign item += {"date":changeDateTime, "dateLabel":changeDateLabel} />
-                                <#assign item += {"calloutType":"change", "severity":"information", "index":changeData?index} />
-                                <@calloutBox item />
-                            </#list>
-                        </#if>
-                    </div>
-                </div>
-            </div>
-        </#if>
+        <@updateGroup document=publication />
 
         <div class="grid-row">
             <#if index?has_content && index?size gt 1>
