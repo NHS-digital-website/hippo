@@ -17,7 +17,7 @@
                     <h1 class="local-header__title" data-uipath="document.title" itemprop="name">${document.title}</h1>
 
                     <#if series.informationType?has_content>
-                        <span class="article-header__types article-header__types--push" data-uipath="ps.document.information-types">
+                        <span class="article-header__types article-header__types--push" data-uipath="ps.series.information-types">
                             <#list series.informationType as type>${type}<#sep>, </#list>
                         </span>
                         <hr class="hr hr--short hr--light">
@@ -29,7 +29,7 @@
                                 <div class="column column--reset">
                                     <dl class="detail-list">
                                         <dt class="detail-list__key" id="frequency"><@fmt.message key="headers.frequency"/></dt>
-                                        <dd class="detail-list__value" itemprop="frequency" data-uipath="ps.document.frequency">${series.frequency?capitalize}</dd>
+                                        <dd class="detail-list__value" itemprop="frequency" data-uipath="ps.series.frequency">${frequencyMap[series.frequency]}</dd>
                                     </dl>
                                 </div>
                             </div>
@@ -40,7 +40,7 @@
                                 <div class="column column--reset">
                                     <dl class="detail-list">
                                         <dt class="detail-list__key" id="geographic-coverage"><@fmt.message key="headers.geographical-coverage"/></dt>
-                                        <dd class="detail-list__value" itemprop="spatialCoverage" data-uipath="ps.document.geographic-coverage">
+                                        <dd class="detail-list__value" itemprop="spatialCoverage" data-uipath="ps.series.geographic-coverage">
                                             <#list geographicCoverage as geographicCoverageItem>${geographicCoverageItem}<#sep>, </#list>
                                         </dd>
                                     </dl>
@@ -52,8 +52,8 @@
                             <div class="grid-row">
                                 <div class="column column--reset">
                                     <dl class="detail-list">
-                                        <dt class="detail-list__key"><@fmt.message key="headers.geographical-granularity"/></dt>
-                                        <dd class="detail-list__value" data-uipath="ps.document.granularity">
+                                        <dt class="detail-list__key"  id="geographical-granularity"><@fmt.message key="headers.geographical-granularity"/></dt>
+                                        <dd class="detail-list__value" data-uipath="ps.series.granularity">
                                             <#list granularity as granularityItem>${granularityItem}<#sep>, </#list>
                                         </dd>
                                     </dl>

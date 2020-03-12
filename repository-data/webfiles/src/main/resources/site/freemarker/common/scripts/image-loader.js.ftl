@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 
-<script type="text/javascript">
+<script>
     /*<!CDATA[[*/
     function ImageLoader() {
 
