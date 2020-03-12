@@ -22,6 +22,7 @@ import uk.nhs.digital.common.util.DocumentUtils;
 import uk.nhs.digital.ps.components.DocumentTitleComparator;
 import uk.nhs.digital.ps.site.exceptions.DataRestrictionViolationException;
 import uk.nhs.digital.website.beans.News;
+import uk.nhs.digital.website.beans.SupplementaryInformation;
 import uk.nhs.digital.website.beans.Update;
 
 import java.util.*;
@@ -218,6 +219,16 @@ public abstract class PublicationBase extends BaseDocument {
         List<Update> allLinkedUpdates = getRelatedDocuments(
             "website:relateddocument/@hippo:docbase", Update.class);
         return DocumentUtils.getFilteredAndSortedUpdates(allLinkedUpdates);
+    }
+
+    public List<SupplementaryInformation> getSupplementaryInformation()
+        throws QueryException {
+        List<SupplementaryInformation> linkedSupplementaryInfo = getRelatedDocuments(
+            "website:relateddocuments/@hippo:docbase",
+            SupplementaryInformation.class);
+
+        return DocumentUtils
+            .getSortedSupplementaryInformation(linkedSupplementaryInfo);
     }
 
     public List<News> getRelatedNews() throws HstComponentException, QueryException {

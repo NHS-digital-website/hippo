@@ -8,6 +8,9 @@
 [publicationsystem:accessiblelink] > hippo:compound, hippostd:relaxed
   orderable
 
+[publicationsystem:accessList] > hippo:compound, hippostd:relaxed
+  orderable
+
 [publicationsystem:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
   orderable
   - common:searchable (boolean) = 'true' autocreated

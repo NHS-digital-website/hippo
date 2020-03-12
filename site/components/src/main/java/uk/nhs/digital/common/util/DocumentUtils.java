@@ -4,6 +4,7 @@ import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
+import uk.nhs.digital.website.beans.SupplementaryInformation;
 import uk.nhs.digital.website.beans.Update;
 
 import java.util.Calendar;
@@ -26,6 +27,12 @@ public final class DocumentUtils {
                     update -> Update.Severity.getSortOrder(update.getSeverity()))
                     .thenComparing(Update::getExpirydate, Comparator.nullsLast(Comparator.naturalOrder())))
             .collect(Collectors.toList());
+    }
+
+    public static List<SupplementaryInformation> getSortedSupplementaryInformation(
+        List<SupplementaryInformation> supplementaryInfo) {
+        supplementaryInfo.sort(Comparator.comparing(SupplementaryInformation::getPublishedDate, Comparator.nullsLast(Comparator.reverseOrder())));
+        return supplementaryInfo;
     }
 
     public static HippoBeanIterator documentsQuery(final Class clazz) throws QueryException {

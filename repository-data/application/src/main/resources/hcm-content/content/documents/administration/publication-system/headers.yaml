@@ -5,12 +5,13 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-10-26T15:49:40.466Z
-    hippostdpubwf:lastModificationDate: 2018-05-04T11:34:38.870Z
+    hippostdpubwf:lastModificationDate: 2020-02-20T15:12:06.799Z
     hippostdpubwf:lastModifiedBy: admin
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: resourcebundle:resourcebundle
     resourcebundle:descriptions:
+    - ''
     - ''
     - ''
     - ''
@@ -51,7 +52,7 @@
     - headers.datasets
     - headers.upcoming
     - headers.download-chart-data
-    - headers.release-date
+    - headers.supplementary-information-requests
     resourcebundle:messages:
     - Summary
     - Key Facts
@@ -72,14 +73,14 @@
     - Data Sets
     - Upcoming
     - Download the data for this chart
-    - Release date
+    - Supplementary information requests
   /headers[2]:
     hippo:availability:
     - preview
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-10-26T15:49:40.466Z
-    hippostdpubwf:lastModificationDate: 2018-05-04T11:46:18.450Z
+    hippostdpubwf:lastModificationDate: 2020-02-20T14:03:21.650Z
     hippostdpubwf:lastModifiedBy: admin
     jcr:mixinTypes:
     - mix:referenceable
@@ -105,6 +106,7 @@
     - ''
     - ''
     - ''
+    - ''
     resourcebundle:id: publicationsystem.headers
     resourcebundle:keys:
     - headers.summary
@@ -126,6 +128,7 @@
     - headers.datasets
     - headers.upcoming
     - headers.download-chart-data
+    - headers.supplementary-information-requests
     resourcebundle:messages:
     - Summary
     - Key Facts
@@ -146,15 +149,16 @@
     - Data Sets
     - Upcoming
     - Download the data for this chart
+    - Supplementary information requests
   /headers[3]:
     hippo:availability:
     - live
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2017-10-26T15:49:40.466Z
-    hippostdpubwf:lastModificationDate: 2018-05-04T11:46:18.450Z
+    hippostdpubwf:lastModificationDate: 2020-02-20T14:03:21.650Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-05-04T11:46:22.510Z
+    hippostdpubwf:publicationDate: 2020-02-20T14:03:23.199Z
     jcr:mixinTypes:
     - mix:referenceable
     jcr:primaryType: resourcebundle:resourcebundle
@@ -178,6 +182,7 @@
     - ''
     - ''
     - ''
+    - ''
     resourcebundle:id: publicationsystem.headers
     resourcebundle:keys:
     - headers.summary
@@ -199,6 +204,7 @@
     - headers.datasets
     - headers.upcoming
     - headers.download-chart-data
+    - headers.supplementary-information-requests
     resourcebundle:messages:
     - Summary
     - Key Facts
@@ -219,8 +225,11 @@
     - Data Sets
     - Upcoming
     - Download the data for this chart
+    - Supplementary information requests
   hippo:name: Headers
+  hippo:versionHistory: 1f150ca3-4ff4-4b1d-996b-cf4394b324d4
   jcr:mixinTypes:
   - hippo:named
+  - hippo:versionInfo
   - mix:referenceable
   jcr:primaryType: hippo:handle

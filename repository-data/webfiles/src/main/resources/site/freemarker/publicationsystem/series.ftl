@@ -3,10 +3,12 @@
 <#-- @ftlvariable name="series" type="java.util.List<nhs.digital.ps.beans.Series>" -->
 <#-- @ftlvariable name="publications" type="java.util.List<uk.nhs.digital.ps.beans.PublicationBase>" -->
 <#-- @ftlvariable name="upcomingPublications" type="java.util.List<uk.nhs.digital.ps.beans.PublicationBase>" -->
-
 <#include "../include/imports.ftl">
 <#include "../common/macro/fileMetaAppendix.ftl">
+<#include "../common/macro/updateGroup.ftl">
+<#include "../common/macro/calloutBox.ftl">
 <#include "./macro/structured-text.ftl">
+<#include "./macro/seriesDocumentHeader.ftl">
 
 <@hst.setBundle basename="publicationsystem.headers,publicationsystem.labels"/>
 
@@ -15,118 +17,133 @@
 <#include "../common/macro/metaTags.ftl">
 <@metaTags></@metaTags>
 
+<@fmt.message key="headers.administrative-sources" var="administrativeResourcesHeader" />
+
 <article class="article article--legacy-series" itemscope itemtype="http://schema.org/Series">
-    <#if series??>
-    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
-        <div class="local-header article-header article-header--detailed" aria-label="Series Title">
-            <div class="grid-wrapper">
-                <div class="article-header__inner">
-                    <span class="article-header__label"><@fmt.message key="labels.series"/></span>
-                    <h1 class="local-header__title" data-uipath="document.title" itemprop="name">${series.title}</h1>
-                    <#-- <hr class="hr hr--short hr--light"> -->
-                </div>
-            </div>
-        </div>
-    </div>
+    <#-- [FTL-BEGIN] Big Blue Header -->
+    <@seriesDocumentHeader document=series />
+    <#-- [FTL-END] Big Blue Header -->
 
-    <div class="grid-wrapper grid-wrapper--article" aria-label="Series Content">
+    <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
+        
+        <#-- [FTL-BEGIN] Update group -->
+        <@updateGroup document=series />
+        <#-- [FTL-END] Update group -->
+
         <div class="grid-row">
+            <#if index?has_content && index?size gt 1>
+                <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                    <!-- start sticky-nav -->
+                    <div id="sticky-nav">
+                        <#assign links = [] />
+                        <#list index as i>
+                            <#assign links += [{ "url": "#" + slugify(i), "title": i }] />
+                        </#list>
+                        <@stickyNavSections getStickySectionNavLinks({"document": publication, "sections": links})></@stickyNavSections>
+                    </div>
+                    <!-- end sticky-nav -->
+                </div>
+            </#if>
+
             <div class="column column--two-thirds page-block page-block--main">
-                <#-- [FTL-BEGIN] mandatory 'Summary' section -->
-                <div class="article-section article-section--summary" id="section-summary">
-                    <h2><@fmt.message key="headers.summary"/></h2>
-                    <div class="rich-text-content" itemprop="description">
-                        <@structuredText item=series.summary uipath="ps.series.summary" />
-                    </div>
-                </div>
-                <#-- [FTL-END] mandatory 'Summary' section -->
+                <div class="grid-row">
+                    <div class="column column--two-thirds page-block page-block--main">
+                        <#-- [FTL-BEGIN] 'Latest statistics' section -->
+                        <div class="article-section" id="section-latest-statistics">
+                            <h2><@fmt.message key="headers.latest-statistics"/></h2>
+                            
+                            <@hst.link hippobean=series.latestPublication var="latestPublicationLink" />
+                            <#assign latestPublicationData = {
+                                "title": series.latestPublication.title, 
+                                "link": latestPublicationLink,
+                                "calloutType": "interactive",
+                                "severity": "grey",
+                                "accessible": true
+                            } />
+                            <@calloutBox latestPublicationData />
 
-                <#if publications?has_content || upcomingPublications?has_content>
-                <div class="article-section">
-                    <#if series.showLatest>
-                        <h3 class="flush push--bottom"><@fmt.message key="headers.latest-version"/></h3>
-                        <ul class="list list--reset cta-list" data-uipath="ps.series.publications-list.latest">
-                            <@publicationItem publication=publications?first/>
-                        </ul>
+                            <p style="color: red;"><b>Notes:</b> Date (${series.latestPublication.nominalPublicationDate}) and summary isn't accessible to FE</p>
+                        </div>
+                        <#-- [FTL-END] 'Latest statistics' section -->
 
-                        <#if upcomingPublications?has_content>
-                            <@upcomingPublicationList/>
-                        </#if>
+                        <#-- [FTL-BEGIN] mandatory 'Summary' section -->
+                        <#-- <div class="article-section article-section--summary" id="section-summary">
+                            <h2><@fmt.message key="headers.summary"/></h2>
+                            <div class="rich-text-content" itemprop="description">
+                                <@structuredText item=series.summary uipath="ps.series.summary" />
+                            </div>
+                        </div> -->
+                        <#-- [FTL-END] mandatory 'Summary' section -->
 
-                        <#if publications?size gt 1>
-                            <h3 class="flush push--bottom"><@fmt.message key="headers.previous-versions"/></h3>
-                            <ul class="list list--reset cta-list" data-uipath="ps.series.publications-list.previous">
-                                <#list publications[1..] as publication>
-                                    <@publicationItem publication=publication/>
+                        <#-- [FTL-BEGIN] 'About this publication' section -->
+                        <div class="article-section no-border" id="section-about">
+                            <h2><@fmt.message key="headers.about-this-publication"/></h2>
+                            <div class="rich-text-content" itemprop="description">
+                                <@hst.html hippohtml=series.about contentRewriter=gaContentRewriter />
+                            </div>
+
+                            <h3><@fmt.message key="headers.responsible-parties"/></h3>
+                            <div class="detail-list-grid detail-list-grid--regular">
+                                <dl class="detail-list">
+                                    <dt class="detail-list__key"><@fmt.message key="labels.responsible-statistician"/></dt>
+                                    <dd class="detail-list__value"><a href="<@hst.link hippobean=series.statistician />">${series.statistician.title}</a>    </dd>
+                                </dl>
+                                <dl class="detail-list">
+                                    <dt class="detail-list__key"><@fmt.message key="labels.responsible-team"/></dt>
+                                    <dd class="detail-list__value"><a href="<@hst.link hippobean=series.team />">${series.team.title}</a></dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <#-- [FTL-END] 'About this publication' section -->
+
+                        <#-- [FTL-BEGIN] 'Methodology' section -->
+                        <div class="article-section no-border" id="section-methodology">
+                            <h2><@fmt.message key="headers.methodology"/></h2>
+                            <div class="rich-text-content" itemprop="description">
+                                <@hst.html hippohtml=series.methodology contentRewriter=gaContentRewriter />
+                            </div>
+                        </div>
+                        <#-- [FTL-END] 'Methodology' section -->
+
+                        <#-- [FTL-BEGIN] 'Pre-release access' section -->
+                        <div class="article-section no-border" id="section-pre-release-access">
+                            <h2><@fmt.message key="headers.pre-release-access"/></h2>
+
+                            <ul>
+                            <#list series.accessList.releaseSubjects as item>
+                                <#if item.organisation>
+                                    <h3>Found an organisation: ${item.organisation.title}</h3>
+                                </#if>
+                                <ul>
+                                <#list item.recipients as recipient>
+                                    <li>${recipient.jobRole.title}</li>
                                 </#list>
-                            </ul>
-                        </#if>
-                    <#else>
-                        <h3 class="flush push--bottom"><@fmt.message key="headers.versions"/></h3>
-                        <ul class="list list--reset cta-list" data-uipath="ps.series.publications-list">
-                            <#list publications as publication>
-                                <@publicationItem publication=publication/>
+                                </ul>
+                                <li><@hst.html hippohtml=item.additionalDetail contentRewriter=gaContentRewriter /></li>
                             </#list>
-                        </ul>
+                            </ul>
+                        </div>
+                        <#-- [FTL-END] 'Pre-release access' section -->
 
-                        <#if upcomingPublications?has_content>
-                            <@upcomingPublicationList/>
-                        </#if>
-                    </#if>
-                </div>
-                </#if>
+                        <#-- [FTL-BEGIN] 'Metadata' section -->
+                        <div class="article-section no-border" id="section-metadata">
+                            <h2><@fmt.message key="headers.metadata"/></h2>
 
-                <#if series.attachments?has_content || series.resourceLinks?has_content>
-                    <div class="article-section" id="resources">
-                        <h2><@fmt.message key="headers.resources"/></h2>
-                        <ul data-uipath="ps.series.resources" class="list">
-                        <#list series.attachments as attachment>
-                            <li class="attachment" itemprop="hasPart" itemscope itemtype="http://schema.org/MediaObject">
-                                <@externalstorageLink attachment.resource; url>
-                                <a itemprop="contentUrl" title="${attachment.text}" href="${url}" onClick="logGoogleAnalyticsEvent('Download attachment','Series','${attachment.resource.filename}');" onKeyUp="return vjsu.onKeyUp(event)"><span itemprop="name">${attachment.text}</span></a>
-                                </@externalstorageLink>
-                                <@fileMetaAppendix attachment.resource.length, attachment.resource.mimeType></@fileMetaAppendix>
-                            </li>
-                        </#list>
-                        <#list series.resourceLinks as link>
-                            <li>
-                                <a href="${link.linkUrl}" onClick="logGoogleAnalyticsEvent('Link click','Series','${link.linkUrl}');" onKeyUp="return vjsu.onKeyUp(event)" title="${link.linkText}">${link.linkText}</a>
-                            </li>
-                        </#list>
-                        </ul>
+                            <div class="detail-list-grid detail-list-grid--regular">
+                                <dl class="detail-list">
+                                    <dt class="detail-list__key"><@fmt.message key="labels.issn"/></dt>
+                                    <dd class="detail-list__value">${series.issn}</dd>
+                                </dl>
+                                <dl class="detail-list">
+                                    <dt class="detail-list__key"><@fmt.message key="labels.usrn"/></dt>
+                                    <dd class="detail-list__value">${series.refNumber?c}</dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <#-- [FTL-END] 'Metadata' section -->
                     </div>
-                </#if>
+                </div>
             </div>
         </div>
     </div>
-    <#else>
-      <span>${error}</span>
-    </#if>
 </article>
-
-<#macro publicationItem publication>
-<li itemprop="hasPart" itemscope itemtype="http://schema.org/PublicationIssue">
-    <article class="cta">
-        <h4 itemprop="name"><a href="<@hst.link hippobean=publication.selfLinkBean/>" title="${publication.title}" class="cta__button" itemprop="url">${publication.title}</a></h4>
-        <#if publication.class.name == "uk.nhs.digital.ps.beans.Publication">
-            <p class="cta__text"><@truncate text=publication.summary.firstParagraph size="300"/></p>
-        </#if>
-    </article>
-</li>
-</#macro>
-
-<#macro upcomingPublicationList>
-    <h3 class="flush push--bottom"><@fmt.message key="headers.upcoming"/></h3>
-    <ul class="list list--reset cta-list" data-uipath="ps.series.publications-list.upcoming">
-        <!--Only next 4 upcoming publications-->
-        <#local count = (upcomingPublications?size < 4)?then(upcomingPublications?size, 4)/>
-        <#list upcomingPublications[0..count-1] as publication>
-        <li itemprop="hasPart" itemscope itemtype="http://schema.org/PublicationIssue">
-            <article class="cta">
-                <h4 itemprop="name"><a href="<@hst.link hippobean=publication.selfLinkBean/>" title="${publication.title}" class="cta__button" itemprop="url">${publication.title}</a></h4>
-                <p class="cta__text"><@formatRestrictableDate value=publication.nominalPublicationDate/></p>
-            </article>
-        </li>
-        </#list>
-    </ul>
-</#macro>

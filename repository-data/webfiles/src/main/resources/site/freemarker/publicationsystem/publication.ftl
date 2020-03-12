@@ -2,6 +2,7 @@
 <#include "../include/imports.ftl">
 <#include "./macro/structured-text.ftl">
 <#include "./macro/publicationHeader.ftl">
+<#include "../common/macro/updateGroup.ftl">
 <#include "../common/macro/sections/sections.ftl">
 <#include "../common/macro/stickyNavSections.ftl">
 <#include "../common/macro/fileMetaAppendix.ftl">
@@ -44,6 +45,7 @@
 <@fmt.message key="headers.administrative-sources" var="administrativeResourcesHeader" />
 <@fmt.message key="headers.datasets" var="datasetsHeader" />
 <@fmt.message key="headers.resources" var="resourcesHeader" />
+<@fmt.message key="headers.supplementary-information-requests" var="supplementaryHeader" />
 <@fmt.message key="survey.lead-line" var="surveyTitle" />
 <@fmt.message key="survey.second-line" var="surveyContent" />
 <@fmt.message key="survey.hyperlink-text" var="surveyLinkText" />
@@ -64,33 +66,7 @@
 
     <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
 
-        <#if publication.updates?has_content || publication.changenotice?has_content>
-            <div class="grid-row">
-                <div class="column column--no-padding">
-                    <div class="callout-box-group">
-                        <#if publication.updates?has_content>
-                            <#assign item = {} />
-                            <#list publication.updates as update>
-                                <#assign item += update />
-                                <#assign item += {"calloutType":"update", "index":update?index} />
-                                <@calloutBox item />
-                            </#list>
-                        </#if>
-
-                        <#if publication.changenotice?has_content>
-                            <#assign item = {} />
-                            <#list publication.changenotice as changeData>
-                                <#assign item += changeData />
-                                <@fmt.formatDate value=changeData.date.time type="Date" pattern="d MMMM yyyy HH:mm a" timeZone="${getTimeZone()}" var="changeDateTime" />
-                                <#assign item += {"date":changeDateTime, "dateLabel":changeDateLabel} />
-                                <#assign item += {"calloutType":"change", "severity":"information", "index":changeData?index} />
-                                <@calloutBox item />
-                            </#list>
-                        </#if>
-                    </div>
-                </div>
-            </div>
-        </#if>
+        <@updateGroup document=publication />
 
         <div class="grid-row">
             <#if index?has_content && index?size gt 1>
@@ -182,30 +158,29 @@
                     </div>
                 </#if>
 
+    <#if publication.survey?has_content>
+        <div id="publication-survey"
+             class="article-section article-section--summary no-border">
+            <#assign item = {} />
+            <#assign item += publication.survey />
 
-                <#if publication.survey?has_content>
-                    <div id="publication-survey"
-                         class="article-section article-section--summary no-border">
-                        <#assign item = {} />
-                        <#assign item += publication.survey />
+            <#assign item += {"title":surveyTitle, "content":surveyContent, "text":surveyLinkText} />
 
-                        <#assign item += {"title":surveyTitle, "content":surveyContent, "text":surveyLinkText} />
+            <@fmt.formatDate value=publication.survey.date.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" var="expiryDate" />
+            <#assign item += {"date":expiryDate, "dateLabel":surveyDateLabel} />
 
-                        <@fmt.formatDate value=publication.survey.date.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" var="expiryDate" />
-                        <#assign item += {"date":expiryDate, "dateLabel":surveyDateLabel} />
+            <#assign item += {"calloutType":"survey", "iconYellow":true, "severity":"important", "index":0} />
+            <#assign item += {"narrow":true} />
+            <@calloutBox item />
+        </div>
+    </#if>
 
-                        <#assign item += {"calloutType":"survey", "iconYellow":true, "severity":"important", "index":0} />
-                        <#assign item += {"narrow":true} />
-                        <@calloutBox item />
-                    </div>
-                </#if>
-
-                <#if publication.administrativeSources?has_content>
+                <#assign administrativeSources = publication.parentDocument?has_content?then(publication.parentDocument.administrativeSources?has_content?then(publication.parentDocument.administrativeSources, publication.administrativeSources), publication.administrativeSources) />
+                <#if administrativeSources?has_content>
                     <div class="article-section" id="administrative-sources">
                         <h2>${administrativeResourcesHeader}</h2>
-                        <p itemprop="isBasedOn"
-                           data-uipath="ps.publication.administrative-sources">
-                            ${publication.administrativeSources}
+                        <p itemprop="isBasedOn" data-uipath="ps.publication.administrative-sources">
+                            ${administrativeSources}
                         </p>
                     </div>
                 </#if>
@@ -285,6 +260,18 @@
                                 </#list>
                             </ul>
                         </#if>
+                    </div>
+                </#if>
+
+                <#if publication.supplementaryInformation?has_content>
+                    <div class="article-section" id="supplementary-information-requests">
+                        <h2>${supplementaryHeader}</h2>
+                        <div data-uipath="ps.publication.supplementary-information-requests">
+                            <#list publication.supplementaryInformation as supData>
+                                <#assign section = [{"sectionType": "download", "items": [{"linkType":"internal", "link":supData}]}] />
+                                <@sections sections=section />
+                            </#list>
+                        </div>
                     </div>
                 </#if>
 
