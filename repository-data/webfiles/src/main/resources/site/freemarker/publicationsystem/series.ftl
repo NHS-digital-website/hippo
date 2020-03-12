@@ -15,8 +15,6 @@
 <#include "../common/macro/metaTags.ftl">
 <@metaTags></@metaTags>
 
-<@fmt.message key="headers.administrative-sources" var="administrativeResourcesHeader" />
-
 <article class="article article--legacy-series" itemscope itemtype="http://schema.org/Series">
     <#if series??>
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
@@ -25,47 +23,7 @@
                 <div class="article-header__inner">
                     <span class="article-header__label"><@fmt.message key="labels.series"/></span>
                     <h1 class="local-header__title" data-uipath="document.title" itemprop="name">${series.title}</h1>
-
-                    <#if series.informationType?has_content>
-                        <span class="article-header__types article-header__types--push" data-uipath="ps.publication.information-types">
-                            <#list series.informationType as type>${type}<#sep>, </#list>
-                        </span>
-
-                        <hr class="hr hr--short hr--light">
-                    </#if>
-
-
-                    <div class="detail-list-grid">
-                        <#if series.geographicCoverage?has_content>
-                            <div class="grid-row">
-                                <div class="column column--reset">
-                                    <dl class="detail-list">
-                                        <dt class="detail-list__key" id="geographic-coverage"><@fmt.message key="headers.geographical-coverage"/></dt>
-                                        <dd class="detail-list__value" itemprop="spatialCoverage" data-uipath="ps.publication.geographic-coverage">
-                                            <#list series.geographicCoverage as geographicCoverageItem>${geographicCoverageItem}<#sep>, </#list>
-                                        </dd>
-                                    </dl>
-                                </div>
-                            </div>
-                        </#if>
-
-                        <#if series.granularity?has_content >
-                            <div class="grid-row">
-                                <div class="column column--reset">
-                                    <dl class="detail-list">
-                                        <dt class="detail-list__key"><@fmt.message key="headers.geographical-granularity"/></dt>
-                                        <dd class="detail-list__value" data-uipath="ps.publication.granularity">
-                                            <#list series.granularity as granularityItem>${granularityItem}<#sep>, </#list>
-                                        </dd>
-                                    </dl>
-                                </div>
-                            </div>
-                        </#if>
-
-                        <#if series.fullTaxonomyList?has_content>
-                            <meta itemprop="keywords" content="${series.fullTaxonomyList?join(",")}"/>
-                        </#if>
-                    </div>
+                    <#-- <hr class="hr hr--short hr--light"> -->
                 </div>
             </div>
         </div>
@@ -84,16 +42,7 @@
                 <#-- [FTL-END] mandatory 'Summary' section -->
 
                 <#if publications?has_content || upcomingPublications?has_content>
-                    <#if series.administrativeSources?has_content>
-                        <div class="article-section" id="administrative-sources">
-                            <h2>${administrativeResourcesHeader}</h2>
-                            <p itemprop="isBasedOn" data-uipath="ps.publication.administrative-sources">
-                                ${series.administrativeSources}
-                            </p>
-                        </div>
-                    </#if>
-
-                    <div class="article-section">
+                <div class="article-section">
                     <#if series.showLatest>
                         <h3 class="flush push--bottom"><@fmt.message key="headers.latest-version"/></h3>
                         <ul class="list list--reset cta-list" data-uipath="ps.series.publications-list.latest">

@@ -34,7 +34,7 @@ public class HippoBeanHelper {
         try {
             HstRequestContext ctx = RequestContextProvider.get();
             taxonomyName = ctx.getSession().getNode(
-                "/hippo:namespaces/publicationsystem/series/editor:templates/_default_/classifiable")
+                "/hippo:namespaces/publicationsystem/publication/editor:templates/_default_/classifiable")
                 .getProperty("essentials-taxonomy-name")
                 .getString();
         } catch (RepositoryException repositoryException) {
