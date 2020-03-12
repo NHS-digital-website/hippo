@@ -30,12 +30,12 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /recepients:
+          /recipients:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               nodetypes:
               - website:jobrole
-            caption: Recepients
+            caption: Recipients
             field: recepients
             hint: ''
             jcr:primaryType: frontend:plugin
@@ -77,7 +77,7 @@ definitions:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
             hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:recepients
+            hipposysedit:path: publicationsystem:recipients
             hipposysedit:primary: false
             hipposysedit:type: hippo:mirror
             jcr:primaryType: hipposysedit:field

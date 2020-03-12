@@ -12,11 +12,11 @@ import java.util.List;
 public class ReleaseSubject extends HippoCompound {
 
     public Organisation getOrganisation() {
-        return getBean("publicationsystem:organisation", Organisation.class);
+        return getLinkedBean("publicationsystem:organisation", Organisation.class);
     }
 
     public List<JobRole> getRecipients() {
-        return getChildBeansByName("publicationsystem:recepients", JobRole.class);
+        return getLinkedBeans("publicationsystem:recipients", JobRole.class);
     }
 
     public HippoHtml getAdditionalDetail() {

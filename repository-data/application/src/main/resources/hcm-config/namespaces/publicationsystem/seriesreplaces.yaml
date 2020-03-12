@@ -69,6 +69,8 @@ definitions:
             hipposysedit:path: publicationsystem:replacementSeries
             hipposysedit:primary: false
             hipposysedit:type: hippo:mirror
+            hipposysedit:validators:
+            - optional
             jcr:primaryType: hipposysedit:field
           /whyReplaced:
             hipposysedit:mandatory: false
@@ -77,6 +79,8 @@ definitions:
             hipposysedit:path: publicationsystem:whyReplaced
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            hipposysedit:validators:
+            - optional
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
@@ -95,9 +99,6 @@ definitions:
           /publicationsystem:replacementSeries:
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             jcr:primaryType: hippo:mirror
-          /publicationsystem:whyReplaced:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
           jcr:primaryType: publicationsystem:seriesreplaces
           publicationsystem:changeDate: 0001-01-01T12:00:00Z
         jcr:primaryType: hipposysedit:prototypeset

@@ -113,16 +113,16 @@ public class Series extends BaseDocument {
         return getProperty("publicationsystem:refNumber");
     }
 
-    public AccessList getAccessList() {
-        return getBean("publicationsystem:accessList", AccessList.class);
-    }
-
     public String getIssn() {
         return getProperty("publicationsystem:issn");
     }
 
     public String getPublicationTier()  {
         return getProperty("publicationsystem:publicationTier");
+    }
+
+    public List<ReleaseSubject> getReleaseSubjects() {
+        return getChildBeansByName("publicationsystem:releaseSubject");
     }
 
 }

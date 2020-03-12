@@ -194,12 +194,12 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
-          /accessList:
+          /releaseSubject:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Pre-release access list
-            field: accessList
-            hint: ''
+            field: releaseSubject
+            hint: Use this if this series replaces a previous version
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
@@ -234,14 +234,6 @@ definitions:
             hipposysedit:type: hippostd:html
             hipposysedit:validators:
             - optional
-            jcr:primaryType: hipposysedit:field
-          /accessList:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:accessList
-            hipposysedit:primary: false
-            hipposysedit:type: publicationsystem:accessList
             jcr:primaryType: hipposysedit:field
           /attachments:
             hipposysedit:mandatory: false
@@ -297,6 +289,14 @@ definitions:
             hipposysedit:type: Long
             hipposysedit:validators:
             - optional
+            jcr:primaryType: hipposysedit:field
+          /releaseSubject:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:releaseSubject
+            hipposysedit:primary: false
+            hipposysedit:type: publicationsystem:releaseSubject
             jcr:primaryType: hipposysedit:field
           /resourceLinks:
             hipposysedit:mandatory: false
@@ -391,8 +391,6 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          /publicationsystem:accessList:
-            jcr:primaryType: publicationsystem:accessList
           /publicationsystem:statistician:
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             jcr:primaryType: hippo:mirror
