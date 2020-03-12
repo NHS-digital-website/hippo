@@ -67,18 +67,6 @@ definitions:
             wicket.css:
             - nominal-date
             wicket.id: ${cluster.id}.right.item
-          /Title:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              maxlength: '250'
-            caption: Title
-            field: title
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.css:
-            - document-title
-            wicket.id: ${cluster.id}.left.item
           /publicly_accessible:
             /cluster.options:
               falseLabel: UPCOMING (Show in upcoming publications list only)
@@ -89,17 +77,6 @@ definitions:
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-          /Summary:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Summary
-            field: summary
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.css:
-            - document-summary
             wicket.id: ${cluster.id}.left.item
           /seosummary:
             caption: SEO Summary
@@ -371,24 +348,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:seoSummary
             jcr:primaryType: hipposysedit:field
-          /summary:
-            hipposysedit:mandatory: true
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:Summary
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            jcr:primaryType: hipposysedit:field
-          /title:
-            hipposysedit:mandatory: true
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:Title
-            hipposysedit:primary: false
-            hipposysedit:type: Text
-            hipposysedit:validators:
-            - required
-            jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
           - hippotranslation:translated
@@ -408,10 +367,11 @@ definitions:
           /publicationsystem:KeyFacts:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
-          /publicationsystem:Summary:
+          /publicationsystem:seosummary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
           common:FacetType: publication
+          common:orderedSearchDate: 62135726400000
           common:searchRank: 3
           common:searchable: true
           hippostd:holder: holder
@@ -432,7 +392,6 @@ definitions:
           publicationsystem:GeographicCoverage: []
           publicationsystem:NominalDate: 0001-01-01T12:00:00Z
           publicationsystem:PubliclyAccessible: false
-          publicationsystem:Title: ''
           publicationsystem:gossid: 0
           publicationsystem:publicationid: ''
         jcr:primaryType: hipposysedit:prototypeset
