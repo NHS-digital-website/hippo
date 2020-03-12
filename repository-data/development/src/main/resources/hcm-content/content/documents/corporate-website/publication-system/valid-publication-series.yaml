@@ -907,7 +907,6 @@
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
       jcr:mixinTypes:
-      - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: publicationsystem:series
       publicationsystem:ShowLatest: true
@@ -965,7 +964,6 @@
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
       jcr:mixinTypes:
-      - hippotaxonomy:classifiable
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: publicationsystem:series
@@ -1025,7 +1023,6 @@
       hippotranslation:id: 00000000-0000-0000-0000-000000000000
       hippotranslation:locale: en
       jcr:mixinTypes:
-      - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: publicationsystem:series
       publicationsystem:ShowLatest: true

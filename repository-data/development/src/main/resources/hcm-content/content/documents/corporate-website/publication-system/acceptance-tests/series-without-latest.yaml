@@ -351,7 +351,6 @@
       hippotranslation:id: 87fa43a3-fc96-43f7-b6c8-d1f4f1735d5b
       hippotranslation:locale: en
       jcr:mixinTypes:
-      - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: publicationsystem:series
       publicationsystem:ShowLatest: false
@@ -371,7 +370,6 @@
       hippotranslation:id: 87fa43a3-fc96-43f7-b6c8-d1f4f1735d5b
       hippotranslation:locale: en
       jcr:mixinTypes:
-      - hippotaxonomy:classifiable
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: publicationsystem:series
@@ -393,7 +391,6 @@
       hippotranslation:id: 87fa43a3-fc96-43f7-b6c8-d1f4f1735d5b
       hippotranslation:locale: en
       jcr:mixinTypes:
-      - hippotaxonomy:classifiable
       - mix:referenceable
       jcr:primaryType: publicationsystem:series
       publicationsystem:ShowLatest: false

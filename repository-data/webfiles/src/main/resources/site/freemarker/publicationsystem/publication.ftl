@@ -183,29 +183,30 @@
                     </div>
                 </#if>
 
-    <#if publication.survey?has_content>
-        <div id="publication-survey"
-             class="article-section article-section--summary no-border">
-            <#assign item = {} />
-            <#assign item += publication.survey />
 
-            <#assign item += {"title":surveyTitle, "content":surveyContent, "text":surveyLinkText} />
+                <#if publication.survey?has_content>
+                    <div id="publication-survey"
+                         class="article-section article-section--summary no-border">
+                        <#assign item = {} />
+                        <#assign item += publication.survey />
 
-            <@fmt.formatDate value=publication.survey.date.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" var="expiryDate" />
-            <#assign item += {"date":expiryDate, "dateLabel":surveyDateLabel} />
+                        <#assign item += {"title":surveyTitle, "content":surveyContent, "text":surveyLinkText} />
 
-            <#assign item += {"calloutType":"survey", "iconYellow":true, "severity":"important", "index":0} />
-            <#assign item += {"narrow":true} />
-            <@calloutBox item />
-        </div>
-    </#if>
+                        <@fmt.formatDate value=publication.survey.date.time type="Date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" var="expiryDate" />
+                        <#assign item += {"date":expiryDate, "dateLabel":surveyDateLabel} />
 
-                <#assign administrativeSources = publication.parentDocument?has_content?then(publication.parentDocument.administrativeSources?has_content?then(publication.parentDocument.administrativeSources, publication.administrativeSources), publication.administrativeSources) />
-                <#if administrativeSources?has_content>
+                        <#assign item += {"calloutType":"survey", "iconYellow":true, "severity":"important", "index":0} />
+                        <#assign item += {"narrow":true} />
+                        <@calloutBox item />
+                    </div>
+                </#if>
+
+                <#if publication.administrativeSources?has_content>
                     <div class="article-section" id="administrative-sources">
                         <h2>${administrativeResourcesHeader}</h2>
-                        <p itemprop="isBasedOn" data-uipath="ps.publication.administrative-sources">
-                            ${administrativeSources}
+                        <p itemprop="isBasedOn"
+                           data-uipath="ps.publication.administrative-sources">
+                            ${publication.administrativeSources}
                         </p>
                     </div>
                 </#if>

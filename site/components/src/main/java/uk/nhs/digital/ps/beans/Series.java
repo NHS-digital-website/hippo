@@ -47,30 +47,6 @@ public class Series extends BaseDocument {
         return getChildBeansIfPermitted("publicationsystem:resourceLinks", RelatedLink.class);
     }
 
-    public String[] getInformationType() {
-        return getProperty(PublicationBase.PropertyKeys.INFORMATION_TYPE);
-    }
-
-    public String[] getKeys() {
-        return getProperty(PublicationBase.PropertyKeys.TAXONOMY);
-    }
-
-    public List<String> getFullTaxonomyList() {
-        return HippoBeanHelper.getFullTaxonomyList(this);
-    }
-
-    public String[] getGeographicCoverage() {
-        return geographicCoverageValuesToRegionValue(getProperty(PublicationBase.PropertyKeys.GEOGRAPHIC_COVERAGE));
-    }
-
-    public String[] getGranularity() {
-        return getProperty(PublicationBase.PropertyKeys.GRANULARITY);
-    }
-
-    public String getAdministrativeSources() {
-        return getProperty(PublicationBase.PropertyKeys.ADMINISTRATIVE_SOURCES);
-    }
-
     public Publication getLatestPublication() throws HstComponentException, QueryException {
         if (!getShowLatest()) {
             return null;
