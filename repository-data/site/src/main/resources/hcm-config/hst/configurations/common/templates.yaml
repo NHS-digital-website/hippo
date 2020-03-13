@@ -44,6 +44,9 @@ definitions:
       /component-layout:
         hst:renderpath: webfile:/freemarker/common/component-layout.ftl
         jcr:primaryType: hst:template
+      /coronavirus-banner:
+        hst:renderpath: webfile:/freemarker/common/coronavirus-banner.ftl
+        jcr:primaryType: hst:template
       /cta-list:
         hst:renderpath: webfile:/freemarker/common/cta-list.ftl
         jcr:primaryType: hst:template

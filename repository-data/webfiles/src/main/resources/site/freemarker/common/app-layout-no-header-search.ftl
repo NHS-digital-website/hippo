@@ -13,7 +13,7 @@
     <#-- Add site header without the search bar -->
     <@siteHeader false></@siteHeader>
 
-    <#include "coronavirus-banner.ftl"/>
+    <@hst.include ref="coronavirus-banner"/>
 
     <#-- No breadcrumbs here -->
 

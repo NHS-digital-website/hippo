@@ -15,7 +15,7 @@
     <#-- Add site header with the search bar -->
     <@siteHeader false></@siteHeader>
 
-    <#include "coronavirus-banner.ftl"/>
+    <@hst.include ref="coronavirus-banner"/>
 
     <#-- Add breadcrumbs -->
     <#include "macro/pubsBreadcrumb.ftl">

@@ -2,6 +2,10 @@
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:abstractpages/pubs_apppage-search-results:
+      /coronavirus-banner:
+        hst:componentclassname: uk.nhs.digital.common.components.CoronavirusBanner
+        hst:template: coronavirus-banner
+        jcr:primaryType: hst:component
       /top:
         hst:componentclassname: uk.nhs.digital.common.components.SearchBarComponent
         hst:template: pubs_searchbar

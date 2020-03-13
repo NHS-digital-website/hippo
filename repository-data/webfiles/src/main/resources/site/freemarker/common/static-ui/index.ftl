@@ -14,7 +14,7 @@
 
     <@siteHeader true></@siteHeader>
 
-    <#include "../coronavirus-banner.ftl"/>
+    <@hst.include ref="coronavirus-banner"/>
 
     <#include "shared/breadcrumb.ftl"/>
 
