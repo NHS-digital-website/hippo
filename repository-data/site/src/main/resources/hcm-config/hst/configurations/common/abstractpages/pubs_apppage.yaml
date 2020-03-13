@@ -5,6 +5,10 @@ definitions:
       /breadcrumb-ci:
         hst:referencecomponent: hst:components/breadcrumb-ci
         jcr:primaryType: hst:component
+      /coronavirus-banner:
+        hst:componentclassname: uk.nhs.digital.common.components.CoronavirusBanner
+        hst:template: coronavirus-banner
+        jcr:primaryType: hst:component
       /top-menu:
         hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
         hst:parameternames:

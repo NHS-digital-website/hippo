@@ -1,0 +1,85 @@
+---
+/content/documents/administration/resources/coronavirus-banner:
+  /coronavirus-banner[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-16T10:48:43.786Z
+    hippostdpubwf:lastModificationDate: 2020-03-16T10:58:57.586Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: coronavirus.banner
+    resourcebundle:keys:
+    - title
+    - message
+    - dismiss
+    resourcebundle:messages:
+    - Coronavirus (COVID-19)
+    - For the latest advice on the coronavirus (COVID-19) <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/">visit
+      the coronavirus page on NHS.UK</a>.
+    - Dismiss message
+  /coronavirus-banner[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-16T10:48:43.786Z
+    hippostdpubwf:lastModificationDate: 2020-03-16T10:59:22.899Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: coronavirus.banner
+    resourcebundle:keys:
+    - title
+    - message
+    - dismiss
+    resourcebundle:messages:
+    - Coronavirus (COVID-19)
+    - For the latest advice on the coronavirus (COVID-19) <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/">visit
+      the coronavirus page on NHS.UK</a>.
+    - Dismiss message
+  /coronavirus-banner[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-16T10:48:43.786Z
+    hippostdpubwf:lastModificationDate: 2020-03-16T10:59:22.899Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-03-16T10:59:24.700Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: coronavirus.banner
+    resourcebundle:keys:
+    - title
+    - message
+    - dismiss
+    resourcebundle:messages:
+    - Coronavirus (COVID-19)
+    - For the latest advice on the coronavirus (COVID-19) <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/">visit
+      the coronavirus page on NHS.UK</a>.
+    - Dismiss message
+  hippo:name: Coronavirus Banner
+  hippo:versionHistory: 2b76a512-058c-45b3-9c4a-52b7f72cd996
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

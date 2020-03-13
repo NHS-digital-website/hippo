@@ -5,6 +5,10 @@ definitions:
       /breadcrumb-ci-old-styling:
         hst:referencecomponent: hst:components/breadcrumb-ci-old-styling
         jcr:primaryType: hst:component
+      /coronavirus-banner:
+        hst:componentclassname: uk.nhs.digital.common.components.CoronavirusBanner
+        hst:template: coronavirus-banner
+        jcr:primaryType: hst:component
       /footer:
         hst:template: footer
         jcr:primaryType: hst:component
