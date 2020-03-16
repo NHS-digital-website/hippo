@@ -10,10 +10,10 @@ public class DateComparator implements Comparator<PublicationBase> {
 
     @Override
     public int compare(PublicationBase publicationBase, PublicationBase t1) {
-        if (publicationBase.getNominalPublicationDateCalender() == null || t1.getNominalPublicationDateCalender() == null ) {
+        if (publicationBase.getNominalPublicationDateCalendar() == null || t1.getNominalPublicationDateCalendar() == null ) {
             return 0;
         }
-        return publicationBase.getNominalPublicationDateCalender().compareTo(t1.getNominalPublicationDateCalender());
+        return publicationBase.getNominalPublicationDateCalendar().compareTo(t1.getNominalPublicationDateCalendar());
     }
 
 }

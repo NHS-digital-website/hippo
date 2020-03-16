@@ -148,7 +148,7 @@ public abstract class PublicationBase extends BaseDocument {
         return nominalPublicationDate;
     }
 
-    public Calendar getNominalPublicationDateCalender() {
+    public Calendar getNominalPublicationDateCalendar() {
 
         Calendar cal = Calendar.getInstance();
         cal.set(nominalPublicationDate.getYear(), nominalPublicationDate.getMonth().getValue() - 1, nominalPublicationDate.getDayOfMonth(), 0, 0);
