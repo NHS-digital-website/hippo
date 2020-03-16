@@ -40,7 +40,7 @@
 <#assign hasAttachments = series.attachments?? && series.attachments?has_content />
 <#assign hasResourceSection = hasResourceLinks || hasAttachments />
 <#assign hasPreReleaseAccessSection = series.releaseSubjects?? && series.releaseSubjects?has_content />
-<#assign hasMetadataSection = (series.issn?? && series.issn?has_content) || (series.refNumber && series.refNumber?has_content) />
+<#assign hasMetadataSection = (series.issn?? && series.issn?has_content) || (series.refNumber?? && series.refNumber?has_content) />
 
 
 <#-- Add meta tags -->
@@ -179,10 +179,6 @@
                     </#if>
                     <#-- [FTL-END] 'Methodology' section -->
 
-
-
-
-
                     <#-- [FTL-BEGIN] 'Upcoming publications' section -->
                     <#if hasUpcomingPublicationsSection>
                     <div class="article-section" id="${slugify(upcomingPublicationsSectionHeader)}">
@@ -191,9 +187,6 @@
                     </div>
                     </#if>
                     <#-- [FTL-END] 'Upcoming publications' section -->
-
-
-
 
                     <#-- [FTL-BEGIN] 'Past publications' section -->
                     <#if hasPastPublicationsSection>
@@ -218,33 +211,66 @@
                                 <h3 class="flush push--bottom"><@fmt.message key="headers.previous-versions"/></h3>
                                 <ul class="list list--reset cta-list" data-uipath="ps.series.publications-list.previous">
                                     <#list publications[1..] as publication>
-
                                         <#assign publishDate = publication.nominalPublicationDate.dayOfMonth + " " + 
                                         publication.nominalPublicationDate.month?capitalize + " " + publication.nominalPublicationDate.year?c />
 
-                                        <#assign publicationData = {
+                                        <#assign pubData = {
                                             "title": publication.title,
-                                            "severity": "grey",
-                                            "calloutType": "interactive",
-                                            "accessible": true,
-                                            "date": publishDate,
-                                            "narrow": true,
-                                            "index": publication?index
+                                            "date": publishDate
                                         } />
                             
-                                        <@calloutBox publicationData />
+                                        <div class="callout-box callout-box--grey" role="complementary" aria-labelledby="callout-box-heading-interactive-grey-1">
+                                            <div class="callout-box__icon-wrapper">
+                                                <svg class="callout-box__icon callout-box__icon--narrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+                                                    <path d="M198,182H42c-6.6,0-12-5.4-12-12V74c0-6.6,5.4-12,12-12h156c6.6,0,12,5.4,12,12v96C210,176.6,204.6,182,198,182z"></path>
+                                                    <line x1="30" y1="92" x2="210" y2="92"></line>
+                                                    <line x1="60" y1="114" x2="180" y2="114"></line>
+                                                    <line x1="60" y1="135" x2="180" y2="135"></line>
+                                                    <line x1="60.1" y1="156" x2="141.1" y2="156"></line>
+                                                    <circle cx="46.8" cy="77.1" r="3.7"></circle>
+                                                    <circle cx="61.8" cy="77.1" r="3.7"></circle>
+                                                    <circle cx="76.8" cy="77.1" r="3.7"></circle>
+                                                    <rect x="166.2" y="149.1" width="13.8" height="13.8"></rect>
+                                                </svg>
+                                            </div>
+
+                                            <div class="callout-box__content callout-box__content--narrow">
+                                                <span class="callout-box__content-heading callout-box__content-heading--light callout-box__content--narrow-heading" id="callout-box-heading-interactive-grey-1">${pubData.title}</span>
+
+                                                <div class="callout-box__content-description">
+                                                    <div class="rich-text-content">
+                                                        <@truncate text=publication.summary.firstParagraph size="150" />  
+                                                    </div>
+
+                                                    <#if publication.supplementaryInformation?has_content>
+                                                    <div class="inset-text">
+                                                        <h3 class="inset-text__title"><@fmt.message key="headers.supplementary-information-requests" /></h3>
+                                                        <ul class="inset-text__blocks">
+                                                        <#list publication.supplementaryInformation as suppInfo>
+
+                                                        <@fmt.formatDate var="suppInfoPublishDate" value=suppInfo.publishedDate.time?date type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
+
+                                                            <li class="inset-text__block">
+                                                                <h4 class="inset-text__block-title"><a href="<@hst.link hippobean=suppInfo />">${suppInfo.title}</a> <span>(${suppInfoPublishDate})</span></h4>
+                                                                <div class="inset-text__block-content rich-text-content" itemprop="description">
+                                                                    <@truncate text=suppInfo.shortsummary size="250" />
+                                                                </div>
+                                                            </li>
+                                                        </#list>
+                                                        </ul>
+                                                    </div>
+                                                    </#if>
+
+                                                    <p class="callout-box__content-description-date">${pubData.date}</p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </#list>
                                 </ul>
                             </#if>
                         </div>
                     </#if>
                     <#-- [FTL-END] 'Past publications' section -->
-
-
-
-
-
-
 
                     <#-- [FTL-BEGIN] 'Attachments and Resource links' section -->
                     <#if hasResourceSection>
