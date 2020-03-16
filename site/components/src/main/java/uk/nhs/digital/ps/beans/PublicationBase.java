@@ -148,6 +148,13 @@ public abstract class PublicationBase extends BaseDocument {
         return nominalPublicationDate;
     }
 
+    public Calendar getNominalPublicationDateCalender() {
+
+        Calendar cal = Calendar.getInstance();
+        cal.set(nominalPublicationDate.getYear(), nominalPublicationDate.getMonth().getValue() - 1, nominalPublicationDate.getDayOfMonth(), 0, 0);
+        return cal;
+    }
+
     @HippoEssentialsGenerated(internalName = PropertyKeys.COVERAGE_START)
     public Calendar getCoverageStart() {
         return getPropertyIfPermitted(PropertyKeys.COVERAGE_START);
@@ -284,4 +291,5 @@ public abstract class PublicationBase extends BaseDocument {
         String DATASETS = "DATASETS";
         String PAGES = "PAGES";
     }
+
 }

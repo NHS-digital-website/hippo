@@ -90,7 +90,7 @@ public class SeriesComponent extends EssentialsContentComponent {
             }
 
             if (!seriesIndexDocument.getShowLatest() && !isEmpty(livePublications)) {
-                livePublications.sort(DocumentTitleComparator.COMPARATOR);
+                Collections.sort(livePublications, DateComparator.COMPARATOR);
             }
 
             request.setAttribute("publications", livePublications);
