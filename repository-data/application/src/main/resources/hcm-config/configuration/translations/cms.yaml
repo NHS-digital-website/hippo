@@ -3,6 +3,8 @@ definitions:
   config:
     /hippo:configuration/hippo:translations/hippo:cms/validators/en:
       http-status-code: Invalid HTTP status code ex. 200, 404, 400
+      internal-or-external-link#choose-one: You must enter either an external link
+        OR an internal link.
       ordernumber: This number must be from range 0-99
       percentage: Progress percentage should be between 0-100
       phonenumber: Telephone number formatting

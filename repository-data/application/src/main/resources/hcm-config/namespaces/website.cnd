@@ -271,6 +271,9 @@
 [website:postnominal] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:priorityaction] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:publictransportstation] > hippo:compound, hippostd:relaxed
   orderable
 
