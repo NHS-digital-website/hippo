@@ -3,10 +3,10 @@
 
 <#-- Big Blue document header for Series -->
 <#macro seriesDocumentHeader document>
-    <#assign informationTypes = series.informationType />
-    <#assign frequency = series.frequency />
+    <#assign informationTypes = (series.informationType??)?then(series.informationType, [])  />
+    <#assign frequency = (series.frequency?has_content)?then(series.frequency, "") />
     <#assign geographicCoverage = series.geographicCoverage />
-    <#assign granularity = series.granularity />
+    <#assign granularity = (series.granularity??)?then(series.granularity, []) />
     <#assign fullTaxonomyList = series.fullTaxonomyList />
 
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
@@ -24,12 +24,12 @@
                     </#if>
 
                     <div class="detail-list-grid">
-                        <#if frequency??>
+                        <#if frequency?has_content>
                             <div class="grid-row">
                                 <div class="column column--reset">
                                     <dl class="detail-list">
                                         <dt class="detail-list__key" id="frequency"><@fmt.message key="headers.frequency"/></dt>
-                                        <dd class="detail-list__value" itemprop="frequency" data-uipath="ps.series.frequency">${frequencyMap[series.frequency]}</dd>
+                                        <dd class="detail-list__value" itemprop="frequency" data-uipath="ps.series.frequency">${frequencyMap[frequency]}</dd>
                                     </dl>
                                 </div>
                             </div>
