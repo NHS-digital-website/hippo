@@ -11,6 +11,11 @@ import java.util.List;
 @HippoEssentialsGenerated(internalName = "website:service")
 @Node(jcrType = "website:service")
 public class Service extends CommonFieldsBean {
+
+    public List<PriorityAction> getPriorityActions() {
+        return getChildBeansByName("website:priorityaction", PriorityAction.class);
+    }
+
     @HippoEssentialsGenerated(internalName = "website:toptasks")
     public List<HippoHtml> getToptasks() {
         return getChildBeansByName("website:toptasks", HippoHtml.class);
@@ -62,7 +67,7 @@ public class Service extends CommonFieldsBean {
     }
 
     @HippoEssentialsGenerated(internalName = "website:pageicon")
-    public HippoGalleryImageSet getPageIcon()  {
+    public HippoGalleryImageSet getPageIcon() {
         return getLinkedBean("website:pageicon", HippoGalleryImageSet.class);
     }
 }

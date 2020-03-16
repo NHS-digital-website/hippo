@@ -47,8 +47,7 @@ public class SearchableTaxonomyTaskTest {
 
     @Before
     public void setUp() throws RepositoryException {
-        Repository repository = MockJcr.newRepository();
-        Session session = repository.login();
+        Session session = MockJcr.newSession();
         rootNode = session.getRootNode();
         searchableTaxonomyTask = new SearchableTaxonomyTask();
 

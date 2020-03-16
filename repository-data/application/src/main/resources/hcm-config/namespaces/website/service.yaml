@@ -56,15 +56,11 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /toptasks:
+          /priorityaction:
             /cluster.options:
-              ckeditor.config.appended.json: '{ extraPlugins: ''autogrow'', autoGrow_onStartup:
-                true, autoGrow_maxHeight: 50 }'
-              ckeditor.config.overlayed.json: '{ toolbarGroups: [ { name: ''links''
-                }, { name: ''mode'' } ] , disableNativeSpellChecker: false}'
               jcr:primaryType: frontend:pluginconfig
-            caption: Top Tasks
-            field: toptasks
+            caption: Priority Actions
+            field: priorityaction
             hint: ''
             jcr:primaryType: frontend:plugin
             maxitems: 5
@@ -189,6 +185,20 @@ definitions:
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
             wicket.skin: skin/content-blocks.css
+          /toptasks:
+            /cluster.options:
+              ckeditor.config.appended.json: '{ extraPlugins: ''autogrow'', autoGrow_onStartup:
+                true, autoGrow_maxHeight: 50 }'
+              ckeditor.config.overlayed.json: '{ toolbarGroups: [ { name: ''links''
+                }, { name: ''mode'' } ] , disableNativeSpellChecker: false}'
+              jcr:primaryType: frontend:pluginconfig
+            caption: Top Tasks
+            field: toptasks
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            maxitems: 5
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -278,6 +288,14 @@ definitions:
             hipposysedit:path: website:pageicon
             hipposysedit:primary: false
             hipposysedit:type: hippogallerypicker:imagelink
+            jcr:primaryType: hipposysedit:field
+          /priorityaction:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:priorityaction
+            hipposysedit:primary: false
+            hipposysedit:type: website:priorityaction
             jcr:primaryType: hipposysedit:field
           /rawMetadata:
             hipposysedit:mandatory: false
@@ -369,6 +387,9 @@ definitions:
             hippo:modes: []
             hippo:values: []
             jcr:primaryType: hippogallerypicker:imagelink
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           /website:summary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
