@@ -32,7 +32,7 @@
 <#assign hasLatestStatisticsSection = series.latestPublication?? && series.latestPublication?has_content />
 <#assign hasAboutSection = series.about?? && series.about.content?has_content />
 <#assign hasMethodologySection = series.methodology?? && series.methodology.content?has_content />
-<#assign hasPastPublicationsSection = series.seriesReplaces?? />
+<#assign hasPastPublicationsSection = series.seriesReplaces?? || publications?size gt 1 />
 <#assign hasUpcomingPublicationsSection = upcomingPublications?? && upcomingPublications?has_content />
 <#assign hasResponsibleStatistician = series.statistician?? && series.statistician?has_content />
 <#assign hasResponsibleTeam = series.team?? && series.team?has_content />
@@ -153,7 +153,7 @@
                             <#if hasResponsibleStatistician>
                             <dl class="detail-list">
                                 <dt class="detail-list__key"><@fmt.message key="labels.responsible-statistician"/></dt>
-                                <dd class="detail-list__value"><a href="<@hst.link hippobean=series.statistician />">${series.statistician.title}</a>    </dd>
+                                <dd class="detail-list__value"><a href="<@hst.link hippobean=series.statistician />">${series.statistician.title}</a></dd>
                             </dl>
                             </#if>
                             <#if hasResponsibleTeam>
@@ -249,10 +249,12 @@
                                                         <#list publication.supplementaryInformation as suppInfo>
                                                             <#if !suppInfoList?seq_contains(suppInfo)>
                                                                 <#assign suppInfoList += [suppInfo] />
-                                                                <@fmt.formatDate var="suppInfoPublishDate" value=suppInfo.publishedDate.time?date type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
+                                                                <#if suppInfo.publishedDate??>
+                                                                    <@fmt.formatDate var="suppInfoPublishDate" value=suppInfo.publishedDate.time?date type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
+                                                                </#if>
 
                                                                 <li class="inset-text__block">
-                                                                    <h4 class="inset-text__block-title"><a href="<@hst.link hippobean=suppInfo />">${suppInfo.title}</a> <span>(${suppInfoPublishDate})</span></h4>
+                                                                    <h4 class="inset-text__block-title"><a href="<@hst.link hippobean=suppInfo />">${suppInfo.title}</a> <#if suppInfo.publishedDate??><span>(${suppInfoPublishDate})</span></#if></h4>
                                                                     <div class="inset-text__block-content rich-text-content" itemprop="description">
                                                                         <@truncate text=suppInfo.shortsummary size="250" />
                                                                     </div>
@@ -309,7 +311,7 @@
                                     <h3>${item.organisation.title}</h3>
                                 </#if>
 
-                                <#if item.additionalDetail.content?has_content>
+                                <#if item.additionalDetail?? && item.additionalDetail.content?has_content>
                                 <div class="rich-text-content">
                                     <@hst.html hippohtml=item.additionalDetail contentRewriter=gaContentRewriter />
                                 </div>
@@ -363,6 +365,7 @@
     <#local count = (upcomingPublications?size < 4)?then(upcomingPublications?size, 4)/>
     <#list upcomingPublications[0..count-1] as publication>
     <li itemprop="hasPart" itemscope itemtype="http://schema.org/PublicationIssue">
+        <#-- <@fmt.formatDate value=publication.nominalPublicationDateCalendar?date type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" /> -->
         <article class="cta">
             <h3 itemprop="name"><a href="<@hst.link hippobean=publication.selfLinkBean/>" title="${publication.title}" class="cta__button" itemprop="url">${publication.title}</a></h3>
             <p class="cta__text"><@formatRestrictableDate value=publication.nominalPublicationDate/></p>
