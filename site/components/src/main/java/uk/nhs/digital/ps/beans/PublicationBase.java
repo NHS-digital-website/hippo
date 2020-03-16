@@ -148,11 +148,18 @@ public abstract class PublicationBase extends BaseDocument {
         return nominalPublicationDate;
     }
 
-    public Calendar getNominalPublicationDateCalendar() {
+    public Date getNominalPublicationDateCalendar() {
 
         Calendar cal = Calendar.getInstance();
+        if (nominalPublicationDate == null) {
+            nominalPublicationDate = Optional.ofNullable(getProperty(PropertyKeys.NOMINAL_DATE))
+                .map(object -> (Calendar)object)
+                .map(this::nominalPublicationDateCalendarToRestrictedDate)
+                .orElse(null);
+        }
+
         cal.set(nominalPublicationDate.getYear(), nominalPublicationDate.getMonth().getValue() - 1, nominalPublicationDate.getDayOfMonth(), 0, 0);
-        return cal;
+        return cal.getTime();
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.COVERAGE_START)
