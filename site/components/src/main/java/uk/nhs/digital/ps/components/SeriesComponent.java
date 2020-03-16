@@ -23,9 +23,7 @@ import uk.nhs.digital.ps.beans.Publication;
 import uk.nhs.digital.ps.beans.PublicationBase;
 import uk.nhs.digital.ps.beans.Series;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class SeriesComponent extends EssentialsContentComponent {
@@ -70,6 +68,9 @@ public class SeriesComponent extends EssentialsContentComponent {
             request.setAttribute("dateNamingMap", SelectionUtil.valueListAsMap(dateNamingConvention));
         }
 
+        List<Series> replacedSeriesList  = new ArrayList<>();
+        getReplacedSeriesList(seriesIndexDocument, replacedSeriesList);
+        request.setAttribute("replacedSeriesList", replacedSeriesList);
         request.setAttribute("series", seriesIndexDocument);
 
         try {
@@ -100,5 +101,15 @@ public class SeriesComponent extends EssentialsContentComponent {
 
             reportDisplayError(request, seriesIndexDocument.getTitle());
         }
+    }
+
+    private List<Series> getReplacedSeriesList(Series seriesIndexDocument, List<Series> list) {
+
+        if (seriesIndexDocument.getSeriesReplaces() != null ) {
+
+            list.add(seriesIndexDocument.getSeriesReplaces().getReplacementSeries());
+            getReplacedSeriesList(seriesIndexDocument.getSeriesReplaces().getReplacementSeries(), list);
+        }
+        return  list;
     }
 }
