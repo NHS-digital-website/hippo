@@ -192,24 +192,23 @@
                     <#if hasPastPublicationsSection>
                         <div class="article-section" id="${slugify(pastPublicationsSectionHeader)}">
                             <h2>${pastPublicationsSectionHeader}</h2>
-
-                            <@fmt.formatDate var="changeDate" value=series.seriesReplaces.changeDate.time?date type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
-
-                            <#assign updateData = {
-                                "title": series.seriesReplaces.replacementSeries.title,
-                                "content": series.seriesReplaces.whyReplaced,
-                                "severity": "information",
-                                "calloutType": "change",
-                                "date": changeDate,
-                                "narrow": true,
-                                "index": "series-replaced"
-                            } />
-                        
-                            <@calloutBox updateData />
-
                             <#if publications?size gt 1>
-                                <h3 class="flush push--bottom"><@fmt.message key="headers.previous-versions"/></h3>
-                                <ul class="list list--reset cta-list" data-uipath="ps.series.publications-list.previous">
+                                <ul class="list list--reset cta-list">
+                                    <@fmt.formatDate var="changeDate" value=series.seriesReplaces.changeDate.time?date type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
+
+                                    <#assign updateData = {
+                                        "title": series.seriesReplaces.replacementSeries.title,
+                                        "content": series.seriesReplaces.whyReplaced,
+                                        "severity": "information",
+                                        "calloutType": "change",
+                                        "date": changeDate,
+                                        "narrow": true,
+                                        "index": "series-replaced"
+                                    } />
+                                
+                                    <@calloutBox updateData />
+
+                                    <#assign suppInfoList = [] />
                                     <#list publications[1..] as publication>
                                         <#assign publishDate = publication.nominalPublicationDate.dayOfMonth + " " + 
                                         publication.nominalPublicationDate.month?capitalize + " " + publication.nominalPublicationDate.year?c />
@@ -243,19 +242,22 @@
                                                     </div>
 
                                                     <#if publication.supplementaryInformation?has_content>
+
                                                     <div class="inset-text">
                                                         <h3 class="inset-text__title"><@fmt.message key="headers.supplementary-information-requests" /></h3>
                                                         <ul class="inset-text__blocks">
                                                         <#list publication.supplementaryInformation as suppInfo>
+                                                            <#if !suppInfoList?seq_contains(suppInfo)>
+                                                                <#assign suppInfoList += [suppInfo] />
+                                                                <@fmt.formatDate var="suppInfoPublishDate" value=suppInfo.publishedDate.time?date type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
 
-                                                        <@fmt.formatDate var="suppInfoPublishDate" value=suppInfo.publishedDate.time?date type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
-
-                                                            <li class="inset-text__block">
-                                                                <h4 class="inset-text__block-title"><a href="<@hst.link hippobean=suppInfo />">${suppInfo.title}</a> <span>(${suppInfoPublishDate})</span></h4>
-                                                                <div class="inset-text__block-content rich-text-content" itemprop="description">
-                                                                    <@truncate text=suppInfo.shortsummary size="250" />
-                                                                </div>
-                                                            </li>
+                                                                <li class="inset-text__block">
+                                                                    <h4 class="inset-text__block-title"><a href="<@hst.link hippobean=suppInfo />">${suppInfo.title}</a> <span>(${suppInfoPublishDate})</span></h4>
+                                                                    <div class="inset-text__block-content rich-text-content" itemprop="description">
+                                                                        <@truncate text=suppInfo.shortsummary size="250" />
+                                                                    </div>
+                                                                </li>
+                                                            </#if>
                                                         </#list>
                                                         </ul>
                                                     </div>
