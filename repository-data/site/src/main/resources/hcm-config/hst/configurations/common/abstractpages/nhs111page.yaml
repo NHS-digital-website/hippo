@@ -1,0 +1,6 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:abstractpages/nhs111page:
+      hst:template: nhs111-layout
+      jcr:primaryType: hst:component

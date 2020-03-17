@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/nhs111-covid-19:
+      /main:
+        hst:componentclassname: uk.nhs.digital.common.components.CovidContactFormComponent
+        hst:template: nhs111-covid-19
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/nhs111page
+      jcr:primaryType: hst:component

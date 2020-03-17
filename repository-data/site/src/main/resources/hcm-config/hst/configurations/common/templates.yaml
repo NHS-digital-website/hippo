@@ -152,6 +152,12 @@ definitions:
       /newslist-main-newslist:
         hst:renderpath: webfile:/freemarker/common/newslist-main-newslist.ftl
         jcr:primaryType: hst:template
+      /nhs111-covid-19:
+        hst:renderpath: webfile:/freemarker/common/nhs111-covid-19.ftl
+        jcr:primaryType: hst:template
+      /nhs111-layout:
+        hst:renderpath: webfile:/freemarker/common/nhs111-layout.ftl
+        jcr:primaryType: hst:template
       /nihub:
         hst:renderpath: webfile:/freemarker/nationalindicatorlibrary/nihub.ftl
         jcr:primaryType: hst:template

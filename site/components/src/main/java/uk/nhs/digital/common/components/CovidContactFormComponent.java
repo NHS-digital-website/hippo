@@ -1,4 +1,4 @@
-package uk.nhs.digital.ps.components;
+package uk.nhs.digital.common.components;
 
 import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.component.support.forms.FormMap;

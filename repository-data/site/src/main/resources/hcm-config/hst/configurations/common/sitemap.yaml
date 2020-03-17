@@ -146,6 +146,10 @@ definitions:
         hst:componentconfigurationid: hst:pages/about
         hst:relativecontentpath: about
         jcr:primaryType: hst:sitemapitem
+      /covid-19:
+        hst:componentconfigurationid: hst:pages/nhs111-covid-19
+        hst:relativecontentpath: covid-19
+        jcr:primaryType: hst:sitemapitem
       /cyber-alerts:
         hst:componentconfigurationid: hst:pages/cyberalerthub
         hst:relativecontentpath: cyber-alerts
