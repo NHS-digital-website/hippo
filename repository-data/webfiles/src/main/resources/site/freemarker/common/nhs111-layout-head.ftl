@@ -18,15 +18,16 @@
     <link rel="preconnect" href="https://lpcdn.lpsnmedia.net" crossorigin>
     <link rel="preconnect" href="https://lptag.liveperson.net" crossorigin>
 
-    <!--[if IE]><link rel="shortcut icon" href="<@hst.webfile path="icons/favicon.ico"/>"><![endif]-->
-    <link rel="apple-touch-icon" sizes="180x180" href="<@hst.webfile path="icons/apple-touch-icon.png"/>">
-    <link rel="icon" type="image/png" sizes="32x32" href="<@hst.webfile path="icons/favicon-32x32.png"/>">
-    <link rel="icon" type="image/png" sizes="16x16" href="<@hst.webfile path="icons/favicon-16x16.png"/>">
-    <link rel="manifest" href="<@hst.webfile path="icons/manifest.json"/>">
-    <link rel="mask-icon" href="<@hst.webfile path="icons/safari-pinned-tab.svg"/>">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="shortcut icon" href="/_nhs111/assets/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/_nhs111/assets/favicons/apple-touch-icon-180x180.png">
+    <link rel="mask-icon" href="/_nhs111/assets/favicons/favicon.svg" color="#005eb8">
+    <link rel="icon" sizes="192x192" href="/_nhs111/assets/favicons/favicon-192x192.png">
+    <meta name="msapplication-TileImage" content="/_nhs111/assets/favicons/mediumtile-144x144.png">
+    <meta name="msapplication-TileColor" content="#005eb8">
+    <meta name="msapplication-square70x70logo" content="/_nhs111/assets/favicons/smalltile-70x70.png">
+    <meta name="msapplication-square150x150logo" content="/_nhs111/assets/favicons/mediumtile-150x150.png">
+    <meta name="msapplication-wide310x150logo" content="/_nhs111/assets/favicons/widetile-310x150.png">
+    <meta name="msapplication-square310x310logo" content="/_nhs111/assets/favicons/largetile-310x310.png">
 
-    <link rel="stylesheet" href="<@hst.webfile path="/css/nhsuk.css"/>" media="screen" type="text/css"/>
-    <link rel="stylesheet" href="<@hst.webfile path="/css/eforms.css"/>" media="screen" type="text/css"/>
-    <link rel="stylesheet" href="<@hst.webfile path="/css/nhsuk-print.css"/>" media="print" type="text/css"/>
+    <link rel="stylesheet" href="<@hst.webfile path="/_nhs111/css/nhsuk-3.0.3.min.css"/>" media="screen" type="text/css"/>
 </head>

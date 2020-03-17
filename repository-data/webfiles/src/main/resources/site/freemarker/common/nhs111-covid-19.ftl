@@ -12,7 +12,7 @@
         <div class="grid-row">
             <div class="column column--two-thirds page-block page-block--main">
                 <div class="article-section">
-                    <h2>Just a section</h2>
+                    <h2>About coronavirus (COVID-19)</h2>
                     <p>Synergistically incubate B2B technologies vis-a-vis long-term high-impact human capital. Objectively drive ethical infomediaries via e-business models. Dynamically enhance emerging e-commerce for user-centric synergy. Progressively architect customer directed e-services before empowered potentialities. Efficiently innovate B2C resources and clicks-and-mortar action items.</p>
                     <p>Distinctively benchmark vertical methods of empowerment through seamless core competencies. Objectively plagiarize e-business technology via multidisciplinary action.</p>
                 </div>
