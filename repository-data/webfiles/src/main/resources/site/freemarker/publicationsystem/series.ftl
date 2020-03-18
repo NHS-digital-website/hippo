@@ -14,30 +14,6 @@
 
 <@hst.setBundle basename="publicationsystem.headers, publicationsystem.labels" />
 
-<#-- TODO - Use `document` instead of `series` -->
-<#-- <#assign document = series /> -->
-
-<#-- Mocking the new merged list -->
-<#-- <#assign pastPublicationsAndSeriesChanges = [{
-    "type": "publication",
-    "object": publications[1]
-}, {
-    "type": "replacedSeries",
-    "object": series.seriesReplaces.replacementSeries
-}, {
-    "type": "publication",
-    "object": publications[2]
-}, {
-    "type": "publication",
-    "object": publications[3]
-}, {
-    "type": "replacedSeries",
-    "object": series.seriesReplaces.replacementSeries
-}, {
-    "type": "publication",
-    "object": publications[4]
-}] /> -->
-
 <#-- Cache section headers and section checkers -->
 <@fmt.message key="headers.summary" var="summarySectionHeader" />
 <@fmt.message key="headers.about-this-publication" var="aboutSectionHeader" />
@@ -225,11 +201,11 @@
                                 <#assign object = pastObject.object />
                                 <li>
                                     <#if pastObject.type == "replacedSeries">
-                                        <@fmt.formatDate value=object.seriesReplaces.changeDate.time?date type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
+                                        <@fmt.formatDate value=object.changeDate.time?date type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
 
                                         <#assign replacedSeriesData = {
-                                            "title": object.seriesReplaces.title,
-                                            "content": object.seriesReplaces.whyReplaced,
+                                            "title": object.title,
+                                            "content": object.whyReplaced,
                                             "severity": "information",
                                             "calloutType": "change",
                                             "date": changeDate,
