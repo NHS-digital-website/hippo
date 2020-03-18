@@ -17,6 +17,27 @@
 <#-- TODO - Use `document` instead of `series` -->
 <#-- <#assign document = series /> -->
 
+<#-- Mocking the new merged list -->
+<#-- <#assign pastPublicationsAndSeriesChanges = [{
+    "type": "publication",
+    "object": publications[1]
+}, {
+    "type": "replacedSeries",
+    "object": series.seriesReplaces.replacementSeries
+}, {
+    "type": "publication",
+    "object": publications[2]
+}, {
+    "type": "publication",
+    "object": publications[3]
+}, {
+    "type": "replacedSeries",
+    "object": series.seriesReplaces.replacementSeries
+}, {
+    "type": "publication",
+    "object": publications[4]
+}] /> -->
+
 <#-- Cache section headers and section checkers -->
 <@fmt.message key="headers.summary" var="summarySectionHeader" />
 <@fmt.message key="headers.about-this-publication" var="aboutSectionHeader" />
@@ -32,7 +53,7 @@
 <#assign hasLatestStatisticsSection = series.latestPublication?? && series.latestPublication?has_content />
 <#assign hasAboutSection = series.about?? && series.about.content?has_content />
 <#assign hasMethodologySection = series.methodology?? && series.methodology.content?has_content />
-<#assign hasPastPublicationsSection = series.seriesReplaces?? || publications?size gt 1 />
+<#assign hasPastPublicationsSection = pastPublicationsAndSeriesChanges?? && pastPublicationsAndSeriesChanges?has_content />
 <#assign hasUpcomingPublicationsSection = upcomingPublications?? && upcomingPublications?has_content />
 <#assign hasResponsibleStatistician = series.statistician?? && series.statistician?has_content />
 <#assign hasResponsibleTeam = series.team?? && series.team?has_content />
@@ -121,17 +142,7 @@
                         
                         <div class="callout-box callout-box--grey" role="complementary" aria-labelledby="callout-box-heading-interactive-grey-latest-publication">
                             <div class="callout-box__icon-wrapper">
-                                <svg class="callout-box__icon callout-box__icon--narrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
-                                    <path d="M198,182H42c-6.6,0-12-5.4-12-12V74c0-6.6,5.4-12,12-12h156c6.6,0,12,5.4,12,12v96C210,176.6,204.6,182,198,182z"></path>
-                                    <line x1="30" y1="92" x2="210" y2="92"></line>
-                                    <line x1="60" y1="114" x2="180" y2="114"></line>
-                                    <line x1="60" y1="135" x2="180" y2="135"></line>
-                                    <line x1="60.1" y1="156" x2="141.1" y2="156"></line>
-                                    <circle cx="46.8" cy="77.1" r="3.7"></circle>
-                                    <circle cx="61.8" cy="77.1" r="3.7"></circle>
-                                    <circle cx="76.8" cy="77.1" r="3.7"></circle>
-                                    <rect x="166.2" y="149.1" width="13.8" height="13.8"></rect>
-                                </svg>
+                                <@calloutBoxWebIcon />
                             </div>
 
                             <div class="callout-box__content callout-box__content--narrow">
@@ -202,50 +213,44 @@
                     </#if>
                     <#-- [FTL-END] 'Upcoming publications' section -->
 
+                    
                     <#-- [FTL-BEGIN] 'Past publications' section -->
                     <#if hasPastPublicationsSection>
                         <div class="article-section" id="${slugify(pastPublicationsSectionHeader)}">
                             <h2>${pastPublicationsSectionHeader}</h2>
+                            <#assign suppInfoList = [] />
 
-                            <#if publications?size gt 1>
-                                <ul class="list list--reset cta-list">
-                                    <@fmt.formatDate var="changeDate" value=series.seriesReplaces.changeDate.time?date type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
+                            <ul class="list list--reset cta-list">
+                            <#list pastPublicationsAndSeriesChanges as pastObject>
+                                <#assign object = pastObject.object />
+                                <li>
+                                    <#if pastObject.type == "replacedSeries">
+                                        <@fmt.formatDate value=object.seriesReplaces.changeDate.time?date type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
 
-                                    <#assign updateData = {
-                                        "title": series.seriesReplaces.replacementSeries.title,
-                                        "content": series.seriesReplaces.whyReplaced,
-                                        "severity": "information",
-                                        "calloutType": "change",
-                                        "date": changeDate,
-                                        "narrow": true,
-                                        "index": "series-replaced"
-                                    } />
-                                
-                                    <@calloutBox updateData />
+                                        <#assign replacedSeriesData = {
+                                            "title": object.seriesReplaces.title,
+                                            "content": object.seriesReplaces.whyReplaced,
+                                            "severity": "information",
+                                            "calloutType": "change",
+                                            "date": changeDate,
+                                            "narrow": true,
+                                            "index": "series-replaced"
+                                        } />
+                                    
+                                        <@calloutBox replacedSeriesData />
 
-                                    <#assign suppInfoList = [] />
-                                    <#list publications[1..] as publication>
-                                        <#assign publishDate = publication.nominalPublicationDate.dayOfMonth + " " + 
-                                        publication.nominalPublicationDate.month?capitalize + " " + publication.nominalPublicationDate.year?c />
+                                    <#elseif pastObject.type == "publication">
+                                        <#assign publishDate = object.nominalPublicationDate.dayOfMonth + " " + 
+                                        object.nominalPublicationDate.month?capitalize + " " + object.nominalPublicationDate.year?c />
 
                                         <#assign pubData = {
-                                            "title": publication.title,
+                                            "title": object.title,
                                             "date": publishDate
                                         } />
                             
                                         <div class="callout-box callout-box--grey" role="complementary" aria-labelledby="callout-box-heading-interactive-grey-1">
                                             <div class="callout-box__icon-wrapper">
-                                                <svg class="callout-box__icon callout-box__icon--narrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
-                                                    <path d="M198,182H42c-6.6,0-12-5.4-12-12V74c0-6.6,5.4-12,12-12h156c6.6,0,12,5.4,12,12v96C210,176.6,204.6,182,198,182z"></path>
-                                                    <line x1="30" y1="92" x2="210" y2="92"></line>
-                                                    <line x1="60" y1="114" x2="180" y2="114"></line>
-                                                    <line x1="60" y1="135" x2="180" y2="135"></line>
-                                                    <line x1="60.1" y1="156" x2="141.1" y2="156"></line>
-                                                    <circle cx="46.8" cy="77.1" r="3.7"></circle>
-                                                    <circle cx="61.8" cy="77.1" r="3.7"></circle>
-                                                    <circle cx="76.8" cy="77.1" r="3.7"></circle>
-                                                    <rect x="166.2" y="149.1" width="13.8" height="13.8"></rect>
-                                                </svg>
+                                                <@calloutBoxWebIcon />
                                             </div>
 
                                             <div class="callout-box__content callout-box__content--narrow">
@@ -253,13 +258,13 @@
 
                                                 <div class="callout-box__content-description">
                                                     <div class="rich-text-content">
-                                                        <@truncate text=publication.summary.firstParagraph size="150" /> 
+                                                        <@truncate text=object.summary.firstParagraph size="150" /> 
                                                     </div>
 
                                                     <#-- Make sure no supp info gets rendered twice -->
                                                     <#assign renderSuppinfo = false />
-                                                    <#if publication.supplementaryInformation?has_content>
-                                                        <#list publication.supplementaryInformation as suppInfo>
+                                                    <#if object.supplementaryInformation?has_content>
+                                                        <#list object.supplementaryInformation as suppInfo>
                                                             <#if !suppInfoList?seq_contains(suppInfo)>
                                                                 <#assign renderSuppinfo = true />
                                                             </#if>
@@ -270,7 +275,7 @@
                                                     <div class="inset-text">
                                                         <h3 class="inset-text__title"><@fmt.message key="headers.supplementary-information-requests" /></h3>
                                                         <ul class="inset-text__blocks">
-                                                        <#list publication.supplementaryInformation as suppInfo>
+                                                        <#list object.supplementaryInformation as suppInfo>
                                                             <#if !suppInfoList?seq_contains(suppInfo)>
                                                                 <#assign suppInfoList += [suppInfo] />
                                                                 <#if suppInfo.publishedDate??>
@@ -293,9 +298,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </#list>
-                                </ul>
-                            </#if>
+                                    </#if>
+                                </li>
+                            </#list>
+                            </ul>
                         </div>
                     </#if>
                     <#-- [FTL-END] 'Past publications' section -->
@@ -397,4 +403,18 @@
     </li>
     </#list>
 </ul>
+</#macro>
+
+<#macro calloutBoxWebIcon>
+    <svg class="callout-box__icon callout-box__icon--narrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+        <path d="M198,182H42c-6.6,0-12-5.4-12-12V74c0-6.6,5.4-12,12-12h156c6.6,0,12,5.4,12,12v96C210,176.6,204.6,182,198,182z"></path>
+        <line x1="30" y1="92" x2="210" y2="92"></line>
+        <line x1="60" y1="114" x2="180" y2="114"></line>
+        <line x1="60" y1="135" x2="180" y2="135"></line>
+        <line x1="60.1" y1="156" x2="141.1" y2="156"></line>
+        <circle cx="46.8" cy="77.1" r="3.7"></circle>
+        <circle cx="61.8" cy="77.1" r="3.7"></circle>
+        <circle cx="76.8" cy="77.1" r="3.7"></circle>
+        <rect x="166.2" y="149.1" width="13.8" height="13.8"></rect>
+    </svg>
 </#macro>
