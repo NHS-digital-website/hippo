@@ -3,33 +3,36 @@
 <@hst.setBundle basename="coronavirus.banner"/>
 
 <#if showBanner>
-    <header class="coronavirus-banner">
-        <div class="grid-wrapper grid-wrapper--collapse">
-            <div class="grid-row">
-                <div class="column column--two-thirds column--reset">
-                    <div class="article-header article-header--secondary">
-                        <h1 class="h2"><@fmt.message key="title"/></h1>
+    <!--googleoff: index-->
+    <article>
+        <header class="coronavirus-banner" aria-labelledby="message-summary-title" role="alert" tabindex="-1">
+            <div class="grid-wrapper grid-wrapper--collapse">
+                <div class="grid-row">
+                    <div class="column column--two-thirds column--reset">
+                        <div class="article-header article-header--secondary">
+                            <h1 class="h2" id="message-summary-title"><@fmt.message key="title"/></h1>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="grid-row">
-                <div class="column column--two-thirds column--reset">
-                    <div id="section-summary" class="article-section article-section--summary  no-border">
-                        <div class="grid-row">
-                            <div class="column column--reset">
-                                <div class="rich-text-content">
-                                    <p></p><@fmt.message key="message"/></p>
-                                    <p class="is-hidden-if-no-js"><a href="#" onclick="hideCoronavirusBanner()"><@fmt.message key="dismiss"/></a>
-                                    </p>
+                <div class="grid-row">
+                    <div class="column column--two-thirds column--reset">
+                        <div id="section-summary" class="article-section article-section--summary  no-border">
+                            <div class="grid-row">
+                                <div class="column column--reset">
+                                    <div class="rich-text-content">
+                                        <p><@fmt.message key="message"/></p>
+                                        <p class="is-hidden-if-no-js"><a href="#" onclick="hideCoronavirusBanner()"><@fmt.message key="dismiss"/></a></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </header>
+        </header>
+    </article>
+    <!--googleon: index-->
 </#if>
 
 <script>
