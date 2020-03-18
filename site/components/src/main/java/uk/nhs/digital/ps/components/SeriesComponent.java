@@ -18,10 +18,7 @@ import org.onehippo.forge.selection.hst.contentbean.ValueList;
 import org.onehippo.forge.selection.hst.util.SelectionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.nhs.digital.ps.beans.LegacyPublication;
-import uk.nhs.digital.ps.beans.Publication;
-import uk.nhs.digital.ps.beans.PublicationBase;
-import uk.nhs.digital.ps.beans.Series;
+import uk.nhs.digital.ps.beans.*;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -68,9 +65,6 @@ public class SeriesComponent extends EssentialsContentComponent {
             request.setAttribute("dateNamingMap", SelectionUtil.valueListAsMap(dateNamingConvention));
         }
 
-        List<Series> replacedSeriesList  = new ArrayList<>();
-        getReplacedSeriesList(seriesIndexDocument, replacedSeriesList);
-        request.setAttribute("replacedSeriesList", replacedSeriesList);
         request.setAttribute("series", seriesIndexDocument);
 
         try {
@@ -93,8 +87,30 @@ public class SeriesComponent extends EssentialsContentComponent {
                 Collections.sort(livePublications, DateComparator.COMPARATOR);
             }
 
-            request.setAttribute("publications", livePublications);
+            if (!isEmpty(livePublications)) {
+                livePublications.remove(0); //removes first publication as the publication available from Series.latestPublication
+            }
+
             request.setAttribute("upcomingPublications", upcomingPublications);
+
+            List<Pair> pastPublicationsAndSeriesChanges = new ArrayList<>();
+
+            for (PublicationBase publicationBase : livePublications) {
+                Pair<String, PublicationBase> pair = new Pair("publication", publicationBase, publicationBase.getNominalPublicationDateCalendar());
+                pastPublicationsAndSeriesChanges.add(pair);
+            }
+
+            if (seriesIndexDocument.getSeriesReplaces() != null) {
+                SeriesReplaces seriesReplaces = seriesIndexDocument.getSeriesReplaces();
+                if (seriesReplaces.getChangeDate() != null) {
+                    Pair<String, Series> pair = new Pair("replacedSeries", seriesReplaces, seriesReplaces.getChangeDate().getTime());
+                    pastPublicationsAndSeriesChanges.add(pair);
+                }
+            }
+
+            pastPublicationsAndSeriesChanges.sort(Comparator.comparing(Pair::getDate));
+            Collections.reverse(pastPublicationsAndSeriesChanges);
+            request.setAttribute("pastPublicationsAndSeriesChanges", pastPublicationsAndSeriesChanges);
 
         } catch (QueryException queryException) {
             log.error("Failed to find publications for series " + seriesIndexDocument.getTitle(), queryException);
@@ -103,13 +119,4 @@ public class SeriesComponent extends EssentialsContentComponent {
         }
     }
 
-    private List<Series> getReplacedSeriesList(Series seriesIndexDocument, List<Series> list) {
-
-        if (seriesIndexDocument.getSeriesReplaces() != null ) {
-
-            list.add(seriesIndexDocument.getSeriesReplaces().getReplacementSeries());
-            getReplacedSeriesList(seriesIndexDocument.getSeriesReplaces().getReplacementSeries(), list);
-        }
-        return  list;
-    }
 }
