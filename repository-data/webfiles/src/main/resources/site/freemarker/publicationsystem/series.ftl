@@ -170,7 +170,7 @@
 
                     <#-- [FTL-BEGIN] 'Methodology' section -->
                     <#if hasMethodologySection>
-                    <div class="article-section ${(hasResponsibleStatistician || hasResponsibleTeam)?then('no-border', '')}" id="${slugify(methodologySectionHeader)}">
+                    <div class="article-section" id="${slugify(methodologySectionHeader)}">
                         <h2>${methodologySectionHeader}</h2>
                         <div class="rich-text-content" itemprop="description">
                             <@hst.html hippohtml=series.methodology contentRewriter=gaContentRewriter />
@@ -241,8 +241,17 @@
                                                         <@truncate text=publication.summary.firstParagraph size="150" />  
                                                     </div>
 
+                                                    <#-- Make sure no supp info gets rendered twice -->
+                                                    <#assign renderSuppinfo = false />
                                                     <#if publication.supplementaryInformation?has_content>
+                                                        <#list publication.supplementaryInformation as suppInfo>
+                                                            <#if !suppInfoList?seq_contains(suppInfo)>
+                                                                <#assign renderSuppinfo = true />
+                                                            </#if>
+                                                        </#list>
+                                                    </#if>
 
+                                                    <#if renderSuppinfo>
                                                     <div class="inset-text">
                                                         <h3 class="inset-text__title"><@fmt.message key="headers.supplementary-information-requests" /></h3>
                                                         <ul class="inset-text__blocks">
