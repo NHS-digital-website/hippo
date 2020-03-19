@@ -18,14 +18,18 @@
       /selection:listitem[4]:
         jcr:primaryType: selection:listitem
         selection:key: '4'
-        selection:label: Coverage range by year (e.g 2018-19)
+        selection:label: At month of coverage end
       /selection:listitem[5]:
         jcr:primaryType: selection:listitem
         selection:key: '5'
-        selection:label: Coverage range by month (e.g March 2018 - Sept 2018)
+        selection:label: Coverage range by year (e.g 2018-19)
       /selection:listitem[6]:
         jcr:primaryType: selection:listitem
         selection:key: '6'
+        selection:label: Coverage range by month (e.g March 2018 - Sept 2018)
+      /selection:listitem[7]:
+        jcr:primaryType: selection:listitem
+        selection:key: '7'
         selection:label: No date
       hippo:availability:
       - live

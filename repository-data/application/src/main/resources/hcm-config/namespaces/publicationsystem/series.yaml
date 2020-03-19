@@ -105,7 +105,7 @@ definitions:
           /replaces:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Series changes and replacements
+            caption: Series Changes and Replacements
             field: seriesreplaces
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
@@ -125,8 +125,9 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '80'
-            caption: Publication subtitle
+            caption: Publication Subtitle
             field: subTitle
+            hint: e.g. Collected under the Mental Capacity Act 2005
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
@@ -134,7 +135,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               source: /content/documents/administration/website/date-naming-convention
-            caption: Date naming convention
+            caption: Date Naming Convention
             field: dateNaming
             hint: ''
             jcr:primaryType: frontend:plugin
@@ -160,7 +161,7 @@ definitions:
           /refNumber:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Series Unique reference number
+            caption: Series Unique Reference Number
             field: refNumber
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
@@ -180,7 +181,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: ISSN
             field: issn
-            hint: 'Format: 0000-0000'
+            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
@@ -197,9 +198,9 @@ definitions:
           /releaseSubject:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Pre-release access list
+            caption: Pre-release Access List
             field: releaseSubject
-            hint: Use this if this series replaces a previous version
+            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
@@ -347,6 +348,26 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: DynamicDropdown
             jcr:primaryType: hipposysedit:field
+          /granularity:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:Granularity
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - publicationsystem-dropdown-granularity
+            jcr:primaryType: hipposysedit:field
+          /information_type:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:InformationType
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - publicationsystem-dropdown-information-type
+            jcr:primaryType: hipposysedit:field
           /issn:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -385,26 +406,6 @@ definitions:
             hipposysedit:path: publicationsystem:releaseSubject
             hipposysedit:primary: false
             hipposysedit:type: publicationsystem:releaseSubject
-            jcr:primaryType: hipposysedit:field
-          /granularity:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:Granularity
-            hipposysedit:primary: false
-            hipposysedit:type: StaticDropdown
-            hipposysedit:validators:
-            - publicationsystem-dropdown-granularity
-            jcr:primaryType: hipposysedit:field
-          /information_type:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:InformationType
-            hipposysedit:primary: false
-            hipposysedit:type: StaticDropdown
-            hipposysedit:validators:
-            - publicationsystem-dropdown-information-type
             jcr:primaryType: hipposysedit:field
           /resourceLinks:
             hipposysedit:mandatory: false
