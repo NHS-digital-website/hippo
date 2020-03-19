@@ -201,10 +201,10 @@
                                 <#assign object = pastObject.object />
                                 <li>
                                     <#if pastObject.type == "replacedSeries">
-                                        <@fmt.formatDate value=object.changeDate.time?date type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
+                                        <@fmt.formatDate value=object.changeDate.time?date var="changeDate" type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" />
 
                                         <#assign replacedSeriesData = {
-                                            "title": object.title,
+                                            "title": object.replacementSeries.title,
                                             "content": object.whyReplaced,
                                             "severity": "information",
                                             "calloutType": "change",
