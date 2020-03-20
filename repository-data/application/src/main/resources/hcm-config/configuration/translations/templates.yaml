@@ -9,6 +9,7 @@ definitions:
       new-digital-website-document: new document
       new-digital-website-folder: new folder
       new-enterprise-forms-document: new enterprise form document
+      new-intranet-document: new internal document
       new-national-indicator-library-document: new indicator
       new-national-indicator-library-folder: new folder
       new-organisation-document: new organisation document
