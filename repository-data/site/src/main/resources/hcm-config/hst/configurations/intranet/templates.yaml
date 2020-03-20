@@ -11,4 +11,10 @@ definitions:
       /search-results:
         hst:renderpath: webfile:/freemarker/intranet/search-results.ftl
         jcr:primaryType: hst:template
+      /task:
+        hst:renderpath: webfile:/freemarker/intranet/task.ftl
+        jcr:primaryType: hst:template
+      /taskhub:
+        hst:renderpath: webfile:/freemarker/common/list-article.ftl
+        jcr:primaryType: hst:template
       jcr:primaryType: hst:templates

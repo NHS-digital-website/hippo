@@ -9,4 +9,16 @@ definitions:
       /search:
         hst:componentconfigurationid: hst:pages/search-results
         jcr:primaryType: hst:sitemapitem
+      /tasks:
+        /_any_:
+          hst:componentconfigurationid: hst:pages/404
+          hst:componentconfigurationmappingnames:
+          - intranet:task
+          hst:componentconfigurationmappingvalues:
+          - hst:pages/task
+          hst:relativecontentpath: tasks/${1}
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/taskhub
+        hst:relativecontentpath: tasks/task-hub
+        jcr:primaryType: hst:sitemapitem
       jcr:primaryType: hst:sitemap

@@ -6,6 +6,7 @@
 <#assign pageTitle = 'Home - ' + siteTitle />
 <#assign siteSEOSummary = "We’re the national information and technology partner to the health and social care system using digital technology to transform the NHS and social care" />
 <#assign pageSEOSummary = siteSEOSummary />
+<#assign pageShortSummary = (pageShortSummary??)?then(pageShortSummary, pageSEOSummary) />
 
 <#if document?? && document.title??>
     <#assign pageTitle = document.title + ' - ' + siteTitle />
@@ -21,6 +22,12 @@
         <#assign pageSEOSummary = tempSEOSummary />
       </#if>
     </#noautoesc>
+<#elseif pageShortSummary??>
+    <!-- strip HTML tags -->
+      <#assign tempSEOSummary =  pageShortSummary?replace('<[^>]+>','','r') />
+      <#if tempSEOSummary?has_content>
+        <#assign pageSEOSummary = tempSEOSummary />
+      </#if>
 </#if>
 
 <#-- Generic meta tags -->

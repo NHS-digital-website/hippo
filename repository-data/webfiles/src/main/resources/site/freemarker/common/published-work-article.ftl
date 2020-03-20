@@ -206,6 +206,7 @@
         </div>
     </div>
     <#if hasChildPages>
+        <#assign splitChapters = splitHash(documents) />
 
         <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide"
              id="chapter-index">
@@ -217,8 +218,6 @@
                             <h2 class="chapter-nav__title"><@fmt.message key="headers.publication-chapters" /></h2>
                         </div>
                     </div>
-
-                    <#assign splitChapters = splitHash(documents) />
 
                     <div class="grid-row">
                         <div class="column column--one-half column--left">
