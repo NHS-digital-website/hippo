@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/intranet/hst:pages/taskhub:
+      /main:
+        hst:componentclassname: uk.nhs.digital.intranet.components.TaskHubComponent
+        hst:template: taskhub
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/master
+      jcr:primaryType: hst:component

@@ -27,6 +27,13 @@
         &:nth-child(3n+3) {
             padding-left: 10px;
         }
+
+        /*@include media($max-width: $min-desktop-width) {
+            max-height: 350px;
+            width: 50%;
+            padding-left: 10px;
+            padding-right: 10px;
+        }*/
     }
 
     &-article {

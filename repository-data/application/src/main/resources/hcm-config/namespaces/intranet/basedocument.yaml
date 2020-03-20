@@ -1,0 +1,31 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/intranet/basedocument:
+      /hipposysedit:nodetype:
+        /hipposysedit:nodetype:
+          hipposysedit:supertype:
+          - hippo:document
+          - hippostdpubwf:document
+          - hippostd:publishableSummary
+          hipposysedit:uri: http://digital.nhs.uk/jcr/intranet/nt/1.0
+          jcr:mixinTypes:
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /hipposysedit:prototypes:
+        /hipposysedit:prototype:
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2020-03-18T11:13:11.892Z
+          hippostdpubwf:lastModificationDate: 2020-03-18T11:13:11.892Z
+          hippostdpubwf:lastModifiedBy: ''
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: intranet:basedocument
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype
