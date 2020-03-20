@@ -1,0 +1,26 @@
+---
+/content/documents/administration/website/most-useful-services-internal-values:
+  /most-useful-services-internal-values:
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: secure-boundary-service
+      selection:label: Secure boundary service
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: specialist-training-for-siros
+      selection:label: Specialist training for SIROs
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: gchq-certified-board-training
+      selection:label: GCHQ-certified board training
+    hippo:availability:
+    - live
+    - preview
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: Most Useful Services internal values
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

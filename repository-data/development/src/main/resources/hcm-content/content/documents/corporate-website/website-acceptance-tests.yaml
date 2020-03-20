@@ -119,7 +119,7 @@
           website:authorname: Gerrard Smith
           website:authororganisation: NHS Logington
           website:authorrole: CEO on some service
-          website:blogcategories:
+          website:casestudycategories:
           - Prototyping
           website:dateofpublication: 2019-04-15T23:00:00Z
           website:leadimagealttext: Duis sed orci id neque ultricies feugiat lead
@@ -244,7 +244,7 @@
           website:authorname: Gerrard Smith
           website:authororganisation: NHS Logington
           website:authorrole: CEO on some service
-          website:blogcategories:
+          website:casestudycategories:
           - Prototyping
           website:dateofpublication: 2019-04-15T23:00:00Z
           website:leadimagealttext: Duis sed orci id neque ultricies feugiat lead
@@ -371,7 +371,7 @@
           website:authorname: Gerrard Smith
           website:authororganisation: NHS Logington
           website:authorrole: CEO on some service
-          website:blogcategories:
+          website:casestudycategories:
           - Prototyping
           website:dateofpublication: 2019-04-15T23:00:00Z
           website:leadimagealttext: Duis sed orci id neque ultricies feugiat lead
@@ -506,7 +506,7 @@
         website:authorname: Jane Smith
         website:authororganisation: NHS Some Org
         website:authorrole: Product lead on some service
-        website:blogcategories:
+        website:casestudycategories:
         - Content
         - How we work
         website:dateofpublication: 2020-09-17T23:00:00Z
@@ -623,7 +623,7 @@
         website:authorname: Jane Smith
         website:authororganisation: NHS Some Org
         website:authorrole: Product lead on some service
-        website:blogcategories:
+        website:casestudycategories:
         - Content
         - How we work
         website:dateofpublication: 2020-09-17T23:00:00Z
@@ -740,7 +740,7 @@
         website:authorname: Jane Smith
         website:authororganisation: NHS Some Org
         website:authorrole: Product lead on some service
-        website:blogcategories:
+        website:casestudycategories:
         - Content
         - How we work
         website:dateofpublication: 2020-09-17T23:00:00Z
@@ -878,7 +878,7 @@
         website:authorname: John Dory
         website:authororganisation: NHS Champs
         website:authorrole: CTO on some service
-        website:blogcategories: []
+        website:casestudycategories: []
         website:dateofpublication: 2019-08-27T23:00:00Z
         website:leadimagealttext: Duis sed orci id neque ultricies feugiat lead image
           alt text
@@ -1009,7 +1009,7 @@
         website:authorname: John Dory
         website:authororganisation: NHS Champs
         website:authorrole: CTO on some service
-        website:blogcategories: []
+        website:casestudycategories: []
         website:dateofpublication: 2019-08-27T23:00:00Z
         website:leadimagealttext: Duis sed orci id neque ultricies feugiat lead image
           alt text
@@ -1142,7 +1142,7 @@
         website:authorname: John Dory
         website:authororganisation: NHS Champs
         website:authorrole: CTO on some service
-        website:blogcategories: []
+        website:casestudycategories: []
         website:dateofpublication: 2019-08-27T23:00:00Z
         website:leadimagealttext: Duis sed orci id neque ultricies feugiat lead image
           alt text

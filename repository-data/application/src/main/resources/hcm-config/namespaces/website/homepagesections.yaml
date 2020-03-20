@@ -1,0 +1,118 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/website/homepagesections:
+      /editor:templates:
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
+          /root:
+            item: ${cluster.id}.field
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /categorytitle:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Category title
+            field: homepagesectiontitle
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /categorycontent:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Category content
+            field: html
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /categorylabel:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Category Link Label
+            field: categorylabel
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /link:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Category link page
+            field: homepagesectionlink
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+        jcr:primaryType: editor:templateset
+      /hipposysedit:nodetype:
+        /hipposysedit:nodetype[1]:
+          /categorylabel:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:categorylabel
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /homepagesectionlink:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:link
+            hipposysedit:primary: false
+            hipposysedit:type: website:internallink
+            jcr:primaryType: hipposysedit:field
+          /homepagesectiontitle:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:categorytitle
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /html:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:categorycontent
+            hipposysedit:primary: false
+            hipposysedit:type: Html
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - hippo:compound
+          - hippostd:relaxed
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes:
+          - hipposysedit:remodel
+          - mix:referenceable
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /hipposysedit:prototypes:
+        /hipposysedit:prototype[1]:
+          /website:link:
+            /website:link:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:internallink
+          jcr:primaryType: website:homepagesections
+          website:categorycontent: ''
+          website:categorylabel: ''
+          website:categorytitle: ''
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype

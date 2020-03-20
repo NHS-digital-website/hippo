@@ -1,0 +1,100 @@
+---
+/content/documents/administration/cyber-and-data-security/cyber-and-data-security-resource-bundle:
+  /cyber-and-data-security-resource-bundle[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-20T15:26:03.682Z
+    hippostdpubwf:lastModificationDate: 2020-03-31T09:40:37.711Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: rb.doctype.data-security-homepage
+    resourcebundle:keys:
+    - headers.alerts
+    - labels.all-alerts
+    - url.all-alerts
+    - labels.alert-severity
+    - labels.alert-date
+    resourcebundle:messages:
+    - Alerts
+    - See all alerts
+    - https://valtech.com
+    - Severity
+    - Date
+  /cyber-and-data-security-resource-bundle[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-20T15:26:03.682Z
+    hippostdpubwf:lastModificationDate: 2020-03-31T09:41:03.854Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: rb.doctype.data-security-homepage
+    resourcebundle:keys:
+    - headers.alerts
+    - labels.all-alerts
+    - url.all-alerts
+    - labels.alert-severity
+    - labels.alert-date
+    resourcebundle:messages:
+    - Alerts
+    - See all alerts
+    - https://valtech.com
+    - Severity
+    - Date
+  /cyber-and-data-security-resource-bundle[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-20T15:26:03.682Z
+    hippostdpubwf:lastModificationDate: 2020-03-31T09:41:03.854Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-03-31T09:41:05.528Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: rb.doctype.data-security-homepage
+    resourcebundle:keys:
+    - headers.alerts
+    - labels.all-alerts
+    - url.all-alerts
+    - labels.alert-severity
+    - labels.alert-date
+    resourcebundle:messages:
+    - Alerts
+    - See all alerts
+    - https://valtech.com
+    - Severity
+    - Date
+  hippo:name: Cyber and data security Resource Bundle
+  hippo:versionHistory: d469285b-19e3-4c71-84b9-be2b22f8987c
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

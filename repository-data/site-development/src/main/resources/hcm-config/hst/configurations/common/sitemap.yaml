@@ -46,6 +46,10 @@ definitions:
         hst:componentconfigurationid: hst:pages/static-ui-component
         hst:relativecontentpath: static-ui/component
         jcr:primaryType: hst:sitemapitem
+      /cyber-data-security-homepage:
+        hst:componentconfigurationid: hst:pages/static-ui-cyber-data-security-homepage
+        hst:relativecontentpath: static-ui/cyber-data-security-homepage
+        jcr:primaryType: hst:sitemapitem
       /eform:
         hst:componentconfigurationid: hst:pages/static-ui-eform
         hst:relativecontentpath: static-ui/eform

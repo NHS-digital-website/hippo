@@ -194,13 +194,13 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
-          /blogcategories:
+          /casestudycategories:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               selectable.options: Content,Delivery,Design,Discovery,How we work,Prototyping,Strategy,Uncategorised,User
                 research
             caption: Blog categories
-            field: blogcategories
+            field: casestudycategories
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
@@ -302,11 +302,11 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
-          /blogcategories:
+          /casestudycategories:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
             hipposysedit:ordered: true
-            hipposysedit:path: website:blogcategories
+            hipposysedit:path: website:casestudycategories
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             jcr:primaryType: hipposysedit:field

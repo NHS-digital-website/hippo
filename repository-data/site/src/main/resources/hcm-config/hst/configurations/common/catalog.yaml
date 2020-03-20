@@ -12,12 +12,24 @@ definitions:
           hst:template: homeland-bloglist
           hst:xtype: hst.item
           jcr:primaryType: hst:containeritemcomponent
+        /callToAction:
+          hst:componentclassname: uk.nhs.digital.common.components.CallToActionComponent
+          hst:label: Call To Action
+          hst:template: callToAction
+          hst:xtype: HST.Item
+          jcr:primaryType: hst:containeritemcomponent
         /carousel:
           hst:componentclassname: uk.nhs.digital.common.components.WrappedListPickerComponent
           hst:iconpath: images/catalog/component-products-30x30.png
           hst:label: Documents Picker
           hst:template: document-list
           hst:xtype: HST.Item
+          jcr:primaryType: hst:containeritemcomponent
+        /cyberAlert:
+          hst:componentclassname: uk.nhs.digital.common.components.CyberAlertComponent
+          hst:label: Cyber Alert
+          hst:template: cyber-alerts
+          hst:xtype: hst.item
           jcr:primaryType: hst:containeritemcomponent
         /eventslist:
           hst:componentclassname: uk.nhs.digital.common.components.EventsComponent
