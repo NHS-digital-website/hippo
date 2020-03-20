@@ -1,0 +1,26 @@
+---
+/content/documents/administration/website/useful-information-internal-values:
+  /useful-information-internal-values:
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: cyber-security-support-model
+      selection:label: Cyber security support model
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: risk-framework-workshop
+      selection:label: Risk framework workshop
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: policies-and-knowledge
+      selection:label: Policies and knowledge
+    hippo:availability:
+    - live
+    - preview
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: Useful information internal values
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

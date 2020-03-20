@@ -1,0 +1,121 @@
+---
+/content/documents/corporate-website/banners/banner:
+  /banner[1]:
+    /website:content:
+      hippostd:content: <p>We help NHS organisation to manage and improve their cyber
+        security</p>
+      jcr:primaryType: hippostd:html
+    /website:image:
+      hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      hippo:facets: []
+      hippo:modes: []
+      hippo:values: []
+      jcr:primaryType: hippogallerypicker:imagelink
+    /website:link:
+      hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      jcr:primaryType: hippo:mirror
+    /website:seoSummary:
+      hippostd:content: We help NHS organisation to manage and improve their cyber
+        security
+      jcr:primaryType: hippostd:html
+    /website:seosummary:
+      hippostd:content: <p>We help NHS organisation to manage and improve their cyber
+        security readiness</p>
+      jcr:primaryType: hippostd:html
+    common:searchable: true
+    hippo:availability: []
+    hippo:related___pathreference: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-31T10:37:29.686Z
+    hippostdpubwf:lastModificationDate: 2020-03-31T13:55:33.231Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 2529ed43-0b79-48d1-bf77-6758d44ad8c1
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: website:bannerdocument
+    website:title: Cyber security for the NHS
+  /banner[2]:
+    /website:content:
+      hippostd:content: <p>We help NHS organisation to manage and improve their cyber
+        security</p>
+      jcr:primaryType: hippostd:html
+    /website:image:
+      hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      hippo:facets: []
+      hippo:modes: []
+      hippo:values: []
+      jcr:primaryType: hippogallerypicker:imagelink
+    /website:link:
+      hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      jcr:primaryType: hippo:mirror
+    /website:seoSummary:
+      hippostd:content: We help NHS organisation to manage and improve their cyber
+        security
+      jcr:primaryType: hippostd:html
+    /website:seosummary:
+      hippostd:content: <p>We help NHS organisation to manage and improve their cyber
+        security readiness</p>
+      jcr:primaryType: hippostd:html
+    common:searchable: true
+    hippo:availability:
+    - preview
+    hippo:related___pathreference: []
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-31T10:37:29.686Z
+    hippostdpubwf:lastModificationDate: 2020-03-31T13:55:33.194Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 2529ed43-0b79-48d1-bf77-6758d44ad8c1
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: website:bannerdocument
+    website:title: Cyber security for the NHS
+  /banner[3]:
+    /website:content:
+      hippostd:content: <p>We help NHS organisation to manage and improve their cyber
+        security</p>
+      jcr:primaryType: hippostd:html
+    /website:image:
+      hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      hippo:facets: []
+      hippo:modes: []
+      hippo:values: []
+      jcr:primaryType: hippogallerypicker:imagelink
+    /website:link:
+      hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      jcr:primaryType: hippo:mirror
+    /website:seoSummary:
+      hippostd:content: We help NHS organisation to manage and improve their cyber
+        security
+      jcr:primaryType: hippostd:html
+    /website:seosummary:
+      hippostd:content: <p>We help NHS organisation to manage and improve their cyber
+        security readiness</p>
+      jcr:primaryType: hippostd:html
+    common:searchable: true
+    hippo:availability:
+    - live
+    hippo:related___pathreference: []
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-31T10:37:29.686Z
+    hippostdpubwf:lastModificationDate: 2020-03-31T13:55:33.194Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-03-31T13:55:45.483Z
+    hippotranslation:id: 2529ed4 3-0b79-48d1-bf77-6758d44ad8c1
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: website:bannerdocument
+    website:title: Cyber security for the NHS
+  hippo:name: cyber-data-security-banner
+  hippo:versionHistory: de45bc3a-3956-4aa0-9562-1f4f53fbb0a8
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

@@ -59,6 +59,9 @@
 [website:calltoaction] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:casestudy] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:categorylist] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
   orderable
 
@@ -115,6 +118,9 @@
 [website:download] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:dschomepage] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:editorsnotes] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
@@ -169,7 +175,13 @@
 [website:grouprole] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:homepagesections] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:hub] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:hubnewsandevents] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
   orderable
 
 [website:iconlist] > hippo:compound, hippostd:relaxed
@@ -193,21 +205,6 @@
 [website:jobrolepicker] > hippo:compound, hippostd:relaxed
   orderable
 
-[website:checklist] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:news] > hippostd:relaxed, hippotranslation:translated, website:basedocument
-  orderable
-
-[website:update] > hippostd:relaxed, hippotranslation:translated, website:basedocument
-  orderable
-
-[website:mediacontact] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:notesforeditors] > hippo:compound, hippostd:relaxed
-  orderable
-
 [website:lawfulbasis] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -224,6 +221,12 @@
   orderable
 
 [website:news] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:nonmandatoryexternallinkbase] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:nonmandatoryinternallink] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:notesforeditors] > hippo:compound, hippostd:relaxed
@@ -295,6 +298,12 @@
 [website:remediationstep] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:resourceexternallink] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:resourcelink] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:responsedefinition] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -350,6 +359,9 @@
   orderable
 
 [website:threatupdate] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:update] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
 [website:visualassetlink] > hippo:compound, hippostd:relaxed

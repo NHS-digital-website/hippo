@@ -1,5 +1,6 @@
 ---
 /content/documents/corporate-website/lists:
+  .meta:order-before: cyber-data-security
   /list-document-1:
     /list-document-1[1]:
       /website:body:

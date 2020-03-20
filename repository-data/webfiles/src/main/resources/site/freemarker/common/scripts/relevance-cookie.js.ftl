@@ -3,11 +3,11 @@
 <script>
     var cookieConsent = getCookie("CookieConsent");
     if (cookieConsent != "") {
-        if (cookieConsent.includes("statistics:true") && getCookie("visitortracking") == '') {
+        if (cookieConsent.indexOf("statistics:true") >= 0 && getCookie("visitortracking") == '') {
             setVisitorTracking('allowed');
         }
 
-        if (cookieConsent.includes("statistics:false")) {
+        if (cookieConsent.indexOf("statistics:false") >= 0) {
             clearTrackingInfo();
         }
     }
@@ -16,7 +16,7 @@
         // function may be called directly
 
         var cookieConsent = getCookie("CookieConsent");
-        if (cookieConsent.includes("statistics:false")) {
+        if (cookieConsent.indexOf("statistics:false") >= 0) {
             if (status == 'allowed') {
                 alert('Only necessary cookies have been allowed. To enable tracking, all cookies must be allowed in Cookie consent');
             }

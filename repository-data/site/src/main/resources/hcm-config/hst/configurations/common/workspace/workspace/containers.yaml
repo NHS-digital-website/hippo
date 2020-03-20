@@ -2,6 +2,15 @@
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:workspace/hst:containers:
+      /cyber-security-homepage:
+        /banner:
+          hst:label: Banner
+          hst:xtype: hst.vbox
+          jcr:primaryType: hst:containercomponent
+        /main:
+          hst:xtype: hst.nomarkup
+          jcr:primaryType: hst:containercomponent
+        jcr:primaryType: hst:containercomponentfolder
       /homepage:
         /homepage-blog:
           .meta:residual-child-node-category: content

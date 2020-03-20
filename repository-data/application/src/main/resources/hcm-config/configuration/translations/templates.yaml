@@ -207,6 +207,11 @@ definitions:
           jcr:name: Call to action
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:casestudy:
+        /en:
+          jcr:name: DSC Case Study
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:categorylist:
         /en:
           jcr:name: Category list
@@ -290,6 +295,11 @@ definitions:
       /website:download:
         /en:
           jcr:name: Downloads
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:dschomepage:
+        /en:
+          jcr:name: Digital Security Homepage
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:editorsnotes:
@@ -377,6 +387,11 @@ definitions:
           jcr:name: Group role
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:homepagesections:
+        /en:
+          jcr:name: DSC Homepage categories
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:hub:
         /en:
           jcr:name: Hub
@@ -440,6 +455,16 @@ definitions:
       /website:news:
         /en:
           jcr:name: News
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:nonmandatoryexternalbaselink:
+        /en:
+          jcr:name: Non Mandatory External link
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:nonmandatoryinternallink:
+        /en:
+          jcr:name: Non Mandatory Internal link
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:notesforeditors:
@@ -550,6 +575,16 @@ definitions:
       /website:remediationstep:
         /en:
           jcr:name: Remediation step
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:resourceexternallink:
+        /en:
+          jcr:name: Resource external link
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:resourcelink:
+        /en:
+          jcr:name: Resource internal link
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:responsedefinition:

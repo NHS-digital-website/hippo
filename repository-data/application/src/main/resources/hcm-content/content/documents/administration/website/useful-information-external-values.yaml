@@ -1,0 +1,14 @@
+---
+/content/documents/administration/website/useful-information-external-values:
+  /useful-information-external-values:
+    hippo:availability:
+    - live
+    - preview
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: Useful information external values
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
