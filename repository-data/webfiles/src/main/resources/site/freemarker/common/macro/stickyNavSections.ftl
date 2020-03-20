@@ -77,6 +77,12 @@
             <@fmt.message key="headers.further-information" var="furtherInformationHeader" />
             <#assign links += [{ "url": "#further-information", "title": furtherInformationHeader }] />
         </#if>
+
+        <#if options.appendSections?has_content>
+            <#list options.appendSections as section>
+                <#assign links += [{ "url": "#" + slugify(section.title), "title": section.title, "isNumberedList": false}] />
+            </#list>
+        </#if>
     </#if>
 
     <#return links />

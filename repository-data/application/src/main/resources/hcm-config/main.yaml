@@ -32,6 +32,9 @@ definitions:
     externalstorage:
       cnd: namespaces/externalstorage.cnd
       uri: http://digital.nhs.uk/jcr/externalstorage/nt/1.0
+    intranet:
+      cnd: namespaces/intranet.cnd
+      uri: http://digital.nhs.uk/jcr/intranet/nt/1.0
     nationalindicatorlibrary:
       cnd: namespaces/nationalindicatorlibrary.cnd
       uri: http://digital.nhs.uk/jcr/nationalindicatorlibrary/nt/1.0

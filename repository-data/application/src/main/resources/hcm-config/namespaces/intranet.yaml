@@ -1,0 +1,7 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/intranet:
+      jcr:mixinTypes:
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:namespace
