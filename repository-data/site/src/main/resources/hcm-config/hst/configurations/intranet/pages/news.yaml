@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/intranet/hst:pages/news:
+      /main:
+        hst:componentclassname: uk.nhs.digital.intranet.components.NewsInternalComponent
+        hst:template: news
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/master
+      jcr:primaryType: hst:component

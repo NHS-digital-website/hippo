@@ -110,8 +110,8 @@
     jcr:primaryType: hippo:handle
   hippo:name: Tasks
   hippostd:foldertype:
-  - new-task-document
-  - new-task-folder
+  - new-intranet-document
+  - new-intranet-folder
   hippotranslation:id: 6889df31-3a43-4ff5-9b92-d7c6de0298b3
   hippotranslation:locale: en
   jcr:mixinTypes:
