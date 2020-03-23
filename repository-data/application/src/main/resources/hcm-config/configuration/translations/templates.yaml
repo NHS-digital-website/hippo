@@ -21,6 +21,8 @@ definitions:
       new-supplementary-info-document: new supplementary information document
       new-supplementary-info-folder: new folder
       new-supplementary-info-hub-document: new supplementary information hub document
+      new-task-document: new task document
+      new-task-folder: new folder
       new-translated-folder: new folder
     /hippo:configuration/hippo:translations/hippo:types:
       /common:stringlist:

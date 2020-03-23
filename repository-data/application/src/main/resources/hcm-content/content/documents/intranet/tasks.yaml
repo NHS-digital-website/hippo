@@ -2,8 +2,8 @@
 /content/documents/intranet/tasks:
   hippo:name: Tasks
   hippostd:foldertype:
-  - new-translated-folder
-  - new-document
+  - new-task-document
+  - new-task-folder
   hippotranslation:id: 6889df31-3a43-4ff5-9b92-d7c6de0298b3
   hippotranslation:locale: en
   jcr:mixinTypes:
