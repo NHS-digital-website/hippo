@@ -36,6 +36,9 @@
 [publicationsystem:extattachment] > hippo:compound, hippostd:relaxed
   orderable
 
+[publicationsystem:feedbackforum] > hippostd:relaxed, hippotranslation:translated, publicationsystem:basedocument
+  orderable
+
 [publicationsystem:imageSection] > hippo:compound, hippostd:relaxed
   orderable
 

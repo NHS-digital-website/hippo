@@ -4,3 +4,4 @@ definitions:
     /hippo:configuration/hippo:domains/defaultwrite/readwrite:
       hipposys:groups:
       - everybody
+      - sitewriters

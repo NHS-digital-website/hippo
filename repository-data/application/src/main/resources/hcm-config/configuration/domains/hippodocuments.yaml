@@ -1,6 +1,10 @@
 ---
 definitions:
   config:
+    /hippo:configuration/hippo:domains/hippodocuments/author:
+      hipposys:groups:
+      - author
+      - sitewriters
     /hippo:configuration/hippo:domains/hippodocuments/hippo-document/exclude-enterprise-forms-folder:
       hipposys:equals: false
       hipposys:facet: jcr:path

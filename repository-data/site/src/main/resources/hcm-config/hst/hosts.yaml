@@ -23,6 +23,9 @@ definitions:
             /intranet:
               hst:mountpoint: /hst:hst/hst:sites/intranet
               jcr:primaryType: hst:mount
+            /preview:
+              hst:type: preview
+              jcr:primaryType: hst:mount
             /restapi:
               hst:alias: restapi
               hst:ismapped: false

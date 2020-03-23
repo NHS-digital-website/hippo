@@ -18,6 +18,7 @@
     <main id="main-content">
         <@hst.include ref="main"/>
     </main>
+    <@hst.include ref = "feedback-forum"/>
 
     <#include "site-footer.ftl"/>
 

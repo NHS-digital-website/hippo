@@ -8,3 +8,8 @@ definitions:
       hipposys:type: Reference
       hipposys:value: /content/documents/corporate-website/forms
       jcr:primaryType: hipposys:facetrule
+    /hippo:configuration/hippo:domains/hippofolders/readwrite:
+      hipposys:groups:
+      - author
+      - editor
+      - sitewriters

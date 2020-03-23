@@ -83,6 +83,9 @@ definitions:
       /facets:
         hst:renderpath: webfile:/freemarker/common/facets.ftl
         jcr:primaryType: hst:template
+      /feedback-forum:
+        hst:renderpath: webfile:/freemarker/common/feedback-forum.ftl
+        jcr:primaryType: hst:template
       /folder:
         hst:renderpath: webfile:/freemarker/publicationsystem/folder.ftl
         jcr:primaryType: hst:template
