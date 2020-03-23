@@ -9,7 +9,8 @@ definitions:
       new-digital-website-document: new document
       new-digital-website-folder: new folder
       new-enterprise-forms-document: new enterprise form document
-      new-intranet-document: new internal document
+      new-intranet-document: new document
+      new-intranet-folder: new folder
       new-national-indicator-library-document: new indicator
       new-national-indicator-library-folder: new folder
       new-organisation-document: new organisation document
@@ -23,13 +24,16 @@ definitions:
       new-supplementary-info-document: new supplementary information document
       new-supplementary-info-folder: new folder
       new-supplementary-info-hub-document: new supplementary information hub document
-      new-task-document: new task document
-      new-task-folder: new folder
       new-translated-folder: new folder
     /hippo:configuration/hippo:translations/hippo:types:
       /common:stringlist:
         /en:
           jcr:name: String list
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /intranet:newsinternal:
+        /en:
+          jcr:name: News internal
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /intranet:task:

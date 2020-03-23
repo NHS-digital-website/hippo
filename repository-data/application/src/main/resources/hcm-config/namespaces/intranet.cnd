@@ -7,6 +7,9 @@
 [intranet:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
   orderable
 
+[intranet:newsinternal] > hippostd:relaxed, hippotranslation:translated, intranet:basedocument
+  orderable
+
 [intranet:task] > hippostd:relaxed, hippotranslation:translated, intranet:basedocument
   orderable
 

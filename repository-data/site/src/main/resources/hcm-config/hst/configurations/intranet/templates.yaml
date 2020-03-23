@@ -8,6 +8,9 @@ definitions:
       /layout_master:
         hst:renderpath: webfile:/freemarker/intranet/layout/master.ftl
         jcr:primaryType: hst:template
+      /news:
+        hst:renderpath: webfile:/freemarker/intranet/news-internal.ftl
+        jcr:primaryType: hst:template
       /search-results:
         hst:renderpath: webfile:/freemarker/intranet/search-results.ftl
         jcr:primaryType: hst:template

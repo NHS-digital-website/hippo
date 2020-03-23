@@ -1,0 +1,211 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/intranet/newsinternal:
+      /editor:templates:
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
+          /root:
+            item: ${cluster.id}.field
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /title:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '80'
+            caption: Update title
+            field: title
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /relateddocuments:
+            /cluster.options:
+              base.path: /content/documents
+              jcr:primaryType: frontend:pluginconfig
+              last.visited.enabled: true
+            caption: Services, tasks, or things this news is about
+            field: relateddocuments
+            hint: You must pick the things this news relates to, otherwise people
+              may not be able to find it
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /publicationdate:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Publication date
+            field: publicationdate
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /type:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              showDefault: ''
+              source: /content/documents/administration/intranet/type-of-news
+            caption: Type of news
+            field: type
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /expirydate:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Expiry date
+            field: expirydate
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /leadimagesection:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Lead image section
+            compoundList: website:leadimagesection
+            contentPickerType: links
+            field: leadimagesection
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /sections:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Main content
+            compoundList: website:section,publicationsystem:chartSection,publicationsystem:mapSection,website:emphasisBox,website:iconlist,website:gallerysection,website:code,website:download,website:expander,website:ctabutton,website:quote,website:infographic,website:checklist
+            contentPickerType: links
+            field: sections
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /classifiable:
+            /cluster.options:
+              caption: Topics
+              jcr:primaryType: frontend:pluginconfig
+              taxonomy.name: publication_taxonomy
+            essentials-taxonomy-name: publication_taxonomy
+            jcr:primaryType: frontend:plugin
+            mixin: hippotaxonomy:classifiable
+            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
+            wicket.id: ${cluster.id}.field
+        jcr:primaryType: editor:templateset
+      /hipposysedit:nodetype:
+        /hipposysedit:nodetype[1]:
+          /expirydate:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: intranet:expirydate
+            hipposysedit:primary: false
+            hipposysedit:type: Date
+            jcr:primaryType: hipposysedit:field
+          /leadimagesection:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: intranet:leadimagesection
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /publicationdate:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: intranet:publicationdate
+            hipposysedit:primary: false
+            hipposysedit:type: Date
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /relateddocuments:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: intranet:relateddocuments
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /sections:
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: intranet:sections
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
+            jcr:primaryType: hipposysedit:field
+          /title:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: intranet:title
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
+          /type:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: intranet:type
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - intranet:basedocument
+          - hippostd:relaxed
+          - hippotranslation:translated
+          - hippotaxonomy:classifiable
+          hipposysedit:uri: http://digital.nhs.uk/jcr/intranet/nt/1.0
+          jcr:mixinTypes:
+          - hipposysedit:remodel
+          - mix:referenceable
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /hipposysedit:prototypes:
+        /hipposysedit:prototype[1]:
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2020-03-23T01:15:34.751Z
+          hippostdpubwf:lastModificationDate: 2020-03-23T01:15:34.751Z
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          intranet:expirydate: 0001-01-01T12:00:00Z
+          intranet:publicationdate: 0001-01-01T12:00:00Z
+          intranet:title: ''
+          intranet:type: announcement
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hippotaxonomy:classifiable
+          jcr:primaryType: intranet:newsinternal
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype

@@ -1,0 +1,10 @@
+---
+/content/documents/administration/intranet:
+  hippo:name: Intranet
+  hippostd:foldertype:
+  - new-document
+  - new-folder
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:versionable
+  jcr:primaryType: hippostd:folder
