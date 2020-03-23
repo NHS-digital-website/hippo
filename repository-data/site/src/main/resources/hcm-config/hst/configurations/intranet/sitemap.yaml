@@ -6,6 +6,17 @@ definitions:
         hst:componentconfigurationid: hst:pages/home
         hst:refId: root
         jcr:primaryType: hst:sitemapitem
+      /tasks:
+        /_any_:
+          hst:componentconfigurationid: hst:pages/404
+          hst:componentconfigurationmappingnames:
+          - intranet:task
+          hst:componentconfigurationmappingvalues:
+          - hst:pages/task
+          hst:relativecontentpath: tasks/${1}
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/404
+        jcr:primaryType: hst:sitemapitem
       /search:
         hst:componentconfigurationid: hst:pages/search-results
         jcr:primaryType: hst:sitemapitem
