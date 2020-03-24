@@ -101,6 +101,10 @@ public class SitePage extends AbstractSitePage {
         return helper.findOptionalElement(By.xpath("//*[text()='" + text + "']"));
     }
 
+    public WebElement findElementThatContainsText(String text) {
+        return helper.findOptionalElement(By.xpath("//span[contains(.,'" + text + "')]"));
+    }
+
     public WebElement findCssClass(String cssClass) {
         return helper.findOptionalElement(By.xpath("//*[contains(@class, '" + cssClass + "')]"));
     }
