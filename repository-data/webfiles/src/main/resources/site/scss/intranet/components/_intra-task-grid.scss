@@ -1,0 +1,96 @@
+// Intranet `task grid`
+.intra-task-grid {
+    @include clearfix;
+
+    position: relative;
+    display: block;
+    padding: 0;
+    margin-bottom: 18px;
+    list-style: none;
+
+    &-item {
+        position: relative;
+        display: inline-block;
+        float: left;
+        width: 50%;
+        height: 140px;
+        text-align: center;
+        margin-bottom: 18px;
+    }
+
+    &-task {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        &__link {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+
+            &:hover,
+            &:focus {
+                .intra-task-grid-task__title {
+                    color: $col-16;
+                }
+
+                .intra-task-grid-task__icon {
+                    svg {
+                        g {
+                            stroke: $col-16;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__icon {
+            display: inline-block;
+            margin: 0 auto;
+            width: 80px;
+            height: 80px;
+
+            svg {
+                display: inline-block;
+            }
+        }
+
+        &__title {
+            @include bold-font(14);
+            
+            max-width: 85%;
+            margin: 0 auto;
+            color: $col-primary;
+        }
+    }
+
+    @include media ($max-width: $min-desktop-width) {
+        &-item {
+            width: 33.333%;
+        }
+    }
+
+    @include media ($max-width: $min-tablet-width) {
+        &-item {
+            width: 50%;
+            max-height: 90px;
+            padding: 0;
+        }
+
+        &-task {
+            &__icon {
+                width: 60px;
+                height: 60px;
+            }
+
+            &__title {
+                line-height: 16px;
+            }
+        }
+    }
+}

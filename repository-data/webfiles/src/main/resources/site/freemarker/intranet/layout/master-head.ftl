@@ -4,6 +4,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <@hst.headContributions categoryIncludes="metadata" xhtml=true />
+
+    <!-- Generic meta tags -->
+    <@hst.headContributions categoryExcludes="htmlBodyEnd, scripts" categoryIncludes="intranetMeta" xhtml=true/>
 
     <#-- Preload fonts to improve performance -->
     <link rel="preload" href="<@hst.webfile path="fonts/FrutigerLTW01-55Roman.woff2" />" as="font" type="font/woff2" crossorigin>
@@ -26,7 +30,8 @@
     <link rel="mask-icon" href="<@hst.webfile path="icons/safari-pinned-tab.svg"/>">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="<@hst.webfile path="/css/nhsuk.css"/>" media="screen" type="text/css"/>
-    <link rel="stylesheet" href="<@hst.webfile path="/css/eforms.css"/>" media="screen" type="text/css"/>
-    <link rel="stylesheet" href="<@hst.webfile path="/css/nhsuk-print.css"/>" media="print" type="text/css"/>
+    <link rel="stylesheet" href="<@hst.webfile path="/css/nhsd-intranet.css"/>" media="screen" type="text/css"/>
+    <link rel="stylesheet" href="<@hst.webfile path="/css/nhsd-intranet-print.css"/>" media="print" type="text/css"/>
+
+    <#include "../../common/scripts/header-scripts.ftl" />
 </head>
