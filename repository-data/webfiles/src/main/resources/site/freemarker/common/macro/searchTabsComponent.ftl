@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
-<@hst.setBundle basename="feature-toggles"/>
 <#macro searchTabsComponent contentNames>
+    <@hst.setBundle basename="feature-toggles"/>
     <@fmt.message key="feature.tabs" var="featureTabs"/>
     <#if contentNames?seq_contains("tabs") && featureTabs?boolean>
         <div class="nav-tabs">
