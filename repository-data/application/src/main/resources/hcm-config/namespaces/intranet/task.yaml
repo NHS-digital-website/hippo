@@ -67,15 +67,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /childof:
+          /relateddocuments:
             /cluster.options:
               base.path: /content/documents
               jcr:primaryType: frontend:pluginconfig
               last.visited.enabled: true
               nodetypes:
               - intranet:task
-            caption: This page is a child of
-            field: childof
+            caption: Children of this task
+            field: relateddocuments
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
@@ -161,16 +161,6 @@ definitions:
             hipposysedit:validators:
             - contentblocks-validator
             jcr:primaryType: hipposysedit:field
-          /childof:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: intranet:childof
-            hipposysedit:primary: false
-            hipposysedit:type: hippo:mirror
-            hipposysedit:validators:
-            - optional
-            jcr:primaryType: hipposysedit:field
           /expirydate:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -197,6 +187,16 @@ definitions:
             hipposysedit:path: intranet:priorityactions
             hipposysedit:primary: false
             hipposysedit:type: website:priorityaction
+            jcr:primaryType: hipposysedit:field
+          /relateddocuments:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: intranet:relateddocuments
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+            hipposysedit:validators:
+            - optional
             jcr:primaryType: hipposysedit:field
           /responsibleteam:
             hipposysedit:mandatory: false
