@@ -32,8 +32,6 @@ public class PublicationDateValidator extends AbstractCmsValidator {
     private static final String DATE_FIELD_TYPE_NAME = "CalendarDate";
     private static final String VALID_PERIOD_YEARS_KEY = "validPeriodLengthInYears";
 
-    private static final String PUBLICLY_ACCESSIBLE_PROPERTY_NAME =
-        "publicationsystem:PubliclyAccessible";
     private static final String DATE_PROPERTY_NAME = "publicationsystem:NominalDate";
 
 
@@ -76,10 +74,6 @@ public class PublicationDateValidator extends AbstractCmsValidator {
     ) throws ValidationException {
 
         final Set<Violation> violations = new HashSet<>();
-
-        if (isPublicationFinalised(documentModel)) {
-            return violations;
-        }
 
         final Calendar publicationDateRaw = getDatePropertyValue(documentModel, DATE_PROPERTY_NAME);
 
@@ -129,26 +123,19 @@ public class PublicationDateValidator extends AbstractCmsValidator {
             .atZone(userTimeZone.toZoneId())
             .toLocalDate();
 
-        final LocalDate validPeriodDayFirst = serverNow
+        final LocalDate validPeriodDayLast = serverNow
             .atZone(userTimeZone.toZoneId())
-            .toLocalDate();
-
-        final LocalDate validPeriodDayLast = validPeriodDayFirst
+            .toLocalDate()
             .plusYears(getValidPeriodLengthInYears())
             .minus(1, DAYS);
 
-        if (publicationDateInUserTz.isBefore(validPeriodDayFirst) || publicationDateInUserTz.isAfter(validPeriodDayLast)) {
+        if (publicationDateInUserTz.isAfter(validPeriodDayLast)) {
             violations.add(
                 fieldValidator.newValueViolation(documentModel, getValidationViolationMessage())
             );
         }
 
         return violations;
-    }
-
-    private boolean isPublicationFinalised(final JcrNodeModel documentModel)
-        throws ValidationException {
-        return getBooleanPropertyValue(documentModel, PUBLICLY_ACCESSIBLE_PROPERTY_NAME);
     }
 
     private Integer getValidPeriodLengthInYears() {
@@ -160,18 +147,6 @@ public class PublicationDateValidator extends AbstractCmsValidator {
     ) throws ValidationException {
         try {
             return documentModel.getNode().getProperty(propertyName).getDate();
-        } catch (final RepositoryException repositoryException) {
-            throw new ValidationException(format(
-                "Failed to read property ''{0}'' value", propertyName
-            ));
-        }
-    }
-
-    private boolean getBooleanPropertyValue(final JcrNodeModel documentModel,
-                                            final String propertyName
-    ) throws ValidationException {
-        try {
-            return documentModel.getNode().getProperty(propertyName).getBoolean();
         } catch (final RepositoryException repositoryException) {
             throw new ValidationException(format(
                 "Failed to read property ''{0}'' value", propertyName

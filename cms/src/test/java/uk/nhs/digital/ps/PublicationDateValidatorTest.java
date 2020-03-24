@@ -3,7 +3,6 @@ package uk.nhs.digital.ps;
 import static java.text.MessageFormat.format;
 import static java.util.Collections.emptySet;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.core.Is.is;
@@ -11,7 +10,6 @@ import static org.mockito.ArgumentMatchers.argThat;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
-import static org.mockito.Mockito.never;
 import static org.mockito.MockitoAnnotations.initMocks;
 
 import com.tngtech.java.junit.dataprovider.DataProvider;
@@ -61,11 +59,7 @@ public class PublicationDateValidatorTest {
 
     private static final String DATE_FIELD_TYPE_NAME = "CalendarDate";
     private static final String DATE_PROPERTY_NAME = "publicationsystem:NominalDate";
-    private static final String PUBLICLY_ACCESSIBLE_PROPERTY_NAME = "publicationsystem:PubliclyAccessible";
     private static final String MAX_YEARS_AHEAD_PARAM_KEY = "validPeriodLengthInYears";
-
-    private static final boolean PUB_FINALISED_STATUS = true;
-    private static final boolean PUB_UPCOMING_STATUS = false;
 
     private static final int MAX_YEARS_AHEAD = 7;
 
@@ -85,7 +79,6 @@ public class PublicationDateValidatorTest {
     @Mock private IPluginContext pluginContext;
     @Mock private IModel<String> violationMessageTranslationModel;
     @Mock private Property nominalDateProperty;
-    @Mock private Property publiclyAccessibleProperty;
 
     private static InstantSupplierStub instantSupplierStub;
 
@@ -188,7 +181,6 @@ public class PublicationDateValidatorTest {
             publicationDateValidator.validate(fieldValidator, documentNodeModel, fieldModel);
 
         // then
-        then(documentNode).should().getProperty(PUBLICLY_ACCESSIBLE_PROPERTY_NAME);
         then(documentNode).should().getProperty(DATE_PROPERTY_NAME);
 
         assertThat("Exactly one violation has been reported for date " + testCaseDescription,
@@ -230,23 +222,6 @@ public class PublicationDateValidatorTest {
         );
     }
 
-    @Test
-    public void ignoresFinalizedPublication() throws RepositoryException, ValidationException {
-
-        // given
-        given(publiclyAccessibleProperty.getBoolean()).willReturn(PUB_FINALISED_STATUS);
-
-        // when
-        final Set<Violation> actualValidationViolations =
-            publicationDateValidator.validate(fieldValidator, documentNodeModel, fieldModel);
-
-        // then
-        assertThat("No violation has been reported.", actualValidationViolations, is(empty()));
-
-        then(documentNode).should(never()).getProperty(DATE_PROPERTY_NAME);
-        then(pluginConfig).should(never()).getAsInteger(MAX_YEARS_AHEAD_PARAM_KEY);
-    }
-
     @DataProvider
     public static Object[][] datesOutOfValidRange() {
         return new Object[][] {
@@ -255,28 +230,6 @@ public class PublicationDateValidatorTest {
 
             // publication date  tz offset      test case description
             // ----------------|-------------|-----------------------------------------
-
-            // dates BEFORE the valid range:
-
-            // Western timezones:
-            {"2018-06-14",       "-12:00",       "farther before the valid range"},
-            {"2018-06-15",       "-12:00",       "right before the valid range"},
-            {"2018-06-14",       "-06:00",       "farther before the valid range"},
-            {"2018-06-15",       "-06:00",       "right before the valid range"},
-            {"2018-06-14",       "-01:00",       "farther before the valid range"},
-            {"2018-06-15",       "-01:00",       "right before the valid range"},
-
-            // UTC
-            {"2018-06-14",       "+00:00",       "farther before the valid range"},
-            {"2018-06-15",       "+00:00",       "one day before the valid range"},
-
-            // Eastern timezones
-            {"2018-06-14",       "+01:00",       "farther before the valid range"},
-            {"2018-06-15",       "+01:00",       "right before the valid range"},
-            {"2018-06-15",       "+06:00",       "farther before the valid range"},
-            {"2018-06-16",       "+06:00",       "right before the valid range"},
-            {"2018-06-15",       "+12:00",       "farther before the valid range"},
-            {"2018-06-16",       "+12:00",       "right before the valid range"},
 
             // dates AFTER the valid range:
 
@@ -311,27 +264,16 @@ public class PublicationDateValidatorTest {
             // publication date  tz offset      test case description
             // ----------------|-------------|-----------------------------------------
 
-            // dates at the BEGINNING of the valid range:
+            // dates at the ?BEGINNING? of the valid range:
 
             // Western timezones
-            {"2018-06-16",       "-12:00",     "right after the beginning of the valid range"},
-            {"2018-06-17",       "-12:00",     "farther after the beginning of the valid range"},
-            {"2018-06-16",       "-06:00",     "right after the beginning of the valid range"},
-            {"2018-06-17",       "-06:00",     "farther after the beginning of the valid range"},
-            {"2018-06-16",       "-01:00",     "right after the beginning of the valid range"},
-            {"2018-06-17",       "-01:00",     "farther after the beginning of the valid range"},
+            {"2016-06-14",       "-12:00",       "a long time ago"},
 
             // UTC
-            {"2018-06-16",       "+00:00",     "right after the beginning of the valid range"},
-            {"2018-06-17",       "+00:00",     "farther after the beginning of the valid range"},
+            {"2018-06-16",       "+00:00",     "during the valid range"},
 
             // Eastern timezones
-            {"2018-06-16",       "+01:00",     "right after the beginning of the valid range"},
-            {"2018-06-17",       "+01:00",     "farther after the beginning of the valid range"},
-            {"2018-06-17",       "+06:00",     "right after the beginning of the valid range"},
-            {"2018-06-18",       "+06:00",     "farther after the beginning of the valid range"},
-            {"2018-06-17",       "+12:00",     "right after the beginning of the valid range"},
-            {"2018-06-18",       "+12:00",     "farther after the beginning of the valid range"},
+            {"2018-06-06",       "+01:00",     "during the valid range"},
 
             // dates at the END of the valid range:
 
@@ -411,11 +353,6 @@ public class PublicationDateValidatorTest {
         final Calendar publicationDateWithinValidRange = calendarFor("2018-06-20", "+00:00");
         given(nominalDateProperty.getDate()).willReturn(publicationDateWithinValidRange);
         given(documentNode.getProperty(DATE_PROPERTY_NAME)).willReturn(nominalDateProperty);
-
-        given(documentNode.getProperty(PUBLICLY_ACCESSIBLE_PROPERTY_NAME))
-            .willReturn(publiclyAccessibleProperty);
-        given(publiclyAccessibleProperty.getBoolean()).willReturn(
-            PublicationDateValidatorTest.PUB_UPCOMING_STATUS);
 
         given(documentNodeModel.getNode()).willReturn(documentNode);
     }
