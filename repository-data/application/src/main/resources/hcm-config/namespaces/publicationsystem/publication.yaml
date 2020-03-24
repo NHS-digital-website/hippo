@@ -56,16 +56,16 @@ definitions:
             wicket.css:
             - document-title
             wicket.id: ${cluster.id}.left.item
-          /publicly_accessible:
+          /earlyaccesskey:
             /cluster.options:
-              falseLabel: UPCOMING (Show in upcoming publications list only)
               jcr:primaryType: frontend:pluginconfig
-              trueLabel: FINALISED (Full content publicly accessible)
-            caption: Publicly Accessible
-            field: publicly_accessible
+              maxlength: '64'
+              size: '64'
+            caption: Early access key
+            field: earlyaccesskey
             hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            plugin.class: uk.nhs.digital.common.earlyaccess.EarlyAccessKeyPlugin
             wicket.id: ${cluster.id}.left.item
           /Summary:
             /cluster.options:
@@ -308,6 +308,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: CalendarDate
             jcr:primaryType: hipposysedit:field
+          /earlyaccesskey:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:earlyaccesskey
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           /html:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -384,16 +392,6 @@ definitions:
             hipposysedit:type: StaticDropdown
             hipposysedit:validators:
             - optional
-            jcr:primaryType: hipposysedit:field
-          /publicly_accessible:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:PubliclyAccessible
-            hipposysedit:primary: false
-            hipposysedit:type: selection:BooleanRadioGroup
-            hipposysedit:validators:
-            - required
             jcr:primaryType: hipposysedit:field
           /related_links:
             hipposysedit:mandatory: false
@@ -517,9 +515,9 @@ definitions:
           publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
           publicationsystem:KeyFacts: ''
           publicationsystem:NominalDate: 0001-01-01T12:00:00Z
-          publicationsystem:PubliclyAccessible: false
           publicationsystem:Summary: ''
           publicationsystem:Title: ''
+          publicationsystem:earlyaccesskey: ''
           publicationsystem:publicationtier: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:

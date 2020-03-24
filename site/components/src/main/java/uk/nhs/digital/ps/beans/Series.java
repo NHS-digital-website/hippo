@@ -1,8 +1,6 @@
 package uk.nhs.digital.ps.beans;
 
 import static org.apache.commons.collections.IteratorUtils.toList;
-import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
-import static uk.nhs.digital.ps.beans.PublicationBase.PropertyKeys.PUBLICLY_ACCESSIBLE;
 
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.Node;
@@ -90,15 +88,21 @@ public class Series extends BaseDocument {
 
         HippoBeanIterator hippoBeans = HstQueryBuilder.create(folder)
             .ofTypes(Publication.class)
-            .where(constraint(PUBLICLY_ACCESSIBLE).equalTo(true))
             .orderByDescending("publicationsystem:NominalDate")
-            .limit(1)
             .build()
             .execute()
             .getHippoBeans();
 
-        if (hippoBeans.hasNext()) {
-            return (Publication) hippoBeans.nextHippoBean();
+        boolean found = false;
+        Publication publication = null;
+        while (!found && hippoBeans.hasNext()) {
+            HippoBean hippoBean = hippoBeans.nextHippoBean();
+            publication = (Publication) hippoBean;
+            found = publication.isPubliclyAccessible();
+        }
+
+        if (found) {
+            return publication;
         }
 
         return null;

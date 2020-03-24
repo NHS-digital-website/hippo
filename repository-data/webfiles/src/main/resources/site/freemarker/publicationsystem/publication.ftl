@@ -22,6 +22,8 @@
 <#assign document = publication />
 <#assign idsuffix = slugify(publication.title) />
 <#assign hasRelatedNews = publication.relatedNews?has_content>
+<#assign earlyAccessKey = hstRequest.request.getParameter("key")!"">
+
 <@metaTags></@metaTags>
 
 <#macro restrictedContentOfUpcomingPublication>
@@ -58,14 +60,14 @@
 <@fmt.message key="interactive.date-label" var="interactiveDateLabel" />
 <@fmt.message key="change.date-label" var="changeDateLabel" />
 
+<#macro fullContentOfPubliclyAvailablePublication>
 <#assign hasOldKeyfacts = publication.keyFacts.elements?has_content || keyFactImageSections?has_content />
 <#assign hasNewKeyfacts = (publication.keyFactsHead?? && publication.keyFactsHead.content?has_content)
 || (publication.keyFactsTail?? && publication.keyFactsTail.content?has_content)
 || (publication.keyFactInfographics?? && publication.keyFactInfographics?size >0)  />
 <#assign hasSectionContent = document.sections?has_content />
 
-<#macro fullContentOfPubliclyAvailablePublication>
-    <@publicationHeader publication=publication restricted=false downloadPDF=true/>
+    <@publicationHeader publication=publication restricted=false downloadPDF=true earlyAccessKey=earlyAccessKey/>
 
     <#-- Content Page Pixel -->
     <@contentPixel publication.getCanonicalUUID() publication.title></@contentPixel>
@@ -204,7 +206,9 @@
                         <h2>${datasetsHeader}</h2>
                         <ul data-uipath="ps.publication.datasets">
                             <#list publication.datasets as dataset>
-                                <@hst.link hippobean=dataset.selfLinkBean var="link"/>
+                                <@hst.link hippobean=dataset.selfLinkBean var="link">
+                                    <#if earlyAccessKey?has_content><@hst.param name="key" value="${earlyAccessKey}"/></#if>
+                                </@hst.link>
                                 <li itemprop="hasPart" itemscope
                                     itemtype="http://schema.org/Dataset">
                                     <a itemprop="url"
@@ -237,7 +241,7 @@
                                     <li class="attachment" itemprop="distribution"
                                         itemscope
                                         itemtype="http://schema.org/DataDownload">
-                                        <@externalstorageLink attachment.resource; url>
+                                        <@externalstorageLink item=attachment.resource earlyAccessKey=earlyAccessKey; url>
                                             <a title="${attachment.text}"
                                                href="${url}"
                                                class="block-link"
@@ -315,7 +319,7 @@
                 <@lastModified publication.lastModified></@lastModified>
 
                 <div class="article-section no-border no-top-margin">
-                    <@pagination publication/>
+                    <@pagination page=publication earlyAccessKey=earlyAccessKey/>
                 </div>
 
             </div>
@@ -326,7 +330,7 @@
 <#-- ACTUAL TEMPLATE -->
 <#if publication?? >
 <#-- Gather the related document links for PDF printing -->
-    <#if publication.pages?has_content>
+    <#if publication.pages?? && publication.pages?has_content>
         <#assign relatedDocumentLinks = "" />
         <#list publication.pages as page>
             <@hst.link var="documentLink" hippobean=page />

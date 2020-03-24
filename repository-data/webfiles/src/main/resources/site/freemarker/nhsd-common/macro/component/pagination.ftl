@@ -12,7 +12,9 @@
                     <@hst.link hippobean=pagination.previous.linkedBean var="relatedSubjectLink"/>
                     <div class="<#if (pagination.next)?has_content>nhsd-o-chapter-navigation__previous-chapter</#if>">
                         <a class="nhsd-m-chapter"
-                           href="<@hst.link hippobean=pagination.previous.linkedBean />"
+                           href="<@hst.link hippobean=pagination.previous.linkedBean>
+                                    <#if earlyAccessKey?has_content><@hst.param name="key" value="${earlyAccessKey}"/></#if>
+                                 </@hst.link>"
                            onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLink)}"
                            aria-label="Previous Chapter"
                         >
@@ -34,7 +36,9 @@
                     <@hst.link hippobean=pagination.next.linkedBean var="relatedSubjectLinkNext"/>
                     <div class="<#if (pagination.previous)?has_content>nhsd-o-chapter-navigation__next-chapter</#if>">
                         <a class="nhsd-m-chapter nhsd-m-chapter--right"
-                           href="<@hst.link hippobean=pagination.next.linkedBean />"
+                           href="<@hst.link hippobean=pagination.next.linkedBean>
+                                    <#if earlyAccessKey?has_content><@hst.param name="key" value="${earlyAccessKey}"/></#if>
+                                 </@hst.link>"
                            onClick="${getOnClickMethodCall(document.class.name, relatedSubjectLinkNext)}"
                            aria-label="Next Chapter"
                         >
