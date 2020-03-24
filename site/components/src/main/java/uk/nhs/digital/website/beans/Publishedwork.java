@@ -2,6 +2,7 @@ package uk.nhs.digital.website.beans;
 
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.common.enums.Region;
@@ -21,6 +22,21 @@ public class Publishedwork extends CommonFieldsBean implements Paginated {
     @HippoEssentialsGenerated(internalName = "website:InformationType")
     public String[] getInformationType() {
         return getProperty("website:InformationType");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:publicationStyle")
+    public String getPublicationStyle() {
+        return getProperty("website:publicationStyle");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:image")
+    public HippoGalleryImageSet getImage()  {
+        return getLinkedBean("website:image", HippoGalleryImageSet.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:button")
+    public String getButton() {
+        return getProperty("website:button");
     }
 
     @HippoEssentialsGenerated(internalName = "website:coverageEnd")
