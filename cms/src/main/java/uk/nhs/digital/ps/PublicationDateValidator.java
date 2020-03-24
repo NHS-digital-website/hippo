@@ -29,8 +29,6 @@ public class PublicationDateValidator implements Validator<Date> {
 
     private static final String VALID_PERIOD_YEARS_KEY = "validPeriodLengthInYears";
 
-    private static final String PUBLICLY_ACCESSIBLE_PROPERTY_NAME =
-        "publicationsystem:PubliclyAccessible";
     private static final String DATE_PROPERTY_NAME = "publicationsystem:NominalDate";
 
     private final Long validPeriod;
@@ -50,10 +48,6 @@ public class PublicationDateValidator implements Validator<Date> {
     public Optional<Violation> validate(ValidationContext context, Date value) {
 
         try {
-            if (isPublicationFinalised(context)) {
-                return Optional.empty();
-            }
-
             final Calendar publicationDateRaw = getDatePropertyValue(context);
             final Instant serverNow = TimeProvider.getNowInstant();
             final ZoneId zoneId = ZoneId.of("UTC");
@@ -74,27 +68,12 @@ public class PublicationDateValidator implements Validator<Date> {
         return Optional.empty();
     }
 
-    private boolean isPublicationFinalised(final ValidationContext validationContext)
-        throws ValidationException {
-        return getBooleanPropertyValue(validationContext);
-    }
-
     private Calendar getDatePropertyValue(final ValidationContext validationContext) throws ValidationException {
         try {
             return validationContext.getDocumentNode().getProperty(PublicationDateValidator.DATE_PROPERTY_NAME).getDate();
         } catch (final RepositoryException repositoryException) {
             throw new ValidationException(format(
                 "Failed to read property ''{0}'' value", PublicationDateValidator.DATE_PROPERTY_NAME
-            ));
-        }
-    }
-
-    private boolean getBooleanPropertyValue(final ValidationContext validationContext) throws ValidationException {
-        try {
-            return validationContext.getDocumentNode().getProperty(PublicationDateValidator.PUBLICLY_ACCESSIBLE_PROPERTY_NAME).getBoolean();
-        } catch (final RepositoryException repositoryException) {
-            throw new ValidationException(format(
-                "Failed to read property ''{0}'' value", PublicationDateValidator.PUBLICLY_ACCESSIBLE_PROPERTY_NAME
             ));
         }
     }

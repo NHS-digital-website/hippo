@@ -251,15 +251,26 @@
     jcr:primaryType: hippo:handle
   /2020-upcoming:
     /2020-upcoming[1]:
+      /publicationsystem:KeyFactsHead:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /publicationsystem:KeyFactsTail:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /publicationsystem:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
       common:FacetType: publication
-      common:orderedSearchDate: -1577836800000
+      common:orderedSearchDate: -1675209600000
       common:searchRank: 4
       common:searchable: true
+      common:seosummarytext: ''
       hippo:availability: []
+      hippostd:retainable: false
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-05-04T15:02:02.672Z
-      hippostdpubwf:lastModificationDate: 2018-05-22T15:48:54.490Z
+      hippostdpubwf:lastModificationDate: 2022-01-19T18:20:04.409Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: d2d8c97d-a309-4941-a2e1-4c7207bfa4bf
       hippotranslation:locale: en
@@ -272,21 +283,35 @@
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:GeographicCoverage: []
       publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2020-01-01T00:00:00Z
+      publicationsystem:NominalDate: 2023-02-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
       publicationsystem:Summary: 2020 Upcoming
-      publicationsystem:Title: 2020 Upcoming
+      publicationsystem:Title: 2021 Upcoming
+      publicationsystem:earlyaccesskey: ''
+      publicationsystem:month: February
+      publicationsystem:year: '2023'
     /2020-upcoming[2]:
+      /publicationsystem:KeyFactsHead:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /publicationsystem:KeyFactsTail:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /publicationsystem:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
       common:FacetType: publication
-      common:orderedSearchDate: -1577836800000
+      common:orderedSearchDate: -1675209600000
       common:searchRank: 4
       common:searchable: true
+      common:seosummarytext: ''
       hippo:availability:
       - preview
+      hippostd:retainable: false
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-05-04T15:02:02.672Z
-      hippostdpubwf:lastModificationDate: 2018-05-22T15:49:08.100Z
+      hippostdpubwf:lastModificationDate: 2022-01-19T18:20:18.753Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: d2d8c97d-a309-4941-a2e1-4c7207bfa4bf
       hippotranslation:locale: en
@@ -300,23 +325,37 @@
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:GeographicCoverage: []
       publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2020-01-01T00:00:00Z
+      publicationsystem:NominalDate: 2023-02-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
       publicationsystem:Summary: 2020 Upcoming
-      publicationsystem:Title: 2020 Upcoming
+      publicationsystem:Title: 2021 Upcoming
+      publicationsystem:earlyaccesskey: ''
+      publicationsystem:month: February
+      publicationsystem:year: '2023'
     /2020-upcoming[3]:
+      /publicationsystem:KeyFactsHead:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /publicationsystem:KeyFactsTail:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /publicationsystem:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
       common:FacetType: publication
-      common:orderedSearchDate: -1577836800000
+      common:orderedSearchDate: -1675209600000
       common:searchRank: 4
       common:searchable: true
+      common:seosummarytext: ''
       hippo:availability:
       - live
+      hippostd:retainable: false
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-05-04T15:02:02.672Z
-      hippostdpubwf:lastModificationDate: 2018-05-22T15:49:08.100Z
+      hippostdpubwf:lastModificationDate: 2022-01-19T18:20:18.753Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-05-22T15:49:13.332Z
+      hippostdpubwf:publicationDate: 2022-01-19T18:20:50.077Z
       hippotranslation:id: d2d8c97d-a309-4941-a2e1-4c7207bfa4bf
       hippotranslation:locale: en
       jcr:mixinTypes:
@@ -328,13 +367,18 @@
       publicationsystem:CoverageStart: 0001-01-01T12:00:00Z
       publicationsystem:GeographicCoverage: []
       publicationsystem:KeyFacts: ''
-      publicationsystem:NominalDate: 2020-01-01T00:00:00Z
+      publicationsystem:NominalDate: 2023-02-01T00:00:00Z
       publicationsystem:PubliclyAccessible: false
       publicationsystem:Summary: 2020 Upcoming
-      publicationsystem:Title: 2020 Upcoming
+      publicationsystem:Title: 2021 Upcoming
+      publicationsystem:earlyaccesskey: ''
+      publicationsystem:month: February
+      publicationsystem:year: '2023'
     hippo:name: 2020 Upcoming
+    hippo:versionHistory: 7b289b18-8549-41cd-b92b-d1c48bdda243
     jcr:mixinTypes:
     - hippo:named
+    - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
   /content:
