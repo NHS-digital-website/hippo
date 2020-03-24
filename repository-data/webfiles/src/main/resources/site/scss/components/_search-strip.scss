@@ -71,7 +71,7 @@
     line-height: 18px;
     padding: round($baseline-grid-unit * 2.6) $gutter - 2px;
     color: $muted-colour;
-    background-color: $background-colour;
+    background-color: $col-septenary;
 
     &:focus {
         padding: round($baseline-grid-unit * 2.6) $gutter - 3px;

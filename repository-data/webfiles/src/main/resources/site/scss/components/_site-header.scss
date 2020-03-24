@@ -40,6 +40,19 @@
             margin-bottom: round($gutter * 1.5);
         }
     }
+
+    &--intranet {
+        .site-header__logo {
+            max-width: 235px;
+            width: 235px;
+            max-height: 65px;
+            margin-top: 5px;
+        }
+
+        .main-nav__burger {
+            top: 6px;
+        }
+    }
 }
 
 .site-header__logo {

@@ -1,0 +1,44 @@
+// Intranet home grid
+.intra-home-grid {
+    @extend .grid-wrapper;
+    @include clearfix;
+
+    position: relative;
+    margin: -255px auto 45px;
+
+    &__left-col,
+    &__right-col {
+        display: inline-block;
+        float: left;
+    }
+
+    &__left-col {
+        width: 65.625%;
+        max-width: 630px;
+        padding-top: 181px;
+    }
+
+    &__right-col {
+        float: right;
+        width: 31.25%;
+        max-width: 300px;
+    }
+
+    @include media($max-width: $min-desktop-width) {
+        &__left-col,
+        &__right-col {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            float: none;
+            
+            &:not(:first-child) {
+                margin-top: 32px;
+            }
+        }
+
+        &__left-col {
+            margin-right: 0;
+        }
+    }
+}

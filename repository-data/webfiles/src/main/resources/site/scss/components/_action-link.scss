@@ -1,0 +1,65 @@
+// Action link
+.action-link {
+    margin-bottom: 12px;
+
+    &__link {
+        position: relative;
+        display: inline-block;
+        padding-left: 38px;
+        text-decoration: none;
+
+        &:hover {
+            background: none;
+            border: none;
+            outline: none;
+            box-shadow: none;
+
+            .action-link__text {
+                text-decoration: underline;
+                color: $col-primary;
+            }
+        }
+
+        &:focus,
+        &:active {
+            .action-link__icon {
+                fill: $black;
+            }
+        }
+
+        &:visited {
+            &:hover {
+                .action-link__text {
+                    color: $col-undenary;
+                }
+            }
+        }
+    }
+    
+    &__icon {
+        position: absolute;
+        display: inline-block;
+        width: 36px;
+        height: 36px;
+        top: -5px;
+        left: -3px;
+        fill: $green;
+    }
+
+    &__text {
+        @include bold-font(18);
+    }
+
+    @include media($max-width: $min-tablet-width) {
+        &__link {
+            padding-left: 26px;
+        }
+
+        &__icon {
+            width: 24px;
+            height: 24px;
+            top: 0;
+            left: -2px;
+        }
+    }
+}
