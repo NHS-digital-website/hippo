@@ -1,0 +1,136 @@
+// Intranet `article grid`
+.intra-home-article-grid {
+    @include clearfix;
+
+    position: relative;
+    display: block;
+    margin-bottom: 16px;
+    padding: 0;
+    list-style: none;
+    
+    &-item {
+        position: relative;
+        display: inline-block;
+        float: left;
+        width: 33.333%;
+        margin-bottom: 18px;
+
+        &:nth-child(3n+1) {
+            padding-right: 10px;
+        }
+        
+        &:nth-child(3n+2) {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        &:nth-child(3n+3) {
+            padding-left: 10px;
+        }
+
+        /*@include media($max-width: $min-desktop-width) {
+            max-height: 350px;
+            width: 50%;
+            padding-left: 10px;
+            padding-right: 10px;
+        }*/
+    }
+
+    &-article {
+        position: relative;
+        height: 372px;
+        max-height: 372px;
+        background: $col-intranet-grey;
+        border-bottom: 4px solid $col-intranet-dark-grey;
+
+        &__header {
+            position: relative;
+            width: 100%;
+            height: 160px;
+            overflow: hidden;
+
+            background: $col-septenary;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        &__contents {
+            position: relative;
+            height: 212px;
+            padding: 24px 20px 14px;
+
+            .intra-comments-blob {
+                position: absolute;
+                right: 20px;
+                top: -20px;
+            }
+        }
+
+        &__title {
+            max-width: 90%;
+            max-height: 50px;
+            margin-bottom: 5px;
+            font-size: 18px;
+            line-height: 25px;
+        }
+
+        &__summary {
+            &, & > * {
+                @include core-font(16);
+            }
+
+            max-height: 72px;
+            margin-bottom: 20px;
+        }
+
+        &__date {
+            @include core-font(14);
+
+            display: block;
+            position: absolute;
+            bottom: 12px;
+            left: 20px;
+            color: $col-intranet-mid-grey;
+        }
+
+        .intra-info-tag {
+            position: absolute;
+            top: 13px;
+            left: 18px;
+            z-index: 1;
+        }
+    }
+
+    @include media($max-width: $min-tablet-width) {
+        &-item {
+            width: 100%;
+            padding: 0 !important;
+        }
+
+        &-article {
+            height: auto;
+            max-height: auto;
+
+            &__contents {
+                padding: 14px 20px;
+                height: auto;
+            }
+
+            &__title {
+                max-width: 70%;
+                font-size: 16px;
+                line-height: 24px;
+            }
+
+            &__date {
+                position: relative;
+                left: auto;
+                bottom: auto;
+            }
+        }
+    }
+}

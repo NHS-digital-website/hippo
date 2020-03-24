@@ -2,6 +2,7 @@
 <#include "../include/imports.ftl">
 <#include "macro/searchTabsComponent.ftl">
 <#include "macro/siteHeader.ftl">
+<#include "macro/siteFooter.ftl">
 <#include "macro/metaTags.ftl">
 <#include "macro/component/skipLink.ftl">
 
@@ -45,7 +46,7 @@
         </div>
     </div>
 
-    <#include "site-footer.ftl"/>
+    <@siteFooter />
 
     <#include "scripts/footer-scripts.ftl" />
 
