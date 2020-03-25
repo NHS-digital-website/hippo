@@ -10,7 +10,7 @@
                 <div class="grid-row">
                     <div class="column column--two-thirds column--reset">
                         <div class="article-header article-header--secondary">
-                            <h1 class="h2" id="message-summary-title"><@fmt.message key="title"/></h1>
+                            <span class="coronavirus-banner__title" id="message-summary-title"><@fmt.message key="title"/></span>
                         </div>
                     </div>
                 </div>
