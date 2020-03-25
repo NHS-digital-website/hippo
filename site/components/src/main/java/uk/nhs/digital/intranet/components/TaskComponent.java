@@ -2,9 +2,9 @@ package uk.nhs.digital.intranet.components;
 
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
-import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
+import uk.nhs.digital.common.components.BaseGaContentComponent;
 
-public class TaskComponent extends EssentialsContentComponent {
+public class TaskComponent extends BaseGaContentComponent {
 
     @Override
     public void doBeforeRender(HstRequest request,
