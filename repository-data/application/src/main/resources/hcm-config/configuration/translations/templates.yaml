@@ -542,6 +542,11 @@ definitions:
           jcr:name: Post nominal
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:primarysectionvisualhub:
+        /en:
+          jcr:name: Primary section visual hub
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:publictransportstation:
         /en:
           jcr:name: Public transport station
@@ -675,6 +680,11 @@ definitions:
       /website:threatupdate:
         /en:
           jcr:name: Threat update
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:tilesectionvisualhub:
+        /en:
+          jcr:name: Tiles section visual hub
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:update:
