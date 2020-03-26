@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/intranet/hst:pages/search-results:
+      /main:
+        hst:componentclassname: uk.nhs.digital.intranet.components.SearchPageComponent
+        hst:template: search-results
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/master
+      jcr:primaryType: hst:component
