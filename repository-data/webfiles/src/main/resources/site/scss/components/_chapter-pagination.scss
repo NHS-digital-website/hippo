@@ -9,6 +9,9 @@
     }
 }
 
+.banner-image + .grid-wrapper--chapter-pagination {
+    margin-top: 0;
+}
 
 .chapter-pagination-wrapper {
     border-bottom: $yellow 4px solid;
