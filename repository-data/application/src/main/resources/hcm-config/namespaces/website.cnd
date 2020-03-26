@@ -145,6 +145,9 @@
 [website:friendlyurls] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:fullWidthImage] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:galleryitem] > hippo:compound, hippostd:relaxed
   orderable
 

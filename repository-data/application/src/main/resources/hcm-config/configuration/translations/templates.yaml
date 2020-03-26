@@ -337,6 +337,11 @@ definitions:
           jcr:name: External link
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:fullWidthImage:
+        /en:
+          jcr:name: Full-width image
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:galleryitem:
         /en:
           jcr:name: Gallery item
