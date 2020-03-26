@@ -139,6 +139,9 @@
 [website:friendlyurls] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:fullWidthImage] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:galleryitem] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -191,21 +194,6 @@
   orderable
 
 [website:jobrolepicker] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:checklist] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:news] > hippostd:relaxed, hippotranslation:translated, website:basedocument
-  orderable
-
-[website:update] > hippostd:relaxed, hippotranslation:translated, website:basedocument
-  orderable
-
-[website:mediacontact] > hippo:compound, hippostd:relaxed
-  orderable
-
-[website:notesforeditors] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:lawfulbasis] > hippo:compound, hippostd:relaxed
@@ -350,6 +338,9 @@
   orderable
 
 [website:threatupdate] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:update] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
 [website:visualassetlink] > hippo:compound, hippostd:relaxed

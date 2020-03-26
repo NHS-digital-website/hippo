@@ -14,6 +14,7 @@
 <#include "ctaSection.ftl">
 <#include "checklist.ftl">
 <#include "quoteSection.ftl">
+<#include "fullWidthImage.ftl">
 <#include "../component/infoGraphic.ftl">
 
 <!-- This is a load of global setup for the highcharts config -->
@@ -52,6 +53,8 @@
                 <#-- set flag to alter styling (no top line between emphasis boxes) -->
                 <#assign isPreviousEmphasisBox = true />
                 <@emphasisBox section=section />
+            <#elseif section.sectionType == 'fullWidthImage'>
+                <@fullWidthImageSection section=section />
             <#elseif section.sectionType == 'iconList'>
                 <@iconList section=section mainHeadingLevel=mainHeadingLevel />
             <#elseif section.sectionType == 'gallerySection'>
