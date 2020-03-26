@@ -19,6 +19,11 @@
 
 <#assign renderNav = (hasSummaryContent && sectionTitlesFound gte 1) || sectionTitlesFound gt 1 />
 
+<#assign parentChapter = document.getPublishedWork() />
+<#if parentChapter?? && parentChapter.publicationStyle??>
+    <h1>Parent style: ${parentChapter.publicationStyle}</h1>
+</#if>
+
 <#if hasChapters>
     <#assign documents = [] />
 
