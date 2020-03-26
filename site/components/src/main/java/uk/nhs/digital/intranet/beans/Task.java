@@ -68,6 +68,10 @@ public class Task extends HippoDocument {
         return getChildBeansByName("intranet:sections");
     }
 
+    public Boolean getPriorityAction() {
+        return getProperty("intranet:prioritytask");
+    }
+
     public BannerControl getBannercontrols() {
         return getBean("intranet:bannercontrols", BannerControl.class);
     }

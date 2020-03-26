@@ -141,6 +141,15 @@ definitions:
             mixin: hippotaxonomy:classifiable
             plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
             wicket.id: ${cluster.id}.field
+          /prioritytask:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Is this a priority task?
+            field: prioritytask
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -187,6 +196,16 @@ definitions:
             hipposysedit:path: intranet:priorityactions
             hipposysedit:primary: false
             hipposysedit:type: website:priorityaction
+            jcr:primaryType: hipposysedit:field
+          /prioritytask:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: intranet:prioritytask
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           /relateddocuments:
             hipposysedit:mandatory: false
@@ -276,6 +295,7 @@ definitions:
           intranet:alternativenames: []
           intranet:expirydate: 0001-01-01T12:00:00Z
           intranet:introduction: ''
+          intranet:prioritytask: false
           intranet:reviewdate: 0001-01-01T12:00:00Z
           intranet:shortsummary: ''
           intranet:title: ''
