@@ -59,23 +59,44 @@ definitions:
           /publicationStyle:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: parent=Use parent style,bluebanner=Blue banner,
-                heromodule=Hero module, slimpicture=Slim picture
+              selectable.options: parent=Use parent style,bluebanner=Blue banner,heromodule=Hero
+                module,slimpicture=Slim picture
             caption: Publication Style
             field: publicationStyle
             hint: Choose the style of the the page header area.
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /image:
+          /bannerImage:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Image
+            caption: Banner Image
             field: image
             hint: The image should have a width of 1920px. This is only used on Hero
               Module and Slim Picture banners
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /bannerAltText:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Banner Alt Text
+            field: bannerAltText
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.css:
+            - test
+            wicket.id: ${cluster.id}.field
+          /button:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: jumptocontent=Jump To Content,nobutton=No Button
+            caption: Button
+            field: staticdropdown
+            hint: Configure the button for the hero banner.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
           /sections:
             /cluster.options:
@@ -107,19 +128,17 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /staticdropdown:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              selectable.options: jumptocontent=Jump To Content,nobutton=No Button
-            caption: Button
-            field: staticdropdown
-            hint: Configure the button for the hero banner.
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
+          /bannerAltText:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:bannerAltText
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           /friendlyurls:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -132,7 +151,7 @@ definitions:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:image
+            hipposysedit:path: website:bannerImage
             hipposysedit:primary: false
             hipposysedit:type: hippogallerypicker:imagelink
             hipposysedit:validators:
@@ -178,7 +197,7 @@ definitions:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:staticdropdown
+            hipposysedit:path: website:button
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             jcr:primaryType: hipposysedit:field
@@ -217,16 +236,16 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          /website:friendlyurls:
-            jcr:primaryType: website:friendlyurls
-            website:alternativeurls: []
-            website:destination: ''
-          /website:image:
+          /website:bannerImage:
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
             jcr:primaryType: hippogallerypicker:imagelink
+          /website:friendlyurls:
+            jcr:primaryType: website:friendlyurls
+            website:alternativeurls: []
+            website:destination: ''
           /website:seosummary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
@@ -246,9 +265,10 @@ definitions:
           jcr:mixinTypes:
           - mix:referenceable
           jcr:primaryType: website:publishedworkchapter
+          website:bannerAltText: ''
+          website:button: jumptocontent
           website:publicationStyle: parent
           website:shortsummary: ''
-          website:staticdropdown: jumptocontent
           website:title: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:

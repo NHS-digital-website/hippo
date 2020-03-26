@@ -11,16 +11,30 @@
 <#include "macro/metaTags.ftl">
 <#include "../common/macro/fileMetaAppendix.ftl">
 <#include "../common/macro/fileIconByMimeType.ftl">
+<#include "../common/macro/published-work-banners/text-banner.ftl">
+<#include "../common/macro/published-work-banners/hero-module.ftl">
+<#include "../common/macro/published-work-banners/slim-picture.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
 
 <@hst.setBundle basename="rb.doctype.published-work,publicationsystem.headers"/>
-<#assign hasSummaryContent = document.summary?? && document.summary.content?has_content />
+
+<#-- Fall back to Blue Banner if no publication style is defined -->
+<#if document.publicationStyle??>
+    <#assign publicationStyle = document.publicationStyle />
+<#else>
+    <#assign publicationStyle = "bluebanner" />
+</#if>
+
+<#-- Don't use the summary in the content when the hero module is active -->
+<#if publicationStyle = 'heromodule'>
+    <#assign hasSummaryContent = false />
+<#else>
+    <#assign hasSummaryContent = document.summary?? && document.summary.content?has_content />
+</#if>
+
 <#assign hasSectionContent = document.sections?has_content />
-<#assign hasPublicationDate = document.publicationDate?? />
-<#assign hasGeographicCoverage = document.geographicCoverage?has_content />
-<#assign hasGranularity = document.geographicGranularity?has_content />
 <#assign hasAboutThisSection = document.isbn?has_content || document.issn?has_content />
 <#assign childPages = document.links />
 <#assign hasChildPages = childPages?? && childPages?size gt 0 />
@@ -30,116 +44,28 @@
 <#assign sectionTitlesFound = countSectionTitles(document.sections) />
 <@fmt.message key="headers.about-this-publication" var="aboutThisPublicationHeader" />
 
-<#assign renderNav = (hasSummaryContent && sectionTitlesFound gte 1) || sectionTitlesFound gt 1 />
-
-<#macro publicationDate>
-    <dl class="detail-list">
-        <dt class="detail-list__key"><@fmt.message key="labels.publication-date"/>
-            :
-        </dt>
-        <dd class="detail-list__value" data-uipath="ps.dataset.nominal-date"
-            itemprop="datePublished">
-            <@fmt.formatDate value=document.publicationDate.time?date type="date" pattern="d MMM yyyy" timeZone="${getTimeZone()}" />
-        </dd>
-    </dl>
-</#macro>
-
-<#macro nationalStatsStamp>
-    <#list document.informationType as type>
-        <#if type == "National statistics">
-            <div class="article-header__stamp">
-                <img src="<@hst.webfile path="images/national-statistics-logo.svg"/>"
-                     title="National Statistics"
-                     class="image-icon image-icon--large"/>
-            </div>
-            <#break>
-        </#if>
-    </#list>
-</#macro>
+<#assign renderNav = (hasSummaryContent && sectionTitlesFound gte 1) || (sectionTitlesFound gt 1) />
 
 <article class="article article--published-work" aria-label="Document Header">
-    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
-        <div class="local-header article-header article-header--detailed">
-            <div class="grid-wrapper">
-                <div class="article-header__inner">
 
-                    <@nationalStatsStamp />
-
-                    <h1 class="local-header__title"
-                        data-uipath="document.title">${document.title}</h1>
-
-                    <#-- TODO - Chapter title to be added  -->
-                    <#-- <p class="article-header__subtitle">(Hardcoded) Chapter title</p> -->
-
-                    <span data-uipath="ps.publication.information-types">
-                        <#if document.informationType?has_content>
-                            <#list document.informationType as type>${type}<#sep>, </#list>
-                        </#if>
-                    </span>
-
-                    <hr class="hr hr--short hr--light">
-
-                    <div class="detail-list-grid">
-                        <div class="grid-row">
-                            <div class="column column--reset">
-                                <@publicationDate />
-                            </div>
-                        </div>
-
-                        <#if hasGeographicCoverage>
-                            <div class="grid-row">
-                                <div class="column column--reset">
-                                    <dl class="detail-list">
-                                        <dt class="detail-list__key"
-                                            id="geographic-coverage"><@fmt.message key="labels.geographic-coverage"/>
-                                            :
-                                        </dt>
-                                        <dd class="detail-list__value">
-                                            <#list document.geographicCoverage as geographicCoverageItem>${geographicCoverageItem}<#sep>, </#list>
-                                        </dd>
-                                    </dl>
-                                </div>
-                            </div>
-                        </#if>
-
-                        <#if hasGranularity>
-                            <div class="grid-row">
-                                <div class="column column--reset">
-                                    <dl class="detail-list">
-                                        <dt class="detail-list__key"><@fmt.message key="labels.geographic-granularity"/>
-                                            :
-                                        </dt>
-                                        <dd class="detail-list__value">
-                                            <#list document.geographicGranularity as granularityItem>${granularityItem}<#sep>, </#list>
-                                        </dd>
-                                    </dl>
-                                </div>
-                            </div>
-                        </#if>
-
-                        <#if document.coverageStart??>
-                            <div class="grid-row">
-                                <div class="column column--reset">
-                                    <dl class="detail-list">
-                                        <dt class="detail-list__key"><@fmt.message key="labels.date-range"/>
-                                            :
-                                        </dt>
-                                        <dd class="detail-list__value">
-                                            <#if document.coverageStart?? && document.coverageEnd??>
-                                                <@formatCoverageDates start=document.coverageStart.time end=document.coverageEnd.time/>
-                                            <#else>
-                                                (Not specified)
-                                            </#if>
-                                        </dd>
-                                    </dl>
-                                </div>
-                            </div>
-                        </#if>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <#if publicationStyle == 'bluebanner'>
+        <@textBanner document />
+    </#if>
+    <#if publicationStyle == 'heromodule'>
+        <@hst.link hippobean=document.bannerImage.original fullyQualified=true var="bannerImage" />
+        <#assign heroConfig = {
+        "document": document,
+        "bannerImage": bannerImage,
+        "bannerImageAltText": document.bannerImageAltText,
+        "button": document.button,
+        "showTime": true
+        } />
+        <@heroModule heroConfig />
+    </#if>
+    <#if publicationStyle == 'slimpicture'>
+        <@hst.link hippobean=document.bannerImage.original fullyQualified=true var="bannerImage" />
+        <@slimPicture document bannerImage document.bannerImageAltText />
+    </#if>
 
     <#if hasChildPages>
 
@@ -276,7 +202,8 @@
     </div>
     <#if hasChildPages>
 
-        <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" id="chapter-index">
+        <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide"
+             id="chapter-index">
             <div class="chapter-nav">
                 <div class="grid-wrapper">
 
@@ -298,7 +225,9 @@
                                         </li>
                                     <#else>
                                         <li class="chapter-index__item">
-                                            <a class="chapter-index__link" href="${chapter.link}" title="${chapter.title}">${chapter.title}</a>
+                                            <a class="chapter-index__link"
+                                               href="${chapter.link}"
+                                               title="${chapter.title}">${chapter.title}</a>
                                         </li>
                                     </#if>
                                 </#list>
@@ -307,7 +236,8 @@
 
                         <#if splitChapters.right?size gte 1>
                             <div class="column column--one-half column--right">
-                                <ol class="list list--reset cta-list chapter-index" start="${splitChapters.left?size + 1}">
+                                <ol class="list list--reset cta-list chapter-index"
+                                    start="${splitChapters.left?size + 1}">
                                     <#list splitChapters.right as chapter>
                                         <#if chapter.id == document.identifier>
                                             <li class="chapter-index__item chapter-index__item--current">
@@ -315,7 +245,9 @@
                                             </li>
                                         <#else>
                                             <li class="chapter-index__item">
-                                                <a class="chapter-index__link" href="${chapter.link}" title="${chapter.title}">${chapter.title}</a>
+                                                <a class="chapter-index__link"
+                                                   href="${chapter.link}"
+                                                   title="${chapter.title}">${chapter.title}</a>
                                             </li>
                                         </#if>
                                     </#list>
