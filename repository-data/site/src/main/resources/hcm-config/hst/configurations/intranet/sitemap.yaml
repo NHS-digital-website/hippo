@@ -6,4 +6,7 @@ definitions:
         hst:componentconfigurationid: hst:pages/home
         hst:refId: root
         jcr:primaryType: hst:sitemapitem
+      /search:
+        hst:componentconfigurationid: hst:pages/search-results
+        jcr:primaryType: hst:sitemapitem
       jcr:primaryType: hst:sitemap
