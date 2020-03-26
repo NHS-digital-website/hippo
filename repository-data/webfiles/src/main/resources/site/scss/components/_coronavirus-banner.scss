@@ -1,12 +1,10 @@
 .coronavirus-banner {
     background-color: #FFEB3B;
     padding: 1.75em 0 1.9em;
-    border-bottom: 1px solid #005EB8;
+    border-bottom: 1px solid $col-primary;
 
-    h1 {
+    &__title {
+        @include bold-font(36);
         margin-bottom: 15px;
-        font-size: 36px;
-        line-height: 46px;
     }
-
 }
