@@ -21,6 +21,11 @@
             <bean class="uk.nhs.digital.website.rest.DefinedTermsResource"/>
           </constructor-arg>
         </bean>
+        <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
+            <constructor-arg>
+                <bean class="uk.nhs.digital.intranet.rest.AuthenticationResource"/>
+            </constructor-arg>
+        </bean>
       </list>
     </property>
   </bean>
