@@ -33,22 +33,22 @@
         </header>
     </article>
     <!--googleon: index-->
-</#if>
 
-<script>
-    function hideCoronavirusBanner() {
-        if (Cookiebot.consent.preferences) {
-            setCookie("hide-coronavirus-banner", true, 5);
+    <script>
+        function hideCoronavirusBanner() {
+            if (Cookiebot.consent.preferences) {
+                setCookie("hide-coronavirus-banner", true, 5);
+            }
+            document.querySelectorAll(".coronavirus-banner").forEach(function (banner) {
+                banner.remove();
+            });
         }
-        document.querySelectorAll(".coronavirus-banner").forEach(function (banner) {
-            banner.remove();
-        });
-    }
 
-    function setCookie(cname, cvalue, exdays) {
-        var d = new Date();
-        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-        var expires = "expires=" + d.toUTCString();
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    }
-</script>
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+    </script>
+</#if>
