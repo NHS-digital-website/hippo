@@ -15,7 +15,8 @@ definitions:
           - hst:pages/task
           hst:relativecontentpath: tasks/${1}
           jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/404
+        hst:componentconfigurationid: hst:pages/taskhub
+        hst:relativecontentpath: tasks/task-hub
         jcr:primaryType: hst:sitemapitem
       /search:
         hst:componentconfigurationid: hst:pages/search-results
