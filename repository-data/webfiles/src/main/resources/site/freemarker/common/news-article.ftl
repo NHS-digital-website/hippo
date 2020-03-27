@@ -23,7 +23,7 @@
 <#assign hasLeadImageCaption = hasLeadImage && document.leadimagesection.imagecaption.content?has_content />
 <#assign hasBackstory = document.backstory?? && document.backstory.content?has_content />
 <#assign hasPeople = document.peoplementioned?? && document.peoplementioned?has_content />
-<#assign hasContactDetails = document.mediacontact?? && document.mediacontact?has_content />
+<#assign hasContactDetails = (document.mediacontact)?? && document.mediacontact?has_content />
 <#assign hasLatestNews = document.latestNews?? && document.latestNews?has_content />
 
 <#assign hasTopics = document.topics?? && document.topics?has_content />
@@ -31,49 +31,48 @@
 <#assign hasTwitterHashtag = document.twitterHashtag?? && document.twitterHashtag?has_content />
 <#assign idsuffix = slugify(document.title) />
 
-<#assign metadata = [ 
+<#assign metadata = [
   {
-   "key": "Date", 
-   "value": document.publisheddatetime.time, 
-   "uipath": "website.news.dateofpublication", 
-   "type": "date", 
-   "schemaOrgTag": "datePublished" 
-  } 
+   "key": "Date",
+   "value": document.publisheddatetime.time,
+   "uipath": "website.news.dateofpublication",
+   "type": "date",
+   "schemaOrgTag": "datePublished"
+  }
 ] />
 <#if hasTopics>
-  <#assign metadata += [ 
+  <#assign metadata += [
     {
-     "key": "Topics", 
-     "value": document.topics, 
-     "uipath": "website.news.topics", 
-     "type": "list", 
-     "schemaOrgTag": "keywords" 
-    } 
+     "key": "Topics",
+     "value": document.topics,
+     "uipath": "website.news.topics",
+     "type": "list",
+     "schemaOrgTag": "keywords"
+    }
   ] />
 </#if>
 <#if hasNewsType>
-  <#assign metadata += [ 
+  <#assign metadata += [
     {
-     "key": "News type", 
-     "value": newstypes[document.type], 
-     "uipath": "website.news.type", 
+     "key": "News type",
+     "value": newstypes[document.type],
+     "uipath": "website.news.type",
      "type": "span"
-    } 
+    }
   ] />
 </#if>
 <#if hasTwitterHashtag>
-  <#assign metadata += [ 
+  <#assign metadata += [
     {
-     "key": "Twitter", 
-     "value": document.twitterHashtag, 
-     "uipath": "website.news.twitter", 
+     "key": "Twitter",
+     "value": document.twitterHashtag,
+     "uipath": "website.news.twitter",
      "type": "twitterHashtag"
-    } 
+    }
   ] />
 </#if>
 
 <article class="article article--news" itemscope itemtype="http://schema.org/NewsArticle">
-
     <meta itemprop="mainEntityOfPage" content="${document.title}">
     <meta itemprop="author" content="NHS Digital">
     <meta itemprop="copyrightHolder" content="NHS Digital">
