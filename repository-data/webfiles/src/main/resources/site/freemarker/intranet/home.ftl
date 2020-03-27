@@ -42,7 +42,7 @@
                             <span class="intra-comments-blob intra-comments-blob--bubble"><@svgIcon id="comments" /> 17</span>
                             <h1 class="intra-home-article-grid-article__title"><a href="#">Data that saves lives</a></h1>
                             <div class="intra-home-article-grid-article__summary">
-                                <p>Lorem ipsum is a pseudo-Latin text used in design</p>    
+                                <p>Lorem ipsum is a pseudo-Latin text used in design</p>
                             </div>
                             <span class="intra-home-article-grid-article__date">27 November 2019</span>
                         </div>
@@ -59,7 +59,7 @@
                             <span class="intra-comments-blob intra-comments-blob--bubble"><@svgIcon id="comments" /> 17</span>
                             <h1 class="intra-home-article-grid-article__title"><a href="#">Timesheet submissions</a></h1>
                             <div class="intra-home-article-grid-article__summary">
-                                <p>Lorem ipsum is a pseudo-Latin text used in design</p>    
+                                <p>Lorem ipsum is a pseudo-Latin text used in design</p>
                             </div>
                             <span class="intra-home-article-grid-article__date">27 November 2019</span>
                         </div>
@@ -76,7 +76,7 @@
                             <span class="intra-comments-blob intra-comments-blob--bubble"><@svgIcon id="comments" /> 17</span>
                             <h1 class="intra-home-article-grid-article__title"><a href="#">A festival of genomics</a></h1>
                             <div class="intra-home-article-grid-article__summary">
-                                <p>Lorem ipsum is a pseudo-Latin text used in design</p>    
+                                <p>Lorem ipsum is a pseudo-Latin text used in design</p>
                             </div>
                             <span class="intra-home-article-grid-article__date">27 November 2019</span>
                         </div>
@@ -93,7 +93,7 @@
                             <span class="intra-comments-blob intra-comments-blob--bubble"><@svgIcon id="comments" /> 17</span>
                             <h1 class="intra-home-article-grid-article__title"><a href="#">Mandatory training</a></h1>
                             <div class="intra-home-article-grid-article__summary">
-                                <p>Lorem ipsum is a pseudo-Latin text used in design</p>    
+                                <p>Lorem ipsum is a pseudo-Latin text used in design</p>
                             </div>
                             <span class="intra-home-article-grid-article__date">27 November 2019</span>
                         </div>
@@ -109,7 +109,7 @@
                         <div class="intra-home-article-grid-article__contents">
                             <h1 class="intra-home-article-grid-article__title"><a href="#">Lent has started</a></h1>
                             <div class="intra-home-article-grid-article__summary">
-                                <p>Lorem ipsum is a pseudo-Latin text used in design</p>    
+                                <p>Lorem ipsum is a pseudo-Latin text used in design</p>
                             </div>
                             <span class="intra-home-article-grid-article__date">27 November 2019</span>
                         </div>
@@ -126,7 +126,7 @@
                             <span class="intra-comments-blob intra-comments-blob--bubble"><@svgIcon id="comments" /> 17</span>
                             <h1 class="intra-home-article-grid-article__title"><a href="#">Legislation for screening</a></h1>
                             <div class="intra-home-article-grid-article__summary">
-                                <p>Lorem ipsum is a pseudo-Latin text used in design</p>    
+                                <p>Lorem ipsum is a pseudo-Latin text used in design</p>
                             </div>
                             <span class="intra-home-article-grid-article__date">27 November 2019</span>
                         </div>
@@ -139,7 +139,7 @@
 
         <div class="intra-box">
             <h2 class="intra-box__title">Recommended People</h2>
-            
+
             <ul class="intra-people-grid">
                 <li class="intra-people-grid-item">
                     <div>
@@ -171,14 +171,14 @@
                 </li>
                 <li class="intra-people-grid-item">
                     <div>
-                        <img class="intra-people-grid-item__photo" src="<@hst.webfile path="/images/fibre_57101102_med.jpg"/>" alt="Alt text" aria-hidden="true">    
+                        <img class="intra-people-grid-item__photo" src="<@hst.webfile path="/images/fibre_57101102_med.jpg"/>" alt="Alt text" aria-hidden="true">
                     </div>
                     <div>
-                        <a href="#" class="intra-people-grid-item__name">Richard Cooke</a>    
+                        <a href="#" class="intra-people-grid-item__name">Richard Cooke</a>
                     </div>
                     <div>
-                        <span class="intra-info-tag intra-info-tag--light">HR</span>    
-                    </div>    
+                        <span class="intra-info-tag intra-info-tag--light">HR</span>
+                    </div>
                     <div>
                         <span class="intra-people-grid-item__job-role">Infrastructure Architect</span>
                     </div>
@@ -204,7 +204,7 @@
 
         <div class="intra-box">
             <h2 class="intra-box__title">Collaborate</h2>
-            
+
             <ul class="intra-articleblock-group">
                 <li>
                     <article class="intra-articleblock">
@@ -295,7 +295,7 @@
                             </a>
                         </article>
                     </li>
-                    
+
                     <li class="intra-task-grid-item">
                         <article class="intra-task-grid-task">
                             <a href="<@hst.link path='/tasks/booking-travel'/>" class="intra-task-grid-task__link">
@@ -307,7 +307,7 @@
                             </a>
                         </article>
                     </li>
-                    
+
                     <li class="intra-task-grid-item">
                         <article class="intra-task-grid-task">
                             <a href="<@hst.link path='/tasks/mandatory-training'/>" class="intra-task-grid-task__link">
@@ -326,7 +326,7 @@
 
             <div class="intra-box intra-box--nested">
                 <h2 class="intra-box__title">Training</h2>
-                
+
                 <ul class="intra-articleblock-group">
                     <li>
                         <article class="intra-articleblock">
