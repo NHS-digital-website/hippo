@@ -17,6 +17,12 @@ public class AccessTokenValve extends AbstractOrderableValve {
 
     private static final String ACCESS_TOKEN_PROPERTY = "accessToken";
 
+    private final AccessTokenEncoder encoder;
+
+    public AccessTokenValve(final AccessTokenEncoder encoder) {
+        this.encoder = encoder;
+    }
+
     @Override
     public void invoke(ValveContext context) throws ContainerException {
         final HstRequestContext requestContext = context.getRequestContext();
@@ -24,7 +30,7 @@ public class AccessTokenValve extends AbstractOrderableValve {
         if (request.getAttribute(ACCESS_TOKEN_PROPERTY) == null) {
             final Optional<Cookie> cookieOptional = getAccessTokenCookie(request);
             cookieOptional.ifPresent(cookie -> {
-                final AccessToken accessToken = AccessTokenEncoder.decode(cookie.getValue());
+                final AccessToken accessToken = encoder.decode(cookie.getValue());
                 if (accessToken != null) {
                     request.setAttribute(ACCESS_TOKEN_PROPERTY, accessToken.getToken());
                 }

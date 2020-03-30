@@ -11,7 +11,7 @@ public class AccessTokenEncoder {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AccessTokenEncoder.class);
 
-    public static String encode(final AccessToken accessToken) {
+    public String encode(final AccessToken accessToken) {
         try {
             final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             final ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
@@ -24,7 +24,7 @@ public class AccessTokenEncoder {
         }
     }
 
-    public static AccessToken decode(final String encodedString) {
+    public AccessToken decode(final String encodedString) {
         try {
             final byte[] bytes = Base64.getDecoder().decode(encodedString);
             final ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);

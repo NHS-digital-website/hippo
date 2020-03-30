@@ -18,8 +18,14 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <import resource="microsoft-graph-api-spring-beans.xml" />
+
     <bean id="accessTokenValve"
-          class="uk.nhs.digital.intranet.valves.AccessTokenValve"/>
+          class="uk.nhs.digital.intranet.valves.AccessTokenValve">
+        <constructor-arg name="encoder" ref="accessTokenEncoder" />
+        <property name="valveName" value="accessTokenValve" />
+    </bean>
+
 
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
