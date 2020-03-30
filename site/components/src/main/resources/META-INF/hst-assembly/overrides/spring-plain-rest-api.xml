@@ -10,8 +10,12 @@
 
     <bean id="restTemplate" class="org.springframework.web.client.RestTemplate" />
 
+    <!-- todo replace with values from property file   -->
     <bean id="authorizationProvider" class="uk.nhs.digital.intranet.provider.AuthorizationProvider">
         <constructor-arg name="restTemplate" ref="restTemplate" />
+        <constructor-arg name="applicationId" value="a1a6e366-394a-43a6-9de8-4f2096814edf" />
+        <constructor-arg name="clientSecret" value="h9Fs87G-vi-6UT_l]Zw?8M=L?@zFjYeh" />
+        <constructor-arg name="redirectUri" value="http://localhost:8080/site/restapi/intranet/auth/response" />
     </bean>
 
     <bean id="cookieProvider" class="uk.nhs.digital.intranet.provider.CookieProvider" />

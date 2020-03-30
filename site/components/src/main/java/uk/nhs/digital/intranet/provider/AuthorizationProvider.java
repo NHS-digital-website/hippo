@@ -19,15 +19,16 @@ public class AuthorizationProvider {
 
     public static final String base_url = "https://login.microsoftonline.com/common/oauth2/v2.0/";
 
-    //todo extract into properties files
-    public static final String applicationId = "a1a6e366-394a-43a6-9de8-4f2096814edf";
-    public static final String redirectUri = "http://localhost:8080/site/restapi/intranet/auth/response";
-    private static final String clientSecret = "h9Fs87G-vi-6UT_l]Zw?8M=L?@zFjYeh";
-
     private final RestTemplate restTemplate;
+    private final String applicationId;
+    private final String redirectUri;
+    private final String clientSecret;
 
-    public AuthorizationProvider(final RestTemplate restTemplate) {
+    public AuthorizationProvider(final RestTemplate restTemplate, final String applicationId, final String redirectUri, final String clientSecret) {
         this.restTemplate = restTemplate;
+        this.applicationId = applicationId;
+        this.redirectUri = redirectUri;
+        this.clientSecret = clientSecret;
     }
 
     public AccessToken processAuthorizationResponse(final String authorizationCode) throws AuthorizationException {
