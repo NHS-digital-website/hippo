@@ -24,6 +24,15 @@
                         <div class="column--two-thirds column--reset">
                             <h1 id="top" class="local-header__title" data-uipath="document.title">${document.title}</h1>
 
+                            <@hst.html hippohtml=document.introduction contentRewriter=gaContentRewriter />
+                            <@hst.html hippohtml=document.shortSummary contentRewriter=gaContentRewriter />
+                            <#list document.alternativeNames as altName>
+                                altName
+                            </#list>
+                            <#list document.responsibleTeams as team>
+                                team
+                            </#list>
+
                             <div class="rich-text-content">
                                 <#-- <h2>Short summary: ${document.responsibleTeam}</h2> -->
                                 

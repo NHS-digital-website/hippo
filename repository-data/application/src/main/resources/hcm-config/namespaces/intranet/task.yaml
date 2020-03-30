@@ -45,7 +45,7 @@ definitions:
             caption: Page introduction
             field: introduction
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
           /shortsummary:
             /cluster.options:
@@ -53,9 +53,9 @@ definitions:
             caption: Short summary for search results
             field: shortsummary
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /responsibleteam:
+          /responsibleteams:
             /cluster.options:
               base.path: /content/documents
               jcr:primaryType: frontend:pluginconfig
@@ -63,7 +63,7 @@ definitions:
               nodetypes:
               - website:team
             caption: Responsible team
-            field: responsibleteam
+            field: responsibleteams
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
@@ -86,6 +86,7 @@ definitions:
             caption: Date this content needs reviewing by, in order to stay up to
               date
             field: reviewdate
+            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
@@ -184,9 +185,8 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: intranet:introduction
             hipposysedit:primary: false
-            hipposysedit:type: Html
+            hipposysedit:type: hippostd:html
             hipposysedit:validators:
-            - non-empty
             - required
             jcr:primaryType: hipposysedit:field
           /priorityactions:
@@ -217,11 +217,11 @@ definitions:
             hipposysedit:validators:
             - optional
             jcr:primaryType: hipposysedit:field
-          /responsibleteam:
+          /responsibleteams:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: intranet:responsibleteam
+            hipposysedit:path: intranet:responsibleteams
             hipposysedit:primary: false
             hipposysedit:type: hippo:mirror
             jcr:primaryType: hipposysedit:field
@@ -249,9 +249,8 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: intranet:shortsummary
             hipposysedit:primary: false
-            hipposysedit:type: Html
+            hipposysedit:type: hippostd:html
             hipposysedit:validators:
-            - non-empty
             - required
             jcr:primaryType: hipposysedit:field
           /title:
@@ -281,9 +280,15 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          /intranet:responsibleteam:
+          /intranet:introduction:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /intranet:responsibleteams:
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             jcr:primaryType: hippo:mirror
+          /intranet:shortsummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -294,10 +299,8 @@ definitions:
           hippotranslation:locale: document-type-locale
           intranet:alternativenames: []
           intranet:expirydate: 0001-01-01T12:00:00Z
-          intranet:introduction: ''
           intranet:prioritytask: false
           intranet:reviewdate: 0001-01-01T12:00:00Z
-          intranet:shortsummary: ''
           intranet:title: ''
           jcr:mixinTypes:
           - mix:referenceable

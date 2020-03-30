@@ -26,8 +26,8 @@ public class Task extends HippoDocument {
         return getProperty("intranet:title");
     }
 
-    public List<String> getAlternativeNames() {
-        return getChildBeansByName("intranet:alternativenames");
+    public String[] getAlternativeNames() {
+        return getProperty("intranet:alternativenames");
     }
 
     public HippoHtml getIntroduction() {
@@ -38,8 +38,8 @@ public class Task extends HippoDocument {
         return getHippoHtml("intranet:shortsummary");
     }
 
-    public List<Team> getResponsibleTeam() {
-        return getLinkedBeans("intranet:responsibleteam", Team.class);
+    public List<Team> getResponsibleTeams() {
+        return getLinkedBeans("intranet:responsibleteams", Team.class);
     }
 
     public List<Task> getChildren() {
