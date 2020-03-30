@@ -23,9 +23,14 @@ public class AuthorizationProvider {
     public static final String applicationId = "a1a6e366-394a-43a6-9de8-4f2096814edf";
     public static final String redirectUri = "http://localhost:8080/site/restapi/intranet/auth/response";
     private static final String clientSecret = "h9Fs87G-vi-6UT_l]Zw?8M=L?@zFjYeh";
-    private static final RestTemplate restTemplate = new RestTemplate();
 
-    public static AccessToken processAuthorizationResponse(final String authorizationCode) throws AuthorizationException {
+    private final RestTemplate restTemplate;
+
+    public AuthorizationProvider(final RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
+
+    public AccessToken processAuthorizationResponse(final String authorizationCode) throws AuthorizationException {
         final HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 

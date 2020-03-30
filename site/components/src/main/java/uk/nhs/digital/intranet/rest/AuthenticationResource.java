@@ -23,6 +23,14 @@ public class AuthenticationResource {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AuthenticationResource.class);
 
+    private final AuthorizationProvider authorizationProvider;
+    private final CookieProvider cookieProvider;
+
+    public AuthenticationResource(final AuthorizationProvider authorizationProvider, CookieProvider cookieProvider) {
+        this.authorizationProvider = authorizationProvider;
+        this.cookieProvider = cookieProvider;
+    }
+
     @GET
     @Path("/response")
     public boolean processResponse(
@@ -30,9 +38,9 @@ public class AuthenticationResource {
         @QueryParam("code") final String authorizationCode) throws IOException {
 
         try {
-            final AccessToken accessToken = AuthorizationProvider.processAuthorizationResponse(authorizationCode);
+            final AccessToken accessToken = authorizationProvider.processAuthorizationResponse(authorizationCode);
             LOGGER.info("Received access token: {}", accessToken.getToken());
-            final Cookie cookie = CookieProvider.getAccessTokenCookie(accessToken);
+            final Cookie cookie = cookieProvider.getAccessTokenCookie(accessToken);
             response.addCookie(cookie);
         } catch (final AuthorizationException e) {
             LOGGER.error("Received exception with status code {} from Microsoft Graph API.", e.getStatusCode().value(), e.getCause());

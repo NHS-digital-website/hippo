@@ -8,6 +8,14 @@
   <import resource="classpath:/org/hippoecm/hst/site/optional/jaxrs/SpringComponentManager-rest-plain-pipeline.xml"/>
   <import resource="classpath:/org/hippoecm/hst/site/optional/jaxrs/SpringComponentManager-rest-content-pipeline.xml"/>
 
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate" />
+
+    <bean id="authorizationProvider" class="uk.nhs.digital.intranet.provider.AuthorizationProvider">
+        <constructor-arg name="restTemplate" ref="restTemplate" />
+    </bean>
+
+    <bean id="cookieProvider" class="uk.nhs.digital.intranet.provider.CookieProvider" />
+
   <bean id="customRestPlainResourceProviders" class="org.springframework.beans.factory.config.ListFactoryBean">
     <property name="sourceList">
       <list>
@@ -23,7 +31,10 @@
         </bean>
         <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
             <constructor-arg>
-                <bean class="uk.nhs.digital.intranet.rest.AuthenticationResource"/>
+                <bean class="uk.nhs.digital.intranet.rest.AuthenticationResource">
+                    <constructor-arg name="authorizationProvider" ref="authorizationProvider" />
+                    <constructor-arg name="cookieProvider" ref="cookieProvider" />
+                </bean>
             </constructor-arg>
         </bean>
       </list>

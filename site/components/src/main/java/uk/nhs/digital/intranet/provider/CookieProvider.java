@@ -11,7 +11,7 @@ public class CookieProvider {
     private static final int TTL = 30 * 24 * 3600;
     private static final String COOKIE_PATH = "/site/intranet";
 
-    public static Cookie getAccessTokenCookie(final AccessToken accessToken) {
+    public Cookie getAccessTokenCookie(final AccessToken accessToken) {
         final String encodedAccessToken = AccessTokenEncoder.encode(accessToken);
         final Cookie accessTokenCookie = new Cookie(ACCESS_TOKEN_COOKIE_NAME, encodedAccessToken);
         accessTokenCookie.setPath(COOKIE_PATH);
