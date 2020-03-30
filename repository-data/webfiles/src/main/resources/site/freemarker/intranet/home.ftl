@@ -9,9 +9,6 @@
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
 
-<#-- TODO - Include the meta tags and the head contributions-->
-<#assign documentTitle = "Hello world!" />
-
 <div class="intra-home-header">
     <div class="intra-home-header__inner">
         <div class="intra-home-header__inner-contents">
@@ -251,7 +248,7 @@
                 <ul class="intra-task-grid">
                     <li class="intra-task-grid-item">
                         <article class="intra-task-grid-task">
-                            <a href="#" class="intra-task-grid-task__link">
+                            <a href="/site/intranet/tasks/book-annual-leave" class="intra-task-grid-task__link">
                                 <div class="intra-task-grid-task__icon">
                                     <@svgIcon id="briefcase" />
                                 </div>
