@@ -27,18 +27,18 @@ public class AuthenticationResource {
     @Path("/response")
     public boolean processResponse(
         @Context HttpServletResponse response,
-        @QueryParam("code") final String authorizationCode) {
+        @QueryParam("code") final String authorizationCode) throws IOException {
 
         try {
             final AccessToken accessToken = AuthorizationProvider.processAuthorizationResponse(authorizationCode);
             LOGGER.info("Received access token: {}", accessToken.getToken());
             final Cookie cookie = CookieProvider.getAccessTokenCookie(accessToken);
             response.addCookie(cookie);
-            response.sendRedirect("http://localhost:8080/site/intranet");
         } catch (final AuthorizationException e) {
             LOGGER.error("Received exception with status code {} from Microsoft Graph API.", e.getStatusCode().value(), e.getCause());
-        } catch (final IOException e) {
-            LOGGER.error("Unexpected error encountered when redirecting to home page.", e);
+        } finally {
+            //todo replace this with value from property file
+            response.sendRedirect("http://localhost:8080/site/intranet");
         }
         return true;
     }
