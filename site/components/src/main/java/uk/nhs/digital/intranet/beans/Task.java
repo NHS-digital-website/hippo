@@ -7,7 +7,6 @@ import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.content.beans.standard.HippoDocument;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.request.HstRequestContext;
@@ -20,7 +19,7 @@ import java.util.Calendar;
 import java.util.List;
 
 @Node(jcrType = "intranet:task")
-public class Task extends HippoDocument {
+public class Task extends BaseDocument {
 
     public String getTitle() {
         return getProperty("intranet:title");

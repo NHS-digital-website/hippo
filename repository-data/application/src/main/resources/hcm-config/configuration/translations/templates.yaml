@@ -30,6 +30,11 @@ definitions:
           jcr:name: String list
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /intranet:task:
+        /en:
+          jcr:name: Task
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /nationalindicatorlibrary:indicator:
         /en:
           jcr:name: Indicator
