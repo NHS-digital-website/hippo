@@ -161,6 +161,8 @@ definitions:
             hipposysedit:path: intranet:alternativenames
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators:
+            - non-empty
             jcr:primaryType: hipposysedit:field
           /bannercontrols:
             hipposysedit:mandatory: false
