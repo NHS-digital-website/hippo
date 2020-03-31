@@ -3,8 +3,8 @@
 
 <#include "../publicationsystem/macro/structured-text.ftl">
 <#include "../common/macro/sections/sections.ftl">
+<#include "../common/macro/documentHeader.ftl">
 <#include "../common/macro/stickyNavSections.ftl">
-<#include "../common/macro/component/lastModified.ftl">
 <#-- TODO - Once DW-1199 is merged into master, use `updateGroup`  -->
 <#-- <#include "../common/macro/updateGroup.ftl"> -->
 
@@ -12,81 +12,88 @@
 <#-- Add meta tags -->
 <#include "../common/macro/metaTags.ftl">
 
-<@hst.setBundle basename="publicationsystem.change,publicationsystem.survey,publicationsystem.interactive,publicationsystem.labels,publicationsystem.headers"/>
-<@fmt.message key="headers.summary" var="summaryHeader" />
+<@hst.setBundle basename="intranet.headers, intranet.labels" />
+
+<@fmt.message key="headers.responsible-teams" var="responsibleTeamsSectionHeader" />
+<@fmt.message key="headers.dates" var="datesSectionHeader" />
+
+<#assign hasSectionContent = document.sections?has_content />
+<#assign hasResponsibleTeams = document.responsibleTeams?has_content />
 
 <article class="article article--intranet-task">
-    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
-        <div class="local-header article-header article-header--with-icon">
-            <div class="grid-wrapper">
-                <div class="article-header__inner">
-                    <div class="grid-row">
-                        <div class="column--two-thirds column--reset">
-                            <h1 id="top" class="local-header__title" data-uipath="document.title">${document.title}</h1>
+    <@documentHeader document 'intranet-task'></@documentHeader>
 
-                            <@hst.html hippohtml=document.introduction contentRewriter=gaContentRewriter />
-                            <@hst.html hippohtml=document.shortSummary contentRewriter=gaContentRewriter />
-                            <#list document.alternativeNames as altName>
-                                altName
-                            </#list>
-                            <#list document.responsibleTeams as team>
-                                team
-                            </#list>
-
-                            <div class="rich-text-content">
-                                <#-- <h2>Short summary: ${document.responsibleTeam}</h2> -->
-                                
-                                <#-- <ul>
-                                <#list document?keys as key>
-                                    <li>${key}</li>
-                                </#list>
-                                </ul> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <#if document.fullTaxonomyList?has_content>
+    <h3>META</h3>
+        <meta itemprop="keywords" content="${document.fullTaxonomyList?join(", ")}"/>
+    </#if>
 
     <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
         <#-- TODO - Once DW-1199 is merged into master, use `updateGroup`  -->
         <#-- <@updateGroup /> -->
 
         <div class="grid-row">
-            <#-- <#if index?has_content && index?size gt 1>
-                <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
-                    <div id="sticky-nav">
-                        <#assign links = [] />
-                        <#list index as i>
-                            <#assign links += [{ "url": "#" + slugify(i), "title": i }] />
-                        </#list>
-                        <@stickyNavSections getStickySectionNavLinks({"document": document, "sections": links})></@stickyNavSections>
-                    </div>
+            <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+                <div id="sticky-nav">
+                    <#assign links = [] />
+                    <#if hasResponsibleTeams>
+                        <#assign links += [{ "url": "#" + slugify(responsibleTeamsSectionHeader), "title": responsibleTeamsSectionHeader }] />
+                    </#if>
+                    <#assign links += [{ "url": "#" + slugify(datesSectionHeader), "title": datesSectionHeader }] />
+                    
+                    <@stickyNavSections getStickySectionNavLinks({"document": document, "appendSections": links, "includeTopLink": true})></@stickyNavSections>
+
+                    <#-- Restore the bundle -->
+                    <@hst.setBundle basename="intranet.headers, intranet.labels" />
                 </div>
-            </#if> -->
+            </div>
+            
 
             <div class="column column--two-thirds page-block page-block--main">
-                ${document.lastModified}
-                <#-- <@lastModified document.lastModified?date></@lastModified> -->
+                <@sections sections=document.sections wrap=true />
+
+                <#if hasResponsibleTeams>
+                    <div id="${slugify(responsibleTeamsSectionHeader)}" class="article-section no-border">
+                        <h2>${responsibleTeamsSectionHeader}</h2>
+                        <ul>
+                            <#list document.responsibleTeams as team>
+                                <li><a href="<@hst.link hippobean=team />">${team.title}</a></li>
+                            </#list>
+                        </ul>
+                    </div>
+                </#if>
+
+                <div class="article-section" id="${slugify(datesSectionHeader)}">
+                    <h2>${datesSectionHeader}</h2>
+                    <div class="detail-list-grid detail-list-grid--regular">
+                        <#if document.reviewDate?has_content>
+                        <dl class="detail-list">
+                            <dt class="detail-list__key"><@fmt.message key="labels.review-date"/></dt>
+                            <dd class="detail-list__value"><@fmt.formatDate value=document.reviewDate.time?date type="date" pattern="d MMMM yyyy" timeZone="${getTimeZone()}" /></dd>
+                        </dl>
+                        </#if>
+
+                        <dl class="detail-list">
+                            <dt class="detail-list__key"><@fmt.message key="labels.last-modified"/></dt>
+                            <dd class="detail-list__value">
+                                <@fmt.formatDate value=document.lastModified?date type="date" pattern="d MMMM yyyy h:mm a" timeZone="${getTimeZone()}" var="lastModifiedDate" />
+                                ${lastModifiedDate?replace("AM", "am")?replace("PM", "pm")}
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
             </div>
 
     </div>
 </article>
 
-<#-- <article class="article article--intranet-home">
-    <div class="grid-wrapper grid-wrapper--article">
-        <h2>${document.title}</h2>
-        <h2>${document.reviewDate}</h2>
-        <#if document.children?has_content>
-            <#list document.children as child>
-                ${child.title} <br>
-            </#list>
-        </#if>
-        <#if document.parents?has_content>
-            <#list document.parents as parent>
-                ${parent.title} <br>
-            </#list>
-        </#if>
-    </div>
-</article> -->
+<#-- <#if document.children?has_content>
+    <#list document.children as child>
+        ${child.title} <br>
+    </#list>
+</#if>
+<#if document.parents?has_content>
+    <#list document.parents as parent>
+        ${parent.title} <br>
+    </#list>
+</#if> -->

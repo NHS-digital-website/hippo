@@ -79,6 +79,24 @@
                                   ${custom_summary}
                               </div>
                             </#if>
+
+                            <#if doctype == "intranet-task">
+                                <#if document.introduction?has_content>
+                                    <div class="rich-text-content article-header__subtitle">
+                                        <@hst.html hippohtml=document.introduction contentRewriter=gaContentRewriter />
+                                    </div>
+                                </#if>
+
+                                <#if document.priorityActions?has_content>
+                                    <ul class="intra-action-links">
+                                        <#list document.priorityActions as action>
+                                            <li>
+                                                <a href="<@hst.link hippobean=action />" class="intra-action-link">${action.action}</a>
+                                            </li>
+                                        </#list>
+                                    </ul>
+                                </#if>
+                            </#if>
                         </div>
                         <#if hasFinalPageIcon>
                             <div class="column--one-third column--reset local-header__icon">
@@ -103,6 +121,7 @@
                             </div>
                         </#if>
                     </div>
+
                     <#if hasTopics>
                       <div class="detail-list-grid">
                         <div class="grid-row">

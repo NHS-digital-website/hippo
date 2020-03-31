@@ -312,7 +312,7 @@
                     </li>
                 </ul>
 
-                <@actionLink title="View all Tasks" link="#" />
+                <@actionLink title="View all Tasks" link="/site/intranet/tasks" />
             </div>
 
             <div class="intra-box intra-box--nested">
