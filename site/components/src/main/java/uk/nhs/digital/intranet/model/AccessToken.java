@@ -23,6 +23,10 @@ public class AccessToken implements Serializable {
         return refreshToken;
     }
 
+    public LocalDateTime getExpirationDate() {
+        return expirationDate;
+    }
+
     public boolean isExpired() {
         return LocalDateTime.now().isAfter(expirationDate);
     }
