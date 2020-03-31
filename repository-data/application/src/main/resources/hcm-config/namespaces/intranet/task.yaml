@@ -221,7 +221,7 @@ definitions:
             jcr:primaryType: hipposysedit:field
           /responsibleteams:
             hipposysedit:mandatory: false
-            hipposysedit:multiple: false
+            hipposysedit:multiple: true
             hipposysedit:ordered: false
             hipposysedit:path: intranet:responsibleteams
             hipposysedit:primary: false
