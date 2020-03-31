@@ -32,4 +32,8 @@
         <constructor-arg name="encoder" ref="accessTokenEncoder" />
     </bean>
 
+    <bean id="graphProvider" class="uk.nhs.digital.intranet.provider.GraphProvider">
+        <constructor-arg name="restTemplate" ref="restTemplate" />
+    </bean>
+
 </beans>

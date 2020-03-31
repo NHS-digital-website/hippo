@@ -11,4 +11,8 @@
         <constructor-arg name="redirectUri" ref="redirectUri" />
     </bean>
 
+    <bean id="uk.nhs.digital.intranet.components.SearchPageComponent" class="uk.nhs.digital.intranet.components.SearchPageComponent" scope="prototype">
+        <constructor-arg name="graphProvider" ref="graphProvider" />
+    </bean>
+
 </beans>
