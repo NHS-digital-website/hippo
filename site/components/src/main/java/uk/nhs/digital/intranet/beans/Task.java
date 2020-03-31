@@ -11,6 +11,7 @@ import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.util.ContentBeanUtils;
+import uk.nhs.digital.ps.beans.HippoBeanHelper;
 import uk.nhs.digital.website.beans.BannerControl;
 import uk.nhs.digital.website.beans.PriorityAction;
 import uk.nhs.digital.website.beans.Team;
@@ -77,6 +78,10 @@ public class Task extends BaseDocument {
 
     public String[] getKeys() {
         return getProperty("hippotaxonomy:keys");
+    }
+
+    public List<String> getFullTaxonomyList() {
+        return HippoBeanHelper.getFullTaxonomyList(this);
     }
 
     private <T extends HippoBean> List<T> getRelatedDocuments(String property,
