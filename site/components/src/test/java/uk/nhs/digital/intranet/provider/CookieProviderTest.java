@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 import uk.nhs.digital.intranet.model.AccessToken;
 import uk.nhs.digital.intranet.utils.AccessTokenEncoder;
+import uk.nhs.digital.intranet.utils.Constants;
 
 import javax.servlet.http.Cookie;
 
@@ -21,7 +22,7 @@ public class CookieProviderTest {
 
         final Cookie cookie = cookieProvider.getAccessTokenCookie(accessToken);
 
-        assertEquals(CookieProvider.ACCESS_TOKEN_COOKIE_NAME, cookie.getName());
+        assertEquals(Constants.ACCESS_TOKEN_COOKIE_NAME, cookie.getName());
         assertEquals(2592000, cookie.getMaxAge());
         assertEquals("/site/intranet", cookie.getPath());
         assertEquals("expected_returned_value", cookie.getValue());

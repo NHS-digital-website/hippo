@@ -24,6 +24,8 @@
           class="uk.nhs.digital.intranet.valves.AccessTokenValve">
         <constructor-arg name="encoder" ref="accessTokenEncoder" />
         <property name="valveName" value="accessTokenValve" />
+        <property name="afterValves" value="securityValve" />
+        <property name="beforeValves" value="pageCachingValve" />
     </bean>
 
 

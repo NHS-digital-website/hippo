@@ -5,8 +5,8 @@ import org.hippoecm.hst.core.container.ContainerException;
 import org.hippoecm.hst.core.container.ValveContext;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import uk.nhs.digital.intranet.model.AccessToken;
-import uk.nhs.digital.intranet.provider.CookieProvider;
 import uk.nhs.digital.intranet.utils.AccessTokenEncoder;
+import uk.nhs.digital.intranet.utils.Constants;
 
 import java.util.*;
 
@@ -14,8 +14,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 public class AccessTokenValve extends AbstractOrderableValve {
-
-    private static final String ACCESS_TOKEN_PROPERTY = "accessToken";
 
     private final AccessTokenEncoder encoder;
 
@@ -26,13 +24,12 @@ public class AccessTokenValve extends AbstractOrderableValve {
     @Override
     public void invoke(ValveContext context) throws ContainerException {
         final HstRequestContext requestContext = context.getRequestContext();
-        final HttpServletRequest request = requestContext.getServletRequest();
-        if (request.getAttribute(ACCESS_TOKEN_PROPERTY) == null) {
-            final Optional<Cookie> cookieOptional = getAccessTokenCookie(request);
+        if (requestContext.getAttribute(Constants.ACCESS_TOKEN_PROPERTY_NAME) == null) {
+            final Optional<Cookie> cookieOptional = getAccessTokenCookie(requestContext.getServletRequest());
             cookieOptional.ifPresent(cookie -> {
                 final AccessToken accessToken = encoder.decode(cookie.getValue());
                 if (accessToken != null) {
-                    request.setAttribute(ACCESS_TOKEN_PROPERTY, accessToken.getToken());
+                    requestContext.setAttribute(Constants.ACCESS_TOKEN_PROPERTY_NAME, accessToken.getToken());
                 }
             });
         }
@@ -43,7 +40,7 @@ public class AccessTokenValve extends AbstractOrderableValve {
         return getCookies(request)
             .stream()
             .filter(Objects::nonNull)
-            .filter(cookie -> CookieProvider.ACCESS_TOKEN_COOKIE_NAME.equals(cookie.getName()))
+            .filter(cookie -> Constants.ACCESS_TOKEN_COOKIE_NAME.equals(cookie.getName()))
             .findAny();
     }
 
