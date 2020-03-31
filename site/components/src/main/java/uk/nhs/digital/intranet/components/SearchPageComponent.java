@@ -3,11 +3,9 @@ package uk.nhs.digital.intranet.components;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.onehippo.cms7.essentials.components.CommonComponent;
-import uk.nhs.digital.intranet.model.MockSearchResult;
 import uk.nhs.digital.intranet.model.SearchResult;
 import uk.nhs.digital.intranet.provider.GraphProvider;
 
-import java.util.Collections;
 import java.util.List;
 
 public class SearchPageComponent extends CommonComponent {
@@ -23,7 +21,9 @@ public class SearchPageComponent extends CommonComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
-        populateRequest(request, Collections.singletonList(new MockSearchResult("dummy_title")));
+        final String searchQuery = getSearchQuery(request);
+        final List<SearchResult> results = graphProvider.getPeople(searchQuery);
+        populateRequest(request, results);
     }
 
     private void populateRequest(final HstRequest request, final List<? extends SearchResult> results) {

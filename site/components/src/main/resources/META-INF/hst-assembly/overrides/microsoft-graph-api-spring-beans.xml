@@ -7,11 +7,11 @@
     <bean id="restTemplate" class="org.springframework.web.client.RestTemplate" />
 
     <bean id="applicationId" class="java.lang.String">
-        <constructor-arg value="to-be-replaced" />
+        <constructor-arg value="a1a6e366-394a-43a6-9de8-4f2096814edf" />
     </bean>
 
     <bean id="clientSecret" class="java.lang.String">
-        <constructor-arg value="to-be-replaced" />
+        <constructor-arg value="h9Fs87G-vi-6UT_l]Zw?8M=L?@zFjYeh" />
     </bean>
 
     <bean id="redirectUri" class="java.lang.String">
