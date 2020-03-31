@@ -5,6 +5,7 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.onehippo.cms7.essentials.components.CommonComponent;
 import uk.nhs.digital.intranet.model.MockSearchResult;
 import uk.nhs.digital.intranet.model.SearchResult;
+import uk.nhs.digital.intranet.provider.GraphProvider;
 
 import java.util.Collections;
 import java.util.List;
@@ -12,6 +13,12 @@ import java.util.List;
 public class SearchPageComponent extends CommonComponent {
 
     private static final String REQUEST_ATTR_RESULTS = "results";
+
+    private final GraphProvider graphProvider;
+
+    public SearchPageComponent(final GraphProvider graphProvider) {
+        this.graphProvider = graphProvider;
+    }
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
