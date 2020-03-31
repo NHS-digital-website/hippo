@@ -17,7 +17,7 @@ import java.net.URI;
 
 public class AuthorizationProvider {
 
-    public static final String base_url = "https://login.microsoftonline.com/common/oauth2/v2.0/";
+    public static final String BASE_URL = "https://login.microsoftonline.com/common/oauth2/v2.0/";
 
     private final RestTemplate restTemplate;
     private final String applicationId;
@@ -46,7 +46,7 @@ public class AuthorizationProvider {
         final HttpEntity<MultiValueMap<String, String>> httpRequest = new HttpEntity<>(map, headers);
 
         try {
-            final ResponseEntity<TokenResponse> responseEntity = restTemplate.postForEntity(URI.create(base_url + "token"), httpRequest, TokenResponse.class);
+            final ResponseEntity<TokenResponse> responseEntity = restTemplate.postForEntity(URI.create(BASE_URL + "token"), httpRequest, TokenResponse.class);
             final TokenResponse tokenResponse = responseEntity.getBody();
             Assert.notNull(tokenResponse, "Received null response from Microsoft Graph API.");
             return new AccessToken(tokenResponse.getAccessToken(), tokenResponse.getRefreshToken(), tokenResponse.getExpiresIn());

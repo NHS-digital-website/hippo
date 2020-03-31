@@ -18,7 +18,7 @@ public class HomePageComponent extends EssentialsContentComponent {
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
-        final String authorizationUrl = UriComponentsBuilder.fromUriString(AuthorizationProvider.base_url)
+        final String authorizationUrl = UriComponentsBuilder.fromUriString(AuthorizationProvider.BASE_URL)
             .pathSegment("authorize")
             .queryParam("client_id", applicationId)
             .queryParam("response_type", "code")
