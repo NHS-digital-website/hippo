@@ -285,9 +285,6 @@ definitions:
           /intranet:introduction:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
-          /intranet:responsibleteams:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
           /intranet:shortsummary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
