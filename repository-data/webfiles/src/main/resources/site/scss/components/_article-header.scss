@@ -13,9 +13,9 @@
 
 .article-header--detailed,
 .article-header--with-icon {
-    color: $col-septenary;
     padding-left: 0;
     padding-right: 0;
+    color: $col-septenary;
 
     @extend .white-links;
     @extend .white-links--secondary;
@@ -143,8 +143,6 @@
         color: $grey-1;
     }
 }
-
-
 
 .article-header__detail-lines {
     margin-top: $gutter;
