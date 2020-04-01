@@ -8,6 +8,8 @@ import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.*;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import uk.nhs.digital.intranet.enums.SearchResultType;
+import uk.nhs.digital.intranet.model.IntranetSearchResult;
 
 import java.util.Calendar;
 import java.util.List;
@@ -15,7 +17,7 @@ import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "website:blog")
 @Node(jcrType = "website:blog")
-public class Blog extends CommonFieldsBean {
+public class Blog extends CommonFieldsBean implements IntranetSearchResult {
 
     @HippoEssentialsGenerated(internalName = "website:dateofpublication")
     public Calendar getDateOfPublication() {
@@ -121,7 +123,15 @@ public class Blog extends CommonFieldsBean {
             .getHippoBeans();
 
         return toList(hippoBeans);
-
     }
 
+    @Override
+    public String getSearchResultTitle() {
+        return getTitle();
+    }
+
+    @Override
+    public String getSearchResultType() {
+        return SearchResultType.NEWS.getValue();
+    }
 }
