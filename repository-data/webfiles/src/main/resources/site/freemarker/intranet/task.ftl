@@ -22,10 +22,13 @@
 
 <#assign hasExpired = (document.expiryDate?? && document.expiryDate.time?date lte .now?date) />
 <#assign hasUpdates = document.updates?has_content || document.changenotice?has_content />
+<#assign childTasks = document.children />
+<#assign hasChildTasks = childTasks?has_content />
 
 <article class="article article--intranet-task">
     <@documentHeader document 'intranet-task'></@documentHeader>
 
+    <#-- Updates, changes and expiration notice block -->
     <#if hasUpdates || hasExpired>
         <div class="grid-wrapper">
             <div class="grid-row">
@@ -74,6 +77,7 @@
             </div>
         </div>
     </#if>
+    <#-- End of Updates, changes and expiration notice block -->
 
     <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
         <div class="grid-row">
