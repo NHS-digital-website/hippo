@@ -11,8 +11,14 @@
         <constructor-arg name="redirectUri" ref="redirectUri" />
     </bean>
 
+    <bean id="org.onehippo.cms7.essentials.components.ext.DefaultPageableFactory" class="org.onehippo.cms7.essentials.components.ext.DefaultPageableFactory" />
+    <bean id="bloomreachSearchProvider" class="uk.nhs.digital.intranet.provider.BloomreachSearchProvider" scope="prototype">
+        <constructor-arg name="pageableFactory" ref="org.onehippo.cms7.essentials.components.ext.DefaultPageableFactory" />
+    </bean>
+
     <bean id="uk.nhs.digital.intranet.components.SearchPageComponent" class="uk.nhs.digital.intranet.components.SearchPageComponent" scope="prototype">
         <constructor-arg name="graphProvider" ref="graphProvider" />
+        <constructor-arg name="bloomreachSearchProvider" ref="bloomreachSearchProvider" />
     </bean>
 
 </beans>

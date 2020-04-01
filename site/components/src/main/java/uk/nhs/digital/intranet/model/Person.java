@@ -2,7 +2,7 @@ package uk.nhs.digital.intranet.model;
 
 import uk.nhs.digital.intranet.enums.SearchResultType;
 
-public class Person implements SearchResult {
+public class Person {
 
     private String displayName;
     private String email;
@@ -30,12 +30,10 @@ public class Person implements SearchResult {
         this.id = id;
     }
 
-    @Override
     public String getTitle() {
         return displayName;
     }
 
-    @Override
     public String getType() {
         return SearchResultType.PERSON.getValue();
     }

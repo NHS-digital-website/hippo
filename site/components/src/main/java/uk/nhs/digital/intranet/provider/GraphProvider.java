@@ -8,7 +8,7 @@ import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 import uk.nhs.digital.intranet.json.UserResponse;
-import uk.nhs.digital.intranet.model.SearchResult;
+import uk.nhs.digital.intranet.model.IntranetSearchResult;
 import uk.nhs.digital.intranet.utils.Constants;
 
 import java.net.URI;
@@ -28,7 +28,7 @@ public class GraphProvider {
         this.restTemplate = restTemplate;
     }
 
-    public List<SearchResult> getPeople(final String searchTerm) {
+    public List<IntranetSearchResult> getPeople(final String searchTerm) {
         final String cleanSearchTerm = searchTerm.trim();
         final String filter = String.format("startsWith(displayName, '%s')", cleanSearchTerm)
             + " or "

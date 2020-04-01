@@ -13,6 +13,10 @@
             <div class="column column--two-thirds page-block page-block--main">
                 <div class="article-section">
                     <p>This is where the search results will show up</p>
+                    <#list pageable.items as result>
+                        <p>${result.searchResultTitle}</p>
+                        <p>${result.searchResultType}</p>
+                    </#list>
                 </div>
             </div>
         </div>
