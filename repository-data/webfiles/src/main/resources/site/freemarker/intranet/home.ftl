@@ -248,7 +248,7 @@
                 <ul class="intra-task-grid">
                     <li class="intra-task-grid-item">
                         <article class="intra-task-grid-task">
-                            <a href="/site/intranet/tasks/book-annual-leave" class="intra-task-grid-task__link">
+                            <a href="<@hst.link path='/tasks/book-annual-leave'/>" class="intra-task-grid-task__link">
                                 <div class="intra-task-grid-task__icon">
                                     <@svgIcon id="briefcase" />
                                 </div>
@@ -258,7 +258,7 @@
                     </li>
                     <li class="intra-task-grid-item">
                         <article class="intra-task-grid-task">
-                            <a href="#" class="intra-task-grid-task__link">
+                            <a href="<@hst.link path='/tasks/submit-timesheet'/>" class="intra-task-grid-task__link">
                                 <div class="intra-task-grid-task__icon">
                                     <@svgIcon id="page" />
                                 </div>
@@ -269,7 +269,7 @@
 
                     <li class="intra-task-grid-item">
                         <article class="intra-task-grid-task">
-                            <a href="#" class="intra-task-grid-task__link">
+                            <a href="<@hst.link path='/tasks/book-a-room'/>" class="intra-task-grid-task__link">
                                 <div class="intra-task-grid-task__icon">
                                     <@svgIcon id="house" />
                                 </div>
@@ -280,7 +280,7 @@
 
                     <li class="intra-task-grid-item">
                         <article class="intra-task-grid-task">
-                            <a href="#" class="intra-task-grid-task__link">
+                            <a href="<@hst.link path='/tasks/resolve-it'/>" class="intra-task-grid-task__link">
                                 <div class="intra-task-grid-task__icon">
                                     <@svgIcon id="lightbulb" />
                                 </div>
@@ -291,18 +291,18 @@
                     
                     <li class="intra-task-grid-item">
                         <article class="intra-task-grid-task">
-                            <a href="#" class="intra-task-grid-task__link">
+                            <a href="<@hst.link path='/tasks/booking-travel'/>" class="intra-task-grid-task__link">
                                 <div class="intra-task-grid-task__icon">
                                     <@svgIcon id="connections" />
                                 </div>
-                                <h1 class="intra-task-grid-task__title">Book travel</h1>
+                                <h1 class="intra-task-grid-task__title">Booking travel</h1>
                             </a>
                         </article>
                     </li>
                     
                     <li class="intra-task-grid-item">
                         <article class="intra-task-grid-task">
-                            <a href="#" class="intra-task-grid-task__link">
+                            <a href="<@hst.link path='/tasks/mandatory-training'/>" class="intra-task-grid-task__link">
                                 <div class="intra-task-grid-task__icon">
                                     <@svgIcon id="personal" />
                                 </div>

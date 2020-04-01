@@ -63,7 +63,7 @@
                               </#if>
                             </#if>
 
-                            <h1 id="top" class="local-header__title" data-uipath="document.title" ${titleProp} ${headerStyle}>${custom_title}</h1>
+                            <h1 id="top" class="local-header__title" data-uipath="document.title" ${hasScemaOrg?then(titleProp, '')} ${headerStyle}>${custom_title}</h1>
                             <#if hasDocumentSummary>
                               <div class="article-header__subtitle" data-uipath="website.${doctype}.summary">
                                 <@hst.html hippohtml=custom_summary contentRewriter=gaContentRewriter/>
@@ -75,9 +75,9 @@
                                 <#assign schemaProp = "itemprop=description" />
                               </#if>
 
-                              <div ${schemaProp} class="article-header__subtitle" data-uipath="website.${doctype}.summary">
-                                  ${custom_summary}
-                              </div>
+                                <#if custom_summary?has_content>
+                                    <div ${schemaProp} class="article-header__subtitle" data-uipath="website.${doctype}.summary">${custom_summary}</div>
+                                </#if>
                             </#if>
 
                             <#if doctype == "intranet-task">

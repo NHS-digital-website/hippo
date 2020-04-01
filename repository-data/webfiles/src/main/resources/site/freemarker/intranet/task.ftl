@@ -8,9 +8,10 @@
 <#-- TODO - Once DW-1199 is merged into master, use `updateGroup`  -->
 <#-- <#include "../common/macro/updateGroup.ftl"> -->
 
+<#include "macro/metaTags.ftl">
 
 <#-- Add meta tags -->
-<#include "../common/macro/metaTags.ftl">
+<@metaTags></@metaTags>
 
 <@hst.setBundle basename="intranet.headers, intranet.labels" />
 
@@ -22,11 +23,6 @@
 
 <article class="article article--intranet-task">
     <@documentHeader document 'intranet-task'></@documentHeader>
-
-    <#if document.fullTaxonomyList?has_content>
-    <h3>META</h3>
-        <meta itemprop="keywords" content="${document.fullTaxonomyList?join(", ")}"/>
-    </#if>
 
     <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
         <#-- TODO - Once DW-1199 is merged into master, use `updateGroup`  -->
@@ -51,6 +47,9 @@
 
             <div class="column column--two-thirds page-block page-block--main">
                 <@sections sections=document.sections wrap=true />
+
+                <#-- Restore the bundle -->
+                <@hst.setBundle basename="intranet.headers, intranet.labels" />
 
                 <#if hasResponsibleTeams>
                     <div id="${slugify(responsibleTeamsSectionHeader)}" class="article-section no-border">
@@ -83,7 +82,7 @@
                     </div>
                 </div>
             </div>
-
+        </div>
     </div>
 </article>
 

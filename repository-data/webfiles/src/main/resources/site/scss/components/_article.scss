@@ -38,6 +38,7 @@
                     background-color: $white;
                 }
 
+                &,
                 p {
                     @include core-font(24);
                 }
