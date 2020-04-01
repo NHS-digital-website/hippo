@@ -63,7 +63,7 @@
                               </#if>
                             </#if>
 
-                            <h1 id="top" class="local-header__title" data-uipath="document.title" ${hasScemaOrg?then(titleProp, '')} ${headerStyle}>${custom_title}</h1>
+                            <h1 id="top" class="local-header__title" data-uipath="document.title" ${hasSchemaOrg?then(titleProp, '')} ${headerStyle}>${custom_title}</h1>
                             <#if hasDocumentSummary>
                               <div class="article-header__subtitle" data-uipath="website.${doctype}.summary">
                                 <@hst.html hippohtml=custom_summary contentRewriter=gaContentRewriter/>

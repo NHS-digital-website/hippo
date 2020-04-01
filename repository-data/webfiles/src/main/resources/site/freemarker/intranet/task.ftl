@@ -5,15 +5,14 @@
 <#include "../common/macro/sections/sections.ftl">
 <#include "../common/macro/documentHeader.ftl">
 <#include "../common/macro/stickyNavSections.ftl">
-<#-- TODO - Once DW-1199 is merged into master, use `updateGroup`  -->
-<#-- <#include "../common/macro/updateGroup.ftl"> -->
+<#include "../common/macro/component/calloutBox.ftl">
 
 <#include "macro/metaTags.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
 
-<@hst.setBundle basename="intranet.headers, intranet.labels" />
+<@hst.setBundle basename="intranet.headers, intranet.labels, intranet.task" />
 
 <@fmt.message key="headers.responsible-teams" var="responsibleTeamsSectionHeader" />
 <@fmt.message key="headers.dates" var="datesSectionHeader" />
@@ -21,13 +20,62 @@
 <#assign hasSectionContent = document.sections?has_content />
 <#assign hasResponsibleTeams = document.responsibleTeams?has_content />
 
+<#assign hasExpired = (document.expiryDate?? && document.expiryDate.time?date lte .now?date) />
+<#assign hasUpdates = document.updates?has_content || document.changenotice?has_content />
+
 <article class="article article--intranet-task">
     <@documentHeader document 'intranet-task'></@documentHeader>
 
-    <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
-        <#-- TODO - Once DW-1199 is merged into master, use `updateGroup`  -->
-        <#-- <@updateGroup /> -->
+    <#if hasUpdates || hasExpired>
+        <div class="grid-wrapper">
+            <div class="grid-row">
+                <div class="column column--no-padding">
+                    <div class="callout-box-group">
+                        <#if document.updates?has_content>
+                            <#assign item = {} />
+                            <#list document.updates as update>
+                                <#assign item += update />
+                                <#assign item += {"calloutType":"update", "index":update?index} />
+                                <@calloutBox item />
+                            </#list>
+                        </#if>
 
+                        <#if document.changenotice?has_content>
+                            <#assign item = {} />
+                            <#list document.changenotice as changeData>
+                                <#assign item += changeData />
+                                <@fmt.formatDate value=changeData.date.time type="Date" pattern="d MMMM yyyy HH:mm a" timeZone="${getTimeZone()}" var="changeDateTime" />
+                                <#assign item += {"date":changeDateTime, "dateLabel":changeDateLabel} />
+                                <#assign item += {"calloutType":"change", "severity":"information", "index":changeData?index} />
+                                <@calloutBox item />
+                            </#list>
+                        </#if>
+
+                        <#if hasExpired>                            
+                            <div class="callout-box callout-box--important" role="complementary" aria-labelledby="callout-box-heading-expired">
+                                <div class="callout-box__icon-wrapper">
+                                    <svg class="callout-box__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 217.07 187.02" preserveAspectRatio="xMidYMid meet" role="presentation" focusable="false">
+                                        <path d="M42.7,148.5,73.9,95.9l36.8-62.1a11,11,0,0,1,18.8,0L225,195.1a10.86,10.86,0,0,1-9.4,16.4H24.4A10.88,10.88,0,0,1,15,195.1h0C23,181.7,35.4,160.8,42.7,148.5Z" transform="translate(-11.47 -26.48)"></path>
+                                        <path fill="#005EB8" d="M124.4,161.7h-8.5L114,82.3h12.1ZM114,174.4h12.1V187H114Z" transform="translate(-11.47 -26.48)"></path>
+                                    </svg>
+                                </div>
+
+                                <div class="callout-box__content">
+                                    <h2 class="callout-box__content-heading" id="callout-box-heading-expired"><@fmt.message key="expired.title" /></h2>
+
+                                    <div class="callout-box__content-description">
+                                       <p><@fmt.message key="expired.description" /></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </#if>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </#if>
+
+    <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
         <div class="grid-row">
             <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
                 <div id="sticky-nav">
@@ -40,7 +88,7 @@
                     <@stickyNavSections getStickySectionNavLinks({"document": document, "appendSections": links, "includeTopLink": true})></@stickyNavSections>
 
                     <#-- Restore the bundle -->
-                    <@hst.setBundle basename="intranet.headers, intranet.labels" />
+                    <@hst.setBundle basename="intranet.headers, intranet.labels, intranet.task" />
                 </div>
             </div>
             
@@ -49,7 +97,7 @@
                 <@sections sections=document.sections wrap=true />
 
                 <#-- Restore the bundle -->
-                <@hst.setBundle basename="intranet.headers, intranet.labels" />
+                <@hst.setBundle basename="intranet.headers, intranet.labels, intranet.task" />
 
                 <#if hasResponsibleTeams>
                     <div id="${slugify(responsibleTeamsSectionHeader)}" class="article-section no-border">
@@ -62,7 +110,7 @@
                     </div>
                 </#if>
 
-                <div class="article-section" id="${slugify(datesSectionHeader)}">
+                <div class="article-section no-border" id="${slugify(datesSectionHeader)}">
                     <h2>${datesSectionHeader}</h2>
                     <div class="detail-list-grid detail-list-grid--regular">
                         <#if document.reviewDate?has_content>
@@ -84,15 +132,10 @@
             </div>
         </div>
     </div>
-</article>
 
-<#-- <#if document.children?has_content>
-    <#list document.children as child>
-        ${child.title} <br>
-    </#list>
-</#if>
-<#if document.parents?has_content>
-    <#list document.parents as parent>
-        ${parent.title} <br>
-    </#list>
-</#if> -->
+    <#-- <#if document.children?has_content>
+        <#list document.children as child>
+            ${child.title} <br>
+        </#list>
+    </#if> -->
+</article>
