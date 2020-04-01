@@ -2,7 +2,7 @@
 <#include "../include/imports.ftl">
 <@hst.setBundle basename="coronavirus.banner"/>
 
-<#if showBanner>
+<#if showBanner?? && showBanner>
     <!--googleoff: index-->
     <article>
         <header class="coronavirus-banner" aria-labelledby="message-summary-title" role="alert" tabindex="-1">
@@ -39,8 +39,8 @@
             if (Cookiebot.consent.preferences) {
                 setCookie("hide-coronavirus-banner", true, 5);
             }
-            document.querySelectorAll(".coronavirus-banner").forEach(function (banner) {
-                banner.remove();
+            Array.prototype.forEach.call(document.querySelectorAll(".coronavirus-banner"), function (banner) {
+                banner.parentElement.removeChild(banner);
             });
         }
 
