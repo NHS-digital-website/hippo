@@ -66,3 +66,57 @@ No space between elements --><span class="chapter-pagination__link-page">View al
         </nav>
     </#if>
 </#macro>
+
+<#-- Footer index navigation for chaptered documents -->
+<#macro chapterIndexNav documents={} title="Navigation title">
+    <#assign splitChapters = splitHash(documents) />
+    
+    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" id="chapter-index">
+        <div class="chapter-nav">
+            <div class="grid-wrapper">
+
+                <div class="grid-row">
+                    <div class="column column--reset">
+                        <h2 class="chapter-nav__title">${title}</h2>
+                    </div>
+                </div>
+
+                <div class="grid-row">
+                    <div class="column column--one-half column--left">
+                        <ol class="list list--reset cta-list chapter-index">
+                            <#list splitChapters.left as chapter>
+                                <#if chapter.id == document.identifier>
+                                    <li class="chapter-index__item chapter-index__item--current">
+                                        <p class="chapter-index__current-item">${chapter.title}</p>
+                                    </li>
+                                <#else>
+                                    <li class="chapter-index__item">
+                                        <a class="chapter-index__link" href="${chapter.link}" title="${chapter.title}">${chapter.title}</a>
+                                    </li>
+                                </#if>
+                            </#list>
+                        </ol>
+                    </div>
+
+                    <#if splitChapters.right?size gte 1>
+                        <div class="column column--one-half column--right">
+                            <ol class="list list--reset cta-list chapter-index" start="${splitChapters.left?size + 1}">
+                                <#list splitChapters.right as chapter>
+                                    <#if chapter.id == document.identifier>
+                                        <li class="chapter-index__item chapter-index__item--current">
+                                            <p class="chapter-index__current-item">${chapter.title}</p>
+                                        </li>
+                                    <#else>
+                                        <li class="chapter-index__item">
+                                            <a class="chapter-index__link" href="${chapter.link}" title="${chapter.title}">${chapter.title}</a>
+                                        </li>
+                                    </#if>
+                                </#list>
+                            </ol>
+                        </div>
+                    </#if>
+                </div>
+            </div>
+        </div>
+    </div>
+</#macro>
