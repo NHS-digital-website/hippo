@@ -6,8 +6,7 @@
 <#include "../common/macro/documentHeader.ftl">
 <#include "../common/macro/stickyNavSections.ftl">
 <#include "../common/macro/component/calloutBox.ftl">
-<#include "../common/macro/component/chapter-pagination.ftl">
-
+<#include "macro/taskChapterNav.ftl">
 <#include "macro/metaTags.ftl">
 
 <#-- Add meta tags -->
@@ -27,9 +26,44 @@
 <#assign hasChildTasks = childTasks?has_content />
 <#assign parentTask = document.parents?has_content?then(document.parents[0], '') />
 <#assign hasParentTask = parentTask?has_content />
+<#assign hasChapters = hasParentTask || hasChildTasks />
+
+<#if hasChapters>
+    <#assign firstTask = [] />
+    <#assign childTasks = [] />
+    <#if hasParentTask>
+        <#-- If current document is a child task -->
+        <#assign firstTask = parentTask />
+        <#assign childTasks = parentTask.children?has_content?then(parentTask.children, []) />
+    <#else>
+        <#-- If current document is a parent task -->
+        <#assign firstTask = document />
+        <#assign childTasks = document.children?has_content?then(document.children, []) />
+    </#if>
+
+    <#-- Cache the first task -->
+    <@hst.link hippobean=firstTask var="link" />
+    <#assign taskChapters = [{ "index": 0, "id": firstTask.identifier, "title": firstTask.title, "link": link }] />
+    
+    <#-- Cache the remaining tasks -->
+    <#list childTasks as chapter>
+        <@hst.link hippobean=chapter var="link" />
+        <#assign taskChapters += [{ "index": chapter?counter, "id": chapter.identifier, "title": chapter.title, "link": link }] />
+    </#list>
+
+    <#-- Cache the previous and next tasks for the chapter nav -->
+    <#list taskChapters as task>
+        <#if task.id == document.identifier>
+            <#assign nextTask = (task?counter lt taskChapters?size)?then(taskChapters[(task?counter)], "") />
+            <#assign previousTask = (task?counter gt 1)?then(taskChapters[(task?counter - 2)], "") />
+        </#if>
+    </#list>
+</#if>
 
 <article class="article article--intranet-task">
     <@documentHeader document 'intranet-task'></@documentHeader>
+
+    <@taskChapterNav previousTask=previousTask currentTask=document nextTask=nextTask />
 
     <#-- Updates, changes and expiration notice block -->
     <#if hasUpdates || hasExpired>
@@ -140,30 +174,8 @@
         </div>
     </div>
 
-    <#if hasParentTask || hasChildTasks>
-        <#assign firstTask = [] />
-        <#assign childTasks = [] />
-
-        <#if hasParentTask>
-            <#-- If current document is a child task -->
-            <#assign firstTask = parentTask />
-            <#assign childTasks = parentTask.children?has_content?then(parentTask.children, []) />
-        <#else>
-            <#-- If current document is a parent task -->
-            <#assign firstTask = document />
-            <#assign childTasks = document.children?has_content?then(document.children, []) />
-        </#if>
-
-        <#-- Cache the first task -->
-        <@hst.link hippobean=firstTask var="link" />
-        <#assign documents = [{ "index": 0, "id": firstTask.identifier, "title": firstTask.title, "link": link }] />
-        <#-- Cache the remaining tasks -->
-        <#list childTasks as chapter>
-            <@hst.link hippobean=chapter var="link" />
-            <#assign documents += [{ "index": chapter?counter, "id": chapter.identifier, "title": chapter.title, "link": link }] />
-        </#list>
-
+    <#if hasChapters>
         <@fmt.message key="headers.task-chapters" var="chapterIndexNavTitle" />
-        <@chapterIndexNav documents=documents title=chapterIndexNavTitle />
+        <@taskChapterIndexNav documents=taskChapters title=chapterIndexNavTitle />
     </#if>
 </article>
