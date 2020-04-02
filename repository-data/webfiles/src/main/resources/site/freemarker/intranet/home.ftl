@@ -9,6 +9,9 @@
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
 
+<#-- TODO - Include the meta tags and the head contributions-->
+<#assign documentTitle = "Hello world!" />
+
 <div class="intra-home-header">
     <div class="intra-home-header__inner">
         <div class="intra-home-header__inner-contents">
@@ -250,7 +253,8 @@
                         <article class="intra-task-grid-task">
                             <a href="<@hst.link path='/tasks/book-annual-leave'/>" class="intra-task-grid-task__link">
                                 <div class="intra-task-grid-task__icon">
-                                    <@svgIcon id="briefcase" />
+                                    <img src="https://digital.nhs.uk/svg-magic/binaries/content/gallery/website/icons/universal/briefcase.svg?colour=005EB8" alt="Brief case icon" aria-hidden="true">
+                                    <img src="https://digital.nhs.uk/svg-magic/binaries/content/gallery/website/icons/universal/briefcase.svg" alt="Brief case icon" aria-hidden="true">
                                 </div>
                                 <h1 class="intra-task-grid-task__title">Book annual leave</h1>
                             </a>
@@ -260,7 +264,8 @@
                         <article class="intra-task-grid-task">
                             <a href="<@hst.link path='/tasks/submit-timesheet'/>" class="intra-task-grid-task__link">
                                 <div class="intra-task-grid-task__icon">
-                                    <@svgIcon id="page" />
+                                    <img src="https://digital.nhs.uk/svg-magic/binaries/content/gallery/website/icons/data-and-information/page.svg?colour=005EB8" alt="Page icon" aria-hidden="true">
+                                    <img src="https://digital.nhs.uk/svg-magic/binaries/content/gallery/website/icons/data-and-information/page.svg" alt="Page icon" aria-hidden="true">
                                 </div>
                                 <h1 class="intra-task-grid-task__title">Submit timesheet</h1>
                             </a>
@@ -271,7 +276,8 @@
                         <article class="intra-task-grid-task">
                             <a href="<@hst.link path='/tasks/book-a-room'/>" class="intra-task-grid-task__link">
                                 <div class="intra-task-grid-task__icon">
-                                    <@svgIcon id="house" />
+                                    <img src="https://digital.nhs.uk/svg-magic/binaries/content/gallery/website/icons/universal/house.svg?colour=005EB8" alt="House icon" aria-hidden="true">
+                                    <img src="https://digital.nhs.uk/svg-magic/binaries/content/gallery/website/icons/universal/house.svg" alt="House icon" aria-hidden="true">
                                 </div>
                                 <h1 class="intra-task-grid-task__title">Book a room</h1>
                             </a>
@@ -282,7 +288,8 @@
                         <article class="intra-task-grid-task">
                             <a href="<@hst.link path='/tasks/resolve-it'/>" class="intra-task-grid-task__link">
                                 <div class="intra-task-grid-task__icon">
-                                    <@svgIcon id="lightbulb" />
+                                    <img src="https://digital.nhs.uk/svg-magic/binaries/content/gallery/website/icons/universal/light-bulb.svg?colour=005EB8" alt="Lightbulb icon" aria-hidden="true">
+                                    <img src="https://digital.nhs.uk/svg-magic/binaries/content/gallery/website/icons/universal/light-bulb.svg" alt="Lightbulb icon" aria-hidden="true">
                                 </div>
                                 <h1 class="intra-task-grid-task__title">Resolve it</h1>
                             </a>
@@ -293,9 +300,10 @@
                         <article class="intra-task-grid-task">
                             <a href="<@hst.link path='/tasks/booking-travel'/>" class="intra-task-grid-task__link">
                                 <div class="intra-task-grid-task__icon">
-                                    <@svgIcon id="connections" />
+                                    <img src="https://digital.nhs.uk/svg-magic/binaries/content/gallery/website/icons/tech/connections.svg?colour=005EB8" alt="Connections icon" aria-hidden="true">
+                                    <img src="https://digital.nhs.uk/svg-magic/binaries/content/gallery/website/icons/tech/connections.svg" alt="Connections icon" aria-hidden="true">
                                 </div>
-                                <h1 class="intra-task-grid-task__title">Booking travel</h1>
+                                <h1 class="intra-task-grid-task__title">Book travel</h1>
                             </a>
                         </article>
                     </li>
@@ -304,7 +312,8 @@
                         <article class="intra-task-grid-task">
                             <a href="<@hst.link path='/tasks/mandatory-training'/>" class="intra-task-grid-task__link">
                                 <div class="intra-task-grid-task__icon">
-                                    <@svgIcon id="personal" />
+                                    <img src="https://digital.nhs.uk/svg-magic/binaries/content/gallery/website/icons/universal/personal.svg?colour=005EB8" alt="Personal icon" aria-hidden="true">
+                                    <img src="https://digital.nhs.uk/svg-magic/binaries/content/gallery/website/icons/universal/personal.svg" alt="Personal icon" aria-hidden="true">
                                 </div>
                                 <h1 class="intra-task-grid-task__title">Mandatory training</h1>
                             </a>
@@ -312,7 +321,7 @@
                     </li>
                 </ul>
 
-                <@actionLink title="View all Tasks" link="/site/intranet/tasks" />
+                <@actionLink title="View all Tasks" link="#" />
             </div>
 
             <div class="intra-box intra-box--nested">

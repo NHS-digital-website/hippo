@@ -33,6 +33,24 @@
             text-decoration: none;
             text-align: center;
 
+            .intra-task-grid-task__icon {
+                position: relative;
+                
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                    &:nth-child(1) {
+                        display: block;
+                    }
+
+                    &:nth-child(2) {
+                        display: none;
+                    }
+                }
+            }
+
             &:hover,
             &:focus {
                 .intra-task-grid-task__title {
@@ -40,9 +58,13 @@
                 }
 
                 .intra-task-grid-task__icon {
-                    svg {
-                        g {
-                            stroke: $col-16;
+                    img {
+                        &:nth-child(1) {
+                            display: none;
+                        }
+
+                        &:nth-child(2) {
+                            display: block;
                         }
                     }
                 }
