@@ -217,23 +217,3 @@
         top: 0 !important;
     }
 }
-
-
-.full-width-image {
-    margin-top: 12px;
-    margin-bottom: 12px;
-    @include media($size: desktop) {
-        margin-top: 24px;
-        margin-bottom: 24px;
-        width: calc(166.6666% - 66px);
-        margin-left: calc(-66.66666% + 66px );
-    }
-    @include media($size: wide) {
-        width: calc(166.6666% - 124px);
-        margin-left: calc(-66.66666% + 124px);
-    }
-}
-
-.full-width-image img {
-    width: 100%;
-}
