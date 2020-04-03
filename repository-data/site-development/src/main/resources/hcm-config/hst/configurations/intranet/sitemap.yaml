@@ -1,0 +1,9 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/intranet/hst:sitemap:
+      /static-ui:
+        /homepage:
+          hst:componentconfigurationid: hst:pages/static-ui-homepage
+          jcr:primaryType: hst:sitemapitem
+        jcr:primaryType: hst:sitemapitem

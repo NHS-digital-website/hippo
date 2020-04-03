@@ -33,4 +33,5 @@ public class Announcement extends BaseDocument {
     public HippoBean getLink() {
         return getBean("intranet:itemlink");
     }
+
 }
