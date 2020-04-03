@@ -1,9 +1,24 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 
-<#macro hubBox options>
+<#macro hubBox options metadata={} hiddenSchemaList=[]>
     <#if options??>
-        <article class="hub-box${(options.imagesection??)?then(' hub-box--with-icon', '')}">
+        <#assign hasMetaData = metadata?? && metadata?has_content/>
+        <#assign itemscope = hasMetaData?then(metadata.itemscope,"") />
+        <#assign itemName = hasMetaData?then(metadata.name,"") />
+        <#assign itemDatePublished = hasMetaData?then(metadata.datePublished,"") />
+
+        <article class="hub-box${(options.imagesection??)?then(' hub-box--with-icon', '')}" ${itemscope}>
+            <#if hiddenSchemaList?? && hiddenSchemaList?has_content>
+                <#list hiddenSchemaList as schema>
+                    <#if schema.prop == 'keyword'>
+                        <meta itemprop="keywords" content="${schema.value}"/>
+                    <#else>
+                        <span itemprop="${schema.prop}" class="is-hidden">${schema.value}</span>
+                    </#if>
+                </#list>
+            </#if>
+
             <#if options.background??>
             <div class="hub-box__image" style="background-image: url('${options.background}');"></div>
             </#if>
@@ -31,9 +46,10 @@
                 </#if>
 
                 <#if options.title??>
-                    <h2 class="hub-box__title">
+                    <#--shema:name-->
+                    <h2 class="hub-box__title" ${(!options.link??)?then(itemName,"")}>
                         <#if options.link??>
-                        <a class="hub-box__title-a" href="${options.link}">
+                        <a class="hub-box__title-a" href="${options.link}" ${itemName}>
                         </#if>
                         ${options.title}
                         <#if options.link??>
@@ -43,11 +59,18 @@
                 </#if>
 
                 <#if options.date??>
-                <span class="hub-box__meta">${options.date}</span>
+                <#--shema:datePublished-->
+                <span class="hub-box__meta" ${itemDatePublished}>${options.date}</span>
                 </#if>
 
                 <#if options.text??>
                 <p class="hub-box__text">${options.text}</p>
+                </#if>
+
+                <#if options.htmlText??>
+                    <div class="hub-box__text">
+                        <@hst.html hippohtml=options.htmlText contentRewriter=gaContentRewriter />
+                    </div>
                 </#if>
 
                 <#if options.relatedLinks?has_content>

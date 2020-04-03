@@ -1,0 +1,53 @@
+---
+/content/documents/administration/website/type-of-update:
+  /type-of-update:
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: content
+      selection:label: Content
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: delivery
+      selection:label: Delivery
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: design
+      selection:label: Design
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: discovery
+      selection:label: Discovery
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: how-we-work
+      selection:label: How we work
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: prototyping
+      selection:label: Prototyping
+    /selection:listitem[7]:
+      jcr:primaryType: selection:listitem
+      selection:key: strategy
+      selection:label: Strategy
+    /selection:listitem[8]:
+      jcr:primaryType: selection:listitem
+      selection:key: uncategorised
+      selection:label: Uncategorised
+    /selection:listitem[9]:
+      jcr:primaryType: selection:listitem
+      selection:key: user-research
+      selection:label: User research
+    hippo:availability:
+    - live
+    - preview
+    hippotranslation:id: b1a9bf95-482c-4c0a-b2cd-1f20ddd5268e
+    hippotranslation:locale: inherited - from query
+    jcr:mixinTypes:
+    - hippotranslation:translated
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: type of update
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

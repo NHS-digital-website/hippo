@@ -1,0 +1,82 @@
+---
+/content/documents/administration/resources/rb.doctype.projectupdate:
+  /rb.doctype.projectupdate[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-04-07T14:10:03.654Z
+    hippostdpubwf:lastModificationDate: 2020-04-07T14:10:03.654Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: rb.doctype.projectupdate
+    resourcebundle:keys:
+    - headers.summary
+    - headers.relatedInfo
+    - headers.sharePage
+    resourcebundle:messages:
+    - Summary
+    - Related information
+    - Share this page
+  /rb.doctype.projectupdate[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-04-07T14:10:03.654Z
+    hippostdpubwf:lastModificationDate: 2020-04-07T14:11:24.587Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: rb.doctype.projectupdate
+    resourcebundle:keys:
+    - headers.summary
+    - headers.relatedInfo
+    - headers.sharePage
+    resourcebundle:messages:
+    - Summary
+    - Related information
+    - Share this page
+  /rb.doctype.projectupdate[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-04-07T14:10:03.654Z
+    hippostdpubwf:lastModificationDate: 2020-04-07T14:11:24.587Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-04-07T14:11:25.938Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: rb.doctype.projectupdate
+    resourcebundle:keys:
+    - headers.summary
+    - headers.relatedInfo
+    - headers.sharePage
+    resourcebundle:messages:
+    - Summary
+    - Related information
+    - Share this page
+  hippo:name: Coronavirus Updates Resource Bundle
+  hippo:versionHistory: 905cf81f-8cb1-4387-ab33-5e33614570f6
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

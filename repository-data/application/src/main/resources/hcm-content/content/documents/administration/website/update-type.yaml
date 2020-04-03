@@ -1,0 +1,49 @@
+---
+/content/documents/administration/website/update-type:
+  /update-type:
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: News or guidelines update
+      selection:label: News or guidelines update
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: Disease prevention information
+      selection:label: Disease prevention information
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: Disease spread statistics
+      selection:label: Disease spread statistics
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: Information on getting tested
+      selection:label: Information on getting tested
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: Quarantine guidelines
+      selection:label: Quarantine guidelines
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: Public transport closures
+      selection:label: Public transport closures
+    /selection:listitem[7]:
+      jcr:primaryType: selection:listitem
+      selection:key: School closures information
+      selection:label: School closures information
+    /selection:listitem[8]:
+      jcr:primaryType: selection:listitem
+      selection:key: Travel ban information
+      selection:label: Travel ban information
+    hippo:availability:
+    - live
+    - preview
+    hippotranslation:id: b87da1b7-a5a4-475d-8704-bc8c0cadffcd
+    hippotranslation:locale: inherited - from query
+    jcr:mixinTypes:
+    - hippotranslation:translated
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: Update Type
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

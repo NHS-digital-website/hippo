@@ -173,6 +173,12 @@ definitions:
       /person-article:
         hst:renderpath: webfile:/freemarker/common/person-article.ftl
         jcr:primaryType: hst:template
+      /project-update:
+        hst:renderpath: webfile:/freemarker/common/project-update.ftl
+        jcr:primaryType: hst:template
+      /project-update-feed:
+        hst:renderpath: webfile:/freemarker/common/project-update-feed.ftl
+        jcr:primaryType: hst:template
       /publication:
         hst:renderpath: webfile:/freemarker/publicationsystem/publication.ftl
         jcr:primaryType: hst:template

@@ -15,6 +15,8 @@ definitions:
       new-organisation-folder: new folder
       new-platform-document: new platform document
       new-platform-folder: new folder
+      new-project-update-document: new update document
+      new-project-update-folder: new folder
       new-statistical-publications-and-clinical-indicators-document: new document
       new-statistical-publications-and-clinical-indicators-folder: new folder
       new-supplementary-info-document: new supplementary information document
@@ -545,6 +547,16 @@ definitions:
       /website:postnominal:
         /en:
           jcr:name: Post nominal
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:projectfeed:
+        /en:
+          jcr:name: Project feed
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:projectupdate:
+        /en:
+          jcr:name: Project update
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:publictransportstation:
