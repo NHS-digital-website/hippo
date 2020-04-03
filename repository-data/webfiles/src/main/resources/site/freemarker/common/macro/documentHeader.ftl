@@ -86,16 +86,6 @@
                                         <@hst.html hippohtml=document.introduction contentRewriter=gaContentRewriter />
                                     </div>
                                 </#if>
-
-                                <#if document.priorityActions?has_content>
-                                    <ul class="intra-action-links">
-                                        <#list document.priorityActions as action>
-                                            <li>
-                                                <a href="<@hst.link hippobean=action />" class="intra-action-link">${action.action}</a>
-                                            </li>
-                                        </#list>
-                                    </ul>
-                                </#if>
                             </#if>
                         </div>
                         <#if hasFinalPageIcon>
@@ -120,6 +110,20 @@
                               </#if>
                             </div>
                         </#if>
+                    </div>
+
+                    <#if document.priorityActions?has_content>
+                    <div class="grid-row no-top-margin">
+                        <div class="column column--reset">
+                            <ul class="intra-action-links">
+                                <#list document.priorityActions as action>
+                                    <li>
+                                        <a href="<@hst.link hippobean=action />" class="intra-action-link">${action.action}</a>
+                                    </li>
+                                </#list>
+                            </ul>
+                        </div>
+                    </#if>
                     </div>
 
                     <#if hasTopics>

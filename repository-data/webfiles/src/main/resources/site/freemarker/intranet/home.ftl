@@ -9,9 +9,6 @@
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
 
-<#-- TODO - Include the meta tags and the head contributions-->
-<#assign documentTitle = "Hello world!" />
-
 <div class="intra-home-header">
     <div class="intra-home-header__inner">
         <div class="intra-home-header__inner-contents">

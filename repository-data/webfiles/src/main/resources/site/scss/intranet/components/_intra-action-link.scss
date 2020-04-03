@@ -5,8 +5,15 @@
     @extend .list--reset;
 
     margin-top: 32px;
+    margin-bottom: -12px;
+
+    li {
+        margin-bottom: 12px;
+    }
 
     @include media($max-width: $min-tablet-width) {
+        margin-bottom: 0;
+        
         li {
             display: block;
             width: 100%;
