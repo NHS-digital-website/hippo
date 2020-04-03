@@ -1,0 +1,109 @@
+---
+/content/documents/corporate-website/coronavirus:
+  /updates:
+    /update-feed:
+      /update-feed[1]:
+        /website:seosummary:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-04-07T18:51:44.826Z
+        hippostdpubwf:lastModificationDate: 2020-04-07T18:58:44.498Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: afbdab88-bdbd-4295-8201-ce31ea07be1e
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:projectfeed
+        website:earlyaccesskey: ''
+        website:optionalIntroductoryText: ''
+        website:shortsummary: Hub for coronavirus updates
+        website:title: Coronavirus update feed
+      /update-feed[2]:
+        /website:seosummary:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-04-07T18:51:44.826Z
+        hippostdpubwf:lastModificationDate: 2020-04-07T18:59:18.365Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: afbdab88-bdbd-4295-8201-ce31ea07be1e
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        - mix:versionable
+        jcr:primaryType: website:projectfeed
+        website:earlyaccesskey: ''
+        website:optionalIntroductoryText: ''
+        website:shortsummary: Hub for coronavirus updates
+        website:title: Coronavirus update feed
+      /update-feed[3]:
+        /website:seosummary:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        common:searchRank: 5
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-04-07T18:51:44.826Z
+        hippostdpubwf:lastModificationDate: 2020-04-07T18:59:18.365Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-04-07T18:59:19.913Z
+        hippotranslation:id: afbdab88-bdbd-4295-8201-ce31ea07be1e
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:projectfeed
+        website:earlyaccesskey: ''
+        website:optionalIntroductoryText: ''
+        website:shortsummary: Hub for coronavirus updates
+        website:title: Coronavirus update feed
+      hippo:name: Update feed
+      hippo:versionHistory: e3b357e6-26f4-41d5-ab79-2a2427af9de9
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    hippo:name: Updates
+    hippostd:foldertype:
+    - new-project-update-folder
+    - new-project-update-document
+    hippotranslation:id: 03e41a20-00ac-4bd6-abc4-80b862441bcd
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippo:named
+    - hippotranslation:translated
+    - mix:versionable
+    jcr:primaryType: hippostd:folder
+  hippo:name: Coronavirus
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: 211f9d8a-17bb-4ca3-a989-531f0c566fe6
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder
