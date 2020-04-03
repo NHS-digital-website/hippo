@@ -1,0 +1,9 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/intranet/hst:pages/static-ui-homepage:
+      /main:
+        hst:template: static-ui-homepage
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/master
+      jcr:primaryType: hst:component
