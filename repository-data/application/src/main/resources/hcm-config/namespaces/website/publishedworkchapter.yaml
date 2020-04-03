@@ -56,6 +56,27 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /publicationStyle:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: parent=Use parent style,bluebanner=Blue banner,
+                heromodule=Hero module, slimpicture=Slim picture
+            caption: Publication Style
+            field: publicationStyle
+            hint: Choose the style of the the page header area.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /image:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Image
+            field: image
+            hint: The image should have a width of 1920px. This is only used on Hero
+              Module and Slim Picture banners
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
           /sections:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -86,6 +107,16 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /staticdropdown:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: jumptocontent=Jump To Content,nobutton=No Button
+            caption: Button
+            field: staticdropdown
+            hint: Configure the button for the hero banner.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -96,6 +127,27 @@ definitions:
             hipposysedit:path: website:friendlyurls
             hipposysedit:primary: false
             hipposysedit:type: website:friendlyurls
+            jcr:primaryType: hipposysedit:field
+          /image:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:image
+            hipposysedit:primary: false
+            hipposysedit:type: hippogallerypicker:imagelink
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /publicationStyle:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:publicationStyle
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - non-empty
+            - required
             jcr:primaryType: hipposysedit:field
           /sections:
             hipposysedit:multiple: true
@@ -121,6 +173,14 @@ definitions:
             hipposysedit:path: website:shortsummary
             hipposysedit:primary: false
             hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /staticdropdown:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:staticdropdown
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
             jcr:primaryType: hipposysedit:field
           /summary:
             hipposysedit:mandatory: false
@@ -161,6 +221,15 @@ definitions:
             jcr:primaryType: website:friendlyurls
             website:alternativeurls: []
             website:destination: ''
+          /website:image:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           /website:summary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
@@ -177,7 +246,9 @@ definitions:
           jcr:mixinTypes:
           - mix:referenceable
           jcr:primaryType: website:publishedworkchapter
+          website:publicationStyle: parent
           website:shortsummary: ''
+          website:staticdropdown: jumptocontent
           website:title: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:

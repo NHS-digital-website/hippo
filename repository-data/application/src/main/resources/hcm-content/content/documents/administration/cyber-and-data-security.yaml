@@ -1,0 +1,10 @@
+---
+/content/documents/administration/cyber-and-data-security:
+  hippo:name: Cyber and data security
+  hippostd:foldertype:
+  - new-document
+  - new-folder
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

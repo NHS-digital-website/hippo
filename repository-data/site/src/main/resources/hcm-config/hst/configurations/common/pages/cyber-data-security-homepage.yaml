@@ -1,0 +1,15 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/cyber-data-security-homepage:
+      /main:
+        /banner:
+          hst:referencecomponent: cyber-security-homepage/banner
+          jcr:primaryType: hst:containercomponentreference
+        /main:
+          hst:referencecomponent: cyber-security-homepage/main
+          jcr:primaryType: hst:containercomponentreference
+        hst:template: cyber-data-security-homepage
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/apppage
+      jcr:primaryType: hst:component

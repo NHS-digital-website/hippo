@@ -35,6 +35,9 @@ definitions:
       /businessunit:
         hst:renderpath: webfile:/freemarker/common/businessunit.ftl
         jcr:primaryType: hst:template
+      /callToAction:
+        hst:renderpath: webfile:/freemarker/common/callToAction.ftl
+        jcr:primaryType: hst:template
       /categorylist-article:
         hst:renderpath: webfile:/freemarker/common/categorylist-article.ftl
         jcr:primaryType: hst:template
@@ -55,6 +58,12 @@ definitions:
         jcr:primaryType: hst:template
       /cyber-alert-hub:
         hst:renderpath: webfile:/freemarker/common/cyber-alert-hub.ftl
+        jcr:primaryType: hst:template
+      /cyber-alerts:
+        hst:renderpath: webfile:/freemarker/common/cyber-alerts.ftl
+        jcr:primaryType: hst:template
+      /cyber-data-security-homepage:
+        hst:renderpath: webfile:/freemarker/common/cyber-data-security-homepage.ftl
         jcr:primaryType: hst:template
       /dataset:
         hst:renderpath: webfile:/freemarker/publicationsystem/dataset.ftl
@@ -241,6 +250,9 @@ definitions:
         jcr:primaryType: hst:template
       /static-ui-component-table:
         hst:renderpath: webfile:/freemarker/common/static-ui/component/table.ftl
+        jcr:primaryType: hst:template
+      /static-ui-cyber-data-security-homepage:
+        hst:renderpath: webfile:/freemarker/common/static-ui/cyber-data-security-homepage.ftl
         jcr:primaryType: hst:template
       /static-ui-eform:
         hst:renderpath: webfile:/freemarker/common/static-ui/eform-page.ftl

@@ -2,7 +2,7 @@
 <#include "../include/imports.ftl">
 <@hst.setBundle basename="coronavirus.banner"/>
 
-<#if showBanner>
+<#if showBanner?? && showBanner>
     <!--googleoff: index-->
     <article>
         <header class="coronavirus-banner" aria-labelledby="message-summary-title" role="alert" tabindex="-1">
@@ -33,22 +33,22 @@
         </header>
     </article>
     <!--googleon: index-->
-</#if>
 
-<script>
-    function hideCoronavirusBanner() {
-        if (Cookiebot.consent.preferences) {
-            setCookie("hide-coronavirus-banner", true, 5);
+    <script>
+        function hideCoronavirusBanner() {
+            if (Cookiebot.consent.preferences) {
+                setCookie("hide-coronavirus-banner", true, 5);
+            }
+            Array.prototype.forEach.call(document.querySelectorAll(".coronavirus-banner"), function (banner) {
+                banner.parentElement.removeChild(banner);
+            });
         }
-        document.querySelectorAll(".coronavirus-banner").forEach(function (banner) {
-            banner.remove();
-        });
-    }
 
-    function setCookie(cname, cvalue, exdays) {
-        var d = new Date();
-        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-        var expires = "expires=" + d.toUTCString();
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    }
-</script>
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+    </script>
+</#if>

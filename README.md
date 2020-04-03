@@ -265,6 +265,13 @@ To do that:
 Remember to remove these custom tags before executing a final complete suite of tests and
 before pushing your changes to the central repo.
 
+### Acceptance tests on Travis
+
+Automated tests automatically run during the CI build process. Sometimes the build can fail due to acceptance tests erroring for seemingly no reason. To restart the build process, and rerun the acceptance tests, do:
+
+    git commit --amend --no-edit
+    git push -f
+
 ## More details
 
 This Maven project has been generated using the official [Hippo Maven project archetype] v12.1.0.

@@ -5,6 +5,7 @@ import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.util.ContentBeanUtils;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
@@ -32,6 +33,21 @@ public class Publishedworkchapter extends CommonFieldsBean implements Paginated 
     @HippoEssentialsGenerated(internalName = "website:friendlyurls")
     public Friendlyurls getFriendlyurls() {
         return getBean("website:friendlyurls", Friendlyurls.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:publicationStyle")
+    public String getPublicationStyle() {
+        return getProperty("website:publicationStyle");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:image")
+    public HippoGalleryImageSet getImage()  {
+        return getLinkedBean("website:image", HippoGalleryImageSet.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:button")
+    public String getButton() {
+        return getProperty("website:button");
     }
 
     @HippoEssentialsGenerated(internalName = "website:sections")

@@ -13,6 +13,9 @@ definitions:
     /hst:hst/hst:configurations/common/hst:templates/static-ui-component-hub-box:
       hst:renderpath: webfile:/freemarker/common/static-ui/component/hub-box.ftl
       jcr:primaryType: hst:template
+    /hst:hst/hst:configurations/common/hst:templates/static-ui-cyber-data-security-homepage:
+      hst:renderpath: webfile:/freemarker/common/static-ui/cyber-data-security-homepage.ftl
+      jcr:primaryType: hst:template
     /hst:hst/hst:configurations/common/hst:templates/static-ui-filtered-list:
       hst:renderpath: webfile:/freemarker/common/static-ui/filtered-list-page.ftl
       jcr:primaryType: hst:template
