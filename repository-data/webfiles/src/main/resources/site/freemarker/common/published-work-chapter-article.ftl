@@ -121,7 +121,11 @@
         </div>
     </#if>
 
-    <div class="grid-wrapper grid-wrapper--article" id="document-content">
+    <#assign gridWrapperClasses = ['grid-wrapper', 'grid-wrapper--article'] />
+    <#if renderNav>
+        <#assign gridWrapperClasses = gridWrapperClasses + ['grid-wrapper--has-nav'] />
+    </#if>
+    <div class="${gridWrapperClasses?join(" ")}" id="document-content">
         <div class="grid-row">
             <#if renderNav>
                 <div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
