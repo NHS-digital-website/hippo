@@ -12,10 +12,19 @@
     (function() {
         'use strict';
         var section = document.querySelectorAll(".article-section, .article-section-separator, .article-section--summary-separator, .sticky-nav-spy-item");
+        var topOffset = 0;
+
+        // Alter the "top" from the document top. Useful for sticky headers.
+        var chapterPagination = document.querySelector('.grid-wrapper--chapter-pagination');
+        if (chapterPagination) {
+            topOffset = chapterPagination.getBoundingClientRect().height * -1;
+        }
+
         var sections = { top : 0 };
         var pageBlocks = document.getElementsByClassName("page-block--main");
+        // Alter the "top" from the document top. Useful for sticky headers.
 
-        const MARGIN_OF_ERROR = 2; //used to 'adjust/falsify' element position for marking while click
+        var MARGIN_OF_ERROR = 2; //used to 'adjust/falsify' element position for marking while click
 
         function getPosition(element) {
             var distance = -MARGIN_OF_ERROR;
@@ -27,22 +36,30 @@
         }
         function calculate() {
             Array.prototype.forEach.call(section, function(e) {
-                if (e.id != ""){
+                if (e.id !== ""){
                     sections[e.id] = getPosition(e);
                 }
             });
         }
 
         function markStickyNavElem(navElem){
-            if (document.querySelector('.active') != null) document.querySelector('.active').setAttribute('class', ' ');
+            if (document.querySelector('.active') != null) {
+                document.querySelector('.active').setAttribute('class', ' ');
+            }
             var newActive = document.querySelector('a[href="#' + navElem + '"]');
             var idElement = document.getElementById(navElem);
-            if (newActive != null && idElement != null && ! idElement.classList.contains("sticky-nav-exclude-active")) newActive.setAttribute('class', 'active');
+            if (
+                newActive != null &&
+                idElement != null &&
+                !idElement.classList.contains("sticky-nav-exclude-active")
+            ) {
+                newActive.setAttribute('class', 'active');
+            }
         }
 
         function getBottomStickyNavElement(sections) {
-            //if no sections in sticky nav return immediatelly
-            if (sections == null || sections.length == 0) {
+            //if no sections in sticky nav return immediately
+            if (sections == null || sections.length === 0) {
               return null;
             }
 
@@ -65,8 +82,11 @@
 
         function marker() {
             var scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+
+            // Alter the "top" from the document top..
+            scrollPosition = scrollPosition - topOffset;
             for (var navElem in sections) {
-                if (navElem != null && navElem != "" && sections[navElem] <= scrollPosition) {
+                if (navElem != null && navElem !== "" && sections[navElem] <= scrollPosition) {
                   markStickyNavElem(navElem);
                 }
             }
@@ -76,14 +96,14 @@
 
                 //mark last element on the sticky nav
                 navElem = getBottomStickyNavElement(sections);
-                if (navElem != null && navElem != "") {
+                if (navElem != null && navElem !== "") {
                   markStickyNavElem(navElem);
                 }
             }
 
         }
         $(window).on('load resize scroll', function(e) {
-            if(e.type == 'resize' || e.type == 'load') {
+            if(e.type === 'resize' || e.type === 'load') {
                 calculate();
             }
             marker();
