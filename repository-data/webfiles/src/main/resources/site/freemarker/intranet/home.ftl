@@ -400,4 +400,7 @@
             </div>
         </div>
     </div>
+    <div class="intra-home-grid__left-col">
+        <a class="button" href="${authorizationUrl}">Login with Microsoft</a>
+    </div>
 </div>
