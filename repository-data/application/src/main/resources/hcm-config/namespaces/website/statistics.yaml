@@ -107,8 +107,6 @@ definitions:
             hipposysedit:path: website:headingLevel
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
-            hipposysedit:validators:
-            - optional
             jcr:primaryType: hipposysedit:field
           /modules:
             hipposysedit:mandatory: false
