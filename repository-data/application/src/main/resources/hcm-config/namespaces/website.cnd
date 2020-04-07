@@ -349,6 +349,12 @@
 [website:standards] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:statistics] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:statisticsItem] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:statuserrorcode] > hippo:compound, hippostd:relaxed
   orderable
 
