@@ -18,6 +18,9 @@
             <a href="<@hst.link path='/static-ui/supplementary-info-hub'/>">Supplementary info hub page</a>
         </li>
         <li>
+            <a href="<@hst.link path='/static-ui/cyber-data-security-homepage'/>">Cyber DS Homepage</a>
+        </li>
+        <li>
             <a href="<@hst.link path='/static-ui/list'/>">List page</a>
         </li>
         <li>

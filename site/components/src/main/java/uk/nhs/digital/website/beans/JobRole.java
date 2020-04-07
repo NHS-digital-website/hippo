@@ -42,7 +42,7 @@ public class JobRole extends CommonFieldsBean {
 
         int limit = 3;
         return getRelatedDocuments(
-           "website:roles/website:primaryrolepicker/@hippo:docbase",
+           "website:roles/website:rolepicker/website:primaryrolepicker/@hippo:docbase",
            limit,
            Person.class);
     }

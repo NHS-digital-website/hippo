@@ -208,24 +208,12 @@
     transform: translate(0, 0); /* For browsers don't support translate3d. */
     transform: translate3d(0, 0, 0);
     will-change: position, transform;
-}
+    z-index:1;
 
-
-.full-width-image {
-    margin-top: 12px;
-    margin-bottom: 12px;
-    @include media($size: desktop) {
-        margin-top: 24px;
-        margin-bottom: 24px;
-        width: calc(166.6666% - 66px);
-        margin-left: calc(-66.66666% + 66px );
+    // Fixes for IE 11
+    @include media($max-width: $min-desktop-width) {
+        position: relative !important;
+        left: 0 !important;
+        top: 0 !important;
     }
-    @include media($size: wide) {
-        width: calc(166.6666% - 124px);
-        margin-left: calc(-66.66666% + 124px);
-    }
-}
-
-.full-width-image img {
-    width: 100%;
 }

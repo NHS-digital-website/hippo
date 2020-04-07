@@ -150,6 +150,13 @@ definitions:
         hst:componentconfigurationid: hst:pages/cyberalerthub
         hst:relativecontentpath: cyber-alerts
         jcr:primaryType: hst:sitemapitem
+      /cyber-and-data-security:
+        hst:componentconfigurationmappingnames:
+        - website:dschomepage
+        hst:componentconfigurationmappingvalues:
+        - hst:pages/cyber-data-security-homepage
+        hst:relativecontentpath: cyber-and-data-security/content
+        jcr:primaryType: hst:sitemapitem
       /data-and-information:
         /_index_:
           hst:componentconfigurationid: hst:pages/404

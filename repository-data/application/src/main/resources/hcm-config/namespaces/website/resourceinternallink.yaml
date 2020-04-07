@@ -1,0 +1,120 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/website/resourcelink:
+      /editor:templates:
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
+          /root:
+            item: ${cluster.id}.field
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /usedexternalservic:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Most Used Service descritption
+            field: usedexternalservic
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /nonmandatoryinternallink:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Choose your the linked page
+            field: nonmandatoryinternallink
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /string:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Useful information description
+            field: string
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /nonmandatoryinternallink_:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Choose your linked page
+            field: nonmandatoryinternallink_
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+        jcr:primaryType: editor:templateset
+      /hipposysedit:nodetype:
+        /hipposysedit:nodetype:
+          /nonmandatoryinternallink:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:nonmandatoryinternallink
+            hipposysedit:primary: false
+            hipposysedit:type: website:nonmandatoryinternallink
+            jcr:primaryType: hipposysedit:field
+          /nonmandatoryinternallink_:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:nonmandatoryinternallink_
+            hipposysedit:primary: false
+            hipposysedit:type: website:nonmandatoryinternallink
+            jcr:primaryType: hipposysedit:field
+          /string:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:string
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /usedexternalservic:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:usedexternalservic
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - hippo:compound
+          - hippostd:relaxed
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /hipposysedit:prototypes:
+        /hipposysedit:prototype:
+          /website:nonmandatoryinternallink:
+            /website:link:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:nonmandatoryinternallink
+          /website:nonmandatoryinternallink_:
+            /website:link:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:nonmandatoryinternallink
+          jcr:primaryType: website:resourcelink
+          website:string: ''
+          website:usedexternalservic: ''
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype

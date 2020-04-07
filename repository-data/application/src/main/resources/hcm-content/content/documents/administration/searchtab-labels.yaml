@@ -20,7 +20,7 @@
     - searchtab.all
     - searchtab.data
     - searchtab.services
-    - searchtab.news
+    - searchtab.news_and_events
     resourcebundle:messages:
     - All
     - Data and Information
@@ -48,7 +48,7 @@
     - searchtab.all
     - searchtab.data
     - searchtab.services
-    - searchtab.news
+    - searchtab.news_and_events
     resourcebundle:messages:
     - All
     - Data and Information
@@ -76,7 +76,7 @@
     - searchtab.all
     - searchtab.data
     - searchtab.services
-    - searchtab.news
+    - searchtab.news_and_events
     resourcebundle:messages:
     - All
     - Data and Information

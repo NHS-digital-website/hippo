@@ -52,9 +52,13 @@
 }
 
 .local-header__title {
-  @include bold-font(48);
-  color: $white;
-  margin: 0;
+    @include bold-font(48);
+    color: $white;
+    margin: 0;
+
+    &--dark {
+        color: $col-20;
+    }
 }
 
 .local-header__title-left {

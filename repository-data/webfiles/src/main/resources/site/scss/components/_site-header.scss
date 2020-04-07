@@ -4,71 +4,6 @@
 $burger-piece-width: 32px;
 $burger-piece-height: 3px;
 
-/* Site header */
-//.site-header {
-//    position: relative;
-//    border-bottom: 1px solid $col-primary;
-//    vertical-align: bottom;
-//
-//    .search-strip {
-//        position: absolute;
-//        right: 0;
-//        width: 50%;
-//    }
-//
-//    .column--81-25 {
-//        padding-top: 5px;
-//    }
-//
-//    @include media($max-width: $desktop-width, $ignore-for-ie: true) {
-//        padding-bottom: 0;
-//
-//        .search-strip {
-//            width: 100%;
-//        }
-//
-//        .column--81-25 {
-//            padding-top: 0;
-//        }
-//
-//        .site-header__search-wrapper {
-//            margin-bottom: round($gutter * 0.5);
-//        }
-//
-//        .site-header__search-wrapper--collapse {
-//            height: auto;
-//        }
-//
-//        .site-header__logo {
-//            margin-bottom: round($gutter * 1.5);
-//        }
-//    }
-//}
-//
-.site-header__logo {
-    position: relative;
-    display: inline-block;
-    max-width: 89px;
-    width: 72px;
-    max-height: 69px;
-    height: auto;
-    margin: 15px 0 10px;
-}
-
-.site-header-a__logo {
-
-    &:hover,
-    &:active,
-    &:focus {
-        background: none;
-        box-shadow: none;
-    }
-
-    &:focus {
-        outline: 3px solid $focus-colour;
-    }
-}
-
 @mixin berger-menu(){
     .list {
         display: block;
@@ -88,43 +23,7 @@ $burger-piece-height: 3px;
     }
 }
 
-.site-header--without-search {
-    .main-nav__menu {
-        padding-top: 12px;
-        text-align: right;
-        @include media($max-width: $desktop-width, $ignore-for-ie: true) {
-            @include berger-menu;
-            text-align: left;
-        }
-    }
-}
-
-.site-header--with-search {
-    .main-nav__menu {
-        @include berger-menu;
-    }
-}
-
-@include media($max-width: $desktop-width, $ignore-for-ie: true) {
-    .js-enabled{
-        .main-nav__menu {
-            display: none;
-        }
-        .menu-open .main-nav__menu {
-            display: block;
-        }
-    }
-}
-//
-//.site-header__search-wrapper {
-//    position: relative;
-//    width: 100%;
-//    height: $search-strip-height;
-//    //margin-bottom: 10px;
-//}
-
-.main-nav {
-
+@mixin berger-button(){
     .main-nav__burger {
         position: absolute;
         top: $gutter;
@@ -183,3 +82,135 @@ $burger-piece-height: 3px;
         }
     }
 }
+
+.site-header {
+    border-bottom: 1px solid $col-primary;
+
+    &__logo {
+        position: relative;
+        display: inline-block;
+        max-width: 89px;
+        width: 72px;
+        max-height: 69px;
+        height: auto;
+        margin: 15px 0 10px;
+
+    }
+
+    &-a__logo {
+        &:hover,
+        &:active,
+        &:focus {
+            background: none;
+            box-shadow: none;
+        }
+
+        &:focus {
+            outline: 3px solid $focus-colour;
+        }
+    }
+
+    &--without-search {
+        .main-nav {
+            @include media($max-width: $desktop-width, $ignore-for-ie: true) {
+                @include berger-button;
+            }
+        }
+
+        .main-nav__menu {
+            padding-top: 12px;
+            text-align: right;
+            @include media($max-width: $desktop-width, $ignore-for-ie: true) {
+                @include berger-menu;
+                text-align: left;
+            }
+        }
+    }
+
+    &--with-search {
+        .main-nav__menu {
+            @include berger-menu;
+        }
+    }
+}
+
+/* Site header */
+//.site-header {
+//    position: relative;
+//    border-bottom: 1px solid $col-primary;
+//    padding: round($gutter * 1.375) 0;
+//    vertical-align: bottom;
+//
+//    .search-strip {
+//        position: absolute;
+//        right: 0;
+//        width: 50%;
+//    }
+//
+//    .column--81-25 {
+//        padding-top: 5px;
+//    }
+//
+//    @include media($max-width: $desktop-width, $ignore-for-ie: true) {
+//        padding-bottom: 0;
+//
+//        .search-strip {
+//            width: 100%;
+//        }
+//
+//        .column--81-25 {
+//            padding-top: 0;
+//        }
+//
+//        .site-header__search-wrapper {
+//            margin-bottom: round($gutter * 0.5);
+//        }
+//
+//        .site-header__search-wrapper--collapse {
+//            height: auto;
+//        }
+//
+//        .site-header__logo {
+//            margin-bottom: round($gutter * 1.5);
+//        }
+//    }
+//
+//    &--intranet {
+//        .site-header__logo {
+//            max-width: 235px;
+//            width: 235px;
+//            max-height: 65px;
+//            margin-top: 5px;
+//        }
+//
+//        .main-nav__burger {
+//            top: 6px;
+//        }
+//    }
+//}
+//
+
+
+
+
+
+
+@include media($max-width: $desktop-width, $ignore-for-ie: true) {
+    .js-enabled{
+        .main-nav__menu {
+            display: none;
+        }
+        .menu-open .main-nav__menu {
+            display: block;
+        }
+    }
+}
+//
+//.site-header__search-wrapper {
+//    position: relative;
+//    width: 100%;
+//    height: $search-strip-height;
+//    //margin-bottom: 10px;
+//}
+
+

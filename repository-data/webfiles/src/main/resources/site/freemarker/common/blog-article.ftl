@@ -16,7 +16,7 @@
 <#assign hasAuthors = document.authors?? && document.authors?has_content />
 <#assign hasAuthorManualEntry = document.authorRole?? || (document.authorDescription?? && document.authorDescription?has_content) ||
                                 document.authorName?? || document.authorJobTitle?? || document.authorOrganisation?? />
-<#assign hasBlogCategories = document.blogCategories?? && document.blogCategories?has_content />
+<#assign hasBlogCategories = document.caseStudyCategories?? && document.caseStudyCategories?has_content />
 <#assign hasTopics = document.topics?? && document.topics?has_content />
 
 <#assign hasLeadImage = document.leadImage?has_content />
@@ -108,7 +108,7 @@
                                              <dl class="detail-list">
                                                  <dt class="detail-list__key">Categories:</dt>
                                                  <dd class="detail-list__value" data-uipath="website.blog.categories">
-                                                    <#list document.blogCategories as category>${category}<#sep>, </#list>
+                                                    <#list document.caseStudyCategories as category>${category}<#sep>, </#list>
                                                  </dd>
                                              </dl>
                                          </div>

@@ -86,23 +86,32 @@ definitions:
           /publicationStyle:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: bluebanner=Blue banner, heromodule=Hero module,
-                slimpicture=Slim picture
+              selectable.options: bluebanner=Blue banner,heromodule=Hero module,slimpicture=Slim
+                picture
             caption: Publication Style
             field: publicationStyle
             hint: Choose the style of the the page header area.
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /image:
+          /bannerImage:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Image
+            caption: Banner Image
             field: imagelink
             hint: The image should be 1920px wide. This is only used on Hero Module
               and Slim Picture banners
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /bannerImageAltText:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Banner Image Alt Text
+            field: bannerImageAltText
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
           /button:
             /cluster.options:
@@ -191,7 +200,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Sections
-            compoundList: website:section,publicationsystem:chartSection,publicationsystem:mapSection,website:emphasisBox,website:gallerysection,website:code,website:download,website:expander,website:ctabutton,website:quote,website:infographic,website:checklist
+            compoundList: website:section,publicationsystem:chartSection,publicationsystem:mapSection,website:emphasisBox,website:gallerysection,website:code,website:download,website:expander,website:ctabutton,website:quote,website:infographic,website:checklist,website:fullWidthImage
             contentPickerType: links
             field: sections
             hint: ''
@@ -268,6 +277,14 @@ definitions:
             hipposysedit:validators:
             - publicationsystem-dropdown-information-type
             jcr:primaryType: hipposysedit:field
+          /bannerImageAltText:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:bannerImageAltText
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           /coverageEnd:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -340,7 +357,7 @@ definitions:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:image
+            hipposysedit:path: website:bannerImage
             hipposysedit:primary: false
             hipposysedit:type: hippogallerypicker:imagelink
             hipposysedit:validators:
@@ -449,6 +466,12 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /website:bannerImage:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
           /website:friendlyurls:
             jcr:primaryType: website:friendlyurls
             website:alternativeurls: []
@@ -456,12 +479,6 @@ definitions:
           /website:highlightsContent:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
-          /website:image:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippogallerypicker:imagelink
           /website:seosummary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
@@ -482,6 +499,7 @@ definitions:
           - mix:referenceable
           jcr:primaryType: website:publishedwork
           website:InformationType: []
+          website:bannerImageAltText: ''
           website:button: jumptocontent
           website:coverageEnd: 0001-01-01T12:00:00Z
           website:coverageStart: 0001-01-01T12:00:00Z
