@@ -1,0 +1,126 @@
+@mixin statSetLight($name, $colours) {
+    @each $colour in $colours {
+        $iteration: index($colours, $colour);
+        .statistics-section--#{$name} .statistic:nth-child(#{$iteration}n) {
+            color: $colour;
+            border-color: $colour;
+            box-shadow: 0 0 25px 0 rgba($colour, 0.1);
+        }
+        .statistics-section--#{$name} .statistic:nth-child(#{$iteration}n) .statistic__information {
+            border-color: $colour;
+        }
+    }
+}
+
+@mixin statSetDark($name, $colours) {
+    @each $set in $colours {
+        $iteration: index($colours, $set);
+        $darkColour: map_get($set, "dark");
+        $lightColour: map_get($set, "light");
+        .statistics-section--#{$name} .statistic:nth-child(#{$iteration}n) {
+            color: $white;
+            border: none;
+            box-shadow: 0 0 25px 0 rgba($darkColour, 0.1);
+            background-image: linear-gradient(56deg, $lightColour 9%, $darkColour 100%);
+        }
+        .statistics-section--#{$name} .statistic:nth-child(#{$iteration}n) .statistic__information {
+            border-color: currentColor;
+            color: currentColor;
+        }
+    }
+}
+
+.statistics-section {
+    position: relative;
+    width: 100%;
+    padding-top: 48px;
+}
+
+.statistics-section__modules {
+    @include media(wide) {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+}
+
+$currentColor: $black;
+.statistic {
+    width: 543px;
+    color: $currentColor;
+    border: 1px solid currentColor;
+    padding: 47px 48px 42px;
+    border-radius: 12px;
+    box-shadow: 0 0 25px 0 rgba($currentColor, 0.1);
+    margin-bottom: 1em;
+    background: $white;
+    max-width: 100%;
+    @include media(wide) {
+        width: 49%;
+    }
+
+    a {
+        color: currentColor;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+    }
+}
+
+.statistic:first-child:last-child {
+    width: auto;
+    max-width: 543px;
+}
+
+.statistic__numberStat {
+    font-size: 54px;
+    font-weight: bold;
+    line-height: 1;
+    display: flex;
+}
+
+.statistic__trend {
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+    margin-right: 8px;
+    margin-top: calc(.5em - 12.5px);
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+}
+
+.statistic__trend-arrow {
+    display: block;
+}
+
+.statistic__trend-arrow path {
+    fill: currentColor;
+}
+
+.statistic__number-output {
+    word-break: break-all
+}
+
+.statistic__number {
+    word-break: break-all
+}
+
+.statistic__description > * {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.333;
+}
+
+.statistic__information {
+    font-size: 18px;
+    border-top: 1px solid currentColor;
+    color: $black;
+    line-height: 1.333;
+    margin-top: 20px;
+    padding-top: 13px;
+}
+
+@include statSetLight('muted', $black $dark-blue $col-27 $dark-green)
+@include statSetDark('bold',
+    ("light": $grey-1, "dark": $col-20) ("light": $blue, "dark": $dark-blue) ("light": #AE2573, "dark": $col-27) ("light": #009639, "dark": $dark-green)
+)

@@ -7,3 +7,4 @@
 <#include "init-table-sort.js.ftl" />
 <#include "live-engage-chat.js.ftl"/>
 <#include "relevance-cookie.js.ftl" />
+<#include "statistics-countup.js.ftl" />

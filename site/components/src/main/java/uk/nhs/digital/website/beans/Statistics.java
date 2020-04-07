@@ -3,7 +3,6 @@ package uk.nhs.digital.website.beans;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
-import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
 import java.util.List;
@@ -27,13 +26,13 @@ public class Statistics extends HippoCompound {
     }
 
     @HippoEssentialsGenerated(internalName = "website:colourScheme")
-    public HippoHtml getColourScheme() {
-        return getHippoHtml("website:colourScheme");
+    public String getColourScheme() {
+        return getProperty("website:colourScheme");
     }
 
     @HippoEssentialsGenerated(internalName = "website:animation")
-    public HippoHtml getAnimation() {
-        return getHippoHtml("website:animation");
+    public String getAnimation() {
+        return getProperty("website:animation");
     }
 
     @HippoEssentialsGenerated(internalName = "website:modules")
