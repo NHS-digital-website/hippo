@@ -1,0 +1,131 @@
+@import "../environment/settings/colours";
+@import "../environment/tools/mixins/typography";
+
+$hm-bg-vertical-spacing--large: 100px;
+
+.hero-module {
+    @include media(false, 925px) {
+        // Hide the background set in inline styles until we need it
+        background: none !important;
+    }
+    @include media(desktop) {
+        padding-top: $hm-bg-vertical-spacing--large;
+        padding-bottom: $hm-bg-vertical-spacing--large;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
+
+.hero-module__mobile-image {
+    height: 100vw;
+
+    img {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    @include media(tablet) {
+        display: block;
+        height: auto;
+        img {
+            object-fit: initial;
+        }
+    }
+
+    @include media(desktop) {
+        display: none;
+    }
+
+}
+
+.hero-module__inner {
+    position: relative;
+    color: $white;
+    background: $dark-blue;
+    background: linear-gradient(48deg, $dark-blue 0%, $blue 80%, $blue 100%);
+    @include media(desktop) {
+        width: calc((960px * 0.45));
+        margin-left: calc(50% - (960px * 0.5));
+    }
+
+    @include media(wide) {
+        width: calc((1520px / 2));
+        margin-left: calc(50% - 1520px/2  + 16px);
+    }
+}
+
+.hero-module__content {
+    padding: 20px;
+
+    @include media(tablet) {
+        padding: 40px;
+    }
+
+    @include media(desktop) {
+        padding: 50px;
+    }
+}
+
+.hero-module__content > * + * {
+    margin-top: 20px;
+}
+
+.hero-module__summary > * {
+    margin-top: 20px;
+}
+
+.hero-module__summary a {
+    color: white;
+}
+
+.hero-module__time,
+.hero-module__toptext {
+    display: inline-block;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    border-bottom: 2px solid white;
+}
+
+.hero-module__title {
+    @include bold-font(36);
+    overflow-wrap: break-word;
+    @include media(wide) {
+        font-size: 48px;
+        line-height: 58px;
+    }
+}
+
+.hero-module__toptext a {
+    color: $white;
+    text-decoration: none;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    &:hover,
+    &:focus {
+        color: $black;
+    }
+}
+
+.hero-module__summary {
+
+}
+
+.hero-module__button {
+    @include button($white, $blue);
+    box-shadow: none;
+    border-radius: 35px;
+    margin-top: 25px;
+}
+
+.hero-module__button-arrow {
+    display: inline-block;
+    margin-left: 0.3em;
+    vertical-align: baseline;
+}
+
+.hero-module__button:hover,
+.hero-module__button:focus,
+.hero-module__button:active {
+    box-shadow: 0 0 0 3px $focus-colour inset;
+    outline: none;
+}

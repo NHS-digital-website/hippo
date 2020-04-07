@@ -29,9 +29,14 @@ public class Publishedwork extends CommonFieldsBean implements Paginated {
         return getProperty("website:publicationStyle");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:image")
-    public HippoGalleryImageSet getImage()  {
-        return getLinkedBean("website:image", HippoGalleryImageSet.class);
+    @HippoEssentialsGenerated(internalName = "website:bannerImage")
+    public HippoGalleryImageSet getBannerImage()  {
+        return getLinkedBean("website:bannerImage", HippoGalleryImageSet.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:bannerImageAltText")
+    public String getBannerImageAltText() {
+        return getProperty("website:bannerImageAltText");
     }
 
     @HippoEssentialsGenerated(internalName = "website:button")
