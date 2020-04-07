@@ -13,17 +13,17 @@
 .search-strip {
     position: relative;
     display: block;
-    height: $search-strip-height;
+    //height: $search-strip-height;
     overflow: hidden;
 
     .search-strip__icon--loading {
         @extend .is-hidden;
-        
+
         animation: spin 1s linear infinite;
     }
 
     &.is-loading {
-        .search-strip__icon {            
+        .search-strip__icon {
             &--loading {
                 @extend .is-visible;
             }
@@ -81,7 +81,7 @@
 .search-strip__button {
     @include static-button($col-primary);
     @include border-highlight;
-    
+
     width: $search-strip-height;
     height: $search-strip-height;
     padding: 0;
