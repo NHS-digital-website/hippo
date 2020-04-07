@@ -26,7 +26,7 @@ $burger-piece-height: 3px;
 @mixin berger-button(){
     .main-nav__burger {
         position: absolute;
-        top: $gutter;
+        top: 0;
         right: 0;
         width: $gutter * 2;
         height: $gutter * 2;
@@ -83,6 +83,10 @@ $burger-piece-height: 3px;
     }
 }
 
+#header {
+        margin-top: $gutter;
+}
+
 .site-header {
     border-bottom: 1px solid $col-primary;
 
@@ -93,7 +97,7 @@ $burger-piece-height: 3px;
         width: 72px;
         max-height: 69px;
         height: auto;
-        margin: 15px 0 10px;
+        margin: 0 0 10px;
 
     }
 
