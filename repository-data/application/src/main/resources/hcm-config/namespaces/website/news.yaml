@@ -368,9 +368,11 @@ definitions:
           - mix:referenceable
           - hipposysedit:remodel
           jcr:primaryType: hipposysedit:nodetype
+          jcr:uuid: 9790809a-4f34-4ad5-ad31-bd8cd0b85819
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: hippo:handle
+        jcr:uuid: a7f2ae1c-21aa-49f9-a716-4fae613b4aed
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
           common:searchRank: 4
@@ -387,6 +389,7 @@ definitions:
           - mix:referenceable
           - hippotaxonomy:classifiable
           jcr:primaryType: website:news
+          jcr:uuid: 89286e73-8944-4083-a906-b2fffc7440de
           website:creditbanner: ''
           website:display: false
           website:prioritynews: false
@@ -400,3 +403,4 @@ definitions:
       - editor:editable
       - mix:referenceable
       jcr:primaryType: hipposysedit:templatetype
+      jcr:uuid: 6d4dfb4d-8a48-4a0b-a2a5-60d2fd03b06b

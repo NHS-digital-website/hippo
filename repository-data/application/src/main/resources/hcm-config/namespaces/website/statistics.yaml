@@ -1,0 +1,244 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/website/statistics:
+      /editor:templates:
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
+          /root:
+            item: ${cluster.id}.field
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /heading:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Optional Heading
+            field: heading
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /headingLevel:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: main=Main heading,sub=Sub heading
+            caption: Heading Level
+            field: headingLevel
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /colourScheme:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: single=Single colour,muted=Muted Colour,bold=Bold
+                colour
+            caption: Colour Scheme
+            field: colourScheme
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /animation:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: animated=Animated,static=Static only
+            caption: Animation
+            field: animation
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /modules:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Modules
+            field: modules
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+        jcr:primaryType: editor:templateset
+      /hipposysedit:nodetype:
+        /hipposysedit:nodetype:
+          /animation:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:animation
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
+          /colourScheme:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:colourScheme
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
+          /heading:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:heading
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /headingLevel:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:headingLevel
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /modules:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:modules
+            hipposysedit:primary: false
+            hipposysedit:type: website:statisticsItem
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - hippo:compound
+          - hippostd:relaxed
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+        /hipposysedit:nodetype[2]:
+          /animation:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:animation
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
+          /colourScheme:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:colourScheme
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
+          /heading:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:heading
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /headingLevel:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:headingLevel
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /modules:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:modules
+            hipposysedit:primary: false
+            hipposysedit:type: website:statisticsItem
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - hippo:compound
+          - hippostd:relaxed
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /hipposysedit:prototypes:
+        /hipposysedit:prototype:
+          /website:modules:
+            /website:furtherQualifyingInformation:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:headlineDescription:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:html:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:html_:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:statisticsItem
+            website:number: ''
+            website:prefix: none
+            website:suffix: none
+            website:trend: none
+          jcr:primaryType: website:statistics
+          website:animation: animated
+          website:colourScheme: single
+          website:heading: ''
+        /hipposysedit:prototype[2]:
+          /website:modules:
+            /website:furtherQualifyingInformation:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:headlineDescription:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:html:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:html_:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:statisticsItem
+            website:number: ''
+            website:prefix: none
+            website:suffix: none
+            website:trend: none
+          jcr:mixinTypes:
+          - hippostd:relaxed
+          jcr:primaryType: nt:unstructured
+          website:animation: animated
+          website:colourScheme: single
+          website:heading: ''
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype

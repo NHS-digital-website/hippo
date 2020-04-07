@@ -54,6 +54,10 @@ definitions:
       jcr:primaryType: frontend:plugin
       plugin.class: org.hippoecm.frontend.editor.validator.plugins.RegExCmsValidator
       regex_pattern: ^(#[0-9A-Fa-f]{6})?$
+    /hippo:configuration/hippo:frontend/cms/cms-validators/statistics-valid-number:
+      jcr:primaryType: frontend:plugin
+      plugin.class: org.hippoecm.frontend.editor.validator.plugins.RegExCmsValidator
+      regex_pattern: (?:^\d+\/{1}\d+$)|(?:^\d?\.?\d+$)
     /hippo:configuration/hippo:frontend/cms/cms-validators/twitterusername:
       jcr:primaryType: frontend:plugin
       plugin.class: org.hippoecm.frontend.editor.validator.plugins.RegExCmsValidator
