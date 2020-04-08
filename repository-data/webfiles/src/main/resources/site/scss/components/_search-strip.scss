@@ -13,8 +13,13 @@
 .search-strip {
     position: relative;
     display: block;
-    //height: $search-strip-height;
     overflow: hidden;
+    @include media($min-width: $desktop-width, $ignore-for-ie: true) {
+        margin-right: 120px;
+        float: right;
+        width: 600px;
+        margin-top: 5px;
+    }
 
     .search-strip__icon--loading {
         @extend .is-hidden;
