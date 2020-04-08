@@ -20,6 +20,7 @@
         <cucumber.version>1.2.5</cucumber.version>
         <spring.version>5.1.14.RELEASE</spring.version>
         <selenium.version>3.141.59</selenium.version>
+        <chromedriver.version>81.0.4044.69</chromedriver.version>
     </properties>
 
     <dependencies>
@@ -259,15 +260,15 @@
                                     <name>chromedriver</name>
                                     <platform>linux</platform>
                                     <bit>64</bit>
-                                    <version>79.0.3945.36</version>
-                                    <url>http://chromedriver.storage.googleapis.com/79.0.3945.36/chromedriver_linux64.zip</url>
+                                    <version>${chromedriver.version}</version>
+                                    <url>http://chromedriver.storage.googleapis.com/${chromedriver.version}/chromedriver_linux64.zip</url>
                                 </driver>
                                 <driver>
                                     <name>chromedriver</name>
                                     <platform>mac</platform>
                                     <bit>64</bit>
-                                    <version>79.0.3945.36</version>
-                                    <url>http://chromedriver.storage.googleapis.com/79.0.3945.36/chromedriver_mac64.zip</url>
+                                    <version>${chromedriver.version}</version>
+                                    <url>http://chromedriver.storage.googleapis.com/${chromedriver.version}/chromedriver_mac64.zip</url>
                                 </driver>
                             </drivers>
                         </configuration>
