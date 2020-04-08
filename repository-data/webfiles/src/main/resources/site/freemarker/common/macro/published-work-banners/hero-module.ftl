@@ -18,6 +18,7 @@ topTextLink - string: make top text into a link if this is supplied
     <#assign bannerImage = config.bannerImage />
     <#assign bannerImageAltText = config.bannerImageAltText />
     <#assign button = config.button />
+    <#assign buttonText = config.buttonText />
     <#assign showTime = config.showTime />
     <#assign topText = config.topText />
     <#assign topTextLink = config.topTextLink />
@@ -50,9 +51,9 @@ topTextLink - string: make top text into a link if this is supplied
                             <div class="hero-module__summary"
                                  data-uipath="website.publishedwork.summary"><@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/></div>
                         </#if>
-                        <#if button != "nobutton">
+                        <#if button != "nobutton" && buttonText?is_string && buttonText?length gt 0>
                             <a class="hero-module__button" href="#document-content">
-                                Jump to overview
+                                ${buttonText}
                                 <img class="hero-module__button-arrow"
                                      aria-hidden="true" alt="Down Arrow"
                                      src="<@hst.webfile path="/images/hero-module/arrow--down.svg"/>"/>

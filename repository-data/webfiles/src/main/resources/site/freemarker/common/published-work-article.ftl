@@ -58,6 +58,7 @@
         "bannerImage": bannerImage,
         "bannerImageAltText": document.bannerImageAltText,
         "button": document.button,
+        "buttonText": "Jump to overview",
         "showTime": true
         } />
         <@heroModule heroConfig />
