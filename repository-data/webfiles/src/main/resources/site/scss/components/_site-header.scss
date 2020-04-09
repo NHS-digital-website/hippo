@@ -31,71 +31,91 @@ $burger-piece-height: 3px;
         z-index: 100;
         vertical-align: middle;
 
+        .main-nav__burger-button {
+
+            &:focus,
+            &:active,
+            &:hover {
+                border: 3px solid #FFB81C;
+                background-color: $white;
+                color: #005EB8;
+                outline: 0;
+                cursor: pointer;
+
+                .main-nav__burger-line {
+                    background-color:  #005EB8;
+                }
+            }
+        }
+
+        .main-nav__burger-line-group {
+            position: relative;
+            display: inline-block;
+            top: -1px;
+
+            vertical-align: middle;
+            overflow: hidden;
+            width: $burger-piece-width;
+            height: $burger-piece-width;
+            @include media($min-width: $desktop-width, $ignore-for-ie: true) {
+                width: $burger-piece-width - ($burger-piece-width / 3);
+            }
+
+            .main-nav__burger-line {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                width: $burger-piece-width;
+                height: $burger-piece-height;
+                margin: 0 auto;
+                background: $col-primary;
+                @include media($min-width: $desktop-width, $ignore-for-ie: true) {
+                    background: $white;
+                    height: $burger-piece-height - ($burger-piece-height / 3);
+                    width: $burger-piece-width - ($burger-piece-width / 3);
+
+
+                }
+                top: 50%;
+                left: 0;
+                margin-top: 0;
+
+                transition-timing-function: $ease-in-out-expo;
+                transform-origin: 50% 50%;
+
+                &:nth-child(1) {
+                    margin-top: -3 * $burger-piece-height;
+                }
+
+                &:nth-child(3) {
+                    margin-top: 3 * $burger-piece-height;
+                }
+
+                //&:nth-child(2) {
+                //    opacity: 1;
+                //    transform: translateX(0);
+                //    transition-property: transform opacity;
+                //    transition-duration: 0.2s;
+                //}
+
+                //&:nth-child(1),
+                //&:nth-child(3) {
+                //    transform: rotateZ(0deg);
+                //    transition-property: transform, background-color;
+                //    transition-duration: 0.4s;
+                //}
+            }
+
+        }
+
         @include media($min-width: $desktop-width, $ignore-for-ie: true) {
             background-color: #005EB8;
-            padding: 6px 10px;
+            border: 3px solid #005EB8;
+            padding: 2px 7px;
             color: $white;
 
             &:after {
                 content: "Menu";
-            }
-
-        }
-
-        .main-nav__burger-button {
-            position: relative;
-            display: inline-block;
-            top: -1px;
-            width: $burger-piece-width;
-            height: $burger-piece-width;
-            @include media($min-width: $desktop-width, $ignore-for-ie: true) {
-
-                width: $burger-piece-width - ($burger-piece-width / 3);
-            }
-            vertical-align: middle;
-            overflow: hidden;
-        }
-
-        .main-nav__burger-line {
-            content: "";
-            display: inline-block;
-            position: absolute;
-            width: $burger-piece-width;
-            height: $burger-piece-height;
-            margin: 0 auto;
-            background: $col-primary;
-            @include media($min-width: $desktop-width, $ignore-for-ie: true) {
-                background: $white;
-                height: $burger-piece-height - ($burger-piece-height / 3);
-                width: $burger-piece-width - ($burger-piece-width / 3);
-            }
-            top: 50%;
-            left: 0;
-            margin-top: 0;
-
-            transition-timing-function: $ease-in-out-expo;
-            transform-origin: 50% 50%;
-
-            &:nth-child(1) {
-                margin-top: -3 * $burger-piece-height;
-            }
-
-            &:nth-child(3) {
-                margin-top: 3 * $burger-piece-height;
-            }
-
-            &:nth-child(2) {
-                opacity: 1;
-                transform: translateX(0);
-                transition-property: transform opacity;
-                transition-duration: 0.2s;
-            }
-
-            &:nth-child(1),
-            &:nth-child(3) {
-                transform: rotateZ(0deg);
-                transition-property: transform, background-color;
-                transition-duration: 0.4s;
             }
         }
     }
@@ -158,6 +178,10 @@ $burger-piece-height: 3px;
         .main-nav__menu {
             @include berger-menu;
         }
+    }
+
+    .main-nav__menu{
+        text-align: right;
     }
 
     // Internet CSS

@@ -27,10 +27,12 @@
                             </div>
 
                             <div class="main-nav__burger" id="navToggle">
-                                <button class="main-nav__burger-button" aria-label="Navigation menu">
-                                    <span class="main-nav__burger-line">&nbsp;</span>
-                                    <span class="main-nav__burger-line">&nbsp;</span>
-                                    <span class="main-nav__burger-line">&nbsp;</span>
+                                <button tabindex="0" class="main-nav__burger-button" aria-label="Navigation menu">
+                                    <span class="main-nav__burger-line-group">
+                                        <span class="main-nav__burger-line">&nbsp;</span>
+                                        <span class="main-nav__burger-line">&nbsp;</span>
+                                        <span class="main-nav__burger-line">&nbsp;</span>
+                                    </span>
                                 </button>
                             </div>
 
