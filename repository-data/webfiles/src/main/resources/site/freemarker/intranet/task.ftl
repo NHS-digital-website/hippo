@@ -62,7 +62,7 @@
 </#if>
 
 <article class="article article--intranet-task">
-    <@documentHeader document 'intranet-task'></@documentHeader>
+    <@documentHeader document 'intranet-task' "" "" "" "" false></@documentHeader>
 
     <@taskChapterNav previousTask=previousTask currentTask=document nextTask=nextTask />
 

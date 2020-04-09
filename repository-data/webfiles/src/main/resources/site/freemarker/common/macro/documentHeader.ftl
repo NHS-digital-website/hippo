@@ -113,22 +113,22 @@
                     </div>
 
                     <#if document.priorityActions?has_content>
-                    <div class="grid-row no-top-margin">
-                        <div class="column column--reset">
-                            <ul class="intra-action-links">
-                                <#list document.priorityActions as action>
-                                    <li>
-                                        <#if action.link.linkType == "internal">
-                                            <a href="<@hst.link hippobean=action.link.link />" class="intra-action-link">${action.action}</a>
-                                        <#else>
-                                            <a href="${action.link.link}" class="intra-action-link">${action.action}</a>
-                                        </#if>
-                                    </li>
-                                </#list>
-                            </ul>
+                        <div class="grid-row no-top-margin">
+                            <div class="column column--reset">
+                                <ul class="intra-action-links">
+                                    <#list document.priorityActions as action>
+                                        <li>
+                                            <#if action.link.linkType == "internal">
+                                                <a href="<@hst.link hippobean=action.link.link />" class="intra-action-link">${action.action}</a>
+                                            <#else>
+                                                <a href="${action.link.link}" class="intra-action-link">${action.action}</a>
+                                            </#if>
+                                        </li>
+                                    </#list>
+                                </ul>
+                            </div>
                         </div>
                     </#if>
-                    </div>
 
                     <#if hasTopics>
                       <div class="detail-list-grid">
