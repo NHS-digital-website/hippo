@@ -1,8 +1,8 @@
 ---
 /content/documents/corporate-website/coronavirus:
   /updates:
-    /update-feed:
-      /update-feed[1]:
+    /content:
+      /content[1]:
         /website:seosummary:
           hippostd:content: ''
           jcr:primaryType: hippostd:html
@@ -26,7 +26,7 @@
         website:optionalIntroductoryText: ''
         website:shortsummary: Hub for coronavirus updates
         website:title: Coronavirus update feed
-      /update-feed[2]:
+      /content[2]:
         /website:seosummary:
           hippostd:content: ''
           jcr:primaryType: hippostd:html
@@ -52,7 +52,7 @@
         website:optionalIntroductoryText: ''
         website:shortsummary: Hub for coronavirus updates
         website:title: Coronavirus update feed
-      /update-feed[3]:
+      /content[3]:
         /website:seosummary:
           hippostd:content: ''
           jcr:primaryType: hippostd:html

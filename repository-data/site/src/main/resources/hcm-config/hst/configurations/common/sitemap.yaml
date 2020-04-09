@@ -154,13 +154,6 @@ definitions:
         hst:componentconfigurationid: hst:pages/about
         hst:relativecontentpath: about
         jcr:primaryType: hst:sitemapitem
-      /coronavirus:
-        /updates:
-          hst:componentconfigurationid: hst:pages/project-update-feed
-          hst:relativecontentpath: /coronavirus/updates/update-feed
-          jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/404
-        jcr:primaryType: hst:sitemapitem
       /cyber-alerts:
         hst:componentconfigurationid: hst:pages/cyberalerthub
         hst:relativecontentpath: cyber-alerts
