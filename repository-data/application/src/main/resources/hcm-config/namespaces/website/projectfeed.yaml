@@ -36,10 +36,9 @@ definitions:
               ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount'',
                 disableNativeSpellChecker: false}'
               jcr:primaryType: frontend:pluginconfig
-            caption: Summary
+            caption: Summary on page
             field: summary
-            hint: A summary of the org structure, used in external search engine search
-              results
+            hint: A summary, used in external search engine search results
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
@@ -48,8 +47,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Short Summary
             field: shortsummary
-            hint: A short concise summary of the org structure, used in internal search
-              engine search results
+            hint: A short concise summary, used in internal search engine search results
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field

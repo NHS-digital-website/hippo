@@ -3,35 +3,35 @@
   /update-type:
     /selection:listitem[1]:
       jcr:primaryType: selection:listitem
-      selection:key: News or guidelines update
+      selection:key: news-or-guidelines-update
       selection:label: News or guidelines update
     /selection:listitem[2]:
       jcr:primaryType: selection:listitem
-      selection:key: Disease prevention information
+      selection:key: disease-prevention-information
       selection:label: Disease prevention information
     /selection:listitem[3]:
       jcr:primaryType: selection:listitem
-      selection:key: Disease spread statistics
+      selection:key: disease-spread-statistics
       selection:label: Disease spread statistics
     /selection:listitem[4]:
       jcr:primaryType: selection:listitem
-      selection:key: Information on getting tested
+      selection:key: information-on-getting-tested
       selection:label: Information on getting tested
     /selection:listitem[5]:
       jcr:primaryType: selection:listitem
-      selection:key: Quarantine guidelines
+      selection:key: quarantine-guidelines
       selection:label: Quarantine guidelines
     /selection:listitem[6]:
       jcr:primaryType: selection:listitem
-      selection:key: Public transport closures
+      selection:key: public-transport-closures
       selection:label: Public transport closures
     /selection:listitem[7]:
       jcr:primaryType: selection:listitem
-      selection:key: School closures information
+      selection:key: school-closures-information
       selection:label: School closures information
     /selection:listitem[8]:
       jcr:primaryType: selection:listitem
-      selection:key: Travel ban information
+      selection:key: travel-ban-information
       selection:label: Travel ban information
     hippo:availability:
     - live
