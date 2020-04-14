@@ -9,10 +9,11 @@
                 <ol class="article-section-nav__list article-section-nav__list--tag-links">
                 <#list links as link>
                     <li>
+                        <#assign hasCount = (link.count?? && link.count?has_content)?then("(" + link.count + ")", "") />
                         <#if selectedYear == link.key>
-                            <a href="${"?year=" + link.key + affix}" title="Show '${link.title}' only" class="tag-link selected" data-slugified-value="${slugify(link.title)}">${link.title}</a>
+                            <a href="${"?year=" + link.key + affix}" title="Show '${link.title}' only" class="tag-link selected" data-slugified-value="${slugify(link.title)}">${link.title} ${hasCount}</a>
                         <#else>
-                            <a href="?year=${link.key + affix}" title="Show '${link.title}' only" class="tag-link" data-slugified-value="${slugify(link.title)}">${link.title}</a>
+                            <a href="?year=${link.key + affix}" title="Show '${link.title}' only" class="tag-link" data-slugified-value="${slugify(link.title)}">${link.title} ${hasCount}</a>
                         </#if>
                     </li>
                 </#list>

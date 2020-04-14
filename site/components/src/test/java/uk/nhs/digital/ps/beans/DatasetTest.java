@@ -48,7 +48,7 @@ import javax.jcr.NodeIterator;
 
 
 @RunWith(PowerMockRunner.class)
-@PowerMockIgnore("javax.management.*")
+@PowerMockIgnore({"javax.management.*", "javax.script.*"})
 @PowerMockRunnerDelegate(DataProviderRunner.class)
 @PrepareForTest(HstQueryBuilder.class)
 public class DatasetTest {
