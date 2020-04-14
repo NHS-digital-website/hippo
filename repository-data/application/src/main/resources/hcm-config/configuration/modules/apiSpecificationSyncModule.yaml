@@ -1,0 +1,9 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/api-specification-sync:
+      /hippo:moduleconfig:
+        jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: uk.nhs.digital.apispecs.module.ApiSpecSyncFromApigeeModule
+      hipposys:cmsonly: true
+      jcr:primaryType: hipposys:module

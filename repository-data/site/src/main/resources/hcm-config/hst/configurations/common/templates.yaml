@@ -14,6 +14,12 @@ definitions:
       /apimaster-article:
         hst:renderpath: webfile:/freemarker/common/apimaster-article.ftl
         jcr:primaryType: hst:template
+      /apispecification:
+        hst:renderpath: webfile:/freemarker/common/apispecification.ftl
+        jcr:primaryType: hst:template
+      /apitryitnow:
+        hst:renderpath: webfile:/freemarker/common/api-try-it-now.ftl
+        jcr:primaryType: hst:template
       /app-layout:
         hst:renderpath: webfile:/freemarker/common/app-layout.ftl
         jcr:primaryType: hst:template

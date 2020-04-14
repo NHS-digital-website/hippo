@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+    <bean id="apigeeManagementApi"
+          parent="abstractCrispSimpleJacksonRestTemplateResourceResolver"
+          class="org.onehippo.cms7.crisp.core.resource.jackson.SimpleJacksonRestTemplateResourceResolver">
+        <property name="cacheEnabled" value="false"/>
+        <property name="restTemplate">
+            <bean class="org.springframework.security.oauth2.client.OAuth2RestTemplate">
+                <constructor-arg>
+                    <bean class="org.springframework.security.oauth2.client.token.grant.password.ResourceOwnerPasswordResourceDetails">
+                        <property name="clientAuthenticationScheme" value="form"/>
+                        <property name="grantType" value="password"/>
+                        <property name="accessTokenUri" value="${devzone.apigee.oauth.token.url}"/>
+                        <property name="username" value="${DEVZONE_APIGEE_OAUTH_USERNAME}"/>
+                        <property name="password" value="${DEVZONE_APIGEE_OAUTH_PASSWORD}"/>
+                    </bean>
+                </constructor-arg>
+                <constructor-arg>
+                    <bean class="org.springframework.security.oauth2.client.DefaultOAuth2ClientContext">
+                        <constructor-arg>
+                            <bean class="org.springframework.security.oauth2.client.token.DefaultAccessTokenRequest"/>
+                        </constructor-arg>
+                    </bean>
+                </constructor-arg>
+
+                <property name="accessTokenProvider">
+                    <bean class="org.springframework.security.oauth2.client.token.grant.password.ResourceOwnerPasswordAccessTokenProvider">
+                        <property name="tokenRequestEnhancer">
+                            <bean class="uk.nhs.digital.apispecs.apigee.auth.ApigeeAccessTokenRequestOneTimePasswordEnhancer">
+                                <constructor-arg>
+                                    <bean class="com.warrenstrange.googleauth.GoogleAuthenticator"/>
+                                </constructor-arg>
+                                <constructor-arg value="${DEVZONE_APIGEE_OAUTH_OTPKEY}"/>
+                                <constructor-arg value="${DEVZONE_APIGEE_OAUTH_BASICAUTHTOKEN}"/>
+                                <constructor-arg>
+                                    <bean class="java.time.Clock" factory-method="systemDefaultZone"/>
+                                </constructor-arg>
+                            </bean>
+                        </property>
+                    </bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
+</beans>

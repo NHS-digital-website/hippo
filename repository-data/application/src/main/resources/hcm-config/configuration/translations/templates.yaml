@@ -178,6 +178,11 @@ definitions:
           jcr:name: API master
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:apispecification:
+        /en:
+          jcr:name: API Specification
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:assetlink:
         /en:
           jcr:name: Related file

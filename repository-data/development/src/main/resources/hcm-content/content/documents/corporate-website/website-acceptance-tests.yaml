@@ -1,5 +1,89 @@
 ---
 /content/documents/corporate-website/website-acceptance-tests:
+  /api-specifications:
+    /static-api-specification:
+      /static-api-specification[1]:
+        /website:summary:
+          hippostd:content: <p>Test specification summary</p>
+          jcr:primaryType: hippostd:html
+        common:searchable: true
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-06-02T10:22:02.884Z
+        hippostdpubwf:lastModificationDate: 2020-06-02T10:22:02.885Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 07ad528a-3dc0-468d-9ac3-b163286dc1bc
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:apispecification
+        website:html: static specification text in embedded html
+        website:specification_id: '123456'
+        website:summary: ''
+        website:title: Test API Specification
+      /static-api-specification[2]:
+        /website:summary:
+          hippostd:content: <p>Test specification summary</p>
+          jcr:primaryType: hippostd:html
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-06-02T10:22:02.884Z
+        hippostdpubwf:lastModificationDate: 2020-06-02T10:22:42.644Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 07ad528a-3dc0-468d-9ac3-b163286dc1bc
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        - mix:versionable
+        jcr:primaryType: website:apispecification
+        website:html: static specification text in embedded html
+        website:specification_id: '123456'
+        website:summary: ''
+        website:title: Test API Specification
+      /static-api-specification[3]:
+        /website:summary:
+          hippostd:content: <p>Test specification summary</p>
+          jcr:primaryType: hippostd:html
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-06-02T10:22:02.884Z
+        hippostdpubwf:lastModificationDate: 2020-06-02T10:22:42.644Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-06-02T10:22:47.815Z
+        hippotranslation:id: 07ad528a-3dc0-468d-9ac3-b163286dc1bc
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:apispecification
+        website:html: static specification text in embedded html
+        website:specification_id: '123456'
+        website:summary: ''
+        website:title: Test API Specification
+      hippo:name: Test API Specification
+      hippo:versionHistory: 1e8d5c9d-194b-4ed8-9fed-071bdbd38799
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    hippo:name: API Specifications
+    hippostd:foldertype:
+    - new-digital-website-folder
+    - new-digital-website-document
+    hippotranslation:id: beb65105-595a-4b32-9e68-b876a87b8199
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippo:named
+    - hippotranslation:translated
+    - mix:versionable
+    jcr:primaryType: hippostd:folder
   /blog:
     /blog-subfolder:
       /blog-test-document-3:

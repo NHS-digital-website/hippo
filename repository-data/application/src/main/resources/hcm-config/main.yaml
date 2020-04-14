@@ -24,7 +24,7 @@ definitions:
       - hippo-relevance
       - editor
     /hippo:configuration/hippo:modules/webfiles/hippo:moduleconfig:
-      maxFileLengthKb: 800
+      maxFileLengthKb: 2048
       watchedModules:
       - repository-data/webfiles
   namespace:
