@@ -26,15 +26,15 @@
                                 </#if>
                             </div>
 
-                            <div class="main-nav__burger" id="navToggle">
-                                <button tabindex="0" class="main-nav__burger-button" aria-label="Navigation menu">
+                            <button tabindex="0" class="main-nav__burger" aria-label="Navigation menu" id="navToggle">
+                                <span class="main-nav__burger-button">
                                     <span class="main-nav__burger-line-group">
                                         <span class="main-nav__burger-line">&nbsp;</span>
                                         <span class="main-nav__burger-line">&nbsp;</span>
                                         <span class="main-nav__burger-line">&nbsp;</span>
                                     </span>
-                                </button>
-                            </div>
+                                </span>
+                            </button>
 
 
                             <div class="column <#if !enableSearch>column--81-25</#if> column--reset">

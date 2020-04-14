@@ -25,25 +25,38 @@ $burger-piece-height: 3px;
 
 @mixin berger-button(){
     .main-nav__burger {
+        border: 3px solid transparent;
         position: absolute;
         top: 5px;
         right: 0;
         z-index: 100;
-        vertical-align: middle;
 
-        .main-nav__burger-button {
+        @include media($min-width: $desktop-width, $ignore-for-ie: true) {
+            background-color: #005EB8;
+            border: 3px solid #005EB8;
+            padding: 3px 7px;
+            color: $white;
 
-            &:focus,
-            &:active,
-            &:hover {
-                border: 3px solid #FFB81C;
-                background-color: $white;
-                color: #005EB8;
-                outline: 0;
-                cursor: pointer;
+            &:after {
+                content: "Menu";
+                margin-left: 5px;
+                font-size: 18px;
+                vertical-align: middle;
+            }
+        }
 
+        &:focus,
+        &:active,
+        &:hover {
+            border: 3px solid #FFB81C;
+            background-color: $white;
+            color: #005EB8;
+            outline: 0;
+            cursor: pointer;
+
+            .main-nav__burger-line-group {
                 .main-nav__burger-line {
-                    background-color:  #005EB8;
+                    background-color: #005EB8;
                 }
             }
         }
@@ -57,6 +70,7 @@ $burger-piece-height: 3px;
             overflow: hidden;
             width: $burger-piece-width;
             height: $burger-piece-width;
+
             @include media($min-width: $desktop-width, $ignore-for-ie: true) {
                 width: $burger-piece-width - ($burger-piece-width / 3);
             }
@@ -69,13 +83,13 @@ $burger-piece-height: 3px;
                 height: $burger-piece-height;
                 margin: 0 auto;
                 background: $col-primary;
+
                 @include media($min-width: $desktop-width, $ignore-for-ie: true) {
                     background: $white;
                     height: $burger-piece-height - ($burger-piece-height / 3);
                     width: $burger-piece-width - ($burger-piece-width / 3);
-
-
                 }
+
                 top: 50%;
                 left: 0;
                 margin-top: 0;
@@ -90,32 +104,6 @@ $burger-piece-height: 3px;
                 &:nth-child(3) {
                     margin-top: 3 * $burger-piece-height;
                 }
-
-                //&:nth-child(2) {
-                //    opacity: 1;
-                //    transform: translateX(0);
-                //    transition-property: transform opacity;
-                //    transition-duration: 0.2s;
-                //}
-
-                //&:nth-child(1),
-                //&:nth-child(3) {
-                //    transform: rotateZ(0deg);
-                //    transition-property: transform, background-color;
-                //    transition-duration: 0.4s;
-                //}
-            }
-
-        }
-
-        @include media($min-width: $desktop-width, $ignore-for-ie: true) {
-            background-color: #005EB8;
-            border: 3px solid #005EB8;
-            padding: 2px 7px;
-            color: $white;
-
-            &:after {
-                content: "Menu";
             }
         }
     }
@@ -224,5 +212,26 @@ $burger-piece-height: 3px;
 
     .menu-open .search-strip {
         overflow: visible;
+    }
+
+    .menu-open {
+        .main-nav__burger {
+            .main-nav__burger-line-group {
+                .main-nav__burger-line {
+                    &:nth-child(2) {
+                        opacity: 0;
+                        transform: translateX(-$burger-piece-width);
+                    }
+
+                    &:nth-child(1) {
+                        transform: rotateZ(45deg) translateY(2 * $burger-piece-height) translateX(2 * $burger-piece-height);
+                    }
+
+                    &:nth-child(3) {
+                        transform: rotateZ(-45deg) translateY(-2.333 * $burger-piece-height) translateX(2.333 * $burger-piece-height);
+                    }
+                }
+            }
+        }
     }
 }
