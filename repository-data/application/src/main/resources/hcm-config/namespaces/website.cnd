@@ -29,6 +29,9 @@
 [website:apimaster] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:apispecification] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:assetlink] > hippo:compound, hippostd:relaxed
   orderable
 
