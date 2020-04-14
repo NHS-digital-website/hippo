@@ -1,0 +1,14 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/apispecification:
+      /main:
+        hst:componentclassname: uk.nhs.digital.common.components.ApiSpecificationComponent
+        hst:template: apispecification
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/apppage
+      jcr:primaryType: hst:component
+    /hst:hst/hst:configurations/common/hst:pages/apitryitnow:
+      hst:componentclassname: uk.nhs.digital.common.components.ApiSpecificationTryItNowComponent
+      hst:template: apitryitnow
+      jcr:primaryType: hst:component

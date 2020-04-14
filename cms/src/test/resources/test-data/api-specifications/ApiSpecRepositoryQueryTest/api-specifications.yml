@@ -1,0 +1,64 @@
+---
+
+# Folder A
+- path: /content/documents/corporate-website/api-specifications-location-a
+  primaryType: hippo:folder
+# Api specification document A
+- path: /content/documents/corporate-website/api-specifications-location-a/api-spec-a
+  primaryType: hippo:handle
+- path: /content/documents/corporate-website/api-specifications-location-a/api-spec-a/api-spec-a
+  primaryType: website:apispecification
+  properties:
+    common:searchable: true
+    hippostd:state: draft
+    website:json: '{ "json" : "payload A" }'
+    website:html: <p>API Specification - A</p>
+    website:specification_id: api-specification-id-a
+- path: /content/documents/corporate-website/api-specifications-location-a/api-spec-a/api-spec-a[2]
+  primaryType: website:apispecification
+  properties:
+    common:searchable: true
+    hippostd:state: unpublished
+    website:json: '{ "json" : "payload A" }'
+    website:html: <p>API Specification - A</p>
+    website:specification_id: api-specification-id-a
+- path: /content/documents/corporate-website/api-specifications-location-a/api-spec-a/api-spec-a[3]
+  primaryType: website:apispecification
+  properties:
+    common:searchable: true
+    hippostd:state: published
+    hippostdpubwf:publicationDate: '2020-07-08T08:37:03.915Z'
+    website:json: '{ "json" : "payload A" }'
+    website:html: <p>API Specification - A</p>
+    website:specification_id: api-specification-id-a
+
+# Folder B
+- path: /content/documents/corporate-website/api-specifications-location-b
+  primaryType: hippo:folder
+# Api specification document B
+- path: /content/documents/corporate-website/api-specifications-location-b/api-spec-b
+  primaryType: hippo:handle
+- path: /content/documents/corporate-website/api-specifications-location-b/api-spec-b/api-spec-b
+  primaryType: website:apispecification
+  properties:
+    common:searchable: true
+    hippostd:state: draft
+    website:json: '{ "json" : "payload B" }'
+    website:html: <p>API Specification - B</p>
+    website:specification_id: api-specification-id-b
+- path: /content/documents/corporate-website/api-specifications-location-b/api-spec-b/api-spec-b[2]
+  primaryType: website:apispecification
+  properties:
+    common:searchable: true
+    hippostd:state: unpublished
+    website:json: '{ "json" : "payload B" }'
+    website:html: <p>API Specification - B</p>
+    website:specification_id: api-specification-id-b
+- path: /content/documents/corporate-website/api-specifications-location-b/api-spec-b/api-spec-b[3]
+  primaryType: website:apispecification
+  properties:
+    common:searchable: true
+    hippostd:state: published
+    website:json: '{ "json" : "payload B" }'
+    website:html: <p>API Specification - B</p>
+    website:specification_id: api-specification-id-b

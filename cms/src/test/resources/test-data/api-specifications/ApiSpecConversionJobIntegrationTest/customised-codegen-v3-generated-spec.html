@@ -1,0 +1,2198 @@
+<div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+    <!-- start sticky-nav -->
+    <div id="sticky-nav">
+        <div class="article-section-nav-wrapper">
+            <div class="article-section-nav">
+                <h2 class="article-section-nav__title">Page contents</h2>
+                <nav>
+                    <ol class="article-section-nav__list">
+                        <li>
+                            <a href="#top" aria-label="Scroll to 'Top of page'" title="Scroll to 'Top of page'">Top of page</a>
+                        </li>
+                        <li>
+                            <a href="#api-description" aria-label="Scroll to 'Overview'" title="Scroll to 'Overview'">Overview</a>
+                        </li>
+
+                                    <li class="nav-header" data-group="Patients">
+                                        <a href="#api-Patients"
+                                           aria-label="Endpoint: Patients"
+                                           title="Endpoint: Patients">Endpoint: Patients</a>
+                                    </li>
+                                        <li data-group="Patients" data-name="getPatient" class="section-numbered">
+                                            <a href="#api-Patients-getPatient"
+                                               aria-label="getPatient"
+                                               title="getPatient">Retrieve a patient's resource</a>
+                                        </li>
+                                        <li data-group="Patients" data-name="searchPatient" class="section-numbered">
+                                            <a href="#api-Patients-searchPatient"
+                                               aria-label="searchPatient"
+                                               title="searchPatient">Search for patient</a>
+                                        </li>
+                                        <li data-group="Patients" data-name="updatePatientPartial" class="section-numbered">
+                                            <a href="#api-Patients-updatePatientPartial"
+                                               aria-label="updatePatientPartial"
+                                               title="updatePatientPartial">Update a patient's resource</a>
+                                        </li>
+                                    <li class="nav-header" data-group="Polling">
+                                        <a href="#api-Polling"
+                                           aria-label="Endpoint: Polling"
+                                           title="Endpoint: Polling">Endpoint: Polling</a>
+                                    </li>
+                                        <li data-group="Polling" data-name="polling" class="section-numbered">
+                                            <a href="#api-Polling-polling"
+                                               aria-label="polling"
+                                               title="polling">Retrieve the outcome of the accepted update.</a>
+                                        </li>
+                                    <li class="nav-header" data-group="Relatedperson">
+                                        <a href="#api-Relatedperson"
+                                           aria-label="Endpoint: Relatedperson"
+                                           title="Endpoint: Relatedperson">Endpoint: Relatedperson</a>
+                                    </li>
+                                        <li data-group="Relatedperson" data-name="getRelatedPeople" class="section-numbered">
+                                            <a href="#api-Relatedperson-getRelatedPeople"
+                                               aria-label="getRelatedPeople"
+                                               title="getRelatedPeople">Retrieve a list of Related Person resources for a given patient</a>
+                                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- end sticky-nav -->
+</div>
+
+<div id="content" class="column column--two-thirds page-block page-block--main" aria-label="Document content">
+
+    <!-- API Title: Personal Demographics Service (FHIR) API -->
+
+    <div class="article-section">
+        <h2>Overview</h2>
+<p>Use this API to access the <a href="https://digital.nhs.uk/services/demographics">Personal Demographics Service (PDS)</a> - the national electronic database of NHS patient details such as name, address, date of birth and NHS Number.</p>
+<p>You can:</p>
+<ul>
+<li>search for patients</li>
+<li>get patient details</li>
+<li>get patient related people</li>
+<li>update patient details</li>
+</ul>
+<p>You cannot currently use this API to:</p>
+<ul>
+<li>check that you have the right NHS Number for a patient</li>
+<li>create a new record for a birth</li>
+<li>receive birth notifications</li>
+<li>create a record for a new patient</li>
+<li>register a new patient at a GP Practice - instead, use <a href="https://digital.nhs.uk/services/nhais/nhais-developer-document-library">National Health Application and Infrastructure Services (NHAIS)</a></li>
+</ul>
+<p>You can access the following data:</p>
+<ul>
+<li>NHS Number</li>
+<li>name</li>
+<li>gender</li>
+<li>addresses and contact details (read only - update coming soon)</li>
+<li>birth information</li>
+<li>death information</li>
+<li>registered GP</li>
+<li>nominated pharmacy</li>
+<li>dispensing doctor pharmacy</li>
+<li>medical appliance supplier pharmacy</li>
+<li>related people (read only - update coming soon)</li>
+<li>consent information (coming soon)</li>
+</ul>
+<p>Currently, this API can only be accessed by healthcare professionals, authenticated with an NHS smartcard or equivalent.
+Unauthenticated access and citizen access are on the roadmap.</p>
+<h2>Legal use</h2>
+<p>This API can only be used where there is a legal basis to do so. You should <a href="https://digital.nhs.uk/services/demographics/access-data-on-the-personal-demographics-service">make a PDS access request</a> before you go too far with your development.</p>
+<p>You must have made this request before you can go live (see ‘Onboarding’ below).</p>
+<h2>Related APIs</h2>
+<p>The following APIs also give access to the Personal Demographics Service:</p>
+<ul>
+<li><a href="https://digital.nhs.uk/services/spine/spine-mini-service-provider-for-personal-demographics-service">Personal Demographics Service (SMSP) API</a> - use this if you want to get PDS data without an authenticated end used (no smartcard required). It is, however, read-only and searches are limited to a single result.</li>
+<li><a href="https://digital.nhs.uk/developer/api-catalogue/pds-hl7">Personal Demographics Service (HL7 V3) API</a> - use this if you want to use functions that are not yet available on the FHIR API.</li>
+</ul>
+<p>Once our roadmap is complete, the above APIs will become redundant.</p>
+<p>The following APIs are also related to this API:</p>
+<ul>
+<li><a href="https://developer.nhs.uk/apis/ods/">Organisation Data Service FHIR API</a> - use this to get full details for the organisations related to the patient, such as their registered GP or nominated pharmacy.</li>
+</ul>
+<h2>API status and roadmap</h2>
+<p>The search and retrieve endpoints are in <a href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#api-status">beta</a>, meaning:</p>
+<ul>
+<li>we might make breaking changes, but only if we can't avoid it, and we'll give advance notice</li>
+<li>we can't guarantee availability or performance</li>
+</ul>
+<p>The update endpoint is in <a href="https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#api-status">alpha</a> - expect further breaking changes.</p>
+<p>The API is currently available for sandbox testing and integration testing, but not for production use.</p>
+<p>The following items are on our roadmap, in rough priority order:</p>
+<ul>
+<li>addition of data fields for consent information</li>
+<li>production service - beta - update patient (target date: end of July)</li>
+<li>unauthenticated access - without NHS smartcard - similar to the PDS SMSP API (target date to be confirmed - please <a href="https://digital.nhs.uk/developer/help-and-support">contact us</a> for more details)</li>
+<li>access for citizens using NHS Login (target date to be confirmed - please <a href="https://digital.nhs.uk/developer/help-and-support">contact us</a> for more details)</li>
+<li>exit beta (target date: end of September 2020, subject to availability of beta testers)</li>
+</ul>
+<p>We are extremely keen to receive feedback on the API during beta,
+for example if there are data fields missing that you think you need.
+Please <a href="https://digital.nhs.uk/developer/help-and-support">contact us</a> with any comments or suggestions.</p>
+<h2>Technology</h2>
+<p>This API is <a href="https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-apis#basic-rest">RESTful</a>.</p>
+<p>It also conforms to the <a href="https://digital.nhs.uk/developer/guides-and-documentation/introduction-to-apis#fhir">FHIR</a> global standard for health care data exchange.
+Specifically, it is aligned with <a href="https://digital.nhs.uk/services/fhir-uk-core">FHIR UK Core</a>, which is built on FHIR Release 4.</p>
+<p>You don’t need to know much about FHIR to use this API - FHIR APIs are just RESTful APIs that follow specific rules.
+In particular:</p>
+<ul>
+<li>resource names are capitalised and singular, for example the <code class="codeinline">/Patient</code> not <code class="codeinline">/patients</code></li>
+<li>array names are singular, for example <code class="codeinline">line</code> not <code class="codeinline">lines</code> for address lines</li>
+<li>data items that are country-specific and thus not included in the FHIR global base resources are usually wrapped in an <code class="codeinline">extension</code> object</li>
+</ul>
+<p>This API is available on the Internet, although access using NHS smartcards (see below)
+currently requires a connection to the <a href="https://digital.nhs.uk/services/health-and-social-care-network">Health and Social Care Network (HSCN)</a>.</p>
+<h2>Authorisation</h2>
+<p>This API is <a href="https://digital.nhs.uk/developer/guides-and-documentation/security-and-authorisation#user-restricted-apis">user-restricted</a>,
+meaning an end user must be present and authenticated to use it.</p>
+<p>The end user must be:</p>
+<ul>
+<li>a healthcare professional</li>
+<li>strongly authenticated, using either an NHS smartcard or a modern alternative</li>
+</ul>
+<p>The API uses Open ID Connect to authenticate the end user and OAuth 2.0 to authorise the calling system.
+It supports the following security patterns:</p>
+<ul>
+<li>user-restricted RESTful API - using NHS Identity - combined authentication and authorisation</li>
+<li>user-restricted RESTful API - using NHS Identity - separate authentication and authorisation</li>
+</ul>
+<p>For more details, see <a href="https://digital.nhs.uk/developer/guides-and-documentation/security-and-authorisation#user-restricted-apis">user-restricted APIs</a>.</p>
+<p>In due course we plan to add the following:</p>
+<ul>
+<li>access for citizens, using NHS Login</li>
+<li>unattended access - without smartcard - similar to the PDS SMSP API</li>
+</ul>
+<h2>Environments and testing</h2>
+<table data-disablesort="true">
+<thead>
+<tr>
+<th>Environment</th>
+<th>Base URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sandbox</td>
+<td><code class="codeinline">https://sandbox.api.service.nhs.uk/personal-demographics/</code></td>
+</tr>
+<tr>
+<td>Integration test</td>
+<td><code class="codeinline">https://int.api.service.nhs.uk/personal-demographics/</code></td>
+</tr>
+<tr>
+<td>Production</td>
+<td><code class="codeinline">https://api.service.nhs.uk/personal-demographics</code></td>
+</tr>
+</tbody>
+</table>
+<h3>Sandbox testing</h3>
+<p>Our <a href="https://digital.nhs.uk/developer/guides-and-documentation/testing#sandbox-testing">sandbox environment</a>:</p>
+<ul>
+<li>is for early developer testing</li>
+<li>only covers a limited set of scenarios</li>
+<li>is stateless, so it does not actually persist any updates</li>
+<li>is open access, so does not allow you to test authorisation</li>
+</ul>
+<p>For more details on sandbox testing, or to try out the sandbox using our &quot;Try this API&quot; feature, see the documentation for each endpoint.</p>
+<p>Alternatively, you can try out the sandbox using our Postman collection:</p>
+<p><a href="https://app.getpostman.com/run-collection/97e8db28d4f7264446fe"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
+<h3>Integration testing</h3>
+<p>Our <a href="https://digital.nhs.uk/developer/guides-and-documentation/testing#integration-testing">integration test environment</a>:</p>
+<ul>
+<li>is for formal integration testing</li>
+<li>is stateful, so persists updates</li>
+<li>includes authorisation with either a username/password or smartcard/PIN</li>
+</ul>
+<p>For more details on these enhancements, see the API specification.</p>
+<p>For read-only testing, you can either use our <a href="https://digital.nhs.uk/developer/api-catalogue/pds-fhir">PDS FHIR API test data pack</a> or set up your own test data using our test data tool.</p>
+<p>To test updating patient details, you must set up your own test data.</p>
+<p>For more details see <a href="https://digital.nhs.uk/developer/guides-and-documentation/testing#integration-testing-with-our-restful-apis">integration testing with our RESTful APIs</a>.</p>
+<h2>Onboarding</h2>
+<p>You need to get your software approved by us before it can go live with this API. We call this onboarding. The onboarding process can sometimes be quite long, so it’s worth planning well ahead.</p>
+<p>To onboard for this API, follow the <a href="https://digital.nhs.uk/developer/guides-and-documentation/onboarding-process#onboard-using-the-supplier-conformance-assessment-list-scal-process">Supplier Conformance Assessment List (SCAL) process.</a></p>
+<p>When following the SCAL process, note that:</p>
+<ul>
+<li>In step 1: to confirm your use case for this API, you need to <a href="https://digital.nhs.uk/services/demographics/access-data-on-the-personal-demographics-service">make a PDS access request</a>, even if you already access PDS via another method.</li>
+<li>In step 6: when implementing your clinical risk management process, you must review and integrate the PDS FHIR API hazard log into your own risk log. You’ll find it embedded within the PDS FHIR API tab in the SCAL.</li>
+<li>In step 8: you need to review and complete the PDS FHIR API risk log to show that you have understood and mitigated the various risks. You might be asked to provide some evidence to prove that controls have been put in place. You’ll find the risk log embedded within the PDS FHIR API tab in the SCAL. This is separate from the clinical safety hazard log mentioned above.</li>
+<li>In step 9: you must conduct penetration testing to <a href="https://www.ncsc.gov.uk/information/check-penetration-testing">CHECK standards</a></li>
+<li>In step 10: when you complete the Service Desk Registration Form, send it to <a href="mailto:api.management@nhs.net">api.management@nhs.net</a>.</li>
+<li>In step 11: submit your completed SCAL to <a href="mailto:api.management@nhs.net">api.management@nhs.net</a>.</li>
+<li>In step 14: to request production access, contact us at <a href="mailto:api.management@nhs.net">api.management@nhs.net</a>.</li>
+</ul>
+<h2>Endpoints</h2>
+<p>To see details for specific endpoints, select from the list on the left hand side of the page:</p>
+<ul>
+<li><code class="codeinline">GET /Patient</code> - search for patients.</li>
+<li><code class="codeinline">GET /Patient/{id}</code> - get patient's personal details.</li>
+<li><code class="codeinline">GET /Patient/{id}/RelatedPerson</code> - get patient's related people details.</li>
+<li><code class="codeinline">PATCH /Patient/{id}</code> - update patient's personal details.</li>
+</ul>
+
+    </div>
+
+                    <div id="api-Patients" class="article-section">
+                        <h1>Endpoint: Patients</h1>
+                    </div>
+                                    <div id="api-Patients-getPatient" class="article-section-with-sub-heading">
+                                        <article id="api-Patients-getPatient-0" data-group="User" data-name="getPatient" data-version="0">
+                                            <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
+                                            <h2>Retrieve a patient's resource<a onclick="tryEndpointNow('/Patients/get_patient')" class="ctabtn-left ctabtn--nhs-digital-button ctabtn--nhs-digital-button--try-it-now" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></h2>
+
+                                            <p><h2>Overview</h2>
+<p>Use this endpoint to get patient details from PDS for a given NHS Number.</p>
+<h2>Superceded patients</h2>
+<p>Some patients are marked as superceded, this means that for some reason the original resource is no longer valid and has been replaced with a different resource.</p>
+<p>On retrieval of a superceded resource the new resource will be automatically returned in place of the requested resource.</p>
+<h2>Restricted patients</h2>
+<p>Some patients are tagged as <a href="https://digital.nhs.uk/services/demographics/restricting-access-to-a-patients-demographic-record">restricted</a>, or sensitive. Restricted patients can be retrieved; however, location sensitive fields such as <code class="codeinline">address</code>, <code class="codeinline">telecom</code> and <code class="codeinline">generalPractitioner</code> will be removed.</p>
+<p>The restricted flag can be found in the data under <code class="codeinline">meta/security</code> on the patient resource.</p>
+<h2>Sandbox test scenarios</h2>
+<p>You can test the following scenarios in our sandbox environment:</p>
+<table data-disablesort="true">
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Request</th>
+<th>Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Patient exists</td>
+<td><code class="codeinline">id</code>=<code class="codeinline">9000000009</code></td>
+<td>HTTP Status 200 with patient data in response</td>
+</tr>
+<tr>
+<td>Sensitive patient exists</td>
+<td><code class="codeinline">id</code>=<code class="codeinline">9000000025</code></td>
+<td>HTTP Status 200 with patient data in response with the restricted data removed</td>
+</tr>
+<tr>
+<td>Patient doesn't exist</td>
+<td><code class="codeinline">id</code>=<code class="codeinline">9111231130</code> (or any other valid NHS Number)</td>
+<td>HTTP Status 404 with problem description</td>
+</tr>
+<tr>
+<td>Invalid NHS Number</td>
+<td><code class="codeinline">id</code>=<code class="codeinline">9000000000</code> (or any invalid NHS Number)</td>
+<td>HTTP Status 400 with problem description</td>
+</tr>
+</tbody>
+</table>
+<p>You can try out the sandbox using the &quot;Try this API&quot; feature on the right hand side of this page.</p>
+<p>Alternatively, you can try out the sandbox using our Postman collection:</p>
+<p><a href="https://app.getpostman.com/run-collection/97e8db28d4f7264446fe"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
+</p>
+                                            <p></p>
+                                            <br />
+                                            <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/Patient/{id}</span></code></pre>
+
+                                            <h2>Request</h2>
+
+
+
+
+
+
+                                            <h2>Response</h2>
+                                                <h3> Status: 200 - Information successfully returned. </h3>
+
+                                                <ul class="nav nav-tabs nav-tabs-examples" >
+                                                        <li class="active">
+                                                            <a data-toggle="tab" href="#responses-getPatient-200-schema">Schema</a>
+                                                        </li>
+
+                                                        <li class="">
+                                                            <a data-toggle="tab" href="#responses-getPatient-200-headers">Headers</a>
+                                                        </li>
+                                                </ul>
+
+                                                <div class="tab-content" style='margin-bottom: 10px;'>
+                                                        <div class="tab-pane active" id="responses-getPatient-200-schema">
+                                                            <div id='responses-getPatient-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+
+                                                            </div>
+                                                            <input id='responses-getPatient-200-schema-data' type='hidden' value=''></input>
+                                                        </div>
+                                                        <div class="tab-pane" id="responses-getPatient-200-headers">
+                                                            <table>
+                                                                <tr>
+                                                                    <th width="150px">Name</th>
+                                                                    <th width="100px">Type</th>
+                                                                    <th width="100px">Format</th>
+                                                                    <th>Description</th>
+                                                                </tr>
+                                                                    <tr>
+                                                                        <td>ETag</td>
+                                                                        <td>String</td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                            </table>
+                                                        </div>
+                                                </div>
+
+                                                <h3> Status: 400 - Invalid NHS number supplied. </h3>
+
+                                                <ul class="nav nav-tabs nav-tabs-examples" >
+                                                        <li class="active">
+                                                            <a data-toggle="tab" href="#responses-getPatient-400-schema">Schema</a>
+                                                        </li>
+
+                                                </ul>
+
+                                                <div class="tab-content" style='margin-bottom: 10px;'>
+                                                        <div class="tab-pane active" id="responses-getPatient-400-schema">
+                                                            <div id='responses-getPatient-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+
+                                                            </div>
+                                                            <input id='responses-getPatient-400-schema-data' type='hidden' value=''></input>
+                                                        </div>
+                                                </div>
+
+                                                <h3> Status: 404 - Patient not found. </h3>
+
+                                                <ul class="nav nav-tabs nav-tabs-examples" >
+                                                        <li class="active">
+                                                            <a data-toggle="tab" href="#responses-getPatient-404-schema">Schema</a>
+                                                        </li>
+
+                                                </ul>
+
+                                                <div class="tab-content" style='margin-bottom: 10px;'>
+                                                        <div class="tab-pane active" id="responses-getPatient-404-schema">
+                                                            <div id='responses-getPatient-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+
+                                                            </div>
+                                                            <input id='responses-getPatient-404-schema-data' type='hidden' value=''></input>
+                                                        </div>
+                                                </div>
+
+                                        </article>
+                                    </div>
+                                    <div id="api-Patients-searchPatient" class="article-section-with-sub-heading">
+                                        <article id="api-Patients-searchPatient-0" data-group="User" data-name="searchPatient" data-version="0">
+                                            <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
+                                            <h2>Search for patient<a onclick="tryEndpointNow('/Patients/search_patient')" class="ctabtn-left ctabtn--nhs-digital-button ctabtn--nhs-digital-button--try-it-now" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></h2>
+
+                                            <p><h2>Overview</h2>
+<p>Use this endpoint to search for a patient in PDS.</p>
+<p>You can search using a combination of:</p>
+<ul>
+<li>given name</li>
+<li>family name</li>
+<li>gender</li>
+<li>postcode</li>
+<li>date of birth (range)</li>
+<li>date of death (range)</li>
+<li>registered GP practice</li>
+</ul>
+<h2>Matching rules</h2>
+<p>Search parameters are not case sensitive.</p>
+<p>Spaces in postcodes do not need to match exactly, for example <code class="codeinline">LS116AD</code> will match <code class="codeinline">LS11 6AD</code>, however including spaces will also work.</p>
+<p>For date of birth and date of death, you can search for an exact date or for a range of dates.</p>
+<p>You can use wildcards in given name and family name. Wildcards must start with at least two characters; for example, <code class="codeinline">Br*</code> is valid, but <code class="codeinline">*cDougal</code> is not. Multiple wildcards are allowed; for example, <code class="codeinline">Br*w*</code> will match <code class="codeinline">Brown</code> and <code class="codeinline">Brower</code>.
+Be sure that any wildcards are encoded before sending the request. An encoded wildcard is <code class="codeinline">%2A</code>; for example, <code class="codeinline">Br%2A</code> is valid.</p>
+<p>You can request a fuzzy search using the <code class="codeinline">_fuzzy-match</code> query parameter. This will:</p>
+<ul>
+<li>match common homophones, such as <code class="codeinline">Smith</code> and <code class="codeinline">Smythe</code>, using the <a href="https://en.wikipedia.org/wiki/Soundex">Soundex</a> algorithm</li>
+<li>check for transposed names, such as <code class="codeinline">Adam Thomas</code> and <code class="codeinline">Thomas Adam</code></li>
+</ul>
+<p>Wildcards cannot be used with a fuzzy search.</p>
+<h2>Search parameter options</h2>
+<p>For a non-fuzzy search, the minimum set of search parameters is:</p>
+<ul>
+<li>family name - but it can include wildcards</li>
+<li>gender</li>
+<li>date of birth - but it can be a range</li>
+</ul>
+<p>For a fuzzy search, use one of the following search parameter combinations:</p>
+<ul>
+<li>given name, family name and date of birth</li>
+<li>family name, date of birth, gender and postcode</li>
+<li>given name, date of birth, gender and postcode</li>
+</ul>
+<p>If you include the date of death or registered GP Practice query parameters for a fuzzy search, they will not be used as part of the search. However they will affect the patient's matching score, meaning a mismatch will reduce the returned score.</p>
+<p>If you use an invalid combination of query parameters, you will get an <code class="codeinline">INVALID_COMBINATION</code> error.</p>
+<h2>Historic data search</h2>
+<p>By default the endpoint only searches current information.
+You can search historic information, such as previous names or addresses using the <code class="codeinline">_history</code> query parameter.</p>
+<p>You cannot perform a fuzzy search on historic information.</p>
+<h2>Scoring</h2>
+<p>Every matched patient in the result list includes a score to indicate how closely the patient matched the search parameters.</p>
+<p>A score of 1.0 indicates an exact match. A score of less than 1.0 indicates a partial match.</p>
+<p>The result list is sorted in descending score order - best match first.</p>
+<p>Use the <code class="codeinline">_exact-match</code> query parameter to return exact matches only - where the score is 1.0.</p>
+<h2>Restricted patients</h2>
+<p>Some patients are tagged as <a href="https://digital.nhs.uk/services/demographics/restricting-access-to-a-patients-demographic-record">restricted</a>, or sensitive. When performing a search, restricted patients can be returned; however, location sensitive fields such as <code class="codeinline">address</code>, <code class="codeinline">telecom</code>, <code class="codeinline">contact</code> and <code class="codeinline">generalPractitioner</code> will be removed.</p>
+<p>If <code class="codeinline">address-postcode</code> or <code class="codeinline">general-practitioner</code> are included in the search parameters, no restricted patients will be returned even if a match is identified.</p>
+<p>The restricted flag can be found in the data under <code class="codeinline">meta/security</code> on the patient resource.</p>
+<h2>Number of results returned</h2>
+<p>By default, the endpoint will return a maximum of 50 results.</p>
+<p>If there are more than 50 matching patients, the endpoint will return no results and the error response <code class="codeinline">TOO_MANY_MATCHES</code>.
+You can further limit the number of results using the <code class="codeinline">_max-results</code> query parameter.
+You can request a single, exact match using <code class="codeinline">_exact-match=true</code> and <code class="codeinline">_max-results=1</code>.</p>
+<h2>Patient data returned</h2>
+<p>The patient data returned on a search is not the full set of data that is returned on a retrieval. The following data is included:</p>
+<ul>
+<li>NHS Number</li>
+<li>name</li>
+<li>gender</li>
+<li>all birth information, apart from place of birth</li>
+<li>death information</li>
+<li>home address</li>
+<li>contact details</li>
+<li>registered GP</li>
+<li>restricted patient flag</li>
+</ul>
+<p>The following data is excluded:</p>
+<ul>
+<li>place of birth</li>
+<li>all addresses apart from home address</li>
+<li>pharmacy details</li>
+<li>communication details</li>
+<li>contact preferences</li>
+</ul>
+<h2>Clinical safety and privacy</h2>
+<p>This endpoint can return multiple matching patients for a given search, including partial matches.</p>
+<p>You should ensure that you design, build and test your software to minimise these risks:</p>
+<ul>
+<li>an end user selects the wrong patient from the results presented, so there is a risk of clinical harm; for example due to retrieval of the wrong medical data</li>
+<li>the end user has access to patients’ personal data, so there is a risk to patient privacy</li>
+</ul>
+<p>In particular, it is almost certainly a good idea to display search results in descending score order - best match first.</p>
+<h2>Sandbox testing</h2>
+<p>You can test the following scenarios in our sandbox environment:</p>
+<table data-disablesort="true">
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Request</th>
+<th>Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basic search</td>
+<td><code class="codeinline">family</code>=<code class="codeinline">Smith</code>, <code class="codeinline">gender</code>=<code class="codeinline">female</code>, <code class="codeinline">birthdate</code>=<code class="codeinline">eq2010-10-22</code></td>
+<td>HTTP Status 200 with single search result.</td>
+</tr>
+<tr>
+<td>Wildcard search</td>
+<td><code class="codeinline">family</code>=<code class="codeinline">Sm*</code>, <code class="codeinline">gender</code>=<code class="codeinline">female</code>, <code class="codeinline">birthdate</code>=<code class="codeinline">eq2010-10-22</code></td>
+<td>HTTP Status 200 with search result of two.</td>
+</tr>
+<tr>
+<td>Search with limited results</td>
+<td><code class="codeinline">family</code>=<code class="codeinline">Sm*</code>, <code class="codeinline">gender</code>=<code class="codeinline">female</code>, <code class="codeinline">birthdate</code>=<code class="codeinline">eq2010-10-22</code>, <code class="codeinline">_max-results</code>=<code class="codeinline">2</code></td>
+<td>HTTP Status 200 with search result of two.</td>
+</tr>
+<tr>
+<td>Search with date range</td>
+<td><code class="codeinline">family</code>=<code class="codeinline">Smith</code>, <code class="codeinline">gender</code>=<code class="codeinline">female</code>, <code class="codeinline">birthdate</code>=<code class="codeinline">ge2010-10-21</code>, <code class="codeinline">birthdate</code>=<code class="codeinline">le2010-10-23</code></td>
+<td>HTTP Status 200 with single search result.</td>
+</tr>
+<tr>
+<td>Fuzzy search</td>
+<td><code class="codeinline">family</code>=<code class="codeinline">Smith</code>, <code class="codeinline">given</code>=<code class="codeinline">Jane</code> <code class="codeinline">gender</code>=<code class="codeinline">female</code>, <code class="codeinline">birthdate</code>=<code class="codeinline">eq2010-10-22</code>, <code class="codeinline">_fuzzy-match</code>=<code class="codeinline">true</code></td>
+<td>HTTP Status 200 with single search result.</td>
+</tr>
+<tr>
+<td>Restricted patient search</td>
+<td><code class="codeinline">family</code>=<code class="codeinline">Smythe</code>, <code class="codeinline">given</code>=<code class="codeinline">Janet</code> <code class="codeinline">gender</code>=<code class="codeinline">female</code>, <code class="codeinline">birthdate</code>=<code class="codeinline">eq2005-06-16</code></td>
+<td>HTTP Status 200 with single search result with restricted data omitted.</td>
+</tr>
+<tr>
+<td>Unsuccessful search</td>
+<td>Any other valid search query parameters</td>
+<td>HTTP Status 200 with no search results</td>
+</tr>
+<tr>
+<td>Invalid date format</td>
+<td><code class="codeinline">birthdate</code> or <code class="codeinline">death-date</code> query parameters with values not in format <code class="codeinline">YYYY-MM-DD</code></td>
+<td>HTTP Status 400 with problem description</td>
+</tr>
+<tr>
+<td>Too few search parameters</td>
+<td>Any invalid combination of query parameters</td>
+<td>HTTP Status 400 with problem description</td>
+</tr>
+</tbody>
+</table>
+<p>You can try out the sandbox using the &quot;Try this API&quot; feature on the right hand side of this page.</p>
+<p>Alternatively, you can try out the sandbox using our Postman collection:</p>
+<p><a href="https://app.getpostman.com/run-collection/97e8db28d4f7264446fe"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
+</p>
+                                            <p></p>
+                                            <br />
+                                            <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/Patient</span></code></pre>
+
+                                            <h2>Request</h2>
+
+
+                                                <div class="methodsubtabletitle">Headers</div>
+                                                <table id="methodsubtable">
+                                                    <tr>
+                                                        <th width="150px">Name</th>
+                                                        <th>Description</th>
+                                                    </tr>
+                                                        <tr><td style="width:150px;">NHSD-Session-URID</td>
+                                                        <td>
+                                                        
+                                                        
+                                                            <div id="d2e199_searchPatient_nHSDSessionURID">
+                                                                <div class="json-schema-view">
+                                                                    <div class="primitive">
+                                                                        <span class="type">
+                                                                            String
+                                                                        </span>
+                                                        
+                                                                            <div class="inner description">
+                                                                                <p>A User Role ID (URID), also known as a User Role Profile ID (URPID), specifies the role the user is acting in.</p>
+<p>A URID belongs to a user (they are not generic) and a user may have more than one.</p>
+<p>Find out more about <a href="https://digital.nhs.uk/developer/user-restricted-restful-apis#user-completes-authentication-and-authorisation">User role ID</a></p>
+<p>Note: This parameter is required unless interacting with the Sandbox.</p>
+
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        </tr>
+                                                        <tr><td style="width:150px;">Authorization</td>
+                                                        <td>
+                                                        
+                                                        
+                                                            <div id="d2e199_searchPatient_authorization">
+                                                                <div class="json-schema-view">
+                                                                    <div class="primitive">
+                                                                        <span class="type">
+                                                                            String
+                                                                        </span>
+                                                                            <span class="format">
+                                                                                (^Bearer\ [[:ascii:]]+$)
+                                                                            </span>
+                                                        
+                                                                            <div class="inner description">
+                                                                                <p>An OAuthV2 access token presented in Bearer format.</p>
+<p>Note: This parameter is required unless interacting with the Sandbox.</p>
+
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        </tr>
+                                                </table>
+
+
+
+                                                <div class="methodsubtabletitle">Query parameters</div>
+                                                <table id="methodsubtable">
+                                                    <tr>
+                                                        <th width="150px">Name</th>
+                                                        <th>Description</th>
+                                                    </tr>
+                                                        <tr><td style="width:150px;">_exact-match</td>
+                                                        <td>
+                                                        
+                                                        
+                                                            <div id="d2e199_searchPatient_exactMatch">
+                                                                <div class="json-schema-view">
+                                                                    <div class="primitive">
+                                                                        <span class="type">
+                                                                            Boolean
+                                                                        </span>
+                                                        
+                                                                            <div class="inner description">
+                                                                                The search only returns results where the `score` field is 1.0.
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        </tr>
+                                                        <tr><td style="width:150px;">_history</td>
+                                                        <td>
+                                                        
+                                                        
+                                                            <div id="d2e199_searchPatient_history">
+                                                                <div class="json-schema-view">
+                                                                    <div class="primitive">
+                                                                        <span class="type">
+                                                                            Boolean
+                                                                        </span>
+                                                        
+                                                                            <div class="inner description">
+                                                                                The search looks for matches in historic information such as previous names and addresses.
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        </tr>
+                                                        <tr><td style="width:150px;">_fuzzy-match</td>
+                                                        <td>
+                                                        
+                                                        
+                                                            <div id="d2e199_searchPatient_fuzzyMatch">
+                                                                <div class="json-schema-view">
+                                                                    <div class="primitive">
+                                                                        <span class="type">
+                                                                            Boolean
+                                                                        </span>
+                                                        
+                                                                            <div class="inner description">
+                                                                                A fuzzy search is performed, including checks for homophones and transposed names.
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        </tr>
+                                                        <tr><td style="width:150px;">_max-results</td>
+                                                        <td>
+                                                        
+                                                        
+                                                            <div id="d2e199_searchPatient_maxResults">
+                                                                <div class="json-schema-view">
+                                                                    <div class="primitive">
+                                                                        <span class="type">
+                                                                            Integer
+                                                                        </span>
+                                                                            <span class="format">
+                                                                                (int32)
+                                                                            </span>
+                                                        
+                                                                            <div class="inner description">
+                                                                                The maximum number of results to return between 1 and 50. The default is 50.
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        </tr>
+                                                        <tr><td style="width:150px;">family</td>
+                                                        <td>
+                                                        
+                                                        
+                                                            <div id="d2e199_searchPatient_family">
+                                                                <div class="json-schema-view">
+                                                                    <div class="primitive">
+                                                                        <span class="type">
+                                                                            String
+                                                                        </span>
+                                                        
+                                                                            <div class="inner description">
+                                                                                The patient's family name (surname).
+
+Must be [URL encoded](https://en.wikipedia.org/wiki/Percent-encoding). For example a space must be represented by either `%20` or `+`.
+
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        </tr>
+                                                        <tr><td style="width:150px;">given</td>
+                                                        <td>
+                                                        
+                                                        
+                                                            <div id="d2e199_searchPatient_given">
+                                                                <div class="json-schema-view">
+                                                                    <div class="primitive">
+                                                                        <span class="type">
+                                                                            String
+                                                                        </span>
+                                                        
+                                                                            <div class="inner description">
+                                                                                The patient's given name.
+
+Must be [URL encoded](https://en.wikipedia.org/wiki/Percent-encoding). For example a space must be represented by either `%20` or `+`.
+
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        </tr>
+                                                        <tr><td style="width:150px;">gender</td>
+                                                        <td>
+                                                        
+                                                        
+                                                            <div id="d2e199_searchPatient_gender">
+                                                                <div class="json-schema-view">
+                                                                    <div class="primitive">
+                                                                        <span class="type">
+                                                                            String
+                                                                        </span>
+                                                        
+                                                                            <div class="inner description">
+                                                                                Gender with which the patient most strongly identifies.
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        </tr>
+                                                        <tr><td style="width:150px;">birthdate</td>
+                                                        <td>
+                                                        
+                                                        
+                                                            <div id="d2e199_searchPatient_birthdate">
+                                                                <div class="json-schema-view">
+                                                                    <div class="primitive">
+                                                                        <span class="type">
+                                                                            array[String]
+                                                                        </span>
+                                                        
+                                                                            <div class="inner description">
+                                                                                Date of birth in the format `<eq|ge|le>yyyy-mm-dd`. To specify a range, use `birthdate=geyyyy-mm-dd&birthdate=leyyyy-mm-dd`.
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        </tr>
+                                                        <tr><td style="width:150px;">death-date</td>
+                                                        <td>
+                                                        
+                                                        
+                                                            <div id="d2e199_searchPatient_deathDate">
+                                                                <div class="json-schema-view">
+                                                                    <div class="primitive">
+                                                                        <span class="type">
+                                                                            date
+                                                                        </span>
+                                                                            <span class="format">
+                                                                                (date)
+                                                                            </span>
+                                                        
+                                                                            <div class="inner description">
+                                                                                Date of death in the format `<eq|ge|le>yyyy-mm-dd`. To specify a range, use `death-date=geyyyy-mm-dd&death-date=leyyyy-mm-dd`.
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        </tr>
+                                                        <tr><td style="width:150px;">address-postcode</td>
+                                                        <td>
+                                                        
+                                                        
+                                                            <div id="d2e199_searchPatient_addressPostcode">
+                                                                <div class="json-schema-view">
+                                                                    <div class="primitive">
+                                                                        <span class="type">
+                                                                            String
+                                                                        </span>
+                                                        
+                                                                            <div class="inner description">
+                                                                                The postcode of any of the patient’s known addresses. White spaces in postcodes are not significant; that is, LS16AE and LS1 6AE will both match LS1 6AE.
+
+Must be [URL encoded](https://en.wikipedia.org/wiki/Percent-encoding). For example a space must be represented by either `%20` or `+`.
+
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        </tr>
+                                                        <tr><td style="width:150px;">general-practitioner</td>
+                                                        <td>
+                                                        
+                                                        
+                                                            <div id="d2e199_searchPatient_generalPractitioner">
+                                                                <div class="json-schema-view">
+                                                                    <div class="primitive">
+                                                                        <span class="type">
+                                                                            String
+                                                                        </span>
+                                                        
+                                                                            <div class="inner description">
+                                                                                The Organisation Data Service (ODS) code of the patient's registered GP practice.
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        </tr>
+                                                </table>
+
+                                            <h2>Response</h2>
+                                                <h3> Status: 200 - A completed search, containing zero, one, or many matching patients. </h3>
+
+                                                <ul class="nav nav-tabs nav-tabs-examples" >
+                                                        <li class="active">
+                                                            <a data-toggle="tab" href="#responses-searchPatient-200-schema">Schema</a>
+                                                        </li>
+
+                                                </ul>
+
+                                                <div class="tab-content" style='margin-bottom: 10px;'>
+                                                        <div class="tab-pane active" id="responses-searchPatient-200-schema">
+                                                            <div id='responses-searchPatient-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+
+                                                            </div>
+                                                            <input id='responses-searchPatient-200-schema-data' type='hidden' value=''></input>
+                                                        </div>
+                                                </div>
+
+                                                <h3> Status: 400 - Invalid search paramaters supplied. </h3>
+
+                                                <ul class="nav nav-tabs nav-tabs-examples" >
+                                                        <li class="active">
+                                                            <a data-toggle="tab" href="#responses-searchPatient-400-schema">Schema</a>
+                                                        </li>
+
+                                                </ul>
+
+                                                <div class="tab-content" style='margin-bottom: 10px;'>
+                                                        <div class="tab-pane active" id="responses-searchPatient-400-schema">
+                                                            <div id='responses-searchPatient-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+
+                                                            </div>
+                                                            <input id='responses-searchPatient-400-schema-data' type='hidden' value=''></input>
+                                                        </div>
+                                                </div>
+
+                                        </article>
+                                    </div>
+                                    <div id="api-Patients-updatePatientPartial" class="article-section-with-sub-heading">
+                                        <article id="api-Patients-updatePatientPartial-0" data-group="User" data-name="updatePatientPartial" data-version="0">
+                                            <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
+                                            <h2>Update a patient's resource<a onclick="tryEndpointNow('/Patients/update_patient_partial')" class="ctabtn-left ctabtn--nhs-digital-button ctabtn--nhs-digital-button--try-it-now" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></h2>
+
+                                            <p><h2>Overview</h2>
+<p>Use this endpoint to update patient details in PDS.</p>
+<p>This is a 'patch' operation - you can update specific parts of the patient record, such as name or gender, without having to update the entire record.
+The update is asynchronous - this endpoint returns a confirmation that your request has been received, along with a URL which you can poll to confirm that the update has completed.</p>
+<p>See the overview page to understand what data can be updated with this API in its current form.</p>
+<h2>Patient resource versioning</h2>
+<p>To update a patient's resource you must have retrieved it first.</p>
+<p>When you retrieve a patient resource, you get a version number for the resource (in the <code class="codeinline">ETag</code> response header and in the <code class="codeinline">versionId</code> field in the response).</p>
+<p>You must then pass the resource's version number in the update request (in the <code class="codeinline">If-Match</code> response header).</p>
+<p>The update will only succeed if the patient resource has not been updated in our database in the meantime.</p>
+<p>If the update succeeds, on polling the outcome, you will receive a copy of the update resource in the response, including the new resource version number.</p>
+<p>If you make a subsequent update you must use the new version number.</p>
+<h2>JSON Patch</h2>
+<p>To update a patient a <a href="https://tools.ietf.org/html/rfc6902">JSON Patch</a> should be sent. A JSON Patch consists of one or more patch objects within a list.</p>
+<p>It is recommended that all desired updates are sent together in a single request as a list of patches.
+This is the most efficient approach and will reduce the danger of race conditions occurring when updating the patient multiple times in a short period of time.</p>
+<p>When processing the list of patch objects, each patch must be valid and pass all the business rules against the data. If one patch object fails, none of the patch objects will be applied.</p>
+<p>A patch object consists of:</p>
+<ul>
+<li>an operation, <code class="codeinline">op</code> - this is required.</li>
+<li>a path to the data that you want to change, <code class="codeinline">path</code> - this is required.</li>
+<li>the value that will be assigned, <code class="codeinline">value</code> - this is required for <code class="codeinline">add</code>, <code class="codeinline">replace</code> and <code class="codeinline">test</code>; but should not be included for a <code class="codeinline">remove</code>.</li>
+</ul>
+<p>The following operations are supported:</p>
+<ul>
+<li><code class="codeinline">add</code> - to add a new value.</li>
+<li><code class="codeinline">replace</code> - to replace an existing value.</li>
+<li><code class="codeinline">remove</code> - to remove an existing value.</li>
+<li><code class="codeinline">test</code> - to test the state of a value is as expected before continuing with the update.</li>
+</ul>
+<p>Paths point to a single value, list or object, for example:</p>
+<ul>
+<li><code class="codeinline">/gender</code> - pointing to the gender value.</li>
+<li><code class="codeinline">/name</code> - point to the name list.</li>
+<li><code class="codeinline">/name/0</code> - pointing to the 1st object in the name list.</li>
+<li><code class="codeinline">/address/0/line/1</code> - pointing to the 2nd line string in the 1st address object.</li>
+</ul>
+<p>The value can be set to any valid value for that path, so could be a null, a string, an object or a list.</p>
+<h3>Addition</h3>
+<p><code class="codeinline">add</code> should be used to add new items to a patient.</p>
+<p>Adding a simple data item such as the date of death can be done using a patch such as:</p>
+<pre><code class="language-json">{
+    &quot;patches&quot;: [
+      { &quot;op&quot;: &quot;add&quot;, &quot;path&quot;: &quot;/deceasedDate&quot;, &quot;value&quot;: &quot;2020-01-01&quot; }
+  ]
+}
+</code></pre>
+<p>Adding to a list such as a <code class="codeinline">name</code> should be done by including the whole object in the value field. Note, the list index is <code class="codeinline">-</code> this is because when adding to a list as the index will not be known:</p>
+<pre><code class="language-json">{
+    &quot;patches&quot;: [
+      {
+            &quot;op&quot;: &quot;add&quot;,
+            &quot;path&quot;: &quot;/name/-&quot;,
+            &quot;value&quot;: {
+                &quot;use&quot;: &quot;usual&quot;,
+                &quot;period&quot;: { &quot;start&quot;: &quot;2019-12-31&quot; },
+                &quot;prefix&quot;: [&quot;Dr&quot;],
+                &quot;given&quot;: [
+                  &quot;Joe&quot;,
+                  &quot;Horation&quot;,
+                  &quot;Maximus&quot;
+                ],
+                &quot;family&quot;: &quot;Bloggs&quot;,
+                &quot;suffix&quot;: [&quot;PhD&quot;]
+            }
+        }
+  ]
+}
+</code></pre>
+<p>When adding a base level list item such as a new name or address, ensure the index is always <code class="codeinline">-</code>, otherwise the request will be rejected. For example, <code class="codeinline">/name/-</code>.
+The reason for this is because the backend system will make the decision on the ordering of the listed objects to ensure they are always returned in the same order.</p>
+<p>If you are adding to a sub-element that is a list, such as an additional given name, it is valid to provide an exact index. So the following is valid:</p>
+<pre><code class="language-json">{
+  &quot;patches&quot;: [
+    {
+      &quot;op&quot;: &quot;add&quot;, &quot;path&quot;: &quot;/name/0/id&quot;, &quot;value&quot;: &quot;8F8B957D&quot;,
+      &quot;op&quot;: &quot;add&quot;, &quot;path&quot;: &quot;/name/0/given/0&quot;, &quot;value&quot;: &quot;Rose&quot;
+    }
+  ]
+}
+</code></pre>
+<p>If is possible to <code class="codeinline">add</code> a sub-element to an existing object in a patch request. If the object already exists and you have the object <code class="codeinline">id</code>, you must supply it or the update will be rejected.
+The following patch is allowed:</p>
+<pre><code class="language-json">{
+  &quot;patches&quot;: [
+    {
+      &quot;op&quot;: &quot;add&quot;, &quot;path&quot;: &quot;/name/0/id&quot;, &quot;value&quot;: &quot;8F8B957D&quot;,
+      &quot;op&quot;: &quot;add&quot;, &quot;path&quot;: &quot;/name/0/given/-&quot;, &quot;value&quot;: &quot;Rose&quot;
+    }
+  ]
+}
+</code></pre>
+<p>but the following is not allowed:</p>
+<pre><code class="language-json">{
+  &quot;patches&quot;: [
+    {
+      &quot;op&quot;: &quot;add&quot;, &quot;path&quot;: &quot;/name/0/given/-&quot;, &quot;value&quot;: &quot;Rose&quot;
+    }
+  ]
+}
+</code></pre>
+<h3>Replacing</h3>
+<p><code class="codeinline">replace</code> should be used to alter existing items on the patient.</p>
+<p>Replacing a simple data item such as the gender can be done using a patch such as:</p>
+<pre><code class="language-json">{
+    &quot;patches&quot;: [
+      { &quot;op&quot;: &quot;replace&quot;, &quot;path&quot;: &quot;/gender&quot;, &quot;value&quot;: &quot;male&quot; }
+  ]
+}
+</code></pre>
+<p>Replacing a list item can be done in two ways which may be dependent on any external development libraries that can be used to create the patch.</p>
+<p>The first approach is to replace the whole list item:</p>
+<pre><code class="language-json">{
+    &quot;patches&quot;: [
+      {
+            &quot;op&quot;: &quot;replace&quot;,
+            &quot;path&quot;: &quot;/name/0&quot;,
+            &quot;value&quot;: {
+                &quot;id&quot;: &quot;123&quot;,
+                &quot;use&quot;: &quot;usual&quot;,
+                &quot;period&quot;: { &quot;start&quot;: &quot;2019-12-31&quot; },
+                &quot;prefix&quot;: [&quot;Dr&quot;],
+                &quot;given&quot;: [
+                  &quot;Joe&quot;,
+                  &quot;Horation&quot;,
+                  &quot;Maximus&quot;
+                ],
+                &quot;family&quot;: &quot;Bloggs&quot;,
+                &quot;suffix&quot;: [&quot;PhD&quot;]
+            }
+        }
+  ]
+}
+</code></pre>
+<p>The second approach is to replace just a part, or parts, of the list object keys if all others will remain the same:</p>
+<pre><code class="language-json">{
+    &quot;patches&quot;: [
+      { &quot;op&quot;: &quot;replace&quot;, &quot;path&quot;: &quot;/name/0/id&quot;, &quot;value&quot;: &quot;123&quot; },
+      { &quot;op&quot;: &quot;replace&quot;, &quot;path&quot;: &quot;/name/0/prefix/0&quot;, &quot;value&quot;: &quot;Mr&quot; },
+      { &quot;op&quot;: &quot;replace&quot;, &quot;path&quot;: &quot;/name/0/family&quot;, &quot;value&quot;: &quot;Smith&quot; }
+    ]
+}
+</code></pre>
+<p>An added requirement to ensure no accidental data loss or replacement of the wrong list item, you must always include the list <code class="codeinline">id</code> or <code class="codeinline">url</code>. This will be in the object on retrieval so just needs to be mirrored back. You should not include an ID on an addition as this will be automatically generated by the system and is a unique object ID, so only our system can guarantee that.</p>
+<h3>Removal</h3>
+<p><code class="codeinline">remove</code> should be used to delete existing items on a patient.</p>
+<p>Removing a simple data item such as the gender can be done using a patch such as:</p>
+<pre><code class="language-json">{
+    &quot;patches&quot;: [
+      { &quot;op&quot;: &quot;remove&quot;, &quot;path&quot;: &quot;/gender&quot; }
+  ]
+}
+</code></pre>
+<p>Note, that in this scenario, although the patch is perfectly valid, the update will still be rejected as a patients gender cannot be removed.</p>
+<p>Removing a list item should only be done on the whole item object, not individual sub-items; instead use the replace operation.</p>
+<p>To remove a list item, a <code class="codeinline">test</code> operation must <u>immediately proceed</u> the <code class="codeinline">remove</code> . This is an added requirement to ensure no accidental data loss occurs or the wrong item is removed. The test operation should be used to assert either:</p>
+<ul>
+<li>the <code class="codeinline">id</code> - the object ID for items that have one - for example <code class="codeinline">name</code>, <code class="codeinline">address</code> or <code class="codeinline">telecom</code>.</li>
+<li>the <code class="codeinline">url</code> - the URL for the extension being removed.</li>
+<li>the whole object being removed.</li>
+</ul>
+<p>An example of a list item removal using the <code class="codeinline">id</code> would be:</p>
+<pre><code class="language-json">{
+    &quot;patches&quot;: [
+      { &quot;op&quot;: &quot;test&quot;, &quot;path&quot;: &quot;/name/0/id&quot;, &quot;value&quot;: &quot;123&quot; },
+      { &quot;op&quot;: &quot;remove&quot;, &quot;path&quot;: &quot;/name/0&quot; }
+  ]
+}
+</code></pre>
+<p>An example of a extension list item removal using the <code class="codeinline">url</code> would be:</p>
+<pre><code class="language-json">{
+    &quot;patches&quot;: [
+      { &quot;op&quot;: &quot;test&quot;, &quot;path&quot;: &quot;/extension/0/url&quot;, &quot;value&quot;: &quot;https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-DeathNotificationStatus&quot; },
+      { &quot;op&quot;: &quot;remove&quot;, &quot;path&quot;: &quot;/extension/0&quot; }
+  ]
+}
+</code></pre>
+<p>An example of a list item removal using the whole object would be:</p>
+<pre><code class="language-json">{
+    &quot;patches&quot;: [
+      { 
+            &quot;op&quot;: &quot;test&quot;,
+            &quot;path&quot;: &quot;/name/0&quot;,
+            &quot;value&quot;: {
+                &quot;id&quot;: &quot;123&quot;,
+                &quot;use&quot;: &quot;usual&quot;,
+                &quot;period&quot;: { &quot;start&quot;: &quot;2019-12-31&quot; },
+                &quot;prefix&quot;: [&quot;Dr&quot;],
+                &quot;given&quot;: [
+                  &quot;Joe&quot;,
+                  &quot;Horation&quot;,
+                  &quot;Maximus&quot;
+                ],
+                &quot;family&quot;: &quot;Bloggs&quot;,
+                &quot;suffix&quot;: [&quot;PhD&quot;]
+            }
+        },
+      { &quot;op&quot;: &quot;remove&quot;, &quot;path&quot;: &quot;/name/0&quot; }
+  ]
+}
+</code></pre>
+<p>Special care should be taken when performing multiple removals in the same list; as removing a particular index could affect all subsequent index positions. The next two examples perform <strong><u>exactly</u></strong> the same operation.</p>
+<p>Using the following initial (simplified) data, with the intention of removing the names in index 1 (Irwin) and 2 (Bruce):</p>
+<pre><code class="language-json">{
+    &quot;name&quot;: [
+        {&quot;id&quot;: &quot;2&quot;, &quot;family&quot;: &quot;Parker&quot;},
+        {&quot;id&quot;: &quot;3&quot;, &quot;family&quot;: &quot;Irwin&quot;},
+        {&quot;id&quot;: &quot;4&quot;, &quot;family&quot;: &quot;Bruce&quot;},
+        {&quot;id&quot;: &quot;5&quot;, &quot;family&quot;: &quot;Sharpe&quot;}
+    ]
+}
+</code></pre>
+<p><strong>Example 1</strong>:</p>
+<pre><code class="language-json">{
+    &quot;patches&quot;: [
+      { &quot;op&quot;: &quot;test&quot;, &quot;path&quot;: &quot;/name/1/id&quot;, &quot;value&quot;: &quot;3&quot; }
+      { &quot;op&quot;: &quot;remove&quot;, &quot;path&quot;: &quot;/name/1&quot; },
+      { &quot;op&quot;: &quot;test&quot;, &quot;path&quot;: &quot;/name/1/id&quot;, &quot;value&quot;: &quot;4&quot; }
+      { &quot;op&quot;: &quot;remove&quot;, &quot;path&quot;: &quot;/name/1&quot; }
+  ]
+}
+</code></pre>
+<p>After the 1st removal the data will look like:</p>
+<pre><code class="language-json">{
+    &quot;name&quot;: [
+        {&quot;id&quot;: &quot;2&quot;, &quot;family&quot;: &quot;Parker&quot;},
+        {&quot;id&quot;: &quot;4&quot;, &quot;family&quot;: &quot;Bruce&quot;},
+        {&quot;id&quot;: &quot;5&quot;, &quot;family&quot;: &quot;Sharpe&quot;}
+    ]
+}
+</code></pre>
+<p>meaning Irwin has been removed, Bruce has moved from index 2 -&gt; 1 and Sharpe from 3 -&gt; 2.</p>
+<p>So after applying the 2nd removal the data will look like:</p>
+<pre><code class="language-json">{
+    &quot;name&quot;: [
+        {&quot;id&quot;: &quot;2&quot;, &quot;family&quot;: &quot;Parker&quot;},
+        {&quot;id&quot;: &quot;5&quot;, &quot;family&quot;: &quot;Sharpe&quot;}
+    ]
+}
+</code></pre>
+<p>Which is the intended outcome. Using the same index 1 for both removals may look unexpected, but the way JSON Patch works is iterating over each patch operation in turn and making the change to the list index positions. This means a developer needs to account for lists changing from one operation to the next.</p>
+<p><strong>Example 2</strong>:</p>
+<pre><code class="language-json">{
+    &quot;patches&quot;: [
+      { &quot;op&quot;: &quot;test&quot;, &quot;path&quot;: &quot;/name/2/id&quot;, &quot;value&quot;: &quot;4&quot; }
+      { &quot;op&quot;: &quot;remove&quot;, &quot;path&quot;: &quot;/name/2&quot; },
+      { &quot;op&quot;: &quot;test&quot;, &quot;path&quot;: &quot;/name/1/id&quot;, &quot;value&quot;: &quot;3&quot; }
+      { &quot;op&quot;: &quot;remove&quot;, &quot;path&quot;: &quot;/name/1&quot; }
+  ]
+}
+</code></pre>
+<p>After the 1st removal the data will look like:</p>
+<pre><code class="language-json">{
+    &quot;name&quot;: [
+        {&quot;id&quot;: &quot;2&quot;, &quot;family&quot;: &quot;Parker&quot;},
+        {&quot;id&quot;: &quot;3&quot;, &quot;family&quot;: &quot;Irwin&quot;},
+        {&quot;id&quot;: &quot;5&quot;, &quot;family&quot;: &quot;Sharpe&quot;}
+    ]
+}
+</code></pre>
+<p>Applying the 2nd removal the data will look like:</p>
+<pre><code class="language-json">{
+    &quot;name&quot;: [
+        {&quot;id&quot;: &quot;2&quot;, &quot;family&quot;: &quot;Parker&quot;},
+        {&quot;id&quot;: &quot;5&quot;, &quot;family&quot;: &quot;Sharpe&quot;}
+    ]
+}
+</code></pre>
+<p>Which is the intended outcome. Providing the patches with the indexes descending means that the list stays in a stable format the whole way through as the only changes to the index positions are items have been passed over already.</p>
+<p><strong>Example 3 - a failure</strong></p>
+<pre><code class="language-json">{
+    &quot;patches&quot;: [
+      { &quot;op&quot;: &quot;test&quot;, &quot;path&quot;: &quot;/name/1/id&quot;, &quot;value&quot;: &quot;3&quot; },
+      { &quot;op&quot;: &quot;remove&quot;, &quot;path&quot;: &quot;/name/1&quot; },
+      { &quot;op&quot;: &quot;test&quot;, &quot;path&quot;: &quot;/name/2/id&quot;, &quot;value&quot;: &quot;4&quot; },
+      { &quot;op&quot;: &quot;remove&quot;, &quot;path&quot;: &quot;/name/2&quot; }
+  ]
+}
+</code></pre>
+<p>After the 1st removal the data will look like:</p>
+<pre><code class="language-json">{
+    &quot;name&quot;: [
+        {&quot;id&quot;: &quot;2&quot;, &quot;family&quot;: &quot;Parker&quot;},
+        {&quot;id&quot;: &quot;4&quot;, &quot;family&quot;: &quot;Bruce&quot;},
+        {&quot;id&quot;: &quot;5&quot;, &quot;family&quot;: &quot;Sharpe&quot;}
+    ]
+}
+</code></pre>
+<p>When applying the 2nd test, it will fail as the index 2 ID is <code class="codeinline">5</code>, but the test was looking for <code class="codeinline">4</code>. An error will be returned and none of the updates provided would be made to the database.</p>
+<p>This failure example is a good reason for forcing the use of the <code class="codeinline">test</code> operation. If there was no test, index 2 would have been blindly removed, meaning the final state of the data would look like:</p>
+<pre><code class="language-json">{
+    &quot;name&quot;: [
+        {&quot;id&quot;: &quot;2&quot;, &quot;family&quot;: &quot;Parker&quot;},
+        {&quot;id&quot;: &quot;4&quot;, &quot;family&quot;: &quot;Bruce&quot;}
+    ]
+}
+</code></pre>
+<p>Which is incorrect, as Irwin and Sharpe were removed instead of Irwin and Bruce.</p>
+<h2>Patient data fields</h2>
+<h3>Communication</h3>
+<p>Single item found under <code class="codeinline">extension</code> with the extension URL <code class="codeinline">https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-NHSCommunication</code>.</p>
+<p>In a JSON Patch request the path should be:</p>
+<ul>
+<li><code class="codeinline">/extension/0</code> if the communication extension is the first item in the list. If it is the second item in the list the path will be <code class="codeinline">/extension/1</code>, and so on.</li>
+<li><code class="codeinline">/extension/-</code> when adding a communication extension.</li>
+</ul>
+<p>There are a number of business rules that should be taken into account:</p>
+<ul>
+<li>preferred language must not be supplied where it is English even though the <a href="https://fhir.nhs.uk/R4/CodeSystem/UKCore-HumanLanguage">code list</a> contains a value for English (en).</li>
+<li>any language codes outside the accepted list will be rejected; such as local system <code class="codeinline">qa</code> codes.</li>
+</ul>
+<h3>Contact preferences</h3>
+<p>Single item found under <code class="codeinline">extension</code> with the extension URL <code class="codeinline">https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-ContactPreference</code>.</p>
+<p>In a JSON Patch request the path should be:</p>
+<ul>
+<li><code class="codeinline">/extension/0</code> if the contact preference is the first item in the list. If it is the second item in the list the path will be <code class="codeinline">/extension/1</code>, and so on.</li>
+<li><code class="codeinline">/extension/-</code> when adding a contact preference.</li>
+</ul>
+<p>There are a number of business rules that should be taken into account:</p>
+<ul>
+<li>a patient can have <code class="codeinline">0</code> or <code class="codeinline">1</code> contact preference.</li>
+<li>preferred contact time is a free-text field limited to 40 characters.</li>
+<li>where a contact time is specified a contact method must also exist.</li>
+</ul>
+<h3>Date of birth</h3>
+<p>Single item found under <code class="codeinline">birthDate</code> field.</p>
+<p>In a JSON Patch request the path should be <code class="codeinline">/birthDate</code>.</p>
+<p>When adding or updating the birth date, the update should be in the format <code class="codeinline">yyyy-mm-dd</code>.</p>
+<p>There are a number of business rules that should be taken into account:</p>
+<ul>
+<li>cannot be removed.</li>
+<li>cannot be a date in the future.</li>
+<li>cannot be after the deceased date, if present.</li>
+</ul>
+<h3>Date of death</h3>
+<p>Single item found under <code class="codeinline">deceasedDateTime</code> field.</p>
+<p>In a JSON Patch request the path should be <code class="codeinline">/deceasedDateTime</code>.</p>
+<p>When adding or updating the deceased date time, the update should be in the format <code class="codeinline">yyyy-mm-ddTHH:MM:SS+HH:MM</code>.</p>
+<p>There are a number of business rules that should be taken into account:</p>
+<ul>
+<li>cannot be removed.</li>
+<li>cannot be a date in the future.</li>
+<li>cannot be before the birth date.</li>
+<li>cannot be replaced if the death notification status is 2 (formal).</li>
+<li>when adding date of death, a death notification status must also be added.</li>
+</ul>
+<h3>Death notification</h3>
+<p>Single item found under <code class="codeinline">extension</code> with the extension URL <code class="codeinline">https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-DeathNotificationStatus</code>.</p>
+<p>In a JSON Patch request the path should be:</p>
+<ul>
+<li><code class="codeinline">/extension/0</code> if the death notification is the first item in the list. If it is the second item in the list the path will be <code class="codeinline">/extension/1</code>, and so on.</li>
+<li><code class="codeinline">/extension/-</code> when adding a death notification.</li>
+</ul>
+<p>There are a number of business rules that should be taken into account:</p>
+<ul>
+<li>cannot be removed.</li>
+<li>cannot be replaced if the death notification status is formal (2).</li>
+<li>only certain endpoints can set a death notification of formal (2).</li>
+<li>when adding a death notification, a deceased date time must also be added.</li>
+</ul>
+<h3>Gender</h3>
+<p>Single item found under <code class="codeinline">gender</code> field.</p>
+<p>In a JSON Patch request the path should be <code class="codeinline">/gender</code>.</p>
+<p>When setting a gender, the local system should encourage the user to select <code class="codeinline">male</code> or <code class="codeinline">female</code> rather than <code class="codeinline">unknown</code>.
+The fourth value of gender, <code class="codeinline">other</code>, meaning indeterminate; i.e. unable to be classified as either male or female; should never pro-actively be set by local systems - although this value can be retrieved due to legacy data or data quality issues.</p>
+<p>There are a number of business rules that should be taken into account:</p>
+<ul>
+<li>cannot be removed.</li>
+<li>can only be <code class="codeinline">male</code>, <code class="codeinline">female</code> or <code class="codeinline">unknown</code>.</li>
+<li>cannot set gender to <code class="codeinline">other</code>.</li>
+</ul>
+<h3>General practice</h3>
+<p>List item found under <code class="codeinline">generalPractitioner</code> field. Although only a single general practice is allowed.</p>
+<p>In a JSON Patch request the path should be:</p>
+<ul>
+<li><code class="codeinline">/generalPractitioner/0</code> for replacing or removing the general practice.</li>
+<li><code class="codeinline">/generalPractitioner/-</code> when adding a new general practice.</li>
+</ul>
+<p>There are a number of business rules that should be taken into account:</p>
+<ul>
+<li>only valid GP Practice codes may be used, see <a href="https://developer.nhs.uk/apis/ods/">Organisation Data Service FHIR API</a> for more details on valid codes.</li>
+<li>the business effective <code class="codeinline">start</code> date is optional, however if provided cannot be a future date. If it is not provided it will default to the date of update.</li>
+<li>do not provide a business effective <code class="codeinline">end</code> date.</li>
+<li>the general practice should only be updated by primary care systems, <a href="https://digital.nhs.uk/services/nhais">NHAIS</a> or by the National Back Office.</li>
+<li>removal of a general practice can only be done by <a href="https://digital.nhs.uk/services/nhais">NHAIS</a> or by the National Back Office.</li>
+<li>only a single general practice is supported; emergency, temporary and additional practices must be maintained in the local system only.</li>
+</ul>
+<h2>Multiple birth order</h2>
+<p>Single item found under <code class="codeinline">multipleBirthInteger</code> field.</p>
+<p>In a JSON Patch request the path should be <code class="codeinline">/multipleBirthInteger</code>.</p>
+<p>When adding or updating the birth order, the update should be an integer in the range <code class="codeinline">1</code> - <code class="codeinline">9</code> inclusive. These values have differing meanings:</p>
+<ul>
+<li>1 - 7 indicates the order of birth, with 1 indicating the first or only birth in the sequence, 2 indicating the second birth in the sequence, 3 indicating the third, and so on up to 7.</li>
+<li>8 - <code class="codeinline">Not applicable</code></li>
+<li>9 - <code class="codeinline">Not known</code></li>
+</ul>
+<h3>Name</h3>
+<p>List item found under <code class="codeinline">name</code> field.</p>
+<p>In a JSON Patch request the path should be:</p>
+<ul>
+<li><code class="codeinline">/name/0</code> if the name to be replaced or removed is the first item in the list. If it is the second item in the list the path will be <code class="codeinline">/name/1</code>, and so on.</li>
+<li><code class="codeinline">/name/-</code> when adding a new name.</li>
+</ul>
+<p>There are a number of business rules that should be taken into account:</p>
+<ul>
+<li>cannot add more than one <code class="codeinline">usual</code> name.</li>
+<li>cannot remove the <code class="codeinline">usual</code> name.</li>
+<li>cannot add more than one <code class="codeinline">nickname</code>.</li>
+<li>can have multiple instances of all other name use types.</li>
+<li>cannot replace the use type on an existing name. For example, once a name is a nickname, it cannot be changed directly to an alias. You must instead remove the nickname and add the alias.</li>
+<li>the first character of each <code class="codeinline">suffix</code> item must be <code class="codeinline">A-Z</code>.</li>
+<li>the date period is optional; where present they must a be valid dates and the <code class="codeinline">end</code> date cannot be before the <code class="codeinline">start</code> date.</li>
+<li>supplied name data must be UTF-8 encodable.</li>
+<li>the <code class="codeinline">period</code> is optional, but if included the <code class="codeinline">end</code> date cannot be before the <code class="codeinline">start</code> date. They can however be in the past, present or future.</li>
+<li>the full available range of generally recognised titles are permitted, however, if any of the following are used then the value input must conform to the following format:
+<ul>
+<li>Mr</li>
+<li>Mrs</li>
+<li>Ms</li>
+<li>Dr</li>
+<li>Rev</li>
+<li>Sir</li>
+<li>Lady</li>
+<li>Lord</li>
+</ul>
+</li>
+<li>any trailing full stops at the end of a prefix will be automatically removed; for example <code class="codeinline">Mrs.</code> will be changed to <code class="codeinline">Mrs</code>.</li>
+</ul>
+<h3>Pharmacy</h3>
+<p>Single item found under <code class="codeinline">extension</code> with one of the extension urls:</p>
+<ul>
+<li><code class="codeinline">https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-NominatedPharmacy</code></li>
+<li><code class="codeinline">https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-MedicalApplianceSupplier</code></li>
+<li><code class="codeinline">https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-DispensingDoctor</code></li>
+</ul>
+<p>In a JSON Patch request the path should be:</p>
+<ul>
+<li><code class="codeinline">/extension/0</code> if the pharmacy is the first item in the list. If it is the second item in the list the path will be <code class="codeinline">/extension/1</code>, and so on.</li>
+<li><code class="codeinline">/extension/-</code> when adding a pharmacy.</li>
+</ul>
+<p>There are a number of business rules that should be taken into account:</p>
+<ul>
+<li>multiple pharmacies are allowed, however only one of each type.</li>
+<li>there are no effective date periods, only a single current instance of each type is supported.</li>
+</ul>
+<h2>Place of birth</h2>
+<p>Single item found under <code class="codeinline">extension</code> with the extension URL <code class="codeinline">http://hl7.org/fhir/StructureDefinition/patient-birthPlace</code>.</p>
+<p>In a JSON Patch request the path should be:</p>
+<ul>
+<li><code class="codeinline">/extension/0</code> if the place of birth is the first item in the list. If it is the second item in the list the path will be <code class="codeinline">/extension/1</code>, and so on.</li>
+<li><code class="codeinline">/extension/-</code> when adding a place of birth.</li>
+</ul>
+<p>There are a number of business rules that should be taken into account:</p>
+<ul>
+<li>the three fields, <code class="codeinline">city</code>, <code class="codeinline">district</code> and <code class="codeinline">country</code> are all optional, however at least one of them must be provided.</li>
+<li>country is a coded value and must be in the set of valid values.</li>
+</ul>
+<h2>Sandbox test scenarios</h2>
+<p>You can test the following scenarios in our sandbox environment.</p>
+<p>Things to note when using the sandbox for PATCH:</p>
+<ul>
+<li>Your changes will not be persisted.</li>
+<li>JSON Patch operations themselves are validated, but the resulting resource is not validated for correctness; meaning any business rules are not applied.</li>
+</ul>
+<table data-disablesort="true">
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Request</th>
+<th>Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Successful update</td>
+<td><code class="codeinline">id</code>=<code class="codeinline">9000000009</code><br/><br/>Body: One of the provided examples or your own combination of patches<br/><br/>Headers: <code class="codeinline">If-Match</code>=<code class="codeinline">W/&quot;2&quot;</code>, <code class="codeinline">Content-Type</code>=<code class="codeinline">application/json-patch+json</code></td>
+<td>HTTP Status 202 with the message URL to poll in the <code class="codeinline">Content-Location</code> header</td>
+</tr>
+<tr>
+<td>Patient doesn't exist</td>
+<td><code class="codeinline">id</code>=<code class="codeinline">9111231130</code> (or any other valid NHS Number)</td>
+<td>HTTP Status 404 with problem description</td>
+</tr>
+<tr>
+<td>Invalid NHS Number</td>
+<td><code class="codeinline">id</code>=<code class="codeinline">9000000000</code> (or any invalid NHS Number)</td>
+<td>HTTP Status 400 with problem description</td>
+</tr>
+<tr>
+<td>Missing resource version identifier</td>
+<td><code class="codeinline">If-Match</code> header missing or set to format other than <code class="codeinline">W/&quot;&lt;version&gt;&quot;</code></td>
+<td>HTTP Status 412 with problem description</td>
+</tr>
+<tr>
+<td>Incorrect resource version</td>
+<td><code class="codeinline">If-Match</code>=<code class="codeinline">W/&quot;1&quot;</code></td>
+<td>HTTP Status 412 with problem description</td>
+</tr>
+<tr>
+<td>Wrong content type</td>
+<td><code class="codeinline">Content-Type</code> header missing or other than <code class="codeinline">application/json-patch+json</code></td>
+<td>HTTP Status 400 with problem description</td>
+</tr>
+<tr>
+<td>No patches sent</td>
+<td>Send body with no <code class="codeinline">patches</code> attribute</td>
+<td>HTTP Status 400 with problem description</td>
+</tr>
+<tr>
+<td>Invalid patch operations</td>
+<td>Send body with invalid JSON patches in <code class="codeinline">patches</code> attribute</td>
+<td>HTTP Status 400 with problem description</td>
+</tr>
+</tbody>
+</table>
+<p>You can try out the sandbox using the &quot;Try this API&quot; feature on the right hand side of this page.</p>
+<p>Alternatively, you can try out the sandbox using our Postman collection:</p>
+<p><a href="https://app.getpostman.com/run-collection/97e8db28d4f7264446fe"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
+</p>
+                                            <p></p>
+                                            <br />
+                                            <pre class="prettyprint language-html prettyprinted" data-type="patch"><code><span class="pln">/Patient/{id}</span></code></pre>
+
+                                            <h2>Request</h2>
+
+                                                <div class="methodsubtabletitle">Path parameters</div>
+                                                <table id="methodsubtable">
+                                                    <tr>
+                                                        <th width="150px">Name</th>
+                                                        <th>Description</th>
+                                                    </tr>
+                                                        <tr><td style="width:150px;">id*</td>
+                                                        <td>
+                                                        
+                                                        
+                                                            <div id="d2e199_updatePatientPartial_id">
+                                                                <div class="json-schema-view">
+                                                                    <div class="primitive">
+                                                                        <span class="type">
+                                                                            String
+                                                                        </span>
+                                                        
+                                                                            <div class="inner description">
+                                                                                The patient's NHS Number. The primary identifier of a patient, unique within NHS England and Wales. Always 10 digits and must be a <a href="https://www.datadictionary.nhs.uk/data_dictionary/attributes/n/nhs/nhs_number_de.asp">valid NHS Number</a>.
+                                                                            </div>
+                                                                    </div>
+                                                                        <div class="inner required">
+                                                                            Required
+                                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        </tr>
+                                                </table>
+
+                                                <div class="methodsubtabletitle">Headers</div>
+                                                <table id="methodsubtable">
+                                                    <tr>
+                                                        <th width="150px">Name</th>
+                                                        <th>Description</th>
+                                                    </tr>
+                                                        <tr><td style="width:150px;">If-Match*</td>
+                                                        <td>
+                                                        
+                                                        
+                                                            <div id="d2e199_updatePatientPartial_ifMatch">
+                                                                <div class="json-schema-view">
+                                                                    <div class="primitive">
+                                                                        <span class="type">
+                                                                            String
+                                                                        </span>
+                                                        
+                                                                            <div class="inner description">
+                                                                                Latest known version identifier enclosed in quotes preceded by `W/`.
+
+Send the value of this resource's `ETag` response header (or `meta.versionId` property) as received.
+
+                                                                            </div>
+                                                                    </div>
+                                                                        <div class="inner required">
+                                                                            Required
+                                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        </tr>
+                                                        <tr><td style="width:150px;">NHSD-Session-URID</td>
+                                                        <td>
+                                                        
+                                                        
+                                                            <div id="d2e199_updatePatientPartial_nHSDSessionURID">
+                                                                <div class="json-schema-view">
+                                                                    <div class="primitive">
+                                                                        <span class="type">
+                                                                            String
+                                                                        </span>
+                                                        
+                                                                            <div class="inner description">
+                                                                                <p>A User Role ID (URID), also known as a User Role Profile ID (URPID), specifies the role the user is acting in.</p>
+<p>A URID belongs to a user (they are not generic) and a user may have more than one.</p>
+<p>Find out more about <a href="https://digital.nhs.uk/developer/user-restricted-restful-apis#user-completes-authentication-and-authorisation">User role ID</a></p>
+<p>Note: This parameter is required unless interacting with the Sandbox.</p>
+
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        </tr>
+                                                        <tr><td style="width:150px;">Authorization</td>
+                                                        <td>
+                                                        
+                                                        
+                                                            <div id="d2e199_updatePatientPartial_authorization">
+                                                                <div class="json-schema-view">
+                                                                    <div class="primitive">
+                                                                        <span class="type">
+                                                                            String
+                                                                        </span>
+                                                                            <span class="format">
+                                                                                (^Bearer\ [[:ascii:]]+$)
+                                                                            </span>
+                                                        
+                                                                            <div class="inner description">
+                                                                                <p>An OAuthV2 access token presented in Bearer format.</p>
+<p>Note: This parameter is required unless interacting with the Sandbox.</p>
+
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        </tr>
+                                                </table>
+
+                                                <div class="methodsubtabletitle">Body</div>
+                                                <table id="methodsubtable">
+                                                    <tr>
+                                                        <th width="150px">Name</th>
+                                                        <th>Description</th>
+                                                    </tr>
+                                                        <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
+                                                        <td>
+                                                        
+                                                        
+                                                        <script>
+                                                        $(document).ready(function() {
+                                                          var schemaWrapper = {
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "required" : [ "patches" ],
+        "type" : "object",
+        "properties" : {
+          "patches" : {
+            "type" : "array",
+            "items" : {
+              "required" : [ "op", "path" ],
+              "type" : "object",
+              "properties" : {
+                "op" : {
+                  "type" : "string",
+                  "enum" : [ "remove", "add", "replace", "test" ]
+                },
+                "path" : {
+                  "type" : "string",
+                  "description" : "The location of the information to remove, add or replace. The '-' character must be used to add new items to arrays, e.g. names, addresses.",
+                  "format" : "jsonpointer",
+                  "externalDocs" : {
+                    "description" : "IETF RFC 6901 JavaScript Object Notation (JSON) Pointer.",
+                    "url" : "https://tools.ietf.org/html/rfc6901"
+                  }
+                },
+                "value" : {
+                  "description" : "The information to be added or replaced. Should not be included on a remove.",
+                  "oneOf" : [ {
+                    "type" : "string"
+                  }, {
+                    "type" : "integer"
+                  }, {
+                    "type" : "object"
+                  } ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "examples" : {
+        "add-deceased-date-time" : {
+          "summary" : "Add a new single item (deceasedDateTime) to the patient",
+          "value" : {
+            "patches" : [ {
+              "op" : "add",
+              "path" : "/deceasedDateTime",
+              "value" : "2010-10-22T00:00:00+00:00"
+            } ]
+          }
+        },
+        "add-name" : {
+          "summary" : "Add a new list item (name) to the patient",
+          "value" : {
+            "patches" : [ {
+              "op" : "add",
+              "path" : "/name/-",
+              "value" : {
+                "use" : "usual",
+                "period" : {
+                  "start" : "2019-12-31"
+                },
+                "prefix" : [ "Dr" ],
+                "given" : [ "Joe", "Horation", "Maximus" ],
+                "family" : "Bloggs",
+                "suffix" : [ "PhD" ]
+              }
+            } ]
+          }
+        },
+        "add-extension" : {
+          "summary" : "Add a an extension (nominated pharmacy) to the Patient",
+          "value" : {
+            "patches" : [ {
+              "op" : "add",
+              "path" : "/extension/-",
+              "value" : {
+                "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-NominatedPharmacy",
+                "valueReference" : {
+                  "reference" : "https://directory.spineservices.nhs.uk/STU3/Organization/Y12345",
+                  "identifier" : {
+                    "system" : "https://fhir.nhs.uk/Id/ods-organization-code",
+                    "value" : "Y12345",
+                    "period" : {
+                      "start" : "2020-01-01",
+                      "end" : "2021-12-31"
+                    }
+                  }
+                }
+              }
+            } ]
+          }
+        },
+        "update-gender" : {
+          "summary" : "Update the simple item (gender)",
+          "value" : {
+            "patches" : [ {
+              "op" : "replace",
+              "path" : "/gender",
+              "value" : "male"
+            } ]
+          }
+        },
+        "update-address" : {
+          "summary" : "Update specific fields on a list item (address)",
+          "value" : {
+            "patches" : [ {
+              "op" : "replace",
+              "path" : "/address/0/line/0",
+              "value" : "2 Whitehall Quay"
+            }, {
+              "op" : "replace",
+              "path" : "/address/0/postalCode",
+              "value" : "LS1 4BU"
+            } ]
+          }
+        },
+        "update-address-alternative" : {
+          "summary" : "Update whole object on a list item (address)",
+          "value" : {
+            "patches" : [ {
+              "op" : "replace",
+              "path" : "/address/0",
+              "value" : {
+                "id" : "456",
+                "period" : {
+                  "start" : "2020-01-01",
+                  "end" : "2021-12-31"
+                },
+                "use" : "home",
+                "line" : [ "2 Whitehall Quay", "Leeds", "West Yorkshire" ],
+                "postalCode" : "LS1 4BU",
+                "extension" : [ {
+                  "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-AddressKey",
+                  "extension" : [ {
+                    "url" : "type",
+                    "valueCoding" : {
+                      "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-AddressKeyType",
+                      "code" : "PAF"
+                    }
+                  }, {
+                    "url" : "value",
+                    "valueString" : "9876543"
+                  } ]
+                } ]
+              }
+            } ]
+          }
+        },
+        "update-extension" : {
+          "summary" : "Update an extension (death notification)",
+          "value" : {
+            "patches" : [ {
+              "op" : "replace",
+              "path" : "/extension/3",
+              "value" : {
+                "url" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-DeathNotificationStatus",
+                "extension" : [ {
+                  "url" : "deathNotificationStatus",
+                  "valueCodeableConcept" : {
+                    "coding" : [ {
+                      "system" : "https://fhir.nhs.uk/R4/CodeSystem/UKCore-DeathNotificationStatus",
+                      "version" : "1.0.0",
+                      "code" : "1",
+                      "display" : "Informal - death notice received via an update from a local NHS Organisation such as GP or Trust"
+                    } ]
+                  }
+                } ]
+              }
+            } ]
+          }
+        },
+        "delete-gender" : {
+          "summary" : "Remove a single item (gender) no longer in use",
+          "value" : {
+            "patches" : [ {
+              "op" : "remove",
+              "path" : "/gender"
+            } ]
+          }
+        },
+        "delete-name" : {
+          "summary" : "Remove a list item (name) no longer in use, using test pointing to the name items id",
+          "value" : {
+            "patches" : [ {
+              "op" : "test",
+              "path" : "/name/0/id",
+              "value" : "123"
+            }, {
+              "op" : "remove",
+              "path" : "/name/0"
+            } ]
+          }
+        },
+        "delete-name-alternative" : {
+          "summary" : "Remove a list item (name) no longer in use, using test pointing to the name object",
+          "value" : {
+            "patches" : [ {
+              "op" : "test",
+              "path" : "/name/0",
+              "value" : {
+                "id" : "123",
+                "use" : "usual",
+                "period" : {
+                  "start" : "2020-01-01",
+                  "end" : "2021-12-31"
+                },
+                "given" : [ "Jane" ],
+                "family" : "Smith",
+                "prefix" : [ "Mrs" ],
+                "suffix" : [ "MBE" ]
+              }
+            }, {
+              "op" : "remove",
+              "path" : "/name/0"
+            } ]
+          }
+        },
+        "delete-extension" : {
+          "summary" : "Remove an extension (dispensing doctor pharmacy) no longer in use",
+          "value" : {
+            "patches" : [ {
+              "op" : "test",
+              "path" : "/extension/1/url",
+              "value" : "https://fhir.nhs.uk/R4/StructureDefinition/Extension-UKCore-DispensingDoctor"
+            }, {
+              "op" : "remove",
+              "path" : "/extension/1"
+            } ]
+          }
+        }
+      }
+    }
+  },
+  "required" : true
+};
+                                                          var schema = schemaWrapper.content["application/json"].schema;
+                                                          if (schema.$ref != null) {
+                                                            schema = defsParser.$refs.get(schema.$ref);
+                                                          } else {
+                                                            schemaWrapper.components = {};
+                                                            schemaWrapper.components.schemas = Object.assign({}, defs);
+                                                            $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                                              console.log(err);
+                                                            });
+                                                          }
+                                                        
+                                                          var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+                                                          var result = $('#d2e199_updatePatientPartial_body');
+                                                          result.empty();
+                                                          result.append(view.render());
+                                                        });
+                                                        </script>
+                                                        <div id="d2e199_updatePatientPartial_body"></div>
+                                                        </td>
+                                                        </tr>
+                                                </table>
+
+
+
+                                            <h2>Response</h2>
+                                                <h3> Status: 202 - The patch was syntactically correct and was accepted.
+
+A polling location will be returned in the `Content-Location` header and the polling interval in the `Retry-After` header.
+
+Note, the patch may still fail after it is accepted, for example, further validation of the patch may still result in business rule failures. Therefore, it should not be assumed that the patient is successfully updated after receiving acceptance of the message.
+
+See the polling endpoint for more details.
+ </h3>
+
+                                                <ul class="nav nav-tabs nav-tabs-examples" >
+                                                        <li class="">
+                                                            <a data-toggle="tab" href="#responses-updatePatientPartial-202-headers">Headers</a>
+                                                        </li>
+                                                </ul>
+
+                                                <div class="tab-content" style='margin-bottom: 10px;'>
+                                                        <div class="tab-pane" id="responses-updatePatientPartial-202-headers">
+                                                            <table>
+                                                                <tr>
+                                                                    <th width="150px">Name</th>
+                                                                    <th width="100px">Type</th>
+                                                                    <th width="100px">Format</th>
+                                                                    <th>Description</th>
+                                                                </tr>
+                                                                    <tr>
+                                                                        <td>Content-Location</td>
+                                                                        <td>String</td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Retry-After</td>
+                                                                        <td>String</td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                            </table>
+                                                        </div>
+                                                </div>
+
+                                                <h3> Status: 400 - Client error. </h3>
+
+                                                <ul class="nav nav-tabs nav-tabs-examples" >
+                                                        <li class="active">
+                                                            <a data-toggle="tab" href="#responses-updatePatientPartial-400-schema">Schema</a>
+                                                        </li>
+
+                                                </ul>
+
+                                                <div class="tab-content" style='margin-bottom: 10px;'>
+                                                        <div class="tab-pane active" id="responses-updatePatientPartial-400-schema">
+                                                            <div id='responses-updatePatientPartial-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+
+                                                            </div>
+                                                            <input id='responses-updatePatientPartial-400-schema-data' type='hidden' value=''></input>
+                                                        </div>
+                                                </div>
+
+                                                <h3> Status: 412 - Precondition failed.
+
+The version identifier submitted in the `If-Match` header was not the latest version of the resource.
+ </h3>
+
+                                                <ul class="nav nav-tabs nav-tabs-examples" >
+                                                        <li class="active">
+                                                            <a data-toggle="tab" href="#responses-updatePatientPartial-412-schema">Schema</a>
+                                                        </li>
+
+                                                </ul>
+
+                                                <div class="tab-content" style='margin-bottom: 10px;'>
+                                                        <div class="tab-pane active" id="responses-updatePatientPartial-412-schema">
+                                                            <div id='responses-updatePatientPartial-412-schema-412' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+
+                                                            </div>
+                                                            <input id='responses-updatePatientPartial-412-schema-data' type='hidden' value=''></input>
+                                                        </div>
+                                                </div>
+
+                                        </article>
+                                    </div>
+                    <div id="api-Polling" class="article-section">
+                        <h1>Endpoint: Polling</h1>
+                    </div>
+                                    <div id="api-Polling-polling" class="article-section-with-sub-heading">
+                                        <article id="api-Polling-polling-0" data-group="User" data-name="polling" data-version="0">
+                                            <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
+                                            <h2>Retrieve the outcome of the accepted update.<a onclick="tryEndpointNow('/Polling/polling')" class="ctabtn-left ctabtn--nhs-digital-button ctabtn--nhs-digital-button--try-it-now" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></h2>
+
+                                            <p><h2>Overview</h2>
+<p>Use this endpoint to poll for the outcome of an updated patient record.</p>
+<p>When updating resources the request is dealt with in an asynchronous manner.</p>
+<p>Once the initial request is accepted a <code class="codeinline">202</code> response will be returned with a <code class="codeinline">Content-Location</code> header, use this location to poll for the outcome. It will be in the form <code class="codeinline">/Polling/&lt;message id&gt;</code>.</p>
+<p>Requests should be sent to the polling endpoint until a <code class="codeinline">202</code> response is no longer returned and the response is dealt with appropriately.</p>
+<p>Polls should be done at a reasonable frequency to avoid excess traffic; the <code class="codeinline">Retry-After</code> header will provide the time to wait in milliseconds between polls, although polling with a larger gap is also allowed.
+Retrieval of the outcome will not occur any faster by polling more frequently. The server will simply return a cached response.</p>
+<h2>Sandbox test scenarios</h2>
+<p>You can test the following scenarios in our sandbox environment:</p>
+<table data-disablesort="true">
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Request</th>
+<th>Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Perform a valid patch request and use the content-location</td>
+<td><code class="codeinline">message_id</code> whatever was in update accepted response</td>
+<td>HTTP Status 200 with updated patient data</td>
+</tr>
+<tr>
+<td>Polling message ID when update is not yet complete</td>
+<td><code class="codeinline">message_id</code>=<code class="codeinline">20200522091633363041_000001</code></td>
+<td>HTTP Status 202 with no data</td>
+</tr>
+<tr>
+<td>Polling message ID not found</td>
+<td><code class="codeinline">message_id</code>=<code class="codeinline">20200522091633363041_000002</code></td>
+<td>HTTP Status 404 with operation outcome body</td>
+</tr>
+</tbody>
+</table>
+<p>You can try out the sandbox using the &quot;Try this API&quot; feature on the right hand side of this page.</p>
+<p>Alternatively, you can try out the sandbox using our Postman collection:</p>
+<p><a href="https://app.getpostman.com/run-collection/97e8db28d4f7264446fe"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
+</p>
+                                            <p></p>
+                                            <br />
+                                            <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/Polling/{message_id}</span></code></pre>
+
+                                            <h2>Request</h2>
+
+
+
+
+
+
+                                            <h2>Response</h2>
+                                                <h3> Status: 200 - Patient updated. </h3>
+
+                                                <ul class="nav nav-tabs nav-tabs-examples" >
+                                                        <li class="active">
+                                                            <a data-toggle="tab" href="#responses-polling-200-schema">Schema</a>
+                                                        </li>
+
+                                                        <li class="">
+                                                            <a data-toggle="tab" href="#responses-polling-200-headers">Headers</a>
+                                                        </li>
+                                                </ul>
+
+                                                <div class="tab-content" style='margin-bottom: 10px;'>
+                                                        <div class="tab-pane active" id="responses-polling-200-schema">
+                                                            <div id='responses-polling-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+
+                                                            </div>
+                                                            <input id='responses-polling-200-schema-data' type='hidden' value=''></input>
+                                                        </div>
+                                                        <div class="tab-pane" id="responses-polling-200-headers">
+                                                            <table>
+                                                                <tr>
+                                                                    <th width="150px">Name</th>
+                                                                    <th width="100px">Type</th>
+                                                                    <th width="100px">Format</th>
+                                                                    <th>Description</th>
+                                                                </tr>
+                                                                    <tr>
+                                                                        <td>ETag</td>
+                                                                        <td>String</td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                            </table>
+                                                        </div>
+                                                </div>
+
+                                                <h3> Status: 400 - Client error after the patch was accepted and patient was not updated. </h3>
+
+                                                <ul class="nav nav-tabs nav-tabs-examples" >
+                                                        <li class="active">
+                                                            <a data-toggle="tab" href="#responses-polling-400-schema">Schema</a>
+                                                        </li>
+
+                                                </ul>
+
+                                                <div class="tab-content" style='margin-bottom: 10px;'>
+                                                        <div class="tab-pane active" id="responses-polling-400-schema">
+                                                            <div id='responses-polling-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+
+                                                            </div>
+                                                            <input id='responses-polling-400-schema-data' type='hidden' value=''></input>
+                                                        </div>
+                                                </div>
+
+                                                <h3> Status: 403 - Part of your update could not be allowed as the change was forbidden. </h3>
+
+                                                <ul class="nav nav-tabs nav-tabs-examples" >
+                                                        <li class="active">
+                                                            <a data-toggle="tab" href="#responses-polling-403-schema">Schema</a>
+                                                        </li>
+
+                                                </ul>
+
+                                                <div class="tab-content" style='margin-bottom: 10px;'>
+                                                        <div class="tab-pane active" id="responses-polling-403-schema">
+                                                            <div id='responses-polling-403-schema-403' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+
+                                                            </div>
+                                                            <input id='responses-polling-403-schema-data' type='hidden' value=''></input>
+                                                        </div>
+                                                </div>
+
+                                                <h3> Status: 404 - The message ID not found or you did not have permission to poll for that message. </h3>
+
+                                                <ul class="nav nav-tabs nav-tabs-examples" >
+                                                        <li class="active">
+                                                            <a data-toggle="tab" href="#responses-polling-404-schema">Schema</a>
+                                                        </li>
+
+                                                </ul>
+
+                                                <div class="tab-content" style='margin-bottom: 10px;'>
+                                                        <div class="tab-pane active" id="responses-polling-404-schema">
+                                                            <div id='responses-polling-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+
+                                                            </div>
+                                                            <input id='responses-polling-404-schema-data' type='hidden' value=''></input>
+                                                        </div>
+                                                </div>
+
+                                                <h3> Status: 409 - Version Conflict.
+
+The version identifier submitted in the `If-Match` header was not the latest version of the resource.
+ </h3>
+
+                                                <ul class="nav nav-tabs nav-tabs-examples" >
+                                                        <li class="active">
+                                                            <a data-toggle="tab" href="#responses-polling-409-schema">Schema</a>
+                                                        </li>
+
+                                                </ul>
+
+                                                <div class="tab-content" style='margin-bottom: 10px;'>
+                                                        <div class="tab-pane active" id="responses-polling-409-schema">
+                                                            <div id='responses-polling-409-schema-409' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+
+                                                            </div>
+                                                            <input id='responses-polling-409-schema-data' type='hidden' value=''></input>
+                                                        </div>
+                                                </div>
+
+                                                <h3> Status: 422 - The polling message ID was found however the processing of the request failed in an unexpected way or was cancelled, so the update failed.
+
+Please raise these occurrences with our team (via https://digital.nhs.uk/developer/help-and-support) so we can investigate the issue. When raising, quote the message ID you were polling for.
+ </h3>
+
+                                                <ul class="nav nav-tabs nav-tabs-examples" >
+                                                        <li class="active">
+                                                            <a data-toggle="tab" href="#responses-polling-422-schema">Schema</a>
+                                                        </li>
+
+                                                </ul>
+
+                                                <div class="tab-content" style='margin-bottom: 10px;'>
+                                                        <div class="tab-pane active" id="responses-polling-422-schema">
+                                                            <div id='responses-polling-422-schema-422' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+
+                                                            </div>
+                                                            <input id='responses-polling-422-schema-data' type='hidden' value=''></input>
+                                                        </div>
+                                                </div>
+
+                                        </article>
+                                    </div>
+                    <div id="api-Relatedperson" class="article-section">
+                        <h1>Endpoint: Relatedperson</h1>
+                    </div>
+                                    <div id="api-Relatedperson-getRelatedPeople" class="article-section-with-sub-heading">
+                                        <article id="api-Relatedperson-getRelatedPeople-0" data-group="User" data-name="getRelatedPeople" data-version="0">
+                                            <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
+                                            <h2>Retrieve a list of Related Person resources for a given patient<a onclick="tryEndpointNow('/Relatedperson/get_related_people')" class="ctabtn-left ctabtn--nhs-digital-button ctabtn--nhs-digital-button--try-it-now" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></h2>
+
+                                            <p><h2>Overview</h2>
+<p>Use this endpoint to get a patient's related people details from PDS for a given NHS Number. This is a list of people who can be contacted, and how, regarding the patient. These details may be useful for a practitioner to get in contact with a next of kin or guardian.</p>
+<h2>Restricted patients</h2>
+<p>Some patients are tagged as <a href="https://digital.nhs.uk/services/demographics/restricting-access-to-a-patients-demographic-record">restricted</a>, or sensitive. Related people will not be returned for a restricted patient and an empty bundle will be returned.</p>
+<p>If a related person only contains a patient reference reference, and when the patient is retrieved, it is restricted; location sensitive fields such as <code class="codeinline">address</code> and <code class="codeinline">telecom</code> will be removed.</p>
+<h2>Sandbox test scenarios</h2>
+<p>You can test the following scenarios in our sandbox environment:</p>
+<table data-disablesort="true">
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Request</th>
+<th>Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Multiple related people exists</td>
+<td><code class="codeinline">id</code>=<code class="codeinline">9000000009</code></td>
+<td>HTTP Status 200 with related person data in a response Bundle</td>
+</tr>
+<tr>
+<td>Single related person exists</td>
+<td><code class="codeinline">id</code>=<code class="codeinline">9000000017</code></td>
+<td>HTTP Status 200 with related person data in a response Bundle</td>
+</tr>
+<tr>
+<td>Related people do not exist</td>
+<td><code class="codeinline">id</code>=<code class="codeinline">9000000025</code></td>
+<td>HTTP Status 404 with problem description</td>
+</tr>
+</tbody>
+</table>
+<p>You can try out the sandbox using the &quot;Try this API&quot; feature on the right hand side of this page.</p>
+<p>Alternatively, you can try out the sandbox using our Postman collection:</p>
+<p><a href="https://app.getpostman.com/run-collection/97e8db28d4f7264446fe"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
+</p>
+                                            <p></p>
+                                            <br />
+                                            <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/Patient/{id}/RelatedPerson</span></code></pre>
+
+                                            <h2>Request</h2>
+
+
+
+
+
+
+                                            <h2>Response</h2>
+                                                <h3> Status: 200 - Information successfully returned. </h3>
+
+                                                <ul class="nav nav-tabs nav-tabs-examples" >
+                                                        <li class="active">
+                                                            <a data-toggle="tab" href="#responses-getRelatedPeople-200-schema">Schema</a>
+                                                        </li>
+
+                                                        <li class="">
+                                                            <a data-toggle="tab" href="#responses-getRelatedPeople-200-headers">Headers</a>
+                                                        </li>
+                                                </ul>
+
+                                                <div class="tab-content" style='margin-bottom: 10px;'>
+                                                        <div class="tab-pane active" id="responses-getRelatedPeople-200-schema">
+                                                            <div id='responses-getRelatedPeople-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+
+                                                            </div>
+                                                            <input id='responses-getRelatedPeople-200-schema-data' type='hidden' value=''></input>
+                                                        </div>
+                                                        <div class="tab-pane" id="responses-getRelatedPeople-200-headers">
+                                                            <table>
+                                                                <tr>
+                                                                    <th width="150px">Name</th>
+                                                                    <th width="100px">Type</th>
+                                                                    <th width="100px">Format</th>
+                                                                    <th>Description</th>
+                                                                </tr>
+                                                                    <tr>
+                                                                        <td>ETag</td>
+                                                                        <td>String</td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                            </table>
+                                                        </div>
+                                                </div>
+
+                                                <h3> Status: 400 - Invalid NHS number supplied. </h3>
+
+                                                <ul class="nav nav-tabs nav-tabs-examples" >
+                                                        <li class="active">
+                                                            <a data-toggle="tab" href="#responses-getRelatedPeople-400-schema">Schema</a>
+                                                        </li>
+
+                                                </ul>
+
+                                                <div class="tab-content" style='margin-bottom: 10px;'>
+                                                        <div class="tab-pane active" id="responses-getRelatedPeople-400-schema">
+                                                            <div id='responses-getRelatedPeople-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+
+                                                            </div>
+                                                            <input id='responses-getRelatedPeople-400-schema-data' type='hidden' value=''></input>
+                                                        </div>
+                                                </div>
+
+                                                <h3> Status: 404 - Related People not found. </h3>
+
+                                                <ul class="nav nav-tabs nav-tabs-examples" >
+                                                        <li class="active">
+                                                            <a data-toggle="tab" href="#responses-getRelatedPeople-404-schema">Schema</a>
+                                                        </li>
+
+                                                </ul>
+
+                                                <div class="tab-content" style='margin-bottom: 10px;'>
+                                                        <div class="tab-pane active" id="responses-getRelatedPeople-404-schema">
+                                                            <div id='responses-getRelatedPeople-404-schema-404' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+
+                                                            </div>
+                                                            <input id='responses-getRelatedPeople-404-schema-data' type='hidden' value=''></input>
+                                                        </div>
+                                                </div>
+
+                                        </article>
+                                    </div>
+
+    <div id="footer">
+        <div id="api-_footer">
+        <p>Suggestions, contact, support and error reporting;
+                <div class="app-desc">Information URL: <a href="https://tbc.api.nhs.net">https://tbc.api.nhs.net</a></div>
+                <div class="app-desc">Contact Info: <a href="api.management@nhs.net">api.management@nhs.net</a></div>
+            </p>
+                <div class="license-info">All rights reserved</div>
+                <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+        </div>
+    </div>
+    </div>

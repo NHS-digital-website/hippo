@@ -1,0 +1,8 @@
+{
+  "access_token": "{ACCESS_TOKEN}",
+  "token_type": "bearer",
+  "refresh_token": "eyJhbGciOiJSUzI1NiJ9.12-DlBIkswiGZbaExbP90a_pBmS4fWPGLS_KOEA",
+  "expires_in": 43199,
+  "scope": "scim.emails.read scim.me openid password.write approvals.me scim.ids.read oauth.approvals",
+  "jti": "6bf9e070-3060-45a1-a508-aa5222ced336"
+}
