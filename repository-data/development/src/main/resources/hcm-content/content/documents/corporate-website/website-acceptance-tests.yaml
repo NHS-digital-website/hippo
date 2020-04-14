@@ -1,5 +1,74 @@
 ---
 /content/documents/corporate-website/website-acceptance-tests:
+  /api-specifications:
+    /static-api-specification:
+      /static-api-specification[1]:
+        common:searchable: true
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-04-28T13:43:42.207Z
+        hippostdpubwf:lastModificationDate: 2020-04-28T14:02:25.488Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 4371081b-6ca3-4da7-b543-abe9da3cb3a3
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:apispecification
+        website:html: <p>static specification text in embedded html</p>
+        website:specification_id: static-api-specification-id
+      /static-api-specification[2]:
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-04-28T13:43:42.207Z
+        hippostdpubwf:lastModificationDate: 2020-04-28T14:02:33.783Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 4371081b-6ca3-4da7-b543-abe9da3cb3a3
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        - mix:versionable
+        jcr:primaryType: website:apispecification
+        website:html: <p>static specification text in embedded html</p>
+        website:specification_id: static-api-specification-id
+      /static-api-specification[3]:
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-04-28T13:43:42.207Z
+        hippostdpubwf:lastModificationDate: 2020-04-28T14:02:33.783Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-04-28T14:02:39.611Z
+        hippotranslation:id: 4371081b-6ca3-4da7-b543-abe9da3cb3a3
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:apispecification
+        website:html: <p>static specification text in embedded html</p>
+        website:specification_id: static-api-specification-id
+      hippo:name: Static API Specification
+      hippo:versionHistory: 06812565-8067-41c3-8a91-5c0c706ea2eb
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    hippo:name: API Specifications
+    hippostd:foldertype:
+    - new-digital-website-folder
+    - new-digital-website-document
+    hippotranslation:id: beb65105-595a-4b32-9e68-b876a87b8199
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippo:named
+    - hippotranslation:translated
+    - mix:versionable
+    jcr:primaryType: hippostd:folder
   /blog:
     /blog-subfolder:
       /blog-test-document-3:

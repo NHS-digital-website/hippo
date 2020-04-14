@@ -61,6 +61,7 @@ public class DocumentTypeCharacteristicPlugin extends CharacteristicPlugin {
 
         documentTypes.add(createDocumentType("API endpoint","website:apiendpoint"));
         documentTypes.add(createDocumentType("API master","website:apimaster"));
+        documentTypes.add(createDocumentType("API Specification","website:apispecification"));
         documentTypes.add(createDocumentType("Banner","website:bannerdocument"));
         documentTypes.add(createDocumentType("Blog","website:blog"));
         documentTypes.add(createDocumentType("Blog hub","website:bloghub"));
