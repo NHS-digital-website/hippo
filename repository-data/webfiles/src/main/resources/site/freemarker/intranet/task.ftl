@@ -95,7 +95,7 @@
                         <#if hasExpired>                            
                             <div class="callout-box callout-box--important" role="complementary" aria-labelledby="callout-box-heading-expired">
                                 <div class="callout-box__icon-wrapper">
-                                    <svg class="callout-box__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 217.07 187.02" preserveAspectRatio="xMidYMid meet" role="presentation" focusable="false">
+                                    <svg class="callout-box__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 217.07 187.02" preserveAspectRatio="xMidYMid meet" role="img" focusable="false">
                                         <path d="M42.7,148.5,73.9,95.9l36.8-62.1a11,11,0,0,1,18.8,0L225,195.1a10.86,10.86,0,0,1-9.4,16.4H24.4A10.88,10.88,0,0,1,15,195.1h0C23,181.7,35.4,160.8,42.7,148.5Z" transform="translate(-11.47 -26.48)"></path>
                                         <path fill="#005EB8" d="M124.4,161.7h-8.5L114,82.3h12.1ZM114,174.4h12.1V187H114Z" transform="translate(-11.47 -26.48)"></path>
                                     </svg>
