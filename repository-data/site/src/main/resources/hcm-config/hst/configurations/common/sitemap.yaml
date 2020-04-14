@@ -22,6 +22,7 @@ definitions:
           - website:glossarylist
           - website:visualhub
           - website:apimaster
+          - website:apispecification
           - website:person
           - website:location
           - website:cyberalert
@@ -56,6 +57,7 @@ definitions:
           - hst:pages/glossarylist
           - hst:pages/visualhub
           - hst:pages/apimaster
+          - hst:pages/apispecification
           - hst:pages/person
           - hst:pages/location
           - hst:pages/cyberalert
@@ -93,6 +95,7 @@ definitions:
         - website:glossarylist
         - website:visualhub
         - website:apimaster
+        - website:apispecification
         - website:person
         - website:location
         - website:cyberalert
@@ -127,6 +130,7 @@ definitions:
         - hst:pages/glossarylist
         - hst:pages/visualhub
         - hst:pages/apimaster
+        - hst:pages/apispecification
         - hst:pages/person
         - hst:pages/location
         - hst:pages/cyberalert
