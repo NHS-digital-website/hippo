@@ -300,3 +300,36 @@
     </#list>
     <#return titlesFound />
 </#function>
+
+<#--Build 'type of update' for SpecialAnnouncement schema-->
+<#function typeOfUpdateTag type>
+    <#assign typeOfUpdateList=[]/>
+    <#assign typeOfUpdateList += ["News or guidelines update"]/>
+    <#assign typeOfUpdateList += ["Disease prevention information"]/>
+    <#assign typeOfUpdateList += ["Disease spread statistics"]/>
+    <#assign typeOfUpdateList += ["Information on getting tested"]/>
+    <#assign typeOfUpdateList += ["Quarantine guidelines"]/>
+    <#assign typeOfUpdateList += ["Public transport closures"]/>
+    <#assign typeOfUpdateList += ["School closures information"]/>
+    <#assign typeOfUpdateList += ["Travel ban information"]/>
+
+    <#assign itemProp = ""/>
+    <#if type == typeOfUpdateList[0]>
+        <#assign itemProp = "newsUpdatesAndGuidelines"/>
+    <#elseif type == typeOfUpdateList[1]>
+        <#assign itemProp = "diseasePreventionInfo"/>
+    <#elseif type == typeOfUpdateList[2]>
+        <#assign itemProp = "diseaseSpreadStatistics"/>
+    <#elseif type == typeOfUpdateList[3]>
+        <#assign itemProp = "gettingTestedInfo"/>
+    <#elseif type == typeOfUpdateList[4]>
+        <#assign itemProp = "quarantineGuidelines"/>
+    <#elseif type == typeOfUpdateList[5]>
+        <#assign itemProp = "publicTransportClosuresInfo"/>
+    <#elseif type == typeOfUpdateList[6]>
+        <#assign itemProp = "schoolClosuresInfo"/>
+    <#elseif type == typeOfUpdateList[7]>
+        <#assign itemProp = "travelBans"/>
+    </#if>
+    <#return itemProp/>
+</#function>

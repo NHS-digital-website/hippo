@@ -18,6 +18,7 @@
 
     .detail-list__key {
         min-width: 210px;
+        padding-right: $gutter;
 
         @include bold-font(16);
     }

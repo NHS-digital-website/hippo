@@ -95,6 +95,7 @@
             "bannerImage": bannerImage,
             "bannerImageAltText": bannerImageAltText,
             "button": button,
+            "buttonText": "Jump to content",
             "showTime": false,
             "topText": documents[0].title,
             "topTextLink": parentLink

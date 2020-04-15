@@ -37,6 +37,8 @@ definitions:
           - website:supplementaryinformation
           - website:team
           - website:definedterms
+          - website:projectfeed
+          - website:projectupdate
           hst:componentconfigurationmappingvalues:
           - hst:pages/service
           - hst:pages/general
@@ -69,6 +71,8 @@ definitions:
           - hst:pages/supplementaryinformation
           - hst:pages/team
           - hst:pages/definedterms
+          - hst:pages/project-update-feed
+          - hst:pages/project-update
           hst:relativecontentpath: ${parent}/content
           jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/404
@@ -104,6 +108,8 @@ definitions:
         - website:supplementaryinformation
         - website:team
         - website:definedterms
+        - website:projectfeed
+        - website:projectupdate
         hst:componentconfigurationmappingvalues:
         - hst:pages/service
         - hst:pages/general
@@ -136,6 +142,8 @@ definitions:
         - hst:pages/supplementaryinformation
         - hst:pages/team
         - hst:pages/definedterms
+        - hst:pages/project-update-feed
+        - hst:pages/project-update
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:
