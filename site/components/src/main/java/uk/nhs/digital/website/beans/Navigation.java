@@ -49,6 +49,12 @@ public class Navigation extends BaseCompound implements StickySection {
         return getProperty("website:columnAlignment");
     }
 
+    @JsonProperty
+    @HippoEssentialsGenerated(internalName = "website:imageType")
+    public String getImageType() {
+        return getProperty("website:imageType");
+    }
+
     @HippoEssentialsGenerated(internalName = "website:navigationTiles")
     public List<HippoBean> getNavigationTiles() {
         return getChildBeansByName("website:navigationTiles");
