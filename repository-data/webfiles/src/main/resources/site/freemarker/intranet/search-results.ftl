@@ -97,40 +97,41 @@
 
             <div class="column column--three-quarters page-block page-block--main">
                 <div class="article-section">
-                    <#if accessTokenRequired??>
-                        <div>
-                            <h3>Your session has expired due to inactivity. Please login again.</h3>
-                            <a class="button" href="<@hst.link siteMapItemRefId='root'/>">Home</a>
-                        </div>
-                    <#else>
-                        <#list tabTiles as tileSection>
-                            <#if slugify(tileSection.tileSectionHeading) == area>
-                                <span class="result-text result-text--pull-right">${tileSection.tileSectionLinks?size} results ${queryResultsString}</span>
-                                <div class="grid-row">
-                                    <div class="column column--reset">
-                                        <div class="tile-panel" role="tabpanel">
-                                            <#if tileSection.tileSectionLinks?has_content>
-                                                <#list tileSection.tileSectionLinks as links>
-                                                    <div class="tile-panel-group">
-                                                        <@tabTileSection links/>
-                                                    </div>
-                                                </#list>
-                                                <#if morePeople??>
-                                                    <p>
-                                                        <a href="${searchLink}?area=people&query=${query}">Click here for more results</a>
-                                                    </p>
+                    <#assign isPeopleSearch = area == 'people' />
+                    <#if isPeopleSearch && accessTokenRequired??>
+                        <h3>Your session has expired due to inactivity. Please login again.</h3>
+                        <a class="button" href="<@hst.link siteMapItemRefId='root'/>">Home</a>
+                    </#if>
+
+                    <#list tabTiles as tileSection>
+                        <#if slugify(tileSection.tileSectionHeading) == area>
+                            <span class="result-text result-text--pull-right">${tileSection.tileSectionLinks?size} results ${queryResultsString}</span>
+                            <div class="grid-row">
+                                <div class="column column--reset">
+                                    <div class="tile-panel" role="tabpanel">
+                                        <#if tileSection.tileSectionLinks?has_content>
+                                            <#list tileSection.tileSectionLinks as links>
+                                                <div class="tile-panel-group">
+                                                    <@tabTileSection links/>
+                                                </div>
+                                                <#if links.type?lower_case == 'people'>
+                                                    <#if morePeople?? && links?index == 1>
+                                                        <p>
+                                                            <a href="${searchLink}?area=people&query=${query}">Click here for more results</a>
+                                                        </p>
+                                                    </#if>
                                                 </#if>
-                                            <#else>
-                                                <#if query??>
-                                                    <p>No results for: ${query}</p>
-                                                </#if>
+                                            </#list>
+                                        <#else>
+                                            <#if query??>
+                                                <p>No results for: ${query}</p>
                                             </#if>
-                                        </div>
+                                        </#if>
                                     </div>
                                 </div>
-                            </#if>
-                        </#list>
-                    </#if>
+                            </div>
+                        </#if>
+                    </#list>
 
 
                     <#if errorMessage??>
