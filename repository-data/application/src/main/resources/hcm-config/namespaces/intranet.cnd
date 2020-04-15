@@ -13,3 +13,5 @@
 [intranet:task] > hippostd:relaxed, hippotranslation:translated, intranet:basedocument
   orderable
 
+[intranet:announcement] > hippostd:relaxed, hippotranslation:translated, intranet:basedocument
+  orderable

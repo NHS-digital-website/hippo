@@ -42,6 +42,11 @@ definitions:
         - hst:pages/news
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
+      /announcements:
+        /_any_:
+          hst:componentconfigurationid: hst:pages/announcement
+          jcr:primaryType: hst:sitemapitem
+        jcr:primaryType: hst:sitemapitem
       /root:
         hst:componentconfigurationid: hst:pages/home
         hst:refId: root
