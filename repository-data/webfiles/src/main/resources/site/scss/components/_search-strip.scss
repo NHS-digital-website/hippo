@@ -13,9 +13,11 @@
 .search-strip {
     position: relative;
     display: block;
-    overflow: hidden;
+    //overflow: hidden;
     @include media($min-width: $desktop-width, $ignore-for-ie: true) {
-        margin-right: 120px;
+        .js-enabled & {
+            margin-right: 120px;
+        }
         float: right;
         width: 600px;
         margin-top: 5px;
