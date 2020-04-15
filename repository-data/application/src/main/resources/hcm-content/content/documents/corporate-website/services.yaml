@@ -1,0 +1,14 @@
+---
+/content/documents/corporate-website/services:
+  .meta:order-before: data-and-information
+  hippo:name: Systems and services
+  hippostd:foldertype:
+  - new-digital-website-folder
+  - new-digital-website-document
+  hippotranslation:id: ca1ec125-235f-4465-958e-aca9978b8f84
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder
