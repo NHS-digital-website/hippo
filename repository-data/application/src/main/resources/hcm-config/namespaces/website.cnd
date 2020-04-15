@@ -223,6 +223,12 @@
 [website:mediacontact] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:navigation] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:navigationTile] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:news] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
@@ -283,10 +289,10 @@
 [website:priorityaction] > hippo:compound, hippostd:relaxed
   orderable
 
-[website:projectupdate] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
+[website:projectfeed] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
-[website:projectfeed] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+[website:projectupdate] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
   orderable
 
 [website:publictransportstation] > hippo:compound, hippostd:relaxed

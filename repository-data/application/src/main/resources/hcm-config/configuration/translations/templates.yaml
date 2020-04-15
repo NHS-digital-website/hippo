@@ -467,6 +467,16 @@ definitions:
           jcr:name: Media contact
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:navigation:
+        /en:
+          jcr:name: Navigation
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:navigationTile:
+        /en:
+          jcr:name: Navigation Tile
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:news:
         /en:
           jcr:name: News

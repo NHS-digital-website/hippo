@@ -16,6 +16,7 @@
 <#include "quoteSection.ftl">
 <#include "statistics.ftl">
 <#include "fullWidthImage.ftl">
+<#include "navigation.ftl">
 <#include "../component/infoGraphic.ftl">
 
 <!-- This is a load of global setup for the highcharts config -->
@@ -74,6 +75,8 @@
                 <@quoteSection section=section/>
             <#elseif section.sectionType == 'infographic'>
                 <@infoGraphic graphic=section/>
+            <#elseif section.sectionType == 'navigation'>
+                <@navigation section=section/>
             <#elseif section.sectionType == 'statisticsSection'>
                 <@statistics section=section/>
             </#if>
