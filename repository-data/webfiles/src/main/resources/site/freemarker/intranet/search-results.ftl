@@ -36,13 +36,33 @@
     </#list>
 </#if>
 
-<#assign blogLinks = [] />
+<#assign newsLinks = [] />
 <#list pageable.items as item>
-    <#assign blogLinks += [{
+    <#assign newsLinks += [{
     "title": item.searchResultTitle,
     "linkType":"external",
     "link": "#",
-    "type": item.searchResultType
+    "type": "News"
+    }] />
+</#list>
+
+<#assign taskLinks = [] />
+<#list pageable.items as item>
+    <#assign taskLinks += [{
+    "title": item.searchResultTitle,
+    "linkType":"external",
+    "link": "#",
+    "type": "Tasks"
+    }] />
+</#list>
+
+<#assign teamLinks = [] />
+<#list pageable.items as item>
+    <#assign teamLinks += [{
+    "title": item.searchResultTitle,
+    "linkType":"external",
+    "link": "#",
+    "type": "Teams"
     }] />
 </#list>
 
@@ -50,11 +70,11 @@
 <#assign tasksCount = 0 />
 <#assign teamsCount = 0 />
 <#assign peopleCountChecked = peopleCount?has_content?then(peopleCount, 0) />
-<#assign totalCount = peopleCountChecked + blogLinks?size />
+<#assign totalCount = peopleCountChecked + newsLinks?size + taskLinks?size + teamLinks?size />
 
 <#assign tabTiles=[{
     "tileSectionHeading": "All",
-    "tileSectionLinks": peopleLinks + blogLinks,
+    "tileSectionLinks": peopleLinks + newsLinks + taskLinks + teamLinks,
     "tileCount": totalCount
 }, {
     "tileSectionHeading": "People",
@@ -62,16 +82,16 @@
     "tileCount": peopleCountChecked
 }, {
     "tileSectionHeading": "News",
-    "tileSectionLinks": blogLinks,
-    "tileCount": blogLinks?size
+    "tileSectionLinks": newsLinks,
+    "tileCount": newsLinks?size
 }, {
     "tileSectionHeading": "Tasks",
-    "tileSectionLinks": blogLinks,
-    "tileCount": blogLinks?size
+    "tileSectionLinks": taskLinks,
+    "tileCount": taskLinks?size
 }, {
     "tileSectionHeading": "Teams",
-    "tileSectionLinks": blogLinks,
-    "tileCount": blogLinks?size
+    "tileSectionLinks": teamLinks,
+    "tileCount": teamLinks?size
 }]/>
 <#assign hasTabTiles=true/>
 
@@ -111,14 +131,25 @@
                                     <div class="tile-panel" role="tabpanel">
                                         <#if tileSection.tileSectionLinks?has_content>
                                             <#list tileSection.tileSectionLinks as links>
+
+
+                                                <#if (area == 'all') && links.type?lower_case == 'people' && links?index == 0>
+                                                    <span class="result-text result-text--pull-left">People</span>
+                                                </#if>
+
+
                                                 <div class="tile-panel-group">
                                                     <@tabTileSection links/>
                                                 </div>
                                                 <#if links.type?lower_case == 'people'>
                                                     <#if morePeople?? && links?index == 1>
-                                                        <p>
+                                                        <p class="result-text result-text--pull-right">
                                                             <a href="${searchLink}?area=people&query=${query}">Click here for more results</a>
                                                         </p>
+
+                                                        <#if area == 'all'>
+                                                            <span class="result-text result-text--pull-left">Documents</span>
+                                                        </#if>
                                                     </#if>
                                                 </#if>
                                             </#list>

@@ -14,9 +14,13 @@
             <div class="tile-item__content">
 
                 <div class="tile-item__content-tags">
-                    <#if options.type?has_content>
-                        <p class="tile-item__tag tile-item__tag--left">${options.dept?upper_case}</p>
+                    <#assign deptTag = options.type/>
+                    <#if options.dept?has_content>
+                        <#assign deptTag = options.dept/>
+                    </#if>
+                    <p class="tile-item__tag tile-item__tag--left">${deptTag?upper_case}</p>
 
+                    <#if options.type?has_content>
                         <div class="tile-item__tag tile-item__tag--right">
                             <p class="tile-item__tag--boxed">${options.type}</p>
                         </div>
