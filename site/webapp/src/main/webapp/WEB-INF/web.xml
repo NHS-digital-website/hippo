@@ -58,6 +58,11 @@
     </param-value>
   </context-param>
 
+  <context-param>
+      <param-name>contextInitializerClasses</param-name>
+      <param-value>uk.nhs.digital.website.config.SpringProfileInitializer</param-value>
+  </context-param>
+
   <!-- IMPORTANT
   XSSUrlFilter should ALWAYS be the FIRST filter applied in the configuration
   https://www.onehippo.org/library/concepts/web-application/xss-and-crlf-injection-prevention-with-hst-2.html

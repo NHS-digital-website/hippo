@@ -1,0 +1,14 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/intranet/hst:pages/person:
+      /main:
+        hst:componentclassname: uk.nhs.digital.intranet.components.PersonComponent
+        hst:parameternames:
+        - id
+        hst:parametervalues:
+        - ${1}
+        hst:template: person
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/master
+      jcr:primaryType: hst:component
