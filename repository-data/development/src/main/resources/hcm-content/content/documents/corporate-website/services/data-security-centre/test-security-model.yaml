@@ -1,0 +1,134 @@
+---
+/content/documents/corporate-website/services/data-security-centre/test-security-model:
+  /test-security-model[1]:
+    /website:component:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    /website:friendlyurls:
+      jcr:primaryType: website:friendlyurls
+      website:alternativeurls: []
+      website:destination: ''
+    /website:pageicon:
+      hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      hippo:facets: []
+      hippo:modes: []
+      hippo:values: []
+      jcr:primaryType: hippogallerypicker:imagelink
+    /website:seosummary:
+      hippostd:content: Some short summary
+      jcr:primaryType: hippostd:html
+    /website:summary:
+      hippostd:content: <p>Some short summary</p>
+      jcr:primaryType: hippostd:html
+    common:searchRank: 6
+    common:searchable: true
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-19T13:30:46.189Z
+    hippostdpubwf:lastModificationDate: 2020-03-19T13:30:46.189Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 48ed8e4a-5c22-487d-a4b1-9e0189320d29
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    jcr:primaryType: website:service
+    website:gossid: 0
+    website:htmlCode: ''
+    website:metadata: []
+    website:rawMetadata:
+    - ''
+    website:shortsummary: Some short summary
+    website:title: Cyber Security Support Model
+  /test-security-model[2]:
+    /website:component:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    /website:friendlyurls:
+      jcr:primaryType: website:friendlyurls
+      website:alternativeurls: []
+      website:destination: ''
+    /website:pageicon:
+      hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      hippo:facets: []
+      hippo:modes: []
+      hippo:values: []
+      jcr:primaryType: hippogallerypicker:imagelink
+    /website:seosummary:
+      hippostd:content: Some short summary
+      jcr:primaryType: hippostd:html
+    /website:summary:
+      hippostd:content: <p>Some short summary</p>
+      jcr:primaryType: hippostd:html
+    common:searchRank: 6
+    common:searchable: true
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-19T13:30:46.189Z
+    hippostdpubwf:lastModificationDate: 2020-03-19T13:32:20.850Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 48ed8e4a-5c22-487d-a4b1-9e0189320d29
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: website:service
+    website:gossid: 0
+    website:htmlCode: ''
+    website:metadata: []
+    website:rawMetadata:
+    - ''
+    website:shortsummary: Some short summary
+    website:title: Cyber Security Support Model
+  /test-security-model[3]:
+    /website:component:
+      hippostd:content: ''
+      jcr:primaryType: hippostd:html
+    /website:friendlyurls:
+      jcr:primaryType: website:friendlyurls
+      website:alternativeurls: []
+      website:destination: ''
+    /website:pageicon:
+      hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      hippo:facets: []
+      hippo:modes: []
+      hippo:values: []
+      jcr:primaryType: hippogallerypicker:imagelink
+    /website:seosummary:
+      hippostd:content: Some short summary
+      jcr:primaryType: hippostd:html
+    /website:summary:
+      hippostd:content: <p>Some short summary</p>
+      jcr:primaryType: hippostd:html
+    common:searchRank: 6
+    common:searchable: true
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-19T13:30:46.189Z
+    hippostdpubwf:lastModificationDate: 2020-03-19T13:32:20.850Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-03-19T13:32:28.632Z
+    hippotranslation:id: 48ed8e4a-5c22-487d-a4b1-9e0189320d29
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippotaxonomy:classifiable
+    - mix:referenceable
+    jcr:primaryType: website:service
+    website:gossid: 0
+    website:htmlCode: ''
+    website:metadata: []
+    website:rawMetadata:
+    - ''
+    website:shortsummary: Some short summary
+    website:title: Cyber Security Support Model
+  hippo:versionHistory: 584fc59c-1aca-4555-8f58-5e61fe87824d
+  jcr:mixinTypes:
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
