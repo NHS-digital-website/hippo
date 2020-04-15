@@ -549,6 +549,11 @@ definitions:
           jcr:name: Post nominal
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:primarysectionvisualhub:
+        /en:
+          jcr:name: Primary section visual hub
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:projectfeed:
         /en:
           jcr:name: Project feed
@@ -557,11 +562,6 @@ definitions:
       /website:projectupdate:
         /en:
           jcr:name: Project update
-          jcr:primaryType: hipposys:resourcebundle
-        jcr:primaryType: hipposys:resourcebundles
-      /website:primarysectionvisualhub:
-        /en:
-          jcr:name: Primary section visual hub
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:publictransportstation:
