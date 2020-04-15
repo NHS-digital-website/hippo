@@ -162,6 +162,20 @@ $burger-piece-height: 3px;
         }
     }
 
+    .main-nav__menu {
+        @include media($min-width: $desktop-width, $ignore-for-ie: true) {
+            .list--inline {
+                li {
+                    margin-left: 40px;
+
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    }
+
     .js-enabled & {
         &--with-search {
             .main-nav {
