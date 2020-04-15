@@ -3,6 +3,8 @@ definitions:
   config:
     /hippo:configuration/hippo:translations/hippo:templates/en:
       new-about-document: new about document
+      new-announcement-document: new announcement
+      new-announcement-folder: new folder
       new-cihub-document: new CI hub document
       new-cyber-alerts-document: new cyber alert document
       new-cyber-alerts-folder: new folder
@@ -29,6 +31,11 @@ definitions:
       /common:stringlist:
         /en:
           jcr:name: String list
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /intranet:announcement:
+        /en:
+          jcr:name: Announcement
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /intranet:newsinternal:

@@ -1,0 +1,13 @@
+---
+/content/documents/intranet/announcements:
+  hippo:name: Announcements
+  hippostd:foldertype:
+  - new-announcement-document
+  - new-announcement-folder
+  hippotranslation:id: 7ad3d50e-b857-4736-a2d7-da4ba571e5ec
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:referenceable
+  jcr:primaryType: hippostd:folder
