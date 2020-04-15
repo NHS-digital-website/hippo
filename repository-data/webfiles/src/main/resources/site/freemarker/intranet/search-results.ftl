@@ -146,10 +146,10 @@
                                                         <p class="result-text result-text--pull-right">
                                                             <a href="${searchLink}?area=people&query=${query}">Click here for more results</a>
                                                         </p>
+                                                    </#if>
 
-                                                        <#if area == 'all'>
-                                                            <span class="result-text result-text--pull-left">Documents</span>
-                                                        </#if>
+                                                    <#if area == 'all' && (links?is_last || links?index == 1)>
+                                                        <span class="result-text result-text--pull-left">Documents</span>
                                                     </#if>
                                                 </#if>
                                             </#list>
