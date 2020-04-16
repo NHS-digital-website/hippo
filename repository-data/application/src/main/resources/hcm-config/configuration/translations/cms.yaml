@@ -34,6 +34,8 @@ definitions:
       publicationsystem-title: Title must be 250 characters or less
       rgbcolor: Must be RGB-based formatted color (#XXXXXX) where X is value from
         ranges [0-9] or [A-F]
+      statistics-valid-number: Enter just a number in here, or fractions using a /.
+        Don't use any commas.
       twitterusername: Twitter username formatting
       valid-linkedin-url: Link URL is proper Linkedin URL
       valid-release-version: Numerical version of the release ex. 1, 1.0, 1.0.100

@@ -14,6 +14,7 @@
 <#include "ctaSection.ftl">
 <#include "checklist.ftl">
 <#include "quoteSection.ftl">
+<#include "statistics.ftl">
 <#include "fullWidthImage.ftl">
 <#include "../component/infoGraphic.ftl">
 
@@ -73,6 +74,8 @@
                 <@quoteSection section=section/>
             <#elseif section.sectionType == 'infographic'>
                 <@infoGraphic graphic=section/>
+            <#elseif section.sectionType == 'statisticsSection'>
+                <@statistics section=section/>
             </#if>
         <#if wrap>
         </div>

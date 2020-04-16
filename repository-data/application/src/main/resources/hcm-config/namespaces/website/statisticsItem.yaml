@@ -1,0 +1,206 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/website/statisticsItem:
+      /editor:templates:
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
+          /root:
+            extension.left: ${cluster.id}.left
+            extension.middle: ${cluster.id}.middle
+            extension.right: ${cluster.id}.right
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.layout.ThreeColumn
+            wicket.extensions:
+            - extension.left
+            - extension.middle
+            - extension.right
+          /left:
+            item: ${cluster.id}.left.item
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+            wicket.id: ${cluster.id}.left
+          /middle:
+            item: ${cluster.id}.middle.item
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+            wicket.id: ${cluster.id}.middle
+          /right:
+            item: ${cluster.id}.right.item
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+            wicket.id: ${cluster.id}.right
+          /prefix:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: none=None,money=Money,plus=Plus,minus=Minus
+            caption: Prefix
+            field: prefix
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /number:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Number
+            field: number
+            hint: Enter just a number in here, or fractions using a /. Don't use any
+              commas.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.middle.item
+          /suffix:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: none=None,percentage=Percentage,plus=Plus,millions=Millions,billions=Billions
+            caption: Suffix
+            field: suffix
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+          /trend:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: none=None,up=Up Arrow,down=Down Arrow
+            caption: Trend
+            field: trend
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /headlineDescription:
+            /cluster.options:
+              ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
+                items: [''Link'',''PickInternalLink'',''Source''] }] }'
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''autogrow'',
+                stylesSet: ''nhsdStyle:./nhsdStyles.js'', customConfig: ''./extraConfiguration.js'',
+                disableNativeSpellChecker: false, autoGrow_onStartup: true, autoGrow_minHeight:
+                100}'
+              jcr:primaryType: frontend:pluginconfig
+            caption: Headline Description of Number
+            field: headlineDescription
+            hint: Form a complete sentence following on from your headline number
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /furtherQualifyingInformation:
+            /cluster.options:
+              ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
+                items: [''Link'',''PickInternalLink'',''Source''] }] }'
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''autogrow'',
+                stylesSet: ''nhsdStyle:./nhsdStyles.js'', customConfig: ''./extraConfiguration.js'',
+                disableNativeSpellChecker: false, autoGrow_onStartup: true, autoGrow_minHeight:
+                100}'
+              jcr:primaryType: frontend:pluginconfig
+            caption: Further Qualifying Information
+            field: furtherQualifyingInformation
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.middle.item
+        jcr:primaryType: editor:templateset
+      /hipposysedit:nodetype:
+        /hipposysedit:nodetype:
+          /furtherQualifyingInformation:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:furtherQualifyingInformation
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            jcr:primaryType: hipposysedit:field
+          /headlineDescription:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:headlineDescription
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /number:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:number
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - non-empty
+            - required
+            - statistics-valid-number
+            jcr:primaryType: hipposysedit:field
+          /prefix:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:prefix
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
+          /suffix:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:suffix
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
+          /trend:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:trend
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - hippo:compound
+          - hippostd:relaxed
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /hipposysedit:prototypes:
+        /hipposysedit:prototype:
+          /website:furtherQualifyingInformation:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:headlineDescription:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:statisticsItem
+          website:number: ''
+          website:prefix: none
+          website:suffix: none
+          website:trend: none
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype
