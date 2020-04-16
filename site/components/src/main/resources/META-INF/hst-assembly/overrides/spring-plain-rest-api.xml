@@ -7,6 +7,7 @@
   <import resource="classpath:/org/hippoecm/hst/site/optional/jaxrs/SpringComponentManager-rest-jackson.xml"/>
   <import resource="classpath:/org/hippoecm/hst/site/optional/jaxrs/SpringComponentManager-rest-plain-pipeline.xml"/>
   <import resource="classpath:/org/hippoecm/hst/site/optional/jaxrs/SpringComponentManager-rest-content-pipeline.xml"/>
+  <import resource="applicationContext.xml" />
 
   <bean id="customRestPlainResourceProviders" class="org.springframework.beans.factory.config.ListFactoryBean">
     <property name="sourceList">
@@ -20,6 +21,20 @@
           <constructor-arg>
             <bean class="uk.nhs.digital.website.rest.DefinedTermsResource"/>
           </constructor-arg>
+        </bean>
+        <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
+            <constructor-arg>
+                <bean class="uk.nhs.digital.intranet.rest.AuthenticationResource">
+                    <constructor-arg name="authorizationProvider" ref="authorizationProvider" />
+                    <constructor-arg name="cookieProvider" ref="cookieProvider" />
+                    <constructor-arg name="redirectUri" ref="authenticationResourceRedirectUri" />
+                </bean>
+            </constructor-arg>
+        </bean>
+        <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
+            <constructor-arg>
+                <bean class="uk.nhs.digital.intranet.rest.stub.AuthorizationResourceStub"/>
+            </constructor-arg>
         </bean>
       </list>
     </property>

@@ -2,11 +2,18 @@
 definitions:
   config:
     /hst:hst/hst:configurations/intranet/hst:sitemap:
+      /person:
+        /_any_:
+          hst:componentconfigurationid: hst:pages/person
+          jcr:primaryType: hst:sitemapitem
+        hst:refId: person
+        jcr:primaryType: hst:sitemapitem
       /root:
         hst:componentconfigurationid: hst:pages/home
         hst:refId: root
         jcr:primaryType: hst:sitemapitem
       /search:
         hst:componentconfigurationid: hst:pages/search-results
+        hst:refId: search
         jcr:primaryType: hst:sitemapitem
       jcr:primaryType: hst:sitemap

@@ -8,13 +8,15 @@ import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.*;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import uk.nhs.digital.intranet.enums.SearchResultType;
+import uk.nhs.digital.intranet.model.IntranetSearchResult;
 
 import java.util.List;
 
 
 @HippoEssentialsGenerated(internalName = "website:blog")
 @Node(jcrType = "website:blog")
-public class Blog extends CaseStudyAndBlogBase {
+public class Blog extends CaseStudyAndBlogBase implements IntranetSearchResult {
 
     // used to differentiate between different types of content blocks
     public String getArticleType() {
@@ -35,7 +37,15 @@ public class Blog extends CaseStudyAndBlogBase {
             .getHippoBeans();
 
         return toList(hippoBeans);
-
     }
 
+    @Override
+    public String getSearchResultTitle() {
+        return getTitle();
+    }
+
+    @Override
+    public String getSearchResultType() {
+        return SearchResultType.NEWS.getValue();
+    }
 }
