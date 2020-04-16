@@ -7,6 +7,8 @@
 <#include "macro/metaTags.ftl">
 <#include "macro/component/lastModified.ftl">
 <#include "macro/visualhubBox.ftl">
+<#include "macro/tabTileHeadings.ftl">
+<#include "macro/tabTiles.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -16,10 +18,11 @@
 <#assign hasBannerImage = document.image?has_content />
 <#assign hasTopicIcon = document.pageIcon?has_content />
 <#assign hasAdditionalInformation = document.additionalInformation.content?has_content />
-<#assign hasLinks = document.links?? && document.links?size gt 0 />
+<#assign hasPrimaryLinks = document.primarySections?? && document.primarySections?size gt 0 />
+<#assign hasTabTileLinks = document.tileSections?? && document.tileSections?size gt 0 && !hasPrimaryLinks/>
 
 <article class="article">
-    <#if hasBannerImage>
+    <#if hasBannerImage && hasPrimaryLinks>
         <@hst.link hippobean=document.image.original fullyQualified=true var="bannerImage" />
         <div class="banner-image" aria-label="Document Header" style="background-image: url(${bannerImage});">
             <div class="grid-wrapper">
@@ -41,11 +44,34 @@
                 </div>
             </div>
         </div>
+    <#elseif hasBannerImage && hasTabTileLinks>
+        <@hst.link hippobean=document.image fullyQualified=true var="bannerImage" />
+        <div class="banner-image banner-image--short banner-image--tint"
+             aria-label="Document Header"
+             style="background-image: linear-gradient(0deg, rgba(0,94,184,0.8), rgba(0,94,184,0.8)), url(${bannerImage});">
+            <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
+                <div class="article-header--with-icon">
+                    <div class="grid-wrapper">
+                        <div class="article-header__inner">
+                            <div class="grid-row">
+                                <div class="column column--reset">
+                                    <h1 class="local-header__title"
+                                        data-uipath="document.title">${document.title}</h1>
+                                    <div class="article-header__subtitle">
+                                        <@hst.html hippohtml=document.summary contentRewriter=gaContentRewriter/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     <#else>
       <@documentHeader document 'hub' document.pageIcon?has_content?then(document.pageIcon, '')></@documentHeader>
     </#if>
 
-    <#if document.introduction?has_content>
+    <#if !document.introduction?has_content>
         <div class="grid-wrapper visual-hub-introduction">
             <div class="grid-row">
                 <div class="column column--reset">
@@ -55,35 +81,72 @@
         </div>
     </#if>
 
-    <#if hasLinks>
+    <#if hasTabTileLinks>
+        <#-- get param 'area' -->
+        <#assign param = hstRequest.request.getParameter("area") />
+        <#-- assign area the param value else, the first section in the list -->
+        <#assign area = param???then(param, slugify(document.tileSections[0].tileSectionHeading)) />
+
+        <div class="grid-wrapper">
+            <div class="grid-row">
+                <@tabTileHeadings document.tileSections "service" area />
+            </div>
+        </div>
+
+        <div class="grid-wrapper">
+            <#list document.tileSections as tileSection>
+                <#if slugify(tileSection.tileSectionHeading) == area>
+                    <div class="grid-row">
+                        <div class="tile-panel" role="tabpanel">
+                            <#list tileSection.tileSectionLinks as links>
+                                <#if links?is_odd_item || links?is_first>
+                                    <div class="tile-panel-group">
+                                </#if>
+                                <@tabTiles links/>
+                                <#if links?is_even_item || links?is_last>
+                                    </div>
+                                </#if>
+                            </#list>
+                        </div>
+                    </div>
+                </#if>
+            </#list>
+        </div>
+    </#if>
+
+    <#if hasPrimaryLinks>
         <div class="grid-wrapper">
             <div class="grid-row visual-hub-grid-row">
                 <div class="column column--reset">
-                    <#list document.links as link>
-                        <#if link?is_odd_item || link?is_first>
-                            <div class="visual-hub-group">
-                        </#if>
-                        <@visualhubBox link />
-                        <#if link?is_even_item || link?is_last>
-                            </div>
-                        </#if>
+                    <#list document.primarySections as primarySection>
+                        <#list primarySection.primarySectionsTiles as link>
+                            <#if link?is_odd_item || link?is_first>
+                                <div class="visual-hub-group">
+                            </#if>
+                            <@visualhubBox link />
+                            <#if link?is_even_item || link?is_last>
+                                </div>
+                            </#if>
+                        </#list>
                     </#list>
                 </div>
             </div>
         </div>
     </#if>
 
-    <div class="grid-wrapper grid-wrapper--article">
-        <div class="grid-row">
-            <div class="column column--reset">
-                    <@hst.html hippohtml=document.additionalInformation contentRewriter=gaContentRewriter />
+    <#if !hasTabTileLinks>
+        <div class="grid-wrapper grid-wrapper--article">
+            <div class="grid-row">
+                <div class="column column--reset">
+                        <@hst.html hippohtml=document.additionalInformation contentRewriter=gaContentRewriter />
 
 
-                <div class="article-section muted">
-                    <@lastModified document.lastModified false></@lastModified>
+                    <div class="article-section muted">
+                        <@lastModified document.lastModified false></@lastModified>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </#if>
 
 </article>
