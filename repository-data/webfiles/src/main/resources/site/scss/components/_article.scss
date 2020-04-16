@@ -9,6 +9,44 @@
     }
 }
 
+.article--intranet-task {
+    .article-header__subtitle {
+        p {
+            @include core-font(18);
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 42px;
+
+            li {
+                position: relative;
+                padding: 0;
+                margin-top: 20px;
+
+                &::before {
+                    display: block;
+                    position: absolute;
+                    left: -42px;
+                    top: 0;
+                    width: 30px;
+                    height: 30px;
+                    content: "";
+                    border-radius: 100%;
+                    background: url("../images/icon/Icon-tick-v3_v2.svg") 50% 50% no-repeat;
+                    background-size: 80%;
+                    background-color: $white;
+                }
+
+                &,
+                p {
+                    @include core-font(24);
+                }
+            }
+        }
+    }
+}
+
 .article--chaptered-publication {
     .column--right {
         @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {

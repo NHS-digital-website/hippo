@@ -1,0 +1,121 @@
+---
+/content/documents/intranet/tasks:
+  /task-hub:
+    /task-hub[1]:
+      /website:body:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>This is an introduction</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-03-27T15:41:09.291Z
+      hippostdpubwf:lastModificationDate: 2020-03-27T17:09:10.780Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 9a1222d6-d827-445c-96ed-cb103e493ae6
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:componentlist
+      website:anchor: true
+      website:gossid: 0
+      website:shortsummary: Access all your tasks here
+      website:title: Task Hub
+    /task-hub[2]:
+      /website:body:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>This is an introduction</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - preview
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-03-27T15:41:09.291Z
+      hippostdpubwf:lastModificationDate: 2020-03-27T17:09:34.816Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 9a1222d6-d827-445c-96ed-cb103e493ae6
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      - mix:versionable
+      jcr:primaryType: website:componentlist
+      website:anchor: true
+      website:gossid: 0
+      website:shortsummary: Access all your tasks here
+      website:title: Task Hub
+    /task-hub[3]:
+      /website:body:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+        website:destination: ''
+      /website:seosummary:
+        hippostd:content: ''
+        jcr:primaryType: hippostd:html
+      /website:summary:
+        hippostd:content: <p>This is an introduction</p>
+        jcr:primaryType: hippostd:html
+      common:searchRank: 3
+      common:searchable: true
+      hippo:availability:
+      - live
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-03-27T15:41:09.291Z
+      hippostdpubwf:lastModificationDate: 2020-03-27T17:09:34.816Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2020-03-27T17:09:37.149Z
+      hippotranslation:id: 9a1222d6-d827-445c-96ed-cb103e493ae6
+      hippotranslation:locale: en
+      jcr:mixinTypes:
+      - hippotaxonomy:classifiable
+      - mix:referenceable
+      jcr:primaryType: website:componentlist
+      website:anchor: true
+      website:gossid: 0
+      website:shortsummary: Access all your tasks here
+      website:title: Task Hub
+    hippo:name: Task hub
+    hippo:versionHistory: c05362ea-2fa7-4852-86ef-1250983a7c65
+    jcr:mixinTypes:
+    - hippo:named
+    - hippo:versionInfo
+    - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Tasks
+  hippostd:foldertype:
+  - new-task-document
+  - new-task-folder
+  hippotranslation:id: 6889df31-3a43-4ff5-9b92-d7c6de0298b3
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder

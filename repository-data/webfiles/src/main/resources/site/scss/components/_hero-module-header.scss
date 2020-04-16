@@ -90,8 +90,8 @@ $hm-bg-vertical-spacing--large: 100px;
     @include bold-font(36);
     overflow-wrap: break-word;
     @include media(wide) {
-        font-size: 48px;
-        line-height: 58px;
+        font-size: 36px;
+        line-height: 36px;
     }
 }
 
