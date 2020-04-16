@@ -1,0 +1,79 @@
+/* Tab section */
+$tab-tile-gutter:10px;
+
+.tab-group {
+    margin: $gutter * 2 $tab-tile-gutter;
+
+    &__list {
+        background-color: $white;
+        display: flex;
+        padding: 0;
+        margin-bottom: $tab-tile-gutter * 2;
+        list-style: none;
+
+        &-item {
+            display: flex;
+            width: 100%;
+
+            &--active {
+                border-bottom: $blue;
+                border-bottom-style: solid;
+                border-bottom-width: 2px;
+
+                .tab-group__list-link {
+                    @include bold-font(16);
+                    padding-bottom: 0;
+                    text-decoration: none;
+                }
+            }
+
+            a:hover, a:focus, a:active {
+                outline: none;
+                box-shadow: none;
+            }
+        }
+
+        &-link {
+            @include core-font(16);
+
+            padding: $baseline-grid-unit * 2;
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
+
+/* Tile section */
+.tile-panel {
+    margin-bottom: $gutter * 2;
+
+    &-group {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 0;
+
+        &__item {
+            padding: 0 $tab-tile-gutter;
+            margin-bottom: $tab-tile-gutter * 2;
+            display: flex;
+            float: left;
+            width: 100%;
+
+            @include media($min-width: $min-desktop-width, $ignore-for-ie: true) {
+                width: 50%;
+            }
+
+            &-content {
+                border: 2px solid $grey-4;
+                padding: $gutter;
+                display: block;
+                width: 100%;
+
+                h2 {
+                    @include core-font(24);
+                }
+            }
+
+        }
+    }
+}

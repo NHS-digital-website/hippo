@@ -372,6 +372,194 @@
     - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
+  /services:
+    /content:
+      /content[1]:
+        /website:additionalinformation:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:icon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:image:
+          hippo:docbase: 4ca659c3-e8f0-4cc6-9233-fbf2eb3db67e
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:introduction:
+          hippostd:content: <p>We support health and care organisations to manage
+            cyber security risk. This enables the safe and secure use of data and
+            technology to deliver improved patient care.</p>
+          jcr:primaryType: hippostd:html
+        /website:primarysections:
+          /website:tilesectionvisualhub:
+            /website:tilesectionintroduction:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:tilesectionvisualhub
+            website:tilesectionheading: ''
+          jcr:primaryType: website:primarysectionvisualhub
+        /website:seosummary:
+          hippostd:content: We support health and care organisations to manage cyber
+            security risk. This enables the safe and secure use of data and technology
+            to deliver improved patient care.
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: <p>We support health and care organisations to manage
+            cyber security risk. This enables the safe and secure use of data and
+            technology to deliver improved patient care.</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-04-01T14:37:02.068Z
+        hippostdpubwf:lastModificationDate: 2020-04-15T13:09:45.500Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 6c14d076-cdaa-4a13-84e6-4be3a0096952
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:visualhub
+        website:shortsummary: Our information, data, and IT systems help health professionals,
+          commissioners, analysts and managers give the best outcomes for patients.
+        website:title: Services and resources
+      /content[2]:
+        /website:additionalinformation:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:icon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:image:
+          hippo:docbase: 4ca659c3-e8f0-4cc6-9233-fbf2eb3db67e
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:introduction:
+          hippostd:content: <p>We support health and care organisations to manage
+            cyber security risk. This enables the safe and secure use of data and
+            technology to deliver improved patient care.</p>
+          jcr:primaryType: hippostd:html
+        /website:primarysections:
+          /website:tilesectionvisualhub:
+            /website:tilesectionintroduction:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:tilesectionvisualhub
+            website:tilesectionheading: ''
+          jcr:primaryType: website:primarysectionvisualhub
+        /website:seosummary:
+          hippostd:content: We support health and care organisations to manage cyber
+            security risk. This enables the safe and secure use of data and technology
+            to deliver improved patient care.
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: <p>We support health and care organisations to manage
+            cyber security risk. This enables the safe and secure use of data and
+            technology to deliver improved patient care.</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - preview
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-04-01T14:37:02.068Z
+        hippostdpubwf:lastModificationDate: 2020-04-15T13:10:33.193Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 6c14d076-cdaa-4a13-84e6-4be3a0096952
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:versionable
+        jcr:primaryType: website:visualhub
+        website:shortsummary: Our information, data, and IT systems help health professionals,
+          commissioners, analysts and managers give the best outcomes for patients.
+        website:title: Services and resources
+      /content[3]:
+        /website:additionalinformation:
+          hippostd:content: ''
+          jcr:primaryType: hippostd:html
+        /website:icon:
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:image:
+          hippo:docbase: 4ca659c3-e8f0-4cc6-9233-fbf2eb3db67e
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+          jcr:primaryType: hippogallerypicker:imagelink
+        /website:introduction:
+          hippostd:content: <p>We support health and care organisations to manage
+            cyber security risk. This enables the safe and secure use of data and
+            technology to deliver improved patient care.</p>
+          jcr:primaryType: hippostd:html
+        /website:primarysections:
+          /website:tilesectionvisualhub:
+            /website:tilesectionintroduction:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:tilesectionvisualhub
+            website:tilesectionheading: ''
+          jcr:primaryType: website:primarysectionvisualhub
+        /website:seosummary:
+          hippostd:content: We support health and care organisations to manage cyber
+            security risk. This enables the safe and secure use of data and technology
+            to deliver improved patient care.
+          jcr:primaryType: hippostd:html
+        /website:summary:
+          hippostd:content: <p>We support health and care organisations to manage
+            cyber security risk. This enables the safe and secure use of data and
+            technology to deliver improved patient care.</p>
+          jcr:primaryType: hippostd:html
+        common:searchRank: 3
+        common:searchable: true
+        hippo:availability:
+        - live
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-04-01T14:37:02.068Z
+        hippostdpubwf:lastModificationDate: 2020-04-15T13:10:33.193Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-04-15T13:10:36.941Z
+        hippotranslation:id: 6c14d076-cdaa-4a13-84e6-4be3a0096952
+        hippotranslation:locale: en
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: website:visualhub
+        website:shortsummary: Our information, data, and IT systems help health professionals,
+          commissioners, analysts and managers give the best outcomes for patients.
+        website:title: Services and resources
+      hippo:name: Services and resources
+      hippo:versionHistory: 08b8df81-8462-4b6d-9d5e-2b7ccdfe50ea
+      jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+      jcr:primaryType: hippo:handle
+    hippo:name: Systems and services
+    hippostd:foldertype:
+    - new-digital-website-folder
+    - new-digital-website-document
+    hippotranslation:id: ac7e3c55-c162-4811-8358-dde989cf097d
+    hippotranslation:locale: en
+    jcr:mixinTypes:
+    - hippo:named
+    - hippotranslation:translated
+    - mix:versionable
+    jcr:primaryType: hippostd:folder
   hippo:name: Cyber and data security
   hippostd:foldertype:
   - new-translated-folder

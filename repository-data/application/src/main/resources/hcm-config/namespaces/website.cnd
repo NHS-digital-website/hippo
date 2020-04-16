@@ -277,6 +277,9 @@
 [website:postnominal] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:primarysectionvisualhub] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:priorityaction] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -374,6 +377,12 @@
   orderable
 
 [website:threatupdate] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:update] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
+[website:tilesectionvisualhub] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:update] > hippostd:relaxed, hippotranslation:translated, website:basedocument

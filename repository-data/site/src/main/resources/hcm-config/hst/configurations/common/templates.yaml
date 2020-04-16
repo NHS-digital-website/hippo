@@ -236,6 +236,9 @@ definitions:
       /service-toptasks:
         hst:renderpath: webfile:/freemarker/common/service/service-toptasks.ftl
         jcr:primaryType: hst:template
+      /services-and-resources-home:
+        hst:renderpath: webfile:/freemarker/common/visual-hub.ftl
+        jcr:primaryType: hst:template
       /static-ui-component:
         hst:renderpath: webfile:/freemarker/common/static-ui/component/index.ftl
         jcr:primaryType: hst:template
