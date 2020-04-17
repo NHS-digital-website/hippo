@@ -14,13 +14,10 @@
     <#assign custom_summary = summary />
     <#assign hasDocumentSummary = false />
     <#if ! custom_summary?has_content && document != "simulating_doc"  >
-        <#assign hasDocumentSummary = document.summary?? && document.summary.content?has_content />
-        <#assign hasDocumentContent = document.content?? && document.content?has_content />
-        <#if hasDocumentSummary >
-            <#assign custom_summary = document.summary />
-        <#elseif hasDocumentContent>
-            <#assign custom_summary = document.content />
-        </#if>
+      <#assign hasDocumentSummary = document.summary?? && document.summary.content?has_content />
+      <#if hasDocumentSummary >
+        <#assign custom_summary = document.summary />
+      </#if>
     </#if>
 
     <#assign hasBannerControls = document != "simulating_doc" && document.bannercontrols?? && document.bannercontrols?has_content />
@@ -66,8 +63,8 @@
                               </#if>
                             </#if>
 
-                            <h1 id="top" class="local-header__title" data-uipath="document.title" ${titleProp} ${headerStyle}>${custom_title}</h1>
-                            <#if hasDocumentSummary || hasDocumentContent>
+                            <h1 id="top" class="local-header__title" data-uipath="document.title" ${hasSchemaOrg?then(titleProp, '')} ${headerStyle}>${custom_title}</h1>
+                            <#if hasDocumentSummary>
                               <div class="article-header__subtitle" data-uipath="website.${doctype}.summary">
                                 <@hst.html hippohtml=custom_summary contentRewriter=gaContentRewriter/>
                               </div>
@@ -78,14 +75,22 @@
                                 <#assign schemaProp = "itemprop=description" />
                               </#if>
 
-                              <div ${schemaProp} class="article-header__subtitle" data-uipath="website.${doctype}.summary">
-                                  ${custom_summary}
-                                  </div>
+                                <#if custom_summary?has_content>
+                                    <div ${schemaProp} class="article-header__subtitle" data-uipath="website.${doctype}.summary">${custom_summary}</div>
+                                </#if>
+                            </#if>
+
+                            <#if doctype == "intranet-task">
+                                <#if document.introduction?has_content>
+                                    <div class="rich-text-content article-header__subtitle">
+                                        <@hst.html hippohtml=document.introduction contentRewriter=gaContentRewriter />
+                                    </div>
+                                </#if>
                             </#if>
                         </div>
                         <#if hasFinalPageIcon>
                             <div class="column--one-third column--reset local-header__icon">
-                              <#if hasBannerControls && document.bannercontrols.icon?has_content || document != "simulating_doc" && hasPageIcon >
+                              <#if hasBannerControls && document.bannercontrols.icon?has_content || document != "simulating_doc" && hasPageIcon > 
                                   <#-- ex. Service case - image from HippoGalleryImageSet -->
                                   <@hst.link hippobean=headerIcon.original fullyQualified=true var="image" />
                                   <#if image?ends_with("svg")>
@@ -106,6 +111,25 @@
                             </div>
                         </#if>
                     </div>
+
+                    <#if document.priorityActions?has_content>
+                        <div class="grid-row no-top-margin">
+                            <div class="column column--reset">
+                                <ul class="intra-action-links">
+                                    <#list document.priorityActions as action>
+                                        <li>
+                                            <#if action.link.linkType == "internal">
+                                                <a href="<@hst.link hippobean=action.link.link />" class="intra-action-link">${action.action}</a>
+                                            <#else>
+                                                <a href="${action.link.link}" class="intra-action-link">${action.action}</a>
+                                            </#if>
+                                        </li>
+                                    </#list>
+                                </ul>
+                            </div>
+                        </div>
+                    </#if>
+
                     <#if hasTopics>
                       <div class="detail-list-grid">
                         <div class="grid-row">

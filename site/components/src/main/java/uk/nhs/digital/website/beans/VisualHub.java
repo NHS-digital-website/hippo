@@ -26,9 +26,14 @@ public class VisualHub extends CommonFieldsBean {
         return getLinkedBean("website:icon", HippoGalleryImageSet.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "website:links")
-    public List<HippoBean> getLinks() {
-        return getChildBeansByName("website:links");
+    @HippoEssentialsGenerated(internalName = "website:primarysectionvisualhub")
+    public List<HippoBean> getPrimarySections() {
+        return getChildBeansByName("website:primarysectionvisualhub");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:tilesectionvisualhub")
+    public List<HippoBean> getTileSections() {
+        return getChildBeansByName("website:tilesectionvisualhub");
     }
 
     @HippoEssentialsGenerated(internalName = "website:additionalinformation")

@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 <#macro siteHeader enableSearch>
-<header class="site-header" id="header">
+<header class="site-header <#if enableSearch>site-header--with-search<#else>site-header--without-search</#if>" id="header">
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
         <div class="grid-row">
             <div class="column column--reset">
@@ -16,26 +16,32 @@
                         <#assign wrapperClassName = "site-header__search-wrapper" />
                         </#if>
 
+
+
                         <div class="main-nav">
-                            <div class="main-nav__burger" id="navToggle">
-                                <button class="main-nav__burger-button" aria-label="Navigation menu">
-                                    <span class="main-nav__burger-line">&nbsp;</span>
-                                    <span class="main-nav__burger-line">&nbsp;</span>
-                                    <span class="main-nav__burger-line">&nbsp;</span>
+
+                            <div class="${wrapperClassName}">
+                                <#if enableSearch>
+                                <#include "../../include/search-strip.ftl">
+                                </#if>
+                            </div>
+
+                            <nav>
+                                <button tabindex="0" class="main-nav__burger" aria-label="Navigation menu" id="navToggle">
+                                    <span class="main-nav__burger-button">
+                                        <span class="main-nav__burger-line-group">
+                                            <span class="main-nav__burger-line">&nbsp;</span>
+                                            <span class="main-nav__burger-line">&nbsp;</span>
+                                            <span class="main-nav__burger-line">&nbsp;</span>
+                                        </span>
+                                    </span>
                                 </button>
-                            </div>
-
-                            <div class="column column--81-25  column--reset">
-                                <div class="main-nav__menu">
-                                    <div class="${wrapperClassName}">
-                                        <#if enableSearch>
-                                        <#include "../../include/search-strip.ftl">
-                                        </#if>
+                                <div class="column <#if !enableSearch>column--81-25</#if> column--reset">
+                                    <div class="main-nav__menu">
+                                        <@hst.include ref="top-menu"/>
                                     </div>
-
-                                    <@hst.include ref="top-menu"/>
                                 </div>
-                            </div>
+                            </nav>
                         </div>
                     </div>
                 </div>

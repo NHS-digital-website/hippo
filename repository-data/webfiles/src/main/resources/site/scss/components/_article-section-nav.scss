@@ -47,7 +47,7 @@
         border-bottom: $baseline-grid-unit/2 solid $col-20;
         width: 100%;
 
-        @include core-font(24);
+        @include core-font(24); 
 
         @include media(desktop) {
             line-height: 24px;
