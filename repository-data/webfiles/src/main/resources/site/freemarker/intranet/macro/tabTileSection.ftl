@@ -13,28 +13,34 @@
         <div class="tile-item">
             <div class="tile-item__content">
 
-                <div class="tile-item__content-tags">
-                    <#assign deptTag = options.type/>
-                    <#if options.dept?has_content>
-                        <#assign deptTag = options.dept/>
-                    </#if>
-                    <p class="tile-item__tag tile-item__tag--left">${deptTag?upper_case}</p>
+                <#assign mainTag = ""/>
+                <#if options.dept?has_content>
+                    <#assign mainTag = options.dept/>
+                <#else>
+                    <#assign mainTag = options.type />
+                </#if>
 
-                    <#if options.type?has_content>
-                        <div class="tile-item__tag tile-item__tag--right">
-                            <p class="tile-item__tag--boxed">${options.type}</p>
-                        </div>
-                    </#if>
-                </div>
+                <#if mainTag?has_content>
+                    <div class="tile-item__content-tag">
+                        <p class="intra-info-tag intra-info-tag--bg-flat intra-info-tag--txt-black">${mainTag?upper_case}</p>
+                    </div>
+                </#if>
+
+                <#if options.type?has_content>
+                    <div class="tile-item__content-tag intra-info-tag--right">
+                        <p class="intra-info-tag intra-info-tag--bg-grey">${options.type}</p>
+                    </div>
+                </#if>
 
                 <h2 class="tile-item__content-title">
                     <#if options.linkType == "internal">
-                    <a href="<@hst.link hippobean=options.link />">
-                        <#elseif options.linkType == "external">
-                    <a href="${options.link}">
-                        </#if>
-                        ${title}
-                    </a>
+                        <#assign link><@hst.link hippobean=options.link/></#assign>
+                    <#elseif options.linkType == "external">
+                        <#assign link = options.link/>
+                    <#else>
+                        <#assign link = ""/>
+                    </#if>
+                    <a href="${link}">${title}</a>
                 </h2>
             </div>
         </div>

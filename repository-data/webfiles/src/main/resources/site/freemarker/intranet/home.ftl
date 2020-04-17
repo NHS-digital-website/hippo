@@ -149,7 +149,7 @@
                         <a href="#" class="intra-people-grid-item__name">Mark Richardson</a>
                     </div>
                     <div>
-                        <span class="intra-info-tag intra-info-tag--light">Finance</span>
+                        <span class="intra-info-tag intra-info-tag--bg-light">Finance</span>
                     </div>
                     <div>
                         <span class="intra-people-grid-item__job-role">Infrastructure Architect</span>
@@ -163,7 +163,7 @@
                         <a href="#" class="intra-people-grid-item__name">Corinne Booth</a>
                     </div>
                     <div>
-                        <span class="intra-info-tag intra-info-tag--light">Travel</span>
+                        <span class="intra-info-tag intra-info-tag--bg-light">Travel</span>
                     </div>
                     <div>
                         <span class="intra-people-grid-item__job-role">Infrastructure Architect</span>
@@ -177,7 +177,7 @@
                         <a href="#" class="intra-people-grid-item__name">Richard Cooke</a>
                     </div>
                     <div>
-                        <span class="intra-info-tag intra-info-tag--light">HR</span>
+                        <span class="intra-info-tag intra-info-tag--bg-light">HR</span>
                     </div>
                     <div>
                         <span class="intra-people-grid-item__job-role">Infrastructure Architect</span>
@@ -191,7 +191,7 @@
                         <a href="#" class="intra-people-grid-item__name">Hariet Clarke</a>
                     </div>
                     <div>
-                        <span class="intra-info-tag intra-info-tag--light">Travel</span>
+                        <span class="intra-info-tag intra-info-tag--bg-light">Travel</span>
                     </div>
                     <div>
                         <span class="intra-people-grid-item__job-role">Infrastructure Architect</span>

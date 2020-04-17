@@ -2,7 +2,7 @@
 $tab-tile-gutter:10px;
 
 .tab-group {
-    margin: $gutter * 2 0;
+    margin: 0 0 $gutter * 2 0;
 
     &__list {
         background-color: $white;
@@ -39,7 +39,7 @@ $tab-tile-gutter:10px;
             @include core-font(14);
 
             color: $grey-2;
-            padding: $baseline-grid-unit * 2;
+            padding: $baseline-grid-unit * 3 $baseline-grid-unit * 2;
             width: 100%;
             text-align: center;
             text-decoration: none;
@@ -49,12 +49,14 @@ $tab-tile-gutter:10px;
 
 /* Tile section */
 .tile-panel {
-    margin-bottom: $gutter * 2;
+    margin: $gutter 0;
 
     &-group {
         display: flex;
-        flex-wrap: wrap;
-        margin-bottom: 0;
+
+        &:first-child {
+            margin-top: 0;
+        }
 
         .tile-item {
             display: flex;
@@ -71,55 +73,13 @@ $tab-tile-gutter:10px;
                     @include core-font(20);
                 }
 
-                &-tags {
-                    display: flex;
-
-                    .tile-item__tag {
-                        float: left;
-                        width: 50%;
-                        margin: 0;
-
-                        &--left {
-                            @include bold-font(14);
-                            position: relative;
-                            left: 0;
-                            text-align: left;
-                        }
-
-                        &--right {
-                            position: relative;
-                            right: 0;
-                            text-align: right;
-                        }
-
-                        &--boxed {
-                            @include core-font(14);
-
-                            //padding: 5px;
-                            //border-radius: 5px;
-                            //background-color: $grey-2;
-                            //color: $white;
-                        }
-                    }
+                &-tag {
+                    float: left;
+                    width: 50%;
+                    margin: 0 0 $gutter 0;
                 }
             }
 
         }
-    }
-}
-
-.result-text {
-    @include core-font(14);
-
-    display: block;
-    padding: $tab-tile-gutter 0;
-    color: $grey-2;
-
-    &--pull-right {
-        text-align: right;
-    }
-
-    &--pull-left {
-        text-align: left;
     }
 }
