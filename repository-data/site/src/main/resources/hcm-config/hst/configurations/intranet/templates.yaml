@@ -18,6 +18,6 @@ definitions:
         hst:renderpath: webfile:/freemarker/intranet/task.ftl
         jcr:primaryType: hst:template
       /taskhub:
-        hst:renderpath: webfile:/freemarker/common/list-article.ftl
+        hst:renderpath: webfile:/freemarker/intranet/task-list-article.ftl
         jcr:primaryType: hst:template
       jcr:primaryType: hst:templates
