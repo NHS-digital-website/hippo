@@ -1,5 +1,7 @@
 package uk.nhs.digital.common.components;
 
+import static org.apache.commons.collections.IteratorUtils.toList;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.hippoecm.hst.content.beans.query.HstQuery;
@@ -23,7 +25,6 @@ import uk.nhs.digital.website.beans.SupplementaryInformationHub;
 
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 @ParametersInfo(
     type = SupplementaryInformationHubComponentInfo.class
@@ -42,12 +43,14 @@ public class SupplementaryInformationHubComponent extends EssentialsListComponen
             request.setAttribute("document", document);
         }
 
-        request.setAttribute("years", years());
+        List<SupplementaryInformation> si = getListOfSupplementaryInformation();
+
+        request.setAttribute("years", years(si));
 
         String selectedYear = DocumentUtils.findYearOrDefault(getSelectedYear(request), Calendar.getInstance().get(Calendar.YEAR));
         request.setAttribute("selectedYear", selectedYear);
 
-        request.setAttribute("months", months(Integer.parseInt(selectedYear)));
+        request.setAttribute("months", months(Integer.parseInt(selectedYear), si));
     }
 
     @Override
@@ -85,37 +88,34 @@ public class SupplementaryInformationHubComponent extends EssentialsListComponen
             ? Integer.parseInt(componentPageSize) : super.getPageSize(request, paramInfo);
     }
 
-    private List<String> years() {
+    private List<SupplementaryInformation> getListOfSupplementaryInformation() {
         try {
-            return StreamSupport
-                .stream(Spliterators.spliteratorUnknownSize(DocumentUtils.documentsQuery(SupplementaryInformation.class), Spliterator.ORDERED), true)
-                .map(document -> getPublicationYear((SupplementaryInformation) document))
-                .filter(Objects::nonNull)
-                .distinct()
-                .map(String::valueOf)
-                .sorted(Comparator.reverseOrder())
-                .collect(Collectors.toList());
+            return toList(DocumentUtils.documentsQuery(SupplementaryInformation.class));
         } catch (final QueryException e) {
-            log.error("Exception while querying SIF publication years", e);
+            log.error("Exception while querying SIF publication documents", e);
         }
         return Collections.emptyList();
     }
 
-    private List<String> months(int inYear) {
-        try {
-            return StreamSupport
-                .stream(Spliterators.spliteratorUnknownSize(DocumentUtils.documentsQuery(SupplementaryInformation.class), Spliterator.ORDERED), true)
-                .filter(document -> getPublicationYear((SupplementaryInformation) document) == inYear)
-                .map(document -> getPublicationMonth((SupplementaryInformation) document))
-                .filter(Objects::nonNull)
-                .distinct()
-                .map(String::valueOf)
-                .sorted(Comparator.reverseOrder())
-                .collect(Collectors.toList());
-        } catch (final QueryException e) {
-            log.error("Exception while querying SIF publication years", e);
-        }
-        return Collections.emptyList();
+    private List<String> years(List<SupplementaryInformation> si) {
+        return si.stream()
+            .map(this::getPublicationYear)
+            .filter(Objects::nonNull)
+            .distinct()
+            .map(String::valueOf)
+            .sorted(Comparator.reverseOrder())
+            .collect(Collectors.toList());
+    }
+
+    private List<String> months(Integer inYear, List<SupplementaryInformation> si) {
+        return si.stream()
+            .filter(document -> inYear.equals(getPublicationYear(document)))
+            .map(this::getPublicationMonth)
+            .filter(Objects::nonNull)
+            .distinct()
+            .map(String::valueOf)
+            .sorted(Comparator.reverseOrder())
+            .collect(Collectors.toList());
     }
 
     private Integer getPublicationYear(final SupplementaryInformation document) {
