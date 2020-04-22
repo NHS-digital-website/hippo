@@ -43,7 +43,11 @@ public class SupplementaryInformationHubComponent extends EssentialsListComponen
         }
 
         request.setAttribute("years", years());
-        request.setAttribute("selectedYear", DocumentUtils.findYearOrDefault(getSelectedYear(request), Calendar.getInstance().get(Calendar.YEAR)));
+
+        String selectedYear = DocumentUtils.findYearOrDefault(getSelectedYear(request), Calendar.getInstance().get(Calendar.YEAR));
+        request.setAttribute("selectedYear", selectedYear);
+
+        request.setAttribute("months", months(Integer.parseInt(selectedYear)));
     }
 
     @Override
@@ -97,8 +101,30 @@ public class SupplementaryInformationHubComponent extends EssentialsListComponen
         return Collections.emptyList();
     }
 
+    private List<String> months(int inYear) {
+        try {
+            return StreamSupport
+                .stream(Spliterators.spliteratorUnknownSize(DocumentUtils.documentsQuery(SupplementaryInformation.class), Spliterator.ORDERED), true)
+                .filter(document -> getPublicationYear((SupplementaryInformation) document) == inYear)
+                .map(document -> getPublicationMonth((SupplementaryInformation) document))
+                .filter(Objects::nonNull)
+                .distinct()
+                .map(String::valueOf)
+                .sorted(Comparator.reverseOrder())
+                .collect(Collectors.toList());
+        } catch (final QueryException e) {
+            log.error("Exception while querying SIF publication years", e);
+        }
+        return Collections.emptyList();
+    }
+
     private Integer getPublicationYear(final SupplementaryInformation document) {
         return document.getPublishedDate() != null ? document.getPublishedDate().get(Calendar.YEAR)
+            : null;
+    }
+
+    private Integer getPublicationMonth(final SupplementaryInformation document) {
+        return document.getPublishedDate() != null ? document.getPublishedDate().get(Calendar.MONTH)
             : null;
     }
 

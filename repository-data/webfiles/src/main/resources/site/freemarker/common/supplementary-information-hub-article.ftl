@@ -26,6 +26,8 @@
 </#list>
 
 <#-- Return the filter navigation links for the year -->
+
+<!-- REFACTOR -->
 <#function getFilterYearLinks>
     <#assign links = [] />
 
@@ -36,6 +38,19 @@
 
     <#return links />
 </#function>
+
+<#function getFilterMonthsLinks>
+    <#assign links = [] />
+
+    <#list months as key>
+        <#assign typeCount = months?size />
+        <#assign links += [{ "key" : key, "title" : key, "count" : typeCount }] />
+    </#list>
+
+    <#return links />
+</#function>
+
+<!-- END REFACTOR -->
 
 <#assign hasIntroductionContent = document.introduction.content?has_content />
 
@@ -65,6 +80,17 @@
                                 <@stickyNavYears getFilterYearLinks()></@stickyNavYears>
                             </div>
                         </#if>
+
+
+                        <#-- Year filter component -->
+                        <#if getFilterMonthsLinks()?size gt 0>
+
+                            <#assign affix = "&year=" + selectedYear />
+                            <div class="article-section-nav-wrapper" data-hub-filter-type="nhsd-hub-tag-filter" data-hub-filter-key="year">
+                                <@stickyNavTags getFilterMonthsLinks() affix "Filter by type" "" months></@stickyNavTags>
+                            </div>
+                        </#if>
+
 
                         <#-- Month anchor nav -->
                         <#if eventGroupHash?has_content>
