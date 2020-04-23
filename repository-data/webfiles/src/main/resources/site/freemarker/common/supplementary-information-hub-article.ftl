@@ -83,8 +83,8 @@
                         <#if getFilterMonthsLinks()?size gt 0>
                             <#assign empty = [] />
                             <#assign affix = "&year=" + selectedYear />
-                            <div class="article-section-nav-wrapper" data-hub-filter-type="nhsd-hub-tag-filter" data-hub-filter-key="year">
-                                <@stickyNavTags getFilterMonthsLinks() affix "Filter by month" "month" empty></@stickyNavTags>
+                            <div class="article-section-nav-wrapper" data-hub-filter-type="nhsd-hub-tag-filter" data-hub-filter-key="month">
+                                <@stickyNavTags getFilterMonthsLinks() affix "Filter by month" "month" empty true true></@stickyNavTags>
                             </div>
                         </#if>
 

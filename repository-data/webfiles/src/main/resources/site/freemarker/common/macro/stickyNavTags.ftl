@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 
-<#macro stickyNavTags links affix title filter selectedFilter slugifyValue=true>
+<#macro stickyNavTags links affix title filter selectedFilter slugifyValue=true useKeyForQueryValue=false>
 <div class="article-section-nav-wrapper">
     <div class="article-section-nav">
         <h2 class="article-section-nav__title">${title}</h2>
@@ -10,7 +10,8 @@
                     <#list links as link>
                     <li>
                         <#assign hasCount = (link.count?? && link.count?has_content)?then("(" + link.count + ")", "") />
-                        <#assign slugifiedValue = slugifyValue?then(slugify(link.title), link.title) />
+                        <#assign dataValue = useKeyForQueryValue?then(link.key, link.title)>
+                        <#assign slugifiedValue = slugifyValue?then(slugify(dataValue), dataValue) />
 
                         <#if selectedFilter?seq_contains(link.key)>
                         <#assign linkout = "&" + filter + "=" + selectedFilter?join("&" + filter + "=") + affix />
