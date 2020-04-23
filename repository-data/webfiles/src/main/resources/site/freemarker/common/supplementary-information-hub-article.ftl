@@ -1,6 +1,5 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
-<#include "macro/stickyNavSections.ftl">
 <#include "macro/stickyNavYears.ftl">
 <#include "macro/stickyNavTags.ftl">
 <#include "macro/hubBox.ftl">
@@ -16,7 +15,7 @@
 
 <#assign monthNames = monthsOfTheYear()?reverse />
 
-<#--Group the documents by month  -->
+<#--Group the documents by month -->
 <#assign eventGroupHash = {} />
 <#list pageable.items as item>
     <#if item.publishedDate?size gt 0>
@@ -27,7 +26,6 @@
 
 <#-- Return the filter navigation links for the year -->
 
-<!-- REFACTOR -->
 <#function getFilterYearLinks>
     <#assign links = [] />
 
@@ -44,15 +42,15 @@
 
     <#list months as key>
         <#assign typeCount = months?size />
-        <#assign links += [{ "key" : key, "title" : key, "count" : typeCount }] />
+        <#assign links += [{ "key" : key, "title" :  monthsOfTheYear()[key], "count" : typeCount }] />
     </#list>
 
     <#return links />
 </#function>
 
-<!-- END REFACTOR -->
-
 <#assign hasIntroductionContent = document.introduction.content?has_content />
+
+<#assign monthsOfTheYear =  monthsOfTheYear() />
 
 <article class="article article--supplementary-info-hub">
     <@documentHeader document 'supplementary-info-hub' '' '' '' '' false></@documentHeader>
@@ -81,29 +79,15 @@
                             </div>
                         </#if>
 
-
-                        <#-- Year filter component -->
+                        <#-- Month filter component -->
                         <#if getFilterMonthsLinks()?size gt 0>
-
+                            <#assign empty = [] />
                             <#assign affix = "&year=" + selectedYear />
                             <div class="article-section-nav-wrapper" data-hub-filter-type="nhsd-hub-tag-filter" data-hub-filter-key="year">
-                                <@stickyNavTags getFilterMonthsLinks() affix "Filter by type" "" months></@stickyNavTags>
+                                <@stickyNavTags getFilterMonthsLinks() affix "Filter by month" "month" empty></@stickyNavTags>
                             </div>
                         </#if>
 
-
-                        <#-- Month anchor nav -->
-                        <#if eventGroupHash?has_content>
-                            <#assign links = [] />
-                            <#list monthsOfTheYear() as month>
-                                <#if eventGroupHash[month]??>
-                                    <#assign links += [{ "url": "#" + slugify(month), "title": month, "aria-label": "Jump to events starting in ${month}" }] />
-                                </#if>
-                            </#list>
-                            <div class="article-section-nav-wrapper" id="hub-search-page-contents">
-                                <@stickyNavSections links></@stickyNavSections>
-                            </div>
-                        </#if>
                     </div>
                 </div>
             </div>

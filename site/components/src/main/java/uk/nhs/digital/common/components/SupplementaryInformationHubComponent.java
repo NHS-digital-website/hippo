@@ -107,14 +107,13 @@ public class SupplementaryInformationHubComponent extends EssentialsListComponen
             .collect(Collectors.toList());
     }
 
-    private List<String> months(Integer inYear, List<SupplementaryInformation> si) {
+    private List<Integer> months(Integer inYear, List<SupplementaryInformation> si) {
         return si.stream()
             .filter(document -> inYear.equals(getPublicationYear(document)))
             .map(this::getPublicationMonth)
             .filter(Objects::nonNull)
             .distinct()
-            .map(String::valueOf)
-            .sorted(Comparator.reverseOrder())
+            .sorted(Comparator.naturalOrder())
             .collect(Collectors.toList());
     }
 
