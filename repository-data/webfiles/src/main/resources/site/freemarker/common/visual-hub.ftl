@@ -71,7 +71,7 @@
       <@documentHeader document 'hub' document.pageIcon?has_content?then(document.pageIcon, '')></@documentHeader>
     </#if>
 
-    <#if !document.introduction?has_content>
+    <#if document.introduction?has_content>
         <div class="grid-wrapper visual-hub-introduction">
             <div class="grid-row">
                 <div class="column column--reset">
