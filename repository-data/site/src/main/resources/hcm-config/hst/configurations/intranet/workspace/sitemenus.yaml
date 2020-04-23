@@ -13,16 +13,15 @@ definitions:
           hst:externallink: '#'
           hst:repobased: false
           jcr:primaryType: hst:sitemenuitem
-        /Tasks:
-          .meta:order-before: Teams & Networks
-          hst:referencesitemapitem: tasks
-          hst:repobased: false
-          jcr:primaryType: hst:sitemenuitem
         /Teams & Networks:
           .meta:order-before: News & Announcements
           hst:externallink: '#'
           hst:repobased: false
           jcr:primaryType: hst:sitemenuitem
-        hst:lastmodified: 2020-04-23T15:25:56.929Z
+        /Tasks:
+          hst:referencesitemapitem: tasks
+          hst:repobased: false
+          jcr:primaryType: hst:sitemenuitem
+        hst:lastmodified: 2018-02-21T11:03:23.023Z
         jcr:primaryType: hst:sitemenu
       jcr:primaryType: hst:sitemenus

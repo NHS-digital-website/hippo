@@ -131,6 +131,10 @@ $burger-piece-height: 3px;
         height: auto;
         margin: 0 0 10px;
 
+        &--intra {
+            max-width: 206px;
+            width: 206px;
+        }
     }
 
     &-a__logo {
