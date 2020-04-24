@@ -121,6 +121,9 @@
 [website:dschomepage] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:dynamicchartsection] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:editorsnotes] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
@@ -176,6 +179,9 @@
   orderable
 
 [website:grouprole] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:highchartseries] > hippo:compound, hippostd:relaxed
   orderable
 
 [website:homepagesections] > hippo:compound, hippostd:relaxed

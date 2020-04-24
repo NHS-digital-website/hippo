@@ -5,6 +5,8 @@
 <script src="<@hst.webfile path="/js/highcharts/oldie.js"/>"></script>
 <![endif]-->
 
+<script src="<@hst.webfile path="/js/highcharts/modules/data.js" />"></script>
+
 <!--Allow exporting of chart images-->
 <script src="<@hst.webfile path="/js/highcharts/exporting.js"/>"></script>
 <script src="<@hst.webfile path="/js/highcharts/offline-exporting.js"/>"></script>
