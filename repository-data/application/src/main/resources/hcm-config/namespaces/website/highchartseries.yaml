@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/publicationsystem/publicationPage:
+    /hippo:namespaces/website/highchartseries:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -19,51 +19,54 @@ definitions:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-          /title:
+          /type:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Title
-            field: title
+              selectable.options: column,line
+            caption: Type
+            field: type
+            hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /bodySections:
+          /name:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Body
-            compoundList: website:section,publicationsystem:imageSection,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,publicationsystem:textSection,website:iconlist,website:gallerysection,website:download,website:expander,website:ctabutton,website:infographic,website:checklist
-            contentPickerType: links
-            field: body
-            hint: ''
+            caption: Name
+            field: name
             jcr:primaryType: frontend:plugin
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            wicket.skin: skin/content-blocks.css
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /body:
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: publicationsystem:bodySections
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators:
-            - contentblocks-validator
-            jcr:primaryType: hipposysedit:field
-          /title:
+          /name:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publicationsystem:Title
+            hipposysedit:path: website:name
             hipposysedit:primary: false
-            hipposysedit:type: Text
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
+          /type:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:type
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators:
+            - non-empty
+            - required
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
-          - publicationsystem:basedocument
+          - hippo:compound
           - hippostd:relaxed
-          - hippotranslation:translated
-          hipposysedit:uri: http://digital.nhs.uk/jcr/publicationsystem/nt/1.0
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
           jcr:mixinTypes:
           - mix:referenceable
           - hipposysedit:remodel
@@ -73,19 +76,8 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          common:searchable: false
-          hippostd:holder: holder
-          hippostd:state: draft
-          hippostdpubwf:createdBy: ''
-          hippostdpubwf:creationDate: 2018-04-09T11:52:44.199Z
-          hippostdpubwf:lastModificationDate: 2018-04-09T11:52:44.198Z
-          hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: document-type-locale-id
-          hippotranslation:locale: document-type-locale
-          jcr:mixinTypes:
-          - mix:referenceable
-          jcr:primaryType: publicationsystem:publicationPage
-          publicationsystem:Title: ''
+          jcr:primaryType: website:highchartseries
+          website:name: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable

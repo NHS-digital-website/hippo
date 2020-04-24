@@ -4,6 +4,7 @@
 <#include "imageSection.ftl">
 <#include "imagePairSection.ftl">
 <#include "chartSection.ftl">
+<#include "dynamicChartSection.ftl">
 <#include "related-linkSection.ftl">
 <#include "emphasisBox.ftl">
 <#include "iconList.ftl">
@@ -52,6 +53,8 @@
                 <@chartSection section=section type='chart' size='400'/>
             <#elseif section.sectionType == 'map'>
                 <@chartSection section=section type='mapChart' size='600'/>
+            <#elseif section.sectionType == 'dynamicChart'>
+                <@dynamicChartSection section=section size='400' />
             <#elseif section.sectionType == 'emphasisBox'>
                 <#-- set flag to alter styling (no top line between emphasis boxes) -->
                 <#assign isPreviousEmphasisBox = true />
