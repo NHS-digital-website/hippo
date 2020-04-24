@@ -1,0 +1,73 @@
+---
+/content/documents/administration/intranet/task:
+  /task[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: mohammed.hasan
+    hippostdpubwf:creationDate: 2020-04-20T10:36:56.392Z
+    hippostdpubwf:lastModificationDate: 2020-04-20T10:39:49.751Z
+    hippostdpubwf:lastModifiedBy: mohammed.hasan
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    resourcebundle:id: intranet.task
+    resourcebundle:keys:
+    - task.expired.title
+    - task.expired.description
+    resourcebundle:messages:
+    - Expired content
+    - This content has not been reviewed and may be out of date.
+  /task[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: mohammed.hasan
+    hippostdpubwf:creationDate: 2020-04-20T10:36:56.392Z
+    hippostdpubwf:lastModificationDate: 2020-04-20T10:40:13.798Z
+    hippostdpubwf:lastModifiedBy: mohammed.hasan
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    resourcebundle:id: intranet.task
+    resourcebundle:keys:
+    - task.expired.title
+    - task.expired.description
+    resourcebundle:messages:
+    - Expired content
+    - This content has not been reviewed and may be out of date.
+  /task[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: mohammed.hasan
+    hippostdpubwf:creationDate: 2020-04-20T10:36:56.392Z
+    hippostdpubwf:lastModificationDate: 2020-04-20T10:40:13.798Z
+    hippostdpubwf:lastModifiedBy: mohammed.hasan
+    hippostdpubwf:publicationDate: 2020-04-20T10:40:16.235Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    resourcebundle:id: intranet.task
+    resourcebundle:keys:
+    - task.expired.title
+    - task.expired.description
+    resourcebundle:messages:
+    - Expired content
+    - This content has not been reviewed and may be out of date.
+  hippo:name: Task
+  hippo:versionHistory: 33acf302-eeac-4029-84d6-d45288bc0046
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
