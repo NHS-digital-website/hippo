@@ -24,9 +24,9 @@
                     <div class="cta">
                         <#if block.linkType??>
                             <#assign onClickMethodCall = getOnClickMethodCall(document.class.name, block.link) />
-                            
+
                             <@typeSpan block.linkType />
-                            
+
                             <#if block.linkType == "external">
                                 <h2 class="cta__title"><a href="${block.link}" onClick="${onClickMethodCall}" onKeyUp="return vjsu.onKeyUp(event)">${block.title}</a></h2>
                             <#elseif block.linkType == "asset">
@@ -42,12 +42,7 @@
                             </#if>
                         </#if>
 
-                        <#if block.shortSummaryHtml?? && block.shortSummaryHtml?has_content>
-                            <@hst.html hippohtml=block.shortSummaryHtml contentRewriter=gaContentRewriter/>
-                        <#elseif block.shortsummary?? && block.shortsummary?has_content>
-                            <p class="cta__text">${block.shortsummary}</p>
-                        </#if>
-
+                        <p class="cta__text">${block.shortsummary}</p>
                     </div>
                     </#list>
                 </div>

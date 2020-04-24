@@ -10,7 +10,7 @@
 <#include "macro/metaTags.ftl">
 
 <#-- Add meta tags -->
-<#assign pageShortSummary = document.shortSummaryHtml />
+<#assign pageShortSummary = document.shortsummary />
 <@metaTags></@metaTags>
 
 <@hst.setBundle basename="intranet.headers, intranet.labels, intranet.task" />
@@ -45,7 +45,7 @@
     <#-- Cache the first task -->
     <@hst.link hippobean=firstTask var="link" />
     <#assign taskChapters = [{ "index": 0, "id": firstTask.identifier, "title": firstTask.title, "link": link }] />
-    
+
     <#-- Cache the remaining tasks -->
     <#list childTasks as chapter>
         <@hst.link hippobean=chapter var="link" />
@@ -99,7 +99,7 @@
                             </#list>
                         </#if>
 
-                        <#if hasExpired>                            
+                        <#if hasExpired>
                             <div class="callout-box callout-box--important" role="complementary" aria-labelledby="callout-box-heading-expired">
                                 <div class="callout-box__icon-wrapper">
                                     <svg class="callout-box__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 217.07 187.02" preserveAspectRatio="xMidYMid meet" role="img" focusable="false">
@@ -133,14 +133,14 @@
                         <#assign links += [{ "url": "#" + slugify(responsibleTeamsSectionHeader), "title": responsibleTeamsSectionHeader }] />
                     </#if>
                     <#assign links += [{ "url": "#" + slugify(datesSectionHeader), "title": datesSectionHeader }] />
-                    
+
                     <@stickyNavSections getStickySectionNavLinks({"document": document, "appendSections": links, "includeTopLink": true})></@stickyNavSections>
 
                     <#-- Restore the bundle -->
                     <@hst.setBundle basename="intranet.headers, intranet.labels, intranet.task" />
                 </div>
             </div>
-            
+
 
             <div class="column column--two-thirds page-block page-block--main">
 

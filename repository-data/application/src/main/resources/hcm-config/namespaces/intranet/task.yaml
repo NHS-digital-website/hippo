@@ -50,10 +50,12 @@ definitions:
           /shortsummary:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Short summary for search results
+              maxlength: 180
+            caption: Short Summary
             field: shortsummary
+            hint: Short summary for search results and for display on home page.
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
           /responsibleteams:
             /cluster.options:
@@ -251,8 +253,9 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: intranet:shortsummary
             hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
+            hipposysedit:type: Text
             hipposysedit:validators:
+            - non-empty
             - required
             jcr:primaryType: hipposysedit:field
           /title:
@@ -285,9 +288,6 @@ definitions:
           /intranet:introduction:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
-          /intranet:shortsummary:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -300,6 +300,7 @@ definitions:
           intranet:expirydate: 0001-01-01T12:00:00Z
           intranet:prioritytask: false
           intranet:reviewdate: 0001-01-01T12:00:00Z
+          intranet:shortsummary: ''
           intranet:title: ''
           jcr:mixinTypes:
           - mix:referenceable

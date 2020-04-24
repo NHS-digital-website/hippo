@@ -3,7 +3,7 @@
 <#include "../../include/imports.ftl">
 <#include "headerMetadata.ftl">
 
-<#macro documentHeader document doctype header_icon_arg='' title="" summary="" topics="" hasSchemaOrg=true metadata={} >
+<#macro documentHeader document doctype header_icon_arg='' title="" summary="" topics="" hasSchemaOrg=true metadata={} downloadPDF=false>
 
     <#assign custom_title = title />
     <!-- checking whether simulating doc in order to avoid console errors from NewsHub and EventHub docs -->
@@ -152,6 +152,13 @@
 
                 <@headerMetadata metadata />
 
+                <#if downloadPDF>
+                    <div class="grid-row">
+                        <div class="column column--reset">
+                            <button type="button" class="cta-btn cta-btn--white top-margin-20 is-hidden-if-no-js" id="print-pdf-button"><@fmt.message key="labels.download-pdf"/></button>
+                        </div>
+                    </div>
+                </#if>
             </div>
         </div>
     </div>

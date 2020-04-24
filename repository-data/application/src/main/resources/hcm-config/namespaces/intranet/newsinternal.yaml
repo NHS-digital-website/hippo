@@ -69,6 +69,29 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /optionalintroductorytext:
+            /cluster.options:
+              ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
+                items: [''Link'',''PickInternalLink'',''Source''] }] }'
+              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount'',
+                disableNativeSpellChecker: false}'
+              jcr:primaryType: frontend:pluginconfig
+            caption: Optional Introductory Text
+            field: optionalintroductorytext
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /shortsummary:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: 180
+            caption: Short Summary
+            field: shortsummary
+            hint: Short summary for search results and for display on home page.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
           /leadimagesection:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -122,6 +145,16 @@ definitions:
             - contentblocks-validator
             - optional
             jcr:primaryType: hipposysedit:field
+          /optionalintroductorytext:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: intranet:optionalintroductorytext
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
           /publicationdate:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -150,6 +183,17 @@ definitions:
             hipposysedit:validators:
             - contentblocks-validator
             jcr:primaryType: hipposysedit:field
+          /shortsummary:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: intranet:shortsummary
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            hipposysedit:validators:
+            - non-empty
+            - required
+            jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -165,7 +209,7 @@ definitions:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: intranet:type
+            hipposysedit:path: intranet:typeofnews
             hipposysedit:primary: false
             hipposysedit:type: DynamicDropdown
             hipposysedit:validators:
@@ -188,6 +232,9 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype[1]:
+          /intranet:optionalintroductorytext:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -198,8 +245,9 @@ definitions:
           hippotranslation:locale: document-type-locale
           intranet:expirydate: 0001-01-01T12:00:00Z
           intranet:publicationdate: 0001-01-01T12:00:00Z
+          intranet:shortsummary: ''
           intranet:title: ''
-          intranet:type: announcement
+          intranet:typeofnews: announcement
           jcr:mixinTypes:
           - mix:referenceable
           - hippotaxonomy:classifiable
