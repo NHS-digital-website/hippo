@@ -34,11 +34,17 @@
                             </#if>
                         <#else>
                             <@typeSpan "internal" />
-                            
-                            <h2 class="cta__title"><a href="<@hst.link hippobean=block />">${block.title}</a></h2>
+
+                            <#if block.type?? && block.type?has_content && block.type == "alternativeTask">
+                                <h2 class="cta__title"><a href="<@hst.link hippobean=block.task />">${block.title}</a></h2>
+                            <#else>
+                                <h2 class="cta__title"><a href="<@hst.link hippobean=block />">${block.title}</a></h2>
+                            </#if>
                         </#if>
-                        
-                        <#if block.shortsummary?? && block.shortsummary?has_content>
+
+                        <#if block.shortSummaryHtml?? && block.shortSummaryHtml?has_content>
+                            <@hst.html hippohtml=block.shortSummaryHtml contentRewriter=gaContentRewriter/>
+                        <#elseif block.shortsummary?? && block.shortsummary?has_content>
                             <p class="cta__text">${block.shortsummary}</p>
                         </#if>
 

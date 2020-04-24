@@ -10,7 +10,7 @@
 <#include "macro/metaTags.ftl">
 
 <#-- Add meta tags -->
-<#assign pageShortSummary = document.shortSummary />
+<#assign pageShortSummary = document.shortSummaryHtml />
 <@metaTags></@metaTags>
 
 <@hst.setBundle basename="intranet.headers, intranet.labels, intranet.task" />

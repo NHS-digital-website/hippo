@@ -24,4 +24,9 @@
     &__title {
         @include core-font(24);
     }
+
+    &__link {
+        display: inline-block;
+        margin: 10px;
+    }
 }
