@@ -1,0 +1,100 @@
+---
+/content/documents/administration/intranet/labels:
+  /labels[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: mohammed.hasan
+    hippostdpubwf:creationDate: 2020-04-20T10:36:15.134Z
+    hippostdpubwf:lastModificationDate: 2020-04-20T10:37:41.770Z
+    hippostdpubwf:lastModifiedBy: mohammed.hasan
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: intranet.labels
+    resourcebundle:keys:
+    - labels.task-chapter-nav.view-all
+    - labels.task-chapter-nav.previous
+    - labels.task-chapter-nav.next
+    - labels.last-modified
+    - labels.review-date
+    resourcebundle:messages:
+    - View all Task chapters
+    - Previous task chapters
+    - Next task chapters
+    - 'Last modified:'
+    - 'Review date:'
+  /labels[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: mohammed.hasan
+    hippostdpubwf:creationDate: 2020-04-20T10:36:15.134Z
+    hippostdpubwf:lastModificationDate: 2020-04-20T10:38:47.226Z
+    hippostdpubwf:lastModifiedBy: mohammed.hasan
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: intranet.labels
+    resourcebundle:keys:
+    - labels.task-chapter-nav.view-all
+    - labels.task-chapter-nav.previous
+    - labels.task-chapter-nav.next
+    - labels.last-modified
+    - labels.review-date
+    resourcebundle:messages:
+    - View all Task chapters
+    - Previous task chapters
+    - Next task chapters
+    - 'Last modified:'
+    - 'Review date:'
+  /labels[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: mohammed.hasan
+    hippostdpubwf:creationDate: 2020-04-20T10:36:15.134Z
+    hippostdpubwf:lastModificationDate: 2020-04-20T10:38:47.226Z
+    hippostdpubwf:lastModifiedBy: mohammed.hasan
+    hippostdpubwf:publicationDate: 2020-04-20T10:38:48.942Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: intranet.labels
+    resourcebundle:keys:
+    - labels.task-chapter-nav.view-all
+    - labels.task-chapter-nav.previous
+    - labels.task-chapter-nav.next
+    - labels.last-modified
+    - labels.review-date
+    resourcebundle:messages:
+    - View all Task chapters
+    - Previous task chapters
+    - Next task chapters
+    - 'Last modified:'
+    - 'Review date:'
+  hippo:name: Labels
+  hippo:versionHistory: 65836596-a828-46b0-bd2f-f30601217ec1
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
