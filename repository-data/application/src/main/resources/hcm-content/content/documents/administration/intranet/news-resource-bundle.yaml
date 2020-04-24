@@ -1,0 +1,82 @@
+---
+/content/documents/administration/intranet/news-resource-bundle:
+  /news-resource-bundle[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-04-27T13:56:30.157Z
+    hippostdpubwf:lastModificationDate: 2020-04-27T13:59:53.560Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: intranet.news
+    resourcebundle:keys:
+    - headers.relatedPages
+    - headers.latestNews
+    - labels.download-pdf
+    resourcebundle:messages:
+    - Related pages
+    - Latest news
+    - Download this page as a PDF
+  /news-resource-bundle[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-04-27T13:56:30.157Z
+    hippostdpubwf:lastModificationDate: 2020-04-27T14:00:14.646Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: intranet.news
+    resourcebundle:keys:
+    - headers.relatedPages
+    - headers.latestNews
+    - labels.download-pdf
+    resourcebundle:messages:
+    - Related pages
+    - Latest news
+    - Download this page as a PDF
+  /news-resource-bundle[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-04-27T13:56:30.157Z
+    hippostdpubwf:lastModificationDate: 2020-04-27T14:00:14.646Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-04-27T14:00:16.341Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: intranet.news
+    resourcebundle:keys:
+    - headers.relatedPages
+    - headers.latestNews
+    - labels.download-pdf
+    resourcebundle:messages:
+    - Related pages
+    - Latest news
+    - Download this page as a PDF
+  hippo:name: News resource bundle
+  hippo:versionHistory: 3b6bea3c-030c-468e-9e1a-0f9a0cd6a39c
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

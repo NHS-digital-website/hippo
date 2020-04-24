@@ -22,20 +22,12 @@ import java.util.List;
 @Node(jcrType = "intranet:task")
 public class Task extends BaseDocument {
 
-    public String getTitle() {
-        return getProperty("intranet:title");
-    }
-
     public String[] getAlternativeNames() {
         return getProperty("intranet:alternativenames");
     }
 
     public HippoHtml getIntroduction() {
         return getHippoHtml("intranet:introduction");
-    }
-
-    public HippoHtml getShortSummaryHtml() {
-        return getHippoHtml("intranet:shortsummary");
     }
 
     public List<Team> getResponsibleTeams() {

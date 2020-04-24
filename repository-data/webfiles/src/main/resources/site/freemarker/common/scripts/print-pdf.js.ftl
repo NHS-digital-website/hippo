@@ -1,7 +1,8 @@
 <#ftl output_format="HTML">
 
+<#assign logoPath = useIntraLogo?then("nhs-digital-intranet-logo", "nhs-digital-logo--right-aligned") />
 <@hst.webfile var="printCSSFilePath" path="/css/nhsuk-print-pdf-document.css" />
-<@hst.webfile var="nhsDigitalLogo" path="/images/nhs-digital-logo--right-aligned.svg" />
+<@hst.webfile var="nhsDigitalLogo" path="/images/${logoPath}.svg" />
 <@hst.link var="documentUrl" hippobean=document />
 
 <#assign currentDateTime = .now />

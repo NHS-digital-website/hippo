@@ -1,6 +1,5 @@
 package uk.nhs.digital.intranet.components;
 
-import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import uk.nhs.digital.common.components.BaseGaContentComponent;
@@ -67,8 +66,8 @@ public class TaskHubComponent extends BaseGaContentComponent {
             return title;
         }
 
-        public HippoHtml getShortSummaryHtml() {
-            return task.getShortSummaryHtml();
+        public String getShortsummary() {
+            return task.getShortsummary();
         }
     }
 }

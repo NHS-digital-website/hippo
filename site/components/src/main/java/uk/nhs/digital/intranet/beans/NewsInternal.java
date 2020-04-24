@@ -1,19 +1,25 @@
 package uk.nhs.digital.intranet.beans;
 
+import static org.apache.commons.collections.IteratorUtils.toList;
+import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.and;
+import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
+import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.or;
+
+import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.Node;
+import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
+import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.content.beans.standard.HippoDocument;
+import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
+import org.hippoecm.hst.content.beans.standard.HippoHtml;
+import org.hippoecm.repository.util.DateTools.Resolution;
 import uk.nhs.digital.website.beans.LeadImageSection;
 
 import java.util.Calendar;
 import java.util.List;
 
 @Node(jcrType = "intranet:newsinternal")
-public class NewsInternal extends HippoDocument {
-
-    public String getTitle() {
-        return getProperty("intranet:title");
-    }
+public class NewsInternal extends BaseDocument {
 
     public List<HippoBean> getRelatedDocuments() {
         return getLinkedBeans("intranet:relateddocuments", HippoBean.class);
@@ -24,11 +30,15 @@ public class NewsInternal extends HippoDocument {
     }
 
     public String getType() {
-        return getProperty("intranet:type");
+        return getProperty("intranet:typeofnews");
     }
 
     public Calendar getExpiryDate() {
         return getProperty("intranet:expirydate");
+    }
+
+    public HippoHtml getOptionalIntroductoryText() {
+        return getHippoHtml("intranet:optionalintroductorytext");
     }
 
     public LeadImageSection getLeadImageSection() {
@@ -41,5 +51,27 @@ public class NewsInternal extends HippoDocument {
 
     public String[] getKeys() {
         return getProperty("hippotaxonomy:keys");
+    }
+
+    public List<NewsInternal> getLatestNews() throws QueryException {
+        HippoBean folder = RequestContextProvider.get().getSiteContentBaseBean();
+
+        HippoBeanIterator hippoBeans = HstQueryBuilder.create(folder)
+            .ofTypes(NewsInternal.class)
+            .where(and(
+                constraint("jcr:uuid").notEqualTo(this.getIdentifier()),
+                or(
+                    constraint("intranet:typeofnews").equalTo("permanent"),
+                    constraint("intranet:expirydate")
+                        .greaterOrEqualThan(Calendar.getInstance(), Resolution.HOUR)
+                ))
+            )
+            .orderByDescending("intranet:publicationdate")
+            .limit(5)
+            .build()
+            .execute()
+            .getHippoBeans();
+
+        return toList(hippoBeans);
     }
 }

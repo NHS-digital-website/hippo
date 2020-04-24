@@ -7,7 +7,7 @@
     margin-bottom: 16px;
     padding: 0;
     list-style: none;
-    
+
     &-item {
         position: relative;
         display: inline-block;
@@ -18,7 +18,7 @@
         &:nth-child(3n+1) {
             padding-right: 10px;
         }
-        
+
         &:nth-child(3n+2) {
             padding-left: 5px;
             padding-right: 5px;
@@ -27,11 +27,16 @@
         &:nth-child(3n+3) {
             padding-left: 10px;
         }
+
+        &--full {
+            width: 100%;
+            padding-right: 0 !important;
+            padding-left: 0 !important;
+        }
     }
 
     &-article {
         position: relative;
-        height: 372px;
         max-height: 372px;
         background: $col-intranet-grey;
         border-bottom: 4px solid $col-intranet-dark-grey;
@@ -53,7 +58,8 @@
 
         &__contents {
             position: relative;
-            height: 212px;
+            max-height: 212px;
+            min-height: 205px;
             padding: 24px 20px 14px;
 
             .intra-comments-blob {
@@ -77,16 +83,17 @@
             }
 
             max-height: 72px;
-            margin-bottom: 20px;
+            overflow: hidden;
         }
 
         &__date {
             @include core-font(14);
 
-            display: block;
             position: absolute;
+            display: block;
             bottom: 12px;
             left: 20px;
+            margin-top: 20px;
             color: $col-intranet-mid-grey;
         }
 
