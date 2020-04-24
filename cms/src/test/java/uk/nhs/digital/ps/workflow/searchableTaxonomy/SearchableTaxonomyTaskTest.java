@@ -29,6 +29,7 @@ import org.junit.runner.RunWith;
 import org.onehippo.repository.documentworkflow.DocumentHandle;
 import org.onehippo.repository.documentworkflow.DocumentVariant;
 import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.modules.junit4.PowerMockRunnerDelegate;
@@ -37,6 +38,7 @@ import java.util.List;
 import javax.jcr.*;
 
 @RunWith(PowerMockRunner.class)
+@PowerMockIgnore({"javax.management.*", "javax.script.*"})
 @PowerMockRunnerDelegate(DataProviderRunner.class)
 public class SearchableTaxonomyTaskTest {
 

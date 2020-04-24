@@ -2,24 +2,26 @@ package uk.nhs.digital.website.beans;
 
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import uk.nhs.digital.indices.StickySection;
 
 import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "website:statistics")
 @Node(jcrType = "website:statistics")
-public class Statistics extends HippoCompound {
+public class Statistics extends BaseCompound implements StickySection {
 
     public String getTitle() {
         return getHeading();
     }
 
+    @Override
     @HippoEssentialsGenerated(internalName = "website:heading", allowModifications = false)
     public String getHeading() {
         return getProperty("website:heading");
     }
 
+    @Override
     @HippoEssentialsGenerated(internalName = "website:headingLevel", allowModifications = false)
     public String getHeadingLevel() {
         return getProperty("website:headingLevel");
