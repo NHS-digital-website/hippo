@@ -68,14 +68,6 @@ public class Task extends BaseDocument {
         return getBean("intranet:bannercontrols", BannerControl.class);
     }
 
-    public String[] getKeys() {
-        return getProperty("hippotaxonomy:keys");
-    }
-
-    public String[] getTopics() {
-        return getProperty("common:SearchableTags");
-    }
-
     public List<String> getFullTaxonomyList() {
         return HippoBeanHelper.getFullTaxonomyList(this);
     }
@@ -90,5 +82,10 @@ public class Task extends BaseDocument {
             property, beanClass, false);
 
         return toList(query.execute().getHippoBeans());
+    }
+
+    @Override
+    public String getDocType() {
+        return "Task";
     }
 }

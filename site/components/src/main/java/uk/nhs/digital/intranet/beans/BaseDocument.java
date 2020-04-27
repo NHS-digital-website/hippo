@@ -7,7 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 @Node(jcrType = "intranet:basedocument")
-public class BaseDocument extends HippoDocument {
+public abstract class BaseDocument extends HippoDocument {
 
     public String getTitle() {
         return getProperty("intranet:title");
@@ -20,4 +20,22 @@ public class BaseDocument extends HippoDocument {
     public Date getLastModified() {
         return ((Calendar) getProperty("hippostdpubwf:lastModificationDate")).getTime();
     }
+
+    public Date getCreationDate() {
+        return ((Calendar) getProperty("hippostdpubwf:creationDate")).getTime();
+    }
+
+    public String getCreatedBy() {
+        return getProperty("hippostdpubwf:createdBy");
+    }
+
+    public String[] getKeys() {
+        return getProperty("hippotaxonomy:keys");
+    }
+
+    public String[] getTopics() {
+        return getProperty("common:SearchableTags");
+    }
+
+    public abstract String getDocType();
 }

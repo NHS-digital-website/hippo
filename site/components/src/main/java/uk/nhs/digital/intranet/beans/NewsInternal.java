@@ -49,8 +49,9 @@ public class NewsInternal extends BaseDocument {
         return getChildBeansByName("intranet:sections");
     }
 
-    public String[] getKeys() {
-        return getProperty("hippotaxonomy:keys");
+    @Override
+    public String getDocType() {
+        return "NewsInternal";
     }
 
     public List<NewsInternal> getLatestNews() throws QueryException {

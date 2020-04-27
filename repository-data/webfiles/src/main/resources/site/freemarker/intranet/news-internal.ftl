@@ -5,7 +5,9 @@
 <#include "../common/macro/headerMetadata.ftl">
 <#include "../common/macro/documentHeader.ftl">
 <#include "../common/macro/sections/sections.ftl">
+<#include "macro/googleTags.ftl">
 
+<@googleTags documentBean=document pageSubject='Services, teams, tasks, or things this news is about'/>
 <#-- Add meta tags -->
 <#assign pageShortSummary = document.shortsummary />
 <@metaTags></@metaTags>
