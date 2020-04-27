@@ -33,5 +33,5 @@
     <link rel="stylesheet" href="<@hst.webfile path="/css/nhsd-intranet.css"/>" media="screen" type="text/css"/>
     <link rel="stylesheet" href="<@hst.webfile path="/css/nhsd-intranet-print.css"/>" media="print" type="text/css"/>
 
-    <#include "../../common/scripts/header-scripts.ftl" />
+    <#include "../scripts/intranet-header-scripts.ftl" />
 </head>

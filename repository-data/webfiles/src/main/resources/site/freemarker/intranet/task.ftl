@@ -8,6 +8,13 @@
 <#include "../common/macro/component/calloutBox.ftl">
 <#include "macro/taskChapterNav.ftl">
 <#include "macro/metaTags.ftl">
+<#include "macro/googleTags.ftl">
+
+<#assign teamTitles = []/>
+<#list document.responsibleTeams as team>
+<#assign teamTitles = [team.title] + teamTitles/>
+</#list>
+<@googleTags documentBean=document pageSubject=teamTitles?join(",")/>
 
 <#-- Add meta tags -->
 <#assign pageShortSummary = document.shortsummary />
