@@ -1,0 +1,163 @@
+---
+/content/documents/administration/intranet/search-resource-bundle:
+  /search-resource-bundle[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-04-20T13:15:24.917Z
+    hippostdpubwf:lastModificationDate: 2020-04-22T15:12:42.197Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: rb.intra.search
+    resourcebundle:keys:
+    - page.title
+    - labels.containing
+    - labels.results
+    - labels.noResults
+    - labels.moreResults
+    - headers.people
+    - headers.documents
+    - labels.expiryBtn
+    - text.accessTokenRequired
+    - text.searchTermErrorMessage
+    - text.apiErrorMessage
+    - labels.peopleSearchBtn
+    resourcebundle:messages:
+    - Search results
+    - containing
+    - results
+    - No results.
+    - Click here for more results
+    - People
+    - Documents
+    - Home
+    - Your session has expired due to inactivity. Please login again.
+    - Please enter a term in order to search people.
+    - Unable to search people
+    - Authorize people search
+  /search-resource-bundle[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-04-20T13:15:24.917Z
+    hippostdpubwf:lastModificationDate: 2020-04-22T15:14:17.559Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: rb.intra.search
+    resourcebundle:keys:
+    - page.title
+    - labels.containing
+    - labels.results
+    - labels.noResults
+    - labels.moreResults
+    - headers.people
+    - headers.documents
+    - labels.expiryBtn
+    - text.accessTokenRequired
+    - text.searchTermErrorMessage
+    - text.apiErrorMessage
+    - labels.peopleSearchBtn
+    resourcebundle:messages:
+    - Search results
+    - containing
+    - results
+    - No results.
+    - Click here for more results
+    - People
+    - Documents
+    - Home
+    - Your session has expired due to inactivity. Please login again.
+    - Please enter a term in order to search people.
+    - Unable to search people
+    - Authorize people search
+  /search-resource-bundle[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-04-20T13:15:24.917Z
+    hippostdpubwf:lastModificationDate: 2020-04-22T15:14:17.559Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-04-22T15:14:18.774Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: rb.intra.search
+    resourcebundle:keys:
+    - page.title
+    - labels.containing
+    - labels.results
+    - labels.noResults
+    - labels.moreResults
+    - headers.people
+    - headers.documents
+    - labels.expiryBtn
+    - text.accessTokenRequired
+    - text.searchTermErrorMessage
+    - text.apiErrorMessage
+    - labels.peopleSearchBtn
+    resourcebundle:messages:
+    - Search results
+    - containing
+    - results
+    - No results.
+    - Click here for more results
+    - People
+    - Documents
+    - Home
+    - Your session has expired due to inactivity. Please login again.
+    - Please enter a term in order to search people.
+    - Unable to search people
+    - Authorize people search
+  hippo:name: Search Resource Bundle
+  hippo:versionHistory: 4b62ee73-86a9-4adb-8d4b-ee6ab961fff5
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

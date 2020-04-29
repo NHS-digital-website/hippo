@@ -11,6 +11,8 @@ import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.util.ContentBeanUtils;
+import uk.nhs.digital.intranet.enums.SearchResultType;
+import uk.nhs.digital.intranet.model.IntranetSearchResult;
 import uk.nhs.digital.ps.beans.HippoBeanHelper;
 import uk.nhs.digital.website.beans.BannerControl;
 import uk.nhs.digital.website.beans.PriorityAction;
@@ -20,7 +22,7 @@ import java.util.Calendar;
 import java.util.List;
 
 @Node(jcrType = "intranet:task")
-public class Task extends BaseDocument {
+public class Task extends BaseDocument implements IntranetSearchResult {
 
     public String[] getAlternativeNames() {
         return getProperty("intranet:alternativenames");
@@ -87,5 +89,15 @@ public class Task extends BaseDocument {
     @Override
     public String getDocType() {
         return "Task";
+    }
+
+    @Override
+    public String getSearchResultTitle() {
+        return getTitle();
+    }
+
+    @Override
+    public String getSearchResultType() {
+        return SearchResultType.TASK.getValue();
     }
 }

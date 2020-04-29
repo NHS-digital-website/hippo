@@ -1,11 +1,8 @@
 package uk.nhs.digital.intranet.components;
 
-import org.hippoecm.hst.content.beans.standard.*;
-import org.hippoecm.hst.core.component.*;
-import org.onehippo.cms7.essentials.components.*;
-import org.slf4j.*;
-
-import java.util.*;
+import org.hippoecm.hst.core.component.HstRequest;
+import org.hippoecm.hst.core.component.HstResponse;
+import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
 
 public class HomePageComponent extends EssentialsContentComponent {
 

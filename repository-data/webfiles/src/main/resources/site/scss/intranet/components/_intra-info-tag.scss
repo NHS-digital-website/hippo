@@ -8,7 +8,45 @@
     background: $col-intranet-dark-blue;
     color: $col-septenary;
 
-    &--light {
-        background: $col-intranet-mid-grey;
+    &--bg {
+        &-light {
+            background: $col-intranet-mid-grey;
+        }
+
+        &-flat {
+            padding: 0;
+            background: transparent;
+        }
+
+        &-grey {
+            background: $grey-6;
+        }
+    }
+
+    &--txt {
+        &-black {
+            color: $black;
+        }
+
+        &-grey {
+            color: $grey-6;
+        }
+    }
+
+    &--block {
+        &,
+        &-right {
+            display: block;
+        }
+
+        &-right {
+            text-align: right;
+        }
+    }
+
+    &--inline {
+        &-right {
+            text-align: right;
+        }
     }
 }

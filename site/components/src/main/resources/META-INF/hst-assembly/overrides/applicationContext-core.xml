@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate" />
+
+    <bean id="accessTokenEncoder" class="uk.nhs.digital.intranet.utils.AccessTokenEncoder" />
+
+    <bean id="cookieProvider" class="uk.nhs.digital.intranet.provider.CookieProvider">
+        <constructor-arg name="encoder" ref="accessTokenEncoder" />
+    </bean>
+
+    <bean id="personFactory" class="uk.nhs.digital.intranet.factory.PersonFactory" />
+
+</beans>
