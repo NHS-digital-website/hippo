@@ -1,0 +1,18 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/intranet/hst:abstractpages/master-no-header-search:
+      /top-menu:
+        hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
+        hst:parameternames:
+        - selectedMenu
+        - level
+        - menu
+        hst:parametervalues:
+        - 'on'
+        - '1'
+        - main
+        hst:template: base-top-menu
+        jcr:primaryType: hst:component
+      hst:template: master-no-header-search
+      jcr:primaryType: hst:component

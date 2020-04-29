@@ -5,14 +5,26 @@ definitions:
       /announcement:
         hst:renderpath: webfile:/freemarker/intranet/announcement.ftl
         jcr:primaryType: hst:template
+      /base-top-menu:
+        hst:renderpath: webfile:/freemarker/common/base-top-menu.ftl
+        jcr:primaryType: hst:template
       /home:
         hst:renderpath: webfile:/freemarker/intranet/home.ftl
+        jcr:primaryType: hst:template
+      /intra-breadcrumb:
+        hst:renderpath: webfile:/freemarker/intranet/intra-breadcrumb.ftl
         jcr:primaryType: hst:template
       /layout_master:
         hst:renderpath: webfile:/freemarker/intranet/layout/master.ftl
         jcr:primaryType: hst:template
+      /master-no-header-search:
+        hst:renderpath: webfile:/freemarker/intranet/layout/master-no-header-search.ftl
+        jcr:primaryType: hst:template
       /news:
         hst:renderpath: webfile:/freemarker/intranet/news-internal.ftl
+        jcr:primaryType: hst:template
+      /person:
+        hst:renderpath: webfile:/freemarker/intranet/person.ftl
         jcr:primaryType: hst:template
       /search-results:
         hst:renderpath: webfile:/freemarker/intranet/search-results.ftl

@@ -2,10 +2,10 @@ package uk.nhs.digital.intranet.enums;
 
 public enum SearchResultType {
 
-    PERSON("person"),
-    TASK("task"),
-    NEWS("news"),
-    TEAM("team");
+    PERSON("People"),
+    TASK("Tasks"),
+    NEWS("News"),
+    TEAM("Teams");
 
     final String value;
     SearchResultType(final String value) {

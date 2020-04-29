@@ -13,13 +13,15 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.hippoecm.repository.util.DateTools.Resolution;
+import uk.nhs.digital.intranet.enums.SearchResultType;
+import uk.nhs.digital.intranet.model.IntranetSearchResult;
 import uk.nhs.digital.website.beans.LeadImageSection;
 
 import java.util.Calendar;
 import java.util.List;
 
 @Node(jcrType = "intranet:newsinternal")
-public class NewsInternal extends BaseDocument {
+public class NewsInternal extends BaseDocument implements IntranetSearchResult {
 
     public List<HippoBean> getRelatedDocuments() {
         return getLinkedBeans("intranet:relateddocuments", HippoBean.class);
@@ -74,5 +76,15 @@ public class NewsInternal extends BaseDocument {
             .getHippoBeans();
 
         return toList(hippoBeans);
+    }
+
+    @Override
+    public String getSearchResultTitle() {
+        return getTitle();
+    }
+
+    @Override
+    public String getSearchResultType() {
+        return SearchResultType.NEWS.getValue();
     }
 }

@@ -23,6 +23,8 @@
     <#-- Add site header with the search bar -->
     <@siteHeader true></@siteHeader>
 
+    <@hst.include ref="intra-breadcrumb"/>
+
     <main id="main-content">
         <@hst.include ref="main"/>
     </main>
