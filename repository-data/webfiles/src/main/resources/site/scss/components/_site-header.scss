@@ -220,6 +220,33 @@ $burger-piece-height: 3px;
             margin-top: 5px;
         }
 
+        .site-header__waffle-link {
+            display: inline-block;
+            position: relative;
+            top: 8px;
+            height: 30px;
+            margin-right: 20px;
+            text-decoration: none;
+
+            &:hover {
+                outline: none;
+                box-shadow: none;
+                background: none;
+                color: $yellow-link-hover;
+            }
+
+            &:active,
+            &:focus {
+                box-shadow: none;
+                background: none;
+                color: $yellow-link-active;
+            }
+        }
+
+        .site-header__waffle-link + .site-header-a__logo .site-header__logo {
+            width: 120px;
+        }
+
         .main-nav__burger {
             top: 6px;
         }
