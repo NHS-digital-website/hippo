@@ -7,6 +7,7 @@
                     <div class="grid-wrapper grid-wrapper--collapse">
                         <div class="grid-row">
                             <div class="column column--18-75 column--reset">
+                                <a class="site-header__waffle-link" href="https://www.office.com/" target="_blank" aria-label="Office 365"><span class="ms-Icon ms-Icon--WaffleOffice365"></span></a>
                                 <a class="site-header-a__logo" href="<@hst.link siteMapItemRefId='root'/>"><img src="<@hst.webfile path="/images/nhs-digital-intranet-logo.svg"/>" alt="NHS Digital Intranet logo" class="site-header__logo"></a>
                             </div>
 
