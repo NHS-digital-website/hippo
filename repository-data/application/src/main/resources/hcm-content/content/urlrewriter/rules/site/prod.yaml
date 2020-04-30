@@ -1,0 +1,54 @@
+---
+/content/urlrewriter/rules/site/prod:
+  /prod[1]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-17T15:56:20.910Z
+    hippostdpubwf:lastModificationDate: 2020-03-17T16:05:40.997Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:versionable
+    jcr:primaryType: urlrewriter:rule
+    urlrewriter:ruledescription: Redirects requests from digital.nhs.uk/site/ to digital.nhs.uk/
+    urlrewriter:rulefrom: digital.nhs.uk/site/**
+    urlrewriter:ruleto: https://digital.nhs.uk/$1
+    urlrewriter:ruletype: permanent-redirect
+  /prod[2]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-17T15:56:20.910Z
+    hippostdpubwf:lastModificationDate: 2020-03-17T16:05:37.461Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: urlrewriter:rule
+    urlrewriter:ruledescription: Redirects requests from digital.nhs.uk/site/ to digital.nhs.uk/
+    urlrewriter:rulefrom: digital.nhs.uk/site/**
+    urlrewriter:ruleto: https://digital.nhs.uk/$1
+    urlrewriter:ruletype: permanent-redirect
+  /prod[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-17T15:56:20.910Z
+    hippostdpubwf:lastModificationDate: 2020-03-17T16:05:40.997Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-03-17T16:05:42.881Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: urlrewriter:rule
+    urlrewriter:ruledescription: Redirects requests from digital.nhs.uk/site/ to digital.nhs.uk/
+    urlrewriter:rulefrom: digital.nhs.uk/site/**
+    urlrewriter:ruleto: https://digital.nhs.uk/$1
+    urlrewriter:ruletype: permanent-redirect
+  hippo:name: Prod
+  hippo:versionHistory: 27018495-58a7-40ae-a91a-f85acf4bf50b
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

@@ -1,0 +1,10 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/intranet/hst:pages/error:
+      /main:
+        hst:componentclassname: uk.nhs.digital.intranet.components.ErrorPageComponent
+        hst:template: error
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/master
+      jcr:primaryType: hst:component
