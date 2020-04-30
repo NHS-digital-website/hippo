@@ -19,14 +19,14 @@ public class Publication extends PublicationBase implements Paginated {
     public StructuredText getSummary() {
         assertPropertyPermitted(PublicationBase.PropertyKeys.SUMMARY);
 
-        return new StructuredText(getProperty(PublicationBase.PropertyKeys.SUMMARY, ""));
+        return new StructuredText(getSingleProperty(PublicationBase.PropertyKeys.SUMMARY, ""));
     }
 
     @HippoEssentialsGenerated(internalName = PublicationBase.PropertyKeys.KEY_FACTS)
     public StructuredText getKeyFacts() {
         assertPropertyPermitted(PublicationBase.PropertyKeys.KEY_FACTS);
 
-        return new StructuredText(getProperty(PublicationBase.PropertyKeys.KEY_FACTS, ""));
+        return new StructuredText(getSingleProperty(PublicationBase.PropertyKeys.KEY_FACTS, ""));
     }
 
     @HippoEssentialsGenerated(internalName = PublicationBase.PropertyKeys.KEY_FACTS_HEAD)

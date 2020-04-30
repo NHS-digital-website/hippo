@@ -12,7 +12,7 @@ public class GlossaryList extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:indexpage")
     public Boolean getIndexPage() {
-        return getProperty("website:indexpage");
+        return getSingleProperty("website:indexpage");
     }
 
     @HippoEssentialsGenerated(internalName = "website:glossaryitems")

@@ -12,7 +12,7 @@ public class Hub extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:listtitle")
     public String getListtitle() {
-        return getProperty("website:listtitle");
+        return getSingleProperty("website:listtitle");
     }
 
     @HippoEssentialsGenerated(internalName = "website:component")
@@ -37,6 +37,6 @@ public class Hub extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:gossid")
     public Long getGossid() {
-        return getProperty("website:gossid");
+        return getSingleProperty("website:gossid");
     }
 }

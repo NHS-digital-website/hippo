@@ -10,7 +10,7 @@ import java.util.Calendar;
 public class ChangeNotice extends HippoCompound {
 
     public String getTitle() {
-        return getProperty("publicationsystem:title");
+        return getSingleProperty("publicationsystem:title");
     }
 
     public HippoHtml getContent() {
@@ -18,6 +18,6 @@ public class ChangeNotice extends HippoCompound {
     }
 
     public Calendar getDate() {
-        return getProperty("publicationsystem:date");
+        return getSingleProperty("publicationsystem:date");
     }
 }

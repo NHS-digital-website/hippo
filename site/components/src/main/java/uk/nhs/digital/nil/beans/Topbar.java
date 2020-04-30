@@ -12,12 +12,12 @@ public class Topbar extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:reviewDate")
     public Calendar getReviewDate() {
-        return getProperty("nationalindicatorlibrary:reviewDate");
+        return getSingleProperty("nationalindicatorlibrary:reviewDate");
     }
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:basedOn")
     public String getBasedOn() {
-        return getProperty("nationalindicatorlibrary:basedOn");
+        return getSingleProperty("nationalindicatorlibrary:basedOn");
     }
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:contactAuthor")
@@ -27,6 +27,6 @@ public class Topbar extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:reportingPeriod")
     public String getReportingPeriod() {
-        return getProperty("nationalindicatorlibrary:reportingPeriod");
+        return getSingleProperty("nationalindicatorlibrary:reportingPeriod");
     }
 }

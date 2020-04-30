@@ -27,7 +27,7 @@ public class Publishedworkchapter extends CommonFieldsBean implements Paginated 
 
     @HippoEssentialsGenerated(internalName = "hippotaxonomy:keys")
     public String[] getKeys() {
-        return getProperty("hippotaxonomy:keys");
+        return getMultipleProperty("hippotaxonomy:keys");
     }
 
     @HippoEssentialsGenerated(internalName = "website:friendlyurls")
@@ -37,7 +37,7 @@ public class Publishedworkchapter extends CommonFieldsBean implements Paginated 
 
     @HippoEssentialsGenerated(internalName = "website:publicationStyle")
     public String getPublicationStyle() {
-        return getProperty("website:publicationStyle");
+        return getSingleProperty("website:publicationStyle");
     }
 
     @HippoEssentialsGenerated(internalName = "website:bannerImage")
@@ -47,12 +47,12 @@ public class Publishedworkchapter extends CommonFieldsBean implements Paginated 
 
     @HippoEssentialsGenerated(internalName = "website:bannerImageAltText")
     public String getBannerImageAltText() {
-        return getProperty("website:bannerImageAltText");
+        return getSingleProperty("website:bannerImageAltText");
     }
 
     @HippoEssentialsGenerated(internalName = "website:button")
     public String getButton() {
-        return getProperty("website:button");
+        return getSingleProperty("website:button");
     }
 
     @HippoEssentialsGenerated(internalName = "website:sections")
@@ -82,7 +82,7 @@ public class Publishedworkchapter extends CommonFieldsBean implements Paginated 
         if ( publishedwork != null) {
             int index = IntStream
                 .range(0,  publishedwork.getLinks().size())
-                .filter(i -> ((String) publishedwork.getLinks().get(i).getProperty("website:title")).equalsIgnoreCase(getTitle()))
+                .filter(i -> ((String) publishedwork.getLinks().get(i).getSingleProperty("website:title")).equalsIgnoreCase(getTitle()))
                 .findFirst()
                 .orElse(-1);
             if (0 <= index && index < publishedwork.getLinks().size()) {

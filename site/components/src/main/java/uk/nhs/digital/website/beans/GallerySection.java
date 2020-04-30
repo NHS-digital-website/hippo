@@ -20,13 +20,13 @@ public class GallerySection extends HippoCompound implements StickySection {
     @Override
     @HippoEssentialsGenerated(internalName = "website:heading", allowModifications = false)
     public String getHeading() {
-        return getProperty("website:heading");
+        return getSingleProperty("website:heading");
     }
 
     @Override
     @HippoEssentialsGenerated(internalName = "website:headinglevel", allowModifications = false)
     public String getHeadingLevel() {
-        return getProperty("website:headinglevel");
+        return getSingleProperty("website:headinglevel");
     }
 
     @HippoEssentialsGenerated(internalName = "website:description")

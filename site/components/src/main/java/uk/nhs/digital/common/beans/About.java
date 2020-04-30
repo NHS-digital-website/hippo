@@ -9,7 +9,7 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 public class About extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "common:Title")
     public String getTitle() {
-        return getProperty("common:Title");
+        return getSingleProperty("common:Title");
     }
 
     @HippoEssentialsGenerated(internalName = "common:Content")

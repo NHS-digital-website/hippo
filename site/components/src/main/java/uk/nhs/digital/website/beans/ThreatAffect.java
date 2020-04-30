@@ -40,7 +40,7 @@ public class ThreatAffect extends HippoCompound {
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:versionsaffected")
     public String[] getVersionsAffected() {
-        return getProperty("website:versionsaffected");
+        return getMultipleProperty("website:versionsaffected");
     }
 
 }

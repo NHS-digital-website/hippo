@@ -19,11 +19,11 @@ public class Announcement extends BaseDocument {
     }
 
     public Calendar getExpirydate() {
-        return getProperty("intranet:expirydate");
+        return getSingleProperty("intranet:expirydate");
     }
 
     public String getPriority() {
-        return getProperty("intranet:priority");
+        return getSingleProperty("intranet:priority");
     }
 
     public HippoHtml getDetails() {

@@ -10,7 +10,7 @@ public class CustomizedAssetSet extends HippoAsset {
 
     @HippoEssentialsGenerated(internalName = "website:meetpdfa")
     public Boolean getMeetpdfa() {
-        return getProperty("website:meetpdfa");
+        return getSingleProperty("website:meetpdfa");
     }
 
 }

@@ -46,7 +46,7 @@ public class HippoBeanHelper {
     }
 
     public static List<String> getFullTaxonomyList(HippoBean bean) {
-        String[] fullTaxonomy = bean.getProperty("common:FullTaxonomy");
+        String[] fullTaxonomy = bean.getMultipleProperty("common:FullTaxonomy");
         if (isEmpty(fullTaxonomy)) {
             return emptyList();
         }

@@ -36,6 +36,7 @@ definitions:
           /Title:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              maxlength: '250'
             caption: Title
             field: title
             hint: ''
@@ -66,7 +67,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Text
             hipposysedit:validators:
-            - non-empty
             - required
             jcr:primaryType: hipposysedit:field
           /title:
@@ -77,9 +77,7 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Text
             hipposysedit:validators:
-            - non-empty
             - required
-            - publicationsystem-title
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:

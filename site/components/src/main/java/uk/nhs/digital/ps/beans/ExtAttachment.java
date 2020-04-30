@@ -11,7 +11,7 @@ public class ExtAttachment extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:displayName")
     public String getText() {
-        String text = getProperty("publicationsystem:displayName");
+        String text = getSingleProperty("publicationsystem:displayName");
         if (text == null || text.isEmpty()) {
             text = getResource().getFilename();
         }

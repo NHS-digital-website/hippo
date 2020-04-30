@@ -21,12 +21,12 @@ public class Publishedwork extends CommonFieldsBean implements Paginated {
 
     @HippoEssentialsGenerated(internalName = "website:InformationType")
     public String[] getInformationType() {
-        return getProperty("website:InformationType");
+        return getMultipleProperty("website:InformationType");
     }
 
     @HippoEssentialsGenerated(internalName = "website:publicationStyle")
     public String getPublicationStyle() {
-        return getProperty("website:publicationStyle");
+        return getSingleProperty("website:publicationStyle");
     }
 
     @HippoEssentialsGenerated(internalName = "website:bannerImage")
@@ -36,42 +36,42 @@ public class Publishedwork extends CommonFieldsBean implements Paginated {
 
     @HippoEssentialsGenerated(internalName = "website:bannerImageAltText")
     public String getBannerImageAltText() {
-        return getProperty("website:bannerImageAltText");
+        return getSingleProperty("website:bannerImageAltText");
     }
 
     @HippoEssentialsGenerated(internalName = "website:button")
     public String getButton() {
-        return getProperty("website:button");
+        return getSingleProperty("website:button");
     }
 
     @HippoEssentialsGenerated(internalName = "website:coverageEnd")
     public Calendar getCoverageEnd() {
-        return getProperty("website:coverageEnd");
+        return getSingleProperty("website:coverageEnd");
     }
 
     @HippoEssentialsGenerated(internalName = "website:coverageStart")
     public Calendar getCoverageStart() {
-        return getProperty("website:coverageStart");
+        return getSingleProperty("website:coverageStart");
     }
 
     @HippoEssentialsGenerated(internalName = "website:publicationDate")
     public Calendar getPublicationDate() {
-        return getProperty("website:publicationDate");
+        return getSingleProperty("website:publicationDate");
     }
 
     @HippoEssentialsGenerated(internalName = "website:geographicCoverage")
     public String[] getGeographicCoverage() {
-        return Region.convertGeographicCoverageValues(getProperty("website:geographicCoverage"));
+        return Region.convertGeographicCoverageValues(getMultipleProperty("website:geographicCoverage"));
     }
 
     @HippoEssentialsGenerated(internalName = "website:geographicGranularity")
     public String[] getGeographicGranularity() {
-        return getProperty("website:geographicGranularity");
+        return getMultipleProperty("website:geographicGranularity");
     }
 
     @HippoEssentialsGenerated(internalName = "website:highlightsTitle")
     public String getHighlightsTitle() {
-        return getProperty("website:highlightsTitle");
+        return getSingleProperty("website:highlightsTitle");
     }
 
     @HippoEssentialsGenerated(internalName = "website:highlightsContent")
@@ -81,17 +81,17 @@ public class Publishedwork extends CommonFieldsBean implements Paginated {
 
     @HippoEssentialsGenerated(internalName = "website:isbn")
     public String getIsbn() {
-        return getProperty("website:isbn");
+        return getSingleProperty("website:isbn");
     }
 
     @HippoEssentialsGenerated(internalName = "hippotaxonomy:keys")
     public String[] getKeys() {
-        return getProperty("hippotaxonomy:keys");
+        return getMultipleProperty("hippotaxonomy:keys");
     }
 
     @HippoEssentialsGenerated(internalName = "website:issn")
     public String getIssn() {
-        return getProperty("website:issn");
+        return getSingleProperty("website:issn");
     }
 
     @HippoEssentialsGenerated(internalName = "website:friendlyurls")

@@ -24,17 +24,17 @@ public class ApiEndpoint extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:requestname")
     public String getRequestname() {
-        return getProperty("website:requestname");
+        return getSingleProperty("website:requestname");
     }
 
     @HippoEssentialsGenerated(internalName = "website:apimethod")
     public String getApimethod() {
-        return getProperty("website:apimethod");
+        return getSingleProperty("website:apimethod");
     }
 
     @HippoEssentialsGenerated(internalName = "website:uriaddress")
     public String getUriaddress() {
-        return getProperty("website:uriaddress");
+        return getSingleProperty("website:uriaddress");
     }
 
     @HippoEssentialsGenerated(internalName = "website:authnauths")
@@ -74,7 +74,7 @@ public class ApiEndpoint extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:releasestatus")
     public String getReleasestatus() {
-        return getProperty("website:releasestatus");
+        return getSingleProperty("website:releasestatus");
     }
 
     @HippoEssentialsGenerated(internalName = "website:resdefcontent")

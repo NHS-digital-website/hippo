@@ -12,7 +12,7 @@ import uk.nhs.digital.ps.beans.ExtAttachment;
 public class NiLanding extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:title")
     public String getTitle() {
-        return getProperty("nationalindicatorlibrary:title");
+        return getSingleProperty("nationalindicatorlibrary:title");
     }
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:mainContent")
@@ -22,7 +22,7 @@ public class NiLanding extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:adviceTitle")
     public String getAdviceTitle() {
-        return getProperty("nationalindicatorlibrary:adviceTitle");
+        return getSingleProperty("nationalindicatorlibrary:adviceTitle");
     }
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:adviceContent")
@@ -37,7 +37,7 @@ public class NiLanding extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:addTitle")
     public String getAddTitle() {
-        return getProperty("nationalindicatorlibrary:addTitle");
+        return getSingleProperty("nationalindicatorlibrary:addTitle");
     }
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:addContent")
@@ -52,7 +52,7 @@ public class NiLanding extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:applyTitle")
     public String getApplyTitle() {
-        return getProperty("nationalindicatorlibrary:applyTitle");
+        return getSingleProperty("nationalindicatorlibrary:applyTitle");
     }
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:applyContent")

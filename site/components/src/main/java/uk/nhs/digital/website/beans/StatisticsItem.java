@@ -12,22 +12,22 @@ public class StatisticsItem extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:prefix")
     public String getPrefix() {
-        return getProperty("website:prefix");
+        return getSingleProperty("website:prefix");
     }
 
     @HippoEssentialsGenerated(internalName = "website:number")
     public String getNumber() {
-        return getProperty("website:number");
+        return getSingleProperty("website:number");
     }
 
     @HippoEssentialsGenerated(internalName = "website:suffix")
     public String getSuffix() {
-        return getProperty("website:suffix");
+        return getSingleProperty("website:suffix");
     }
 
     @HippoEssentialsGenerated(internalName = "website:trend")
     public String getTrend() {
-        return getProperty("website:trend");
+        return getSingleProperty("website:trend");
     }
 
     @HippoEssentialsGenerated(internalName = "website:headlineDescription")

@@ -264,7 +264,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             hipposysedit:validators:
-            - non-empty
             - required
             jcr:primaryType: hipposysedit:field
           /InformationType:
@@ -274,8 +273,6 @@ definitions:
             hipposysedit:path: website:InformationType
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
-            hipposysedit:validators:
-            - publicationsystem-dropdown-information-type
             jcr:primaryType: hipposysedit:field
           /bannerImageAltText:
             hipposysedit:mandatory: false
@@ -334,8 +331,6 @@ definitions:
             hipposysedit:path: website:geographicGranularity
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
-            hipposysedit:validators:
-            - publicationsystem-dropdown-granularity
             jcr:primaryType: hipposysedit:field
           /highlightsContent:
             hipposysedit:mandatory: false
@@ -395,7 +390,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             hipposysedit:validators:
-            - non-empty
             - required
             jcr:primaryType: hipposysedit:field
           /resources:
@@ -447,7 +441,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators:
-            - non-empty
             - required
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true

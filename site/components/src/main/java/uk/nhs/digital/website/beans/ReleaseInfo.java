@@ -17,32 +17,32 @@ public class ReleaseInfo extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:version")
     public String getVersion() {
-        return getProperty("website:version");
+        return getSingleProperty("website:version");
     }
 
     @HippoEssentialsGenerated(internalName = "website:releasedate")
     public Calendar getReleasedate() {
-        return getProperty("website:releasedate");
+        return getSingleProperty("website:releasedate");
     }
 
     @HippoEssentialsGenerated(internalName = "website:effectivedate")
     public Calendar getEffectivedate() {
-        return getProperty("website:effectivedate");
+        return getSingleProperty("website:effectivedate");
     }
-    
+
     @HippoEssentialsGenerated(internalName = "website:otherversionreference")
     public String getOtherversionreference() {
-        return getProperty("website:otherversionreference");
+        return getSingleProperty("website:otherversionreference");
     }
-    
+
     @HippoEssentialsGenerated(internalName = "website:changesummary")
     public String getChangesummary() {
-        return getProperty("website:changesummary");
+        return getSingleProperty("website:changesummary");
     }
 
     @HippoEssentialsGenerated(internalName = "website:releasestatus")
     public String getReleasestatus() {
-        return getProperty("website:releasestatus");
+        return getSingleProperty("website:releasestatus");
     }
 
     @HippoEssentialsGenerated(internalName = "website:replacementlink")

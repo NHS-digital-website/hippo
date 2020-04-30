@@ -10,22 +10,22 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 public class Details extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:iapCode")
     public String getIapCode() {
-        return getProperty("nationalindicatorlibrary:iapCode");
+        return getSingleProperty("nationalindicatorlibrary:iapCode");
     }
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:indicatorSet")
     public String getIndicatorSet() {
-        return getProperty("nationalindicatorlibrary:indicatorSet");
+        return getSingleProperty("nationalindicatorlibrary:indicatorSet");
     }
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:rating")
     public String getRating() {
-        return getProperty("nationalindicatorlibrary:rating");
+        return getSingleProperty("nationalindicatorlibrary:rating");
     }
 
     @HippoEssentialsGenerated(internalName = "hippotaxonomy:keys")
     public String[] getKeys() {
-        return getProperty("hippotaxonomy:keys");
+        return getMultipleProperty("hippotaxonomy:keys");
     }
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:definition")
@@ -56,16 +56,16 @@ public class Details extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:briefDescription")
     public String getBriefDescription() {
-        return getProperty("nationalindicatorlibrary:briefDescription");
+        return getSingleProperty("nationalindicatorlibrary:briefDescription");
     }
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:qualityStatementUrl")
     public String getQualityStatementUrl() {
-        return getProperty("nationalindicatorlibrary:qualityStatementUrl");
-    }  
+        return getSingleProperty("nationalindicatorlibrary:qualityStatementUrl");
+    }
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:technicalSpecificationUrl")
     public String getTechnicalSpecificationUrl() {
-        return getProperty("nationalindicatorlibrary:technicalSpecificationUrl");
-    }       
+        return getSingleProperty("nationalindicatorlibrary:technicalSpecificationUrl");
+    }
 }

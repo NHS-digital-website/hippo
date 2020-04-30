@@ -14,7 +14,7 @@ public class IconList extends BaseCompound implements StickySection {
 
     @HippoEssentialsGenerated(internalName = "website:title")
     public String getTitle() {
-        return getProperty("website:title");
+        return getSingleProperty("website:title");
     }
 
     @Override
@@ -25,7 +25,7 @@ public class IconList extends BaseCompound implements StickySection {
     @Override
     @HippoEssentialsGenerated(internalName = "website:headinglevel", allowModifications = false)
     public String getHeadingLevel() {
-        return getProperty("website:headinglevel");
+        return getSingleProperty("website:headinglevel");
     }
 
     @HippoEssentialsGenerated(internalName = "website:introduction")

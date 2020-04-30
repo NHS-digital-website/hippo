@@ -156,8 +156,6 @@ definitions:
             hipposysedit:path: website:abbreviation
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators:
-            - website-blank-multi-string
             jcr:primaryType: hipposysedit:field
           /parentplatforms:
             hipposysedit:mandatory: false
@@ -175,7 +173,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             hipposysedit:validators:
-            - non-empty
             - required
             jcr:primaryType: hipposysedit:field
           /platformversions:
@@ -233,8 +230,6 @@ definitions:
             hipposysedit:path: website:synonyms
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators:
-            - website-blank-multi-string
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
@@ -244,7 +239,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators:
-            - non-empty
             - required
             jcr:primaryType: hipposysedit:field
           /url:
@@ -254,8 +248,6 @@ definitions:
             hipposysedit:path: website:url
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators:
-            - website-blank-multi-string
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:

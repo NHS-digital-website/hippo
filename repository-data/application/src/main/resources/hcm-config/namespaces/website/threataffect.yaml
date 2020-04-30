@@ -78,8 +78,6 @@ definitions:
             hipposysedit:path: website:versionsaffected
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators:
-            - website-blank-multi-string
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:

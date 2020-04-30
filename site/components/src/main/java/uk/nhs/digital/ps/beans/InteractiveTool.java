@@ -10,11 +10,11 @@ import java.util.Calendar;
 public class InteractiveTool extends HippoCompound {
 
     public String getTitle() {
-        return getProperty("publicationsystem:title");
+        return getSingleProperty("publicationsystem:title");
     }
 
     public String getLink() {
-        return getProperty("publicationsystem:link");
+        return getSingleProperty("publicationsystem:link");
     }
 
     public HippoHtml getContent() {
@@ -22,11 +22,11 @@ public class InteractiveTool extends HippoCompound {
     }
 
     public Calendar getDate() {
-        return getProperty("publicationsystem:date");
+        return getSingleProperty("publicationsystem:date");
     }
 
     public Boolean getAccessible() {
-        return getProperty("publicationsystem:accessible");
+        return getSingleProperty("publicationsystem:accessible");
     }
 
     public AccessibleLink getAccessiblelocation() {

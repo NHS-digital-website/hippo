@@ -13,7 +13,7 @@ public class TextSection extends HippoCompound implements StickySection {
     @Override
     @HippoEssentialsGenerated(internalName = "publicationsystem:heading", allowModifications = false)
     public String getHeading() {
-        return getProperty("publicationsystem:heading");
+        return getSingleProperty("publicationsystem:heading");
     }
 
     @Override

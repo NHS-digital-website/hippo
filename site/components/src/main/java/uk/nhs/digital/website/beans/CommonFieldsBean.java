@@ -44,7 +44,7 @@ public class CommonFieldsBean extends BaseDocument {
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:shortsummary", allowModifications = false)
     public String getShortsummary() {
-        return getProperty("website:shortsummary");
+        return getSingleProperty("website:shortsummary");
     }
 
     @JsonProperty("summary")
@@ -60,7 +60,7 @@ public class CommonFieldsBean extends BaseDocument {
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:title", allowModifications = false)
     public String getTitle() {
-        return getProperty("website:title");
+        return getSingleProperty("website:title");
     }
 
     @JsonIgnore

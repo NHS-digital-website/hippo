@@ -14,12 +14,12 @@ public class Platform extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:abbreviation")
     public String[] getAbbreviation() {
-        return getProperty("website:abbreviation");
+        return getMultipleProperty("website:abbreviation");
     }
 
     @HippoEssentialsGenerated(internalName = "website:synonyms")
     public String[] getSynonyms() {
-        return getProperty("website:synonyms");
+        return getMultipleProperty("website:synonyms");
     }
 
     @HippoEssentialsGenerated(internalName = "website:platformversions")
@@ -29,7 +29,7 @@ public class Platform extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:url")
     public String getUrl() {
-        return getProperty("website:url");
+        return getSingleProperty("website:url");
     }
 
     @HippoEssentialsGenerated(internalName = "website:supplier")
@@ -49,7 +49,7 @@ public class Platform extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "hippotaxonomy:keys")
     public String[] getKeys() {
-        return getProperty("hippotaxonomy:keys");
+        return getMultipleProperty("hippotaxonomy:keys");
     }
 
     public List<String> getFullTaxonomyList() {

@@ -18,23 +18,23 @@ public class Statistics extends BaseCompound implements StickySection {
     @Override
     @HippoEssentialsGenerated(internalName = "website:heading", allowModifications = false)
     public String getHeading() {
-        return getProperty("website:heading");
+        return getSingleProperty("website:heading");
     }
 
     @Override
     @HippoEssentialsGenerated(internalName = "website:headingLevel", allowModifications = false)
     public String getHeadingLevel() {
-        return getProperty("website:headingLevel");
+        return getSingleProperty("website:headingLevel");
     }
 
     @HippoEssentialsGenerated(internalName = "website:colourScheme")
     public String getColourScheme() {
-        return getProperty("website:colourScheme");
+        return getSingleProperty("website:colourScheme");
     }
 
     @HippoEssentialsGenerated(internalName = "website:animation")
     public String getAnimation() {
-        return getProperty("website:animation");
+        return getSingleProperty("website:animation");
     }
 
     @HippoEssentialsGenerated(internalName = "website:modules")

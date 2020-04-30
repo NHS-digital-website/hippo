@@ -11,23 +11,23 @@ import java.util.Calendar;
 public class Resource extends HippoDocument {
 
     public String getUrl() {
-        return encode(getProperty(PropertyKeys.URL));
+        return encode(getSingleProperty(PropertyKeys.URL));
     }
 
     public String getFilename() {
-        return getProperty(PropertyKeys.FILENAME);
+        return getSingleProperty(PropertyKeys.FILENAME);
     }
 
     public String getMimeType() {
-        return getProperty(PropertyKeys.MIME_TYPE);
+        return getSingleProperty(PropertyKeys.MIME_TYPE);
     }
 
     public Long getLength() {
-        return getProperty(PropertyKeys.SIZE);
+        return getSingleProperty(PropertyKeys.SIZE);
     }
 
     public String getReference() {
-        return getProperty(PropertyKeys.REFERENCE);
+        return getSingleProperty(PropertyKeys.REFERENCE);
     }
 
     public String getReferenceEncoded() {
@@ -35,11 +35,11 @@ public class Resource extends HippoDocument {
     }
 
     public String getEncoding() {
-        return getProperty(PropertyKeys.ENCODING);
+        return getSingleProperty(PropertyKeys.ENCODING);
     }
 
     public Calendar getLastModified() {
-        return getProperty(PropertyKeys.LAST_MODIFIED);
+        return getSingleProperty(PropertyKeys.LAST_MODIFIED);
     }
 
     private String encode(String str) {

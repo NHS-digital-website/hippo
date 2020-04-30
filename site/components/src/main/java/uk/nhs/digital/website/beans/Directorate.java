@@ -18,17 +18,17 @@ public class Directorate extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:backgroundcolor")
     public String getBackgroundcolor() {
-        return getProperty("website:backgroundcolor");
+        return getSingleProperty("website:backgroundcolor");
     }
 
     @HippoEssentialsGenerated(internalName = "website:embedbackgroundcolor")
     public String getEmbedbackgroundcolor() {
-        return getProperty("website:embedbackgroundcolor");
+        return getSingleProperty("website:embedbackgroundcolor");
     }
 
     @HippoEssentialsGenerated(internalName = "website:fontcolor")
     public String getFontcolor() {
-        return getProperty("website:fontcolor");
+        return getSingleProperty("website:fontcolor");
     }
 
     @HippoEssentialsGenerated(internalName = "website:componentbusinessunits")

@@ -28,15 +28,15 @@ public class NewsInternal extends BaseDocument implements IntranetSearchResult {
     }
 
     public Calendar getPublicationDate() {
-        return getProperty("intranet:publicationdate");
+        return getSingleProperty("intranet:publicationdate");
     }
 
     public String getType() {
-        return getProperty("intranet:typeofnews");
+        return getSingleProperty("intranet:typeofnews");
     }
 
     public Calendar getExpiryDate() {
-        return getProperty("intranet:expirydate");
+        return getSingleProperty("intranet:expirydate");
     }
 
     public HippoHtml getOptionalIntroductoryText() {

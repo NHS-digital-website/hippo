@@ -153,11 +153,11 @@ public class GoogleAnalyticsContentRewriter extends SimpleContentRewriter {
 
         for (TagNode iframe : iframes) {
             //when we forbid cookies in Cookiebot, then iframe has attribute
-            //'data-src'. This attribute chagnes to 'src' when we permit cookies. 
+            //'data-src'. This attribute chagnes to 'src' when we permit cookies.
             String documentPathCookieOptIn = iframe.getAttributeByName("src");
             String documentPathCookieOptOut = iframe.getAttributeByName("data-src");
 
-            if (documentPathCookieOptIn != null && documentPathCookieOptIn.contains("youtube") 
+            if (documentPathCookieOptIn != null && documentPathCookieOptIn.contains("youtube")
                 || documentPathCookieOptOut != null && documentPathCookieOptOut.contains("youtube")) {
 
                 TagNode parent = iframe.getParent();
@@ -172,7 +172,7 @@ public class GoogleAnalyticsContentRewriter extends SimpleContentRewriter {
 
         // Add <dfn> for first instance of <abbr> of each abbreviation
         // It should work adding <dfn> only for each abbreviation per full
-        // page, while this rewrite() function is invoked for each page section. 
+        // page, while this rewrite() function is invoked for each page section.
         //
         // However, we noticed that requestContext is the same for each
         // sections per page request. Therefore we reset appliedAbbrs every
@@ -259,7 +259,7 @@ public class GoogleAnalyticsContentRewriter extends SimpleContentRewriter {
 
             Optional docbase = htmlItem.getChildBeansByName(nodeName, HippoBean.class)
                 .stream()
-                .map(internallink -> internallink.getProperty("hippo:docbase"))
+                .map(internallink -> internallink.getSingleProperty("hippo:docbase"))
                 .findFirst();
 
             if (docbase.isPresent()) {

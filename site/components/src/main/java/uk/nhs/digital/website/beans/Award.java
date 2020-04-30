@@ -15,7 +15,7 @@ public class Award extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:awardname")
     public String getAwardname() {
-        return getProperty("website:awardname");
+        return getSingleProperty("website:awardname");
     }
 
     @HippoEssentialsGenerated(internalName = "website:awardlink")
@@ -25,7 +25,7 @@ public class Award extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:awardingbody")
     public String getAwardingbody() {
-        return getProperty("website:awardingbody");
+        return getSingleProperty("website:awardingbody");
     }
 
     @HippoEssentialsGenerated(internalName = "website:awardingbodylink")

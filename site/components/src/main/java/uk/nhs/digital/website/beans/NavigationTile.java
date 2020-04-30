@@ -18,7 +18,7 @@ public class NavigationTile extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:title")
     public String getTitle() {
-        return getProperty("website:title");
+        return getSingleProperty("website:title");
     }
 
     @HippoEssentialsGenerated(internalName = "website:imageOrIcon")
@@ -28,12 +28,12 @@ public class NavigationTile extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:description")
     public String getDescription() {
-        return getProperty("website:description");
+        return getSingleProperty("website:description");
     }
 
     @HippoEssentialsGenerated(internalName = "website:actionDescription")
     public String getActionDescription() {
-        return getProperty("website:actionDescription");
+        return getSingleProperty("website:actionDescription");
     }
 
     @HippoEssentialsGenerated(internalName = "website:items")

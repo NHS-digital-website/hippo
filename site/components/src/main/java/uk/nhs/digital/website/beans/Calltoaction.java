@@ -9,17 +9,17 @@ import org.onehippo.cms7.essentials.dashboard.annotations.*;
 public class Calltoaction extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "website:Label")
     public String getLabel() {
-        return getProperty("website:Label");
+        return getSingleProperty("website:Label");
     }
 
     @HippoEssentialsGenerated(internalName = "website:external")
     public String getExternal() {
-        return getProperty("website:external");
+        return getSingleProperty("website:external");
     }
 
     @HippoEssentialsGenerated(internalName = "website:title")
     public String getTitle() {
-        return getProperty("website:title");
+        return getSingleProperty("website:title");
     }
 
     @HippoEssentialsGenerated(internalName = "website:internal")
@@ -29,7 +29,7 @@ public class Calltoaction extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "website:content")
     public String getContent() {
-        return getProperty("website:content");
+        return getSingleProperty("website:content");
     }
 
     @HippoEssentialsGenerated(internalName = "website:image")

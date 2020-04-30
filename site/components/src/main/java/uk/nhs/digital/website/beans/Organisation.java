@@ -13,17 +13,17 @@ public class Organisation extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:abbreviation")
     public String[] getAbbreviation() {
-        return getProperty("website:abbreviation");
+        return getMultipleProperty("website:abbreviation");
     }
 
     @HippoEssentialsGenerated(internalName = "website:synonyms")
     public String[] getSynonyms() {
-        return getProperty("website:synonyms");
+        return getMultipleProperty("website:synonyms");
     }
 
     @HippoEssentialsGenerated(internalName = "website:organisationType")
     public String[] getOrganisationType() {
-        return getProperty("website:organisationType");
+        return getMultipleProperty("website:organisationType");
     }
 
     @HippoEssentialsGenerated(internalName = "website:parentorganisation")
@@ -33,7 +33,7 @@ public class Organisation extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:url")
     public String[] getUrl() {
-        return getProperty("website:url");
+        return getMultipleProperty("website:url");
     }
 
     @HippoEssentialsGenerated(internalName = "website:address")

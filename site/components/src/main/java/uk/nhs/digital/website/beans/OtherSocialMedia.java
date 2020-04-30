@@ -15,12 +15,12 @@ public class OtherSocialMedia extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:link")
     public String getLink() {
-        return getProperty("website:link");
+        return getSingleProperty("website:link");
     }
 
     @HippoEssentialsGenerated(internalName = "website:title")
     public String getTitle() {
-        return getProperty("website:title");
+        return getSingleProperty("website:title");
     }
 
 }

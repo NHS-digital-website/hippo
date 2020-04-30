@@ -15,7 +15,7 @@ public class GalleryItem extends BaseCompound {
 
     @HippoEssentialsGenerated(internalName = "website:title")
     public String getTitle() {
-        return getProperty("website:title");
+        return getSingleProperty("website:title");
     }
 
     @HippoEssentialsGenerated(internalName = "website:image")
@@ -25,12 +25,12 @@ public class GalleryItem extends BaseCompound {
 
     @HippoEssentialsGenerated(internalName = "website:imagealt")
     public String getImageAlt() {
-        return getProperty("website:imagealt");
+        return getSingleProperty("website:imagealt");
     }
 
     @HippoEssentialsGenerated(internalName = "website:imagewarning")
     public String getImageWarning() {
-        return getProperty("website:imagewarning");
+        return getSingleProperty("website:imagewarning");
     }
 
     @HippoEssentialsGenerated(internalName = "website:description")

@@ -10,36 +10,36 @@ public class ContactDetailExtended extends ContactDetail {
 
     @HippoEssentialsGenerated(internalName = "website:purpose", allowModifications = false)
     public String getPurpose() {
-        return getProperty("website:purpose");
+        return getSingleProperty("website:purpose");
     }
 
     @HippoEssentialsGenerated(internalName = "website:description", allowModifications = false)
     public String getDescription() {
-        return getProperty("website:description");
+        return getSingleProperty("website:description");
     }
 
     @HippoEssentialsGenerated(internalName = "website:twitterhandle", allowModifications = false)
     public String getTwitterHandle() {
-        return getProperty("website:twitterhandle");
+        return getSingleProperty("website:twitterhandle");
     }
 
     @HippoEssentialsGenerated(internalName = "website:webchatdescription", allowModifications = false)
     public String getWebchatDescription() {
-        return getProperty("website:webchatdescription");
+        return getSingleProperty("website:webchatdescription");
     }
 
     @HippoEssentialsGenerated(internalName = "website:webchatlink", allowModifications = false)
     public String getWebchatLink() {
-        return getProperty("website:webchatlink");
+        return getSingleProperty("website:webchatlink");
     }
 
     @HippoEssentialsGenerated(internalName = "website:webformdescription", allowModifications = false)
     public String getWebformDescription() {
-        return getProperty("website:webformdescription");
+        return getSingleProperty("website:webformdescription");
     }
 
     @HippoEssentialsGenerated(internalName = "website:webformlink", allowModifications = false)
     public String getWebformLink() {
-        return getProperty("website:webformlink");
+        return getSingleProperty("website:webformlink");
     }
 }

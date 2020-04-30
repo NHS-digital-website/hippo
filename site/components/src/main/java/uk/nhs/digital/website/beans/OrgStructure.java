@@ -18,7 +18,7 @@ public class OrgStructure extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:navigationembed")
     public Boolean getNavigationembed() {
-        return getProperty("website:navigationembed");
+        return getSingleProperty("website:navigationembed");
     }
 
     @HippoEssentialsGenerated(internalName = "website:directorates")

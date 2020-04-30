@@ -19,7 +19,7 @@ public class PublicTransportStation extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:bypublictransportpicturealttext")
     public String getByPublicTransportPictureAltText() {
-        return getProperty("website:bypublictransportpicturealttext");
+        return getSingleProperty("website:bypublictransportpicturealttext");
     }
 
     @HippoEssentialsGenerated(internalName = "website:bypublictransportvideo")
@@ -29,22 +29,22 @@ public class PublicTransportStation extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:name")
     public String getName() {
-        return getProperty("website:name");
+        return getSingleProperty("website:name");
     }
 
     @HippoEssentialsGenerated(internalName = "website:distance")
     public String getDistance() {
-        return getProperty("website:distance");
+        return getSingleProperty("website:distance");
     }
 
     @HippoEssentialsGenerated(internalName = "website:walkingtime")
     public String getWalkingtime() {
-        return getProperty("website:walkingtime");
+        return getSingleProperty("website:walkingtime");
     }
 
     @HippoEssentialsGenerated(internalName = "website:drivingtime")
     public String getDrivingtime() {
-        return getProperty("website:drivingtime");
+        return getSingleProperty("website:drivingtime");
     }
 
     @HippoEssentialsGenerated(internalName = "website:geocoordinates")

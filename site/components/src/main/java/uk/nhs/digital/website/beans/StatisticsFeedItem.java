@@ -12,27 +12,27 @@ public class StatisticsFeedItem extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:prefix")
     public String getPrefix() {
-        return getProperty("website:prefix");
+        return getSingleProperty("website:prefix");
     }
 
     @HippoEssentialsGenerated(internalName = "website:urlOfNumber")
     public String getUrlOfNumber() {
-        return getProperty("website:urlOfNumber");
+        return getSingleProperty("website:urlOfNumber");
     }
 
     @HippoEssentialsGenerated(internalName = "website:dataType")
     public String getDataType() {
-        return getProperty("website:dataType");
+        return getSingleProperty("website:dataType");
     }
 
     @HippoEssentialsGenerated(internalName = "website:suffix")
     public String getSuffix() {
-        return getProperty("website:suffix");
+        return getSingleProperty("website:suffix");
     }
 
     @HippoEssentialsGenerated(internalName = "website:trend")
     public String getTrend() {
-        return getProperty("website:trend");
+        return getSingleProperty("website:trend");
     }
 
     @HippoEssentialsGenerated(internalName = "website:headlineDescription")

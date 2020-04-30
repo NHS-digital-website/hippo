@@ -12,7 +12,7 @@ import java.util.Date;
 public class BaseDocument extends HippoDocument {
 
     public Date getLastModified() {
-        return ((Calendar) getProperty("hippostdpubwf:lastModificationDate")).getTime();
+        return ((Calendar) getSingleProperty("hippostdpubwf:lastModificationDate")).getTime();
     }
 
 }

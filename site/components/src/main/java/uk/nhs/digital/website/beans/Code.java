@@ -17,37 +17,37 @@ public class Code extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:heading")
     public String getHeading() {
-        return getProperty("website:heading");
+        return getSingleProperty("website:heading");
     }
 
     @HippoEssentialsGenerated(internalName = "website:headinglevel")
     public String getHeadingLevel() {
-        return getProperty("website:headinglevel");
+        return getSingleProperty("website:headinglevel");
     }
 
     @HippoEssentialsGenerated(internalName = "website:linenumbers")
     public Boolean getLineNumbers() {
-        return getProperty("website:linenumbers");
+        return getSingleProperty("website:linenumbers");
     }
 
     @HippoEssentialsGenerated(internalName = "website:firstlinenumber")
     public String getFirstLineNumber() {
-        return getProperty("website:firstlinenumber");
+        return getSingleProperty("website:firstlinenumber");
     }
 
     @HippoEssentialsGenerated(internalName = "website:wraplines")
     public Boolean getWrapLines() {
-        return getProperty("website:wraplines");
+        return getSingleProperty("website:wraplines");
     }
 
     @HippoEssentialsGenerated(internalName = "website:codelanguage")
     public String getCodeLanguage() {
-        return getProperty("website:codelanguage");
+        return getSingleProperty("website:codelanguage");
     }
 
     @HippoEssentialsGenerated(internalName = "website:codetext")
     public String getCodetext() {
-        return getProperty("website:codetext");
+        return getSingleProperty("website:codetext");
     }
 
     public String getCodeTextHighlighted() {

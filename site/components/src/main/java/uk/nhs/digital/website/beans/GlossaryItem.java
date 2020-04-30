@@ -11,7 +11,7 @@ public class GlossaryItem extends BaseCompound {
 
     @HippoEssentialsGenerated(internalName = "website:heading")
     public String getTitle() {
-        return getProperty("website:heading");
+        return getSingleProperty("website:heading");
     }
 
     @HippoEssentialsGenerated(internalName = "website:definition")
@@ -21,7 +21,7 @@ public class GlossaryItem extends BaseCompound {
 
     @HippoEssentialsGenerated(internalName = "website:external")
     public String getExternal() {
-        return getProperty("website:external");
+        return getSingleProperty("website:external");
     }
 
     @HippoEssentialsGenerated(internalName = "website:internal")

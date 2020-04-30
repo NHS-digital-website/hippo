@@ -14,7 +14,7 @@ public class SupplementaryInformation extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:NominalDate", allowModifications = false)
     public Calendar getPublishedDate() {
-        return getProperty("publicationsystem:NominalDate");
+        return getSingleProperty("publicationsystem:NominalDate");
     }
 
     @HippoEssentialsGenerated(internalName = "website:request")
@@ -29,7 +29,7 @@ public class SupplementaryInformation extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "hippotaxonomy:keys", allowModifications = false)
     public String[] getKeys() {
-        return getProperty("hippotaxonomy:keys");
+        return getMultipleProperty("hippotaxonomy:keys");
     }
 
     @HippoEssentialsGenerated(internalName = "website:interval")

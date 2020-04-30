@@ -9,11 +9,11 @@ public class Externallink extends ExternalLinkBase {
 
     @HippoEssentialsGenerated(internalName = "website:title")
     public String getTitle() {
-        return getProperty("website:title");
+        return getSingleProperty("website:title");
     }
 
     @HippoEssentialsGenerated(internalName = "website:shortsummary")
     public String getShortsummary() {
-        return getProperty("website:shortsummary");
+        return getSingleProperty("website:shortsummary");
     }
 }
