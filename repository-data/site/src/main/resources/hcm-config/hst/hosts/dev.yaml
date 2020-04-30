@@ -15,6 +15,9 @@ definitions:
                 hst:types:
                 - rest
                 jcr:primaryType: hst:mount
+              /intranet:
+                hst:mountpoint: /hst:hst/hst:sites/intranet
+                jcr:primaryType: hst:mount
               /restapi:
                 hst:alias: restapi
                 hst:ismapped: false

@@ -8,6 +8,9 @@ definitions:
       /base-top-menu:
         hst:renderpath: webfile:/freemarker/common/base-top-menu.ftl
         jcr:primaryType: hst:template
+      /error:
+        hst:renderpath: webfile:/freemarker/intranet/error.ftl
+        jcr:primaryType: hst:template
       /home:
         hst:renderpath: webfile:/freemarker/intranet/home.ftl
         jcr:primaryType: hst:template
