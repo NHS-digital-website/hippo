@@ -25,4 +25,4 @@ definitions:
       jcr:statement: /jcr:root/hippo:namespaces/*/element(*, hipposysedit:templatetype)/hipposysedit:prototypes/hipposysedit:prototype[@jcr:primaryType='publicationsystem:archive'
         or @jcr:primaryType='publicationsystem:series' or @jcr:primaryType='publicationsystem:publication'
         or @jcr:primaryType='publicationsystem:publicationPage' or @jcr:primaryType='publicationsystem:dataset'
-        or @jcr:primaryType='publicationsystem:legacypublication' or @jcr:primaryType='website:general']
+        or @jcr:primaryType='website:general']
