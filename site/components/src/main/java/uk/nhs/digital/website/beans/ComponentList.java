@@ -11,7 +11,7 @@ import java.util.*;
 public class ComponentList extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:anchor")
     public Boolean getAnchor() {
-        return getProperty("website:anchor");
+        return getSingleProperty("website:anchor");
     }
 
     @HippoEssentialsGenerated(internalName = "website:items")
@@ -21,7 +21,7 @@ public class ComponentList extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:gossid")
     public Long getGossid() {
-        return getProperty("website:gossid");
+        return getSingleProperty("website:gossid");
     }
 
     @HippoEssentialsGenerated(internalName = "website:body")

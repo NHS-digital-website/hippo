@@ -9,10 +9,10 @@ import java.util.Calendar;
 public class Survey extends HippoCompound {
 
     public String getLink() {
-        return getProperty("publicationsystem:link");
+        return getSingleProperty("publicationsystem:link");
     }
 
     public Calendar getDate() {
-        return getProperty("publicationsystem:date");
+        return getSingleProperty("publicationsystem:date");
     }
 }

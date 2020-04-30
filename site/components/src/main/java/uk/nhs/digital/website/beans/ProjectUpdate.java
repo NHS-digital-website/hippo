@@ -25,17 +25,17 @@ public class ProjectUpdate extends CommonFieldsBean {
     }
 
     public String getTypeOfUpdate() {
-        return getProperty("website:typeofupdate");
+        return getSingleProperty("website:typeofupdate");
     }
 
     @HippoEssentialsGenerated(internalName = "website:updatetimestamp", allowModifications = false)
     public Calendar getUpdateTimestamp() {
-        return getProperty("website:updatetimestamp");
+        return getSingleProperty("website:updatetimestamp");
     }
 
     @HippoEssentialsGenerated(internalName = "website:expirydate", allowModifications = false)
     public Calendar getExpiryDate() {
-        return getProperty("website:expirydate");
+        return getSingleProperty("website:expirydate");
     }
 
     @HippoEssentialsGenerated(internalName = "website:sections")
@@ -50,15 +50,15 @@ public class ProjectUpdate extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "hippotaxonomy:keys", allowModifications = false)
     public String[] getKeys() {
-        return getProperty("hippotaxonomy:keys");
+        return getMultipleProperty("hippotaxonomy:keys");
     }
 
     public String getWikiLink() {
-        return getProperty("website:wikilink");
+        return getSingleProperty("website:wikilink");
     }
 
     public String[] getTwitterHashtag() {
-        return getProperty("website:twitterhashtag");
+        return getMultipleProperty("website:twitterhashtag");
     }
 
     public boolean isPubliclyAccessible() {

@@ -51,7 +51,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators:
-            - non-empty
             - required
             jcr:primaryType: hipposysedit:field
           /link_url:
@@ -62,7 +61,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators:
-            - non-empty
             - required
             - valid-url
             jcr:primaryType: hipposysedit:field

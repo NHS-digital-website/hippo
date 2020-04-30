@@ -38,7 +38,7 @@ public class Role extends HippoCompound {
             }
         }
         if (roles.size() == 0) {
-            roles.add(getProperty("website:primaryrole"));
+            roles.add(getSingleProperty("website:primaryrole"));
         }
         return roles;
     }
@@ -62,7 +62,7 @@ public class Role extends HippoCompound {
         if (primaryJobOrg != null) {
             return primaryJobOrg.getTitle();
         }
-        return getProperty("website:primaryroleorg");
+        return getSingleProperty("website:primaryroleorg");
     }
 
     @HippoEssentialsGenerated(internalName = "website:boardmembership", allowModifications = false)

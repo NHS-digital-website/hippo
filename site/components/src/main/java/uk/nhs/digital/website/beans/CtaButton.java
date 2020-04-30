@@ -16,12 +16,12 @@ public class CtaButton extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:title")
     public String getTitle() {
-        return getProperty("website:title");
+        return getSingleProperty("website:title");
     }
 
     @HippoEssentialsGenerated(internalName = "website:buttontype")
     public String getButtonType() {
-        return getProperty("website:buttontype");
+        return getSingleProperty("website:buttontype");
     }
 
     @HippoEssentialsGenerated(internalName = "website:items")
@@ -31,6 +31,6 @@ public class CtaButton extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:alignment")
     public String getAlignment() {
-        return getProperty("website:alignment");
+        return getSingleProperty("website:alignment");
     }
 }

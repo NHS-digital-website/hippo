@@ -20,13 +20,13 @@ public class EmphasisBox extends HippoCompound {
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:emphasisType")
     public String getEmphasisType() {
-        return getProperty("website:emphasisType");
+        return getSingleProperty("website:emphasisType");
     }
 
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:heading")
     public String getHeading() {
-        return getProperty("website:heading");
+        return getSingleProperty("website:heading");
     }
 
     @JsonProperty("body")

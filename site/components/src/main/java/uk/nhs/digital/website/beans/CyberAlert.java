@@ -41,7 +41,7 @@ public class CyberAlert extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:shortsummary", allowModifications = false)
     public String getShortsummary() {
         if (getPublicallyAccessible()) {
-            return getProperty("website:shortsummary");
+            return getSingleProperty("website:shortsummary");
         }
         return null;
     }
@@ -49,20 +49,20 @@ public class CyberAlert extends CommonFieldsBean {
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:threatid", allowModifications = false)
     public String getThreatId() {
-        return getProperty("website:threatid");
+        return getSingleProperty("website:threatid");
     }
 
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "publicationsystem:NominalDate", allowModifications = false)
     public Calendar getPublishedDate() {
-        return getProperty("publicationsystem:NominalDate");
+        return getSingleProperty("publicationsystem:NominalDate");
     }
 
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:sourceofthreatupdates", allowModifications = false)
     public String[] getSourceOfThreatUpdates() {
         if (getFullAccess()) {
-            return getProperty("website:sourceofthreatupdates");
+            return getMultipleProperty("website:sourceofthreatupdates");
         }
         return null;
     }
@@ -100,7 +100,7 @@ public class CyberAlert extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:severity", allowModifications = false)
     public String getSeverity() {
         if (getPublicallyAccessible()) {
-            return getProperty("website:severity");
+            return getSingleProperty("website:severity");
         }
         return null;
     }
@@ -109,7 +109,7 @@ public class CyberAlert extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:category", allowModifications = false)
     public String[] getCategory() {
         if (getPublicallyAccessible()) {
-            return getProperty("website:category");
+            return getMultipleProperty("website:category");
         }
         return null;
     }
@@ -118,7 +118,7 @@ public class CyberAlert extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:threattype", allowModifications = false)
     public String getThreatType() {
         if (getPublicallyAccessible()) {
-            return getProperty("website:threattype");
+            return getSingleProperty("website:threattype");
         }
         return null;
     }
@@ -127,7 +127,7 @@ public class CyberAlert extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:threatvector", allowModifications = false)
     public String[] getThreatvector() {
         if (getPublicallyAccessible()) {
-            return getProperty("website:threatvector");
+            return getMultipleProperty("website:threatvector");
         }
         return null;
     }
@@ -197,7 +197,7 @@ public class CyberAlert extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:ncsclink", allowModifications = false)
     public String getNcscLink() {
         if (getPublicallyAccessible()) {
-            return getProperty("website:ncsclink");
+            return getSingleProperty("website:ncsclink");
         }
         return null;
     }
@@ -215,7 +215,7 @@ public class CyberAlert extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "hippotaxonomy:keys", allowModifications = false)
     public String[] getKeys() {
         if (getPublicallyAccessible()) {
-            return getProperty("hippotaxonomy:keys");
+            return getMultipleProperty("hippotaxonomy:keys");
         }
         return null;
     }
@@ -261,7 +261,7 @@ public class CyberAlert extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:publicallyaccessible", allowModifications = false)
     public Boolean getPublicallyAccessible() {
 
-        Boolean publicallyaccessible = (Boolean)getProperty("website:publicallyaccessible");
+        Boolean publicallyaccessible = (Boolean)getSingleProperty("website:publicallyaccessible");
 
         return publicallyaccessible && this.getFullAccess();
     }
@@ -270,7 +270,7 @@ public class CyberAlert extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:archivecontent", allowModifications = false)
     public Boolean getArchiveContent() {
 
-        Boolean archiveContent = (Boolean)getProperty("website:archivecontent");
+        Boolean archiveContent = (Boolean)getSingleProperty("website:archivecontent");
 
         return archiveContent && this.getFullAccess();
     }

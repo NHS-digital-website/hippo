@@ -10,7 +10,7 @@ public class VisualAssetlink extends Assetlink {
 
     @HippoEssentialsGenerated(internalName = "website:shortsummary")
     public String getSummary() {
-        return getProperty("website:shortsummary");
+        return getSingleProperty("website:shortsummary");
     }
 
     @HippoEssentialsGenerated(internalName = "website:icon")

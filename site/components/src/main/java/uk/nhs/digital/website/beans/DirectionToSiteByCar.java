@@ -22,7 +22,7 @@ public class DirectionToSiteByCar extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:bycarpicturealttext")
     public String getByCarPictureAltText() {
-        return getProperty("website:bycarpicturealttext");
+        return getSingleProperty("website:bycarpicturealttext");
     }
 
     @HippoEssentialsGenerated(internalName = "website:bycarvideo")

@@ -11,22 +11,22 @@ public class Standards extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:body")
     public String getBody() {
-        return getProperty("website:body");
+        return getSingleProperty("website:body");
     }
 
     @HippoEssentialsGenerated(internalName = "website:name")
     public String getName() {
-        return getProperty("website:name");
+        return getSingleProperty("website:name");
     }
 
     @HippoEssentialsGenerated(internalName = "website:referencenumber")
     public String getReferenceNumber() {
-        return getProperty("website:referencenumber");
+        return getSingleProperty("website:referencenumber");
     }
 
     @HippoEssentialsGenerated(internalName = "website:weblink")
     public String getWebLink() {
-        return getProperty("website:weblink");
+        return getSingleProperty("website:weblink");
     }
 
 }

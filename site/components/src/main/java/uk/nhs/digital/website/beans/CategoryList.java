@@ -14,7 +14,7 @@ public class CategoryList  extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "website:name")
     public String getName() {
-        return getProperty("website:name");
+        return getSingleProperty("website:name");
     }
 
     @HippoEssentialsGenerated(internalName = "website:description")

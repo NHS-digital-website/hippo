@@ -28,13 +28,13 @@ public class Checklist extends HippoCompound {
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:heading")
     public String getHeading() {
-        return getProperty("website:heading");
+        return getSingleProperty("website:heading");
     }
 
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:icon")
     public String getIcon() {
-        return getProperty("website:icon");
+        return getSingleProperty("website:icon");
     }
 
 

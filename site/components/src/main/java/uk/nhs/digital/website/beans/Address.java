@@ -11,47 +11,47 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 public class Address extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "website:buildinglocation")
     public String getBuildinglocation() {
-        return getProperty("website:buildinglocation");
+        return getSingleProperty("website:buildinglocation");
     }
 
     @HippoEssentialsGenerated(internalName = "website:buildingname")
     public String getBuildingname() {
-        return getProperty("website:buildingname");
+        return getSingleProperty("website:buildingname");
     }
 
     @HippoEssentialsGenerated(internalName = "website:street")
     public String getStreet() {
-        return getProperty("website:street");
+        return getSingleProperty("website:street");
     }
 
     @HippoEssentialsGenerated(internalName = "website:area")
     public String getArea() {
-        return getProperty("website:area");
+        return getSingleProperty("website:area");
     }
 
     @HippoEssentialsGenerated(internalName = "website:city")
     public String getCity() {
-        return getProperty("website:city");
+        return getSingleProperty("website:city");
     }
 
     @HippoEssentialsGenerated(internalName = "website:county")
     public String getCounty() {
-        return getProperty("website:county");
+        return getSingleProperty("website:county");
     }
 
     @HippoEssentialsGenerated(internalName = "website:country")
     public String getCountry() {
-        return getProperty("website:country");
+        return getSingleProperty("website:country");
     }
 
     @HippoEssentialsGenerated(internalName = "website:postalCode")
     public String getPostalCode() {
-        return getProperty("website:postalCode");
+        return getSingleProperty("website:postalCode");
     }
 
     @HippoEssentialsGenerated(internalName = "website:maplink")
     public String getMapLink() {
-        return getProperty("website:maplink");
+        return getSingleProperty("website:maplink");
     }
 
     @HippoEssentialsGenerated(internalName = "website:geocoordinates")

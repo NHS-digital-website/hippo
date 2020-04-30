@@ -16,12 +16,12 @@ public class PostNominal extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:letters")
     public String getLetters() {
-        return getProperty("website:letters");
+        return getSingleProperty("website:letters");
     }
 
     @HippoEssentialsGenerated(internalName = "website:description")
     public String getDescription() {
-        return getProperty("website:description");
+        return getSingleProperty("website:description");
     }
 
     @HippoEssentialsGenerated(internalName = "website:link")
@@ -31,6 +31,6 @@ public class PostNominal extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:awardingbody")
     public String getAwardingbody() {
-        return getProperty("website:awardingbody");
+        return getSingleProperty("website:awardingbody");
     }
 }

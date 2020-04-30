@@ -11,17 +11,17 @@ public class BannerControl extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:backgroundcolor")
     public String getBackgroundcolor() {
-        return getProperty("website:backgroundcolor");
+        return getSingleProperty("website:backgroundcolor");
     }
 
     @HippoEssentialsGenerated(internalName = "website:iconcolor")
     public String getIconcolor() {
-        return getProperty("website:iconcolor");
+        return getSingleProperty("website:iconcolor");
     }
 
     @HippoEssentialsGenerated(internalName = "website:fontcolor")
     public String getFontcolor() {
-        return getProperty("website:fontcolor");
+        return getSingleProperty("website:fontcolor");
     }
 
     @HippoEssentialsGenerated(internalName = "website:icon")

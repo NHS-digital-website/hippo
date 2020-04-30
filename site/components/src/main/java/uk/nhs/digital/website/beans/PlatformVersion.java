@@ -11,17 +11,17 @@ public class PlatformVersion extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:versionnumber")
     public String getVersion() {
-        return getProperty("website:versionnumber");
+        return getSingleProperty("website:versionnumber");
     }
 
     @HippoEssentialsGenerated(internalName = "website:status")
     public String getStatus() {
-        return getProperty("website:status");
+        return getSingleProperty("website:status");
     }
 
     @HippoEssentialsGenerated(internalName = "website:link")
     public String getLink() {
-        return getProperty("website:link");
+        return getSingleProperty("website:link");
     }
 
 }

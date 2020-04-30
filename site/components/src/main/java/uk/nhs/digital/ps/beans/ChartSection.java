@@ -16,22 +16,22 @@ public class ChartSection extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:title")
     public String getTitle() {
-        return getProperty("publicationsystem:title");
+        return getSingleProperty("publicationsystem:title");
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:type")
     public String getType() {
-        return getProperty("publicationsystem:type");
+        return getSingleProperty("publicationsystem:type");
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:yTitle")
     public String getYTitle() {
-        return getProperty("publicationsystem:yTitle");
+        return getSingleProperty("publicationsystem:yTitle");
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:chartConfig")
     public String getChartConfig() {
-        return getProperty("publicationsystem:chartConfig");
+        return getSingleProperty("publicationsystem:chartConfig");
     }
 
     /**

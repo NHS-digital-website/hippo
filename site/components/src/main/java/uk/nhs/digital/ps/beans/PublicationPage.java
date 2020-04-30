@@ -16,7 +16,7 @@ public class PublicationPage extends BaseDocument implements IndexPage, Paginate
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:Title")
     public String getTitle() {
-        return getProperty("publicationsystem:Title");
+        return getSingleProperty("publicationsystem:Title");
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:bodySections", allowModifications = false)

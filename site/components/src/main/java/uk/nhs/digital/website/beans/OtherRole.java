@@ -15,11 +15,11 @@ public class OtherRole extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:secondaryrole")
     public String gerSecondaryrole() {
-        return getProperty("website:secondaryrole");
+        return getSingleProperty("website:secondaryrole");
     }
 
     @HippoEssentialsGenerated(internalName = "website:secondaryroleorg")
     public String gerSecondaryroleorg() {
-        return getProperty("website:secondaryroleorg");
+        return getSingleProperty("website:secondaryroleorg");
     }
 }

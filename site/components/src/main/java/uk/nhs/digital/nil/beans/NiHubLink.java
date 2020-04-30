@@ -10,7 +10,7 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 public class NiHubLink extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:title")
     public String getTitle() {
-        return getProperty("nationalindicatorlibrary:title");
+        return getSingleProperty("nationalindicatorlibrary:title");
     }
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:content")
@@ -20,11 +20,11 @@ public class NiHubLink extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:relativeUrl")
     public String getPageLink() {
-        return getProperty("nationalindicatorlibrary:relativeUrl");
+        return getSingleProperty("nationalindicatorlibrary:relativeUrl");
     }
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:text")
     public String getText() {
-        return getProperty("nationalindicatorlibrary:text");
+        return getSingleProperty("nationalindicatorlibrary:text");
     }
 }

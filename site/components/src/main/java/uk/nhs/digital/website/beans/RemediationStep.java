@@ -32,13 +32,13 @@ public class RemediationStep extends HippoCompound {
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:link")
     public String getLink() {
-        return getProperty("website:link");
+        return getSingleProperty("website:link");
     }
 
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:type")
     public String getType() {
-        return getProperty("website:type");
+        return getSingleProperty("website:type");
     }
 
 }

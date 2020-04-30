@@ -11,7 +11,7 @@ public class DscCategory extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:categorytitle")
     public String getCategoryTitle() {
-        return getProperty("website:categorytitle");
+        return getSingleProperty("website:categorytitle");
     }
 
     @HippoEssentialsGenerated(internalName = "website:categorycontent")
@@ -21,12 +21,12 @@ public class DscCategory extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:categorylabel")
     public String getCategoryLabel() {
-        return getProperty("website:categorylabel");
+        return getSingleProperty("website:categorylabel");
     }
 
     @HippoEssentialsGenerated(internalName = "website:link")
     public String getCategoryPageLink() {
-        return getProperty("website:link");
+        return getSingleProperty("website:link");
     }
 
 }

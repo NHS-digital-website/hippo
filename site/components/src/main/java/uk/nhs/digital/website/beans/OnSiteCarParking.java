@@ -12,27 +12,27 @@ import java.util.List;
 public class OnSiteCarParking extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "website:visitorparkingavailable")
     public Boolean getVisitorparkingavailable() {
-        return getProperty("website:visitorparkingavailable");
+        return getSingleProperty("website:visitorparkingavailable");
     }
 
     @HippoEssentialsGenerated(internalName = "website:numberofspaces")
     public Long getNumberofspaces() {
-        return getProperty("website:numberofspaces");
+        return getSingleProperty("website:numberofspaces");
     }
 
     @HippoEssentialsGenerated(internalName = "website:detailsofparking")
     public String getDetailsofparking() {
-        return getProperty("website:detailsofparking");
+        return getSingleProperty("website:detailsofparking");
     }
 
     @HippoEssentialsGenerated(internalName = "website:parkingnearby")
     public Boolean getParkingnearby() {
-        return getProperty("website:parkingnearby");
+        return getSingleProperty("website:parkingnearby");
     }
 
     @HippoEssentialsGenerated(internalName = "website:name")
     public String getName() {
-        return getProperty("website:name");
+        return getSingleProperty("website:name");
     }
 
     @HippoEssentialsGenerated(internalName = "website:address")
@@ -42,7 +42,7 @@ public class OnSiteCarParking extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:distancefromsite")
     public String getDistancefromsite() {
-        return getProperty("website:distancefromsite");
+        return getSingleProperty("website:distancefromsite");
     }
 
     @HippoEssentialsGenerated(internalName = "website:websitelink")
@@ -56,7 +56,7 @@ public class OnSiteCarParking extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:costs")
     public String getCosts() {
-        return getProperty("website:costs");
+        return getSingleProperty("website:costs");
     }
 
     @HippoEssentialsGenerated(internalName = "website:geocoordinates")

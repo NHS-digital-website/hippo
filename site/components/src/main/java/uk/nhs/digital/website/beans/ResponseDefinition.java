@@ -17,17 +17,17 @@ public class ResponseDefinition extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:responseitem")
     public String getResponseitem() {
-        return getProperty("website:responseitem");
+        return getSingleProperty("website:responseitem");
     }
 
     @HippoEssentialsGenerated(internalName = "website:customdatatype")
     public String getCustomdatatype() {
-        return getProperty("website:customdatatype");
+        return getSingleProperty("website:customdatatype");
     }
 
     @HippoEssentialsGenerated(internalName = "website:datatype")
     public String getDatatype() {
-        return getProperty("website:datatype");
+        return getSingleProperty("website:datatype");
     }
 
     public String getSectionType() {

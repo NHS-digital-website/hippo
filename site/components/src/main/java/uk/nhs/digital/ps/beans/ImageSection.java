@@ -17,22 +17,22 @@ public class ImageSection extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:link")
     public String getLink() {
-        return getProperty("publicationsystem:link");
+        return getSingleProperty("publicationsystem:link");
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:altText")
     public String getAltText() {
-        return getProperty("publicationsystem:altText");
+        return getSingleProperty("publicationsystem:altText");
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:caption")
     public String getCaption() {
-        return getProperty("publicationsystem:caption");
+        return getSingleProperty("publicationsystem:caption");
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:imageSize")
     private String getImageSize() {
-        return getProperty("publicationsystem:imageSize");
+        return getSingleProperty("publicationsystem:imageSize");
     }
 
     public Size getSize() {

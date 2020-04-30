@@ -17,7 +17,7 @@ public class Qualification extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:qualname")
     public String getQualname() {
-        return getProperty("website:qualname");
+        return getSingleProperty("website:qualname");
     }
 
     @HippoEssentialsGenerated(internalName = "website:quallink")
@@ -27,7 +27,7 @@ public class Qualification extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:qualawardingbody")
     public String getQualawardingbody() {
-        return getProperty("website:qualawardingbody");
+        return getSingleProperty("website:qualawardingbody");
     }
 
     @HippoEssentialsGenerated(internalName = "website:qualawardingbodylink")
@@ -42,7 +42,7 @@ public class Qualification extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:dateattained")
     public Calendar getDateattained() {
-        return getProperty("website:dateattained");
+        return getSingleProperty("website:dateattained");
     }
 
 }

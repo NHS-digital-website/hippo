@@ -11,12 +11,12 @@ import java.util.List;
 public class NiHub extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:title")
     public String getTitle() {
-        return getProperty("nationalindicatorlibrary:title");
+        return getSingleProperty("nationalindicatorlibrary:title");
     }
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:summary")
     public String getSummary() {
-        return getProperty("nationalindicatorlibrary:summary");
+        return getSingleProperty("nationalindicatorlibrary:summary");
     }
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:popularTopicLinks")

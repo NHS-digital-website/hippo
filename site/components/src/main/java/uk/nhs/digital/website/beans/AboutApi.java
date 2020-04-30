@@ -18,7 +18,7 @@ public class AboutApi extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:title")
     public String getTitle() {
-        return getProperty("website:title");
+        return getSingleProperty("website:title");
     }
 
     @HippoEssentialsGenerated(internalName = "website:content")

@@ -130,7 +130,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             hipposysedit:validators:
-            - non-empty
             - required
             jcr:primaryType: hipposysedit:field
           /furtherQualifyingInformation:
@@ -159,7 +158,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators:
-            - non-empty
             - required
             jcr:primaryType: hipposysedit:field
           /prefix:
@@ -170,7 +168,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             hipposysedit:validators:
-            - non-empty
             - required
             jcr:primaryType: hipposysedit:field
           /suffix:
@@ -181,7 +178,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             hipposysedit:validators:
-            - non-empty
             - required
             jcr:primaryType: hipposysedit:field
           /trend:
@@ -192,7 +188,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             hipposysedit:validators:
-            - non-empty
             - required
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true

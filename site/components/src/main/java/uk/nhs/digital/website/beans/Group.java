@@ -13,7 +13,7 @@ public class Group extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:quorate")
     public Long getQuorate() {
-        return getProperty("website:quorate");
+        return getSingleProperty("website:quorate");
     }
 
     @HippoEssentialsGenerated(internalName = "website:about")
@@ -38,7 +38,7 @@ public class Group extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "hippotaxonomy:topics")
     public String[] getTopics() {
-        return getProperty("hippotaxonomy:topics");
+        return getMultipleProperty("hippotaxonomy:topics");
     }
 
 }

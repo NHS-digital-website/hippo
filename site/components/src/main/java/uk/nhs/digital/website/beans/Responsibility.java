@@ -18,7 +18,7 @@ public class Responsibility extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:responsible")
     public String[] getResponsible() {
-        return getProperty("website:responsible");
+        return getMultipleProperty("website:responsible");
     }
 
     @HippoEssentialsGenerated(internalName = "website:responsibleforservice")

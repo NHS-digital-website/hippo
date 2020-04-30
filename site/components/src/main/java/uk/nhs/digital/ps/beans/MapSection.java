@@ -16,17 +16,17 @@ public class MapSection extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:title")
     public String getTitle() {
-        return getProperty("publicationsystem:title");
+        return getSingleProperty("publicationsystem:title");
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:type")
     public String getMapSource() {
-        return getProperty("publicationsystem:mapSource");
+        return getSingleProperty("publicationsystem:mapSource");
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:chartConfig")
     public String getChartConfig() {
-        return getProperty("publicationsystem:chartConfig");
+        return getSingleProperty("publicationsystem:chartConfig");
     }
 
     /**

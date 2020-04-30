@@ -7,15 +7,15 @@ import org.hippoecm.hst.content.beans.standard.HippoCompound;
 public class Tableau extends HippoCompound {
 
     public String getUrl() {
-        return getProperty("website:url");
+        return getSingleProperty("website:url");
     }
 
     public boolean getHidetabs() {
-        return getProperty("website:hidetabs");
+        return getSingleProperty("website:hidetabs");
     }
 
     public String getDevice() {
-        return getProperty("website:device");
+        return getSingleProperty("website:device");
     }
 
     public String getSectionType() {

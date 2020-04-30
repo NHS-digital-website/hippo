@@ -48,7 +48,7 @@ public class Service extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:gossid")
     public Long getGossid() {
-        return getProperty("website:gossid");
+        return getSingleProperty("website:gossid");
     }
 
     @HippoEssentialsGenerated(internalName = "website:friendlyurls")
@@ -58,12 +58,12 @@ public class Service extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:htmlCode")
     public String getHtmlCode() {
-        return getProperty("website:htmlCode");
+        return getSingleProperty("website:htmlCode");
     }
 
     @HippoEssentialsGenerated(internalName = "website:rawMetadata")
     public String[] getRawMetadata() {
-        return getProperty("website:rawMetadata");
+        return getMultipleProperty("website:rawMetadata");
     }
 
     @HippoEssentialsGenerated(internalName = "website:pageicon")

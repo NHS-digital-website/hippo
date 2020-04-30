@@ -17,7 +17,7 @@ public class BlogHub extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:subtitle")
     public String getSubtitle() {
-        return getProperty("website:subtitle");
+        return getSingleProperty("website:subtitle");
     }
 
     @HippoEssentialsGenerated(internalName = "website:publisher")
@@ -37,7 +37,7 @@ public class BlogHub extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:issn")
     public String getIssn() {
-        return getProperty("website:issn");
+        return getSingleProperty("website:issn");
     }
 
     @HippoEssentialsGenerated(internalName = "website:leadimage")
@@ -52,7 +52,7 @@ public class BlogHub extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "common:SearchableTags")
     public String[] getTaxonomyTags() {
-        return getProperty("common:SearchableTags");
+        return getMultipleProperty("common:SearchableTags");
     }
 
     @HippoEssentialsGenerated(internalName = "website:author")

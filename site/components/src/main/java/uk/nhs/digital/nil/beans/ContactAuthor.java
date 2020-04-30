@@ -9,11 +9,11 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 public class ContactAuthor extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:contactAuthorName")
     public String getContactAuthorName() {
-        return getProperty("nationalindicatorlibrary:contactAuthorName");
+        return getSingleProperty("nationalindicatorlibrary:contactAuthorName");
     }
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:contactAuthorEmail")
     public String getContactAuthorEmail() {
-        return getProperty("nationalindicatorlibrary:contactAuthorEmail");
+        return getSingleProperty("nationalindicatorlibrary:contactAuthorEmail");
     }
 }

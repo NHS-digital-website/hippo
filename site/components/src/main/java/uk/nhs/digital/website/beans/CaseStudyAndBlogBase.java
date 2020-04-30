@@ -12,7 +12,7 @@ public class CaseStudyAndBlogBase extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:dateofpublication")
     public Calendar getDateOfPublication() {
-        return getProperty("website:dateofpublication");
+        return getSingleProperty("website:dateofpublication");
     }
 
     @HippoEssentialsGenerated(internalName = "website:authors")
@@ -22,17 +22,17 @@ public class CaseStudyAndBlogBase extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:authorname")
     public String getAuthorName() {
-        return getProperty("website:authorname");
+        return getSingleProperty("website:authorname");
     }
 
     @HippoEssentialsGenerated(internalName = "website:authorrole")
     public String getAuthorRole() {
-        return getProperty("website:authorrole");
+        return getSingleProperty("website:authorrole");
     }
 
     @HippoEssentialsGenerated(internalName = "website:authorjobtitle")
     public String getAuthorJobTitle() {
-        return getProperty("website:authorjobtitle");
+        return getSingleProperty("website:authorjobtitle");
     }
 
     @HippoEssentialsGenerated(internalName = "website:authordescription")
@@ -42,7 +42,7 @@ public class CaseStudyAndBlogBase extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:authororganisation")
     public String getAuthorOrganisation() {
-        return getProperty("website:authororganisation");
+        return getSingleProperty("website:authororganisation");
     }
 
     @HippoEssentialsGenerated(internalName = "website:leadimage")
@@ -52,7 +52,7 @@ public class CaseStudyAndBlogBase extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:leadimagealttext")
     public String getLeadImageAltText() {
-        return getProperty("website:leadimagealttext");
+        return getSingleProperty("website:leadimagealttext");
     }
 
     @HippoEssentialsGenerated(internalName = "website:leadimagecaption")
@@ -77,12 +77,12 @@ public class CaseStudyAndBlogBase extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:casestudycategories")
     public String[] getCaseStudyCategories() {
-        return getProperty("website:casestudycategories");
+        return getMultipleProperty("website:casestudycategories");
     }
 
     @HippoEssentialsGenerated(internalName = "website:twitterhashtag")
     public String[] getTwitterHashtag() {
-        return getProperty("website:twitterhashtag");
+        return getMultipleProperty("website:twitterhashtag");
     }
 
     @HippoEssentialsGenerated(internalName = "website:contactdetails")
@@ -97,7 +97,7 @@ public class CaseStudyAndBlogBase extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "common:SearchableTags")
     public String[] getTopics() {
-        return getProperty("common:SearchableTags");
+        return getMultipleProperty("common:SearchableTags");
     }
 
 

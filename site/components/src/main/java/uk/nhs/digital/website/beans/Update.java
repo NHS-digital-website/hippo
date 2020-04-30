@@ -11,7 +11,7 @@ import java.util.Calendar;
 public class Update extends CommonFieldsBean {
 
     public String getTitle() {
-        return getProperty("website:title");
+        return getSingleProperty("website:title");
     }
 
     public HippoHtml getContent() {
@@ -19,11 +19,11 @@ public class Update extends CommonFieldsBean {
     }
 
     public String getSeverity() {
-        return getProperty("website:severity");
+        return getSingleProperty("website:severity");
     }
 
     public Calendar getExpirydate() {
-        return getProperty("website:expirydate");
+        return getSingleProperty("website:expirydate");
     }
 
     public HippoBean getRelateddocument() {

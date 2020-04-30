@@ -19,13 +19,13 @@ public class CyberAcknowledgement extends HippoCompound {
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:linkaddress")
     public String getLinkAddress() {
-        return getProperty("website:linkaddress");
+        return getSingleProperty("website:linkaddress");
     }
 
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:responsedatetime")
     public Calendar getResponseDatetime() {
-        return getProperty("website:responsedatetime");
+        return getSingleProperty("website:responsedatetime");
     }
 
 }

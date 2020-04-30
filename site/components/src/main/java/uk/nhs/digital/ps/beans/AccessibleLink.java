@@ -8,7 +8,7 @@ import org.hippoecm.hst.content.beans.standard.HippoHtml;
 public class AccessibleLink extends HippoCompound {
 
     public String getLink() {
-        return getProperty("publicationsystem:link");
+        return getSingleProperty("publicationsystem:link");
     }
 
     public HippoHtml getContent() {
@@ -16,6 +16,6 @@ public class AccessibleLink extends HippoCompound {
     }
 
     public String getTitle() {
-        return getProperty("publicationsystem:title");
+        return getSingleProperty("publicationsystem:title");
     }
 }

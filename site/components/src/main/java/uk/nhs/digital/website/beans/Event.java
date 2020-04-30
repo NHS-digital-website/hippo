@@ -12,22 +12,22 @@ import java.util.*;
 public class Event extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "website:booking")
     public String getBooking() {
-        return getProperty("website:booking");
+        return getSingleProperty("website:booking");
     }
 
     @HippoEssentialsGenerated(internalName = "website:display")
     public Boolean getDisplay() {
-        return getProperty("website:display");
+        return getSingleProperty("website:display");
     }
 
     @HippoEssentialsGenerated(internalName = "website:location")
     public String getLocation() {
-        return getProperty("website:location");
+        return getSingleProperty("website:location");
     }
 
     @HippoEssentialsGenerated(internalName = "website:maplocation")
     public String getMaplocation() {
-        return getProperty("website:maplocation");
+        return getSingleProperty("website:maplocation");
     }
 
     @HippoEssentialsGenerated(internalName = "website:seosummary")
@@ -37,17 +37,17 @@ public class Event extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "website:shortsummary")
     public String getShortsummary() {
-        return getProperty("website:shortsummary");
+        return getSingleProperty("website:shortsummary");
     }
 
     @HippoEssentialsGenerated(internalName = "website:title")
     public String getTitle() {
-        return getProperty("website:title");
+        return getSingleProperty("website:title");
     }
 
     @HippoEssentialsGenerated(internalName = "website:type")
     public String[] getType() {
-        return getProperty("website:type");
+        return getMultipleProperty("website:type");
     }
 
     @HippoEssentialsGenerated(internalName = "website:body")

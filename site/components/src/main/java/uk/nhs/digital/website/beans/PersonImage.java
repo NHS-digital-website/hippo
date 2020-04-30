@@ -22,7 +22,7 @@ public class PersonImage extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:imagesourcepermission")
     public String getImagesourcepermission() {
-        return getProperty("website:imagesourcepermission");
+        return getSingleProperty("website:imagesourcepermission");
     }
 
     @HippoEssentialsGenerated(internalName = "website:imagerightsdetails")
@@ -32,11 +32,11 @@ public class PersonImage extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:imagedistributiontagging")
     public String getImagedistributiontagging() {
-        return getProperty("website:imagedistributiontagging");
+        return getSingleProperty("website:imagedistributiontagging");
     }
 
     @HippoEssentialsGenerated(internalName = "website:otherimagedistributiontagging")
     public String getOtherimagesourcepermission() {
-        return getProperty("website:otherimagedistributiontagging");
+        return getSingleProperty("website:otherimagedistributiontagging");
     }
 }

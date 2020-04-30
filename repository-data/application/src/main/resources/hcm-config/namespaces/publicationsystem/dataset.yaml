@@ -36,6 +36,7 @@ definitions:
           /Title:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              maxlength: '250'
             caption: Title
             field: Title
             jcr:primaryType: frontend:plugin
@@ -201,8 +202,6 @@ definitions:
             hipposysedit:path: publicationsystem:Granularity
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
-            hipposysedit:validators:
-            - publicationsystem-dropdown-granularity
             jcr:primaryType: hipposysedit:field
           /NextPublicationDate:
             hipposysedit:mandatory: false
@@ -238,7 +237,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Text
             hipposysedit:validators:
-            - non-empty
             - required
             jcr:primaryType: hipposysedit:field
           /Title:
@@ -249,9 +247,7 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Text
             hipposysedit:validators:
-            - non-empty
             - required
-            - publicationsystem-title
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:

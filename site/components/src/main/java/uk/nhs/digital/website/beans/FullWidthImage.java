@@ -25,11 +25,11 @@ public class FullWidthImage extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:altText")
     public String getAltText() {
-        return getProperty("website:altText");
+        return getSingleProperty("website:altText");
     }
 
     @HippoEssentialsGenerated(internalName = "website:title")
     public String getTitle() {
-        return getProperty("website:title");
+        return getSingleProperty("website:title");
     }
 }

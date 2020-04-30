@@ -152,7 +152,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators:
-            - non-empty
             - required
             jcr:primaryType: hipposysedit:field
           /gender:
@@ -179,7 +178,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators:
-            - non-empty
             - required
             jcr:primaryType: hipposysedit:field
           /middlenames:

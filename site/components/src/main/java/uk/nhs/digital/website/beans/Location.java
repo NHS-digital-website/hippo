@@ -14,12 +14,12 @@ import java.util.List;
 public class Location extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "website:name")
     public String getName() {
-        return getProperty("website:name");
+        return getSingleProperty("website:name");
     }
 
     @HippoEssentialsGenerated(internalName = "website:description")
     public String getDescription() {
-        return getProperty("website:description");
+        return getSingleProperty("website:description");
     }
 
     @HippoEssentialsGenerated(internalName = "website:locaddress")
@@ -49,22 +49,22 @@ public class Location extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "website:telephone")
     public String getTelephone() {
-        return getProperty("website:telephone");
+        return getSingleProperty("website:telephone");
     }
 
     @HippoEssentialsGenerated(internalName = "website:emailaddress")
     public String getEmailaddress() {
-        return getProperty("website:emailaddress");
+        return getSingleProperty("website:emailaddress");
     }
 
     @HippoEssentialsGenerated(internalName = "website:odscode")
     public String getOdscode() {
-        return getProperty("website:odscode");
+        return getSingleProperty("website:odscode");
     }
 
     @HippoEssentialsGenerated(internalName = "website:dunsnumber")
     public String getDunsnumber() {
-        return getProperty("website:dunsnumber");
+        return getSingleProperty("website:dunsnumber");
     }
 
     @HippoEssentialsGenerated(internalName = "website:urgentinformation")
@@ -74,12 +74,12 @@ public class Location extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "website:globallocationnumber")
     public String getGloballocationnumber() {
-        return getProperty("website:globallocationnumber");
+        return getSingleProperty("website:globallocationnumber");
     }
 
     @HippoEssentialsGenerated(internalName = "website:opentopublic")
     public Boolean getOpentopublic() {
-        return getProperty("website:opentopublic");
+        return getSingleProperty("website:opentopublic");
     }
 
     @HippoEssentialsGenerated(internalName = "website:imageofsite")
@@ -89,27 +89,27 @@ public class Location extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "website:imageofsitealttext")
     public String getImageOfSiteAltText() {
-        return getProperty("website:imageofsitealttext");
+        return getSingleProperty("website:imageofsitealttext");
     }
 
     @HippoEssentialsGenerated(internalName = "website:uniquepropertyreferencenumber")
     public String getUniquePropertyReferenceNumber() {
-        return getProperty("website:uniquepropertyreferencenumber");
+        return getSingleProperty("website:uniquepropertyreferencenumber");
     }
 
     @HippoEssentialsGenerated(internalName = "website:nhsdigitalsite")
     public Boolean getNhsdigitalsite() {
-        return getProperty("website:nhsdigitalsite");
+        return getSingleProperty("website:nhsdigitalsite");
     }
 
     @HippoEssentialsGenerated(internalName = "website:suppresssearchengines")
     public Boolean getSuppresssearchengines() {
-        return getProperty("website:suppresssearchengines");
+        return getSingleProperty("website:suppresssearchengines");
     }
 
     @HippoEssentialsGenerated(internalName = "website:pluscode")
     public String getPluscode() {
-        return getProperty("website:pluscode");
+        return getSingleProperty("website:pluscode");
     }
 
     @HippoEssentialsGenerated(internalName = "website:locationwebsite")
@@ -123,7 +123,7 @@ public class Location extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "website:threewordskey")
     public String getThreewordskey() {
-        return getProperty("website:threewordskey");
+        return getSingleProperty("website:threewordskey");
     }
 
     @HippoEssentialsGenerated(internalName = "website:localtaxis")

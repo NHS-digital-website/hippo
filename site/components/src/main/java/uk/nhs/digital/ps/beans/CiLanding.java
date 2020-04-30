@@ -11,7 +11,7 @@ import java.util.List;
 public class CiLanding extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "publicationsystem:title")
     public String getTitle() {
-        return getProperty("publicationsystem:title");
+        return getSingleProperty("publicationsystem:title");
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:content")
@@ -27,17 +27,17 @@ public class CiLanding extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:actionLinkName")
     public String getActionLinkName() {
-        return getProperty("publicationsystem:actionLinkName");
+        return getSingleProperty("publicationsystem:actionLinkName");
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:actionLinkRelPath")
     public String getActionLinkRelPath() {
-        return getProperty("publicationsystem:actionLinkRelPath");
+        return getSingleProperty("publicationsystem:actionLinkRelPath");
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:urlNameOfContentFolder")
     public String getUrlNameOfContentFolder() {
-        return getProperty("publicationsystem:urlNameOfContentFolder");
+        return getSingleProperty("publicationsystem:urlNameOfContentFolder");
     }
 
 }

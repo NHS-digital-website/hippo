@@ -34,7 +34,7 @@ public class Person extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "hippotaxonomy:knowsabout")
     public String[] getKnowsabout() {
-        return getProperty("hippotaxonomy:knowsabout");
+        return getMultipleProperty("hippotaxonomy:knowsabout");
     }
 
     @HippoEssentialsGenerated(internalName = "website:postnominals")
@@ -49,7 +49,7 @@ public class Person extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:clinician")
     public Boolean getClinician() {
-        return getProperty("website:clinician");
+        return getSingleProperty("website:clinician");
     }
 
     @HippoEssentialsGenerated(internalName = "website:socialmedias")
@@ -136,7 +136,7 @@ public class Person extends CommonFieldsBean {
                             JobRolePicker rolepicker = (JobRolePicker)picker;
                             CommonFieldsBean jobrole = (CommonFieldsBean)rolepicker.getPrimaryrolepicker();
                             JobRole unitrole = (JobRole)unit.getResponsiblerole();
-                            if (jobrole != null && unitrole != null && unitrole.getProperty("jcr:uuid").toString().equals(jobrole.getProperty("jcr:uuid").toString())) {
+                            if (jobrole != null && unitrole != null && unitrole.getSingleProperty("jcr:uuid").toString().equals(jobrole.getSingleProperty("jcr:uuid").toString())) {
                                 filteredUnits.add(unit);
                             }
                         }

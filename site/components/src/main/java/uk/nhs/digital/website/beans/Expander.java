@@ -18,13 +18,13 @@ public class Expander extends HippoCompound {
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:audience")
     public String getAudience() {
-        return getProperty("website:audience");
+        return getSingleProperty("website:audience");
     }
 
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:heading")
     public String getHeading() {
-        return getProperty("website:heading");
+        return getSingleProperty("website:heading");
     }
 
     @JsonProperty("content")

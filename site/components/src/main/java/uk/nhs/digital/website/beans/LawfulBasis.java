@@ -26,6 +26,6 @@ public class LawfulBasis extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:suppressdata")
     public String getSuppressdata() {
-        return getProperty("website:suppressdata");
+        return getSingleProperty("website:suppressdata");
     }
 }
