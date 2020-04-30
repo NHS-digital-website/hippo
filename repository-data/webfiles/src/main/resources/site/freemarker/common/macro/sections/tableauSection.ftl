@@ -7,7 +7,7 @@
     <#if section?? && section.url??>
         <@hst.headContribution>
             <script type="text/javascript"
-                    src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+                    src="https://live.dashboards.data.digital.nhs.uk/javascripts/api/tableau-2.min.js"></script>
         </@hst.headContribution>
 
         <#assign divId = "tableau-${index}"/>
