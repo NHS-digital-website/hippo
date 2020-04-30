@@ -2,6 +2,51 @@
 definitions:
   config:
     /hst:hst/hst:configurations/intranet/hst:sitemap:
+      /_any_:
+        /_index_:
+          hst:componentconfigurationid: hst:pages/404
+          hst:componentconfigurationmappingnames:
+          - website:general
+          - website:event
+          - website:location
+          - website:blog
+          - website:team
+          - intranet:task
+          - intranet:newsinternal
+          hst:componentconfigurationmappingvalues:
+          - hst:pages/general
+          - hst:pages/event
+          - hst:pages/location
+          - hst:pages/blog
+          - hst:pages/team
+          - hst:pages/task
+          - hst:pages/news
+          hst:relativecontentpath: ${parent}/content
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/404
+        hst:componentconfigurationmappingnames:
+        - website:general
+        - website:event
+        - website:location
+        - website:blog
+        - website:team
+        - intranet:task
+        - intranet:newsinternal
+        hst:componentconfigurationmappingvalues:
+        - hst:pages/general
+        - hst:pages/event
+        - hst:pages/location
+        - hst:pages/blog
+        - hst:pages/team
+        - hst:pages/task
+        - hst:pages/news
+        hst:relativecontentpath: ${1}
+        jcr:primaryType: hst:sitemapitem
+      /announcements:
+        /_any_:
+          hst:componentconfigurationid: hst:pages/announcement
+          jcr:primaryType: hst:sitemapitem
+        jcr:primaryType: hst:sitemapitem
       /root:
         hst:componentconfigurationid: hst:pages/home
         hst:refId: root
@@ -10,14 +55,6 @@ definitions:
         hst:componentconfigurationid: hst:pages/search-results
         jcr:primaryType: hst:sitemapitem
       /tasks:
-        /_any_:
-          hst:componentconfigurationid: hst:pages/404
-          hst:componentconfigurationmappingnames:
-          - intranet:task
-          hst:componentconfigurationmappingvalues:
-          - hst:pages/task
-          hst:relativecontentpath: tasks/${1}
-          jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/taskhub
         hst:relativecontentpath: tasks/task-hub
         jcr:primaryType: hst:sitemapitem

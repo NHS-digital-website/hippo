@@ -373,6 +373,9 @@
 [website:supplementaryinformationhub] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:tableau] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:team] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 

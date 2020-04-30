@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:configuration/hippo:queries/hippo:templates/new-task-document:
+    /hippo:configuration/hippo:queries/hippo:templates/new-announcement-document:
       hippostd:icon: adddocument_ico
       hippostd:modify:
       - ./_name
@@ -20,6 +20,8 @@ definitions:
       - $now
       - ./hippostd:holder
       - $holder
+      - ./intranet:expirydate
+      - $now+7D
       jcr:language: xpath
       jcr:primaryType: hippostd:templatequery
-      jcr:statement: //element(*,hipposysedit:namespacefolder)/element(*,mix:referenceable)/element(*,hipposysedit:templatetype)/hipposysedit:prototypes/element(hipposysedit:prototype,intranet:task)
+      jcr:statement: /jcr:root/hippo:namespaces/intranet/element(*, hipposysedit:templatetype)/hipposysedit:prototypes/hipposysedit:prototype[@jcr:primaryType='intranet:announcement']

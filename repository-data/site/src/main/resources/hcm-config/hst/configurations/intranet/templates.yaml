@@ -2,11 +2,17 @@
 definitions:
   config:
     /hst:hst/hst:configurations/intranet/hst:templates:
+      /announcement:
+        hst:renderpath: webfile:/freemarker/intranet/announcement.ftl
+        jcr:primaryType: hst:template
       /home:
         hst:renderpath: webfile:/freemarker/intranet/home.ftl
         jcr:primaryType: hst:template
       /layout_master:
         hst:renderpath: webfile:/freemarker/intranet/layout/master.ftl
+        jcr:primaryType: hst:template
+      /news:
+        hst:renderpath: webfile:/freemarker/intranet/news-internal.ftl
         jcr:primaryType: hst:template
       /search-results:
         hst:renderpath: webfile:/freemarker/intranet/search-results.ftl
@@ -15,6 +21,6 @@ definitions:
         hst:renderpath: webfile:/freemarker/intranet/task.ftl
         jcr:primaryType: hst:template
       /taskhub:
-        hst:renderpath: webfile:/freemarker/common/list-article.ftl
+        hst:renderpath: webfile:/freemarker/intranet/task-list-article.ftl
         jcr:primaryType: hst:template
       jcr:primaryType: hst:templates

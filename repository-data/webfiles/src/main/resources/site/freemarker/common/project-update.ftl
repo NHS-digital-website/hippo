@@ -43,7 +43,8 @@
 <#--Build metaData-->
 <#assign metaData = [] />
 <#if document.typeOfUpdate?has_content && hasFullAccess>
-    <#assign metaData += [{"key":"Type of update", "value": document.typeOfUpdate, "uipath": "type", "schemaOrgTag": "", "type":""}] />
+    <@fmt.message key="texts.${document.typeOfUpdate}" var="updateType"/>
+    <#assign metaData += [{"key":"Type of update", "value": updateType, "uipath": "type", "schemaOrgTag": "", "type":""}] />
 </#if>
 
 <#if document.organisation?has_content && document.organisation.title?has_content && hasFullAccess>
@@ -189,7 +190,10 @@
                         </div>
 
                         <div class="blog-social-icon like-first-child">
-                            <a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=${currentUrl?url}&title=${document.title?url}&summary=${document.shortsummary?url}">
+                            <@hst.html hippohtml=document.shortSummaryHtml contentRewriter=gaContentRewriter var="shortSummaryHtml"/>
+                            <!-- strip HTML tags -->
+                            <#assign plainShortSummary = shortSummaryHtml?replace('<[^>]+>','','r') />
+                            <a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=${currentUrl?url}&title=${document.title?url}&summary=${plainShortSummary?url}">
                                 <img src="<@hst.webfile path="/images/icon/LinkedIn.svg"/>" alt="Share on LinkedIn" class="blog-social-icon__img" />
                             </a>
                         </div>
@@ -214,7 +218,7 @@
         <#--schema:{typeOfUpdate}-->
         <#if document.typeOfUpdate?has_content>
             <@hst.link var="currentUrl" hippobean=document fullyQualified=true/>
-            <span itemprop=${typeOfUpdateTag(document.typeOfUpdate)} class="is-hidden">${currentUrl}</span>
+            <span itemprop="${typeOfUpdateTag(updateType)}" class="is-hidden">${currentUrl}</span>
         </#if>
 
         <#--schema:datePosted-->

@@ -36,7 +36,26 @@
             </div>
         </div>
 
-        <#assign alphabetical_hash = group_blocks(flat_blocks(document.blocks true))/>
+        <#if priorityTasks?? && priorityTasks?has_content>
+            <div class="grid-row">
+                <div class="column column--reset">
+                    <div class="intra-box bottom-margin-20">
+                        <h3>Common tasks</h3>
+                        <#list priorityTasks as task>
+                            <div class="intra-box__link">
+                                <a href="<@hst.link hippobean=task/>">${task.title}</a>
+                            </div>
+                        </#list>
+                    </div>
+                </div>
+            </div>
+        </#if>
+
+        <#if alternativeTasks?? && alternativeTasks?has_content >
+            <#assign alphabetical_hash = group_blocks(flat_blocks(document.blocks true alternativeTasks))/>
+        <#else>
+            <#assign alphabetical_hash = group_blocks(flat_blocks(document.blocks true))/>
+        </#if>
 
         <#if alphabetical_hash??>
         <div class="grid-row">

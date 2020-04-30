@@ -1,12 +1,12 @@
 ---
 definitions:
   config:
-    /hippo:configuration/hippo:queries/hippo:templates/new-task-folder:
+    /hippo:configuration/hippo:queries/hippo:templates/new-intranet-folder:
       /hippostd:templates:
         /hippostd:folder:
           hippostd:foldertype:
-          - new-task-folder
-          - new-task-document
+          - new-intranet-folder
+          - new-intranet-document
           hippotranslation:id: generated id
           hippotranslation:locale: inherited locale
           jcr:mixinTypes:
@@ -27,4 +27,4 @@ definitions:
       jcr:mixinTypes:
       - hipposys:implementation
       jcr:primaryType: hippostd:templatequery
-      jcr:statement: /jcr:root/hippo:configuration/hippo:queries/hippo:templates/new-task-folder/hippostd:templates/node()
+      jcr:statement: /jcr:root/hippo:configuration/hippo:queries/hippo:templates/new-intranet-folder/hippostd:templates/node()

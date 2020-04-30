@@ -1,0 +1,82 @@
+---
+/content/documents/administration/intranet/headers:
+  /headers[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: mohammed.hasan
+    hippostdpubwf:creationDate: 2020-04-20T10:36:36.010Z
+    hippostdpubwf:lastModificationDate: 2020-04-20T10:39:12.234Z
+    hippostdpubwf:lastModifiedBy: mohammed.hasan
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: intranet.headers
+    resourcebundle:keys:
+    - headers.task-chapters
+    - headers.responsible-teams
+    - headers.dates
+    resourcebundle:messages:
+    - Task chapters
+    - Responsible teams
+    - Dates
+  /headers[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: mohammed.hasan
+    hippostdpubwf:creationDate: 2020-04-20T10:36:36.010Z
+    hippostdpubwf:lastModificationDate: 2020-04-20T10:39:44.534Z
+    hippostdpubwf:lastModifiedBy: mohammed.hasan
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: intranet.headers
+    resourcebundle:keys:
+    - headers.task-chapters
+    - headers.responsible-teams
+    - headers.dates
+    resourcebundle:messages:
+    - Task chapters
+    - Responsible teams
+    - Dates
+  /headers[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: mohammed.hasan
+    hippostdpubwf:creationDate: 2020-04-20T10:36:36.010Z
+    hippostdpubwf:lastModificationDate: 2020-04-20T10:39:44.534Z
+    hippostdpubwf:lastModifiedBy: mohammed.hasan
+    hippostdpubwf:publicationDate: 2020-04-20T10:39:46.322Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: resourcebundle:resourcebundle
+    resourcebundle:descriptions:
+    - ''
+    - ''
+    - ''
+    resourcebundle:id: intranet.headers
+    resourcebundle:keys:
+    - headers.task-chapters
+    - headers.responsible-teams
+    - headers.dates
+    resourcebundle:messages:
+    - Task chapters
+    - Responsible teams
+    - Dates
+  hippo:name: Headers
+  hippo:versionHistory: 3b8b9886-2d7a-4268-9b9d-4b631924cb0b
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle

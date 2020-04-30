@@ -34,7 +34,7 @@ public class Task extends BaseDocument {
         return getHippoHtml("intranet:introduction");
     }
 
-    public HippoHtml getShortSummary() {
+    public HippoHtml getShortSummaryHtml() {
         return getHippoHtml("intranet:shortsummary");
     }
 

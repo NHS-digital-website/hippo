@@ -10,7 +10,7 @@
 <#include "macro/metaTags.ftl">
 
 <#-- Add meta tags -->
-<#assign pageShortSummary = document.shortSummary />
+<#assign pageShortSummary = document.shortSummaryHtml />
 <@metaTags></@metaTags>
 
 <@hst.setBundle basename="intranet.headers, intranet.labels, intranet.task" />
@@ -69,7 +69,9 @@
     </#if>
     <@documentHeader document 'intranet-task' "" "" "" "" false metaData></@documentHeader>
 
-    <@taskChapterNav previousTask=previousTask currentTask=document nextTask=nextTask />
+    <#if hasChapters>
+        <@taskChapterNav previousTask=previousTask currentTask=document nextTask=nextTask />
+    </#if>
 
     <#-- Updates, changes and expiration notice block -->
     <#if hasUpdates || hasExpired>
@@ -141,7 +143,10 @@
             
 
             <div class="column column--two-thirds page-block page-block--main">
-                <@sections sections=document.sections wrap=true />
+
+                <div class="article-section">
+                    <@sections sections=document.sections />
+                </div>
 
                 <#-- Restore the bundle -->
                 <@hst.setBundle basename="intranet.headers, intranet.labels, intranet.task" />
@@ -157,7 +162,7 @@
                     </div>
                 </#if>
 
-                <div class="article-section no-border" id="${slugify(datesSectionHeader)}">
+                <div class="article-section" id="${slugify(datesSectionHeader)}">
                     <h2>${datesSectionHeader}</h2>
                     <div class="detail-list-grid detail-list-grid--regular">
                         <#if document.reviewDate?has_content>

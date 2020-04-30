@@ -29,6 +29,39 @@
 <#assign earlyAccessKey = hstRequest.request.getParameter("key")!''>
 <#assign hasIntroductionContent = document.optionalIntroductoryText?has_content />
 
+<#-- Return the filter navigation links for the year -->
+<#function getFilterYearLinks>
+    <#assign links = [] />
+
+    <#list years as k, v>
+        <#assign links += [{ "key" : k, "title": k, "count": v }] />
+    </#list>
+
+    <#return links?sort_by("key")?reverse />
+</#function>
+
+<#-- Return the filter navigation links for the organisations -->
+<#function getFilterOrganisationLinks>
+    <#assign links = [] />
+
+    <#list organisations as k, v>
+        <#assign links += [{ "key" : k?url, "title": k, "count": v }] />
+    </#list>
+
+    <#return links?sort_by("key") />
+</#function>
+
+<#-- Return the filter navigation links for the update types -->
+<#-- None function to cater for resource bundle text -->
+<#assign updateTypeLinks = [] />
+<#list updateTypes as k,v>
+    <#if k?has_content>
+        <@fmt.message key="texts.${k}" var="updateType"/>
+        <#assign updateTypeLinks += [{ "key" : k, "title": updateType, "count": v }] />
+    </#if>
+</#list>
+<#assign updateTypeLinks = updateTypeLinks?sort_by("key") />
+
 <article class="article">
     <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" aria-label="Document Header">
         <div class="local-header article-header article-header--with-icon" >
@@ -52,6 +85,18 @@
             <div class="column column--one-quarter page-block page-block--sidebar article-section-nav-outer-wrapper">
                 <div id="sticky-nav">
                     <div class="inner-wrapper-sticky">
+                        <div class="article-section-nav-wrapper">
+                            <div class="article-section-nav">
+                                <nav>
+                                    <ol class="article-section-nav__list article-section-nav__list--tag-links">
+                                        <li>
+                                            <a href="${getDocumentUrl()}" aria-label="Clear filters" title="Clear filters" class="tag-link">Clear filters</a>
+                                        </li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+
                         <#-- Query search component -->
                         <div class="article-section-nav-wrapper" data-hub-filter-type="nhsd-hub-query-filter" data-hub-filter-key="query">
                             <div class="article-section-nav">
@@ -63,6 +108,50 @@
                                 <#include "../include/search-strip.ftl">
                             </div>
                         </div>
+
+                        <#-- Use UTF-8 charset for URL escaping -->
+                        <#setting url_escaping_charset="UTF-8">
+                        <#assign selectedOrganisation = selectedOrganisation?url />
+
+                        <#-- Year filter component -->
+                        <#if getFilterYearLinks()?size gt 0>
+                            <#assign affix = selectedOrganisation?has_content?then("&organisation=" + selectedOrganisation, "") />
+                            <#assign affix += selectedUpdateType?has_content?then("&updateType=" + selectedUpdateType, "") />
+                            <#assign affix += earlyAccessKey?has_content?then("&key=" + earlyAccessKey, "") />
+                            <div class="article-section-nav-wrapper" data-hub-filter-type="nhsd-hub-tag-filter" data-hub-filter-key="year">
+                                <@stickyNavYears getFilterYearLinks() affix></@stickyNavYears>
+                            </div>
+                        </#if>
+
+                        <#-- Organisation filter component -->
+                        <#if getFilterOrganisationLinks()?size gt 0>
+                            <#assign affix = "&year=" + selectedYear />
+                            <#assign affix += selectedUpdateType?has_content?then("&updateType=" + selectedUpdateType, "") />
+                            <#assign affix += earlyAccessKey?has_content?then("&key=" + earlyAccessKey, "") />
+                            <#assign selectedOrg = selectedOrganisation?has_content?then([selectedOrganisation], []) />
+                            <div class="article-section-nav-wrapper" data-hub-filter-type="nhsd-hub-tag-filter" data-hub-filter-key="organisation">
+                                <@stickyNavTags getFilterOrganisationLinks() affix "Filter by organisations" "organisation" selectedOrg false></@stickyNavTags>
+                            </div>
+                        </#if>
+
+                        <#-- Update Types filter component -->
+                        <#if updateTypeLinks?size gt 0>
+                            <#assign affix = "&year=" + selectedYear />
+                            <#assign affix += selectedOrganisation?has_content?then("&organisation=" + selectedOrganisation, "") />
+                            <#assign affix += earlyAccessKey?has_content?then("&key=" + earlyAccessKey, "") />
+                            <#assign selectedType = selectedUpdateType?has_content?then([selectedUpdateType], []) />
+                            <div class="article-section-nav-wrapper" data-hub-filter-type="nhsd-hub-tag-filter" data-hub-filter-key="updateType">
+                                <@stickyNavTags updateTypeLinks affix "Filter by type" "updateType" selectedType></@stickyNavTags>
+                            </div>
+                        </#if>
+
+                        <#-- Include hidden earlyAccessKey if exists for js -->
+                        <#if earlyAccessKey?has_content>
+                            <#assign selectedEarlyAccessKey = earlyAccessKey?has_content?then([earlyAccessKey], []) />
+                            <div class="article-section-nav-wrapper is-hidden" data-hub-filter-type="nhsd-hub-tag-filter" data-hub-filter-key="key">
+                                <@stickyNavTags [{ "key" : earlyAccessKey, "title": earlyAccessKey }] "" "" "key" selectedEarlyAccessKey false></@stickyNavTags>
+                            </div>
+                        </#if>
 
                         <#-- Month anchor nav -->
                         <#if eventGroupHash?has_content>
@@ -120,7 +209,8 @@
                                             <#assign metaData += {"spatialCoverage":"itemProp=spatialCoverage"}/>
 
                                             <#if item.typeOfUpdate?has_content>
-                                                <#assign docData += {"types": [item.typeOfUpdate]} />
+                                                <@fmt.message key="texts.${item.typeOfUpdate}" var="updateType" />
+                                                <#assign docData += {"types": [updateType]} />
                                                 <#assign metaData += {"about":"itemProp=about"}/>
                                             </#if>
 
@@ -146,14 +236,16 @@
                                             <#--schema:{typeOfUpdate}-->
                                             <#if item.typeOfUpdate?has_content>
                                                 <@hst.link var="itemUrl" hippobean=item fullyQualified=true/>
-                                                <#assign hiddenSchemaList += [{"prop": typeOfUpdateTag(item.typeOfUpdate), "value":itemUrl}]/>
+                                                <#assign hiddenSchemaList += [{"prop": typeOfUpdateTag(updateType), "value":itemUrl}]/>
                                             </#if>
                                             <#--schema:datePosted-->
                                             <#assign hiddenSchemaList += [{"prop":"datePosted", "value":date}]/>
                                             <#--schema:spatialCoverage-->
                                             <#assign hiddenSchemaList += [{"prop":"spatialCoverage", "value":"England"}]/>
                                             <#--schema:keyword-->
-                                            <#assign hiddenSchemaList += [{"prop":"keyword", "value":item.keys?join(",")}]/>
+                                            <#if item.keys?has_content>
+                                                <#assign hiddenSchemaList += [{"prop":"keyword", "value":item.keys?join(",")}]/>
+                                            </#if>
 
                                             <@hubBox docData metaData hiddenSchemaList></@hubBox>
                                         </#list>

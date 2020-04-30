@@ -81,8 +81,8 @@
 
 
 
-<#function flat_blocks blocks order>
-    <#local flattened_blocks = [] />
+<#function flat_blocks blocks order inital_blocks = []>
+    <#local flattened_blocks = inital_blocks />
     <#list blocks as block>
         <#if block.linkType == "internal">
             <#local flattened_blocks = flattened_blocks + [ block.link ] />

@@ -1,0 +1,25 @@
+---
+/content/documents/administration/intranet/type-of-news:
+  /type-of-news:
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: announcement
+      selection:label: Announcement - expires
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: permanent
+      selection:label: Permanent - does not expire
+    hippo:availability:
+    - live
+    - preview
+    hippotranslation:id: 7b60da8c-1701-4baf-9ba0-280ce5b589a9
+    hippotranslation:locale: inherited - from query
+    jcr:mixinTypes:
+    - hippotranslation:translated
+    - mix:referenceable
+    jcr:primaryType: selection:valuelist
+  hippo:name: Type of news
+  jcr:mixinTypes:
+  - hippo:named
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
