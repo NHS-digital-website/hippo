@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 
-<#macro tabTileSection options>
+<#macro tabTileSection options indexId>
     <#if options??>
         <#assign title = options.title???then(options.title, "") />
 
@@ -25,7 +25,7 @@
                     </div>
                 </#if>
 
-                <h2 class="tile-item__content-title">
+                <h2 class="tile-item__content-title" intra-result-rank="${indexId}" intra-result-type="${options.type?lower_case}">
                     <#if options.linkType == "internal">
                         <#assign link><@hst.link hippobean=options.link/></#assign>
                     <#elseif options.linkType == "external">

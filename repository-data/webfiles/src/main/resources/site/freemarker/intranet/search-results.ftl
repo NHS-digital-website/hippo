@@ -96,6 +96,7 @@
                     <div class="grid-row">
                         <div class="column column--reset">
                             <div class="tile-panel" role="tabpanel">
+                                <#assign indexId = 1 />
                                 <#assign isAllOrPeopleTab = isAllTab || isPeopleTab />
                                 <#assign isFirstPaginationPage = isAllTab?then(pageable?has_content && pageable.currentPage == 1, true) />
 
@@ -128,8 +129,9 @@
                                 <#if isAllOrPeopleTab && hasPeopleLinks && isFirstPaginationPage>
                                     <#list peopleLinks as links>
                                         <div class="tile-panel-group">
-                                            <@tabTileSection links/>
+                                            <@tabTileSection links indexId/>
                                         </div>
+                                        <#assign indexId++ />
                                     </#list>
                                     <#if morePeople?? && isAllTab>
                                         <p class="intra-info-tag intra-info-tag--bg-flat intra-info-tag--block-right">
@@ -143,10 +145,16 @@
                                     <span class="intra-info-tag intra-info-tag--txt-grey intra-info-tag--bg-flat intra-info-tag--block">${documentHeader}</span>
                                 </#if>
                                 <#if hasDocumentsLinks>
+                                    <#assign peopleNumbers = 0 />
+                                    <#if isAllTab && (pageable?has_content && pageable.currentPage != 1) >
+                                        <#assign peopleNumbers = peopleLinks?size />
+                                    </#if>
+                                    <#assign indexId += pageable.startOffset + peopleNumbers/>
                                     <#list documentLinks as links>
                                         <div class="tile-panel-group">
-                                            <@tabTileSection links/>
+                                            <@tabTileSection links indexId/>
                                         </div>
+                                        <#assign indexId++ />
                                     </#list>
                                 </#if>
 
