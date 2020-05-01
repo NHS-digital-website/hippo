@@ -25,7 +25,7 @@
                     </div>
                 </#if>
 
-                <h2 class="tile-item__content-title" intra-result-rank="${indexId}" intra-result-type="${options.type?lower_case}">
+                <h2 class="tile-item__content-title">
                     <#if options.linkType == "internal">
                         <#assign link><@hst.link hippobean=options.link/></#assign>
                     <#elseif options.linkType == "external">
@@ -33,7 +33,7 @@
                     </#if>
 
                     <#if options.linkType??>
-                        <a href="${link}">
+                        <a href="${link}" intra-result-rank="${indexId}" intra-result-type="${options.type?lower_case}">
                     </#if>
                         ${title}
                     <#if options.linkType??>
