@@ -84,7 +84,7 @@ public class BloomreachSearchProvider {
 
     private HstQuery getQuery(String queryString, SearchArea searchArea) {
         HstQueryBuilder queryBuilder = HstQueryBuilder.create(
-            RequestContextProvider.get().getSiteContentBaseBean().getParentBean());
+            RequestContextProvider.get().getSiteContentBaseBean());
 
         queryBuilder.ofTypes(
             DOCUMENT_TYPES_BY_SEARCH_AREA.getOrDefault(searchArea,
