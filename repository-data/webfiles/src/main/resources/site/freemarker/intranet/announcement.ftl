@@ -5,7 +5,7 @@
 <#include "macro/metaTags.ftl">
 <#include "macro/googleTags.ftl">
 
-<@googleTags documentBean=document pageSubject=''/>
+<@googleTags documentBean=document pageSubject=(document.relateddocument??)?then(document.relateddocument.title, "")/>
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
 
