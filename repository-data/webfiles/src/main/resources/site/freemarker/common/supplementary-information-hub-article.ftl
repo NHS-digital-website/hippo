@@ -81,19 +81,25 @@
 
                         <#-- Month filter component -->
                         <#if getFilterMonthsLinks()?size gt 0>
-                            <#assign empty = [] />
+
+                            <#assign tags = [] />
+
+                            <#if selectedMonth?has_content>
+                                <#assign tags += [selectedMonth?number] />
+                            </#if>
+
                             <#assign affix = "&year=" + selectedYear />
 
                             <div class="article-section-nav-wrapper" data-hub-filter-type="nhsd-hub-tag-filter" data-hub-filter-key="month">
-                                <@stickyNavTags getFilterMonthsLinks() affix "Filter by month" "month" empty true true></@stickyNavTags>
+                                <@stickyNavTags getFilterMonthsLinks() affix "Filter by month" "month" tags true true false></@stickyNavTags>
                             </div>
-                        </#if>
+                    </#if>
 
-                    </div>
                 </div>
             </div>
+        </div>
 
-            <#-- Restore the bundle -->
+        <#-- Restore the bundle -->
             <@hst.setBundle basename="rb.generic.headers,rb.generic.labels,rb.doctype.supplementary-info-hub "/>
 
             <#-- @ftlvariable name="item" type="uk.nhs.digital.website.beans.SupplementaryInformation"-->

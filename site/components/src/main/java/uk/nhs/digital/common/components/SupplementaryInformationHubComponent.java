@@ -50,6 +50,11 @@ public class SupplementaryInformationHubComponent extends EssentialsListComponen
         String selectedYear = DocumentUtils.findYearOrDefault(getSelectedYear(request), Calendar.getInstance().get(Calendar.YEAR));
         request.setAttribute("selectedYear", selectedYear);
 
+        final String selectedMonth = findMonthOrNull(getSelectedMonth(request));
+        if (Objects.nonNull(selectedMonth)) {
+            request.setAttribute("selectedMonth", selectedMonth);
+        }
+
         request.setAttribute("months", months(Integer.parseInt(selectedYear), si));
     }
 
@@ -69,15 +74,30 @@ public class SupplementaryInformationHubComponent extends EssentialsListComponen
     @Override
     protected void contributeAndFilters(List<BaseFilter> filters, HstRequest request, HstQuery query) throws FilterException {
         super.contributeAndFilters(filters, request, query);
+
+        // Add year filter
         final String selectedYear = DocumentUtils.findYearOrDefault(getSelectedYear(request), Calendar.getInstance().get(Calendar.YEAR));
         final Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.YEAR, Integer.parseInt(selectedYear));
-        Filter filter = query.createFilter();
+        Filter yearFilter = query.createFilter();
         try {
-            filter.addEqualTo("publicationsystem:NominalDate", calendar, DateTools.Resolution.YEAR);
-            filters.add(filter);
+            yearFilter.addEqualTo("publicationsystem:NominalDate", calendar, DateTools.Resolution.YEAR);
+            filters.add(yearFilter);
         } catch (final FilterException exception) {
             log.error("Error trying to add year filter", exception);
+        }
+
+        // Add month filter
+        final String selectedMonth = findMonthOrNull(getSelectedMonth(request));
+        if (Objects.nonNull(selectedMonth)) {
+            calendar.set(Calendar.MONTH, Integer.parseInt(selectedMonth));
+            Filter monthFilter = query.createFilter();
+            try {
+                monthFilter.addEqualTo("publicationsystem:NominalDate", calendar, DateTools.Resolution.MONTH);
+                filters.add(monthFilter);
+            } catch (final FilterException exception) {
+                log.error("Error trying to add year filter", exception);
+            }
         }
     }
 
@@ -129,5 +149,18 @@ public class SupplementaryInformationHubComponent extends EssentialsListComponen
 
     protected String getSelectedYear(final HstRequest request) {
         return getPublicRequestParameter(request, "year");
+    }
+
+    protected String getSelectedMonth(final HstRequest request) {
+        return getPublicRequestParameter(request, "month");
+    }
+
+    private static String findMonthOrNull(final String target) {
+        return isMonth(target) ? target : null;
+    }
+
+    private static boolean isMonth(final String candidate) {
+        // Zero based
+        return candidate != null && candidate.matches("^(?:0?[0-9]|1[0-1])$");
     }
 }
