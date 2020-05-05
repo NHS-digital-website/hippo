@@ -6,18 +6,23 @@ import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
 
-@HippoEssentialsGenerated(internalName = "website:statisticsItem")
-@Node(jcrType = "website:statisticsItem")
-public class StatisticsItem extends HippoCompound {
+@HippoEssentialsGenerated(internalName = "website:statisticsFeedItem")
+@Node(jcrType = "website:statisticsFeedItem")
+public class StatisticsFeedItem extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:prefix")
     public String getPrefix() {
         return getProperty("website:prefix");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:number")
-    public String getNumber() {
-        return getProperty("website:number");
+    @HippoEssentialsGenerated(internalName = "website:urlOfNumber")
+    public String getUrlOfNumber() {
+        return getProperty("website:urlOfNumber");
+    }
+
+    @HippoEssentialsGenerated(internalName = "website:dataType")
+    public String getDataType() {
+        return getProperty("website:dataType");
     }
 
     @HippoEssentialsGenerated(internalName = "website:suffix")
@@ -41,6 +46,6 @@ public class StatisticsItem extends HippoCompound {
     }
 
     public String getStatisticType() {
-        return "staticStatistic";
+        return "feedStatistic";
     }
 }

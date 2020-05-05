@@ -708,6 +708,11 @@ definitions:
           jcr:name: Statistics
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:statisticsFeedItem:
+        /en:
+          jcr:name: Statistics Feed item
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:statisticsItem:
         /en:
           jcr:name: Statistics item
