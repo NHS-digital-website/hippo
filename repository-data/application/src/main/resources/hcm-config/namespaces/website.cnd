@@ -367,6 +367,9 @@
 [website:statistics] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:statisticsFeedItem] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:statisticsItem] > hippo:compound, hippostd:relaxed
   orderable
 
