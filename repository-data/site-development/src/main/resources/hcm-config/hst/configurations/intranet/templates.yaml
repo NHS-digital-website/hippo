@@ -1,0 +1,7 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/intranet/hst:templates:
+      /static-ui-homepage:
+        hst:renderpath: webfile:/freemarker/intranet/home-static.ftl
+        jcr:primaryType: hst:template
