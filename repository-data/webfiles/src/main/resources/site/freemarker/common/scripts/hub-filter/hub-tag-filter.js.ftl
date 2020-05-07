@@ -31,7 +31,7 @@
         function resetValue(value) {
             value = typeof value !== 'undefined' ? value : '';
             setValue(value);
-            
+
             if (_this.$el.querySelectorAll('.selected').length) {
                 window.vjsu.removeClass(_this.$el.querySelectorAll('.selected')[0], 'selected');
             }
@@ -89,13 +89,17 @@
                     e.preventDefault();
                     e.stopPropagation();
 
-                    if (_this.$el.querySelectorAll('.selected').length) {
-                        window.vjsu.removeClass(_this.$el.querySelectorAll('.selected')[0], 'selected');
+                    if (window.vjsu.hasClass(e.currentTarget, 'selected') && e.currentTarget.getAttribute('data-type') !== 'year') {
+                        window.vjsu.removeClass(e.currentTarget, 'selected');
+                        setValue("all");
+                        e.currentTarget.blur();
+                    } else {
+                        if (_this.$el.querySelectorAll('.selected').length) {
+                            window.vjsu.removeClass(_this.$el.querySelectorAll('.selected')[0], 'selected');
+                        }
+                        window.vjsu.addClass(e.currentTarget, 'selected');
+                        setValue(e.currentTarget.getAttribute('data-slugified-value'));
                     }
-                    window.vjsu.addClass(e.currentTarget, 'selected');
-                    
-                    setValue(e.currentTarget.getAttribute('data-slugified-value'));
-
                     if (typeof _this.onChangeCallback === 'function') {
                         _this.onChangeCallback.apply(this, [hubTagFilter]);
                     }
