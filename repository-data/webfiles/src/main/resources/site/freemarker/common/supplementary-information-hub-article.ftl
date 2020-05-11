@@ -1,6 +1,5 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
-<#include "macro/stickyNavSections.ftl">
 <#include "macro/stickyNavYears.ftl">
 <#include "macro/stickyNavTags.ftl">
 <#include "macro/hubBox.ftl">
@@ -8,6 +7,7 @@
 <#include "macro/stickyGroupBlockHeader.ftl">
 <#include "macro/stickyNavYears.ftl">
 
+<#-- @ftlvariable name="selectedMonth" type="java.time.Month" -->
 <@hst.setBundle basename="rb.generic.headers,rb.generic.labels,rb.doctype.supplementary-info-hub "/>
 
 <#-- Add meta tags -->
@@ -16,7 +16,7 @@
 
 <#assign monthNames = monthsOfTheYear()?reverse />
 
-<#--Group the documents by month  -->
+<#-- Group the documents by month -->
 <#assign eventGroupHash = {} />
 <#list pageable.items as item>
     <#if item.publishedDate?size gt 0>
@@ -37,7 +37,20 @@
     <#return links />
 </#function>
 
+<#function getFilterMonthsLinks>
+    <#assign links = [] />
+
+    <#list months as key>
+        <#assign typeCount = months?size />
+        <#assign links += [{ "key" : monthsOfTheYear()[key]?lower_case, "title" :  monthsOfTheYear()[key], "count" : typeCount }] />
+    </#list>
+
+    <#return links />
+</#function>
+
 <#assign hasIntroductionContent = document.introduction.content?has_content />
+
+<#assign monthsOfTheYear =  monthsOfTheYear() />
 
 <article class="article article--supplementary-info-hub">
     <@documentHeader document 'supplementary-info-hub' '' '' '' '' false></@documentHeader>
@@ -66,23 +79,27 @@
                             </div>
                         </#if>
 
-                        <#-- Month anchor nav -->
-                        <#if eventGroupHash?has_content>
-                            <#assign links = [] />
-                            <#list monthsOfTheYear() as month>
-                                <#if eventGroupHash[month]??>
-                                    <#assign links += [{ "url": "#" + slugify(month), "title": month, "aria-label": "Jump to events starting in ${month}" }] />
-                                </#if>
-                            </#list>
-                            <div class="article-section-nav-wrapper" id="hub-search-page-contents">
-                                <@stickyNavSections links></@stickyNavSections>
+                        <#-- Month filter component -->
+                        <#if getFilterMonthsLinks()?size gt 0>
+
+                            <#assign tags = [] />
+
+                             <#if selectedMonth?has_content>
+                                <#assign tags += [monthsOfTheYear()[selectedMonth.value?number-1]?lower_case] />
+                            </#if>
+
+                            <#assign affix = "&year=" + selectedYear />
+
+                            <div class="article-section-nav-wrapper" data-hub-filter-type="nhsd-hub-tag-filter" data-hub-filter-key="month">
+                                <@stickyNavTags getFilterMonthsLinks() affix "Filter by month" "month" tags true false></@stickyNavTags>
                             </div>
-                        </#if>
-                    </div>
+                    </#if>
+
                 </div>
             </div>
+        </div>
 
-            <#-- Restore the bundle -->
+        <#-- Restore the bundle -->
             <@hst.setBundle basename="rb.generic.headers,rb.generic.labels,rb.doctype.supplementary-info-hub "/>
 
             <#-- @ftlvariable name="item" type="uk.nhs.digital.website.beans.SupplementaryInformation"-->
