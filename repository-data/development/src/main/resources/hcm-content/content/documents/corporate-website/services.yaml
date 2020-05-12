@@ -10,6 +10,51 @@
 
           <p><a href="http://digital.nhs.uk">Dramatically impact.</a></p>
         jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+      /website:pageicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:priorityaction[1]:
+        /website:itemlink:
+          jcr:primaryType: website:externallinkbase
+          website:link: http://example.com
+        jcr:primaryType: website:priorityaction
+        website:action: Seamlessly target professional initiatives whereas proactive
+          leadership skills
+        website:additionalinformation: ''
+      /website:priorityaction[2]:
+        /website:itemlink:
+          jcr:primaryType: website:externallinkbase
+          website:link: https://google.com
+        jcr:primaryType: website:priorityaction
+        website:action: Appropriately orchestrate client-focused e-business before
+          efficient e-markets. Credibly promote technically sound archi
+        website:additionalinformation: Lorem ipsum dolor sit amet, consectetur adipisicing
+          elit. Architecto atque consequuntur cupiditate dolore excepturi facere inventore
+          labore nemo nesciunt, nisi, nulla obcaecati omnis quaerat quibusdam quidem
+          reiciendis sed totam unde! Earum est ipsam laboriosam, modi non sequi sint
+          ut voluptatum.
+      /website:priorityaction[3]:
+        /website:itemlink:
+          jcr:primaryType: website:externallinkbase
+          website:link: https://digital.nhs.uk
+        jcr:primaryType: website:priorityaction
+        website:action: Appropriately promote clicks-and-mortar outsourcing whereas
+          sustainable content
+        website:additionalinformation: ''
+      /website:priorityaction[4]:
+        /website:itemlink:
+          jcr:primaryType: website:externallinkbase
+          website:link: https://whatever.nothing
+        jcr:primaryType: website:priorityaction
+        website:action: Authoritatively customize timely mindshare and highly efficient
+          quality vectors.
+        website:additionalinformation: ''
       /website:sections[1]:
         /website:html:
           hippostd:content: |-
@@ -52,13 +97,12 @@
           through fully tested process improvements.
         jcr:primaryType: hippostd:html
       /website:summary:
-        hippostd:content: "<p>Collaboratively morph magnetic growth strategies without\
-          \ seamless e-business. Compellingly whiteboard client-based potentialities\
-          \ whereas ethical potentialities. Monotonectally utilize professional technologies\
-          \ through fully tested process improvements. Competently optimize customized\
-          \ web services vis-a-vis robust growth strategies. Competently benchmark\
-          \ integrated potentialities without holistic e-markets.\r\n\r\nDramatically\
-          \ impact.</p>"
+        hippostd:content: |-
+          <p>Collaboratively morph magnetic growth strategies without seamless e-business. Compellingly whiteboard client-based potentialities whereas ethical potentialities. Monotonectally utilize professional technologies through fully tested process improvements. Competently optimize customized web services vis-a-vis robust growth strategies. Competently benchmark integrated potentialities without holistic e-markets.
+
+
+
+          Dramatically impact.</p>
         jcr:primaryType: hippostd:html
       /website:toptasks[1]:
         hippostd:content: <p>Seamlessly target professional initiatives whereas proactive
@@ -82,13 +126,14 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-02-27T18:04:05.166Z
-      hippostdpubwf:lastModificationDate: 2018-02-27T18:04:05.166Z
+      hippostdpubwf:lastModificationDate: 2020-05-12T18:25:14.737Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: c4317a8f-8ae3-43f5-a4da-fcf25a1a1a79
       hippotranslation:locale: en
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:service
+      website:gossid: 0
       website:shortsummary: Collaboratively morph magnetic growth strategies without
         seamless e-business
       website:title: 'Service Document #1'
@@ -101,6 +146,51 @@
 
           <p><a href="http://digital.nhs.uk">Dramatically impact.</a></p>
         jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+      /website:pageicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:priorityaction[1]:
+        /website:itemlink:
+          jcr:primaryType: website:externallinkbase
+          website:link: http://example.com
+        jcr:primaryType: website:priorityaction
+        website:action: Seamlessly target professional initiatives whereas proactive
+          leadership skills
+        website:additionalinformation: ''
+      /website:priorityaction[2]:
+        /website:itemlink:
+          jcr:primaryType: website:externallinkbase
+          website:link: https://google.com
+        jcr:primaryType: website:priorityaction
+        website:action: Appropriately orchestrate client-focused e-business before
+          efficient e-markets. Credibly promote technically sound archi
+        website:additionalinformation: Lorem ipsum dolor sit amet, consectetur adipisicing
+          elit. Architecto atque consequuntur cupiditate dolore excepturi facere inventore
+          labore nemo nesciunt, nisi, nulla obcaecati omnis quaerat quibusdam quidem
+          reiciendis sed totam unde! Earum est ipsam laboriosam, modi non sequi sint
+          ut voluptatum.
+      /website:priorityaction[3]:
+        /website:itemlink:
+          jcr:primaryType: website:externallinkbase
+          website:link: https://digital.nhs.uk
+        jcr:primaryType: website:priorityaction
+        website:action: Appropriately promote clicks-and-mortar outsourcing whereas
+          sustainable content
+        website:additionalinformation: ''
+      /website:priorityaction[4]:
+        /website:itemlink:
+          jcr:primaryType: website:externallinkbase
+          website:link: https://whatever.nothing
+        jcr:primaryType: website:priorityaction
+        website:action: Authoritatively customize timely mindshare and highly efficient
+          quality vectors.
+        website:additionalinformation: ''
       /website:sections[1]:
         /website:html:
           hippostd:content: |-
@@ -143,13 +233,12 @@
           through fully tested process improvements.
         jcr:primaryType: hippostd:html
       /website:summary:
-        hippostd:content: "<p>Collaboratively morph magnetic growth strategies without\
-          \ seamless e-business. Compellingly whiteboard client-based potentialities\
-          \ whereas ethical potentialities. Monotonectally utilize professional technologies\
-          \ through fully tested process improvements. Competently optimize customized\
-          \ web services vis-a-vis robust growth strategies. Competently benchmark\
-          \ integrated potentialities without holistic e-markets.\r\n\r\nDramatically\
-          \ impact.</p>"
+        hippostd:content: |-
+          <p>Collaboratively morph magnetic growth strategies without seamless e-business. Compellingly whiteboard client-based potentialities whereas ethical potentialities. Monotonectally utilize professional technologies through fully tested process improvements. Competently optimize customized web services vis-a-vis robust growth strategies. Competently benchmark integrated potentialities without holistic e-markets.
+
+
+
+          Dramatically impact.</p>
         jcr:primaryType: hippostd:html
       /website:toptasks[1]:
         hippostd:content: <p>Seamlessly target professional initiatives whereas proactive
@@ -174,7 +263,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-02-27T18:04:05.166Z
-      hippostdpubwf:lastModificationDate: 2018-02-27T18:05:57.644Z
+      hippostdpubwf:lastModificationDate: 2020-05-12T18:25:33.589Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: c4317a8f-8ae3-43f5-a4da-fcf25a1a1a79
       hippotranslation:locale: en
@@ -182,6 +271,7 @@
       - mix:referenceable
       - mix:versionable
       jcr:primaryType: website:service
+      website:gossid: 0
       website:shortsummary: Collaboratively morph magnetic growth strategies without
         seamless e-business
       website:title: 'Service Document #1'
@@ -194,6 +284,51 @@
 
           <p><a href="http://digital.nhs.uk">Dramatically impact.</a></p>
         jcr:primaryType: hippostd:html
+      /website:friendlyurls:
+        jcr:primaryType: website:friendlyurls
+        website:alternativeurls: []
+      /website:pageicon:
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+        jcr:primaryType: hippogallerypicker:imagelink
+      /website:priorityaction[1]:
+        /website:itemlink:
+          jcr:primaryType: website:externallinkbase
+          website:link: http://example.com
+        jcr:primaryType: website:priorityaction
+        website:action: Seamlessly target professional initiatives whereas proactive
+          leadership skills
+        website:additionalinformation: ''
+      /website:priorityaction[2]:
+        /website:itemlink:
+          jcr:primaryType: website:externallinkbase
+          website:link: https://google.com
+        jcr:primaryType: website:priorityaction
+        website:action: Appropriately orchestrate client-focused e-business before
+          efficient e-markets. Credibly promote technically sound archi
+        website:additionalinformation: Lorem ipsum dolor sit amet, consectetur adipisicing
+          elit. Architecto atque consequuntur cupiditate dolore excepturi facere inventore
+          labore nemo nesciunt, nisi, nulla obcaecati omnis quaerat quibusdam quidem
+          reiciendis sed totam unde! Earum est ipsam laboriosam, modi non sequi sint
+          ut voluptatum.
+      /website:priorityaction[3]:
+        /website:itemlink:
+          jcr:primaryType: website:externallinkbase
+          website:link: https://digital.nhs.uk
+        jcr:primaryType: website:priorityaction
+        website:action: Appropriately promote clicks-and-mortar outsourcing whereas
+          sustainable content
+        website:additionalinformation: ''
+      /website:priorityaction[4]:
+        /website:itemlink:
+          jcr:primaryType: website:externallinkbase
+          website:link: https://whatever.nothing
+        jcr:primaryType: website:priorityaction
+        website:action: Authoritatively customize timely mindshare and highly efficient
+          quality vectors.
+        website:additionalinformation: ''
       /website:sections[1]:
         /website:html:
           hippostd:content: |-
@@ -236,13 +371,12 @@
           through fully tested process improvements.
         jcr:primaryType: hippostd:html
       /website:summary:
-        hippostd:content: "<p>Collaboratively morph magnetic growth strategies without\
-          \ seamless e-business. Compellingly whiteboard client-based potentialities\
-          \ whereas ethical potentialities. Monotonectally utilize professional technologies\
-          \ through fully tested process improvements. Competently optimize customized\
-          \ web services vis-a-vis robust growth strategies. Competently benchmark\
-          \ integrated potentialities without holistic e-markets.\r\n\r\nDramatically\
-          \ impact.</p>"
+        hippostd:content: |-
+          <p>Collaboratively morph magnetic growth strategies without seamless e-business. Compellingly whiteboard client-based potentialities whereas ethical potentialities. Monotonectally utilize professional technologies through fully tested process improvements. Competently optimize customized web services vis-a-vis robust growth strategies. Competently benchmark integrated potentialities without holistic e-markets.
+
+
+
+          Dramatically impact.</p>
         jcr:primaryType: hippostd:html
       /website:toptasks[1]:
         hippostd:content: <p>Seamlessly target professional initiatives whereas proactive
@@ -267,20 +401,23 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2018-02-27T18:04:05.166Z
-      hippostdpubwf:lastModificationDate: 2018-02-27T18:05:57.644Z
+      hippostdpubwf:lastModificationDate: 2020-05-12T18:25:33.589Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-02-27T18:05:59.578Z
+      hippostdpubwf:publicationDate: 2020-05-12T18:25:37.718Z
       hippotranslation:id: c4317a8f-8ae3-43f5-a4da-fcf25a1a1a79
       hippotranslation:locale: en
       jcr:mixinTypes:
       - mix:referenceable
       jcr:primaryType: website:service
+      website:gossid: 0
       website:shortsummary: Collaboratively morph magnetic growth strategies without
         seamless e-business
       website:title: 'Service Document #1'
     hippo:name: 'Service Document #1'
+    hippo:versionHistory: 834237af-e457-4e20-af0b-87ef24072ecc
     jcr:mixinTypes:
     - hippo:named
+    - hippo:versionInfo
     - mix:referenceable
     jcr:primaryType: hippo:handle
   /service-child-document-1:

@@ -26,7 +26,8 @@
 <@hst.setBundle basename="rb.generic.headers,publicationsystem.headers"/>
 
 <#assign hasSectionContent = document.sections?has_content />
-<#assign hasTopTasks = document.toptasks?has_content />
+<#assign hasPriorityActions = document.priorityActions?has_content />
+<#assign hasTopTasks = document.toptasks?has_content && !hasPriorityActions />
 <#assign hasChildPages = childPages?has_content />
 <#assign hasIntroductionContent = document.introduction?? />
 <#assign hasContactDetailsContent = document.contactdetails?? && document.contactdetails.content?has_content />
@@ -81,6 +82,32 @@
             </#if>
 
             <div class="column column--two-thirds page-block page-block--main">
+
+                <#if document.priorityActions?has_content>
+                    <div class="grid-row no-top-margin">
+                        <div class="column column--reset">
+                            <ul class="priority-actions" aria-label="Priority Actions">
+                                <#list document.priorityActions as action>
+                                    <li class="priority-action">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="priority-action__arrow" aria-hidden="true">
+                                            <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+                                        </svg>
+                                        <div class="priority-action__content">
+                                            <#if action.link.linkType == "internal">
+                                                <a href="<@hst.link hippobean=action.link.link />" class="priority-action__link">${action.action}</a>
+                                            <#else>
+                                                <a href="${action.link.link}" class="priority-action__link">${action.action}</a>
+                                            </#if>
+                                            <#if action.additionalInformation?has_content>
+                                                <p class="priority-action__description">${action.additionalInformation}</p>
+                                            </#if>
+                                        </div>
+                                    </li>
+                                </#list>
+                            </ul>
+                        </div>
+                    </div>
+                </#if>
 
                 <#if hasTopTasks>
                     <div class="article-section article-section--highlighted">

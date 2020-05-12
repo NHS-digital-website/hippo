@@ -90,7 +90,7 @@
                         </div>
                         <#if hasFinalPageIcon>
                             <div class="column--one-third column--reset local-header__icon">
-                              <#if hasBannerControls && document.bannercontrols.icon?has_content || document != "simulating_doc" && hasPageIcon > 
+                              <#if hasBannerControls && document.bannercontrols.icon?has_content || document != "simulating_doc" && hasPageIcon >
                                   <#-- ex. Service case - image from HippoGalleryImageSet -->
                                   <@hst.link hippobean=headerIcon.original fullyQualified=true var="image" />
                                   <#if image?ends_with("svg")>
@@ -111,24 +111,6 @@
                             </div>
                         </#if>
                     </div>
-
-                    <#if document.priorityActions?has_content>
-                        <div class="grid-row no-top-margin">
-                            <div class="column column--reset">
-                                <ul class="intra-action-links">
-                                    <#list document.priorityActions as action>
-                                        <li>
-                                            <#if action.link.linkType == "internal">
-                                                <a href="<@hst.link hippobean=action.link.link />" class="intra-action-link">${action.action}</a>
-                                            <#else>
-                                                <a href="${action.link.link}" class="intra-action-link">${action.action}</a>
-                                            </#if>
-                                        </li>
-                                    </#list>
-                                </ul>
-                            </div>
-                        </div>
-                    </#if>
 
                     <#if hasTopics>
                       <div class="detail-list-grid">

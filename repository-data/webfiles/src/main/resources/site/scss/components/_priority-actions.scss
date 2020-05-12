@@ -1,0 +1,36 @@
+.priority-actions {
+    list-style-type: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+// Extra specificity to beat .page-block--main li
+.priority-actions .priority-action {
+    display: flex;
+    background: $white;
+    padding: $vertical-gap;
+    border-bottom: 5px solid $col-15;
+    margin-bottom: $gutter * 2;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.priority-action__arrow {
+    width: $gutter * 2;
+    height: $gutter * 2; // Must specify for IE11's sake
+    flex: 0 0 $gutter * 2;
+    margin-right: $gutter;
+}
+
+.priority-action__arrow path {
+    fill: $green;
+}
+
+.priority-action__link {
+    @include bold-font(20);
+    font-weight: bold;
+}
+
+.priority-action__description {
+    margin-top: $vertical-gap;
+}
