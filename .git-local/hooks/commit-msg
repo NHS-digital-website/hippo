@@ -1,7 +1,12 @@
 #!/usr/bin/env python
 
+from __future__ import print_function
 import re
 import sys
+
+# From https://stackoverflow.com/a/14981125/487640
+def eprint(*args, **kwargs):
+    print(*args, file=sys.stderr, **kwargs)
 
 message = "\n\
 Original commit message:\n\
@@ -43,20 +48,20 @@ with open(message_file, 'r') as commit_file:
 	# validate subject line
 	topic = content.pop(0)
 	if not bool(pattern_subject.match(topic)):
-		print >> sys.stderr, message % (orig_content, ERROR_SUBJECT, ERROR_SUBJECT)
+		eprint(message % (orig_content, ERROR_SUBJECT, ERROR_SUBJECT))
 		exit(1)
 
 	if len(content) > 0:
 		empty_line = content.pop(0)
 
 		if not "" == empty_line:
-			print >> sys.stderr, message % (orig_content, ERROR_NO_EMPTY_LINE, ERROR_NO_EMPTY_LINE)
+			eprint(message % (orig_content, ERROR_NO_EMPTY_LINE, ERROR_NO_EMPTY_LINE))
 			exit(1)
 
 		for body_line in content:
 			if not bool(pattern_body_line.match(body_line)):
-				print >> sys.stderr, "Error in line: %s" % (body_line)
-				print >> sys.stderr, message % (orig_content, ERROR_COMMIT_BODY, ERROR_COMMIT_BODY)
+				eprint("Error in line: %s" % (body_line))
+				eprint(message % (orig_content, ERROR_COMMIT_BODY, ERROR_COMMIT_BODY))
 				exit(1)
 
 	exit(0)
