@@ -1,0 +1,138 @@
+.navigation-section {}
+
+.navigation-section__introduction {
+    margin-bottom: 20px;
+}
+
+.navigation-section--column .navigation-section__tiles {
+    @include media(desktop) {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+}
+
+.navigation-tile,
+.navigation-tile:visited,
+.navigation-tile:link {
+    display: block;
+    margin-bottom: 20px;
+    padding: 40px 40px 60px 40px;
+    border: 3px solid transparent;
+    color: $text-colour;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 12px;
+    box-shadow: 0 0 15px 0 rgba($black,0.15);
+    background: linear-gradient(56deg, $grey-5 9%, $white 100%) center;
+    // Make bg bigger to counteract transparent border pushing it in
+    background-size: calc(100% + 6px) calc(100% + 6px);
+}
+
+.navigation-tile--column {
+    @include media(desktop) {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: auto;
+        width: calc(50% - (25px / 2));
+    }
+}
+
+.navigation-tile--full {
+    @include media(tablet) {
+        display: flex;
+    }
+}
+
+.navigation-tile:hover,
+.navigation-tile:active,
+.navigation-tile:focus {
+    background: linear-gradient(56deg, $grey-5 9%, $white 100%);
+    box-shadow: 0 0 15px 0 rgba($black,0.15);
+    outline: none;
+}
+
+.navigation-tile:hover {
+    border-color: $yellow-link-hover;
+}
+.navigation-tile:focus,
+.navigation-tile:active {
+    border-color: $yellow-link-active;
+}
+
+.navigation-tile__image {
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-left: auto;
+}
+.navigation-tile--full .navigation-tile__image {
+    @include media(tablet) {
+        height: 76px;
+        margin-right: 40px;
+        margin-left: 0;
+    }
+}
+
+.navigation-tile__image--icon {
+    max-height: 76px;
+}
+
+.navigation-tile__content {}
+
+.navigation-tile--full .navigation-tile__content {
+    @include media(tablet) {
+        max-width: 528px;
+        text-align: left;
+    }
+}
+
+.navigation-tile__title {
+    font-size: 22px;
+    line-height: 1.32;
+    font-weight: bold;
+    color: currentColor;
+}
+
+.navigation-tile__description {
+    font-size: 18px;
+    line-height: 1.38;
+    font-weight: lighter;
+    color: currentColor;
+    margin-bottom: 16px;
+}
+
+.navigation-tile__link {
+    font-size: 16px;
+    line-height: 1.35;
+    font-weight: bold;
+    color: $blue;
+}
+
+.navigation-tile__link-text {
+    border-bottom: 1px solid;
+    box-decoration-break: clone;
+}
+
+.navigation-tile:hover .navigation-tile__link-text,
+.navigation-tile:focus .navigation-tile__link-text,
+.navigation-tile:active .navigation-tile__link-text {
+    border-bottom-color: transparent;
+    padding: 2px 4px;
+    margin-right: -4px;
+    margin-left: -4px;
+}
+
+.navigation-tile:hover .navigation-tile__link-text {
+    background: $yellow-link-hover;
+}
+
+.navigation-tile:focus .navigation-tile__link-text,
+.navigation-tile:active .navigation-tile__link-text {
+    background: $yellow-link-active;
+}
+
+.navigation-tile__link-arrow {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 4px;
+}

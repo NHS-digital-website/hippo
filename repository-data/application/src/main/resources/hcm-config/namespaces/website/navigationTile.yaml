@@ -56,13 +56,13 @@ definitions:
           /items:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              maxitems: 1
             caption: Link
             compoundList: website:assetlink,website:externallink,website:internallink
             contentPickerType: links
             field: items
             hint: ''
             jcr:primaryType: frontend:plugin
-            maxitems: 1
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
