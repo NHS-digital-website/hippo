@@ -12,10 +12,10 @@
      class="navigation-section navigation-section--${tileType} navigation-section--${imageType} ${headingClass}">
 
     <#if section.headingLevel?has_content && section.headingLevel == 'Main heading'>
-        <#assign mainHeadingTag = "h2" />
+        <#local mainHeadingTag = "h2" />
         <${mainHeadingTag}>${section.title}</${mainHeadingTag}>
     <#else>
-        <#assign subHeadingTag = "h3" />
+        <#local subHeadingTag = "h3" />
         <${subHeadingTag}>${section.title}</${subHeadingTag}>
     </#if>
 

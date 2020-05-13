@@ -7,9 +7,10 @@
     <#local colourScheme = section.colourScheme />
     <#local animated = section.animation />
 
-    <#local headingTag = 'h3' />
-    <#if section.headingLevel == 'main'>
-        <#local headingTag = 'h2' />
+    <#if section.headingLevel?has_content && section.headingLevel == 'Main heading'>
+        <#local headingTag = "h2" />
+    <#else>
+        <#local headingTag = "h3" />
     </#if>
 
     <#local colourClass = "statistics-section--${colourScheme}" />
