@@ -31,7 +31,7 @@ definitions:
           /headingType:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: main=Main heading,sub=Sub heading
+              selectable.options: Main heading,Sub heading
             caption: Heading type
             field: headingType
             jcr:primaryType: frontend:plugin
