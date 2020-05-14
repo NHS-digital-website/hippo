@@ -5,6 +5,7 @@
 <#macro chartSection section type size>
     <@hst.setBundle basename="publicationsystem.headers"/>
     <@fmt.message key="headers.download-chart-data" var="downloadDataFileHeader" />
+    <#local linkText>${downloadDataFileHeader} ${section.title}</#local>
 
     <div id="${section.uniqueId}" data-uipath="ps.publication.chart-section" style="width:100%; height:${size}px;"></div>
 
@@ -13,7 +14,7 @@
         <span class="attachment">
             <@externalstorageLink dataFile; url>
             <a data-uipath="ps.publication.chart-section.data-file"
-               title="${downloadDataFileHeader}"
+               title="${linkText}"
                href="${url}"
                onClick="logGoogleAnalyticsEvent(
                    'Download chart data','Publication','${dataFile.filename}'
@@ -21,7 +22,7 @@
                onKeyUp="logGoogleAnalyticsEvent(
                    'Download chart data','Publication','${dataFile.filename}'
                );">
-                ${downloadDataFileHeader}
+                ${linkText}
             </a>
             </@externalstorageLink>
         </span>
