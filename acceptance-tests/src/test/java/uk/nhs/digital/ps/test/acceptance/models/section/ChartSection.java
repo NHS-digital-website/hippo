@@ -14,7 +14,7 @@ public class ChartSection extends BodySection {
 
     public ChartSection(String title) {
         this.title = title;
-        this.dataFileHyperlinkText = "Download the data for this chart";
+        this.dataFileHyperlinkText = "Download the data for Stacked Bar Chart";
     }
 
     @Override
