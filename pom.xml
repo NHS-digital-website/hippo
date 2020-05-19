@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>13.3.0</version>
+        <version>13.4.2</version>
         <!-- Please have a look at the property section while upgrading -->
     </parent>
 
@@ -92,7 +92,7 @@
         <!--<tomcatDistributionUrl>https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.48/bin/apache-tomcat-8.0.48.tar.gz</tomcatDistributionUrl>-->
 
         <forge.folderctxmenus.version>4.0.1</forge.folderctxmenus.version>
-        <essentials.version>13.2.2</essentials.version>
+        <essentials.version>13.4.2</essentials.version>
         <spring.version>5.1.14.RELEASE</spring.version>
 
         <hippo-addon-inference-engine.version>3.0.1</hippo-addon-inference-engine.version>
@@ -283,17 +283,17 @@
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-core</artifactId>
-                <version>2.9.10</version>
+                <version>2.10.1</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
-                <version>2.9.10.4</version>
+                <version>2.10.1</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-annotations</artifactId>
-                <version>2.9.10</version>
+                <version>2.10.1</version>
             </dependency>
             <dependency>
                 <groupId>com.google.code.findbugs</groupId>
@@ -419,7 +419,7 @@
             <dependency>
                 <groupId>org.yaml</groupId>
                 <artifactId>snakeyaml</artifactId>
-                <version>1.23</version>
+                <version>1.24</version>
             </dependency>
 
             <!--
@@ -627,7 +627,15 @@
                 <configuration>
                     <rules>
                         <reactorModuleConvergence/>
-                        <requireUpperBoundDeps/>
+                        <requireUpperBoundDeps>
+                            <excludes>
+                                <exclude>com.google.guava:guava</exclude>
+                                <exclude>org.slf4j:slf4j-api</exclude>
+                                <exclude>org.slf4j:jcl-over-slf4j</exclude>
+                                <exclude>javax.ws.rs:javax.ws.rs-api</exclude>
+                                <exclude>commons-beanutils:commons-beanutils</exclude>
+                            </excludes>
+                        </requireUpperBoundDeps>
                         <requireJavaVersion>
                             <!-- Any Java 8 version is allowed -->
                             <version>[1.8.0,1.8.1)</version>

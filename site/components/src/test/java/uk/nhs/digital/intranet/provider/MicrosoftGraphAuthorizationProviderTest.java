@@ -1,7 +1,6 @@
 package uk.nhs.digital.intranet.provider;
 
-import static junit.framework.TestCase.assertEquals;
-import static junit.framework.TestCase.assertNotNull;
+import static junit.framework.TestCase.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -76,7 +75,8 @@ public class MicrosoftGraphAuthorizationProviderTest {
         assertNotNull(accessToken);
         assertEquals(TOKEN, accessToken.getToken());
         assertEquals(REFRESH_TOKEN, accessToken.getRefreshToken());
-        assertEquals(LocalDateTime.now().plusSeconds(EXPIRES_IN).truncatedTo(ChronoUnit.SECONDS), accessToken.getExpirationDate().truncatedTo(ChronoUnit.SECONDS));
+
+        assertTrue("Token expiration should be within 5 seconds of calculated time", timeWithin5Seconds(accessToken));
     }
 
     @Test
@@ -98,7 +98,8 @@ public class MicrosoftGraphAuthorizationProviderTest {
         assertNotNull(accessToken);
         assertEquals(TOKEN, accessToken.getToken());
         assertEquals(REFRESH_TOKEN, accessToken.getRefreshToken());
-        assertEquals(LocalDateTime.now().plusSeconds(EXPIRES_IN).truncatedTo(ChronoUnit.SECONDS), accessToken.getExpirationDate().truncatedTo(ChronoUnit.SECONDS));
+
+        assertTrue("Token expiration should be within 5 seconds of calculated time", timeWithin5Seconds(accessToken));
     }
 
 
@@ -136,5 +137,12 @@ public class MicrosoftGraphAuthorizationProviderTest {
         final HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
         return new HttpEntity<>(map, headers);
+    }
+
+    private boolean timeWithin5Seconds(AccessToken accessToken) {
+        long timeDiffInSeconds = Math.abs(ChronoUnit.SECONDS.between(LocalDateTime.now().plusSeconds(EXPIRES_IN).truncatedTo(ChronoUnit.SECONDS),
+            accessToken.getExpirationDate().truncatedTo(ChronoUnit.SECONDS)));
+
+        return timeDiffInSeconds < 5;
     }
 }
