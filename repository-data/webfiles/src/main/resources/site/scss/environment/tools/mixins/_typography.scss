@@ -89,11 +89,11 @@
 ///   * + * {
 ///     @include element-spacing;
 ///   }
-@mixin element-spacing($position: top) {
-  margin-#{$position}: $default-spacing-unit;
+@mixin element-spacing($position: top, $spacing-unit: $default-spacing-unit) {
+  margin-#{$position}: $spacing-unit;
 
   @include media(desktop) {
-    margin-#{$position}: $default-spacing-unit * 2;
+    margin-#{$position}: $spacing-unit * 2;
   }
 }
 

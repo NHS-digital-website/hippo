@@ -55,8 +55,6 @@
                         </#if>
                     </span>
 
-                    <hr class="hr hr--short hr--light">
-
                     <div class="detail-list-grid">
                         <#if hasPublicationDate>
                             <div class="grid-row">

@@ -9,25 +9,18 @@
 
                     <@nationalStatsStamp publication=publication/>
 
-                    <span class="article-header__label"><@fmt.message key="labels.publication"/></span>
-                    <h1 class="local-header__title" data-uipath="document.title" itemprop="name">${publication.title}</h1>
                     <#if publication.parentDocument??>
-                        <p class="article-header__subtitle" itemprop="includedInDataCatalog" itemscope itemtype="http://schema.org/DataCatalog">
-                            This is part of
-                            <a itemprop="url" href="<@hst.link hippobean=publication.parentDocument.selfLinkBean/>"
-                                title="${publication.parentDocument.title}">
-                                <span itemprop="name">${publication.parentDocument.title}</span>
-                            </a>
-                        </p>
+                        <span class="article-header__label"><@fmt.message key="labels.publication"/>, Part of <a itemprop="url" href="<@hst.link hippobean=publication.parentDocument.selfLinkBean/>" title="${publication.parentDocument.title}"><span itemprop="name">${publication.parentDocument.title}</span></a></span>
+                    <#else>
+                        <span class="article-header__label"><@fmt.message key="labels.publication"/></span>
                     </#if>
+                    <h1 class="local-header__title" data-uipath="document.title" itemprop="name">${publication.title}</h1>
 
                     <span data-uipath="ps.publication.information-types" class="article-header__types">
                         <#if publication.informationType?has_content>
                             <#list publication.informationType as type>${type}<#sep>, </#list>
                         </#if>
                     </span>
-
-                    <hr class="hr hr--short hr--light">
 
                     <div class="detail-list-grid">
                         <div class="grid-row">

@@ -38,8 +38,8 @@
     </dd>
 </dl>
 </#macro>
-  
-    <div itemscope itemtype="http://schema.org/Dataset">    
+
+    <div itemscope itemtype="http://schema.org/Dataset">
         <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide" data-uipath="ps.document.content">
             <div class="local-header article-header article-header--detailed">
                 <div class="grid-wrapper">
@@ -48,20 +48,12 @@
                         <#assign thisurl="<@hst.link hippobean=dataset.selfLinkBean/>"/>
                         <meta itemprop="url" content="<@hst.link hippobean=dataset.selfLinkBean/>"/>
                         <meta itemprop="license" content="https://digital.nhs.uk/about-nhs-digital/terms-and-conditions" />
-                        <span class="article-header__label"><@fmt.message key="labels.dataset"/></span>
-                        <h1 class="local-header__title" data-uipath="document.title" itemprop="name">${dataset.title}</h1>
-
                         <#if dataset.parentPublication??>
-                            <p class="article-header__subtitle" itemprop="includedInDataCatalog" itemscope itemtype="http://schema.org/DataCatalog">
-                                This data set is part of
-                                <a itemprop="url" href="<@hst.link hippobean=dataset.parentPublication.selfLinkBean/>"
-                                    title="${dataset.parentPublication.title}">
-                                    <span itemprop="name">${dataset.parentPublication.title}</span>
-                                </a>
-                            </p>
+                            <span class="article-header__label"><@fmt.message key="labels.dataset"/>, Part of <a itemprop="url" href="<@hst.link hippobean=dataset.parentPublication.selfLinkBean/>" title="${dataset.parentPublication.title}"><span itemprop="name">${dataset.parentPublication.title}</span></a></span>
+                        <#else>
+                            <span class="article-header__label"><@fmt.message key="labels.dataset"/></span>
                         </#if>
-
-                        <hr class="hr hr--short hr--light">
+                        <h1 class="local-header__title" data-uipath="document.title" itemprop="name">${dataset.title}</h1>
 
                         <div class="detail-list-grid">
                             <div class="grid-row">

@@ -23,7 +23,7 @@
   // the lobotomized owl
   // see: http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
   * + * {
-    @include element-spacing;
+    @include element-spacing('top', 8px);
   }
 }
 
@@ -52,7 +52,7 @@
 }
 
 .local-header__title {
-    @include bold-font(48);
+    @include bold-font(36);
     color: $white;
     margin: 0;
 
@@ -108,4 +108,21 @@
     top: -($baseline-grid-unit * 0.5);
     width: 130px;
   }
+}
+
+.local-header .article-header__label {
+    margin-top: 0;
+}
+
+.local-header .detail-list-grid .grid-row {
+    border-top: none;
+}
+
+.local-header .detail-list-grid .grid-row .column {
+    padding: 2px 0;
+}
+
+.local-header .article-header__subtitle {
+    margin-top: 12px;
+    margin-bottom: 0px;
 }

@@ -109,25 +109,18 @@
 
                 <@nationalStatsStamp/>
 
-                <span class="article-header__label"><@fmt.message key="labels.publication"/></span>
-                <h1 class="local-header__title" data-uipath="document.title" itemprop="name">${legacyPublication.title}</h1>
                 <#if legacyPublication.parentDocument??>
-                    <p class="article-header__subtitle" itemprop="includedInDataCatalog" itemscope itemtype="http://schema.org/DataCatalog">
-                        This is part of
-                        <a itemprop="url" href="<@hst.link hippobean=legacyPublication.parentDocument.selfLinkBean/>"
-                            title="${legacyPublication.parentDocument.title}">
-                            <span itemprop="name">${legacyPublication.parentDocument.title}</span>
-                        </a>
-                    </p>
+                    <span class="article-header__label"><@fmt.message key="labels.publication"/>, Part of <a itemprop="url" href="<@hst.link hippobean=legacyPublication.parentDocument.selfLinkBean/>" title="${legacyPublication.parentDocument.title}"><span itemprop="name">${legacyPublication.parentDocument.title}</span></a></span>
+                <#else>
+                    <span class="article-header__label"><@fmt.message key="labels.publication"/></span>
                 </#if>
+                <h1 class="local-header__title" data-uipath="document.title" itemprop="name">${legacyPublication.title}</h1>
 
-                <span data-uipath="ps.publication.information-types">
+                <span data-uipath="ps.legacyPublication.information-types">
                     <#if legacyPublication.informationType?has_content>
                         <#list legacyPublication.informationType as type>${type}<#sep>, </#list>
                     </#if>
                 </span>
-
-                <hr class="hr hr--short hr--light">
 
                 <div class="detail-list-grid">
                     <div class="grid-row">
