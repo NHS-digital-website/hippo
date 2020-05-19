@@ -18,8 +18,8 @@ public class ProjectFeed extends CommonFieldsBean {
     }
 
     public boolean isCorrectAccessKey() {
-        return StringUtils.isNotBlank(getProperty("website:earlyaccesskey"))
-            && getProperty("website:earlyaccesskey").equals(
+        return StringUtils.isNotBlank(getSingleProperty("website:earlyaccesskey"))
+            && getSingleProperty("website:earlyaccesskey").equals(
             RequestContextProvider.get().getServletRequest()
                 .getParameter(EARLY_ACCESS_KEY_QUERY_PARAM));
     }

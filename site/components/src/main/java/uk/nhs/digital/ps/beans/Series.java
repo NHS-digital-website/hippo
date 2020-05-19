@@ -24,17 +24,17 @@ public class Series extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:Title")
     public String getTitle() {
-        return getProperty("publicationsystem:Title");
+        return getSingleProperty("publicationsystem:Title");
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:Summary")
     public StructuredText getSummary() {
-        return new StructuredText(getProperty("publicationsystem:Summary"));
+        return new StructuredText(getSingleProperty("publicationsystem:Summary"));
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:ShowLatest")
     public boolean getShowLatest() {
-        return getProperty("publicationsystem:ShowLatest", false);
+        return getSingleProperty("publicationsystem:ShowLatest", false);
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:attachments")

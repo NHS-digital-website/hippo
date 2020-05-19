@@ -18,13 +18,13 @@ public class CyberCveIdentifier extends HippoCompound {
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:cveidentifier")
     public String getCveIdentifier() {
-        return getProperty("website:cveidentifier");
+        return getSingleProperty("website:cveidentifier");
     }
 
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:cvestatus")
     public String getCveStatus() {
-        return getProperty("website:cvestatus");
+        return getSingleProperty("website:cvestatus");
     }
 
     @JsonProperty("cveText")

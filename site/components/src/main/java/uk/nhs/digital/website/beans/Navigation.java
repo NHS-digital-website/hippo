@@ -21,7 +21,7 @@ public class Navigation extends BaseCompound implements StickySection {
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:optionalHeading")
     public String getTitle() {
-        return getProperty("website:optionalHeading");
+        return getSingleProperty("website:optionalHeading");
     }
 
     @Override
@@ -34,7 +34,7 @@ public class Navigation extends BaseCompound implements StickySection {
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:headingType")
     public String getHeadingLevel() {
-        return getProperty("website:headingType");
+        return getSingleProperty("website:headingType");
     }
 
     @JsonProperty
@@ -46,13 +46,13 @@ public class Navigation extends BaseCompound implements StickySection {
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:columnAlignment")
     public String getColumnAlignment() {
-        return getProperty("website:columnAlignment");
+        return getSingleProperty("website:columnAlignment");
     }
 
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:imageType")
     public String getImageType() {
-        return getProperty("website:imageType");
+        return getSingleProperty("website:imageType");
     }
 
     @HippoEssentialsGenerated(internalName = "website:navigationTiles")

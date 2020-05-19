@@ -13,22 +13,22 @@ public class RoadmapItemStatus extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:status")
     public String getStatus() {
-        return getProperty("website:status");
+        return getSingleProperty("website:status");
     }
 
     @HippoEssentialsGenerated(internalName = "website:completeddate")
     public Calendar getCompletedDate() {
-        return getProperty("website:completeddate");
+        return getSingleProperty("website:completeddate");
     }
 
     @HippoEssentialsGenerated(internalName = "website:supersededdate")
     public Calendar getSupersededDate() {
-        return getProperty("website:supersededdate");
+        return getSingleProperty("website:supersededdate");
     }
 
     @HippoEssentialsGenerated(internalName = "website:progress")
     public String getProgress() {
-        return getProperty("website:progress");
+        return getSingleProperty("website:progress");
     }
 
     public String getSectionType() {

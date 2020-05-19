@@ -27,18 +27,18 @@ public class Dataset extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.TITLE)
     public String getTitle() {
-        return getPropertyIfPermitted(PropertyKeys.TITLE);
+        return getPropertyIfPermittedSingle(PropertyKeys.TITLE);
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.SUMMARY)
     public StructuredText getSummary() {
         assertPropertyPermitted(PropertyKeys.SUMMARY);
-        return new StructuredText(getProperty(PropertyKeys.SUMMARY, ""));
+        return new StructuredText(getSingleProperty(PropertyKeys.SUMMARY, ""));
     }
 
     public RestrictableDate getNominalDate() {
         if (nominalDate == null) {
-            nominalDate = Optional.ofNullable(getProperty(PropertyKeys.NOMINAL_DATE))
+            nominalDate = Optional.ofNullable(getSingleProperty(PropertyKeys.NOMINAL_DATE))
                 .map(object -> (Calendar)object)
                 .map(this::nominalPublicationDateCalendarToRestrictedDate)
                 .orElse(null);
@@ -48,17 +48,17 @@ public class Dataset extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.NEXT_PUBLICATION_DATE)
     public Calendar getNextPublicationDate() {
-        return getPropertyIfPermitted(PropertyKeys.NEXT_PUBLICATION_DATE);
+        return getPropertyIfPermittedSingle(PropertyKeys.NEXT_PUBLICATION_DATE);
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.GEOGRAPHIC_COVERAGE)
     public String[] getGeographicCoverage() {
-        return geographicCoverageValuesToRegionValue(getPropertyIfPermitted(PropertyKeys.GEOGRAPHIC_COVERAGE));
+        return geographicCoverageValuesToRegionValue(getPropertyIfPermittedMultiple(PropertyKeys.GEOGRAPHIC_COVERAGE));
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.TAXONOMY)
     public String[] getKeys() {
-        return getPropertyIfPermitted(PropertyKeys.TAXONOMY);
+        return getPropertyIfPermittedMultiple(PropertyKeys.TAXONOMY);
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.FILES_V3)
@@ -72,17 +72,17 @@ public class Dataset extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.GRANULARITY)
     public String[] getGranularity() {
-        return getPropertyIfPermitted(PropertyKeys.GRANULARITY);
+        return getPropertyIfPermittedMultiple(PropertyKeys.GRANULARITY);
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.COVERAGE_START)
     public Calendar getCoverageStart() {
-        return getPropertyIfPermitted(PropertyKeys.COVERAGE_START);
+        return getPropertyIfPermittedSingle(PropertyKeys.COVERAGE_START);
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.COVERAGE_END)
     public Calendar getCoverageEnd() {
-        return getPropertyIfPermitted(PropertyKeys.COVERAGE_END);
+        return getPropertyIfPermittedSingle(PropertyKeys.COVERAGE_END);
     }
 
     public Publication getParentPublication() {

@@ -34,27 +34,27 @@ public class Indicator extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.TITLE)
     public String getTitle() {
-        return getProperty(PropertyKeys.TITLE);
+        return getSingleProperty(PropertyKeys.TITLE);
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.ASSUREDSTATUS)
     public Boolean getAssuredStatus() {
-        return getProperty(PropertyKeys.ASSUREDSTATUS);
+        return getSingleProperty(PropertyKeys.ASSUREDSTATUS);
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.PUBLISHEDBY)
     public String getPublishedBy() {
-        return getProperty(PropertyKeys.PUBLISHEDBY);
+        return getSingleProperty(PropertyKeys.PUBLISHEDBY);
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.REPORTINGLEVEL)
     public String getReportingLevel() {
-        return getProperty(PropertyKeys.REPORTINGLEVEL);
+        return getSingleProperty(PropertyKeys.REPORTINGLEVEL);
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.GEOGRAPHIC_COVERAGE)
     public String[] getGeographicCoverage() {
-        return geographicCoverageValuesToRegionValue(getProperty(PropertyKeys.GEOGRAPHIC_COVERAGE));
+        return geographicCoverageValuesToRegionValue(getMultipleProperty(PropertyKeys.GEOGRAPHIC_COVERAGE));
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.SEO_SUMMARY)
@@ -64,7 +64,7 @@ public class Indicator extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.TAXONOMY)
     public String[] getKeys() {
-        return getProperty(PropertyKeys.TAXONOMY);
+        return getMultipleProperty(PropertyKeys.TAXONOMY);
     }
 
     public Map<String, String> getTaxonomyList() {
@@ -73,7 +73,7 @@ public class Indicator extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.ASSURANCE_DATE)
     public Calendar getAssuranceDate() {
-        return getProperty(PropertyKeys.ASSURANCE_DATE);
+        return getSingleProperty(PropertyKeys.ASSURANCE_DATE);
     }
 
     public boolean hasAttachments() {

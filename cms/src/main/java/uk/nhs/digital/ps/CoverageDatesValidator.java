@@ -2,96 +2,75 @@ package uk.nhs.digital.ps;
 
 import static java.text.MessageFormat.format;
 
-import org.apache.wicket.model.IModel;
-import org.hippoecm.frontend.editor.validator.plugins.AbstractCmsValidator;
-import org.hippoecm.frontend.model.JcrNodeModel;
-import org.hippoecm.frontend.plugin.IPluginContext;
-import org.hippoecm.frontend.plugin.config.IPluginConfig;
-import org.hippoecm.frontend.validation.IFieldValidator;
 import org.hippoecm.frontend.validation.ValidationException;
-import org.hippoecm.frontend.validation.Violation;
+import org.onehippo.cms.services.validation.api.ValidationContext;
+import org.onehippo.cms.services.validation.api.Validator;
+import org.onehippo.cms.services.validation.api.Violation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Calendar;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Date;
+import java.util.Optional;
+import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 
-public class CoverageDatesValidator extends AbstractCmsValidator {
+public class CoverageDatesValidator implements Validator<Date> {
 
-    private static final String SUPPORTED_FIELD_TYPE_NAME = "CalendarDate";
+    private static final Logger LOGGER = LoggerFactory
+        .getLogger(CoverageDatesValidator.class);
+
     private static final String HIPPO_COVERAGE_START_PROPERTY_NAME = "publicationsystem:CoverageStart";
     private static final String HIPPO_COVERAGE_END_PROPERTY_NAME = "publicationsystem:CoverageEnd";
     private static final String HIPPO_NOMINAL_DATE_PROPERTY_NAME = "publicationsystem:NominalDate";
 
-    @SuppressWarnings("WeakerAccess") // Hippo CMS requires the constructor to be public
-    public CoverageDatesValidator(final IPluginContext pluginContext, final IPluginConfig pluginConfig) {
-        super(pluginContext, pluginConfig);
-    }
-
     @Override
-    public void preValidation(IFieldValidator fieldValidator) throws ValidationException {
+    public Optional<Violation> validate(ValidationContext context, Date value) {
+        final Node parentNode = context.getParentNode();
 
-        final String actualFieldTypeName = fieldValidator.getFieldDescriptor().getTypeDescriptor().getName();
-
-        if (!SUPPORTED_FIELD_TYPE_NAME.equals(actualFieldTypeName)) {
-            throw new ValidationException(format(
-                "Cannot validate field ''{0}'' of type ''{1}''. This validator only supports fields of type ''{2}''.",
-                fieldValidator.getFieldDescriptor().getPath(),
-                actualFieldTypeName,
-                SUPPORTED_FIELD_TYPE_NAME
-            ));
-        }
-    }
-
-    @Override
-    public Set<Violation> validate(final IFieldValidator fieldValidator,
-                                   final JcrNodeModel documentModel,
-                                   final IModel coverageDateFieldModel) throws ValidationException {
-
-        final Set<Violation> violations = new HashSet<>();
-
-        // get dates
-        final Calendar start = getDateValue(documentModel, HIPPO_COVERAGE_START_PROPERTY_NAME);
-        final Calendar end = getDateValue(documentModel, HIPPO_COVERAGE_END_PROPERTY_NAME);
-        final Calendar nominal = getDateValue(documentModel, HIPPO_NOMINAL_DATE_PROPERTY_NAME);
-
-        // coverageEnd but no coverageStart
-        if (!isHippoEmptyDate(end) && isHippoEmptyDate(start)) {
-            violations.add(fieldValidator.newValueViolation(documentModel, getTranslation("no-start-provided")));
-        }
-
-        // coverageStart but no coverageEnd
-        if (!isHippoEmptyDate(start) && isHippoEmptyDate(end)) {
-            violations.add(fieldValidator.newValueViolation(documentModel, getTranslation("no-end-provided")));
-        }
-
-        if (!isHippoEmptyDate(start) && !isHippoEmptyDate(end)) {
-
-            // coverageEnd is before coverageStart
-            if (end.before(start)) {
-                violations.add(fieldValidator.newValueViolation(documentModel, getTranslation("end-before-start")));
-            }
-
-            // coverage dates CANNOT BE AFTER Publication Date
-            if (!isHippoEmptyDate(nominal)
-                && (start.after(nominal) || end.after(nominal))) {
-                violations.add(fieldValidator.newValueViolation(documentModel, getTranslation("dates-after-nominal")));
-            }
-        }
-
-        return violations;
-    }
-
-    private Calendar getDateValue(final JcrNodeModel documentModel, String propertyName) throws ValidationException {
         try {
-            return documentModel.getNode().getProperty(propertyName).getDate();
+            final Calendar start = getDateValue(parentNode, HIPPO_COVERAGE_START_PROPERTY_NAME);
+            final Calendar end = getDateValue(parentNode, HIPPO_COVERAGE_END_PROPERTY_NAME);
+            final Calendar nominal = getDateValue(parentNode, HIPPO_NOMINAL_DATE_PROPERTY_NAME);
+
+            // coverageEnd but no coverageStart
+            if (!isHippoEmptyDate(end) && isHippoEmptyDate(start)) {
+                return Optional.of(context.createViolation("no-start-provided"));
+            }
+
+            // coverageStart but no coverageEnd
+            if (!isHippoEmptyDate(start) && isHippoEmptyDate(end)) {
+                return Optional.of(context.createViolation("no-end-provided"));
+            }
+
+            if (!isHippoEmptyDate(start) && !isHippoEmptyDate(end)) {
+                // coverageEnd is before coverageStart
+                if (end.before(start)) {
+                    return Optional.of(context.createViolation("end-before-start"));
+                }
+
+                // coverage dates CANNOT BE AFTER Publication Date
+                if (!isHippoEmptyDate(nominal)
+                    && (start.after(nominal) || end.after(nominal))) {
+                    return Optional.of(context.createViolation("dates-after-nominal"));
+                }
+            }
+        } catch (ValidationException e) {
+            LOGGER.error("Error occurred during validation ", e);
+        }
+
+        return Optional.empty();
+    }
+
+    private Calendar getDateValue(final Node documentModel, String propertyName) throws ValidationException {
+        try {
+            return documentModel.getProperty(propertyName).getDate();
         } catch (final RepositoryException repositoryException) {
             throw new ValidationException(format("Failed to read field ''{0}'' value", propertyName));
         }
     }
 
     private boolean isHippoEmptyDate(final Calendar date) {
-        // Hippo empty dates are stored as 0001-01-01T12:00:00Z
         return date.get(Calendar.YEAR) == 1 && date.get(Calendar.MONTH) == 0 && date.get(Calendar.DAY_OF_MONTH) == 1;
     }
 }

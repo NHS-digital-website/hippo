@@ -20,7 +20,7 @@ public class ThreatUpdate extends HippoCompound {
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:title")
     public String getTitle() {
-        return getProperty("website:title");
+        return getSingleProperty("website:title");
     }
 
     @HippoEssentialsGenerated(internalName = "website:content")
@@ -40,7 +40,7 @@ public class ThreatUpdate extends HippoCompound {
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:date")
     public Calendar getDate() {
-        return getProperty("website:date");
+        return getSingleProperty("website:date");
     }
 
 }

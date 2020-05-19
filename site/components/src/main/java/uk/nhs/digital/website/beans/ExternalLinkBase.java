@@ -15,7 +15,7 @@ public class ExternalLinkBase extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:link")
     public String getLink() {
-        return getProperty("website:link");
+        return getSingleProperty("website:link");
     }
 
 }

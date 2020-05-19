@@ -30,7 +30,7 @@ definitions:
           /headingLevel:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: main=Main heading,sub=Sub heading
+              selectable.options: Main heading,Sub heading
             caption: Heading Level
             field: headingLevel
             hint: ''
@@ -61,9 +61,12 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Modules
+            compoundList: website:statisticsItem,website:statisticsFeedItem
+            contentPickerType: links
             field: modules
+            hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
@@ -76,7 +79,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             hipposysedit:validators:
-            - non-empty
             - required
             jcr:primaryType: hipposysedit:field
           /colourScheme:
@@ -87,7 +89,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             hipposysedit:validators:
-            - non-empty
             - required
             jcr:primaryType: hipposysedit:field
           /heading:
@@ -109,12 +110,13 @@ definitions:
             hipposysedit:type: StaticDropdown
             jcr:primaryType: hipposysedit:field
           /modules:
-            hipposysedit:mandatory: false
             hipposysedit:multiple: true
             hipposysedit:ordered: true
             hipposysedit:path: website:modules
-            hipposysedit:primary: false
-            hipposysedit:type: website:statisticsItem
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
+            - required
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
@@ -134,7 +136,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             hipposysedit:validators:
-            - non-empty
             - required
             jcr:primaryType: hipposysedit:field
           /colourScheme:
@@ -145,7 +146,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             hipposysedit:validators:
-            - non-empty
             - required
             jcr:primaryType: hipposysedit:field
           /heading:
@@ -169,12 +169,13 @@ definitions:
             - optional
             jcr:primaryType: hipposysedit:field
           /modules:
-            hipposysedit:mandatory: false
             hipposysedit:multiple: true
             hipposysedit:ordered: true
-            hipposysedit:path: website:modules
-            hipposysedit:primary: false
-            hipposysedit:type: website:statisticsItem
+            hipposysedit:path: website:items
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
+            - required
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
@@ -188,50 +189,7 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          /website:modules:
-            /website:furtherQualifyingInformation:
-              hippostd:content: ''
-              jcr:primaryType: hippostd:html
-            /website:headlineDescription:
-              hippostd:content: ''
-              jcr:primaryType: hippostd:html
-            /website:html:
-              hippostd:content: ''
-              jcr:primaryType: hippostd:html
-            /website:html_:
-              hippostd:content: ''
-              jcr:primaryType: hippostd:html
-            jcr:primaryType: website:statisticsItem
-            website:number: ''
-            website:prefix: none
-            website:suffix: none
-            website:trend: none
           jcr:primaryType: website:statistics
-          website:animation: animated
-          website:colourScheme: single
-          website:heading: ''
-        /hipposysedit:prototype[2]:
-          /website:modules:
-            /website:furtherQualifyingInformation:
-              hippostd:content: ''
-              jcr:primaryType: hippostd:html
-            /website:headlineDescription:
-              hippostd:content: ''
-              jcr:primaryType: hippostd:html
-            /website:html:
-              hippostd:content: ''
-              jcr:primaryType: hippostd:html
-            /website:html_:
-              hippostd:content: ''
-              jcr:primaryType: hippostd:html
-            jcr:primaryType: website:statisticsItem
-            website:number: ''
-            website:prefix: none
-            website:suffix: none
-            website:trend: none
-          jcr:mixinTypes:
-          - hippostd:relaxed
-          jcr:primaryType: nt:unstructured
           website:animation: animated
           website:colourScheme: single
           website:heading: ''

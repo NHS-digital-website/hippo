@@ -11,7 +11,7 @@ public class TeamMember extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:roleinteam")
     public String getRoleInTeam() {
-        return getProperty("website:roleinteam");
+        return getSingleProperty("website:roleinteam");
     }
 
     @HippoEssentialsGenerated(internalName = "website:person")

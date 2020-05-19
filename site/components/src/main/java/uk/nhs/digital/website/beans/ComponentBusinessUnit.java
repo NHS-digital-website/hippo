@@ -21,7 +21,7 @@ public class ComponentBusinessUnit extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:interimappointment")
     public Boolean getInterimappointment() {
-        return getProperty("website:interimappointment");
+        return getSingleProperty("website:interimappointment");
     }
 
 }

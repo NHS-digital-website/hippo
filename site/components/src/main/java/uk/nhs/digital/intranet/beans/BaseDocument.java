@@ -10,31 +10,31 @@ import java.util.Date;
 public abstract class BaseDocument extends HippoDocument {
 
     public String getTitle() {
-        return getProperty("intranet:title");
+        return getSingleProperty("intranet:title");
     }
 
     public String getShortsummary() {
-        return getProperty("intranet:shortsummary");
+        return getSingleProperty("intranet:shortsummary");
     }
 
     public Date getLastModified() {
-        return ((Calendar) getProperty("hippostdpubwf:lastModificationDate")).getTime();
+        return ((Calendar) getSingleProperty("hippostdpubwf:lastModificationDate")).getTime();
     }
 
     public Date getCreationDate() {
-        return ((Calendar) getProperty("hippostdpubwf:creationDate")).getTime();
+        return ((Calendar) getSingleProperty("hippostdpubwf:creationDate")).getTime();
     }
 
     public String getCreatedBy() {
-        return getProperty("hippostdpubwf:createdBy");
+        return getSingleProperty("hippostdpubwf:createdBy");
     }
 
     public String[] getKeys() {
-        return getProperty("hippotaxonomy:keys");
+        return getMultipleProperty("hippotaxonomy:keys");
     }
 
     public String[] getTopics() {
-        return getProperty("common:SearchableTags");
+        return getMultipleProperty("common:SearchableTags");
     }
 
     public abstract String getDocType();

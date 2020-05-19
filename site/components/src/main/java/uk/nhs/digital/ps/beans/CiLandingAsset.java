@@ -14,7 +14,7 @@ public class CiLandingAsset extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:title")
     public String getTitle() {
-        return getProperty("publicationsystem:title");
+        return getSingleProperty("publicationsystem:title");
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:content")

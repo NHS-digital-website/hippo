@@ -9,12 +9,12 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 public class RelatedLink extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "publicationsystem:linkText")
     public String getLinkText() {
-        return getProperty("publicationsystem:linkText", getLinkUrl());
+        return getSingleProperty("publicationsystem:linkText", getLinkUrl());
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:linkUrl")
     public String getLinkUrl() {
-        return getProperty("publicationsystem:linkUrl");
+        return getSingleProperty("publicationsystem:linkUrl");
     }
 
     public String getSectionType() {

@@ -15,57 +15,57 @@ public class PersonalInfo extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:firstname")
     public String getFirstname() {
-        return getProperty("website:firstname");
+        return getSingleProperty("website:firstname");
     }
 
     @HippoEssentialsGenerated(internalName = "website:lastname")
     public String getLastname() {
-        return getProperty("website:lastname");
+        return getSingleProperty("website:lastname");
     }
 
     @HippoEssentialsGenerated(internalName = "website:middlenames")
     public String getMiddlenames() {
-        return getProperty("website:middlenames");
+        return getSingleProperty("website:middlenames");
     }
 
     @HippoEssentialsGenerated(internalName = "website:pronunciation")
     public String getPronunciation() {
-        return getProperty("website:pronunciation");
+        return getSingleProperty("website:pronunciation");
     }
 
     @HippoEssentialsGenerated(internalName = "website:preferredname")
     public String getPreferredname() {
-        return getProperty("website:preferredname");
+        return getSingleProperty("website:preferredname");
     }
 
     @HippoEssentialsGenerated(internalName = "website:gender")
     public String getGender() {
-        return getProperty("website:gender");
+        return getSingleProperty("website:gender");
     }
 
     @HippoEssentialsGenerated(internalName = "website:othergender")
     public String getOthergender() {
-        return getProperty("website:othergender");
+        return getSingleProperty("website:othergender");
     }
 
     @HippoEssentialsGenerated(internalName = "website:honorific")
     public String getHonorific() {
-        return getProperty("website:honorific");
+        return getSingleProperty("website:honorific");
     }
 
     @HippoEssentialsGenerated(internalName = "website:otherhonorific")
     public String getOtherhonorific() {
-        return getProperty("website:otherhonorific");
+        return getSingleProperty("website:otherhonorific");
     }
 
     @HippoEssentialsGenerated(internalName = "website:preferredpronouns")
     public String getPreferredpronouns() {
-        return getProperty("website:preferredpronouns");
+        return getSingleProperty("website:preferredpronouns");
     }
 
     @HippoEssentialsGenerated(internalName = "website:otherpreferedpronouns")
     public String getOtherpreferedpronouns() {
-        return getProperty("website:otherpreferedpronouns");
+        return getSingleProperty("website:otherpreferedpronouns");
     }
 
 }

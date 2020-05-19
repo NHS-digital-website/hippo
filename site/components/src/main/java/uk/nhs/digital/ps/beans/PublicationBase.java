@@ -111,12 +111,12 @@ public abstract class PublicationBase extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.TAXONOMY)
     public String[] getKeys() {
-        return getPropertyIfPermitted(PropertyKeys.TAXONOMY);
+        return getPropertyIfPermittedMultiple(PropertyKeys.TAXONOMY);
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.INFORMATION_TYPE)
     public String[] getInformationType() {
-        return getPropertyIfPermitted(PropertyKeys.INFORMATION_TYPE);
+        return getPropertyIfPermittedMultiple(PropertyKeys.INFORMATION_TYPE);
     }
 
     public List<String> getFullTaxonomyList() {
@@ -140,7 +140,7 @@ public abstract class PublicationBase extends BaseDocument {
      */
     public RestrictableDate getNominalPublicationDate() {
         if (nominalPublicationDate == null) {
-            nominalPublicationDate = Optional.ofNullable(getProperty(PropertyKeys.NOMINAL_DATE))
+            nominalPublicationDate = Optional.ofNullable(getSingleProperty(PropertyKeys.NOMINAL_DATE))
                 .map(object -> (Calendar)object)
                 .map(this::nominalPublicationDateCalendarToRestrictedDate)
                 .orElse(null);
@@ -150,32 +150,32 @@ public abstract class PublicationBase extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.COVERAGE_START)
     public Calendar getCoverageStart() {
-        return getPropertyIfPermitted(PropertyKeys.COVERAGE_START);
+        return getPropertyIfPermittedSingle(PropertyKeys.COVERAGE_START);
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.COVERAGE_END)
     public Calendar getCoverageEnd() {
-        return getPropertyIfPermitted(PropertyKeys.COVERAGE_END);
+        return getPropertyIfPermittedSingle(PropertyKeys.COVERAGE_END);
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.GEOGRAPHIC_COVERAGE)
     public String[] getGeographicCoverage() {
-        return geographicCoverageValuesToRegionValue(getPropertyIfPermitted(PropertyKeys.GEOGRAPHIC_COVERAGE));
+        return geographicCoverageValuesToRegionValue(getPropertyIfPermittedMultiple(PropertyKeys.GEOGRAPHIC_COVERAGE));
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.GRANULARITY)
     public String[] getGranularity() {
-        return getPropertyIfPermitted(PropertyKeys.GRANULARITY);
+        return getPropertyIfPermittedMultiple(PropertyKeys.GRANULARITY);
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.ADMINISTRATIVE_SOURCES)
     public String getAdministrativeSources() {
-        return getPropertyIfPermitted(PropertyKeys.ADMINISTRATIVE_SOURCES);
+        return getPropertyIfPermittedSingle(PropertyKeys.ADMINISTRATIVE_SOURCES);
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.TITLE)
     public String getTitle() {
-        return getPropertyIfPermitted(PropertyKeys.TITLE);
+        return getPropertyIfPermittedSingle(PropertyKeys.TITLE);
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.SEO_SUMMARY)
@@ -184,7 +184,7 @@ public abstract class PublicationBase extends BaseDocument {
     }
 
     public boolean isPubliclyAccessible() {
-        return getPropertyIfPermitted(PropertyKeys.PUBLICLY_ACCESSIBLE);
+        return getPropertyIfPermittedSingle(PropertyKeys.PUBLICLY_ACCESSIBLE);
     }
 
     @HippoEssentialsGenerated(internalName = PropertyKeys.RELATED_LINKS)

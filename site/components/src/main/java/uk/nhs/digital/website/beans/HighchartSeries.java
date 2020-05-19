@@ -9,11 +9,11 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 public class HighchartSeries extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "website:type")
     public String getType() {
-        return getProperty("website:type");
+        return getSingleProperty("website:type");
     }
 
     @HippoEssentialsGenerated(internalName = "website:name")
     public String getName() {
-        return getProperty("website:name");
+        return getSingleProperty("website:name");
     }
 }

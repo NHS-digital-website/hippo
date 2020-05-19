@@ -39,10 +39,17 @@ public abstract class BaseDocument extends HippoDocument {
         return getChildBeansByName(propertyName, beanMappingClass);
     }
 
-    protected <T> T getPropertyIfPermitted(final String propertyKey) {
+    protected <T> T getPropertyIfPermittedSingle(final String propertyKey) {
         assertPropertyPermitted(propertyKey);
 
-        return getProperty(propertyKey);
+        return getSingleProperty(propertyKey);
+    }
+
+
+    protected <T> T[] getPropertyIfPermittedMultiple(final String propertyKey) {
+        assertPropertyPermitted(propertyKey);
+
+        return getMultipleProperty(propertyKey);
     }
 
     protected void assertPropertyPermitted(String propertyName) {
@@ -73,6 +80,6 @@ public abstract class BaseDocument extends HippoDocument {
     }
 
     public Date getLastModified() {
-        return ((Calendar) getProperty("hippostdpubwf:lastModificationDate")).getTime();
+        return ((Calendar) getSingleProperty("hippostdpubwf:lastModificationDate")).getTime();
     }
 }

@@ -17,7 +17,7 @@ import java.util.List;
 public class News extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:creditbanner")
     public String getCreditBanner() {
-        return getProperty("website:creditbanner");
+        return getSingleProperty("website:creditbanner");
     }
 
     @HippoEssentialsGenerated(internalName = "website:leadimagesection")
@@ -57,22 +57,22 @@ public class News extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:publisheddatetime")
     public Calendar getPublisheddatetime() {
-        return getProperty("website:publisheddatetime");
+        return getSingleProperty("website:publisheddatetime");
     }
 
     @HippoEssentialsGenerated(internalName = "website:twitterhashtag")
     public String[] getTwitterHashtag() {
-        return getProperty("website:twitterhashtag");
+        return getMultipleProperty("website:twitterhashtag");
     }
 
     @HippoEssentialsGenerated(internalName = "website:theme")
     public String getTheme() {
-        return getProperty("website:theme");
+        return getSingleProperty("website:theme");
     }
 
     @HippoEssentialsGenerated(internalName = "website:type")
     public String getType() {
-        return getProperty("website:type");
+        return getSingleProperty("website:type");
     }
 
     @HippoEssentialsGenerated(internalName = "website:relateddocuments")
@@ -82,17 +82,17 @@ public class News extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:display")
     public Boolean getDisplay() {
-        return getProperty("website:display");
+        return getSingleProperty("website:display");
     }
 
     @HippoEssentialsGenerated(internalName = "website:prioritynews")
     public Boolean getPrioritynews() {
-        return getProperty("website:prioritynews");
+        return getSingleProperty("website:prioritynews");
     }
 
     @HippoEssentialsGenerated(internalName = "common:SearchableTags")
     public String[] getTopics() {
-        return getProperty("common:SearchableTags");
+        return getMultipleProperty("common:SearchableTags");
     }
 
     public List<News> getLatestNews() throws QueryException {

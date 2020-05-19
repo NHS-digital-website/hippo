@@ -11,27 +11,27 @@ import java.util.List;
 public class DynamicChartSection extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "website:title")
     public String getTitle() {
-        return getProperty("website:title");
+        return getSingleProperty("website:title");
     }
 
     @HippoEssentialsGenerated(internalName = "website:type")
     public String getType() {
-        return getProperty("website:type");
+        return getSingleProperty("website:type");
     }
 
     @HippoEssentialsGenerated(internalName = "website:url")
     public String getUrl() {
-        return getProperty("website:url");
+        return getSingleProperty("website:url");
     }
 
     @HippoEssentialsGenerated(internalName = "website:yTitle")
     public String getYTitle() {
-        return getProperty("website:yTitle");
+        return getSingleProperty("website:yTitle");
     }
 
     @HippoEssentialsGenerated(internalName = "website:xTitle")
     public String getXTitle() {
-        return getProperty("website:xTitle");
+        return getSingleProperty("website:xTitle");
     }
 
     @HippoEssentialsGenerated(internalName = "website:highchartseries")

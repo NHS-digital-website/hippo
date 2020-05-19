@@ -16,12 +16,12 @@ public class Assetlink extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:filename")
     public String getFilename() {
-        return getProperty("website:filename");
+        return getSingleProperty("website:filename");
     }
 
     // convienent method for ordering using the flat_block
     public String getTitle() {
-        return getProperty("website:filename");
+        return getSingleProperty("website:filename");
     }
 
     @HippoEssentialsGenerated(internalName = "website:link")

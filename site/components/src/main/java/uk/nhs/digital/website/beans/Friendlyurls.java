@@ -9,11 +9,11 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 public class Friendlyurls extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "website:alternativeurls")
     public String[] getAlternativeurls() {
-        return getProperty("website:alternativeurls");
+        return getMultipleProperty("website:alternativeurls");
     }
 
     @HippoEssentialsGenerated(internalName = "website:destination")
     public String getDestination() {
-        return getProperty("website:destination");
+        return getSingleProperty("website:destination");
     }
 }

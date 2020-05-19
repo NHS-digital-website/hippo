@@ -15,12 +15,12 @@ public class DefinedTerm extends HippoCompound {
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:term")
     public String getTerm() {
-        return getProperty("website:term");
+        return getSingleProperty("website:term");
     }
 
     @JsonProperty
     @HippoEssentialsGenerated(internalName = "website:colorrgb")
     public String getColorrgb() {
-        return getProperty("website:colorrgb");
+        return getSingleProperty("website:colorrgb");
     }
 }

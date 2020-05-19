@@ -11,17 +11,17 @@ public class OrganisationCode extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:type")
     public String getType() {
-        return getProperty("website:type");
+        return getSingleProperty("website:type");
     }
 
     @HippoEssentialsGenerated(internalName = "website:code")
     public String getCode() {
-        return getProperty("website:code");
+        return getSingleProperty("website:code");
     }
 
     @HippoEssentialsGenerated(internalName = "website:url")
     public String getUrl() {
-        return getProperty("website:url");
+        return getSingleProperty("website:url");
     }
 
 }

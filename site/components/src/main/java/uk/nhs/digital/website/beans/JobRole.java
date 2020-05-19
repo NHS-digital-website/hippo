@@ -15,7 +15,7 @@ public class JobRole extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:genericjobrole")
     public String getGenericjobrole() {
-        return getProperty("website:genericjobrole");
+        return getSingleProperty("website:genericjobrole");
     }
 
     @HippoEssentialsGenerated(internalName = "website:businessunit")

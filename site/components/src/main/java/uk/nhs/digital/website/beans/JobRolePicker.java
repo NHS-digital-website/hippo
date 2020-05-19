@@ -16,7 +16,7 @@ public class JobRolePicker extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:selection", allowModifications = false)
     public String getSelection() {
-        return getProperty("website:selection");
+        return getSingleProperty("website:selection");
     }
 
 }

@@ -7,11 +7,11 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 public class PriorityAction extends CommonFieldsBean {
 
     public String getAction() {
-        return getProperty("website:action");
+        return getSingleProperty("website:action");
     }
 
     public String getAdditionalInformation() {
-        return getProperty("website:additionalinformation");
+        return getSingleProperty("website:additionalinformation");
     }
 
     public HippoBean getLink() {

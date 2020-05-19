@@ -16,11 +16,11 @@ public class Archive extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:Title")
     public String getTitle() {
-        return getProperty("publicationsystem:Title");
+        return getSingleProperty("publicationsystem:Title");
     }
 
     @HippoEssentialsGenerated(internalName = "publicationsystem:Summary")
     public StructuredText getSummary() {
-        return new StructuredText(getProperty("publicationsystem:Summary"));
+        return new StructuredText(getSingleProperty("publicationsystem:Summary"));
     }
 }

@@ -25,7 +25,7 @@ import java.util.List;
 public class Task extends BaseDocument implements IntranetSearchResult {
 
     public String[] getAlternativeNames() {
-        return getProperty("intranet:alternativenames");
+        return getMultipleProperty("intranet:alternativenames");
     }
 
     public HippoHtml getIntroduction() {
@@ -46,11 +46,11 @@ public class Task extends BaseDocument implements IntranetSearchResult {
     }
 
     public Calendar getReviewDate() {
-        return getProperty("intranet:reviewdate");
+        return getSingleProperty("intranet:reviewdate");
     }
 
     public Calendar getExpiryDate() {
-        return getProperty("intranet:expirydate");
+        return getSingleProperty("intranet:expirydate");
     }
 
     public List<PriorityAction> getPriorityActions() {
@@ -63,7 +63,7 @@ public class Task extends BaseDocument implements IntranetSearchResult {
     }
 
     public Boolean getPriorityAction() {
-        return getProperty("intranet:prioritytask");
+        return getSingleProperty("intranet:prioritytask");
     }
 
     public BannerControl getBannercontrols() {

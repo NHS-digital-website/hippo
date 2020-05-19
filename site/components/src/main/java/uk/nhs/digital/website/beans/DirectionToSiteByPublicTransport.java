@@ -14,7 +14,7 @@ public class DirectionToSiteByPublicTransport extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:publictransporttype")
     public String getPublictransportType() {
-        return getProperty("website:publictransporttype");
+        return getSingleProperty("website:publictransporttype");
     }
 
     @HippoEssentialsGenerated(internalName = "website:bypublictransporttext")

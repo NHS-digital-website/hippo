@@ -9,11 +9,11 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 public class ActionLink extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:actionLinkTitle")
     public String getLinkText() {
-        return getProperty("nationalindicatorlibrary:actionLinkTitle", getLinkUrl());
+        return getSingleProperty("nationalindicatorlibrary:actionLinkTitle", getLinkUrl());
     }
 
     @HippoEssentialsGenerated(internalName = "nationalindicatorlibrary:actionLinkUrl")
     public String getLinkUrl() {
-        return getProperty("nationalindicatorlibrary:actionLinkUrl");
+        return getSingleProperty("nationalindicatorlibrary:actionLinkUrl");
     }
 }

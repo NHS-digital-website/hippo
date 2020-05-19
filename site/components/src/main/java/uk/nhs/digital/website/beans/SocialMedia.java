@@ -19,17 +19,17 @@ public class SocialMedia extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:linkedinlink")
     public String getLinkedinlink() {
-        return getProperty("website:linkedinlink");
+        return getSingleProperty("website:linkedinlink");
     }
 
     @HippoEssentialsGenerated(internalName = "website:twitteruser")
     public String getTwitteruser() {
-        return getProperty("website:twitteruser");
+        return getSingleProperty("website:twitteruser");
     }
 
     @HippoEssentialsGenerated(internalName = "website:hellomynameis")
     public String getHellomynameis() {
-        return getProperty("website:hellomynameis");
+        return getSingleProperty("website:hellomynameis");
     }
 
     @HippoEssentialsGenerated(internalName = "website:twitterhashtags")

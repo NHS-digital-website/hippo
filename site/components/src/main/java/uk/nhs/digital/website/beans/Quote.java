@@ -18,17 +18,17 @@ public class Quote extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:person")
     public String getPerson() {
-        return getProperty("website:person");
+        return getSingleProperty("website:person");
     }
 
     @HippoEssentialsGenerated(internalName = "website:role")
     public String getRole() {
-        return getProperty("website:role");
+        return getSingleProperty("website:role");
     }
 
     @HippoEssentialsGenerated(internalName = "website:organisation")
     public String getOrganisation() {
-        return getProperty("website:organisation");
+        return getSingleProperty("website:organisation");
     }
 
     public String getSectionType() {

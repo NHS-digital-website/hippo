@@ -12,12 +12,12 @@ import uk.nhs.digital.indices.StickySection;
 public class Infographic extends HippoCompound implements StickySection {
     @HippoEssentialsGenerated(internalName = "website:colour")
     public String getColour() {
-        return getProperty("website:colour");
+        return getSingleProperty("website:colour");
     }
 
     @HippoEssentialsGenerated(internalName = "website:headline")
     public String getHeadline() {
-        return getProperty("website:headline");
+        return getSingleProperty("website:headline");
     }
 
     @HippoEssentialsGenerated(internalName = "website:explanatoryLine")

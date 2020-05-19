@@ -20,7 +20,7 @@ public class ApiMaster extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "hippotaxonomy:keys")
     public String[] getKeys() {
-        return getProperty("hippotaxonomy:keys");
+        return getMultipleProperty("hippotaxonomy:keys");
     }
 
     @HippoEssentialsGenerated(internalName = "website:introduction")

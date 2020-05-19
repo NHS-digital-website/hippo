@@ -22,17 +22,17 @@ public class StatusErrorCode extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:meaning")
     public String getMeaning() {
-        return getProperty("website:meaning");
+        return getSingleProperty("website:meaning");
     }
 
     @HippoEssentialsGenerated(internalName = "website:httpcode")
     public String getHttpcode() {
-        return getProperty("website:httpcode");
+        return getSingleProperty("website:httpcode");
     }
 
     @HippoEssentialsGenerated(internalName = "website:typeoferror")
     public String getTypeoferror() {
-        return getProperty("website:typeoferror");
+        return getSingleProperty("website:typeoferror");
     }
 
     public String getSectionType() {

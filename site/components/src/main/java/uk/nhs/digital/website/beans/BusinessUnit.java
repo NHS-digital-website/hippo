@@ -15,7 +15,7 @@ public class BusinessUnit extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:portfoliocode")
     public String getPortfoliocode() {
-        return getProperty("website:portfoliocode");
+        return getSingleProperty("website:portfoliocode");
     }
 
     @HippoEssentialsGenerated(internalName = "website:vision")
@@ -45,7 +45,7 @@ public class BusinessUnit extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:order")
     public String getOrder() {
-        return getProperty("website:order");
+        return getSingleProperty("website:order");
     }
 
     public List<BusinessUnit> getChildren() throws HstComponentException, QueryException {
@@ -53,7 +53,7 @@ public class BusinessUnit extends CommonFieldsBean {
         int limit = 50;
         return getRelatedDocuments(
            "website:ispartofbusinessunit/@hippo:docbase",
-           limit, 
+           limit,
            "website:order",
            "ascending",
            BusinessUnit.class,

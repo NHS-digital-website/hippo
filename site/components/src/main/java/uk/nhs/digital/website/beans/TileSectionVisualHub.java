@@ -13,7 +13,7 @@ public class TileSectionVisualHub extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:tilesectionheading")
     public String getTileSectionHeading() {
-        return getProperty("website:tilesectionheading");
+        return getSingleProperty("website:tilesectionheading");
     }
 
     @HippoEssentialsGenerated(internalName = "website:tilesectionintroduction")

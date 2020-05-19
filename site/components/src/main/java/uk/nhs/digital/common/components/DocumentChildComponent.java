@@ -25,7 +25,7 @@ public class DocumentChildComponent extends BaseGaContentComponent {
             if (item instanceof Internallink) {
                 //getting the docbase property of the link node
                 Optional docbase = item.getChildBeansByName("website:link", HippoBean.class)
-                    .stream().map(internallink -> internallink.getProperty("hippo:docbase")).findFirst();
+                    .stream().map(internallink -> internallink.getSingleProperty("hippo:docbase")).findFirst();
 
                 if (docbase.isPresent()) {
                     try {

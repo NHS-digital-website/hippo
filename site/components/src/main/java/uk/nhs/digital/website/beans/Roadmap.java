@@ -18,7 +18,7 @@ public class Roadmap extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:granularity")
     public String getGranularity() {
-        return getProperty("website:granularity");
+        return getSingleProperty("website:granularity");
     }
 
     @HippoEssentialsGenerated(internalName = "website:item")

@@ -12,7 +12,7 @@ public class PrimarySectionVisualHub extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:primarysectionheading")
     public String getPrimarySectionHeading() {
-        return getProperty("website:primarysectionheading");
+        return getSingleProperty("website:primarysectionheading");
     }
 
     @HippoEssentialsGenerated(internalName = "website:primarytilesectionlinks")

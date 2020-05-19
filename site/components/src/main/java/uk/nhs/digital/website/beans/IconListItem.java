@@ -19,7 +19,7 @@ public class IconListItem extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:heading")
     public String getHeading() {
-        return getProperty("website:heading");
+        return getSingleProperty("website:heading");
     }
 
     @HippoEssentialsGenerated(internalName = "website:description")

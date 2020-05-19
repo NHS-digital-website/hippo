@@ -10,17 +10,17 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 public class CycleParking extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "website:available")
     public boolean getAvailable() {
-        return getProperty("website:available");
+        return getSingleProperty("website:available");
     }
 
     @HippoEssentialsGenerated(internalName = "website:numberofspaces")
     public Long getNumberofspaces() {
-        return getProperty("website:numberofspaces");
+        return getSingleProperty("website:numberofspaces");
     }
 
     @HippoEssentialsGenerated(internalName = "website:details")
     public String getDetails() {
-        return getProperty("website:details");
+        return getSingleProperty("website:details");
     }
 
     public String getSectionType() {

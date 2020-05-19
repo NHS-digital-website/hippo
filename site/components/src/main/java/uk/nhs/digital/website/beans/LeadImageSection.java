@@ -17,7 +17,7 @@ public class LeadImageSection extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:alttext", allowModifications = false)
     public String getAlttext() {
-        return getProperty("website:alttext");
+        return getSingleProperty("website:alttext");
     }
 
     @HippoEssentialsGenerated(internalName = "website:imagecaption", allowModifications = false)

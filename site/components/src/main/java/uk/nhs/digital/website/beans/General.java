@@ -28,22 +28,22 @@ public class General extends CommonFieldsBean {
 
     @HippoEssentialsGenerated(internalName = "website:type")
     public String getType() {
-        return getProperty("website:type");
+        return getSingleProperty("website:type");
     }
 
     @HippoEssentialsGenerated(internalName = "website:gossid")
     public Long getGossid() {
-        return getProperty("website:gossid");
+        return getSingleProperty("website:gossid");
     }
 
     @HippoEssentialsGenerated(internalName = "website:htmlCode")
     public String getHtmlCode() {
-        return getProperty("website:htmlCode");
+        return getSingleProperty("website:htmlCode");
     }
 
     @HippoEssentialsGenerated(internalName = "website:metadata")
     public String[] getMetadata() {
-        return getProperty("website:metadata");
+        return getMultipleProperty("website:metadata");
     }
 
     @HippoEssentialsGenerated(internalName = "website:pageicon")

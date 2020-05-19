@@ -15,16 +15,16 @@ public class ContactDetail extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:name", allowModifications = false)
     public String getName() {
-        return getProperty("website:name");
+        return getSingleProperty("website:name");
     }
 
     @HippoEssentialsGenerated(internalName = "website:emailaddress", allowModifications = false)
     public String getEmailaddress() {
-        return getProperty("website:emailaddress");
+        return getSingleProperty("website:emailaddress");
     }
 
     @HippoEssentialsGenerated(internalName = "website:phonenumber", allowModifications = false)
     public String getPhonenumber() {
-        return getProperty("website:phonenumber");
+        return getSingleProperty("website:phonenumber");
     }
 }

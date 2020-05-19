@@ -11,11 +11,11 @@ import java.util.Calendar;
 public class Interval extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "website:enddatetime")
     public Calendar getEnddatetime() {
-        return getProperty("website:enddatetime");
+        return getSingleProperty("website:enddatetime");
     }
 
     @HippoEssentialsGenerated(internalName = "website:startdatetime")
     public Calendar getStartdatetime() {
-        return getProperty("website:startdatetime");
+        return getSingleProperty("website:startdatetime");
     }
 }

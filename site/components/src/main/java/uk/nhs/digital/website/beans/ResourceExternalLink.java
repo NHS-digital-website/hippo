@@ -9,7 +9,7 @@ public class ResourceExternalLink extends ExternalLinkBase {
 
     @HippoEssentialsGenerated(internalName = "website:usedexternalservice")
     public String getExternalService() {
-        return getProperty("website:usedexternalservice");
+        return getSingleProperty("website:usedexternalservice");
     }
 
 }

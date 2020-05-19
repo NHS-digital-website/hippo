@@ -96,7 +96,7 @@ definitions:
             hipposysedit:primary: true
             hipposysedit:type: String
             hipposysedit:validators:
-            - html
+            - non-empty-html
             jcr:primaryType: hipposysedit:field
           /links:
             hipposysedit:path: '*'

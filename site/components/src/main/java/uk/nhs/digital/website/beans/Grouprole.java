@@ -12,7 +12,7 @@ public class Grouprole extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:groupposition")
     public String getGroupposition() {
-        return getProperty("website:groupposition");
+        return getSingleProperty("website:groupposition");
     }
 
     @HippoEssentialsGenerated(internalName = "website:role")

@@ -70,6 +70,7 @@ definitions:
           /Title:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              maxlength: '250'
             caption: Title
             field: title
             hint: ''
@@ -370,8 +371,6 @@ definitions:
             hipposysedit:path: publicationsystem:Granularity
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
-            hipposysedit:validators:
-            - publicationsystem-dropdown-granularity
             jcr:primaryType: hipposysedit:field
           /html:
             hipposysedit:mandatory: false
@@ -388,8 +387,6 @@ definitions:
             hipposysedit:path: publicationsystem:InformationType
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
-            hipposysedit:validators:
-            - publicationsystem-dropdown-information-type
             jcr:primaryType: hipposysedit:field
           /interactivetool:
             hipposysedit:mandatory: false
@@ -476,7 +473,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Text
             hipposysedit:validators:
-            - non-empty
             - required
             jcr:primaryType: hipposysedit:field
           /survey:
@@ -497,9 +493,7 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Text
             hipposysedit:validators:
-            - non-empty
             - required
-            - publicationsystem-title
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:

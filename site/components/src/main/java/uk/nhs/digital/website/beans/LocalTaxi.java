@@ -10,12 +10,12 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 public class LocalTaxi extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "website:taxicompanyname")
     public String getTaxicompanyname() {
-        return getProperty("website:taxicompanyname");
+        return getSingleProperty("website:taxicompanyname");
     }
 
     @HippoEssentialsGenerated(internalName = "website:taxitelephonenumber")
     public String getTaxitelephonenumber() {
-        return getProperty("website:taxitelephonenumber");
+        return getSingleProperty("website:taxitelephonenumber");
     }
 
     public String getSectionType() {

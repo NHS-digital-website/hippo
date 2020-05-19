@@ -19,22 +19,22 @@ public class EffectiveDate extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:status")
     public String getStatus() {
-        return getProperty("website:status");
+        return getSingleProperty("website:status");
     }
 
     @HippoEssentialsGenerated(internalName = "website:startdate")
     public Calendar getStartDate() {
-        return getProperty("website:startdate");
+        return getSingleProperty("website:startdate");
     }
 
     @HippoEssentialsGenerated(internalName = "website:enddate")
     public Calendar getEndDate() {
-        return getProperty("website:enddate");
+        return getSingleProperty("website:enddate");
     }
 
     @HippoEssentialsGenerated(internalName = "website:datescale")
     public String getDateScale() {
-        return getProperty("website:datescale");
+        return getSingleProperty("website:datescale");
     }
 
     public List<String> getMethodNames(String date1, String date2) {

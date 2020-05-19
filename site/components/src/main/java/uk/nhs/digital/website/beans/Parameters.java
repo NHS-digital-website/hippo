@@ -11,22 +11,22 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 public class Parameters extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "website:name")
     public String getName() {
-        return getProperty("website:name");
+        return getSingleProperty("website:name");
     }
 
     @HippoEssentialsGenerated(internalName = "website:parametertype")
     public String getParametertype() {
-        return getProperty("website:parametertype");
+        return getSingleProperty("website:parametertype");
     }
 
     @HippoEssentialsGenerated(internalName = "website:ismandatory")
     public Boolean getIsmandatory() {
-        return getProperty("website:ismandatory");
+        return getSingleProperty("website:ismandatory");
     }
 
     @HippoEssentialsGenerated(internalName = "website:path")
     public String getPath() {
-        return getProperty("website:path");
+        return getSingleProperty("website:path");
     }
 
     @HippoEssentialsGenerated(internalName = "website:description")
