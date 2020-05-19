@@ -37,7 +37,7 @@
                 <div class="article-header__inner">
 
                      <div class="grid-row">
-                        <div class="column--two-thirds column--reset">
+                        <div class="column--three-quarters column--reset">
 
                             <span class="article-header__label">Blog</span>
 

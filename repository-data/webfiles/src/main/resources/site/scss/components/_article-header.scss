@@ -33,7 +33,7 @@
         height: auto;
 
         img {
-            max-height: 210px;
+            max-height: 160px;
 
             display: block;
             position: absolute;
@@ -60,10 +60,6 @@
 .article-header--detailed {
     @extend .article-header--with-icon-base;
 
-    .local-header__title,
-    .hr {
-        margin-top: round($gutter * 0.5);
-    }
     .grid-row-no-margin {
       @extend .grid-row;
 
@@ -74,11 +70,11 @@
 .article-header--with-icon {
     @extend .article-header--with-icon-base;
 
-    padding: $gutter * 3 0;
+    padding: $gutter * 2 0;
 
     .local-header__title{
-        margin-top: $gutter * 1.5;
-        margin-bottom: $gutter;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     .local-header__title-as-detailed{
@@ -118,15 +114,14 @@
 
 .article-header__label {
     display: block;
-    margin-top: $gutter;
 
-    @include bold-font(26);
+    @include core-font(24);
 }
 
 .article-header__subtitle {
     @include bold-font(22);
 
-    margin-top: round($gutter * 0.5);
+    margin-top: $gutter;
     margin-bottom: $gutter;
 
     p {
