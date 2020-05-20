@@ -1,9 +1,0 @@
----
-definitions:
-  config:
-    /hippo:configuration/hippo:groups/liveusers:
-      hipposys:members:
-      - liveuser
-      hipposys:securityprovider: internal
-      hipposys:system: true
-      jcr:primaryType: hipposys:group

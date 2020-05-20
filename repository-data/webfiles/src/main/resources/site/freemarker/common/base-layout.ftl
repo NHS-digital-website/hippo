@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 
     <link rel="stylesheet" href="<@hst.webfile  path="/css/style.css"/>" type="text/css"/>
-    <#if hstRequest.requestContext.cmsRequest>
+    <#if hstRequest.requestContext.channelManagerPreviewRequest>
       <link rel="stylesheet" href="<@hst.webfile  path="/css/cms-request.css"/>" type="text/css"/>
     </#if>
     <@hst.headContributions categoryExcludes="htmlBodyEnd, scripts" xhtml=true/>

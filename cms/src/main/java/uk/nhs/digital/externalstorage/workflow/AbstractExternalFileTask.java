@@ -77,7 +77,7 @@ public abstract class AbstractExternalFileTask extends AbstractDocumentTask {
         if (eventBus != null) {
             eventBus.post(new HippoWorkflowEvent()
                 .className(AbstractExternalFileTask.class.getName())
-                .methodName("errorOnPublish")
+                .action("errorOnPublish")
                 .application("cms")
                 .timestamp(System.currentTimeMillis())
                 .user(currentUser)

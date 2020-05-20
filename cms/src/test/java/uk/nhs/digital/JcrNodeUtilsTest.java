@@ -96,6 +96,7 @@ public class JcrNodeUtilsTest {
 
         final Node node = mock(Node.class);
         given(node.getProperty(expectedPropertyName)).willReturn(expectedProperty);
+        given(node.hasProperty(expectedPropertyName)).willReturn(true);
 
         // when
         final Optional<String> actualPropertyValue = JcrNodeUtils.getStringPropertyQuietly(node,
@@ -117,6 +118,7 @@ public class JcrNodeUtilsTest {
 
         final Node node = mock(Node.class);
         given(node.getProperty(any())).willThrow(repositoryException);
+        given(node.hasProperty(any())).willReturn(true);
 
         expectedException.expect(ExceptionUtils.UncheckedWrappingException.class);
         expectedException.expectCause(sameInstance(repositoryException));
@@ -175,6 +177,7 @@ public class JcrNodeUtilsTest {
 
         final Node node = mock(Node.class);
         given(node.getProperty(expectedPropertyName)).willReturn(expectedProperty);
+        given(node.hasProperty(expectedPropertyName)).willReturn(true);
 
         // when
         final Optional<Instant> actualValue =
@@ -196,6 +199,7 @@ public class JcrNodeUtilsTest {
 
         final Node node = mock(Node.class);
         given(node.getProperty(any(String.class))).willThrow(repositoryException);
+        given(node.hasProperty(any(String.class))).willReturn(true);
 
         expectedException.expect(ExceptionUtils.UncheckedWrappingException.class);
         expectedException.expectCause(sameInstance(repositoryException));

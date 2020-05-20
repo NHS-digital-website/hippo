@@ -5,6 +5,16 @@ definitions:
       .meta:residual-child-node-category: content
       hipposys:description: Users with power to unlock documents
       hipposys:members:
-      - admin
+        .meta:add-new-system-values: true
+        .meta:category: system
+        type: string
+        value:
+        - admin
       hipposys:securityprovider: internal
+      hipposys:userroles:
+        .meta:add-new-system-values: true
+        .meta:category: system
+        type: string
+        value:
+        - xm.content.admin
       jcr:primaryType: hipposys:group

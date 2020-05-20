@@ -1,9 +1,0 @@
----
-definitions:
-  config:
-    /hippo:configuration/hippo:groups/sitewriters:
-      hipposys:members:
-      - sitewriter
-      hipposys:securityprovider: internal
-      hipposys:system: true
-      jcr:primaryType: hipposys:group

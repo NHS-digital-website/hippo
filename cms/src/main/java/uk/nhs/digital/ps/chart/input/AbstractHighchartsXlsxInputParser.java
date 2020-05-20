@@ -50,11 +50,11 @@ public abstract class AbstractHighchartsXlsxInputParser implements SpecialisedHi
         throws IOException, RepositoryException;
 
     Double getDoubleValue(Cell cell) {
-        return cell.getCellTypeEnum() == CellType.STRING ? Double.valueOf(cell.getStringCellValue()) : cell.getNumericCellValue();
+        return cell.getCellType() == CellType.STRING ? Double.valueOf(cell.getStringCellValue()) : cell.getNumericCellValue();
     }
 
     String getStringValue(Cell cell) {
-        return cell.getCellTypeEnum() == CellType.STRING ? cell.getStringCellValue() : String.valueOf(cell.getNumericCellValue());
+        return cell.getCellType() == CellType.STRING ? cell.getStringCellValue() : String.valueOf(cell.getNumericCellValue());
     }
 
     private void validateSupportFor(final ChartType chartType) {
