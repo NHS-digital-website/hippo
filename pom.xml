@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>13.4.2</version>
+        <version>14.3.3</version>
         <!-- Please have a look at the property section while upgrading -->
     </parent>
 
@@ -81,13 +81,12 @@
         This behaviour is described in Maven's documentation at:
         http://maven.apache.org/guides/introduction/introduction-to-the-pom.html#project-interpolation-and-variables
         -->
-        <hippo.version>13.4.2</hippo.version>
-
+        <hippo.version>14.3.3</hippo.version>
+        <h2.database.version>1.4.199</h2.database.version>
         <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
         <local-module-deploy-dir>shared/lib</local-module-deploy-dir>
 
         <hippo.cms.locales></hippo.cms.locales>
-
 
         <!-- revision variable is set by automation tools. dev-SNAPSHOT is the
         default, local value. Please don't change it. -->
@@ -120,9 +119,11 @@
 
         <!--<tomcatDistributionUrl>https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.48/bin/apache-tomcat-8.0.48.tar.gz</tomcatDistributionUrl>-->
 
-        <forge.folderctxmenus.version>4.0.1</forge.folderctxmenus.version>
+        <forge.folderctxmenus.version>5.0.0</forge.folderctxmenus.version>
+        <bloomreach.forge.ipfilter.version>3.0.1</bloomreach.forge.ipfilter.version>
         <spring.version>5.1.14.RELEASE</spring.version>
 
+        <bloomreach.inference-engine.version>4.0.0</bloomreach.inference-engine.version>
         <org.eclipse.jetty.version>9.4.24.v20191120</org.eclipse.jetty.version>
         <com.fasterxml.jackson.version>2.11.2</com.fasterxml.jackson.version>
 
@@ -184,6 +185,13 @@
         <dependencies>
 
             <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${h2.database.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+
+            <dependency>
                 <groupId>org.onehippo.forge</groupId>
                 <artifactId>breadcrumb</artifactId>
                 <version>3.0.0</version>
@@ -234,7 +242,7 @@
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>4.12</version>
+                <version>4.13.1</version>
                 <scope>test</scope>
             </dependency>
 
@@ -288,7 +296,7 @@
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
-                <version>3.9</version>
+                <version>3.10</version>
             </dependency>
 
             <dependency>
@@ -376,7 +384,7 @@
             <dependency>
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
-                <version>1.12</version>
+                <version>1.13</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
@@ -442,7 +450,7 @@
             <dependency>
                 <groupId>org.apache.tika</groupId>
                 <artifactId>tika-core</artifactId>
-                <version>1.22</version>
+                <version>1.24.1</version>
             </dependency>
 
             <dependency>
@@ -453,7 +461,7 @@
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-collections4</artifactId>
-                <version>4.3</version>
+                <version>4.4</version>
             </dependency>
             <dependency>
                 <groupId>javax.annotation</groupId>
@@ -524,7 +532,6 @@
             <dependency>
                 <groupId>net.bytebuddy</groupId>
                 <artifactId>byte-buddy</artifactId>
-                <version>1.9.13</version>
             </dependency>
             <dependency>
                 <groupId>org.hamcrest</groupId>
@@ -564,35 +571,34 @@
             </dependency>
 
             <!-- Inference Rule Engine -->
-
             <dependency>
-                <groupId>com.onehippo.cms7</groupId>
-                <artifactId>hippo-addon-inference-engine-core</artifactId>
-                <version>${hippo-addon-inference-engine.version}</version>
+                <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
+                <artifactId>relevance-inference-engine-core</artifactId>
+                <version>${bloomreach.inference-engine.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.onehippo.cms7</groupId>
-                <artifactId>hippo-addon-inference-engine-plugin</artifactId>
-                <version>${hippo-addon-inference-engine.version}</version>
+                <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
+                <artifactId>relevance-inference-engine-plugin</artifactId>
+                <version>${bloomreach.inference-engine.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.onehippo.cms7</groupId>
-                <artifactId>hippo-addon-inference-engine-repository</artifactId>
-                <version>${hippo-addon-inference-engine.version}</version>
+                <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
+                <artifactId>relevance-inference-engine-repository</artifactId>
+                <version>${bloomreach.inference-engine.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.onehippo.cms7</groupId>
-                <artifactId>hippo-addon-inference-engine-data-collector</artifactId>
-                <version>${hippo-addon-inference-engine.version}</version>
+                <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
+                <artifactId>relevance-inference-engine-data-collector</artifactId>
+                <version>${bloomreach.inference-engine.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.onehippo.cms7</groupId>
-                <artifactId>hippo-addon-inference-engine-collector-plugin</artifactId>
-                <version>${hippo-addon-inference-engine.version}</version>
+                <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
+                <artifactId>relevance-inference-engine-collector-plugin</artifactId>
+                <version>${bloomreach.inference-engine.version}</version>
             </dependency>
 
             <dependency>
@@ -629,6 +635,18 @@
                 <version>${commonmark.version}</version>
             </dependency>
 
+            <!-- Ip Filter Plugin -->
+            <dependency>
+                <groupId>org.bloomreach.forge.ipfilter</groupId>
+                <artifactId>bloomreach-ipfilter-hst</artifactId>
+                <version>${bloomreach.forge.ipfilter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.bloomreach.forge.ipfilter</groupId>
+                <artifactId>bloomreach-ipfilter-cms</artifactId>
+                <version>${bloomreach.forge.ipfilter.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -666,7 +684,7 @@
                 <plugin>
                     <groupId>org.codehaus.gmavenplus</groupId>
                     <artifactId>gmavenplus-plugin</artifactId>
-                    <version>1.6</version>
+                    <version>1.8.0</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -781,15 +799,6 @@
                 <configuration>
                     <rules>
                         <reactorModuleConvergence/>
-                        <requireUpperBoundDeps>
-                            <excludes>
-                                <exclude>com.google.guava:guava</exclude>
-                                <exclude>org.slf4j:slf4j-api</exclude>
-                                <exclude>org.slf4j:jcl-over-slf4j</exclude>
-                                <exclude>javax.ws.rs:javax.ws.rs-api</exclude>
-                                <exclude>commons-beanutils:commons-beanutils</exclude>
-                            </excludes>
-                        </requireUpperBoundDeps>
                         <requireJavaVersion>
                             <!-- Any Java 8 version is allowed -->
                             <version>[1.8.0,1.8.1)</version>

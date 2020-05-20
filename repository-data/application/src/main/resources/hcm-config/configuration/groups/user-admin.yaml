@@ -1,9 +1,9 @@
 ---
 definitions:
   config:
-    /hippo:configuration/hippo:groups/intranet-author:
-      hipposys:description: Users with author role in Intranet and read-only in Corporate
-        Website
+    /hippo:configuration/hippo:groups/user-admin:
+      hipposys:description: Admins with CMS access who can change and create user
+        accounts
       hipposys:members:
         .meta:add-new-system-values: true
         .meta:category: system
@@ -15,11 +15,6 @@ definitions:
         .meta:category: system
         type: string
         value:
+        - xm.security.user-admin
         - xm.cms.user
-        - xm.dashboard.user
-        - xm.channel.viewer
-        - xm.project.viewer
-        - xm.content.user
-        - xm.form.user
-        - xm.report.user
       jcr:primaryType: hipposys:group

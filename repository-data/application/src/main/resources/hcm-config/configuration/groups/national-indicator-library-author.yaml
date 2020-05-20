@@ -1,9 +1,9 @@
 ---
 definitions:
   config:
-    /hippo:configuration/hippo:groups/intranet-author:
-      hipposys:description: Users with author role in Intranet and read-only in Corporate
-        Website
+    /hippo:configuration/hippo:groups/national-indicator-library-author:
+      hipposys:description: Users of the national indicator library folders who are
+        authors
       hipposys:members:
         .meta:add-new-system-values: true
         .meta:category: system

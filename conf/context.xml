@@ -19,7 +19,7 @@
     <Parameter name="output-wicketpaths" value="true"/>
 
     <Resource name="mail/Session" auth="Container" type="javax.mail.Session" mail.smtp.host="localhost" mail.smtp.port="2525"/>
-    <Resource name="jdbc/targetingDS" auth="Container" type="javax.sql.DataSource" maxTotal="100" maxIdle="10" initialSize="10" maxWaitMillis="10000" testWhileIdle="true" testOnBorrow="false" validationQuery="SELECT 1" timeBetweenEvictionRunsMillis="10000" minEvictableIdleTimeMillis="60000" username="sa" password="" driverClassName="org.h2.Driver" url="jdbc:h2:${repo.path}/targeting/targeting;MVCC=TRUE"/>
+    <Resource name="jdbc/targetingDS" auth="Container" type="javax.sql.DataSource" maxTotal="100" maxIdle="10" initialSize="10" maxWaitMillis="10000" testWhileIdle="true" testOnBorrow="false" validationQuery="SELECT 1" timeBetweenEvictionRunsMillis="10000" minEvictableIdleTimeMillis="60000" username="sa" password="" driverClassName="org.h2.Driver" url="jdbc:h2:${repo.path}/targeting/targeting"/>
     <Environment name="elasticsearch/targetingDS" value="{'indexName':'visits', 'locations':['http://localhost:9200/']}" type="java.lang.String"/>
 
     <!-- The onDemand servers contain the following configuration settings.  To change these values, contact BloomReach support  -->
