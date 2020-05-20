@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
-<#include "../common/scripts/line-clamp-polyfill.js.ftl">
+<#include "../../src/js/line-clamp-polyfill.js.ftl">
 
 <article class="article">
 

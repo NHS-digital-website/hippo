@@ -3,7 +3,7 @@
 
 <#include "../common/macro/component/actionLink.ftl">
 <#include "../common/macro/svgIcons.ftl">
-<#include "../common/scripts/line-clamp-polyfill.js.ftl">
+<#include "../../src/js/line-clamp-polyfill.js.ftl">
 
 <#include "macro/metaTags.ftl">
 

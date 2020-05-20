@@ -48,6 +48,9 @@ class YamlFormatter extends Script {
         File rootDir = new File("${project.parent.parent.basedir}/repository-data")
         rootDir.eachFileRecurse(FileType.DIRECTORIES) {
             dir ->
+                if (dir.getPath().contains('node_modules')) {
+                    return;
+                }
                 dir.eachFileMatch(FileType.FILES, ~/.*.yaml/) { file ->
                     String text = file.getText()
                     LinkedHashMap map = parser.load(text)

@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
-<#include "../common/scripts/line-clamp-polyfill.js.ftl">
+<#include "../../src/js/line-clamp-polyfill.js.ftl">
 <#include "macro/metaTags.ftl">
 <#include "../common/macro/headerMetadata.ftl">
 <#include "../common/macro/documentHeader.ftl">
@@ -125,4 +125,4 @@
     </div>
 </article>
 <#assign useIntraLogo = true />
-<#include "../common/scripts/print-pdf.js.ftl">
+<#include "../../src/js/print-pdf.js.ftl">

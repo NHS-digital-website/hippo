@@ -9,8 +9,6 @@
 * To get more help, simply run `make help`.
 
 
-
-
 ## Key Maven Build Operations
 
 This project uses [Maven] as its build system. Unless stated otherwise, instructions below assume that Maven commands
@@ -134,7 +132,9 @@ repository-data/application/src/main/resources/hcm-config/configuration/modules/
 
 ### Development
 
-> For best UI developer experience run the local dev server in one Terminal window, and run the SASS or LESS compiler with Maven in another one (remember to 'cd' into the appropriate folder)!
+For best UI developer experience run the local dev server in one Terminal window, and run the frontend build process via `make frontend` in another one.
+
+The developer may also navigate to `/repository-data/webfiles` and run the various npm scripts from there, as that allows for more granular rebuilding, i.e. of just the SCSS files. See the [UI Development document](docs/what-if/work-on-ui.md) for further information.
 
 ### Browser scope
 
@@ -148,25 +148,39 @@ We support following browsers:
 - MS Edge (latest version)
 - IE11
 
-#### CLI commands
+### CLI commands
 
-**Run LESS compiler watching for local dev**
 
-	cd repository-data/webfiles
-	mvn lesscss:compile -D lesscss.watch=true
+**Start frontend build process for local dev**
 
-**Run SASS compiler watching for local dev**
+This will:
 
-	cd repository-data/webfiles
-	mvn com.github.warmuuh:libsass-maven-plugin:0.2.8-libsass_3.4.4:watch
+- Install NPM dependencies
+- Run a gulp task which:
+    - starts the SCSS compilation into CSS
+    - starts the JS compilation via Webpack
+    - starts Browsersync to stream in frontend changes
+
+This requires a local installation of [Node.js](https://nodejs.org).
+
+Note: This is aliased to `make frontend`
+
+Please see [About the Frontend Build process](#about-the-frontend-build-process)
+
+```bash
+cd repository-data/webfiles && npm install && npm start
+```
 
 **Run the local dev server (will throw a lot of Splunk errors)**
-
-  mvn clean verify && mvn -Pcargo.run -Drepo.path=storage
+```bash
+mvn clean verify && mvn -Pcargo.run -Drepo.path=storage`
+```
 
 **Run the local dev server with quiet Splunk**
 
-  mvn -Pcargo.run -Dsplunk.hec.name=localhost -Dsplunk.url=http://localhost -Dsplunk.token= -Drepo.path=storage
+```bash
+mvn -Pcargo.run -Dsplunk.hec.name=localhost -Dsplunk.url=http://localhost -Dsplunk.token= -Drepo.path=storage`
+```
 
 **Mega command**
 
@@ -182,9 +196,15 @@ There are 2 ways to run the server: with or without `autoexport`. When the app r
 
 
 
-#### About the SASS compiler
+#### About the Frontend Build process
 
-> The most up to date Maven LibSass plugin is [this one](https://github.com/warmuuh/libsass-maven-plugin). The latest version as of 16/01/2018 is 0.2.8 (important to know what version is currently used in the project because it has to be specified in both the `pom.xml` file and in the command line).
+This project uses [frontend-maven-plugin](https://github.com/eirslett/frontend-maven-plugin) in order to build frontend assets as part of the Maven build. This means that backend developers **do not** need to locally install Node and run the Gulp-based build process unless they are working on SCSS or JS files.
+
+Requirements: `node`/`npm` should be installed locally.
+
+Quick start: `make frontend` will install dependencies, and start a build process.
+
+For more information, read [What If I Want to Work on the UI](docs/what-if/work-on-ui.md).
 
 #### Front-end library
 
@@ -194,9 +214,9 @@ There is a custom float based grid system in place. For more details on the grid
 
 The styling approach follows the [BEM](http://getbem.com/naming/) methodology - providing a robust naming convention and helping with the creation of reusable UI components.
 
-The stylesheets are compiled using the Maven SASS plugin - the source folder is under `repository-data/webfiles/src/main/resources/site/scss`, and the compiled files are created under `repository-data/webfiles/src/main/resources/site/css`.
+The stylesheets are compiled using the modern Dart implementation of Sass. The source folder is under `repository-data/webfiles/src/main/resources/site/src/scss`, and the compiled files are created under `repository-data/webfiles/src/main/resources/site/dist`.
 
-Tech dept warning - There is a LESS folder - historically used by the old *Publication Systems* part of the application. Some parts of the LESS styling is still used by some old parts of the application, but this should be moved over to the more concise, SASS based styling system.
+JavaScript is transpiled via Babel and bundled via Webpack. The source folder is under `repository-data/webfiles/src/main/resources/site/src/js` and the compiled files are created under `repository-data/webfiles/src/main/resources/site/dist`.
 
 ## Running the project for the first time
 

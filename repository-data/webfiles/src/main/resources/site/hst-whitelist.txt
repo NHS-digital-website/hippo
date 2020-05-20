@@ -24,5 +24,8 @@
 css/
 fonts/
 js/
+dist/
+dist/nhsd-scripts.bundle.js
+dist/nhsd-priority-scripts.bundle.js
 images/
 icons/

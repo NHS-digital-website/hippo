@@ -105,5 +105,5 @@ update-dependencies:
 env.mk:
 	touch env.mk
 
-css:
-	cd repository-data/webfiles && mvn com.github.warmuuh:libsass-maven-plugin:0.2.8-libsass_3.4.4:watch
+frontend:
+	cd repository-data/webfiles && npm install && NODE_ENV=development npm start

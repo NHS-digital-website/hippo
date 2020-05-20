@@ -108,6 +108,6 @@
     </div>
 </div>
 
-<#include "../../scripts/table-sort.js.ftl" />
-<#include "../../scripts/table-sort-date.js.ftl" />
-<#include "../../scripts/init-table-sort.js.ftl" />
+<#include "../../../../src/js/table-sort.js.ftl" />
+<#include "../../../../src/js/table-sort-date.js.ftl" />
+<#include "../../../../src/js/init-table-sort.js.ftl" />

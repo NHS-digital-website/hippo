@@ -355,5 +355,5 @@
         </#if>
     </article>
 
-    <#include "../common/scripts/print-pdf.js.ftl">
+    <#include "../../src/js/print-pdf.js.ftl">
 </#if>

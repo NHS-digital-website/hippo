@@ -1,0 +1,95 @@
+@import "../../settings/colours";
+@import "conditionals";
+
+@mixin clearfix {
+  @include ie-lte(7) {
+    zoom: 1;
+  }
+
+  &:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}
+
+@mixin link-reverse-polarity {
+  &:link {
+    color: $link-reverse-polarity;
+  }
+
+  &:visited {
+    color: $link-visited-reverse-polarity;
+  }
+
+  &:hover {
+    color: $link-hover-reverse-polarity;
+  }
+
+  &:active {
+    color: $link-active-reverse-polarity;
+  }
+
+  &:focus {
+    outline: 3px solid $focus-colour;
+  }
+}
+
+// Visually hidden based on GOV.UK
+// https://github.com/alphagov/govuk-frontend/blob/master/src/helpers/_visually-hidden.scss
+
+@mixin visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+// Visually hidden but focussable based on GOV.UK
+// https://github.com/alphagov/govuk-frontend/blob/master/src/helpers/_visually-hidden.scss
+
+@mixin visually-hidden-focussable {
+    @include visually-hidden;
+    &:active,
+    &:focus {
+        position: static;
+        width: auto;
+        height: auto;
+        margin: inherit;
+        overflow: visible;
+        clip: auto;
+        clip-path: none;
+        white-space: inherit;
+    }
+}
+
+
+@mixin border-highlight {
+  position: relative;
+  border: 3px solid transparent;
+  outline: 0;
+  left: -3px;
+  top: -3px;
+
+  &:focus {
+    border: 3px solid $focus-colour;
+    outline: 0;
+  }
+}
+
+@mixin retina-background() {
+    @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+    only screen and (-moz-min-device-pixel-ratio: 1.5),
+    only screen and (-o-min-device-pixel-ratio: 3/2),
+    only screen and (min-device-pixel-ratio: 1.5),
+    only screen and (min-resolution: 2dppx),
+    only screen and (min-resolution: 192dpi) {
+        @content;
+    }
+}

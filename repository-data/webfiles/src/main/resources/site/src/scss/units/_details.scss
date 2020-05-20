@@ -1,0 +1,71 @@
+// sass-lint:disable nesting-depth
+@import "../environment/settings/colours";
+
+details {
+  clear: both;
+  display: block;
+
+  summary {
+    @include core-font(20);
+    color: $link-colour;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+
+    &:hover {
+      color: $link-hover-colour;
+    }
+
+    &:focus {
+      outline: 3px solid $focus-colour;
+    }
+  }
+}
+
+// Underline only summary text (not the arrow)
+.details__summary {
+  text-decoration: underline;
+
+  .details--inline & {
+    text-decoration: none;
+  }
+}
+
+// Match fallback arrow spacing with -webkit default
+.details__arrow {
+  font-style: normal;
+  margin-right: .35em;
+
+  .details--inline & {
+    display: none;
+  }
+}
+
+.details__cta {
+  color: $link-colour;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.details--inline {
+  summary {
+    color: $black;
+    cursor: default;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &:hover {
+      color: $black;
+    }
+
+    &:focus {
+      outline: none;
+
+      .details__cta {
+        outline: 3px solid $focus-colour;
+      }
+    }
+  }
+}

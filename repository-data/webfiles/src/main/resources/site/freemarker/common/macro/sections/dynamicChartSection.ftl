@@ -7,10 +7,11 @@
     <#local linkText>${downloadDataFileHeader} ${section.title}</#local>
     <#local getData="uk.nhs.digital.freemarker.highcharts.RemoteChartDataFromUrl"?new() />
     <#local chartData =  getData(section.url) />
-
     <#if chartData??>
-        <figure>
-            <div id="chart-${section.uniqueId}" style="width:100%; height:${size}px;"></div>
+
+        <figure data-chart="highchart">
+            <div id="chart-${section.uniqueId}"
+                 style="width:100%; height:${size}px;"></div>
             <span class="attachment">
                 <a data-uipath="ps.publication.chart-section.data-file"
                    title="${linkText}"
@@ -24,9 +25,8 @@
                            );">${linkText}</a>
             </span>
         </figure>
-        <script type="text/javascript">
-            Highcharts.chart
-            ('chart-${section.uniqueId}', {
+        <script type="text/javascript" data-chartsource="highchart" data-charttype="chart" data-sectionid="${section.uniqueId}">
+            window.highchartData${section.uniqueId?remove_beginning("-")} = {
                 chart: {
                     type: '${section.type?lower_case}',
                     alignTicks: false,
@@ -61,7 +61,7 @@
 
                     firstRowAsNames: true
                 }
-            });
+            };
         </script>
     <#else>
         <!-- The dynamic chart is unavailable at this time -->
