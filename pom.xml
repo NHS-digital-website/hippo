@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>13.4.2</version>
+        <version>14.1.0</version>
         <!-- Please have a look at the property section while upgrading -->
     </parent>
 
@@ -64,6 +64,7 @@
     <!-- End of emptied/overridden metadata from parent hippo-cms7-release pom. -->
 
     <properties>
+        <h2.database.version>1.4.199</h2.database.version>
         <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
         <local-module-deploy-dir>shared/lib</local-module-deploy-dir>
 
@@ -91,8 +92,8 @@
 
         <!--<tomcatDistributionUrl>https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.48/bin/apache-tomcat-8.0.48.tar.gz</tomcatDistributionUrl>-->
 
-        <forge.folderctxmenus.version>4.0.1</forge.folderctxmenus.version>
-        <essentials.version>13.4.2</essentials.version>
+        <forge.folderctxmenus.version>5.0.0</forge.folderctxmenus.version>
+        <essentials.version>14.1.0</essentials.version>
         <spring.version>5.2.0.RELEASE</spring.version>
         <spring-security.version>5.2.0.RELEASE</spring-security.version>
         <hst-springsec.version>2.1.0</hst-springsec.version>
@@ -149,6 +150,13 @@
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${h2.database.version}</version>
+                <scope>runtime</scope>
+            </dependency>
 
             <dependency>
                 <groupId>org.onehippo.forge</groupId>
@@ -406,7 +414,6 @@
             <dependency>
                 <groupId>net.bytebuddy</groupId>
                 <artifactId>byte-buddy</artifactId>
-                <version>1.9.13</version>
             </dependency>
             <dependency>
                 <groupId>org.hamcrest</groupId>
