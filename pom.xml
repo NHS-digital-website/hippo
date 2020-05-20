@@ -265,7 +265,7 @@
             <dependency>
                 <groupId>com.amazonaws</groupId>
                 <artifactId>aws-java-sdk</artifactId>
-                <version>1.11.582</version>
+                <version>1.11.786</version>
             </dependency>
 
             <!-- Although we don't explicitly use these dependencies, there are conflicts
