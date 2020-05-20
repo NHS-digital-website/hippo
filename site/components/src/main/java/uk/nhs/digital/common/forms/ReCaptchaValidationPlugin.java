@@ -8,6 +8,7 @@ import org.hippoecm.hst.component.support.forms.FormMap;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.ComponentConfiguration;
+import org.hippoecm.hst.site.HstServices;
 import org.onehippo.cms7.crisp.api.broker.ResourceServiceBroker;
 import org.onehippo.cms7.crisp.api.resource.Resource;
 import org.onehippo.cms7.crisp.hst.module.CrispHstServices;
@@ -70,7 +71,7 @@ public class ReCaptchaValidationPlugin implements ValidationBehavior {
         Resource resource = null;
 
         try {
-            final ResourceServiceBroker resourceServiceBroker = CrispHstServices.getDefaultResourceServiceBroker();
+            final ResourceServiceBroker resourceServiceBroker = CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());
 
             final Map<String, Object> pathVars = new HashMap<>();
             pathVars.put("secret", System.getenv("GOOGLE_CAPTCHA_SECRET"));

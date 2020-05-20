@@ -77,7 +77,7 @@ public class HippoBeanHelper {
 
                 // collect the ancestors
                 Map<String, String> map = ancestors.stream().distinct()
-                    .collect(Collectors.toMap(category -> category.getKey(), category -> category.getInfo(Locale.UK).getName()));
+                    .collect(Collectors.toMap(Category::getKey, category -> category.getInfo(Locale.UK).getName()));
 
                 // add the current node
                 map.putIfAbsent(key,taxonomyTree.getCategoryByKey(key).getInfo(Locale.UK).getName());

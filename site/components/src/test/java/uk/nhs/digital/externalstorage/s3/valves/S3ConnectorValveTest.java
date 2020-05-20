@@ -74,7 +74,7 @@ public class S3ConnectorValveTest {
         expectedFileContent = newRandomByteArray();
         s3ObjectPath = newRandomString();
 
-        given(hstRequestContext.isCmsRequest()).willReturn(true);
+        given(hstRequestContext.isChannelManagerPreviewRequest()).willReturn(true);
 
         given(request.getParameter("s3Reference")).willReturn(s3ObjectPath);
         given(request.getParameter("fileName")).willReturn(expectedFileName);
@@ -124,7 +124,7 @@ public class S3ConnectorValveTest {
     public void reportsBadRequest_onNotCmsRequest() throws Exception {
 
         // given
-        given(hstRequestContext.isCmsRequest()).willReturn(false);
+        given(hstRequestContext.isChannelManagerPreviewRequest()).willReturn(false);
 
         // when
         s3ConnectorValve.invoke(valveContext);

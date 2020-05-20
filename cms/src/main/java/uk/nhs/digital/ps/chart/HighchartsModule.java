@@ -22,18 +22,18 @@ public class HighchartsModule implements DaemonModule {
             new ScatterHighchartsXlsxInputParser(),
             new HighmapsXlsxInputParser()
         );
-        HippoServiceRegistry.registerService(chartParser, HighchartsInputParser.class);
+        HippoServiceRegistry.register(chartParser, HighchartsInputParser.class);
 
         jcrNodeReader = new HighchartsJcrNodeReaderImpl();
-        HippoServiceRegistry.registerService(jcrNodeReader, HighchartsJcrNodeReader.class);
+        HippoServiceRegistry.register(jcrNodeReader, HighchartsJcrNodeReader.class);
     }
 
     @Override
     public void shutdown() {
-        HippoServiceRegistry.unregisterService(chartParser, HighchartsInputParser.class);
+        HippoServiceRegistry.unregister(chartParser, HighchartsInputParser.class);
         chartParser = null;
 
-        HippoServiceRegistry.unregisterService(jcrNodeReader, HighchartsJcrNodeReader.class);
+        HippoServiceRegistry.unregister(jcrNodeReader, HighchartsJcrNodeReader.class);
         jcrNodeReader = null;
     }
 }
