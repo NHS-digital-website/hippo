@@ -1,0 +1,11 @@
+@import "typography";
+
+$site-width: 992px;
+$min-desktop-width: 924px;
+$min-tablet-width: 641px;
+$desktop-width: 1024px;
+$min-wide-desktop-width: 1441px;
+$wide-desktop-width: 1520px;
+$gutter: $baseline-grid-unit * 4;
+$vertical-gap: $gutter * 1.5;
+$search-strip-height: 44px;

@@ -7,7 +7,7 @@
 -->
 
 <@hst.headContribution keyHint="formCss">
-    <link rel="stylesheet" href="<@hst.webfile path="/css/eforms.css"/>" type="text/css" />
+    <link rel="stylesheet" href="<@hst.webfile path="/dist/eforms.css"/>" type="text/css" />
 </@hst.headContribution>
 
 <@hst.headContribution keyHint="jquery-datepicker">

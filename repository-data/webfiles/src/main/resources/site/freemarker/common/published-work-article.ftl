@@ -48,6 +48,8 @@
 
 <article class="article article--published-work" aria-label="Document Header">
 
+    <@hst.headContributions categoryIncludes="testscripts"/>
+
     <#if publicationStyle == 'bluebanner'>
         <@textBanner document />
     </#if>

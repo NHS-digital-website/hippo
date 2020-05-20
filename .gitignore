@@ -7,7 +7,7 @@
 *.swp
 **/.settings
 **/.classpath
-**/*.orig 
+**/*.orig
 **/*.rej
 /.vscode
 
@@ -17,6 +17,9 @@ target
 /acceptance-tests/drivers/
 /essentials/overlays/
 /storage
+/repository-data/webfiles/node
+/repository-data/webfiles/node_modules
+/repository-data/webfiles/src/main/resources/site/dist
 
 ## Hippo content and config
 /repository-data/application/src/main/resources/hcm-content/content/documents/publicationsystem/publications/*

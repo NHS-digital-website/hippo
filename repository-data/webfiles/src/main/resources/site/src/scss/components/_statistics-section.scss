@@ -1,0 +1,255 @@
+@mixin statSet($name, $colours) {
+    @each $set in $colours {
+        $iteration: index($colours, $set);
+        $textType: map_get($set, "textType");
+        $startColour: map_get($set, "colour");
+        $endColour: map_get($set, "endColour");
+
+        @if $textType == 'light' {
+            @include statLight($name, $startColour, $iteration)
+        } @else if $textType == 'dark' {
+            @include statDark($name, $startColour, $endColour, $iteration)
+        } @else {
+            @error "Unknown textType #{$textType}.";
+        }
+    }
+}
+
+@mixin statLight($name, $colour, $iteration) {
+    .statistics-section--#{$name} .statistic--colour-#{$iteration} {
+        color: $colour;
+        border-color: $colour;
+        box-shadow: 0 0 25px 0 rgba($colour, 0.1);
+    }
+    .statistics-section--#{$name} .statistic--colour-#{$iteration} .statistic__information {
+        border-color: $colour;
+    }
+}
+
+@mixin statDark($name, $startColour, $endColour, $iteration) {
+    .statistics-section--#{$name} .statistic--colour-#{$iteration} {
+        color: $white;
+        border: none;
+        box-shadow: 0 0 25px 0 rgba($endColour, 0.1);
+        background-image: linear-gradient(56deg, $startColour 9%, $endColour 100%);
+    }
+    .statistics-section--#{$name} .statistic--colour-#{$iteration} .statistic__information {
+        border-color: currentColor;
+        color: currentColor;
+    }
+}
+
+// Section level
+
+.statistics-section {
+    position: relative;
+    width: 100%;
+    padding-top: 48px;
+}
+
+.statistics-section--wide {
+    position: relative;
+    z-index: 1;
+    @include media($size: desktop) {
+        width: calc(166.6666% - 106px);
+    }
+    @include media($size: wide) {
+        width: calc(166.6666% - 164px);
+    }
+}
+
+.grid-wrapper--has-nav .statistics-section--wide {
+    @include media($size: desktop) {
+        margin: 24px 0 24px calc(-66.66666% + 66px);
+        width: calc(166.6666% - 66px);
+
+    }
+    @include media($size: wide) {
+        width: calc(166.6666% - 124px);
+        margin-left: calc(-66.66666% + 124px);
+    }
+}
+
+.statistics-section--boldtakeover {
+    background: linear-gradient(313.99deg, #005EB8 0%, #003087 100%);
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.statistics-section--boldtakeover .statistics-section__heading {
+    color: white;
+    text-align: center;
+}
+
+// Modules wrapper
+
+.statistics-section__modules {
+    @include media(wide) {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+}
+
+.statistics-section--boldtakeover .statistics-section__modules {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    @include media(wide) {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: initial;
+    }
+}
+
+.statistics-section--wide .statistics-section__modules {
+    @include media(desktop) {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: initial;
+    }
+}
+
+// Individual stats
+
+$currentColor: $black;
+.statistic {
+    width: 543px;
+    color: $currentColor;
+    border: 1px solid currentColor;
+    padding: 47px 48px 42px;
+    border-radius: 12px;
+    box-shadow: 0 0 25px 0 rgba($currentColor, 0.1);
+    margin-bottom: 1em;
+    background: $white;
+    max-width: 100%;
+    @include media(wide) {
+        width: 49%;
+    }
+
+    a {
+        color: currentColor;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+    }
+}
+
+.statistic:first-child:last-child {
+    width: auto;
+    max-width: 543px;
+}
+
+/*
+    Removing bottom margin on the last few stats to keep the internal
+    spacing correct within bold takeover stats.
+
+    This is slightly more complicated than it needs to be, because a different
+    number of stats need to be adjusted at different viewports depending on
+    the type of the stats.
+ */
+
+.statistics-section--boldtakeover .statistic:last-child {
+    margin-bottom: 0;
+}
+
+.statistics-section--boldtakeover .statistic:nth-last-child(2) {
+    @include media(wide) {
+        margin-bottom: 0;
+    }
+}
+
+.statistics-section--wide.statistics-section--boldtakeover .statistic:nth-last-child(2) {
+    @include media(desktop) {
+        margin-bottom: 0;
+    }
+}
+
+.statistics-section--wide.statistics-section--boldtakeover .statistic:nth-last-child(3) {
+    @include media(wide) {
+        margin-bottom: 0;
+    }
+}
+
+.statistics-section--wide .statistic {
+    @include media(desktop) {
+        width: 49%;
+    }
+    @include media(wide) {
+        width: calc((100%/3) - 1%);
+    }
+}
+
+.statistic__numberStat {
+    font-size: 54px;
+    font-weight: bold;
+    line-height: 1;
+    display: flex;
+}
+
+.statistic__trend {
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+    margin-right: 8px;
+    margin-top: calc(.5em - 12.5px);
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+}
+
+.statistic__trend-arrow {
+    display: block;
+}
+
+.statistic__trend-arrow path {
+    fill: currentColor;
+}
+
+.statistic__number-output {
+    word-break: break-all
+}
+
+.statistic__number {
+    word-break: break-all
+}
+
+.statistic__description > * {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.333;
+}
+
+.statistic__information {
+    font-size: 18px;
+    border-top: 1px solid currentColor;
+    color: $black;
+    line-height: 1.333;
+    margin-top: 20px;
+    padding-top: 13px;
+}
+
+// Stat colour schemes
+
+@include statSet('muted',
+    ("textType": 'light', "colour": $black)
+    ("textType": 'light', "colour": $dark-blue)
+    ("textType": 'light', "colour": $col-27)
+    ("textType": "light", "colour": $dark-green)
+);
+
+@include statSet('bold',
+    ("textType": 'dark', "colour": $grey-1, "endColour": $col-20)
+    ("textType": 'dark', "colour": $blue, "endColour": $dark-blue)
+    ("textType": 'dark', "colour": #AE2573, "endColour": $col-27)
+    ("textType": 'dark', "colour": #009639, "endColour": $dark-green)
+);
+
+@include statSet('boldtakeover',
+    ("textType": 'dark', "colour": #003087, "endColour": #005EB8)
+    ("textType": 'dark', "colour": #AE2573, "endColour": #7C2855)
+    ("textType": 'dark', "colour": #009639, "endColour": #78BE20)
+    ("textType": 'light', "colour": #003087)
+);

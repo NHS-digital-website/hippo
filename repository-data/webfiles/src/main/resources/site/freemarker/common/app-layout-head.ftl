@@ -42,22 +42,10 @@
     <link rel="mask-icon" href="<@hst.webfile path="icons/safari-pinned-tab.svg"/>">
     <meta name="theme-color" content="#ffffff">
 
-    <!--[if gt IE 8]><!-->
-    <link rel="stylesheet" href="<@hst.webfile path="/css/nhsuk.css"/>" media="screen" type="text/css"/>
-    <!--<![endif]-->
-    <!--[if IE 6]>
-    <link rel="stylesheet" href="<@hst.webfile path="/css/nhsuk-ie6.css"/>" media="screen" type="text/css"/>
-    <![endif]-->
-    <!--[if IE 7]>
-    <link rel="stylesheet" href="<@hst.webfile path="/css/nhsuk-ie7.css"/>" media="screen" type="text/css"/>
-    <![endif]-->
-    <!--[if IE 8]>
-    <link rel="stylesheet" href="<@hst.webfile path="/css/nhsuk-ie8.css"/>" media="screen" type="text/css"/>
-    <![endif]-->
+    <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsuk.css"/>" media="screen" type="text/css"/>
 
-    <link rel="stylesheet" href="<@hst.webfile path="/css/eforms.css"/>" media="screen" type="text/css"/>
-    <link rel="stylesheet" href="<@hst.webfile path="/css/nhsuk-print.css"/>" media="print" type="text/css"/>
-    <link rel="stylesheet" href="<@hst.webfile path="/css/nhsuk-print-pdf-document.css"/>" media="print" type="text/css"/>
+    <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsuk-print.css"/>" media="print" type="text/css"/>
+    <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsuk-print-pdf-document.css"/>" media="print" type="text/css"/>
 
     <#include "scripts/header-scripts.ftl" />
 

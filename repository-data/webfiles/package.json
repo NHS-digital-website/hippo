@@ -1,0 +1,133 @@
+{
+    "name": "nhs-digital-website",
+    "version": "1.0.0",
+    "description": "[![Build Status][build-status]][travis-project-page]",
+    "main": "index.js",
+    "directories": {
+        "doc": "../../docs"
+    },
+    "scripts": {
+        "start": "gulp",
+        "lint": "gulp lint",
+        "build": "gulp build",
+        "build-css": "gulp build-css",
+        "build-js": "gulp build-js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/NHS-digital-website/hippo.git"
+    },
+    "author": "Jodi Warren <jodi@jodiwarren.com> (https://jodiwarren.com)",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/NHS-digital-website/hippo/issues"
+    },
+    "homepage": "https://github.com/NHS-digital-website/hippo#readme",
+    "devDependencies": {
+        "@babel/core": "^7.9.6",
+        "@babel/preset-env": "^7.9.6",
+        "autoprefixer": "^9.8.0",
+        "babel-loader": "^8.1.0",
+        "browser-sync": "^2.26.7",
+        "cssnano": "^4.1.10",
+        "del": "^5.1.0",
+        "eslint-config-airbnb-base": "^14.1.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-import": "^2.20.2",
+        "eslint-plugin-jquery": "^1.5.1",
+        "expose-loader": "^0.7.5",
+        "gulp": "^4.0.2",
+        "gulp-babel": "^8.0.0",
+        "gulp-dart-sass": "^1.0.2",
+        "gulp-eslint": "^6.0.0",
+        "gulp-if": "^3.0.0",
+        "gulp-postcss": "^8.0.0",
+        "gulp-stylelint": "^13.0.0",
+        "husky": "^4.2.5",
+        "lint-staged": "^10.2.4",
+        "minimist": "^1.2.5",
+        "prettier": "^2.0.5",
+        "stylelint": "^13.5.0",
+        "stylelint-config-recommended-scss": "^4.2.0",
+        "stylelint-scss": "^3.17.2",
+        "vinyl-named": "^1.1.0",
+        "webpack": "^4.43.0",
+        "webpack-cli": "^3.3.11",
+        "webpack-stream": "^5.2.1"
+    },
+    "browserslist": [
+        "> 0.1% in GB"
+    ],
+    "eslintConfig": {
+        "extends": [
+            "eslint:recommended",
+            "airbnb-base",
+            "plugin:import/errors",
+            "plugin:import/warnings",
+            "prettier"
+        ],
+        "env": {
+            "browser": true,
+            "jquery": true
+        },
+        "parserOptions": {
+            "ecmaFeatures": {
+                "globalReturn": false
+            }
+        },
+        "rules": {
+            "func-names": 0,
+            "no-undef": 0,
+            "import/prefer-default-export": 0,
+            "no-plusplus": [
+                "error",
+                {
+                    "allowForLoopAfterthoughts": true
+                }
+            ],
+            "no-param-reassign": [
+                "error",
+                {
+                    "props": false
+                }
+            ]
+        },
+        "plugins": [
+            "jquery"
+        ]
+    },
+    "stylelint": {
+        "extends": "stylelint-config-recommended-scss",
+        "rules": {
+            "no-descending-specificity": null,
+            "block-no-empty": null
+        }
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "prettier": {
+        "useTabs": true
+    },
+    "lint-staged": {
+        "**/repository-data/webfiles/src/main/resources/site/src/**/*.{js,scss}": [
+            "prettier --write"
+        ],
+        "**/repository-data/webfiles/src/main/resources/site/src/**/*.js": [
+            "eslint --cache --fix"
+        ],
+        "**/repository-data/webfiles/src/main/resources/site/src/**/*.scss": [
+            "stylelint --fix"
+        ]
+    },
+    "dependencies": {
+        "countup.js": "^2.0.5",
+        "css-element-queries": "^1.2.3",
+        "highcharts": "^8.1.0",
+        "jquery": "^3.5.1",
+        "sticky-sidebar": "^3.3.1",
+        "tablesort": "^5.2.0"
+    }
+}

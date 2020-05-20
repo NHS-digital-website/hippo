@@ -6,7 +6,7 @@
 <html lang="en" class="no-js">
 
 <#include "app-example-layout-head.ftl">
-<#include "./scripts/header-scripts.ftl" />
+<#include "scripts/header-scripts.ftl" />
 
 <body class="app-example-page">
     <@skipLink />
@@ -15,6 +15,6 @@
         <#include "static-ui/shared/back.ftl"/>
         <@hst.include ref="main"/>
     </main>
-    <#include "./scripts/sticky-nav.js.ftl" />
+    <#include "../../src/js/sticky-nav.js.ftl" />
 </body>
 </html>
