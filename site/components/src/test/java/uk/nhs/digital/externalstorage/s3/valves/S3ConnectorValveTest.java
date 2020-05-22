@@ -121,7 +121,7 @@ public class S3ConnectorValveTest {
     }
 
     @Test
-    public void reportsBadRequest_onNotCmsRequest() throws Exception {
+    public void reportsBadRequest_onNotManagerPreviewRequest() throws Exception {
 
         // given
         given(hstRequestContext.isChannelManagerPreviewRequest()).willReturn(false);

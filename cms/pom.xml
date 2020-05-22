@@ -162,28 +162,32 @@
             <artifactId>hippo-addon-lucene-export</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-inference-engine-core</artifactId>
+            <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
+            <artifactId>relevance-inference-engine-core</artifactId>
             <scope>runtime</scope>
         </dependency>
+
         <dependency>
-            <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-inference-engine-plugin</artifactId>
+            <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
+            <artifactId>relevance-inference-engine-data-collector</artifactId>
             <scope>runtime</scope>
         </dependency>
+
         <dependency>
-            <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-inference-engine-data-collector</artifactId>
+            <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
+            <artifactId>relevance-inference-engine-plugin</artifactId>
             <scope>runtime</scope>
         </dependency>
+
         <dependency>
-            <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-inference-engine-collector-plugin</artifactId>
+            <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
+            <artifactId>relevance-inference-engine-collector-plugin</artifactId>
             <scope>runtime</scope>
         </dependency>
+
         <dependency>
-            <groupId>com.onehippo.cms7</groupId>
-            <artifactId>hippo-addon-inference-engine-repository</artifactId>
+            <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
+            <artifactId>relevance-inference-engine-repository</artifactId>
             <scope>runtime</scope>
         </dependency>
 
