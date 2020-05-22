@@ -98,7 +98,7 @@
         <spring-security.version>5.2.0.RELEASE</spring-security.version>
         <hst-springsec.version>2.1.0</hst-springsec.version>
 
-        <hippo-addon-inference-engine.version>3.0.1</hippo-addon-inference-engine.version>
+        <bloomreach.inference-engine.version>4.0.0</bloomreach.inference-engine.version>
     </properties>
 
     <repositories>
@@ -453,37 +453,35 @@
             </dependency>
 
             <!-- Inference Rule Engine -->
-
             <dependency>
-                <groupId>com.onehippo.cms7</groupId>
-                <artifactId>hippo-addon-inference-engine-core</artifactId>
-                <version>${hippo-addon-inference-engine.version}</version>
+                <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
+                <artifactId>relevance-inference-engine-core</artifactId>
+                <version>${bloomreach.inference-engine.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.onehippo.cms7</groupId>
-                <artifactId>hippo-addon-inference-engine-plugin</artifactId>
-                <version>${hippo-addon-inference-engine.version}</version>
+                <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
+                <artifactId>relevance-inference-engine-plugin</artifactId>
+                <version>${bloomreach.inference-engine.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.onehippo.cms7</groupId>
-                <artifactId>hippo-addon-inference-engine-repository</artifactId>
-                <version>${hippo-addon-inference-engine.version}</version>
+                <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
+                <artifactId>relevance-inference-engine-repository</artifactId>
+                <version>${bloomreach.inference-engine.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.onehippo.cms7</groupId>
-                <artifactId>hippo-addon-inference-engine-data-collector</artifactId>
-                <version>${hippo-addon-inference-engine.version}</version>
+                <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
+                <artifactId>relevance-inference-engine-data-collector</artifactId>
+                <version>${bloomreach.inference-engine.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.onehippo.cms7</groupId>
-                <artifactId>hippo-addon-inference-engine-collector-plugin</artifactId>
-                <version>${hippo-addon-inference-engine.version}</version>
+                <groupId>com.bloomreach.cms.relevance-inference-engine</groupId>
+                <artifactId>relevance-inference-engine-collector-plugin</artifactId>
+                <version>${bloomreach.inference-engine.version}</version>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
 

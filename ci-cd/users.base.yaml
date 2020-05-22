@@ -1,39 +1,39 @@
----
-
-/hippo:users:
-  jcr:primaryType: hipposys:userfolder
-  /admin:
-    jcr:primaryType: hipposys:user
-    hipposys:active: true
-    hipposys:password: $SHA-256$3vB5lqrvOts=$866Q2ch2uCcyIrROCoI6jf2y3Iuy7QXRxBeQSZIJfmA=
-    hipposys:securityprovider: internal
-  /workflowuser:
-    jcr:primaryType: hipposys:user
-    hipposys:active: true
-    hipposys:password: $SHA-256$*
-    hipposys:securityprovider: internal
-    hipposys:system: true
-  /configuser:
-    jcr:primaryType: hipposys:user
-    hipposys:active: true
-    hipposys:passkey: jvm://
-    hipposys:securityprovider: internal
-    hipposys:system: true
-  /liveuser:
-    jcr:primaryType: hipposys:user
-    hipposys:active: true
-    hipposys:passkey: jvm://
-    hipposys:securityprovider: internal
-    hipposys:system: true
-  /previewuser:
-    jcr:primaryType: hipposys:user
-    hipposys:active: true
-    hipposys:passkey: jvm://
-    hipposys:securityprovider: internal
-    hipposys:system: true
-  /sitewriter:
-    jcr:primaryType: hipposys:user
-    hipposys:active: true
-    hipposys:passkey: jvm://
-    hipposys:securityprovider: internal
-    hipposys:system: true
+#---
+#
+#/hippo:users:
+#  jcr:primaryType: hipposys:userfolder
+#  /admin:
+#    jcr:primaryType: hipposys:user
+#    hipposys:active: true
+#    hipposys:password: $SHA-256$3vB5lqrvOts=$866Q2ch2uCcyIrROCoI6jf2y3Iuy7QXRxBeQSZIJfmA=
+#    hipposys:securityprovider: internal
+#  /workflowuser:
+#    jcr:primaryType: hipposys:user
+#    hipposys:active: true
+#    hipposys:password: $SHA-256$*
+#    hipposys:securityprovider: internal
+#    hipposys:system: true
+#  /configuser:
+#    jcr:primaryType: hipposys:user
+#    hipposys:active: true
+#    hipposys:passkey: jvm://
+#    hipposys:securityprovider: internal
+#    hipposys:system: true
+#  /liveuser:
+#    jcr:primaryType: hipposys:user
+#    hipposys:active: true
+#    hipposys:passkey: jvm://
+#    hipposys:securityprovider: internal
+#    hipposys:system: true
+#  /previewuser:
+#    jcr:primaryType: hipposys:user
+#    hipposys:active: true
+#    hipposys:passkey: jvm://
+#    hipposys:securityprovider: internal
+#    hipposys:system: true
+#  /sitewriter:
+#    jcr:primaryType: hipposys:user
+#    hipposys:active: true
+#    hipposys:passkey: jvm://
+#    hipposys:securityprovider: internal
+#    hipposys:system: true
