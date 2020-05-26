@@ -1,13 +1,13 @@
 ---
 definitions:
   config:
-    /hippo:configuration/hippo:groups/intranet-author:
-      hipposys:description: Users with author role in Intranet and read-only in Corporate
-        Website
+    /hippo:configuration/hippo:groups/webmaster:
       hipposys:members:
         .meta:add-new-system-values: true
         .meta:category: system
         type: string
-        value: []
+        value:
+        - editor
+        - hippo-relevance
       hipposys:securityprovider: internal
       jcr:primaryType: hipposys:group

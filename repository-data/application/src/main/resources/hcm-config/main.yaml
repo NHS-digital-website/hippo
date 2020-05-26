@@ -1,10 +1,6 @@
 ---
 definitions:
   config:
-    /hippo:configuration/hippo:groups/webmaster:
-      hipposys:members:
-      - hippo-relevance
-      - editor
     /hippo:configuration/hippo:modules/webfiles/hippo:moduleconfig:
       maxFileLengthKb: 800
       watchedModules:

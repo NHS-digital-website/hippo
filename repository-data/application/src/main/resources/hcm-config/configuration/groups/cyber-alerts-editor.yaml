@@ -1,9 +1,8 @@
 ---
 definitions:
   config:
-    /hippo:configuration/hippo:groups/intranet-author:
-      hipposys:description: Users with author role in Intranet and read-only in Corporate
-        Website
+    /hippo:configuration/hippo:groups/cyber-alerts-editor:
+      hipposys:description: Users of the cyber alerts folders who are editors
       hipposys:members:
         .meta:add-new-system-values: true
         .meta:category: system
