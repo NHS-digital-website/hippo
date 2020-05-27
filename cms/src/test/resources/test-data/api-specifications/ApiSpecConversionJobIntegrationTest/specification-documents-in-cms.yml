@@ -1,0 +1,30 @@
+---
+
+# Folder
+- path: /content/documents/corporate-website/api-specifications-location-a
+  primaryType: hippo:folder
+# Api specification document
+- path: /content/documents/corporate-website/api-specifications-location-a/api-spec-a
+  primaryType: hippo:handle
+- path: /content/documents/corporate-website/api-specifications-location-a/api-spec-a/api-spec-a
+  primaryType: website:apispecification
+  properties:
+    common:searchable: true
+    hippostd:state: draft
+    website:html: <p>API Specification - A</p>
+    website:specification_id: 269326
+- path: /content/documents/corporate-website/api-specifications-location-a/api-spec-a/api-spec-a[2]
+  primaryType: website:apispecification
+  properties:
+    common:searchable: true
+    hippostd:state: unpublished
+    website:html: <p>API Specification - A</p>
+    website:specification_id: 269326
+- path: /content/documents/corporate-website/api-specifications-location-a/api-spec-a/api-spec-a[3]
+  primaryType: website:apispecification
+  properties:
+    common:searchable: true
+    hippostd:state: published
+    website:html: <p>API Specification - A</p>
+    website:specification_id: 269326
+    hippostdpubwf:publicationDate: '2020-05-03T10:30:00.000Z'
