@@ -1,4 +1,4 @@
-package uk.nhs.digital.ps;
+package uk.nhs.digital.test.util;
 
 import static java.util.Collections.emptyMap;
 
@@ -6,28 +6,38 @@ import org.apache.sling.testing.mock.jcr.MockJcr;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.jcr.Node;
 import javax.jcr.Repository;
-import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
-public class JcrProvider {
+public class MockJcrRepoProvider {
 
-    public Session getJcrFromFixture(InputStream fixture) {
+    public static Session repoFromYaml(final String fileClassPath) {
+
         Repository repository;
         Session session;
         try {
             repository = MockJcr.newRepository();
             session = repository.login();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to load JCR content from fixture file " + fileClassPath, e);
+        }
+
+        initJcrRepoFromYaml(session, fileClassPath);
+
+        return session;
+    }
+
+    public static void initJcrRepoFromYaml(final Session session, final String fileClassPath) {
+
+        try {
             Node rootNode = session.getRootNode();
 
-            Yaml parser = new Yaml();
-            List<Map<String, Object>> nodes = (ArrayList<Map<String, Object>>) parser.load(fixture);
+            List<Map<String, Object>> nodes = parseYaml(fileClassPath);
 
-            for (Map object: nodes) {
+            for (Map object : nodes) {
                 NodeYaml node = new NodeYaml(
                     (String) object.get("path"),
                     (String) object.get("primaryType"),
@@ -44,11 +54,26 @@ public class JcrProvider {
             }
 
             session.save();
-        } catch (RepositoryException exception) {
-            throw new RuntimeException("Failed to set property on JCR node", exception);
+        } catch (final Exception exception) {
+            throw new RuntimeException("Failed to load JCR content from fixture file " + fileClassPath, exception);
         }
+    }
 
-        return session;
+    private static List<Map<String, Object>> parseYaml(final String fileClassPath) {
+
+        final Yaml parser = new Yaml();
+        try (final InputStream fixtureYamlFileInputStream =
+                 MockJcrRepoProvider.class.getResourceAsStream(fileClassPath)) {
+
+            if (fixtureYamlFileInputStream == null) {
+                throw new RuntimeException("No file was available at " + fileClassPath);
+            }
+
+            return (List<Map<String, Object>>) parser.load(fixtureYamlFileInputStream);
+
+        } catch (final Exception e) {
+            throw new RuntimeException("Failed to parse the fixture file", e);
+        }
     }
 
     private static class NodeYaml {

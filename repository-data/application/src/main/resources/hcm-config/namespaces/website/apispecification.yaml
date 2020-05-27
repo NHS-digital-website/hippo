@@ -47,7 +47,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: website:html
             hipposysedit:primary: false
-            hipposysedit:type: Html
+            hipposysedit:type: Text
             jcr:primaryType: hipposysedit:field
           /specification_id:
             hipposysedit:mandatory: false

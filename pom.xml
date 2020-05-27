@@ -89,11 +89,23 @@
         <externalstorage.aws.s3.endpoint></externalstorage.aws.s3.endpoint>
         <spring.profiles.active></spring.profiles.active>
 
+        <!-- Apigee authentication config properties -->
+        <devzone.apigee.oauth.username></devzone.apigee.oauth.username>
+        <devzone.apigee.oauth.password></devzone.apigee.oauth.password>
+        <devzone.apigee.oauth.basicauthtoken></devzone.apigee.oauth.basicauthtoken>
+        <devzone.apigee.oauth.otpkey></devzone.apigee.oauth.otpkey>
+        <devzone.apigee.oauth.token.url></devzone.apigee.oauth.token.url>
+        <devzone.apigee.resources.specs.all.url></devzone.apigee.resources.specs.all.url>
+        <devzone.apigee.resources.specs.individual.url ></devzone.apigee.resources.specs.individual.url>
+
         <!--<tomcatDistributionUrl>https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.48/bin/apache-tomcat-8.0.48.tar.gz</tomcatDistributionUrl>-->
 
         <forge.folderctxmenus.version>4.0.1</forge.folderctxmenus.version>
         <essentials.version>13.4.2</essentials.version>
         <spring.version>5.1.14.RELEASE</spring.version>
+
+        <org.eclipse.jetty.version>9.4.24.v20191120</org.eclipse.jetty.version>
+        <com.fasterxml.jackson.version>2.10.3</com.fasterxml.jackson.version>
 
         <hippo-addon-inference-engine.version>3.0.1</hippo-addon-inference-engine.version>
     </properties>
@@ -238,6 +250,13 @@
                 <scope>test</scope>
             </dependency>
 
+            <dependency>
+                <groupId>com.github.tomakehurst</groupId>
+                <artifactId>wiremock-jre8</artifactId>
+                <version>2.26.3</version>
+                <scope>test</scope>
+            </dependency>
+
             <!--<dependency>
                 <groupId>com.splunk.logging</groupId>
                 <artifactId>splunk-library-javalogging</artifactId>
@@ -254,6 +273,54 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>3.9</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.swagger.codegen.v3</groupId>
+                <artifactId>swagger-codegen-generators</artifactId>
+                <version>1.0.19</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-core</artifactId>
+                <version>1.6.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-ext</artifactId>
+                <version>1.7.30</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.fge</groupId>
+                <artifactId>jackson-coreutils</artifactId>
+                <version>1.8</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-server</artifactId>
+                <version>${org.eclipse.jetty.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-util</artifactId>
+                <version>${org.eclipse.jetty.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-security</artifactId>
+                <version>${org.eclipse.jetty.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-continuation</artifactId>
+                <version>${org.eclipse.jetty.version}</version>
+                <scope>test</scope>
             </dependency>
 
             <dependency>
@@ -283,17 +350,22 @@
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-core</artifactId>
-                <version>2.10.1</version>
+                <version>${com.fasterxml.jackson.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
-                <version>2.10.1</version>
+                <version>${com.fasterxml.jackson.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-annotations</artifactId>
-                <version>2.10.1</version>
+                <version>${com.fasterxml.jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-yaml</artifactId>
+                <version>${com.fasterxml.jackson.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.google.code.findbugs</groupId>
@@ -807,6 +879,16 @@
                                     <externalstorage.aws.s3.endpoint>${externalstorage.aws.s3.endpoint}</externalstorage.aws.s3.endpoint>
                                     <dynamic.bean.generation>false</dynamic.bean.generation>
                                     <spring.profiles.active>${spring.profiles.active}</spring.profiles.active>
+
+                                    <!-- Apigee access config -->
+                                    <devzone.apigee.oauth.username>${devzone.apigee.oauth.username}</devzone.apigee.oauth.username>
+                                    <devzone.apigee.oauth.password>${devzone.apigee.oauth.password}</devzone.apigee.oauth.password>
+                                    <devzone.apigee.oauth.basicauthtoken>${devzone.apigee.oauth.basicauthtoken}</devzone.apigee.oauth.basicauthtoken>
+                                    <devzone.apigee.oauth.otpkey>${devzone.apigee.oauth.otpkey}</devzone.apigee.oauth.otpkey>
+                                    <devzone.apigee.oauth.token.url>${devzone.apigee.oauth.token.url}</devzone.apigee.oauth.token.url>
+                                    <devzone.apigee.resources.specs.all.url>${devzone.apigee.resources.specs.all.url}</devzone.apigee.resources.specs.all.url>
+                                    <devzone.apigee.resources.specs.individual.url>${devzone.apigee.resources.specs.individual.url}</devzone.apigee.resources.specs.individual.url>
+
                                 </systemProperties>
                                 <dependencies>
                                     <dependency>
