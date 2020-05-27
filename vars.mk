@@ -11,6 +11,13 @@ SPLUNK_URL ?= http://localhost
 PROFILE_RUN ?= cargo.run
 S3_BUCKET ?= files.local.nhsd.io
 S3_REGION ?= eu-west-1
+APIGEE_TOKEN_URL ?= https://login.apigee.com/oauth/token
+APIGEE_SPECS_ALL_URL ?= https://apigee.com/dapi/api/organizations/nhsd-nonprod/specs/folder/home
+APIGEE_SPECS_ONE_URL ?= https://apigee.com/dapi/api/organizations/nhsd-nonprod/specs/doc/{specificationId}/content
+APIGEE_USER ?=
+APIGEE_PASS ?=
+APIGEE_OTPKEY ?=
+APIGEE_BASIC ?= ZWRnZWNsaTplZGdlY2xpc2VjcmV0
 
 #-Dsplunk.token=$(SPLUNK_TOKEN) \
 #	-Dsplunk.url=$(SPLUNK_URL) \
@@ -19,7 +26,14 @@ S3_REGION ?= eu-west-1
 MVN_VARS = -Ddynamic.bean.generation=false \
 	-Dexternalstorage.aws.bucket=$(S3_BUCKET) \
 	-Dexternalstorage.aws.region=$(S3_REGION) \
-	-Dspring.profiles.active=local
+	-Dspring.profiles.active=local \
+	-Ddevzone.apigee.oauth.token.url=$(APIGEE_TOKEN_URL) \
+    -Ddevzone.apigee.resources.specs.all.url=$(APIGEE_SPECS_ALL_URL) \
+    -Ddevzone.apigee.resources.specs.individual.url=$(APIGEE_SPECS_ONE_URL) \
+    -Ddevzone.apigee.oauth.username=$(APIGEE_USER) \
+    -Ddevzone.apigee.oauth.password=$(APIGEE_PASS) \
+    -Ddevzone.apigee.oauth.basicauthtoken=$(APIGEE_OTPKEY) \
+    -Ddevzone.apigee.oauth.otpkey=$(APIGEE_BASIC)
 
 export AWS_ACCESS_KEY_ID=$(AWS_KEY)
 export AWS_SECRET_ACCESS_KEY=$(AWS_SECRET)

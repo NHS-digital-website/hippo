@@ -32,11 +32,10 @@ definitions:
         or @jcr:primaryType='website:generalnonsearch' or @jcr:primaryType='website:roadmap'
         or @jcr:primaryType='website:roadmapitem' or @jcr:primaryType='website:glossarylist'
         or @jcr:primaryType='website:visualhub' or @jcr:primaryType='website:apimaster'
-        or @jcr:primaryType='website:apispecification'
-        or @jcr:primaryType='website:apiendpoint' or @jcr:primaryType='website:categorylist'
-        or @jcr:primaryType='website:blog' or @jcr:primaryType='website:bloghub' or
-        @jcr:primaryType='website:jobrole' or @jcr:primaryType='website:businessunit'
-        or @jcr:primaryType='website:group' or @jcr:primaryType='website:orgstructure'
-        or @jcr:primaryType='website:editorsnotes' or @jcr:primaryType='website:team'
-        or @jcr:primaryType='website:definedterms' or @jcr:primaryType='website:update'
-        or @jcr:primaryType='website:dschomepage']
+        or @jcr:primaryType='website:apispecification' or @jcr:primaryType='website:apiendpoint'
+        or @jcr:primaryType='website:categorylist' or @jcr:primaryType='website:blog'
+        or @jcr:primaryType='website:bloghub' or @jcr:primaryType='website:jobrole'
+        or @jcr:primaryType='website:businessunit' or @jcr:primaryType='website:group'
+        or @jcr:primaryType='website:orgstructure' or @jcr:primaryType='website:editorsnotes'
+        or @jcr:primaryType='website:team' or @jcr:primaryType='website:definedterms'
+        or @jcr:primaryType='website:update' or @jcr:primaryType='website:dschomepage']

@@ -19,9 +19,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.onehippo.repository.documentworkflow.DocumentHandle;
 import org.onehippo.repository.documentworkflow.DocumentVariant;
-import uk.nhs.digital.ps.JcrProvider;
+import uk.nhs.digital.test.util.MockJcrRepoProvider;
 
-import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 import javax.jcr.Node;
@@ -39,26 +38,12 @@ public class SearchableFlagTaskTest {
 
     @Before
     public void setUp() throws Exception {
-        session = new JcrProvider()
-            .getJcrFromFixture(new FileInputStream("src/test/resources/searchableFlagUnitTestJcrFixture.yml"));
+        session = MockJcrRepoProvider.repoFromYaml("/test-data/search/SearchableFlagTaskTest/searchableFlagUnitTestJcrFixture.yml");
         rootNode = session.getRootNode();
 
         WorkflowContext workflowContext = mock(WorkflowContext.class);
         given(workflowContext.getInternalWorkflowSession()).willReturn(session);
         searchableFlagTask.setWorkflowContext(workflowContext);
-    }
-
-    private String getResult(String state) {
-        switch (state) {
-            case HippoStdNodeType.PUBLISHED:
-                return RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset";
-            case HippoStdNodeType.DRAFT:
-                return RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset[2]";
-            case HippoStdNodeType.UNPUBLISHED:
-                return RPS_ROOT_FOLDER + "/publication-with-datasets/dataset/dataset[3]";
-            default:
-                throw new RuntimeException("Unknown state: " + state);
-        }
     }
 
     @Test
