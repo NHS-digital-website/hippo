@@ -11,4 +11,10 @@ definitions:
         value:
         - admin
       hipposys:securityprovider: internal
+      hipposys:userroles:
+        .meta:add-new-system-values: true
+        .meta:category: system
+        type: string
+        value:
+        - xm.content.admin
       jcr:primaryType: hipposys:group
