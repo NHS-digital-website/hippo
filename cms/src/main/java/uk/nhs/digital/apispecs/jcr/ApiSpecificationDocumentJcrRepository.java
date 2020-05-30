@@ -21,8 +21,8 @@ public class ApiSpecificationDocumentJcrRepository implements ApiSpecificationDo
     private static final Logger log = LoggerFactory.getLogger(ApiSpecificationDocumentJcrRepository.class);
 
     private static final String WEBSITE_DOCS_FOLDER_JCR_PATH = "/jcr:root/content/documents/corporate-website";
-    private static final String QUERY_STATEMENT =
-        WEBSITE_DOCS_FOLDER_JCR_PATH + "//element(*, website:apispecification)/..[@jcr:primaryType='hippo:handle']";
+    private static final String APISPEC_HIPPO_HANDLE_NODE_PREDICATE = "//element(*, website:apispecification)/..[@jcr:primaryType='hippo:handle']";
+    private static final String QUERY_APISPEC_HANDLE_NODES_IN_WEBSITE_DOCS_FOLDER = WEBSITE_DOCS_FOLDER_JCR_PATH + APISPEC_HIPPO_HANDLE_NODE_PREDICATE;
 
     private final Session session;
 
@@ -35,13 +35,13 @@ public class ApiSpecificationDocumentJcrRepository implements ApiSpecificationDo
     public List<ApiSpecificationDocument> findAllApiSpecifications() {
 
         try {
-            log.info("Looking for Api Specifications...");
+            log.debug("Looking for Api Specifications...");
 
             final QueryResult cmsSpecsHandleNodes = findApiSpecificationsHandleNodes();
 
             final List<ApiSpecificationDocument> apiSpecificationDocuments = createApiSpecificationsFrom(cmsSpecsHandleNodes.getNodes());
 
-            log.info("Found {} Api Specifications.", apiSpecificationDocuments.size());
+            log.debug("Found {} Api Specifications.", apiSpecificationDocuments.size());
 
             return unmodifiableList(apiSpecificationDocuments);
 
@@ -60,7 +60,7 @@ public class ApiSpecificationDocumentJcrRepository implements ApiSpecificationDo
 
     private QueryResult findApiSpecificationsHandleNodes() {
 
-        return executeJcrXpathQueryForQueryResult(QUERY_STATEMENT);
+        return executeJcrXpathQueryForQueryResult(QUERY_APISPEC_HANDLE_NODES_IN_WEBSITE_DOCS_FOLDER);
     }
 
     private QueryResult executeJcrXpathQueryForQueryResult(final String queryStatement) {
