@@ -27,16 +27,16 @@ MVN_VARS = -Ddynamic.bean.generation=false \
 	-Dexternalstorage.aws.bucket=$(S3_BUCKET) \
 	-Dexternalstorage.aws.region=$(S3_REGION) \
 	-Dspring.profiles.active=local \
-	-Ddevzone.apigee.oauth.token.url=$(APIGEE_TOKEN_URL) \
     -Ddevzone.apigee.resources.specs.all.url=$(APIGEE_SPECS_ALL_URL) \
     -Ddevzone.apigee.resources.specs.individual.url=$(APIGEE_SPECS_ONE_URL) \
-    -Ddevzone.apigee.oauth.username=$(APIGEE_USER) \
-    -Ddevzone.apigee.oauth.password=$(APIGEE_PASS) \
-    -Ddevzone.apigee.oauth.basicauthtoken=$(APIGEE_OTPKEY) \
-    -Ddevzone.apigee.oauth.otpkey=$(APIGEE_BASIC)
+	-Ddevzone.apigee.oauth.token.url=$(APIGEE_TOKEN_URL)
 
 export AWS_ACCESS_KEY_ID=$(AWS_KEY)
 export AWS_SECRET_ACCESS_KEY=$(AWS_SECRET)
 export GOOGLE_CAPTCHA_SECRET=$(GOOGLE_RECAPTCHA_SECRET_KEY)
 export HIPPO_MAVEN_PASSWORD
 export HIPPO_MAVEN_USERNAME
+export DEVZONE_APIGEE_OAUTH_USERNAME=$(APIGEE_USER)
+export DEVZONE_APIGEE_OAUTH_PASSWORD=$(APIGEE_PASS)
+export DEVZONE_APIGEE_OAUTH_BASICAUTHTOKEN=$(APIGEE_BASIC)
+export DEVZONE_APIGEE_OAUTH_OTPKEY=$(APIGEE_OTPKEY)
