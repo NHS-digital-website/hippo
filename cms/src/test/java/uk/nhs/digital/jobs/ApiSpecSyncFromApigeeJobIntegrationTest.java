@@ -17,9 +17,11 @@ import static uk.nhs.digital.test.util.MockJcrRepoProvider.initJcrRepoFromYaml;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import org.apache.sling.testing.mock.jcr.MockJcr;
 import org.hippoecm.repository.api.Document;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.onehippo.forge.content.exim.core.DocumentManager;
 import org.onehippo.repository.documentworkflow.DocumentVariant;
@@ -36,7 +38,7 @@ import javax.jcr.Node;
 import javax.jcr.Session;
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest(JcrDocumentUtils.class)
+@PrepareForTest({JcrDocumentUtils.class, ApiSpecSyncFromApigeeJob.class})
 @PowerMockIgnore({"javax.net.ssl.*", "javax.crypto.*"})
 public class ApiSpecSyncFromApigeeJobIntegrationTest {
 
@@ -45,6 +47,8 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
     // Test data
     private static final String TEST_SPEC_ID = "269326";
     private static final String TEST_DATA_FILES_PATH = "/test-data/api-specifications/ApiSpecConversionJobIntegrationTest";
+
+    @Rule public ExpectedException expectedException = ExpectedException.none();
 
     @Rule public WireMockRule wireMock = new WireMockRule(wireMockConfig().dynamicPort());
 
@@ -111,13 +115,16 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
         final String oauthBasicAuthToken = "ZWRnZWNsaTplZGdlY2xpc2VjcmV0";
         final String oauthOtpKey = "JBSWY3DPEHPK3PXP";
 
-        System.setProperty("devzone.apigee.resources.specs.all.url", apigeeAllSpecsUrl);
-        System.setProperty("devzone.apigee.resources.specs.individual.url", apigeeSingleSpecUrlTemplate);
-        System.setProperty("devzone.apigee.oauth.token.url", oauthTokenUrl);
-        System.setProperty("devzone.apigee.oauth.username", oauthUsername);
-        System.setProperty("devzone.apigee.oauth.password", oauthPassword);
-        System.setProperty("devzone.apigee.oauth.basicauthtoken", oauthBasicAuthToken);
-        System.setProperty("devzone.apigee.oauth.otpkey", oauthOtpKey);
+        mockStatic(System.class);
+
+        given(System.getProperty("devzone.apigee.resources.specs.all.url")).willReturn(apigeeAllSpecsUrl);
+        given(System.getProperty("devzone.apigee.resources.specs.individual.url")).willReturn(apigeeSingleSpecUrlTemplate);
+        given(System.getProperty("devzone.apigee.oauth.token.url")).willReturn(oauthTokenUrl);
+
+        given(System.getenv("DEVZONE_APIGEE_OAUTH_USERNAME")).willReturn(oauthUsername);
+        given(System.getenv("DEVZONE_APIGEE_OAUTH_PASSWORD")).willReturn(oauthPassword);
+        given(System.getenv("DEVZONE_APIGEE_OAUTH_BASICAUTHTOKEN")).willReturn(oauthBasicAuthToken);
+        given(System.getenv("DEVZONE_APIGEE_OAUTH_OTPKEY")).willReturn(oauthOtpKey);
     }
 
     private void verifyHtmlGeneratedFromApigeeSpecWasSetOnApiSpecificationDocument() {
