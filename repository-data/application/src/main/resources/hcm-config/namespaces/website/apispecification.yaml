@@ -19,6 +19,15 @@ definitions:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /title:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: The name of the API
+            field: title
+            hint: The name of the API.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
           /specification_id:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -27,6 +36,17 @@ definitions:
             hint: Binds the document in CMS to the actual API specification in Apigee.
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /summary:
+            /cluster.options:
+              ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',  items:
+                [] }] }'
+              jcr:primaryType: frontend:pluginconfig
+            caption: Summary
+            field: summary
+            hint: A meaningful but conscise description of the API in a single paragraph.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
           /html:
             /cluster.options:
@@ -56,6 +76,28 @@ definitions:
             hipposysedit:path: website:specification_id
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /summary:
+            hipposysedit:mandatory: true
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:summary
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            hipposysedit:validators:
+            - required
+            jcr:primaryType: hipposysedit:field
+          /title:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:title
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
@@ -72,6 +114,9 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /website:summary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft
@@ -86,6 +131,8 @@ definitions:
           jcr:primaryType: website:apispecification
           website:html: ''
           website:specification_id: ''
+          website:summary: ''
+          website:title: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable

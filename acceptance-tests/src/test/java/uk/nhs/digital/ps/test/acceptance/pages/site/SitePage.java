@@ -104,8 +104,8 @@ public class SitePage extends AbstractSitePage {
         return helper.findElement(By.xpath("//*[@data-uipath='ps.document.content']")).getText();
     }
 
-    public String getCommonDocumentContentSection() {
-        return helper.findElement(By.xpath("//*[@class='column column--two-thirds page-block page-block--main']")).getText();
+    public String getArticleContentSection() {
+        return helper.findElement(By.xpath("//*[@class='grid-wrapper grid-wrapper--article']")).getText();
     }
 
     public WebElement findPageElement(String elementName) {
