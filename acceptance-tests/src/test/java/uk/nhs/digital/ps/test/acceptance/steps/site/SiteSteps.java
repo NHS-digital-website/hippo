@@ -106,9 +106,9 @@ public class SiteSteps extends AbstractSpringSteps {
         assertThat("Document content is as expected", sitePage.getDocumentContent(), getMatcherForText(content));
     }
 
-    @Then("^I should see common content section with \"([^\"]*)\"$")
-    public void thenIShouldSeeTheCommonContent(String content) throws Throwable {
-        assertThat("Document content is as expected", sitePage.getCommonDocumentContentSection(), getMatcherForText(content));
+    @Then("^I should see article content with \"([^\"]*)\"$")
+    public void thenIShouldSeeArticleContent(String content) throws Throwable {
+        assertThat("Document content is as expected", sitePage.getArticleContentSection(), getMatcherForText(content));
     }
 
     @Then("^I should see the page not found error page$")

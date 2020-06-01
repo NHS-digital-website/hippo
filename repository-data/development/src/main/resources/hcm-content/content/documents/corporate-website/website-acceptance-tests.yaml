@@ -3,56 +3,71 @@
   /api-specifications:
     /static-api-specification:
       /static-api-specification[1]:
+        /website:summary:
+          hippostd:content: <p>Test specification summary</p>
+          jcr:primaryType: hippostd:html
         common:searchable: true
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2020-04-28T13:43:42.207Z
-        hippostdpubwf:lastModificationDate: 2020-04-28T14:02:25.488Z
+        hippostdpubwf:creationDate: 2020-06-02T10:22:02.884Z
+        hippostdpubwf:lastModificationDate: 2020-06-02T10:22:02.885Z
         hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: 4371081b-6ca3-4da7-b543-abe9da3cb3a3
+        hippotranslation:id: 07ad528a-3dc0-468d-9ac3-b163286dc1bc
         hippotranslation:locale: en
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:apispecification
-        website:html: <p>static specification text in embedded html</p>
-        website:specification_id: static-api-specification-id
+        website:html: static specification text in embedded html
+        website:specification_id: '123456'
+        website:summary: ''
+        website:title: Test API Specification
       /static-api-specification[2]:
+        /website:summary:
+          hippostd:content: <p>Test specification summary</p>
+          jcr:primaryType: hippostd:html
         common:searchable: true
         hippo:availability:
         - preview
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2020-04-28T13:43:42.207Z
-        hippostdpubwf:lastModificationDate: 2020-04-28T14:02:33.783Z
+        hippostdpubwf:creationDate: 2020-06-02T10:22:02.884Z
+        hippostdpubwf:lastModificationDate: 2020-06-02T10:22:42.644Z
         hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: 4371081b-6ca3-4da7-b543-abe9da3cb3a3
+        hippotranslation:id: 07ad528a-3dc0-468d-9ac3-b163286dc1bc
         hippotranslation:locale: en
         jcr:mixinTypes:
         - mix:referenceable
         - mix:versionable
         jcr:primaryType: website:apispecification
-        website:html: <p>static specification text in embedded html</p>
-        website:specification_id: static-api-specification-id
+        website:html: static specification text in embedded html
+        website:specification_id: '123456'
+        website:summary: ''
+        website:title: Test API Specification
       /static-api-specification[3]:
+        /website:summary:
+          hippostd:content: <p>Test specification summary</p>
+          jcr:primaryType: hippostd:html
         common:searchable: true
         hippo:availability:
         - live
         hippostd:state: published
         hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2020-04-28T13:43:42.207Z
-        hippostdpubwf:lastModificationDate: 2020-04-28T14:02:33.783Z
+        hippostdpubwf:creationDate: 2020-06-02T10:22:02.884Z
+        hippostdpubwf:lastModificationDate: 2020-06-02T10:22:42.644Z
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2020-04-28T14:02:39.611Z
-        hippotranslation:id: 4371081b-6ca3-4da7-b543-abe9da3cb3a3
+        hippostdpubwf:publicationDate: 2020-06-02T10:22:47.815Z
+        hippotranslation:id: 07ad528a-3dc0-468d-9ac3-b163286dc1bc
         hippotranslation:locale: en
         jcr:mixinTypes:
         - mix:referenceable
         jcr:primaryType: website:apispecification
-        website:html: <p>static specification text in embedded html</p>
-        website:specification_id: static-api-specification-id
-      hippo:name: Static API Specification
-      hippo:versionHistory: 06812565-8067-41c3-8a91-5c0c706ea2eb
+        website:html: static specification text in embedded html
+        website:specification_id: '123456'
+        website:summary: ''
+        website:title: Test API Specification
+      hippo:name: Test API Specification
+      hippo:versionHistory: 1e8d5c9d-194b-4ed8-9fed-071bdbd38799
       jcr:mixinTypes:
       - hippo:named
       - hippo:versionInfo
