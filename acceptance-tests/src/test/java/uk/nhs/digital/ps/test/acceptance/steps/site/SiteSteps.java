@@ -172,6 +172,7 @@ public class SiteSteps extends AbstractSpringSteps {
     public void thenIShouldNotSeeHeaders(DataTable headersTable) throws Throwable {
         List<String> headers = headersTable.asList(String.class);
         for (String header : headers) {
+            header = header.replaceAll("^\"|\"$", "");
             assertNull("Header should not be displayed", sitePage.findOptionalElementWithText(header));
         }
     }
@@ -180,6 +181,7 @@ public class SiteSteps extends AbstractSpringSteps {
     public void thenIShouldSeeHeaders(DataTable headersTable) throws Throwable {
         List<String> headers = headersTable.asList(String.class);
         for (String header : headers) {
+            header = header.replaceAll("^\"|\"$", "");
             assertNotNull("Header should be displayed: " + header, sitePage.findElementWithText(header));
         }
     }
