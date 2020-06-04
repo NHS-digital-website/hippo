@@ -16,4 +16,5 @@ definitions:
         type: string
         value:
         - xm.security.user-admin
+        - xm.cms.user
       jcr:primaryType: hipposys:group

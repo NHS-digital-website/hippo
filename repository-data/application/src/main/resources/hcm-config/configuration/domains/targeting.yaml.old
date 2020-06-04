@@ -1,7 +1,0 @@
----
-definitions:
-  config:
-    /hippo:configuration/hippo:domains/targeting/readwrite:
-      hipposys:groups:
-      - webmaster
-      - editor
