@@ -14,5 +14,9 @@ definitions:
         .meta:category: system
         type: string
         value:
-        - xm.default-user.editor
+        - xm.cms.user
+        - xm.dashboard.user
+        - xm.channel.viewer
+        - xm.project.viewer
+        - xm.content.user
       jcr:primaryType: hipposys:group

@@ -1,21 +1,21 @@
 ---
 definitions:
   config:
-    /hippo:configuration/hippo:domains/hippodocuments/hippo-document/exclude-enterprise-forms-folder:
+    /hippo:configuration/hippo:domains/content/content-domain/exclude-enterprise-forms-folder:
       hipposys:equals: false
       hipposys:facet: jcr:path
       hipposys:filter: false
       hipposys:type: Reference
       hipposys:value: /content/documents/corporate-website/forms
       jcr:primaryType: hipposys:facetrule
-    /hippo:configuration/hippo:domains/hippodocuments/hippo-document/exclude-password-blacklist:
+    /hippo:configuration/hippo:domains/content/content-domain/exclude-password-blacklist:
       hipposys:equals: false
       hipposys:facet: jcr:path
       hipposys:filter: false
       hipposys:type: Reference
       hipposys:value: /content/documents/administration/password-blacklist
       jcr:primaryType: hipposys:facetrule
-    /hippo:configuration/hippo:domains/hippodocuments/unlock:
+    /hippo:configuration/hippo:domains/content/unlock:
       hipposys:groups:
       - unlocker
       hipposys:role: unlocker

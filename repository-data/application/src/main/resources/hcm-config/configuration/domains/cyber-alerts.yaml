@@ -1,44 +1,56 @@
 ---
 definitions:
   config:
-    /hippo:configuration/hippo:domains/cyber-alerts-read:
-      /cyber-alert-template:
-        /node-by-uuid:
+    /hippo:configuration/hippo:domains/cyber-alerts:
+      /author:
+        hipposys:groups:
+        - cyber-alerts-author
+        hipposys:role: author
+        hipposys:userrole: xm.default-user.author
+        jcr:primaryType: hipposys:authrole
+      /cyber-alert-documents:
+        /path-by-uuid:
           hipposys:equals: true
-          hipposys:facet: jcr:uuid
+          hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
-          hipposys:value: /hippo:configuration/hippo:queries/hippo:templates/new-cyber-alerts-folder/hippostd:templates/hippostd:folder
+          hipposys:value: /content/documents/corporate-website/cyber-alerts
           jcr:primaryType: hipposys:facetrule
         jcr:primaryType: hipposys:domainrule
-      /organisation-folder:
-        /node-by-uuid:
+      /editor:
+        hipposys:groups:
+        - cyber-alerts-editor
+        hipposys:role: editor
+        hipposys:userrole: xm.default-user.editor
+        jcr:primaryType: hipposys:authrole
+      /organisation-documents:
+        /path-by-uuid:
           hipposys:equals: true
-          hipposys:facet: jcr:uuid
+          hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/corporate-website/organisation
           jcr:primaryType: hipposys:facetrule
         jcr:primaryType: hipposys:domainrule
-      /platforms-folder:
-        /node-by-uuid:
+      /platform-documents:
+        /path-by-uuid:
           hipposys:equals: true
-          hipposys:facet: jcr:uuid
+          hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/corporate-website/platform
           jcr:primaryType: hipposys:facetrule
         jcr:primaryType: hipposys:domainrule
-      /readonly:
+      /readwrite:
         hipposys:groups:
         - cyber-alerts-author
         - cyber-alerts-editor
-        hipposys:role: readonly
+        hipposys:role: readwrite
         jcr:primaryType: hipposys:authrole
       /services-folder:
         /node-by-uuid:
           hipposys:equals: true
-          hipposys:facet: jcr:uuid
+          hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/corporate-website/services
