@@ -54,7 +54,7 @@ public class ApiSpecificationDocumentPublicationService {
     }
 
     private List<OpenApiSpecificationStatus> getApigeeSpecStatuses() {
-        return openApiSpecificationRepository.getSpecsStatuses();
+        return openApiSpecificationRepository.apiSpecificationStatuses();
     }
 
     private List<ApiSpecificationDocument> findCmsApiSpecifications() {

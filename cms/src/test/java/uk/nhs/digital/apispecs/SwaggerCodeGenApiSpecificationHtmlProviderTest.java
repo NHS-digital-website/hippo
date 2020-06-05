@@ -6,14 +6,13 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.MockitoAnnotations.initMocks;
-import static uk.nhs.digital.test.util.FileUtils.readFileInClassPath;
+import static uk.nhs.digital.test.util.FileUtils.fileContentFromClasspath;
 
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mock;
-import uk.nhs.digital.apispecs.apigee.ApigeeService;
 import uk.nhs.digital.apispecs.model.ApiSpecificationDocument;
 import uk.nhs.digital.apispecs.swagger.SwaggerCodeGenApiSpecificationHtmlProvider;
 
@@ -46,7 +45,7 @@ public class SwaggerCodeGenApiSpecificationHtmlProviderTest {
 
         // given
         final String apigeeApiSpecificationJson = apigeeApiSpecificationJson();
-        given(apigeeService.getSpecification(any(String.class))).willReturn(apigeeApiSpecificationJson);
+        given(apigeeService.apiSpecificationJsonForSpecId(any(String.class))).willReturn(apigeeApiSpecificationJson);
 
         // when
         final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.getHtmlForSpec(apiSpecificationDocument);
@@ -54,7 +53,7 @@ public class SwaggerCodeGenApiSpecificationHtmlProviderTest {
         // then
         final String expectedSpecHtml = vanillaSwaggerCodeGenGeneratedSpecificationHtml();
 
-        then(apigeeService).should().getSpecification(specificationId);
+        then(apigeeService).should().apiSpecificationJsonForSpecId(specificationId);
 
         assertThat(
             "Specification HTML has been generated using vanilla Swagger CodeGen v3",
@@ -68,7 +67,7 @@ public class SwaggerCodeGenApiSpecificationHtmlProviderTest {
 
         // given
         final RuntimeException apigeeServiceException = new RuntimeException();
-        given(apigeeService.getSpecification(any(String.class))).willThrow(apigeeServiceException);
+        given(apigeeService.apiSpecificationJsonForSpecId(any(String.class))).willThrow(apigeeServiceException);
 
         expectedException.expect(RuntimeException.class);
         expectedException.expectMessage(startsWith("Failed to generate HTML for specification "));
@@ -86,7 +85,7 @@ public class SwaggerCodeGenApiSpecificationHtmlProviderTest {
 
         // given
         final String invalidSpecificationJson = "invalid specification JSON";
-        given(apigeeService.getSpecification(any(String.class))).willReturn(invalidSpecificationJson);
+        given(apigeeService.apiSpecificationJsonForSpecId(any(String.class))).willReturn(invalidSpecificationJson);
 
         expectedException.expect(RuntimeException.class);
         expectedException.expectMessage(startsWith("Failed to generate HTML for specification "));
@@ -100,10 +99,10 @@ public class SwaggerCodeGenApiSpecificationHtmlProviderTest {
     }
 
     private String apigeeApiSpecificationJson() {
-        return readFileInClassPath(TEST_DATA_FILES_PATH + "/realistic-openapi-v3-specification.json");
+        return fileContentFromClasspath(TEST_DATA_FILES_PATH + "/realistic-openapi-v3-specification.json");
     }
 
     private String vanillaSwaggerCodeGenGeneratedSpecificationHtml() {
-        return readFileInClassPath(TEST_DATA_FILES_PATH + "/vanilla-codegen-v3-generated-spec.html");
+        return fileContentFromClasspath(TEST_DATA_FILES_PATH + "/vanilla-codegen-v3-generated-spec.html");
     }
 }
