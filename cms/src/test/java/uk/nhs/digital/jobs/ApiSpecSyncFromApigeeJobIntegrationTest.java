@@ -2,35 +2,40 @@ package uk.nhs.digital.jobs;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
-import static java.util.Arrays.asList;
+import static java.util.Collections.singletonList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.spy;
 import static org.powermock.api.mockito.PowerMockito.*;
-import static uk.nhs.digital.test.util.FileUtils.readFileInClassPath;
+import static uk.nhs.digital.test.util.FileUtils.fileContentFromClasspath;
 import static uk.nhs.digital.test.util.JcrTestUtils.*;
 import static uk.nhs.digital.test.util.JcrTestUtils.BloomReachJcrDocumentVariantType.DRAFT;
 import static uk.nhs.digital.test.util.MockJcrRepoProvider.initJcrRepoFromYaml;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.google.common.collect.ImmutableMap;
 import org.apache.sling.testing.mock.jcr.MockJcr;
 import org.hippoecm.repository.api.Document;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
+import org.onehippo.cms7.crisp.api.resource.ResourceResolver;
+import org.onehippo.cms7.crisp.core.resource.jackson.SimpleJacksonRestTemplateResourceResolver;
+import org.onehippo.cms7.crisp.mock.broker.MockResourceServiceBroker;
+import org.onehippo.cms7.crisp.mock.module.MockCrispHstServices;
 import org.onehippo.forge.content.exim.core.DocumentManager;
 import org.onehippo.repository.documentworkflow.DocumentVariant;
 import org.onehippo.repository.scheduling.RepositoryJobExecutionContext;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
-import org.springframework.web.util.UriComponentsBuilder;
-import org.springframework.web.util.UriTemplate;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.env.ConfigurableEnvironment;
+import org.springframework.mock.env.MockEnvironment;
 import uk.nhs.digital.JcrDocumentUtils;
 import uk.nhs.digital.apispecs.jobs.ApiSpecSyncFromApigeeJob;
 
@@ -39,14 +44,39 @@ import javax.jcr.Session;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({JcrDocumentUtils.class, ApiSpecSyncFromApigeeJob.class})
-@PowerMockIgnore({"javax.net.ssl.*", "javax.crypto.*"})
+@PowerMockIgnore({"javax.net.ssl.*", "javax.crypto.*", "javax.management.*"})
 public class ApiSpecSyncFromApigeeJobIntegrationTest {
 
     private static final String PROPERTY_NAME_WEBSITE_HTML = "website:html";
 
     // Test data
     private static final String TEST_SPEC_ID = "269326";
-    private static final String TEST_DATA_FILES_PATH = "/test-data/api-specifications/ApiSpecConversionJobIntegrationTest";
+    private static final String TEST_DATA_FILES_DIR = "/test-data/api-specifications/ApiSpecConversionJobIntegrationTest/";
+
+    // Apigee access
+    private static final String PARAM_APIGEE_RESOURCES_SPECS_ALL_URL = "devzone.apigee.resources.specs.all.url";
+    private static final String PARAM_APIGEE_RESOURCES_SPECS_INDIVIDUAL_URL = "devzone.apigee.resources.specs.individual.url";
+    private static final String PARAM_APIGEE_OAUTH_TOKEN_URL = "devzone.apigee.oauth.token.url";
+    private static final String PARAM_APIGEE_OAUTH_USERNAME = "DEVZONE_APIGEE_OAUTH_USERNAME";
+    private static final String PARAM_APIGEE_OAUTH_PASSWORD = "DEVZONE_APIGEE_OAUTH_PASSWORD";
+    private static final String PARAM_APIGEE_OAUTH_BASICAUTHTOKEN = "DEVZONE_APIGEE_OAUTH_BASICAUTHTOKEN";
+    private static final String PARAM_APIGEE_OAUTH_OTPKEY = "DEVZONE_APIGEE_OAUTH_OTPKEY";
+
+    private static final String OAUTH_USERNAME = "oauthUsername";
+    private static final String OAUTH_PASSWORD = "oauthPassword";
+    private static final String OAUTH_BASIC_AUTH_TOKEN = "ZWRnZWNsaTplZGdlY2xpc2VjcmV0";
+    private static final String OAUTH_OTP_KEY = "JBSWY3DPEHPK3PXP";
+
+    private static final String OAUTH_ACCESS_TOKEN = "eyJhbGciOiJSUzI1NiJ9.sv-gfMUntSWYZPsDok0w";
+
+    private static final String OAUTH_TOKEN_URL_PATH = "/oauth/token";
+    private static final String APIGEE_ALL_SPECS_URL_PATH = "/dapi/api/organizations/test-org/specs/folder/home/specs";
+    private static final String APIGEE_SINGLE_SPEC_URL_PATH_TEMPLATE = "/dapi/api/organizations/test-org/specs/doc/{specificationId}/content";
+    private static final String APIGEE_SINGLE_SPEC_URL_PATH = APIGEE_SINGLE_SPEC_URL_PATH_TEMPLATE.replace("{specificationId}", TEST_SPEC_ID);
+
+    private String apigeeAllSpecsUrl;
+    private String apigeeSingleSpecUrlTemplate;
+    private String oauthTokenUrl;
 
     @Rule public ExpectedException expectedException = ExpectedException.none();
 
@@ -56,19 +86,14 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
     private Session session;
     private Node repositoryRootNode;
 
-    private RepositoryJobExecutionContext repositoryJobExecutionContext;
+    private ConfigurableEnvironment crispApiSpringApplicationContextEnvironment;
 
-    // Apigee URLs
-    private String apigeeAllSpecsUrlPath = "/dapi/api/organizations/nhsd-nonprod/specs/folder/home/specs";
-    private String apigeeSingleSpecUrlPathTemplate = "/dapi/api/organizations/test-org/specs/doc/{specificationId}/content";
-    private String oauthTokenUrlPath = "/oauth/token";
+    private RepositoryJobExecutionContext repositoryJobExecutionContext;
 
     private ApiSpecSyncFromApigeeJob apiSpecSyncFromApigeeJob;
 
     @Before
     public void setUp() throws Exception {
-
-        setUpCmsToApigeeAccessConfig();
 
         session = spy(MockJcr.newSession());
         doNothing().when(session).logout(); // prevent the job from closing the session - it's needed in assertions
@@ -83,6 +108,8 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
     public void downloadsSpecUpdateFromApigeeAndPublishesOnWebsite() throws Exception {
 
         // given
+        cmsConfiguredForApigeeAccess();
+        crispApiConfiguredForOAuth2();
         apigeeReturnsAccessToken();
         apigeeReturnsListOfSpecsIncludingTheOneConfiguredInCms();
         apigeeReturnsDetailsOfTheSpecConfiguredInCms();
@@ -92,44 +119,81 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
         apiSpecSyncFromApigeeJob.execute(repositoryJobExecutionContext);
 
         // then
+        verifyOauth2AccessTokenRetrievedFromApigee();
+        verifyApigeeRequestForSpecificationsStatuses();
+        verifyApigeeRequestForSpecification();
         verifyHtmlGeneratedFromApigeeSpecWasSetOnApiSpecificationDocument();
         verifyApiSpecificationDocumentWasPublished();
-        verifyLogsOff();
+        verifySessionLogOut();
     }
 
-    private void verifyLogsOff() {
+    private void verifySessionLogOut() {
         then(session).should().logout();
     }
 
-    private void setUpCmsToApigeeAccessConfig() {
+    private void cmsConfiguredForApigeeAccess() {
 
-        final UriComponentsBuilder baseWiremockUrl =
-            UriComponentsBuilder.newInstance().scheme("http").host("localhost").port(wireMock.port());
+        final String baseWiremockUrl = "http://localhost:" + wireMock.port();
 
-        final String apigeeAllSpecsUrl = baseWiremockUrl.cloneBuilder().path(apigeeAllSpecsUrlPath).toUriString();
-        final String apigeeSingleSpecUrlTemplate = baseWiremockUrl.cloneBuilder().toUriString() + apigeeSingleSpecUrlPathTemplate;
-        final String oauthTokenUrl = baseWiremockUrl.cloneBuilder().path(oauthTokenUrlPath).toUriString();
-
-        final String oauthUsername = "oauthUsername";
-        final String oauthPassword = "oauthPassword";
-        final String oauthBasicAuthToken = "ZWRnZWNsaTplZGdlY2xpc2VjcmV0";
-        final String oauthOtpKey = "JBSWY3DPEHPK3PXP";
+        apigeeAllSpecsUrl = baseWiremockUrl + APIGEE_ALL_SPECS_URL_PATH;
+        apigeeSingleSpecUrlTemplate = baseWiremockUrl + APIGEE_SINGLE_SPEC_URL_PATH_TEMPLATE;
+        oauthTokenUrl = baseWiremockUrl + OAUTH_TOKEN_URL_PATH;
 
         mockStatic(System.class);
 
-        given(System.getProperty("devzone.apigee.resources.specs.all.url")).willReturn(apigeeAllSpecsUrl);
-        given(System.getProperty("devzone.apigee.resources.specs.individual.url")).willReturn(apigeeSingleSpecUrlTemplate);
-        given(System.getProperty("devzone.apigee.oauth.token.url")).willReturn(oauthTokenUrl);
+        given(System.getProperty(PARAM_APIGEE_RESOURCES_SPECS_ALL_URL)).willReturn(apigeeAllSpecsUrl);
+        given(System.getProperty(PARAM_APIGEE_RESOURCES_SPECS_INDIVIDUAL_URL)).willReturn(apigeeSingleSpecUrlTemplate);
+        given(System.getProperty(PARAM_APIGEE_OAUTH_TOKEN_URL)).willReturn(oauthTokenUrl);
 
-        given(System.getenv("DEVZONE_APIGEE_OAUTH_USERNAME")).willReturn(oauthUsername);
-        given(System.getenv("DEVZONE_APIGEE_OAUTH_PASSWORD")).willReturn(oauthPassword);
-        given(System.getenv("DEVZONE_APIGEE_OAUTH_BASICAUTHTOKEN")).willReturn(oauthBasicAuthToken);
-        given(System.getenv("DEVZONE_APIGEE_OAUTH_OTPKEY")).willReturn(oauthOtpKey);
+        given(System.getenv(PARAM_APIGEE_OAUTH_USERNAME)).willReturn(OAUTH_USERNAME);
+        given(System.getenv(PARAM_APIGEE_OAUTH_PASSWORD)).willReturn(OAUTH_PASSWORD);
+        given(System.getenv(PARAM_APIGEE_OAUTH_BASICAUTHTOKEN)).willReturn(OAUTH_BASIC_AUTH_TOKEN);
+        given(System.getenv(PARAM_APIGEE_OAUTH_OTPKEY)).willReturn(OAUTH_OTP_KEY);
+    }
+
+    private void crispApiConfiguredForOAuth2() {
+
+        crispApiSpringApplicationContextEnvironment = new MockEnvironment()
+            .withProperty(PARAM_APIGEE_RESOURCES_SPECS_ALL_URL, apigeeAllSpecsUrl)
+            .withProperty(PARAM_APIGEE_OAUTH_TOKEN_URL, oauthTokenUrl)
+            .withProperty(PARAM_APIGEE_RESOURCES_SPECS_INDIVIDUAL_URL, apigeeSingleSpecUrlTemplate)
+            .withProperty(PARAM_APIGEE_OAUTH_USERNAME, OAUTH_USERNAME)
+            .withProperty(PARAM_APIGEE_OAUTH_PASSWORD, OAUTH_PASSWORD)
+            .withProperty(PARAM_APIGEE_OAUTH_BASICAUTHTOKEN, OAUTH_BASIC_AUTH_TOKEN)
+            .withProperty(PARAM_APIGEE_OAUTH_OTPKEY, OAUTH_OTP_KEY);
+
+        // See https://documentation.bloomreach.com/14/library/concepts/crisp-api/unit-testing.html
+
+        final ClassPathXmlApplicationContext crispApiSpringApplicationContext = new ClassPathXmlApplicationContext();
+        crispApiSpringApplicationContext.setEnvironment(crispApiSpringApplicationContextEnvironment);
+        crispApiSpringApplicationContext.setConfigLocations(
+            testDataFileLocation("crisp-spring-context-properties-support.xml"),
+            "/META-INF/hst-assembly/addon/crisp/overrides/custom-resource-resolvers.xml"
+        );
+        crispApiSpringApplicationContext.refresh();
+
+        final String apigeeManagementApiCrispApiNamespace = "apigeeManagementApi";
+
+        final SimpleJacksonRestTemplateResourceResolver simpleJacksonRestTemplateResourceResolver =
+            crispApiSpringApplicationContext.getBean(
+                apigeeManagementApiCrispApiNamespace,
+                SimpleJacksonRestTemplateResourceResolver.class
+            );
+
+        final ImmutableMap<String, ResourceResolver> resourceResolverMap = ImmutableMap.<String, ResourceResolver>builder()
+            .put(apigeeManagementApiCrispApiNamespace, simpleJacksonRestTemplateResourceResolver)
+            .build();
+
+        final MockResourceServiceBroker mockResourceServiceBroker = new MockResourceServiceBroker(
+            resourceResolverMap
+        );
+
+        MockCrispHstServices.setDefaultResourceServiceBroker(mockResourceServiceBroker);
     }
 
     private void verifyHtmlGeneratedFromApigeeSpecWasSetOnApiSpecificationDocument() {
 
-        final Node specificationHandleNode = getExistingSpecHandleNode();
+        final Node specificationHandleNode = existingSpecHandleNode();
 
         final Node documentVariantNodeDraft = getDocumentVariantNode(specificationHandleNode, DRAFT);
 
@@ -147,39 +211,31 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
 
     private void verifyApiSpecificationDocumentWasPublished() {
 
-        final Node specificationHandleNode = getExistingSpecHandleNode();
-
         verifyStatic(JcrDocumentUtils.class);
-        JcrDocumentUtils.publish(specificationHandleNode);
+        JcrDocumentUtils.publish(existingSpecHandleNode());
     }
 
-    private Node getExistingSpecHandleNode() {
+    private Node existingSpecHandleNode() {
         return getRelativeNode(
             repositoryRootNode, "/content/documents/corporate-website/api-specifications-location-a/api-spec-a");
     }
 
     private void apigeeReturnsAccessToken() {
 
-        // @formatter:off
-        final String apigeeAccessTokenResponse = ""
-            + "{"
-            + "  \"accessToken\":\"eyJhbGciOiJSUzI1NiJ9\""
-            + "}";
-        // @formatter:on
-
         wireMock.givenThat(
-            post(urlEqualTo(oauthTokenUrlPath))
+            post(urlEqualTo(OAUTH_TOKEN_URL_PATH))
                 .willReturn(
                     ok()
                         .withHeader("Content-Type", "application/json;charset=UTF-8")
-                        .withBody(apigeeAccessTokenResponse)
+                        .withBody(apigeeAccessTokenResponse())
                 )
         );
     }
 
     private void apigeeReturnsListOfSpecsIncludingTheOneConfiguredInCms() {
+
         wireMock.givenThat(
-            get(urlMatching(apigeeAllSpecsUrlPath))
+            get(urlMatching(APIGEE_ALL_SPECS_URL_PATH))
                 .willReturn(
                     ok()
                         .withHeader("Content-Type", "application/json;charset=UTF-8")
@@ -188,13 +244,46 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
         );
     }
 
+    private void verifyOauth2AccessTokenRetrievedFromApigee() {
+
+        // @formatter:off
+        final String apigeeOauth2AccessTokenRequestBodyRegex =
+                  "grant_type=password"
+                + "&username=" + OAUTH_USERNAME
+                + "&password=" + OAUTH_PASSWORD
+                + "&mfa_token=\\d+";
+        // @formatter:on
+
+        wireMock.verify(
+            postRequestedFor(urlEqualTo(OAUTH_TOKEN_URL_PATH))
+                .withHeader("Authorization", equalTo("Basic " + OAUTH_BASIC_AUTH_TOKEN))
+                .withHeader("Content-Type", equalTo("application/x-www-form-urlencoded;charset=UTF-8"))
+                .withRequestBody(matching(
+                    apigeeOauth2AccessTokenRequestBodyRegex
+                ))
+        );
+    }
+
+    private void verifyApigeeRequestForSpecification() {
+
+        wireMock.verify(
+            getRequestedFor(urlEqualTo(APIGEE_ALL_SPECS_URL_PATH))
+                .withHeader("Authorization", equalTo("Bearer " + OAUTH_ACCESS_TOKEN))
+        );
+    }
+
+    private void verifyApigeeRequestForSpecificationsStatuses() {
+
+        wireMock.verify(
+            getRequestedFor(urlEqualTo(APIGEE_SINGLE_SPEC_URL_PATH))
+                .withHeader("Authorization", equalTo("Bearer " + OAUTH_ACCESS_TOKEN))
+        );
+    }
+
     private void apigeeReturnsDetailsOfTheSpecConfiguredInCms() {
 
-        final String expectedApigeeSingleSpecUrl =
-            new UriTemplate(apigeeSingleSpecUrlPathTemplate).expand(TEST_SPEC_ID).toASCIIString();
-
         wireMock.givenThat(
-            get(urlMatching(expectedApigeeSingleSpecUrl))
+            get(urlMatching(APIGEE_SINGLE_SPEC_URL_PATH))
                 .willReturn(
                     ok()
                         .withHeader("Content-Type", "application/json;charset=UTF-8")
@@ -205,15 +294,13 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
 
     private void cmsContainsSpecDocMatchingUpdatedSpecInApigee() throws Exception {
 
-        initJcrRepoFromYaml(session, TEST_DATA_FILES_PATH + "/specification-documents-in-cms.yml");
+        initJcrRepoFromYaml(session, testDataFileLocation("specification-documents-in-cms.yml"));
 
         repositoryRootNode = getRootNode(session);
 
-        final Node specDocHandleNode = getExistingSpecHandleNode();
+        final Node specDocHandleNode = existingSpecHandleNode();
 
-        MockJcr.setQueryResult(session, asList(
-            specDocHandleNode
-        ));
+        MockJcr.setQueryResult(session, singletonList(specDocHandleNode));
 
         // Low-level JCR-related components mocked where it was prohibitively hard to avoid:
 
@@ -228,15 +315,28 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
         given(documentManager.obtainEditableDocument(specDocHandleNode)).willReturn(documentVariantDraft);
     }
 
+    private String apigeeAccessTokenResponse() {
+        return fileContentFromClasspath(testDataFileLocation("auth-access-token-response.json"))
+            .replace("{ACCESS_TOKEN}", OAUTH_ACCESS_TOKEN);
+    }
+
     private String apigeeApiSpecificationsJson() {
-        return readFileInClassPath(TEST_DATA_FILES_PATH + "/specifications-in-apigee.json");
+        return testDataFromFile("specifications-in-apigee.json");
     }
 
     private String apigeeApiSpecificationJson() {
-        return readFileInClassPath(TEST_DATA_FILES_PATH + "/openapi-specification.json");
+        return testDataFromFile("openapi-specification.json");
     }
 
     private String codeGenGeneratedSpecificationHtml() {
-        return readFileInClassPath(TEST_DATA_FILES_PATH + "/codegen-generated-spec.html");
+        return testDataFromFile("codegen-generated-spec.html");
+    }
+
+    private String testDataFromFile(final String testDataFileName) {
+        return fileContentFromClasspath(testDataFileLocation(testDataFileName));
+    }
+
+    private String testDataFileLocation(final String fileName) {
+        return TEST_DATA_FILES_DIR + fileName;
     }
 }

@@ -1750,119 +1750,6 @@ Unauthenticated access and citizen access are on the roadmap.</p>
 <h2>Legal use</h2>
 <p>This API can only be used where there is a legal basis to do so. You should <a href="https://digital.nhs.uk/services/demographics/access-data-on-the-personal-demographics-service">make a PDS access request</a> before you go too far with your development.</p>
 <p>You must have made this request before you can go live (see ‘Onboarding’ below).</p>
-<h2>Related APIs</h2>
-<p>The following APIs also give access to the Personal Demographics Service:</p>
-<ul>
-<li><a href="https://digital.nhs.uk/developer/api-specifications/personal-demographics-service---smsp-api">Personal Demographics Service (SMSP) API</a> - use this if you want to get PDS data without an authenticated end used (no smartcard required). It is, however, read-only and searches are limited to a single result.</li>
-<li><a href="https://digital.nhs.uk/developer/api-specifications/personal-demographics-service-hl7-v3">Personal Demographics Service (HL7 V3) API</a> - use this if you want to use functions that are not yet available on the FHIR API.</li>
-</ul>
-<p>Once our roadmap is complete, the above APIs will become redundant.</p>
-<p>The following APIs are also related to this API:</p>
-<ul>
-<li><a href="https://developer.nhs.uk/apis/ods/">Organisation Data Service FHIR API</a> - use this to get full details for the organisations related to the patient, such as their registered GP or nominated pharmacy.</li>
-</ul>
-<h2>API status and roadmap</h2>
-<p>The search and retrieve endpoints are in <a href="https://digital.nhs.uk/developer/developer-reference/reference-guide#api-status">beta</a>, meaning:</p>
-<ul>
-<li>we might make breaking changes, but only if we can't avoid it, and we'll give you advance notice</li>
-<li>we can't guarantee availability or performance</li>
-</ul>
-<p>The update endpoint is in <a href="https://digital.nhs.uk/developer/developer-reference/reference-guide#api-status">alpha</a>, meaning</p>
-<ul>
-<li>expect further breaking changes</li>
-<li>it's only available in our sandbox, not for integration testing or production use</li>
-</ul>
-<p>The following items are on our roadmap, in rough priority order:</p>
-<ul>
-<li>addition of data fields for consent information</li>
-<li>update patient - beta - integration testing (target date: end of June 2020)</li>
-<li>update patient - beta - production service (target date to be confirmed)</li>
-<li>unauthenticated access - without NHS smartcard - similar to the PDS SMSP API (target date to be confirmed - please <a href="https://digital.nhs.uk/developer/help-and-support">contact us</a> for more details)</li>
-<li>access for citizens using NHS Login (target date to be confirmed - please <a href="https://digital.nhs.uk/developer/help-and-support">contact us</a> for more details)</li>
-<li>exit beta (target date: end of September 2020, subject to availability of beta testers)</li>
-</ul>
-<p>We are extremely keen to receive feedback on the API during beta,
-for example if there are data fields missing that you think you need.
-Please <a href="https://digital.nhs.uk/developer/help-and-support">contact us</a> with any comments or suggestions.</p>
-<h2>Technology</h2>
-<p>This API is <a href="https://digital.nhs.uk/developer/developer-reference/introduction-to-apis#basic-rest">RESTful</a>.</p>
-<p>It also conforms to the <a href="https://digital.nhs.uk/developer/developer-reference/introduction-to-apis#fhir">FHIR</a> global standard for health care data exchange.
-Specifically, it is aligned with <a href="https://digital.nhs.uk/services/fhir-uk-core">FHIR UK Core</a>, which is built on FHIR Release 4.</p>
-<p>You don’t need to know much about FHIR to use this API - FHIR APIs are just RESTful APIs that follow specific rules.
-In particular:</p>
-<ul>
-<li>resource names are capitalised and singular, for example the <code>/Patient</code> not <code>/patients</code></li>
-<li>array names are singular, for example <code>line</code> not <code>lines</code> for address lines</li>
-<li>data items that are country-specific and thus not included in the FHIR global base resources are usually wrapped in an <code>extension</code> object</li>
-</ul>
-<p>This API is available on the Internet, although access using NHS smartcards (see below)
-currently requires a connection to the <a href="https://digital.nhs.uk/services/health-and-social-care-network">Health and Social Care Network (HSCN)</a>.</p>
-<h2>Authorisation</h2>
-<p>This API is <a href="https://digital.nhs.uk/developer/developer-reference/security-and-authorisation#user-restricted-apis">user-restricted</a>,
-meaning an end user must be present and authenticated to use it.</p>
-<p>The end user must be:</p>
-<ul>
-<li>a healthcare professional</li>
-<li>strongly authenticated, using either an NHS smartcard or a modern alternative</li>
-</ul>
-<p>The API uses Open ID Connect to authenticate the end user and OAuth 2.0 to authorise the calling system.
-It supports the following security patterns:</p>
-<ul>
-<li>user-restricted RESTful API - using NHS Identity - combined authentication and authorisation</li>
-<li>user-restricted RESTful API - using NHS Identity - separate authentication and authorisation</li>
-</ul>
-<p>For more details, see <a href="https://digital.nhs.uk/developer/developer-reference/security-and-authorisation#user-restricted-apis">user-restricted APIs</a>.</p>
-<p>In due course we plan to add the following:</p>
-<ul>
-<li>access for citizens, using NHS Login</li>
-<li>unattended access - without smartcard - similar to the PDS SMSP API</li>
-</ul>
-<h2>Environments and testing</h2>
-<p>| Environment       | Base URL                                                       |
-| ----------------- | -------------------------------------------------------------- |
-| Sandbox           | <code>https://sandbox.api.service.nhs.uk/personal-demographics/</code>    |
-| Integration test  | <code>https://int.api.service.nhs.uk/personal-demographics/</code>        |
-| Production        | Not yet available                                              |</p>
-<h3>Sandbox testing</h3>
-<p>Our <a href="https://digital.nhs.uk/developer/developer-reference/testing#sandbox-testing">sandbox environment</a>:</p>
-<ul>
-<li>is for early developer testing</li>
-<li>only covers a limited set of scenarios</li>
-<li>is stateless, so it does not actually persist any updates</li>
-<li>is open access, so does not allow you to test authorisation</li>
-</ul>
-<p>For more details on sandbox testing, or to try out the sandbox using our &quot;Try this API&quot; feature, see the documentation for each endpoint.</p>
-<p>Alternatively, you can try out the sandbox using our Postman collection:</p>
-<p><a href="https://app.getpostman.com/run-collection/dc052f444e70d072e577"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
-<h3>Integration testing</h3>
-<p>Our <a href="https://digital.nhs.uk/developer/developer-reference/testing#integration-testing">integration test environment</a>:</p>
-<ul>
-<li>is for formal integration testing</li>
-<li>includes authorisation, using either username/password (for early testing) or smartcard/PIN</li>
-</ul>
-<p>You can use our <a href="https://digital.nhs.uk/developer/api-specifications/pds-fhir-api-test-data">PDS FHIR API test data pack</a> to test most common scenarios. You can also create your own test data.</p>
-<p>For more details see <a href="https://digital.nhs.uk/developer/developer-reference/testing#integration-testing-with-our-restful-apis">integration testing with our RESTful APIs</a>.</p>
-<h2>Onboarding</h2>
-<p>You need to get your software approved by us before it can go live with this API. We call this onboarding. The onboarding process can sometimes be quite long, so it’s worth planning well ahead.</p>
-<p>To onboard for this API, follow the <a href="https://digital.nhs.uk/developer/developer-reference/onboarding-process#onboard-using-the-supplier-conformance-assessment-list-scal-process">Supplier Conformance Assessment List (SCAL) process.</a></p>
-<p>When following the SCAL process, note that:</p>
-<ul>
-<li>In step 1: to confirm your use case for this API, you need to <a href="https://digital.nhs.uk/services/demographics/access-data-on-the-personal-demographics-service">make a PDS access request</a>, even if you already access PDS via another method.</li>
-<li>In step 6: when implementing your clinical risk management process, you must review and integrate the PDS FHIR API clinical hazard log into your own risk log. You’ll find it embedded within the PDS FHIR API tab in the SCAL.</li>
-<li>In step 8: you need to review and complete the PDS FHIR API risk log to show that you have understood and mitigated the various risks. You might be asked to provide some evidence to prove that controls have been put in place. You’ll find the risk log embedded within the PDS FHIR API tab in the SCAL. This is separate from the clinical hazard log mentioned above.</li>
-<li>In step 9: you must conduct penetration testing to <a href="https://www.ncsc.gov.uk/information/check-penetration-testing">CHECK standards</a></li>
-<li>In step 10: when you complete the Service Desk Registration Form, send it to <a href="mailto:api.management@nhs.net">api.management@nhs.net</a>.</li>
-<li>In step 11: submit your completed SCAL to <a href="mailto:api.management@nhs.net">api.management@nhs.net</a>.</li>
-<li>In step 14: to request production access, contact us at <a href="mailto:api.management@nhs.net">api.management@nhs.net</a>.</li>
-</ul>
-<h2>Endpoints</h2>
-<p>To see details for specific endpoints, select from the list on the left hand side of the page:</p>
-<ul>
-<li><code>GET /Patient</code> - search for patients.</li>
-<li><code>GET /Patient/{id}</code> - get patient's personal details.</li>
-<li><code>GET /Patient/{id}/RelatedPerson</code> - get patient's related people details.</li>
-<li><code>PATCH /Patient/{id}</code> - update patient's personal details (coming soon).</li>
-</ul>
 </div>
           </div>
         </div>
@@ -1907,82 +1794,6 @@ You can request a fuzzy search using the &#x60;_fuzzy-match&#x60; query paramete
   * check for transposed names, such as &#x60;Adam Thomas&#x60; and &#x60;Thomas Adam&#x60;
 
 Wildcards cannot be used with a fuzzy search.
-
-## Search parameter options
-For a non-fuzzy search, the minimum set of search parameters is:
-* family name - but it can include wildcards
-* gender
-* date of birth - but it can be a range
-
-For a fuzzy search, use one of the following search parameter combinations:
-* given name, family name and date of birth
-* family name, date of birth, gender and postcode
-* given name, date of birth, gender and postcode
-
-If you include the date of death or registered GP Practice query parameters for a fuzzy search, they will not be used as part of the search. However they will affect the patient&#x27;s matching score, meaning a mismatch will reduce the returned score.
-
-If you use an invalid combination of query parameters, you will get an &#x60;INVALID_COMBINATION&#x60; error.
-
-## Historic data search
-By default the endpoint only searches current information.
-You can search historic information, such as previous names or addresses using the &#x60;_history&#x60; query parameter.
-
-You cannot perform a fuzzy search on historic information.
-
-## Scoring
-Every matched patient in the result list includes a score to indicate how closely the patient matched the search parameters.
-
-A score of 1.0 indicates an exact match. A score of less than 1.0 indicates a partial match.
-
-The result list is sorted in descending score order - best match first.
-
-Use the &#x60;_exact-match&#x60; query parameter to return exact matches only - where the score is 1.0.
-
-## Restricted patients
-Some patients are tagged as restricted, or sensitive. When performing a search, restricted patients can be returned; however, location sensitive fields such as &#x60;address&#x60;, &#x60;telecom&#x60; and &#x60;generalPractitioner&#x60; will be removed.
-
-If &#x60;address-postcode&#x60; or &#x60;general-practitioner&#x60; are included in the search parameters, no restricted patients will be returned even if a match is identified.
-
-The restricted flag can be found in the data under &#x60;meta/security&#x60; on the patient resource.
-
-NHS Digital guidance on restricting access to a patient&#x27;s details can be found [here](https://digital.nhs.uk/services/demographics/restricting-access-to-a-patients-demographic-record)
-
-## Number of results returned
-By default, the endpoint will return a maximum of 50 results.
-
-If there are more than 50 matching patients, the endpoint will return no results and the error response &#x60;TOO_MANY_MATCHES&#x60;.
-You can further limit the number of results using the &#x60;_max-results&#x60; query parameter.
-You can request a single, exact match using &#x60;_exact-match&#x3D;true&#x60; and &#x60;_max-results&#x3D;1&#x60;.
-
-## Clinical safety and privacy
-This endpoint can return multiple matching patients for a given search, including partial matches.
-
-You should ensure that you design, build and test your software to minimise these risks:
-* an end user selects the wrong patient from the results presented, so there is a risk of clinical harm; for example due to retrieval of the wrong medical data
-* the end user has access to patients’ personal data, so there is a risk to patient privacy
-
-In particular, it is almost certainly a good idea to display search results in descending score order - best match first.
-
-## Sandbox testing
-You can test the following scenarios in our sandbox environment:
-
-| Scenario                    | Request                                                      | Response                                   |
-| --------------------------- | ------------------------------------------------------------ | ------------------------------------------ |
-| Basic search                | &#x60;family&#x60;&#x3D;&#x60;Smith&#x60;, &#x60;gender&#x60;&#x3D;&#x60;female&#x60;, &#x60;birthdate&#x60;&#x3D;&#x60;eq2010-10-22&#x60; | HTTP Status 200 with single search result. |
-| Wildcard search             | &#x60;family&#x60;&#x3D;&#x60;Sm*&#x60;, &#x60;gender&#x60;&#x3D;&#x60;female&#x60;, &#x60;birthdate&#x60;&#x3D;&#x60;eq2010-10-22&#x60; | HTTP Status 200 with search result of two. |
-| Search with limited results | &#x60;family&#x60;&#x3D;&#x60;Sm*&#x60;, &#x60;gender&#x60;&#x3D;&#x60;female&#x60;, &#x60;birthdate&#x60;&#x3D;&#x60;eq2010-10-22&#x60;, &#x60;_max-results&#x60;&#x3D;&#x60;2&#x60; | HTTP Status 200 with search result of two. |
-| Search with date range      | &#x60;family&#x60;&#x3D;&#x60;Smith&#x60;, &#x60;gender&#x60;&#x3D;&#x60;female&#x60;, &#x60;birthdate&#x60;&#x3D;&#x60;ge2010-10-21&#x60;, &#x60;birthdate&#x60;&#x3D;&#x60;le2010-10-23&#x60; | HTTP Status 200 with single search result. |
-| Fuzzy search                | &#x60;family&#x60;&#x3D;&#x60;Smith&#x60;, &#x60;given&#x60;&#x3D;&#x60;Jane&#x60; &#x60;gender&#x60;&#x3D;&#x60;female&#x60;, &#x60;birthdate&#x60;&#x3D;&#x60;eq2010-10-22&#x60;, &#x60;_fuzzy-match&#x60;&#x3D;&#x60;true&#x60; | HTTP Status 200 with single search result. |
-| Sensitive patient search    | &#x60;family&#x60;&#x3D;&#x60;Smythe&#x60;, &#x60;given&#x60;&#x3D;&#x60;Janet&#x60; &#x60;gender&#x60;&#x3D;&#x60;female&#x60;, &#x60;birthdate&#x60;&#x3D;&#x60;eq2005-06-16&#x60; | HTTP Status 200 with single search result without restricted data. |
-| Unsuccessful search         | Any other valid search query parameters                      | HTTP Status 200 with no search results     |
-| Invalid date format         | &#x60;birthdate&#x60; or &#x60;death-date&#x60; query parameters with values not in format &#x60;YYYY-MM-DD&#x60; | HTTP Status 400 with problem description   |
-| Too few search parameters   | Any invalid combination of query parameters                  | HTTP Status 400 with problem description   |
-
-You can try out the sandbox using the &quot;Try this API&quot; feature on the right hand side of this page.
-
-Alternatively, you can try out the sandbox using our Postman collection:
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/dc052f444e70d072e577)
 </p>
                         <p></p>
                         <br />
@@ -3533,7 +3344,7 @@ Note: This parameter is required unless interacting with the Sandbox.
             }
           }
         },
-        "description" : "Outcome of an operation that does not result in a resource or bundle being returned (e.g. error, async/batch submission).\nThere are a number of possible error codes that can be returned along with a more detailed description in the `display` field.\n\nThere are general outcomes:\n| Code                       | Response Code | Description                                   |\n| -------------------------- | ------------- | --------------------------------------------- |\n| ACCESS_DENIED              | 401           | Used when the user does not have permission for a particular request. eg. when their asid does not have the correct interactions attached to it. |\n| FAILURE_TO_PROCESS_MESSAGE | 500           | A default message when something really bad has happened that the system could not handle.\t|\n| UNABLE_TO_CALL_SERVICE     | 408           | For a synchronous request, the downstream domain processing has not completed within the configured timeout period. |\n| UNSUPPORTED_SERVICE        | 400           | The service the user requested an endpoint that does not exist - so is unsupported. eg. /Patient/9999999999/Pets |\n| RESOURCE_NOT_FOUND         | 404           | The resource was not found. |\n| INVALID_RESOURCE_ID        | 400           | The resource id was not valid. For example a NHS Number is presented which is not a valid NHS Number. |\n| INVALIDATED_RESOURCE       | 404           | The resource has been invalidated so could not be returned. |\n\nSearch outcomes:\n| Code                       | Response Code | Description                                   |\n| -------------------------- | ------------- | --------------------------------------------- |\n| INVALID_SEARCH_DATA\t       | 400           | The search parameters are invalid. A description of what exactly is at fault will be added to the display. |\n| TOO_MANY_MATCHES           | 200           | Too many matches were found - user should be told to refine their search parameters.\t|\n\nUpdate outcomes:\n| Code                       | Response Code | Description                                   |\n| -------------------------- | ------------- | --------------------------------------------- |\n| PRECONDITION_FAILED        | 412           | Request missing basic requirements such as If-Match header (or invalid headers). |\n| RESOURCE_VERSION_MISMATCH  | 409           | The resource version has changed since your last read, so the update has been rejected. |\n| FORBIDDEN_UPDATE           | 403           | The user is not permitted to update certain resources or elements - a detailed description will be added to the display. For example - updating a sensitive patient or adding a formal death notification is only permitted from certain systems. |\n| VALIDATION_ERROR           | 400           | This it the \"default\" error thrown when no others are applicable. |\n| INVALID_UPDATE             | 400           | The update was invalid - a detailed description will be added to the display. |\n| MISSING_VALUE              | 400           | There was a missing value in the request. For example - a name update that is missing the surname. The missing value will be presented in the display.\t|\n| INVALID_VALUE              | 400           | There was an invalid value in the request. For example - a name update where the surname is too long. The invalid value and field will be presented in the display. |\n| UNSUPPORTED_VALUE          | 400           | There was an unsupported value in the request. The value may be valid in the schmema - however it could be a legacy value that we do not allow to be set anymore. For example - setting the death notification status to 'removed'. The invalid value and field will be presented in the display. |\n| TOO_FEW_VALUES_SUBMITTED   | 400           | The field in question has a minimum number of items and the user sent too few. |\n| TOO_MANY_VALUES_SUBMITTED  | 400           | The field in question has a maximum number of items and the user sent too many. |\n| ADDITIONAL_PROPERTIES      | 400           | The user sent additional properties within the dictionary. For example sending a patient patch and attempting to add 'pets', which is not an allowed field within the patient resource. |\n\nPolling outcomes\n| Code                       | Response Code | Description                                   |\n| -------------------------- | ------------- | --------------------------------------------- |\n| POLLING_ID_NOT_FOUND       | 404           | When polling the id was not found - or it was not applicable such as a non polling id.\t|\n| POLLING_MESSAGE_FAILURE    | 422           | When polling an id, a message was found to be in a failed state, so there is nothing else to be done and should be considered a failure. |\n",
+        "description" : "Outcome of an operation that does not result in a resource or bundle being returned (e.g. error, async/batch submission).",
         "x-content-type" : "application/fhir+json"
       },
       "examples" : {

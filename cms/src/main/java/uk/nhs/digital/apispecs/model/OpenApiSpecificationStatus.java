@@ -1,17 +1,19 @@
 package uk.nhs.digital.apispecs.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.beans.ConstructorProperties;
 import java.time.Instant;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class OpenApiSpecificationStatus {
 
-    private String id;
-    private Instant modified;
+    private final String id;
+    private final String modified;
 
-    public void setId(final String id) {
+    @ConstructorProperties({"id", "modified"})
+    public OpenApiSpecificationStatus(final String id, final String modified) {
         this.id = id;
-    }
-
-    public void setModified(final Instant modified) {
         this.modified = modified;
     }
 
@@ -20,7 +22,7 @@ public class OpenApiSpecificationStatus {
     }
 
     public Instant getModified() {
-        return modified;
+        return Instant.parse(modified);
     }
 
 }

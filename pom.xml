@@ -69,6 +69,9 @@
 
         <hippo.cms.locales></hippo.cms.locales>
 
+        <!-- Keep in line with BloomReach version - see <parent><version> above -->
+        <hippo.version>13.4.2</hippo.version>
+
         <!-- revision variable is set by automation tools. dev-SNAPSHOT is the
         default, local value. Please don't change it. -->
         <revision>dev-SNAPSHOT</revision>
@@ -281,6 +284,11 @@
                 <artifactId>swagger-core</artifactId>
                 <version>1.6.1</version>
             </dependency>
+            <dependency>
+                <groupId>com.warrenstrange</groupId>
+                <artifactId>googleauth</artifactId>
+                <version>1.4.0</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.slf4j</groupId>
@@ -455,6 +463,12 @@
                 <version>${spring.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>joda-time</groupId>
                 <artifactId>joda-time</artifactId>
                 <version>2.10.2</version>
@@ -541,6 +555,12 @@
                 <groupId>com.onehippo.cms7</groupId>
                 <artifactId>hippo-addon-inference-engine-collector-plugin</artifactId>
                 <version>${hippo-addon-inference-engine.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.onehippo.cms7</groupId>
+                <artifactId>hippo-addon-crisp-mock</artifactId>
+                <version>${hippo.version}</version>
             </dependency>
 
         </dependencies>

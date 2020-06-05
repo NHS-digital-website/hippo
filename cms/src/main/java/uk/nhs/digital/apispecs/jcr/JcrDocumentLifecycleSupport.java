@@ -22,7 +22,7 @@ public class JcrDocumentLifecycleSupport {
     private final Node documentHandleNode;
 
     // Set when any of the properties have been updated and the document needs saving to persist the changes.
-    private boolean isDirty;
+    private boolean dirty;
 
     // Populated only if isDirty.
     private DocumentManager documentManager;
@@ -48,7 +48,7 @@ public class JcrDocumentLifecycleSupport {
 
             JcrNodeUtils.setStringPropertyQuietly(draftNodeCheckedOut, propertyName, value);
 
-            setDirty(true);
+            dirtySet();
         } catch (final Exception e) {
             throw new RuntimeException("Failed to update property " + propertyName + " on " + documentHandleNode, e);
         }
@@ -86,7 +86,7 @@ public class JcrDocumentLifecycleSupport {
 
                 documentManager.commitEditableDocument(draftDocumentVariant);
 
-                setDirty(false);
+                dirtyUnset();
             } catch (Exception e) {
                 throw new RuntimeException("Failed to save session for " + documentHandleNode, e);
             }
@@ -123,12 +123,16 @@ public class JcrDocumentLifecycleSupport {
         );
     }
 
-    private boolean isDirty() {
-        return isDirty;
+    private void dirtySet() {
+        this.dirty = true;
     }
 
-    private void setDirty(final boolean isDirty) {
-        this.isDirty = isDirty;
+    private void dirtyUnset() {
+        this.dirty = false;
+    }
+
+    private boolean isDirty() {
+        return dirty;
     }
 
     enum StandardPropertyNames {
