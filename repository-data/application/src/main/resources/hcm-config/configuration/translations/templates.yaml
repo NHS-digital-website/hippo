@@ -553,6 +553,11 @@ definitions:
           jcr:name: Other social media
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:owner:
+        /en:
+          jcr:name: Owner details
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:parameters:
         /en:
           jcr:name: Parameters
@@ -691,6 +696,11 @@ definitions:
       /website:service:
         /en:
           jcr:name: Service
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:signup:
+        /en:
+          jcr:name: Sign up page
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
       /website:socialmedia:
