@@ -1,4 +1,4 @@
-package uk.nhs.digital.freemarker.statistics;
+package uk.nhs.digital.freemarker.highcharts;
 
 import org.hippoecm.hst.site.HstServices;
 import org.onehippo.cms7.crisp.api.broker.ResourceServiceBroker;
@@ -8,12 +8,14 @@ import uk.nhs.digital.freemarker.AbstractRemoteContent;
 
 import java.net.URL;
 
-public class RemoteStatisticFromJson extends AbstractRemoteContent {
+public class RemoteChartDataFromUrl extends AbstractRemoteContent {
+
+    private static final String RESOURCE_RESOLVER = "chartValueResourceResolver";
 
     protected Object getContentObjectFrom(URL url) {
         ResourceServiceBroker broker =  CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());
-        Resource r = broker.resolve("statisticsRestResourceResolver", url.toString());
-        return broker.getResourceBeanMapper("statisticsRestResourceResolver").map(r, Statistic.class);
+        Resource r = broker.resolve(RESOURCE_RESOLVER, url.toString());
+        return broker.getResourceBeanMapper(RESOURCE_RESOLVER).map(r, ChartData.class);
     }
 
 }

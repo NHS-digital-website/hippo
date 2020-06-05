@@ -72,7 +72,7 @@
     - Versions
     - Data Sets
     - Upcoming
-    - Download the data for this chart
+    - Download the data for
     - Supplementary information requests
   /headers[2]:
     hippo:availability:
@@ -148,7 +148,7 @@
     - Versions
     - Data Sets
     - Upcoming
-    - Download the data for this chart
+    - Download the data for
     - Supplementary information requests
   /headers[3]:
     hippo:availability:
@@ -224,7 +224,7 @@
     - Versions
     - Data Sets
     - Upcoming
-    - Download the data for this chart
+    - Download the data for
     - Supplementary information requests
   hippo:name: Headers
   hippo:versionHistory: 1f150ca3-4ff4-4b1d-996b-cf4394b324d4

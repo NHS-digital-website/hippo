@@ -44,7 +44,7 @@ public class PublicationSteps extends AbstractSpringSteps {
     @Autowired
     private SitePage sitePage;
 
-    @Then(("^it is visible to consumers"))
+    @Then(("^it is visible to coqumers"))
     public void thenItIsVisibleToConsumers() throws Throwable {
 
         final Publication publication = testDataRepo.getCurrentPublication();
