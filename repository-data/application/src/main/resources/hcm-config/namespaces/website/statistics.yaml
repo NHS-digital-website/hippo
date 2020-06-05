@@ -40,8 +40,8 @@ definitions:
           /colourScheme:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: single=Single colour,muted=Muted Colour,bold=Bold
-                colour
+              selectable.options: single=Single colour,muted=Muted colour,bold=Bold
+                colour,boldtakeover=Bold takeover
             caption: Colour Scheme
             field: colourScheme
             hint: ''
