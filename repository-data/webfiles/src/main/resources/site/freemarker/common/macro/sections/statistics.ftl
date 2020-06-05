@@ -13,19 +13,24 @@
         <#local headingTag = "h3" />
     </#if>
 
+    <#if colourScheme == 'boldtakeover' && (section.modules?size >= 3)>
+        <#local sizeClass = 'statistics-section--wide' >
+    <#else>
+        <#local sizeClass = '' >
+    </#if>
     <#local colourClass = "statistics-section--${colourScheme}" />
     <#local animatedClass = "statistics-section--${animated}" />
-    <#local containerClasses = ["statistics-section", colourClass, animatedClass] />
+    <#local containerClasses = ["statistics-section", colourClass, animatedClass, sizeClass] />
     <div class="${containerClasses?join(' ')}">
         <#if section.heading?has_content>
             <${headingTag} id="${slugify(heading)}" class="statistics-section__heading">${heading}</${headingTag}>
         </#if>
-        <#if section.modules?size gt 0 >
+        <#list section.modules >
             <div class="statistics-section__modules">
-                <#list section.modules as stat>
-                    <@statistic stat/>
-                </#list>
+                <#items as stat>
+                    <@statistic stat stat?item_cycle('1', '2', '3', '4')/>
+                </#items>
             </div>
-        </#if>
+        </#list>
     </div>
 </#macro>

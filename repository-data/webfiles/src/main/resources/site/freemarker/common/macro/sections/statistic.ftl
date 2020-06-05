@@ -32,7 +32,7 @@
     <#return '' />
 </#function>
 
-<#macro statistic stat>
+<#macro statistic stat iteration>
     <#local dataType = stat.dataType />
     <#local urlOfNumber = stat.urlOfNumber />
     <#local statisticType = stat.statisticType />
@@ -72,7 +72,7 @@
     <#if numberOutput?size gt 1>
         <#local numberTypeClass = 'statistic--fraction' />
     </#if>
-    <#assign statClasses = ['statistic', numberTypeClass] />
+    <#assign statClasses = ['statistic', numberTypeClass, 'statistic--colour-${iteration}'] />
 
     <div class="${statClasses?join(" ")}">
         <p class="statistic__numberStat">
