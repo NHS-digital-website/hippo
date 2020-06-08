@@ -16,4 +16,11 @@
         <module>webapp</module>
     </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.bloomreach.forge.ipfilter</groupId>
+            <artifactId>bloomreach-ipfilter-hst</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>
