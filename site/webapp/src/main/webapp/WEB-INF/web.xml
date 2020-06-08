@@ -86,20 +86,25 @@
       <async-supported>true</async-supported>
   </filter>
 
-  <filter>
-    <filter-name>CharacterEncodingFilter</filter-name>
-    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-      <async-supported>true</async-supported>
-    <init-param>
-      <param-name>encoding</param-name>
-      <param-value>UTF-8</param-value>
-    </init-param>
-    <init-param>
-      <param-name>forceEncoding</param-name>
-      <param-value>true</param-value>
-    </init-param>
-  </filter>
+    <filter>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter
+        </filter-class>
+        <async-supported>true</async-supported>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
 
+    <filter>
+        <filter-name>HippoIpFilter</filter-name>
+        <filter-class>org.onehippo.forge.ipfilter.hst.IpFilter</filter-class>
+    </filter>
 
     <filter>
         <filter-name>PingFilter</filter-name>
@@ -156,10 +161,15 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
 
-  <filter-mapping>
-    <filter-name>XSSUrlFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
+    <filter-mapping>
+        <filter-name>HippoIpFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>XSSUrlFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
   <filter-mapping>
     <filter-name>RewriteFilter</filter-name>
@@ -193,10 +203,12 @@
     <listener-class>org.hippoecm.hst.site.container.HstContextLoaderListener</listener-class>
   </listener>
 
-  <!-- Listener that dispatches http session events to ComponentManager. -->
-  <listener>
-    <listener-class>org.hippoecm.hst.site.container.session.HttpSessionEventPublisher</listener-class>
-  </listener>
+    <!-- Listener that dispatches http session events to ComponentManager. -->
+    <listener>
+        <listener-class>
+            org.hippoecm.hst.site.container.session.HttpSessionEventPublisher
+        </listener-class>
+    </listener>
 
     <servlet>
         <servlet-name>saml</servlet-name>
@@ -264,32 +276,36 @@
     </init-param>
   </servlet>
 
-  <servlet>
-    <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>org.hippoecm.hst.security.servlet.LoginServlet</servlet-class>
-  </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>org.hippoecm.hst.security.servlet.LoginServlet
+        </servlet-class>
+    </servlet>
 
-  <servlet>
-    <servlet-name>SecurityResourceServlet</servlet-name>
-    <servlet-class>org.onehippo.cms7.utilities.servlet.ResourceServlet</servlet-class>
-    <init-param>
-      <param-name>jarPathPrefix</param-name>
-      <param-value>/META-INF/hst/security</param-value>
-    </init-param>
-  </servlet>
+    <servlet>
+        <servlet-name>SecurityResourceServlet</servlet-name>
+        <servlet-class>org.onehippo.cms7.utilities.servlet.ResourceServlet
+        </servlet-class>
+        <init-param>
+            <param-name>jarPathPrefix</param-name>
+            <param-value>/META-INF/hst/security</param-value>
+        </init-param>
+    </servlet>
 
-  <servlet>
-    <servlet-name>HstResourceServlet</servlet-name>
-    <servlet-class>org.onehippo.cms7.utilities.servlet.ResourceServlet</servlet-class>
-    <init-param>
-      <param-name>jarPathPrefix</param-name>
-      <param-value>/META-INF/web-resources</param-value>
-    </init-param>
-  </servlet>
+    <servlet>
+        <servlet-name>HstResourceServlet</servlet-name>
+        <servlet-class>org.onehippo.cms7.utilities.servlet.ResourceServlet
+        </servlet-class>
+        <init-param>
+            <param-name>jarPathPrefix</param-name>
+            <param-value>/META-INF/web-resources</param-value>
+        </init-param>
+    </servlet>
 
     <servlet>
         <servlet-name>SvgServlet</servlet-name>
-        <servlet-class>uk.nhs.digital.svg.colour.SvgColourMagicServlet</servlet-class>
+        <servlet-class>uk.nhs.digital.svg.colour.SvgColourMagicServlet
+        </servlet-class>
         <async-supported>true</async-supported>
     </servlet>
 
