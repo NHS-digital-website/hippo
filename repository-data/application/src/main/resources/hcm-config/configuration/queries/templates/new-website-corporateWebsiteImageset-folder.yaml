@@ -1,0 +1,20 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:queries/hippo:templates/new-website-corporateWebsiteImageset-folder:
+      /hippostd:templates:
+        /image gallery:
+          hippostd:foldertype:
+          - new-website-corporateWebsiteImageset-folder
+          hippostd:gallerytype:
+          - website:corporateWebsiteImageset
+          jcr:mixinTypes:
+          - mix:versionable
+          jcr:primaryType: hippogallery:stdImageGallery
+        jcr:primaryType: hippostd:templates
+      hippostd:modify:
+      - ./_name
+      - $name
+      jcr:language: xpath
+      jcr:primaryType: hippostd:templatequery
+      jcr:statement: /jcr:root/hippo:configuration/hippo:queries/hippo:templates/new-website-corporateWebsiteImageset-folder/hippostd:templates/node()

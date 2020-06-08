@@ -1,7 +1,6 @@
 package uk.nhs.digital.website.beans;
 
 import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
@@ -46,8 +45,8 @@ public class CaseStudyAndBlogBase extends CommonFieldsBean {
     }
 
     @HippoEssentialsGenerated(internalName = "website:leadimage")
-    public HippoGalleryImageSet getLeadImage() {
-        return getLinkedBean("website:leadimage", HippoGalleryImageSet.class);
+    public CorporateWebsiteImageset getLeadImage() {
+        return getLinkedBean("website:leadimage", CorporateWebsiteImageset.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:leadimagealttext")

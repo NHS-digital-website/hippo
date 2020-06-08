@@ -4,3 +4,8 @@ definitions:
     /content/assets:
       hippostd:gallerytype:
       - website:customizedAssetSet
+    /content/gallery:
+      hippostd:foldertype:
+      - new-website-corporateWebsiteImageset-folder
+      hippostd:gallerytype:
+      - website:corporateWebsiteImageset

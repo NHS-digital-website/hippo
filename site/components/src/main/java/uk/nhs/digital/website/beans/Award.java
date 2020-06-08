@@ -2,7 +2,6 @@ package uk.nhs.digital.website.beans;
 
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
-import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
 @HippoEssentialsGenerated(internalName = "website:award")
@@ -34,8 +33,8 @@ public class Award extends HippoCompound {
     }
 
     @HippoEssentialsGenerated(internalName = "website:awardpicture")
-    public HippoGalleryImageSet getAwardpicture() {
-        return getLinkedBean("website:awardpicture", HippoGalleryImageSet.class);
+    public CorporateWebsiteImageset getAwardpicture() {
+        return getLinkedBean("website:awardpicture", CorporateWebsiteImageset.class);
     }
 
 }

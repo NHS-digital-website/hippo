@@ -30,12 +30,10 @@
 <#if parentWork.publicationStyle?? && (!(document.publicationStyle)?? || document.publicationStyle == 'parent')>
     <#-- If an image has been set in this document, use that -->
     <#if document.bannerImage??>
-        <@hst.link hippobean=document.bannerImage.original fullyQualified=true var="bannerImage" />
-        <#assign bannerImageAltText = document.bannerImageAltText />
+        <#assign imageDocument = document />
     <#-- Otherwise, use the parent document's image too -->
     <#else>
-        <@hst.link hippobean=parentWork.bannerImage.original fullyQualified=true var="bannerImage" />
-        <#assign bannerImageAltText = parentWork.bannerImageAltText />
+        <#assign imageDocument = parentWork />
     </#if>
     <#if document.button??>
         <#assign button = document.button />
@@ -46,9 +44,8 @@
     <#assign publicationStyle = parentWork.publicationStyle />
 <#-- If style is set in the current document, use that -->
 <#elseif document.publicationStyle?? && document.publicationStyle?length>
-    <@hst.link hippobean=document.bannerImage.original fullyQualified=true var="bannerImage" />
+    <#assign imageDocument = document />
     <#assign publicationStyle = document.publicationStyle />
-    <#assign bannerImageAltText = document.bannerImageAltText />
 </#if>
 
 <#-- Don't use the summary in the content when the hero module is active -->
@@ -67,7 +64,7 @@
 <#if hasChapters>
     <#assign documents = [] />
 
-<#-- this loop only runs ones -->
+<#-- this loop only runs once -->
     <#list linkeddocuments.hippoBeans as item>
 
     <#-- Cache the parent document's details -->
@@ -94,20 +91,41 @@
     <#if publicationStyle == 'heromodule' && bannerImage??>
         <@hst.link hippobean=parentWork var="parentLink" />
 
-        <@heroModule {
+        <@hst.link hippobean=imageDocument.bannerImage.pageHeaderHeroModuleSmall2x fullyQualified=true var="bannerImageSmall2x" />
+        <@hst.link hippobean=imageDocument.bannerImage.pageHeaderHeroModuleSmall fullyQualified=true var="bannerImageSmall" />
+        <@hst.link hippobean=imageDocument.bannerImage.pageHeaderHeroModule2x fullyQualified=true var="bannerImage2x" />
+        <@hst.link hippobean=imageDocument.bannerImage.pageHeaderHeroModule fullyQualified=true var="bannerImage" />
+
+        <#assign heroConfig = {
             "document": document,
+            "bannerImageSmall": bannerImageSmall,
+            "bannerImageSmall2x": bannerImageSmall2x,
             "bannerImage": bannerImage,
-            "bannerImageAltText": bannerImageAltText,
+            "bannerImage2x": bannerImage2x,
+            "bannerImageAltText": imageDocument.bannerImageAltText,
             "button": button,
             "buttonText": "Jump to content",
             "showTime": false,
             "topText": documents[0].title,
             "topTextLink": parentLink
         } />
+        <@heroModule heroConfig />
     </#if>
 
     <#if publicationStyle == 'slimpicture'>
-        <@slimPicture document bannerImage bannerImageAltText />
+        <@hst.link hippobean=imageDocument.bannerImage.pageHeaderSlimBanner fullyQualified=true var="bannerImage" />
+        <@hst.link hippobean=imageDocument.bannerImage.pageHeaderSlimBanner2x fullyQualified=true var="bannerImage2x" />
+        <@hst.link hippobean=imageDocument.bannerImage.pageHeaderSlimBannerSmall fullyQualified=true var="bannerImageSmall" />
+        <@hst.link hippobean=imageDocument.bannerImage.pageHeaderSlimBannerSmall2x fullyQualified=true var="bannerImageSmall2x" />
+        <#assign slimPictureConfig = {
+            "document": document,
+            "bannerImageSmall": bannerImageSmall,
+            "bannerImageSmall2x": bannerImageSmall2x,
+            "bannerImage": bannerImage,
+            "bannerImage2x": bannerImage2x,
+            "bannerImageAltText": imageDocument.bannerImageAltText
+        } />
+        <@slimPicture slimPictureConfig />
     </#if>
     <#if hasChapters>
 

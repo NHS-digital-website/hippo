@@ -2,7 +2,6 @@ package uk.nhs.digital.website.beans;
 
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
-import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import uk.nhs.digital.freemarker.indices.StickySection;
@@ -26,8 +25,8 @@ public class Infographic extends HippoCompound implements StickySection {
     }
 
     @HippoEssentialsGenerated(internalName = "website:icon")
-    public HippoGalleryImageSet getIcon() {
-        return getLinkedBean("website:icon", HippoGalleryImageSet.class);
+    public CorporateWebsiteImageset getIcon() {
+        return getLinkedBean("website:icon", CorporateWebsiteImageset.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:qualifyingInformation")

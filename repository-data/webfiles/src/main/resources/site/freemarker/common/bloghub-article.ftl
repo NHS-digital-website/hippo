@@ -61,16 +61,50 @@
                             </#if>
 
                             <div class="${bloghubItemClass}" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-                              <div class="${bloghubItemIconClass}" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
-                                  <#if latest.leadImage??>
-                                      <@hst.link hippobean=latest.leadImage.original fullyQualified=true var="leadImage" />
-                                      <meta itemprop="url" content="${leadImage}">
-                                      <img itemprop="contentUrl" class="bloghub__icon__img" src="${leadImage}" alt="${latest.title}" />
-                                  <#else>
-                                      <meta itemprop="url" content="<@hst.webfile path="/images/fibre_57101102_med.jpg"/>" />
-                                      <img itemprop="contentUrl" src="<@hst.webfile path="/images/fibre_57101102_med.jpg"/>" alt="Default Blog Hub Image">
-                                  </#if>
-                              </div>
+                                <div class="${bloghubItemIconClass}"
+                                     itemprop="image" itemscope
+                                     itemtype="http://schema.org/ImageObject">
+                                    <#if latest.leadImage??>
+                                        <@hst.link hippobean=latest.leadImage.original fullyQualified=true var="leadImage" />
+
+                                        <#if latest?is_first>
+                                            <@hst.link hippobean=latest.leadImage.newsPostImage fullyQualified=true var="leadImage" />
+                                            <@hst.link hippobean=latest.leadImage.newsPostImage2x fullyQualified=true var="leadImage2x" />
+                                            <@hst.link hippobean=latest.leadImage.postImageSmall fullyQualified=true var="leadImageSmall" />
+                                            <@hst.link hippobean=latest.leadImage.postImageSmall2x fullyQualified=true var="leadImageSmall2x" />
+                                            <img itemprop="contentUrl"
+                                                 class="bloghub__icon__img" srcset="
+                                                ${leadImageSmall} 343w,
+                                                ${leadImageSmall2x} 686w,
+                                                ${leadImage} 640w,
+                                                ${leadImage2x} 1280w"
+                                                 sizes="(min-width: 990px) 640px, (min-width: 642px) 67vw, calc(100vw - 34px)"
+                                                 src="${leadImage}"
+                                                 alt="${latest.title}"/>
+                                        <#else>
+                                            <@hst.link hippobean=latest.leadImage.blogIndexThumb fullyQualified=true var="leadImage" />
+                                            <@hst.link hippobean=latest.leadImage.blogIndexThumb2x fullyQualified=true var="leadImage2x" />
+                                            <@hst.link hippobean=latest.leadImage.postImageSmall fullyQualified=true var="leadImageSmall" />
+                                            <@hst.link hippobean=latest.leadImage.postImageSmall2x fullyQualified=true var="leadImageSmall2x" />
+                                            <img itemprop="contentUrl"
+                                                 class="bloghub__icon__img" srcset="
+                                                ${leadImageSmall} 343w,
+                                                ${leadImageSmall2x} 686w,
+                                                ${leadImage} 468w,
+                                                ${leadImage2x} 936w"
+                                                 sizes="(min-width: 1000px) 468px, (min-width: 642px) 46vw, calc(100vw - 34px)"
+                                                 src="${leadImage}"
+                                                 alt="${latest.title}"/>
+                                        </#if>
+                                        <meta itemprop="url" content="${leadImage}">
+                                    <#else>
+                                        <meta itemprop="url"
+                                              content="<@hst.webfile path="/images/fibre_57101102_med.jpg"/>"/>
+                                        <img itemprop="contentUrl"
+                                             src="<@hst.webfile path="/images/fibre_57101102_med.jpg"/>"
+                                             alt="Default Blog Hub Image">
+                                    </#if>
+                                </div>
 
                               <div class="${bloghubItemContentClass}">
                                   <div itemprop="headline" class="bloghub__item__content__title"><a class="cta__title cta__button" href="<@hst.link hippobean=latest/>">${latest.title}</a></div>
@@ -92,8 +126,14 @@
                                           <div class="bloghub__item__content__author__imgs">
                                             <#list latest.authors as author>
                                               <#if author.personimages.picture?has_content>
-                                                <@hst.link hippobean=author.personimages.picture.original fullyQualified=true var="authorImage" />
-                                                <img itemprop="image" class="bloghub__item__content__author__img" src="${authorImage}" alt="${author.title}" />
+                                                <@hst.link hippobean=author.personimages.picture.authorPhoto fullyQualified=true var="authorImage" />
+                                                <@hst.link hippobean=author.personimages.picture.authorPhoto2x fullyQualified=true var="authorImage2x" />
+                                                  <img itemprop="image"
+                                                       class="bloghub__item__content__author__img"
+                                                       srcset="${authorImage} 50px, ${authorPhoto2x} 100px"
+                                                       sizes="50px"
+                                                       src="${authorImage}"
+                                                       alt="${author.title}"/>
                                               </#if>
                                             </#list>
                                           </div>

@@ -2,7 +2,6 @@ package uk.nhs.digital.website.beans;
 
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
-import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
@@ -16,8 +15,8 @@ public class PersonImage extends HippoCompound {
     }
 
     @HippoEssentialsGenerated(internalName = "website:picture")
-    public HippoGalleryImageSet getPicture() {
-        return getLinkedBean("website:picture", HippoGalleryImageSet.class);
+    public CorporateWebsiteImageset getPicture() {
+        return getLinkedBean("website:picture", CorporateWebsiteImageset.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:imagesourcepermission")

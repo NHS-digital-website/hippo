@@ -66,8 +66,8 @@ public class Event extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = "website:summaryimage")
-    public HippoGalleryImageSet getSummaryimage() {
-        return getLinkedBean("website:summaryimage", HippoGalleryImageSet.class);
+    public CorporateWebsiteImageset getSummaryimage() {
+        return getLinkedBean("website:summaryimage", CorporateWebsiteImageset.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:attachments")
