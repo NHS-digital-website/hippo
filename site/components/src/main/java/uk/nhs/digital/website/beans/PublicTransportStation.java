@@ -2,7 +2,6 @@ package uk.nhs.digital.website.beans;
 
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
-import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
@@ -13,8 +12,8 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 public class PublicTransportStation extends HippoCompound {
 
     @HippoEssentialsGenerated(internalName = "website:bypublictransportpicture")
-    public HippoGalleryImageSet getByPublicTransportPicture() {
-        return getLinkedBean("website:bypublictransportpicture", HippoGalleryImageSet.class);
+    public CorporateWebsiteImageset getByPublicTransportPicture() {
+        return getLinkedBean("website:bypublictransportpicture", CorporateWebsiteImageset.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:bypublictransportpicturealttext")

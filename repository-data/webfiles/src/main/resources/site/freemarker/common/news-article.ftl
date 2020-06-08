@@ -110,9 +110,17 @@
                 <#if hasLeadImage>
                     <div class="lead-image-container" >
                         <div class="lead-image" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
-                            <@hst.link hippobean=document.leadimagesection.leadImage.original fullyQualified=true var="leadImage" />
+                            <@hst.link hippobean=document.leadimagesection.leadImage.postImageSmall fullyQualified=true var="leadImageSmall" />
+                            <@hst.link hippobean=document.leadimagesection.leadImage.postImageSmall2x fullyQualified=true var="leadImageSmall2x" />
+                            <@hst.link hippobean=document.leadimagesection.leadImage.newsPostImage fullyQualified=true var="leadImage" />
+                            <@hst.link hippobean=document.leadimagesection.leadImage.newsPostImage2x fullyQualified=true var="leadImage2x" />
                             <meta itemprop="url" content="${leadImage}" />
-                            <img itemprop="contentUrl" src="${leadImage}" alt="<#if hasLeadImageAltText>${document.leadimagesection.alttext}</#if>" />
+                            <img itemprop="contentUrl"  srcset="
+                                ${leadImageSmall} 343w,
+                                ${leadImageSmall2x} 686w,
+                                ${leadImage} 640w,
+                                ${leadImage2x} 1280w
+                            " sizes="(min-width: 925px) 640px, calc(100vw - 32px)" src="${leadImage}" alt="<#if hasLeadImageAltText>${document.leadimagesection.alttext}</#if>" />
                         </div>
                         <#if hasLeadImageCaption>
                           <div class="lead-image-caption" data-uipath="website.blog.leadimagecaption">

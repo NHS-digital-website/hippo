@@ -2,9 +2,9 @@
 /content/gallery/website/icons:
   hippo:name: Icons
   hippostd:foldertype:
-  - new-image-folder
+  - new-website-corporateWebsiteImageset-folder
   hippostd:gallerytype:
-  - hippogallery:imageset
+  - website:corporateWebsiteImageset
   jcr:mixinTypes:
   - hippo:named
   - mix:versionable

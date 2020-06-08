@@ -1,0 +1,30 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:queries/hippo:templates/new-website-corporateWebsiteImageset-image:
+      /hippostd:templates:
+        /image:
+          /image:
+            /hippogallery:thumbnail:
+              jcr:data:
+                resource: /configuration/queries/templates/new-website-corporateWebsiteImageset-image/templates/image/image_thumbnail.jpg
+                type: binary
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T11:03:00Z
+              jcr:mimeType: image/jpeg
+              jcr:primaryType: hippogallery:image
+            jcr:mixinTypes:
+            - mix:versionable
+            jcr:primaryType: hippogallery:imageset
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: hippo:handle
+        jcr:primaryType: hippostd:templates
+      hippostd:modify:
+      - ./_name
+      - $name
+      - ./_node/_name
+      - $name
+      jcr:language: xpath
+      jcr:primaryType: hippostd:templatequery
+      jcr:statement: /jcr:root/hippo:configuration/hippo:queries/hippo:templates/new-website-corporateWebsiteImageset-image/hippostd:templates/node()

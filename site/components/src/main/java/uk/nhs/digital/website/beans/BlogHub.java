@@ -26,13 +26,13 @@ public class BlogHub extends CommonFieldsBean {
     }
 
     @HippoEssentialsGenerated(internalName = "website:pageicon")
-    public HippoGalleryImageSet getPageIcon()  {
-        return getLinkedBean("website:pageicon", HippoGalleryImageSet.class);
+    public CorporateWebsiteImageset getPageIcon()  {
+        return getLinkedBean("website:pageicon", CorporateWebsiteImageset.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:blogheadingimage")
-    public HippoGalleryImageSet getBlogheadingimage()  {
-        return getLinkedBean("website:blogheadingimage", HippoGalleryImageSet.class);
+    public CorporateWebsiteImageset getBlogheadingimage()  {
+        return getLinkedBean("website:blogheadingimage", CorporateWebsiteImageset.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:issn")
@@ -41,8 +41,8 @@ public class BlogHub extends CommonFieldsBean {
     }
 
     @HippoEssentialsGenerated(internalName = "website:leadimage")
-    public HippoGalleryImageSet getLeadImage()  {
-        return getLinkedBean("website:leadimage", HippoGalleryImageSet.class);
+    public CorporateWebsiteImageset getLeadImage()  {
+        return getLinkedBean("website:leadimage", CorporateWebsiteImageset.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:subject")

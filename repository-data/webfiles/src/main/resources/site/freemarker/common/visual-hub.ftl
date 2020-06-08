@@ -10,6 +10,7 @@
 <#include "macro/tabTileHeadings.ftl">
 <#include "macro/tabTiles.ftl">
 <#include "macro/contentPixel.ftl">
+<#include 'macro/published-work-banners/slim-picture.ftl'>
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
@@ -27,18 +28,19 @@
 
 <article class="article">
     <#if hasBannerImage && hasPrimaryLinks>
-        <@hst.link hippobean=document.image.original fullyQualified=true var="bannerImage" />
-        <div class="banner-image" aria-label="Document Header" style="background-image: url(${bannerImage});">
-            <div class="grid-wrapper">
-                <div class="grid-row">
-                    <div class="column column--reset banner-image-title">
-                        <div class="banner-image-title-background">
-                            <h1 data-uipath="document.title">${document.title}</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <@hst.link hippobean=document.bannerImage.pageHeaderSlimBanner fullyQualified=true var="bannerImage" />
+        <@hst.link hippobean=document.bannerImage.pageHeaderSlimBanner2x fullyQualified=true var="bannerImage2x" />
+        <@hst.link hippobean=document.bannerImage.pageHeaderSlimBannerSmall fullyQualified=true var="bannerImageSmall" />
+        <@hst.link hippobean=document.bannerImage.pageHeaderSlimBannerSmall2x fullyQualified=true var="bannerImageSmall2x" />
+        <#assign slimPictureConfig = {
+            "document": document,
+            "bannerImageSmall": bannerImageSmall,
+            "bannerImageSmall2x": bannerImageSmall2x,
+            "bannerImage": bannerImage,
+            "bannerImage2x": bannerImage2x,
+            "bannerImageAltText": "Document Header"
+        } />
+        <@slimPicture slimPictureConfig />
         <div class="grid-wrapper banner-image-summary">
             <div class="article-header__inner">
                 <div class="grid-row">

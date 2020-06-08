@@ -7,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
-import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 
@@ -50,8 +49,8 @@ public class EmphasisBox extends HippoCompound {
 
     @JsonIgnore
     @HippoEssentialsGenerated(internalName = "website:image")
-    public HippoGalleryImageSet getImage() {
-        return getLinkedBean("website:image", HippoGalleryImageSet.class);
+    public CorporateWebsiteImageset getImage() {
+        return getLinkedBean("website:image", CorporateWebsiteImageset.class);
     }
 
 }

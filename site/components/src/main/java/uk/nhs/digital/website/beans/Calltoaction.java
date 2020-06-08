@@ -33,7 +33,7 @@ public class Calltoaction extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = "website:image")
-    public HippoGalleryImageSet getImage() {
-        return getLinkedBean("website:image", HippoGalleryImageSet.class);
+    public CorporateWebsiteImageset getImage() {
+        return getLinkedBean("website:image", CorporateWebsiteImageset.class);
     }
 }
