@@ -84,7 +84,7 @@ definitions:
           /footersections:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Fooder Sections
+            caption: Footer Sections
             compoundList: website:section,publicationsystem:chartSection,website:dynamicchartsection,publicationsystem:mapSection,website:emphasisBox,website:iconlist,website:gallerysection,website:code,website:download,website:expander,website:ctabutton,website:quote,website:infographic,website:checklist,website:statistics,website:navigation,website:tableau
             contentPickerType: links
             field: footersections
@@ -93,6 +93,15 @@ definitions:
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
             wicket.skin: skin/content-blocks.css
+          /form:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Form
+            field: form
+            hint: Select Enterprise Form
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
           /classifiable:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -132,6 +141,16 @@ definitions:
             hipposysedit:type: hippo:compound
             hipposysedit:validators:
             - contentblocks-validator
+            jcr:primaryType: hipposysedit:field
+          /form:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:form
+            hipposysedit:primary: false
+            hipposysedit:type: website:internallink
+            hipposysedit:validators:
+            - optional
             jcr:primaryType: hipposysedit:field
           /introductionsections:
             hipposysedit:multiple: true
@@ -205,6 +224,11 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /website:form:
+            /website:link:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:internallink
           /website:owner:
             jcr:primaryType: website:owner
             website:department: ''

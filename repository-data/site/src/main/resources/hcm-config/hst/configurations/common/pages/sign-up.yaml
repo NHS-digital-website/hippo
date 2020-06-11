@@ -1,0 +1,23 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/sign-up:
+      /main:
+        hst:componentclassname: twst
+        hst:parameternames:
+        - behaviors
+        - eforms-mailsession
+        - eforms-from-name
+        - eforms-from-email
+        - eforms-use-freemarker
+        hst:parametervalues:
+        - com.onehippo.cms7.eforms.hst.behaviors.FormIntroBehavior
+        - mail/NHSMail
+        - NHS Mail
+        - hippo.nhsdigital@nhs.net
+        - 'true'
+        hst:template: sign-up
+        jcr:primaryType: hst:component
+      hst:componentclassname: uk.nhs.digital.common.components.BaseGaContentComponent
+      hst:referencecomponent: hst:abstractpages/apppage
+      jcr:primaryType: hst:component

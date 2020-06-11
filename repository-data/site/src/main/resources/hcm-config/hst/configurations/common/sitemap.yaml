@@ -110,6 +110,7 @@ definitions:
         - website:definedterms
         - website:projectfeed
         - website:projectupdate
+        - website:signup
         hst:componentconfigurationmappingvalues:
         - hst:pages/service
         - hst:pages/general
@@ -144,6 +145,7 @@ definitions:
         - hst:pages/definedterms
         - hst:pages/project-update-feed
         - hst:pages/project-update
+        - hst:pages/sign-up
         hst:relativecontentpath: ${1}
         jcr:primaryType: hst:sitemapitem
       /about:
