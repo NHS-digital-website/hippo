@@ -116,7 +116,7 @@
                 <!-- end sticky-nav -->
             </div>
 
-            <div class="column column--three-quarters page-block page-block--main">
+            <div class="column column--two-thirds page-block page-block--main">
                 <#if hasSummaryContent>
                     <div  id="${slugify(summaryHeader)}" class="article-section article-section--summary article-section--reset-top">
                         <h2>${summaryHeader}</h2>
