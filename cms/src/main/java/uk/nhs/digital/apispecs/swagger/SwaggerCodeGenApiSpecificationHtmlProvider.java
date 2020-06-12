@@ -67,8 +67,9 @@ public class SwaggerCodeGenApiSpecificationHtmlProvider implements ApiSpecificat
 
         final ClientOpts clientOptions = new ClientOpts();
 
-        final CodegenConfig codegenConfig = new StaticHtml2Codegen();
+        final StaticHtml2Codegen codegenConfig = new StaticHtml2Codegen();
         codegenConfig.setOutputDir(swaggerOutputDirectory.getPath());
+        codegenConfig.setTemplateDir("/customdir/");
 
         clientOptInput
             .opts(clientOptions)
