@@ -1,4 +1,4 @@
-package uk.nhs.digital.freemarker;
+package uk.nhs.digital.freemarker.utils;
 
 import freemarker.template.SimpleScalar;
 import freemarker.template.SimpleSequence;

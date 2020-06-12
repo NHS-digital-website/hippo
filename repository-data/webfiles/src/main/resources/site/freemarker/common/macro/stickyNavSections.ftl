@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 
-<#assign isStickySectionMainHeading="uk.nhs.digital.indices.IsStickySectionMainHeading"?new() />
+<#assign isStickySectionMainHeading="uk.nhs.digital.freemarker.indices.IsStickySectionMainHeading"?new() />
 
 <#macro stickyNavSections links title="Page contents">
 <div class="article-section-nav-wrapper">

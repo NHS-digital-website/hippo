@@ -1,4 +1,4 @@
-package uk.nhs.digital.indices;
+package uk.nhs.digital.freemarker.indices;
 
 public interface StickySection {
 
@@ -22,9 +22,9 @@ public interface StickySection {
      * @return true if the StickySection is intended as a main heading.
      */
     default boolean isMainHeading() {
-        return this.getHeadingLevel() == null 
-            || this.getHeadingLevel().equalsIgnoreCase("Main heading") 
-               && this.getHeading() != null 
+        return this.getHeadingLevel() == null
+            || this.getHeadingLevel().equalsIgnoreCase("Main heading")
+               && this.getHeading() != null
                && !this.getHeading().isEmpty();
     }
 
