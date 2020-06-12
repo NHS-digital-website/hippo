@@ -1,0 +1,293 @@
+<div class="column column--one-third page-block page-block--sidebar article-section-nav-outer-wrapper">
+    <!-- start sticky-nav -->
+    <div id="sticky-nav">
+        <div class="article-section-nav-wrapper">
+            <div class="article-section-nav">
+                <h2 class="article-section-nav__title">Page contents</h2>
+                <nav>
+                    <ol class="article-section-nav__list">
+                        <li>
+                            <a href="#top" aria-label="Scroll to 'Top of page'" title="Scroll to 'Top of page'" class="active">Top of page</a>
+                        </li>
+                        <li>
+                            <a href="#api-description" aria-label="Overview" title="Overview" class="active">Overview</a>
+                        </li>
+
+                        {{#apiInfo}}
+                            {{#apis}}
+                                {{#operations}}
+                                    <li class="nav-header" data-group="{{baseName}}"><a href="#api-{{baseName}}">API Methods - {{baseName}}</a></li>
+                                    {{#operation}}
+                                        <li data-group="{{baseName}}" data-name="{{nickname}}" class="">
+                                            <a href="#api-{{baseName}}-{{nickname}}">{{nickname}}</a>
+                                        </li>
+                                    {{/operation}}
+                                {{/operations}}
+                            {{/apis}}
+                        {{/apiInfo}}
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- end sticky-nav -->
+</div>
+
+<div id="content" class="column column--two-thirds page-block page-block--main" aria-label="Document content">
+
+    <!-- API Title: {{{appName}}} -->
+
+    <div id="header">
+        <div id="api-_">
+            {{#version}}
+                <div class="app-desc">Version: {{{version}}}</div>
+            {{/version}}
+            <hr>
+            <div id="api-description">{{{appDescription}}}</div>
+        </div>
+    </div>
+    <div id="sections">
+        {{#apiInfo}}
+            {{#apis}}
+                {{#operations}}
+                    <section id="api-{{baseName}}">
+                        <h1>{{baseName}}</h1>
+                        {{#operation}}
+                            {{#contents}}
+                                {{#@first}}
+                                    <div id="api-{{baseName}}-{{nickname}}">
+                                        <article id="api-{{baseName}}-{{nickname}}-0" data-group="User" data-name="{{nickname}}" data-version="0">
+                                            <div class="pull-left">
+                                                <h1>{{nickname}}</h1>
+                                                <p>{{summary}}</p>
+                                            </div>
+                                            <div class="pull-right"></div>
+                                            <div class="clearfix"></div>
+                                            <p></p>
+                                            <p class="marked">{{notes}}</p>
+                                            <p></p>
+                                            <br />
+                                            <pre class="prettyprint language-html prettyprinted" data-type="{{httpMethod}}"><code><span class="pln">{{path}}</span></code></pre>
+                                            <p>
+                                            <h3>Usage and SDK Samples</h3>
+                                            </p>
+                                            <ul class="nav nav-tabs nav-tabs-examples">
+                                                <li class="active"><a href="#examples-{{baseName}}-{{nickname}}-0-curl">Curl</a></li>
+                                                <li class=""><a href="#examples-{{baseName}}-{{nickname}}-0-java">Java</a></li>
+                                                <li class=""><a href="#examples-{{baseName}}-{{nickname}}-0-android">Android</a></li>
+                                                <!--<li class=""><a href="#examples-{{baseName}}-{{nickname}}-0-groovy">Groovy</a></li>-->
+                                                <li class=""><a href="#examples-{{baseName}}-{{nickname}}-0-objc">Obj-C</a></li>
+                                                <li class=""><a href="#examples-{{baseName}}-{{nickname}}-0-javascript">JavaScript</a></li>
+                                                <!--<li class=""><a href="#examples-{{baseName}}-{{nickname}}-0-angular">Angular</a></li>-->
+                                                <li class=""><a href="#examples-{{baseName}}-{{nickname}}-0-csharp">C#</a></li>
+                                                <li class=""><a href="#examples-{{baseName}}-{{nickname}}-0-php">PHP</a></li>
+                                                <li class=""><a href="#examples-{{baseName}}-{{nickname}}-0-perl">Perl</a></li>
+                                                <li class=""><a href="#examples-{{baseName}}-{{nickname}}-0-python">Python</a></li>
+                                            </ul>
+
+                                            <div class="tab-content">
+                                                <div class="tab-pane active" id="examples-{{baseName}}-{{nickname}}-0-curl">
+                                                    <pre class="prettyprint"><code class="language-bsh">curl -X {{vendorExtensions.x-codegen-httpMethodUpperCase}}{{#authMethods}}{{#is this 'api-key'}}{{#is this 'key-in-header'}} -H "{{keyParamName}}: [[apiKey]]"{{/is}}{{/is}}{{#is this 'basic'}}{{#has this 'produces'}} -H "Accept: {{#produces}}{{{mediaType}}}{{#hasMore}},{{/hasMore}}{{/produces}}"{{/has}}{{#has this 'consumes'}} -H "Content-Type: {{#consumes}}{{{mediaType}}}{{#hasMore}},{{/hasMore}}{{/consumes}}"{{/has}} -H "Authorization: Basic [[basicHash]]"{{/is}}{{/authMethods}} "{{basePath}}{{path}}{{#hasQueryParams}}?{{#queryParams}}{{^@first}}&{{/@first}}{{baseName}}={{vendorExtensions.x-eg}}{{/queryParams}}{{/hasQueryParams}}"</code></pre>
+                                                </div>
+                                                <div class="tab-pane" id="examples-{{baseName}}-{{nickname}}-0-java">
+                                                    <pre class="prettyprint"><code class="language-java">{{>sample_java}}</code></pre>
+                                                </div>
+
+                                                <div class="tab-pane" id="examples-{{baseName}}-{{nickname}}-0-android">
+                                                    <pre class="prettyprint"><code class="language-java">{{>sample_android}}</code></pre>
+                                                </div>
+                                                <!--
+  <div class="tab-pane" id="examples-{{baseName}}-{{nickname}}-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                                                <div class="tab-pane" id="examples-{{baseName}}-{{nickname}}-0-objc">
+                                                    <pre class="prettyprint"><code class="language-cpp">{{>sample_objc}}</code></pre>
+                                                </div>
+
+                                                <div class="tab-pane" id="examples-{{baseName}}-{{nickname}}-0-javascript">
+                                                    <pre class="prettyprint"><code class="language-js">{{>sample_js}}</code></pre>
+                                                </div>
+
+                                                <!--<div class="tab-pane" id="examples-{{baseName}}-{{nickname}}-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                                                <div class="tab-pane" id="examples-{{baseName}}-{{nickname}}-0-csharp">
+                                                    <pre class="prettyprint"><code class="language-cs">{{>sample_csharp}}</code></pre>
+                                                </div>
+
+                                                <div class="tab-pane" id="examples-{{baseName}}-{{nickname}}-0-php">
+                                                    <pre class="prettyprint"><code class="language-php">{{>sample_php}}</code></pre>
+                                                </div>
+
+                                                <div class="tab-pane" id="examples-{{baseName}}-{{nickname}}-0-perl">
+                                                    <pre class="prettyprint"><code class="language-perl">{{>sample_perl}}</code></pre>
+                                                </div>
+
+                                                <div class="tab-pane" id="examples-{{baseName}}-{{nickname}}-0-python">
+                                                    <pre class="prettyprint"><code class="language-python">{{>sample_python}}</code></pre>
+                                                </div>
+                                            </div>
+
+                                            <h2>Parameters</h2>
+
+                                            {{#hasPathParams}}
+                                                <div class="methodsubtabletitle">Path parameters</div>
+                                                <table id="methodsubtable">
+                                                    <tr>
+                                                        <th width="150px">Name</th>
+                                                        <th>Description</th>
+                                                    </tr>
+                                                    {{#pathParams}}
+                                                        {{>param}}
+                                                    {{/pathParams}}
+                                                </table>
+                                            {{/hasPathParams}}
+
+                                            {{#hasHeaderParams}}
+                                                <div class="methodsubtabletitle">Header parameters</div>
+                                                <table id="methodsubtable">
+                                                    <tr>
+                                                        <th width="150px">Name</th>
+                                                        <th>Description</th>
+                                                    </tr>
+                                                    {{#headerParams}}
+                                                        {{>param}}
+                                                    {{/headerParams}}
+                                                </table>
+                                            {{/hasHeaderParams}}
+
+                                            {{#hasBodyParam}}
+                                                <div class="methodsubtabletitle">Body parameters</div>
+                                                <table id="methodsubtable">
+                                                    <tr>
+                                                        <th width="150px">Name</th>
+                                                        <th>Description</th>
+                                                    </tr>
+                                                    {{#bodyParams}}
+                                                        {{>paramB}}
+                                                    {{/bodyParams}}
+                                                </table>
+                                            {{/hasBodyParam}}
+
+                                            {{#hasFormParams}}
+                                                <div class="methodsubtabletitle">Form parameters</div>
+                                                <table id="methodsubtable">
+                                                    <tr>
+                                                        <th width="150px">Name</th>
+                                                        <th>Description</th>
+                                                    </tr>
+                                                    {{#formParams}}
+                                                        {{>param}}
+                                                    {{/formParams}}
+                                                </table>
+                                            {{/hasFormParams}}
+
+                                            {{#hasQueryParams}}
+                                                <div class="methodsubtabletitle">Query parameters</div>
+                                                <table id="methodsubtable">
+                                                    <tr>
+                                                        <th width="150px">Name</th>
+                                                        <th>Description</th>
+                                                    </tr>
+                                                    {{#queryParams}}
+                                                        {{>param}}
+                                                    {{/queryParams}}
+                                                </table>
+                                            {{/hasQueryParams}}
+
+                                            <h2>Responses</h2>
+                                            {{#responses}}
+                                                <h3> Status: {{code}} - {{message}} </h3>
+
+                                                <ul class="nav nav-tabs nav-tabs-examples" >
+                                                    {{#schema}}
+                                                        <li class="active">
+                                                            <a data-toggle="tab" href="#responses-{{nickname}}-{{code}}-schema">Schema</a>
+                                                        </li>
+
+                                                        {{#examples}}
+                                                            <li class="">
+                                                                <a data-toggle="tab" href="#responses-{{nickname}}-{{code}}-example">Response Example</a>
+                                                            </li>
+                                                        {{/examples}}
+                                                    {{/schema}}
+                                                    {{#hasHeaders}}
+                                                        <li class="">
+                                                            <a data-toggle="tab" href="#responses-{{nickname}}-{{code}}-headers">Headers</a>
+                                                        </li>
+                                                    {{/hasHeaders}}
+                                                </ul>
+
+                                                <div class="tab-content" style='margin-bottom: 10px;'>
+                                                    {{#schema}}
+                                                        <div class="tab-pane active" id="responses-{{nickname}}-{{code}}-schema">
+                                                            <div id='responses-{{nickname}}-{{code}}-schema-{{code}}' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+
+                                                            </div>
+                                                            <input id='responses-{{nickname}}-{{code}}-schema-data' type='hidden' value=''></input>
+                                                        </div>
+                                                        {{#examples}}
+                                                            <div class="tab-pane" id="responses-{{nickname}}-{{code}}-example">
+                                                                <pre class="prettyprint"><code class="json">{{example}}</code></pre>
+                                                            </div>
+                                                        {{/examples}}
+                                                    {{/schema}}
+                                                    {{#hasHeaders}}
+                                                        <div class="tab-pane" id="responses-{{nickname}}-{{code}}-headers">
+                                                            <table>
+                                                                <tr>
+                                                                    <th width="150px">Name</th>
+                                                                    <th width="100px">Type</th>
+                                                                    <th width="100px">Format</th>
+                                                                    <th>Description</th>
+                                                                </tr>
+                                                                {{#headers}}
+                                                                    <tr>
+                                                                        <td>{{#name}}{{name}}{{/name}}</td>
+                                                                        <td>{{#datatype}}{{datatype}}{{/datatype}}</td>
+                                                                        <td>{{#dataFormat}}{{dataFormat}}{{/dataFormat}}</td>
+                                                                        <td>{{#description}}{{description}}{{/description}}</td>
+                                                                    </tr>
+                                                                {{/headers}}
+                                                            </table>
+                                                        </div>
+                                                    {{/hasHeaders}}
+                                                </div>
+
+                                            {{/responses}}
+                                        </article>
+                                    </div>
+                                    <hr>
+                                {{/@first}}
+                            {{/contents}}
+                        {{/operation}}
+                    </section>
+                {{/operations}}
+            {{/apis}}
+        {{/apiInfo}}
+    </div>
+    <div id="footer">
+        <div id="api-_footer">
+        <p>Suggestions, contact, support and error reporting;
+            {{#infoUrl}}
+                <div class="app-desc">Information URL: <a href="{{{infoUrl}}}">{{{infoUrl}}}</a></div>
+            {{/infoUrl}}
+            {{#infoEmail}}
+                <div class="app-desc">Contact Info: <a href="{{{infoEmail}}}">{{{infoEmail}}}</a></div>
+            {{/infoEmail}}
+            </p>
+            {{#licenseInfo}}
+                <div class="license-info">{{{licenseInfo}}}</div>
+            {{/licenseInfo}}
+            {{#licenseUrl}}
+                <div class="license-url">{{{licenseUrl}}}</div>
+            {{/licenseUrl}}
+        </div>
+    </div>
+    {{^hideGenerationTimestamp}}          <div id="generator">
+        <div class="content">
+            Generated {{generatedDate}}
+        </div>
+    </div>
+    {{/hideGenerationTimestamp}}
+</div>
