@@ -20,11 +20,6 @@ public class StatisticsFeedItem extends HippoCompound {
         return getSingleProperty("website:urlOfNumber");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:dataType")
-    public String getDataType() {
-        return getSingleProperty("website:dataType");
-    }
-
     @HippoEssentialsGenerated(internalName = "website:suffix")
     public String getSuffix() {
         return getSingleProperty("website:suffix");

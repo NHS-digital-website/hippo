@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
-import uk.nhs.digital.indices.StickySection;
+import uk.nhs.digital.freemarker.indices.StickySection;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE)

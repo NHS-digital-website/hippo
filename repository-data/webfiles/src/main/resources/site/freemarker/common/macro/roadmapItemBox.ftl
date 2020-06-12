@@ -3,7 +3,7 @@
 
 <#include "../../include/imports.ftl">
 
-<#assign inArray="uk.nhs.digital.freemarker.InArray"?new() />
+<#assign inArray="uk.nhs.digital.freemarker.utils.InArray"?new() />
 
 <#macro roadmapItemBox options>
     <#if options??>

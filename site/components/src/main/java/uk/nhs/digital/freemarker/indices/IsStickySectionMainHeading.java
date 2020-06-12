@@ -1,4 +1,4 @@
-package uk.nhs.digital.indices;
+package uk.nhs.digital.freemarker.indices;
 
 import freemarker.ext.util.WrapperTemplateModel;
 import freemarker.template.TemplateMethodModelEx;

@@ -54,7 +54,9 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: URL of Number
             field: number
-            hint: This must resolve a single number to be displayed
+            hint: "This must resolve a single number to be displayed\r\n\r\nCan be\
+              \ mimetype \"text/plain\" for an API returning a raw number, or JSON\
+              \ for an API returning conformative JSON"
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.middle.item
@@ -93,17 +95,6 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
-          /dataType:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              selectable.options: json=JSON
-            caption: Data Type
-            field: dataType
-            hint: Choose "Raw" for an API returning a raw number, or JSON for an API
-              returning JSON
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.middle.item
           /furtherQualifyingInformation:
             /cluster.options:
               ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
@@ -122,16 +113,6 @@ definitions:
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
-          /dataType:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:dataType
-            hipposysedit:primary: false
-            hipposysedit:type: StaticDropdown
-            hipposysedit:validators:
-            - required
-            jcr:primaryType: hipposysedit:field
           /furtherQualifyingInformation:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -211,7 +192,6 @@ definitions:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
           jcr:primaryType: website:statisticsFeedItem
-          website:dataType: json
           website:prefix: none
           website:suffix: none
           website:trend: none

@@ -33,7 +33,7 @@
 </#function>
 
 <#macro statistic stat iteration>
-    <#local dataType = stat.dataType />
+    <#local showStatistic = true />
     <#local urlOfNumber = stat.urlOfNumber />
     <#local statisticType = stat.statisticType />
 
@@ -44,9 +44,10 @@
     <#local prefixText = getPrefix(stat.prefix) />
     <#local suffixText = getSuffix(stat.suffix) />
 
-    <#if stat.dataType?? && stat.dataType == 'json'>
-        <#local remoteStat="uk.nhs.digital.freemarker.statistics.RemoteStatisticFromJson"?new() />
+    <#if stat.statisticType == "feedStatistic">
+        <#local remoteStat="uk.nhs.digital.freemarker.statistics.RemoteStatisticFromUrl"?new() />
         <#local remote = remoteStat(urlOfNumber) />
+        <#local showStatistic = remote?? />
         <#local trend = remote.trend />
         <#local prefixText = remote.prefix />
         <#local suffixText = remote.suffix />
@@ -74,7 +75,8 @@
     </#if>
     <#assign statClasses = ['statistic', numberTypeClass, 'statistic--colour-${iteration}'] />
 
-    <div class="${statClasses?join(" ")}">
+    <#if showStatistic>
+        <div class="${statClasses?join(" ")}">
         <p class="statistic__numberStat">
             <#if trend == 'up' >
                 <span class="statistic__trend">
@@ -115,4 +117,7 @@
             <div class="statistic__information">${info?no_esc}</div>
         </#if>
     </div>
+    <#else>
+        <!-- The statistic is unavailable at this time -->
+    </#if>
 </#macro>
