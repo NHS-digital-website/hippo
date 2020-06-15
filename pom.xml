@@ -64,13 +64,30 @@
     <!-- End of emptied/overridden metadata from parent hippo-cms7-release pom. -->
 
     <properties>
+        <!--
+        KEEP IN LINE WITH BLOOMREACH VERSION - see <parent><version> above.
+
+        This static value is required to correctly define 'hippo-*' dependencies
+        of selected child modules, in order to ensure their versions remain in line with
+        that of the parent POM com.onehippo.cms7:hippo-cms7-enterprise-release.
+
+        This mechanism is needed because Maven evaluates placeholders in context of
+        the child modules, rather than that of the parent. For example, if the version of
+        hippo-addon-crisp-mock (see dependencyManagement below) was declared with
+        ${project.parent.version}, it would be resolved in context of cms/pom.xml
+        (where the dependency is actually applied), returning version of 'our' main
+        module (this one) rather than that of its parent (com.onehippo.cms7:hippo-cms7-enterprise-release).
+
+        This behaviour is described in Maven's documentation at:
+        http://maven.apache.org/guides/introduction/introduction-to-the-pom.html#project-interpolation-and-variables
+        -->
+        <hippo.version>13.4.2</hippo.version>
+
         <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
         <local-module-deploy-dir>shared/lib</local-module-deploy-dir>
 
         <hippo.cms.locales></hippo.cms.locales>
 
-        <!-- Keep in line with BloomReach version - see <parent><version> above -->
-        <hippo.version>13.4.2</hippo.version>
 
         <!-- revision variable is set by automation tools. dev-SNAPSHOT is the
         default, local value. Please don't change it. -->
@@ -100,7 +117,6 @@
         <!--<tomcatDistributionUrl>https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.48/bin/apache-tomcat-8.0.48.tar.gz</tomcatDistributionUrl>-->
 
         <forge.folderctxmenus.version>4.0.1</forge.folderctxmenus.version>
-        <essentials.version>13.4.2</essentials.version>
         <spring.version>5.1.14.RELEASE</spring.version>
 
         <org.eclipse.jetty.version>9.4.24.v20191120</org.eclipse.jetty.version>
