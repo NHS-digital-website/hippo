@@ -7,18 +7,20 @@
                 <nav>
                     <ol class="article-section-nav__list">
                         <li>
-                            <a href="#top" aria-label="Scroll to 'Top of page'" title="Scroll to 'Top of page'" class="active">Top of page</a>
+                            <a href="#top" aria-label="Scroll to 'Top of page'" title="Scroll to 'Top of page'">Top of page</a>
                         </li>
                         <li>
-                            <a href="#api-description" aria-label="Overview" title="Overview" class="active">Overview</a>
+                            <a href="#api-description" aria-label="Scrol to 'Overview'" title="Scrol to 'Overview'">Overview</a>
                         </li>
 
                         {{#apiInfo}}
                             {{#apis}}
                                 {{#operations}}
-                                    <li class="nav-header" data-group="{{baseName}}"><a href="#api-{{baseName}}">API Methods - {{baseName}}</a></li>
+                                    <li class="nav-header" data-group="{{baseName}}">
+                                        <a href="#api-{{baseName}}">API Methods - {{baseName}}</a>
+                                    </li>
                                     {{#operation}}
-                                        <li data-group="{{baseName}}" data-name="{{nickname}}" class="">
+                                        <li data-group="{{baseName}}" data-name="{{nickname}}" class="section-numbered">
                                             <a href="#api-{{baseName}}-{{nickname}}">{{nickname}}</a>
                                         </li>
                                     {{/operation}}
@@ -40,22 +42,21 @@
     <div id="header">
         <div id="api-_">
             {{#version}}
-                <div class="app-desc">Version: {{{version}}}</div>
+                <div>Version: {{{version}}}</div>
             {{/version}}
-            <hr>
-            <div id="api-description">{{{appDescription}}}</div>
+            <div id="api-description" class="article-section">{{{appDescription}}}</div>
         </div>
     </div>
     <div id="sections">
         {{#apiInfo}}
             {{#apis}}
                 {{#operations}}
-                    <section id="api-{{baseName}}">
+                    <section id="api-{{baseName}}" class="article-section">
                         <h1>{{baseName}}</h1>
                         {{#operation}}
                             {{#contents}}
                                 {{#@first}}
-                                    <div id="api-{{baseName}}-{{nickname}}">
+                                    <div id="api-{{baseName}}-{{nickname}}" class="article-section">
                                         <article id="api-{{baseName}}-{{nickname}}-0" data-group="User" data-name="{{nickname}}" data-version="0">
                                             <div class="pull-left">
                                                 <h1>{{nickname}}</h1>
