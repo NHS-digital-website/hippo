@@ -24,6 +24,8 @@ public class SwaggerCodeGenApiSpecificationHtmlProvider implements ApiSpecificat
 
     private final OpenApiSpecificationRepository openApiSpecificationRepository;
 
+    private static final String TEMPLATE_FOLDER_RELATIVE_RESOURCE_PATH = "api-specification/codegen-templates";
+
     public SwaggerCodeGenApiSpecificationHtmlProvider(final OpenApiSpecificationRepository openApiSpecificationRepository) {
         this.openApiSpecificationRepository = openApiSpecificationRepository;
     }
@@ -69,7 +71,7 @@ public class SwaggerCodeGenApiSpecificationHtmlProvider implements ApiSpecificat
 
         final StaticHtml2Codegen codegenConfig = new StaticHtml2Codegen();
         codegenConfig.setOutputDir(swaggerOutputDirectory.getPath());
-        codegenConfig.setTemplateDir("/customdir/");
+        codegenConfig.setTemplateDir(TEMPLATE_FOLDER_RELATIVE_RESOURCE_PATH);
 
         clientOptInput
             .opts(clientOptions)
