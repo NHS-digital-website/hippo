@@ -2,17 +2,19 @@
 <#include "../../../include/imports.ftl">
 
 <#macro nationalStatsStamp document>
-    <#list document.informationType as type>
-        <#if type == "National statistics">
-            <div class="article-header__stamp">
-                <img src="<@hst.webfile path="images/national-statistics-logo.svg"/>"
-                     alt="A logo for National Statistics"
-                     title="National Statistics"
-                     class="image-icon image-icon--large"/>
-            </div>
-            <#break>
-        </#if>
-    </#list>
+    <#if (document.informationType)?has_content>
+        <#list document.informationType as type>
+            <#if type == "National statistics">
+                <div class="article-header__stamp">
+                    <img src="<@hst.webfile path="images/national-statistics-logo.svg"/>"
+                         alt="A logo for National Statistics"
+                         title="National Statistics"
+                         class="image-icon image-icon--large"/>
+                </div>
+                <#break>
+            </#if>
+        </#list>
+    </#if>
 </#macro>
 
 <#macro publicationDate document>
@@ -50,7 +52,7 @@
                     <#-- <p class="article-header__subtitle">(Hardcoded) Chapter title</p> -->
 
                     <span data-uipath="ps.publication.information-types">
-                        <#if document.informationType?has_content>
+                        <#if (document.informationType)?has_content>
                             <#list document.informationType as type>${type}<#sep>, </#list>
                         </#if>
                     </span>

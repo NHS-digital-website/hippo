@@ -131,3 +131,7 @@ th[role=columnheader]:not([data-sort-method="none"]):hover:after,
 th[role=columnheader][aria-sort]:after {
     opacity: 1!important;
 }
+
+.summing-row > td {
+    @include bold-font(14);
+}
