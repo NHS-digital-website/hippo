@@ -85,12 +85,23 @@ public class Publishedworkchapter extends CommonFieldsBean implements Paginated 
                 .filter(i -> ((String) publishedwork.getLinks().get(i).getSingleProperty("website:title")).equalsIgnoreCase(getTitle()))
                 .findFirst()
                 .orElse(-1);
+            // If the index is set and you're not on the last page...
             if (0 <= index && index < publishedwork.getLinks().size()) {
-                if (index == 0) {
-                    return new Pagination(new IndexPageImpl(publishedwork.getDisplayName(), publishedwork), getIndexPage(publishedwork, 1));
+                if (index == 0 && publishedwork.getLinks().size() < 2) {
+                    // ... and you're on the first page/there isn't more than 1 extra page,
+                    // then set an empty next page
+                    return new Pagination(new IndexPageImpl(publishedwork.getDisplayName(), publishedwork), null);
+                } else if (index == 0) {
+                    // ... and you're on the first page
+                    // then set a populated next page
+                    return new Pagination(new IndexPageImpl(publishedwork.getDisplayName(), publishedwork), getIndexPage(publishedwork, index + 1));
                 } else if (index < publishedwork.getLinks().size() - 1) {
+                    // ... and you're not on the first or last page,
+                    // then set the next page to the index + 1
                     return new Pagination(getIndexPage(publishedwork, index - 1), getIndexPage(publishedwork, index + 1));
                 } else {
+                    // else you're on the last page
+                    // then set an empty next page:
                     return new Pagination(getIndexPage(publishedwork, index - 1), null);
                 }
             }
