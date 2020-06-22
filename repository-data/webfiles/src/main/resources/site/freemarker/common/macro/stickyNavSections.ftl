@@ -70,7 +70,7 @@
                 <#assign links += [{ "url": "#contact-details", "title": contactDetailsHeader }] />
             </#if>
         </#if>
-        <#if document != "simulating_doc" && document.relatedNews?? && (!document.latestNews?? || !document.latestNews?has_content) && document.relatedNews?has_content >
+        <#if document?? && document != "simulating_doc" && document.relatedNews?? && (!document.latestNews?? || !document.latestNews?has_content) && document.relatedNews?has_content >
               <#assign links += [{ "url": "#related-articles-related-news-${idsuffix}", "title": 'Related news' }] />
         </#if>
         <#if options.childPages?? && options.childPages?has_content>
