@@ -25,7 +25,7 @@
 </#list>
 
 <#function getDisplayDate dateString>
-    <#assign year= dateString?keep_before("-") />
+    <#assign year = dateString?keep_before("-") />
     <#assign month = monthNames[dateString?keep_after("-")?number-1] />
     <#assign monthYear = month + " " + year />
     <#return monthYear />
@@ -76,7 +76,7 @@
     <#assign links += [{ "key" : key, "title": key }] />
     </#list>
 
-    <#return links />
+    <#return links?sort_by(['key'])?reverse />
 </#function>
 
 <article class="article article--news-hub">
