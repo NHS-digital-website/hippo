@@ -1,11 +1,11 @@
 package uk.nhs.digital.apispecs.swagger;
 
 import io.swagger.codegen.v3.*;
-import io.swagger.codegen.v3.generators.html.StaticHtml2Codegen;
 import io.swagger.v3.parser.OpenAPIV3Parser;
 import org.apache.commons.io.FileUtils;
 import uk.nhs.digital.apispecs.ApiSpecificationHtmlProvider;
 import uk.nhs.digital.apispecs.OpenApiSpecificationRepository;
+import uk.nhs.digital.apispecs.commonmark.CustomStaticHtml2Codegen;
 import uk.nhs.digital.apispecs.model.ApiSpecificationDocument;
 
 import java.io.File;
@@ -69,7 +69,7 @@ public class SwaggerCodeGenApiSpecificationHtmlProvider implements ApiSpecificat
 
         final ClientOpts clientOptions = new ClientOpts();
 
-        final StaticHtml2Codegen codegenConfig = new StaticHtml2Codegen();
+        final CustomStaticHtml2Codegen codegenConfig = new CustomStaticHtml2Codegen();
         codegenConfig.setOutputDir(swaggerOutputDirectory.getPath());
         codegenConfig.setTemplateDir(TEMPLATE_FOLDER_RELATIVE_RESOURCE_PATH);
 

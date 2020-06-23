@@ -1,0 +1,4 @@
+Use this endpoint to poll for the outcome of an updated patient record.
+When updating resources the request is dealt with in an asynchronous manner.
+Once the initial request is accepted a <code class="codeinline">202</code> response will be returned with a <code class="codeinline">Content-Location</code> header, use this location to poll for the outcome.
+It will be in the form <code class="codeinline">/Polling/&lt;message id&gt;</code>.
