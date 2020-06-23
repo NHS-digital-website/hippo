@@ -6,9 +6,11 @@
 <#include "../../src/js/utils/line-clamp-polyfill.js">
 
 <#include "macro/metaTags.ftl">
+<#include "macro/homePageHeader.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
+<@homePageHeader></@homePageHeader>
 
 <#if username?has_content>
     <#assign userName = username/>
