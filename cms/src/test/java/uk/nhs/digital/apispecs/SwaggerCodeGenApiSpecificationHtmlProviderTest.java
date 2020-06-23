@@ -51,12 +51,12 @@ public class SwaggerCodeGenApiSpecificationHtmlProviderTest {
         final String actualSpecHtml = swaggerCodeGenApiSpecHtmlProvider.getHtmlForSpec(apiSpecificationDocument);
 
         // then
-        final String expectedSpecHtml = vanillaSwaggerCodeGenGeneratedSpecificationHtml();
+        final String expectedSpecHtml = customisedSwaggerCodeGenGeneratedSpecificationHtml();
 
         then(apigeeService).should().apiSpecificationJsonForSpecId(specificationId);
 
         assertThat(
-            "Specification HTML has been generated using vanilla Swagger CodeGen v3",
+            "Specification HTML has been generated using customised Swagger CodeGen v3",
             actualSpecHtml,
             is(expectedSpecHtml)
         );
@@ -99,10 +99,10 @@ public class SwaggerCodeGenApiSpecificationHtmlProviderTest {
     }
 
     private String apigeeApiSpecificationJson() {
-        return fileContentFromClasspath(TEST_DATA_FILES_PATH + "/realistic-openapi-v3-specification.json");
+        return fileContentFromClasspath(TEST_DATA_FILES_PATH + "/openapi-v3-specification.json");
     }
 
-    private String vanillaSwaggerCodeGenGeneratedSpecificationHtml() {
-        return fileContentFromClasspath(TEST_DATA_FILES_PATH + "/vanilla-codegen-v3-generated-spec.html");
+    private String customisedSwaggerCodeGenGeneratedSpecificationHtml() {
+        return fileContentFromClasspath(TEST_DATA_FILES_PATH + "/customised-codegen-v3-generated-spec.html");
     }
 }

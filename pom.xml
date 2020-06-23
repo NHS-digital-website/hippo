@@ -123,6 +123,7 @@
         <com.fasterxml.jackson.version>2.10.3</com.fasterxml.jackson.version>
 
         <hippo-addon-inference-engine.version>3.0.1</hippo-addon-inference-engine.version>
+        <commonmark.version>0.15.0</commonmark.version>
     </properties>
 
     <repositories>
@@ -363,6 +364,7 @@
                 <version>1.4.01</version>
             </dependency>
             <dependency>
+
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
                 <version>1.12</version>
@@ -577,6 +579,18 @@
                 <groupId>org.onehippo.cms7</groupId>
                 <artifactId>hippo-addon-crisp-mock</artifactId>
                 <version>${hippo.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.atlassian.commonmark</groupId>
+                <artifactId>commonmark</artifactId>
+                <version>${commonmark.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.atlassian.commonmark</groupId>
+                <artifactId>commonmark-ext-gfm-tables</artifactId>
+                <version>${commonmark.version}</version>
             </dependency>
 
         </dependencies>
