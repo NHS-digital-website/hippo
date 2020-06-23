@@ -30,8 +30,8 @@
     <link rel="mask-icon" href="<@hst.webfile path="icons/safari-pinned-tab.svg"/>">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="<@hst.webfile path="/css/nhsd-intranet.css"/>" media="screen" type="text/css"/>
-    <link rel="stylesheet" href="<@hst.webfile path="/css/nhsd-intranet-print.css"/>" media="print" type="text/css"/>
+    <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-intranet.css"/>" media="screen" type="text/css"/>
+    <link rel="stylesheet" href="<@hst.webfile path="/dist/nhsd-intranet-print.css"/>" media="print" type="text/css"/>
 
     <#include "../scripts/intranet-header-scripts.ftl" />
 </head>
