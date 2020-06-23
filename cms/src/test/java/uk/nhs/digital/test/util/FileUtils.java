@@ -1,6 +1,6 @@
 package uk.nhs.digital.test.util;
 
-import com.github.jknack.handlebars.internal.Files;
+import org.springframework.util.StreamUtils;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
@@ -11,7 +11,11 @@ public class FileUtils {
 
     public static String fileContentFromClasspath(final String fileClasspathPath) {
         try {
-            return Files.read(FileUtils.class.getResourceAsStream(fileClasspathPath), StandardCharsets.UTF_8);
+
+            return StreamUtils.copyToString(
+                FileUtils.class.getResourceAsStream(fileClasspathPath), StandardCharsets.UTF_8
+            );
+
         } catch (final IOException e) {
             throw new UncheckedIOException("Failed to read test content file from " + fileClasspathPath, e);
         }
@@ -19,7 +23,9 @@ public class FileUtils {
 
     public static String fileContentFromFilesystem(final String fileSystemPath) {
         try {
-            return Files.read(Paths.get(fileSystemPath).toFile(), StandardCharsets.UTF_8);
+            return org.apache.commons.io.FileUtils.readFileToString(
+                Paths.get(fileSystemPath).toFile(), StandardCharsets.UTF_8
+            );
         } catch (final IOException e) {
             throw new UncheckedIOException("Failed to read test content file from " + fileSystemPath, e);
         }

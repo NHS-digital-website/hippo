@@ -33,7 +33,6 @@
 
     <div id="header">
         <div id="api-_">
-                <div>Version: v1.1.358-beta</div>
             <div id="api-description" class="article-section"><h2>Overview</h2>
 <p>Use this API to access the <a href="https://digital.nhs.uk/services/demographics">Personal Demographics Service (PDS)</a> - the national electronic database of NHS patient details such as name, address, date of birth and NHS Number.</p>
 <p>You can:</p>
@@ -112,9 +111,9 @@ Specifically, it is aligned with <a href="https://digital.nhs.uk/services/fhir-u
 <p>You don’t need to know much about FHIR to use this API - FHIR APIs are just RESTful APIs that follow specific rules.
 In particular:</p>
 <ul>
-<li>resource names are capitalised and singular, for example the <code>/Patient</code> not <code>/patients</code></li>
-<li>array names are singular, for example <code>line</code> not <code>lines</code> for address lines</li>
-<li>data items that are country-specific and thus not included in the FHIR global base resources are usually wrapped in an <code>extension</code> object</li>
+<li>resource names are capitalised and singular, for example the <code class="codeinline">/Patient</code> not <code class="codeinline">/patients</code></li>
+<li>array names are singular, for example <code class="codeinline">line</code> not <code class="codeinline">lines</code> for address lines</li>
+<li>data items that are country-specific and thus not included in the FHIR global base resources are usually wrapped in an <code class="codeinline">extension</code> object</li>
 </ul>
 <p>This API is available on the Internet, although access using NHS smartcards (see below)
 currently requires a connection to the <a href="https://digital.nhs.uk/services/health-and-social-care-network">Health and Social Care Network (HSCN)</a>.</p>
@@ -139,11 +138,28 @@ It supports the following security patterns:</p>
 <li>unattended access - without smartcard - similar to the PDS SMSP API</li>
 </ul>
 <h2>Environments and testing</h2>
-<p>| Environment       | Base URL                                                       |
-| ----------------- | -------------------------------------------------------------- |
-| Sandbox           | <code>https://sandbox.api.service.nhs.uk/personal-demographics/</code>    |
-| Integration test  | <code>https://int.api.service.nhs.uk/personal-demographics/</code>        |
-| Production        | Not yet available                                              |</p>
+<table data-disablesort="true">
+<thead>
+<tr>
+<th>Environment</th>
+<th>Base URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sandbox</td>
+<td><code class="codeinline">https://sandbox.api.service.nhs.uk/personal-demographics/</code></td>
+</tr>
+<tr>
+<td>Integration test</td>
+<td><code class="codeinline">https://int.api.service.nhs.uk/personal-demographics/</code></td>
+</tr>
+<tr>
+<td>Production</td>
+<td>Not yet available</td>
+</tr>
+</tbody>
+</table>
 <h3>Sandbox testing</h3>
 <p>Our <a href="https://digital.nhs.uk/developer/developer-reference/testing#sandbox-testing">sandbox environment</a>:</p>
 <ul>
@@ -179,10 +195,10 @@ It supports the following security patterns:</p>
 <h2>Endpoints</h2>
 <p>To see details for specific endpoints, select from the list on the left hand side of the page:</p>
 <ul>
-<li><code>GET /Patient</code> - search for patients.</li>
-<li><code>GET /Patient/{id}</code> - get patient's personal details.</li>
-<li><code>GET /Patient/{id}/RelatedPerson</code> - get patient's related people details.</li>
-<li><code>PATCH /Patient/{id}</code> - update patient's personal details (coming soon).</li>
+<li><code class="codeinline">GET /Patient</code> - search for patients.</li>
+<li><code class="codeinline">GET /Patient/{id}</code> - get patient's personal details.</li>
+<li><code class="codeinline">GET /Patient/{id}/RelatedPerson</code> - get patient's related people details.</li>
+<li><code class="codeinline">PATCH /Patient/{id}</code> - update patient's personal details (coming soon).</li>
 </ul>
 </div>
         </div>
