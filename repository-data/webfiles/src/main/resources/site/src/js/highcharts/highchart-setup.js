@@ -7,6 +7,17 @@ export default function initHighcharts() {
     highchartPlugins(Highcharts);
 
     Highcharts.setOptions({
+        accessibility: {
+            announceNewData: {
+                enabled: true,
+                interruptUser: true,
+                minAnnounceInterval: 0,
+                announcementFormatter: 'onAnnounce'
+            },
+            keyboardNavigation: {
+                enabled : true
+            }
+        },
         colors: ['#005EB8', '#84919C', '#003087', '#71CCEF', '#D0D5D6'],
         chart: {
             backgroundColor: '#F4F5F6',
@@ -17,7 +28,7 @@ export default function initHighcharts() {
         },
         xAxis: {
             title: {
-                style: {"color": "#000000", "fontWeight": "bold"},
+                style: {"color": "#000000", "fontWeight": "bold","fontSize":"16px"},
             },
             gridLineDashStyle: 'shortdash',
             gridLineWidth: 1
