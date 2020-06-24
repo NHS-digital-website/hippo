@@ -7,7 +7,7 @@
 
 <#assign formatDate="uk.nhs.digital.ps.directives.DateFormatterDirective"?new() >
 
-<#macro renderError errorMessage = "">    
+<#macro renderError errorMessage = "">
     <#if errorMessage?length gt 0>
     <div class="eforms-field__error-message">${errorMessage}</div>
     <#else>
@@ -77,7 +77,7 @@
         </div>
 
     <#elseif field.type == "datefield">
-        <div class="${fieldClassName}">
+        <div class="${fieldClassName}" data-eforms-field="date" data-eforms-dateformat="${field.dateFormat!}" data-eforms-formname="${field.formRelativeUniqueName}">
             <#if field.value?? && field.value?has_content>
             <@fmt.formatDate value=field.getInitialValue()?datetime type="Date" pattern="${field.dateFormat}" var="value" timeZone="${getTimeZone()}" />
             </#if>
@@ -87,21 +87,6 @@
             <@renderError errorMessage = error />
             <span class="eforms-hint">${field.hint!}</span>
         </div>
-        <script>
-            $(document).ready(function() {
-                $(function() {
-                    $('input[class*="date"][name="${field.formRelativeUniqueName}"]').datepicker({
-                        dateFormat:'${field.dateFormat!}'
-                        .replace(/d+/g,'dd')
-                        .replace(/M+/g,'mm')
-                        .replace(/y+/g,'yy'),
-                        step: 10,
-                        timepicker: ('${field.dateFormat!}'.indexOf('HH:mm') >= 0)
-                    });
-                });
-            });
-        </script>
-
     <#elseif field.type == "radiogroup">
         <div class="${fieldClassName}">
             <label class="eforms-label">${field.label!}<span class="eforms-req">${field.requiredMarker!}</span></label>

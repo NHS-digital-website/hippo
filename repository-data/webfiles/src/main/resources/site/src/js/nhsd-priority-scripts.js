@@ -13,7 +13,7 @@ import "./cookiebot/cookiebot-load";
 import "./utils/js-enabled";
 import "./utils/vanilla-js-utils";
 
-window.jquery = jQuery;
+window.jQuery = jQuery;
 window.$ = jQuery;
 
 initBreadcrumbs();
