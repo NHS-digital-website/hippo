@@ -12,7 +12,7 @@
         <h1 class="search-banner__headline">${searchBannerText}</h1>
         <form role="search" method="get" action="${searchLink}" class="search-banner__form" id="search" aria-label="${searchTitle}">
             <div>
-                <input type="text" name="query" id="query" class="search-banner__input" placeholder="${placeholderText}" value="${query!""}" aria-label="${buttonLabel}">
+                <input type="search" name="query" id="query" class="search-banner__input" placeholder="${placeholderText}" value="${query!""}" aria-label="${buttonLabel}">
                 <label for="query" class="visually-hidden">${buttonLabel}</label>
             </div>
             <div>

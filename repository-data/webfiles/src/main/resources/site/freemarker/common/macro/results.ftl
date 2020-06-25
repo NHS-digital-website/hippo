@@ -4,49 +4,49 @@
 <#macro searchResults items>
     <div class="cta-list">
         <#list items as document>
-            <#if document.class.name == "uk.nhs.digital.ps.beans.Publication">
+            <#if document.class.name?contains("uk.nhs.digital.ps.beans.Publication")>
                 <@publication item=document />
-            <#elseif document.class.name == "uk.nhs.digital.ps.beans.LegacyPublication">
+            <#elseif document.class.name?contains("uk.nhs.digital.ps.beans.LegacyPublication")>
                 <@legacypublication item=document />
-            <#elseif document.class.name == "uk.nhs.digital.ps.beans.Archive">
+            <#elseif document.class.name?contains("uk.nhs.digital.ps.beans.Archive")>
                 <@archive item=document />
-            <#elseif document.class.name == "uk.nhs.digital.ps.beans.Series">
+            <#elseif document.class.name?contains("uk.nhs.digital.ps.beans.Series")>
                 <@series item=document />
-            <#elseif document.class.name == "uk.nhs.digital.ps.beans.Dataset">
+            <#elseif document.class.name?contains("uk.nhs.digital.ps.beans.Dataset")>
                 <@dataset item=document />
-            <#elseif document.class.name == "uk.nhs.digital.nil.beans.Indicator">
+            <#elseif document.class.name?contains("uk.nhs.digital.nil.beans.Indicator")>
                 <@indicator item=document />
-            <#elseif document.class.name == "uk.nhs.digital.website.beans.Event">
+            <#elseif document.class.name?contains("uk.nhs.digital.website.beans.Event")>
                 <@event item=document />
-            <#elseif document.class.name == "uk.nhs.digital.website.beans.News">
+            <#elseif document.class.name?contains("uk.nhs.digital.website.beans.News")>
                 <@news item=document />
-            <#elseif document.class.name == "uk.nhs.digital.website.beans.Publishedworkchapter">
+            <#elseif document.class.name?contains("uk.nhs.digital.website.beans.Publishedworkchapter")>
                 <@publishedworkchapter item=document />
-            <#elseif document.class.name == "uk.nhs.digital.website.beans.Publishedwork">
+            <#elseif document.class.name?contains("uk.nhs.digital.website.beans.Publishedwork")>
               <@genericSearchElement item=document isShowTitle=true elemDate=document.publicationDate.time />
-            <#elseif document.class.name == "uk.nhs.digital.website.beans.General" ||
-                     document.class.name == "uk.nhs.digital.website.beans.Hub" ||
-                     document.class.name == "uk.nhs.digital.website.beans.ComponentList" ||
-                     document.class.name == "uk.nhs.digital.website.beans.VisualHub">
+            <#elseif document.class.name?contains("uk.nhs.digital.website.beans.General") ||
+                     document.class.name?contains("uk.nhs.digital.website.beans.Hub") ||
+                     document.class.name?contains("uk.nhs.digital.website.beans.ComponentList") ||
+                     document.class.name?contains("uk.nhs.digital.website.beans.VisualHub")>
                 <!-- showing title deliberately disabled for these doctypes -->
                 <@genericSearchElement item=document isShowTitle=false elemDate="" />
-            <#elseif document.class.name == "uk.nhs.digital.website.beans.Gdprtransparency" 
-                  || document.class.name == "uk.nhs.digital.website.beans.Service"
-                  || document.class.name == "uk.nhs.digital.website.beans.Roadmap"
-                  || document.class.name == "uk.nhs.digital.website.beans.RoadmapItem"
-                  || document.class.name == "uk.nhs.digital.website.beans.GlossaryList"
-                  || document.class.name == "uk.nhs.digital.website.beans.CyberAlert"
-                  || document.class.name == "uk.nhs.digital.website.beans.Blog"
-                  || document.class.name == "uk.nhs.digital.website.beans.BlogHub"
-                  || document.class.name == "uk.nhs.digital.website.beans.Person"
-                  || document.class.name == "uk.nhs.digital.website.beans.ApiMaster"
-                  || document.class.name == "uk.nhs.digital.website.beans.ApiEndpoint"
-                  || document.class.name == "uk.nhs.digital.website.beans.ApiSpecification"
-                  || document.class.name == "uk.nhs.digital.website.beans.JobRole"
-                  || document.class.name == "uk.nhs.digital.website.beans.BusinessUnit"
-                  || document.class.name == "uk.nhs.digital.website.beans.Group"
-                  || document.class.name == "uk.nhs.digital.website.beans.OrgStructure"
-                  || document.class.name == "uk.nhs.digital.website.beans.Feature"
+            <#elseif document.class.name?contains("uk.nhs.digital.website.beans.Gdprtransparency")
+                  || document.class.name?contains("uk.nhs.digital.website.beans.Service")
+                  || document.class.name?contains("uk.nhs.digital.website.beans.Roadmap")
+                  || document.class.name?contains("uk.nhs.digital.website.beans.RoadmapItem")
+                  || document.class.name?contains("uk.nhs.digital.website.beans.GlossaryList")
+                  || document.class.name?contains("uk.nhs.digital.website.beans.CyberAlert")
+                  || document.class.name?contains("uk.nhs.digital.website.beans.Blog")
+                  || document.class.name?contains("uk.nhs.digital.website.beans.BlogHub")
+                  || document.class.name?contains("uk.nhs.digital.website.beans.Person")
+                  || document.class.name?contains("uk.nhs.digital.website.beans.ApiMaster")
+                  || document.class.name?contains("uk.nhs.digital.website.beans.ApiEndpoint")
+                  || document.class.name?contains("uk.nhs.digital.website.beans.ApiSpecification")
+                  || document.class.name?contains("uk.nhs.digital.website.beans.JobRole")
+                  || document.class.name?contains("uk.nhs.digital.website.beans.BusinessUnit")
+                  || document.class.name?contains("uk.nhs.digital.website.beans.Group")
+                  || document.class.name?contains("uk.nhs.digital.website.beans.OrgStructure")
+                  || document.class.name?contains("uk.nhs.digital.website.beans.Feature")
             >
                 <@genericSearchElement item=document isShowTitle=true elemDate="" />
             </#if>
@@ -276,11 +276,13 @@
 
 <#assign nameList = item.class.name?split(".")>
 <#assign doctype = nameList[nameList?size-1]?lower_case >
+<#assign doctypeSpit = doctype?split("$")>
+<#assign doctypeToDisplay = doctypeSpit[0]?lower_case>
 
 <div class="cta cta--detailed" data-uipath="ps.search-results.result">
     <#if isShowTitle>
       <div>
-        <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.${doctype}"/></span>
+        <span class="cta__label" data-uipath="ps.search-results.result.type"><@fmt.message key="labels.${doctypeToDisplay}"/></span>
       </div>
     </#if>
     <a class="cta__title cta__button" href="<@hst.link hippobean=item/>" title="${item.title}" data-uipath="ps.search-results.result.title">

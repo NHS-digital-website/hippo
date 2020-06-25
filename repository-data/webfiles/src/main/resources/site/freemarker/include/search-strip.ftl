@@ -14,7 +14,7 @@
 <form role="search" method="get" ${actionProp} class="search-strip" aria-label="${searchTitle}" id="${searchFormId?has_content?then(searchFormId, 'search')}" autocomplete="off">
     <div class="search-strip__contents">
         <div class="search-strip__table-cell">
-            <input type="text" name="query" id="${searchId?has_content?then(searchId, 'query')}" class="search-strip__input" placeholder="${buttonLabel}" value="${query!""}" aria-label="${buttonLabel}">
+            <input type="search" name="query" id="${searchId?has_content?then(searchId, 'query')}" class="search-strip__input" placeholder="${buttonLabel}" value="${query!""}" aria-label="${buttonLabel}">
             <label for="${searchId?has_content?then(searchId, 'query')}" class="visually-hidden">${buttonLabel}</label>
         </div>
         <div class="search-strip__table-cell search-strip__table-cell--button">

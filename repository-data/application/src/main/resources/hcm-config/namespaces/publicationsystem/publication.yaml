@@ -147,6 +147,17 @@ definitions:
             selectlist.maxrows: '10'
             valuelist.provider: service.valuelist.default
             wicket.id: ${cluster.id}.right.item
+          /taxonomyClassificationField:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              taxonomy.name: publication_taxonomy
+            caption: Taxonomy - Used for Search (Do Not Edit)
+            field: taxonomyClassificationField
+            hint: ''
+            hipposys:userrole: xm.default-user.webmaster
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
           /Granularity:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -428,6 +439,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Text
             jcr:primaryType: hipposysedit:field
+          /month:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:month
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           /nominal_date:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -457,6 +476,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: publicationsystem:relatedlink
             jcr:primaryType: hipposysedit:field
+          /searchTab:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: common:searchTab
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           /seosummary:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -464,6 +491,14 @@ definitions:
             hipposysedit:path: publicationsystem:seosummary
             hipposysedit:primary: false
             hipposysedit:type: hippostd:seoSummary
+            jcr:primaryType: hipposysedit:field
+          /seosummarytext:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: common:seosummarytext
+            hipposysedit:primary: false
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           /summary:
             hipposysedit:mandatory: true
@@ -485,6 +520,11 @@ definitions:
             hipposysedit:validators:
             - optional
             jcr:primaryType: hipposysedit:field
+          /taxonomyClassificationField:
+            hipposysedit:multiple: true
+            hipposysedit:path: common:taxonomyClassificationField
+            hipposysedit:type: TaxonomyClassification
+            jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: true
             hipposysedit:multiple: false
@@ -494,6 +534,14 @@ definitions:
             hipposysedit:type: Text
             hipposysedit:validators:
             - required
+            jcr:primaryType: hipposysedit:field
+          /year:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publicationsystem:year
+            hipposysedit:primary: false
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:

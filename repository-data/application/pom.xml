@@ -41,6 +41,7 @@
         <dependency>
             <groupId>org.onehippo.cms7</groupId>
             <artifactId>hippo-repository-workflow</artifactId>
+            <version>${bloomreach.version}</version>
         </dependency>
     </dependencies>
 

@@ -65,7 +65,7 @@ public class SearchComponentTest {
         given(pageable.getCurrentPage()).willReturn(currentPage);
 
         // then
-        assertEquals("Pageable numbers are as expected", expected, searchComponent.getPageNumbers(pageable));
+        assertEquals("Pageable numbers are as expected", expected, searchComponent.getHstPageNumbers(pageable));
     }
 
     @DataProvider

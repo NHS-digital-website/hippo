@@ -9,6 +9,12 @@
   <display-name>NHS Digital Website CMS</display-name>
   <description>NHS Digital Website CMS</description>
 
+    <context-param>
+        <param-name>hst-beans-annotated-classes</param-name>
+        <param-value>classpath*:org/onehippo/taxonomy/**/*.class
+        </param-value>
+    </context-param>
+
     <listener>
           <listener-class>org.hippoecm.hst.platform.container.HstCmsContextLoaderListener</listener-class>
     </listener>
