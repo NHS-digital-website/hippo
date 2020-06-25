@@ -48,7 +48,10 @@
     <Logger name="org.apache" level="error"/>
     <Logger name="org.hippoecm" level="error"/>
     <Logger name="com.onehippo" level="error"/>
-    <Logger name="org.onehippo" level="error"/>
+
+    <!-- additional content search logging -->
+    <Logger name="com.onehippo.search.integration" level="debug"/>
+    <Logger name="com.onehippo.cms7.contentfeed" level="debug"/>
 
     <!-- audit logging -->
     <Logger additivity="false" name="org.hippoecm.repository.api.Workflow" level="info">
