@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>13.4.2</version>
+        <version>13.4.4-contentfeed-EAP1</version>
         <!-- Please have a look at the property section while upgrading -->
     </parent>
 
@@ -121,7 +121,9 @@
         <!--<tomcatDistributionUrl>https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.48/bin/apache-tomcat-8.0.48.tar.gz</tomcatDistributionUrl>-->
 
         <forge.folderctxmenus.version>4.0.1</forge.folderctxmenus.version>
-        <spring.version>5.1.14.RELEASE</spring.version>
+        <essentials.version>13.4.2</essentials.version>
+        <spring.version>5.1.15.RELEASE</spring.version>
+        <bloomreach.addon-content-feed.version>13.4.4-contentfeed-EAP1</bloomreach.addon-content-feed.version>
 
         <org.eclipse.jetty.version>9.4.24.v20191120</org.eclipse.jetty.version>
         <com.fasterxml.jackson.version>2.11.2</com.fasterxml.jackson.version>
@@ -288,7 +290,7 @@
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
-                <version>3.9</version>
+                <version>3.10</version>
             </dependency>
 
             <dependency>
@@ -371,7 +373,7 @@
             <dependency>
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
-                <version>1.12</version>
+                <version>1.13</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
@@ -437,7 +439,6 @@
             <dependency>
                 <groupId>org.apache.tika</groupId>
                 <artifactId>tika-core</artifactId>
-                <version>1.22</version>
             </dependency>
 
             <dependency>
@@ -448,7 +449,7 @@
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-collections4</artifactId>
-                <version>4.3</version>
+                <version>4.4</version>
             </dependency>
             <dependency>
                 <groupId>javax.annotation</groupId>
@@ -783,6 +784,10 @@
                                 <exclude>org.slf4j:jcl-over-slf4j</exclude>
                                 <exclude>javax.ws.rs:javax.ws.rs-api</exclude>
                                 <exclude>commons-beanutils:commons-beanutils</exclude>
+                                <exclude>org.springframework:spring-context-support</exclude>
+                                <exclude>org.springframework:*</exclude>
+                                <exclude>commons-digester:commons-digester</exclude>
+                                <exclude>org.apache.pdfbox:pdfbox</exclude>
                             </excludes>
                         </requireUpperBoundDeps>
                         <requireJavaVersion>

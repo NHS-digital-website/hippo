@@ -26,6 +26,13 @@
         </dependency>
 
         <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-content-feed-dependencies-cms</artifactId>
+            <version>${bloomreach.addon-content-feed.version}</version>
+            <type>pom</type>
+        </dependency>
+
+        <dependency>
             <groupId>org.onehippo.cms7</groupId>
             <artifactId>hippo-package-cms-dependencies</artifactId>
             <type>pom</type>
@@ -195,6 +202,18 @@
             <groupId>com.onehippo.cms7</groupId>
             <artifactId>hippo-addon-inference-engine-repository</artifactId>
             <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.onehippo.cms7</groupId>
+            <artifactId>hippo-plugin-taxonomy-hst-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.onehippo.cms7</groupId>
+            <artifactId>hippo-plugin-taxonomy-hstclient</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.onehippo.cms7</groupId>
+            <artifactId>hippo-plugin-selections-hst-client</artifactId>
         </dependency>
 
         <!-- TEST DEPENDENCIES -->

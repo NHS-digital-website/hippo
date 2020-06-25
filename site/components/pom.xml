@@ -171,7 +171,6 @@
             <artifactId>hippo-addon-crisp-hst</artifactId>
         </dependency>
 
-
         <dependency>
             <groupId>com.onehippo.cms7</groupId>
             <artifactId>hippo-addon-targeting-site-dependencies</artifactId>
@@ -181,7 +180,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>5.1.14.RELEASE</version>
+            <version>5.1.15.RELEASE</version>
             <scope>test</scope>
         </dependency>
 
