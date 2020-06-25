@@ -5,6 +5,13 @@
     border-left: 7px solid;
     display: flex;
 
+    &__heading {
+        display: block;
+        margin-bottom: 20px;
+        font-size: 26px;
+        line-height: 36px;
+    }
+
     &__image {
         width: 100px;
         margin-right: 1rem;
