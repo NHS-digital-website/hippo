@@ -12,14 +12,23 @@ public class FacetComponent extends SearchComponent {
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
-        TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent(TaxonomyManager.class.getName());
-        Taxonomy taxonomy = taxonomyManager.getTaxonomies().getTaxonomy(HippoBeanHelper.getTaxonomyName());
-        HippoFacetNavigationBean facetNavigationBean = getFacetNavigationBean(request);
-        TaxonomyFacetWrapper taxonomyWrapper = facetNavigationBean == null ? null : new TaxonomyFacetWrapper(taxonomy, facetNavigationBean);
+        if (request.getRequestContext().getAttribute("isContentSearch") != null) {
+            request.setAttribute("isContentSearch", request.getRequestContext().getAttribute("isContentSearch"));
+            if (request.getRequestContext().getAttribute("taxonomyHierarchy") != null && request.getRequestContext().getAttribute("taxonomyTotalDepth") != null) {
+                request.setAttribute("taxonomyTotalDepth", request.getRequestContext().getAttribute("taxonomyTotalDepth"));
+                request.setAttribute("taxonomyHierarchy", request.getRequestContext().getAttribute("taxonomyHierarchy"));
+            }
+        } else {
+            TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent(TaxonomyManager.class.getName());
+            Taxonomy taxonomy = taxonomyManager.getTaxonomies().getTaxonomy(HippoBeanHelper.getTaxonomyName());
+            HippoFacetNavigationBean facetNavigationBean = getFacetNavigationBean(request);
+            TaxonomyFacetWrapper taxonomyWrapper = facetNavigationBean == null ? null : new TaxonomyFacetWrapper(taxonomy, facetNavigationBean);
 
-        request.setAttribute("taxonomy", taxonomyWrapper);
-        request.setAttribute("query", getQueryParameter(request));
-        request.setAttribute("facets", facetNavigationBean);
-        request.setAttribute("cparam", getComponentInfo(request)) ;
+            request.setAttribute("taxonomy", taxonomyWrapper);
+            request.setAttribute("query", getQueryParameter(request));
+            request.setAttribute("facets", facetNavigationBean);
+            request.getRequestContext().setAttribute("facets", facetNavigationBean);
+            request.setAttribute("cparam", getComponentInfo(request));
+        }
     }
 }

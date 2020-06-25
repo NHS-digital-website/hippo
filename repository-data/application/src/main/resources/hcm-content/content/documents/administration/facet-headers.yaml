@@ -22,6 +22,7 @@
     - ''
     - ''
     - ''
+    - ''
     resourcebundle:id: facet-headers
     resourcebundle:keys:
     - assuredStatus
@@ -36,6 +37,7 @@
     - publishedBy
     - reportingLevel
     - publicationStatus
+    - topic
     resourcebundle:messages:
     - ASSURED
     - DOCUMENT TYPE
@@ -49,6 +51,7 @@
     - PUBLISHED BY
     - REPORTING LEVEL
     - PUBLICATION STATUS
+    - TOPIC
   /facet-headers[2]:
     hippo:availability:
     - preview
@@ -73,6 +76,7 @@
     - ''
     - ''
     - ''
+    - ''
     resourcebundle:id: facet-headers
     resourcebundle:keys:
     - assuredStatus
@@ -87,6 +91,7 @@
     - publishedBy
     - reportingLevel
     - publicationStatus
+    - topic
     resourcebundle:messages:
     - ASSURED
     - DOCUMENT TYPE
@@ -100,6 +105,7 @@
     - PUBLISHED BY
     - REPORTING LEVEL
     - PUBLICATION STATUS
+    - TOPIC
   /facet-headers[3]:
     hippo:availability:
     - live
@@ -124,6 +130,7 @@
     - ''
     - ''
     - ''
+    - ''
     resourcebundle:id: facet-headers
     resourcebundle:keys:
     - assuredStatus
@@ -138,6 +145,7 @@
     - publishedBy
     - reportingLevel
     - publicationStatus
+    - topic
     resourcebundle:messages:
     - ASSURED
     - DOCUMENT TYPE
@@ -151,6 +159,7 @@
     - PUBLISHED BY
     - REPORTING LEVEL
     - PUBLICATION STATUS
+    - TOPIC
   hippo:name: facet headers
   jcr:mixinTypes:
   - hippo:named

@@ -1,0 +1,7 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/ContentSearchListener:
+      hipposys:className: uk.nhs.digital.common.contentsearch.ContentSearchListener
+      hipposys:cmsonly: true
+      jcr:primaryType: hipposys:module
