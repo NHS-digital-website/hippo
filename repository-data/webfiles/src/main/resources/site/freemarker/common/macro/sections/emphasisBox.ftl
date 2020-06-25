@@ -38,7 +38,7 @@
 
         <div class="emphasis-box__content">
             <#if section.heading?has_content && slug??>
-                <h3 id="${slugify(slug)}" data-uipath="website.contentblock.emphasis.heading">${section.heading}</h3>
+                <strong role="heading" class="emphasis-box__heading" id="${slugify(slug)}" data-uipath="website.contentblock.emphasis.heading">${section.heading}</strong>
             </#if>
 
             <#if section.body?? && section.body.content?has_content>
