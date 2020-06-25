@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>uk.nhs.digital</groupId>
@@ -277,7 +279,8 @@
                 <configuration>
                     <archive>
                         <manifestEntries>
-                            <BloomReach-Release-Version>${hippo.release.version}</BloomReach-Release-Version>
+                            <BloomReach-Release-Version>${hippo.release.version}
+                            </BloomReach-Release-Version>
                             <Project-Version>${project.version}</Project-Version>
                             <Project-Build>${buildNumber}</Project-Build>
                         </manifestEntries>
@@ -300,6 +303,7 @@
             <plugin>
                 <groupId>org.onehippo.cms.l10n</groupId>
                 <artifactId>hippo-cms-l10n-maven-plugin</artifactId>
+                <version>14.2.2</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -312,10 +316,14 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/classes/ckeditor/optimized</outputDirectory>
+                            <outputDirectory>
+                                ${project.build.directory}/classes/ckeditor/optimized
+                            </outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>${basedir}/src/main/resources/ckeditor</directory>
+                                    <directory>
+                                        ${basedir}/src/main/resources/ckeditor
+                                    </directory>
                                 </resource>
                             </resources>
                         </configuration>
