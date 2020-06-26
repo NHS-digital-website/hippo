@@ -3,7 +3,6 @@
 
 <#include "../common/macro/component/actionLink.ftl">
 <#include "../common/macro/svgIcons.ftl">
-<#include "../../src/js/utils/line-clamp-polyfill.js">
 
 <#include "macro/metaTags.ftl">
 <#include "macro/homePageHeader.ftl">
