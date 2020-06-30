@@ -97,7 +97,7 @@
         <essentials.version>14.1.0</essentials.version>
         <spring.version>5.2.0.RELEASE</spring.version>
         <spring-security.version>5.2.0.RELEASE</spring-security.version>
-        <hst-springsec.version>2.1.0</hst-springsec.version>
+        <hst-springsec.version>3.0.0</hst-springsec.version>
 
         <bloomreach.inference-engine.version>4.0.0</bloomreach.inference-engine.version>
     </properties>
