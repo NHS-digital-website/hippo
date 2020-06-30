@@ -6,5 +6,5 @@
     <#if mimeType != "">
         <#assign fileFormat = getFormatByMimeType(mimeType?lower_case) />
     </#if>
-    <@icon name="${fileFormat}" size="2x" />
+    <@icon name="${fileFormat}" size="download" />
 </#macro>
