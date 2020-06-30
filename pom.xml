@@ -656,6 +656,7 @@
                                 <exclude>javax.ws.rs:javax.ws.rs-api</exclude>
                                 <exclude>commons-beanutils:commons-beanutils</exclude>
                                 <exclude>org.ow2.asm:asm</exclude>
+                                <exclude>org.apache.velocity:velocity-engine-core</exclude>
                             </excludes>
                         </requireUpperBoundDeps>
                         <requireJavaVersion>
