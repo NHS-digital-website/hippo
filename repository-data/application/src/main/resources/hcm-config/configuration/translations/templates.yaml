@@ -363,6 +363,11 @@ definitions:
           jcr:name: External link
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:financial:
+        /en:
+          jcr:name: Financial
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:fullWidthImage:
         /en:
           jcr:name: Full-width image
