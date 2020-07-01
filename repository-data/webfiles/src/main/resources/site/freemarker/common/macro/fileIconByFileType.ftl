@@ -8,5 +8,5 @@
     <#else>
         <#assign fileFormat = "html" />
     </#if>
-    <@icon name="${fileFormat?lower_case}" size="2x" />
+    <@icon name="${fileFormat?lower_case}" size="download" />
 </#macro>
