@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/website/publishedworkchapter:
+    /hippo:namespaces/website/financial:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -24,37 +24,23 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
             caption: Title
             field: title
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /summary:
-            /cluster.options:
-              ckeditor.config.appended.json: '{toolbar: [{ name: ''summarytoolbar'',
-                items: [''Link'',''PickInternalLink'',''Source''] }] }'
-              ckeditor.config.overlayed.json: '{linkShowAdvancedTab: true, extraPlugins:''wordcount'',
-                disableNativeSpellChecker: false}'
-              jcr:primaryType: frontend:pluginconfig
-            caption: Summary
-            field: summary
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /shortsummary:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Short Summary
-            field: shortsummary
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /seosummary:
+          /shortSummary:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Short summary
+            field: shortSummary
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /seoSummary:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: SEO Summary
-            field: seosummary
-            hint: ''
+            field: seoSummary
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
@@ -100,6 +86,27 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /introductionText:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Introduction Text
+            field: introductionText
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /table:
+            /cluster.options:
+              ckeditor.config.appended.json: ''
+              ckeditor.config.overlayed.json: '{   "toolbar": [     {       "name":
+                "table",       "items": [         "Table",         "Superscript",         "Subscript",         "NumberedList",         "BulletedList",         "JustifyBlock",         "JustifyCenter",         "JustifyLeft",         "JustifyRight",         "PickInternalLink",         "Link",         "SpecialChar",         "Mathjax",         "Source",  "tableSumRow"      ]     }   ],
+                "extraPlugins": "table-sum-row" }'
+              jcr:primaryType: frontend:pluginconfig
+            caption: Table
+            field: table
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
           /sections:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -112,24 +119,6 @@ definitions:
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
             wicket.skin: skin/content-blocks.css
-          /classifiable:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              taxonomy.name: publication_taxonomy
-            essentials-taxonomy-name: publication_taxonomy
-            jcr:primaryType: frontend:plugin
-            mixin: hippotaxonomy:classifiable
-            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
-            wicket.id: ${cluster.id}.field
-          /friendlyurls:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Friendly URLs
-            field: friendlyurls
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -151,14 +140,6 @@ definitions:
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
-          /friendlyurls:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:friendlyurls
-            hipposysedit:primary: false
-            hipposysedit:type: website:friendlyurls
-            jcr:primaryType: hipposysedit:field
           /image:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -168,6 +149,14 @@ definitions:
             hipposysedit:type: hippogallerypicker:imagelink
             hipposysedit:validators:
             - optional
+            jcr:primaryType: hipposysedit:field
+          /introductionText:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:introductionText
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
           /publicationStyle:
             hipposysedit:mandatory: false
@@ -188,6 +177,14 @@ definitions:
             hipposysedit:validators:
             - contentblocks-validator
             jcr:primaryType: hipposysedit:field
+          /seoSummary:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:seoSummary
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:seoSummary
+            jcr:primaryType: hipposysedit:field
           /seosummary:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -195,6 +192,14 @@ definitions:
             hipposysedit:path: website:seosummary
             hipposysedit:primary: false
             hipposysedit:type: hippostd:seoSummary
+            jcr:primaryType: hipposysedit:field
+          /shortSummary:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:shortSummary
+            hipposysedit:primary: false
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           /shortsummary:
             hipposysedit:mandatory: false
@@ -204,11 +209,11 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
-          /summary:
+          /table:
             hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:summary
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:table
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
@@ -227,7 +232,6 @@ definitions:
           - website:basedocument
           - hippostd:relaxed
           - hippotranslation:translated
-          - hippotaxonomy:classifiable
           hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
           jcr:mixinTypes:
           - mix:referenceable
@@ -252,14 +256,6 @@ definitions:
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
-          /friendlyurls:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:friendlyurls
-            hipposysedit:primary: false
-            hipposysedit:type: website:friendlyurls
-            jcr:primaryType: hipposysedit:field
           /image:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -269,6 +265,14 @@ definitions:
             hipposysedit:type: hippogallerypicker:imagelink
             hipposysedit:validators:
             - optional
+            jcr:primaryType: hipposysedit:field
+          /introductionText:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:introductionText
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
           /publicationStyle:
             hipposysedit:mandatory: false
@@ -289,6 +293,14 @@ definitions:
             hipposysedit:validators:
             - contentblocks-validator
             jcr:primaryType: hipposysedit:field
+          /seoSummary:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:seoSummary
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:seoSummary
+            jcr:primaryType: hipposysedit:field
           /seosummary:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -296,6 +308,14 @@ definitions:
             hipposysedit:path: website:seosummary
             hipposysedit:primary: false
             hipposysedit:type: hippostd:seoSummary
+            jcr:primaryType: hipposysedit:field
+          /shortSummary:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:shortSummary
+            hipposysedit:primary: false
+            hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
           /shortsummary:
             hipposysedit:mandatory: false
@@ -305,11 +325,11 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
-          /summary:
+          /table:
             hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:summary
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:table
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
@@ -328,7 +348,6 @@ definitions:
           - website:basedocument
           - hippostd:relaxed
           - hippotranslation:translated
-          - hippotaxonomy:classifiable
           jcr:mixinTypes:
           - mix:referenceable
           jcr:primaryType: hipposysedit:nodetype
@@ -337,78 +356,60 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          /website:bannerImage:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippogallerypicker:imagelink
-          /website:friendlyurls:
-            jcr:primaryType: website:friendlyurls
-            website:alternativeurls: []
-            website:destination: ''
-          /website:seosummary:
+          /website:introductionText:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
-          /website:summary:
+          /website:seoSummary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
-          common:searchRank: 5
+          /website:table:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
-          hippostdpubwf:creationDate: 2018-05-22T10:46:55.362Z
-          hippostdpubwf:lastModificationDate: 2018-05-22T10:46:55.362Z
+          hippostdpubwf:creationDate: 2020-06-16T16:26:42.819Z
+          hippostdpubwf:lastModificationDate: 2020-06-16T16:26:42.819Z
           hippostdpubwf:lastModifiedBy: ''
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes:
           - mix:referenceable
-          jcr:primaryType: website:publishedworkchapter
+          jcr:primaryType: website:financial
           website:bannerAltText: ''
           website:button: jumptocontent
-          website:publicationStyle: parent
-          website:shortsummary: ''
-          website:staticdropdown: jumptocontent
+          website:shortSummary: ''
           website:title: ''
         /hipposysedit:prototype[2]:
-          /website:bannerImage:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippogallerypicker:imagelink
-          /website:friendlyurls:
-            jcr:primaryType: website:friendlyurls
-            website:alternativeurls: []
-            website:destination: ''
-          /website:seosummary:
+          /website:introductionText:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
-          /website:summary:
+          /website:seoSummary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
-          common:searchRank: 5
+          /website:table:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
-          hippostdpubwf:creationDate: 2018-05-22T10:46:55.362Z
-          hippostdpubwf:lastModificationDate: 2018-05-22T10:46:55.362Z
+          hippostdpubwf:creationDate: 2020-06-16T16:26:42.819Z
+          hippostdpubwf:lastModificationDate: 2020-06-16T16:26:42.819Z
           hippostdpubwf:lastModifiedBy: ''
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes:
+          - hippostd:publishableSummary
           - hippostd:relaxed
-          - hippotaxonomy:classifiable
+          - hippostdpubwf:document
           - hippotranslation:translated
           - mix:referenceable
           jcr:primaryType: nt:unstructured
           website:bannerAltText: ''
           website:button: jumptocontent
-          website:publicationStyle: parent
-          website:shortsummary: ''
+          website:shortSummary: ''
           website:title: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
