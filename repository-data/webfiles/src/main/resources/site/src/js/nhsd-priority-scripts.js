@@ -12,7 +12,6 @@ import { initPolyfill } from './details-element/details-element-polyfill/dist/de
 import "./cookiebot/cookiebot-load";
 import "./utils/js-enabled";
 import "./utils/vanilla-js-utils";
-import "./analytics/google-analytics";
 
 window.jQuery = jQuery;
 window.$ = jQuery;
