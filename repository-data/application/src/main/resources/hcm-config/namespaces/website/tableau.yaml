@@ -49,13 +49,41 @@ definitions:
             field: hidetabs
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
+            wicket.id: ${cluster.id}.left.item
           /device:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               selectable.options: default,desktop,tablet,phone
             caption: Device Layout
             field: device
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+          /throttling:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Enable throttling
+            field: throttling
+            hint: Do not enable unless requested by Tableau, when demand is high.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+          /throttlingLocation:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Throttling URI location
+            field: throttlingLocation
+            hint: The URL that returns a number between 0 and 1. If not given the
+              default value is 0.5.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+          /retry:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Refresh time m/s
+            field: retry
+            hint: How often the throttle will retry.
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
@@ -78,6 +106,30 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Boolean
             jcr:primaryType: hipposysedit:field
+          /retry:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:retry
+            hipposysedit:primary: false
+            hipposysedit:type: Long
+            jcr:primaryType: hipposysedit:field
+          /throttling:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:throttling
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+            jcr:primaryType: hipposysedit:field
+          /throttlingLocation:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:throttlingLocation
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           /url:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -87,6 +139,7 @@ definitions:
             hipposysedit:type: String
             hipposysedit:validators:
             - required
+            - valid-url
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
@@ -104,6 +157,10 @@ definitions:
         /hipposysedit:prototype:
           jcr:primaryType: website:tableau
           website:hidetabs: false
+          website:long: 30000
+          website:retry: 30000
+          website:throttling: false
+          website:throttlingLocation: ''
           website:url: ''
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
