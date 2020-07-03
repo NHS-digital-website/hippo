@@ -15,7 +15,7 @@
         <div id="${divId}"></div>
 
         <script type="text/javascript">
-            var viz;
+            var viz${index};
 
             function throttleViz(containerDiv) {
                 <#if section.throttlingLocation?has_content>
@@ -26,7 +26,7 @@
                     var attemptProbability = 0.5;
                 </#if>
 
-                if (viz === undefined) {
+                if (viz${index} === undefined) {
                     if ((Math.floor(Math.random() * 101) / 100.0) <= attemptProbability) {
                         cookies.setCookie('tableauWithoutThrottling', 'yes', 0.042 <#-- One hour -->);
                         containerDiv.innerHTML = '';
@@ -48,7 +48,7 @@
                     ,device: "${section.device}"
                     </#if>
                 };
-                viz = new tableau.Viz(containerDiv, url, options);
+                viz${index} = new tableau.Viz(containerDiv, url, options);
             }
 
             window.addEventListener('load', function() {

@@ -18,7 +18,7 @@ const webpackDefaultConfig = {
             },
             {
                 test: /\.m?js$/,
-                exclude: /(node_modules|bower_components)/,
+                exclude: /node_modules\/(?!(sticky-sidebar)\/).*/,
                 use: {
                     loader: 'babel-loader',
                     options: {
