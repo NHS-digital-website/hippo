@@ -1,1 +1,1 @@
-export const qsa = (selector) => Array.from(document.querySelectorAll(selector));
+export const qsa = (selector) => [].slice.call((document.querySelectorAll(selector)));

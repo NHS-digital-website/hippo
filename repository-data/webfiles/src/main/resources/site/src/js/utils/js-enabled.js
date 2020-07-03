@@ -1,3 +1,4 @@
 (function (d) {
-    d.classList.replace('no-js', 'js-enabled');
+    d.classList.remove('no-js');
+    d.classList.add('js-enabled');
 })(document.documentElement)
