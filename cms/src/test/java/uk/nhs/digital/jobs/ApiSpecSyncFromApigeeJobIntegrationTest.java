@@ -325,11 +325,11 @@ public class ApiSpecSyncFromApigeeJobIntegrationTest {
     }
 
     private String apigeeApiSpecificationJson() {
-        return testDataFromFile("openapi-specification.json");
+        return testDataFromFile("openapi-v3-specification.json");
     }
 
     private String codeGenGeneratedSpecificationHtml() {
-        return testDataFromFile("codegen-generated-spec.html");
+        return testDataFromFile("customised-codegen-v3-generated-spec.html");
     }
 
     private String testDataFromFile(final String testDataFileName) {
