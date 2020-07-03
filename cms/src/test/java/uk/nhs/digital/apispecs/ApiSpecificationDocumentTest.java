@@ -33,6 +33,21 @@ public class ApiSpecificationDocumentTest {
     }
 
     @Test
+    public void setSpecJson_delegatesToDocumentProxy() {
+
+        // given
+        final ApiSpecificationDocument apiSpecificationDocument = ApiSpecificationDocument.from(jcrDocumentLifecycleSupport);
+
+        final String updatedSpecJsonContent = "{ \"json\": \"payload\" }";
+
+        // when
+        apiSpecificationDocument.setSpecJson(updatedSpecJsonContent);
+
+        // then
+        then(jcrDocumentLifecycleSupport).should().setProperty("website:json", updatedSpecJsonContent);
+    }
+
+    @Test
     public void publish_delegatesToDocumentProxy() {
 
         // given

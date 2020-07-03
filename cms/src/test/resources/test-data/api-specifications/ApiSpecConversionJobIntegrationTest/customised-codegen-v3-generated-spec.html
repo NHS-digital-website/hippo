@@ -10,32 +10,48 @@
                             <a href="#top" aria-label="Scroll to 'Top of page'" title="Scroll to 'Top of page'">Top of page</a>
                         </li>
                         <li>
-                            <a href="#api-description" aria-label="Scrol to 'Overview'" title="Scrol to 'Overview'">Overview</a>
+                            <a href="#api-description" aria-label="Scroll to 'Overview'" title="Scroll to 'Overview'">Overview</a>
                         </li>
 
                                     <li class="nav-header" data-group="Patients">
-                                        <a href="#api-Patients">API Methods - Patients</a>
+                                        <a href="#api-Patients"
+                                           aria-label="Endpoint: Patients"
+                                           title="Endpoint: Patients">Endpoint: Patients</a>
                                     </li>
                                         <li data-group="Patients" data-name="getPatient" class="section-numbered">
-                                            <a href="#api-Patients-getPatient">getPatient</a>
+                                            <a href="#api-Patients-getPatient"
+                                               aria-label="getPatient"
+                                               title="getPatient">getPatient</a>
                                         </li>
                                         <li data-group="Patients" data-name="searchPatient" class="section-numbered">
-                                            <a href="#api-Patients-searchPatient">searchPatient</a>
+                                            <a href="#api-Patients-searchPatient"
+                                               aria-label="searchPatient"
+                                               title="searchPatient">searchPatient</a>
                                         </li>
                                         <li data-group="Patients" data-name="updatePatientPartial" class="section-numbered">
-                                            <a href="#api-Patients-updatePatientPartial">updatePatientPartial</a>
+                                            <a href="#api-Patients-updatePatientPartial"
+                                               aria-label="updatePatientPartial"
+                                               title="updatePatientPartial">updatePatientPartial</a>
                                         </li>
                                     <li class="nav-header" data-group="Polling">
-                                        <a href="#api-Polling">API Methods - Polling</a>
+                                        <a href="#api-Polling"
+                                           aria-label="Endpoint: Polling"
+                                           title="Endpoint: Polling">Endpoint: Polling</a>
                                     </li>
                                         <li data-group="Polling" data-name="polling" class="section-numbered">
-                                            <a href="#api-Polling-polling">polling</a>
+                                            <a href="#api-Polling-polling"
+                                               aria-label="polling"
+                                               title="polling">polling</a>
                                         </li>
                                     <li class="nav-header" data-group="Relatedperson">
-                                        <a href="#api-Relatedperson">API Methods - Relatedperson</a>
+                                        <a href="#api-Relatedperson"
+                                           aria-label="Endpoint: Relatedperson"
+                                           title="Endpoint: Relatedperson">Endpoint: Relatedperson</a>
                                     </li>
                                         <li data-group="Relatedperson" data-name="getRelatedPeople" class="section-numbered">
-                                            <a href="#api-Relatedperson-getRelatedPeople">getRelatedPeople</a>
+                                            <a href="#api-Relatedperson-getRelatedPeople"
+                                               aria-label="getRelatedPeople"
+                                               title="getRelatedPeople">getRelatedPeople</a>
                                         </li>
                     </ol>
                 </nav>
@@ -225,14 +241,11 @@ It supports the following security patterns:</p>
                         <h1>Patients</h1>
                                     <div id="api-Patients-getPatient" class="article-section">
                                         <article id="api-Patients-getPatient-0" data-group="User" data-name="getPatient" data-version="0">
-                                            <div class="pull-left">
-                                                <h1>getPatient</h1>
-                                                <p>Retrieve a patient's resource</p>
-                                            </div>
-                                            <div class="pull-right"></div>
-                                            <div class="clearfix"></div>
-                                            <p></p>
-                                            <p class="marked"><h2>Overview</h2>
+                                            <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
+                                            <h2>getPatient<a onclick="tryEndpointNow('/Patients/get_patient')" class="ctabtn-left ctabtn--nhs-digital-button ctabtn--nhs-digital-button--try-it-now" onkeyup="return vjsu.onKeyUp(event)">Try it now</a></h2>
+                                            <h3>Retrieve a patient's resource</h3>
+
+                                            <p><h2>Overview</h2>
 <p>Use this endpoint to get patient details from PDS for a given NHS Number.</p>
 <h2>Superceded patients</h2>
 <p>Some patients are marked as superceded, this means that for some reason the original resource is no longer valid and has been replaced with a different resource.</p>
@@ -367,14 +380,11 @@ It supports the following security patterns:</p>
                                     <hr>
                                     <div id="api-Patients-searchPatient" class="article-section">
                                         <article id="api-Patients-searchPatient-0" data-group="User" data-name="searchPatient" data-version="0">
-                                            <div class="pull-left">
-                                                <h1>searchPatient</h1>
-                                                <p>Search for patient</p>
-                                            </div>
-                                            <div class="pull-right"></div>
-                                            <div class="clearfix"></div>
-                                            <p></p>
-                                            <p class="marked"><h2>Overview</h2>
+                                            <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
+                                            <h2>searchPatient<a onclick="tryEndpointNow('/Patients/search_patient')" class="ctabtn-left ctabtn--nhs-digital-button ctabtn--nhs-digital-button--try-it-now" onkeyup="return vjsu.onKeyUp(event)">Try it now</a></h2>
+                                            <h3>Search for patient</h3>
+
+                                            <p><h2>Overview</h2>
 <p>Use this endpoint to search for a patient in PDS.</p>
 <p>You can search using a combination of:</p>
 <ul>
@@ -860,14 +870,11 @@ Must be [URL encoded](https://en.wikipedia.org/wiki/Percent-encoding). For examp
                                     <hr>
                                     <div id="api-Patients-updatePatientPartial" class="article-section">
                                         <article id="api-Patients-updatePatientPartial-0" data-group="User" data-name="updatePatientPartial" data-version="0">
-                                            <div class="pull-left">
-                                                <h1>updatePatientPartial</h1>
-                                                <p>Update a patient's resource</p>
-                                            </div>
-                                            <div class="pull-right"></div>
-                                            <div class="clearfix"></div>
-                                            <p></p>
-                                            <p class="marked"><h2>Overview</h2>
+                                            <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
+                                            <h2>updatePatientPartial<a onclick="tryEndpointNow('/Patients/update_patient_partial')" class="ctabtn-left ctabtn--nhs-digital-button ctabtn--nhs-digital-button--try-it-now" onkeyup="return vjsu.onKeyUp(event)">Try it now</a></h2>
+                                            <h3>Update a patient's resource</h3>
+
+                                            <p><h2>Overview</h2>
 <p>Use this endpoint to update patient details in PDS.</p>
 <p>This is a 'patch' operation - you can update specific parts of the patient record, such as name or gender, without having to update the entire record.
 The update is asynchronous - this endpoint returns a confirmation that your request has been received, along with a URL which you can poll to confirm that the update has completed.</p>
@@ -1863,14 +1870,11 @@ The version identifier submitted in the `If-Match` header was not the latest ver
                         <h1>Polling</h1>
                                     <div id="api-Polling-polling" class="article-section">
                                         <article id="api-Polling-polling-0" data-group="User" data-name="polling" data-version="0">
-                                            <div class="pull-left">
-                                                <h1>polling</h1>
-                                                <p>Retrieve the outcome of the accepted update.</p>
-                                            </div>
-                                            <div class="pull-right"></div>
-                                            <div class="clearfix"></div>
-                                            <p></p>
-                                            <p class="marked"><h2>Overview</h2>
+                                            <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
+                                            <h2>polling<a onclick="tryEndpointNow('/Polling/polling')" class="ctabtn-left ctabtn--nhs-digital-button ctabtn--nhs-digital-button--try-it-now" onkeyup="return vjsu.onKeyUp(event)">Try it now</a></h2>
+                                            <h3>Retrieve the outcome of the accepted update.</h3>
+
+                                            <p><h2>Overview</h2>
 <p>Use this endpoint to poll for the outcome of an updated patient record.</p>
 <p>When updating resources the request is dealt with in an asynchronous manner.</p>
 <p>Once the initial request is accepted a <code class="codeinline">202</code> response will be returned with a <code class="codeinline">Content-Location</code> header, use this location to poll for the outcome. It will be in the form <code class="codeinline">/Polling/&lt;message id&gt;</code>.</p>
@@ -2062,14 +2066,11 @@ Please raise these occurrences with our team (via https://digital.nhs.uk/develop
                         <h1>Relatedperson</h1>
                                     <div id="api-Relatedperson-getRelatedPeople" class="article-section">
                                         <article id="api-Relatedperson-getRelatedPeople-0" data-group="User" data-name="getRelatedPeople" data-version="0">
-                                            <div class="pull-left">
-                                                <h1>getRelatedPeople</h1>
-                                                <p>Retrieve a list of Related Person resources for a given patient</p>
-                                            </div>
-                                            <div class="pull-right"></div>
-                                            <div class="clearfix"></div>
-                                            <p></p>
-                                            <p class="marked"><h2>Overview</h2>
+                                            <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
+                                            <h2>getRelatedPeople<a onclick="tryEndpointNow('/Relatedperson/get_related_people')" class="ctabtn-left ctabtn--nhs-digital-button ctabtn--nhs-digital-button--try-it-now" onkeyup="return vjsu.onKeyUp(event)">Try it now</a></h2>
+                                            <h3>Retrieve a list of Related Person resources for a given patient</h3>
+
+                                            <p><h2>Overview</h2>
 <p>Use this endpoint to get a patient's related people details from PDS for a given NHS Number. This is a list of people who can be contacted, and how, regarding the patient. These details may be useful for a practitioner to get in contact with a next of kin or guardian.</p>
 <h2>Restricted patients</h2>
 <p>Some patients are tagged as <a href="https://digital.nhs.uk/services/demographics/restricting-access-to-a-patients-demographic-record">restricted</a>, or sensitive. Related people will not be returned for a restricted patient and an empty bundle will be returned.</p>

@@ -162,6 +162,9 @@ definitions:
         hst:componentconfigurationid: hst:pages/about
         hst:relativecontentpath: about
         jcr:primaryType: hst:sitemapitem
+      /api-spec-try-it-now:
+        hst:componentconfigurationid: hst:pages/apitryitnow
+        jcr:primaryType: hst:sitemapitem
       /cyber-alerts:
         hst:componentconfigurationid: hst:pages/cyberalerthub
         hst:relativecontentpath: cyber-alerts

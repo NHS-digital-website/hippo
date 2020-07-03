@@ -11,6 +11,7 @@
   properties:
     common:searchable: true
     hippostd:state: draft
+    website:json: '{ "json" : "payload" }'
     website:html: <p>API Specification - A</p>
     website:specification_id: 269326
 - path: /content/documents/corporate-website/api-specifications-location-a/api-spec-a/api-spec-a[2]

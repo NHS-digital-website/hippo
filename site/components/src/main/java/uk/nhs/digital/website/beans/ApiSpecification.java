@@ -8,10 +8,14 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 public class ApiSpecification extends CommonFieldsBean {
 
     public String getSpecificationid() {
-        return getProperty("website:specification_id");
+        return getSingleProperty("website:specification_id");
     }
 
     public String getHtml() {
-        return getProperty("website:html");
+        return getSingleProperty("website:html");
+    }
+
+    public String getJson() {
+        return getSingleProperty("website:json");
     }
 }
