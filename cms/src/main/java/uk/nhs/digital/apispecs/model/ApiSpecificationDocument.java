@@ -1,8 +1,7 @@
 package uk.nhs.digital.apispecs.model;
 
 import static org.hippoecm.repository.util.WorkflowUtils.Variant.DRAFT;
-import static uk.nhs.digital.apispecs.model.ApiSpecificationDocument.ApiSpecPropertyNames.HTML;
-import static uk.nhs.digital.apispecs.model.ApiSpecificationDocument.ApiSpecPropertyNames.SPECIFICATION_ID;
+import static uk.nhs.digital.apispecs.model.ApiSpecificationDocument.Properties.*;
 
 import uk.nhs.digital.apispecs.jcr.JcrDocumentLifecycleSupport;
 
@@ -31,6 +30,10 @@ public class ApiSpecificationDocument {
         jcrDocument().setProperty(HTML.value(), html);
     }
 
+    public void setSpecJson(final String specificationJson) {
+        jcrDocument().setProperty(JSON.value(), specificationJson);
+    }
+
     public void saveAndPublish() {
         jcrDocument().saveAndPublish();
     }
@@ -47,18 +50,19 @@ public class ApiSpecificationDocument {
         return jcrDocumentLifecycleSupport;
     }
 
-    enum ApiSpecPropertyNames {
+    enum Properties {
         HTML("website:html"),
+        JSON("website:json"),
         SPECIFICATION_ID("website:specification_id");
 
-        private final String value;
+        private final String jcrName;
 
-        ApiSpecPropertyNames(final String value) {
-            this.value = value;
+        Properties(final String jcrName) {
+            this.jcrName = jcrName;
         }
 
         public String value() {
-            return value;
+            return jcrName;
         }
     }
 }

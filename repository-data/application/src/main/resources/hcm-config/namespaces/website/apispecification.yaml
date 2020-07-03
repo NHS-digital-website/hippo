@@ -48,13 +48,23 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /json:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Specification JSON content
+            field: html
+            hint: JSON content automatically imported from specification Apigee. Manually
+              populated content will be overwritten by the next import.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
           /html:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Specification HTML content
             field: html
-            hint: HTML content automatically generated from specification's JSON file.
-              DO NOT POPULATE MANUALLY.
+            hint: HTML content automatically generated from specification's JSON content.
+              Manually populated content will be overwritten by the next import.
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
@@ -66,6 +76,14 @@ definitions:
             hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: website:html
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            jcr:primaryType: hipposysedit:field
+          /json:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:json
             hipposysedit:primary: false
             hipposysedit:type: Text
             jcr:primaryType: hipposysedit:field
@@ -130,6 +148,7 @@ definitions:
           - mix:referenceable
           jcr:primaryType: website:apispecification
           website:html: ''
+          website:json: ''
           website:specification_id: ''
           website:summary: ''
           website:title: ''

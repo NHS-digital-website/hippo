@@ -1,19 +1,41 @@
 <#ftl output_format="HTML">
 
+<#include "../include/imports.ftl">
 <#include "macro/documentHeader.ftl">
 
 <#-- @ftlvariable name="document" type="uk.nhs.digital.website.beans.ApiSpecification" -->
+<#-- @ftlvariable name="hstRequestContext" type="org.hippoecm.hst.core.request.HstRequestContext" -->
 
 <#if document?? >
-    <article class="article article--apispecification" itemscope>
-        <@documentHeader document 'general'></@documentHeader>
 
-        <div class="grid-wrapper grid-wrapper--article">
-            <div class="grid-row">
+    <#assign isTryItNow = hstRequestContext.servletRequest.parameterMap?keys?seq_contains("tryitnow")>
+    <#if isTryItNow >
 
-                ${document.html?no_esc}
+        <#include "api-try-it-now.ftl">
 
+    <#else>
+
+        <article class="article article--apispecification" itemscope>
+            <@documentHeader document 'general'></@documentHeader>
+
+            <style type="text/css">
+                .ctabtn--nhs-digital-button--try-it-now { float: right; }
+            </style>
+
+            <div class="grid-wrapper grid-wrapper--article">
+                <div class="grid-row">
+
+                    ${document.html?no_esc}
+
+                </div>
             </div>
-        </div>
-    </article>
+        </article>
+
+        <script>
+            // used in function tryEndpointNow from apispecificaion.js
+            const tryEndpointNowBaseUrl = '<@hst.link siteMapItemRefId='root'/>';
+        </script>
+        <script src="<@hst.webfile path="/apispecification/apispecification.js"/>"> </script>
+    </#if>
+
 </#if>

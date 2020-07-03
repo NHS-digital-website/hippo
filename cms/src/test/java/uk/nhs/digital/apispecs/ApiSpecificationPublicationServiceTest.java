@@ -21,7 +21,7 @@ import java.time.Instant;
 import java.util.Optional;
 
 @RunWith(MockitoJUnitRunner.class)
-public class ApiSpecificationDocumentPublicationServiceTest {
+public class ApiSpecificationPublicationServiceTest {
 
     @Mock
     private OpenApiSpecificationRepository apigeeService;
@@ -30,15 +30,15 @@ public class ApiSpecificationDocumentPublicationServiceTest {
     private ApiSpecificationDocumentJcrRepository apiSpecDocumentRepo;
 
     @Mock
-    private ApiSpecificationHtmlProvider apiSpecHtmlProvider;
+    private OpenApiSpecificationJsonToHtmlConverter apiSpecHtmlProvider;
 
-    private ApiSpecificationDocumentPublicationService apiSpecificationDocumentPublicationService;
+    private ApiSpecificationPublicationService apiSpecificationPublicationService;
 
     @Before
     public void setUp() {
         initMocks(this);
 
-        apiSpecificationDocumentPublicationService = new ApiSpecificationDocumentPublicationService(
+        apiSpecificationPublicationService = new ApiSpecificationPublicationService(
             apigeeService,
             apiSpecDocumentRepo,
             apiSpecHtmlProvider
@@ -62,13 +62,17 @@ public class ApiSpecificationDocumentPublicationServiceTest {
         final OpenApiSpecificationStatus apigeeSpecUpdateSincePublished = remoteSpecStatus(specificationId, lastApigeeModificationTimestamp);
         when(apigeeService.apiSpecificationStatuses()).thenReturn(singletonList(apigeeSpecUpdateSincePublished));
 
+        final String specificationJson = "{ \"json\": \"payload\" }";
+        when(apigeeService.apiSpecificationJsonForSpecId(specificationId)).thenReturn(specificationJson);
+
         final String specificationHtml = "<html><body> Some spec content </body></html>";
-        when(apiSpecHtmlProvider.getHtmlForSpec(any())).thenReturn(specificationHtml);
+        when(apiSpecHtmlProvider.htmlFrom(specificationJson)).thenReturn(specificationHtml);
 
         // when
-        apiSpecificationDocumentPublicationService.updateAndPublishEligibleSpecifications();
+        apiSpecificationPublicationService.updateAndPublishEligibleSpecifications();
 
         // then
+        then(cmsSpecPublished).should().setSpecJson(specificationJson);
         then(cmsSpecPublished).should().setHtml(specificationHtml);
         then(cmsSpecPublished).should().saveAndPublish();
     }
@@ -91,9 +95,10 @@ public class ApiSpecificationDocumentPublicationServiceTest {
         when(apigeeService.apiSpecificationStatuses()).thenReturn(singletonList(apigeeSpecNotUpdatedSincePublished));
 
         // when
-        apiSpecificationDocumentPublicationService.updateAndPublishEligibleSpecifications();
+        apiSpecificationPublicationService.updateAndPublishEligibleSpecifications();
 
         // then
+        then(cmsSpecPublished).should(never()).setSpecJson(any());
         then(cmsSpecPublished).should(never()).setHtml(any());
         then(cmsSpecPublished).should(never()).saveAndPublish();
     }
@@ -117,9 +122,10 @@ public class ApiSpecificationDocumentPublicationServiceTest {
         when(apigeeService.apiSpecificationStatuses()).thenReturn(singletonList(apigeeSpecUpdateSincePublished));
 
         // when
-        apiSpecificationDocumentPublicationService.updateAndPublishEligibleSpecifications();
+        apiSpecificationPublicationService.updateAndPublishEligibleSpecifications();
 
         // then
+        then(cmsSpecPublished).should(never()).setSpecJson(any());
         then(cmsSpecPublished).should(never()).setHtml(any());
         then(cmsSpecPublished).should(never()).saveAndPublish();
     }
@@ -145,18 +151,25 @@ public class ApiSpecificationDocumentPublicationServiceTest {
             apigeeSpecBUpdateSincePublished
         ));
 
+        final String specificationAJson = "{ \"json\": \"payload A\" }";
+        when(apigeeService.apiSpecificationJsonForSpecId(specificationAId)).thenReturn(specificationAJson);
+        final String specificationBJson = "{ \"json\": \"payload B\" }";
+        when(apigeeService.apiSpecificationJsonForSpecId(specificationBId)).thenReturn(specificationBJson);
+
         final String specificationAHtml = "<html><body> spec A content </body></html>";
         final String specificationBHtml = "<html><body> spec B content </body></html>";
-        when(apiSpecHtmlProvider.getHtmlForSpec(cmsSpecAPublished)).thenReturn(specificationAHtml);
-        when(apiSpecHtmlProvider.getHtmlForSpec(cmsSpecBPublished)).thenReturn(specificationBHtml);
+        when(apiSpecHtmlProvider.htmlFrom(specificationAJson)).thenReturn(specificationAHtml);
+        when(apiSpecHtmlProvider.htmlFrom(specificationBJson)).thenReturn(specificationBHtml);
 
         // when
-        apiSpecificationDocumentPublicationService.updateAndPublishEligibleSpecifications();
+        apiSpecificationPublicationService.updateAndPublishEligibleSpecifications();
 
         // then
+        then(cmsSpecAPublished).should().setSpecJson(specificationAJson);
         then(cmsSpecAPublished).should().setHtml(specificationAHtml);
         then(cmsSpecAPublished).should().saveAndPublish();
 
+        then(cmsSpecBPublished).should().setSpecJson(specificationBJson);
         then(cmsSpecBPublished).should().setHtml(specificationBHtml);
         then(cmsSpecBPublished).should().saveAndPublish();
     }

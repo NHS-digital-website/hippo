@@ -8,11 +8,11 @@ import org.onehippo.repository.scheduling.RepositoryJob;
 import org.onehippo.repository.scheduling.RepositoryJobExecutionContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.nhs.digital.apispecs.ApiSpecificationDocumentPublicationService;
+import uk.nhs.digital.apispecs.ApiSpecificationPublicationService;
 import uk.nhs.digital.apispecs.apigee.ApigeeClientConfig;
 import uk.nhs.digital.apispecs.apigee.ApigeeService;
 import uk.nhs.digital.apispecs.jcr.ApiSpecificationDocumentJcrRepository;
-import uk.nhs.digital.apispecs.swagger.SwaggerCodeGenApiSpecificationHtmlProvider;
+import uk.nhs.digital.apispecs.swagger.SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter;
 
 import java.util.Optional;
 import javax.jcr.RepositoryException;
@@ -81,14 +81,14 @@ public class ApiSpecSyncFromApigeeJob implements RepositoryJob {
 
             session = context.createSystemSession();
 
-            final ApiSpecificationDocumentPublicationService apiSpecificationDocumentPublicationService =
-                new ApiSpecificationDocumentPublicationService(
+            final ApiSpecificationPublicationService apiSpecificationPublicationService =
+                new ApiSpecificationPublicationService(
                     apigeeService,
                     new ApiSpecificationDocumentJcrRepository(session),
-                    new SwaggerCodeGenApiSpecificationHtmlProvider(apigeeService)
+                    new SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter()
                 );
 
-            apiSpecificationDocumentPublicationService.updateAndPublishEligibleSpecifications();
+            apiSpecificationPublicationService.updateAndPublishEligibleSpecifications();
 
             log.debug("API Specifications sync from Apigee: done.");
 

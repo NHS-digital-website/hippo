@@ -3,10 +3,8 @@ package uk.nhs.digital.apispecs.swagger;
 import io.swagger.codegen.v3.*;
 import io.swagger.v3.parser.OpenAPIV3Parser;
 import org.apache.commons.io.FileUtils;
-import uk.nhs.digital.apispecs.ApiSpecificationHtmlProvider;
-import uk.nhs.digital.apispecs.OpenApiSpecificationRepository;
+import uk.nhs.digital.apispecs.OpenApiSpecificationJsonToHtmlConverter;
 import uk.nhs.digital.apispecs.commonmark.CustomStaticHtml2Codegen;
-import uk.nhs.digital.apispecs.model.ApiSpecificationDocument;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,33 +16,27 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-public class SwaggerCodeGenApiSpecificationHtmlProvider implements ApiSpecificationHtmlProvider {
+public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter implements OpenApiSpecificationJsonToHtmlConverter {
 
     private static final String SPEC_HTML_FILE_NAME = "index.html";
 
-    private final OpenApiSpecificationRepository openApiSpecificationRepository;
-
     private static final String TEMPLATE_FOLDER_RELATIVE_RESOURCE_PATH = "api-specification/codegen-templates";
 
-    public SwaggerCodeGenApiSpecificationHtmlProvider(final OpenApiSpecificationRepository openApiSpecificationRepository) {
-        this.openApiSpecificationRepository = openApiSpecificationRepository;
-    }
-
-    public String getHtmlForSpec(final ApiSpecificationDocument specificationDocument) {
+    @Override public String htmlFrom(final String openApiSpecificationJson) {
 
         File specificationTempOutputDirectory = null;
 
         try {
             specificationTempOutputDirectory = createSpecificationTempOutputDirectory();
 
-            final File specificationJson = obtainSpecificationJsonFor(specificationDocument, specificationTempOutputDirectory);
+            final File specificationJson = apiSpecificationJsonFileWith(openApiSpecificationJson, specificationTempOutputDirectory);
 
             final List<File> swaggerSpecificationOutputFiles = convertSpecificationJsonToHtml(specificationJson, specificationTempOutputDirectory);
 
             return specificationHtmlFileFrom(swaggerSpecificationOutputFiles);
 
         } catch (final Exception e) {
-            throw new RuntimeException("Failed to generate HTML for specification " + specificationDocument, e);
+            throw new RuntimeException("Failed to generate HTML for OpenAPI specification.", e);
         } finally {
             cleanupIfPresent(specificationTempOutputDirectory);
         }
@@ -93,14 +85,6 @@ public class SwaggerCodeGenApiSpecificationHtmlProvider implements ApiSpecificat
         } catch (final IOException e) {
             throw new RuntimeException("Failed to create Swagger Codegen output directory " + swaggerCodegenOutputDir, e);
         }
-    }
-
-    private File obtainSpecificationJsonFor(final ApiSpecificationDocument apiSpecificationDocument,
-                                            final File specificationTempOutputDirectory) {
-
-        final String openApiSpecJson = openApiSpecificationRepository.apiSpecificationJsonForSpecId(apiSpecificationDocument.getId());
-
-        return apiSpecificationJsonFileWith(openApiSpecJson, specificationTempOutputDirectory);
     }
 
     private File apiSpecificationJsonFileWith(final String openApiSpecJson, final File tempDir) {

@@ -22,13 +22,14 @@ import uk.nhs.digital.apispecs.model.ApiSpecificationDocument;
 import uk.nhs.digital.test.util.JcrTestUtils;
 import uk.nhs.digital.test.util.ReflectionTestUtils;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 import javax.jcr.Node;
 import javax.jcr.Session;
 
 
-public class ApiSpecJcrRepositoryQueryTest {
+public class ApiSpecificationDocumentJcrRepositoryQueryTest {
 
     @Rule public ExpectedException expectedException = ExpectedException.none();
 
@@ -42,6 +43,29 @@ public class ApiSpecJcrRepositoryQueryTest {
         session = MockJcr.newSession();
 
         apiSpecJcrRepository = new ApiSpecificationDocumentJcrRepository(session);
+    }
+
+    @Test
+    public void findAllApiSpecifications_returnsFullyPopulatedDocument() {
+
+        // given
+        apiSpecsPresentInTheSystem();
+        final String specificationIdInJcrRepo = "api-specification-id-a";
+        final Instant lastPublicationInstantInJcrRepo = Instant.parse("2020-07-08T08:37:03.915Z");
+
+        // when
+        final ApiSpecificationDocument actualApiSpec = apiSpecJcrRepository.findAllApiSpecifications().get(0);
+
+        // then
+        assertThat("Document contains last publication instant as present on published variant in the JCR repo.",
+            actualApiSpec.getId(),
+            is(specificationIdInJcrRepo)
+        );
+
+        assertThat("Document contains last publication instant as present on draft variant in the JCR repo.",
+            actualApiSpec.getLastPublicationInstant().get(),
+            is(lastPublicationInstantInJcrRepo)
+        );
     }
 
     @Test

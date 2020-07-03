@@ -2,8 +2,8 @@ package uk.nhs.digital.apispecs;
 
 import static java.lang.String.format;
 import static java.util.stream.Collectors.toList;
-import static uk.nhs.digital.apispecs.ApiSpecificationDocumentPublicationService.PublicationResult.FAIL;
-import static uk.nhs.digital.apispecs.ApiSpecificationDocumentPublicationService.PublicationResult.PASS;
+import static uk.nhs.digital.apispecs.ApiSpecificationPublicationService.PublicationResult.FAIL;
+import static uk.nhs.digital.apispecs.ApiSpecificationPublicationService.PublicationResult.PASS;
 
 import com.google.common.collect.Maps;
 import org.slf4j.Logger;
@@ -16,20 +16,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
 
-public class ApiSpecificationDocumentPublicationService {
+public class ApiSpecificationPublicationService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ApiSpecificationDocumentPublicationService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ApiSpecificationPublicationService.class);
 
-    private ApiSpecificationHtmlProvider apiSpecificationHtmlProvider;
+    private OpenApiSpecificationJsonToHtmlConverter openApiSpecificationJsonToHtmlConverter;
     private OpenApiSpecificationRepository openApiSpecificationRepository;
     private ApiSpecificationDocumentRepository apiSpecificationDocumentRepository;
 
-    public ApiSpecificationDocumentPublicationService(final OpenApiSpecificationRepository openApiSpecificationRepository,
-                                                      final ApiSpecificationDocumentRepository apiSpecificationDocumentRepository,
-                                                      final ApiSpecificationHtmlProvider apiSpecificationHtmlProvider) {
+    public ApiSpecificationPublicationService(final OpenApiSpecificationRepository openApiSpecificationRepository,
+                                              final ApiSpecificationDocumentRepository apiSpecificationDocumentRepository,
+                                              final OpenApiSpecificationJsonToHtmlConverter openApiSpecificationJsonToHtmlConverter) {
         this.openApiSpecificationRepository = openApiSpecificationRepository;
         this.apiSpecificationDocumentRepository = apiSpecificationDocumentRepository;
-        this.apiSpecificationHtmlProvider = apiSpecificationHtmlProvider;
+        this.openApiSpecificationJsonToHtmlConverter = openApiSpecificationJsonToHtmlConverter;
     }
 
     public void updateAndPublishEligibleSpecifications() {
@@ -105,7 +105,11 @@ public class ApiSpecificationDocumentPublicationService {
         try {
             LOGGER.info("Publishing API Specification: {}", apiSpecificationDocument);
 
-            final String specHtml = getHtmlForSpec(apiSpecificationDocument);
+            final String openApiSpecJson = getOpenApiSpecJsonFor(apiSpecificationDocument);
+
+            final String specHtml = specHtmlFrom(openApiSpecJson);
+
+            apiSpecificationDocument.setSpecJson(openApiSpecJson);
 
             apiSpecificationDocument.setHtml(specHtml);
 
@@ -122,6 +126,14 @@ public class ApiSpecificationDocumentPublicationService {
         }
     }
 
+    private String specHtmlFrom(final String openApiSpecJson) {
+        return openApiSpecificationJsonToHtmlConverter.htmlFrom(openApiSpecJson);
+    }
+
+    private String getOpenApiSpecJsonFor(final ApiSpecificationDocument apiSpecificationDocument) {
+        return openApiSpecificationRepository.apiSpecificationJsonForSpecId(apiSpecificationDocument.getId());
+    }
+
     private void reportErrorIfAnySpecificationsFailed(final long failedSpecificationsCount,
                                                       final long specificationsToPublishCount
     ) {
@@ -132,10 +144,6 @@ public class ApiSpecificationDocumentPublicationService {
                     specificationsToPublishCount
                 ));
         }
-    }
-
-    private String getHtmlForSpec(final ApiSpecificationDocument apiSpecificationDocument) {
-        return apiSpecificationHtmlProvider.getHtmlForSpec(apiSpecificationDocument);
     }
 
     enum PublicationResult {
