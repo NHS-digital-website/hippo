@@ -1,11 +1,18 @@
 package uk.nhs.digital.apispecs.commonmark;
 
+import com.github.jknack.handlebars.EscapingStrategy;
+import com.github.jknack.handlebars.Handlebars;
 import io.swagger.codegen.v3.generators.html.StaticHtml2Codegen;
 import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.info.Info;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Collection;
+import java.util.Objects;
+import java.util.stream.Stream;
 
 public class CustomStaticHtml2Codegen extends StaticHtml2Codegen {
 
@@ -36,6 +43,9 @@ public class CustomStaticHtml2Codegen extends StaticHtml2Codegen {
 
         preparHtmlForGlobalDescription(openAPI);
 
+        prepareHtmlForEndpointsDescription(openAPI);
+
+        prepareHtmlForEndpointsParameters(openAPI);
     }
 
     /**
@@ -54,5 +64,47 @@ public class CustomStaticHtml2Codegen extends StaticHtml2Codegen {
         } else {
             LOGGER.error("Swagger object description is empty [" + openApi.getInfo().getTitle() + "]");
         }
+    }
+
+    private void prepareHtmlForEndpointsDescription(OpenAPI openApi) {
+
+        final CommonmarkMarkdownConverter markdown = new CommonmarkMarkdownConverter();
+
+        openApi.getPaths().values().stream()
+            .flatMap(pathItem -> Stream.of(
+                pathItem.getHead(),
+                pathItem.getOptions(),
+                pathItem.getGet(),
+                pathItem.getTrace(),
+                pathItem.getPost(),
+                pathItem.getPut(),
+                pathItem.getPatch(),
+                pathItem.getDelete()
+            ).filter(Objects::nonNull))
+            .forEach(operation -> {
+                final String markdownDescription = operation.getDescription();
+                final String htmlDescription = markdown.toHtml(markdownDescription);
+                operation.setDescription(htmlDescription);
+            });
+    }
+
+    private void prepareHtmlForEndpointsParameters(OpenAPI openApi) {
+
+        final CommonmarkMarkdownConverter markdown = new CommonmarkMarkdownConverter();
+
+        openApi.getPaths().values().stream()
+            .map(PathItem::getParameters)
+            .flatMap(Collection::stream)
+            .forEach(parameter -> {
+                final String markdownDescription = parameter.getDescription();
+                final String htmlDescription = markdown.toHtml(markdownDescription);
+                parameter.setDescription(htmlDescription);
+            });
+    }
+
+    @Override
+    public void addHandlebarHelpers(final Handlebars handlebars) {
+        super.addHandlebarHelpers(handlebars);
+        handlebars.with(EscapingStrategy.NOOP);
     }
 }
