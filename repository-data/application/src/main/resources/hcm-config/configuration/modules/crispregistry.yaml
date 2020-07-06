@@ -37,7 +37,7 @@ definitions:
       - cache.enabled
       - base.uri
       crisp:propvalues:
-      - 'false'
+      - 'true'
       - https://www.google.com
       jcr:primaryType: crisp:resourceresolver
     ? /hippo:configuration/hippo:modules/crispregistry/hippo:moduleconfig/crisp:resourceresolvercontainer/statisticsRestResourceResolver
@@ -76,5 +76,5 @@ definitions:
       crisp:propnames:
       - cache.enabled
       crisp:propvalues:
-      - 'false'
+      - 'true'
       jcr:primaryType: crisp:resourceresolver
