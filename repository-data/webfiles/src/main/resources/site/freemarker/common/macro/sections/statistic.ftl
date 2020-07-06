@@ -118,6 +118,6 @@
         </#if>
     </div>
     <#else>
-        <!-- The statistic is unavailable at this time -->
+        <p>The statistic is unavailable at this time. Please try again soon.</p>
     </#if>
 </#macro>

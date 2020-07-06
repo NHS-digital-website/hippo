@@ -185,6 +185,19 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.github.tomakehurst</groupId>
+            <artifactId>wiremock-jre8</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-crisp-mock</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+
     </dependencies>
 
 

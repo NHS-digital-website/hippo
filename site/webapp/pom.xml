@@ -50,7 +50,6 @@
             <artifactId>hippo-addon-eforms-hcm-site</artifactId>
         </dependency>
 
-
     </dependencies>
 
     <build>
