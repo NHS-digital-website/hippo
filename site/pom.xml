@@ -16,4 +16,11 @@
         <module>webapp</module>
     </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.netflix.hystrix</groupId>
+            <artifactId>hystrix-javanica</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>
