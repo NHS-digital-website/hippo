@@ -64,6 +64,7 @@
     <!-- End of emptied/overridden metadata from parent hippo-cms7-release pom. -->
 
     <properties>
+        <hippo.version>13.4.2</hippo.version>
         <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
         <local-module-deploy-dir>shared/lib</local-module-deploy-dir>
 
@@ -96,6 +97,8 @@
         <spring.version>5.1.14.RELEASE</spring.version>
 
         <hippo-addon-inference-engine.version>3.0.1</hippo-addon-inference-engine.version>
+
+        <hystrix-javanica.version>1.5.18</hystrix-javanica.version>
     </properties>
 
     <repositories>
@@ -296,6 +299,17 @@
                 <version>2.10.1</version>
             </dependency>
             <dependency>
+                <groupId>com.github.tomakehurst</groupId>
+                <artifactId>wiremock-jre8</artifactId>
+                <version>2.26.3</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>1.4</version>
+            </dependency>
+            <dependency>
                 <groupId>com.google.code.findbugs</groupId>
                 <artifactId>jsr305</artifactId>
                 <version>3.0.2</version>
@@ -473,6 +487,28 @@
                 <groupId>com.onehippo.cms7</groupId>
                 <artifactId>hippo-addon-inference-engine-collector-plugin</artifactId>
                 <version>${hippo-addon-inference-engine.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.netflix.hystrix</groupId>
+                <artifactId>hystrix-javanica</artifactId>
+                <version>${hystrix-javanica.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>1.8.9</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-configuration</groupId>
+                <artifactId>commons-configuration</artifactId>
+                <version>1.10</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.onehippo.cms7</groupId>
+                <artifactId>hippo-addon-crisp-mock</artifactId>
+                <version>${hippo.version}</version>
             </dependency>
 
         </dependencies>

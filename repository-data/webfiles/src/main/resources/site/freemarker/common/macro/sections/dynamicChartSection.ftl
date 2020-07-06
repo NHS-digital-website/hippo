@@ -8,7 +8,6 @@
     <#local getData="uk.nhs.digital.freemarker.highcharts.RemoteChartDataFromUrl"?new() />
     <#local chartData =  getData(section.url) />
     <#if chartData??>
-
         <figure data-chart="highchart">
             <div id="chart-${section.uniqueId}"
                  style="width:100%; height:${size}px;"></div>
@@ -58,13 +57,11 @@
                 }<#if item?is_last><#else>, </#if></#list>],
                 data: {
                     csv: atob("${chartData.data}"),
-
                     firstRowAsNames: true
                 }
             };
         </script>
     <#else>
-        <!-- The dynamic chart is unavailable at this time -->
+        <p>The dynamic chart is unavailable at this time. Please try again soon.</p>
     </#if>
-
 </#macro>
