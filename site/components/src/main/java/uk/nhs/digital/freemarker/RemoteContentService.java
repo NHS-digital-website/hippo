@@ -6,7 +6,6 @@ import org.hippoecm.hst.site.HstServices;
 import org.onehippo.cms7.crisp.api.broker.ResourceServiceBroker;
 import org.onehippo.cms7.crisp.api.resource.Resource;
 import org.onehippo.cms7.crisp.hst.module.CrispHstServices;
-import org.slf4j.LoggerFactory;
 
 import java.net.URL;
 
@@ -29,9 +28,6 @@ public abstract class RemoteContentService {
      *
      * @return The fallback default object
      */
-    public Object getReliableFallBackObject(URL url, String resourceResolver, Class type, Throwable e) {
-        LoggerFactory.getLogger(type).warn(String.format("Issue with URL: %s", url.toString()), e);
-        return null;
-    }
+    public abstract Object getReliableFallBackObject(URL url, String resourceResolver, Class type, Throwable e);
 
 }

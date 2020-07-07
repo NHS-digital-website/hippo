@@ -9,7 +9,7 @@ public class TableauRemoteContentService extends RemoteContentService {
 
     @Override
     public Object getReliableFallBackObject(URL url, String resourceResolver, Class type, Throwable e) {
-        LoggerFactory.getLogger(type).warn(String.format("Issue with URL: %s", url.toString()), e);
+        LoggerFactory.getLogger(TableauRemoteContentService.class).warn(String.format("Issue with URL: %s", url.toString()), e);
         return new ThrottleOptions(0.75f);
     }
 
