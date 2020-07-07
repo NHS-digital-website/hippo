@@ -45,7 +45,7 @@ definitions:
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/statistics-valid-number:
       hipposys:className: org.onehippo.cms.services.validation.validator.RegExpValidator
       jcr:primaryType: hipposys:moduleconfig
-      regexp.pattern: (?:^\d+\/{1}\d+$)|(?:^\d?\.?\d+$)
+      regexp.pattern: (?:^\d+\/{1}\d+$)|(?:^\d*\.?\d+$)
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/twitterusername:
       hipposys:className: org.onehippo.cms.services.validation.validator.RegExpValidator
       jcr:primaryType: hipposys:moduleconfig
