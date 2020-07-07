@@ -57,13 +57,11 @@
                 }<#if item?is_last><#else>, </#if></#list>],
                 data: {
                     csv: atob("${chartData.data}"),
-
                     firstRowAsNames: true
                 }
             };
         </script>
     <#else>
-        <p>The dynamic chart is unavailable at this time. Please try again soon</p>
+        <p>The dynamic chart is unavailable at this time. Please try again soon.</p>
     </#if>
-
 </#macro>
