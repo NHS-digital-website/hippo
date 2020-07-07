@@ -5,29 +5,23 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.hippoecm.hst.site.HstServices;
 import org.onehippo.cms7.crisp.api.broker.ResourceServiceBroker;
 import org.onehippo.cms7.crisp.api.resource.Resource;
-import org.onehippo.cms7.crisp.api.resource.ResourceException;
 import org.onehippo.cms7.crisp.hst.module.CrispHstServices;
 import org.slf4j.LoggerFactory;
 
 import java.net.URL;
 
-public class RemoteContentService {
+public abstract class RemoteContentService {
 
     @HystrixCommand(
         fallbackMethod = "getReliableFallBackObject",
         commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "250")
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "400")
         }
     )
-    public Object getContentObjectFrom(URL url, String resourceResolver, Class type, Object fallback) {
+    public Object getContentObjectFrom(URL url, String resourceResolver, Class type) {
         ResourceServiceBroker broker =  CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());
-        try {
-            Resource r = broker.resolve(resourceResolver, url.toString());
-            return broker.getResourceBeanMapper(resourceResolver).map(r, type);
-        } catch (ResourceException e) {
-            LoggerFactory.getLogger(type).warn(String.format("Issue with URL: %s", url.toString()), e);
-            return fallback;
-        }
+        Resource r = broker.resolve(resourceResolver, url.toString());
+        return broker.getResourceBeanMapper(resourceResolver).map(r, type);
     }
 
     /**
@@ -35,9 +29,9 @@ public class RemoteContentService {
      *
      * @return The fallback default object
      */
-    public Object getReliableFallBackObject(URL url, String resourceResolver, Class type, Object fallback, Throwable e) {
+    public Object getReliableFallBackObject(URL url, String resourceResolver, Class type, Throwable e) {
         LoggerFactory.getLogger(type).warn(String.format("Issue with URL: %s", url.toString()), e);
-        return fallback;
+        return null;
     }
 
 }

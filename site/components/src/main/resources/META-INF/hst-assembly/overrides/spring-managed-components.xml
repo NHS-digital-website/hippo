@@ -23,6 +23,7 @@
         <constructor-arg name="graphProvider" ref="graphProvider" />
     </bean>
 
-    <bean id="remoteContentService" class="uk.nhs.digital.freemarker.RemoteContentService" />
+    <bean id="basicRemoteContentService" class="uk.nhs.digital.freemarker.BasicRemoteContentService" />
+    <bean id="tableauRemoteContentService" class="uk.nhs.digital.freemarker.tableau.TableauRemoteContentService" />
 
 </beans>
