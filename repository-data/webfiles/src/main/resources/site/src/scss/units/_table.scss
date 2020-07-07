@@ -132,6 +132,12 @@ th[role=columnheader][aria-sort]:after {
     opacity: 1!important;
 }
 
+.summing-row {
+    background: rgba(0,0,0,0.05);
+}
+
 .summing-row > td {
     @include bold-font(14);
+    border-top: 2px solid $grey-1;
+    border-bottom: 2px solid $grey-1;
 }
