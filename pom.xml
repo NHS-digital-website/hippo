@@ -64,6 +64,7 @@
     <!-- End of emptied/overridden metadata from parent hippo-cms7-release pom. -->
 
     <properties>
+        <hippo.version>13.4.2</hippo.version>
         <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
         <local-module-deploy-dir>shared/lib</local-module-deploy-dir>
 
@@ -491,6 +492,12 @@
                 <groupId>commons-configuration</groupId>
                 <artifactId>commons-configuration</artifactId>
                 <version>1.10</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.onehippo.cms7</groupId>
+                <artifactId>hippo-addon-crisp-mock</artifactId>
+                <version>${hippo.version}</version>
             </dependency>
 
         </dependencies>
