@@ -4,7 +4,7 @@ import java.net.URL;
 
 public class TestRemoteContentServiceImpl extends RemoteContentService {
 
-    public final static String fallbackValue = "Fallback Value";
+    public static final String fallbackValue = "Fallback Value";
 
     @Override
     public Object getReliableFallBackObject(URL url, String resourceResolver, Class type, Throwable e) {
@@ -12,4 +12,5 @@ public class TestRemoteContentServiceImpl extends RemoteContentService {
         testObject.setTestValue(fallbackValue);
         return testObject;
     }
-};
+
+}

@@ -1,12 +1,12 @@
 package uk.nhs.digital.freemarker.tableau;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.is;
 
 public class TableauRemoteContentServiceTest {
 

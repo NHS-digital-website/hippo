@@ -1,5 +1,9 @@
 package uk.nhs.digital.freemarker;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.netflix.hystrix.contrib.javanica.aop.aspectj.HystrixCommandAspect;
 import org.junit.Before;
@@ -26,11 +30,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-
-@ContextConfiguration(loader= AnnotationConfigContextLoader.class)
+@ContextConfiguration(loader = AnnotationConfigContextLoader.class)
 @RunWith(SpringJUnit4ClassRunner.class)
 public class RemoteContentServiceTest {
 
@@ -39,7 +39,7 @@ public class RemoteContentServiceTest {
     static class MyTestConfiguration {
 
         @Bean
-        public static HystrixCommandAspect hystrixCommandAspect(){
+        public static HystrixCommandAspect hystrixCommandAspect() {
             return new HystrixCommandAspect();
         }
 
