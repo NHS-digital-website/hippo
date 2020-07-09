@@ -432,7 +432,7 @@
                                     <externalstorage.aws.bucket>${externalstorage.aws.bucket}</externalstorage.aws.bucket>
                                     <externalstorage.aws.region>${externalstorage.aws.region}</externalstorage.aws.region>
                                     <externalstorage.aws.s3.endpoint>${externalstorage.aws.s3.endpoint}</externalstorage.aws.s3.endpoint>
-                                    <dynamic.bean.generation>false</dynamic.bean.generation>
+                                    <dynamic.bean.generation>true</dynamic.bean.generation>
                                     <spring.profiles.active>local</spring.profiles.active>
 
                                     <!-- Apigee access config -->

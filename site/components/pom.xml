@@ -82,6 +82,18 @@
         </dependency>
 
         <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-content-feed-dependencies-site</artifactId>
+            <version>${bloomreach.addon-content-feed.version}</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>com.onehippo.cms7</groupId>
+            <artifactId>hippo-addon-content-feed-search-api</artifactId>
+            <version>${bloomreach.addon-content-feed.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-library</artifactId>
             <scope>test</scope>

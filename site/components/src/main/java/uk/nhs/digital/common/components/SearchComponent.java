@@ -4,6 +4,8 @@ import static java.lang.Math.*;
 import static java.util.stream.Collectors.*;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.*;
 
+import com.onehippo.search.integration.api.ExternalSearchService;
+import com.onehippo.search.integration.api.QueryResponse;
 import org.hippoecm.hst.container.*;
 import org.hippoecm.hst.content.beans.query.*;
 import org.hippoecm.hst.content.beans.query.builder.*;
@@ -15,6 +17,7 @@ import org.hippoecm.repository.*;
 import org.onehippo.cms7.essentials.components.*;
 import org.onehippo.cms7.essentials.components.info.*;
 import org.onehippo.cms7.essentials.components.paging.*;
+import org.onehippo.cms7.services.HippoServiceRegistry;
 import org.slf4j.*;
 import uk.nhs.digital.common.enums.*;
 import uk.nhs.digital.nil.beans.*;
@@ -22,6 +25,8 @@ import uk.nhs.digital.ps.beans.*;
 import uk.nhs.digital.website.beans.*;
 
 import java.util.*;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 import java.util.regex.*;
 import java.util.stream.*;
 
@@ -56,6 +61,27 @@ public class SearchComponent extends CommonComponent {
     public void doBeforeRender(HstRequest request, HstResponse response) {
         EssentialsListComponentInfo paramInfo = getComponentInfo(request);
         HippoFacetNavigationBean facetNavigationBean = getFacetNavigationBean(request);
+
+        ExternalSearchService externalSearchService = HippoServiceRegistry.getService(ExternalSearchService.class);
+
+        final Future<QueryResponse> queryResponse = externalSearchService.builder()
+            .catalog("content_en")
+            .query(getQueryParameter(request))
+            .limit(10)
+            .offset(0)
+            .retrieveField("title")
+            .retrieveField("shortsummary")
+            .retrieveField("publicationDate")
+            .build()
+            .execute();
+
+        try {
+            queryResponse.get().getSearchResult().getNumFound();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
 
         if (facetNavigationBean != null) {
             HippoResultSetBean resultSet = facetNavigationBean.getResultSet();

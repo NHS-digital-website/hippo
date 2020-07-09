@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-enterprise-release</artifactId>
-        <version>13.4.4-contentfeed-EAP1</version>
+        <version>13.4.4-contentfeed-SNAPSHOT</version>
         <!-- Please have a look at the property section while upgrading -->
     </parent>
 
@@ -123,7 +123,7 @@
         <forge.folderctxmenus.version>4.0.1</forge.folderctxmenus.version>
         <essentials.version>13.4.2</essentials.version>
         <spring.version>5.1.15.RELEASE</spring.version>
-        <bloomreach.addon-content-feed.version>13.4.4-contentfeed-EAP1</bloomreach.addon-content-feed.version>
+        <bloomreach.addon-content-feed.version>13.4.4-contentfeed-SNAPSHOT</bloomreach.addon-content-feed.version>
 
         <org.eclipse.jetty.version>9.4.24.v20191120</org.eclipse.jetty.version>
         <com.fasterxml.jackson.version>2.11.2</com.fasterxml.jackson.version>
@@ -736,71 +736,71 @@
                 </executions>
             </plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-                <version>3.8</version>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-pmd-plugin</artifactId>-->
+<!--                <version>3.8</version>-->
 
-                <executions>
-                    <execution>
-                        <id>validate</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>check</goal>
-                            <goal>cpd-check</goal>
-                        </goals>
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>validate</id>-->
+<!--                        <phase>validate</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>check</goal>-->
+<!--                            <goal>cpd-check</goal>-->
+<!--                        </goals>-->
 
-                        <configuration>
-                            <linkXref>true</linkXref>
-                            <sourceEncoding>utf-8</sourceEncoding>
-                            <minimumTokens>100</minimumTokens>
-                            <rulesets>
-                                <ruleset>build-tools/src/main/resources/pmd_ruleset.xml</ruleset>
-                            </rulesets>
-                            <printFailingErrors>true</printFailingErrors>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-enforcer-plugin</artifactId>
-                <version>3.0.0-M1</version>
-                <executions>
-                    <execution>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <rules>
-                        <reactorModuleConvergence/>
-                        <requireUpperBoundDeps>
-                            <excludes>
-                                <exclude>com.google.guava:guava</exclude>
-                                <exclude>org.slf4j:slf4j-api</exclude>
-                                <exclude>org.slf4j:jcl-over-slf4j</exclude>
-                                <exclude>javax.ws.rs:javax.ws.rs-api</exclude>
-                                <exclude>commons-beanutils:commons-beanutils</exclude>
-                                <exclude>org.springframework:spring-context-support</exclude>
-                                <exclude>org.springframework:*</exclude>
-                                <exclude>commons-digester:commons-digester</exclude>
-                                <exclude>org.apache.pdfbox:pdfbox</exclude>
-                            </excludes>
-                        </requireUpperBoundDeps>
-                        <requireJavaVersion>
-                            <!-- Any Java 8 version is allowed -->
-                            <version>[1.8.0,1.8.1)</version>
-                        </requireJavaVersion>
-                        <requireMavenVersion>
-                            <!-- Any Maven 3 version is allowed -->
-                            <version>[3.0,4.0)</version>
-                        </requireMavenVersion>
-                    </rules>
-                </configuration>
-            </plugin>
+<!--                        <configuration>-->
+<!--                            <linkXref>true</linkXref>-->
+<!--                            <sourceEncoding>utf-8</sourceEncoding>-->
+<!--                            <minimumTokens>100</minimumTokens>-->
+<!--                            <rulesets>-->
+<!--                                <ruleset>build-tools/src/main/resources/pmd_ruleset.xml</ruleset>-->
+<!--                            </rulesets>-->
+<!--                            <printFailingErrors>true</printFailingErrors>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-enforcer-plugin</artifactId>-->
+<!--                <version>3.0.0-M1</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>verify</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>enforce</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--                <configuration>-->
+<!--                    <rules>-->
+<!--                        <reactorModuleConvergence/>-->
+<!--                        <requireUpperBoundDeps>-->
+<!--                            <excludes>-->
+<!--                                <exclude>com.google.guava:guava</exclude>-->
+<!--                                <exclude>org.slf4j:slf4j-api</exclude>-->
+<!--                                <exclude>org.slf4j:jcl-over-slf4j</exclude>-->
+<!--                                <exclude>javax.ws.rs:javax.ws.rs-api</exclude>-->
+<!--                                <exclude>commons-beanutils:commons-beanutils</exclude>-->
+<!--                                <exclude>org.springframework:spring-context-support</exclude>-->
+<!--                                <exclude>org.springframework:*</exclude>-->
+<!--                                <exclude>commons-digester:commons-digester</exclude>-->
+<!--                                <exclude>org.apache.pdfbox:pdfbox</exclude>-->
+<!--                            </excludes>-->
+<!--                        </requireUpperBoundDeps>-->
+<!--                        <requireJavaVersion>-->
+<!--                            &lt;!&ndash; Any Java 8 version is allowed &ndash;&gt;-->
+<!--                            <version>[1.8.0,1.8.1)</version>-->
+<!--                        </requireJavaVersion>-->
+<!--                        <requireMavenVersion>-->
+<!--                            &lt;!&ndash; Any Maven 3 version is allowed &ndash;&gt;-->
+<!--                            <version>[3.0,4.0)</version>-->
+<!--                        </requireMavenVersion>-->
+<!--                    </rules>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 
@@ -881,6 +881,11 @@
                                         <tofile>logging.properties</tofile>
                                     </configfile>
                                     <configfile>
+                                        <file>${project.basedir}/conf/hst.properties</file>
+                                        <todir>conf/</todir>
+                                        <tofile>hst.properties</tofile>
+                                    </configfile>
+                                    <configfile>
                                         <file>${project.basedir}/conf/query/lucene/indexing_configuration.xml</file>
                                         <todir>conf/query/lucene</todir>
                                         <tofile>indexing_configuration.xml</tofile>
@@ -959,7 +964,7 @@
                                     <externalstorage.aws.bucket>${externalstorage.aws.bucket}</externalstorage.aws.bucket>
                                     <externalstorage.aws.region>${externalstorage.aws.region}</externalstorage.aws.region>
                                     <externalstorage.aws.s3.endpoint>${externalstorage.aws.s3.endpoint}</externalstorage.aws.s3.endpoint>
-                                    <dynamic.bean.generation>false</dynamic.bean.generation>
+                                    <dynamic.bean.generation>true</dynamic.bean.generation>
                                     <spring.profiles.active>${spring.profiles.active}</spring.profiles.active>
 
                                     <!-- Apigee access config -->

@@ -59,6 +59,13 @@
         <Logger name="org.hippoecm.frontend" level="warn" />
         <Logger name="org.apache.wicket" level="warn" />
 
+        <!-- Additional content search logging todo:remove once implemented -->
+        <Logger name="org.springframework.integration.sftp" level="trace"/>
+        <Logger name="com.onehippo.cms7.contentfeed" level="debug"/>
+        <Logger name="org.onehippo.cms7.hippo-addon-crisp-api" level="debug"/>
+        <Logger name="org.onehippo.cms7.crisp" level="debug"/>
+
+
         <!-- DiagnosticsRequestCycleListener only logs when diagnostics are enabled in the repository at
                  /hippo:configuration/hippo:modules/diagnostics. Hence can be here on level 'info' -->
         <Logger name="org.hippoecm.frontend.diagnosis.DiagnosticsRequestCycleListener" level="info"/>
