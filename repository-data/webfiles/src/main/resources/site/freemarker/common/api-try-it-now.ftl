@@ -84,6 +84,11 @@
             display: none;
         }
 
+        /* Hide Schemas at the bottom of the popup */
+        .models {
+            display: none !important;
+        }
+
         /*
         Other overriding styles
         */
@@ -93,9 +98,31 @@
             box-shadow: none;
         }
 
+        /* Fixes the look of table header values */
         .swagger-ui table thead tr th {
             padding-left: 6px;
             min-width: 150px;
+        }
+
+        /* Hides document's subtitle */
+        .article-header__subtitle {
+            display: none;
+        }
+
+        /* Prevents document's title from being wrapped */
+        .local-header__title {
+            white-space: nowrap;
+        }
+
+        /* Prevents the 'Download' button's label (response payload) from being wrapped */
+        .download-contents {
+            width: auto !important;
+            right: 20px !important;
+        }
+
+        /* Adjusts spacing beween the 'Copy to clipboard' and 'Download' buttons */
+        .copy-to-clipboard {
+            right: 130px !important;
         }
 
     </style>
@@ -103,7 +130,7 @@
 
 
 <article class="article article--apispecification" itemscope>
-    <@documentHeader document 'general'></@documentHeader>
+    <@documentHeader document 'general' '' "Try this API: ${document.title}"></@documentHeader>
 
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">

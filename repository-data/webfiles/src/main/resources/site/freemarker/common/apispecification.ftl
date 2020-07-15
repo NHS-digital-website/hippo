@@ -20,6 +20,19 @@
 
             <style type="text/css">
                 .ctabtn--nhs-digital-button--try-it-now { float: right; }
+
+                pre {
+                    color: #FFF;
+                    background-color: #000;
+                    display:block;
+                    text-align:left;
+                    overflow: auto;
+                    overflow-y: auto;
+                    max-height: 500px;
+                    box-sizing:border-box;
+                    padding:0.5em;
+                }
+
             </style>
 
             <div class="grid-wrapper grid-wrapper--article">

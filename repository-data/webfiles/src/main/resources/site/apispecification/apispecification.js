@@ -9,7 +9,7 @@ function tryEndpointNow(endpointPathInSpec) { // method invocation is rendered b
 
     const targetWindowName = 'TryItNow';
 
-    const targetWindowFeatures = 'menubar=no,toolbar=no,location=no,status=no,innerWidth=1200,innerHeight=1000,left=100,top=100';
+    const targetWindowFeatures = 'menubar=no,toolbar=no,location=no,status=no,width=1000,height=1000,left=100,top=100';
 
     if (tryEndpointNowWindow == null || tryEndpointNowWindow.closed) {
 
