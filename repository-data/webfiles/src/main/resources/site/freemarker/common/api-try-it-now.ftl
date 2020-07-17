@@ -89,6 +89,11 @@
             display: none !important;
         }
 
+        /* Hides the 'Servers' drop-down */
+        .scheme-container {
+            display: none;
+        }
+
         /*
         Other overriding styles
         */
