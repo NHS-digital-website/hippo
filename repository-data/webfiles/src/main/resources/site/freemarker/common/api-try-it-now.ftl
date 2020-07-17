@@ -130,7 +130,9 @@
 
 
 <article class="article article--apispecification" itemscope>
-    <@documentHeader document 'general' '' "Try this API: ${document.title}"></@documentHeader>
+    <#if document?? >
+        <@documentHeader document 'general' '' "Try this API: ${document.title}"></@documentHeader>
+    </#if>
 
     <div class="grid-wrapper grid-wrapper--article">
         <div class="grid-row">
