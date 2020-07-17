@@ -43,16 +43,14 @@
 
     <!-- API Title: {{{appName}}} -->
 
-    <div id="header">
-        <div id="api-_">
-            <div id="api-description" class="article-section">{{{appDescription}}}</div>
-        </div>
+    <div class="article-section">
+        {{{appDescription}}}
     </div>
-    <div id="sections">
+
         {{#apiInfo}}
             {{#apis}}
                 {{#operations}}
-                    <section id="api-{{baseName}}" class="article-section">
+                    <div id="api-{{baseName}}" class="article-section">
                         <h1>{{baseName}}</h1>
                         {{#operation}}
                             {{#contents}}
@@ -201,11 +199,11 @@
                                 {{/@first}}
                             {{/contents}}
                         {{/operation}}
-                    </section>
+                    </div>
                 {{/operations}}
             {{/apis}}
         {{/apiInfo}}
-    </div>
+
     <div id="footer">
         <div id="api-_footer">
         <p>Suggestions, contact, support and error reporting;
