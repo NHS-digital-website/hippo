@@ -94,6 +94,7 @@ public class CustomStaticHtml2Codegen extends StaticHtml2Codegen {
 
         openApi.getPaths().values().stream()
             .map(PathItem::getParameters)
+            .filter(Objects::nonNull)
             .flatMap(Collection::stream)
             .forEach(parameter -> {
                 final String markdownDescription = parameter.getDescription();
