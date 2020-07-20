@@ -412,6 +412,18 @@
 [website:update] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:userContact] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:userNeed] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:userNeedandcontact] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:userNeedandcontactdocument] > hippostd:relaxed, hippotranslation:translated, website:basedocument
+  orderable
+
 [website:visualassetlink] > hippo:compound, hippostd:relaxed
   orderable
 
