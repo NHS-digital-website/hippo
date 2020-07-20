@@ -1,9 +1,9 @@
 package uk.nhs.digital.apispecs;
 
 import static java.lang.String.format;
+import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.toList;
-import static uk.nhs.digital.apispecs.ApiSpecificationPublicationService.PublicationResult.FAIL;
-import static uk.nhs.digital.apispecs.ApiSpecificationPublicationService.PublicationResult.PASS;
+import static uk.nhs.digital.apispecs.ApiSpecificationPublicationService.PublicationResult.*;
 
 import com.google.common.collect.Maps;
 import org.slf4j.Logger;
@@ -34,23 +34,31 @@ public class ApiSpecificationPublicationService {
 
     public void updateAndPublishEligibleSpecifications() {
 
-        final List<OpenApiSpecificationStatus> apigeeSpecsStatuses = getApigeeSpecStatuses();
-
         final List<ApiSpecificationDocument> cmsApiSpecificationDocuments = findCmsApiSpecifications();
+
+        final List<OpenApiSpecificationStatus> apigeeSpecsStatuses = cmsApiSpecificationDocuments.isEmpty()
+            ? emptyList()
+            : getApigeeSpecStatuses();
 
         final List<ApiSpecificationDocument> specsEligibleToUpdateAndPublish = identifySpecsEligibleForUpdateAndPublication(
             cmsApiSpecificationDocuments,
             apigeeSpecsStatuses
         );
 
-        if (!specsEligibleToUpdateAndPublish.isEmpty()) {
-            LOGGER.info("API Specifications found: in CMS: {}, in Apigee: {}, updated in Apigee and eligible to publish in CMS: {}",
-                cmsApiSpecificationDocuments.size(),
-                apigeeSpecsStatuses.size(),
-                specsEligibleToUpdateAndPublish.size());
-        }
+        reportNumbersOfSpecsFound(cmsApiSpecificationDocuments, apigeeSpecsStatuses, specsEligibleToUpdateAndPublish);
 
         updateAndPublish(specsEligibleToUpdateAndPublish);
+    }
+
+    private void reportNumbersOfSpecsFound(final List<ApiSpecificationDocument> cmsApiSpecificationDocuments,
+                                           final List<OpenApiSpecificationStatus> apigeeSpecsStatuses,
+                                           final List<ApiSpecificationDocument> specsEligibleToUpdateAndPublish) {
+
+        LOGGER.info(
+            "API Specifications found: in CMS: {}, in Apigee: {}, updated in Apigee and eligible to publish in CMS: {}",
+            cmsApiSpecificationDocuments.size(),
+            cmsApiSpecificationDocuments.isEmpty() ? "not checked" : apigeeSpecsStatuses.size(),
+            specsEligibleToUpdateAndPublish.size());
     }
 
     private List<OpenApiSpecificationStatus> getApigeeSpecStatuses() {
@@ -90,7 +98,7 @@ public class ApiSpecificationPublicationService {
         return apiSpecification -> apigeeSpecsById.containsKey(apiSpecification.getId());
     }
 
-    private void updateAndPublish(List<ApiSpecificationDocument> specsToPublish) {
+    private void updateAndPublish(final List<ApiSpecificationDocument> specsToPublish) {
 
         final long failedSpecificationsCount = specsToPublish.stream()
             .map(this::updateAndPublish)
@@ -139,7 +147,7 @@ public class ApiSpecificationPublicationService {
     ) {
         if (failedSpecificationsCount > 0) {
             throw new RuntimeException(
-                format("Failed to publish %d out of %d specifications; see preceding logs for details.",
+                format("Failed to publish %d out of %d eligible specifications; see preceding logs for details.",
                     failedSpecificationsCount,
                     specificationsToPublishCount
                 ));

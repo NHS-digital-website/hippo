@@ -439,6 +439,9 @@
                                     <devzone.apigee.oauth.token.url>${devzone.apigee.oauth.token.url}</devzone.apigee.oauth.token.url>
                                     <devzone.apigee.resources.specs.all.url>${devzone.apigee.resources.specs.all.url}</devzone.apigee.resources.specs.all.url>
                                     <devzone.apigee.resources.specs.individual.url>${devzone.apigee.resources.specs.individual.url}</devzone.apigee.resources.specs.individual.url>
+                                    <!-- Apigee API specifications sync schedule properties -->
+                                    <devzone.apispec.sync.enabled>${devzone.apispec.sync.enabled}</devzone.apispec.sync.enabled>
+                                    <devzone.apispec.sync.cron-expression>${devzone.apispec.sync.cron-expression}</devzone.apispec.sync.cron-expression>
 
                                 </systemProperties>
 

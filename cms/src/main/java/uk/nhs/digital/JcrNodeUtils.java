@@ -31,6 +31,12 @@ public abstract class JcrNodeUtils {
         return wrapCheckedException(node::getSession);
     }
 
+    public static Optional<Boolean> getBooleanPropertyQuietly(final Node node, final String propertyName) {
+        return Optional.ofNullable(
+            wrapCheckedException(() -> JcrUtils.getBooleanProperty(node, propertyName, null))
+        );
+    }
+
     public static Optional<String> getStringPropertyQuietly(final Node node, final String propertyName) {
         return Optional.ofNullable(
             wrapCheckedException(() -> JcrUtils.getStringProperty(node, propertyName, null))

@@ -40,17 +40,11 @@ public class ApigeeServiceTest {
     public void setUp() {
         initMocks(this);
 
-        final ApigeeClientConfig config = new ApigeeClientConfig(
+        apigeeService = new ApigeeService(
+            broker,
             URL_ALL_SPECS,
-            URL_SINGLE_SPEC_TEMPLATE,
-            "tokenUrl",
-            "username",
-            "password",
-            "basicToken",
-            "otpKey"
+            URL_SINGLE_SPEC_TEMPLATE
         );
-
-        apigeeService = new ApigeeService(config, broker);
     }
 
     @Test

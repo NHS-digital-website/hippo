@@ -1,22 +1,6 @@
 ---
 definitions:
   config:
-    /hippo:configuration/hippo:modules/scheduler/hippo:moduleconfig/api-specifications:
-      /ApiSpecSyncFromApigee:
-        /hipposched:triggers:
-          /frequency:
-            hipposched:cronExpression: 0 0/5 * ? * *
-            hipposched:enabled: true
-            hipposched:nextFireTime: 2020-05-05T00:50:00Z
-            jcr:mixinTypes:
-            - hippo:lockable
-            - mix:lockable
-            jcr:primaryType: hipposched:crontrigger
-          jcr:primaryType: hipposched:triggers
-        hipposched:enabled: false
-        hipposched:repositoryJobClass: uk.nhs.digital.apispecs.jobs.ApiSpecSyncFromApigeeJob
-        jcr:primaryType: hipposched:repositoryjob
-      jcr:primaryType: hipposched:jobgroup
     /hippo:configuration/hippo:modules/scheduler/hippo:moduleconfig/system/FormDataCleanup:
       hipposched:attributeValues:
       - '100'

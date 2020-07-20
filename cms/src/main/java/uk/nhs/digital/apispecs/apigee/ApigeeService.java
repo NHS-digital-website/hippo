@@ -21,12 +21,17 @@ public class ApigeeService implements OpenApiSpecificationRepository {
 
     private static final String RESOURCE_NAMESPACE_APIGEE_MANAGEMENT_API = "apigeeManagementApi";
 
-    private final ApigeeClientConfig config;
     private final ResourceServiceBroker resourceServiceBroker;
+    private final String allSpecUrl;
+    private final String singleSpecUrl;
 
-    public ApigeeService(final ApigeeClientConfig config, final ResourceServiceBroker resourceServiceBroker) {
-        this.config = config;
+    public ApigeeService(final ResourceServiceBroker resourceServiceBroker,
+                         final String allSpecUrl,
+                         final String singleSpecUrl
+    ) {
         this.resourceServiceBroker = resourceServiceBroker;
+        this.allSpecUrl = allSpecUrl;
+        this.singleSpecUrl = singleSpecUrl;
     }
 
     @Override
@@ -36,7 +41,7 @@ public class ApigeeService implements OpenApiSpecificationRepository {
 
         return throwServiceExceptionOnFailure(() -> {
 
-                final Resource resource = resourceAt(config.getAllSpecUrl());
+                final Resource resource = resourceAt(allSpecUrl);
 
                 return apigeeApiSpecificationsStatusesFrom(resource);
             },
@@ -63,7 +68,7 @@ public class ApigeeService implements OpenApiSpecificationRepository {
     }
 
     private String urlForSingleSpecification(final String specificationId) {
-        return UriComponentsBuilder.fromHttpUrl(config.getSingleSpecUrl()).build(specificationId).toString();
+        return UriComponentsBuilder.fromHttpUrl(singleSpecUrl).build(specificationId).toString();
     }
 
     private Resource resourceAt(final String url) {

@@ -1,6 +1,7 @@
 package uk.nhs.digital.apispecs;
 
 import static java.util.Arrays.asList;
+import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
@@ -128,6 +129,19 @@ public class ApiSpecificationPublicationServiceTest {
         then(cmsSpecPublished).should(never()).setSpecJson(any());
         then(cmsSpecPublished).should(never()).setHtml(any());
         then(cmsSpecPublished).should(never()).saveAndPublish();
+    }
+
+    @Test
+    public void publish_doesNotMakeAnyRequestToApigee_ifThereAreNoLocalApiSpecDocuments() {
+
+        // given
+        when(apiSpecDocumentRepo.findAllApiSpecifications()).thenReturn(emptyList());
+
+        // when
+        apiSpecificationPublicationService.updateAndPublishEligibleSpecifications();
+
+        // then
+        then(apigeeService).shouldHaveZeroInteractions();
     }
 
     @Test

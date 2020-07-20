@@ -173,7 +173,12 @@
                             }
                     </script>
                 <#else>
-                    <#assign section = { "emphasisType": "Important", "heading": "Open from the API Specification page", "bodyCustom": "Please open this feature via 'Try it now' button in the page of the API Specification."  } />
+                    <#assign section = {
+                        "emphasisType": "Important",
+                        "heading": "Open from the API Specification page",
+                        "bodyCustom":
+                        "Please open this feature via 'Try it now' button in the page of the API Specification. If you did just that and still see this message, please refresh the specification page and try opening this popup again."
+                    } />
                     <@emphasisBox section=section />
                 </#if>
             </div>

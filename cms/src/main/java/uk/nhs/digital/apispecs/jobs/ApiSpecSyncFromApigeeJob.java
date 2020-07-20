@@ -9,13 +9,11 @@ import org.onehippo.repository.scheduling.RepositoryJobExecutionContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.nhs.digital.apispecs.ApiSpecificationPublicationService;
-import uk.nhs.digital.apispecs.apigee.ApigeeClientConfig;
 import uk.nhs.digital.apispecs.apigee.ApigeeService;
 import uk.nhs.digital.apispecs.jcr.ApiSpecificationDocumentJcrRepository;
 import uk.nhs.digital.apispecs.swagger.SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter;
 
 import java.util.Optional;
-import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
 public class ApiSpecSyncFromApigeeJob implements RepositoryJob {
@@ -35,12 +33,12 @@ public class ApiSpecSyncFromApigeeJob implements RepositoryJob {
     // @formatter:on
 
     @Override
-    public void execute(RepositoryJobExecutionContext context) throws RepositoryException {
+    public void execute(final RepositoryJobExecutionContext context) {
 
         log.debug("API Specifications sync from Apigee: start.");
 
         // System properties for config - LOGGED ON SYSTEM START
-        final String oauthAapigeeAllSpecUrl = System.getProperty(APIGEE_ALL_SPEC_URL);
+        final String apigeeAllSpecUrl = System.getProperty(APIGEE_ALL_SPEC_URL);
         final String apigeeSingleSpecUrl = System.getProperty(APIGEE_SINGLE_SPEC_URL);
         final String oauthTokenUrl = System.getProperty(OAUTH_TOKEN_URL);
 
@@ -54,7 +52,7 @@ public class ApiSpecSyncFromApigeeJob implements RepositoryJob {
 
         try {
 
-            ensureRequiredArgProvided(APIGEE_ALL_SPEC_URL, oauthAapigeeAllSpecUrl);
+            ensureRequiredArgProvided(APIGEE_ALL_SPEC_URL, apigeeAllSpecUrl);
             ensureRequiredArgProvided(APIGEE_SINGLE_SPEC_URL, apigeeSingleSpecUrl);
             ensureRequiredArgProvided(OAUTH_TOKEN_URL, oauthTokenUrl);
             ensureRequiredArgProvided(USERNAME, username);
@@ -64,19 +62,10 @@ public class ApiSpecSyncFromApigeeJob implements RepositoryJob {
 
             final ResourceServiceBroker resourceServiceBroker = resourceServiceBroker();
 
-            final ApigeeClientConfig config = new ApigeeClientConfig(
-                oauthAapigeeAllSpecUrl,
-                apigeeSingleSpecUrl,
-                oauthTokenUrl,
-                username,
-                password,
-                basicToken,
-                otpKey
-            );
-
             final ApigeeService apigeeService = new ApigeeService(
-                config,
-                resourceServiceBroker
+                resourceServiceBroker,
+                apigeeAllSpecUrl,
+                apigeeSingleSpecUrl
             );
 
             session = context.createSystemSession();
@@ -106,6 +95,8 @@ public class ApiSpecSyncFromApigeeJob implements RepositoryJob {
     private ResourceServiceBroker resourceServiceBroker() {
         return Optional.ofNullable(
             CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager())
-        ).orElseThrow(() -> new RuntimeException("ResourceServiceBroker not available."));
+        ).orElseThrow(() -> new RuntimeException(
+            "ResourceServiceBroker not available. Ignore if this happens only once on app start as, in such a case it's justified as the env. is not fully initialised, yet."
+        ));
     }
 }
