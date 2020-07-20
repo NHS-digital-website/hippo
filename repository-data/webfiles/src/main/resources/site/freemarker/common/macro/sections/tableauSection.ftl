@@ -6,8 +6,7 @@
 
     <#if section?? && section.url??>
         <@hst.headContribution>
-            <script type="text/javascript"
-                    src="https://live.dashboards.data.digital.nhs.uk/javascripts/api/tableau-2.min.js"></script>
+            <script src="${section.tableauBase}javascripts/api/tableau-2.min.js"></script>
         </@hst.headContribution>
 
         <#assign divId = "tableau-${index}"/>
@@ -48,7 +47,11 @@
                     ,device: "${section.device}"
                     </#if>
                 };
-                viz${index} = new tableau.Viz(containerDiv, url, options);
+                if(typeof tableau !== 'undefined' && typeof tableau.Viz !== 'undefined') {
+                    viz${index} = new tableau.Viz(containerDiv, url, options);
+                } else {
+                    containerDiv.innerHTML = '[Tableau loading error]';
+                }
             }
 
             window.addEventListener('load', function() {
