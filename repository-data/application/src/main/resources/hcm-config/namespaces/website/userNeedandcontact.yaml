@@ -1,0 +1,126 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/website/userNeedandcontact:
+      /editor:templates:
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
+          /root:
+            item: ${cluster.id}.field
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /briefDescription:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Brief Description
+            field: briefDescription
+            hint: This explains why we have this page on the website, and what it
+              is supposed to do.
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /teampicker:
+            /cluster.options:
+              base.path: /content/documents
+              jcr:primaryType: frontend:pluginconfig
+              last.visited.enabled: true
+              nodetypes: []
+            field: teampicker
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /userNeedismet:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: User Need Is Met When The User
+            field: userNeedismet
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /portfolioCode:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Portfolio Code
+            field: portfolioCode
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+        jcr:primaryType: editor:templateset
+      /hipposysedit:nodetype:
+        /hipposysedit:nodetype:
+          /briefDescription:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:briefDescription
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /portfolioCode:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:portfolioCode
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - optional
+            - portfoliocode
+            jcr:primaryType: hipposysedit:field
+          /teampicker:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:teampicker
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+            jcr:primaryType: hipposysedit:field
+          /userNeedismet:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: website:userNeedismet
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - hippo:compound
+          - hippostd:relaxed
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes:
+          - hipposysedit:remodel
+          - mix:referenceable
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /hipposysedit:prototypes:
+        /hipposysedit:prototype:
+          /website:briefDescription:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:teampicker:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            jcr:primaryType: hippo:mirror
+          jcr:primaryType: website:userNeedandcontact
+          website:portfolioCode: ''
+          website:userNeedismet:
+          - ''
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype

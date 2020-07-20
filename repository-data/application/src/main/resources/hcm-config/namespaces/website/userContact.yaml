@@ -1,0 +1,146 @@
+---
+definitions:
+  config:
+    /hippo:namespaces/website/userContact:
+      /editor:templates:
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
+          /root:
+            item: ${cluster.id}.field
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /userContactname:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Name
+            field: userContactname
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /userContactemail:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Email
+            field: userContactemail
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.css: []
+            wicket.id: ${cluster.id}.field
+          /userContactPhone:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Telephone Number
+            field: userContactPhone
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /userContactprimarycontact:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Primary Contact
+            field: userContactprimarycontact
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /userContactnotes:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Notes
+            field: userContactnotes
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+        jcr:primaryType: editor:templateset
+      /hipposysedit:nodetype:
+        /hipposysedit:nodetype:
+          /userContactPhone:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:userContactPhone
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - optional
+            - phonenumber
+            jcr:primaryType: hipposysedit:field
+          /userContactemail:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:userContactemailquite
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - email
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /userContactname:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:userContactname
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /userContactnotes:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:userContactnotes
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            hipposysedit:validators:
+            - optional
+            jcr:primaryType: hipposysedit:field
+          /userContactprimarycontact:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:userContactprimarycontact
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+            jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - hippo:compound
+          - hippostd:relaxed
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
+      /hipposysedit:prototypes:
+        /hipposysedit:prototype:
+          /website:userContactnotes:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          jcr:primaryType: website:userContact
+          website:userContactPhone: ''
+          website:userContactemail: ''
+          website:userContactemailquite: ''
+          website:userContactname: ''
+          website:userContactprimarycontact: false
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype
