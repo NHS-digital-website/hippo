@@ -19,6 +19,31 @@ definitions:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /userNeedandcontact:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: User Needs and Contact Details
+            field: userNeedandcontact
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /userNeed:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: User Needs
+            field: userNeed
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /userContact:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Contact Details
+            field: userContact
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
           /title:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -50,8 +75,6 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
           /seosummary:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
             caption: SEO Summary
             field: seosummary
             hint: ''
@@ -95,7 +118,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
               selectable.options: jumptocontent=Jump To Content,nobutton=No Button
             caption: Button
-            field: button
+            field: staticdropdown
             hint: Configure the button for the hero banner.
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
@@ -141,16 +164,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
-          /button:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:button
-            hipposysedit:primary: false
-            hipposysedit:type: StaticDropdown
-            hipposysedit:validators:
-            - required
-            jcr:primaryType: hipposysedit:field
           /friendlyurls:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -204,6 +217,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
+          /staticdropdown:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:button
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            jcr:primaryType: hipposysedit:field
           /summary:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -221,6 +242,30 @@ definitions:
             hipposysedit:type: String
             hipposysedit:validators:
             - required
+            jcr:primaryType: hipposysedit:field
+          /userContact:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:userContact
+            hipposysedit:primary: false
+            hipposysedit:type: website:userContact
+            jcr:primaryType: hipposysedit:field
+          /userNeed:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:userNeed
+            hipposysedit:primary: false
+            hipposysedit:type: website:userNeed
+            jcr:primaryType: hipposysedit:field
+          /userNeedandcontact:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:userNeedandcontact
+            hipposysedit:primary: false
+            hipposysedit:type: website:userNeedandcontact
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
@@ -232,105 +277,6 @@ definitions:
           jcr:mixinTypes:
           - mix:referenceable
           - hipposysedit:remodel
-          jcr:primaryType: hipposysedit:nodetype
-        /hipposysedit:nodetype[2]:
-          /bannerAltText:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:bannerAltText
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            jcr:primaryType: hipposysedit:field
-          /button:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:button
-            hipposysedit:primary: false
-            hipposysedit:type: StaticDropdown
-            hipposysedit:validators:
-            - required
-            jcr:primaryType: hipposysedit:field
-          /friendlyurls:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:friendlyurls
-            hipposysedit:primary: false
-            hipposysedit:type: website:friendlyurls
-            jcr:primaryType: hipposysedit:field
-          /image:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:bannerImage
-            hipposysedit:primary: false
-            hipposysedit:type: hippogallerypicker:imagelink
-            hipposysedit:validators:
-            - optional
-            jcr:primaryType: hipposysedit:field
-          /publicationStyle:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:publicationStyle
-            hipposysedit:primary: false
-            hipposysedit:type: StaticDropdown
-            hipposysedit:validators:
-            - required
-            jcr:primaryType: hipposysedit:field
-          /sections:
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:sections
-            hipposysedit:primary: false
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators:
-            - contentblocks-validator
-            jcr:primaryType: hipposysedit:field
-          /seosummary:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:seosummary
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:seoSummary
-            jcr:primaryType: hipposysedit:field
-          /shortsummary:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:shortsummary
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            jcr:primaryType: hipposysedit:field
-          /summary:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:summary
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            jcr:primaryType: hipposysedit:field
-          /title:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:title
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators:
-            - required
-            jcr:primaryType: hipposysedit:field
-          hipposysedit:node: true
-          hipposysedit:supertype:
-          - website:basedocument
-          - hippostd:relaxed
-          - hippotranslation:translated
-          - hippotaxonomy:classifiable
-          jcr:mixinTypes:
-          - mix:referenceable
           jcr:primaryType: hipposysedit:nodetype
         jcr:mixinTypes:
         - mix:referenceable
@@ -353,6 +299,32 @@ definitions:
           /website:summary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
+          /website:userContact:
+            /website:userContactnotes:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:userContact
+            website:userContactPhone: ''
+            website:userContactemail: ''
+            website:userContactemailquite: ''
+            website:userContactname: ''
+            website:userContactprimarycontact: false
+          /website:userNeed:
+            jcr:primaryType: website:userNeed
+            website:asA: ''
+            website:iNeedto: ''
+            website:soThat: ''
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:userNeedismet:
+            - ''
           common:searchRank: 5
           common:searchable: true
           hippostd:holder: holder
@@ -366,45 +338,6 @@ definitions:
           jcr:mixinTypes:
           - mix:referenceable
           jcr:primaryType: website:publishedworkchapter
-          website:bannerAltText: ''
-          website:button: jumptocontent
-          website:publicationStyle: parent
-          website:shortsummary: ''
-          website:staticdropdown: jumptocontent
-          website:title: ''
-        /hipposysedit:prototype[2]:
-          /website:bannerImage:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippogallerypicker:imagelink
-          /website:friendlyurls:
-            jcr:primaryType: website:friendlyurls
-            website:alternativeurls: []
-            website:destination: ''
-          /website:seosummary:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
-          /website:summary:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
-          common:searchRank: 5
-          common:searchable: true
-          hippostd:holder: holder
-          hippostd:state: draft
-          hippostdpubwf:createdBy: ''
-          hippostdpubwf:creationDate: 2018-05-22T10:46:55.362Z
-          hippostdpubwf:lastModificationDate: 2018-05-22T10:46:55.362Z
-          hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: document-type-locale-id
-          hippotranslation:locale: document-type-locale
-          jcr:mixinTypes:
-          - hippostd:relaxed
-          - hippotaxonomy:classifiable
-          - hippotranslation:translated
-          - mix:referenceable
-          jcr:primaryType: nt:unstructured
           website:bannerAltText: ''
           website:button: jumptocontent
           website:publicationStyle: parent

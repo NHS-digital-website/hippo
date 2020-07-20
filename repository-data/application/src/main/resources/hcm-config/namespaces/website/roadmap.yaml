@@ -19,6 +19,32 @@ definitions:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /userNeedandcontact:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: User Needs and Contact Details
+            field: userNeedandcontact
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /userNeed:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: User Needs
+            field: userNeed
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /userContact:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Contact Details
+            field: userContact
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
           /title:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -158,6 +184,30 @@ definitions:
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
+          /userContact:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: website:userContact
+            hipposysedit:primary: false
+            hipposysedit:type: website:userContact
+            jcr:primaryType: hipposysedit:field
+          /userNeed:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: website:userNeed
+            hipposysedit:primary: false
+            hipposysedit:type: website:userNeed
+            jcr:primaryType: hipposysedit:field
+          /userNeedandcontact:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:userNeedandcontact
+            hipposysedit:primary: false
+            hipposysedit:type: website:userNeedandcontact
+            jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
           - website:basedocument
@@ -173,9 +223,38 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           /website:summary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
+          /website:userContact:
+            /website:userContactnotes:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:userContact
+            website:userContactPhone: ''
+            website:userContactemail: ''
+            website:userContactname: ''
+            website:userContactprimarycontact: false
+          /website:userNeed:
+            jcr:primaryType: website:userNeed
+            website:asA: ''
+            website:iNeedto: ''
+            website:soThat: ''
+          /website:userNeedandcontact:
+            /website:briefDescription:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            /website:teampicker:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              jcr:primaryType: hippo:mirror
+            jcr:primaryType: website:userNeedandcontact
+            website:portfolioCode: ''
+            website:responsibleTeam: ''
+            website:userNeedismet:
+            - ''
           common:searchRank: 5
           common:searchable: true
           hippostd:holder: holder

@@ -778,6 +778,26 @@ definitions:
           jcr:name: Update
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:userContact:
+        /en:
+          jcr:name: User contact
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:userNeed:
+        /en:
+          jcr:name: User need
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:userNeedandcontact:
+        /en:
+          jcr:name: User need and contact
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:userNeedandcontactdocument:
+        /en:
+          jcr:name: User need and contact document
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:visualassetlink:
         /en:
           jcr:name: Asset icon link
