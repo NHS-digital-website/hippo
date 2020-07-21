@@ -65,6 +65,8 @@
         <Logger name="org.onehippo.cms7.hippo-addon-crisp-api" level="debug"/>
         <Logger name="org.onehippo.cms7.crisp" level="debug"/>
 
+        <Logger name="com.jdbc" level="debug"/>
+
 
         <!-- DiagnosticsRequestCycleListener only logs when diagnostics are enabled in the repository at
                  /hippo:configuration/hippo:modules/diagnostics. Hence can be here on level 'info' -->

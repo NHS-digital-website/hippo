@@ -736,47 +736,47 @@
                 </executions>
             </plugin>
 
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-pmd-plugin</artifactId>-->
-<!--                <version>3.8</version>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.8</version>
 
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>validate</id>-->
-<!--                        <phase>validate</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>check</goal>-->
-<!--                            <goal>cpd-check</goal>-->
-<!--                        </goals>-->
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                            <goal>cpd-check</goal>
+                        </goals>
 
-<!--                        <configuration>-->
-<!--                            <linkXref>true</linkXref>-->
-<!--                            <sourceEncoding>utf-8</sourceEncoding>-->
-<!--                            <minimumTokens>100</minimumTokens>-->
-<!--                            <rulesets>-->
-<!--                                <ruleset>build-tools/src/main/resources/pmd_ruleset.xml</ruleset>-->
-<!--                            </rulesets>-->
-<!--                            <printFailingErrors>true</printFailingErrors>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-enforcer-plugin</artifactId>-->
-<!--                <version>3.0.0-M1</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <phase>verify</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>enforce</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--                <configuration>-->
-<!--                    <rules>-->
-<!--                        <reactorModuleConvergence/>-->
+                        <configuration>
+                            <linkXref>true</linkXref>
+                            <sourceEncoding>utf-8</sourceEncoding>
+                            <minimumTokens>100</minimumTokens>
+                            <rulesets>
+                                <ruleset>build-tools/src/main/resources/pmd_ruleset.xml</ruleset>
+                            </rulesets>
+                            <printFailingErrors>true</printFailingErrors>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>3.0.0-M1</version>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <rules>
+                        <reactorModuleConvergence/>
 <!--                        <requireUpperBoundDeps>-->
 <!--                            <excludes>-->
 <!--                                <exclude>com.google.guava:guava</exclude>-->
@@ -790,17 +790,17 @@
 <!--                                <exclude>org.apache.pdfbox:pdfbox</exclude>-->
 <!--                            </excludes>-->
 <!--                        </requireUpperBoundDeps>-->
-<!--                        <requireJavaVersion>-->
-<!--                            &lt;!&ndash; Any Java 8 version is allowed &ndash;&gt;-->
-<!--                            <version>[1.8.0,1.8.1)</version>-->
-<!--                        </requireJavaVersion>-->
-<!--                        <requireMavenVersion>-->
-<!--                            &lt;!&ndash; Any Maven 3 version is allowed &ndash;&gt;-->
-<!--                            <version>[3.0,4.0)</version>-->
-<!--                        </requireMavenVersion>-->
-<!--                    </rules>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+                        <requireJavaVersion>
+                            <!-- Any Java 8 version is allowed -->
+                            <version>[1.8.0,1.8.1)</version>
+                        </requireJavaVersion>
+                        <requireMavenVersion>
+                            <!-- Any Maven 3 version is allowed -->
+                            <version>[3.0,4.0)</version>
+                        </requireMavenVersion>
+                    </rules>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -846,14 +846,21 @@
                 <targeting.truncate>true</targeting.truncate>
                 <es.httpPort>9200</es.httpPort>
                 <targeting.bootstrap>false</targeting.bootstrap>
-                <sql.driver>org.h2.Driver</sql.driver>
-                <sql.url>jdbc:h2:${repo.path}/targeting/targeting;AUTO_SERVER=TRUE</sql.url>
-                <sql.username>sa</sql.username>
+                <mysql.driver>com.mysql.jdbc.Driver</mysql.driver>
+                <mysql.username>root</mysql.username>
+                <mysql.host>localhost:3306</mysql.host>
+                <mysql.repo.db>nhs_digital_v13</mysql.repo.db>
+                <mysql.targeting.db>nhs_digital_v13</mysql.targeting.db>
             </properties>
             <dependencies>
                 <dependency>
                     <groupId>org.onehippo.cms7</groupId>
                     <artifactId>hippo-addon-crisp-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>mysql</groupId>
+                    <artifactId>mysql-connector-java</artifactId>
                     <scope>provided</scope>
                 </dependency>
                 <dependency>
@@ -869,9 +876,28 @@
                         <artifactId>cargo-maven2-plugin</artifactId>
                         <configuration>
                             <configuration>
+                                <properties combine.children="append">
+                                    <mysql.driver>${mysql.driver}</mysql.driver>
+                                    <mysql.username>${mysql.username}</mysql.username>
+                                    <mysql.password>password</mysql.password>
+                                    <mysql.host>${mysql.host}</mysql.host>
+                                    <mysql.repo.db>${mysql.repo.db}</mysql.repo.db>
+                                    <mysql.targeting.db>${mysql.targeting.db}</mysql.targeting.db>
+                                </properties>
                                 <configfiles>
+<!--                                    <configfile>-->
+<!--                                        <file>${project.basedir}/conf/context.xml</file>-->
+<!--                                        <todir>conf/</todir>-->
+<!--                                        <tofile>context.xml</tofile>-->
+<!--                                    </configfile>-->
                                     <configfile>
-                                        <file>${project.basedir}/conf/context.xml</file>
+                                        <!-- copy to target to have a '@mysql.repo.db@' substituted file -->
+                                        <file>${project.basedir}/conf/repository-mysql.xml</file>
+                                        <todir>conf/</todir>
+                                        <tofile>repository-mysql.xml</tofile>
+                                    </configfile>
+                                    <configfile>
+                                        <file>${project.basedir}/conf/context-mysql.xml</file>
                                         <todir>conf/</todir>
                                         <tofile>context.xml</tofile>
                                     </configfile>
@@ -945,6 +971,7 @@
                                 </deployable>
                             </deployables>
                             <container>
+                                <timeout>12000000</timeout>
                                 <zipUrlInstaller>
                                     <url>${cargo.tomcat.distribution.url}</url>
                                 </zipUrlInstaller>
@@ -953,7 +980,8 @@
                                     <!-- enables auto export and web files watch: -->
                                     <project.basedir>${project.basedir}</project.basedir>
                                     <send.usage.statistics.to.hippo>false</send.usage.statistics.to.hippo>
-                                    <repo.config>file://${project.basedir}/conf/repository.xml</repo.config>
+<!--                                    <repo.config>file://${project.basedir}/conf/repository.xml</repo.config>-->
+                                    <repo.config>file://${project.basedir}/conf/repository-mysql.xml</repo.config>
 
                                     <!-- Splunk forwarder config -->
                                     <splunk.hec.name>${splunk.hec.name}</splunk.hec.name>
@@ -986,6 +1014,11 @@
                                         <groupId>com.onehippo.cms7</groupId>
                                         <artifactId>hippo-addon-targeting-shared-api</artifactId>
                                         <classpath>shared</classpath>
+                                    </dependency>
+                                    <dependency>
+                                        <groupId>mysql</groupId>
+                                        <artifactId>mysql-connector-java</artifactId>
+                                        <classpath>extra</classpath>
                                     </dependency>
                                 </dependencies>
                             </container>

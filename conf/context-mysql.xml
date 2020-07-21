@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context>
+    <!-- Disable session persistence across Tomcat restarts -->
+    <Manager pathname="" />
+
+    <!-- Change the default repository storage location -->
+    <!--
+    <Parameter name="repository-directory" value="/data/storage" override="false"/>
+    -->
+
+    <!-- Start the repository as a remote server and bind it on the specified address -->
+    <!--
+    <Parameter name="start-remote-server" value="true" override="false"/>
+    <Parameter name="repository-address" value="rmi://127.0.0.1:1099/hipporepository" override="false"/>
+    -->
+
+    <!-- Enable this to let wicket output a wicketpath attribute for elements,
+         see: http://www.onehippo.org/7_8/library/development/create-a-selenium-test-case.html -->
+    <!--
+    <Parameter name="output-wicketpaths" value="true"/>
+    -->
+
+    <Resource
+        name="jdbc/repositoryDS" auth="Container" type="javax.sql.DataSource"
+        maxTotal="100" maxIdle="10" initialSize="2" maxWaitMillis="10000"
+        testWhileIdle="true" testOnBorrow="false" validationQuery="SELECT 1"
+        timeBetweenEvictionRunsMillis="10000"
+        minEvictableIdleTimeMillis="60000"
+        username="root" password="password"
+        driverClassName="com.mysql.jdbc.Driver"
+        url="jdbc:mysql://localhost:3306/nhs_digital_v13?characterEncoding=utf8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
+
+    <!--
+    driverClassName="com.mysql.jdbc.Driver"
+    url="jdbc:mysql://localhost:3306/repositoryDS?characterEncoding=utf8"/>
+    -->
+
+<!--    <Resource-->
+<!--        name="jdbc/nhs_digital_v13" auth="Container" type="javax.sql.DataSource"-->
+<!--        maxTotal="100" maxIdle="10" initialSize="10" maxWaitMillis="10000"-->
+<!--        testWhileIdle="true" testOnBorrow="false" validationQuery="SELECT 1"-->
+<!--        timeBetweenEvictionRunsMillis="10000"-->
+<!--        minEvictableIdleTimeMillis="60000"-->
+<!--        username="root" password="password"-->
+<!--        driverClassName="com.mysql.jdbc.Driver"-->
+<!--        url="jdbc:mysql://localhost:3306/nhs_digital_v13?characterEncoding=utf8"/>-->
+</Context>

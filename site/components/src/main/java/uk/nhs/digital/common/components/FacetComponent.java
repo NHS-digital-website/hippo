@@ -20,6 +20,7 @@ public class FacetComponent extends SearchComponent {
         request.setAttribute("taxonomy", taxonomyWrapper);
         request.setAttribute("query", getQueryParameter(request));
         request.setAttribute("facets", facetNavigationBean);
-        request.setAttribute("cparam", getComponentInfo(request)) ;
+        request.setAttribute("cparam", getComponentInfo(request));
+        request.setAttribute("isContentSearch", request.getRequestContext().getAttribute("isContentSearch"));
     }
 }

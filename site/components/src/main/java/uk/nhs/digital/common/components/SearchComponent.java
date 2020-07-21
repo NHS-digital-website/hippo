@@ -1,40 +1,50 @@
 package uk.nhs.digital.common.components;
 
-import static java.lang.Math.*;
-import static java.util.stream.Collectors.*;
+import static java.lang.Math.max;
+import static java.lang.Math.min;
+import static java.util.stream.Collectors.toList;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.*;
 
 import com.onehippo.search.integration.api.ExternalSearchService;
 import com.onehippo.search.integration.api.QueryResponse;
-import org.hippoecm.hst.container.*;
-import org.hippoecm.hst.content.beans.query.*;
-import org.hippoecm.hst.content.beans.query.builder.*;
-import org.hippoecm.hst.content.beans.standard.*;
-import org.hippoecm.hst.core.component.*;
-import org.hippoecm.hst.core.parameters.*;
-import org.hippoecm.hst.util.*;
-import org.hippoecm.repository.*;
-import org.onehippo.cms7.essentials.components.*;
-import org.onehippo.cms7.essentials.components.info.*;
-import org.onehippo.cms7.essentials.components.paging.*;
+import org.hippoecm.hst.container.RequestContextProvider;
+import org.hippoecm.hst.content.beans.query.HstQuery;
+import org.hippoecm.hst.content.beans.query.builder.Constraint;
+import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoFacetNavigationBean;
+import org.hippoecm.hst.content.beans.standard.HippoResultSetBean;
+import org.hippoecm.hst.core.component.HstRequest;
+import org.hippoecm.hst.core.component.HstResponse;
+import org.hippoecm.hst.core.parameters.ParametersInfo;
+import org.hippoecm.hst.util.ContentBeanUtils;
+import org.hippoecm.hst.util.SearchInputParsingUtils;
+import org.hippoecm.repository.HippoStdPubWfNodeType;
+import org.onehippo.cms7.essentials.components.CommonComponent;
+import org.onehippo.cms7.essentials.components.paging.Pageable;
 import org.onehippo.cms7.services.HippoServiceRegistry;
-import org.slf4j.*;
-import uk.nhs.digital.common.enums.*;
-import uk.nhs.digital.nil.beans.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import uk.nhs.digital.common.components.info.SearchComponentInfo;
+import uk.nhs.digital.common.enums.SearchArea;
+import uk.nhs.digital.nil.beans.Indicator;
 import uk.nhs.digital.ps.beans.*;
 import uk.nhs.digital.website.beans.*;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
-import java.util.regex.*;
-import java.util.stream.*;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+import java.util.stream.IntStream;
 
 /**
  * We are not extending "EssentialsSearchComponent" because we could not find a elegant way of using our own search
  * HstObject in the faceted search.
  */
-@ParametersInfo(type = EssentialsListComponentInfo.class)
+@ParametersInfo(type = SearchComponentInfo.class)
 public class SearchComponent extends CommonComponent {
 
     private static final String REQUEST_PARAM_SORT = "sort";
@@ -55,33 +65,54 @@ public class SearchComponent extends CommonComponent {
 
     private static final int PAGEABLE_SIZE = 5;
 
-    private static final Logger log = LoggerFactory.getLogger(SearchComponent.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SearchComponent.class);
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
-        EssentialsListComponentInfo paramInfo = getComponentInfo(request);
-        HippoFacetNavigationBean facetNavigationBean = getFacetNavigationBean(request);
 
-        ExternalSearchService externalSearchService = HippoServiceRegistry.getService(ExternalSearchService.class);
+        super.doBeforeRender(request, response);
+        SearchComponentInfo paramInfo = getComponentInfo(request);
 
-        final Future<QueryResponse> queryResponse = externalSearchService.builder()
-            .catalog("content_en")
-            .query(getQueryParameter(request))
-            .limit(10)
-            .offset(0)
-            .retrieveField("title")
-            .retrieveField("shortsummary")
-            .retrieveField("publicationDate")
-            .build()
-            .execute();
+        final boolean contentSearchEnabled = paramInfo.isContentSearchEnabled();
+        final long contentSearchTimeOut = paramInfo.getContentSearchTimeOut();
+        final boolean fallbackEnabled = paramInfo.isFallbackEnabled();
+        final boolean contentSearchOverride = getAnyBooleanParam(request, "contentSearch", false);
 
-        try {
-            queryResponse.get().getSearchResult().getNumFound();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
+        Future<QueryResponse> queryResponseFuture = null;
+        QueryResponse queryResponse;
+
+        if (contentSearchEnabled || contentSearchOverride) {
+            try {
+                queryResponseFuture = buildAndExecuteContentSearch(request, paramInfo);
+                queryResponse = queryResponseFuture.get(contentSearchTimeOut, TimeUnit.MILLISECONDS);
+                final long totalResults = queryResponse.getSearchResult().getNumFound();
+
+                setCommonSearchRequestAttributes(request, paramInfo);
+                request.getRequestContext().setAttribute("isContentSearch", true);
+                request.setAttribute("isContentSearch", true);
+                request.setAttribute("queryResponse", queryResponse);
+                request.setAttribute("totalResults", totalResults);
+
+            } catch (InterruptedException | ExecutionException | TimeoutException ex) {
+                queryResponseFuture.cancel(true);
+                LOGGER.warn("Content Search response timed out with a timeout of " + contentSearchTimeOut + " ms");
+
+                //fallback to Hst search
+                if (fallbackEnabled) {
+                    LOGGER.warn("Content Search response timed out with a timeout of " + contentSearchTimeOut + " ms, falling back to HST search");
+                    buildAndExecuteHstSearch(request, paramInfo);
+                } else {
+                    LOGGER.warn("Content Search response timed out with a timeout of " + contentSearchTimeOut + " ms, HST search fallback disabled");
+                    request.setAttribute("totalResults", 0);
+                }
+            }
+        } else {
+            buildAndExecuteHstSearch(request, paramInfo);
         }
+    }
+
+    private void buildAndExecuteHstSearch(HstRequest request, SearchComponentInfo paramInfo) {
+        HippoFacetNavigationBean facetNavigationBean = getFacetNavigationBean(request);
 
         if (facetNavigationBean != null) {
             HippoResultSetBean resultSet = facetNavigationBean.getResultSet();
@@ -99,11 +130,33 @@ public class SearchComponent extends CommonComponent {
             }
         }
 
-        request.setAttribute("query", getQueryParameter(request));
+        setCommonSearchRequestAttributes(request, paramInfo);
         request.setAttribute("facets", facetNavigationBean);
+    }
+
+    private void setCommonSearchRequestAttributes(HstRequest request, SearchComponentInfo paramInfo) {
+        request.setAttribute("query", getQueryParameter(request));
         request.setAttribute("sort", getSortOption(request));
         request.setAttribute("area", getAreaOption(request).toString());
         request.setAttribute("cparam", paramInfo);
+    }
+
+    private Future<QueryResponse> buildAndExecuteContentSearch(HstRequest request, SearchComponentInfo paramInfo) {
+        ExternalSearchService searchService = HippoServiceRegistry.getService(ExternalSearchService.class);
+
+        Future<QueryResponse> queryResponse;
+        queryResponse = searchService.builder()
+            .catalog("content_en")
+            .query(getQueryParameter(request))
+            .limit(paramInfo.getPageSize())
+            .offset(10)
+            .retrieveField("title")
+            .retrieveField("shortsummary")
+            .retrieveField("publicationDate")
+            .build()
+            .execute();
+
+        return queryResponse;
     }
 
     protected List<Integer> getPageNumbers(Pageable<HippoBean> pageable) {
@@ -117,7 +170,7 @@ public class SearchComponent extends CommonComponent {
             .collect(toList());
     }
 
-    protected HippoFacetNavigationBean getFacetNavigationBean(HstRequest request) {
+    HippoFacetNavigationBean getFacetNavigationBean(HstRequest request) {
         // If we went to a random URL and are on the 404 error page we won't have
         // a relative content path to get the facets from so return null
         String relativeContentPath = request.getRequestContext()
@@ -131,15 +184,15 @@ public class SearchComponent extends CommonComponent {
         return ContentBeanUtils.getFacetNavigationBean(buildQuery(request));
     }
 
-    protected String getQueryParameter(HstRequest request) {
+    String getQueryParameter(HstRequest request) {
         return getAnyParameter(request, REQUEST_PARAM_QUERY);
     }
 
-    protected int getCurrentPage(HstRequest request) {
+    private int getCurrentPage(HstRequest request) {
         return getAnyIntParameter(request, REQUEST_PARAM_PAGE, 1);
     }
 
-    protected EssentialsListComponentInfo getComponentInfo(HstRequest request) {
+    SearchComponentInfo getComponentInfo(HstRequest request) {
         return getComponentParametersInfo(request);
     }
 
@@ -187,7 +240,7 @@ public class SearchComponent extends CommonComponent {
                     HippoStdPubWfNodeType.HIPPOSTDPUBWF_LAST_MODIFIED_DATE);
                 break;
             default:
-                log.error("Unknown sort mode: " + sortParam);
+                LOGGER.error("Unknown sort mode: " + sortParam);
                 break;
         }
 

@@ -3,7 +3,8 @@
 <!--Need to have a single setBundle call as subsequent ones will overwrite the previous values-->
 <@hst.setBundle basename="month-names,facet-headers,facet-labels"/>
 <#assign facetMaxCount=6/>
-
+<h1> Test!!</h1>
+${isContentSearch?string("yes", "no")}
 <#if facets??>
     <div class="filter">
         <div class="filter-head">

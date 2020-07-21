@@ -2,24 +2,30 @@
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:pages/search:
-      /left:
-        hst:componentclassname: uk.nhs.digital.common.components.FacetComponent
-        hst:template: facets
-        jcr:primaryType: hst:component
       /main:
+        /left:
+          hst:componentclassname: uk.nhs.digital.common.components.FacetComponent
+          hst:template: facets
+          jcr:primaryType: hst:component
+        /tabs:
+          hst:componentclassname: uk.nhs.digital.common.components.SearchTabsComponent
+          hst:suppresswastemessage: true
+          hst:template: searchtabs
+          jcr:primaryType: hst:component
         hst:componentclassname: uk.nhs.digital.common.components.SearchComponent
         hst:parameternames:
         - pageSize
         - showPagination
+        - contentSearchEnabled
+        - contentSearchTimeOut
+        - fallbackEnabled
         hst:parametervalues:
         - '10'
         - 'true'
-        hst:template: searchresults
-        jcr:primaryType: hst:component
-      /tabs:
-        hst:componentclassname: uk.nhs.digital.common.components.SearchTabsComponent
-        hst:suppresswastemessage: true
-        hst:template: searchtabs
+        - 'true'
+        - '1000'
+        - 'true'
+        hst:template: search-results-layout
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/pubs_apppage-search-results
       jcr:primaryType: hst:component

@@ -1,0 +1,52 @@
+---
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/content-feed/hippo:moduleconfig/metadata:
+      excludedDocumentTypes:
+        operation: add
+        type: string
+        value:
+        - common:basedocument
+        - common:about
+        - common:stringlist
+        - externalstorage:resource
+        - intranet:basedocument
+        - intranet:newsinternal
+        - intranet:task
+        - intranet:announcement
+        - nationalindicatorlibrary:basedocument
+        - nationalindicatorlibrary:nihub
+        - nationalindicatorlibrary:nilanding
+        - publicationsystem:basedocument
+        - publicationsystem:cilanding
+        - publicationsystem:publication
+        - publicationsystem:publicationPage
+        - publicationsystem:resource
+        - website:basedocument
+        - website:financial
+        - website:bannerdocument
+        - website:calltoaction
+        - website:casestudy
+        - website:categorylist
+        - website:customizedAssetSet
+        - website:definedterms
+        - website:dschomepage
+        - website:editorsnotes
+        - website:event
+        - website:generalnonsearch
+        - website:group
+        - website:hubnewsandevents
+        - website:jobrole
+        - website:location
+        - website:organisation
+        - website:platform
+        - website:projectfeed
+        - website:projectupdate
+        - website:signup
+        - website:supplementaryinformation
+        - website:supplementaryinformationhub
+        - website:team
+        - website:update
+        - selection:valuelist
+        - inferenceengine:rulesdocument
+        - robotstxt:robotstxt
