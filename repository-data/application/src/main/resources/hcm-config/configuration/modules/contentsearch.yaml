@@ -47,6 +47,9 @@ definitions:
         - website:supplementaryinformationhub
         - website:team
         - website:update
+        - website:numberedList
         - selection:valuelist
+        - selection:BooleanRadioGroup
+        - selection:listitem
         - inferenceengine:rulesdocument
         - robotstxt:robotstxt

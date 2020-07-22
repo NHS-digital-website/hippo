@@ -153,6 +153,7 @@ public class SearchComponent extends CommonComponent {
             .retrieveField("title")
             .retrieveField("shortsummary")
             .retrieveField("publicationDate")
+            .retrieveField("xmUrl")
             .build()
             .execute();
 

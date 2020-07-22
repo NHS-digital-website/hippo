@@ -23,7 +23,7 @@ definitions:
         - '10'
         - 'true'
         - 'true'
-        - '1000'
+        - '1500'
         - 'true'
         hst:template: search-results-layout
         jcr:primaryType: hst:component

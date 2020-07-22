@@ -8,15 +8,8 @@
     <#assign totalResults = searchResult.numFound />
     <#assign documents = searchResult.documents />
 
-    ${searchResult}
     <#assign sortLink = searchLink + query???then('?query=${query}&', '?') +'area=${area}&' + 'sort='>
-    ${query}
 
-    <h1> sort = ${sort}</h1>
-    <h1> area = ${area}</h1>
-    <h1> query = ${query}</h1>
-    <h1> SortLiLink = ${searchLink}</h1>
-    <h1> SortLink = ${sortLink}</h1>
 
     <div data-uipath="ps.search-results" data-totalresults="${(totalResults)!0}">
         <#if totalResults?? && totalResults gt 0>

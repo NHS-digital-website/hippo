@@ -3,87 +3,92 @@
 <!--Need to have a single setBundle call as subsequent ones will overwrite the previous values-->
 <@hst.setBundle basename="month-names,facet-headers,facet-labels"/>
 <#assign facetMaxCount=6/>
-<h1> Test!!</h1>
-${isContentSearch?string("yes", "no")}
-<#if facets??>
-    <div class="filter">
-        <div class="filter-head">
-            <@hst.link siteMapItemRefId="search" var="searchLink" navigationStateful=true/>
-            <span class="filter-head__title">Filter by:</span>
-            <a class="filter-head__reset button button--tiny" href="${searchLink}" title="Reset">Reset</a>
-        </div>
 
-        <#list facets.folders as facet>
-            <#if facet.folders?has_content>
+<#if isContentSearch?? && isContentSearch>
+    <h1> Facets to be rendered from new search </h1>
 
-                <#assign unselectedItems = [] />
-                <#assign selectedItems = [] />
-                <#list facet.folders as value>
-                    <#if value.count &gt; 0>
-                        <#if value.leaf>
-                            <#assign selectedItems = selectedItems + [ value ] />
-                        <#else>
-                            <#assign unselectedItems = unselectedItems + [ value ] />
-                        </#if>
-                    </#if>
-                </#list>
-                <#assign facetItems = selectedItems + unselectedItems />
+    <#else>
+        <#if facets??>
+            <div class="filter">
+                <div class="filter-head">
+                    <@hst.link siteMapItemRefId="search" var="searchLink" navigationStateful=true/>
+                    <span class="filter-head__title">Filter by:</span>
+                    <a class="filter-head__reset button button--tiny" href="${searchLink}" title="Reset">Reset</a>
+                </div>
 
-                <#assign filterSectionClassName = (facetItems?size gt 0)?then('filter-section filter-section--toggles is-open', 'filter-section') />
+                <#list facets.folders as facet>
+                    <#if facet.folders?has_content>
 
-                <div class="${filterSectionClassName}">
-                    <span class="filter-section__title"><@fmt.message key=facet.name /></span>
-                    <div class="filter-section__contents">
-                        <ul class="filter-list" title="<@fmt.message key=facet.name />" data-max-count="${facetMaxCount}" data-state="short">
-                            <!--taxonomy facet is dealt with separately to render the tree structure-->
-                            <#if facet.name="category">
-                                <@taxonomyFacets taxonomy.rootTaxonomyFacets/>
-                            <#else>
-                                <#list facetItems as value>
-                                    <#assign valueName="Not Defined"/>
-                                    <#if facet.name="month">
-                                        <@fmt.message key=value.name var="monthName"/>
-                                        <#assign valueName=monthName/>
-                                    <#elseif facet.name="category">
-                                        <#assign valueName=taxonomy.getValueName(value.name)/>
-                                    <#elseif facet.name="document-type">
-                                        <@fmt.message key="facet."+value.name var="docType"/>
-                                        <#assign valueName=docType/>
-                                    <#elseif facet.name="assuredStatus">
-                                        <#assign valueName=value.name?boolean?then('Yes','No')/>
-                                    <#elseif facet.name="publicationStatus">
-                                        <@fmt.message key="facet." + value.name?boolean?then("liveStatus", "upcomingStatus") var="publicationStatus"/>
-                                        <#assign valueName=publicationStatus/>
-                                    <#else>
-                                        <#assign valueName=value.name/>
-                                    </#if>
-
-                                    <#assign listItemClassName = (value?index &gt;= facetMaxCount)?then("filter-list__item filter-list__item--no-children is-hidden", "filter-list__item filter-list__item--no-children")/>
-                                    <li class="${listItemClassName}">
-                                        <#if value.leaf>
-                                            <@hst.facetnavigationlink var="link" remove=value current=facets />
-                                            <a href="${link}" title="${valueName}" class="filter-link filter-link--active">${valueName}</a>
-                                        <#else>
-                                            <@hst.link var="link" hippobean=value navigationStateful=true/>
-                                            <a href="<#outputformat "plainText">${link}</#outputformat>" title="${valueName}" class="filter-link">${valueName} (${value.count})</a>
-                                        </#if>
-                                    </li>
-                                </#list>
-
-                                <#if facetItems?size &gt; facetMaxCount >
-                                    <li class="filter-vis-toggles">
-                                        <a href="#" class="filter-vis-toggle filter-vis-toggle--show">Show all (${facetItems?size})</a>
-                                        <a href="#" class=" filter-vis-toggle filter-vis-toggle--hide is-hidden">Show less (${facetMaxCount})</a>
-                                    </li>
+                        <#assign unselectedItems = [] />
+                        <#assign selectedItems = [] />
+                        <#list facet.folders as value>
+                            <#if value.count &gt; 0>
+                                <#if value.leaf>
+                                    <#assign selectedItems = selectedItems + [ value ] />
+                                <#else>
+                                    <#assign unselectedItems = unselectedItems + [ value ] />
                                 </#if>
                             </#if>
-                        </ul>
-                    </div>
-                </div>
-            </#if>
-        </#list>
+                        </#list>
+                        <#assign facetItems = selectedItems + unselectedItems />
 
-    </div>
+                        <#assign filterSectionClassName = (facetItems?size gt 0)?then('filter-section filter-section--toggles is-open', 'filter-section') />
+
+                        <div class="${filterSectionClassName}">
+                            <span class="filter-section__title"><@fmt.message key=facet.name /></span>
+                            <div class="filter-section__contents">
+                                <ul class="filter-list" title="<@fmt.message key=facet.name />" data-max-count="${facetMaxCount}" data-state="short">
+                                    <!--taxonomy facet is dealt with separately to render the tree structure-->
+                                    <#if facet.name="category">
+                                        <@taxonomyFacets taxonomy.rootTaxonomyFacets/>
+                                    <#else>
+                                        <#list facetItems as value>
+                                            <#assign valueName="Not Defined"/>
+                                            <#if facet.name="month">
+                                                <@fmt.message key=value.name var="monthName"/>
+                                                <#assign valueName=monthName/>
+                                            <#elseif facet.name="category">
+                                                <#assign valueName=taxonomy.getValueName(value.name)/>
+                                            <#elseif facet.name="document-type">
+                                                <@fmt.message key="facet."+value.name var="docType"/>
+                                                <#assign valueName=docType/>
+                                            <#elseif facet.name="assuredStatus">
+                                                <#assign valueName=value.name?boolean?then('Yes','No')/>
+                                            <#elseif facet.name="publicationStatus">
+                                                <@fmt.message key="facet." + value.name?boolean?then("liveStatus", "upcomingStatus") var="publicationStatus"/>
+                                                <#assign valueName=publicationStatus/>
+                                            <#else>
+                                                <#assign valueName=value.name/>
+                                            </#if>
+
+                                            <#assign listItemClassName = (value?index &gt;= facetMaxCount)?then("filter-list__item filter-list__item--no-children is-hidden", "filter-list__item filter-list__item--no-children")/>
+                                            <li class="${listItemClassName}">
+                                                <#if value.leaf>
+                                                    <@hst.facetnavigationlink var="link" remove=value current=facets />
+                                                    <a href="${link}" title="${valueName}" class="filter-link filter-link--active">${valueName}</a>
+                                                <#else>
+                                                    <@hst.link var="link" hippobean=value navigationStateful=true/>
+                                                    <a href="<#outputformat "plainText">${link}</#outputformat>" title="${valueName}" class="filter-link">${valueName} (${value.count})</a>
+                                                </#if>
+                                            </li>
+                                        </#list>
+
+                                        <#if facetItems?size &gt; facetMaxCount >
+                                            <li class="filter-vis-toggles">
+                                                <a href="#" class="filter-vis-toggle filter-vis-toggle--show">Show all (${facetItems?size})</a>
+                                                <a href="#" class=" filter-vis-toggle filter-vis-toggle--hide is-hidden">Show less (${facetMaxCount})</a>
+                                            </li>
+                                        </#if>
+                                    </#if>
+                                </ul>
+                            </div>
+                        </div>
+                    </#if>
+                </#list>
+
+            </div>
+        </#if>
+
 </#if>
 
 <#macro taxonomyFacets items>
