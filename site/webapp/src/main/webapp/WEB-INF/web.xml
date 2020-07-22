@@ -132,6 +132,11 @@
     </init-param>
   </filter>
 
+    <filter>
+        <filter-name>svgStylesheetFilter</filter-name>
+        <filter-class>uk.nhs.digital.svg.stylesheet.SvgStylesheetFilter</filter-class>
+    </filter>
+
   <filter-mapping>
     <filter-name>CharacterEncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
@@ -164,6 +169,11 @@
     <dispatcher>REQUEST</dispatcher>
     <dispatcher>FORWARD</dispatcher>
   </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>svgStylesheetFilter</filter-name>
+        <url-pattern>*.svg</url-pattern>
+    </filter-mapping>
 
   <!-- HstContextLoaderListener configuring/initializing/destroying HST Container -->
   <listener>
