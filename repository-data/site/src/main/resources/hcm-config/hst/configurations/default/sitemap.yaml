@@ -1,4 +1,3 @@
----
 definitions:
   config:
     /hst:hst/hst:configurations/hst:default/hst:sitemap:
@@ -9,12 +8,16 @@ definitions:
       /login:
         .meta:delete: true
       /s3endpoint:
-        /_any_:
-          jcr:primaryType: hst:sitemapitem
         hst:containerresource: true
         hst:namedpipeline: S3ConnectorPipeline
         hst:refId: S3CONNECTOR-PIPELINE-ID
         jcr:primaryType: hst:sitemapitem
+        /_any_:
+          jcr:primaryType: hst:sitemapitem
       /version:
         hst:containerresource: true
         jcr:primaryType: hst:sitemapitem
+      /googlec9ae176a412840f1.html:
+        jcr:primaryType: hst:sitemapitem
+        hst:authenticated: false
+        hst:containerresource: true
