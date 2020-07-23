@@ -6,6 +6,10 @@ definitions:
         hst:authenticated: false
         hst:containerresource: true
         jcr:primaryType: hst:sitemapitem
+      /googlec9ae176a412840f1.html:
+        hst:authenticated: false
+        hst:containerresource: true
+        jcr:primaryType: hst:sitemapitem
       /login:
         .meta:delete: true
       /s3endpoint:
