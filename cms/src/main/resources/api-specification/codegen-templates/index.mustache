@@ -51,15 +51,15 @@
             {{#apis}}
                 {{#operations}}
                     <div id="api-{{baseName}}" class="article-section">
-                        <h1>{{baseName}}</h1>
+                        <h1>Endpoint: {{baseName}}</h1>
+                    </div>
                         {{#operation}}
                             {{#contents}}
                                 {{#@first}}
-                                    <div id="api-{{baseName}}-{{nickname}}" class="article-section">
+                                    <div id="api-{{baseName}}-{{nickname}}" class="article-section-with-sub-heading">
                                         <article id="api-{{baseName}}-{{nickname}}-0" data-group="User" data-name="{{nickname}}" data-version="0">
                                             <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
-                                            <h2>{{nickname}}<a onclick="tryEndpointNow('/{{baseName}}/{{operationIdSnakeCase}}')" class="ctabtn-left ctabtn--nhs-digital-button ctabtn--nhs-digital-button--try-it-now" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></h2>
-                                            <h3>{{summary}}</h3>
+                                            <h2>{{summary}}<a onclick="tryEndpointNow('/{{baseName}}/{{operationIdSnakeCase}}')" class="ctabtn-left ctabtn--nhs-digital-button ctabtn--nhs-digital-button--try-it-now" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></h2>
 
                                             <p>{{notes}}</p>
                                             <p></p>
@@ -195,11 +195,9 @@
                                             {{/responses}}
                                         </article>
                                     </div>
-                                    <hr>
                                 {{/@first}}
                             {{/contents}}
                         {{/operation}}
-                    </div>
                 {{/operations}}
             {{/apis}}
         {{/apiInfo}}
