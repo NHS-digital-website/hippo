@@ -149,7 +149,7 @@ public class SearchComponent extends CommonComponent {
             .catalog("content_en")
             .query(getQueryParameter(request))
             .limit(paramInfo.getPageSize())
-            .offset(10)
+            .offset(0)
             .retrieveField("title")
             .retrieveField("shortsummary")
             .retrieveField("publicationDate")

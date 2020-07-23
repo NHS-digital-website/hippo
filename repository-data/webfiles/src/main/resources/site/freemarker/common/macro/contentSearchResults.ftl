@@ -3,7 +3,7 @@
 <#-- @ftlvariable name="queryResponse" type="com.onehippo.search.integration.api.QueryResponse" -->
 
 
-<#macro contentSearchResults queryResponse>
+<#macro contentSearch queryResponse>
     <#assign searchResult = queryResponse.searchResult />
     <#assign totalResults = searchResult.numFound />
     <#assign documents = searchResult.documents />
@@ -48,12 +48,13 @@
 
             <div class="search-results">
                 <!-- replace with macro to render each search result -->
+                <@contentSearchResults documents />
             </div>
 
 
-<#--            <#if cparam.showPagination && pageable.totalPages gt 1>-->
-<#--                <#include "../../include/pagination.ftl">-->
-<#--            </#if>-->
+            <#if cparam.showPagination && pageable.totalPages gt 1>
+                <#include "../../include/pagination.ftl">
+            </#if>
         <#elseif query?has_content>
             <div class="search-results-heading no-border">
                 <h1 class="search-results-heading__title"
@@ -68,4 +69,29 @@
             </div>
         </#if>
     </div>
+</#macro>
+
+
+<#macro contentSearchResults documents>
+
+    <#list documents as document>
+
+        <#assign properties = document.residualProperties />
+        <#assign title = properties.title />
+        <#assign url = properties.xmUrl />
+        <#assign shortsummary = properties.shortsummary />
+
+        <div class="cta cta--detailed" data-uipath="ps.search-results.result">
+
+            <a class="cta__title cta__button" href="${url}" title="${title}" data-uipath="ps.search-results.result.title">
+                ${title}
+            </a>
+<#--            <@fmt.formatDate value=publicationDate type="Date" pattern="dd MMMM yyyy" timeZone="${getTimeZone()}" var="datePosted"/>-->
+<#--                <span class="cta__meta" data-uipath="ps.search-results.result.date"><@formatDate date=datePosted /></span>-->
+
+            <p class="cta__text" data-uipath="ps.search-results.result.summary"><@truncate text=shortsummary size="300"/></p>
+        </div>
+
+    </#list>
+
 </#macro>
