@@ -1,8 +1,11 @@
 CKEDITOR.on('instanceReady', function(e) {
-    // Remove the 'Merge' option (rowspan & colspan) from the context menu
-    e.editor.removeMenuItem("tablecell_merge");
-    e.editor.removeMenuItem("tablecell_merge_down");
-    e.editor.removeMenuItem("tablecell_merge_right");
+
+    if(!(typeof(e.editor.config && e.editor.config.extraConfigurationProperties && e.editor.config.extraConfigurationProperties.keepTablecellMerge) !== 'undefined' && e.editor.config.extraConfigurationProperties.keepTablecellMerge)) {
+        // Remove the 'Merge' option (rowspan & colspan) from the context menu
+        e.editor.removeMenuItem("tablecell_merge");
+        e.editor.removeMenuItem("tablecell_merge_down");
+        e.editor.removeMenuItem("tablecell_merge_right");
+    }
 
     // Prevents cut and paste of images so that image paths can be managed via the CMS
     e.editor.on('paste', function (ev) {

@@ -97,8 +97,9 @@ definitions:
           /table:
             /cluster.options:
               ckeditor.config.appended.json: ''
-              ckeditor.config.overlayed.json: '{   "toolbar": [     {       "name":
-                "table",       "items": [         "Table",         "Superscript",         "Subscript",         "NumberedList",         "BulletedList",         "JustifyBlock",         "JustifyCenter",         "JustifyLeft",         "JustifyRight",         "PickInternalLink",         "Link",         "SpecialChar",         "Mathjax",         "Source",  "tableSumRow"      ]     }   ],
+              ckeditor.config.overlayed.json: '{ "extraConfigurationProperties": {
+                "keepTablecellMerge": true },"toolbar": [     {       "name": "table",       "items":
+                [         "Table",         "Superscript",         "Subscript",         "NumberedList",         "BulletedList",         "JustifyBlock",         "JustifyCenter",         "JustifyLeft",         "JustifyRight",         "PickInternalLink",         "Link",         "SpecialChar",         "Mathjax",         "Source",  "tableSumRow"      ]     }   ],
                 "extraPlugins": "table-sum-row" }'
               jcr:primaryType: frontend:pluginconfig
             caption: Table
@@ -236,120 +237,6 @@ definitions:
           jcr:mixinTypes:
           - mix:referenceable
           - hipposysedit:remodel
-          jcr:primaryType: hipposysedit:nodetype
-        /hipposysedit:nodetype[2]:
-          /bannerAltText:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:bannerAltText
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            jcr:primaryType: hipposysedit:field
-          /button:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:button
-            hipposysedit:primary: false
-            hipposysedit:type: StaticDropdown
-            hipposysedit:validators:
-            - required
-            jcr:primaryType: hipposysedit:field
-          /image:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:bannerImage
-            hipposysedit:primary: false
-            hipposysedit:type: hippogallerypicker:imagelink
-            hipposysedit:validators:
-            - optional
-            jcr:primaryType: hipposysedit:field
-          /introductionText:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:introductionText
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            jcr:primaryType: hipposysedit:field
-          /publicationStyle:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:publicationStyle
-            hipposysedit:primary: false
-            hipposysedit:type: StaticDropdown
-            hipposysedit:validators:
-            - required
-            jcr:primaryType: hipposysedit:field
-          /sections:
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:sections
-            hipposysedit:primary: false
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators:
-            - contentblocks-validator
-            jcr:primaryType: hipposysedit:field
-          /seoSummary:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:seoSummary
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:seoSummary
-            jcr:primaryType: hipposysedit:field
-          /seosummary:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:seosummary
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:seoSummary
-            jcr:primaryType: hipposysedit:field
-          /shortSummary:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:shortSummary
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            jcr:primaryType: hipposysedit:field
-          /shortsummary:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:shortsummary
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            jcr:primaryType: hipposysedit:field
-          /table:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:table
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            jcr:primaryType: hipposysedit:field
-          /title:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:title
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators:
-            - required
-            jcr:primaryType: hipposysedit:field
-          hipposysedit:node: true
-          hipposysedit:supertype:
-          - website:basedocument
-          - hippostd:relaxed
-          - hippotranslation:translated
-          jcr:mixinTypes:
-          - mix:referenceable
           jcr:primaryType: hipposysedit:nodetype
         jcr:mixinTypes:
         - mix:referenceable
