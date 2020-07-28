@@ -116,9 +116,9 @@ public class ApiSpecSyncFromApigeeModuleTest {
 
         // given
         mockStatic(System.class);
-        given(System.getProperty("devzone.apispec.sync.enabled")).willReturn("false");
+        given(System.getProperty("devzone.apispec.sync.enabled")).willReturn("true");
 
-        moduleConfigNode.setProperty("enabled", true);
+        moduleConfigNode.setProperty("enabled", false);
 
         moduleConfigNode.setProperty("cronExpression", "0 0/5 * ? * *");
 
@@ -126,7 +126,7 @@ public class ApiSpecSyncFromApigeeModuleTest {
         apiSpecSyncFromApigeeModule.doConfigure(moduleConfigNode);
 
         // then
-        then(scheduler).should().scheduleJob(any(), any());
+        then(scheduler).should(never()).scheduleJob(any(), any());
     }
 
     @Test
@@ -148,7 +148,7 @@ public class ApiSpecSyncFromApigeeModuleTest {
     }
 
     @Test
-    public void doConfigure_usesCronExpressionStatusFromJcrOverSystemProperty() throws RepositoryException {
+    public void doConfigure_usesCronExpressionStatusFromJcrOverSystemProperty_whenBothSet() throws RepositoryException {
 
         // given
         final String cronExpressionFromSystemProperty = "0 0/1 * ? * *";

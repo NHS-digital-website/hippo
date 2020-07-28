@@ -1,6 +1,5 @@
 package uk.nhs.digital.apispecs.module;
 
-import static java.lang.Boolean.parseBoolean;
 import static uk.nhs.digital.apispecs.module.ApiSpecSyncFromApigeeModule.ConfigPropertyNames.CRON_EXPRESSION;
 import static uk.nhs.digital.apispecs.module.ApiSpecSyncFromApigeeModule.ConfigPropertyNames.SYNC_ENABLED;
 
@@ -101,11 +100,16 @@ public class ApiSpecSyncFromApigeeModule extends AbstractReconfigurableDaemonMod
 
     private boolean jobShouldBeEnabled(final Node moduleConfigNode) {
 
-        final boolean enabledViaJcr = JcrNodeUtils.getBooleanPropertyQuietly(moduleConfigNode, SYNC_ENABLED.jcrPropertyName).orElse(false);
+        final Optional<Boolean> enabledViaJcr = JcrNodeUtils.getBooleanPropertyQuietly(moduleConfigNode, SYNC_ENABLED.jcrPropertyName);
 
-        final boolean enabledViaSystemProperty = parseBoolean(System.getProperty(SYNC_ENABLED.systemPropertyName));
+        final Optional<Boolean> enabledViaSystemProperty =
+            Optional.ofNullable(System.getProperty(SYNC_ENABLED.systemPropertyName)).map(Boolean::parseBoolean);
 
-        return enabledViaJcr || enabledViaSystemProperty;
+        return Stream.of(enabledViaJcr, enabledViaSystemProperty)
+            .filter(Optional::isPresent)
+            .map(Optional::get)
+            .findFirst()
+            .orElse(false);
     }
 
     private String cronExpression(final Node moduleConfigNode) {
