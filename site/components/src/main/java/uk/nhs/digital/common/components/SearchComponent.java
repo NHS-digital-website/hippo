@@ -83,15 +83,22 @@ public class SearchComponent extends CommonComponent {
 
         if (contentSearchEnabled || contentSearchOverride) {
             try {
-                queryResponseFuture = buildAndExecuteContentSearch(request, paramInfo);
-                queryResponse = queryResponseFuture.get(contentSearchTimeOut, TimeUnit.MILLISECONDS);
-                final long totalResults = queryResponse.getSearchResult().getNumFound();
+                final int pageSize = paramInfo.getPageSize();
+                final int currentPage = getCurrentPage(request);
+                final String query = getQueryParameter(request);
 
-                setCommonSearchRequestAttributes(request, paramInfo);
-                request.getRequestContext().setAttribute("isContentSearch", true);
+                queryResponseFuture = buildAndExecuteContentSearch(pageSize, currentPage, query);
+                queryResponse = queryResponseFuture.get(contentSearchTimeOut, TimeUnit.MILLISECONDS);
+
+                final long totalResults = queryResponse.getSearchResult().getNumFound();
+                final List<Integer> pageNumbers = getPageNumbers(totalResults, currentPage);
+
+                request.setAttribute("pageNumbers", pageNumbers);
                 request.setAttribute("isContentSearch", true);
                 request.setAttribute("queryResponse", queryResponse);
                 request.setAttribute("totalResults", totalResults);
+                request.getRequestContext().setAttribute("isContentSearch", true);
+                setCommonSearchRequestAttributes(request, paramInfo);
 
             } catch (InterruptedException | ExecutionException | TimeoutException ex) {
                 queryResponseFuture.cancel(true);
@@ -141,15 +148,15 @@ public class SearchComponent extends CommonComponent {
         request.setAttribute("cparam", paramInfo);
     }
 
-    private Future<QueryResponse> buildAndExecuteContentSearch(HstRequest request, SearchComponentInfo paramInfo) {
-        ExternalSearchService searchService = HippoServiceRegistry.getService(ExternalSearchService.class);
 
+    private Future<QueryResponse> buildAndExecuteContentSearch(int pageSize, int currentPage, String query) {
+        ExternalSearchService searchService = HippoServiceRegistry.getService(ExternalSearchService.class);
         Future<QueryResponse> queryResponse;
         queryResponse = searchService.builder()
             .catalog("content_en")
-            .query(getQueryParameter(request))
-            .limit(paramInfo.getPageSize())
-            .offset(0)
+            .query(query)
+            .limit(pageSize)
+            .offset((currentPage - 1) * pageSize)
             .retrieveField("title")
             .retrieveField("shortsummary")
             .retrieveField("publicationDate")
@@ -164,6 +171,17 @@ public class SearchComponent extends CommonComponent {
         int currentPage = pageable.getCurrentPage();
         int buffer = (PAGEABLE_SIZE - 1) / 2;
         int end = min((int) pageable.getTotalPages(), max(currentPage + buffer, PAGEABLE_SIZE));
+        int start = max(1, end - PAGEABLE_SIZE + 1);
+
+        return IntStream.rangeClosed(start, end)
+            .boxed()
+            .collect(toList());
+    }
+
+    private List<Integer> getPageNumbers(long totalResults, int currentPage) {
+
+        int buffer = (PAGEABLE_SIZE - 1) / 2;
+        int end = min((int) totalResults, max(currentPage + buffer, PAGEABLE_SIZE));
         int start = max(1, end - PAGEABLE_SIZE + 1);
 
         return IntStream.rangeClosed(start, end)

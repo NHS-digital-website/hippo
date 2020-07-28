@@ -12,7 +12,6 @@
         <version>13.4.4-contentfeed-SNAPSHOT</version>
         <!-- Please have a look at the property section while upgrading -->
     </parent>
-
     <name>NHS Digital Website</name>
     <description>NHS Digital Website</description>
     <groupId>uk.nhs.digital</groupId>
