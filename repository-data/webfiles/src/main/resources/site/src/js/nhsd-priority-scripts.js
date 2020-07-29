@@ -21,6 +21,7 @@ window.cookies = {
     setCookie,
     getCookie
 }
+window.Papa = require("papaparse");
 
 initBreadcrumbs();
 initAria();

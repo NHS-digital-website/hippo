@@ -1,0 +1,25 @@
+@import "../environment/settings/colours";
+
+.css-loader {
+    display: block;
+    margin: 0 auto;
+    border-top: 1px solid $col-primary;
+    border-left: 1px solid $col-senary;
+    border-bottom: 1px solid $col-senary;
+    border-right: 1px solid $col-senary;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: css-loader-spin 2s linear infinite;
+}
+
+@keyframes css-loader-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@-webkit-keyframes css-loader-spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}

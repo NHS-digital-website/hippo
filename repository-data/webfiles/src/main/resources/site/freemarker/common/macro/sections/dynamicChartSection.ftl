@@ -6,16 +6,22 @@
     <@fmt.message key="headers.download-chart-data" var="downloadDataFileHeader" />
     <#local linkText>${downloadDataFileHeader} ${section.title}</#local>
     <#local getData="uk.nhs.digital.freemarker.highcharts.RemoteChartDataFromUrl"?new() />
-    <#local chartData =  getData(section.url) />
-    <#if chartData??>
+    <#local chartData =  (getData(section.url))! />
+
+    <div id="chart-${section.uniqueId}-block">
         <figure data-chart="highchart">
-            <div id="chart-${section.uniqueId}"
-                 style="width:100%; height:${size}px;"></div>
+            <div id="chart-${section.uniqueId}" style="width:100%; height:${size}px;">
+                <span class="css-loader"></span>
+            </div>
             <span class="attachment">
                 <a data-uipath="ps.publication.chart-section.data-file"
                    title="${linkText}"
                    download="${slugify(section.title)}.csv"
-                   href="data:text/plain;base64,${chartData.data}"
+                   <#if (chartData.data)??>
+                       href="data:text/plain;base64,${chartData.data}"
+                   <#else>
+                       href="${section.url}" target="_blank"
+                   </#if>
                    onClick="logGoogleAnalyticsEvent(
                            'Download chart data','Publication','${slugify(section.title)}'
                            );"
@@ -24,7 +30,13 @@
                            );">${linkText}</a>
             </span>
         </figure>
-        <script type="text/javascript" data-chartsource="highchart" data-charttype="chart" data-sectionid="${section.uniqueId}">
+    </div>
+    <script type="text/javascript" data-chartsource="highchart" data-charttype="chart" data-sectionid="${section.uniqueId}">
+        <#if (chartData.data)??>
+        var chartData = "${chartData.data}";
+        var results = Papa.parse(atob(chartData));
+        if(!results.errors.length) {
+        </#if>
             window.highchartData${section.uniqueId?remove_beginning("-")} = {
                 chart: {
                     type: '${section.type?lower_case}',
@@ -56,12 +68,19 @@
                     name: '${item.name}'
                 }<#if item?is_last><#else>, </#if></#list>],
                 data: {
-                    csv: atob("${chartData.data}"),
+                    <#if (chartData.data)??>
+                    csv: atob(chartData),
+                    <#else>
+                    enablePolling: false,
+                    csvURL: "${section.url}",
+                    </#if>
                     firstRowAsNames: true
                 }
             };
-        </script>
-    <#else>
-        <p>The dynamic chart is unavailable at this time. Please try again soon.</p>
-    </#if>
+        <#if (chartData.data)??>
+        } else {
+            document.getElementById('chart-${section.uniqueId}-block').innerHTML = "<p><strong>The dynamic chart is unavailable at this time. Please try again soon.</strong></p>"
+        }
+        </#if>
+    </script>
 </#macro>
