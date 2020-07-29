@@ -52,6 +52,9 @@ definitions:
           hst:relativecontentpath: announcements/${1}
           jcr:primaryType: hst:sitemapitem
         jcr:primaryType: hst:sitemapitem
+      /error:
+        hst:componentconfigurationid: hst:pages/error
+        jcr:primaryType: hst:sitemapitem
       /person:
         /_any_:
           hst:componentconfigurationid: hst:pages/person

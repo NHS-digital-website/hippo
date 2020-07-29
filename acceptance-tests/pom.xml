@@ -432,6 +432,7 @@
                                     <externalstorage.aws.bucket>${externalstorage.aws.bucket}</externalstorage.aws.bucket>
                                     <externalstorage.aws.region>${externalstorage.aws.region}</externalstorage.aws.region>
                                     <externalstorage.aws.s3.endpoint>${externalstorage.aws.s3.endpoint}</externalstorage.aws.s3.endpoint>
+                                    <spring.profiles.active>${spring.profiles.active}</spring.profiles.active>
                                     <dynamic.bean.generation>false</dynamic.bean.generation>
                                     <spring.profiles.active>local</spring.profiles.active>
                                 </systemProperties>

@@ -1,0 +1,56 @@
+---
+/content/urlrewriter/rules/site/test:
+  /test[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-17T15:56:20.910Z
+    hippostdpubwf:lastModificationDate: 2020-03-17T15:56:20.911Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2008-03-26T11:03:00Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: urlrewriter:rule
+    urlrewriter:ruledescription: Redirects requests from tst.nhsd.io/site/ to tst.nhsd.io/
+    urlrewriter:rulefrom: tst.nhsd.io/site/**
+    urlrewriter:ruleto: https://tst.nhsd.io/$1
+    urlrewriter:ruletype: permanent-redirect
+  /test[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-17T15:56:20.910Z
+    hippostdpubwf:lastModificationDate: 2020-03-17T15:56:59.642Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: urlrewriter:rule
+    urlrewriter:ruledescription: Redirects requests from tst.nhsd.io/site/ to tst.nhsd.io/
+    urlrewriter:rulefrom: tst.nhsd.io/site/**
+    urlrewriter:ruleto: https://tst.nhsd.io/$1
+    urlrewriter:ruletype: permanent-redirect
+  /test[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-17T15:56:20.910Z
+    hippostdpubwf:lastModificationDate: 2020-03-17T15:56:59.642Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-03-17T15:57:03.057Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: urlrewriter:rule
+    urlrewriter:ruledescription: Redirects requests from tst.nhsd.io/site/ to tst.nhsd.io/
+    urlrewriter:rulefrom: tst.nhsd.io/site/**
+    urlrewriter:ruleto: https://tst.nhsd.io/$1
+    urlrewriter:ruletype: permanent-redirect
+  hippo:name: Test
+  hippo:versionHistory: f0600288-e568-42c3-ad1c-bcbcd084f46d
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
