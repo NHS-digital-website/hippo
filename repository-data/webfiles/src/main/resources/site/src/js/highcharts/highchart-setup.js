@@ -8,12 +8,6 @@ export default function initHighcharts() {
 
     Highcharts.setOptions({
         accessibility: {
-            announceNewData: {
-                enabled: true,
-                interruptUser: true,
-                minAnnounceInterval: 0,
-                announcementFormatter: 'onAnnounce'
-            },
             keyboardNavigation: {
                 enabled : true
             }

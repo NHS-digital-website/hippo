@@ -7,7 +7,9 @@
     <@fmt.message key="headers.download-chart-data" var="downloadDataFileHeader" />
     <#local linkText>${downloadDataFileHeader} ${section.title}</#local>
 
-    <div id="chart-${section.uniqueId}" data-uipath="ps.publication.chart-section" style="width:100%; height:${size}px;"></div>
+    <div id="chart-${section.uniqueId}" data-uipath="ps.publication.chart-section" style="width:100%; height:${size}px;">
+        <span class="css-loader"></span>
+    </div>
 
     <#if section.dataFile?has_content>
         <#local dataFile=section.dataFile>
