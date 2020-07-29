@@ -1,0 +1,57 @@
+---
+/content/urlrewriter/rules/site/training:
+  /training[1]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-17T15:56:20.910Z
+    hippostdpubwf:lastModificationDate: 2020-03-17T15:57:51.385Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:versionable
+    jcr:primaryType: urlrewriter:rule
+    urlrewriter:ruledescription: Redirects requests from training.nhsd.io/site/ to
+      training.nhsd.io/
+    urlrewriter:rulefrom: training.nhsd.io/site/**
+    urlrewriter:ruleto: https://training.nhsd.io/$1
+    urlrewriter:ruletype: permanent-redirect
+  /training[2]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-17T15:56:20.910Z
+    hippostdpubwf:lastModificationDate: 2020-03-17T15:57:35.572Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: urlrewriter:rule
+    urlrewriter:ruledescription: Redirects requests from training.nhsd.io/site/ to
+      training.nhsd.io/
+    urlrewriter:rulefrom: training.nhsd.io/site/**
+    urlrewriter:ruleto: https://training.nhsd.io/$1
+    urlrewriter:ruletype: permanent-redirect
+  /training[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-17T15:56:20.910Z
+    hippostdpubwf:lastModificationDate: 2020-03-17T15:57:51.385Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-03-17T15:57:53.714Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: urlrewriter:rule
+    urlrewriter:ruledescription: Redirects requests from training.nhsd.io/site/ to
+      training.nhsd.io/
+    urlrewriter:rulefrom: training.nhsd.io/site/**
+    urlrewriter:ruleto: https://training.nhsd.io/$1
+    urlrewriter:ruletype: permanent-redirect
+  hippo:name: Training
+  hippo:versionHistory: 5abdfda3-2857-4c30-9725-8b8ce09cc92c
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
