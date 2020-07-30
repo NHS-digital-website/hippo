@@ -18,7 +18,7 @@ todo: fix dynamic path but use hardcoded for now see line 9
 
 <script type="text/javascript">
     /*<!CDATA[[*/
-    (function() {
+    $(function() {
         var pdfPrinter = {};
         var _this = pdfPrinter;
 
@@ -210,6 +210,6 @@ todo: fix dynamic path but use hardcoded for now see line 9
 
             return $articleContents;
         }
-    })();
+    });
     /*]]>*/
 </script>
