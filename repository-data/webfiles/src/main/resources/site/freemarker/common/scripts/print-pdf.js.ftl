@@ -1,8 +1,14 @@
 <#ftl output_format="HTML">
+<#include "../../include/imports.ftl">
 
+<#--
+todo: fix dynamic path but use hardcoded for now see line 9
 <#assign logoPath = useIntraLogo?then("nhs-digital-intranet-logo", "nhs-digital-logo--right-aligned") />
-<@hst.webfile var="printCSSFilePath" path="/dist/nhsuk-print-pdf-document.css" />
 <@hst.webfile var="nhsDigitalLogo" path="/images/${logoPath}.svg" />
+-->
+<#-- temp line --><@hst.webfile var="nhsDigitalLogo" path="/images/nhs-digital-logo.svg" />
+<@hst.webfile var="printCSSFilePath" path="/dist/nhsuk-print-pdf-document.css" />
+
 <@hst.link var="documentUrl" hippobean=document />
 
 <#assign currentDateTime = .now />

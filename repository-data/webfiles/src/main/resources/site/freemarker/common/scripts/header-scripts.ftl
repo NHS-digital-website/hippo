@@ -25,4 +25,4 @@
 <script>
     window.resourceBaseUrl = "${webfilepath}";
 </script>
-<script defer src="<@hst.webfile path="/dist/nhsd-priority-scripts.bundle.js"/>"></script>
+<script src="<@hst.webfile path="/dist/nhsd-priority-scripts.bundle.js"/>"></script>
