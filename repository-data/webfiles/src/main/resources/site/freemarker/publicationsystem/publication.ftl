@@ -354,6 +354,6 @@
             <@restrictedContentOfUpcomingPublication/>
         </#if>
     </article>
-
-    <#include "../../src/js/print-pdf.js.ftl">
+    <#assign useIntraLogo = false />
+    <#include "../common/scripts/print-pdf.js.ftl">
 </#if>
