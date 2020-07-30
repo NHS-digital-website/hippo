@@ -1,8 +1,9 @@
 <#ftl output_format="HTML">
+<#include "../../include/imports.ftl">
 
 <#assign logoPath = useIntraLogo?then("nhs-digital-intranet-logo", "nhs-digital-logo--right-aligned") />
-<@hst.webfile var="printCSSFilePath" path="/dist/nhsuk-print-pdf-document.css" />
 <@hst.webfile var="nhsDigitalLogo" path="/images/${logoPath}.svg" />
+<@hst.webfile var="printCSSFilePath" path="/dist/nhsuk-print-pdf-document.css" />
 <@hst.link var="documentUrl" hippobean=document />
 
 <#assign currentDateTime = .now />
@@ -12,7 +13,7 @@
 
 <script type="text/javascript">
     /*<!CDATA[[*/
-    (function() {
+    $(function() {
         var pdfPrinter = {};
         var _this = pdfPrinter;
 
@@ -204,6 +205,6 @@
 
             return $articleContents;
         }
-    })();
+    });
     /*]]>*/
 </script>
