@@ -59,12 +59,16 @@
                                     <div id="api-{{baseName}}-{{nickname}}" class="article-section-with-sub-heading">
                                         <article id="api-{{baseName}}-{{nickname}}-0" data-group="User" data-name="{{nickname}}" data-version="0">
                                             <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
-                                            <h2>{{summary}}<a onclick="tryEndpointNow('/{{baseName}}/{{operationIdSnakeCase}}')" class="ctabtn-left ctabtn--nhs-digital-button ctabtn--nhs-digital-button--try-it-now" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></h2>
+                                            <h2>{{summary}}</h2>
+                                            <div class="endpoint_path">
+                                                <div class="method"><h2>{{httpMethod}}</h2></div>
+                                                <div class="pre"><pre>{{path}}</pre></div>
+                                                <div class="try"><a onclick="tryEndpointNow('/{{baseName}}/{{operationIdSnakeCase}}')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+                                            </div>
 
                                             <p>{{notes}}</p>
                                             <p></p>
-                                            <br />
-                                            <pre class="prettyprint language-html prettyprinted" data-type="{{httpMethod}}"><code><span class="pln">{{path}}</span></code></pre>
+                                            <br/>
 
                                             <h2>Request</h2>
 
