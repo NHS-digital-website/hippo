@@ -241,7 +241,12 @@ It supports the following security patterns:</p>
                                     <div id="api-Patients-getPatient" class="article-section-with-sub-heading">
                                         <article id="api-Patients-getPatient-0" data-group="User" data-name="getPatient" data-version="0">
                                             <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
-                                            <h2>Retrieve a patient's resource<a onclick="tryEndpointNow('/Patients/get_patient')" class="ctabtn-left ctabtn--nhs-digital-button ctabtn--nhs-digital-button--try-it-now" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></h2>
+                                            <h2>Retrieve a patient's resource</h2>
+                                            <div class="endpoint_path">
+                                                <div class="method"><h2>get</h2></div>
+                                                <div class="pre"><pre>/Patient/{id}</pre></div>
+                                                <div class="try"><a onclick="tryEndpointNow('/Patients/get_patient')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+                                            </div>
 
                                             <p><h2>Overview</h2>
 <p>Use this endpoint to get patient details from PDS for a given NHS Number.</p>
@@ -289,8 +294,7 @@ It supports the following security patterns:</p>
 <p><a href="https://app.getpostman.com/run-collection/97e8db28d4f7264446fe"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
 </p>
                                             <p></p>
-                                            <br />
-                                            <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/Patient/{id}</span></code></pre>
+                                            <br/>
 
                                             <h2>Request</h2>
 
@@ -378,7 +382,12 @@ It supports the following security patterns:</p>
                                     <div id="api-Patients-searchPatient" class="article-section-with-sub-heading">
                                         <article id="api-Patients-searchPatient-0" data-group="User" data-name="searchPatient" data-version="0">
                                             <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
-                                            <h2>Search for patient<a onclick="tryEndpointNow('/Patients/search_patient')" class="ctabtn-left ctabtn--nhs-digital-button ctabtn--nhs-digital-button--try-it-now" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></h2>
+                                            <h2>Search for patient</h2>
+                                            <div class="endpoint_path">
+                                                <div class="method"><h2>get</h2></div>
+                                                <div class="pre"><pre>/Patient</pre></div>
+                                                <div class="try"><a onclick="tryEndpointNow('/Patients/search_patient')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+                                            </div>
 
                                             <p><h2>Overview</h2>
 <p>Use this endpoint to search for a patient in PDS.</p>
@@ -529,8 +538,7 @@ You can request a single, exact match using <code class="codeinline">_exact-matc
 <p><a href="https://app.getpostman.com/run-collection/97e8db28d4f7264446fe"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
 </p>
                                             <p></p>
-                                            <br />
-                                            <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/Patient</span></code></pre>
+                                            <br/>
 
                                             <h2>Request</h2>
 
@@ -866,7 +874,12 @@ Must be [URL encoded](https://en.wikipedia.org/wiki/Percent-encoding). For examp
                                     <div id="api-Patients-updatePatientPartial" class="article-section-with-sub-heading">
                                         <article id="api-Patients-updatePatientPartial-0" data-group="User" data-name="updatePatientPartial" data-version="0">
                                             <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
-                                            <h2>Update a patient's resource<a onclick="tryEndpointNow('/Patients/update_patient_partial')" class="ctabtn-left ctabtn--nhs-digital-button ctabtn--nhs-digital-button--try-it-now" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></h2>
+                                            <h2>Update a patient's resource</h2>
+                                            <div class="endpoint_path">
+                                                <div class="method"><h2>patch</h2></div>
+                                                <div class="pre"><pre>/Patient/{id}</pre></div>
+                                                <div class="try"><a onclick="tryEndpointNow('/Patients/update_patient_partial')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+                                            </div>
 
                                             <p><h2>Overview</h2>
 <p>Use this endpoint to update patient details in PDS.</p>
@@ -1388,8 +1401,7 @@ The fourth value of gender, <code class="codeinline">other</code>, meaning indet
 <p><a href="https://app.getpostman.com/run-collection/97e8db28d4f7264446fe"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
 </p>
                                             <p></p>
-                                            <br />
-                                            <pre class="prettyprint language-html prettyprinted" data-type="patch"><code><span class="pln">/Patient/{id}</span></code></pre>
+                                            <br/>
 
                                             <h2>Request</h2>
 
@@ -1864,7 +1876,12 @@ The version identifier submitted in the `If-Match` header was not the latest ver
                                     <div id="api-Polling-polling" class="article-section-with-sub-heading">
                                         <article id="api-Polling-polling-0" data-group="User" data-name="polling" data-version="0">
                                             <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
-                                            <h2>Retrieve the outcome of the accepted update.<a onclick="tryEndpointNow('/Polling/polling')" class="ctabtn-left ctabtn--nhs-digital-button ctabtn--nhs-digital-button--try-it-now" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></h2>
+                                            <h2>Retrieve the outcome of the accepted update.</h2>
+                                            <div class="endpoint_path">
+                                                <div class="method"><h2>get</h2></div>
+                                                <div class="pre"><pre>/Polling/{message_id}</pre></div>
+                                                <div class="try"><a onclick="tryEndpointNow('/Polling/polling')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+                                            </div>
 
                                             <p><h2>Overview</h2>
 <p>Use this endpoint to poll for the outcome of an updated patient record.</p>
@@ -1906,8 +1923,7 @@ Retrieval of the outcome will not occur any faster by polling more frequently. T
 <p><a href="https://app.getpostman.com/run-collection/97e8db28d4f7264446fe"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
 </p>
                                             <p></p>
-                                            <br />
-                                            <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/Polling/{message_id}</span></code></pre>
+                                            <br/>
 
                                             <h2>Request</h2>
 
@@ -2058,7 +2074,12 @@ Please raise these occurrences with our team (via https://digital.nhs.uk/develop
                                     <div id="api-Relatedperson-getRelatedPeople" class="article-section-with-sub-heading">
                                         <article id="api-Relatedperson-getRelatedPeople-0" data-group="User" data-name="getRelatedPeople" data-version="0">
                                             <!-- https://digital.nhs.uk/about-nhs-digital/corporate-information-and-documents/nhs-digital-style-guidelines/features-of-the-nhs-digital-website-cms/call-to-action-cta-buttons -->
-                                            <h2>Retrieve a list of Related Person resources for a given patient<a onclick="tryEndpointNow('/Relatedperson/get_related_people')" class="ctabtn-left ctabtn--nhs-digital-button ctabtn--nhs-digital-button--try-it-now" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></h2>
+                                            <h2>Retrieve a list of Related Person resources for a given patient</h2>
+                                            <div class="endpoint_path">
+                                                <div class="method"><h2>get</h2></div>
+                                                <div class="pre"><pre>/Patient/{id}/RelatedPerson</pre></div>
+                                                <div class="try"><a onclick="tryEndpointNow('/Relatedperson/get_related_people')" class="ctabtn-left ctabtn--nhs-digital-button" onkeyup="return vjsu.onKeyUp(event)">Try this API</a></div>
+                                            </div>
 
                                             <p><h2>Overview</h2>
 <p>Use this endpoint to get a patient's related people details from PDS for a given NHS Number. This is a list of people who can be contacted, and how, regarding the patient. These details may be useful for a practitioner to get in contact with a next of kin or guardian.</p>
@@ -2098,8 +2119,7 @@ Please raise these occurrences with our team (via https://digital.nhs.uk/develop
 <p><a href="https://app.getpostman.com/run-collection/97e8db28d4f7264446fe"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
 </p>
                                             <p></p>
-                                            <br />
-                                            <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/Patient/{id}/RelatedPerson</span></code></pre>
+                                            <br/>
 
                                             <h2>Request</h2>
 
