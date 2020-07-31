@@ -1,0 +1,12 @@
+.endpoint_path {
+   background-color: #DFE2E5;
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   padding: 0.5em;
+   border-bottom: 2px solid #B3BBC1;
+}
+.endpoint_path > div {margin:0 !important;}
+.endpoint_path h2 {margin:0 !important; text-transform: uppercase !important; font-size: 22px !important; color:#212B32 !important;}
+.endpoint_path .pre {flex:1 0 !important;}
+.endpoint_path .pre pre{color:#212B32 !important; font-size:18px!important; font-weight: 700 !important;background-color:#DFE2E5 !important;}
