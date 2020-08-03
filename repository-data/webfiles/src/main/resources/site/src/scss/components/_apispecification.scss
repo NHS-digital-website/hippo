@@ -10,3 +10,10 @@
 .endpoint_path h2 {margin:0 !important; text-transform: uppercase !important; font-size: 22px !important; color:#212B32 !important;}
 .endpoint_path .pre {flex:1 0 !important;}
 .endpoint_path .pre pre{color:#212B32 !important; font-size:18px!important; font-weight: 700 !important;background-color:#DFE2E5 !important;}
+
+.httpparams{
+  &__datatype {color: $grey-6; font-weight: bold;}
+  &__name {vertical-align:top; font-family: monospace; width: 150px;}
+  &__required {color: $red;}
+  &__description {}
+}

@@ -1,23 +1,15 @@
-<tr><td style="width:150px;">{{baseName}}{{^required}}{{/required}}{{#required}}*{{/required}}</td>
+<tr><td class="httpparams__name">{{baseName}}{{^required}}{{/required}}{{#required}}<span class="httpparams__required"> *</span>{{/required}}</td>
 <td>
-
-
     <div id="d2e199_{{nickname}}_{{paramName}}">
-        <div class="json-schema-view">
-            <div class="primitive">
-                <span class="type">
-                    {{dataType}}
-                </span>
+        <div class="httpparams__description">
+            <div>
+                <span class="httpparams__datatype">{{dataType}}</span>
                 {{#dataFormat}}
-                    <span class="format">
-                        ({{dataFormat}})
-                    </span>
+                    <span class="codeinline">({{dataFormat}})</span>
                 {{/dataFormat}}
 
                 {{#description}}
-                    <div class="inner description">
-                        {{description}}
-                    </div>
+                    <div>{{description}}</div>
                 {{/description}}
             </div>
             {{#is this 'enum'}}
@@ -30,8 +22,8 @@
                 {{/vendorExtensions.x-eumFormatted}}
             {{/is}}
             {{#required}}
-                <div class="inner required">
-                    Required
+                <div class="httpparams__required">
+                    * Required
                 </div>
             {{/required}}
         </div>

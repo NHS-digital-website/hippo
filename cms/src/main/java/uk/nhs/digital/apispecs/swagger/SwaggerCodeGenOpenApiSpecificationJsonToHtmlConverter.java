@@ -4,7 +4,7 @@ import io.swagger.codegen.v3.*;
 import io.swagger.v3.parser.OpenAPIV3Parser;
 import org.apache.commons.io.FileUtils;
 import uk.nhs.digital.apispecs.OpenApiSpecificationJsonToHtmlConverter;
-import uk.nhs.digital.apispecs.commonmark.CustomStaticHtml2Codegen;
+import uk.nhs.digital.apispecs.commonmark.ApiSpecificationStaticHtml2Codegen;
 
 import java.io.File;
 import java.io.IOException;
@@ -61,7 +61,7 @@ public class SwaggerCodeGenOpenApiSpecificationJsonToHtmlConverter implements Op
 
         final ClientOpts clientOptions = new ClientOpts();
 
-        final CustomStaticHtml2Codegen codegenConfig = new CustomStaticHtml2Codegen();
+        final ApiSpecificationStaticHtml2Codegen codegenConfig = new ApiSpecificationStaticHtml2Codegen();
         codegenConfig.setOutputDir(swaggerOutputDirectory.getPath());
         codegenConfig.setTemplateDir(TEMPLATE_FOLDER_RELATIVE_RESOURCE_PATH);
 
